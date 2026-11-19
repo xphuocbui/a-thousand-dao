@@ -1,0 +1,1402 @@
+{
+"map": "v5-frozen-2026-11-19",
+"map_sha256": "dbdfd5dcd10b49f843c597b48e169aec86153793382986f29a46dea3247eaa96",
+"area": "chaos-earth",
+"nodes": {
+"8435": {
+"piece": "c2 ridges_1",
+"kind": "notable",
+"idea": "★ Chaos Ground (Hỗn Thổ)",
+"name": "Purple Earth (Tử Thổ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+4,
+6.0
+],
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8436": {
+"piece": "c2 ridges_1",
+"kind": "notable",
+"idea": "★ Chaos Ground (Hỗn Thổ)",
+"name": "Spinning Earth (Thiên Toàn Địa Chuyển)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+],
+[
+"crit_damage_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8437": {
+"piece": "c2 ridges_1",
+"kind": "small",
+"idea": "★ Chaos Ground (Hỗn Thổ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"8438": {
+"piece": "c2 ridges_1",
+"kind": "small",
+"idea": "★ Chaos Ground (Hỗn Thổ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"8439": {
+"piece": "c2 ridges_1",
+"kind": "small",
+"idea": "★ Chaos Ground (Hỗn Thổ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"8440": {
+"piece": "c2 ridges_1",
+"kind": "small",
+"idea": "★ Chaos Ground (Hỗn Thổ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"8441": {
+"piece": "c2 ridges_1",
+"kind": "small",
+"idea": "★ Chaos Ground (Hỗn Thổ)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8442": {
+"piece": "c2 ridges_1",
+"kind": "small",
+"idea": "★ Chaos Ground (Hỗn Thổ)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8443": {
+"piece": "c2 ridges_1",
+"kind": "small",
+"idea": "★ Chaos Ground (Hỗn Thổ)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8444": {
+"piece": "c2 ridges_1",
+"kind": "small",
+"idea": "★ Chaos Ground (Hỗn Thổ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"8445": {
+"piece": "c2 ridges_1",
+"kind": "small",
+"idea": "★ Chaos Ground (Hỗn Thổ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"8446": {
+"piece": "c2 ridges_1",
+"kind": "small",
+"idea": "★ Chaos Ground (Hỗn Thổ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"8447": {
+"piece": "c2 ridges_1",
+"kind": "small",
+"idea": "★ Chaos Ground (Hỗn Thổ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"8448": {
+"piece": "c2 ridges_1",
+"kind": "small",
+"idea": "★ Chaos Ground (Hỗn Thổ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"8449": {
+"piece": "c2 ridges_1",
+"kind": "small",
+"idea": "★ Chaos Ground (Hỗn Thổ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"8450": {
+"piece": "c2 ridges_1",
+"kind": "small",
+"idea": "★ Chaos Ground (Hỗn Thổ)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8451": {
+"piece": "c2 ridges_1",
+"kind": "small",
+"idea": "★ Chaos Ground (Hỗn Thổ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"8452": {
+"piece": "c2 ridges_1",
+"kind": "small",
+"idea": "★ Chaos Ground (Hỗn Thổ)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8453": {
+"piece": "c2 ridges_1",
+"kind": "small",
+"idea": "★ Chaos Ground (Hỗn Thổ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"8454": {
+"piece": "c2 ridges_1",
+"kind": "small",
+"idea": "★ Chaos Ground (Hỗn Thổ)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8455": {
+"piece": "c2 ridges_1",
+"kind": "small",
+"idea": "★ Chaos Ground (Hỗn Thổ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"8456": {
+"piece": "c2 ridges_1",
+"kind": "small",
+"idea": "★ Chaos Ground (Hỗn Thổ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"8457": {
+"piece": "c2 ridges_1",
+"kind": "notable",
+"idea": "★ Chaos Ground (Hỗn Thổ)",
+"name": "Chaos Ground (Hỗn Thổ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+5,
+7.5
+],
+[
+"resist_pen_pct",
+"chaos",
+3,
+45
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8458": {
+"piece": "c2 ridges_2",
+"kind": "small",
+"idea": "★ First Foothold (Lập Túc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8459": {
+"piece": "c2 ridges_2",
+"kind": "small",
+"idea": "★ First Foothold (Lập Túc)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"8460": {
+"piece": "c2 ridges_2",
+"kind": "small",
+"idea": "★ First Foothold (Lập Túc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8461": {
+"piece": "c2 ridges_2",
+"kind": "small",
+"idea": "★ First Foothold (Lập Túc)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"8462": {
+"piece": "c2 ridges_2",
+"kind": "small",
+"idea": "★ First Foothold (Lập Túc)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"8463": {
+"piece": "c2 ridges_2",
+"kind": "notable",
+"idea": "★ First Foothold (Lập Túc)",
+"name": "First Foothold (Lập Túc)",
+"mods": [
+[
+"dao_tam",
+"",
+5,
+1.66
+],
+[
+"block_rating",
+"",
+3,
+7
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8464": {
+"piece": "c2 ridges_2",
+"kind": "small",
+"idea": "★ First Foothold (Lập Túc)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"8465": {
+"piece": "c2 ridges_2",
+"kind": "small",
+"idea": "★ First Foothold (Lập Túc)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"8466": {
+"piece": "c2 ridges_2",
+"kind": "small",
+"idea": "★ First Foothold (Lập Túc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8467": {
+"piece": "c2 ridges_2",
+"kind": "small",
+"idea": "★ First Foothold (Lập Túc)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"8468": {
+"piece": "c2 ridges_2",
+"kind": "small",
+"idea": "★ First Foothold (Lập Túc)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"8469": {
+"piece": "c2 ridges_2",
+"kind": "small",
+"idea": "★ First Foothold (Lập Túc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8470": {
+"piece": "c2 ridges_2",
+"kind": "small",
+"idea": "★ First Foothold (Lập Túc)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"8471": {
+"piece": "c2 ridges_2",
+"kind": "notable",
+"idea": "★ First Foothold (Lập Túc)",
+"name": "Firm Resolve (Kiên Chí)",
+"mods": [
+[
+"dao_tam",
+"",
+4,
+1.33
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8472": {
+"piece": "c2 ridges_2",
+"kind": "small",
+"idea": "★ First Foothold (Lập Túc)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"8473": {
+"piece": "c2 ridges_2",
+"kind": "small",
+"idea": "★ First Foothold (Lập Túc)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"8474": {
+"piece": "c2 ridges_2",
+"kind": "small",
+"idea": "★ First Foothold (Lập Túc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8475": {
+"piece": "c2 ridges_2",
+"kind": "small",
+"idea": "★ First Foothold (Lập Túc)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"8476": {
+"piece": "c2 ridges_2",
+"kind": "small",
+"idea": "★ First Foothold (Lập Túc)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"8477": {
+"piece": "c2 ridges_2",
+"kind": "small",
+"idea": "★ First Foothold (Lập Túc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8478": {
+"piece": "c2 ridges_2",
+"kind": "small",
+"idea": "★ First Foothold (Lập Túc)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"8479": {
+"piece": "c2 ridges_3",
+"kind": "notable",
+"idea": "★ Ridge Line (Sơn Tích)",
+"name": "Ridge Line (Sơn Tích)",
+"mods": [
+[
+"block_rating",
+"",
+5,
+12
+],
+[
+"timer_resist_pct",
+"",
+3,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8480": {
+"piece": "c2 ridges_3",
+"kind": "small",
+"idea": "★ Ridge Line (Sơn Tích)",
+"mods": [
+[
+"resist_pct",
+"",
+1.2,
+30
+]
+]
+},
+"8481": {
+"piece": "c2 ridges_3",
+"kind": "small",
+"idea": "★ Ridge Line (Sơn Tích)",
+"mods": [
+[
+"resist_pct",
+"",
+1.2,
+30
+]
+]
+},
+"8482": {
+"piece": "c2 ridges_3",
+"kind": "small",
+"idea": "★ Ridge Line (Sơn Tích)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"8483": {
+"piece": "c2 ridges_3",
+"kind": "small",
+"idea": "★ Ridge Line (Sơn Tích)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"8484": {
+"piece": "c2 ridges_3",
+"kind": "small",
+"idea": "★ Ridge Line (Sơn Tích)",
+"mods": [
+[
+"resist_pct",
+"",
+1.2,
+30
+]
+]
+},
+"8485": {
+"piece": "c2 ridges_3",
+"kind": "small",
+"idea": "★ Ridge Line (Sơn Tích)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"8486": {
+"piece": "c2 ridges_3",
+"kind": "small",
+"idea": "★ Ridge Line (Sơn Tích)",
+"mods": [
+[
+"resist_pct",
+"",
+1.2,
+30
+]
+]
+},
+"8487": {
+"piece": "c2 ridges_3",
+"kind": "small",
+"idea": "★ Ridge Line (Sơn Tích)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"8488": {
+"piece": "c2 ridges_3",
+"kind": "notable",
+"idea": "★ Ridge Line (Sơn Tích)",
+"name": "Mountain Trail (Sơn Kính)",
+"mods": [
+[
+"resist_pct",
+"",
+4,
+100
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8489": {
+"piece": "c2 ridges_3",
+"kind": "small",
+"idea": "★ Ridge Line (Sơn Tích)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"8490": {
+"piece": "c2 ridges_3",
+"kind": "small",
+"idea": "★ Ridge Line (Sơn Tích)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"8491": {
+"piece": "c2 ridges_3",
+"kind": "notable",
+"idea": "★ Ridge Line (Sơn Tích)",
+"name": "Rock Spine (Thạch Tích)",
+"mods": [
+[
+"block_rating",
+"",
+4,
+10
+],
+[
+"resist_pct",
+"",
+4,
+100
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8492": {
+"piece": "c2 ridges_3",
+"kind": "small",
+"idea": "★ Ridge Line (Sơn Tích)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"8493": {
+"piece": "c2 ridges_3",
+"kind": "small",
+"idea": "★ Ridge Line (Sơn Tích)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"8494": {
+"piece": "c2 ridges_3",
+"kind": "small",
+"idea": "★ Ridge Line (Sơn Tích)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"8495": {
+"piece": "c2 ridges_3",
+"kind": "small",
+"idea": "★ Ridge Line (Sơn Tích)",
+"mods": [
+[
+"resist_pct",
+"",
+1.2,
+30
+]
+]
+},
+"8496": {
+"piece": "c2 ridges_3",
+"kind": "small",
+"idea": "★ Ridge Line (Sơn Tích)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"8497": {
+"piece": "c2 ridges_4",
+"kind": "small",
+"idea": "★ Steady Ground (Ổn Địa)",
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"8498": {
+"piece": "c2 ridges_4",
+"kind": "small",
+"idea": "★ Steady Ground (Ổn Địa)",
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"8499": {
+"piece": "c2 ridges_4",
+"kind": "small",
+"idea": "★ Steady Ground (Ổn Địa)",
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"8500": {
+"piece": "c2 ridges_4",
+"kind": "small",
+"idea": "★ Steady Ground (Ổn Địa)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8501": {
+"piece": "c2 ridges_4",
+"kind": "small",
+"idea": "★ Steady Ground (Ổn Địa)",
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"8502": {
+"piece": "c2 ridges_4",
+"kind": "small",
+"idea": "★ Steady Ground (Ổn Địa)",
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"8503": {
+"piece": "c2 ridges_4",
+"kind": "small",
+"idea": "★ Steady Ground (Ổn Địa)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8504": {
+"piece": "c2 ridges_4",
+"kind": "small",
+"idea": "★ Steady Ground (Ổn Địa)",
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"8505": {
+"piece": "c2 ridges_4",
+"kind": "notable",
+"idea": "★ Steady Ground (Ổn Địa)",
+"name": "Steady Ground (Ổn Địa)",
+"mods": [
+[
+"timer_resist_pct",
+"",
+4,
+8.0
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8506": {
+"piece": "c2 ridges_4",
+"kind": "small",
+"idea": "★ Steady Ground (Ổn Địa)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8507": {
+"piece": "c2 ridges_4",
+"kind": "small",
+"idea": "★ Steady Ground (Ổn Địa)",
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"8508": {
+"piece": "c2 ridges_4",
+"kind": "small",
+"idea": "★ Steady Ground (Ổn Địa)",
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"8509": {
+"piece": "c2 ridges_4",
+"kind": "small",
+"idea": "★ Steady Ground (Ổn Địa)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8510": {
+"piece": "c2 ridges_4",
+"kind": "small",
+"idea": "★ Steady Ground (Ổn Địa)",
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"8511": {
+"piece": "c2 ridges_5",
+"kind": "small",
+"idea": "★ Hill Spring (Sơn Tuyền)",
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"8512": {
+"piece": "c2 ridges_5",
+"kind": "small",
+"idea": "★ Hill Spring (Sơn Tuyền)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8513": {
+"piece": "c2 ridges_5",
+"kind": "small",
+"idea": "★ Hill Spring (Sơn Tuyền)",
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"8514": {
+"piece": "c2 ridges_5",
+"kind": "small",
+"idea": "★ Hill Spring (Sơn Tuyền)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8515": {
+"piece": "c2 ridges_5",
+"kind": "small",
+"idea": "★ Hill Spring (Sơn Tuyền)",
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"8516": {
+"piece": "c2 ridges_5",
+"kind": "small",
+"idea": "★ Hill Spring (Sơn Tuyền)",
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"8517": {
+"piece": "c2 ridges_5",
+"kind": "notable",
+"idea": "★ Hill Spring (Sơn Tuyền)",
+"name": "Hill Spring (Sơn Tuyền)",
+"mods": [
+[
+"health_regen_pct",
+"",
+4,
+0.4
+],
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8518": {
+"piece": "c2 ridges_5",
+"kind": "small",
+"idea": "★ Hill Spring (Sơn Tuyền)",
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"8519": {
+"piece": "c2 ridges_5",
+"kind": "small",
+"idea": "★ Hill Spring (Sơn Tuyền)",
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"8520": {
+"piece": "c2 ridges_5",
+"kind": "small",
+"idea": "★ Hill Spring (Sơn Tuyền)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8521": {
+"piece": "c2 ridges_5",
+"kind": "small",
+"idea": "★ Hill Spring (Sơn Tuyền)",
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"8522": {
+"piece": "c2 ridges_6",
+"kind": "notable",
+"idea": "★ Cliff Hold (Thủ Nhai)",
+"name": "Cliff Hold (Thủ Nhai)",
+"mods": [
+[
+"resist_pct",
+"",
+4,
+100
+],
+[
+"art_cost_pct",
+"",
+4,
+-6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8523": {
+"piece": "c2 ridges_6",
+"kind": "small",
+"idea": "★ Cliff Hold (Thủ Nhai)",
+"mods": [
+[
+"resist_pct",
+"",
+1.2,
+30
+]
+]
+},
+"8524": {
+"piece": "c2 ridges_6",
+"kind": "small",
+"idea": "★ Cliff Hold (Thủ Nhai)",
+"mods": [
+[
+"resist_pct",
+"",
+1.2,
+30
+]
+]
+},
+"8525": {
+"piece": "c2 ridges_6",
+"kind": "small",
+"idea": "★ Cliff Hold (Thủ Nhai)",
+"mods": [
+[
+"art_cost_pct",
+"",
+1.2,
+-2.0
+]
+]
+},
+"8526": {
+"piece": "c2 ridges_6",
+"kind": "small",
+"idea": "★ Cliff Hold (Thủ Nhai)",
+"mods": [
+[
+"resist_pct",
+"",
+1.2,
+30
+]
+]
+},
+"8527": {
+"piece": "c2 ridges_6",
+"kind": "small",
+"idea": "★ Cliff Hold (Thủ Nhai)",
+"mods": [
+[
+"resist_pct",
+"",
+1.2,
+30
+]
+]
+},
+"8528": {
+"piece": "c2 ridges_6",
+"kind": "small",
+"idea": "★ Cliff Hold (Thủ Nhai)",
+"mods": [
+[
+"art_cost_pct",
+"",
+1.2,
+-2.0
+]
+]
+},
+"8529": {
+"piece": "c2 ridges_6",
+"kind": "small",
+"idea": "★ Cliff Hold (Thủ Nhai)",
+"mods": [
+[
+"resist_pct",
+"",
+1.2,
+30
+]
+]
+},
+"8530": {
+"piece": "c2 ridges_6",
+"kind": "small",
+"idea": "★ Cliff Hold (Thủ Nhai)",
+"mods": [
+[
+"resist_pct",
+"",
+1.2,
+30
+]
+]
+},
+"8531": {
+"piece": "c2 ridges_6",
+"kind": "small",
+"idea": "★ Cliff Hold (Thủ Nhai)",
+"mods": [
+[
+"art_cost_pct",
+"",
+1.2,
+-2.0
+]
+]
+},
+"8532": {
+"piece": "c2 ridges_6",
+"kind": "small",
+"idea": "★ Cliff Hold (Thủ Nhai)",
+"mods": [
+[
+"resist_pct",
+"",
+1.2,
+30
+]
+]
+}
+}
+}

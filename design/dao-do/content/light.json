@@ -1,0 +1,7681 @@
+{
+"map": "v5-frozen-2026-11-19",
+"map_sha256": "dbdfd5dcd10b49f843c597b48e169aec86153793382986f29a46dea3247eaa96",
+"area": "light",
+"nodes": {
+"815": {
+"piece": "base8",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"816": {
+"piece": "base8",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"817": {
+"piece": "base8",
+"kind": "notable",
+"idea": null,
+"name": "Morning Ray (Thần Hi)",
+"mods": [
+[
+"attack_pct",
+"light",
+4,
+6.0
+],
+[
+"healing_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"818": {
+"piece": "base8",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"819": {
+"piece": "base8",
+"kind": "notable",
+"idea": null,
+"name": "Clear Sight (Minh Thị)",
+"mods": [
+[
+"accuracy_pct",
+"",
+4,
+8.0
+],
+[
+"attack_pct",
+"light",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"820": {
+"piece": "base8",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"821": {
+"piece": "base8",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"822": {
+"piece": "base8",
+"kind": "notable",
+"idea": null,
+"name": "Sun Essence (Nhật Tinh)",
+"mods": [
+[
+"attack_pct",
+"light",
+4,
+6.0
+],
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"823": {
+"piece": "base8",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"824": {
+"piece": "base8",
+"kind": "notable",
+"idea": null,
+"name": "Light Veil (Quang Mạc)",
+"mods": [
+[
+"defense_pct",
+"",
+4,
+4.0
+],
+[
+"resist_pct",
+"light",
+4,
+150
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"825": {
+"piece": "base8",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"826": {
+"piece": "base8",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"827": {
+"piece": "base8",
+"kind": "notable",
+"idea": null,
+"name": "Radiance (Quang Huy)",
+"mods": [
+[
+"attack_pct",
+"light",
+4,
+6.0
+],
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"828": {
+"piece": "base8",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"829": {
+"piece": "base8",
+"kind": "notable",
+"idea": null,
+"name": "Golden Glow (Kim Huy)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"healing_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"830": {
+"piece": "base8",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"831": {
+"piece": "base8",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"832": {
+"piece": "base8",
+"kind": "notable",
+"idea": null,
+"name": "Warm Sun (Noãn Dương)",
+"mods": [
+[
+"healing_pct",
+"",
+4,
+8.0
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"833": {
+"piece": "base8",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"834": {
+"piece": "base8",
+"kind": "notable",
+"idea": null,
+"name": "Light Root (Quang Căn)",
+"mods": [
+[
+"attack_pct",
+"light",
+5,
+7.5
+],
+[
+"crit_damage_pct",
+"",
+3,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"835": {
+"piece": "base8",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"836": {
+"piece": "base8",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"837": {
+"piece": "base8",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"838": {
+"piece": "base8",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6696": {
+"piece": "c931 flames_000",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"light",
+1.2,
+18
+]
+]
+},
+"6697": {
+"piece": "c931 flames_000",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"light",
+1.2,
+18
+]
+]
+},
+"6698": {
+"piece": "c931 flames_000",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"light",
+1.2,
+18
+]
+]
+},
+"6699": {
+"piece": "c931 flames_000",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"light",
+1.2,
+18
+]
+]
+},
+"6700": {
+"piece": "c931 flames_000",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"light",
+1.2,
+18
+]
+]
+},
+"6701": {
+"piece": "c931 flames_000",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"light",
+1.2,
+18
+]
+]
+},
+"6702": {
+"piece": "c931 flames_000",
+"kind": "notable",
+"idea": null,
+"name": "Zenith (Thiên Đỉnh)",
+"mods": [
+[
+"resist_pen_pct",
+"light",
+4,
+60
+],
+[
+"crit_chance_pct",
+"light",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6703": {
+"piece": "c931 flames_018_r",
+"kind": "small",
+"idea": "★ Solar Wind (Nhật Phong)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6704": {
+"piece": "c931 flames_018_r",
+"kind": "small",
+"idea": "★ Solar Wind (Nhật Phong)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6705": {
+"piece": "c931 flames_018_r",
+"kind": "small",
+"idea": "★ Solar Wind (Nhật Phong)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6706": {
+"piece": "c931 flames_018_r",
+"kind": "notable",
+"idea": "★ Solar Wind (Nhật Phong)",
+"name": "Solar Breeze (Dương Phong)",
+"mods": [
+[
+"art_speed_pct",
+"",
+4,
+6.6
+],
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6707": {
+"piece": "c931 flames_018_r",
+"kind": "small",
+"idea": "★ Solar Wind (Nhật Phong)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6708": {
+"piece": "c931 flames_018_r",
+"kind": "small",
+"idea": "★ Solar Wind (Nhật Phong)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6709": {
+"piece": "c931 flames_018_r",
+"kind": "small",
+"idea": "★ Solar Wind (Nhật Phong)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6710": {
+"piece": "c931 flames_018_r",
+"kind": "small",
+"idea": "★ Solar Wind (Nhật Phong)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6711": {
+"piece": "c931 flames_018_r",
+"kind": "notable",
+"idea": "★ Solar Wind (Nhật Phong)",
+"name": "Solar Wind (Nhật Phong)",
+"mods": [
+[
+"art_speed_pct",
+"",
+5,
+8.3
+],
+[
+"linh_luc_regen_inc_pct",
+"",
+3,
+3.7
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6712": {
+"piece": "c931 flames_018_l",
+"kind": "small",
+"idea": "★ Solar Wind (Nhật Phong)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6713": {
+"piece": "c931 flames_018_l",
+"kind": "small",
+"idea": "★ Solar Wind (Nhật Phong)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6714": {
+"piece": "c931 flames_018_l",
+"kind": "small",
+"idea": "★ Solar Wind (Nhật Phong)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6715": {
+"piece": "c931 flames_018_l",
+"kind": "notable",
+"idea": "★ Solar Wind (Nhật Phong)",
+"name": "Solar Breeze (Dương Phong)",
+"mods": [
+[
+"art_speed_pct",
+"",
+4,
+6.6
+],
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6716": {
+"piece": "c931 flames_018_l",
+"kind": "small",
+"idea": "★ Solar Wind (Nhật Phong)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6717": {
+"piece": "c931 flames_018_l",
+"kind": "small",
+"idea": "★ Solar Wind (Nhật Phong)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6718": {
+"piece": "c931 flames_018_l",
+"kind": "small",
+"idea": "★ Solar Wind (Nhật Phong)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6719": {
+"piece": "c931 flames_018_l",
+"kind": "small",
+"idea": "★ Solar Wind (Nhật Phong)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6720": {
+"piece": "c931 flames_018_l",
+"kind": "notable",
+"idea": "★ Solar Wind (Nhật Phong)",
+"name": "Solar Wind (Nhật Phong)",
+"mods": [
+[
+"art_speed_pct",
+"",
+5,
+8.3
+],
+[
+"linh_luc_regen_inc_pct",
+"",
+3,
+3.7
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6721": {
+"piece": "c931 flames_036_r",
+"kind": "small",
+"idea": "★ Long Day (Trường Nhật)",
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6722": {
+"piece": "c931 flames_036_r",
+"kind": "small",
+"idea": "★ Long Day (Trường Nhật)",
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6723": {
+"piece": "c931 flames_036_r",
+"kind": "notable",
+"idea": "★ Long Day (Trường Nhật)",
+"name": "Lingering Light (Dư Quang)",
+"mods": [
+[
+"status_duration_pct",
+"",
+4,
+10.0
+],
+[
+"linh_luc_regen_inc_pct",
+"",
+4,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6724": {
+"piece": "c931 flames_036_r",
+"kind": "small",
+"idea": "★ Long Day (Trường Nhật)",
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"6725": {
+"piece": "c931 flames_036_r",
+"kind": "small",
+"idea": "★ Long Day (Trường Nhật)",
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6726": {
+"piece": "c931 flames_036_r",
+"kind": "small",
+"idea": "★ Long Day (Trường Nhật)",
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6727": {
+"piece": "c931 flames_036_r",
+"kind": "small",
+"idea": "★ Long Day (Trường Nhật)",
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"6728": {
+"piece": "c931 flames_036_r",
+"kind": "small",
+"idea": "★ Long Day (Trường Nhật)",
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6729": {
+"piece": "c931 flames_036_r",
+"kind": "notable",
+"idea": "★ Long Day (Trường Nhật)",
+"name": "Long Day (Trường Nhật)",
+"mods": [
+[
+"status_duration_pct",
+"",
+5,
+12.5
+],
+[
+"status_resist_pct",
+"curse",
+3,
+11.2
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6730": {
+"piece": "c931 flames_036_l",
+"kind": "small",
+"idea": "★ Long Day (Trường Nhật)",
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6731": {
+"piece": "c931 flames_036_l",
+"kind": "small",
+"idea": "★ Long Day (Trường Nhật)",
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6732": {
+"piece": "c931 flames_036_l",
+"kind": "notable",
+"idea": "★ Long Day (Trường Nhật)",
+"name": "Lingering Light (Dư Quang)",
+"mods": [
+[
+"status_duration_pct",
+"",
+4,
+10.0
+],
+[
+"linh_luc_regen_inc_pct",
+"",
+4,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6733": {
+"piece": "c931 flames_036_l",
+"kind": "small",
+"idea": "★ Long Day (Trường Nhật)",
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"6734": {
+"piece": "c931 flames_036_l",
+"kind": "small",
+"idea": "★ Long Day (Trường Nhật)",
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6735": {
+"piece": "c931 flames_036_l",
+"kind": "small",
+"idea": "★ Long Day (Trường Nhật)",
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6736": {
+"piece": "c931 flames_036_l",
+"kind": "small",
+"idea": "★ Long Day (Trường Nhật)",
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"6737": {
+"piece": "c931 flames_036_l",
+"kind": "small",
+"idea": "★ Long Day (Trường Nhật)",
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6738": {
+"piece": "c931 flames_036_l",
+"kind": "notable",
+"idea": "★ Long Day (Trường Nhật)",
+"name": "Long Day (Trường Nhật)",
+"mods": [
+[
+"status_duration_pct",
+"",
+5,
+12.5
+],
+[
+"status_resist_pct",
+"curse",
+3,
+11.2
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6739": {
+"piece": "c931 flames_054_r",
+"kind": "small",
+"idea": "★ Sun Shield (Nhật Thuẫn)",
+"mods": [
+[
+"resist_pct",
+"light",
+1.2,
+45
+]
+]
+},
+"6740": {
+"piece": "c931 flames_054_r",
+"kind": "small",
+"idea": "★ Sun Shield (Nhật Thuẫn)",
+"mods": [
+[
+"resist_pct",
+"light",
+1.2,
+45
+]
+]
+},
+"6741": {
+"piece": "c931 flames_054_r",
+"kind": "small",
+"idea": "★ Sun Shield (Nhật Thuẫn)",
+"mods": [
+[
+"resist_pct",
+"light",
+1.2,
+45
+]
+]
+},
+"6742": {
+"piece": "c931 flames_054_r",
+"kind": "small",
+"idea": "★ Sun Shield (Nhật Thuẫn)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6743": {
+"piece": "c931 flames_054_r",
+"kind": "notable",
+"idea": "★ Sun Shield (Nhật Thuẫn)",
+"name": "Pure Yang Ward (Thuần Dương Tráo)",
+"mods": [
+[
+"resist_pct",
+"light",
+4,
+150
+],
+[
+"defense_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6744": {
+"piece": "c931 flames_054_r",
+"kind": "small",
+"idea": "★ Sun Shield (Nhật Thuẫn)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6745": {
+"piece": "c931 flames_054_r",
+"kind": "small",
+"idea": "★ Sun Shield (Nhật Thuẫn)",
+"mods": [
+[
+"resist_pct",
+"light",
+1.2,
+45
+]
+]
+},
+"6746": {
+"piece": "c931 flames_054_r",
+"kind": "small",
+"idea": "★ Sun Shield (Nhật Thuẫn)",
+"mods": [
+[
+"resist_pct",
+"light",
+1.2,
+45
+]
+]
+},
+"6747": {
+"piece": "c931 flames_054_r",
+"kind": "small",
+"idea": "★ Sun Shield (Nhật Thuẫn)",
+"mods": [
+[
+"resist_pct",
+"light",
+1.2,
+45
+]
+]
+},
+"6748": {
+"piece": "c931 flames_054_r",
+"kind": "small",
+"idea": "★ Sun Shield (Nhật Thuẫn)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6749": {
+"piece": "c931 flames_054_r",
+"kind": "notable",
+"idea": "★ Sun Shield (Nhật Thuẫn)",
+"name": "Sun Shield (Nhật Thuẫn)",
+"mods": [
+[
+"defense_pct",
+"",
+5,
+5.0
+],
+[
+"healing_pct",
+"",
+3,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6750": {
+"piece": "c931 flames_054_l",
+"kind": "small",
+"idea": "★ Sun Shield (Nhật Thuẫn)",
+"mods": [
+[
+"resist_pct",
+"light",
+1.2,
+45
+]
+]
+},
+"6751": {
+"piece": "c931 flames_054_l",
+"kind": "small",
+"idea": "★ Sun Shield (Nhật Thuẫn)",
+"mods": [
+[
+"resist_pct",
+"light",
+1.2,
+45
+]
+]
+},
+"6752": {
+"piece": "c931 flames_054_l",
+"kind": "small",
+"idea": "★ Sun Shield (Nhật Thuẫn)",
+"mods": [
+[
+"resist_pct",
+"light",
+1.2,
+45
+]
+]
+},
+"6753": {
+"piece": "c931 flames_054_l",
+"kind": "small",
+"idea": "★ Sun Shield (Nhật Thuẫn)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6754": {
+"piece": "c931 flames_054_l",
+"kind": "notable",
+"idea": "★ Sun Shield (Nhật Thuẫn)",
+"name": "Pure Yang Ward (Thuần Dương Tráo)",
+"mods": [
+[
+"resist_pct",
+"light",
+4,
+150
+],
+[
+"defense_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6755": {
+"piece": "c931 flames_054_l",
+"kind": "small",
+"idea": "★ Sun Shield (Nhật Thuẫn)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6756": {
+"piece": "c931 flames_054_l",
+"kind": "small",
+"idea": "★ Sun Shield (Nhật Thuẫn)",
+"mods": [
+[
+"resist_pct",
+"light",
+1.2,
+45
+]
+]
+},
+"6757": {
+"piece": "c931 flames_054_l",
+"kind": "small",
+"idea": "★ Sun Shield (Nhật Thuẫn)",
+"mods": [
+[
+"resist_pct",
+"light",
+1.2,
+45
+]
+]
+},
+"6758": {
+"piece": "c931 flames_054_l",
+"kind": "small",
+"idea": "★ Sun Shield (Nhật Thuẫn)",
+"mods": [
+[
+"resist_pct",
+"light",
+1.2,
+45
+]
+]
+},
+"6759": {
+"piece": "c931 flames_054_l",
+"kind": "small",
+"idea": "★ Sun Shield (Nhật Thuẫn)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6760": {
+"piece": "c931 flames_054_l",
+"kind": "notable",
+"idea": "★ Sun Shield (Nhật Thuẫn)",
+"name": "Sun Shield (Nhật Thuẫn)",
+"mods": [
+[
+"defense_pct",
+"",
+5,
+5.0
+],
+[
+"healing_pct",
+"",
+3,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6761": {
+"piece": "c931 flames_072_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6762": {
+"piece": "c931 flames_072_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6763": {
+"piece": "c931 flames_072_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6764": {
+"piece": "c931 flames_072_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6765": {
+"piece": "c931 flames_072_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6766": {
+"piece": "c931 flames_072_r",
+"kind": "notable",
+"idea": null,
+"name": "Sun Tongue (Nhật Thiệt)",
+"mods": [
+[
+"crit_chance_pct",
+"light",
+4,
+6.0
+],
+[
+"attack_pct",
+"light",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6767": {
+"piece": "c931 flames_072_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6768": {
+"piece": "c931 flames_072_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6769": {
+"piece": "c931 flames_072_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6770": {
+"piece": "c931 flames_072_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6771": {
+"piece": "c931 flames_072_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6772": {
+"piece": "c931 flames_072_l",
+"kind": "notable",
+"idea": null,
+"name": "Sun Tongue (Nhật Thiệt)",
+"mods": [
+[
+"crit_chance_pct",
+"light",
+4,
+6.0
+],
+[
+"attack_pct",
+"light",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6773": {
+"piece": "c931 flames_090_r",
+"kind": "small",
+"idea": "L4 Dawn (Bình Minh)",
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6774": {
+"piece": "c931 flames_090_r",
+"kind": "small",
+"idea": "L4 Dawn (Bình Minh)",
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6775": {
+"piece": "c931 flames_090_r",
+"kind": "small",
+"idea": "L4 Dawn (Bình Minh)",
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6776": {
+"piece": "c931 flames_090_r",
+"kind": "small",
+"idea": "L4 Dawn (Bình Minh)",
+"mods": [
+[
+"resist_pen_pct",
+"light",
+1.2,
+18
+]
+]
+},
+"6777": {
+"piece": "c931 flames_090_r",
+"kind": "small",
+"idea": "L4 Dawn (Bình Minh)",
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6778": {
+"piece": "c931 flames_090_r",
+"kind": "small",
+"idea": "L4 Dawn (Bình Minh)",
+"mods": [
+[
+"resist_pen_pct",
+"light",
+1.2,
+18
+]
+]
+},
+"6779": {
+"piece": "c931 flames_090_r",
+"kind": "notable",
+"idea": "L4 Dawn (Bình Minh)",
+"name": "Dawn (Bình Minh)",
+"mods": [
+[
+"attack_pct",
+"light",
+4,
+6.0
+],
+[
+"resist_pen_pct",
+"light",
+4,
+60
+]
+],
+"pending": [],
+"cap": null,
+"effect": "Daybreak (Phá Hiểu)",
+"twin_copy": false
+},
+"6780": {
+"piece": "c931 flames_090_r",
+"kind": "small",
+"idea": "L4 Dawn (Bình Minh)",
+"mods": [
+[
+"resist_pen_pct",
+"light",
+1.2,
+18
+]
+]
+},
+"6781": {
+"piece": "c931 flames_090_r",
+"kind": "small",
+"idea": "L4 Dawn (Bình Minh)",
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6782": {
+"piece": "c931 flames_090_r",
+"kind": "small",
+"idea": "L4 Dawn (Bình Minh)",
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6783": {
+"piece": "c931 flames_090_r",
+"kind": "notable",
+"idea": "L4 Dawn (Bình Minh)",
+"name": "First Light (Sơ Quang)",
+"mods": [
+[
+"attack_pct",
+"light",
+4,
+6.0
+],
+[
+"crit_chance_pct",
+"light",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6784": {
+"piece": "c931 flames_090_l",
+"kind": "small",
+"idea": "L4 Dawn (Bình Minh)",
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6785": {
+"piece": "c931 flames_090_l",
+"kind": "small",
+"idea": "L4 Dawn (Bình Minh)",
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6786": {
+"piece": "c931 flames_090_l",
+"kind": "small",
+"idea": "L4 Dawn (Bình Minh)",
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6787": {
+"piece": "c931 flames_090_l",
+"kind": "small",
+"idea": "L4 Dawn (Bình Minh)",
+"mods": [
+[
+"resist_pen_pct",
+"light",
+1.2,
+18
+]
+]
+},
+"6788": {
+"piece": "c931 flames_090_l",
+"kind": "small",
+"idea": "L4 Dawn (Bình Minh)",
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6789": {
+"piece": "c931 flames_090_l",
+"kind": "small",
+"idea": "L4 Dawn (Bình Minh)",
+"mods": [
+[
+"resist_pen_pct",
+"light",
+1.2,
+18
+]
+]
+},
+"6790": {
+"piece": "c931 flames_090_l",
+"kind": "notable",
+"idea": "L4 Dawn (Bình Minh)",
+"name": "Daystar (Khải Minh)",
+"mods": [
+[
+"attack_pct",
+"light",
+5,
+7.5
+],
+[
+"accuracy_pct",
+"",
+3,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6791": {
+"piece": "c931 flames_090_l",
+"kind": "small",
+"idea": "L4 Dawn (Bình Minh)",
+"mods": [
+[
+"resist_pen_pct",
+"light",
+1.2,
+18
+]
+]
+},
+"6792": {
+"piece": "c931 flames_090_l",
+"kind": "small",
+"idea": "L4 Dawn (Bình Minh)",
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6793": {
+"piece": "c931 flames_090_l",
+"kind": "small",
+"idea": "L4 Dawn (Bình Minh)",
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6794": {
+"piece": "c931 flames_090_l",
+"kind": "notable",
+"idea": "L4 Dawn (Bình Minh)",
+"name": "First Light (Sơ Quang)",
+"mods": [
+[
+"attack_pct",
+"light",
+4,
+6.0
+],
+[
+"crit_chance_pct",
+"light",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6795": {
+"piece": "c931 flames_108_r",
+"kind": "small",
+"idea": "★ Noon Glare (Chính Ngọ)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6796": {
+"piece": "c931 flames_108_r",
+"kind": "small",
+"idea": "★ Noon Glare (Chính Ngọ)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6797": {
+"piece": "c931 flames_108_r",
+"kind": "small",
+"idea": "★ Noon Glare (Chính Ngọ)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6798": {
+"piece": "c931 flames_108_r",
+"kind": "small",
+"idea": "★ Noon Glare (Chính Ngọ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6799": {
+"piece": "c931 flames_108_r",
+"kind": "small",
+"idea": "★ Noon Glare (Chính Ngọ)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6800": {
+"piece": "c931 flames_108_r",
+"kind": "small",
+"idea": "★ Noon Glare (Chính Ngọ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6801": {
+"piece": "c931 flames_108_r",
+"kind": "notable",
+"idea": "★ Noon Glare (Chính Ngọ)",
+"name": "Noon Glare (Chính Ngọ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+5,
+5.0
+],
+[
+"crit_damage_pct",
+"",
+3,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6802": {
+"piece": "c931 flames_108_r",
+"kind": "small",
+"idea": "★ Noon Glare (Chính Ngọ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6803": {
+"piece": "c931 flames_108_r",
+"kind": "small",
+"idea": "★ Noon Glare (Chính Ngọ)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6804": {
+"piece": "c931 flames_108_r",
+"kind": "small",
+"idea": "★ Noon Glare (Chính Ngọ)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6805": {
+"piece": "c931 flames_108_r",
+"kind": "notable",
+"idea": "★ Noon Glare (Chính Ngọ)",
+"name": "Dazzling Glare (Nhật Diệu)",
+"mods": [
+[
+"accuracy_pct",
+"",
+4,
+8.0
+],
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6806": {
+"piece": "c931 flames_108_l",
+"kind": "small",
+"idea": "★ Noon Glare (Chính Ngọ)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6807": {
+"piece": "c931 flames_108_l",
+"kind": "small",
+"idea": "★ Noon Glare (Chính Ngọ)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6808": {
+"piece": "c931 flames_108_l",
+"kind": "small",
+"idea": "★ Noon Glare (Chính Ngọ)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6809": {
+"piece": "c931 flames_108_l",
+"kind": "small",
+"idea": "★ Noon Glare (Chính Ngọ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6810": {
+"piece": "c931 flames_108_l",
+"kind": "small",
+"idea": "★ Noon Glare (Chính Ngọ)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6811": {
+"piece": "c931 flames_108_l",
+"kind": "small",
+"idea": "★ Noon Glare (Chính Ngọ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6812": {
+"piece": "c931 flames_108_l",
+"kind": "notable",
+"idea": "★ Noon Glare (Chính Ngọ)",
+"name": "Noon Glare (Chính Ngọ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+5,
+5.0
+],
+[
+"crit_damage_pct",
+"",
+3,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6813": {
+"piece": "c931 flames_108_l",
+"kind": "small",
+"idea": "★ Noon Glare (Chính Ngọ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6814": {
+"piece": "c931 flames_108_l",
+"kind": "small",
+"idea": "★ Noon Glare (Chính Ngọ)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6815": {
+"piece": "c931 flames_108_l",
+"kind": "small",
+"idea": "★ Noon Glare (Chính Ngọ)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6816": {
+"piece": "c931 flames_108_l",
+"kind": "notable",
+"idea": "★ Noon Glare (Chính Ngọ)",
+"name": "Dazzling Glare (Nhật Diệu)",
+"mods": [
+[
+"accuracy_pct",
+"",
+4,
+8.0
+],
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6817": {
+"piece": "c931 flames_126_r",
+"kind": "small",
+"idea": "★ Sunfire (Nhật Hỏa)",
+"mods": [
+[
+"attack_pct",
+"fire",
+1.2,
+1.8
+]
+]
+},
+"6818": {
+"piece": "c931 flames_126_r",
+"kind": "small",
+"idea": "★ Sunfire (Nhật Hỏa)",
+"mods": [
+[
+"attack_pct",
+"fire",
+1.2,
+1.8
+]
+]
+},
+"6819": {
+"piece": "c931 flames_126_r",
+"kind": "notable",
+"idea": "★ Sunfire (Nhật Hỏa)",
+"name": "Solar Flame (Nhật Viêm)",
+"mods": [
+[
+"attack_pct",
+"fire",
+4,
+6.0
+],
+[
+"attack_pct",
+"light",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6820": {
+"piece": "c931 flames_126_r",
+"kind": "small",
+"idea": "★ Sunfire (Nhật Hỏa)",
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6821": {
+"piece": "c931 flames_126_r",
+"kind": "small",
+"idea": "★ Sunfire (Nhật Hỏa)",
+"mods": [
+[
+"attack_pct",
+"fire",
+1.2,
+1.8
+]
+]
+},
+"6822": {
+"piece": "c931 flames_126_r",
+"kind": "small",
+"idea": "★ Sunfire (Nhật Hỏa)",
+"mods": [
+[
+"attack_pct",
+"fire",
+1.2,
+1.8
+]
+]
+},
+"6823": {
+"piece": "c931 flames_126_r",
+"kind": "small",
+"idea": "★ Sunfire (Nhật Hỏa)",
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6824": {
+"piece": "c931 flames_126_r",
+"kind": "small",
+"idea": "★ Sunfire (Nhật Hỏa)",
+"mods": [
+[
+"attack_pct",
+"fire",
+1.2,
+1.8
+]
+]
+},
+"6825": {
+"piece": "c931 flames_126_r",
+"kind": "notable",
+"idea": "★ Sunfire (Nhật Hỏa)",
+"name": "Sunfire (Nhật Hỏa)",
+"mods": [
+[
+"attack_pct",
+"light",
+5,
+7.5
+],
+[
+"resist_pen_pct",
+"fire",
+3,
+45
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6826": {
+"piece": "c931 flames_126_l",
+"kind": "small",
+"idea": "★ Sunfire (Nhật Hỏa)",
+"mods": [
+[
+"attack_pct",
+"fire",
+1.2,
+1.8
+]
+]
+},
+"6827": {
+"piece": "c931 flames_126_l",
+"kind": "small",
+"idea": "★ Sunfire (Nhật Hỏa)",
+"mods": [
+[
+"attack_pct",
+"fire",
+1.2,
+1.8
+]
+]
+},
+"6828": {
+"piece": "c931 flames_126_l",
+"kind": "notable",
+"idea": "★ Sunfire (Nhật Hỏa)",
+"name": "Solar Flame (Nhật Viêm)",
+"mods": [
+[
+"attack_pct",
+"fire",
+4,
+6.0
+],
+[
+"attack_pct",
+"light",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6829": {
+"piece": "c931 flames_126_l",
+"kind": "small",
+"idea": "★ Sunfire (Nhật Hỏa)",
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6830": {
+"piece": "c931 flames_126_l",
+"kind": "small",
+"idea": "★ Sunfire (Nhật Hỏa)",
+"mods": [
+[
+"attack_pct",
+"fire",
+1.2,
+1.8
+]
+]
+},
+"6831": {
+"piece": "c931 flames_126_l",
+"kind": "small",
+"idea": "★ Sunfire (Nhật Hỏa)",
+"mods": [
+[
+"attack_pct",
+"fire",
+1.2,
+1.8
+]
+]
+},
+"6832": {
+"piece": "c931 flames_126_l",
+"kind": "small",
+"idea": "★ Sunfire (Nhật Hỏa)",
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6833": {
+"piece": "c931 flames_126_l",
+"kind": "small",
+"idea": "★ Sunfire (Nhật Hỏa)",
+"mods": [
+[
+"attack_pct",
+"fire",
+1.2,
+1.8
+]
+]
+},
+"6834": {
+"piece": "c931 flames_126_l",
+"kind": "notable",
+"idea": "★ Sunfire (Nhật Hỏa)",
+"name": "Sunfire (Nhật Hỏa)",
+"mods": [
+[
+"attack_pct",
+"light",
+5,
+7.5
+],
+[
+"resist_pen_pct",
+"fire",
+3,
+45
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6835": {
+"piece": "c931 flames_144_r",
+"kind": "small",
+"idea": "★ Corona (Nhật Miện)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6836": {
+"piece": "c931 flames_144_r",
+"kind": "small",
+"idea": "★ Corona (Nhật Miện)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6837": {
+"piece": "c931 flames_144_r",
+"kind": "small",
+"idea": "★ Corona (Nhật Miện)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6838": {
+"piece": "c931 flames_144_r",
+"kind": "notable",
+"idea": "★ Corona (Nhật Miện)",
+"name": "Corona Flare (Nhật Mang)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+4,
+13.3
+],
+[
+"attack_pct",
+"light",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6839": {
+"piece": "c931 flames_144_r",
+"kind": "small",
+"idea": "★ Corona (Nhật Miện)",
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6840": {
+"piece": "c931 flames_144_r",
+"kind": "small",
+"idea": "★ Corona (Nhật Miện)",
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6841": {
+"piece": "c931 flames_144_r",
+"kind": "small",
+"idea": "★ Corona (Nhật Miện)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6842": {
+"piece": "c931 flames_144_r",
+"kind": "small",
+"idea": "★ Corona (Nhật Miện)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6843": {
+"piece": "c931 flames_144_r",
+"kind": "small",
+"idea": "★ Corona (Nhật Miện)",
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6844": {
+"piece": "c931 flames_144_r",
+"kind": "small",
+"idea": "★ Corona (Nhật Miện)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6845": {
+"piece": "c931 flames_144_r",
+"kind": "notable",
+"idea": "★ Corona (Nhật Miện)",
+"name": "Corona (Nhật Miện)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+5,
+16.6
+],
+[
+"crit_chance_pct",
+"light",
+3,
+4.5
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6846": {
+"piece": "c931 flames_144_r",
+"kind": "small",
+"idea": "★ Corona (Nhật Miện)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6847": {
+"piece": "c931 flames_144_r",
+"kind": "small",
+"idea": "★ Corona (Nhật Miện)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6848": {
+"piece": "c931 flames_144_r",
+"kind": "small",
+"idea": "★ Corona (Nhật Miện)",
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6849": {
+"piece": "c931 flames_144_r",
+"kind": "small",
+"idea": "★ Corona (Nhật Miện)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6850": {
+"piece": "c931 flames_144_r",
+"kind": "small",
+"idea": "★ Corona (Nhật Miện)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6851": {
+"piece": "c931 flames_144_r",
+"kind": "notable",
+"idea": "★ Corona (Nhật Miện)",
+"name": "Ten Suns (Thập Nhật)",
+"mods": [
+[
+"attack_pct",
+"light",
+4,
+6.0
+],
+[
+"crit_chance_pct",
+"light",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6852": {
+"piece": "c931 flames_144_l",
+"kind": "small",
+"idea": "★ Corona (Nhật Miện)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6853": {
+"piece": "c931 flames_144_l",
+"kind": "small",
+"idea": "★ Corona (Nhật Miện)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6854": {
+"piece": "c931 flames_144_l",
+"kind": "small",
+"idea": "★ Corona (Nhật Miện)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6855": {
+"piece": "c931 flames_144_l",
+"kind": "notable",
+"idea": "★ Corona (Nhật Miện)",
+"name": "Corona Flare (Nhật Mang)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+4,
+13.3
+],
+[
+"attack_pct",
+"light",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6856": {
+"piece": "c931 flames_144_l",
+"kind": "small",
+"idea": "★ Corona (Nhật Miện)",
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6857": {
+"piece": "c931 flames_144_l",
+"kind": "small",
+"idea": "★ Corona (Nhật Miện)",
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6858": {
+"piece": "c931 flames_144_l",
+"kind": "small",
+"idea": "★ Corona (Nhật Miện)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6859": {
+"piece": "c931 flames_144_l",
+"kind": "small",
+"idea": "★ Corona (Nhật Miện)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6860": {
+"piece": "c931 flames_144_l",
+"kind": "small",
+"idea": "★ Corona (Nhật Miện)",
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6861": {
+"piece": "c931 flames_144_l",
+"kind": "small",
+"idea": "★ Corona (Nhật Miện)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6862": {
+"piece": "c931 flames_144_l",
+"kind": "notable",
+"idea": "★ Corona (Nhật Miện)",
+"name": "Corona (Nhật Miện)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+5,
+16.6
+],
+[
+"crit_chance_pct",
+"light",
+3,
+4.5
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6863": {
+"piece": "c931 flames_144_l",
+"kind": "small",
+"idea": "★ Corona (Nhật Miện)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6864": {
+"piece": "c931 flames_144_l",
+"kind": "small",
+"idea": "★ Corona (Nhật Miện)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6865": {
+"piece": "c931 flames_144_l",
+"kind": "small",
+"idea": "★ Corona (Nhật Miện)",
+"mods": [
+[
+"attack_pct",
+"light",
+1.2,
+1.8
+]
+]
+},
+"6866": {
+"piece": "c931 flames_144_l",
+"kind": "small",
+"idea": "★ Corona (Nhật Miện)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6867": {
+"piece": "c931 flames_144_l",
+"kind": "small",
+"idea": "★ Corona (Nhật Miện)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6868": {
+"piece": "c931 flames_144_l",
+"kind": "notable",
+"idea": "★ Corona (Nhật Miện)",
+"name": "Ten Suns (Thập Nhật)",
+"mods": [
+[
+"attack_pct",
+"light",
+4,
+6.0
+],
+[
+"crit_chance_pct",
+"light",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6869": {
+"piece": "c931 flames_162_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6870": {
+"piece": "c931 flames_162_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6871": {
+"piece": "c931 flames_162_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6872": {
+"piece": "c931 flames_162_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6873": {
+"piece": "c931 flames_162_r",
+"kind": "notable",
+"idea": null,
+"name": "Flame Point (Diễm Phong)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+4.0,
+4.0
+],
+[
+"attack_pct",
+"light",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6874": {
+"piece": "c931 flames_162_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6875": {
+"piece": "c931 flames_162_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6876": {
+"piece": "c931 flames_162_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6877": {
+"piece": "c931 flames_162_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6878": {
+"piece": "c931 flames_162_l",
+"kind": "notable",
+"idea": null,
+"name": "Flame Point (Diễm Phong)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+4.0,
+4.0
+],
+[
+"attack_pct",
+"light",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6879": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6880": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6881": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6882": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6883": {
+"piece": "c931 tree_A_r",
+"kind": "notable",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"name": "Cleansing Light (Tịnh Quang)",
+"mods": [
+[
+"status_resist_pct",
+"curse",
+4,
+15.0
+],
+[
+"status_resist_pct",
+"poison",
+4,
+20.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6884": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6885": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6886": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"status_resist_pct",
+"curse",
+1.2,
+4.5
+]
+]
+},
+"6887": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"status_resist_pct",
+"curse",
+1.2,
+4.5
+]
+]
+},
+"6888": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6889": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"status_resist_pct",
+"curse",
+1.2,
+4.5
+]
+]
+},
+"6890": {
+"piece": "c931 tree_A_r",
+"kind": "notable",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"name": "Hot Spring Valley (Thang Cốc)",
+"mods": [
+[
+"healing_pct",
+"",
+4,
+8.0
+],
+[
+"status_resist_pct",
+"curse",
+4,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6891": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"status_resist_pct",
+"curse",
+1.2,
+4.5
+]
+]
+},
+"6892": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6893": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6894": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6895": {
+"piece": "c931 tree_A_r",
+"kind": "notable",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"name": "Sun Halo (Nhật Vựng)",
+"mods": [
+[
+"defense_pct",
+"",
+4,
+4.0
+],
+[
+"soul_res_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6896": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"status_resist_pct",
+"curse",
+1.2,
+4.5
+]
+]
+},
+"6897": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"status_resist_pct",
+"curse",
+1.2,
+4.5
+]
+]
+},
+"6898": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6899": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6900": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6901": {
+"piece": "c931 tree_A_r",
+"kind": "notable",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"name": "Golden Light Mantra (Kim Quang Chú)",
+"mods": [
+[
+"healing_pct",
+"",
+4,
+8.0
+],
+[
+"defense_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6902": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6903": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"status_resist_pct",
+"curse",
+1.2,
+4.5
+]
+]
+},
+"6904": {
+"piece": "c931 tree_A_r",
+"kind": "notable",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"name": "Xihe Bathes the Suns (Hi Hòa Dục Nhật)",
+"mods": [
+[
+"healing_pct",
+"",
+5,
+10.0
+],
+[
+"khi_huyet_pct",
+"",
+3,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6905": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6906": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"status_resist_pct",
+"curse",
+1.2,
+4.5
+]
+]
+},
+"6907": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6908": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"status_resist_pct",
+"curse",
+1.2,
+4.5
+]
+]
+},
+"6909": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6910": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6911": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6912": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6913": {
+"piece": "c931 tree_A_r",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"status_resist_pct",
+"curse",
+1.2,
+4.5
+]
+]
+},
+"6914": {
+"piece": "c931 tree_A_r",
+"kind": "notable",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"name": "Gentle Yang (Dương Hòa)",
+"mods": [
+[
+"healing_taken_pct",
+"",
+4,
+8.0
+],
+[
+"healing_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6915": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6916": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6917": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6918": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6919": {
+"piece": "c931 tree_A_l",
+"kind": "notable",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"name": "Cleansing Light (Tịnh Quang)",
+"mods": [
+[
+"status_resist_pct",
+"curse",
+4,
+15.0
+],
+[
+"status_resist_pct",
+"poison",
+4,
+20.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6920": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6921": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6922": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"status_resist_pct",
+"curse",
+1.2,
+4.5
+]
+]
+},
+"6923": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"status_resist_pct",
+"curse",
+1.2,
+4.5
+]
+]
+},
+"6924": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6925": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"status_resist_pct",
+"curse",
+1.2,
+4.5
+]
+]
+},
+"6926": {
+"piece": "c931 tree_A_l",
+"kind": "notable",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"name": "Hot Spring Valley (Thang Cốc)",
+"mods": [
+[
+"healing_pct",
+"",
+4,
+8.0
+],
+[
+"status_resist_pct",
+"curse",
+4,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6927": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"status_resist_pct",
+"curse",
+1.2,
+4.5
+]
+]
+},
+"6928": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6929": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6930": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6931": {
+"piece": "c931 tree_A_l",
+"kind": "notable",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"name": "Sun Halo (Nhật Vựng)",
+"mods": [
+[
+"defense_pct",
+"",
+4,
+4.0
+],
+[
+"soul_res_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6932": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"status_resist_pct",
+"curse",
+1.2,
+4.5
+]
+]
+},
+"6933": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"status_resist_pct",
+"curse",
+1.2,
+4.5
+]
+]
+},
+"6934": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6935": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6936": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6937": {
+"piece": "c931 tree_A_l",
+"kind": "notable",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"name": "Golden Light Mantra (Kim Quang Chú)",
+"mods": [
+[
+"healing_pct",
+"",
+4,
+8.0
+],
+[
+"defense_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6938": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6939": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"status_resist_pct",
+"curse",
+1.2,
+4.5
+]
+]
+},
+"6940": {
+"piece": "c931 tree_A_l",
+"kind": "notable",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"name": "Xihe Bathes the Suns (Hi Hòa Dục Nhật)",
+"mods": [
+[
+"healing_pct",
+"",
+5,
+10.0
+],
+[
+"khi_huyet_pct",
+"",
+3,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6941": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6942": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"status_resist_pct",
+"curse",
+1.2,
+4.5
+]
+]
+},
+"6943": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6944": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"status_resist_pct",
+"curse",
+1.2,
+4.5
+]
+]
+},
+"6945": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6946": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6947": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6948": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6949": {
+"piece": "c931 tree_A_l",
+"kind": "small",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"mods": [
+[
+"status_resist_pct",
+"curse",
+1.2,
+4.5
+]
+]
+},
+"6950": {
+"piece": "c931 tree_A_l",
+"kind": "notable",
+"idea": "L3 Buddha's Halo (Phật Quang)",
+"name": "Gentle Yang (Dương Hòa)",
+"mods": [
+[
+"healing_taken_pct",
+"",
+4,
+8.0
+],
+[
+"healing_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6951": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6952": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6953": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"6954": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6955": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"6956": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6957": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6958": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6959": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"6960": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"6961": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6962": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6963": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"6964": {
+"piece": "c931 tree_B_r",
+"kind": "notable",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"name": "Ecliptic (Hoàng Đạo)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"khi_van",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6965": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6966": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6967": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6968": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6969": {
+"piece": "c931 tree_B_r",
+"kind": "notable",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"name": "Fusang Bough (Phù Tang Chi)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+4,
+3.0
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6970": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"6971": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"6972": {
+"piece": "c931 tree_B_r",
+"kind": "notable",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"name": "Star Gauge (Tinh Quỹ)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"accuracy_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6973": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6974": {
+"piece": "c931 tree_B_r",
+"kind": "notable",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"name": "Celestial Sphere (Thiên Cầu)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"than_thuc_pct",
+"",
+4,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6975": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"6976": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6977": {
+"piece": "c931 tree_B_r",
+"kind": "notable",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"name": "Reading Heaven's Secrets (Thiên Cơ Diễn Toán)",
+"mods": [
+[
+"ngo_tinh",
+"",
+2,
+0.4
+]
+],
+"pending": [],
+"cap": "#18",
+"effect": null,
+"twin_copy": false
+},
+"6978": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6979": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6980": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6981": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6982": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6983": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"6984": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6985": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"6986": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"6987": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6988": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"6989": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6990": {
+"piece": "c931 tree_B_r",
+"kind": "notable",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"name": "Heaven's Clock (Thiên Khắc)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6991": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6992": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6993": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6994": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6995": {
+"piece": "c931 tree_B_r",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"6996": {
+"piece": "c931 tree_B_r",
+"kind": "notable",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"name": "Sun Path (Nhật Đạo)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+5,
+3.8
+],
+[
+"soul_res_pct",
+"",
+3,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6997": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6998": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6999": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"7000": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"7001": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"7002": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"7003": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"7004": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"7005": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"7006": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"7007": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"7008": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"7009": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"7010": {
+"piece": "c931 tree_B_l",
+"kind": "notable",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"name": "Ecliptic (Hoàng Đạo)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"khi_van",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7011": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"7012": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"7013": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"7014": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"7015": {
+"piece": "c931 tree_B_l",
+"kind": "notable",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"name": "Fusang Bough (Phù Tang Chi)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+4,
+3.0
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7016": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"7017": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"7018": {
+"piece": "c931 tree_B_l",
+"kind": "notable",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"name": "Star Gauge (Tinh Quỹ)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"accuracy_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7019": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"7020": {
+"piece": "c931 tree_B_l",
+"kind": "notable",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"name": "Celestial Sphere (Thiên Cầu)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"than_thuc_pct",
+"",
+4,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7021": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"7022": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"7023": {
+"piece": "c931 tree_B_l",
+"kind": "notable",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"name": "Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+5,
+1.0
+],
+[
+"khi_van",
+"",
+3,
+0.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7024": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"7025": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"7026": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"7027": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"7028": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"7029": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"7030": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"7031": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"7032": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"7033": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"7034": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"7035": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"7036": {
+"piece": "c931 tree_B_l",
+"kind": "notable",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"name": "Heaven's Clock (Thiên Khắc)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7037": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"7038": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"7039": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"7040": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"7041": {
+"piece": "c931 tree_B_l",
+"kind": "small",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"7042": {
+"piece": "c931 tree_B_l",
+"kind": "notable",
+"idea": "L1 Armillary Sphere (Hồn Thiên Nghi)",
+"name": "Sun Path (Nhật Đạo)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+5,
+3.8
+],
+[
+"soul_res_pct",
+"",
+3,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7043": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"mission_income_pct",
+"",
+1.2,
+1.7
+]
+]
+},
+"7044": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7045": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7046": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"mission_income_pct",
+"",
+1.2,
+1.7
+]
+]
+},
+"7047": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"mission_income_pct",
+"",
+1.2,
+1.7
+]
+]
+},
+"7048": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7049": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7050": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7051": {
+"piece": "c931 tree_CD_r",
+"kind": "notable",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"name": "Fusang Fruit (Phù Tang Quả)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"lifespan_pct",
+"",
+4,
+1.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7052": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"mission_income_pct",
+"",
+1.2,
+1.7
+]
+]
+},
+"7053": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"mission_income_pct",
+"",
+1.2,
+1.7
+]
+]
+},
+"7054": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7055": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7056": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"mission_income_pct",
+"",
+1.2,
+1.7
+]
+]
+},
+"7057": {
+"piece": "c931 tree_CD_r",
+"kind": "notable",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"name": "Brother Square Hole (Khổng Phương Huynh)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"mission_income_pct",
+"",
+4,
+5.7
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7058": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7059": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7060": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7061": {
+"piece": "c931 tree_CD_r",
+"kind": "notable",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"name": "Child of Fortune (Khí Vận Chi Tử)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": "#19",
+"effect": null,
+"twin_copy": false
+},
+"7062": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7063": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7064": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7065": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7066": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"mission_income_pct",
+"",
+1.2,
+1.7
+]
+]
+},
+"7067": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7068": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7069": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"mission_income_pct",
+"",
+1.2,
+1.7
+]
+]
+},
+"7070": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7071": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7072": {
+"piece": "c931 tree_CD_r",
+"kind": "notable",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"name": "Lucky Day (Cát Nhật)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"co_duyen_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7073": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7074": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"mission_income_pct",
+"",
+1.2,
+1.7
+]
+]
+},
+"7075": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"mission_income_pct",
+"",
+1.2,
+1.7
+]
+]
+},
+"7076": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7077": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7078": {
+"piece": "c931 tree_CD_r",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7079": {
+"piece": "c931 tree_CD_r",
+"kind": "notable",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"name": "Merchant's Luck (Thương Vận)",
+"mods": [
+[
+"mission_income_pct",
+"",
+4,
+5.7
+],
+[
+"mi_luc",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7080": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"mission_income_pct",
+"",
+1.2,
+1.7
+]
+]
+},
+"7081": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7082": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7083": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"mission_income_pct",
+"",
+1.2,
+1.7
+]
+]
+},
+"7084": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"mission_income_pct",
+"",
+1.2,
+1.7
+]
+]
+},
+"7085": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7086": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7087": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7088": {
+"piece": "c931 tree_CD_l",
+"kind": "notable",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"name": "Fusang Fruit (Phù Tang Quả)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"lifespan_pct",
+"",
+4,
+1.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7089": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"mission_income_pct",
+"",
+1.2,
+1.7
+]
+]
+},
+"7090": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"mission_income_pct",
+"",
+1.2,
+1.7
+]
+]
+},
+"7091": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7092": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7093": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"mission_income_pct",
+"",
+1.2,
+1.7
+]
+]
+},
+"7094": {
+"piece": "c931 tree_CD_l",
+"kind": "notable",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"name": "Brother Square Hole (Khổng Phương Huynh)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"mission_income_pct",
+"",
+4,
+5.7
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7095": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7096": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7097": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7098": {
+"piece": "c931 tree_CD_l",
+"kind": "notable",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"name": "Heaven's Favourite (Thiên Sủng)",
+"mods": [
+[
+"khi_van",
+"",
+5,
+1.0
+],
+[
+"mission_income_pct",
+"",
+3,
+4.2
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7099": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7100": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7101": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7102": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7103": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"mission_income_pct",
+"",
+1.2,
+1.7
+]
+]
+},
+"7104": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7105": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7106": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"mission_income_pct",
+"",
+1.2,
+1.7
+]
+]
+},
+"7107": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7108": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7109": {
+"piece": "c931 tree_CD_l",
+"kind": "notable",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"name": "Lucky Day (Cát Nhật)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"co_duyen_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7110": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7111": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"mission_income_pct",
+"",
+1.2,
+1.7
+]
+]
+},
+"7112": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"mission_income_pct",
+"",
+1.2,
+1.7
+]
+]
+},
+"7113": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7114": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7115": {
+"piece": "c931 tree_CD_l",
+"kind": "small",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"7116": {
+"piece": "c931 tree_CD_l",
+"kind": "notable",
+"idea": "L2 Fortune Coin (Khí Vận Tiền)",
+"name": "Merchant's Luck (Thương Vận)",
+"mods": [
+[
+"mission_income_pct",
+"",
+4,
+5.7
+],
+[
+"mi_luc",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7117": {
+"piece": "c931 tree_D_arm_r",
+"kind": "notable",
+"idea": null,
+"name": "Fusang Leaf (Phù Tang Diệp)",
+"mods": [
+[
+"healing_pct",
+"",
+4.0,
+8.0
+],
+[
+"cultivation_speed_pct",
+"",
+4.0,
+1.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7118": {
+"piece": "c931 tree_D_arm_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"7119": {
+"piece": "c931 tree_D_arm_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"7120": {
+"piece": "c931 tree_D_arm_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"7121": {
+"piece": "c931 tree_D_arm_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"7122": {
+"piece": "c931 tree_D_arm_l",
+"kind": "notable",
+"idea": null,
+"name": "Fusang Leaf (Phù Tang Diệp)",
+"mods": [
+[
+"healing_pct",
+"",
+4.0,
+8.0
+],
+[
+"cultivation_speed_pct",
+"",
+4.0,
+1.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7123": {
+"piece": "c931 tree_D_arm_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"7124": {
+"piece": "c931 tree_D_arm_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"7125": {
+"piece": "c931 tree_D_arm_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"7126": {
+"piece": "c931 tree_D_arm_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"7127": {
+"piece": "c931 tree_E_r",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7128": {
+"piece": "c931 tree_E_r",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7129": {
+"piece": "c931 tree_E_r",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7130": {
+"piece": "c931 tree_E_r",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7131": {
+"piece": "c931 tree_E_r",
+"kind": "notable",
+"idea": "★ Rising Sun (Húc Nhật)",
+"name": "Bathing in Light (Dục Quang)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"healing_taken_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7132": {
+"piece": "c931 tree_E_r",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7133": {
+"piece": "c931 tree_E_r",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7134": {
+"piece": "c931 tree_E_r",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7135": {
+"piece": "c931 tree_E_r",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7136": {
+"piece": "c931 tree_E_r",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7137": {
+"piece": "c931 tree_E_r",
+"kind": "notable",
+"idea": "★ Rising Sun (Húc Nhật)",
+"name": "Morning Qi (Triêu Khí)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7138": {
+"piece": "c931 tree_E_r",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7139": {
+"piece": "c931 tree_E_r",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7140": {
+"piece": "c931 tree_E_r",
+"kind": "notable",
+"idea": "★ Rising Sun (Húc Nhật)",
+"name": "Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+5,
+2.2
+],
+[
+"health_regen_inc_pct",
+"",
+3,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7141": {
+"piece": "c931 tree_E_r",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7142": {
+"piece": "c931 tree_E_r",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7143": {
+"piece": "c931 tree_E_r",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7144": {
+"piece": "c931 tree_E_r",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7145": {
+"piece": "c931 tree_E_r",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7146": {
+"piece": "c931 tree_E_r",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7147": {
+"piece": "c931 tree_E_r",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7148": {
+"piece": "c931 tree_E_r",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7149": {
+"piece": "c931 tree_E_r",
+"kind": "notable",
+"idea": "★ Rising Sun (Húc Nhật)",
+"name": "Yang Fire (Dương Hỏa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+],
+[
+"than_hon",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7150": {
+"piece": "c931 tree_E_r",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7151": {
+"piece": "c931 tree_E_r",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7152": {
+"piece": "c931 tree_E_r",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7153": {
+"piece": "c931 tree_E_r",
+"kind": "notable",
+"idea": "★ Rising Sun (Húc Nhật)",
+"name": "Sunrise Bough (Húc Chi)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"health_regen_pct",
+"",
+4,
+0.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7154": {
+"piece": "c931 tree_E_r",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7155": {
+"piece": "c931 tree_E_l",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7156": {
+"piece": "c931 tree_E_l",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7157": {
+"piece": "c931 tree_E_l",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7158": {
+"piece": "c931 tree_E_l",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7159": {
+"piece": "c931 tree_E_l",
+"kind": "notable",
+"idea": "★ Rising Sun (Húc Nhật)",
+"name": "Bathing in Light (Dục Quang)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"healing_taken_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7160": {
+"piece": "c931 tree_E_l",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7161": {
+"piece": "c931 tree_E_l",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7162": {
+"piece": "c931 tree_E_l",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7163": {
+"piece": "c931 tree_E_l",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7164": {
+"piece": "c931 tree_E_l",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7165": {
+"piece": "c931 tree_E_l",
+"kind": "notable",
+"idea": "★ Rising Sun (Húc Nhật)",
+"name": "Morning Qi (Triêu Khí)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7166": {
+"piece": "c931 tree_E_l",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7167": {
+"piece": "c931 tree_E_l",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7168": {
+"piece": "c931 tree_E_l",
+"kind": "notable",
+"idea": "★ Rising Sun (Húc Nhật)",
+"name": "Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+5,
+2.2
+],
+[
+"health_regen_inc_pct",
+"",
+3,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7169": {
+"piece": "c931 tree_E_l",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7170": {
+"piece": "c931 tree_E_l",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7171": {
+"piece": "c931 tree_E_l",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7172": {
+"piece": "c931 tree_E_l",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7173": {
+"piece": "c931 tree_E_l",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7174": {
+"piece": "c931 tree_E_l",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7175": {
+"piece": "c931 tree_E_l",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7176": {
+"piece": "c931 tree_E_l",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7177": {
+"piece": "c931 tree_E_l",
+"kind": "notable",
+"idea": "★ Rising Sun (Húc Nhật)",
+"name": "Yang Fire (Dương Hỏa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+],
+[
+"than_hon",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7178": {
+"piece": "c931 tree_E_l",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7179": {
+"piece": "c931 tree_E_l",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7180": {
+"piece": "c931 tree_E_l",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7181": {
+"piece": "c931 tree_E_l",
+"kind": "notable",
+"idea": "★ Rising Sun (Húc Nhật)",
+"name": "Sunrise Bough (Húc Chi)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"health_regen_pct",
+"",
+4,
+0.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7182": {
+"piece": "c931 tree_E_l",
+"kind": "small",
+"idea": "★ Rising Sun (Húc Nhật)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8994": {
+"piece": "c931 keystone_gate_R",
+"kind": "keystone",
+"name": "Heaven's Eye (Thiên Nhãn)",
+"effect": "Heaven's Eye (Thiên Nhãn)",
+"closes": "ward strength -30 %",
+"mods": [
+[
+"crit_chance_pct",
+"",
+25,
+25.0
+],
+[
+"attack_pct",
+"light",
+25,
+37.5
+]
+]
+},
+"8995": {
+"piece": "c931 keystone_gate_L",
+"kind": "keystone",
+"name": "Sun That Never Sets (Bất Lạc Nhật)",
+"effect": "Sun That Never Sets (Bất Lạc Nhật)",
+"closes": "no stealth; Concealed Breath cannot be held; heart-demon resistance -30 %",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+30,
+13.6
+],
+[
+"lifespan_pct",
+"",
+20,
+6.6
+]
+]
+}
+}
+}

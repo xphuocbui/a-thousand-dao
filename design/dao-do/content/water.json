@@ -1,0 +1,15223 @@
+{
+"map": "v5-frozen-2026-11-19",
+"map_sha256": "dbdfd5dcd10b49f843c597b48e169aec86153793382986f29a46dea3247eaa96",
+"area": "water",
+"nodes": {
+"739": {
+"piece": "base4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"740": {
+"piece": "base4",
+"kind": "notable",
+"idea": null,
+"name": "Wellspring (Thủy Nguyên)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"attack_pct",
+"thuy",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"741": {
+"piece": "base4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"742": {
+"piece": "base4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"743": {
+"piece": "base4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"744": {
+"piece": "base4",
+"kind": "notable",
+"idea": null,
+"name": "Flowing Thought (Lưu Tư)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"745": {
+"piece": "base4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"746": {
+"piece": "base4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"747": {
+"piece": "base4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"748": {
+"piece": "base4",
+"kind": "notable",
+"idea": null,
+"name": "Calm Pool (Tĩnh Trì)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"749": {
+"piece": "base4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"750": {
+"piece": "base4",
+"kind": "notable",
+"idea": null,
+"name": "Water Root (Thủy Căn)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+4,
+6.0
+],
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"751": {
+"piece": "base4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"752": {
+"piece": "base4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"753": {
+"piece": "base4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"754": {
+"piece": "base4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"755": {
+"piece": "base4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"756": {
+"piece": "base4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"757": {
+"piece": "base5",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"bang",
+1.2,
+2.4
+]
+]
+},
+"758": {
+"piece": "base5",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"bang",
+1.2,
+2.4
+]
+]
+},
+"759": {
+"piece": "base5",
+"kind": "notable",
+"idea": null,
+"name": "First Frost (Sơ Sương)",
+"mods": [
+[
+"attack_pct",
+"bang",
+4,
+8.0
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"760": {
+"piece": "base5",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"bang",
+1.2,
+2.4
+]
+]
+},
+"761": {
+"piece": "base5",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"bang",
+1.2,
+2.4
+]
+]
+},
+"762": {
+"piece": "base5",
+"kind": "notable",
+"idea": null,
+"name": "Cold Root (Hàn Căn)",
+"mods": [
+[
+"resist_pct",
+"cold",
+4,
+150
+],
+[
+"attack_pct",
+"bang",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"763": {
+"piece": "base5",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"bang",
+1.2,
+2.4
+]
+]
+},
+"764": {
+"piece": "base5",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"bang",
+1.2,
+2.4
+]
+]
+},
+"765": {
+"piece": "base5",
+"kind": "notable",
+"idea": null,
+"name": "Still Ice (Tĩnh Băng)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"resist_pct",
+"cold",
+4,
+150
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"766": {
+"piece": "base5",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"bang",
+1.2,
+2.4
+]
+]
+},
+"767": {
+"piece": "base5",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"bang",
+1.2,
+2.4
+]
+]
+},
+"768": {
+"piece": "base5",
+"kind": "notable",
+"idea": null,
+"name": "Frost Seed (Sương Chủng)",
+"mods": [
+[
+"attack_pct",
+"bang",
+4,
+8.0
+],
+[
+"stack_effect_pct",
+"bang,debuff",
+4,
+20.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"769": {
+"piece": "base5",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"bang",
+1.2,
+2.4
+]
+]
+},
+"770": {
+"piece": "base5",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"bang",
+1.2,
+2.4
+]
+]
+},
+"771": {
+"piece": "base5",
+"kind": "notable",
+"idea": null,
+"name": "Frost Breath (Sương Tức)",
+"mods": [
+[
+"attack_pct",
+"cold",
+4,
+6.0
+],
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"772": {
+"piece": "base5",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"bang",
+1.2,
+2.4
+]
+]
+},
+"773": {
+"piece": "base5",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"bang",
+1.2,
+2.4
+]
+]
+},
+"774": {
+"piece": "base5",
+"kind": "notable",
+"idea": null,
+"name": "Ice Root (Băng Căn)",
+"mods": [
+[
+"attack_pct",
+"bang",
+5,
+10.0
+],
+[
+"crit_chance_pct",
+"cold",
+3,
+4.5
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"1443": {
+"piece": "base14",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"1444": {
+"piece": "base14",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"1445": {
+"piece": "base14",
+"kind": "notable",
+"idea": null,
+"name": "Water Seal (Thủy Ấn)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"attack_pct",
+"thuy",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"1446": {
+"piece": "base14",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"1447": {
+"piece": "base14",
+"kind": "notable",
+"idea": null,
+"name": "Heart Spring (Tâm Tuyền)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"1448": {
+"piece": "base14",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"1979": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"1980": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"1981": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"1982": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"1983": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"1984": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"1987": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"1988": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"1989": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"1990": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"4788": {
+"piece": "c91 wave_trough",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4789": {
+"piece": "c91 wave_trough",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4790": {
+"piece": "c91 wave_trough",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4791": {
+"piece": "c91 wave_trough",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4792": {
+"piece": "c91 wave_trough",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4793": {
+"piece": "c91 wave_trough",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4794": {
+"piece": "c91 wave_trough",
+"kind": "notable",
+"idea": null,
+"name": "Lull (Lãng Tĩnh)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4795": {
+"piece": "c91 lotus_petal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"4796": {
+"piece": "c91 lotus_petal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"4797": {
+"piece": "c91 lotus_petal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"4798": {
+"piece": "c91 lotus_petal",
+"kind": "notable",
+"idea": null,
+"name": "Lotus Petal (Liên Biện)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4.0,
+0.8
+],
+[
+"soul_res_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4799": {
+"piece": "c91 meniscus",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"reserve_eff_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4800": {
+"piece": "c91 meniscus",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"reserve_eff_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4801": {
+"piece": "c91 meniscus",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"reserve_eff_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4802": {
+"piece": "c91 meniscus",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"reserve_eff_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4803": {
+"piece": "c91 meniscus",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"reserve_eff_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4804": {
+"piece": "c91 meniscus",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"reserve_eff_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4805": {
+"piece": "c91 meniscus",
+"kind": "notable",
+"idea": null,
+"name": "Brimming Cup (Mãn Bôi)",
+"mods": [
+[
+"reserve_eff_pct",
+"",
+4,
+5.0
+],
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4806": {
+"piece": "c91 meniscus",
+"kind": "notable",
+"idea": null,
+"name": "Water Film (Thủy Mô)",
+"mods": [
+[
+"reserve_eff_pct",
+"",
+4,
+5.0
+],
+[
+"defense_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4807": {
+"piece": "c91 halo",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4808": {
+"piece": "c91 halo",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4809": {
+"piece": "c91 halo",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4810": {
+"piece": "c91 halo",
+"kind": "notable",
+"idea": null,
+"name": "Water Halo (Thủy Quang)",
+"mods": [
+[
+"soul_res_pct",
+"",
+4,
+6.6
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4811": {
+"piece": "c91 halo",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4812": {
+"piece": "c91 halo",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4813": {
+"piece": "c91 halo",
+"kind": "notable",
+"idea": null,
+"name": "Pale Moonlight (Đạm Nguyệt)",
+"mods": [
+[
+"soul_res_pct",
+"",
+4,
+6.6
+],
+[
+"defense_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4814": {
+"piece": "c91 D_drop",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4815": {
+"piece": "c91 D_drop",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4816": {
+"piece": "c91 D_drop",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4817": {
+"piece": "c91 D_drop",
+"kind": "notable",
+"idea": null,
+"name": "Willow-Branch Water (Dương Chi Thủy)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+4.0,
+13.3
+],
+[
+"healing_pct",
+"",
+4.0,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4818": {
+"piece": "c91 Z91_1867",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4819": {
+"piece": "c91 Z91_1867",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4820": {
+"piece": "c91 Z91_1867",
+"kind": "notable",
+"idea": null,
+"name": "Pale Ink (Đạm Mặc)",
+"mods": [
+[
+"soul_res_pct",
+"",
+4.0,
+6.6
+],
+[
+"ngo_tinh",
+"",
+4.0,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4821": {
+"piece": "c76 wave_crest",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4822": {
+"piece": "c76 wave_crest",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4823": {
+"piece": "c76 wave_crest",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4824": {
+"piece": "c76 wave_crest",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4825": {
+"piece": "c76 wave_crest",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4826": {
+"piece": "c76 wave_crest",
+"kind": "notable",
+"idea": null,
+"name": "Abyssal Spring (Uyên Tuyền)",
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+4,
+5.0
+],
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4827": {
+"piece": "c76 eddy",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4828": {
+"piece": "c76 eddy",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4829": {
+"piece": "c76 eddy",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4830": {
+"piece": "c76 eddy",
+"kind": "notable",
+"idea": null,
+"name": "Ink Pool (Mặc Trì)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+4,
+3.0
+],
+[
+"attack_pct",
+"talisman",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4831": {
+"piece": "c76 eddy",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4832": {
+"piece": "c76 eddy",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4833": {
+"piece": "c76 eddy",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4834": {
+"piece": "c76 eddy",
+"kind": "notable",
+"idea": null,
+"name": "Cursive Script (Thảo Thư)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+4,
+3.0
+],
+[
+"art_speed_pct",
+"talisman",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4835": {
+"piece": "c76 braid",
+"kind": "small",
+"idea": "W1 Brush and Inkstone (Bút Nghiên)",
+"mods": [
+[
+"attack_pct",
+"talisman",
+1.2,
+1.8
+]
+]
+},
+"4836": {
+"piece": "c76 braid",
+"kind": "notable",
+"idea": "W1 Brush and Inkstone (Bút Nghiên)",
+"name": "Ink Stick (Mặc Đĩnh)",
+"mods": [
+[
+"attack_pct",
+"talisman",
+4,
+6.0
+],
+[
+"art_speed_pct",
+"talisman",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4837": {
+"piece": "c76 braid",
+"kind": "small",
+"idea": "W1 Brush and Inkstone (Bút Nghiên)",
+"mods": [
+[
+"art_speed_pct",
+"talisman",
+1.2,
+3.0
+]
+]
+},
+"4838": {
+"piece": "c76 braid",
+"kind": "notable",
+"idea": "W1 Brush and Inkstone (Bút Nghiên)",
+"name": "Endless Talismans (Phù Lục Bất Tận)",
+"mods": [
+[
+"attack_pct",
+"talisman",
+2,
+3.0
+]
+],
+"pending": [],
+"cap": "#13",
+"effect": null,
+"twin_copy": false
+},
+"4839": {
+"piece": "c76 braid",
+"kind": "small",
+"idea": "W1 Brush and Inkstone (Bút Nghiên)",
+"mods": [
+[
+"attack_pct",
+"talisman",
+1.2,
+1.8
+]
+]
+},
+"4840": {
+"piece": "c76 braid",
+"kind": "small",
+"idea": "W1 Brush and Inkstone (Bút Nghiên)",
+"mods": [
+[
+"art_speed_pct",
+"talisman",
+1.2,
+3.0
+]
+]
+},
+"4841": {
+"piece": "c76 braid",
+"kind": "small",
+"idea": "W1 Brush and Inkstone (Bút Nghiên)",
+"mods": [
+[
+"attack_pct",
+"talisman",
+1.2,
+1.8
+]
+]
+},
+"4842": {
+"piece": "c76 braid",
+"kind": "small",
+"idea": "W1 Brush and Inkstone (Bút Nghiên)",
+"mods": [
+[
+"attack_pct",
+"talisman",
+1.2,
+1.8
+]
+]
+},
+"4843": {
+"piece": "c76 braid",
+"kind": "notable",
+"idea": "W1 Brush and Inkstone (Bút Nghiên)",
+"name": "Long Brush (Trường Bút)",
+"mods": [
+[
+"attack_pct",
+"talisman",
+4,
+6.0
+],
+[
+"than_thuc_pct",
+"",
+4,
+3.0
+]
+],
+"pending": [
+[
+"talisman_power_pct",
+"",
+3
+]
+],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4844": {
+"piece": "c76 braid",
+"kind": "small",
+"idea": "W1 Brush and Inkstone (Bút Nghiên)",
+"mods": [
+[
+"attack_pct",
+"talisman",
+1.2,
+1.8
+]
+]
+},
+"4845": {
+"piece": "c76 Z76_1880",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"talisman",
+1.2,
+3.0
+]
+]
+},
+"4846": {
+"piece": "c76 Z76_1880",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"talisman",
+1.2,
+3.0
+]
+]
+},
+"4847": {
+"piece": "c76 Z76_1880",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"talisman",
+1.2,
+3.0
+]
+]
+},
+"4848": {
+"piece": "c76 Z76_1880",
+"kind": "notable",
+"idea": null,
+"name": "Running Script (Hành Thư)",
+"mods": [
+[
+"art_speed_pct",
+"talisman",
+4.0,
+10.0
+],
+[
+"attack_pct",
+"talisman",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4849": {
+"piece": "c76 Z76_1867",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"talisman",
+1.2,
+1.8
+]
+]
+},
+"4850": {
+"piece": "c76 Z76_1867",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"talisman",
+1.2,
+1.8
+]
+]
+},
+"4851": {
+"piece": "c76 Z76_1867",
+"kind": "notable",
+"idea": null,
+"name": "Ink Trace (Mặc Ngân)",
+"mods": [
+[
+"attack_pct",
+"talisman",
+4.0,
+6.0
+],
+[
+"than_thuc_pct",
+"",
+4.0,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4852": {
+"piece": "c86 wave_trough",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4853": {
+"piece": "c86 wave_trough",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4854": {
+"piece": "c86 wave_trough",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4855": {
+"piece": "c86 wave_trough",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4856": {
+"piece": "c86 wave_trough",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4857": {
+"piece": "c86 wave_trough",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4858": {
+"piece": "c86 wave_trough",
+"kind": "notable",
+"idea": null,
+"name": "Lull (Lãng Tĩnh)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4859": {
+"piece": "c86 lotus_petal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"4860": {
+"piece": "c86 lotus_petal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"4861": {
+"piece": "c86 lotus_petal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"4862": {
+"piece": "c86 lotus_petal",
+"kind": "notable",
+"idea": null,
+"name": "Lotus Petal (Liên Biện)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4.0,
+0.8
+],
+[
+"soul_res_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4863": {
+"piece": "c86 meniscus",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"reserve_eff_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4864": {
+"piece": "c86 meniscus",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"reserve_eff_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4865": {
+"piece": "c86 meniscus",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"reserve_eff_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4866": {
+"piece": "c86 meniscus",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"reserve_eff_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4867": {
+"piece": "c86 meniscus",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"reserve_eff_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4868": {
+"piece": "c86 meniscus",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"reserve_eff_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4869": {
+"piece": "c86 meniscus",
+"kind": "notable",
+"idea": null,
+"name": "Brimming Cup (Mãn Bôi)",
+"mods": [
+[
+"reserve_eff_pct",
+"",
+4,
+5.0
+],
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4870": {
+"piece": "c86 meniscus",
+"kind": "notable",
+"idea": null,
+"name": "Water Film (Thủy Mô)",
+"mods": [
+[
+"reserve_eff_pct",
+"",
+4,
+5.0
+],
+[
+"defense_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4871": {
+"piece": "c86 halo",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4872": {
+"piece": "c86 halo",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4873": {
+"piece": "c86 halo",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4874": {
+"piece": "c86 halo",
+"kind": "notable",
+"idea": null,
+"name": "Water Halo (Thủy Quang)",
+"mods": [
+[
+"soul_res_pct",
+"",
+4,
+6.6
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4875": {
+"piece": "c86 halo",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4876": {
+"piece": "c86 halo",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4877": {
+"piece": "c86 halo",
+"kind": "notable",
+"idea": null,
+"name": "Pale Moonlight (Đạm Nguyệt)",
+"mods": [
+[
+"soul_res_pct",
+"",
+4,
+6.6
+],
+[
+"defense_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4878": {
+"piece": "c86 D_drop",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4879": {
+"piece": "c86 D_drop",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4880": {
+"piece": "c86 D_drop",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4881": {
+"piece": "c86 D_drop",
+"kind": "notable",
+"idea": null,
+"name": "Willow-Branch Water (Dương Chi Thủy)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+4.0,
+13.3
+],
+[
+"healing_pct",
+"",
+4.0,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4882": {
+"piece": "c86 Z86_1874",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4883": {
+"piece": "c86 Z86_1874",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4884": {
+"piece": "c86 Z86_1874",
+"kind": "notable",
+"idea": null,
+"name": "Thick Ink (Nùng Mặc)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+4.0,
+4.0
+],
+[
+"reserve_eff_pct",
+"",
+4.0,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4885": {
+"piece": "c86 Z86_1894",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"4886": {
+"piece": "c86 Z86_1894",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"4887": {
+"piece": "c86 Z86_1894",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"4888": {
+"piece": "c86 Z86_1894",
+"kind": "notable",
+"idea": null,
+"name": "Walking on Water (Đạp Thủy)",
+"mods": [
+[
+"evade_pct",
+"",
+4.0,
+2.6
+],
+[
+"reserve_eff_pct",
+"",
+4.0,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4889": {
+"piece": "c69 wave_crest",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4890": {
+"piece": "c69 wave_crest",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4891": {
+"piece": "c69 wave_crest",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4892": {
+"piece": "c69 wave_crest",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4893": {
+"piece": "c69 wave_crest",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4894": {
+"piece": "c69 wave_crest",
+"kind": "notable",
+"idea": null,
+"name": "Abyssal Spring (Uyên Tuyền)",
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+4,
+5.0
+],
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4895": {
+"piece": "c69 eddy",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4896": {
+"piece": "c69 eddy",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4897": {
+"piece": "c69 eddy",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4898": {
+"piece": "c69 eddy",
+"kind": "notable",
+"idea": null,
+"name": "Ink Pool (Mặc Trì)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+4,
+3.0
+],
+[
+"attack_pct",
+"talisman",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4899": {
+"piece": "c69 eddy",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4900": {
+"piece": "c69 eddy",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4901": {
+"piece": "c69 eddy",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4902": {
+"piece": "c69 eddy",
+"kind": "notable",
+"idea": null,
+"name": "Cursive Script (Thảo Thư)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+4,
+3.0
+],
+[
+"art_speed_pct",
+"talisman",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4903": {
+"piece": "c69 pearl",
+"kind": "small",
+"idea": "W7 Black Abyss (Huyền Uyên)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4904": {
+"piece": "c69 pearl",
+"kind": "small",
+"idea": "W7 Black Abyss (Huyền Uyên)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4905": {
+"piece": "c69 pearl",
+"kind": "small",
+"idea": "W7 Black Abyss (Huyền Uyên)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4906": {
+"piece": "c69 pearl",
+"kind": "small",
+"idea": "W7 Black Abyss (Huyền Uyên)",
+"mods": [
+[
+"reserve_eff_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4907": {
+"piece": "c69 pearl",
+"kind": "notable",
+"idea": "W7 Black Abyss (Huyền Uyên)",
+"name": "Deep Pearl (Thâm Châu)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+],
+[
+"reserve_eff_pct",
+"",
+4,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4908": {
+"piece": "c69 pearl",
+"kind": "small",
+"idea": "W7 Black Abyss (Huyền Uyên)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4909": {
+"piece": "c69 pearl",
+"kind": "notable",
+"idea": "W7 Black Abyss (Huyền Uyên)",
+"name": "Dark Water (Hắc Thủy)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+],
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4910": {
+"piece": "c69 pearl",
+"kind": "notable",
+"idea": "W7 Black Abyss (Huyền Uyên)",
+"name": "Heavy Water (Trọng Thủy)",
+"mods": [
+[
+"reserve_eff_pct",
+"",
+4,
+5.0
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4911": {
+"piece": "c69 pearl",
+"kind": "small",
+"idea": "W7 Black Abyss (Huyền Uyên)",
+"mods": [
+[
+"reserve_eff_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4912": {
+"piece": "c69 pearl",
+"kind": "notable",
+"idea": "W7 Black Abyss (Huyền Uyên)",
+"name": "Black Abyss (Huyền Uyên)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+5,
+5.0
+],
+[
+"linh_luc_regen_inc_pct",
+"",
+3,
+3.7
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4913": {
+"piece": "c69 Z69_1890",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4914": {
+"piece": "c69 Z69_1890",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4915": {
+"piece": "c69 Z69_1890",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4916": {
+"piece": "c69 Z69_1890",
+"kind": "notable",
+"idea": null,
+"name": "Black Pool (Hắc Đàm)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+4.0,
+4.0
+],
+[
+"linh_luc_regen_inc_pct",
+"",
+4.0,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4917": {
+"piece": "c69 Z69_1874",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"reserve_eff_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4918": {
+"piece": "c69 Z69_1874",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"reserve_eff_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4919": {
+"piece": "c69 Z69_1874",
+"kind": "notable",
+"idea": null,
+"name": "Sunken Depths (Trầm Uyên)",
+"mods": [
+[
+"reserve_eff_pct",
+"",
+4.0,
+5.0
+],
+[
+"linh_luc_pct",
+"",
+4.0,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4920": {
+"piece": "c11 whirlpool",
+"kind": "small",
+"idea": "W6 Whirlpool (Tuyền Qua)",
+"mods": [
+[
+"leech_linh_luc_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"4921": {
+"piece": "c11 whirlpool",
+"kind": "small",
+"idea": "W6 Whirlpool (Tuyền Qua)",
+"mods": [
+[
+"leech_linh_luc_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"4922": {
+"piece": "c11 whirlpool",
+"kind": "small",
+"idea": "W6 Whirlpool (Tuyền Qua)",
+"mods": [
+[
+"linh_luc_on_hit_pct",
+"",
+1.2,
+0.028
+]
+]
+},
+"4923": {
+"piece": "c11 whirlpool",
+"kind": "small",
+"idea": "W6 Whirlpool (Tuyền Qua)",
+"mods": [
+[
+"leech_linh_luc_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"4924": {
+"piece": "c11 whirlpool",
+"kind": "small",
+"idea": "W6 Whirlpool (Tuyền Qua)",
+"mods": [
+[
+"leech_linh_luc_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"4925": {
+"piece": "c11 whirlpool",
+"kind": "small",
+"idea": "W6 Whirlpool (Tuyền Qua)",
+"mods": [
+[
+"linh_luc_on_hit_pct",
+"",
+1.2,
+0.028
+]
+]
+},
+"4926": {
+"piece": "c11 whirlpool",
+"kind": "notable",
+"idea": "W6 Whirlpool (Tuyền Qua)",
+"name": "Eddy (Hồi Toàn)",
+"mods": [
+[
+"leech_linh_luc_pct",
+"",
+4,
+2.7
+],
+[
+"linh_luc_on_hit_pct",
+"",
+4,
+0.095
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4927": {
+"piece": "c11 whirlpool",
+"kind": "small",
+"idea": "W6 Whirlpool (Tuyền Qua)",
+"mods": [
+[
+"leech_linh_luc_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"4928": {
+"piece": "c11 whirlpool",
+"kind": "small",
+"idea": "W6 Whirlpool (Tuyền Qua)",
+"mods": [
+[
+"leech_linh_luc_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"4929": {
+"piece": "c11 whirlpool",
+"kind": "small",
+"idea": "W6 Whirlpool (Tuyền Qua)",
+"mods": [
+[
+"linh_luc_on_hit_pct",
+"",
+1.2,
+0.028
+]
+]
+},
+"4930": {
+"piece": "c11 whirlpool",
+"kind": "small",
+"idea": "W6 Whirlpool (Tuyền Qua)",
+"mods": [
+[
+"leech_linh_luc_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"4931": {
+"piece": "c11 whirlpool",
+"kind": "small",
+"idea": "W6 Whirlpool (Tuyền Qua)",
+"mods": [
+[
+"leech_linh_luc_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"4932": {
+"piece": "c11 whirlpool",
+"kind": "notable",
+"idea": "W6 Whirlpool (Tuyền Qua)",
+"name": "Whirlpool (Tuyền Qua)",
+"mods": [
+[
+"leech_linh_luc_pct",
+"",
+5,
+3.4
+],
+[
+"linh_luc_on_hit_pct",
+"thuy",
+3,
+0.107
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4933": {
+"piece": "c11 lotus_petal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"4934": {
+"piece": "c11 lotus_petal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"4935": {
+"piece": "c11 lotus_petal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"4936": {
+"piece": "c11 lotus_petal",
+"kind": "notable",
+"idea": null,
+"name": "River Lotus (Hà Liên)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4.0,
+1.8
+],
+[
+"ngo_tinh",
+"",
+4.0,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4937": {
+"piece": "c11 pond",
+"kind": "small",
+"idea": "B5 Mirror Lake (Kính Hồ)",
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4938": {
+"piece": "c11 pond",
+"kind": "small",
+"idea": "B5 Mirror Lake (Kính Hồ)",
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4939": {
+"piece": "c11 pond",
+"kind": "small",
+"idea": "B5 Mirror Lake (Kính Hồ)",
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4940": {
+"piece": "c11 pond",
+"kind": "notable",
+"idea": "B5 Mirror Lake (Kính Hồ)",
+"name": "Reflected Moon (Thủy Nguyệt)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"evade_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4941": {
+"piece": "c11 pond",
+"kind": "small",
+"idea": "B5 Mirror Lake (Kính Hồ)",
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4942": {
+"piece": "c11 pond",
+"kind": "small",
+"idea": "B5 Mirror Lake (Kính Hồ)",
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4943": {
+"piece": "c11 pond",
+"kind": "notable",
+"idea": "B5 Mirror Lake (Kính Hồ)",
+"name": "Still Pond (Tĩnh Đường)",
+"mods": [
+[
+"soul_res_pct",
+"",
+4,
+6.6
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4944": {
+"piece": "c11 pond",
+"kind": "small",
+"idea": "B5 Mirror Lake (Kính Hồ)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"4945": {
+"piece": "c11 pond",
+"kind": "small",
+"idea": "B5 Mirror Lake (Kính Hồ)",
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4946": {
+"piece": "c11 pond",
+"kind": "small",
+"idea": "B5 Mirror Lake (Kính Hồ)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"4947": {
+"piece": "c11 pond",
+"kind": "notable",
+"idea": "B5 Mirror Lake (Kính Hồ)",
+"name": "Mirror Lake (Kính Hồ)",
+"mods": [
+[
+"soul_res_pct",
+"",
+4,
+6.6
+],
+[
+"evade_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": "Reflection (Phản Chiếu)",
+"twin_copy": false
+},
+"4948": {
+"piece": "c11 pond",
+"kind": "small",
+"idea": "B5 Mirror Lake (Kính Hồ)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"4949": {
+"piece": "c11 current",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"4950": {
+"piece": "c11 current",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"4951": {
+"piece": "c11 current",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"4952": {
+"piece": "c11 current",
+"kind": "notable",
+"idea": null,
+"name": "Rapids (Cấp Lưu)",
+"mods": [
+[
+"evade_pct",
+"",
+4,
+2.6
+],
+[
+"leech_linh_luc_pct",
+"",
+4,
+2.7
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4953": {
+"piece": "c11 current",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"4954": {
+"piece": "c11 current",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"4955": {
+"piece": "c11 current",
+"kind": "notable",
+"idea": null,
+"name": "Fish Through the Net (Lậu Võng Ngư)",
+"mods": [
+[
+"evade_pct",
+"",
+4,
+2.6
+],
+[
+"escape_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4956": {
+"piece": "c11 C_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"4957": {
+"piece": "c11 C_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"4958": {
+"piece": "c11 C_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"4959": {
+"piece": "c11 C_crescent",
+"kind": "notable",
+"idea": null,
+"name": "Mirage (Thận Lâu)",
+"mods": [
+[
+"evade_pct",
+"",
+4.0,
+2.6
+],
+[
+"soul_res_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4960": {
+"piece": "c11 Z11_1884",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"leech_linh_luc_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"4961": {
+"piece": "c11 Z11_1884",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"leech_linh_luc_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"4962": {
+"piece": "c11 Z11_1884",
+"kind": "notable",
+"idea": null,
+"name": "Whirling Step (Toàn Bộ)",
+"mods": [
+[
+"leech_linh_luc_pct",
+"",
+4.0,
+2.7
+],
+[
+"evade_pct",
+"",
+4.0,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4963": {
+"piece": "c11 Z11_1500",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4964": {
+"piece": "c11 Z11_1500",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4965": {
+"piece": "c11 Z11_1500",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4966": {
+"piece": "c11 Z11_1500",
+"kind": "notable",
+"idea": null,
+"name": "Lakeside Pavilion (Hồ Đình)",
+"mods": [
+[
+"soul_res_pct",
+"",
+4.0,
+6.6
+],
+[
+"ngo_tinh",
+"",
+4.0,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4967": {
+"piece": "c11 Z11_1801",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"4968": {
+"piece": "c11 Z11_1801",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"4969": {
+"piece": "c11 Z11_1801",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"4970": {
+"piece": "c11 Z11_1801",
+"kind": "notable",
+"idea": null,
+"name": "Lone Angler (Độc Điếu)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4.0,
+0.8
+],
+[
+"tam_ma_resist_pct",
+"",
+4.0,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4971": {
+"piece": "c11 axis_ripple_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"4972": {
+"piece": "c11 axis_ripple_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"4973": {
+"piece": "c11 axis_ripple_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"4974": {
+"piece": "c11 axis_ripple_a",
+"kind": "notable",
+"idea": null,
+"name": "Whale Drinks (Kình Ẩm)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+4.0,
+6.0
+],
+[
+"leech_linh_luc_pct",
+"",
+4.0,
+2.7
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4975": {
+"piece": "c17 koi_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"4976": {
+"piece": "c17 koi_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"4977": {
+"piece": "c17 koi_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"4978": {
+"piece": "c17 koi_a",
+"kind": "notable",
+"idea": null,
+"name": "Joy of the Fish (Ngư Lạc)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4979": {
+"piece": "c17 koi_a",
+"kind": "notable",
+"idea": null,
+"name": "Red Koi (Hồng Lý)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4980": {
+"piece": "c17 koi_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"4981": {
+"piece": "c17 koi_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"4982": {
+"piece": "c17 koi_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"4983": {
+"piece": "c17 koi_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"4984": {
+"piece": "c17 koi_b",
+"kind": "notable",
+"idea": null,
+"name": "Koi (Cẩm Lý)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"khi_van",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4985": {
+"piece": "c17 koi_b",
+"kind": "notable",
+"idea": null,
+"name": "Golden Koi (Kim Lý)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"co_duyen_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4986": {
+"piece": "c17 koi_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"4987": {
+"piece": "c17 lotus_petal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"4988": {
+"piece": "c17 lotus_petal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"4989": {
+"piece": "c17 lotus_petal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"4990": {
+"piece": "c17 lotus_petal",
+"kind": "notable",
+"idea": null,
+"name": "River Lotus (Hà Liên)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4.0,
+1.8
+],
+[
+"ngo_tinh",
+"",
+4.0,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4991": {
+"piece": "c17 meander",
+"kind": "small",
+"idea": "W2 Dreaming River (Mộng Hà)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"4992": {
+"piece": "c17 meander",
+"kind": "small",
+"idea": "W2 Dreaming River (Mộng Hà)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"4993": {
+"piece": "c17 meander",
+"kind": "notable",
+"idea": "W2 Dreaming River (Mộng Hà)",
+"name": "River Bend (Hà Khúc)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+],
+[
+"travel_speed_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4994": {
+"piece": "c17 meander",
+"kind": "small",
+"idea": "W2 Dreaming River (Mộng Hà)",
+"mods": [
+[
+"travel_speed_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4995": {
+"piece": "c17 meander",
+"kind": "small",
+"idea": "W2 Dreaming River (Mộng Hà)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"4996": {
+"piece": "c17 meander",
+"kind": "notable",
+"idea": "W2 Dreaming River (Mộng Hà)",
+"name": "Drifting Boat (Phiêu Chu)",
+"mods": [
+[
+"travel_speed_pct",
+"",
+4,
+13.3
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [
+[
+"cultivation_speed_pct",
+"travelling",
+3
+]
+],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4997": {
+"piece": "c17 meander",
+"kind": "small",
+"idea": "W2 Dreaming River (Mộng Hà)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"4998": {
+"piece": "c17 meander",
+"kind": "small",
+"idea": "W2 Dreaming River (Mộng Hà)",
+"mods": [
+[
+"travel_speed_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4999": {
+"piece": "c17 meander",
+"kind": "small",
+"idea": "W2 Dreaming River (Mộng Hà)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"5000": {
+"piece": "c17 meander",
+"kind": "notable",
+"idea": "W2 Dreaming River (Mộng Hà)",
+"name": "Dao in Dreams (Mộng Trung Ngộ Đạo)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+2,
+0.9
+]
+],
+"pending": [],
+"cap": "#8",
+"effect": null,
+"twin_copy": false
+},
+"5001": {
+"piece": "c17 turning_wave",
+"kind": "small",
+"idea": "W3 Moon over the Tide (Nguyệt Triều)",
+"mods": [
+[
+"stack_effect_pct",
+"thuy,buff",
+1.2,
+4.8
+]
+]
+},
+"5002": {
+"piece": "c17 turning_wave",
+"kind": "small",
+"idea": "W3 Moon over the Tide (Nguyệt Triều)",
+"mods": [
+[
+"stack_effect_pct",
+"thuy,buff",
+1.2,
+4.8
+]
+]
+},
+"5003": {
+"piece": "c17 turning_wave",
+"kind": "notable",
+"idea": "W3 Moon over the Tide (Nguyệt Triều)",
+"name": "Rising Tide (Trướng Triều)",
+"mods": [
+[
+"stack_effect_pct",
+"thuy,buff",
+4,
+16.0
+],
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5004": {
+"piece": "c17 turning_wave",
+"kind": "small",
+"idea": "W3 Moon over the Tide (Nguyệt Triều)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"5005": {
+"piece": "c17 turning_wave",
+"kind": "small",
+"idea": "W3 Moon over the Tide (Nguyệt Triều)",
+"mods": [
+[
+"stack_effect_pct",
+"thuy,buff",
+1.2,
+4.8
+]
+]
+},
+"5006": {
+"piece": "c17 turning_wave",
+"kind": "small",
+"idea": "W3 Moon over the Tide (Nguyệt Triều)",
+"mods": [
+[
+"stack_effect_pct",
+"thuy,buff",
+1.2,
+4.8
+]
+]
+},
+"5007": {
+"piece": "c17 turning_wave",
+"kind": "notable",
+"idea": "W3 Moon over the Tide (Nguyệt Triều)",
+"name": "Ebb Tide (Thoái Triều)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5008": {
+"piece": "c17 turning_wave",
+"kind": "small",
+"idea": "W3 Moon over the Tide (Nguyệt Triều)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"5009": {
+"piece": "c17 turning_wave",
+"kind": "small",
+"idea": "W3 Moon over the Tide (Nguyệt Triều)",
+"mods": [
+[
+"stack_effect_pct",
+"thuy,buff",
+1.2,
+4.8
+]
+]
+},
+"5010": {
+"piece": "c17 turning_wave",
+"kind": "small",
+"idea": "W3 Moon over the Tide (Nguyệt Triều)",
+"mods": [
+[
+"stack_effect_pct",
+"thuy,buff",
+1.2,
+4.8
+]
+]
+},
+"5011": {
+"piece": "c17 turning_wave",
+"kind": "small",
+"idea": "W3 Moon over the Tide (Nguyệt Triều)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"5012": {
+"piece": "c17 turning_wave",
+"kind": "notable",
+"idea": "W3 Moon over the Tide (Nguyệt Triều)",
+"name": "Moon over the Tide (Nguyệt Triều)",
+"mods": [
+[
+"stack_effect_pct",
+"thuy,buff",
+4,
+16.0
+],
+[
+"attack_pct",
+"thuy",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": "Tide (Thủy Triều)",
+"twin_copy": false
+},
+"5013": {
+"piece": "c17 Z17_1895",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"5014": {
+"piece": "c17 Z17_1895",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"5015": {
+"piece": "c17 Z17_1895",
+"kind": "notable",
+"idea": null,
+"name": "Riding the Tide (Thừa Triều)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+4.0,
+0.17
+],
+[
+"attack_pct",
+"thuy",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5016": {
+"piece": "c17 koi_current",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5017": {
+"piece": "c17 koi_current",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5018": {
+"piece": "c17 koi_current",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5019": {
+"piece": "c17 koi_current",
+"kind": "notable",
+"idea": null,
+"name": "Koi Current (Lý Lưu)",
+"mods": [
+[
+"evade_pct",
+"",
+4,
+2.6
+],
+[
+"travel_speed_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5020": {
+"piece": "c17 koi_current",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5021": {
+"piece": "c17 koi_current",
+"kind": "notable",
+"idea": null,
+"name": "River Spirit (Hà Linh)",
+"mods": [
+[
+"evade_pct",
+"",
+4,
+2.6
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5022": {
+"piece": "c17 axis_ripple_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"travel_speed_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5023": {
+"piece": "c17 axis_ripple_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"travel_speed_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5024": {
+"piece": "c17 axis_ripple_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"travel_speed_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5025": {
+"piece": "c17 axis_ripple_b",
+"kind": "notable",
+"idea": null,
+"name": "Ferry Crossing (Độ Khẩu)",
+"mods": [
+[
+"travel_speed_pct",
+"",
+4.0,
+13.3
+],
+[
+"cultivation_speed_pct",
+"",
+4.0,
+1.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5026": {
+"piece": "c17 Y17_1812",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"5027": {
+"piece": "c17 Y17_1812",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"5028": {
+"piece": "c17 Y17_1812",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"5029": {
+"piece": "c17 Y17_1812",
+"kind": "notable",
+"idea": null,
+"name": "Estuary (Hà Khẩu)",
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+4.0,
+5.0
+],
+[
+"linh_luc_regen_pct",
+"",
+4.0,
+0.17
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5030": {
+"piece": "c59 ripple_inner",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"5031": {
+"piece": "c59 ripple_inner",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"5032": {
+"piece": "c59 ripple_inner",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"5033": {
+"piece": "c59 ripple_inner",
+"kind": "notable",
+"idea": null,
+"name": "Ancient Well (Cổ Tỉnh)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+4.0,
+0.17
+],
+[
+"ngo_tinh",
+"",
+4.0,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5034": {
+"piece": "c59 ripple_outer",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5035": {
+"piece": "c59 ripple_outer",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5036": {
+"piece": "c59 ripple_outer",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5037": {
+"piece": "c59 ripple_outer",
+"kind": "notable",
+"idea": null,
+"name": "Settled Silt (Trầm Sa)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5038": {
+"piece": "c59 ripple_outer",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5039": {
+"piece": "c59 ripple_outer",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5040": {
+"piece": "c59 ripple_outer",
+"kind": "notable",
+"idea": null,
+"name": "Heart Like Water (Tâm Như Thủy)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+],
+[
+"dao_tam",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5041": {
+"piece": "c59 T_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5042": {
+"piece": "c59 T_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5043": {
+"piece": "c59 T_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5044": {
+"piece": "c59 T_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5045": {
+"piece": "c59 T_crescent",
+"kind": "notable",
+"idea": null,
+"name": "Yu's Gate (Vũ Môn)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+4.0,
+2.6
+],
+[
+"ngo_tinh",
+"",
+4.0,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5046": {
+"piece": "c59 endless",
+"kind": "small",
+"idea": "★ Endless Knot (Vô Tận Kết)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5047": {
+"piece": "c59 endless",
+"kind": "small",
+"idea": "★ Endless Knot (Vô Tận Kết)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5048": {
+"piece": "c59 endless",
+"kind": "small",
+"idea": "★ Endless Knot (Vô Tận Kết)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5049": {
+"piece": "c59 endless",
+"kind": "small",
+"idea": "★ Endless Knot (Vô Tận Kết)",
+"mods": [
+[
+"status_duration_pct",
+"curse",
+1.2,
+4.0
+]
+]
+},
+"5050": {
+"piece": "c59 endless",
+"kind": "small",
+"idea": "★ Endless Knot (Vô Tận Kết)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5051": {
+"piece": "c59 endless",
+"kind": "notable",
+"idea": "★ Endless Knot (Vô Tận Kết)",
+"name": "Knotted Cord (Kết Thằng)",
+"mods": [
+[
+"status_duration_pct",
+"curse",
+4,
+13.3
+],
+[
+"art_speed_pct",
+"curse",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5052": {
+"piece": "c59 endless",
+"kind": "small",
+"idea": "★ Endless Knot (Vô Tận Kết)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5053": {
+"piece": "c59 endless",
+"kind": "notable",
+"idea": "★ Endless Knot (Vô Tận Kết)",
+"name": "Endless Knot (Vô Tận Kết)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+5,
+12.5
+],
+[
+"art_speed_pct",
+"curse",
+3,
+7.5
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5054": {
+"piece": "c59 endless",
+"kind": "small",
+"idea": "★ Endless Knot (Vô Tận Kết)",
+"mods": [
+[
+"status_duration_pct",
+"curse",
+1.2,
+4.0
+]
+]
+},
+"5055": {
+"piece": "c59 endless",
+"kind": "notable",
+"idea": "★ Endless Knot (Vô Tận Kết)",
+"name": "Tangled Current (Loạn Lưu)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+4,
+10.0
+],
+[
+"status_duration_pct",
+"curse",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5056": {
+"piece": "c59 Z59_1801",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_duration_pct",
+"curse",
+1.2,
+4.0
+]
+]
+},
+"5057": {
+"piece": "c59 Z59_1801",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_duration_pct",
+"curse",
+1.2,
+4.0
+]
+]
+},
+"5058": {
+"piece": "c59 Z59_1801",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_duration_pct",
+"curse",
+1.2,
+4.0
+]
+]
+},
+"5059": {
+"piece": "c59 Z59_1801",
+"kind": "notable",
+"idea": null,
+"name": "Thousand Knots (Thiên Kết)",
+"mods": [
+[
+"status_duration_pct",
+"curse",
+4.0,
+13.3
+],
+[
+"curse_effect_pct",
+"",
+4.0,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5060": {
+"piece": "c59 wave_scroll_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"curse",
+1.2,
+3.0
+]
+]
+},
+"5061": {
+"piece": "c59 wave_scroll_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"curse",
+1.2,
+3.0
+]
+]
+},
+"5062": {
+"piece": "c59 wave_scroll_a",
+"kind": "notable",
+"idea": null,
+"name": "Binding Spell (Phược Chú)",
+"mods": [
+[
+"art_speed_pct",
+"curse",
+4,
+10.0
+],
+[
+"curse_effect_pct",
+"",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5063": {
+"piece": "c59 wave_scroll_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"curse",
+1.2,
+3.0
+]
+]
+},
+"5064": {
+"piece": "c59 wave_scroll_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"curse",
+1.2,
+3.0
+]
+]
+},
+"5065": {
+"piece": "c59 wave_scroll_a",
+"kind": "notable",
+"idea": null,
+"name": "Water Shackles (Thủy Tỏa)",
+"mods": [
+[
+"art_speed_pct",
+"curse",
+4,
+10.0
+],
+[
+"status_duration_pct",
+"curse",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5066": {
+"piece": "c54 ripple_inner",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"5067": {
+"piece": "c54 ripple_inner",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"5068": {
+"piece": "c54 ripple_inner",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"5069": {
+"piece": "c54 ripple_inner",
+"kind": "notable",
+"idea": null,
+"name": "Ancient Well (Cổ Tỉnh)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+4.0,
+0.17
+],
+[
+"ngo_tinh",
+"",
+4.0,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5070": {
+"piece": "c54 ripple_outer",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5071": {
+"piece": "c54 ripple_outer",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5072": {
+"piece": "c54 ripple_outer",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5073": {
+"piece": "c54 ripple_outer",
+"kind": "notable",
+"idea": null,
+"name": "Settled Silt (Trầm Sa)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5074": {
+"piece": "c54 ripple_outer",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5075": {
+"piece": "c54 ripple_outer",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5076": {
+"piece": "c54 ripple_outer",
+"kind": "notable",
+"idea": null,
+"name": "Heart Like Water (Tâm Như Thủy)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+],
+[
+"dao_tam",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5077": {
+"piece": "c54 T_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5078": {
+"piece": "c54 T_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5079": {
+"piece": "c54 T_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5080": {
+"piece": "c54 T_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5081": {
+"piece": "c54 T_crescent",
+"kind": "notable",
+"idea": null,
+"name": "Yu's Gate (Vũ Môn)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+4.0,
+2.6
+],
+[
+"ngo_tinh",
+"",
+4.0,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5082": {
+"piece": "c54 meeting_ripples",
+"kind": "notable",
+"idea": "W10 Carp at the Dragon Gate (Lý Ngư Khiêu Long Môn)",
+"name": "Carp Scales (Lý Lân)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5083": {
+"piece": "c54 meeting_ripples",
+"kind": "notable",
+"idea": "W10 Carp at the Dragon Gate (Lý Ngư Khiêu Long Môn)",
+"name": "Against the Current (Nghịch Lưu)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5084": {
+"piece": "c54 meeting_ripples",
+"kind": "small",
+"idea": "W10 Carp at the Dragon Gate (Lý Ngư Khiêu Long Môn)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5085": {
+"piece": "c54 meeting_ripples",
+"kind": "small",
+"idea": "W10 Carp at the Dragon Gate (Lý Ngư Khiêu Long Môn)",
+"mods": [
+[
+"breakthrough_chance",
+"",
+1.2,
+0.2
+]
+]
+},
+"5086": {
+"piece": "c54 meeting_ripples",
+"kind": "small",
+"idea": "W10 Carp at the Dragon Gate (Lý Ngư Khiêu Long Môn)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5087": {
+"piece": "c54 meeting_ripples",
+"kind": "small",
+"idea": "W10 Carp at the Dragon Gate (Lý Ngư Khiêu Long Môn)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5088": {
+"piece": "c54 meeting_ripples",
+"kind": "small",
+"idea": "W10 Carp at the Dragon Gate (Lý Ngư Khiêu Long Môn)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5089": {
+"piece": "c54 meeting_ripples",
+"kind": "notable",
+"idea": "W10 Carp at the Dragon Gate (Lý Ngư Khiêu Long Môn)",
+"name": "Carp at the Dragon Gate (Lý Ngư Khiêu Long Môn)",
+"mods": [
+[
+"ngo_tinh",
+"",
+5,
+1.0
+],
+[
+"tam_ma_resist_pct",
+"",
+3,
+2.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5090": {
+"piece": "c54 meeting_ripples",
+"kind": "small",
+"idea": "W10 Carp at the Dragon Gate (Lý Ngư Khiêu Long Môn)",
+"mods": [
+[
+"breakthrough_chance",
+"",
+1.2,
+0.2
+]
+]
+},
+"5091": {
+"piece": "c54 meeting_ripples",
+"kind": "notable",
+"idea": "W10 Carp at the Dragon Gate (Lý Ngư Khiêu Long Môn)",
+"name": "Leaping Fish (Ngư Dược)",
+"mods": [
+[
+"breakthrough_chance",
+"",
+4,
+0.8
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5092": {
+"piece": "c54 meeting_ripples",
+"kind": "small",
+"idea": "W10 Carp at the Dragon Gate (Lý Ngư Khiêu Long Môn)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5093": {
+"piece": "c54 meeting_ripples",
+"kind": "small",
+"idea": "W10 Carp at the Dragon Gate (Lý Ngư Khiêu Long Môn)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5094": {
+"piece": "c54 Z54_1811",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"5095": {
+"piece": "c54 Z54_1811",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"5096": {
+"piece": "c54 Z54_1811",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"5097": {
+"piece": "c54 Z54_1811",
+"kind": "notable",
+"idea": null,
+"name": "Rowing Upstream (Nghịch Thủy Hành Chu)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4.0,
+1.8
+],
+[
+"ngo_tinh",
+"",
+4.0,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5098": {
+"piece": "c54 wave_scroll_m",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"5099": {
+"piece": "c54 wave_scroll_m",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"5100": {
+"piece": "c54 wave_scroll_m",
+"kind": "notable",
+"idea": null,
+"name": "Water Classic (Thủy Kinh)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5101": {
+"piece": "c54 wave_scroll_m",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"5102": {
+"piece": "c54 wave_scroll_m",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"5103": {
+"piece": "c54 wave_scroll_m",
+"kind": "notable",
+"idea": null,
+"name": "Climbing the Falls (Đăng Bộc)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5104": {
+"piece": "c54 Y54_1890",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5105": {
+"piece": "c54 Y54_1890",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5106": {
+"piece": "c54 Y54_1890",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5107": {
+"piece": "c54 Y54_1890",
+"kind": "notable",
+"idea": null,
+"name": "Golden Scales (Kim Lân)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4.0,
+0.8
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5108": {
+"piece": "c103 teardrop",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_taken_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5109": {
+"piece": "c103 teardrop",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_taken_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5110": {
+"piece": "c103 teardrop",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_taken_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5111": {
+"piece": "c103 teardrop",
+"kind": "notable",
+"idea": null,
+"name": "Mermaid Tears (Giao Lệ)",
+"mods": [
+[
+"healing_taken_pct",
+"",
+4,
+8.0
+],
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5112": {
+"piece": "c103 teardrop",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_taken_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5113": {
+"piece": "c103 teardrop",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_taken_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5114": {
+"piece": "c103 C_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5115": {
+"piece": "c103 C_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5116": {
+"piece": "c103 C_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5117": {
+"piece": "c103 C_crescent",
+"kind": "notable",
+"idea": null,
+"name": "Snow Moon (Tuyết Nguyệt)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+4.0,
+6.0
+],
+[
+"resist_pct",
+"cold",
+4.0,
+150
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5118": {
+"piece": "c103 crescent_moon",
+"kind": "notable",
+"idea": null,
+"name": "Ice Sickle (Băng Liêm)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+4,
+6.0
+],
+[
+"attack_pct",
+"cold",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5119": {
+"piece": "c103 crescent_moon",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5120": {
+"piece": "c103 crescent_moon",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5121": {
+"piece": "c103 crescent_moon",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5122": {
+"piece": "c103 crescent_moon",
+"kind": "notable",
+"idea": null,
+"name": "Cold Moon (Hàn Nguyệt)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+4,
+6.0
+],
+[
+"resist_pct",
+"cold",
+4,
+150
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5123": {
+"piece": "c103 crescent_moon",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5124": {
+"piece": "c103 crescent_moon",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5125": {
+"piece": "c103 crescent_moon",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5126": {
+"piece": "c103 Z103_512",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"5127": {
+"piece": "c103 Z103_512",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"5128": {
+"piece": "c103 Z103_512",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"5129": {
+"piece": "c103 Z103_512",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"5130": {
+"piece": "c103 Z103_512",
+"kind": "notable",
+"idea": null,
+"name": "Frozen Tears (Băng Lệ)",
+"mods": [
+[
+"resist_pct",
+"cold",
+4.0,
+150
+],
+[
+"health_regen_inc_pct",
+"",
+4.0,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5131": {
+"piece": "c103 wave_scroll_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"5132": {
+"piece": "c103 wave_scroll_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"5133": {
+"piece": "c103 wave_scroll_b",
+"kind": "notable",
+"idea": null,
+"name": "Raging Tide (Nộ Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+4,
+6.0
+],
+[
+"crit_damage_pct",
+"thuy",
+4,
+20.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5134": {
+"piece": "c103 wave_scroll_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"5135": {
+"piece": "c103 wave_scroll_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"5136": {
+"piece": "c103 wave_scroll_b",
+"kind": "notable",
+"idea": null,
+"name": "Ink Wave (Mặc Lãng)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+4,
+6.0
+],
+[
+"attack_pct",
+"talisman",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5137": {
+"piece": "c108 K_kelp1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_on_hit_pct",
+"thuy",
+1.2,
+0.042
+]
+]
+},
+"5138": {
+"piece": "c108 K_kelp1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_on_hit_pct",
+"thuy",
+1.2,
+0.042
+]
+]
+},
+"5139": {
+"piece": "c108 K_kelp1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_on_hit_pct",
+"thuy",
+1.2,
+0.042
+]
+]
+},
+"5140": {
+"piece": "c108 K_kelp1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_on_hit_pct",
+"thuy",
+1.2,
+0.042
+]
+]
+},
+"5141": {
+"piece": "c108 K_kelp1",
+"kind": "notable",
+"idea": null,
+"name": "Clinging Weed (Triền Tảo)",
+"mods": [
+[
+"linh_luc_on_hit_pct",
+"thuy",
+4.0,
+0.142
+],
+[
+"attack_pct",
+"thuy",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5142": {
+"piece": "c108 K_kelp2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5143": {
+"piece": "c108 K_kelp2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5144": {
+"piece": "c108 K_kelp2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5145": {
+"piece": "c108 K_kelp2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5146": {
+"piece": "c108 K_kelp2",
+"kind": "notable",
+"idea": null,
+"name": "Sea Kelp (Hải Tảo)",
+"mods": [
+[
+"healing_pct",
+"",
+4.0,
+8.0
+],
+[
+"health_regen_inc_pct",
+"",
+4.0,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5147": {
+"piece": "c108 vortex",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_on_hit_pct",
+"thuy",
+1.2,
+0.042
+]
+]
+},
+"5148": {
+"piece": "c108 vortex",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_on_hit_pct",
+"thuy",
+1.2,
+0.042
+]
+]
+},
+"5149": {
+"piece": "c108 vortex",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_on_hit_pct",
+"thuy",
+1.2,
+0.042
+]
+]
+},
+"5150": {
+"piece": "c108 vortex",
+"kind": "notable",
+"idea": null,
+"name": "Black Vortex (Hắc Toàn)",
+"mods": [
+[
+"linh_luc_on_hit_pct",
+"thuy",
+4,
+0.142
+],
+[
+"attack_pct",
+"thuy",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5151": {
+"piece": "c108 vortex",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_on_hit_pct",
+"thuy",
+1.2,
+0.042
+]
+]
+},
+"5152": {
+"piece": "c108 vortex",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_on_hit_pct",
+"thuy",
+1.2,
+0.042
+]
+]
+},
+"5153": {
+"piece": "c108 vortex",
+"kind": "notable",
+"idea": null,
+"name": "Water Siphon (Hấp Thủy)",
+"mods": [
+[
+"linh_luc_on_hit_pct",
+"thuy",
+4,
+0.142
+],
+[
+"leech_linh_luc_pct",
+"",
+4,
+2.7
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5154": {
+"piece": "c108 drip_hook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5155": {
+"piece": "c108 drip_hook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5156": {
+"piece": "c108 drip_hook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5157": {
+"piece": "c108 drip_hook",
+"kind": "notable",
+"idea": null,
+"name": "Water Wears Stone (Tích Thủy Xuyên Thạch)",
+"mods": [
+[
+"healing_pct",
+"",
+4,
+8.0
+],
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5158": {
+"piece": "c108 drip_hook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5159": {
+"piece": "c108 drip_hook",
+"kind": "notable",
+"idea": null,
+"name": "Water Clock (Lậu Khắc)",
+"mods": [
+[
+"healing_pct",
+"",
+4,
+8.0
+],
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5160": {
+"piece": "c108 Z108_515",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5161": {
+"piece": "c108 Z108_515",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5162": {
+"piece": "c108 Z108_515",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5163": {
+"piece": "c108 Z108_515",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5164": {
+"piece": "c108 Z108_515",
+"kind": "notable",
+"idea": null,
+"name": "Drifting Duckweed (Phù Bình)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+4.0,
+10.0
+],
+[
+"status_duration_pct",
+"curse",
+4.0,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5165": {
+"piece": "c42 bubble_s",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"5166": {
+"piece": "c42 bubble_s",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"5167": {
+"piece": "c42 bubble_s",
+"kind": "notable",
+"idea": null,
+"name": "Bubble Shield (Phao Thuẫn)",
+"mods": [
+[
+"companion_health_pct",
+"",
+4.0,
+15.0
+],
+[
+"companion_power_pct",
+"",
+4.0,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5168": {
+"piece": "c42 bubble_s",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"5169": {
+"piece": "c42 bubble_m",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"companion",
+1.2,
+1.8
+]
+]
+},
+"5170": {
+"piece": "c42 bubble_m",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"companion",
+1.2,
+1.8
+]
+]
+},
+"5171": {
+"piece": "c42 bubble_m",
+"kind": "notable",
+"idea": null,
+"name": "Paper Crane (Chỉ Hạc)",
+"mods": [
+[
+"attack_pct",
+"companion",
+4,
+6.0
+],
+[
+"companion_speed_pct",
+"",
+4,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5172": {
+"piece": "c42 bubble_m",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"companion",
+1.2,
+1.8
+]
+]
+},
+"5173": {
+"piece": "c42 bubble_m",
+"kind": "notable",
+"idea": null,
+"name": "Paper Guard (Chỉ Vệ)",
+"mods": [
+[
+"attack_pct",
+"companion",
+4,
+6.0
+],
+[
+"companion_health_pct",
+"",
+4,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5174": {
+"piece": "c42 bubble_m",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"companion",
+1.2,
+1.8
+]
+]
+},
+"5175": {
+"piece": "c42 bubble_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_speed_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"5176": {
+"piece": "c42 bubble_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_speed_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"5177": {
+"piece": "c42 bubble_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_speed_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"5178": {
+"piece": "c42 bubble_l",
+"kind": "notable",
+"idea": null,
+"name": "Paper Boat (Chỉ Thuyền)",
+"mods": [
+[
+"companion_speed_pct",
+"",
+4,
+15.0
+],
+[
+"companion_power_pct",
+"",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5179": {
+"piece": "c42 bubble_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_speed_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"5180": {
+"piece": "c42 bubble_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_speed_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"5181": {
+"piece": "c42 seaweed",
+"kind": "small",
+"idea": "W8 Paper Army (Chỉ Binh Trận)",
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5182": {
+"piece": "c42 seaweed",
+"kind": "small",
+"idea": "W8 Paper Army (Chỉ Binh Trận)",
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5183": {
+"piece": "c42 seaweed",
+"kind": "small",
+"idea": "W8 Paper Army (Chỉ Binh Trận)",
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"5184": {
+"piece": "c42 seaweed",
+"kind": "small",
+"idea": "W8 Paper Army (Chỉ Binh Trận)",
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5185": {
+"piece": "c42 seaweed",
+"kind": "small",
+"idea": "W8 Paper Army (Chỉ Binh Trận)",
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5186": {
+"piece": "c42 seaweed",
+"kind": "notable",
+"idea": "W8 Paper Army (Chỉ Binh Trận)",
+"name": "Paper Puppets (Chỉ Nhân)",
+"mods": [
+[
+"companion_power_pct",
+"",
+4,
+10.0
+],
+[
+"companion_health_pct",
+"",
+4,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5187": {
+"piece": "c42 seaweed",
+"kind": "small",
+"idea": "W8 Paper Army (Chỉ Binh Trận)",
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"5188": {
+"piece": "c42 seaweed",
+"kind": "small",
+"idea": "W8 Paper Army (Chỉ Binh Trận)",
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5189": {
+"piece": "c42 seaweed",
+"kind": "notable",
+"idea": "W8 Paper Army (Chỉ Binh Trận)",
+"name": "Paper Army (Chỉ Binh Trận)",
+"mods": [
+[
+"companion_power_pct",
+"",
+5,
+12.5
+],
+[
+"attack_pct",
+"companion",
+3,
+4.5
+]
+],
+"pending": [
+[
+"talisman_power_pct",
+"",
+3
+]
+],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5190": {
+"piece": "c42 Z42_1877",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5191": {
+"piece": "c42 Z42_1877",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5192": {
+"piece": "c42 Z42_1877",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5193": {
+"piece": "c42 Z42_1877",
+"kind": "notable",
+"idea": null,
+"name": "Paper Horse (Chỉ Mã)",
+"mods": [
+[
+"companion_power_pct",
+"",
+4.0,
+10.0
+],
+[
+"companion_speed_pct",
+"",
+4.0,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5194": {
+"piece": "c38 lily_pad",
+"kind": "notable",
+"idea": "W4 Snow Lotus (Tuyết Liên)",
+"name": "Chill (Hàn Khí)",
+"mods": [
+[
+"attack_pct",
+"bang",
+4,
+8.0
+],
+[
+"attack_pct",
+"cold",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5195": {
+"piece": "c38 lily_pad",
+"kind": "small",
+"idea": "W4 Snow Lotus (Tuyết Liên)",
+"mods": [
+[
+"attack_pct",
+"bang",
+1.2,
+2.4
+]
+]
+},
+"5196": {
+"piece": "c38 lily_pad",
+"kind": "small",
+"idea": "W4 Snow Lotus (Tuyết Liên)",
+"mods": [
+[
+"stack_duration_pct",
+"bang,debuff",
+1.2,
+7.5
+]
+]
+},
+"5197": {
+"piece": "c38 lily_pad",
+"kind": "small",
+"idea": "W4 Snow Lotus (Tuyết Liên)",
+"mods": [
+[
+"stack_duration_pct",
+"bang,debuff",
+1.2,
+7.5
+]
+]
+},
+"5198": {
+"piece": "c38 lily_pad",
+"kind": "small",
+"idea": "W4 Snow Lotus (Tuyết Liên)",
+"mods": [
+[
+"stack_duration_pct",
+"bang,debuff",
+1.2,
+7.5
+]
+]
+},
+"5199": {
+"piece": "c38 lily_pad",
+"kind": "small",
+"idea": "W4 Snow Lotus (Tuyết Liên)",
+"mods": [
+[
+"attack_pct",
+"bang",
+1.2,
+2.4
+]
+]
+},
+"5200": {
+"piece": "c38 lily_pad",
+"kind": "small",
+"idea": "W4 Snow Lotus (Tuyết Liên)",
+"mods": [
+[
+"stack_duration_pct",
+"bang,debuff",
+1.2,
+7.5
+]
+]
+},
+"5201": {
+"piece": "c38 lily_pad",
+"kind": "small",
+"idea": "W4 Snow Lotus (Tuyết Liên)",
+"mods": [
+[
+"stack_duration_pct",
+"bang,debuff",
+1.2,
+7.5
+]
+]
+},
+"5202": {
+"piece": "c38 lily_pad",
+"kind": "notable",
+"idea": "W4 Snow Lotus (Tuyết Liên)",
+"name": "Snow Lotus (Tuyết Liên)",
+"mods": [
+[
+"stack_duration_pct",
+"bang,debuff",
+5,
+31.2
+],
+[
+"stack_effect_pct",
+"bang,debuff",
+3,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5203": {
+"piece": "c38 lily_pad",
+"kind": "notable",
+"idea": "W4 Snow Lotus (Tuyết Liên)",
+"name": "Frost Bloom (Sương Hoa)",
+"mods": [
+[
+"stack_duration_pct",
+"bang,debuff",
+4,
+25.0
+],
+[
+"attack_pct",
+"bang",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5204": {
+"piece": "c38 T_tadpole",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5205": {
+"piece": "c38 T_tadpole",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5206": {
+"piece": "c38 T_tadpole",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5207": {
+"piece": "c38 T_tadpole",
+"kind": "notable",
+"idea": null,
+"name": "Ice Lance (Băng Thương)",
+"mods": [
+[
+"attack_pct",
+"cold",
+4.0,
+6.0
+],
+[
+"crit_chance_pct",
+"cold",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5208": {
+"piece": "c38 T_tadpole",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5209": {
+"piece": "c38 dewdrop",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"5210": {
+"piece": "c38 dewdrop",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"5211": {
+"piece": "c38 dewdrop",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"5212": {
+"piece": "c38 dewdrop",
+"kind": "notable",
+"idea": null,
+"name": "Dewdrop (Lộ Tích)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+],
+[
+"attack_pct",
+"cold",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5213": {
+"piece": "c38 dewdrop",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"5214": {
+"piece": "c38 dewdrop",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"5215": {
+"piece": "c38 dewdrop",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"5216": {
+"piece": "c38 dewdrop",
+"kind": "notable",
+"idea": null,
+"name": "Morning Dew (Triêu Lộ)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5217": {
+"piece": "c38 falling_drop",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+1.2,
+6.0
+]
+]
+},
+"5218": {
+"piece": "c38 falling_drop",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+1.2,
+6.0
+]
+]
+},
+"5219": {
+"piece": "c38 falling_drop",
+"kind": "notable",
+"idea": null,
+"name": "Falling Frost (Lạc Sương)",
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+4,
+20.0
+],
+[
+"attack_pct",
+"cold",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5220": {
+"piece": "c38 falling_drop",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+1.2,
+6.0
+]
+]
+},
+"5221": {
+"piece": "c38 falling_drop",
+"kind": "notable",
+"idea": null,
+"name": "Hailstones (Băng Bạc)",
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+4,
+20.0
+],
+[
+"attack_pct",
+"bang",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5222": {
+"piece": "c38 falling_drop",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+1.2,
+6.0
+]
+]
+},
+"5223": {
+"piece": "c38 falling_drop",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+1.2,
+6.0
+]
+]
+},
+"5224": {
+"piece": "c38 Z38_1789",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"5225": {
+"piece": "c38 Z38_1789",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"5226": {
+"piece": "c38 Z38_1789",
+"kind": "notable",
+"idea": null,
+"name": "Snowdrift (Tích Tuyết)",
+"mods": [
+[
+"resist_pct",
+"cold",
+4.0,
+150
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5227": {
+"piece": "c38 Z38_1789",
+"kind": "notable",
+"idea": null,
+"name": "Frost Shield (Hàn Thuẫn)",
+"mods": [
+[
+"resist_pct",
+"cold",
+4.0,
+150
+],
+[
+"defense_pct",
+"",
+4.0,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5228": {
+"piece": "c38 Z38_1789",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"5229": {
+"piece": "c38 Z38_1786",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"bang",
+1.2,
+2.4
+]
+]
+},
+"5230": {
+"piece": "c38 Z38_1786",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"bang",
+1.2,
+2.4
+]
+]
+},
+"5231": {
+"piece": "c38 Z38_1786",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"bang",
+1.2,
+2.4
+]
+]
+},
+"5232": {
+"piece": "c38 Z38_1786",
+"kind": "notable",
+"idea": null,
+"name": "Blizzard (Bạo Tuyết)",
+"mods": [
+[
+"attack_pct",
+"bang",
+4.0,
+8.0
+],
+[
+"stack_effect_pct",
+"bang,debuff",
+4.0,
+20.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5233": {
+"piece": "c38 Y38_1868",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5234": {
+"piece": "c38 Y38_1868",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5235": {
+"piece": "c38 Y38_1868",
+"kind": "notable",
+"idea": null,
+"name": "Winter Pond (Hàn Đường)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4.0,
+0.8
+],
+[
+"attack_pct",
+"bang",
+4.0,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5236": {
+"piece": "c38 lotus_bud",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"5237": {
+"piece": "c38 lotus_bud",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"5238": {
+"piece": "c38 lotus_bud",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"5239": {
+"piece": "c38 lotus_bud",
+"kind": "notable",
+"idea": null,
+"name": "Snow Bud (Tuyết Nhụy)",
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+4.0,
+5.0
+],
+[
+"attack_pct",
+"bang",
+4.0,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5240": {
+"piece": "c22 fountain",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"5241": {
+"piece": "c22 fountain",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"5242": {
+"piece": "c22 fountain",
+"kind": "notable",
+"idea": null,
+"name": "Geyser (Phún Tuyền)",
+"mods": [
+[
+"crit_chance_pct",
+"thuy",
+4,
+6.0
+],
+[
+"attack_pct",
+"thuy",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5243": {
+"piece": "c22 fountain",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"5244": {
+"piece": "c22 fountain",
+"kind": "notable",
+"idea": null,
+"name": "Water Arrow (Thủy Tiễn)",
+"mods": [
+[
+"crit_chance_pct",
+"thuy",
+4,
+6.0
+],
+[
+"art_speed_pct",
+"thuy",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5245": {
+"piece": "c22 fountain",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"5246": {
+"piece": "c22 fountain",
+"kind": "notable",
+"idea": null,
+"name": "Water Pillar (Thủy Trụ)",
+"mods": [
+[
+"crit_chance_pct",
+"thuy",
+4,
+6.0
+],
+[
+"crit_damage_pct",
+"thuy",
+4,
+20.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5247": {
+"piece": "c22 C_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"cold",
+1.2,
+18
+]
+]
+},
+"5248": {
+"piece": "c22 C_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"cold",
+1.2,
+18
+]
+]
+},
+"5249": {
+"piece": "c22 C_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"cold",
+1.2,
+18
+]
+]
+},
+"5250": {
+"piece": "c22 C_crescent",
+"kind": "notable",
+"idea": null,
+"name": "Frost Blade (Sương Nhận)",
+"mods": [
+[
+"resist_pen_pct",
+"cold",
+4.0,
+60
+],
+[
+"attack_pct",
+"thuy",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5251": {
+"piece": "c22 wave_train",
+"kind": "notable",
+"idea": "★ Rolling Waves (Liên Ba)",
+"name": "Undertow (Hồi Lưu)",
+"mods": [
+[
+"resist_pen_pct",
+"cold",
+4,
+60
+],
+[
+"attack_pct",
+"cold",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5252": {
+"piece": "c22 wave_train",
+"kind": "small",
+"idea": "★ Rolling Waves (Liên Ba)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"5253": {
+"piece": "c22 wave_train",
+"kind": "small",
+"idea": "★ Rolling Waves (Liên Ba)",
+"mods": [
+[
+"resist_pen_pct",
+"cold",
+1.2,
+18
+]
+]
+},
+"5254": {
+"piece": "c22 wave_train",
+"kind": "small",
+"idea": "★ Rolling Waves (Liên Ba)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"5255": {
+"piece": "c22 wave_train",
+"kind": "notable",
+"idea": "★ Rolling Waves (Liên Ba)",
+"name": "Swell (Dũng Lãng)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+4,
+6.0
+],
+[
+"resist_pen_pct",
+"cold",
+4,
+60
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5256": {
+"piece": "c22 wave_train",
+"kind": "small",
+"idea": "★ Rolling Waves (Liên Ba)",
+"mods": [
+[
+"resist_pen_pct",
+"cold",
+1.2,
+18
+]
+]
+},
+"5257": {
+"piece": "c22 wave_train",
+"kind": "small",
+"idea": "★ Rolling Waves (Liên Ba)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"5258": {
+"piece": "c22 wave_train",
+"kind": "small",
+"idea": "★ Rolling Waves (Liên Ba)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"5259": {
+"piece": "c22 wave_train",
+"kind": "small",
+"idea": "★ Rolling Waves (Liên Ba)",
+"mods": [
+[
+"resist_pen_pct",
+"cold",
+1.2,
+18
+]
+]
+},
+"5260": {
+"piece": "c22 wave_train",
+"kind": "small",
+"idea": "★ Rolling Waves (Liên Ba)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"5261": {
+"piece": "c22 wave_train",
+"kind": "notable",
+"idea": "★ Rolling Waves (Liên Ba)",
+"name": "Rolling Waves (Liên Ba)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+5,
+7.5
+],
+[
+"crit_damage_pct",
+"thuy",
+3,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5262": {
+"piece": "c22 wave_train",
+"kind": "small",
+"idea": "★ Rolling Waves (Liên Ba)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"5263": {
+"piece": "c22 wave_train",
+"kind": "small",
+"idea": "★ Rolling Waves (Liên Ba)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"5264": {
+"piece": "c22 wave_train",
+"kind": "small",
+"idea": "★ Rolling Waves (Liên Ba)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"5265": {
+"piece": "c22 wave_train",
+"kind": "notable",
+"idea": "★ Rolling Waves (Liên Ba)",
+"name": "Breaker (Phách Lãng)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+4,
+6.0
+],
+[
+"crit_chance_pct",
+"thuy",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5266": {
+"piece": "c22 lotus_bud",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"5267": {
+"piece": "c22 lotus_bud",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"5268": {
+"piece": "c22 lotus_bud",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"5269": {
+"piece": "c22 lotus_bud",
+"kind": "notable",
+"idea": null,
+"name": "Sleeping Lotus (Thụy Liên)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+4.0,
+6.0
+],
+[
+"ngo_tinh",
+"",
+4.0,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5270": {
+"piece": "c22 lotus_bud",
+"kind": "notable",
+"idea": null,
+"name": "Wave Flowers (Lãng Hoa)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+4.0,
+6.0
+],
+[
+"crit_chance_pct",
+"thuy",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5271": {
+"piece": "c22 curl",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"thuy",
+1.2,
+3.0
+]
+]
+},
+"5272": {
+"piece": "c22 curl",
+"kind": "notable",
+"idea": null,
+"name": "Curling Wave (Quyển Lãng)",
+"mods": [
+[
+"art_speed_pct",
+"thuy",
+4,
+10.0
+],
+[
+"attack_pct",
+"thuy",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5273": {
+"piece": "c22 curl",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"thuy",
+1.2,
+3.0
+]
+]
+},
+"5274": {
+"piece": "c22 curl",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"thuy",
+1.2,
+3.0
+]
+]
+},
+"5275": {
+"piece": "c22 curl",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"thuy",
+1.2,
+3.0
+]
+]
+},
+"5276": {
+"piece": "c22 curl",
+"kind": "notable",
+"idea": null,
+"name": "Sea Foam (Hải Mạt)",
+"mods": [
+[
+"art_speed_pct",
+"thuy",
+4,
+10.0
+],
+[
+"evade_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5277": {
+"piece": "c22 curl",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"thuy",
+1.2,
+3.0
+]
+]
+},
+"5278": {
+"piece": "c22 curl",
+"kind": "notable",
+"idea": null,
+"name": "Whitecap (Bạch Lãng)",
+"mods": [
+[
+"art_speed_pct",
+"thuy",
+4,
+10.0
+],
+[
+"crit_chance_pct",
+"thuy",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5279": {
+"piece": "c22 Z22_1876",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"thuy",
+1.2,
+3.0
+]
+]
+},
+"5280": {
+"piece": "c22 Z22_1876",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"thuy",
+1.2,
+3.0
+]
+]
+},
+"5281": {
+"piece": "c22 Z22_1876",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"thuy",
+1.2,
+3.0
+]
+]
+},
+"5282": {
+"piece": "c22 Z22_1876",
+"kind": "notable",
+"idea": null,
+"name": "Racing Waves (Bôn Lãng)",
+"mods": [
+[
+"art_speed_pct",
+"thuy",
+4.0,
+10.0
+],
+[
+"attack_pct",
+"thuy",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5283": {
+"piece": "c26 clam",
+"kind": "notable",
+"idea": null,
+"name": "Clam Shell (Bạng Xác)",
+"mods": [
+[
+"evade_pct",
+"",
+4,
+2.6
+],
+[
+"defense_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5284": {
+"piece": "c26 clam",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5285": {
+"piece": "c26 clam",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5286": {
+"piece": "c26 clam",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5287": {
+"piece": "c26 clam",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5288": {
+"piece": "c26 clam",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5289": {
+"piece": "c26 clam",
+"kind": "notable",
+"idea": null,
+"name": "Hidden Pearl (Ẩn Châu)",
+"mods": [
+[
+"evade_pct",
+"",
+4,
+2.6
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5290": {
+"piece": "c26 D_hook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_cost_pct",
+"thuy",
+1.2,
+-3.0
+]
+]
+},
+"5291": {
+"piece": "c26 D_hook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_cost_pct",
+"thuy",
+1.2,
+-3.0
+]
+]
+},
+"5292": {
+"piece": "c26 D_hook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_cost_pct",
+"thuy",
+1.2,
+-3.0
+]
+]
+},
+"5293": {
+"piece": "c26 D_hook",
+"kind": "notable",
+"idea": null,
+"name": "Dragon-Spine Pump (Long Cốt Xa)",
+"mods": [
+[
+"art_cost_pct",
+"thuy",
+4.0,
+-10.0
+],
+[
+"linh_luc_regen_pct",
+"",
+4.0,
+0.17
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5294": {
+"piece": "c26 waterwheel",
+"kind": "small",
+"idea": "★ Mill Race (Thủy Xa)",
+"mods": [
+[
+"art_speed_pct",
+"thuy",
+1.2,
+3.0
+]
+]
+},
+"5295": {
+"piece": "c26 waterwheel",
+"kind": "small",
+"idea": "★ Mill Race (Thủy Xa)",
+"mods": [
+[
+"art_speed_pct",
+"thuy",
+1.2,
+3.0
+]
+]
+},
+"5296": {
+"piece": "c26 waterwheel",
+"kind": "small",
+"idea": "★ Mill Race (Thủy Xa)",
+"mods": [
+[
+"art_speed_pct",
+"thuy",
+1.2,
+3.0
+]
+]
+},
+"5297": {
+"piece": "c26 waterwheel",
+"kind": "small",
+"idea": "★ Mill Race (Thủy Xa)",
+"mods": [
+[
+"art_cost_pct",
+"thuy",
+1.2,
+-3.0
+]
+]
+},
+"5298": {
+"piece": "c26 waterwheel",
+"kind": "small",
+"idea": "★ Mill Race (Thủy Xa)",
+"mods": [
+[
+"art_speed_pct",
+"thuy",
+1.2,
+3.0
+]
+]
+},
+"5299": {
+"piece": "c26 waterwheel",
+"kind": "small",
+"idea": "★ Mill Race (Thủy Xa)",
+"mods": [
+[
+"art_speed_pct",
+"thuy",
+1.2,
+3.0
+]
+]
+},
+"5300": {
+"piece": "c26 waterwheel",
+"kind": "small",
+"idea": "★ Mill Race (Thủy Xa)",
+"mods": [
+[
+"art_speed_pct",
+"thuy",
+1.2,
+3.0
+]
+]
+},
+"5301": {
+"piece": "c26 waterwheel",
+"kind": "small",
+"idea": "★ Mill Race (Thủy Xa)",
+"mods": [
+[
+"art_cost_pct",
+"thuy",
+1.2,
+-3.0
+]
+]
+},
+"5302": {
+"piece": "c26 waterwheel",
+"kind": "notable",
+"idea": "★ Mill Race (Thủy Xa)",
+"name": "Turning Paddles (Chuyển Trạo)",
+"mods": [
+[
+"art_speed_pct",
+"thuy",
+4,
+10.0
+],
+[
+"linh_luc_regen_inc_pct",
+"",
+4,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5303": {
+"piece": "c26 waterwheel",
+"kind": "notable",
+"idea": "★ Mill Race (Thủy Xa)",
+"name": "Ceaseless Wheel (Bất Tức Luân)",
+"mods": [
+[
+"art_cost_pct",
+"thuy",
+5,
+-12.5
+],
+[
+"linh_luc_pct",
+"",
+3,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5304": {
+"piece": "c26 waterwheel",
+"kind": "notable",
+"idea": "★ Mill Race (Thủy Xa)",
+"name": "Mill Race (Thủy Xa)",
+"mods": [
+[
+"art_speed_pct",
+"thuy",
+4,
+10.0
+],
+[
+"art_cost_pct",
+"thuy",
+4,
+-10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5305": {
+"piece": "c26 Z26_1863",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5306": {
+"piece": "c26 Z26_1863",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5307": {
+"piece": "c26 Z26_1863",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5308": {
+"piece": "c26 Z26_1863",
+"kind": "notable",
+"idea": null,
+"name": "Dry in the Rain (Vũ Bất Triêm)",
+"mods": [
+[
+"evade_pct",
+"",
+4.0,
+2.6
+],
+[
+"art_speed_pct",
+"thuy",
+4.0,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5309": {
+"piece": "c26 whirlpool",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"leech_linh_luc_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5310": {
+"piece": "c26 whirlpool",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"leech_linh_luc_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5311": {
+"piece": "c26 whirlpool",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"leech_linh_luc_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5312": {
+"piece": "c26 whirlpool",
+"kind": "notable",
+"idea": null,
+"name": "Whirling Palm (Toàn Chưởng)",
+"mods": [
+[
+"leech_linh_luc_pct",
+"",
+4,
+2.7
+],
+[
+"attack_pct",
+"thuy",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5313": {
+"piece": "c26 whirlpool",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"leech_linh_luc_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5314": {
+"piece": "c26 whirlpool",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"leech_linh_luc_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5315": {
+"piece": "c26 whirlpool",
+"kind": "notable",
+"idea": null,
+"name": "Spinning Water (Toàn Thủy)",
+"mods": [
+[
+"leech_linh_luc_pct",
+"",
+4,
+2.7
+],
+[
+"art_speed_pct",
+"thuy",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5316": {
+"piece": "c26 reflection",
+"kind": "notable",
+"idea": null,
+"name": "Rain Mirror (Vũ Kính)",
+"mods": [
+[
+"healing_pct",
+"",
+4.0,
+8.0
+],
+[
+"ngo_tinh",
+"",
+4.0,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5317": {
+"piece": "c26 reflection",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5318": {
+"piece": "c26 reflection",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5319": {
+"piece": "c26 reflection",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5320": {
+"piece": "c26 reflection",
+"kind": "notable",
+"idea": null,
+"name": "Puddle (Thủy Oa)",
+"mods": [
+[
+"healing_pct",
+"",
+4.0,
+8.0
+],
+[
+"evade_pct",
+"",
+4.0,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5321": {
+"piece": "c26 raindrop",
+"kind": "small",
+"idea": "W9 Rain Curtain (Vũ Liêm)",
+"mods": [
+[
+"attack_pct",
+"quick",
+1.2,
+1.8
+]
+]
+},
+"5322": {
+"piece": "c26 raindrop",
+"kind": "small",
+"idea": "W9 Rain Curtain (Vũ Liêm)",
+"mods": [
+[
+"attack_pct",
+"quick",
+1.2,
+1.8
+]
+]
+},
+"5323": {
+"piece": "c26 raindrop",
+"kind": "small",
+"idea": "W9 Rain Curtain (Vũ Liêm)",
+"mods": [
+[
+"attack_pct",
+"quick",
+1.2,
+1.8
+]
+]
+},
+"5324": {
+"piece": "c26 raindrop",
+"kind": "small",
+"idea": "W9 Rain Curtain (Vũ Liêm)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5325": {
+"piece": "c26 raindrop",
+"kind": "small",
+"idea": "W9 Rain Curtain (Vũ Liêm)",
+"mods": [
+[
+"attack_pct",
+"quick",
+1.2,
+1.8
+]
+]
+},
+"5326": {
+"piece": "c26 raindrop",
+"kind": "small",
+"idea": "W9 Rain Curtain (Vũ Liêm)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5327": {
+"piece": "c26 raindrop",
+"kind": "notable",
+"idea": "W9 Rain Curtain (Vũ Liêm)",
+"name": "Drizzle (Tế Vũ)",
+"mods": [
+[
+"attack_pct",
+"quick",
+4,
+6.0
+],
+[
+"healing_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5328": {
+"piece": "c26 raindrop",
+"kind": "small",
+"idea": "W9 Rain Curtain (Vũ Liêm)",
+"mods": [
+[
+"attack_pct",
+"quick",
+1.2,
+1.8
+]
+]
+},
+"5329": {
+"piece": "c26 raindrop",
+"kind": "small",
+"idea": "W9 Rain Curtain (Vũ Liêm)",
+"mods": [
+[
+"attack_pct",
+"quick",
+1.2,
+1.8
+]
+]
+},
+"5330": {
+"piece": "c26 raindrop",
+"kind": "small",
+"idea": "W9 Rain Curtain (Vũ Liêm)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5331": {
+"piece": "c26 raindrop",
+"kind": "small",
+"idea": "W9 Rain Curtain (Vũ Liêm)",
+"mods": [
+[
+"attack_pct",
+"quick",
+1.2,
+1.8
+]
+]
+},
+"5332": {
+"piece": "c26 raindrop",
+"kind": "small",
+"idea": "W9 Rain Curtain (Vũ Liêm)",
+"mods": [
+[
+"attack_pct",
+"quick",
+1.2,
+1.8
+]
+]
+},
+"5333": {
+"piece": "c26 raindrop",
+"kind": "notable",
+"idea": "W9 Rain Curtain (Vũ Liêm)",
+"name": "Water Needles (Thủy Châm)",
+"mods": [
+[
+"attack_pct",
+"quick",
+4,
+6.0
+],
+[
+"art_speed_pct",
+"thuy",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5334": {
+"piece": "c26 raindrop",
+"kind": "small",
+"idea": "W9 Rain Curtain (Vũ Liêm)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5335": {
+"piece": "c26 raindrop",
+"kind": "notable",
+"idea": "W9 Rain Curtain (Vũ Liêm)",
+"name": "Rain Curtain (Vũ Liêm)",
+"mods": [
+[
+"attack_pct",
+"quick,thuy",
+5,
+10.0
+],
+[
+"healing_pct",
+"",
+3,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5336": {
+"piece": "c32 moon",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5337": {
+"piece": "c32 moon",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5338": {
+"piece": "c32 moon",
+"kind": "notable",
+"idea": null,
+"name": "Full Moon (Mãn Nguyệt)",
+"mods": [
+[
+"healing_pct",
+"",
+4,
+8.0
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5339": {
+"piece": "c32 moon",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5340": {
+"piece": "c32 moon",
+"kind": "notable",
+"idea": null,
+"name": "Moonlit Rain (Nguyệt Vũ)",
+"mods": [
+[
+"healing_pct",
+"",
+4,
+8.0
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5341": {
+"piece": "c32 moon",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5342": {
+"piece": "c32 reflection",
+"kind": "notable",
+"idea": null,
+"name": "Water Reflection (Thủy Ảnh)",
+"mods": [
+[
+"escape_pct",
+"",
+4,
+4.0
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5343": {
+"piece": "c32 reflection",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"escape_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5344": {
+"piece": "c32 reflection",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"escape_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5345": {
+"piece": "c32 reflection",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"escape_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5346": {
+"piece": "c32 reflection",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"escape_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5347": {
+"piece": "c32 reflection",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"escape_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5348": {
+"piece": "c32 reflection",
+"kind": "notable",
+"idea": null,
+"name": "Flower in the Mirror (Kính Hoa)",
+"mods": [
+[
+"escape_pct",
+"",
+4,
+4.0
+],
+[
+"soul_res_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5349": {
+"piece": "c32 C_crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5350": {
+"piece": "c32 C_crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5351": {
+"piece": "c32 C_crook",
+"kind": "notable",
+"idea": null,
+"name": "Timely Rain (Thời Vũ)",
+"mods": [
+[
+"healing_pct",
+"",
+4.0,
+8.0
+],
+[
+"health_regen_inc_pct",
+"",
+4.0,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5352": {
+"piece": "c32 T_tadpole",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5353": {
+"piece": "c32 T_tadpole",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5354": {
+"piece": "c32 T_tadpole",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5355": {
+"piece": "c32 T_tadpole",
+"kind": "notable",
+"idea": null,
+"name": "Sweet Dew (Cam Lộ)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+4.0,
+13.3
+],
+[
+"healing_pct",
+"",
+4.0,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5356": {
+"piece": "c32 T_tadpole",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5357": {
+"piece": "c32 lotus",
+"kind": "small",
+"idea": "B9 Compass Rose (La Bàn)",
+"mods": [
+[
+"travel_speed_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5358": {
+"piece": "c32 lotus",
+"kind": "small",
+"idea": "B9 Compass Rose (La Bàn)",
+"mods": [
+[
+"travel_speed_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5359": {
+"piece": "c32 lotus",
+"kind": "small",
+"idea": "B9 Compass Rose (La Bàn)",
+"mods": [
+[
+"escape_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5360": {
+"piece": "c32 lotus",
+"kind": "small",
+"idea": "B9 Compass Rose (La Bàn)",
+"mods": [
+[
+"travel_speed_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5361": {
+"piece": "c32 lotus",
+"kind": "notable",
+"idea": "B9 Compass Rose (La Bàn)",
+"name": "Cardinal Points (Tứ Phương)",
+"mods": [
+[
+"travel_speed_pct",
+"",
+4,
+13.3
+],
+[
+"escape_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5362": {
+"piece": "c32 lotus",
+"kind": "small",
+"idea": "B9 Compass Rose (La Bàn)",
+"mods": [
+[
+"travel_speed_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5363": {
+"piece": "c32 lotus",
+"kind": "notable",
+"idea": "B9 Compass Rose (La Bàn)",
+"name": "Wind Rose (Phong Bàn)",
+"mods": [
+[
+"travel_speed_pct",
+"",
+4,
+13.3
+],
+[
+"co_duyen_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5364": {
+"piece": "c32 lotus",
+"kind": "small",
+"idea": "B9 Compass Rose (La Bàn)",
+"mods": [
+[
+"escape_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5365": {
+"piece": "c32 lotus",
+"kind": "notable",
+"idea": "B9 Compass Rose (La Bàn)",
+"name": "Blink Mark (Thuấn Di Ấn)",
+"mods": [
+[
+"travel_speed_pct",
+"",
+2,
+6.6
+]
+],
+"pending": [],
+"cap": "#21",
+"effect": null,
+"twin_copy": false
+},
+"5366": {
+"piece": "c32 Z32_1790",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"travel_speed_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5367": {
+"piece": "c32 Z32_1790",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"travel_speed_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5368": {
+"piece": "c32 Z32_1790",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"travel_speed_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5369": {
+"piece": "c32 Z32_1790",
+"kind": "notable",
+"idea": null,
+"name": "Misty Rain (Yên Vũ)",
+"mods": [
+[
+"travel_speed_pct",
+"",
+4.0,
+13.3
+],
+[
+"escape_pct",
+"",
+4.0,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5370": {
+"piece": "c32 moon_halo",
+"kind": "small",
+"idea": "B7 Rain on Bamboo (Vũ Trúc)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5371": {
+"piece": "c32 moon_halo",
+"kind": "small",
+"idea": "B7 Rain on Bamboo (Vũ Trúc)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5372": {
+"piece": "c32 moon_halo",
+"kind": "small",
+"idea": "B7 Rain on Bamboo (Vũ Trúc)",
+"mods": [
+[
+"healing_taken_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5373": {
+"piece": "c32 moon_halo",
+"kind": "small",
+"idea": "B7 Rain on Bamboo (Vũ Trúc)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5374": {
+"piece": "c32 moon_halo",
+"kind": "notable",
+"idea": "B7 Rain on Bamboo (Vũ Trúc)",
+"name": "Nourishing Rain (Cam Lâm)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+],
+[
+"healing_taken_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5375": {
+"piece": "c32 moon_halo",
+"kind": "small",
+"idea": "B7 Rain on Bamboo (Vũ Trúc)",
+"mods": [
+[
+"healing_taken_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5376": {
+"piece": "c32 moon_halo",
+"kind": "small",
+"idea": "B7 Rain on Bamboo (Vũ Trúc)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5377": {
+"piece": "c32 moon_halo",
+"kind": "small",
+"idea": "B7 Rain on Bamboo (Vũ Trúc)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5378": {
+"piece": "c32 moon_halo",
+"kind": "notable",
+"idea": "B7 Rain on Bamboo (Vũ Trúc)",
+"name": "Moon Dew (Nguyệt Lộ)",
+"mods": [
+[
+"healing_taken_pct",
+"",
+4,
+8.0
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5379": {
+"piece": "c32 moon_halo",
+"kind": "notable",
+"idea": "B7 Rain on Bamboo (Vũ Trúc)",
+"name": "Rain on Bamboo (Vũ Trúc)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+5,
+16.6
+],
+[
+"health_regen_pct",
+"",
+3,
+0.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5380": {
+"piece": "c46 frost_star",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5381": {
+"piece": "c46 frost_star",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5382": {
+"piece": "c46 frost_star",
+"kind": "notable",
+"idea": null,
+"name": "Six-Petalled Snow (Lục Xuất Hoa)",
+"mods": [
+[
+"attack_pct",
+"cold",
+4,
+6.0
+],
+[
+"stack_effect_pct",
+"bang,debuff",
+4,
+20.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5383": {
+"piece": "c46 frost_star",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5384": {
+"piece": "c46 frost_star",
+"kind": "notable",
+"idea": null,
+"name": "Bone-Piercing Cold (Hàn Triệt Cốt)",
+"mods": [
+[
+"attack_pct",
+"cold",
+4,
+6.0
+],
+[
+"resist_pen_pct",
+"cold",
+4,
+60
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5385": {
+"piece": "c46 frost_star",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5386": {
+"piece": "c46 frost_star",
+"kind": "notable",
+"idea": null,
+"name": "North Wind (Bắc Phong)",
+"mods": [
+[
+"attack_pct",
+"cold",
+4,
+6.0
+],
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5387": {
+"piece": "c46 ice_crystal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"bang",
+1.2,
+2.4
+]
+]
+},
+"5388": {
+"piece": "c46 ice_crystal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"bang",
+1.2,
+2.4
+]
+]
+},
+"5389": {
+"piece": "c46 ice_crystal",
+"kind": "notable",
+"idea": null,
+"name": "Ice Crystal (Băng Tinh)",
+"mods": [
+[
+"attack_pct",
+"bang",
+4,
+8.0
+],
+[
+"resist_pct",
+"cold",
+4,
+150
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5390": {
+"piece": "c46 ice_crystal",
+"kind": "notable",
+"idea": null,
+"name": "Clear Frost (Thanh Sương)",
+"mods": [
+[
+"attack_pct",
+"bang",
+4,
+8.0
+],
+[
+"crit_chance_pct",
+"cold",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5391": {
+"piece": "c46 ice_crystal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"bang",
+1.2,
+2.4
+]
+]
+},
+"5392": {
+"piece": "c46 ice_crystal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"bang",
+1.2,
+2.4
+]
+]
+},
+"5393": {
+"piece": "c46 frost_ripple_m",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5394": {
+"piece": "c46 frost_ripple_m",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5395": {
+"piece": "c46 frost_ripple_m",
+"kind": "notable",
+"idea": null,
+"name": "Cold Wave (Hàn Ba)",
+"mods": [
+[
+"attack_pct",
+"cold",
+4.0,
+6.0
+],
+[
+"resist_pen_pct",
+"cold",
+4.0,
+60
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5396": {
+"piece": "c46 frost_ripple_m",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5397": {
+"piece": "c46 frost_ripple_m",
+"kind": "notable",
+"idea": null,
+"name": "Frozen Lake (Băng Hồ)",
+"mods": [
+[
+"attack_pct",
+"cold",
+4.0,
+6.0
+],
+[
+"crit_chance_pct",
+"cold",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5398": {
+"piece": "c46 Z46_1786",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5399": {
+"piece": "c46 Z46_1786",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5400": {
+"piece": "c46 Z46_1786",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5401": {
+"piece": "c46 Z46_1786",
+"kind": "notable",
+"idea": null,
+"name": "Frost Glint (Sương Quang)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+4.0,
+6.0
+],
+[
+"attack_pct",
+"bang",
+4.0,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5402": {
+"piece": "c46 eye_lens_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"5403": {
+"piece": "c46 eye_lens_b",
+"kind": "notable",
+"idea": null,
+"name": "Ice Pupil (Băng Đồng)",
+"mods": [
+[
+"resist_pct",
+"cold",
+4.0,
+150
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5404": {
+"piece": "c46 eye_lens_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"5405": {
+"piece": "c46 eye_lens_b",
+"kind": "notable",
+"idea": null,
+"name": "Ice Mirror (Băng Kính)",
+"mods": [
+[
+"resist_pct",
+"cold",
+4.0,
+150
+],
+[
+"defense_pct",
+"",
+4.0,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5406": {
+"piece": "c46 eye_lens_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"5407": {
+"piece": "c46 lotus_bloom",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"5408": {
+"piece": "c46 lotus_bloom",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"5409": {
+"piece": "c46 lotus_bloom",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"5410": {
+"piece": "c46 lotus_bloom",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"5411": {
+"piece": "c46 lotus_bloom",
+"kind": "notable",
+"idea": null,
+"name": "Cold Fragrance (Hàn Hương)",
+"mods": [
+[
+"resist_pct",
+"cold",
+4,
+150
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5412": {
+"piece": "c46 lotus_bloom",
+"kind": "notable",
+"idea": null,
+"name": "Ice Lotus (Băng Liên)",
+"mods": [
+[
+"resist_pct",
+"cold",
+4,
+150
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5413": {
+"piece": "c46 lotus_bloom",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"5414": {
+"piece": "c46 lotus_bloom",
+"kind": "notable",
+"idea": null,
+"name": "Winter Plum (Hàn Mai)",
+"mods": [
+[
+"resist_pct",
+"cold",
+4,
+150
+],
+[
+"defense_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5415": {
+"piece": "c45 I_icicle1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5416": {
+"piece": "c45 I_icicle1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5417": {
+"piece": "c45 I_icicle1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5418": {
+"piece": "c45 I_icicle1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5419": {
+"piece": "c45 I_icicle1",
+"kind": "notable",
+"idea": null,
+"name": "Ice Needle (Băng Châm)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+4.0,
+6.0
+],
+[
+"attack_pct",
+"cold",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5420": {
+"piece": "c45 I_icicle2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"bang",
+1.2,
+2.4
+]
+]
+},
+"5421": {
+"piece": "c45 I_icicle2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"bang",
+1.2,
+2.4
+]
+]
+},
+"5422": {
+"piece": "c45 I_icicle2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"bang",
+1.2,
+2.4
+]
+]
+},
+"5423": {
+"piece": "c45 I_icicle2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"bang",
+1.2,
+2.4
+]
+]
+},
+"5424": {
+"piece": "c45 I_icicle2",
+"kind": "notable",
+"idea": null,
+"name": "Frozen Falls (Băng Bộc)",
+"mods": [
+[
+"attack_pct",
+"bang",
+4.0,
+8.0
+],
+[
+"resist_pct",
+"cold",
+4.0,
+150
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5425": {
+"piece": "c45 winged_crystal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5426": {
+"piece": "c45 winged_crystal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5427": {
+"piece": "c45 winged_crystal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5428": {
+"piece": "c45 winged_crystal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5429": {
+"piece": "c45 winged_crystal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5430": {
+"piece": "c45 winged_crystal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5431": {
+"piece": "c45 winged_crystal",
+"kind": "notable",
+"idea": null,
+"name": "Ice Feather (Băng Vũ)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+4,
+6.0
+],
+[
+"attack_pct",
+"bang",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5432": {
+"piece": "c45 winged_crystal",
+"kind": "notable",
+"idea": null,
+"name": "Snow Crane (Tuyết Hạc)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+4,
+6.0
+],
+[
+"evade_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5433": {
+"piece": "c45 frost_ripple",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+1.2,
+6.0
+]
+]
+},
+"5434": {
+"piece": "c45 frost_ripple",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+1.2,
+6.0
+]
+]
+},
+"5435": {
+"piece": "c45 frost_ripple",
+"kind": "notable",
+"idea": null,
+"name": "Creeping Frost (Sương Mạn)",
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+4.0,
+20.0
+],
+[
+"attack_pct",
+"cold",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5436": {
+"piece": "c45 frost_ripple",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+1.2,
+6.0
+]
+]
+},
+"5437": {
+"piece": "c45 frost_ripple",
+"kind": "notable",
+"idea": null,
+"name": "Ice Ring Seal (Băng Hoàn Ấn)",
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+4.0,
+20.0
+],
+[
+"attack_pct",
+"bang",
+4.0,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5438": {
+"piece": "c45 Z45_1794",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5439": {
+"piece": "c45 Z45_1794",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5440": {
+"piece": "c45 Z45_1794",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5441": {
+"piece": "c45 Z45_1794",
+"kind": "notable",
+"idea": null,
+"name": "Ice House (Băng Thất)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+4.0,
+4.0
+],
+[
+"ngo_tinh",
+"",
+4.0,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5442": {
+"piece": "c45 Z45_1782",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5443": {
+"piece": "c45 Z45_1782",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5444": {
+"piece": "c45 Z45_1782",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5445": {
+"piece": "c45 Z45_1782",
+"kind": "notable",
+"idea": null,
+"name": "Frost Crack (Băng Liệt)",
+"mods": [
+[
+"attack_pct",
+"cold",
+4.0,
+6.0
+],
+[
+"crit_chance_pct",
+"cold",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5446": {
+"piece": "c45 Z45_1782",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"5447": {
+"piece": "c115 channel",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_cost_pct",
+"thuy",
+1.2,
+-3.0
+]
+]
+},
+"5448": {
+"piece": "c115 channel",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_cost_pct",
+"thuy",
+1.2,
+-3.0
+]
+]
+},
+"5449": {
+"piece": "c115 channel",
+"kind": "notable",
+"idea": null,
+"name": "Spirit Canal (Linh Cừ)",
+"mods": [
+[
+"art_cost_pct",
+"thuy",
+4,
+-10.0
+],
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5450": {
+"piece": "c115 channel",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_cost_pct",
+"thuy",
+1.2,
+-3.0
+]
+]
+},
+"5451": {
+"piece": "c115 channel",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_cost_pct",
+"thuy",
+1.2,
+-3.0
+]
+]
+},
+"5452": {
+"piece": "c115 channel",
+"kind": "notable",
+"idea": null,
+"name": "Grand Canal (Vận Hà)",
+"mods": [
+[
+"art_cost_pct",
+"thuy",
+4,
+-10.0
+],
+[
+"travel_speed_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5453": {
+"piece": "c115 channel",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_cost_pct",
+"thuy",
+1.2,
+-3.0
+]
+]
+},
+"5454": {
+"piece": "c115 channel",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_cost_pct",
+"thuy",
+1.2,
+-3.0
+]
+]
+},
+"5455": {
+"piece": "c115 eye_lens_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5456": {
+"piece": "c115 eye_lens_a",
+"kind": "notable",
+"idea": null,
+"name": "Water Eye (Thủy Nhãn)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4.0,
+0.8
+],
+[
+"than_thuc_pct",
+"",
+4.0,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5457": {
+"piece": "c115 eye_lens_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5458": {
+"piece": "c115 eye_lens_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5459": {
+"piece": "c115 eye_lens_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5460": {
+"piece": "c115 Y115_1783",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"5461": {
+"piece": "c115 Y115_1783",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"5462": {
+"piece": "c115 Y115_1783",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"5463": {
+"piece": "c115 Y115_1783",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"5464": {
+"piece": "c115 Y115_1783",
+"kind": "notable",
+"idea": null,
+"name": "Twin Streams (Song Khê)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+4.0,
+0.17
+],
+[
+"art_speed_pct",
+"thuy",
+4.0,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5465": {
+"piece": "c118 channel",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_cost_pct",
+"thuy",
+1.2,
+-3.0
+]
+]
+},
+"5466": {
+"piece": "c118 channel",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_cost_pct",
+"thuy",
+1.2,
+-3.0
+]
+]
+},
+"5467": {
+"piece": "c118 channel",
+"kind": "notable",
+"idea": null,
+"name": "Spirit Canal (Linh Cừ)",
+"mods": [
+[
+"art_cost_pct",
+"thuy",
+4,
+-10.0
+],
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5468": {
+"piece": "c118 channel",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_cost_pct",
+"thuy",
+1.2,
+-3.0
+]
+]
+},
+"5469": {
+"piece": "c118 channel",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_cost_pct",
+"thuy",
+1.2,
+-3.0
+]
+]
+},
+"5470": {
+"piece": "c118 channel",
+"kind": "notable",
+"idea": null,
+"name": "Grand Canal (Vận Hà)",
+"mods": [
+[
+"art_cost_pct",
+"thuy",
+4,
+-10.0
+],
+[
+"travel_speed_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5471": {
+"piece": "c118 channel",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_cost_pct",
+"thuy",
+1.2,
+-3.0
+]
+]
+},
+"5472": {
+"piece": "c118 channel",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_cost_pct",
+"thuy",
+1.2,
+-3.0
+]
+]
+},
+"5473": {
+"piece": "c118 Z118_1790",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"5474": {
+"piece": "c118 Z118_1790",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"5475": {
+"piece": "c118 Z118_1790",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"5476": {
+"piece": "c118 Z118_1790",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"5477": {
+"piece": "c118 Z118_1790",
+"kind": "notable",
+"idea": null,
+"name": "Nine Bends (Cửu Khúc)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+4.0,
+6.0
+],
+[
+"art_cost_pct",
+"thuy",
+4.0,
+-10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5478": {
+"piece": "c118 spoke_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_cost_pct",
+"thuy",
+1.2,
+-3.0
+]
+]
+},
+"5479": {
+"piece": "c118 spoke_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_cost_pct",
+"thuy",
+1.2,
+-3.0
+]
+]
+},
+"5480": {
+"piece": "c118 spoke_arch",
+"kind": "notable",
+"idea": null,
+"name": "Rainbow Bridge (Hồng Kiều)",
+"mods": [
+[
+"art_cost_pct",
+"thuy",
+4.0,
+-10.0
+],
+[
+"linh_luc_regen_pct",
+"",
+4.0,
+0.17
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5481": {
+"piece": "c118 spoke_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_cost_pct",
+"thuy",
+1.2,
+-3.0
+]
+]
+},
+"5482": {
+"piece": "c118 spoke_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_cost_pct",
+"thuy",
+1.2,
+-3.0
+]
+]
+},
+"5483": {
+"piece": "c5 C_crescent1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5484": {
+"piece": "c5 C_crescent1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5485": {
+"piece": "c5 C_crescent1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5486": {
+"piece": "c5 C_crescent1",
+"kind": "notable",
+"idea": null,
+"name": "Pebble in the Pond (Đầu Thạch)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4.0,
+0.8
+],
+[
+"linh_luc_pct",
+"",
+4.0,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5487": {
+"piece": "c5 C_crescent2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5488": {
+"piece": "c5 C_crescent2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5489": {
+"piece": "c5 C_crescent2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5490": {
+"piece": "c5 C_crescent2",
+"kind": "notable",
+"idea": null,
+"name": "Pebble in the Pond (Đầu Thạch)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4.0,
+0.8
+],
+[
+"linh_luc_pct",
+"",
+4.0,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5491": {
+"piece": "c5 ripple_hook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5492": {
+"piece": "c5 ripple_hook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5493": {
+"piece": "c5 ripple_hook",
+"kind": "notable",
+"idea": null,
+"name": "Lingering Ripples (Dư Ba)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5494": {
+"piece": "c5 ripple_hook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5495": {
+"piece": "c5 ripple_hook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5496": {
+"piece": "c5 ripple_hook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5497": {
+"piece": "c5 ripple_hook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5498": {
+"piece": "c5 ripple_hook",
+"kind": "notable",
+"idea": null,
+"name": "Water Ring Step (Thủy Hoàn Bộ)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+],
+[
+"evade_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5499": {
+"piece": "c5 ripple_hook_m",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5500": {
+"piece": "c5 ripple_hook_m",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5501": {
+"piece": "c5 ripple_hook_m",
+"kind": "notable",
+"idea": null,
+"name": "Lingering Ripples (Dư Ba)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5502": {
+"piece": "c5 ripple_hook_m",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5503": {
+"piece": "c5 ripple_hook_m",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5504": {
+"piece": "c5 ripple_hook_m",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5505": {
+"piece": "c5 ripple_hook_m",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5506": {
+"piece": "c5 ripple_hook_m",
+"kind": "notable",
+"idea": null,
+"name": "Water Ring Step (Thủy Hoàn Bộ)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+],
+[
+"evade_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5507": {
+"piece": "c904 keystone_hook",
+"kind": "keystone",
+"name": "Flowing Water (Lưu Thủy)",
+"effect": "Flowing Water (Lưu Thủy)",
+"closes": "art costs +40 %",
+"mods": [
+[
+"art_speed_pct",
+"thuy",
+25,
+62.5
+],
+[
+"crit_chance_pct",
+"thuy",
+25,
+37.5
+]
+]
+},
+"5508": {
+"piece": "c904 keystone_dark",
+"kind": "keystone",
+"name": "Still Water (Tĩnh Thủy)",
+"effect": "Still Water (Tĩnh Thủy)",
+"closes": "healing taken from other sources -50 %",
+"mods": [
+[
+"linh_luc_pct",
+"",
+30,
+30.0
+],
+[
+"linh_luc_regen_pct",
+"",
+20,
+0.87
+]
+]
+},
+"5509": {
+"piece": "c904 lotus",
+"kind": "notable",
+"idea": "★ Still Lake Lotus (Tĩnh Liên)",
+"name": "Still Water Heart (Tĩnh Thủy Tâm)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+],
+[
+"soul_res_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5510": {
+"piece": "c904 lotus",
+"kind": "small",
+"idea": "★ Still Lake Lotus (Tĩnh Liên)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"5511": {
+"piece": "c904 lotus",
+"kind": "small",
+"idea": "★ Still Lake Lotus (Tĩnh Liên)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"5512": {
+"piece": "c904 lotus",
+"kind": "small",
+"idea": "★ Still Lake Lotus (Tĩnh Liên)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"5513": {
+"piece": "c904 lotus",
+"kind": "small",
+"idea": "★ Still Lake Lotus (Tĩnh Liên)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"5514": {
+"piece": "c904 lotus",
+"kind": "small",
+"idea": "★ Still Lake Lotus (Tĩnh Liên)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"5515": {
+"piece": "c904 lotus",
+"kind": "notable",
+"idea": "★ Still Lake Lotus (Tĩnh Liên)",
+"name": "Rising from Mud (Xuất Nê)",
+"mods": [
+[
+"lifespan_pct",
+"",
+4,
+1.3
+],
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5516": {
+"piece": "c904 lotus",
+"kind": "small",
+"idea": "★ Still Lake Lotus (Tĩnh Liên)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"5517": {
+"piece": "c904 lotus",
+"kind": "small",
+"idea": "★ Still Lake Lotus (Tĩnh Liên)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"5518": {
+"piece": "c904 lotus",
+"kind": "notable",
+"idea": "★ Still Lake Lotus (Tĩnh Liên)",
+"name": "Lotus Canopy (Hà Cái)",
+"mods": [
+[
+"lifespan_pct",
+"",
+4,
+1.3
+],
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5519": {
+"piece": "c904 lotus",
+"kind": "small",
+"idea": "★ Still Lake Lotus (Tĩnh Liên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5520": {
+"piece": "c904 lotus",
+"kind": "small",
+"idea": "★ Still Lake Lotus (Tĩnh Liên)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"5521": {
+"piece": "c904 lotus",
+"kind": "notable",
+"idea": "★ Still Lake Lotus (Tĩnh Liên)",
+"name": "Still Lake Lotus (Tĩnh Liên)",
+"mods": [
+[
+"lifespan_pct",
+"",
+5,
+1.6
+],
+[
+"healing_pct",
+"",
+3,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5522": {
+"piece": "c904 lotus",
+"kind": "small",
+"idea": "★ Still Lake Lotus (Tĩnh Liên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5523": {
+"piece": "c904 lotus",
+"kind": "small",
+"idea": "★ Still Lake Lotus (Tĩnh Liên)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"5524": {
+"piece": "c904 lotus",
+"kind": "notable",
+"idea": "★ Still Lake Lotus (Tĩnh Liên)",
+"name": "Pure Bloom (Thanh Liên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+],
+[
+"qi_deviation_pct",
+"",
+4,
+-4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5525": {
+"piece": "c904 lotus",
+"kind": "small",
+"idea": "★ Still Lake Lotus (Tĩnh Liên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5526": {
+"piece": "c904 lotus",
+"kind": "small",
+"idea": "★ Still Lake Lotus (Tĩnh Liên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5527": {
+"piece": "c904 lotus",
+"kind": "notable",
+"idea": "★ Still Lake Lotus (Tĩnh Liên)",
+"name": "Lotus Seed (Liên Tử)",
+"mods": [
+[
+"lifespan_pct",
+"",
+4,
+1.3
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5528": {
+"piece": "c904 armillary_L",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5529": {
+"piece": "c904 armillary_L",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5530": {
+"piece": "c904 armillary_L",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5531": {
+"piece": "c904 armillary_L",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"travel_speed_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5532": {
+"piece": "c904 armillary_L",
+"kind": "notable",
+"idea": "★ Star Chart (Tinh Đồ)",
+"name": "Celestial Ring (Thiên Hoàn)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"travel_speed_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5533": {
+"piece": "c904 armillary_L",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5534": {
+"piece": "c904 armillary_L",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5535": {
+"piece": "c904 armillary_L",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5536": {
+"piece": "c904 armillary_L",
+"kind": "notable",
+"idea": "★ Star Chart (Tinh Đồ)",
+"name": "Pole Star (Bắc Thần)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"accuracy_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5537": {
+"piece": "c904 armillary_L",
+"kind": "notable",
+"idea": "★ Star Chart (Tinh Đồ)",
+"name": "Night Sky (Dạ Không)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"escape_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5538": {
+"piece": "c904 armillary_L",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5539": {
+"piece": "c904 armillary_L",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5540": {
+"piece": "c904 armillary_L",
+"kind": "notable",
+"idea": "★ Star Chart (Tinh Đồ)",
+"name": "Star Path (Tinh Lộ)",
+"mods": [
+[
+"travel_speed_pct",
+"",
+4,
+13.3
+],
+[
+"co_duyen_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5541": {
+"piece": "c904 armillary_L",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"travel_speed_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5542": {
+"piece": "c904 armillary_L",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"travel_speed_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5543": {
+"piece": "c904 armillary_L",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5544": {
+"piece": "c904 armillary_L",
+"kind": "notable",
+"idea": "★ Star Chart (Tinh Đồ)",
+"name": "Lunar Mansion (Nguyệt Túc)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"than_thuc_pct",
+"",
+4,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5545": {
+"piece": "c904 armillary_L",
+"kind": "notable",
+"idea": "★ Star Chart (Tinh Đồ)",
+"name": "Star Chart (Tinh Đồ)",
+"mods": [
+[
+"ngo_tinh",
+"",
+5,
+1.0
+],
+[
+"cultivation_speed_pct",
+"",
+3,
+1.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5546": {
+"piece": "c904 armillary_L",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"travel_speed_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5547": {
+"piece": "c904 armillary_L",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5548": {
+"piece": "c904 armillary_L",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"travel_speed_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5549": {
+"piece": "c904 armillary_R",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5550": {
+"piece": "c904 armillary_R",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5551": {
+"piece": "c904 armillary_R",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5552": {
+"piece": "c904 armillary_R",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"travel_speed_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5553": {
+"piece": "c904 armillary_R",
+"kind": "notable",
+"idea": "★ Star Chart (Tinh Đồ)",
+"name": "Celestial Ring (Thiên Hoàn)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"travel_speed_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5554": {
+"piece": "c904 armillary_R",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5555": {
+"piece": "c904 armillary_R",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5556": {
+"piece": "c904 armillary_R",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5557": {
+"piece": "c904 armillary_R",
+"kind": "notable",
+"idea": "★ Star Chart (Tinh Đồ)",
+"name": "Pole Star (Bắc Thần)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"accuracy_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5558": {
+"piece": "c904 armillary_R",
+"kind": "notable",
+"idea": "★ Star Chart (Tinh Đồ)",
+"name": "Night Sky (Dạ Không)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"escape_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5559": {
+"piece": "c904 armillary_R",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5560": {
+"piece": "c904 armillary_R",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5561": {
+"piece": "c904 armillary_R",
+"kind": "notable",
+"idea": "★ Star Chart (Tinh Đồ)",
+"name": "Star Path (Tinh Lộ)",
+"mods": [
+[
+"travel_speed_pct",
+"",
+4,
+13.3
+],
+[
+"co_duyen_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5562": {
+"piece": "c904 armillary_R",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"travel_speed_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5563": {
+"piece": "c904 armillary_R",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"travel_speed_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5564": {
+"piece": "c904 armillary_R",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5565": {
+"piece": "c904 armillary_R",
+"kind": "notable",
+"idea": "★ Star Chart (Tinh Đồ)",
+"name": "Lunar Mansion (Nguyệt Túc)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"than_thuc_pct",
+"",
+4,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5566": {
+"piece": "c904 armillary_R",
+"kind": "notable",
+"idea": "★ Star Chart (Tinh Đồ)",
+"name": "Star Chart (Tinh Đồ)",
+"mods": [
+[
+"ngo_tinh",
+"",
+5,
+1.0
+],
+[
+"cultivation_speed_pct",
+"",
+3,
+1.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5567": {
+"piece": "c904 armillary_R",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"travel_speed_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5568": {
+"piece": "c904 armillary_R",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"5569": {
+"piece": "c904 armillary_R",
+"kind": "small",
+"idea": "★ Star Chart (Tinh Đồ)",
+"mods": [
+[
+"travel_speed_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5570": {
+"piece": "c904 bagua",
+"kind": "notable",
+"idea": "★ Water Trigram (Khảm Quái)",
+"name": "Double Abyss (Tập Khảm)",
+"mods": [
+[
+"evade_pct",
+"",
+4,
+2.6
+],
+[
+"stealth",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5571": {
+"piece": "c904 bagua",
+"kind": "small",
+"idea": "★ Water Trigram (Khảm Quái)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5572": {
+"piece": "c904 bagua",
+"kind": "small",
+"idea": "★ Water Trigram (Khảm Quái)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5573": {
+"piece": "c904 bagua",
+"kind": "small",
+"idea": "★ Water Trigram (Khảm Quái)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"5574": {
+"piece": "c904 bagua",
+"kind": "notable",
+"idea": "★ Water Trigram (Khảm Quái)",
+"name": "Yielding Water (Nhu Thủy)",
+"mods": [
+[
+"evade_pct",
+"",
+4,
+2.6
+],
+[
+"escape_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5575": {
+"piece": "c904 bagua",
+"kind": "small",
+"idea": "★ Water Trigram (Khảm Quái)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5576": {
+"piece": "c904 bagua",
+"kind": "notable",
+"idea": "★ Water Trigram (Khảm Quái)",
+"name": "Hidden Current (Ám Lưu)",
+"mods": [
+[
+"stealth",
+"",
+4,
+2.6
+],
+[
+"art_speed_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5577": {
+"piece": "c904 bagua",
+"kind": "small",
+"idea": "★ Water Trigram (Khảm Quái)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5578": {
+"piece": "c904 bagua",
+"kind": "small",
+"idea": "★ Water Trigram (Khảm Quái)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5579": {
+"piece": "c904 bagua",
+"kind": "small",
+"idea": "★ Water Trigram (Khảm Quái)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5580": {
+"piece": "c904 bagua",
+"kind": "small",
+"idea": "★ Water Trigram (Khảm Quái)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"5581": {
+"piece": "c904 bagua",
+"kind": "small",
+"idea": "★ Water Trigram (Khảm Quái)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"5582": {
+"piece": "c904 bagua",
+"kind": "small",
+"idea": "★ Water Trigram (Khảm Quái)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5583": {
+"piece": "c904 bagua",
+"kind": "notable",
+"idea": "★ Water Trigram (Khảm Quái)",
+"name": "Water Trigram (Khảm Quái)",
+"mods": [
+[
+"evade_pct",
+"",
+5,
+3.3
+],
+[
+"art_speed_pct",
+"thuy",
+3,
+7.5
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5584": {
+"piece": "c904 bagua",
+"kind": "small",
+"idea": "★ Water Trigram (Khảm Quái)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"5585": {
+"piece": "c904 keystone_rim_R",
+"kind": "keystone",
+"name": "Boundless Sea (Vô Biên Hải)",
+"effect": "Boundless Sea (Vô Biên Hải)",
+"closes": "linh lực no longer regenerates on its own and linh lực on hit gives nothing",
+"mods": [
+[
+"linh_luc_pct",
+"",
+30,
+30.0
+],
+[
+"leech_linh_luc_pct",
+"",
+20,
+13.8
+]
+]
+},
+"5586": {
+"piece": "c904 keystone_rim_L",
+"kind": "keystone",
+"name": "Thousand Talismans (Thiên Phù)",
+"effect": "Thousand Talismans (Thiên Phù)",
+"closes": "arts that are not talismans deal 30 % less; pending: talisman stock +2 once Talismans defines it",
+"mods": [
+[
+"attack_pct",
+"talisman",
+30,
+45.0
+],
+[
+"art_speed_pct",
+"talisman",
+20,
+50.0
+]
+]
+},
+"7657": {
+"piece": "c904 ice_flake",
+"kind": "notable",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"name": "Icicle (Băng Trụ)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+4,
+6.0
+],
+[
+"defense_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7658": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"7659": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"7660": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"7661": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"7662": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"7663": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"7664": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"7665": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"7666": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"7667": {
+"piece": "c904 ice_flake",
+"kind": "notable",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"name": "Ice Shell (Băng Xác)",
+"mods": [
+[
+"defense_pct",
+"",
+4,
+4.0
+],
+[
+"resist_pct",
+"cold",
+4,
+150
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7668": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"7669": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"7670": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"7671": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"7672": {
+"piece": "c904 ice_flake",
+"kind": "notable",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"name": "Shattered Ice (Toái Băng)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+4,
+6.0
+],
+[
+"attack_pct",
+"cold",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7673": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"7674": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"7675": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"7676": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"7677": {
+"piece": "c904 ice_flake",
+"kind": "notable",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"name": "Frozen Ward (Băng Hộ)",
+"mods": [
+[
+"defense_pct",
+"",
+4,
+4.0
+],
+[
+"ward_efficiency_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7678": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"7679": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"7680": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"7681": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"7682": {
+"piece": "c904 ice_flake",
+"kind": "notable",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"name": "Clear Ice (Thanh Băng)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+4,
+6.0
+],
+[
+"crit_damage_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7683": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"7684": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"7685": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"7686": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"7687": {
+"piece": "c904 ice_flake",
+"kind": "notable",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"name": "Icicle Crown (Băng Quan)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+5,
+7.5
+],
+[
+"ward_efficiency_pct",
+"",
+3,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7688": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"7689": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"7690": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"7691": {
+"piece": "c904 ice_flake",
+"kind": "small",
+"idea": "W5 Icicle Crown (Băng Quan)",
+"mods": [
+[
+"crit_chance_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"7692": {
+"piece": "c904 plate_flake",
+"kind": "notable",
+"idea": "★ Frost Plate (Sương Giáp)",
+"name": "Plate Ice (Băng Phiến)",
+"mods": [
+[
+"resist_pct",
+"cold",
+4,
+150
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7693": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"7694": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7695": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"7696": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"7697": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7698": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"7699": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"7700": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"7701": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7702": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"7703": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"7704": {
+"piece": "c904 plate_flake",
+"kind": "notable",
+"idea": "★ Frost Plate (Sương Giáp)",
+"name": "Window Frost (Song Sương)",
+"mods": [
+[
+"resist_pct",
+"cold",
+4,
+150
+],
+[
+"defense_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7705": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"7706": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"7707": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"7708": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7709": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7710": {
+"piece": "c904 plate_flake",
+"kind": "notable",
+"idea": "★ Frost Plate (Sương Giáp)",
+"name": "Cold Iron (Băng Thiết)",
+"mods": [
+[
+"resist_pct",
+"cold",
+4,
+150
+],
+[
+"resist_pct",
+"physical",
+4,
+125
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7711": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7712": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7713": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"7714": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"7715": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"7716": {
+"piece": "c904 plate_flake",
+"kind": "notable",
+"idea": "★ Frost Plate (Sương Giáp)",
+"name": "Ice-Jade Skin (Băng Cơ)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"health_regen_pct",
+"",
+4,
+0.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7717": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"7718": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"7719": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7720": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"7721": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"7722": {
+"piece": "c904 plate_flake",
+"kind": "notable",
+"idea": "★ Frost Plate (Sương Giáp)",
+"name": "Frost Plate (Sương Giáp)",
+"mods": [
+[
+"resist_pct",
+"cold",
+5,
+187
+],
+[
+"block_rating",
+"",
+3,
+7
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7723": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7724": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"7725": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"7726": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7727": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"7728": {
+"piece": "c904 plate_flake",
+"kind": "notable",
+"idea": "★ Frost Plate (Sương Giáp)",
+"name": "Glacier (Băng Hà)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"block_rating",
+"",
+4,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7729": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"7730": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7731": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"7732": {
+"piece": "c904 plate_flake",
+"kind": "small",
+"idea": "★ Frost Plate (Sương Giáp)",
+"mods": [
+[
+"resist_pct",
+"cold",
+1.2,
+45
+]
+]
+},
+"7733": {
+"piece": "c904 oai_stellar_frost",
+"kind": "small",
+"idea": "★ Frost Star (Sương Tinh)",
+"mods": [
+[
+"attack_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"7734": {
+"piece": "c904 oai_stellar_frost",
+"kind": "small",
+"idea": "★ Frost Star (Sương Tinh)",
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+1.2,
+6.0
+]
+]
+},
+"7735": {
+"piece": "c904 oai_stellar_frost",
+"kind": "small",
+"idea": "★ Frost Star (Sương Tinh)",
+"mods": [
+[
+"attack_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"7736": {
+"piece": "c904 oai_stellar_frost",
+"kind": "small",
+"idea": "★ Frost Star (Sương Tinh)",
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+1.2,
+6.0
+]
+]
+},
+"7737": {
+"piece": "c904 oai_stellar_frost",
+"kind": "small",
+"idea": "★ Frost Star (Sương Tinh)",
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+1.2,
+6.0
+]
+]
+},
+"7738": {
+"piece": "c904 oai_stellar_frost",
+"kind": "small",
+"idea": "★ Frost Star (Sương Tinh)",
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+1.2,
+6.0
+]
+]
+},
+"7739": {
+"piece": "c904 oai_stellar_frost",
+"kind": "small",
+"idea": "★ Frost Star (Sương Tinh)",
+"mods": [
+[
+"attack_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"7740": {
+"piece": "c904 oai_stellar_frost",
+"kind": "notable",
+"idea": "★ Frost Star (Sương Tinh)",
+"name": "Hoarfrost (Ngưng Sương)",
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+4,
+20.0
+],
+[
+"attack_pct",
+"cold",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7741": {
+"piece": "c904 oai_stellar_frost",
+"kind": "small",
+"idea": "★ Frost Star (Sương Tinh)",
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+1.2,
+6.0
+]
+]
+},
+"7742": {
+"piece": "c904 oai_stellar_frost",
+"kind": "small",
+"idea": "★ Frost Star (Sương Tinh)",
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+1.2,
+6.0
+]
+]
+},
+"7743": {
+"piece": "c904 oai_stellar_frost",
+"kind": "small",
+"idea": "★ Frost Star (Sương Tinh)",
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+1.2,
+6.0
+]
+]
+},
+"7744": {
+"piece": "c904 oai_stellar_frost",
+"kind": "notable",
+"idea": "★ Frost Star (Sương Tinh)",
+"name": "Frost Thorn (Sương Thứ)",
+"mods": [
+[
+"attack_pct",
+"cold",
+4,
+6.0
+],
+[
+"crit_damage_pct",
+"thuy",
+4,
+20.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7745": {
+"piece": "c904 oai_stellar_frost",
+"kind": "small",
+"idea": "★ Frost Star (Sương Tinh)",
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+1.2,
+6.0
+]
+]
+},
+"7746": {
+"piece": "c904 oai_stellar_frost",
+"kind": "small",
+"idea": "★ Frost Star (Sương Tinh)",
+"mods": [
+[
+"attack_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"7747": {
+"piece": "c904 oai_stellar_frost",
+"kind": "small",
+"idea": "★ Frost Star (Sương Tinh)",
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+1.2,
+6.0
+]
+]
+},
+"7748": {
+"piece": "c904 oai_stellar_frost",
+"kind": "notable",
+"idea": "★ Frost Star (Sương Tinh)",
+"name": "Rime (Băng Sương)",
+"mods": [
+[
+"attack_pct",
+"cold",
+4,
+6.0
+],
+[
+"resist_pct",
+"cold",
+4,
+150
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7749": {
+"piece": "c904 oai_stellar_frost",
+"kind": "small",
+"idea": "★ Frost Star (Sương Tinh)",
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+1.2,
+6.0
+]
+]
+},
+"7750": {
+"piece": "c904 oai_stellar_frost",
+"kind": "small",
+"idea": "★ Frost Star (Sương Tinh)",
+"mods": [
+[
+"attack_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"7751": {
+"piece": "c904 oai_stellar_frost",
+"kind": "small",
+"idea": "★ Frost Star (Sương Tinh)",
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+1.2,
+6.0
+]
+]
+},
+"7752": {
+"piece": "c904 oai_stellar_frost",
+"kind": "notable",
+"idea": "★ Frost Star (Sương Tinh)",
+"name": "Frost Star (Sương Tinh)",
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+5,
+25.0
+],
+[
+"resist_pen_pct",
+"cold",
+3,
+45
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7753": {
+"piece": "c904 oai_stellar_frost",
+"kind": "small",
+"idea": "★ Frost Star (Sương Tinh)",
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+1.2,
+6.0
+]
+]
+},
+"7754": {
+"piece": "c904 oai_stellar_frost",
+"kind": "small",
+"idea": "★ Frost Star (Sương Tinh)",
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+1.2,
+6.0
+]
+]
+},
+"7755": {
+"piece": "c904 oai_stellar_frost",
+"kind": "small",
+"idea": "★ Frost Star (Sương Tinh)",
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+1.2,
+6.0
+]
+]
+},
+"7756": {
+"piece": "c904 oai_stellar_frost",
+"kind": "notable",
+"idea": "★ Frost Star (Sương Tinh)",
+"name": "Winter Star (Đông Tinh)",
+"mods": [
+[
+"attack_pct",
+"bang",
+4,
+8.0
+],
+[
+"crit_chance_pct",
+"cold",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7757": {
+"piece": "c904 oai_stellar_frost",
+"kind": "small",
+"idea": "★ Frost Star (Sương Tinh)",
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+1.2,
+6.0
+]
+]
+},
+"7758": {
+"piece": "c904 oai_stellar_frost",
+"kind": "small",
+"idea": "★ Frost Star (Sương Tinh)",
+"mods": [
+[
+"attack_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"7759": {
+"piece": "c904 oai_stellar_frost",
+"kind": "small",
+"idea": "★ Frost Star (Sương Tinh)",
+"mods": [
+[
+"attack_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"7760": {
+"piece": "c904 oai_stellar_frost",
+"kind": "notable",
+"idea": "★ Frost Star (Sương Tinh)",
+"name": "Cold Snap (Hàn Lưu)",
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+4,
+20.0
+],
+[
+"stack_duration_pct",
+"bang,debuff",
+4,
+25.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7761": {
+"piece": "c904 oai_stellar_frost",
+"kind": "small",
+"idea": "★ Frost Star (Sương Tinh)",
+"mods": [
+[
+"attack_pct",
+"cold",
+1.2,
+1.8
+]
+]
+},
+"7762": {
+"piece": "c904 oai_stellar_frost",
+"kind": "small",
+"idea": "★ Frost Star (Sương Tinh)",
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+1.2,
+6.0
+]
+]
+},
+"7763": {
+"piece": "c904 oai_stellar_frost",
+"kind": "small",
+"idea": "★ Frost Star (Sương Tinh)",
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+1.2,
+6.0
+]
+]
+},
+"7764": {
+"piece": "c904 oai_stellar_frost",
+"kind": "small",
+"idea": "★ Frost Star (Sương Tinh)",
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+1.2,
+6.0
+]
+]
+}
+}
+}

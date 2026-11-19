@@ -1,0 +1,1830 @@
+{
+"map": "v5-frozen-2026-11-19",
+"map_sha256": "dbdfd5dcd10b49f843c597b48e169aec86153793382986f29a46dea3247eaa96",
+"area": "hub",
+"nodes": {
+"680": {
+"piece": "base0",
+"kind": "notable",
+"idea": null,
+"name": "Chaos Seed (Hỗn Độn Chủng)",
+"mods": [
+[
+"attack_pct",
+"",
+4,
+4.0
+],
+[
+"resist_pct",
+"",
+4,
+100
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"681": {
+"piece": "base0",
+"kind": "notable",
+"idea": null,
+"name": "Primal Body (Nguyên Thân)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"682": {
+"piece": "base0",
+"kind": "notable",
+"idea": null,
+"name": "Five Talents (Ngũ Tài)",
+"mods": [
+[
+"dao_tam",
+"",
+4,
+1.33
+],
+[
+"than_hon",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"683": {
+"piece": "base0",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"684": {
+"piece": "base0",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"685": {
+"piece": "base0",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"686": {
+"piece": "base0",
+"kind": "notable",
+"idea": null,
+"name": "The Limitless (Vô Cực)",
+"mods": [
+[
+"element_affinity_pct",
+"",
+4,
+4.6
+],
+[
+"attack_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"687": {
+"piece": "base0",
+"kind": "notable",
+"idea": null,
+"name": "Chaos Start (Hỗn Độn Khởi)",
+"mods": [
+[
+"attack_pct",
+"",
+4,
+4.0
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"688": {
+"piece": "base0",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"689": {
+"piece": "base0",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8189": {
+"piece": "c79 swirl_arm_01",
+"kind": "small",
+"idea": "H4 Before Heaven (Tiên Thiên Bát Quái)",
+"mods": [
+[
+"attack_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8190": {
+"piece": "c79 swirl_arm_01",
+"kind": "small",
+"idea": "H4 Before Heaven (Tiên Thiên Bát Quái)",
+"mods": [
+[
+"resist_pct",
+"",
+1.2,
+30
+]
+]
+},
+"8191": {
+"piece": "c79 swirl_arm_01",
+"kind": "notable",
+"idea": "H4 Before Heaven (Tiên Thiên Bát Quái)",
+"name": "Before Form (Tiên Hình)",
+"mods": [
+[
+"attack_pct",
+"",
+4,
+4.0
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8192": {
+"piece": "c79 swirl_arm_01",
+"kind": "small",
+"idea": "H4 Before Heaven (Tiên Thiên Bát Quái)",
+"mods": [
+[
+"resist_pct",
+"",
+1.2,
+30
+]
+]
+},
+"8193": {
+"piece": "c79 swirl_arm_01",
+"kind": "small",
+"idea": "H4 Before Heaven (Tiên Thiên Bát Quái)",
+"mods": [
+[
+"attack_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8194": {
+"piece": "c79 swirl_arm_01",
+"kind": "small",
+"idea": "H4 Before Heaven (Tiên Thiên Bát Quái)",
+"mods": [
+[
+"attack_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8195": {
+"piece": "c79 swirl_arm_01",
+"kind": "small",
+"idea": "H4 Before Heaven (Tiên Thiên Bát Quái)",
+"mods": [
+[
+"attack_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8196": {
+"piece": "c79 swirl_arm_01",
+"kind": "small",
+"idea": "H4 Before Heaven (Tiên Thiên Bát Quái)",
+"mods": [
+[
+"attack_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8197": {
+"piece": "c79 swirl_arm_01",
+"kind": "notable",
+"idea": "H4 Before Heaven (Tiên Thiên Bát Quái)",
+"name": "Before Heaven (Tiên Thiên Bát Quái)",
+"mods": [
+[
+"attack_pct",
+"",
+4,
+4.0
+],
+[
+"resist_pct",
+"",
+4,
+100
+]
+],
+"pending": [],
+"cap": null,
+"effect": "Before Heaven (Tiên Thiên)",
+"twin_copy": false
+},
+"8198": {
+"piece": "c79 swirl_arm_01",
+"kind": "small",
+"idea": "H4 Before Heaven (Tiên Thiên Bát Quái)",
+"mods": [
+[
+"resist_pct",
+"",
+1.2,
+30
+]
+]
+},
+"8199": {
+"piece": "c79 swirl_arm_01",
+"kind": "small",
+"idea": "H4 Before Heaven (Tiên Thiên Bát Quái)",
+"mods": [
+[
+"attack_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8200": {
+"piece": "c79 swirl_arm_02",
+"kind": "small",
+"idea": "★ Chaos Edge (Hỗn Độn Phong)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8201": {
+"piece": "c79 swirl_arm_02",
+"kind": "small",
+"idea": "★ Chaos Edge (Hỗn Độn Phong)",
+"mods": [
+[
+"resist_pen_pct",
+"chaos",
+1.2,
+18
+]
+]
+},
+"8202": {
+"piece": "c79 swirl_arm_02",
+"kind": "notable",
+"idea": "★ Chaos Edge (Hỗn Độn Phong)",
+"name": "Primal Edge (Nguyên Phong)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+],
+[
+"resist_pen_pct",
+"chaos",
+4,
+60
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8203": {
+"piece": "c79 swirl_arm_02",
+"kind": "small",
+"idea": "★ Chaos Edge (Hỗn Độn Phong)",
+"mods": [
+[
+"resist_pen_pct",
+"chaos",
+1.2,
+18
+]
+]
+},
+"8204": {
+"piece": "c79 swirl_arm_02",
+"kind": "small",
+"idea": "★ Chaos Edge (Hỗn Độn Phong)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8205": {
+"piece": "c79 swirl_arm_02",
+"kind": "small",
+"idea": "★ Chaos Edge (Hỗn Độn Phong)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8206": {
+"piece": "c79 swirl_arm_02",
+"kind": "small",
+"idea": "★ Chaos Edge (Hỗn Độn Phong)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8207": {
+"piece": "c79 swirl_arm_02",
+"kind": "small",
+"idea": "★ Chaos Edge (Hỗn Độn Phong)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8208": {
+"piece": "c79 swirl_arm_02",
+"kind": "notable",
+"idea": "★ Chaos Edge (Hỗn Độn Phong)",
+"name": "Chaos Edge (Hỗn Độn Phong)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+5,
+7.5
+],
+[
+"crit_chance_pct",
+"",
+3,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8209": {
+"piece": "c79 swirl_arm_02",
+"kind": "small",
+"idea": "★ Chaos Edge (Hỗn Độn Phong)",
+"mods": [
+[
+"resist_pen_pct",
+"chaos",
+1.2,
+18
+]
+]
+},
+"8210": {
+"piece": "c79 swirl_arm_02",
+"kind": "small",
+"idea": "★ Chaos Edge (Hỗn Độn Phong)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8211": {
+"piece": "c79 swirl_arm_03",
+"kind": "small",
+"idea": "H1 Twin Rings (Song Hoàn)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8212": {
+"piece": "c79 swirl_arm_03",
+"kind": "small",
+"idea": "H1 Twin Rings (Song Hoàn)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"8213": {
+"piece": "c79 swirl_arm_03",
+"kind": "notable",
+"idea": "H1 Twin Rings (Song Hoàn)",
+"name": "Two Forms (Lưỡng Nghi)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8214": {
+"piece": "c79 swirl_arm_03",
+"kind": "small",
+"idea": "H1 Twin Rings (Song Hoàn)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"8215": {
+"piece": "c79 swirl_arm_03",
+"kind": "small",
+"idea": "H1 Twin Rings (Song Hoàn)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8216": {
+"piece": "c79 swirl_arm_03",
+"kind": "small",
+"idea": "H1 Twin Rings (Song Hoàn)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8217": {
+"piece": "c79 swirl_arm_03",
+"kind": "small",
+"idea": "H1 Twin Rings (Song Hoàn)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8218": {
+"piece": "c79 swirl_arm_03",
+"kind": "small",
+"idea": "H1 Twin Rings (Song Hoàn)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8219": {
+"piece": "c79 swirl_arm_03",
+"kind": "notable",
+"idea": "H1 Twin Rings (Song Hoàn)",
+"name": "Twin Technique Cultivation (Song Tu Công Pháp)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+2,
+0.9
+]
+],
+"pending": [],
+"cap": "#6",
+"effect": null,
+"twin_copy": false
+},
+"8220": {
+"piece": "c79 swirl_arm_03",
+"kind": "small",
+"idea": "H1 Twin Rings (Song Hoàn)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"8221": {
+"piece": "c79 swirl_arm_03",
+"kind": "small",
+"idea": "H1 Twin Rings (Song Hoàn)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8222": {
+"piece": "c79 swirl_arm_04",
+"kind": "small",
+"idea": "★ Primordial Breath (Nguyên Khí)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8223": {
+"piece": "c79 swirl_arm_04",
+"kind": "small",
+"idea": "★ Primordial Breath (Nguyên Khí)",
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"8224": {
+"piece": "c79 swirl_arm_04",
+"kind": "notable",
+"idea": "★ Primordial Breath (Nguyên Khí)",
+"name": "Qi Source (Khí Nguyên)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+],
+[
+"linh_luc_regen_inc_pct",
+"",
+4,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8225": {
+"piece": "c79 swirl_arm_04",
+"kind": "small",
+"idea": "★ Primordial Breath (Nguyên Khí)",
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"8226": {
+"piece": "c79 swirl_arm_04",
+"kind": "small",
+"idea": "★ Primordial Breath (Nguyên Khí)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8227": {
+"piece": "c79 swirl_arm_04",
+"kind": "small",
+"idea": "★ Primordial Breath (Nguyên Khí)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8228": {
+"piece": "c79 swirl_arm_04",
+"kind": "small",
+"idea": "★ Primordial Breath (Nguyên Khí)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8229": {
+"piece": "c79 swirl_arm_04",
+"kind": "small",
+"idea": "★ Primordial Breath (Nguyên Khí)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8230": {
+"piece": "c79 swirl_arm_04",
+"kind": "notable",
+"idea": "★ Primordial Breath (Nguyên Khí)",
+"name": "Primordial Breath (Nguyên Khí)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+5,
+5.0
+],
+[
+"reserve_eff_pct",
+"",
+3,
+3.7
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8231": {
+"piece": "c79 swirl_arm_04",
+"kind": "small",
+"idea": "★ Primordial Breath (Nguyên Khí)",
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"8232": {
+"piece": "c79 swirl_arm_04",
+"kind": "small",
+"idea": "★ Primordial Breath (Nguyên Khí)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8233": {
+"piece": "c79 swirl_arm_05",
+"kind": "small",
+"idea": "★ Yin and Yang (Âm Dương)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8234": {
+"piece": "c79 swirl_arm_05",
+"kind": "small",
+"idea": "★ Yin and Yang (Âm Dương)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8235": {
+"piece": "c79 swirl_arm_05",
+"kind": "notable",
+"idea": "★ Yin and Yang (Âm Dương)",
+"name": "Yang Within Yin (Âm Trung Dương)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8236": {
+"piece": "c79 swirl_arm_05",
+"kind": "small",
+"idea": "★ Yin and Yang (Âm Dương)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8237": {
+"piece": "c79 swirl_arm_05",
+"kind": "small",
+"idea": "★ Yin and Yang (Âm Dương)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8238": {
+"piece": "c79 swirl_arm_05",
+"kind": "small",
+"idea": "★ Yin and Yang (Âm Dương)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8239": {
+"piece": "c79 swirl_arm_05",
+"kind": "small",
+"idea": "★ Yin and Yang (Âm Dương)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8240": {
+"piece": "c79 swirl_arm_05",
+"kind": "small",
+"idea": "★ Yin and Yang (Âm Dương)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8241": {
+"piece": "c79 swirl_arm_05",
+"kind": "notable",
+"idea": "★ Yin and Yang (Âm Dương)",
+"name": "Yin and Yang (Âm Dương)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+5,
+0.21
+],
+[
+"khi_huyet_pct",
+"",
+3,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8242": {
+"piece": "c79 swirl_arm_05",
+"kind": "small",
+"idea": "★ Yin and Yang (Âm Dương)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8243": {
+"piece": "c79 swirl_arm_05",
+"kind": "small",
+"idea": "★ Yin and Yang (Âm Dương)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8244": {
+"piece": "c79 swirl_arm_06",
+"kind": "small",
+"idea": "H3 Sixth Point (Biến Dị Chi Môn)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8245": {
+"piece": "c79 swirl_arm_06",
+"kind": "small",
+"idea": "H3 Sixth Point (Biến Dị Chi Môn)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"8246": {
+"piece": "c79 swirl_arm_06",
+"kind": "notable",
+"idea": "H3 Sixth Point (Biến Dị Chi Môn)",
+"name": "Gift of Chaos (Hỗn Độn Thiên Phú)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"can_cot",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8247": {
+"piece": "c79 swirl_arm_06",
+"kind": "small",
+"idea": "H3 Sixth Point (Biến Dị Chi Môn)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"8248": {
+"piece": "c79 swirl_arm_06",
+"kind": "small",
+"idea": "H3 Sixth Point (Biến Dị Chi Môn)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8249": {
+"piece": "c79 swirl_arm_06",
+"kind": "small",
+"idea": "H3 Sixth Point (Biến Dị Chi Môn)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8250": {
+"piece": "c79 swirl_arm_06",
+"kind": "small",
+"idea": "H3 Sixth Point (Biến Dị Chi Môn)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8251": {
+"piece": "c79 swirl_arm_06",
+"kind": "small",
+"idea": "H3 Sixth Point (Biến Dị Chi Môn)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8252": {
+"piece": "c79 swirl_arm_06",
+"kind": "notable",
+"idea": "H3 Sixth Point (Biến Dị Chi Môn)",
+"name": "Mutation Awakening (Biến Dị Khai Mở)",
+"mods": [
+[
+"khi_van",
+"",
+2,
+0.4
+]
+],
+"pending": [],
+"cap": "#24",
+"effect": null,
+"twin_copy": false
+},
+"8253": {
+"piece": "c79 swirl_arm_06",
+"kind": "small",
+"idea": "H3 Sixth Point (Biến Dị Chi Môn)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"8254": {
+"piece": "c79 swirl_arm_06",
+"kind": "small",
+"idea": "H3 Sixth Point (Biến Dị Chi Môn)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8255": {
+"piece": "c79 swirl_arm_07",
+"kind": "small",
+"idea": "★ Five Phases Cycle (Ngũ Hành Luân Chuyển)",
+"mods": [
+[
+"element_affinity_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"8256": {
+"piece": "c79 swirl_arm_07",
+"kind": "small",
+"idea": "★ Five Phases Cycle (Ngũ Hành Luân Chuyển)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8257": {
+"piece": "c79 swirl_arm_07",
+"kind": "notable",
+"idea": "★ Five Phases Cycle (Ngũ Hành Luân Chuyển)",
+"name": "Five Phases (Ngũ Hành)",
+"mods": [
+[
+"element_affinity_pct",
+"",
+4,
+4.6
+],
+[
+"art_speed_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8258": {
+"piece": "c79 swirl_arm_07",
+"kind": "small",
+"idea": "★ Five Phases Cycle (Ngũ Hành Luân Chuyển)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8259": {
+"piece": "c79 swirl_arm_07",
+"kind": "small",
+"idea": "★ Five Phases Cycle (Ngũ Hành Luân Chuyển)",
+"mods": [
+[
+"element_affinity_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"8260": {
+"piece": "c79 swirl_arm_07",
+"kind": "small",
+"idea": "★ Five Phases Cycle (Ngũ Hành Luân Chuyển)",
+"mods": [
+[
+"element_affinity_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"8261": {
+"piece": "c79 swirl_arm_07",
+"kind": "small",
+"idea": "★ Five Phases Cycle (Ngũ Hành Luân Chuyển)",
+"mods": [
+[
+"element_affinity_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"8262": {
+"piece": "c79 swirl_arm_07",
+"kind": "small",
+"idea": "★ Five Phases Cycle (Ngũ Hành Luân Chuyển)",
+"mods": [
+[
+"element_affinity_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"8263": {
+"piece": "c79 swirl_arm_07",
+"kind": "notable",
+"idea": "★ Five Phases Cycle (Ngũ Hành Luân Chuyển)",
+"name": "Five Phases Cycle (Ngũ Hành Luân Chuyển)",
+"mods": [
+[
+"element_affinity_pct",
+"",
+5,
+5.7
+],
+[
+"attack_pct",
+"",
+3,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8264": {
+"piece": "c79 swirl_arm_07",
+"kind": "small",
+"idea": "★ Five Phases Cycle (Ngũ Hành Luân Chuyển)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8265": {
+"piece": "c79 swirl_arm_07",
+"kind": "small",
+"idea": "★ Five Phases Cycle (Ngũ Hành Luân Chuyển)",
+"mods": [
+[
+"element_affinity_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"8266": {
+"piece": "c79 swirl_arm_08",
+"kind": "small",
+"idea": "★ Undivided Mind (Hỗn Nguyên Tâm)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"8267": {
+"piece": "c79 swirl_arm_08",
+"kind": "small",
+"idea": "★ Undivided Mind (Hỗn Nguyên Tâm)",
+"mods": [
+[
+"than_hon",
+"",
+1.2,
+0.4
+]
+]
+},
+"8268": {
+"piece": "c79 swirl_arm_08",
+"kind": "notable",
+"idea": "★ Undivided Mind (Hỗn Nguyên Tâm)",
+"name": "Newborn Heart (Xích Tử Tâm)",
+"mods": [
+[
+"dao_tam",
+"",
+4,
+1.33
+],
+[
+"than_hon",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8269": {
+"piece": "c79 swirl_arm_08",
+"kind": "small",
+"idea": "★ Undivided Mind (Hỗn Nguyên Tâm)",
+"mods": [
+[
+"than_hon",
+"",
+1.2,
+0.4
+]
+]
+},
+"8270": {
+"piece": "c79 swirl_arm_08",
+"kind": "small",
+"idea": "★ Undivided Mind (Hỗn Nguyên Tâm)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"8271": {
+"piece": "c79 swirl_arm_08",
+"kind": "small",
+"idea": "★ Undivided Mind (Hỗn Nguyên Tâm)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"8272": {
+"piece": "c79 swirl_arm_08",
+"kind": "small",
+"idea": "★ Undivided Mind (Hỗn Nguyên Tâm)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"8273": {
+"piece": "c79 swirl_arm_08",
+"kind": "small",
+"idea": "★ Undivided Mind (Hỗn Nguyên Tâm)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"8274": {
+"piece": "c79 swirl_arm_08",
+"kind": "notable",
+"idea": "★ Undivided Mind (Hỗn Nguyên Tâm)",
+"name": "Undivided Mind (Hỗn Nguyên Tâm)",
+"mods": [
+[
+"dao_tam",
+"",
+5,
+1.66
+],
+[
+"tam_ma_resist_pct",
+"",
+3,
+2.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8275": {
+"piece": "c79 swirl_arm_08",
+"kind": "small",
+"idea": "★ Undivided Mind (Hỗn Nguyên Tâm)",
+"mods": [
+[
+"than_hon",
+"",
+1.2,
+0.4
+]
+]
+},
+"8276": {
+"piece": "c79 swirl_arm_08",
+"kind": "small",
+"idea": "★ Undivided Mind (Hỗn Nguyên Tâm)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"8277": {
+"piece": "c79 swirl_arm_09",
+"kind": "small",
+"idea": "★ Void Step (Hư Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"8278": {
+"piece": "c79 swirl_arm_09",
+"kind": "small",
+"idea": "★ Void Step (Hư Bộ)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"8279": {
+"piece": "c79 swirl_arm_09",
+"kind": "notable",
+"idea": "★ Void Step (Hư Bộ)",
+"name": "Hollow Footing (Hư Túc)",
+"mods": [
+[
+"evade_pct",
+"",
+4,
+2.6
+],
+[
+"accuracy_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8280": {
+"piece": "c79 swirl_arm_09",
+"kind": "small",
+"idea": "★ Void Step (Hư Bộ)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"8281": {
+"piece": "c79 swirl_arm_09",
+"kind": "small",
+"idea": "★ Void Step (Hư Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"8282": {
+"piece": "c79 swirl_arm_09",
+"kind": "small",
+"idea": "★ Void Step (Hư Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"8283": {
+"piece": "c79 swirl_arm_09",
+"kind": "small",
+"idea": "★ Void Step (Hư Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"8284": {
+"piece": "c79 swirl_arm_09",
+"kind": "small",
+"idea": "★ Void Step (Hư Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"8285": {
+"piece": "c79 swirl_arm_09",
+"kind": "notable",
+"idea": "★ Void Step (Hư Bộ)",
+"name": "Void Step (Hư Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+5,
+3.3
+],
+[
+"escape_pct",
+"",
+3,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8286": {
+"piece": "c79 swirl_arm_09",
+"kind": "small",
+"idea": "★ Void Step (Hư Bộ)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"8287": {
+"piece": "c79 swirl_arm_09",
+"kind": "small",
+"idea": "★ Void Step (Hư Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"8288": {
+"piece": "c79 swirl_arm_10",
+"kind": "small",
+"idea": "★ Return to Origin (Quy Nguyên)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"8289": {
+"piece": "c79 swirl_arm_10",
+"kind": "small",
+"idea": "★ Return to Origin (Quy Nguyên)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8290": {
+"piece": "c79 swirl_arm_10",
+"kind": "notable",
+"idea": "★ Return to Origin (Quy Nguyên)",
+"name": "Origin Breath (Nguyên Tức)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+],
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8291": {
+"piece": "c79 swirl_arm_10",
+"kind": "small",
+"idea": "★ Return to Origin (Quy Nguyên)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8292": {
+"piece": "c79 swirl_arm_10",
+"kind": "small",
+"idea": "★ Return to Origin (Quy Nguyên)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"8293": {
+"piece": "c79 swirl_arm_10",
+"kind": "small",
+"idea": "★ Return to Origin (Quy Nguyên)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"8294": {
+"piece": "c79 swirl_arm_10",
+"kind": "small",
+"idea": "★ Return to Origin (Quy Nguyên)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"8295": {
+"piece": "c79 swirl_arm_10",
+"kind": "small",
+"idea": "★ Return to Origin (Quy Nguyên)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"8296": {
+"piece": "c79 swirl_arm_10",
+"kind": "notable",
+"idea": "★ Return to Origin (Quy Nguyên)",
+"name": "Return to Origin (Quy Nguyên)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+5,
+16.6
+],
+[
+"healing_pct",
+"",
+3,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8297": {
+"piece": "c79 swirl_arm_10",
+"kind": "small",
+"idea": "★ Return to Origin (Quy Nguyên)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8298": {
+"piece": "c79 swirl_arm_10",
+"kind": "small",
+"idea": "★ Return to Origin (Quy Nguyên)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+}
+}
+}

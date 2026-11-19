@@ -1,0 +1,7355 @@
+{
+"map": "v5-frozen-2026-11-19",
+"map_sha256": "dbdfd5dcd10b49f843c597b48e169aec86153793382986f29a46dea3247eaa96",
+"area": "darkness",
+"nodes": {
+"852": {
+"piece": "base10",
+"kind": "notable",
+"idea": null,
+"name": "Night Eye (Dạ Nhãn)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+],
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"853": {
+"piece": "base10",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"854": {
+"piece": "base10",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"855": {
+"piece": "base10",
+"kind": "notable",
+"idea": null,
+"name": "Darkness Start (Ám Khởi)",
+"mods": [
+[
+"evade_pct",
+"",
+4,
+2.6
+],
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"856": {
+"piece": "base10",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"857": {
+"piece": "base10",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"858": {
+"piece": "base10",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"859": {
+"piece": "base10",
+"kind": "notable",
+"idea": null,
+"name": "Shadow Seed (Ảnh Chủng)",
+"mods": [
+[
+"evade_pct",
+"",
+4,
+2.6
+],
+[
+"stealth",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"860": {
+"piece": "base10",
+"kind": "notable",
+"idea": null,
+"name": "Dark Root (Ám Căn)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+5,
+7.5
+],
+[
+"crit_damage_pct",
+"",
+3,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"861": {
+"piece": "base10",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"862": {
+"piece": "base10",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"863": {
+"piece": "base10",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"864": {
+"piece": "base10",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"865": {
+"piece": "base10",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7183": {
+"piece": "c933 horn_and_s_r",
+"kind": "notable",
+"idea": "K5 Night Moth (Dạ Nga)",
+"name": "Illusory Eyes (Huyễn Nhãn)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+4,
+10.0
+],
+[
+"evade_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7184": {
+"piece": "c933 horn_and_s_r",
+"kind": "notable",
+"idea": "K5 Night Moth (Dạ Nga)",
+"name": "Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+5,
+12.5
+],
+[
+"linh_luc_on_hit_pct",
+"",
+3,
+0.071
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7185": {
+"piece": "c933 horn_and_s_r",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7186": {
+"piece": "c933 horn_and_s_r",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"art_cost_pct",
+"curse",
+1.2,
+-3.0
+]
+]
+},
+"7187": {
+"piece": "c933 horn_and_s_r",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7188": {
+"piece": "c933 horn_and_s_r",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7189": {
+"piece": "c933 horn_and_s_r",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"art_cost_pct",
+"curse",
+1.2,
+-3.0
+]
+]
+},
+"7190": {
+"piece": "c933 horn_and_s_r",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7191": {
+"piece": "c933 horn_and_s_r",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7192": {
+"piece": "c933 horn_and_s_r",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7193": {
+"piece": "c933 horn_and_s_r",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"art_cost_pct",
+"curse",
+1.2,
+-3.0
+]
+]
+},
+"7194": {
+"piece": "c933 horn_and_s_r",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7195": {
+"piece": "c933 horn_and_s_r",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7196": {
+"piece": "c933 horn_and_s_r",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7197": {
+"piece": "c933 horn_and_s_r",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7198": {
+"piece": "c933 horn_and_s_r",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7199": {
+"piece": "c933 horn_and_s_r",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"art_cost_pct",
+"curse",
+1.2,
+-3.0
+]
+]
+},
+"7200": {
+"piece": "c933 horn_and_s_r",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7201": {
+"piece": "c933 horn_and_s_r",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7202": {
+"piece": "c933 horn_and_s_r",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"art_cost_pct",
+"curse",
+1.2,
+-3.0
+]
+]
+},
+"7203": {
+"piece": "c933 horn_and_s_r",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"art_cost_pct",
+"curse",
+1.2,
+-3.0
+]
+]
+},
+"7204": {
+"piece": "c933 horn_and_s_r",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"art_cost_pct",
+"curse",
+1.2,
+-3.0
+]
+]
+},
+"7205": {
+"piece": "c933 horn_and_s_r",
+"kind": "notable",
+"idea": "K5 Night Moth (Dạ Nga)",
+"name": "Moth Wings (Nga Sí)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+4,
+10.0
+],
+[
+"art_cost_pct",
+"curse",
+4,
+-10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7206": {
+"piece": "c933 horn_and_s_r",
+"kind": "notable",
+"idea": "K5 Night Moth (Dạ Nga)",
+"name": "Dust of Wings (Sí Phấn)",
+"mods": [
+[
+"art_cost_pct",
+"curse",
+4,
+-10.0
+],
+[
+"status_duration_pct",
+"curse",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7207": {
+"piece": "c933 horn_and_s_r",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7208": {
+"piece": "c933 horn_and_s_r",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7209": {
+"piece": "c933 horn_and_s_r",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"art_cost_pct",
+"curse",
+1.2,
+-3.0
+]
+]
+},
+"7210": {
+"piece": "c933 horn_and_s_r",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7211": {
+"piece": "c933 horn_and_s_r",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7212": {
+"piece": "c933 horn_and_s_r",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7213": {
+"piece": "c933 horn_and_s_r",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7214": {
+"piece": "c933 horn_and_s_r",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"art_cost_pct",
+"curse",
+1.2,
+-3.0
+]
+]
+},
+"7215": {
+"piece": "c933 horn_and_s_l",
+"kind": "notable",
+"idea": "K5 Night Moth (Dạ Nga)",
+"name": "Illusory Eyes (Huyễn Nhãn)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+4,
+10.0
+],
+[
+"evade_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7216": {
+"piece": "c933 horn_and_s_l",
+"kind": "notable",
+"idea": "K5 Night Moth (Dạ Nga)",
+"name": "Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+5,
+12.5
+],
+[
+"linh_luc_on_hit_pct",
+"",
+3,
+0.071
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7217": {
+"piece": "c933 horn_and_s_l",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7218": {
+"piece": "c933 horn_and_s_l",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"art_cost_pct",
+"curse",
+1.2,
+-3.0
+]
+]
+},
+"7219": {
+"piece": "c933 horn_and_s_l",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7220": {
+"piece": "c933 horn_and_s_l",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7221": {
+"piece": "c933 horn_and_s_l",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"art_cost_pct",
+"curse",
+1.2,
+-3.0
+]
+]
+},
+"7222": {
+"piece": "c933 horn_and_s_l",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7223": {
+"piece": "c933 horn_and_s_l",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7224": {
+"piece": "c933 horn_and_s_l",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7225": {
+"piece": "c933 horn_and_s_l",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"art_cost_pct",
+"curse",
+1.2,
+-3.0
+]
+]
+},
+"7226": {
+"piece": "c933 horn_and_s_l",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7227": {
+"piece": "c933 horn_and_s_l",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7228": {
+"piece": "c933 horn_and_s_l",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7229": {
+"piece": "c933 horn_and_s_l",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7230": {
+"piece": "c933 horn_and_s_l",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7231": {
+"piece": "c933 horn_and_s_l",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"art_cost_pct",
+"curse",
+1.2,
+-3.0
+]
+]
+},
+"7232": {
+"piece": "c933 horn_and_s_l",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7233": {
+"piece": "c933 horn_and_s_l",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7234": {
+"piece": "c933 horn_and_s_l",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"art_cost_pct",
+"curse",
+1.2,
+-3.0
+]
+]
+},
+"7235": {
+"piece": "c933 horn_and_s_l",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"art_cost_pct",
+"curse",
+1.2,
+-3.0
+]
+]
+},
+"7236": {
+"piece": "c933 horn_and_s_l",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"art_cost_pct",
+"curse",
+1.2,
+-3.0
+]
+]
+},
+"7237": {
+"piece": "c933 horn_and_s_l",
+"kind": "notable",
+"idea": "K5 Night Moth (Dạ Nga)",
+"name": "Moth Wings (Nga Sí)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+4,
+10.0
+],
+[
+"art_cost_pct",
+"curse",
+4,
+-10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7238": {
+"piece": "c933 horn_and_s_l",
+"kind": "notable",
+"idea": "K5 Night Moth (Dạ Nga)",
+"name": "Dust of Wings (Sí Phấn)",
+"mods": [
+[
+"art_cost_pct",
+"curse",
+4,
+-10.0
+],
+[
+"status_duration_pct",
+"curse",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7239": {
+"piece": "c933 horn_and_s_l",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7240": {
+"piece": "c933 horn_and_s_l",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7241": {
+"piece": "c933 horn_and_s_l",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"art_cost_pct",
+"curse",
+1.2,
+-3.0
+]
+]
+},
+"7242": {
+"piece": "c933 horn_and_s_l",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7243": {
+"piece": "c933 horn_and_s_l",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7244": {
+"piece": "c933 horn_and_s_l",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7245": {
+"piece": "c933 horn_and_s_l",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"7246": {
+"piece": "c933 horn_and_s_l",
+"kind": "small",
+"idea": "K5 Night Moth (Dạ Nga)",
+"mods": [
+[
+"art_cost_pct",
+"curse",
+1.2,
+-3.0
+]
+]
+},
+"7247": {
+"piece": "c933 hollow_curl_r",
+"kind": "notable",
+"idea": null,
+"name": "Wandering Soul (Du Hồn)",
+"mods": [
+[
+"x_soul",
+"",
+4,
+5.0
+],
+[
+"soul_res_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7248": {
+"piece": "c933 hollow_curl_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"x_soul",
+"",
+1.2,
+1.5
+]
+]
+},
+"7249": {
+"piece": "c933 hollow_curl_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"x_soul",
+"",
+1.2,
+1.5
+]
+]
+},
+"7250": {
+"piece": "c933 hollow_curl_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"x_soul",
+"",
+1.2,
+1.5
+]
+]
+},
+"7251": {
+"piece": "c933 hollow_curl_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"x_soul",
+"",
+1.2,
+1.5
+]
+]
+},
+"7252": {
+"piece": "c933 hollow_curl_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"x_soul",
+"",
+1.2,
+1.5
+]
+]
+},
+"7253": {
+"piece": "c933 hollow_curl_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"x_soul",
+"",
+1.2,
+1.5
+]
+]
+},
+"7254": {
+"piece": "c933 hollow_curl_l",
+"kind": "notable",
+"idea": null,
+"name": "Wandering Soul (Du Hồn)",
+"mods": [
+[
+"x_soul",
+"",
+4,
+5.0
+],
+[
+"soul_res_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7255": {
+"piece": "c933 hollow_curl_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"x_soul",
+"",
+1.2,
+1.5
+]
+]
+},
+"7256": {
+"piece": "c933 hollow_curl_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"x_soul",
+"",
+1.2,
+1.5
+]
+]
+},
+"7257": {
+"piece": "c933 hollow_curl_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"x_soul",
+"",
+1.2,
+1.5
+]
+]
+},
+"7258": {
+"piece": "c933 hollow_curl_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"x_soul",
+"",
+1.2,
+1.5
+]
+]
+},
+"7259": {
+"piece": "c933 hollow_curl_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"x_soul",
+"",
+1.2,
+1.5
+]
+]
+},
+"7260": {
+"piece": "c933 hollow_curl_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"x_soul",
+"",
+1.2,
+1.5
+]
+]
+},
+"7261": {
+"piece": "c933 long_spiral_r",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7262": {
+"piece": "c933 long_spiral_r",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7263": {
+"piece": "c933 long_spiral_r",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7264": {
+"piece": "c933 long_spiral_r",
+"kind": "notable",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"name": "Shadow Trail (Ảnh Tích)",
+"mods": [
+[
+"evade_pct",
+"",
+4,
+2.6
+],
+[
+"escape_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7265": {
+"piece": "c933 long_spiral_r",
+"kind": "notable",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"name": "Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+5,
+3.3
+],
+[
+"art_speed_pct",
+"",
+3,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7266": {
+"piece": "c933 long_spiral_r",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7267": {
+"piece": "c933 long_spiral_r",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7268": {
+"piece": "c933 long_spiral_r",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7269": {
+"piece": "c933 long_spiral_r",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7270": {
+"piece": "c933 long_spiral_r",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7271": {
+"piece": "c933 long_spiral_r",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7272": {
+"piece": "c933 long_spiral_r",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7273": {
+"piece": "c933 long_spiral_r",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7274": {
+"piece": "c933 long_spiral_r",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7275": {
+"piece": "c933 long_spiral_r",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7276": {
+"piece": "c933 long_spiral_r",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7277": {
+"piece": "c933 long_spiral_r",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7278": {
+"piece": "c933 long_spiral_r",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7279": {
+"piece": "c933 long_spiral_r",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7280": {
+"piece": "c933 long_spiral_r",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7281": {
+"piece": "c933 long_spiral_r",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7282": {
+"piece": "c933 long_spiral_r",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7283": {
+"piece": "c933 long_spiral_r",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7284": {
+"piece": "c933 long_spiral_r",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7285": {
+"piece": "c933 long_spiral_r",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7286": {
+"piece": "c933 long_spiral_l",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7287": {
+"piece": "c933 long_spiral_l",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7288": {
+"piece": "c933 long_spiral_l",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7289": {
+"piece": "c933 long_spiral_l",
+"kind": "notable",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"name": "Shadow Trail (Ảnh Tích)",
+"mods": [
+[
+"evade_pct",
+"",
+4,
+2.6
+],
+[
+"escape_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7290": {
+"piece": "c933 long_spiral_l",
+"kind": "notable",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"name": "Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+5,
+3.3
+],
+[
+"art_speed_pct",
+"",
+3,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7291": {
+"piece": "c933 long_spiral_l",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7292": {
+"piece": "c933 long_spiral_l",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7293": {
+"piece": "c933 long_spiral_l",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7294": {
+"piece": "c933 long_spiral_l",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7295": {
+"piece": "c933 long_spiral_l",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7296": {
+"piece": "c933 long_spiral_l",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7297": {
+"piece": "c933 long_spiral_l",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7298": {
+"piece": "c933 long_spiral_l",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7299": {
+"piece": "c933 long_spiral_l",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7300": {
+"piece": "c933 long_spiral_l",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7301": {
+"piece": "c933 long_spiral_l",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7302": {
+"piece": "c933 long_spiral_l",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7303": {
+"piece": "c933 long_spiral_l",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7304": {
+"piece": "c933 long_spiral_l",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7305": {
+"piece": "c933 long_spiral_l",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7306": {
+"piece": "c933 long_spiral_l",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7307": {
+"piece": "c933 long_spiral_l",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7308": {
+"piece": "c933 long_spiral_l",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7309": {
+"piece": "c933 long_spiral_l",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7310": {
+"piece": "c933 long_spiral_l",
+"kind": "small",
+"idea": "K4 Shadow Steps (Ảnh Bộ)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7311": {
+"piece": "c933 outer_swirl_595_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7312": {
+"piece": "c933 outer_swirl_595_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7313": {
+"piece": "c933 outer_swirl_595_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7314": {
+"piece": "c933 outer_swirl_595_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7315": {
+"piece": "c933 outer_swirl_595_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7316": {
+"piece": "c933 outer_swirl_595_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7317": {
+"piece": "c933 outer_swirl_595_r",
+"kind": "notable",
+"idea": null,
+"name": "Night Mist (Dạ Vụ)",
+"mods": [
+[
+"stealth",
+"",
+4,
+2.6
+],
+[
+"evade_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7318": {
+"piece": "c933 outer_swirl_595_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7319": {
+"piece": "c933 outer_swirl_595_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7320": {
+"piece": "c933 outer_swirl_595_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7321": {
+"piece": "c933 outer_swirl_595_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7322": {
+"piece": "c933 outer_swirl_595_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7323": {
+"piece": "c933 outer_swirl_595_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7324": {
+"piece": "c933 outer_swirl_595_l",
+"kind": "notable",
+"idea": null,
+"name": "Night Mist (Dạ Vụ)",
+"mods": [
+[
+"stealth",
+"",
+4,
+2.6
+],
+[
+"evade_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7325": {
+"piece": "c933 outer_swirl_597_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"7326": {
+"piece": "c933 outer_swirl_597_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"7327": {
+"piece": "c933 outer_swirl_597_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"7328": {
+"piece": "c933 outer_swirl_597_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"7329": {
+"piece": "c933 outer_swirl_597_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"7330": {
+"piece": "c933 outer_swirl_597_r",
+"kind": "notable",
+"idea": null,
+"name": "Night Blade (Dạ Nhận)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+4,
+13.3
+],
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7331": {
+"piece": "c933 outer_swirl_597_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"7332": {
+"piece": "c933 outer_swirl_597_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"7333": {
+"piece": "c933 outer_swirl_597_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"7334": {
+"piece": "c933 outer_swirl_597_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"7335": {
+"piece": "c933 outer_swirl_597_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"7336": {
+"piece": "c933 outer_swirl_597_l",
+"kind": "notable",
+"idea": null,
+"name": "Night Blade (Dạ Nhận)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+4,
+13.3
+],
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7337": {
+"piece": "c933 outer_swirl_600_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7338": {
+"piece": "c933 outer_swirl_600_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7339": {
+"piece": "c933 outer_swirl_600_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7340": {
+"piece": "c933 outer_swirl_600_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7341": {
+"piece": "c933 outer_swirl_600_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7342": {
+"piece": "c933 outer_swirl_600_r",
+"kind": "notable",
+"idea": null,
+"name": "Moon Veil (Nguyệt Sa)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+],
+[
+"escape_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7343": {
+"piece": "c933 outer_swirl_600_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7344": {
+"piece": "c933 outer_swirl_600_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7345": {
+"piece": "c933 outer_swirl_600_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7346": {
+"piece": "c933 outer_swirl_600_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7347": {
+"piece": "c933 outer_swirl_600_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7348": {
+"piece": "c933 outer_swirl_600_l",
+"kind": "notable",
+"idea": null,
+"name": "Moon Veil (Nguyệt Sa)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+],
+[
+"escape_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7349": {
+"piece": "c933 tip_swirl_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"7350": {
+"piece": "c933 tip_swirl_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"7351": {
+"piece": "c933 tip_swirl_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"7352": {
+"piece": "c933 tip_swirl_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"7353": {
+"piece": "c933 tip_swirl_r",
+"kind": "notable",
+"idea": null,
+"name": "Night Assassin (Dạ Thích)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+4.0,
+4.0
+],
+[
+"evade_pct",
+"",
+4.0,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7354": {
+"piece": "c933 tip_swirl_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"7355": {
+"piece": "c933 tip_swirl_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"7356": {
+"piece": "c933 tip_swirl_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"7357": {
+"piece": "c933 tip_swirl_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"7358": {
+"piece": "c933 tip_swirl_l",
+"kind": "notable",
+"idea": null,
+"name": "Night Assassin (Dạ Thích)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+4.0,
+4.0
+],
+[
+"evade_pct",
+"",
+4.0,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7359": {
+"piece": "c933 hollow_swirl_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7360": {
+"piece": "c933 hollow_swirl_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7361": {
+"piece": "c933 hollow_swirl_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7362": {
+"piece": "c933 hollow_swirl_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7363": {
+"piece": "c933 hollow_swirl_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7364": {
+"piece": "c933 hollow_swirl_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7365": {
+"piece": "c933 hollow_swirl_r",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7366": {
+"piece": "c933 hollow_swirl_r",
+"kind": "notable",
+"idea": null,
+"name": "Soul Ward (Hộ Hồn)",
+"mods": [
+[
+"soul_res_pct",
+"",
+4,
+6.6
+],
+[
+"x_soul",
+"",
+4,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"7367": {
+"piece": "c933 hollow_swirl_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7368": {
+"piece": "c933 hollow_swirl_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7369": {
+"piece": "c933 hollow_swirl_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7370": {
+"piece": "c933 hollow_swirl_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7371": {
+"piece": "c933 hollow_swirl_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7372": {
+"piece": "c933 hollow_swirl_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7373": {
+"piece": "c933 hollow_swirl_l",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"7374": {
+"piece": "c933 hollow_swirl_l",
+"kind": "notable",
+"idea": null,
+"name": "Soul Ward (Hộ Hồn)",
+"mods": [
+[
+"soul_res_pct",
+"",
+4,
+6.6
+],
+[
+"x_soul",
+"",
+4,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7375": {
+"piece": "c933 full_moon",
+"kind": "small",
+"idea": "K3 New Moon (Sóc Nguyệt)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7376": {
+"piece": "c933 full_moon",
+"kind": "small",
+"idea": "K3 New Moon (Sóc Nguyệt)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7377": {
+"piece": "c933 full_moon",
+"kind": "small",
+"idea": "K3 New Moon (Sóc Nguyệt)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7378": {
+"piece": "c933 full_moon",
+"kind": "small",
+"idea": "K3 New Moon (Sóc Nguyệt)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7379": {
+"piece": "c933 full_moon",
+"kind": "small",
+"idea": "K3 New Moon (Sóc Nguyệt)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"7380": {
+"piece": "c933 full_moon",
+"kind": "small",
+"idea": "K3 New Moon (Sóc Nguyệt)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7381": {
+"piece": "c933 full_moon",
+"kind": "notable",
+"idea": "K3 New Moon (Sóc Nguyệt)",
+"name": "New Moon (Sóc Nguyệt)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+5,
+5.0
+],
+[
+"evade_pct",
+"",
+3,
+2.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": "Dark of the Moon (Sóc Ám)",
+"twin_copy": false
+},
+"7382": {
+"piece": "c933 full_moon",
+"kind": "small",
+"idea": "K3 New Moon (Sóc Nguyệt)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7383": {
+"piece": "c933 full_moon",
+"kind": "small",
+"idea": "K3 New Moon (Sóc Nguyệt)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7384": {
+"piece": "c933 full_moon",
+"kind": "small",
+"idea": "K3 New Moon (Sóc Nguyệt)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"7385": {
+"piece": "c933 full_moon",
+"kind": "small",
+"idea": "K3 New Moon (Sóc Nguyệt)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"7386": {
+"piece": "c933 full_moon",
+"kind": "small",
+"idea": "K3 New Moon (Sóc Nguyệt)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"7387": {
+"piece": "c933 full_moon",
+"kind": "small",
+"idea": "K3 New Moon (Sóc Nguyệt)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7388": {
+"piece": "c933 full_moon",
+"kind": "small",
+"idea": "K3 New Moon (Sóc Nguyệt)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7389": {
+"piece": "c933 full_moon",
+"kind": "notable",
+"idea": "K3 New Moon (Sóc Nguyệt)",
+"name": "Moonless Night (Vô Nguyệt Dạ)",
+"mods": [
+[
+"evade_pct",
+"",
+4,
+2.6
+],
+[
+"crit_damage_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7390": {
+"piece": "c933 full_moon",
+"kind": "small",
+"idea": "K3 New Moon (Sóc Nguyệt)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7391": {
+"piece": "c933 full_moon",
+"kind": "small",
+"idea": "K3 New Moon (Sóc Nguyệt)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7392": {
+"piece": "c933 full_moon",
+"kind": "small",
+"idea": "K3 New Moon (Sóc Nguyệt)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7393": {
+"piece": "c933 full_moon",
+"kind": "small",
+"idea": "K3 New Moon (Sóc Nguyệt)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"7394": {
+"piece": "c933 full_moon",
+"kind": "notable",
+"idea": "K3 New Moon (Sóc Nguyệt)",
+"name": "Waning Moon Slash (Tàn Nguyệt Trảm)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+],
+[
+"crit_damage_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7395": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Eclipse Edge (Thực Biên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+],
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7396": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7397": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7398": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7399": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7400": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7401": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7402": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Offering (Tế Phẩm)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7403": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Demonic Path (Ma Đạo)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+],
+[
+"than_hon",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7404": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7405": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7406": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7407": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7408": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Quiet Heart (Tĩnh Tâm)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+],
+[
+"soul_res_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7409": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7410": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7411": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7412": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7413": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7414": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7415": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7416": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7417": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Eclipse (Nhật Thực)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+5,
+7.5
+],
+[
+"curse_effect_pct",
+"",
+3,
+7.5
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7418": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Shrine Gate (Từ Môn)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+],
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7419": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Black Incense (Hắc Hương)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+],
+[
+"qi_deviation_pct",
+"",
+4,
+-4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7420": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7421": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7422": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7423": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7424": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7425": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7426": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7427": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7428": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7429": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7430": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7431": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7432": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Demon Whisper (Ma Ngữ)",
+"mods": [
+[
+"x_soul",
+"",
+4,
+5.0
+],
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7433": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Calm Smoke (Tĩnh Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+],
+[
+"evade_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7434": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7435": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7436": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7437": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7438": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7439": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7440": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7441": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7442": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Censer (Hương Lô)",
+"mods": [
+[
+"qi_deviation_pct",
+"",
+4,
+-4.0
+],
+[
+"linh_luc_regen_inc_pct",
+"",
+4,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7443": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Soul Lantern (Hồn Đăng)",
+"mods": [
+[
+"x_soul",
+"",
+4,
+5.0
+],
+[
+"soul_res_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7444": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7445": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7446": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7447": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7448": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7449": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7450": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Prayer Beads (Niệm Châu)",
+"mods": [
+[
+"qi_deviation_pct",
+"",
+4,
+-4.0
+],
+[
+"than_hon",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7451": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Blood Rite (Huyết Tế)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+],
+[
+"linh_luc_on_hit_pct",
+"",
+4,
+0.095
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7452": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7453": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7454": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7455": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7456": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7457": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7458": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7459": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7460": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Umbra (Bản Ảnh)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+],
+[
+"evade_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7461": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Coiled Incense (Bàn Hương)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+],
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7462": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7463": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7464": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7465": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7466": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7467": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7468": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Curling Smoke (Niểu Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7469": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Demon Eye (Ma Nhãn)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+],
+[
+"x_soul",
+"",
+4,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7470": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7471": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7472": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Smoke Veil (Yên Mạc)",
+"mods": [
+[
+"stealth",
+"",
+4,
+2.6
+],
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7473": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Shadow Altar (Ảnh Đài)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7474": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7475": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7476": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Sandalwood (Đàn Hương)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+],
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7477": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Black Sun (Hắc Nhật)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+],
+[
+"resist_pen_pct",
+"chaos",
+4,
+60
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7478": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7479": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7480": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Demon Mark (Ma Ấn)",
+"mods": [
+[
+"x_soul",
+"",
+4,
+5.0
+],
+[
+"curse_effect_pct",
+"",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7481": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Ash Altar (Hôi Đài)",
+"mods": [
+[
+"qi_deviation_pct",
+"",
+4,
+-4.0
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7482": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7483": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7484": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Hungry Shade (Ngạ Ảnh)",
+"mods": [
+[
+"x_soul",
+"",
+4,
+5.0
+],
+[
+"linh_luc_on_hit_pct",
+"",
+4,
+0.095
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7485": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Temple Silence (Tự Tĩnh)",
+"mods": [
+[
+"status_resist_pct",
+"",
+4,
+10.0
+],
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7486": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7487": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7488": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7489": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7490": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7491": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7492": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7493": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7494": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7495": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7496": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7497": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7498": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Corona of Night (Dạ Miện)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+],
+[
+"crit_damage_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7499": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Smoke Mirror (Yên Kính)",
+"mods": [
+[
+"qi_deviation_pct",
+"",
+4,
+-4.0
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7500": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7501": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7502": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Soul-Hooking Art (Câu Hồn)",
+"mods": [
+[
+"x_soul",
+"",
+4,
+5.0
+],
+[
+"accuracy_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7503": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Joss Paper (Minh Chỉ)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+],
+[
+"than_hon",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7504": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7505": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7506": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7507": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7508": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7509": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7510": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7511": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7512": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Penumbra (Bán Ảnh)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+],
+[
+"art_speed_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7513": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Monk's Calm (Thiền Định)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+],
+[
+"linh_luc_regen_inc_pct",
+"",
+4,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7514": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7515": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7516": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Heart Demon Rising (Tâm Ma Khởi)",
+"mods": [
+[
+"x_soul",
+"",
+4,
+5.0
+],
+[
+"than_hon",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7517": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Last Incense (Tàn Hương)",
+"mods": [
+[
+"qi_deviation_pct",
+"",
+4,
+-4.0
+],
+[
+"curse_effect_pct",
+"",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7518": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7519": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7520": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7521": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7522": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7523": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7524": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7525": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7526": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7527": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7528": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7529": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7530": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7531": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7532": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"7533": {
+"piece": "c933 shrine_eclipse",
+"kind": "small",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"7534": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Incense Smoke (Hương Yên)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+5,
+3.3
+],
+[
+"x_soul",
+"",
+3,
+3.7
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7535": {
+"piece": "c933 shrine_eclipse",
+"kind": "notable",
+"idea": "S1 Heart Demon Altar (Tâm Ma Đài) + S2 Incense Smoke (Hương Yên)",
+"name": "Heart Demon Turned to Strength (Tâm Ma Hóa Lực)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+2,
+3.0
+]
+],
+"pending": [],
+"cap": "#25",
+"effect": null,
+"twin_copy": false
+},
+"7536": {
+"piece": "c933 moon_lotus",
+"kind": "notable",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"name": "Devouring Mouth (Phệ Khẩu)",
+"mods": [
+[
+"leech_linh_luc_pct",
+"",
+4,
+2.7
+],
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7537": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7538": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7539": {
+"piece": "c933 moon_lotus",
+"kind": "notable",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"name": "Silent Step (Tĩnh Bộ)",
+"mods": [
+[
+"stealth",
+"",
+4,
+2.6
+],
+[
+"travel_speed_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7540": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7541": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7542": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7543": {
+"piece": "c933 moon_lotus",
+"kind": "notable",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"name": "Bottomless (Vô Để)",
+"mods": [
+[
+"leech_linh_luc_pct",
+"",
+4,
+2.7
+],
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7544": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7545": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7546": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7547": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7548": {
+"piece": "c933 moon_lotus",
+"kind": "notable",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"name": "Gnawing (Phệ Giảo)",
+"mods": [
+[
+"leech_linh_luc_pct",
+"",
+4,
+2.7
+],
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7549": {
+"piece": "c933 moon_lotus",
+"kind": "notable",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"name": "Moonlight Hide (Nguyệt Ẩn)",
+"mods": [
+[
+"evade_pct",
+"",
+4,
+2.6
+],
+[
+"soul_res_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7550": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7551": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7552": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7553": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7554": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7555": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7556": {
+"piece": "c933 moon_lotus",
+"kind": "notable",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"name": "Dream Lotus (Mộng Liên)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7557": {
+"piece": "c933 moon_lotus",
+"kind": "notable",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"name": "False Face (Giả Diện)",
+"mods": [
+[
+"stealth",
+"",
+4,
+2.6
+],
+[
+"mi_luc",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7558": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7559": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7560": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7561": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7562": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7563": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7564": {
+"piece": "c933 moon_lotus",
+"kind": "notable",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"name": "Marrow Draw (Hấp Tủy)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+],
+[
+"can_cot",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7565": {
+"piece": "c933 moon_lotus",
+"kind": "notable",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"name": "Unseen (Vô Hình)",
+"mods": [
+[
+"escape_pct",
+"",
+5,
+5.0
+],
+[
+"crit_chance_pct",
+"",
+3,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7566": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7567": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7568": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7569": {
+"piece": "c933 moon_lotus",
+"kind": "notable",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"name": "Moon Drinker (Ẩm Nguyệt)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+],
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7570": {
+"piece": "c933 moon_lotus",
+"kind": "notable",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"name": "Held Breath (Bế Tức)",
+"mods": [
+[
+"stealth",
+"",
+4,
+2.6
+],
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7571": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7572": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7573": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7574": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7575": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7576": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7577": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7578": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7579": {
+"piece": "c933 moon_lotus",
+"kind": "notable",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"name": "Feast (Thịnh Yến)",
+"mods": [
+[
+"leech_linh_luc_pct",
+"",
+4,
+2.7
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7580": {
+"piece": "c933 moon_lotus",
+"kind": "notable",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"name": "Shadow Bloom (Ảnh Hoa)",
+"mods": [
+[
+"stealth",
+"",
+4,
+2.6
+],
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7581": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7582": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7583": {
+"piece": "c933 moon_lotus",
+"kind": "notable",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"name": "Draining Palm (Hấp Chưởng)",
+"mods": [
+[
+"attack_pct",
+"palm",
+4,
+6.0
+],
+[
+"linh_luc_on_hit_pct",
+"palm",
+4,
+0.142
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7584": {
+"piece": "c933 moon_lotus",
+"kind": "notable",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"name": "Veil of Night (Dạ Sa)",
+"mods": [
+[
+"escape_pct",
+"",
+4,
+4.0
+],
+[
+"evade_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7585": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7586": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7587": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7588": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7589": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7590": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7591": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7592": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7593": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7594": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7595": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7596": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7597": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7598": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7599": {
+"piece": "c933 moon_lotus",
+"kind": "notable",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"name": "Moon Root (Nguyệt Căn)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+],
+[
+"stealth",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7600": {
+"piece": "c933 moon_lotus",
+"kind": "notable",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"name": "Night Lotus (Dạ Liên)",
+"mods": [
+[
+"stealth",
+"",
+4,
+2.6
+],
+[
+"escape_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7601": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7602": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7603": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7604": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7605": {
+"piece": "c933 moon_lotus",
+"kind": "notable",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"name": "Hidden Petal (Ẩn Biện)",
+"mods": [
+[
+"stealth",
+"",
+4,
+2.6
+],
+[
+"evade_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7606": {
+"piece": "c933 moon_lotus",
+"kind": "notable",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"name": "Essence Thief (Thâu Tinh)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+],
+[
+"than_hon",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7607": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7608": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7609": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7610": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7611": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7612": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7613": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7614": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7615": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7616": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7617": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7618": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7619": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7620": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7621": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7622": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7623": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7624": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7625": {
+"piece": "c933 moon_lotus",
+"kind": "notable",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"name": "Hood (Đấu Bồng)",
+"mods": [
+[
+"escape_pct",
+"",
+4,
+4.0
+],
+[
+"travel_speed_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7626": {
+"piece": "c933 moon_lotus",
+"kind": "notable",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"name": "Hunger (Cơ Ngạ)",
+"mods": [
+[
+"leech_linh_luc_pct",
+"",
+4,
+2.7
+],
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7627": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7628": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7629": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7630": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7631": {
+"piece": "c933 moon_lotus",
+"kind": "notable",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"name": "Cowl's Shadow (Mạo Ảnh)",
+"mods": [
+[
+"stealth",
+"",
+4,
+2.6
+],
+[
+"soul_res_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7632": {
+"piece": "c933 moon_lotus",
+"kind": "notable",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"name": "Lunar Lotus (Nguyệt Liên)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+5,
+2.2
+],
+[
+"lifespan_pct",
+"",
+3,
+1.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"7633": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7634": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7635": {
+"piece": "c933 moon_lotus",
+"kind": "notable",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"name": "Concealed Breath (Liễm Tức Ẩn Thân)",
+"mods": [
+[
+"stealth",
+"",
+2,
+1.3
+]
+],
+"pending": [],
+"cap": "#20",
+"effect": null,
+"twin_copy": false
+},
+"7636": {
+"piece": "c933 moon_lotus",
+"kind": "notable",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"name": "Great Essence-Draining Art (Hấp Tinh Đại Pháp)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+2,
+0.9
+]
+],
+"pending": [],
+"cap": "#9",
+"effect": null,
+"twin_copy": false
+},
+"7637": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7638": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7639": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7640": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7641": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7642": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7643": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7644": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7645": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7646": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7647": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7648": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7649": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7650": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7651": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7652": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7653": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"7654": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7655": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"7656": {
+"piece": "c933 moon_lotus",
+"kind": "small",
+"idea": "K1 Devouring Maw (Hấp Tinh Khẩu) + K2 Veiled Cowl (Liễm Tức Sa)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8997": {
+"piece": "c933 keystone_pendant",
+"kind": "keystone",
+"name": "Hidden Moon (Ẩn Nguyệt)",
+"effect": "Hidden Moon (Ẩn Nguyệt)",
+"closes": "block and body shield count nothing; maximum health -20 %",
+"mods": [
+[
+"evade_pct",
+"",
+25,
+16.6
+],
+[
+"stealth",
+"",
+25,
+16.6
+]
+]
+}
+}
+}

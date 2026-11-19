@@ -1,0 +1,17210 @@
+{
+"map": "v5-frozen-2026-11-19",
+"map_sha256": "dbdfd5dcd10b49f843c597b48e169aec86153793382986f29a46dea3247eaa96",
+"area": "wood",
+"nodes": {
+"775": {
+"piece": "base6",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"776": {
+"piece": "base6",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"777": {
+"piece": "base6",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"778": {
+"piece": "base6",
+"kind": "notable",
+"idea": null,
+"name": "Wood Start (Mộc Khởi)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"attack_pct",
+"moc",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"779": {
+"piece": "base6",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"780": {
+"piece": "base6",
+"kind": "notable",
+"idea": null,
+"name": "Young Branch (Ấu Chi)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"art_speed_pct",
+"moc",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"781": {
+"piece": "base6",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"782": {
+"piece": "base6",
+"kind": "notable",
+"idea": null,
+"name": "Wood Grain (Mộc Văn)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4,
+6.0
+],
+[
+"block_rating",
+"",
+4,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"783": {
+"piece": "base6",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"784": {
+"piece": "base6",
+"kind": "notable",
+"idea": null,
+"name": "Green Root (Thanh Căn)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"health_regen_pct",
+"",
+4,
+0.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"785": {
+"piece": "base6",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"786": {
+"piece": "base6",
+"kind": "notable",
+"idea": null,
+"name": "Lucky Sprout (Cát Nha)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"co_duyen_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"787": {
+"piece": "base6",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"788": {
+"piece": "base6",
+"kind": "notable",
+"idea": null,
+"name": "Forest Floor (Lâm Địa)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"herb_growth_pct",
+"",
+4,
+4.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"789": {
+"piece": "base6",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"790": {
+"piece": "base6",
+"kind": "notable",
+"idea": null,
+"name": "Wood Root (Mộc Căn)",
+"mods": [
+[
+"attack_pct",
+"moc",
+5,
+7.5
+],
+[
+"health_regen_pct",
+"",
+3,
+0.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"791": {
+"piece": "base6",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"792": {
+"piece": "base6",
+"kind": "notable",
+"idea": null,
+"name": "Rising Sap (Thăng Dịch)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"793": {
+"piece": "base6",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"794": {
+"piece": "base6",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"795": {
+"piece": "base6",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"1449": {
+"piece": "base15",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"1450": {
+"piece": "base15",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"1451": {
+"piece": "base15",
+"kind": "notable",
+"idea": null,
+"name": "Wood Seal (Mộc Ấn)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"attack_pct",
+"moc",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"1452": {
+"piece": "base15",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"1453": {
+"piece": "base15",
+"kind": "notable",
+"idea": null,
+"name": "Axis Tree (Trục Mộc)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"health_regen_pct",
+"",
+4,
+0.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"1454": {
+"piece": "base15",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"1995": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"1996": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"1997": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"1998": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"1999": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"2000": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"2003": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"2004": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"2005": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"2006": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"5587": {
+"piece": "c13 tree",
+"kind": "small",
+"idea": "D5 World Tree (Kiến Mộc)",
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5588": {
+"piece": "c13 tree",
+"kind": "small",
+"idea": "D5 World Tree (Kiến Mộc)",
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5589": {
+"piece": "c13 tree",
+"kind": "small",
+"idea": "D5 World Tree (Kiến Mộc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"5590": {
+"piece": "c13 tree",
+"kind": "small",
+"idea": "D5 World Tree (Kiến Mộc)",
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5591": {
+"piece": "c13 tree",
+"kind": "notable",
+"idea": "D5 World Tree (Kiến Mộc)",
+"name": "Deep Roots (Thâm Căn)",
+"mods": [
+[
+"health_regen_pct",
+"",
+4,
+0.4
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5592": {
+"piece": "c13 tree",
+"kind": "small",
+"idea": "D5 World Tree (Kiến Mộc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"5593": {
+"piece": "c13 tree",
+"kind": "small",
+"idea": "D5 World Tree (Kiến Mộc)",
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5594": {
+"piece": "c13 tree",
+"kind": "small",
+"idea": "D5 World Tree (Kiến Mộc)",
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5595": {
+"piece": "c13 tree",
+"kind": "notable",
+"idea": "D5 World Tree (Kiến Mộc)",
+"name": "Spreading Canopy (Quảng Ấm)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"healing_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5596": {
+"piece": "c13 tree",
+"kind": "small",
+"idea": "D5 World Tree (Kiến Mộc)",
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5597": {
+"piece": "c13 tree",
+"kind": "notable",
+"idea": "D5 World Tree (Kiến Mộc)",
+"name": "World Tree (Kiến Mộc)",
+"mods": [
+[
+"health_regen_pct",
+"",
+5,
+0.5
+],
+[
+"health_regen_inc_pct",
+"",
+3,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5598": {
+"piece": "c13 cloverA13",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5599": {
+"piece": "c13 cloverA13",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5600": {
+"piece": "c13 cloverA13",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5601": {
+"piece": "c13 cloverA13",
+"kind": "notable",
+"idea": null,
+"name": "Mossy Stone (Đài Thạch)",
+"mods": [
+[
+"health_regen_pct",
+"",
+4.0,
+0.4
+],
+[
+"khi_van",
+"",
+4.0,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5602": {
+"piece": "c13 maple",
+"kind": "small",
+"idea": "★ Autumn Maple (Đan Diệp)",
+"mods": [
+[
+"crit_damage_pct",
+"moc",
+1.2,
+6.0
+]
+]
+},
+"5603": {
+"piece": "c13 maple",
+"kind": "small",
+"idea": "★ Autumn Maple (Đan Diệp)",
+"mods": [
+[
+"crit_damage_pct",
+"moc",
+1.2,
+6.0
+]
+]
+},
+"5604": {
+"piece": "c13 maple",
+"kind": "notable",
+"idea": "★ Autumn Maple (Đan Diệp)",
+"name": "Red Leaves (Hồng Diệp)",
+"mods": [
+[
+"crit_damage_pct",
+"moc",
+4,
+20.0
+],
+[
+"attack_pct",
+"over_time",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5605": {
+"piece": "c13 maple",
+"kind": "small",
+"idea": "★ Autumn Maple (Đan Diệp)",
+"mods": [
+[
+"attack_pct",
+"over_time",
+1.2,
+1.8
+]
+]
+},
+"5606": {
+"piece": "c13 maple",
+"kind": "notable",
+"idea": "★ Autumn Maple (Đan Diệp)",
+"name": "Falling Leaves (Lạc Diệp)",
+"mods": [
+[
+"attack_pct",
+"over_time",
+4,
+6.0
+],
+[
+"attack_pct",
+"moc",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5607": {
+"piece": "c13 maple",
+"kind": "small",
+"idea": "★ Autumn Maple (Đan Diệp)",
+"mods": [
+[
+"crit_damage_pct",
+"moc",
+1.2,
+6.0
+]
+]
+},
+"5608": {
+"piece": "c13 maple",
+"kind": "notable",
+"idea": "★ Autumn Maple (Đan Diệp)",
+"name": "Autumn Maple (Đan Diệp)",
+"mods": [
+[
+"crit_damage_pct",
+"moc",
+5,
+25.0
+],
+[
+"crit_chance_pct",
+"moc",
+3,
+4.5
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5609": {
+"piece": "c13 maple",
+"kind": "small",
+"idea": "★ Autumn Maple (Đan Diệp)",
+"mods": [
+[
+"crit_damage_pct",
+"moc",
+1.2,
+6.0
+]
+]
+},
+"5610": {
+"piece": "c13 maple",
+"kind": "small",
+"idea": "★ Autumn Maple (Đan Diệp)",
+"mods": [
+[
+"attack_pct",
+"over_time",
+1.2,
+1.8
+]
+]
+},
+"5611": {
+"piece": "c13 maple",
+"kind": "small",
+"idea": "★ Autumn Maple (Đan Diệp)",
+"mods": [
+[
+"crit_damage_pct",
+"moc",
+1.2,
+6.0
+]
+]
+},
+"5612": {
+"piece": "c13 acorn",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"5613": {
+"piece": "c13 acorn",
+"kind": "notable",
+"idea": null,
+"name": "Ancient Tree (Cổ Thụ)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"lifespan_pct",
+"",
+4,
+1.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5614": {
+"piece": "c13 acorn",
+"kind": "notable",
+"idea": null,
+"name": "Oak Grove (Tượng Lâm)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"health_regen_pct",
+"",
+4,
+0.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5615": {
+"piece": "c13 acorn",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"5616": {
+"piece": "c13 acorn",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"5617": {
+"piece": "c13 acorn",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"5618": {
+"piece": "c13 acorn",
+"kind": "notable",
+"idea": null,
+"name": "Oak Heart (Tượng Tâm)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"block_rating",
+"",
+4,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5619": {
+"piece": "c13 13_crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5620": {
+"piece": "c13 13_crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5621": {
+"piece": "c13 13_crook",
+"kind": "notable",
+"idea": null,
+"name": "Coiled Roots (Bàn Căn)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+4.0,
+13.3
+],
+[
+"health_regen_pct",
+"",
+4.0,
+0.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5622": {
+"piece": "c13 13_ring",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5623": {
+"piece": "c13 13_ring",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5624": {
+"piece": "c13 13_ring",
+"kind": "notable",
+"idea": null,
+"name": "Hundred Years (Bách Niên)",
+"mods": [
+[
+"health_regen_pct",
+"",
+4.0,
+0.4
+],
+[
+"lifespan_pct",
+"",
+4.0,
+1.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5625": {
+"piece": "c13 13_ring",
+"kind": "notable",
+"idea": null,
+"name": "Old Bark (Lão Bì)",
+"mods": [
+[
+"health_regen_pct",
+"",
+4.0,
+0.4
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5626": {
+"piece": "c13 13_ring",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5627": {
+"piece": "c13 13_seed",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"moc",
+1.2,
+6.0
+]
+]
+},
+"5628": {
+"piece": "c13 13_seed",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"moc",
+1.2,
+6.0
+]
+]
+},
+"5629": {
+"piece": "c13 13_seed",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"moc",
+1.2,
+6.0
+]
+]
+},
+"5630": {
+"piece": "c13 13_seed",
+"kind": "notable",
+"idea": null,
+"name": "Rosary Pea (Tương Tư Đậu)",
+"mods": [
+[
+"crit_damage_pct",
+"moc",
+4.0,
+20.0
+],
+[
+"attack_pct",
+"over_time",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5631": {
+"piece": "c13 13_seed",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"moc",
+1.2,
+6.0
+]
+]
+},
+"5632": {
+"piece": "c13 13_diamond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"5633": {
+"piece": "c13 13_diamond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"5634": {
+"piece": "c13 13_diamond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"5635": {
+"piece": "c13 13_diamond",
+"kind": "notable",
+"idea": null,
+"name": "Tree Spirit (Mộc Linh)",
+"mods": [
+[
+"khi_van",
+"",
+4.0,
+0.8
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5636": {
+"piece": "c13 sprout",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5637": {
+"piece": "c13 sprout",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5638": {
+"piece": "c13 sprout",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5639": {
+"piece": "c13 sprout",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5640": {
+"piece": "c13 sprout",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5641": {
+"piece": "c13 sprout",
+"kind": "notable",
+"idea": null,
+"name": "Root Sprout (Căn Nha)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+],
+[
+"health_regen_pct",
+"",
+4,
+0.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5642": {
+"piece": "c13 almond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"5643": {
+"piece": "c13 almond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"5644": {
+"piece": "c13 almond",
+"kind": "notable",
+"idea": null,
+"name": "Bitter Almond (Khổ Hạnh Nhân)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+],
+[
+"health_regen_pct",
+"",
+4.0,
+0.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5645": {
+"piece": "c12 tree",
+"kind": "small",
+"idea": "D5 World Tree (Kiến Mộc)",
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5646": {
+"piece": "c12 tree",
+"kind": "small",
+"idea": "D5 World Tree (Kiến Mộc)",
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5647": {
+"piece": "c12 tree",
+"kind": "small",
+"idea": "D5 World Tree (Kiến Mộc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"5648": {
+"piece": "c12 tree",
+"kind": "small",
+"idea": "D5 World Tree (Kiến Mộc)",
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5649": {
+"piece": "c12 tree",
+"kind": "notable",
+"idea": "D5 World Tree (Kiến Mộc)",
+"name": "Deep Roots (Thâm Căn)",
+"mods": [
+[
+"health_regen_pct",
+"",
+4,
+0.4
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5650": {
+"piece": "c12 tree",
+"kind": "small",
+"idea": "D5 World Tree (Kiến Mộc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"5651": {
+"piece": "c12 tree",
+"kind": "small",
+"idea": "D5 World Tree (Kiến Mộc)",
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5652": {
+"piece": "c12 tree",
+"kind": "small",
+"idea": "D5 World Tree (Kiến Mộc)",
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5653": {
+"piece": "c12 tree",
+"kind": "notable",
+"idea": "D5 World Tree (Kiến Mộc)",
+"name": "Spreading Canopy (Quảng Ấm)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"healing_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5654": {
+"piece": "c12 tree",
+"kind": "small",
+"idea": "D5 World Tree (Kiến Mộc)",
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5655": {
+"piece": "c12 tree",
+"kind": "notable",
+"idea": "D5 World Tree (Kiến Mộc)",
+"name": "World Tree (Kiến Mộc)",
+"mods": [
+[
+"health_regen_pct",
+"",
+5,
+0.5
+],
+[
+"health_regen_inc_pct",
+"",
+3,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5656": {
+"piece": "c12 cloverA13",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5657": {
+"piece": "c12 cloverA13",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5658": {
+"piece": "c12 cloverA13",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5659": {
+"piece": "c12 cloverA13",
+"kind": "notable",
+"idea": null,
+"name": "Mossy Stone (Đài Thạch)",
+"mods": [
+[
+"health_regen_pct",
+"",
+4.0,
+0.4
+],
+[
+"khi_van",
+"",
+4.0,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5660": {
+"piece": "c12 maple",
+"kind": "small",
+"idea": "★ Autumn Maple (Đan Diệp)",
+"mods": [
+[
+"crit_damage_pct",
+"moc",
+1.2,
+6.0
+]
+]
+},
+"5661": {
+"piece": "c12 maple",
+"kind": "small",
+"idea": "★ Autumn Maple (Đan Diệp)",
+"mods": [
+[
+"crit_damage_pct",
+"moc",
+1.2,
+6.0
+]
+]
+},
+"5662": {
+"piece": "c12 maple",
+"kind": "notable",
+"idea": "★ Autumn Maple (Đan Diệp)",
+"name": "Red Leaves (Hồng Diệp)",
+"mods": [
+[
+"crit_damage_pct",
+"moc",
+4,
+20.0
+],
+[
+"attack_pct",
+"over_time",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5663": {
+"piece": "c12 maple",
+"kind": "small",
+"idea": "★ Autumn Maple (Đan Diệp)",
+"mods": [
+[
+"attack_pct",
+"over_time",
+1.2,
+1.8
+]
+]
+},
+"5664": {
+"piece": "c12 maple",
+"kind": "notable",
+"idea": "★ Autumn Maple (Đan Diệp)",
+"name": "Falling Leaves (Lạc Diệp)",
+"mods": [
+[
+"attack_pct",
+"over_time",
+4,
+6.0
+],
+[
+"attack_pct",
+"moc",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5665": {
+"piece": "c12 maple",
+"kind": "small",
+"idea": "★ Autumn Maple (Đan Diệp)",
+"mods": [
+[
+"crit_damage_pct",
+"moc",
+1.2,
+6.0
+]
+]
+},
+"5666": {
+"piece": "c12 maple",
+"kind": "notable",
+"idea": "★ Autumn Maple (Đan Diệp)",
+"name": "Autumn Maple (Đan Diệp)",
+"mods": [
+[
+"crit_damage_pct",
+"moc",
+5,
+25.0
+],
+[
+"crit_chance_pct",
+"moc",
+3,
+4.5
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5667": {
+"piece": "c12 maple",
+"kind": "small",
+"idea": "★ Autumn Maple (Đan Diệp)",
+"mods": [
+[
+"crit_damage_pct",
+"moc",
+1.2,
+6.0
+]
+]
+},
+"5668": {
+"piece": "c12 maple",
+"kind": "small",
+"idea": "★ Autumn Maple (Đan Diệp)",
+"mods": [
+[
+"attack_pct",
+"over_time",
+1.2,
+1.8
+]
+]
+},
+"5669": {
+"piece": "c12 maple",
+"kind": "small",
+"idea": "★ Autumn Maple (Đan Diệp)",
+"mods": [
+[
+"crit_damage_pct",
+"moc",
+1.2,
+6.0
+]
+]
+},
+"5670": {
+"piece": "c12 acorn",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"5671": {
+"piece": "c12 acorn",
+"kind": "notable",
+"idea": null,
+"name": "Ancient Tree (Cổ Thụ)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"lifespan_pct",
+"",
+4,
+1.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5672": {
+"piece": "c12 acorn",
+"kind": "notable",
+"idea": null,
+"name": "Oak Grove (Tượng Lâm)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"health_regen_pct",
+"",
+4,
+0.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5673": {
+"piece": "c12 acorn",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"5674": {
+"piece": "c12 acorn",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"5675": {
+"piece": "c12 acorn",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"5676": {
+"piece": "c12 acorn",
+"kind": "notable",
+"idea": null,
+"name": "Oak Heart (Tượng Tâm)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"block_rating",
+"",
+4,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5677": {
+"piece": "c12 13_crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5678": {
+"piece": "c12 13_crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5679": {
+"piece": "c12 13_crook",
+"kind": "notable",
+"idea": null,
+"name": "Coiled Roots (Bàn Căn)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+4.0,
+13.3
+],
+[
+"health_regen_pct",
+"",
+4.0,
+0.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5680": {
+"piece": "c12 13_ring",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5681": {
+"piece": "c12 13_ring",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5682": {
+"piece": "c12 13_ring",
+"kind": "notable",
+"idea": null,
+"name": "Hundred Years (Bách Niên)",
+"mods": [
+[
+"health_regen_pct",
+"",
+4.0,
+0.4
+],
+[
+"lifespan_pct",
+"",
+4.0,
+1.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5683": {
+"piece": "c12 13_ring",
+"kind": "notable",
+"idea": null,
+"name": "Old Bark (Lão Bì)",
+"mods": [
+[
+"health_regen_pct",
+"",
+4.0,
+0.4
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5684": {
+"piece": "c12 13_ring",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5685": {
+"piece": "c12 13_diamond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"5686": {
+"piece": "c12 13_diamond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"5687": {
+"piece": "c12 13_diamond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"5688": {
+"piece": "c12 13_diamond",
+"kind": "notable",
+"idea": null,
+"name": "Tree Spirit (Mộc Linh)",
+"mods": [
+[
+"khi_van",
+"",
+4.0,
+0.8
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5689": {
+"piece": "c12 12_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"over_time",
+1.2,
+1.8
+]
+]
+},
+"5690": {
+"piece": "c12 12_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"over_time",
+1.2,
+1.8
+]
+]
+},
+"5691": {
+"piece": "c12 12_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"over_time",
+1.2,
+1.8
+]
+]
+},
+"5692": {
+"piece": "c12 12_crescent",
+"kind": "notable",
+"idea": null,
+"name": "Autumn Frost (Thu Sương)",
+"mods": [
+[
+"attack_pct",
+"over_time",
+4.0,
+6.0
+],
+[
+"crit_damage_pct",
+"moc",
+4.0,
+20.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5693": {
+"piece": "c12 sprout",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5694": {
+"piece": "c12 sprout",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5695": {
+"piece": "c12 sprout",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5696": {
+"piece": "c12 sprout",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5697": {
+"piece": "c12 sprout",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"5698": {
+"piece": "c12 sprout",
+"kind": "notable",
+"idea": null,
+"name": "Root Sprout (Căn Nha)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+],
+[
+"health_regen_pct",
+"",
+4,
+0.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5699": {
+"piece": "c12 almond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"5700": {
+"piece": "c12 almond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"5701": {
+"piece": "c12 almond",
+"kind": "notable",
+"idea": null,
+"name": "Bitter Almond (Khổ Hạnh Nhân)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+],
+[
+"health_regen_pct",
+"",
+4.0,
+0.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5702": {
+"piece": "c94 cloverA94",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"5703": {
+"piece": "c94 cloverA94",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"5704": {
+"piece": "c94 cloverA94",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"5705": {
+"piece": "c94 cloverA94",
+"kind": "notable",
+"idea": null,
+"name": "Spirit Grass (Linh Thảo)",
+"mods": [
+[
+"khi_van",
+"",
+4.0,
+0.8
+],
+[
+"herb_growth_pct",
+"",
+4.0,
+4.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5706": {
+"piece": "c94 seedB_low",
+"kind": "notable",
+"idea": null,
+"name": "Spirit Seed (Linh Chủng)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+4.0,
+4.4
+],
+[
+"healing_pct",
+"",
+4.0,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5707": {
+"piece": "c94 seedB_low",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5708": {
+"piece": "c94 seedB_low",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5709": {
+"piece": "c94 seedB_low",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5710": {
+"piece": "c94 seedB_low",
+"kind": "notable",
+"idea": null,
+"name": "Herb Seed (Dược Chủng)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+4.0,
+4.4
+],
+[
+"pill_effect_pct",
+"",
+4.0,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5711": {
+"piece": "c94 tulip",
+"kind": "small",
+"idea": "D1 Hundred-Herb Garden (Bách Thảo Viên)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5712": {
+"piece": "c94 tulip",
+"kind": "small",
+"idea": "D1 Hundred-Herb Garden (Bách Thảo Viên)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5713": {
+"piece": "c94 tulip",
+"kind": "notable",
+"idea": "D1 Hundred-Herb Garden (Bách Thảo Viên)",
+"name": "Healing Herbs (Dược Thảo)",
+"mods": [
+[
+"healing_pct",
+"",
+4,
+8.0
+],
+[
+"pill_effect_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5714": {
+"piece": "c94 tulip",
+"kind": "small",
+"idea": "D1 Hundred-Herb Garden (Bách Thảo Viên)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5715": {
+"piece": "c94 tulip",
+"kind": "notable",
+"idea": "D1 Hundred-Herb Garden (Bách Thảo Viên)",
+"name": "Herb Plot (Dược Điền)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+4,
+4.4
+],
+[
+"healing_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5716": {
+"piece": "c94 tulip",
+"kind": "notable",
+"idea": "D1 Hundred-Herb Garden (Bách Thảo Viên)",
+"name": "Gardener (Viên Đinh)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+4,
+4.4
+],
+[
+"khi_van",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5717": {
+"piece": "c94 tulip",
+"kind": "small",
+"idea": "D1 Hundred-Herb Garden (Bách Thảo Viên)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5718": {
+"piece": "c94 tulip",
+"kind": "small",
+"idea": "D1 Hundred-Herb Garden (Bách Thảo Viên)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5719": {
+"piece": "c94 tulip",
+"kind": "small",
+"idea": "D1 Hundred-Herb Garden (Bách Thảo Viên)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5720": {
+"piece": "c94 tulip",
+"kind": "notable",
+"idea": "D1 Hundred-Herb Garden (Bách Thảo Viên)",
+"name": "Hundred-Herb Garden (Bách Thảo Viên)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+5,
+5.5
+],
+[
+"healing_pct",
+"",
+3,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5721": {
+"piece": "c94 bud",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5722": {
+"piece": "c94 bud",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5723": {
+"piece": "c94 bud",
+"kind": "notable",
+"idea": null,
+"name": "Flower in Bud (Hàm Bao)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+4,
+4.4
+],
+[
+"khi_van",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5724": {
+"piece": "c94 bud",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5725": {
+"piece": "c94 bud",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5726": {
+"piece": "c94 bud",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5727": {
+"piece": "c94 bud",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5728": {
+"piece": "c94 samara",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5729": {
+"piece": "c94 samara",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5730": {
+"piece": "c94 samara",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5731": {
+"piece": "c94 samara",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5732": {
+"piece": "c94 samara",
+"kind": "notable",
+"idea": null,
+"name": "Samara (Sí Quả)",
+"mods": [
+[
+"healing_pct",
+"",
+4,
+8.0
+],
+[
+"herb_growth_pct",
+"",
+4,
+4.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5733": {
+"piece": "c94 samara",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5734": {
+"piece": "c94 samara",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5735": {
+"piece": "c94 samara",
+"kind": "notable",
+"idea": null,
+"name": "Winged Seed (Phi Chủng)",
+"mods": [
+[
+"healing_pct",
+"",
+4,
+8.0
+],
+[
+"travel_speed_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5736": {
+"piece": "c94 almond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"pill_effect_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5737": {
+"piece": "c94 almond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"pill_effect_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5738": {
+"piece": "c94 almond",
+"kind": "notable",
+"idea": null,
+"name": "Almond (Hạnh Nhân)",
+"mods": [
+[
+"pill_effect_pct",
+"",
+4.0,
+4.0
+],
+[
+"herb_growth_pct",
+"",
+4.0,
+4.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5739": {
+"piece": "c88 tulip",
+"kind": "small",
+"idea": "D1 Hundred-Herb Garden (Bách Thảo Viên)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5740": {
+"piece": "c88 tulip",
+"kind": "small",
+"idea": "D1 Hundred-Herb Garden (Bách Thảo Viên)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5741": {
+"piece": "c88 tulip",
+"kind": "notable",
+"idea": "D1 Hundred-Herb Garden (Bách Thảo Viên)",
+"name": "Healing Herbs (Dược Thảo)",
+"mods": [
+[
+"healing_pct",
+"",
+4,
+8.0
+],
+[
+"pill_effect_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5742": {
+"piece": "c88 tulip",
+"kind": "small",
+"idea": "D1 Hundred-Herb Garden (Bách Thảo Viên)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5743": {
+"piece": "c88 tulip",
+"kind": "notable",
+"idea": "D1 Hundred-Herb Garden (Bách Thảo Viên)",
+"name": "Herb Plot (Dược Điền)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+4,
+4.4
+],
+[
+"healing_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5744": {
+"piece": "c88 tulip",
+"kind": "notable",
+"idea": "D1 Hundred-Herb Garden (Bách Thảo Viên)",
+"name": "Gardener (Viên Đinh)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+4,
+4.4
+],
+[
+"khi_van",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5745": {
+"piece": "c88 tulip",
+"kind": "small",
+"idea": "D1 Hundred-Herb Garden (Bách Thảo Viên)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5746": {
+"piece": "c88 tulip",
+"kind": "small",
+"idea": "D1 Hundred-Herb Garden (Bách Thảo Viên)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5747": {
+"piece": "c88 tulip",
+"kind": "small",
+"idea": "D1 Hundred-Herb Garden (Bách Thảo Viên)",
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5748": {
+"piece": "c88 tulip",
+"kind": "notable",
+"idea": "D1 Hundred-Herb Garden (Bách Thảo Viên)",
+"name": "Hundred Herbs Kept Alive (Bách Thảo Tàng Linh)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+2,
+2.2
+]
+],
+"pending": [],
+"cap": "#12",
+"effect": null,
+"twin_copy": false
+},
+"5749": {
+"piece": "c88 bud",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5750": {
+"piece": "c88 bud",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5751": {
+"piece": "c88 bud",
+"kind": "notable",
+"idea": null,
+"name": "Flower in Bud (Hàm Bao)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+4,
+4.4
+],
+[
+"khi_van",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5752": {
+"piece": "c88 bud",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5753": {
+"piece": "c88 bud",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5754": {
+"piece": "c88 bud",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5755": {
+"piece": "c88 bud",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5756": {
+"piece": "c88 cloverA88",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5757": {
+"piece": "c88 cloverA88",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5758": {
+"piece": "c88 cloverA88",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5759": {
+"piece": "c88 cloverA88",
+"kind": "notable",
+"idea": null,
+"name": "Wild Ginseng (Dã Nhân Sâm)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+4.0,
+4.4
+],
+[
+"khi_van",
+"",
+4.0,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5760": {
+"piece": "c88 fiddlehead",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"pill_effect_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5761": {
+"piece": "c88 fiddlehead",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"pill_effect_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5762": {
+"piece": "c88 fiddlehead",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"pill_effect_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5763": {
+"piece": "c88 fiddlehead",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"pill_effect_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5764": {
+"piece": "c88 fiddlehead",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"pill_effect_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5765": {
+"piece": "c88 fiddlehead",
+"kind": "notable",
+"idea": null,
+"name": "Fiddlehead (Quyết Nha)",
+"mods": [
+[
+"pill_effect_pct",
+"",
+4,
+4.0
+],
+[
+"herb_growth_pct",
+"",
+4,
+4.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5766": {
+"piece": "c88 almond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"pill_effect_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5767": {
+"piece": "c88 almond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"pill_effect_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5768": {
+"piece": "c88 almond",
+"kind": "notable",
+"idea": null,
+"name": "Almond (Hạnh Nhân)",
+"mods": [
+[
+"pill_effect_pct",
+"",
+4.0,
+4.0
+],
+[
+"herb_growth_pct",
+"",
+4.0,
+4.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5769": {
+"piece": "c88 hangleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5770": {
+"piece": "c88 hangleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5771": {
+"piece": "c88 hangleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5772": {
+"piece": "c88 hangleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5773": {
+"piece": "c88 hangleaf",
+"kind": "notable",
+"idea": null,
+"name": "Hanging Leaf (Thùy Diệp)",
+"mods": [
+[
+"healing_pct",
+"",
+4.0,
+8.0
+],
+[
+"herb_growth_pct",
+"",
+4.0,
+4.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5774": {
+"piece": "c72 vine",
+"kind": "small",
+"idea": "D10 Binding Vine (Đằng La)",
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5775": {
+"piece": "c72 vine",
+"kind": "small",
+"idea": "D10 Binding Vine (Đằng La)",
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5776": {
+"piece": "c72 vine",
+"kind": "small",
+"idea": "D10 Binding Vine (Đằng La)",
+"mods": [
+[
+"attack_pct",
+"moc,over_time",
+1.2,
+2.4
+]
+]
+},
+"5777": {
+"piece": "c72 vine",
+"kind": "small",
+"idea": "D10 Binding Vine (Đằng La)",
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5778": {
+"piece": "c72 vine",
+"kind": "notable",
+"idea": "D10 Binding Vine (Đằng La)",
+"name": "Strangler Vine (Giảo Đằng)",
+"mods": [
+[
+"attack_pct",
+"moc,over_time",
+4,
+8.0
+],
+[
+"curse_effect_pct",
+"",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5779": {
+"piece": "c72 vine",
+"kind": "small",
+"idea": "D10 Binding Vine (Đằng La)",
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5780": {
+"piece": "c72 vine",
+"kind": "notable",
+"idea": "D10 Binding Vine (Đằng La)",
+"name": "Creeping Vine (Mạn Đằng)",
+"mods": [
+[
+"status_duration_pct",
+"",
+4,
+10.0
+],
+[
+"attack_pct",
+"moc,over_time",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5781": {
+"piece": "c72 vine",
+"kind": "small",
+"idea": "D10 Binding Vine (Đằng La)",
+"mods": [
+[
+"attack_pct",
+"moc,over_time",
+1.2,
+2.4
+]
+]
+},
+"5782": {
+"piece": "c72 vine",
+"kind": "notable",
+"idea": "D10 Binding Vine (Đằng La)",
+"name": "Clinging Tendril (Triền Đằng)",
+"mods": [
+[
+"status_duration_pct",
+"",
+4,
+10.0
+],
+[
+"timer_resist_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5783": {
+"piece": "c72 vine",
+"kind": "small",
+"idea": "D10 Binding Vine (Đằng La)",
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5784": {
+"piece": "c72 vine",
+"kind": "notable",
+"idea": "D10 Binding Vine (Đằng La)",
+"name": "Binding Vine (Đằng La)",
+"mods": [
+[
+"status_duration_pct",
+"",
+5,
+12.5
+],
+[
+"curse_effect_pct",
+"",
+3,
+7.5
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5785": {
+"piece": "c72 cutstem",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5786": {
+"piece": "c72 cutstem",
+"kind": "notable",
+"idea": null,
+"name": "Pruning (Tiễn Chi)",
+"mods": [
+[
+"status_duration_pct",
+"",
+4,
+10.0
+],
+[
+"attack_pct",
+"moc,over_time",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5787": {
+"piece": "c72 cutstem",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5788": {
+"piece": "c72 cutstem",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5789": {
+"piece": "c72 cutstem",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5790": {
+"piece": "c72 cutstem",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5791": {
+"piece": "c72 cutstem",
+"kind": "notable",
+"idea": null,
+"name": "Grafting (Giá Tiếp)",
+"mods": [
+[
+"status_duration_pct",
+"",
+4,
+10.0
+],
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5792": {
+"piece": "c72 cutstem",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5793": {
+"piece": "c72 72_tadpole",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5794": {
+"piece": "c72 72_tadpole",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5795": {
+"piece": "c72 72_tadpole",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5796": {
+"piece": "c72 72_tadpole",
+"kind": "notable",
+"idea": null,
+"name": "Cursed Vine (Chú Đằng)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+4,
+10.0
+],
+[
+"status_duration_pct",
+"",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5797": {
+"piece": "c72 72_tadpole",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5798": {
+"piece": "c72 72_tadpole",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5799": {
+"piece": "c72 72_tadpole",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5800": {
+"piece": "c72 72_tadpole",
+"kind": "notable",
+"idea": null,
+"name": "Entwining (Triền Nhiễu)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+4,
+10.0
+],
+[
+"attack_pct",
+"moc",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5801": {
+"piece": "c72 72_crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5802": {
+"piece": "c72 72_crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5803": {
+"piece": "c72 72_crook",
+"kind": "notable",
+"idea": null,
+"name": "Taking Root (Trát Căn)",
+"mods": [
+[
+"timer_resist_pct",
+"",
+4,
+8.0
+],
+[
+"status_duration_pct",
+"",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5804": {
+"piece": "c72 72_crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5805": {
+"piece": "c72 72_crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5806": {
+"piece": "c72 72_crook",
+"kind": "notable",
+"idea": null,
+"name": "Hooked Thorn (Câu Thích)",
+"mods": [
+[
+"timer_resist_pct",
+"",
+4,
+8.0
+],
+[
+"attack_pct",
+"moc",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5807": {
+"piece": "c72 72_diamond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5808": {
+"piece": "c72 72_diamond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5809": {
+"piece": "c72 72_diamond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5810": {
+"piece": "c72 72_diamond",
+"kind": "notable",
+"idea": null,
+"name": "Witch Knot (Chú Kết)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+4.0,
+10.0
+],
+[
+"status_duration_pct",
+"",
+4.0,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5811": {
+"piece": "c72 72_crook2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"5812": {
+"piece": "c72 72_crook2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"5813": {
+"piece": "c72 72_crook2",
+"kind": "notable",
+"idea": null,
+"name": "Whipping Vine (Đằng Tiên)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4.0,
+6.0
+],
+[
+"status_duration_pct",
+"",
+4.0,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5814": {
+"piece": "c72 72_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5815": {
+"piece": "c72 72_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5816": {
+"piece": "c72 72_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5817": {
+"piece": "c72 72_crescent",
+"kind": "notable",
+"idea": null,
+"name": "Vine Lock (Đằng Tỏa)",
+"mods": [
+[
+"timer_resist_pct",
+"",
+4.0,
+8.0
+],
+[
+"status_duration_pct",
+"",
+4.0,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5818": {
+"piece": "c71 vine",
+"kind": "small",
+"idea": "D10 Binding Vine (Đằng La)",
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5819": {
+"piece": "c71 vine",
+"kind": "small",
+"idea": "D10 Binding Vine (Đằng La)",
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5820": {
+"piece": "c71 vine",
+"kind": "small",
+"idea": "D10 Binding Vine (Đằng La)",
+"mods": [
+[
+"attack_pct",
+"moc,over_time",
+1.2,
+2.4
+]
+]
+},
+"5821": {
+"piece": "c71 vine",
+"kind": "small",
+"idea": "D10 Binding Vine (Đằng La)",
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5822": {
+"piece": "c71 vine",
+"kind": "notable",
+"idea": "D10 Binding Vine (Đằng La)",
+"name": "Strangler Vine (Giảo Đằng)",
+"mods": [
+[
+"attack_pct",
+"moc,over_time",
+4,
+8.0
+],
+[
+"curse_effect_pct",
+"",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5823": {
+"piece": "c71 vine",
+"kind": "small",
+"idea": "D10 Binding Vine (Đằng La)",
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5824": {
+"piece": "c71 vine",
+"kind": "notable",
+"idea": "D10 Binding Vine (Đằng La)",
+"name": "Creeping Vine (Mạn Đằng)",
+"mods": [
+[
+"status_duration_pct",
+"",
+4,
+10.0
+],
+[
+"attack_pct",
+"moc,over_time",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5825": {
+"piece": "c71 vine",
+"kind": "small",
+"idea": "D10 Binding Vine (Đằng La)",
+"mods": [
+[
+"attack_pct",
+"moc,over_time",
+1.2,
+2.4
+]
+]
+},
+"5826": {
+"piece": "c71 vine",
+"kind": "notable",
+"idea": "D10 Binding Vine (Đằng La)",
+"name": "Clinging Tendril (Triền Đằng)",
+"mods": [
+[
+"status_duration_pct",
+"",
+4,
+10.0
+],
+[
+"timer_resist_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5827": {
+"piece": "c71 vine",
+"kind": "small",
+"idea": "D10 Binding Vine (Đằng La)",
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5828": {
+"piece": "c71 vine",
+"kind": "notable",
+"idea": "D10 Binding Vine (Đằng La)",
+"name": "Binding Vine (Đằng La)",
+"mods": [
+[
+"status_duration_pct",
+"",
+5,
+12.5
+],
+[
+"curse_effect_pct",
+"",
+3,
+7.5
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5829": {
+"piece": "c71 cutstem",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5830": {
+"piece": "c71 cutstem",
+"kind": "notable",
+"idea": null,
+"name": "Pruning (Tiễn Chi)",
+"mods": [
+[
+"status_duration_pct",
+"",
+4,
+10.0
+],
+[
+"attack_pct",
+"moc,over_time",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5831": {
+"piece": "c71 cutstem",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5832": {
+"piece": "c71 cutstem",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5833": {
+"piece": "c71 cutstem",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5834": {
+"piece": "c71 cutstem",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5835": {
+"piece": "c71 cutstem",
+"kind": "notable",
+"idea": null,
+"name": "Grafting (Giá Tiếp)",
+"mods": [
+[
+"status_duration_pct",
+"",
+4,
+10.0
+],
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5836": {
+"piece": "c71 cutstem",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5837": {
+"piece": "c71 72_crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5838": {
+"piece": "c71 72_crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5839": {
+"piece": "c71 72_crook",
+"kind": "notable",
+"idea": null,
+"name": "Taking Root (Trát Căn)",
+"mods": [
+[
+"timer_resist_pct",
+"",
+4,
+8.0
+],
+[
+"status_duration_pct",
+"",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5840": {
+"piece": "c71 72_crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5841": {
+"piece": "c71 72_crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5842": {
+"piece": "c71 72_crook",
+"kind": "notable",
+"idea": null,
+"name": "Hooked Thorn (Câu Thích)",
+"mods": [
+[
+"timer_resist_pct",
+"",
+4,
+8.0
+],
+[
+"attack_pct",
+"moc",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5843": {
+"piece": "c71 72_diamond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5844": {
+"piece": "c71 72_diamond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5845": {
+"piece": "c71 72_diamond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"curse_effect_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5846": {
+"piece": "c71 72_diamond",
+"kind": "notable",
+"idea": null,
+"name": "Witch Knot (Chú Kết)",
+"mods": [
+[
+"curse_effect_pct",
+"",
+4.0,
+10.0
+],
+[
+"status_duration_pct",
+"",
+4.0,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5847": {
+"piece": "c71 72_crook2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"5848": {
+"piece": "c71 72_crook2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"5849": {
+"piece": "c71 72_crook2",
+"kind": "notable",
+"idea": null,
+"name": "Whipping Vine (Đằng Tiên)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4.0,
+6.0
+],
+[
+"status_duration_pct",
+"",
+4.0,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5850": {
+"piece": "c71 71_spur",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5851": {
+"piece": "c71 71_spur",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5852": {
+"piece": "c71 71_spur",
+"kind": "notable",
+"idea": null,
+"name": "Leech Vine (Hấp Huyết Đằng)",
+"mods": [
+[
+"status_duration_pct",
+"",
+4.0,
+10.0
+],
+[
+"attack_pct",
+"moc,over_time",
+4.0,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5853": {
+"piece": "c71 71_spur",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_duration_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"5854": {
+"piece": "c71 71_spur",
+"kind": "notable",
+"idea": null,
+"name": "Snare (La Võng)",
+"mods": [
+[
+"status_duration_pct",
+"",
+4.0,
+10.0
+],
+[
+"curse_effect_pct",
+"",
+4.0,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5855": {
+"piece": "c71 71_hook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc,over_time",
+1.2,
+2.4
+]
+]
+},
+"5856": {
+"piece": "c71 71_hook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc,over_time",
+1.2,
+2.4
+]
+]
+},
+"5857": {
+"piece": "c71 71_hook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc,over_time",
+1.2,
+2.4
+]
+]
+},
+"5858": {
+"piece": "c71 71_hook",
+"kind": "notable",
+"idea": null,
+"name": "Strangling Grip (Giảo Sát)",
+"mods": [
+[
+"attack_pct",
+"moc,over_time",
+4.0,
+8.0
+],
+[
+"status_duration_pct",
+"",
+4.0,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5859": {
+"piece": "c52 tendril",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"5860": {
+"piece": "c52 tendril",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"5861": {
+"piece": "c52 tendril",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"5862": {
+"piece": "c52 tendril",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"5863": {
+"piece": "c52 tendril",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"5864": {
+"piece": "c52 tendril",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"5865": {
+"piece": "c52 tendril",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"5866": {
+"piece": "c52 tendril",
+"kind": "notable",
+"idea": null,
+"name": "Beast-Taming Vine (Ngự Thú Đằng)",
+"mods": [
+[
+"companion_health_pct",
+"",
+4,
+15.0
+],
+[
+"companion_power_pct",
+"",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5867": {
+"piece": "c52 roundleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5868": {
+"piece": "c52 roundleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5869": {
+"piece": "c52 roundleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5870": {
+"piece": "c52 roundleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5871": {
+"piece": "c52 roundleaf",
+"kind": "notable",
+"idea": null,
+"name": "Lotus Pad (Hà Diệp)",
+"mods": [
+[
+"health_regen_pct",
+"",
+4,
+0.4
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5872": {
+"piece": "c52 roundleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5873": {
+"piece": "c52 roundleaf",
+"kind": "notable",
+"idea": null,
+"name": "Lotus Dew (Hà Lộ)",
+"mods": [
+[
+"health_regen_pct",
+"",
+4,
+0.4
+],
+[
+"healing_taken_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5874": {
+"piece": "c52 roundleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"5875": {
+"piece": "c52 blossom",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"mi_luc",
+"",
+1.2,
+1.2
+]
+]
+},
+"5876": {
+"piece": "c52 blossom",
+"kind": "notable",
+"idea": null,
+"name": "Peony (Mẫu Đơn)",
+"mods": [
+[
+"mi_luc",
+"",
+4,
+4.0
+],
+[
+"khi_van",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5877": {
+"piece": "c52 blossom",
+"kind": "notable",
+"idea": null,
+"name": "Plum Blossom (Mai Hoa)",
+"mods": [
+[
+"mi_luc",
+"",
+4,
+4.0
+],
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5878": {
+"piece": "c52 blossom",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"mi_luc",
+"",
+1.2,
+1.2
+]
+]
+},
+"5879": {
+"piece": "c52 blossom",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"mi_luc",
+"",
+1.2,
+1.2
+]
+]
+},
+"5880": {
+"piece": "c52 blossom",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"mi_luc",
+"",
+1.2,
+1.2
+]
+]
+},
+"5881": {
+"piece": "c52 blossom",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"mi_luc",
+"",
+1.2,
+1.2
+]
+]
+},
+"5882": {
+"piece": "c52 blossom",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"mi_luc",
+"",
+1.2,
+1.2
+]
+]
+},
+"5883": {
+"piece": "c52 52_hook2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5884": {
+"piece": "c52 52_hook2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5885": {
+"piece": "c52 52_hook2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"5886": {
+"piece": "c52 52_hook2",
+"kind": "notable",
+"idea": null,
+"name": "Ripe Fruit (Thục Quả)",
+"mods": [
+[
+"healing_pct",
+"",
+4.0,
+8.0
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5887": {
+"piece": "c52 splitleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"5888": {
+"piece": "c52 splitleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"5889": {
+"piece": "c52 splitleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"5890": {
+"piece": "c52 splitleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"5891": {
+"piece": "c52 splitleaf",
+"kind": "notable",
+"idea": null,
+"name": "Orchard (Quả Viên)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+],
+[
+"healing_pct",
+"",
+4.0,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5892": {
+"piece": "c52 cherries",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"5893": {
+"piece": "c52 cherries",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"5894": {
+"piece": "c52 cherries",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"5895": {
+"piece": "c52 cherries",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"5896": {
+"piece": "c52 cherries",
+"kind": "notable",
+"idea": null,
+"name": "Cherries (Anh Đào)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"healing_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5897": {
+"piece": "c52 cherries",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"5898": {
+"piece": "c52 cherries",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"5899": {
+"piece": "c52 cherries",
+"kind": "notable",
+"idea": null,
+"name": "Twin Cherries (Song Anh Đào)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"khi_van",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5900": {
+"piece": "c60 crozier",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5901": {
+"piece": "c60 crozier",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5902": {
+"piece": "c60 crozier",
+"kind": "notable",
+"idea": null,
+"name": "Curled Fern (Quyển Quyết)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+4,
+4.4
+],
+[
+"pill_effect_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5903": {
+"piece": "c60 crozier",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5904": {
+"piece": "c60 crozier",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5905": {
+"piece": "c60 crozier",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5906": {
+"piece": "c60 crozier",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5907": {
+"piece": "c60 crozier",
+"kind": "notable",
+"idea": null,
+"name": "Unfolding Fern (Quyết Khai)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+4,
+4.4
+],
+[
+"lifespan_pct",
+"",
+4,
+1.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5908": {
+"piece": "c60 leafL",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"5909": {
+"piece": "c60 leafL",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"5910": {
+"piece": "c60 leafL",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"5911": {
+"piece": "c60 leafL",
+"kind": "notable",
+"idea": null,
+"name": "Spirit Mushroom (Linh Khuẩn)",
+"mods": [
+[
+"lifespan_pct",
+"",
+4.0,
+1.3
+],
+[
+"khi_van",
+"",
+4.0,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5912": {
+"piece": "c60 leafR",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dan_doc_resist_pct",
+"",
+1.2,
+0.7
+]
+]
+},
+"5913": {
+"piece": "c60 leafR",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dan_doc_resist_pct",
+"",
+1.2,
+0.7
+]
+]
+},
+"5914": {
+"piece": "c60 leafR",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dan_doc_resist_pct",
+"",
+1.2,
+0.7
+]
+]
+},
+"5915": {
+"piece": "c60 leafR",
+"kind": "notable",
+"idea": null,
+"name": "Mushroom Cap (Khuẩn Cái)",
+"mods": [
+[
+"dan_doc_resist_pct",
+"",
+4.0,
+2.5
+],
+[
+"pill_effect_pct",
+"",
+4.0,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5916": {
+"piece": "c60 rings",
+"kind": "small",
+"idea": "D8 Lingzhi Ring (Linh Chi Hoàn)",
+"mods": [
+[
+"pill_effect_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5917": {
+"piece": "c60 rings",
+"kind": "notable",
+"idea": "D8 Lingzhi Ring (Linh Chi Hoàn)",
+"name": "Lingzhi Ring (Linh Chi Hoàn)",
+"mods": [
+[
+"pill_effect_pct",
+"",
+5,
+5.0
+],
+[
+"dan_doc_resist_pct",
+"",
+3,
+1.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5918": {
+"piece": "c60 rings",
+"kind": "notable",
+"idea": "D8 Lingzhi Ring (Linh Chi Hoàn)",
+"name": "Lingzhi Cap (Linh Chi)",
+"mods": [
+[
+"pill_effect_pct",
+"",
+4,
+4.0
+],
+[
+"lifespan_pct",
+"",
+4,
+1.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5919": {
+"piece": "c60 rings",
+"kind": "small",
+"idea": "D8 Lingzhi Ring (Linh Chi Hoàn)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"5920": {
+"piece": "c60 rings",
+"kind": "small",
+"idea": "D8 Lingzhi Ring (Linh Chi Hoàn)",
+"mods": [
+[
+"pill_effect_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5921": {
+"piece": "c60 rings",
+"kind": "small",
+"idea": "D8 Lingzhi Ring (Linh Chi Hoàn)",
+"mods": [
+[
+"pill_effect_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5922": {
+"piece": "c60 rings",
+"kind": "notable",
+"idea": "D8 Lingzhi Ring (Linh Chi Hoàn)",
+"name": "Fairy Ring (Tiên Khuẩn Hoàn)",
+"mods": [
+[
+"lifespan_pct",
+"",
+4,
+1.3
+],
+[
+"khi_van",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5923": {
+"piece": "c60 rings",
+"kind": "small",
+"idea": "D8 Lingzhi Ring (Linh Chi Hoàn)",
+"mods": [
+[
+"pill_effect_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5924": {
+"piece": "c60 rings",
+"kind": "small",
+"idea": "D8 Lingzhi Ring (Linh Chi Hoàn)",
+"mods": [
+[
+"pill_effect_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5925": {
+"piece": "c60 rings",
+"kind": "small",
+"idea": "D8 Lingzhi Ring (Linh Chi Hoàn)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"5926": {
+"piece": "c60 rings",
+"kind": "small",
+"idea": "D8 Lingzhi Ring (Linh Chi Hoàn)",
+"mods": [
+[
+"pill_effect_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5927": {
+"piece": "c60 rings",
+"kind": "small",
+"idea": "D8 Lingzhi Ring (Linh Chi Hoàn)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"5928": {
+"piece": "c60 60_tadpole",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"pill_effect_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5929": {
+"piece": "c60 60_tadpole",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"pill_effect_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5930": {
+"piece": "c60 60_tadpole",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"pill_effect_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5931": {
+"piece": "c60 60_tadpole",
+"kind": "notable",
+"idea": null,
+"name": "Caterpillar Fungus (Trùng Thảo)",
+"mods": [
+[
+"pill_effect_pct",
+"",
+4.0,
+4.0
+],
+[
+"lifespan_pct",
+"",
+4.0,
+1.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5932": {
+"piece": "c60 60_tadpole",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"pill_effect_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"5933": {
+"piece": "c60 60_crook2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5934": {
+"piece": "c60 60_crook2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"5935": {
+"piece": "c60 60_crook2",
+"kind": "notable",
+"idea": null,
+"name": "Mushroom Grove (Khuẩn Lâm)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+4.0,
+4.4
+],
+[
+"pill_effect_pct",
+"",
+4.0,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5936": {
+"piece": "c60 eddy",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"5937": {
+"piece": "c60 eddy",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"5938": {
+"piece": "c60 eddy",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"5939": {
+"piece": "c60 eddy",
+"kind": "notable",
+"idea": null,
+"name": "Spore Cloud (Bào Tử Vân)",
+"mods": [
+[
+"lifespan_pct",
+"",
+4.0,
+1.3
+],
+[
+"dan_doc_resist_pct",
+"",
+4.0,
+2.5
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5940": {
+"piece": "c60 dandelion",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dan_doc_resist_pct",
+"",
+1.2,
+0.7
+]
+]
+},
+"5941": {
+"piece": "c60 dandelion",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dan_doc_resist_pct",
+"",
+1.2,
+0.7
+]
+]
+},
+"5942": {
+"piece": "c60 dandelion",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dan_doc_resist_pct",
+"",
+1.2,
+0.7
+]
+]
+},
+"5943": {
+"piece": "c60 dandelion",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dan_doc_resist_pct",
+"",
+1.2,
+0.7
+]
+]
+},
+"5944": {
+"piece": "c60 dandelion",
+"kind": "notable",
+"idea": null,
+"name": "Dandelion (Bồ Công Anh)",
+"mods": [
+[
+"dan_doc_resist_pct",
+"",
+4,
+2.5
+],
+[
+"travel_speed_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5945": {
+"piece": "c60 dandelion",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dan_doc_resist_pct",
+"",
+1.2,
+0.7
+]
+]
+},
+"5946": {
+"piece": "c60 dandelion",
+"kind": "notable",
+"idea": null,
+"name": "Detox Brew (Giải Độc Thang)",
+"mods": [
+[
+"dan_doc_resist_pct",
+"",
+4,
+2.5
+],
+[
+"pill_effect_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5947": {
+"piece": "c60 dandelion",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dan_doc_resist_pct",
+"",
+1.2,
+0.7
+]
+]
+},
+"5948": {
+"piece": "c109 frond",
+"kind": "small",
+"idea": "D4 Green Dragon (Thanh Long)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"5949": {
+"piece": "c109 frond",
+"kind": "small",
+"idea": "D4 Green Dragon (Thanh Long)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"5950": {
+"piece": "c109 frond",
+"kind": "small",
+"idea": "D4 Green Dragon (Thanh Long)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+1.2,
+12
+]
+]
+},
+"5951": {
+"piece": "c109 frond",
+"kind": "small",
+"idea": "D4 Green Dragon (Thanh Long)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"5952": {
+"piece": "c109 frond",
+"kind": "notable",
+"idea": "D4 Green Dragon (Thanh Long)",
+"name": "Dragon Coil (Long Bàn)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4,
+6.0
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5953": {
+"piece": "c109 frond",
+"kind": "small",
+"idea": "D4 Green Dragon (Thanh Long)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"5954": {
+"piece": "c109 frond",
+"kind": "notable",
+"idea": "D4 Green Dragon (Thanh Long)",
+"name": "Dragon Scales (Long Lân)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4,
+6.0
+],
+[
+"resist_pen_pct",
+"",
+4,
+40
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5955": {
+"piece": "c109 frond",
+"kind": "small",
+"idea": "D4 Green Dragon (Thanh Long)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+1.2,
+12
+]
+]
+},
+"5956": {
+"piece": "c109 frond",
+"kind": "notable",
+"idea": "D4 Green Dragon (Thanh Long)",
+"name": "Azure Claw (Thanh Trảo)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+4,
+40
+],
+[
+"crit_chance_pct",
+"moc",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5957": {
+"piece": "c109 frond",
+"kind": "small",
+"idea": "D4 Green Dragon (Thanh Long)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"5958": {
+"piece": "c109 frond",
+"kind": "notable",
+"idea": "D4 Green Dragon (Thanh Long)",
+"name": "Green Dragon (Thanh Long)",
+"mods": [
+[
+"attack_pct",
+"moc",
+5,
+7.5
+],
+[
+"crit_damage_pct",
+"moc",
+3,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5959": {
+"piece": "c109 109_crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"5960": {
+"piece": "c109 109_crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"5961": {
+"piece": "c109 109_crook",
+"kind": "notable",
+"idea": null,
+"name": "Dragon Tail Lash (Long Vĩ Tiên)",
+"mods": [
+[
+"crit_chance_pct",
+"moc",
+4,
+6.0
+],
+[
+"attack_pct",
+"moc",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5962": {
+"piece": "c109 109_crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"5963": {
+"piece": "c109 109_crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"5964": {
+"piece": "c109 109_crook",
+"kind": "notable",
+"idea": null,
+"name": "Dragon Whisker (Long Tu)",
+"mods": [
+[
+"crit_chance_pct",
+"moc",
+4,
+6.0
+],
+[
+"resist_pen_pct",
+"",
+4,
+40
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5965": {
+"piece": "c109 109_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"5966": {
+"piece": "c109 109_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"5967": {
+"piece": "c109 109_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"5968": {
+"piece": "c109 109_crescent",
+"kind": "notable",
+"idea": null,
+"name": "Scale Blade (Lân Nhận)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4.0,
+6.0
+],
+[
+"crit_chance_pct",
+"moc",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5969": {
+"piece": "c109 109_crook2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"",
+1.2,
+12
+]
+]
+},
+"5970": {
+"piece": "c109 109_crook2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"",
+1.2,
+12
+]
+]
+},
+"5971": {
+"piece": "c109 109_crook2",
+"kind": "notable",
+"idea": null,
+"name": "Dragon Talon (Long Trảo)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+4.0,
+40
+],
+[
+"attack_pct",
+"moc",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"5972": {
+"piece": "c109 eddy",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"5973": {
+"piece": "c109 eddy",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"5974": {
+"piece": "c109 eddy",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"5975": {
+"piece": "c109 eddy",
+"kind": "notable",
+"idea": null,
+"name": "Green Dragon Pearl (Thanh Long Châu)",
+"mods": [
+[
+"crit_chance_pct",
+"moc",
+4.0,
+6.0
+],
+[
+"attack_pct",
+"moc",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5976": {
+"piece": "c109 gust",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"moc",
+1.2,
+3.0
+]
+]
+},
+"5977": {
+"piece": "c109 gust",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"moc",
+1.2,
+3.0
+]
+]
+},
+"5978": {
+"piece": "c109 gust",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"moc",
+1.2,
+3.0
+]
+]
+},
+"5979": {
+"piece": "c109 gust",
+"kind": "notable",
+"idea": null,
+"name": "Dragon's Breath (Long Tức)",
+"mods": [
+[
+"art_speed_pct",
+"moc",
+4.0,
+10.0
+],
+[
+"attack_pct",
+"moc",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5980": {
+"piece": "c107 frond",
+"kind": "small",
+"idea": "D4 Green Dragon (Thanh Long)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"5981": {
+"piece": "c107 frond",
+"kind": "small",
+"idea": "D4 Green Dragon (Thanh Long)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"5982": {
+"piece": "c107 frond",
+"kind": "small",
+"idea": "D4 Green Dragon (Thanh Long)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+1.2,
+12
+]
+]
+},
+"5983": {
+"piece": "c107 frond",
+"kind": "small",
+"idea": "D4 Green Dragon (Thanh Long)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"5984": {
+"piece": "c107 frond",
+"kind": "notable",
+"idea": "D4 Green Dragon (Thanh Long)",
+"name": "Dragon Coil (Long Bàn)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4,
+6.0
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5985": {
+"piece": "c107 frond",
+"kind": "small",
+"idea": "D4 Green Dragon (Thanh Long)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"5986": {
+"piece": "c107 frond",
+"kind": "notable",
+"idea": "D4 Green Dragon (Thanh Long)",
+"name": "Dragon Scales (Long Lân)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4,
+6.0
+],
+[
+"resist_pen_pct",
+"",
+4,
+40
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5987": {
+"piece": "c107 frond",
+"kind": "small",
+"idea": "D4 Green Dragon (Thanh Long)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+1.2,
+12
+]
+]
+},
+"5988": {
+"piece": "c107 frond",
+"kind": "notable",
+"idea": "D4 Green Dragon (Thanh Long)",
+"name": "Azure Claw (Thanh Trảo)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+4,
+40
+],
+[
+"crit_chance_pct",
+"moc",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5989": {
+"piece": "c107 frond",
+"kind": "small",
+"idea": "D4 Green Dragon (Thanh Long)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"5990": {
+"piece": "c107 frond",
+"kind": "notable",
+"idea": "D4 Green Dragon (Thanh Long)",
+"name": "Green Dragon (Thanh Long)",
+"mods": [
+[
+"attack_pct",
+"moc",
+5,
+7.5
+],
+[
+"crit_damage_pct",
+"moc",
+3,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5991": {
+"piece": "c107 109_crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"5992": {
+"piece": "c107 109_crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"5993": {
+"piece": "c107 109_crook",
+"kind": "notable",
+"idea": null,
+"name": "Dragon Tail Lash (Long Vĩ Tiên)",
+"mods": [
+[
+"crit_chance_pct",
+"moc",
+4,
+6.0
+],
+[
+"attack_pct",
+"moc",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5994": {
+"piece": "c107 109_crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"5995": {
+"piece": "c107 109_crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"5996": {
+"piece": "c107 109_crook",
+"kind": "notable",
+"idea": null,
+"name": "Dragon Whisker (Long Tu)",
+"mods": [
+[
+"crit_chance_pct",
+"moc",
+4,
+6.0
+],
+[
+"resist_pen_pct",
+"",
+4,
+40
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"5997": {
+"piece": "c107 109_crook2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"",
+1.2,
+12
+]
+]
+},
+"5998": {
+"piece": "c107 109_crook2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"",
+1.2,
+12
+]
+]
+},
+"5999": {
+"piece": "c107 109_crook2",
+"kind": "notable",
+"idea": null,
+"name": "Dragon Talon (Long Trảo)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+4.0,
+40
+],
+[
+"attack_pct",
+"moc",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6000": {
+"piece": "c107 107_crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6001": {
+"piece": "c107 107_crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6002": {
+"piece": "c107 107_crook",
+"kind": "notable",
+"idea": null,
+"name": "Coiling Serpent (Bàn Xà)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4.0,
+6.0
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6003": {
+"piece": "c107 splitleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6004": {
+"piece": "c107 splitleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6005": {
+"piece": "c107 splitleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6006": {
+"piece": "c107 splitleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6007": {
+"piece": "c107 splitleaf",
+"kind": "notable",
+"idea": null,
+"name": "Dragon Leaf (Long Diệp)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4.0,
+6.0
+],
+[
+"resist_pen_pct",
+"",
+4.0,
+40
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6008": {
+"piece": "c107 leaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6009": {
+"piece": "c107 leaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6010": {
+"piece": "c107 leaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6011": {
+"piece": "c107 leaf",
+"kind": "notable",
+"idea": null,
+"name": "Dragon Vein (Long Mạch)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+],
+[
+"attack_pct",
+"moc",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6012": {
+"piece": "c35 acorn",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6013": {
+"piece": "c35 acorn",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6014": {
+"piece": "c35 acorn",
+"kind": "notable",
+"idea": null,
+"name": "Squirrel's Store (Tùng Thử Tàng)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"co_duyen_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6015": {
+"piece": "c35 acorn",
+"kind": "notable",
+"idea": null,
+"name": "Acorn (Tượng Thực)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"can_cot",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6016": {
+"piece": "c35 acorn",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6017": {
+"piece": "c35 acorn",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6018": {
+"piece": "c35 acorn",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6019": {
+"piece": "c35 acorn",
+"kind": "notable",
+"idea": null,
+"name": "Oak Seed (Tượng Tử)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6020": {
+"piece": "c35 wreath",
+"kind": "small",
+"idea": "★ Laurel Wreath (Nguyệt Quế)",
+"mods": [
+[
+"mi_luc",
+"",
+1.2,
+1.2
+]
+]
+},
+"6021": {
+"piece": "c35 wreath",
+"kind": "small",
+"idea": "★ Laurel Wreath (Nguyệt Quế)",
+"mods": [
+[
+"mi_luc",
+"",
+1.2,
+1.2
+]
+]
+},
+"6022": {
+"piece": "c35 wreath",
+"kind": "notable",
+"idea": "★ Laurel Wreath (Nguyệt Quế)",
+"name": "Victor's Crown (Quế Miện)",
+"mods": [
+[
+"mi_luc",
+"",
+4,
+4.0
+],
+[
+"khi_van",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6023": {
+"piece": "c35 wreath",
+"kind": "small",
+"idea": "★ Laurel Wreath (Nguyệt Quế)",
+"mods": [
+[
+"mi_luc",
+"",
+1.2,
+1.2
+]
+]
+},
+"6024": {
+"piece": "c35 wreath",
+"kind": "small",
+"idea": "★ Laurel Wreath (Nguyệt Quế)",
+"mods": [
+[
+"mi_luc",
+"",
+1.2,
+1.2
+]
+]
+},
+"6025": {
+"piece": "c35 wreath",
+"kind": "small",
+"idea": "★ Laurel Wreath (Nguyệt Quế)",
+"mods": [
+[
+"mission_income_pct",
+"",
+1.2,
+1.7
+]
+]
+},
+"6026": {
+"piece": "c35 wreath",
+"kind": "notable",
+"idea": "★ Laurel Wreath (Nguyệt Quế)",
+"name": "Laurel Leaf (Nguyệt Quế Diệp)",
+"mods": [
+[
+"mi_luc",
+"",
+4,
+4.0
+],
+[
+"mission_income_pct",
+"",
+4,
+5.7
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6027": {
+"piece": "c35 wreath",
+"kind": "small",
+"idea": "★ Laurel Wreath (Nguyệt Quế)",
+"mods": [
+[
+"mi_luc",
+"",
+1.2,
+1.2
+]
+]
+},
+"6028": {
+"piece": "c35 wreath",
+"kind": "small",
+"idea": "★ Laurel Wreath (Nguyệt Quế)",
+"mods": [
+[
+"mission_income_pct",
+"",
+1.2,
+1.7
+]
+]
+},
+"6029": {
+"piece": "c35 wreath",
+"kind": "small",
+"idea": "★ Laurel Wreath (Nguyệt Quế)",
+"mods": [
+[
+"mi_luc",
+"",
+1.2,
+1.2
+]
+]
+},
+"6030": {
+"piece": "c35 wreath",
+"kind": "notable",
+"idea": "★ Laurel Wreath (Nguyệt Quế)",
+"name": "Laurel Wreath (Nguyệt Quế Hoàn)",
+"mods": [
+[
+"mission_income_pct",
+"",
+5,
+7.1
+],
+[
+"khi_van",
+"",
+3,
+0.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6031": {
+"piece": "c35 seedB_up",
+"kind": "notable",
+"idea": null,
+"name": "Drifting Seed (Phiêu Chủng)",
+"mods": [
+[
+"co_duyen_pct",
+"",
+4.0,
+13.3
+],
+[
+"travel_speed_pct",
+"",
+4.0,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6032": {
+"piece": "c35 seedB_up",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"co_duyen_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6033": {
+"piece": "c35 seedB_up",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"co_duyen_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6034": {
+"piece": "c35 seedB_up",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"co_duyen_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6035": {
+"piece": "c35 seedB_up",
+"kind": "notable",
+"idea": null,
+"name": "Seed of Fortune (Phúc Chủng)",
+"mods": [
+[
+"co_duyen_pct",
+"",
+4.0,
+13.3
+],
+[
+"khi_van",
+"",
+4.0,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6036": {
+"piece": "c35 lyreL",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"mission_income_pct",
+"",
+1.2,
+1.7
+]
+]
+},
+"6037": {
+"piece": "c35 lyreL",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"mission_income_pct",
+"",
+1.2,
+1.7
+]
+]
+},
+"6038": {
+"piece": "c35 lyreL",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"mission_income_pct",
+"",
+1.2,
+1.7
+]
+]
+},
+"6039": {
+"piece": "c35 lyreL",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"mission_income_pct",
+"",
+1.2,
+1.7
+]
+]
+},
+"6040": {
+"piece": "c35 lyreL",
+"kind": "notable",
+"idea": null,
+"name": "Zither String (Cầm Huyền)",
+"mods": [
+[
+"mission_income_pct",
+"",
+4.0,
+5.7
+],
+[
+"mi_luc",
+"",
+4.0,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6041": {
+"piece": "c35 lyreR",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"mi_luc",
+"",
+1.2,
+1.2
+]
+]
+},
+"6042": {
+"piece": "c35 lyreR",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"mi_luc",
+"",
+1.2,
+1.2
+]
+]
+},
+"6043": {
+"piece": "c35 lyreR",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"mi_luc",
+"",
+1.2,
+1.2
+]
+]
+},
+"6044": {
+"piece": "c35 lyreR",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"mi_luc",
+"",
+1.2,
+1.2
+]
+]
+},
+"6045": {
+"piece": "c35 lyreR",
+"kind": "notable",
+"idea": null,
+"name": "Zither Song (Cầm Âm)",
+"mods": [
+[
+"mi_luc",
+"",
+4.0,
+4.0
+],
+[
+"khi_van",
+"",
+4.0,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6046": {
+"piece": "c35 35_vine",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6047": {
+"piece": "c35 35_vine",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6048": {
+"piece": "c35 35_vine",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6049": {
+"piece": "c35 35_vine",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6050": {
+"piece": "c35 35_vine",
+"kind": "notable",
+"idea": null,
+"name": "Garland (Hoa Hoàn)",
+"mods": [
+[
+"khi_van",
+"",
+4.0,
+0.8
+],
+[
+"mission_income_pct",
+"",
+4.0,
+5.7
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6051": {
+"piece": "c35 pod",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6052": {
+"piece": "c35 pod",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6053": {
+"piece": "c35 pod",
+"kind": "notable",
+"idea": null,
+"name": "Seed Pod (Tử Giáp)",
+"mods": [
+[
+"khi_van",
+"",
+4.0,
+0.8
+],
+[
+"can_cot",
+"",
+4.0,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6054": {
+"piece": "c35 pod",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6055": {
+"piece": "c35 pod",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6056": {
+"piece": "c35 whorl",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"co_duyen_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6057": {
+"piece": "c35 whorl",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"co_duyen_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6058": {
+"piece": "c35 whorl",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"co_duyen_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6059": {
+"piece": "c35 whorl",
+"kind": "notable",
+"idea": null,
+"name": "Lucky Star (Cát Tinh)",
+"mods": [
+[
+"co_duyen_pct",
+"",
+4,
+13.3
+],
+[
+"khi_van",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6060": {
+"piece": "c35 whorl",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"co_duyen_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6061": {
+"piece": "c35 whorl",
+"kind": "notable",
+"idea": null,
+"name": "Peach Blossom Luck (Đào Hoa Vận)",
+"mods": [
+[
+"co_duyen_pct",
+"",
+4,
+13.3
+],
+[
+"mi_luc",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6062": {
+"piece": "c35 whorl",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"co_duyen_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6063": {
+"piece": "c35 whorl",
+"kind": "notable",
+"idea": null,
+"name": "Chance Encounter (Kỳ Ngộ)",
+"mods": [
+[
+"co_duyen_pct",
+"",
+4,
+13.3
+],
+[
+"travel_speed_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6064": {
+"piece": "c21 willowleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_taken_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6065": {
+"piece": "c21 willowleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_taken_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6066": {
+"piece": "c21 willowleaf",
+"kind": "notable",
+"idea": null,
+"name": "Willow Leaf (Liễu Diệp)",
+"mods": [
+[
+"healing_taken_pct",
+"",
+4,
+8.0
+],
+[
+"health_regen_pct",
+"",
+4,
+0.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6067": {
+"piece": "c21 willowleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_taken_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6068": {
+"piece": "c21 willowleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_taken_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6069": {
+"piece": "c21 willowleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_taken_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6070": {
+"piece": "c21 willowleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_taken_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6071": {
+"piece": "c21 seed",
+"kind": "small",
+"idea": "D9 Spring Sprout (Xuân Nha)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6072": {
+"piece": "c21 seed",
+"kind": "small",
+"idea": "D9 Spring Sprout (Xuân Nha)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6073": {
+"piece": "c21 seed",
+"kind": "notable",
+"idea": "D9 Spring Sprout (Xuân Nha)",
+"name": "Spring Sprout (Xuân Nha)",
+"mods": [
+[
+"khi_van",
+"",
+5,
+1.0
+],
+[
+"herb_growth_pct",
+"",
+3,
+3.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6074": {
+"piece": "c21 seed",
+"kind": "small",
+"idea": "D9 Spring Sprout (Xuân Nha)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6075": {
+"piece": "c21 seed",
+"kind": "small",
+"idea": "D9 Spring Sprout (Xuân Nha)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6076": {
+"piece": "c21 seed",
+"kind": "notable",
+"idea": "D9 Spring Sprout (Xuân Nha)",
+"name": "First Sprout (Sơ Nha)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"co_duyen_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6077": {
+"piece": "c21 seed",
+"kind": "small",
+"idea": "D9 Spring Sprout (Xuân Nha)",
+"mods": [
+[
+"co_duyen_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6078": {
+"piece": "c21 seed",
+"kind": "small",
+"idea": "D9 Spring Sprout (Xuân Nha)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6079": {
+"piece": "c21 seed",
+"kind": "small",
+"idea": "D9 Spring Sprout (Xuân Nha)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6080": {
+"piece": "c21 seed",
+"kind": "notable",
+"idea": "D9 Spring Sprout (Xuân Nha)",
+"name": "Two Leaves (Song Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6081": {
+"piece": "c21 seed",
+"kind": "small",
+"idea": "D9 Spring Sprout (Xuân Nha)",
+"mods": [
+[
+"co_duyen_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6082": {
+"piece": "c21 weep1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"6083": {
+"piece": "c21 weep1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"6084": {
+"piece": "c21 weep1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"6085": {
+"piece": "c21 weep1",
+"kind": "notable",
+"idea": null,
+"name": "Willow Dance (Liễu Vũ)",
+"mods": [
+[
+"evade_pct",
+"",
+4,
+2.6
+],
+[
+"art_speed_pct",
+"moc",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6086": {
+"piece": "c21 weep1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"6087": {
+"piece": "c21 weep1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"6088": {
+"piece": "c21 weep1",
+"kind": "notable",
+"idea": null,
+"name": "Bending Willow (Khúc Liễu)",
+"mods": [
+[
+"evade_pct",
+"",
+4,
+2.6
+],
+[
+"timer_resist_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6089": {
+"piece": "c21 weep2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6090": {
+"piece": "c21 weep2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6091": {
+"piece": "c21 weep2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6092": {
+"piece": "c21 weep2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6093": {
+"piece": "c21 weep2",
+"kind": "notable",
+"idea": null,
+"name": "Weeping Willow (Thùy Liễu)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+],
+[
+"healing_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6094": {
+"piece": "c21 weep2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6095": {
+"piece": "c21 weep2",
+"kind": "notable",
+"idea": null,
+"name": "Willow Tears (Liễu Lệ)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+],
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6096": {
+"piece": "c21 21_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"6097": {
+"piece": "c21 21_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"6098": {
+"piece": "c21 21_arch",
+"kind": "notable",
+"idea": null,
+"name": "Insects Awaken (Kinh Trập)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+],
+[
+"khi_van",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6099": {
+"piece": "c21 21_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"6100": {
+"piece": "c21 21_arch",
+"kind": "notable",
+"idea": null,
+"name": "Spring Rain (Xuân Vũ)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+],
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6101": {
+"piece": "c21 21_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"6102": {
+"piece": "c21 21_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"6103": {
+"piece": "c21 21_arch",
+"kind": "notable",
+"idea": null,
+"name": "New Leaf (Tân Diệp)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+],
+[
+"herb_growth_pct",
+"",
+4,
+4.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6104": {
+"piece": "c21 21_hairpin",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"co_duyen_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6105": {
+"piece": "c21 21_hairpin",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"co_duyen_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6106": {
+"piece": "c21 21_hairpin",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"co_duyen_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6107": {
+"piece": "c21 21_hairpin",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"co_duyen_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6108": {
+"piece": "c21 21_hairpin",
+"kind": "notable",
+"idea": null,
+"name": "Red Thread (Hồng Tuyến)",
+"mods": [
+[
+"co_duyen_pct",
+"",
+4.0,
+13.3
+],
+[
+"khi_van",
+"",
+4.0,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6109": {
+"piece": "c21 pod",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6110": {
+"piece": "c21 pod",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6111": {
+"piece": "c21 pod",
+"kind": "notable",
+"idea": null,
+"name": "Seed Pod (Tử Giáp)",
+"mods": [
+[
+"khi_van",
+"",
+4.0,
+0.8
+],
+[
+"can_cot",
+"",
+4.0,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6112": {
+"piece": "c21 pod",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6113": {
+"piece": "c21 pod",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6114": {
+"piece": "c21 21_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6115": {
+"piece": "c21 21_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6116": {
+"piece": "c21 21_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6117": {
+"piece": "c21 21_crescent",
+"kind": "notable",
+"idea": null,
+"name": "Seedling Field (Miêu Điền)",
+"mods": [
+[
+"khi_van",
+"",
+4.0,
+0.8
+],
+[
+"health_regen_inc_pct",
+"",
+4.0,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6118": {
+"piece": "c31 fir",
+"kind": "notable",
+"idea": "★ Evergreen (Thường Thanh)",
+"name": "Fir Needles (Sam Châm)",
+"mods": [
+[
+"status_resist_pct",
+"",
+4,
+10.0
+],
+[
+"timer_resist_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6119": {
+"piece": "c31 fir",
+"kind": "small",
+"idea": "★ Evergreen (Thường Thanh)",
+"mods": [
+[
+"status_resist_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6120": {
+"piece": "c31 fir",
+"kind": "small",
+"idea": "★ Evergreen (Thường Thanh)",
+"mods": [
+[
+"status_resist_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6121": {
+"piece": "c31 fir",
+"kind": "notable",
+"idea": "★ Evergreen (Thường Thanh)",
+"name": "Winter Green (Đông Thanh)",
+"mods": [
+[
+"status_resist_pct",
+"",
+4,
+10.0
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6122": {
+"piece": "c31 fir",
+"kind": "small",
+"idea": "★ Evergreen (Thường Thanh)",
+"mods": [
+[
+"status_resist_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6123": {
+"piece": "c31 fir",
+"kind": "small",
+"idea": "★ Evergreen (Thường Thanh)",
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6124": {
+"piece": "c31 fir",
+"kind": "small",
+"idea": "★ Evergreen (Thường Thanh)",
+"mods": [
+[
+"status_resist_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6125": {
+"piece": "c31 fir",
+"kind": "notable",
+"idea": "★ Evergreen (Thường Thanh)",
+"name": "Evergreen (Thường Thanh)",
+"mods": [
+[
+"status_resist_pct",
+"",
+5,
+12.5
+],
+[
+"health_regen_pct",
+"",
+3,
+0.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6126": {
+"piece": "c31 fir",
+"kind": "notable",
+"idea": "★ Evergreen (Thường Thanh)",
+"name": "Upright Trunk (Trực Can)",
+"mods": [
+[
+"timer_resist_pct",
+"",
+4,
+8.0
+],
+[
+"block_rating",
+"",
+4,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6127": {
+"piece": "c31 bamboo1",
+"kind": "small",
+"idea": "★ Bamboo Joints (Trúc Tiết)",
+"mods": [
+[
+"basic_speed_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6128": {
+"piece": "c31 bamboo1",
+"kind": "small",
+"idea": "★ Bamboo Joints (Trúc Tiết)",
+"mods": [
+[
+"basic_speed_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6129": {
+"piece": "c31 bamboo1",
+"kind": "small",
+"idea": "★ Bamboo Joints (Trúc Tiết)",
+"mods": [
+[
+"crit_chance_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6130": {
+"piece": "c31 bamboo1",
+"kind": "small",
+"idea": "★ Bamboo Joints (Trúc Tiết)",
+"mods": [
+[
+"basic_speed_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6131": {
+"piece": "c31 bamboo1",
+"kind": "notable",
+"idea": "★ Bamboo Joints (Trúc Tiết)",
+"name": "Bamboo Staff (Trúc Trượng)",
+"mods": [
+[
+"basic_speed_pct",
+"",
+4,
+15.0
+],
+[
+"accuracy_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6132": {
+"piece": "c31 bamboo1",
+"kind": "small",
+"idea": "★ Bamboo Joints (Trúc Tiết)",
+"mods": [
+[
+"basic_speed_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6133": {
+"piece": "c31 bamboo1",
+"kind": "notable",
+"idea": "★ Bamboo Joints (Trúc Tiết)",
+"name": "Bamboo Joint (Trúc Tiết)",
+"mods": [
+[
+"basic_speed_pct",
+"",
+4,
+15.0
+],
+[
+"crit_chance_pct",
+"moc",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6134": {
+"piece": "c31 bamboo1",
+"kind": "small",
+"idea": "★ Bamboo Joints (Trúc Tiết)",
+"mods": [
+[
+"crit_chance_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6135": {
+"piece": "c31 bamboo1",
+"kind": "notable",
+"idea": "★ Bamboo Joints (Trúc Tiết)",
+"name": "Green Bamboo Strike (Thanh Trúc Kích)",
+"mods": [
+[
+"crit_chance_pct",
+"moc",
+5,
+7.5
+],
+[
+"crit_damage_pct",
+"moc",
+3,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6136": {
+"piece": "c31 bamboo2",
+"kind": "small",
+"idea": "D7 Bamboo Grove (Trúc Lâm)",
+"mods": [
+[
+"art_speed_pct",
+"moc",
+1.2,
+3.0
+]
+]
+},
+"6137": {
+"piece": "c31 bamboo2",
+"kind": "small",
+"idea": "D7 Bamboo Grove (Trúc Lâm)",
+"mods": [
+[
+"art_speed_pct",
+"moc",
+1.2,
+3.0
+]
+]
+},
+"6138": {
+"piece": "c31 bamboo2",
+"kind": "small",
+"idea": "D7 Bamboo Grove (Trúc Lâm)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"6139": {
+"piece": "c31 bamboo2",
+"kind": "small",
+"idea": "D7 Bamboo Grove (Trúc Lâm)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"6140": {
+"piece": "c31 bamboo2",
+"kind": "notable",
+"idea": "D7 Bamboo Grove (Trúc Lâm)",
+"name": "Grove Shade (Trúc Ấm)",
+"mods": [
+[
+"evade_pct",
+"",
+4,
+2.6
+],
+[
+"stealth",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6141": {
+"piece": "c31 bamboo2",
+"kind": "small",
+"idea": "D7 Bamboo Grove (Trúc Lâm)",
+"mods": [
+[
+"art_speed_pct",
+"moc",
+1.2,
+3.0
+]
+]
+},
+"6142": {
+"piece": "c31 bamboo2",
+"kind": "notable",
+"idea": "D7 Bamboo Grove (Trúc Lâm)",
+"name": "Bamboo Grove (Trúc Lâm)",
+"mods": [
+[
+"art_speed_pct",
+"moc",
+5,
+12.5
+],
+[
+"accuracy_pct",
+"",
+3,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6143": {
+"piece": "c31 bamboo2",
+"kind": "small",
+"idea": "D7 Bamboo Grove (Trúc Lâm)",
+"mods": [
+[
+"art_speed_pct",
+"moc",
+1.2,
+3.0
+]
+]
+},
+"6144": {
+"piece": "c31 bamboo2",
+"kind": "small",
+"idea": "D7 Bamboo Grove (Trúc Lâm)",
+"mods": [
+[
+"art_speed_pct",
+"moc",
+1.2,
+3.0
+]
+]
+},
+"6145": {
+"piece": "c31 bamboo2",
+"kind": "notable",
+"idea": "D7 Bamboo Grove (Trúc Lâm)",
+"name": "Swaying Bamboo (Diêu Trúc)",
+"mods": [
+[
+"art_speed_pct",
+"moc",
+4,
+10.0
+],
+[
+"evade_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6146": {
+"piece": "c31 bamboo3",
+"kind": "small",
+"idea": "★ Hollow Bamboo (Không Trúc)",
+"mods": [
+[
+"art_cost_pct",
+"moc",
+1.2,
+-3.0
+]
+]
+},
+"6147": {
+"piece": "c31 bamboo3",
+"kind": "small",
+"idea": "★ Hollow Bamboo (Không Trúc)",
+"mods": [
+[
+"art_cost_pct",
+"moc",
+1.2,
+-3.0
+]
+]
+},
+"6148": {
+"piece": "c31 bamboo3",
+"kind": "small",
+"idea": "★ Hollow Bamboo (Không Trúc)",
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"6149": {
+"piece": "c31 bamboo3",
+"kind": "notable",
+"idea": "★ Hollow Bamboo (Không Trúc)",
+"name": "Hollow Heart (Hư Tâm)",
+"mods": [
+[
+"art_cost_pct",
+"moc",
+4,
+-10.0
+],
+[
+"linh_luc_regen_inc_pct",
+"",
+4,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6150": {
+"piece": "c31 bamboo3",
+"kind": "small",
+"idea": "★ Hollow Bamboo (Không Trúc)",
+"mods": [
+[
+"art_cost_pct",
+"moc",
+1.2,
+-3.0
+]
+]
+},
+"6151": {
+"piece": "c31 bamboo3",
+"kind": "notable",
+"idea": "★ Hollow Bamboo (Không Trúc)",
+"name": "Bamboo Flute (Trúc Địch)",
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+4,
+5.0
+],
+[
+"soul_res_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6152": {
+"piece": "c31 bamboo3",
+"kind": "small",
+"idea": "★ Hollow Bamboo (Không Trúc)",
+"mods": [
+[
+"art_cost_pct",
+"moc",
+1.2,
+-3.0
+]
+]
+},
+"6153": {
+"piece": "c31 bamboo3",
+"kind": "small",
+"idea": "★ Hollow Bamboo (Không Trúc)",
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"6154": {
+"piece": "c31 bamboo3",
+"kind": "notable",
+"idea": "★ Hollow Bamboo (Không Trúc)",
+"name": "Hollow Bamboo (Không Trúc)",
+"mods": [
+[
+"art_cost_pct",
+"moc",
+5,
+-12.5
+],
+[
+"linh_luc_pct",
+"",
+3,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6155": {
+"piece": "c31 31_tadpole",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_resist_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6156": {
+"piece": "c31 31_tadpole",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_resist_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6157": {
+"piece": "c31 31_tadpole",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_resist_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6158": {
+"piece": "c31 31_tadpole",
+"kind": "notable",
+"idea": null,
+"name": "Pine Resin (Tùng Chi)",
+"mods": [
+[
+"status_resist_pct",
+"",
+4.0,
+10.0
+],
+[
+"timer_resist_pct",
+"",
+4.0,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6159": {
+"piece": "c31 31_tadpole",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_resist_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6160": {
+"piece": "c31 31_fork",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"moc",
+1.2,
+3.0
+]
+]
+},
+"6161": {
+"piece": "c31 31_fork",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"moc",
+1.2,
+3.0
+]
+]
+},
+"6162": {
+"piece": "c31 31_fork",
+"kind": "notable",
+"idea": null,
+"name": "Bamboo Dart (Trúc Tiêu)",
+"mods": [
+[
+"art_speed_pct",
+"moc",
+4.0,
+10.0
+],
+[
+"evade_pct",
+"",
+4.0,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6163": {
+"piece": "c31 31_fork",
+"kind": "notable",
+"idea": null,
+"name": "Bamboo Spear (Trúc Thương)",
+"mods": [
+[
+"art_speed_pct",
+"moc",
+4.0,
+10.0
+],
+[
+"crit_chance_pct",
+"moc",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6164": {
+"piece": "c31 pinecone",
+"kind": "small",
+"idea": "★ Pine Strength (Tùng Lực)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"6165": {
+"piece": "c31 pinecone",
+"kind": "small",
+"idea": "★ Pine Strength (Tùng Lực)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"6166": {
+"piece": "c31 pinecone",
+"kind": "notable",
+"idea": "★ Pine Strength (Tùng Lực)",
+"name": "Pine Strength (Tùng Lực)",
+"mods": [
+[
+"can_cot",
+"",
+5,
+1.66
+],
+[
+"khi_huyet_pct",
+"",
+3,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6167": {
+"piece": "c31 pinecone",
+"kind": "small",
+"idea": "★ Pine Strength (Tùng Lực)",
+"mods": [
+[
+"status_resist_pct",
+"poison",
+1.2,
+6.0
+]
+]
+},
+"6168": {
+"piece": "c31 pinecone",
+"kind": "small",
+"idea": "★ Pine Strength (Tùng Lực)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"6169": {
+"piece": "c31 pinecone",
+"kind": "notable",
+"idea": "★ Pine Strength (Tùng Lực)",
+"name": "Pine Bark (Tùng Bì)",
+"mods": [
+[
+"can_cot",
+"",
+4,
+1.33
+],
+[
+"status_resist_pct",
+"poison",
+4,
+20.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6170": {
+"piece": "c31 pinecone",
+"kind": "notable",
+"idea": "★ Pine Strength (Tùng Lực)",
+"name": "Pine Needle Tea (Tùng Châm Trà)",
+"mods": [
+[
+"status_resist_pct",
+"poison",
+4,
+20.0
+],
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6171": {
+"piece": "c31 pinecone",
+"kind": "small",
+"idea": "★ Pine Strength (Tùng Lực)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"6172": {
+"piece": "c31 pinecone",
+"kind": "small",
+"idea": "★ Pine Strength (Tùng Lực)",
+"mods": [
+[
+"status_resist_pct",
+"poison",
+1.2,
+6.0
+]
+]
+},
+"6173": {
+"piece": "c25 ginkgo",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"6174": {
+"piece": "c25 ginkgo",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"6175": {
+"piece": "c25 ginkgo",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"6176": {
+"piece": "c25 ginkgo",
+"kind": "notable",
+"idea": null,
+"name": "Ginkgo (Bạch Quả)",
+"mods": [
+[
+"lifespan_pct",
+"",
+4,
+1.3
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6177": {
+"piece": "c25 ginkgo",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"6178": {
+"piece": "c25 ginkgo",
+"kind": "notable",
+"idea": null,
+"name": "Living Fossil (Hoạt Hóa Thạch)",
+"mods": [
+[
+"lifespan_pct",
+"",
+4,
+1.3
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6179": {
+"piece": "c25 ginkgo",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"6180": {
+"piece": "c25 tree2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6181": {
+"piece": "c25 tree2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6182": {
+"piece": "c25 tree2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6183": {
+"piece": "c25 tree2",
+"kind": "notable",
+"idea": null,
+"name": "Poison Tree (Độc Thụ)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4,
+6.0
+],
+[
+"attack_pct",
+"poison",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6184": {
+"piece": "c25 tree2",
+"kind": "notable",
+"idea": null,
+"name": "Gnarled Trunk (Lão Can)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4,
+6.0
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6185": {
+"piece": "c25 tree2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6186": {
+"piece": "c25 tree2",
+"kind": "notable",
+"idea": null,
+"name": "Thorn Bark (Thích Bì)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4,
+6.0
+],
+[
+"block_rating",
+"",
+4,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6187": {
+"piece": "c25 tree2",
+"kind": "notable",
+"idea": null,
+"name": "Black Forest (Hắc Lâm)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4,
+6.0
+],
+[
+"crit_chance_pct",
+"moc",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6188": {
+"piece": "c25 fan",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6189": {
+"piece": "c25 fan",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6190": {
+"piece": "c25 fan",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6191": {
+"piece": "c25 fan",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6192": {
+"piece": "c25 fan",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6193": {
+"piece": "c25 fan",
+"kind": "notable",
+"idea": null,
+"name": "Plantain Fan (Ba Tiêu Phiến)",
+"mods": [
+[
+"crit_chance_pct",
+"moc",
+4,
+6.0
+],
+[
+"attack_pct",
+"moc",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6194": {
+"piece": "c25 fan",
+"kind": "notable",
+"idea": null,
+"name": "Flying Leaves (Phi Diệp)",
+"mods": [
+[
+"crit_chance_pct",
+"moc",
+4,
+6.0
+],
+[
+"art_speed_pct",
+"moc",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6195": {
+"piece": "c25 fan",
+"kind": "notable",
+"idea": null,
+"name": "Razor Leaf (Lợi Diệp)",
+"mods": [
+[
+"crit_chance_pct",
+"moc",
+4,
+6.0
+],
+[
+"crit_damage_pct",
+"moc",
+4,
+20.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6196": {
+"piece": "c25 25_hook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stack_effect_pct",
+"moc,debuff",
+1.2,
+4.8
+]
+]
+},
+"6197": {
+"piece": "c25 25_hook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stack_effect_pct",
+"moc,debuff",
+1.2,
+4.8
+]
+]
+},
+"6198": {
+"piece": "c25 25_hook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stack_effect_pct",
+"moc,debuff",
+1.2,
+4.8
+]
+]
+},
+"6199": {
+"piece": "c25 25_hook",
+"kind": "notable",
+"idea": null,
+"name": "Serpent Fang (Xà Nha)",
+"mods": [
+[
+"stack_effect_pct",
+"moc,debuff",
+4.0,
+16.0
+],
+[
+"attack_pct",
+"poison",
+4.0,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6200": {
+"piece": "c25 25_ring",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"over_time",
+1.2,
+1.8
+]
+]
+},
+"6201": {
+"piece": "c25 25_ring",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"over_time",
+1.2,
+1.8
+]
+]
+},
+"6202": {
+"piece": "c25 25_ring",
+"kind": "notable",
+"idea": null,
+"name": "Poison Ivy (Độc Đằng)",
+"mods": [
+[
+"attack_pct",
+"over_time",
+4,
+6.0
+],
+[
+"attack_pct",
+"poison",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6203": {
+"piece": "c25 25_ring",
+"kind": "notable",
+"idea": null,
+"name": "Slow Venom (Mạn Độc)",
+"mods": [
+[
+"attack_pct",
+"over_time",
+4,
+6.0
+],
+[
+"stack_duration_pct",
+"moc,debuff",
+4,
+20.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6204": {
+"piece": "c25 25_ring",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"over_time",
+1.2,
+1.8
+]
+]
+},
+"6205": {
+"piece": "c25 25_ring",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"over_time",
+1.2,
+1.8
+]
+]
+},
+"6206": {
+"piece": "c25 25_ring",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"over_time",
+1.2,
+1.8
+]
+]
+},
+"6207": {
+"piece": "c25 25_ring",
+"kind": "notable",
+"idea": null,
+"name": "Jungle Miasma (Chướng Khí)",
+"mods": [
+[
+"attack_pct",
+"over_time",
+4,
+6.0
+],
+[
+"status_duration_pct",
+"",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6208": {
+"piece": "c25 morningglory",
+"kind": "small",
+"idea": "★ Morning Glory (Khiên Ngưu)",
+"mods": [
+[
+"attack_pct",
+"poison",
+1.2,
+2.4
+]
+]
+},
+"6209": {
+"piece": "c25 morningglory",
+"kind": "small",
+"idea": "★ Morning Glory (Khiên Ngưu)",
+"mods": [
+[
+"attack_pct",
+"poison",
+1.2,
+2.4
+]
+]
+},
+"6210": {
+"piece": "c25 morningglory",
+"kind": "small",
+"idea": "★ Morning Glory (Khiên Ngưu)",
+"mods": [
+[
+"stack_effect_pct",
+"moc,debuff",
+1.2,
+4.8
+]
+]
+},
+"6211": {
+"piece": "c25 morningglory",
+"kind": "small",
+"idea": "★ Morning Glory (Khiên Ngưu)",
+"mods": [
+[
+"attack_pct",
+"poison",
+1.2,
+2.4
+]
+]
+},
+"6212": {
+"piece": "c25 morningglory",
+"kind": "small",
+"idea": "★ Morning Glory (Khiên Ngưu)",
+"mods": [
+[
+"stack_effect_pct",
+"moc,debuff",
+1.2,
+4.8
+]
+]
+},
+"6213": {
+"piece": "c25 morningglory",
+"kind": "small",
+"idea": "★ Morning Glory (Khiên Ngưu)",
+"mods": [
+[
+"attack_pct",
+"poison",
+1.2,
+2.4
+]
+]
+},
+"6214": {
+"piece": "c25 morningglory",
+"kind": "small",
+"idea": "★ Morning Glory (Khiên Ngưu)",
+"mods": [
+[
+"stack_effect_pct",
+"moc,debuff",
+1.2,
+4.8
+]
+]
+},
+"6215": {
+"piece": "c25 morningglory",
+"kind": "notable",
+"idea": "★ Morning Glory (Khiên Ngưu)",
+"name": "Black Seeds (Hắc Sửu)",
+"mods": [
+[
+"stack_effect_pct",
+"moc,debuff",
+4,
+16.0
+],
+[
+"stack_duration_pct",
+"moc,debuff",
+4,
+20.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6216": {
+"piece": "c25 morningglory",
+"kind": "small",
+"idea": "★ Morning Glory (Khiên Ngưu)",
+"mods": [
+[
+"attack_pct",
+"poison",
+1.2,
+2.4
+]
+]
+},
+"6217": {
+"piece": "c25 morningglory",
+"kind": "notable",
+"idea": "★ Morning Glory (Khiên Ngưu)",
+"name": "Morning Glory (Khiên Ngưu)",
+"mods": [
+[
+"attack_pct",
+"poison",
+5,
+10.0
+],
+[
+"attack_pct",
+"over_time",
+3,
+4.5
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6218": {
+"piece": "c25 morningglory",
+"kind": "small",
+"idea": "★ Morning Glory (Khiên Ngưu)",
+"mods": [
+[
+"attack_pct",
+"poison",
+1.2,
+2.4
+]
+]
+},
+"6219": {
+"piece": "c25 morningglory",
+"kind": "small",
+"idea": "★ Morning Glory (Khiên Ngưu)",
+"mods": [
+[
+"attack_pct",
+"poison",
+1.2,
+2.4
+]
+]
+},
+"6220": {
+"piece": "c25 morningglory",
+"kind": "small",
+"idea": "★ Morning Glory (Khiên Ngưu)",
+"mods": [
+[
+"attack_pct",
+"poison",
+1.2,
+2.4
+]
+]
+},
+"6221": {
+"piece": "c25 morningglory",
+"kind": "notable",
+"idea": "★ Morning Glory (Khiên Ngưu)",
+"name": "Poison Bloom (Độc Hoa)",
+"mods": [
+[
+"attack_pct",
+"poison",
+4,
+8.0
+],
+[
+"stack_effect_pct",
+"moc,debuff",
+4,
+16.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6222": {
+"piece": "c25 curl",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"poison",
+1.2,
+2.4
+]
+]
+},
+"6223": {
+"piece": "c25 curl",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"poison",
+1.2,
+2.4
+]
+]
+},
+"6224": {
+"piece": "c25 curl",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"poison",
+1.2,
+2.4
+]
+]
+},
+"6225": {
+"piece": "c25 curl",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"poison",
+1.2,
+2.4
+]
+]
+},
+"6226": {
+"piece": "c25 curl",
+"kind": "notable",
+"idea": null,
+"name": "Poison Mist (Độc Vụ)",
+"mods": [
+[
+"attack_pct",
+"poison",
+4.0,
+8.0
+],
+[
+"attack_pct",
+"over_time",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6227": {
+"piece": "c39 youngfir",
+"kind": "notable",
+"idea": "B10 Wutong Perch (Ngô Đồng Thê)",
+"name": "Wutong Perch (Ngô Đồng Thê)",
+"mods": [
+[
+"stack_duration_pct",
+"hoa,debuff",
+4,
+20.0
+],
+[
+"attack_pct",
+"moc",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6228": {
+"piece": "c39 youngfir",
+"kind": "small",
+"idea": "B10 Wutong Perch (Ngô Đồng Thê)",
+"mods": [
+[
+"stack_duration_pct",
+"hoa,debuff",
+1.2,
+6.0
+]
+]
+},
+"6229": {
+"piece": "c39 youngfir",
+"kind": "small",
+"idea": "B10 Wutong Perch (Ngô Đồng Thê)",
+"mods": [
+[
+"stack_duration_pct",
+"hoa,debuff",
+1.2,
+6.0
+]
+]
+},
+"6230": {
+"piece": "c39 youngfir",
+"kind": "small",
+"idea": "B10 Wutong Perch (Ngô Đồng Thê)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6231": {
+"piece": "c39 youngfir",
+"kind": "small",
+"idea": "B10 Wutong Perch (Ngô Đồng Thê)",
+"mods": [
+[
+"stack_duration_pct",
+"hoa,debuff",
+1.2,
+6.0
+]
+]
+},
+"6232": {
+"piece": "c39 youngfir",
+"kind": "small",
+"idea": "B10 Wutong Perch (Ngô Đồng Thê)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6233": {
+"piece": "c39 youngfir",
+"kind": "small",
+"idea": "B10 Wutong Perch (Ngô Đồng Thê)",
+"mods": [
+[
+"stack_duration_pct",
+"hoa,debuff",
+1.2,
+6.0
+]
+]
+},
+"6234": {
+"piece": "c39 youngfir",
+"kind": "small",
+"idea": "B10 Wutong Perch (Ngô Đồng Thê)",
+"mods": [
+[
+"stack_duration_pct",
+"hoa,debuff",
+1.2,
+6.0
+]
+]
+},
+"6235": {
+"piece": "c39 youngfir",
+"kind": "small",
+"idea": "B10 Wutong Perch (Ngô Đồng Thê)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6236": {
+"piece": "c39 youngfir",
+"kind": "small",
+"idea": "B10 Wutong Perch (Ngô Đồng Thê)",
+"mods": [
+[
+"stack_duration_pct",
+"hoa,debuff",
+1.2,
+6.0
+]
+]
+},
+"6237": {
+"piece": "c39 bigleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"6238": {
+"piece": "c39 bigleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"6239": {
+"piece": "c39 bigleaf",
+"kind": "notable",
+"idea": null,
+"name": "Broad Leaf (Khoan Diệp)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+4,
+6.0
+],
+[
+"stack_duration_pct",
+"hoa,debuff",
+4,
+20.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6240": {
+"piece": "c39 bigleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"6241": {
+"piece": "c39 bigleaf",
+"kind": "notable",
+"idea": null,
+"name": "Dry Leaf (Khô Diệp)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+4,
+6.0
+],
+[
+"attack_pct",
+"over_time",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6242": {
+"piece": "c39 bigleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"6243": {
+"piece": "c39 bigleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"6244": {
+"piece": "c39 bigleaf",
+"kind": "notable",
+"idea": null,
+"name": "Kindling Leaf (Dẫn Hỏa Diệp)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+4,
+6.0
+],
+[
+"attack_pct",
+"moc",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6245": {
+"piece": "c39 bough",
+"kind": "small",
+"idea": "D6 Thorn Hedge (Kinh Cức)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"6246": {
+"piece": "c39 bough",
+"kind": "small",
+"idea": "D6 Thorn Hedge (Kinh Cức)",
+"mods": [
+[
+"resist_pct",
+"physical",
+1.2,
+37
+]
+]
+},
+"6247": {
+"piece": "c39 bough",
+"kind": "small",
+"idea": "D6 Thorn Hedge (Kinh Cức)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"6248": {
+"piece": "c39 bough",
+"kind": "small",
+"idea": "D6 Thorn Hedge (Kinh Cức)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"6249": {
+"piece": "c39 bough",
+"kind": "small",
+"idea": "D6 Thorn Hedge (Kinh Cức)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"6250": {
+"piece": "c39 bough",
+"kind": "small",
+"idea": "D6 Thorn Hedge (Kinh Cức)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"6251": {
+"piece": "c39 bough",
+"kind": "small",
+"idea": "D6 Thorn Hedge (Kinh Cức)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"6252": {
+"piece": "c39 bough",
+"kind": "notable",
+"idea": "D6 Thorn Hedge (Kinh Cức)",
+"name": "Thorn Hedge (Kinh Cức)",
+"mods": [
+[
+"block_rating",
+"",
+5,
+12
+],
+[
+"resist_pct",
+"physical",
+3,
+93
+]
+],
+"pending": [],
+"cap": null,
+"effect": "Thorns (Đảo Thích)",
+"twin_copy": false
+},
+"6253": {
+"piece": "c39 bough",
+"kind": "small",
+"idea": "D6 Thorn Hedge (Kinh Cức)",
+"mods": [
+[
+"resist_pct",
+"physical",
+1.2,
+37
+]
+]
+},
+"6254": {
+"piece": "c39 bough",
+"kind": "notable",
+"idea": "D6 Thorn Hedge (Kinh Cức)",
+"name": "Brambles (Kinh Tùng)",
+"mods": [
+[
+"block_rating",
+"",
+4,
+10
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6255": {
+"piece": "c39 39_tadpole",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stack_duration_pct",
+"hoa,debuff",
+1.2,
+6.0
+]
+]
+},
+"6256": {
+"piece": "c39 39_tadpole",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stack_duration_pct",
+"hoa,debuff",
+1.2,
+6.0
+]
+]
+},
+"6257": {
+"piece": "c39 39_tadpole",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stack_duration_pct",
+"hoa,debuff",
+1.2,
+6.0
+]
+]
+},
+"6258": {
+"piece": "c39 39_tadpole",
+"kind": "notable",
+"idea": null,
+"name": "Wutong Seed (Ngô Đồng Tử)",
+"mods": [
+[
+"stack_duration_pct",
+"hoa,debuff",
+4.0,
+20.0
+],
+[
+"attack_pct",
+"moc",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6259": {
+"piece": "c39 39_tadpole",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stack_duration_pct",
+"hoa,debuff",
+1.2,
+6.0
+]
+]
+},
+"6260": {
+"piece": "c39 39_crescent2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"physical",
+1.2,
+37
+]
+]
+},
+"6261": {
+"piece": "c39 39_crescent2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"physical",
+1.2,
+37
+]
+]
+},
+"6262": {
+"piece": "c39 39_crescent2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"physical",
+1.2,
+37
+]
+]
+},
+"6263": {
+"piece": "c39 39_crescent2",
+"kind": "notable",
+"idea": null,
+"name": "Leaf Shield (Diệp Thuẫn)",
+"mods": [
+[
+"resist_pct",
+"physical",
+4,
+125
+],
+[
+"block_rating",
+"",
+4,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6264": {
+"piece": "c39 39_crescent2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"physical",
+1.2,
+37
+]
+]
+},
+"6265": {
+"piece": "c39 39_crescent2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"physical",
+1.2,
+37
+]
+]
+},
+"6266": {
+"piece": "c39 39_crescent2",
+"kind": "notable",
+"idea": null,
+"name": "Thorn Armour (Kinh Giáp)",
+"mods": [
+[
+"resist_pct",
+"physical",
+4,
+125
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6267": {
+"piece": "c39 ivy",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6268": {
+"piece": "c39 ivy",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6269": {
+"piece": "c39 ivy",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6270": {
+"piece": "c39 ivy",
+"kind": "notable",
+"idea": null,
+"name": "Ivy (Thường Xuân)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"block_rating",
+"",
+4,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6271": {
+"piece": "c39 ivy",
+"kind": "notable",
+"idea": null,
+"name": "Clinging Ivy (Phụ Đằng)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"health_regen_pct",
+"",
+4,
+0.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6272": {
+"piece": "c39 ivy",
+"kind": "notable",
+"idea": null,
+"name": "Ivy Wall (Đằng Tường)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"resist_pct",
+"physical",
+4,
+125
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6273": {
+"piece": "c39 ivy",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6274": {
+"piece": "c67 seedling",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6275": {
+"piece": "c67 seedling",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6276": {
+"piece": "c67 seedling",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6277": {
+"piece": "c67 seedling",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6278": {
+"piece": "c67 seedling",
+"kind": "notable",
+"idea": null,
+"name": "Seedling (Ấu Miêu)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"health_regen_pct",
+"",
+4,
+0.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6279": {
+"piece": "c67 seedling",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6280": {
+"piece": "c67 seedling",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6281": {
+"piece": "c67 seedling",
+"kind": "notable",
+"idea": null,
+"name": "Strong Sapling (Tráng Miêu)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"can_cot",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6282": {
+"piece": "c67 tendrils",
+"kind": "small",
+"idea": "★ Tender Shoots (Nộn Chi)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"6283": {
+"piece": "c67 tendrils",
+"kind": "small",
+"idea": "★ Tender Shoots (Nộn Chi)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"6284": {
+"piece": "c67 tendrils",
+"kind": "small",
+"idea": "★ Tender Shoots (Nộn Chi)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6285": {
+"piece": "c67 tendrils",
+"kind": "small",
+"idea": "★ Tender Shoots (Nộn Chi)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"6286": {
+"piece": "c67 tendrils",
+"kind": "small",
+"idea": "★ Tender Shoots (Nộn Chi)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"6287": {
+"piece": "c67 tendrils",
+"kind": "notable",
+"idea": "★ Tender Shoots (Nộn Chi)",
+"name": "New Growth (Tân Sinh)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+],
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6288": {
+"piece": "c67 tendrils",
+"kind": "small",
+"idea": "★ Tender Shoots (Nộn Chi)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"6289": {
+"piece": "c67 tendrils",
+"kind": "small",
+"idea": "★ Tender Shoots (Nộn Chi)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6290": {
+"piece": "c67 tendrils",
+"kind": "small",
+"idea": "★ Tender Shoots (Nộn Chi)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"6291": {
+"piece": "c67 tendrils",
+"kind": "notable",
+"idea": "★ Tender Shoots (Nộn Chi)",
+"name": "Tender Shoots (Nộn Chi)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+5,
+2.2
+],
+[
+"khi_van",
+"",
+3,
+0.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6292": {
+"piece": "c67 parted",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6293": {
+"piece": "c67 parted",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6294": {
+"piece": "c67 parted",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6295": {
+"piece": "c67 parted",
+"kind": "notable",
+"idea": null,
+"name": "Forest Path (Lâm Kính)",
+"mods": [
+[
+"khi_van",
+"",
+4.0,
+0.8
+],
+[
+"cultivation_speed_pct",
+"",
+4.0,
+1.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6296": {
+"piece": "c67 parted",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6297": {
+"piece": "c67 67_ring",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"6298": {
+"piece": "c67 67_ring",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"6299": {
+"piece": "c67 67_ring",
+"kind": "notable",
+"idea": null,
+"name": "Growth Rings (Niên Luân)",
+"mods": [
+[
+"health_regen_pct",
+"",
+4,
+0.4
+],
+[
+"khi_van",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6300": {
+"piece": "c67 67_ring",
+"kind": "notable",
+"idea": null,
+"name": "Spring Shoots (Xuân Duẩn)",
+"mods": [
+[
+"health_regen_pct",
+"",
+4,
+0.4
+],
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6301": {
+"piece": "c67 67_ring",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"6302": {
+"piece": "c67 67_ring",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"6303": {
+"piece": "c67 67_ring",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"6304": {
+"piece": "c67 67_ring",
+"kind": "notable",
+"idea": null,
+"name": "Green Grove (Thanh Lâm)",
+"mods": [
+[
+"health_regen_pct",
+"",
+4,
+0.4
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6305": {
+"piece": "c67 splitleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"6306": {
+"piece": "c67 splitleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"6307": {
+"piece": "c67 splitleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"6308": {
+"piece": "c67 splitleaf",
+"kind": "notable",
+"idea": null,
+"name": "Dew Gathering (Thái Lộ)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4.0,
+1.8
+],
+[
+"khi_van",
+"",
+4.0,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6309": {
+"piece": "c67 risingleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6310": {
+"piece": "c67 risingleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6311": {
+"piece": "c67 risingleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6312": {
+"piece": "c67 risingleaf",
+"kind": "notable",
+"idea": null,
+"name": "Climbing Vine (Phan Đằng)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+],
+[
+"health_regen_inc_pct",
+"",
+4.0,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6313": {
+"piece": "c64 seedling",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6314": {
+"piece": "c64 seedling",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6315": {
+"piece": "c64 seedling",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6316": {
+"piece": "c64 seedling",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6317": {
+"piece": "c64 seedling",
+"kind": "notable",
+"idea": null,
+"name": "Seedling (Ấu Miêu)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"health_regen_pct",
+"",
+4,
+0.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6318": {
+"piece": "c64 seedling",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6319": {
+"piece": "c64 seedling",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6320": {
+"piece": "c64 seedling",
+"kind": "notable",
+"idea": null,
+"name": "Strong Sapling (Tráng Miêu)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"can_cot",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6321": {
+"piece": "c64 tendrils",
+"kind": "small",
+"idea": "★ Tender Shoots (Nộn Chi)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"6322": {
+"piece": "c64 tendrils",
+"kind": "small",
+"idea": "★ Tender Shoots (Nộn Chi)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"6323": {
+"piece": "c64 tendrils",
+"kind": "small",
+"idea": "★ Tender Shoots (Nộn Chi)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6324": {
+"piece": "c64 tendrils",
+"kind": "small",
+"idea": "★ Tender Shoots (Nộn Chi)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"6325": {
+"piece": "c64 tendrils",
+"kind": "small",
+"idea": "★ Tender Shoots (Nộn Chi)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"6326": {
+"piece": "c64 tendrils",
+"kind": "notable",
+"idea": "★ Tender Shoots (Nộn Chi)",
+"name": "New Growth (Tân Sinh)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+],
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6327": {
+"piece": "c64 tendrils",
+"kind": "small",
+"idea": "★ Tender Shoots (Nộn Chi)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"6328": {
+"piece": "c64 tendrils",
+"kind": "small",
+"idea": "★ Tender Shoots (Nộn Chi)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6329": {
+"piece": "c64 tendrils",
+"kind": "small",
+"idea": "★ Tender Shoots (Nộn Chi)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"6330": {
+"piece": "c64 tendrils",
+"kind": "notable",
+"idea": "★ Tender Shoots (Nộn Chi)",
+"name": "Tender Shoots (Nộn Chi)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+5,
+2.2
+],
+[
+"khi_van",
+"",
+3,
+0.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6331": {
+"piece": "c64 parted",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6332": {
+"piece": "c64 parted",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6333": {
+"piece": "c64 parted",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6334": {
+"piece": "c64 parted",
+"kind": "notable",
+"idea": null,
+"name": "Forest Path (Lâm Kính)",
+"mods": [
+[
+"khi_van",
+"",
+4.0,
+0.8
+],
+[
+"cultivation_speed_pct",
+"",
+4.0,
+1.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6335": {
+"piece": "c64 parted",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6336": {
+"piece": "c64 64_wheel",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6337": {
+"piece": "c64 64_wheel",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6338": {
+"piece": "c64 64_wheel",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6339": {
+"piece": "c64 64_wheel",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6340": {
+"piece": "c64 64_wheel",
+"kind": "notable",
+"idea": null,
+"name": "Whirling Leaves (Toàn Diệp)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4,
+6.0
+],
+[
+"art_speed_pct",
+"moc",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6341": {
+"piece": "c64 64_wheel",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6342": {
+"piece": "c64 64_wheel",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6343": {
+"piece": "c64 64_wheel",
+"kind": "notable",
+"idea": null,
+"name": "Return of Spring (Xuân Hồi)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4,
+6.0
+],
+[
+"khi_van",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6344": {
+"piece": "c64 splitleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"6345": {
+"piece": "c64 splitleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"6346": {
+"piece": "c64 splitleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"6347": {
+"piece": "c64 splitleaf",
+"kind": "notable",
+"idea": null,
+"name": "Dew Gathering (Thái Lộ)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4.0,
+1.8
+],
+[
+"khi_van",
+"",
+4.0,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6348": {
+"piece": "c64 risingleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6349": {
+"piece": "c64 risingleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6350": {
+"piece": "c64 risingleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6351": {
+"piece": "c64 risingleaf",
+"kind": "notable",
+"idea": null,
+"name": "Climbing Vine (Phan Đằng)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+],
+[
+"health_regen_inc_pct",
+"",
+4.0,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6352": {
+"piece": "c112 berries",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6353": {
+"piece": "c112 berries",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6354": {
+"piece": "c112 berries",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6355": {
+"piece": "c112 berries",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6356": {
+"piece": "c112 berries",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"healing_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"6357": {
+"piece": "c112 berries",
+"kind": "notable",
+"idea": null,
+"name": "Spirit Berries (Linh Quả)",
+"mods": [
+[
+"healing_pct",
+"",
+4,
+8.0
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6358": {
+"piece": "c112 berries",
+"kind": "notable",
+"idea": null,
+"name": "Vermilion Fruit (Chu Quả)",
+"mods": [
+[
+"healing_pct",
+"",
+4,
+8.0
+],
+[
+"health_regen_pct",
+"",
+4,
+0.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6359": {
+"piece": "c112 berries",
+"kind": "notable",
+"idea": null,
+"name": "Bitter Berries (Khổ Quả)",
+"mods": [
+[
+"healing_pct",
+"",
+4,
+8.0
+],
+[
+"attack_pct",
+"poison",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6360": {
+"piece": "c112 112_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6361": {
+"piece": "c112 112_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6362": {
+"piece": "c112 112_arch",
+"kind": "notable",
+"idea": null,
+"name": "Hidden Glade (U Cốc)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"evade_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6363": {
+"piece": "c112 112_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6364": {
+"piece": "c112 112_arch",
+"kind": "notable",
+"idea": null,
+"name": "Vine Trellis (Đằng Giá)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6365": {
+"piece": "c112 112_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6366": {
+"piece": "c112 112_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6367": {
+"piece": "c112 112_arch",
+"kind": "notable",
+"idea": null,
+"name": "Green Gate (Thanh Môn)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"mi_luc",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6368": {
+"piece": "c112 splitleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6369": {
+"piece": "c112 splitleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6370": {
+"piece": "c112 splitleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6371": {
+"piece": "c112 splitleaf",
+"kind": "notable",
+"idea": null,
+"name": "Spirit Spring (Linh Tuyền)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+4.0,
+13.3
+],
+[
+"health_regen_pct",
+"",
+4.0,
+0.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6372": {
+"piece": "c112 risingleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"poison",
+1.2,
+2.4
+]
+]
+},
+"6373": {
+"piece": "c112 risingleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"poison",
+1.2,
+2.4
+]
+]
+},
+"6374": {
+"piece": "c112 risingleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"poison",
+1.2,
+2.4
+]
+]
+},
+"6375": {
+"piece": "c112 risingleaf",
+"kind": "notable",
+"idea": null,
+"name": "Venom Surge (Độc Dũng)",
+"mods": [
+[
+"attack_pct",
+"poison",
+4.0,
+8.0
+],
+[
+"stack_effect_pct",
+"moc,debuff",
+4.0,
+16.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6376": {
+"piece": "c111 curl",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stack_effect_pct",
+"moc,debuff",
+1.2,
+4.8
+]
+]
+},
+"6377": {
+"piece": "c111 curl",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stack_effect_pct",
+"moc,debuff",
+1.2,
+4.8
+]
+]
+},
+"6378": {
+"piece": "c111 curl",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stack_effect_pct",
+"moc,debuff",
+1.2,
+4.8
+]
+]
+},
+"6379": {
+"piece": "c111 curl",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stack_effect_pct",
+"moc,debuff",
+1.2,
+4.8
+]
+]
+},
+"6380": {
+"piece": "c111 curl",
+"kind": "notable",
+"idea": null,
+"name": "Withering (Điêu Linh)",
+"mods": [
+[
+"stack_effect_pct",
+"moc,debuff",
+4,
+16.0
+],
+[
+"attack_pct",
+"over_time",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6381": {
+"piece": "c111 curl",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stack_effect_pct",
+"moc,debuff",
+1.2,
+4.8
+]
+]
+},
+"6382": {
+"piece": "c111 curl",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stack_effect_pct",
+"moc,debuff",
+1.2,
+4.8
+]
+]
+},
+"6383": {
+"piece": "c111 curl",
+"kind": "notable",
+"idea": null,
+"name": "Deep Rot (Hủ Bại)",
+"mods": [
+[
+"stack_effect_pct",
+"moc,debuff",
+4,
+16.0
+],
+[
+"stack_duration_pct",
+"moc,debuff",
+4,
+20.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6384": {
+"piece": "c111 crescentleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"poison",
+1.2,
+2.4
+]
+]
+},
+"6385": {
+"piece": "c111 crescentleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"poison",
+1.2,
+2.4
+]
+]
+},
+"6386": {
+"piece": "c111 crescentleaf",
+"kind": "notable",
+"idea": null,
+"name": "Venom Leaf (Độc Diệp)",
+"mods": [
+[
+"attack_pct",
+"poison",
+4,
+8.0
+],
+[
+"attack_pct",
+"moc",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6387": {
+"piece": "c111 crescentleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"poison",
+1.2,
+2.4
+]
+]
+},
+"6388": {
+"piece": "c111 crescentleaf",
+"kind": "notable",
+"idea": null,
+"name": "Bitter Leaf (Khổ Diệp)",
+"mods": [
+[
+"attack_pct",
+"poison",
+4,
+8.0
+],
+[
+"stack_effect_pct",
+"moc,debuff",
+4,
+16.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6389": {
+"piece": "c111 crescentleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"poison",
+1.2,
+2.4
+]
+]
+},
+"6390": {
+"piece": "c111 crescentleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"poison",
+1.2,
+2.4
+]
+]
+},
+"6391": {
+"piece": "c111 crescentleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"poison",
+1.2,
+2.4
+]
+]
+},
+"6392": {
+"piece": "c111 splitleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6393": {
+"piece": "c111 splitleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6394": {
+"piece": "c111 splitleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"6395": {
+"piece": "c111 splitleaf",
+"kind": "notable",
+"idea": null,
+"name": "Spirit Spring (Linh Tuyền)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+4.0,
+13.3
+],
+[
+"health_regen_pct",
+"",
+4.0,
+0.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6396": {
+"piece": "c111 risingleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"poison",
+1.2,
+2.4
+]
+]
+},
+"6397": {
+"piece": "c111 risingleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"poison",
+1.2,
+2.4
+]
+]
+},
+"6398": {
+"piece": "c111 risingleaf",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"poison",
+1.2,
+2.4
+]
+]
+},
+"6399": {
+"piece": "c111 risingleaf",
+"kind": "notable",
+"idea": null,
+"name": "Venom Surge (Độc Dũng)",
+"mods": [
+[
+"attack_pct",
+"poison",
+4.0,
+8.0
+],
+[
+"stack_effect_pct",
+"moc,debuff",
+4.0,
+16.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6400": {
+"piece": "c1 rootL",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"6401": {
+"piece": "c1 rootL",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"6402": {
+"piece": "c1 rootL",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"6403": {
+"piece": "c1 rootL",
+"kind": "notable",
+"idea": null,
+"name": "Taproot (Chủ Căn)",
+"mods": [
+[
+"health_regen_pct",
+"",
+4.0,
+0.4
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6404": {
+"piece": "c1 rootR",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"6405": {
+"piece": "c1 rootR",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"6406": {
+"piece": "c1 rootR",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"6407": {
+"piece": "c1 rootR",
+"kind": "notable",
+"idea": null,
+"name": "Taproot (Chủ Căn)",
+"mods": [
+[
+"health_regen_pct",
+"",
+4.0,
+0.4
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6408": {
+"piece": "c1 1_fork",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6409": {
+"piece": "c1 1_fork",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6410": {
+"piece": "c1 1_fork",
+"kind": "notable",
+"idea": null,
+"name": "Divining Twig (Chiêm Chi)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4.0,
+6.0
+],
+[
+"khi_van",
+"",
+4.0,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6411": {
+"piece": "c1 1_fork",
+"kind": "notable",
+"idea": null,
+"name": "Green Sprig (Thanh Chi)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4.0,
+6.0
+],
+[
+"health_regen_pct",
+"",
+4.0,
+0.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6412": {
+"piece": "c1 1_spur",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6413": {
+"piece": "c1 1_spur",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6414": {
+"piece": "c1 1_spur",
+"kind": "notable",
+"idea": null,
+"name": "Fortune Charm (Phúc Phù)",
+"mods": [
+[
+"khi_van",
+"",
+4.0,
+0.8
+],
+[
+"co_duyen_pct",
+"",
+4.0,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6415": {
+"piece": "c1 1_spur",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6416": {
+"piece": "c1 1_spur",
+"kind": "notable",
+"idea": null,
+"name": "Green Thorn (Thanh Thích)",
+"mods": [
+[
+"khi_van",
+"",
+4.0,
+0.8
+],
+[
+"attack_pct",
+"moc",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6417": {
+"piece": "c43 gust1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"6418": {
+"piece": "c43 gust1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"6419": {
+"piece": "c43 gust1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"6420": {
+"piece": "c43 gust1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"6421": {
+"piece": "c43 gust1",
+"kind": "notable",
+"idea": null,
+"name": "Rising Wind (Khởi Phong)",
+"mods": [
+[
+"attack_pct",
+"phong",
+4.0,
+8.0
+],
+[
+"art_speed_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6422": {
+"piece": "c43 gust2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6423": {
+"piece": "c43 gust2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6424": {
+"piece": "c43 gust2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6425": {
+"piece": "c43 gust2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6426": {
+"piece": "c43 gust2",
+"kind": "notable",
+"idea": null,
+"name": "Returning Wind (Hồi Phong)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+4.0,
+4.0
+],
+[
+"attack_pct",
+"phong",
+4.0,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6427": {
+"piece": "c43 streaks",
+"kind": "small",
+"idea": "★ Raging Gale (Cuồng Phong)",
+"mods": [
+[
+"attack_pct",
+"phong,quick",
+1.2,
+3.0
+]
+]
+},
+"6428": {
+"piece": "c43 streaks",
+"kind": "small",
+"idea": "★ Raging Gale (Cuồng Phong)",
+"mods": [
+[
+"attack_pct",
+"phong,quick",
+1.2,
+3.0
+]
+]
+},
+"6429": {
+"piece": "c43 streaks",
+"kind": "small",
+"idea": "★ Raging Gale (Cuồng Phong)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6430": {
+"piece": "c43 streaks",
+"kind": "notable",
+"idea": "★ Raging Gale (Cuồng Phong)",
+"name": "Sudden Gust (Đột Phong)",
+"mods": [
+[
+"attack_pct",
+"phong,quick",
+4,
+10.0
+],
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6431": {
+"piece": "c43 streaks",
+"kind": "small",
+"idea": "★ Raging Gale (Cuồng Phong)",
+"mods": [
+[
+"attack_pct",
+"phong,quick",
+1.2,
+3.0
+]
+]
+},
+"6432": {
+"piece": "c43 streaks",
+"kind": "small",
+"idea": "★ Raging Gale (Cuồng Phong)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6433": {
+"piece": "c43 streaks",
+"kind": "notable",
+"idea": "★ Raging Gale (Cuồng Phong)",
+"name": "Whistling Wind (Phong Khiếu)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+],
+[
+"art_speed_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6434": {
+"piece": "c43 streaks",
+"kind": "small",
+"idea": "★ Raging Gale (Cuồng Phong)",
+"mods": [
+[
+"attack_pct",
+"phong,quick",
+1.2,
+3.0
+]
+]
+},
+"6435": {
+"piece": "c43 streaks",
+"kind": "small",
+"idea": "★ Raging Gale (Cuồng Phong)",
+"mods": [
+[
+"attack_pct",
+"phong,quick",
+1.2,
+3.0
+]
+]
+},
+"6436": {
+"piece": "c43 streaks",
+"kind": "notable",
+"idea": "★ Raging Gale (Cuồng Phong)",
+"name": "Raging Gale (Cuồng Phong)",
+"mods": [
+[
+"attack_pct",
+"phong,quick",
+5,
+12.5
+],
+[
+"crit_damage_pct",
+"",
+3,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6437": {
+"piece": "c43 43_wave",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"6438": {
+"piece": "c43 43_wave",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"6439": {
+"piece": "c43 43_wave",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"6440": {
+"piece": "c43 43_wave",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"6441": {
+"piece": "c43 43_wave",
+"kind": "notable",
+"idea": null,
+"name": "Wind Wave (Phong Lãng)",
+"mods": [
+[
+"attack_pct",
+"phong",
+4.0,
+8.0
+],
+[
+"crit_chance_pct",
+"",
+4.0,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6442": {
+"piece": "c43 43_hairpin",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"6443": {
+"piece": "c43 43_hairpin",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"6444": {
+"piece": "c43 43_hairpin",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"6445": {
+"piece": "c43 43_hairpin",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"6446": {
+"piece": "c43 43_hairpin",
+"kind": "notable",
+"idea": null,
+"name": "Wind Needle (Phong Châm)",
+"mods": [
+[
+"evade_pct",
+"",
+4.0,
+2.6
+],
+[
+"crit_chance_pct",
+"",
+4.0,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6447": {
+"piece": "c44 cloud",
+"kind": "small",
+"idea": "★ Riding the Wind (Ngự Phong)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6448": {
+"piece": "c44 cloud",
+"kind": "small",
+"idea": "★ Riding the Wind (Ngự Phong)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6449": {
+"piece": "c44 cloud",
+"kind": "small",
+"idea": "★ Riding the Wind (Ngự Phong)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6450": {
+"piece": "c44 cloud",
+"kind": "small",
+"idea": "★ Riding the Wind (Ngự Phong)",
+"mods": [
+[
+"escape_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6451": {
+"piece": "c44 cloud",
+"kind": "notable",
+"idea": "★ Riding the Wind (Ngự Phong)",
+"name": "Cloud Step (Vân Bộ)",
+"mods": [
+[
+"art_speed_pct",
+"",
+4,
+6.6
+],
+[
+"escape_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6452": {
+"piece": "c44 cloud",
+"kind": "small",
+"idea": "★ Riding the Wind (Ngự Phong)",
+"mods": [
+[
+"escape_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6453": {
+"piece": "c44 cloud",
+"kind": "small",
+"idea": "★ Riding the Wind (Ngự Phong)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6454": {
+"piece": "c44 cloud",
+"kind": "small",
+"idea": "★ Riding the Wind (Ngự Phong)",
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6455": {
+"piece": "c44 cloud",
+"kind": "notable",
+"idea": "★ Riding the Wind (Ngự Phong)",
+"name": "Riding the Wind (Ngự Phong)",
+"mods": [
+[
+"art_speed_pct",
+"",
+5,
+8.3
+],
+[
+"travel_speed_pct",
+"",
+3,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6456": {
+"piece": "c44 pinwheel",
+"kind": "small",
+"idea": "B8 Wind Fan (Phong Phiến)",
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"6457": {
+"piece": "c44 pinwheel",
+"kind": "small",
+"idea": "B8 Wind Fan (Phong Phiến)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"6458": {
+"piece": "c44 pinwheel",
+"kind": "small",
+"idea": "B8 Wind Fan (Phong Phiến)",
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"6459": {
+"piece": "c44 pinwheel",
+"kind": "small",
+"idea": "B8 Wind Fan (Phong Phiến)",
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"6460": {
+"piece": "c44 pinwheel",
+"kind": "small",
+"idea": "B8 Wind Fan (Phong Phiến)",
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"6461": {
+"piece": "c44 pinwheel",
+"kind": "notable",
+"idea": "B8 Wind Fan (Phong Phiến)",
+"name": "Fan Wind Blade (Phiến Phong Nhận)",
+"mods": [
+[
+"attack_pct",
+"phong",
+4,
+8.0
+],
+[
+"art_speed_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6462": {
+"piece": "c44 pinwheel",
+"kind": "small",
+"idea": "B8 Wind Fan (Phong Phiến)",
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"6463": {
+"piece": "c44 pinwheel",
+"kind": "small",
+"idea": "B8 Wind Fan (Phong Phiến)",
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"6464": {
+"piece": "c44 pinwheel",
+"kind": "notable",
+"idea": "B8 Wind Fan (Phong Phiến)",
+"name": "Wind Fan (Phong Phiến)",
+"mods": [
+[
+"attack_pct",
+"phong",
+5,
+10.0
+],
+[
+"crit_chance_pct",
+"",
+3,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6465": {
+"piece": "c44 pinwheel",
+"kind": "small",
+"idea": "B8 Wind Fan (Phong Phiến)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"6466": {
+"piece": "c44 pinwheel",
+"kind": "notable",
+"idea": "B8 Wind Fan (Phong Phiến)",
+"name": "Folding Fan (Chiết Phiến)",
+"mods": [
+[
+"attack_pct",
+"phong",
+4,
+8.0
+],
+[
+"evade_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6467": {
+"piece": "c44 44_wave",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6468": {
+"piece": "c44 44_wave",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6469": {
+"piece": "c44 44_wave",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6470": {
+"piece": "c44 44_wave",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6471": {
+"piece": "c44 44_wave",
+"kind": "notable",
+"idea": null,
+"name": "Breeze (Vi Phong)",
+"mods": [
+[
+"art_speed_pct",
+"",
+4.0,
+6.6
+],
+[
+"evade_pct",
+"",
+4.0,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6472": {
+"piece": "c44 44_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"6473": {
+"piece": "c44 44_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"6474": {
+"piece": "c44 44_crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"6475": {
+"piece": "c44 44_crescent",
+"kind": "notable",
+"idea": null,
+"name": "Wind Sickle (Phong Liêm)",
+"mods": [
+[
+"evade_pct",
+"",
+4.0,
+2.6
+],
+[
+"attack_pct",
+"phong",
+4.0,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6476": {
+"piece": "c44 44_hook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"escape_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6477": {
+"piece": "c44 44_hook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"escape_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6478": {
+"piece": "c44 44_hook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"escape_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6479": {
+"piece": "c44 44_hook",
+"kind": "notable",
+"idea": null,
+"name": "Wind Escape (Phong Độn)",
+"mods": [
+[
+"escape_pct",
+"",
+4.0,
+4.0
+],
+[
+"evade_pct",
+"",
+4.0,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6480": {
+"piece": "c44 44_hook2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"6481": {
+"piece": "c44 44_hook2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"6482": {
+"piece": "c44 44_hook2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"6483": {
+"piece": "c44 44_hook2",
+"kind": "notable",
+"idea": null,
+"name": "Whirlwind (Toàn Phong)",
+"mods": [
+[
+"attack_pct",
+"phong",
+4.0,
+8.0
+],
+[
+"evade_pct",
+"",
+4.0,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6484": {
+"piece": "c905 stalk_leaf1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6485": {
+"piece": "c905 stalk_leaf1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6486": {
+"piece": "c905 stalk_leaf1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6487": {
+"piece": "c905 stalk_leaf1",
+"kind": "notable",
+"idea": null,
+"name": "Beast Pen (Thú Lan)",
+"mods": [
+[
+"companion_health_pct",
+"",
+4.0,
+15.0
+],
+[
+"companion_power_pct",
+"",
+4.0,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6488": {
+"piece": "c905 stalk_leaf2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"companion",
+1.2,
+1.8
+]
+]
+},
+"6489": {
+"piece": "c905 stalk_leaf2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"companion",
+1.2,
+1.8
+]
+]
+},
+"6490": {
+"piece": "c905 stalk_leaf2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"companion",
+1.2,
+1.8
+]
+]
+},
+"6491": {
+"piece": "c905 stalk_leaf2",
+"kind": "notable",
+"idea": null,
+"name": "Beast Claw (Thú Trảo)",
+"mods": [
+[
+"attack_pct",
+"companion",
+4.0,
+6.0
+],
+[
+"companion_speed_pct",
+"",
+4.0,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6492": {
+"piece": "c905 stalk_leaf3",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_speed_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6493": {
+"piece": "c905 stalk_leaf3",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_speed_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6494": {
+"piece": "c905 stalk_leaf3",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_speed_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6495": {
+"piece": "c905 stalk_leaf3",
+"kind": "notable",
+"idea": null,
+"name": "Swift Hound (Tấn Khuyển)",
+"mods": [
+[
+"companion_speed_pct",
+"",
+4.0,
+15.0
+],
+[
+"companion_power_pct",
+"",
+4.0,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6496": {
+"piece": "c905 keystone_w",
+"kind": "keystone",
+"name": "Spirit Garden (Linh Viên)",
+"effect": "Spirit Garden (Linh Viên)",
+"closes": "at most one spirit beast",
+"mods": [
+[
+"herb_growth_pct",
+"",
+30,
+33.3
+],
+[
+"field_plots",
+"",
+20,
+1.0
+]
+]
+},
+"6497": {
+"piece": "c905 keystone_e",
+"kind": "keystone",
+"name": "Bare Rack (Không Giá)",
+"effect": "Bare Rack (Không Giá)",
+"closes": "maximum health -15 %",
+"mods": [
+[
+"companion_power_pct",
+"",
+25,
+62.5
+],
+[
+"basic_speed_pct",
+"",
+25,
+93.7
+]
+]
+},
+"6498": {
+"piece": "c905 leaf_rim",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6499": {
+"piece": "c905 leaf_rim",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6500": {
+"piece": "c905 leaf_rim",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6501": {
+"piece": "c905 leaf_rim",
+"kind": "notable",
+"idea": null,
+"name": "Beast Den (Thú Huyệt)",
+"mods": [
+[
+"companion_power_pct",
+"",
+4.0,
+10.0
+],
+[
+"companion_health_pct",
+"",
+4.0,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6502": {
+"piece": "c905 gust_rim",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6503": {
+"piece": "c905 gust_rim",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6504": {
+"piece": "c905 gust_rim",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6505": {
+"piece": "c905 gust_rim",
+"kind": "notable",
+"idea": null,
+"name": "Beast Den (Thú Huyệt)",
+"mods": [
+[
+"companion_power_pct",
+"",
+4.0,
+10.0
+],
+[
+"companion_health_pct",
+"",
+4.0,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6506": {
+"piece": "c905 holo",
+"kind": "small",
+"idea": "★ Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"6507": {
+"piece": "c905 holo",
+"kind": "small",
+"idea": "★ Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"6508": {
+"piece": "c905 holo",
+"kind": "notable",
+"idea": "★ Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"name": "Gourd Neck (Hồ Lô Cảnh)",
+"mods": [
+[
+"lifespan_pct",
+"",
+4,
+1.3
+],
+[
+"dan_doc_resist_pct",
+"",
+4,
+2.5
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6509": {
+"piece": "c905 holo",
+"kind": "small",
+"idea": "★ Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"mods": [
+[
+"dan_doc_resist_pct",
+"",
+1.2,
+0.7
+]
+]
+},
+"6510": {
+"piece": "c905 holo",
+"kind": "notable",
+"idea": "★ Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"name": "Elixir Store (Dược Tàng)",
+"mods": [
+[
+"dan_doc_resist_pct",
+"",
+4,
+2.5
+],
+[
+"pill_effect_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6511": {
+"piece": "c905 holo",
+"kind": "small",
+"idea": "★ Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"6512": {
+"piece": "c905 holo",
+"kind": "small",
+"idea": "★ Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"6513": {
+"piece": "c905 holo",
+"kind": "small",
+"idea": "★ Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"6514": {
+"piece": "c905 holo",
+"kind": "small",
+"idea": "★ Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"mods": [
+[
+"dan_doc_resist_pct",
+"",
+1.2,
+0.7
+]
+]
+},
+"6515": {
+"piece": "c905 holo",
+"kind": "small",
+"idea": "★ Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"6516": {
+"piece": "c905 holo",
+"kind": "small",
+"idea": "★ Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"mods": [
+[
+"dan_doc_resist_pct",
+"",
+1.2,
+0.7
+]
+]
+},
+"6517": {
+"piece": "c905 holo",
+"kind": "notable",
+"idea": "★ Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"name": "Vine Gourd (Đằng Hồ Lô)",
+"mods": [
+[
+"lifespan_pct",
+"",
+4,
+1.3
+],
+[
+"khi_van",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6518": {
+"piece": "c905 holo",
+"kind": "small",
+"idea": "★ Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"6519": {
+"piece": "c905 holo",
+"kind": "small",
+"idea": "★ Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"mods": [
+[
+"dan_doc_resist_pct",
+"",
+1.2,
+0.7
+]
+]
+},
+"6520": {
+"piece": "c905 holo",
+"kind": "small",
+"idea": "★ Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"mods": [
+[
+"dan_doc_resist_pct",
+"",
+1.2,
+0.7
+]
+]
+},
+"6521": {
+"piece": "c905 holo",
+"kind": "notable",
+"idea": "★ Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"name": "Sealed Stopper (Tắc Khẩu)",
+"mods": [
+[
+"dan_doc_decay",
+"",
+4,
+0.5
+],
+[
+"lifespan_pct",
+"",
+4,
+1.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6522": {
+"piece": "c905 holo",
+"kind": "small",
+"idea": "★ Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"6523": {
+"piece": "c905 holo",
+"kind": "notable",
+"idea": "★ Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"name": "Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"mods": [
+[
+"lifespan_pct",
+"",
+5,
+1.6
+],
+[
+"khi_huyet_pct",
+"",
+3,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6524": {
+"piece": "c905 holo",
+"kind": "small",
+"idea": "★ Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"6525": {
+"piece": "c905 holo",
+"kind": "small",
+"idea": "★ Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"mods": [
+[
+"dan_doc_resist_pct",
+"",
+1.2,
+0.7
+]
+]
+},
+"6526": {
+"piece": "c905 holo",
+"kind": "small",
+"idea": "★ Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"6527": {
+"piece": "c905 holo",
+"kind": "small",
+"idea": "★ Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"6528": {
+"piece": "c905 holo",
+"kind": "small",
+"idea": "★ Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"mods": [
+[
+"dan_doc_resist_pct",
+"",
+1.2,
+0.7
+]
+]
+},
+"6529": {
+"piece": "c905 holo",
+"kind": "notable",
+"idea": "★ Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"name": "Calabash Spirit (Hồ Lô Tinh)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6530": {
+"piece": "c905 holo",
+"kind": "small",
+"idea": "★ Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"6531": {
+"piece": "c905 holo",
+"kind": "small",
+"idea": "★ Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"6532": {
+"piece": "c905 holo",
+"kind": "small",
+"idea": "★ Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"6533": {
+"piece": "c905 holo",
+"kind": "notable",
+"idea": "★ Gourd of Ten Thousand Years (Vạn Niên Hồ Lô)",
+"name": "Ten Thousand Years (Vạn Niên)",
+"mods": [
+[
+"lifespan_pct",
+"",
+4,
+1.3
+],
+[
+"can_cot",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6534": {
+"piece": "c905 lantern_e",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6535": {
+"piece": "c905 lantern_e",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6536": {
+"piece": "c905 lantern_e",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"attack_pct",
+"companion",
+1.2,
+1.8
+]
+]
+},
+"6537": {
+"piece": "c905 lantern_e",
+"kind": "notable",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"name": "Spirit Lantern (Linh Đăng)",
+"mods": [
+[
+"companion_health_pct",
+"",
+4,
+15.0
+],
+[
+"attack_pct",
+"companion",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6538": {
+"piece": "c905 lantern_e",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6539": {
+"piece": "c905 lantern_e",
+"kind": "notable",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"name": "Totem Pole (Đồ Đằng Trụ)",
+"mods": [
+[
+"attack_pct",
+"companion",
+4,
+6.0
+],
+[
+"companion_power_pct",
+"",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6540": {
+"piece": "c905 lantern_e",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6541": {
+"piece": "c905 lantern_e",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6542": {
+"piece": "c905 lantern_e",
+"kind": "notable",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"name": "Beast Soul Union (Thú Hồn Hợp Thể)",
+"mods": [
+[
+"companion_health_pct",
+"",
+2,
+7.5
+]
+],
+"pending": [],
+"cap": "#17",
+"effect": null,
+"twin_copy": false
+},
+"6543": {
+"piece": "c905 lantern_e",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"attack_pct",
+"companion",
+1.2,
+1.8
+]
+]
+},
+"6544": {
+"piece": "c905 lantern_e",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6545": {
+"piece": "c905 lantern_e",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"attack_pct",
+"companion",
+1.2,
+1.8
+]
+]
+},
+"6546": {
+"piece": "c905 lantern_e",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"attack_pct",
+"companion",
+1.2,
+1.8
+]
+]
+},
+"6547": {
+"piece": "c905 lantern_e",
+"kind": "notable",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"name": "Carved Faces (Khắc Diện)",
+"mods": [
+[
+"attack_pct",
+"companion",
+4,
+6.0
+],
+[
+"companion_speed_pct",
+"",
+4,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6548": {
+"piece": "c905 lantern_e",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"attack_pct",
+"companion",
+1.2,
+1.8
+]
+]
+},
+"6549": {
+"piece": "c905 lantern_e",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6550": {
+"piece": "c905 lantern_e",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6551": {
+"piece": "c905 lantern_e",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6552": {
+"piece": "c905 lantern_e",
+"kind": "notable",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"name": "Ancestor Beast (Tổ Thú)",
+"mods": [
+[
+"companion_health_pct",
+"",
+4,
+15.0
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6553": {
+"piece": "c905 lantern_e",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6554": {
+"piece": "c905 lantern_w",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6555": {
+"piece": "c905 lantern_w",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6556": {
+"piece": "c905 lantern_w",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"attack_pct",
+"companion",
+1.2,
+1.8
+]
+]
+},
+"6557": {
+"piece": "c905 lantern_w",
+"kind": "notable",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"name": "Spirit Lantern (Linh Đăng)",
+"mods": [
+[
+"companion_health_pct",
+"",
+4,
+15.0
+],
+[
+"attack_pct",
+"companion",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6558": {
+"piece": "c905 lantern_w",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6559": {
+"piece": "c905 lantern_w",
+"kind": "notable",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"name": "Totem Pole (Đồ Đằng Trụ)",
+"mods": [
+[
+"attack_pct",
+"companion",
+4,
+6.0
+],
+[
+"companion_power_pct",
+"",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6560": {
+"piece": "c905 lantern_w",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6561": {
+"piece": "c905 lantern_w",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6562": {
+"piece": "c905 lantern_w",
+"kind": "notable",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"name": "Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"attack_pct",
+"companion",
+5,
+7.5
+],
+[
+"companion_health_pct",
+"",
+3,
+11.2
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6563": {
+"piece": "c905 lantern_w",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"attack_pct",
+"companion",
+1.2,
+1.8
+]
+]
+},
+"6564": {
+"piece": "c905 lantern_w",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6565": {
+"piece": "c905 lantern_w",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"attack_pct",
+"companion",
+1.2,
+1.8
+]
+]
+},
+"6566": {
+"piece": "c905 lantern_w",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"attack_pct",
+"companion",
+1.2,
+1.8
+]
+]
+},
+"6567": {
+"piece": "c905 lantern_w",
+"kind": "notable",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"name": "Carved Faces (Khắc Diện)",
+"mods": [
+[
+"attack_pct",
+"companion",
+4,
+6.0
+],
+[
+"companion_speed_pct",
+"",
+4,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6568": {
+"piece": "c905 lantern_w",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"attack_pct",
+"companion",
+1.2,
+1.8
+]
+]
+},
+"6569": {
+"piece": "c905 lantern_w",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6570": {
+"piece": "c905 lantern_w",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6571": {
+"piece": "c905 lantern_w",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6572": {
+"piece": "c905 lantern_w",
+"kind": "notable",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"name": "Ancestor Beast (Tổ Thú)",
+"mods": [
+[
+"companion_health_pct",
+"",
+4,
+15.0
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6573": {
+"piece": "c905 lantern_w",
+"kind": "small",
+"idea": "D3 Beast-Soul Totem (Thú Hồn Đồ Đằng)",
+"mods": [
+[
+"companion_health_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6574": {
+"piece": "c905 star_e",
+"kind": "notable",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"name": "Pack Howl (Lang Hống)",
+"mods": [
+[
+"companion_power_pct",
+"",
+4,
+10.0
+],
+[
+"companion_speed_pct",
+"",
+4,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6575": {
+"piece": "c905 star_e",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6576": {
+"piece": "c905 star_e",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6577": {
+"piece": "c905 star_e",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6578": {
+"piece": "c905 star_e",
+"kind": "notable",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"name": "Wolf King (Lang Vương)",
+"mods": [
+[
+"companion_power_pct",
+"",
+4,
+10.0
+],
+[
+"attack_pct",
+"companion",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6579": {
+"piece": "c905 star_e",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6580": {
+"piece": "c905 star_e",
+"kind": "notable",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"name": "Ten Thousand Beasts, One Heart (Vạn Thú Đồng Tâm)",
+"mods": [
+[
+"companion_power_pct",
+"",
+2,
+5.0
+]
+],
+"pending": [],
+"cap": "#16",
+"effect": null,
+"twin_copy": false
+},
+"6581": {
+"piece": "c905 star_e",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_speed_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6582": {
+"piece": "c905 star_e",
+"kind": "notable",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"name": "Running Wolves (Bôn Lang)",
+"mods": [
+[
+"companion_speed_pct",
+"",
+4,
+15.0
+],
+[
+"travel_speed_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6583": {
+"piece": "c905 star_e",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_speed_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6584": {
+"piece": "c905 star_e",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6585": {
+"piece": "c905 star_e",
+"kind": "notable",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"name": "Hunting Ground (Liệp Trường)",
+"mods": [
+[
+"companion_power_pct",
+"",
+4,
+10.0
+],
+[
+"co_duyen_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [
+[
+"taming_chance",
+"",
+3
+]
+],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6586": {
+"piece": "c905 star_e",
+"kind": "notable",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"name": "Howling at the Moon (Khiếu Nguyệt)",
+"mods": [
+[
+"companion_speed_pct",
+"",
+4,
+15.0
+],
+[
+"companion_health_pct",
+"",
+4,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6587": {
+"piece": "c905 star_e",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_speed_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6588": {
+"piece": "c905 star_e",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_speed_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6589": {
+"piece": "c905 star_e",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6590": {
+"piece": "c905 star_e",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6591": {
+"piece": "c905 star_e",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6592": {
+"piece": "c905 star_e",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_speed_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6593": {
+"piece": "c905 star_e",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6594": {
+"piece": "c905 star_e",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6595": {
+"piece": "c905 star_e",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6596": {
+"piece": "c905 star_w",
+"kind": "notable",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"name": "Pack Howl (Lang Hống)",
+"mods": [
+[
+"companion_power_pct",
+"",
+4,
+10.0
+],
+[
+"companion_speed_pct",
+"",
+4,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6597": {
+"piece": "c905 star_w",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6598": {
+"piece": "c905 star_w",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6599": {
+"piece": "c905 star_w",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6600": {
+"piece": "c905 star_w",
+"kind": "notable",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"name": "Wolf King (Lang Vương)",
+"mods": [
+[
+"companion_power_pct",
+"",
+4,
+10.0
+],
+[
+"attack_pct",
+"companion",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6601": {
+"piece": "c905 star_w",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6602": {
+"piece": "c905 star_w",
+"kind": "notable",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"name": "Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_power_pct",
+"",
+5,
+12.5
+],
+[
+"companion_speed_pct",
+"",
+3,
+11.2
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6603": {
+"piece": "c905 star_w",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_speed_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6604": {
+"piece": "c905 star_w",
+"kind": "notable",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"name": "Running Wolves (Bôn Lang)",
+"mods": [
+[
+"companion_speed_pct",
+"",
+4,
+15.0
+],
+[
+"travel_speed_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6605": {
+"piece": "c905 star_w",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_speed_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6606": {
+"piece": "c905 star_w",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6607": {
+"piece": "c905 star_w",
+"kind": "notable",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"name": "Hunting Ground (Liệp Trường)",
+"mods": [
+[
+"companion_power_pct",
+"",
+4,
+10.0
+],
+[
+"co_duyen_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [
+[
+"taming_chance",
+"",
+3
+]
+],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6608": {
+"piece": "c905 star_w",
+"kind": "notable",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"name": "Howling at the Moon (Khiếu Nguyệt)",
+"mods": [
+[
+"companion_speed_pct",
+"",
+4,
+15.0
+],
+[
+"companion_health_pct",
+"",
+4,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"6609": {
+"piece": "c905 star_w",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_speed_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6610": {
+"piece": "c905 star_w",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_speed_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6611": {
+"piece": "c905 star_w",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6612": {
+"piece": "c905 star_w",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6613": {
+"piece": "c905 star_w",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6614": {
+"piece": "c905 star_w",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_speed_pct",
+"",
+1.2,
+4.5
+]
+]
+},
+"6615": {
+"piece": "c905 star_w",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6616": {
+"piece": "c905 star_w",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6617": {
+"piece": "c905 star_w",
+"kind": "small",
+"idea": "D2 Wolf Pack (Lang Quần)",
+"mods": [
+[
+"companion_power_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"6618": {
+"piece": "c905 keystone_rim_R",
+"kind": "keystone",
+"name": "Ten Thousand Poisons (Vạn Độc)",
+"effect": "Ten Thousand Poisons (Vạn Độc)",
+"closes": "hit damage -25 %",
+"mods": [
+[
+"stack_effect_pct",
+"moc,debuff",
+25,
+100.0
+],
+[
+"attack_pct",
+"poison",
+25,
+50.0
+]
+]
+},
+"6619": {
+"piece": "c905 keystone_rim_L",
+"kind": "keystone",
+"name": "Sun and Rain (Nhật Vũ)",
+"effect": "Sun and Rain (Nhật Vũ)",
+"closes": "maximum linh lực -30 %",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+25,
+83.3
+],
+[
+"linh_luc_regen_inc_pct",
+"",
+25,
+31.2
+]
+]
+}
+}
+}

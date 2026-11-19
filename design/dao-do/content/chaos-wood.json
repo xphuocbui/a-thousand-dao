@@ -1,0 +1,2031 @@
+{
+"map": "v5-frozen-2026-11-19",
+"map_sha256": "dbdfd5dcd10b49f843c597b48e169aec86153793382986f29a46dea3247eaa96",
+"area": "chaos-wood",
+"nodes": {
+"8785": {
+"piece": "c1 vines_1",
+"kind": "notable",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"name": "Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+5,
+7.5
+],
+[
+"resist_pen_pct",
+"chaos",
+3,
+45
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8786": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8787": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8788": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8789": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8790": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8791": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8792": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8793": {
+"piece": "c1 vines_1",
+"kind": "notable",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"name": "Rooted Chaos (Hỗn Căn)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+],
+[
+"can_cot",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8794": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8795": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8796": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8797": {
+"piece": "c1 vines_1",
+"kind": "notable",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"name": "Overgrowth (Mạn Sinh)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4,
+6.0
+],
+[
+"khi_van",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8798": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8799": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8800": {
+"piece": "c1 vines_1",
+"kind": "notable",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"name": "Corpse Fungus (Thi Khuẩn)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+],
+[
+"stack_effect_pct",
+"moc,debuff",
+4,
+16.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8801": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8802": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8803": {
+"piece": "c1 vines_1",
+"kind": "notable",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"name": "Iron Roots (Thiết Căn)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4,
+6.0
+],
+[
+"timer_resist_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8804": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8805": {
+"piece": "c1 vines_1",
+"kind": "notable",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"name": "Purple Vine (Tử Đằng)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4,
+6.0
+],
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8806": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8807": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8808": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8809": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8810": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8811": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8812": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8813": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8814": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8815": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8816": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8817": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8818": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8819": {
+"piece": "c1 vines_1",
+"kind": "notable",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"name": "Rotting Wood (Hủ Mộc)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+],
+[
+"attack_pct",
+"poison",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8820": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8821": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8822": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8823": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8824": {
+"piece": "c1 vines_1",
+"kind": "notable",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"name": "Leaf Blade (Diệp Nhận)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4,
+6.0
+],
+[
+"crit_chance_pct",
+"moc",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8825": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8826": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8827": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8828": {
+"piece": "c1 vines_1",
+"kind": "notable",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"name": "Bramble Coil (Kinh Triền)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4,
+6.0
+],
+[
+"resist_pen_pct",
+"",
+4,
+40
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8829": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8830": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8831": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8832": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8833": {
+"piece": "c1 vines_1",
+"kind": "notable",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"name": "Living Sap (Thụ Dịch)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4,
+6.0
+],
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8834": {
+"piece": "c1 vines_1",
+"kind": "notable",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"name": "Creeping Chaos (Hỗn Mạn)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+],
+[
+"status_duration_pct",
+"",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8835": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8836": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8837": {
+"piece": "c1 vines_1",
+"kind": "notable",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"name": "Green Lash (Thanh Tiên)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4,
+6.0
+],
+[
+"art_speed_pct",
+"moc",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8838": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8839": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8840": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8841": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8842": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8843": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8844": {
+"piece": "c1 vines_1",
+"kind": "notable",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"name": "Twisted Root (Khúc Căn)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8845": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8846": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8847": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8848": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8849": {
+"piece": "c1 vines_1",
+"kind": "notable",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"name": "Thorned Vine (Thích Đằng)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4,
+6.0
+],
+[
+"block_rating",
+"",
+4,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8850": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8851": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8852": {
+"piece": "c1 vines_1",
+"kind": "notable",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"name": "Dark Sap (Hắc Dịch)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+],
+[
+"linh_luc_on_hit_pct",
+"moc",
+4,
+0.142
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8853": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8854": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8855": {
+"piece": "c1 vines_1",
+"kind": "small",
+"idea": "★ Chaos Root (Hỗn Mộc)",
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"8856": {
+"piece": "c1 vines_2",
+"kind": "notable",
+"idea": "★ First Leaf (Sơ Diệp)",
+"name": "Lucky Clover (Cát Tường Thảo)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"co_duyen_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8857": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8858": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8859": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8860": {
+"piece": "c1 vines_2",
+"kind": "notable",
+"idea": "★ First Leaf (Sơ Diệp)",
+"name": "Leaf Bud (Diệp Nha)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8861": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8862": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"8863": {
+"piece": "c1 vines_2",
+"kind": "notable",
+"idea": "★ First Leaf (Sơ Diệp)",
+"name": "Dewy Leaf (Lộ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"herb_growth_pct",
+"",
+4,
+4.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8864": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8865": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"8866": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"8867": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8868": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8869": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8870": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"8871": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8872": {
+"piece": "c1 vines_2",
+"kind": "notable",
+"idea": "★ First Leaf (Sơ Diệp)",
+"name": "Green Vein (Diệp Mạch)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+],
+[
+"health_regen_pct",
+"",
+4,
+0.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8873": {
+"piece": "c1 vines_2",
+"kind": "notable",
+"idea": "★ First Leaf (Sơ Diệp)",
+"name": "Green Breath (Thanh Khí)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+],
+[
+"linh_luc_regen_inc_pct",
+"",
+4,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8874": {
+"piece": "c1 vines_2",
+"kind": "notable",
+"idea": "★ First Leaf (Sơ Diệp)",
+"name": "Sunlit Leaf (Dương Diệp)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8875": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8876": {
+"piece": "c1 vines_2",
+"kind": "notable",
+"idea": "★ First Leaf (Sơ Diệp)",
+"name": "First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+5,
+1.0
+],
+[
+"healing_pct",
+"",
+3,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8877": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8878": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"8879": {
+"piece": "c1 vines_2",
+"kind": "notable",
+"idea": "★ First Leaf (Sơ Diệp)",
+"name": "Spring Wind (Xuân Phong)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"travel_speed_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8880": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8881": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"8882": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8883": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8884": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8885": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8886": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"8887": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8888": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8889": {
+"piece": "c1 vines_2",
+"kind": "notable",
+"idea": "★ First Leaf (Sơ Diệp)",
+"name": "Four Leaves (Tứ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"mi_luc",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8890": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"8891": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"8892": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8893": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8894": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"8895": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8896": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"8897": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"8898": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8899": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8900": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"8901": {
+"piece": "c1 vines_2",
+"kind": "notable",
+"idea": "★ First Leaf (Sơ Diệp)",
+"name": "Leaf Shade (Diệp Ảnh)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"evade_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8902": {
+"piece": "c1 vines_2",
+"kind": "notable",
+"idea": "★ First Leaf (Sơ Diệp)",
+"name": "Fresh Green (Tân Lục)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+],
+[
+"healing_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8903": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8904": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8905": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"8906": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8907": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8908": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"8909": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8910": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"8911": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8912": {
+"piece": "c1 vines_2",
+"kind": "notable",
+"idea": "★ First Leaf (Sơ Diệp)",
+"name": "Leaf Litter (Hủ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8913": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8914": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"8915": {
+"piece": "c1 vines_2",
+"kind": "notable",
+"idea": "★ First Leaf (Sơ Diệp)",
+"name": "Unfurling (Thư Diệp)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+],
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8916": {
+"piece": "c1 vines_2",
+"kind": "small",
+"idea": "★ First Leaf (Sơ Diệp)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+}
+}
+}

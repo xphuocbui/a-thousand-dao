@@ -1,0 +1,1952 @@
+{
+"map": "v5-frozen-2026-11-19",
+"map_sha256": "dbdfd5dcd10b49f843c597b48e169aec86153793382986f29a46dea3247eaa96",
+"area": "chaos-metal",
+"nodes": {
+"8533": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8534": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8535": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8536": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8537": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8538": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8539": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8540": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8541": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8542": {
+"piece": "c4 blades_1",
+"kind": "notable",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"name": "Chaos Blade (Hỗn Nhận)",
+"mods": [
+[
+"attack_pct",
+"kim",
+5,
+7.5
+],
+[
+"crit_damage_pct",
+"kim",
+3,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8543": {
+"piece": "c4 blades_1",
+"kind": "notable",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"name": "Blood-Drinking Blade (Ẩm Huyết Đao)",
+"mods": [
+[
+"attack_pct",
+"kim",
+4,
+6.0
+],
+[
+"linh_luc_on_hit_pct",
+"kim",
+4,
+0.142
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8544": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8545": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8546": {
+"piece": "c4 blades_1",
+"kind": "notable",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"name": "Purple Steel (Tử Cương)",
+"mods": [
+[
+"attack_pct",
+"kim",
+4,
+6.0
+],
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8547": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8548": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8549": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8550": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8551": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8552": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8553": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8554": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8555": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8556": {
+"piece": "c4 blades_1",
+"kind": "notable",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"name": "Shadow Blade (Ảnh Nhận)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+],
+[
+"art_speed_pct",
+"kim",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8557": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8558": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8559": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8560": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8561": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8562": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8563": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8564": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8565": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8566": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8567": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8568": {
+"piece": "c4 blades_1",
+"kind": "notable",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"name": "Chaos Temper (Hỗn Luyện)",
+"mods": [
+[
+"attack_pct",
+"kim",
+4,
+6.0
+],
+[
+"resist_pen_pct",
+"chaos",
+4,
+60
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8569": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8570": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8571": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8572": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8573": {
+"piece": "c4 blades_1",
+"kind": "notable",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"name": "Void Edge (Hư Nhận)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+],
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8574": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8575": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8576": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8577": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8578": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8579": {
+"piece": "c4 blades_1",
+"kind": "notable",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"name": "Sword Hum (Kiếm Minh)",
+"mods": [
+[
+"attack_pct",
+"kim",
+4,
+6.0
+],
+[
+"soul_res_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8580": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8581": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8582": {
+"piece": "c4 blades_1",
+"kind": "notable",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"name": "First Cut (Sơ Trảm)",
+"mods": [
+[
+"attack_pct",
+"kim",
+4,
+6.0
+],
+[
+"accuracy_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8583": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8584": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"8585": {
+"piece": "c4 blades_1",
+"kind": "small",
+"idea": "★ Chaos Blade (Hỗn Kim)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8586": {
+"piece": "c4 blades_2",
+"kind": "notable",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"name": "Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+5,
+5.0
+],
+[
+"crit_damage_pct",
+"",
+3,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8587": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"8588": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"8589": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8590": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"8591": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8592": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8593": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8594": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8595": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"8596": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8597": {
+"piece": "c4 blades_2",
+"kind": "notable",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"name": "Sword Bones (Kiếm Cốt)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+],
+[
+"can_cot",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8598": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"8599": {
+"piece": "c4 blades_2",
+"kind": "notable",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"name": "Honed (Lệ Phong)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+],
+[
+"resist_pen_pct",
+"physical",
+4,
+50
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8600": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8601": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"8602": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8603": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8604": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"8605": {
+"piece": "c4 blades_2",
+"kind": "notable",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"name": "Cold Edge (Hàn Phong)",
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+4,
+6.0
+],
+[
+"can_cot",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8606": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"8607": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8608": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8609": {
+"piece": "c4 blades_2",
+"kind": "notable",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"name": "Steel Breath (Cương Khí)",
+"mods": [
+[
+"can_cot",
+"",
+4,
+1.33
+],
+[
+"linh_luc_regen_inc_pct",
+"",
+4,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8610": {
+"piece": "c4 blades_2",
+"kind": "notable",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"name": "Resolute (Cương Nghị)",
+"mods": [
+[
+"can_cot",
+"",
+4,
+1.33
+],
+[
+"status_resist_pct",
+"",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8611": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8612": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"8613": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8614": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8615": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8616": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8617": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"8618": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8619": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8620": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"8621": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8622": {
+"piece": "c4 blades_2",
+"kind": "notable",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"name": "Hard Bones (Ngạnh Cốt)",
+"mods": [
+[
+"can_cot",
+"",
+4,
+1.33
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8623": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8624": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8625": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"8626": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8627": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8628": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8629": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"8630": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8631": {
+"piece": "c4 blades_2",
+"kind": "small",
+"idea": "★ Edge Revealed (Phong Mang Sơ Lộ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8632": {
+"piece": "c4 blades_3",
+"kind": "small",
+"idea": "★ Whetted (Đã Mài)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"8633": {
+"piece": "c4 blades_3",
+"kind": "notable",
+"idea": "★ Whetted (Đã Mài)",
+"name": "Clean Cut (Nhất Đao Lưỡng Đoạn)",
+"mods": [
+[
+"attack_pct",
+"physical",
+4,
+5.0
+],
+[
+"resist_pen_pct",
+"physical",
+4,
+50
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8634": {
+"piece": "c4 blades_3",
+"kind": "small",
+"idea": "★ Whetted (Đã Mài)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"8635": {
+"piece": "c4 blades_3",
+"kind": "small",
+"idea": "★ Whetted (Đã Mài)",
+"mods": [
+[
+"attack_pct",
+"physical",
+1.2,
+1.5
+]
+]
+},
+"8636": {
+"piece": "c4 blades_3",
+"kind": "small",
+"idea": "★ Whetted (Đã Mài)",
+"mods": [
+[
+"attack_pct",
+"physical",
+1.2,
+1.5
+]
+]
+},
+"8637": {
+"piece": "c4 blades_3",
+"kind": "notable",
+"idea": "★ Whetted (Đã Mài)",
+"name": "Whetted (Lợi Nhận)",
+"mods": [
+[
+"attack_pct",
+"physical",
+5,
+6.2
+],
+[
+"crit_damage_pct",
+"",
+3,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8638": {
+"piece": "c4 blades_3",
+"kind": "notable",
+"idea": "★ Whetted (Đã Mài)",
+"name": "Whetstone Grit (Lệ Thạch)",
+"mods": [
+[
+"accuracy_pct",
+"",
+4,
+8.0
+],
+[
+"attack_pct",
+"physical",
+4,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8639": {
+"piece": "c4 blades_3",
+"kind": "small",
+"idea": "★ Whetted (Đã Mài)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"8640": {
+"piece": "c4 blades_3",
+"kind": "small",
+"idea": "★ Whetted (Đã Mài)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"8641": {
+"piece": "c4 blades_3",
+"kind": "small",
+"idea": "★ Whetted (Đã Mài)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"8642": {
+"piece": "c4 blades_3",
+"kind": "small",
+"idea": "★ Whetted (Đã Mài)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"8643": {
+"piece": "c4 blades_3",
+"kind": "small",
+"idea": "★ Whetted (Đã Mài)",
+"mods": [
+[
+"attack_pct",
+"physical",
+1.2,
+1.5
+]
+]
+},
+"8644": {
+"piece": "c4 blades_3",
+"kind": "small",
+"idea": "★ Whetted (Đã Mài)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"8645": {
+"piece": "c4 blades_3",
+"kind": "notable",
+"idea": "★ Whetted (Đã Mài)",
+"name": "True Aim (Thần Chuẩn)",
+"mods": [
+[
+"accuracy_pct",
+"",
+4,
+8.0
+],
+[
+"crit_chance_pct",
+"physical",
+4,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8646": {
+"piece": "c4 blades_3",
+"kind": "small",
+"idea": "★ Whetted (Đã Mài)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"8647": {
+"piece": "c4 blades_4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"8648": {
+"piece": "c4 blades_4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"8649": {
+"piece": "c4 blades_4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"8650": {
+"piece": "c4 blades_4",
+"kind": "notable",
+"idea": null,
+"name": "Severing Blade (Đoạn Nhận)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+4,
+13.3
+],
+[
+"attack_pct",
+"kim",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8651": {
+"piece": "c4 blades_4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"8652": {
+"piece": "c4 blades_4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"8653": {
+"piece": "c4 blades_4",
+"kind": "notable",
+"idea": null,
+"name": "Purple Edge (Tử Phong)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+4,
+13.3
+],
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8654": {
+"piece": "c4 blades_4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"8655": {
+"piece": "c4 blades_5",
+"kind": "small",
+"idea": "★ Blade Breath (Kiếm Khí)",
+"mods": [
+[
+"art_speed_pct",
+"kim",
+1.2,
+3.0
+]
+]
+},
+"8656": {
+"piece": "c4 blades_5",
+"kind": "small",
+"idea": "★ Blade Breath (Kiếm Khí)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8657": {
+"piece": "c4 blades_5",
+"kind": "notable",
+"idea": "★ Blade Breath (Kiếm Khí)",
+"name": "Blade Breath (Kiếm Khí)",
+"mods": [
+[
+"art_speed_pct",
+"kim",
+4,
+10.0
+],
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8658": {
+"piece": "c4 blades_5",
+"kind": "small",
+"idea": "★ Blade Breath (Kiếm Khí)",
+"mods": [
+[
+"art_speed_pct",
+"kim",
+1.2,
+3.0
+]
+]
+},
+"8659": {
+"piece": "c4 blades_5",
+"kind": "small",
+"idea": "★ Blade Breath (Kiếm Khí)",
+"mods": [
+[
+"art_speed_pct",
+"kim",
+1.2,
+3.0
+]
+]
+},
+"8660": {
+"piece": "c4 blades_5",
+"kind": "small",
+"idea": "★ Blade Breath (Kiếm Khí)",
+"mods": [
+[
+"art_speed_pct",
+"kim",
+1.2,
+3.0
+]
+]
+},
+"8661": {
+"piece": "c4 blades_5",
+"kind": "small",
+"idea": "★ Blade Breath (Kiếm Khí)",
+"mods": [
+[
+"art_speed_pct",
+"kim",
+1.2,
+3.0
+]
+]
+},
+"8662": {
+"piece": "c4 blades_5",
+"kind": "small",
+"idea": "★ Blade Breath (Kiếm Khí)",
+"mods": [
+[
+"art_speed_pct",
+"kim",
+1.2,
+3.0
+]
+]
+},
+"8663": {
+"piece": "c4 blades_5",
+"kind": "small",
+"idea": "★ Blade Breath (Kiếm Khí)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+}
+}
+}

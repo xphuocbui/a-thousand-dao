@@ -1,0 +1,1961 @@
+{
+"map": "v5-frozen-2026-11-19",
+"map_sha256": "dbdfd5dcd10b49f843c597b48e169aec86153793382986f29a46dea3247eaa96",
+"area": "border",
+"nodes": {
+"796": {
+"piece": "base7",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"797": {
+"piece": "base7",
+"kind": "notable",
+"idea": null,
+"name": "Light Feet (Khinh Túc)",
+"mods": [
+[
+"evade_pct",
+"",
+4,
+2.6
+],
+[
+"art_speed_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"798": {
+"piece": "base7",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"799": {
+"piece": "base7",
+"kind": "notable",
+"idea": null,
+"name": "Wind Start (Phong Khởi)",
+"mods": [
+[
+"attack_pct",
+"phong",
+4,
+8.0
+],
+[
+"evade_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"800": {
+"piece": "base7",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"801": {
+"piece": "base7",
+"kind": "notable",
+"idea": null,
+"name": "Wind Edge (Phong Nhận)",
+"mods": [
+[
+"attack_pct",
+"phong",
+4,
+8.0
+],
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"802": {
+"piece": "base7",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"803": {
+"piece": "base7",
+"kind": "notable",
+"idea": null,
+"name": "Open Sky Breath (Thái Hư Tức)",
+"mods": [
+[
+"art_speed_pct",
+"",
+4,
+6.6
+],
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"804": {
+"piece": "base7",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"805": {
+"piece": "base7",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"806": {
+"piece": "base7",
+"kind": "notable",
+"idea": null,
+"name": "Drifting (Phiêu Bồng)",
+"mods": [
+[
+"travel_speed_pct",
+"",
+4,
+13.3
+],
+[
+"escape_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"807": {
+"piece": "base7",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"808": {
+"piece": "base7",
+"kind": "notable",
+"idea": null,
+"name": "Wind Rider (Kỵ Phong)",
+"mods": [
+[
+"evade_pct",
+"",
+4,
+2.6
+],
+[
+"escape_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"809": {
+"piece": "base7",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"810": {
+"piece": "base7",
+"kind": "notable",
+"idea": null,
+"name": "Wind Root (Phong Căn)",
+"mods": [
+[
+"attack_pct",
+"phong",
+5,
+10.0
+],
+[
+"art_speed_pct",
+"",
+3,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"811": {
+"piece": "base7",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"812": {
+"piece": "base7",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"813": {
+"piece": "base7",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"814": {
+"piece": "base7",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"phong",
+1.2,
+2.4
+]
+]
+},
+"1455": {
+"piece": "base16",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"1456": {
+"piece": "base16",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"1457": {
+"piece": "base16",
+"kind": "notable",
+"idea": null,
+"name": "Wood and Fire (Mộc Hỏa)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4,
+6.0
+],
+[
+"attack_pct",
+"hoa",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"1458": {
+"piece": "base16",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"1459": {
+"piece": "base16",
+"kind": "notable",
+"idea": null,
+"name": "Kindled Wood (Nhiên Mộc)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"than_hon",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"1460": {
+"piece": "base16",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"1461": {
+"piece": "base17",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"1462": {
+"piece": "base17",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"1463": {
+"piece": "base17",
+"kind": "notable",
+"idea": null,
+"name": "Fire and Earth (Hỏa Thổ)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+4,
+6.0
+],
+[
+"attack_pct",
+"tho",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"1464": {
+"piece": "base17",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"1465": {
+"piece": "base17",
+"kind": "notable",
+"idea": null,
+"name": "Ash Soil (Hôi Thổ)",
+"mods": [
+[
+"than_hon",
+"",
+4,
+1.33
+],
+[
+"dao_tam",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"1466": {
+"piece": "base17",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"1467": {
+"piece": "base18",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"1468": {
+"piece": "base18",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"1469": {
+"piece": "base18",
+"kind": "notable",
+"idea": null,
+"name": "Earth and Metal (Thổ Kim)",
+"mods": [
+[
+"attack_pct",
+"tho",
+4,
+6.0
+],
+[
+"attack_pct",
+"kim",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"1470": {
+"piece": "base18",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"1471": {
+"piece": "base18",
+"kind": "notable",
+"idea": null,
+"name": "Ore Bed (Khoáng Sàng)",
+"mods": [
+[
+"dao_tam",
+"",
+4,
+1.33
+],
+[
+"can_cot",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"1472": {
+"piece": "base18",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"1473": {
+"piece": "base19",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"1474": {
+"piece": "base19",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"1475": {
+"piece": "base19",
+"kind": "notable",
+"idea": null,
+"name": "Metal and Water (Kim Thủy)",
+"mods": [
+[
+"attack_pct",
+"kim",
+4,
+6.0
+],
+[
+"attack_pct",
+"thuy",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"1476": {
+"piece": "base19",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"1477": {
+"piece": "base19",
+"kind": "notable",
+"idea": null,
+"name": "Cold Steel (Hàn Thiết)",
+"mods": [
+[
+"can_cot",
+"",
+4,
+1.33
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"1478": {
+"piece": "base19",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"6620": {
+"piece": "c911 crater_in_a",
+"kind": "notable",
+"idea": null,
+"name": "Crater Floor (Hỏa Khẩu Để)",
+"mods": [
+[
+"attack_pct",
+"tho",
+4.0,
+6.0
+],
+[
+"attack_pct",
+"hoa",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6621": {
+"piece": "c911 crater_in_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"6622": {
+"piece": "c911 crater_in_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"6623": {
+"piece": "c911 crater_in_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"6624": {
+"piece": "c911 crater_in_a",
+"kind": "notable",
+"idea": null,
+"name": "Ash Rim (Hôi Duyên)",
+"mods": [
+[
+"attack_pct",
+"tho",
+4.0,
+6.0
+],
+[
+"dao_tam",
+"",
+4.0,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6625": {
+"piece": "c911 crater_in_b",
+"kind": "notable",
+"idea": null,
+"name": "Lava Lake (Dung Nham Hồ)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+4.0,
+6.0
+],
+[
+"attack_pct",
+"tho",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6626": {
+"piece": "c911 crater_in_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"6627": {
+"piece": "c911 crater_in_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"6628": {
+"piece": "c911 crater_in_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"6629": {
+"piece": "c911 crater_in_b",
+"kind": "notable",
+"idea": null,
+"name": "Smoke Rim (Yên Duyên)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+4.0,
+6.0
+],
+[
+"than_hon",
+"",
+4.0,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6630": {
+"piece": "c911 crater_out_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"fire",
+1.2,
+45
+]
+]
+},
+"6631": {
+"piece": "c911 crater_out_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"fire",
+1.2,
+45
+]
+]
+},
+"6632": {
+"piece": "c911 crater_out_a",
+"kind": "notable",
+"idea": null,
+"name": "Outer Crater (Ngoại Hỏa Khẩu)",
+"mods": [
+[
+"resist_pct",
+"fire",
+4.0,
+150
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6633": {
+"piece": "c911 crater_out_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"fire",
+1.2,
+45
+]
+]
+},
+"6634": {
+"piece": "c911 crater_out_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"fire",
+1.2,
+45
+]
+]
+},
+"6635": {
+"piece": "c911 crater_out_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6636": {
+"piece": "c911 crater_out_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6637": {
+"piece": "c911 crater_out_b",
+"kind": "notable",
+"idea": null,
+"name": "Crater Wall (Hỏa Khẩu Bích)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+],
+[
+"block_rating",
+"",
+4.0,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6638": {
+"piece": "c911 crater_out_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6639": {
+"piece": "c911 crater_out_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"6640": {
+"piece": "c912 crystal_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"6641": {
+"piece": "c912 crystal_a",
+"kind": "notable",
+"idea": null,
+"name": "Crystal Seed (Tinh Chủng)",
+"mods": [
+[
+"can_cot",
+"",
+4.0,
+1.33
+],
+[
+"dao_tam",
+"",
+4.0,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6642": {
+"piece": "c912 crystal_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"6643": {
+"piece": "c912 crystal_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"6644": {
+"piece": "c912 crystal_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"6645": {
+"piece": "c912 crystal_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"6646": {
+"piece": "c912 crystal_b",
+"kind": "notable",
+"idea": null,
+"name": "Crystal Spire (Tinh Phong)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+4.0,
+3.0
+],
+[
+"refining_success",
+"",
+4.0,
+2.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6647": {
+"piece": "c912 crystal_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"6648": {
+"piece": "c912 crystal_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"6649": {
+"piece": "c912 crystal_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"6650": {
+"piece": "c913 dew_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"6651": {
+"piece": "c913 dew_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"6652": {
+"piece": "c913 dew_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"6653": {
+"piece": "c913 dew_a",
+"kind": "notable",
+"idea": null,
+"name": "Dew on Steel (Thiết Thượng Lộ)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+4.0,
+0.17
+],
+[
+"can_cot",
+"",
+4.0,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6654": {
+"piece": "c913 dew_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6655": {
+"piece": "c913 dew_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6656": {
+"piece": "c913 dew_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"6657": {
+"piece": "c913 dew_b",
+"kind": "notable",
+"idea": null,
+"name": "Metal Dew (Kim Lộ)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4.0,
+0.8
+],
+[
+"linh_luc_regen_inc_pct",
+"",
+4.0,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6658": {
+"piece": "c913 falling_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6659": {
+"piece": "c913 falling_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"6660": {
+"piece": "c913 falling_a",
+"kind": "notable",
+"idea": null,
+"name": "Falling Dew (Lạc Lộ)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+4.0,
+4.0
+],
+[
+"ngo_tinh",
+"",
+4.0,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6661": {
+"piece": "c913 falling_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"6662": {
+"piece": "c913 falling_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"6663": {
+"piece": "c913 falling_b",
+"kind": "notable",
+"idea": null,
+"name": "Cold Drop (Hàn Tích)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+4.0,
+6.0
+],
+[
+"attack_pct",
+"kim",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6664": {
+"piece": "c914 reed_short_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"6665": {
+"piece": "c914 reed_short_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_pct",
+"",
+1.2,
+0.12
+]
+]
+},
+"6666": {
+"piece": "c914 reed_short_a",
+"kind": "notable",
+"idea": null,
+"name": "Reed Shoot (Vi Nha)",
+"mods": [
+[
+"health_regen_pct",
+"",
+4.0,
+0.4
+],
+[
+"ngo_tinh",
+"",
+4.0,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6667": {
+"piece": "c914 reed_short_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6668": {
+"piece": "c914 reed_short_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6669": {
+"piece": "c914 reed_short_b",
+"kind": "notable",
+"idea": null,
+"name": "Reed Root (Vi Căn)",
+"mods": [
+[
+"khi_van",
+"",
+4.0,
+0.8
+],
+[
+"linh_luc_regen_pct",
+"",
+4.0,
+0.17
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6670": {
+"piece": "c914 reed_tall_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"6671": {
+"piece": "c914 reed_tall_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"6672": {
+"piece": "c914 reed_tall_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"6673": {
+"piece": "c914 reed_tall_a",
+"kind": "notable",
+"idea": null,
+"name": "Bending Reed (Khúc Vi)",
+"mods": [
+[
+"evade_pct",
+"",
+4.0,
+2.6
+],
+[
+"health_regen_inc_pct",
+"",
+4.0,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6674": {
+"piece": "c914 reed_tall_a",
+"kind": "notable",
+"idea": null,
+"name": "Swaying Reeds (Diêu Vi)",
+"mods": [
+[
+"evade_pct",
+"",
+4.0,
+2.6
+],
+[
+"attack_pct",
+"moc",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6675": {
+"piece": "c914 reed_tall_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6676": {
+"piece": "c914 reed_tall_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6677": {
+"piece": "c914 reed_tall_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6678": {
+"piece": "c914 reed_tall_b",
+"kind": "notable",
+"idea": null,
+"name": "Marsh Reed (Trạch Vi)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4.0,
+6.0
+],
+[
+"khi_van",
+"",
+4.0,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6679": {
+"piece": "c914 reed_tall_b",
+"kind": "notable",
+"idea": null,
+"name": "Reed Spear (Vi Thương)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4.0,
+6.0
+],
+[
+"attack_pct",
+"thuy",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6680": {
+"piece": "c915 flame_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"6681": {
+"piece": "c915 flame_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"6682": {
+"piece": "c915 flame_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"6683": {
+"piece": "c915 flame_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"6684": {
+"piece": "c915 flame_a",
+"kind": "notable",
+"idea": null,
+"name": "Torch Flame (Cự Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+4.0,
+6.0
+],
+[
+"khi_van",
+"",
+4.0,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6685": {
+"piece": "c915 flame_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6686": {
+"piece": "c915 flame_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6687": {
+"piece": "c915 flame_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6688": {
+"piece": "c915 flame_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"moc",
+1.2,
+1.8
+]
+]
+},
+"6689": {
+"piece": "c915 flame_b",
+"kind": "notable",
+"idea": null,
+"name": "Pine Torch (Tùng Cự)",
+"mods": [
+[
+"attack_pct",
+"moc",
+4.0,
+6.0
+],
+[
+"attack_pct",
+"hoa",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6690": {
+"piece": "c915 flicker_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_hon",
+"",
+1.2,
+0.4
+]
+]
+},
+"6691": {
+"piece": "c915 flicker_a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_hon",
+"",
+1.2,
+0.4
+]
+]
+},
+"6692": {
+"piece": "c915 flicker_a",
+"kind": "notable",
+"idea": null,
+"name": "Torch Shadows (Cự Ảnh)",
+"mods": [
+[
+"than_hon",
+"",
+4.0,
+1.33
+],
+[
+"health_regen_pct",
+"",
+4.0,
+0.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"6693": {
+"piece": "c915 flicker_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6694": {
+"piece": "c915 flicker_b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"6695": {
+"piece": "c915 flicker_b",
+"kind": "notable",
+"idea": null,
+"name": "Resin Spark (Chi Hỏa)",
+"mods": [
+[
+"khi_van",
+"",
+4.0,
+0.8
+],
+[
+"art_speed_pct",
+"hoa",
+4.0,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+}
+}
+}

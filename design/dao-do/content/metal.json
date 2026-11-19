@@ -1,0 +1,15853 @@
+{
+"map": "v5-frozen-2026-11-19",
+"map_sha256": "dbdfd5dcd10b49f843c597b48e169aec86153793382986f29a46dea3247eaa96",
+"area": "metal",
+"nodes": {
+"720": {
+"piece": "base3",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"721": {
+"piece": "base3",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"722": {
+"piece": "base3",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"723": {
+"piece": "base3",
+"kind": "notable",
+"idea": null,
+"name": "Metal Marrow (Kim Tủy)",
+"mods": [
+[
+"can_cot",
+"",
+4,
+1.33
+],
+[
+"attack_pct",
+"kim",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"724": {
+"piece": "base3",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"725": {
+"piece": "base3",
+"kind": "notable",
+"idea": null,
+"name": "Edge of Autumn (Thu Nhận)",
+"mods": [
+[
+"can_cot",
+"",
+4,
+1.33
+],
+[
+"attack_pct",
+"sword",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"726": {
+"piece": "base3",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"727": {
+"piece": "base3",
+"kind": "notable",
+"idea": null,
+"name": "Fine Steel (Tinh Cương)",
+"mods": [
+[
+"can_cot",
+"",
+4,
+1.33
+],
+[
+"crit_chance_pct",
+"kim",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"728": {
+"piece": "base3",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"729": {
+"piece": "base3",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"730": {
+"piece": "base3",
+"kind": "notable",
+"idea": null,
+"name": "Steel Frame (Cương Khu)",
+"mods": [
+[
+"can_cot",
+"",
+4,
+1.33
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"731": {
+"piece": "base3",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"732": {
+"piece": "base3",
+"kind": "notable",
+"idea": null,
+"name": "Metal Root (Kim Căn)",
+"mods": [
+[
+"attack_pct",
+"kim",
+5,
+7.5
+],
+[
+"crit_chance_pct",
+"kim",
+3,
+4.5
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"733": {
+"piece": "base3",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"734": {
+"piece": "base3",
+"kind": "notable",
+"idea": null,
+"name": "Tempered Bone (Luyện Cốt)",
+"mods": [
+[
+"can_cot",
+"",
+4,
+1.33
+],
+[
+"block_rating",
+"",
+4,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"735": {
+"piece": "base3",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"736": {
+"piece": "base3",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"737": {
+"piece": "base3",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"738": {
+"piece": "base3",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"1437": {
+"piece": "base13",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"1438": {
+"piece": "base13",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"1439": {
+"piece": "base13",
+"kind": "notable",
+"idea": null,
+"name": "Metal Seal (Kim Ấn)",
+"mods": [
+[
+"can_cot",
+"",
+4,
+1.33
+],
+[
+"attack_pct",
+"kim",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"1440": {
+"piece": "base13",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"1441": {
+"piece": "base13",
+"kind": "notable",
+"idea": null,
+"name": "Sword Spine (Kiếm Tích)",
+"mods": [
+[
+"can_cot",
+"",
+4,
+1.33
+],
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"1442": {
+"piece": "base13",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"1963": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"1964": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"1965": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"1966": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"1967": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"1968": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"1971": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"1972": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"1973": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"1974": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"3840": {
+"piece": "c4 sword L",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"3841": {
+"piece": "c4 sword L",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"3842": {
+"piece": "c4 sword L",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"3843": {
+"piece": "c4 sword L",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"3844": {
+"piece": "c4 sword L",
+"kind": "notable",
+"idea": null,
+"name": "Small Sword (Tiểu Kiếm)",
+"mods": [
+[
+"attack_pct",
+"sword",
+4.0,
+6.0
+],
+[
+"can_cot",
+"",
+4.0,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3845": {
+"piece": "c4 sword R",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"3846": {
+"piece": "c4 sword R",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"3847": {
+"piece": "c4 sword R",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"3848": {
+"piece": "c4 sword R",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"3849": {
+"piece": "c4 sword R",
+"kind": "notable",
+"idea": null,
+"name": "Small Sword (Tiểu Kiếm)",
+"mods": [
+[
+"attack_pct",
+"sword",
+4.0,
+6.0
+],
+[
+"can_cot",
+"",
+4.0,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3850": {
+"piece": "c4 crescent_L",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"3851": {
+"piece": "c4 crescent_L",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"3852": {
+"piece": "c4 crescent_L",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"3853": {
+"piece": "c4 crescent_L",
+"kind": "notable",
+"idea": null,
+"name": "Autumn Water Sword (Thu Thủy Kiếm)",
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+4.0,
+6.0
+],
+[
+"attack_pct",
+"kim",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3854": {
+"piece": "c4 crescent_R",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"3855": {
+"piece": "c4 crescent_R",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"3856": {
+"piece": "c4 crescent_R",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"3857": {
+"piece": "c4 crescent_R",
+"kind": "notable",
+"idea": null,
+"name": "Autumn Water Sword (Thu Thủy Kiếm)",
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+4.0,
+6.0
+],
+[
+"attack_pct",
+"kim",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3858": {
+"piece": "c4 coin W1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"3859": {
+"piece": "c4 coin W1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"3860": {
+"piece": "c4 coin W1",
+"kind": "notable",
+"idea": null,
+"name": "Spirit Coin (Linh Tiền)",
+"mods": [
+[
+"refining_success",
+"",
+4,
+2.0
+],
+[
+"co_duyen_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3861": {
+"piece": "c4 coin W1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"3862": {
+"piece": "c4 coin W1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"3863": {
+"piece": "c4 coin W1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"3864": {
+"piece": "c4 coin W1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"3865": {
+"piece": "c4 lock W4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3866": {
+"piece": "c4 lock W4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3867": {
+"piece": "c4 lock W4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3868": {
+"piece": "c4 lock W4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3869": {
+"piece": "c4 lock W4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3870": {
+"piece": "c4 lock W4",
+"kind": "notable",
+"idea": null,
+"name": "Golden Lock (Kim Tỏa)",
+"mods": [
+[
+"artifact_defense_pct",
+"",
+4,
+6.6
+],
+[
+"can_cot",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3871": {
+"piece": "c4 rings W5",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"3872": {
+"piece": "c4 rings W5",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"3873": {
+"piece": "c4 rings W5",
+"kind": "notable",
+"idea": null,
+"name": "Qiankun Circle (Càn Khôn Quyển)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+4.0,
+3.0
+],
+[
+"can_cot",
+"",
+4.0,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3874": {
+"piece": "c4 rings W5",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"3875": {
+"piece": "c4 rings W5",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"3876": {
+"piece": "c4 d_bead_1702",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"3877": {
+"piece": "c4 d_bead_1702",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"3878": {
+"piece": "c4 d_bead_1702",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"3879": {
+"piece": "c4 d_bead_1702",
+"kind": "notable",
+"idea": null,
+"name": "Iron Shirt (Thiết Bố Sam)",
+"mods": [
+[
+"can_cot",
+"",
+4.0,
+1.33
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3880": {
+"piece": "c4 d_bead_1702",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"3881": {
+"piece": "c90 blade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"3882": {
+"piece": "c90 blade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"3883": {
+"piece": "c90 blade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"3884": {
+"piece": "c90 blade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"3885": {
+"piece": "c90 blade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"3886": {
+"piece": "c90 blade",
+"kind": "notable",
+"idea": null,
+"name": "Out of the Scabbard (Xuất Sao)",
+"mods": [
+[
+"attack_pct",
+"kim",
+4,
+6.0
+],
+[
+"crit_chance_pct",
+"kim",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3887": {
+"piece": "c90 crescent B",
+"kind": "notable",
+"idea": null,
+"name": "Frost Moon (Sương Nguyệt)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+4.0,
+13.3
+],
+[
+"attack_pct",
+"kim",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3888": {
+"piece": "c90 crescent B",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3889": {
+"piece": "c90 crescent B",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3890": {
+"piece": "c90 crescent B",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3891": {
+"piece": "c90 crescent B",
+"kind": "notable",
+"idea": null,
+"name": "Snow Blade (Tuyết Nhận)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+4.0,
+13.3
+],
+[
+"crit_chance_pct",
+"",
+4.0,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3892": {
+"piece": "c90 diamond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"kim",
+1.2,
+3.0
+]
+]
+},
+"3893": {
+"piece": "c90 diamond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"kim",
+1.2,
+3.0
+]
+]
+},
+"3894": {
+"piece": "c90 diamond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"kim",
+1.2,
+3.0
+]
+]
+},
+"3895": {
+"piece": "c90 diamond",
+"kind": "notable",
+"idea": null,
+"name": "Willow-Leaf Sabre (Liễu Diệp Đao)",
+"mods": [
+[
+"art_speed_pct",
+"kim",
+4.0,
+10.0
+],
+[
+"attack_pct",
+"sword",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3896": {
+"piece": "c90 crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"3897": {
+"piece": "c90 crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"3898": {
+"piece": "c90 crook",
+"kind": "notable",
+"idea": null,
+"name": "Chasing the Moon (Truy Nguyệt)",
+"mods": [
+[
+"attack_pct",
+"kim",
+4.0,
+6.0
+],
+[
+"art_speed_pct",
+"kim",
+4.0,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3899": {
+"piece": "c90 moon",
+"kind": "notable",
+"idea": null,
+"name": "Cold Gleam (Hàn Quang)",
+"mods": [
+[
+"art_speed_pct",
+"kim",
+4,
+10.0
+],
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3900": {
+"piece": "c90 moon",
+"kind": "notable",
+"idea": null,
+"name": "Waning Moon (Tàn Nguyệt)",
+"mods": [
+[
+"art_speed_pct",
+"kim",
+4,
+10.0
+],
+[
+"attack_pct",
+"kim",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3901": {
+"piece": "c90 moon",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"kim",
+1.2,
+3.0
+]
+]
+},
+"3902": {
+"piece": "c90 moon",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"kim",
+1.2,
+3.0
+]
+]
+},
+"3903": {
+"piece": "c90 moon",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"kim",
+1.2,
+3.0
+]
+]
+},
+"3904": {
+"piece": "c90 moon",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"kim",
+1.2,
+3.0
+]
+]
+},
+"3905": {
+"piece": "c90 moon",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"kim",
+1.2,
+3.0
+]
+]
+},
+"3906": {
+"piece": "c90 sabre",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"3907": {
+"piece": "c90 sabre",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"3908": {
+"piece": "c90 sabre",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"3909": {
+"piece": "c90 sabre",
+"kind": "notable",
+"idea": null,
+"name": "Ring Sabre (Hoàn Đao)",
+"mods": [
+[
+"attack_pct",
+"sword",
+4,
+6.0
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3910": {
+"piece": "c90 sabre",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"3911": {
+"piece": "c90 sabre",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"3912": {
+"piece": "c90 sabre",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"3913": {
+"piece": "c90 sabre",
+"kind": "notable",
+"idea": null,
+"name": "Sweeping Sabre (Hoành Đao)",
+"mods": [
+[
+"attack_pct",
+"sword",
+4,
+6.0
+],
+[
+"crit_damage_pct",
+"sword",
+4,
+20.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3914": {
+"piece": "c95 blade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"3915": {
+"piece": "c95 blade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"3916": {
+"piece": "c95 blade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"3917": {
+"piece": "c95 blade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"3918": {
+"piece": "c95 blade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"3919": {
+"piece": "c95 blade",
+"kind": "notable",
+"idea": null,
+"name": "Out of the Scabbard (Xuất Sao)",
+"mods": [
+[
+"attack_pct",
+"kim",
+4,
+6.0
+],
+[
+"crit_chance_pct",
+"kim",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3920": {
+"piece": "c95 crescent B",
+"kind": "notable",
+"idea": null,
+"name": "Frost Moon (Sương Nguyệt)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+4.0,
+13.3
+],
+[
+"attack_pct",
+"kim",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3921": {
+"piece": "c95 crescent B",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3922": {
+"piece": "c95 crescent B",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3923": {
+"piece": "c95 crescent B",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3924": {
+"piece": "c95 crescent B",
+"kind": "notable",
+"idea": null,
+"name": "Snow Blade (Tuyết Nhận)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+4.0,
+13.3
+],
+[
+"crit_chance_pct",
+"",
+4.0,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3925": {
+"piece": "c95 sabre",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"3926": {
+"piece": "c95 sabre",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"3927": {
+"piece": "c95 sabre",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"3928": {
+"piece": "c95 sabre",
+"kind": "notable",
+"idea": null,
+"name": "Ring Sabre (Hoàn Đao)",
+"mods": [
+[
+"attack_pct",
+"sword",
+4,
+6.0
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3929": {
+"piece": "c95 sabre",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"3930": {
+"piece": "c95 sabre",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"3931": {
+"piece": "c95 sabre",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"3932": {
+"piece": "c95 sabre",
+"kind": "notable",
+"idea": null,
+"name": "Sweeping Sabre (Hoành Đao)",
+"mods": [
+[
+"attack_pct",
+"sword",
+4,
+6.0
+],
+[
+"crit_damage_pct",
+"sword",
+4,
+20.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3933": {
+"piece": "c95 crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"3934": {
+"piece": "c95 crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"3935": {
+"piece": "c95 crook",
+"kind": "notable",
+"idea": null,
+"name": "Chasing the Moon (Truy Nguyệt)",
+"mods": [
+[
+"attack_pct",
+"kim",
+4.0,
+6.0
+],
+[
+"art_speed_pct",
+"kim",
+4.0,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3936": {
+"piece": "c95 moon",
+"kind": "notable",
+"idea": null,
+"name": "Moon Blade (Nguyệt Nhận)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+4,
+13.3
+],
+[
+"attack_pct",
+"kim",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3937": {
+"piece": "c95 moon",
+"kind": "notable",
+"idea": null,
+"name": "New Moon Cut (Tân Nguyệt Trảm)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+4,
+13.3
+],
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3938": {
+"piece": "c95 moon",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3939": {
+"piece": "c95 moon",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3940": {
+"piece": "c95 moon",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3941": {
+"piece": "c95 moon",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3942": {
+"piece": "c95 moon",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3943": {
+"piece": "c95 moon",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3944": {
+"piece": "c95 diamond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"kim",
+1.2,
+3.0
+]
+]
+},
+"3945": {
+"piece": "c95 diamond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"kim",
+1.2,
+3.0
+]
+]
+},
+"3946": {
+"piece": "c95 diamond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"kim",
+1.2,
+3.0
+]
+]
+},
+"3947": {
+"piece": "c95 diamond",
+"kind": "notable",
+"idea": null,
+"name": "Willow-Leaf Sabre (Liễu Diệp Đao)",
+"mods": [
+[
+"art_speed_pct",
+"kim",
+4.0,
+10.0
+],
+[
+"attack_pct",
+"sword",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3948": {
+"piece": "c9 blade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3949": {
+"piece": "c9 blade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3950": {
+"piece": "c9 blade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3951": {
+"piece": "c9 blade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3952": {
+"piece": "c9 blade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3953": {
+"piece": "c9 blade",
+"kind": "notable",
+"idea": null,
+"name": "Hanging Blade (Huyền Kiếm)",
+"mods": [
+[
+"artifact_defense_pct",
+"",
+4,
+6.6
+],
+[
+"attack_pct",
+"sword",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3954": {
+"piece": "c9 chevron 1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"sword",
+1.2,
+6.0
+]
+]
+},
+"3955": {
+"piece": "c9 chevron 1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"sword",
+1.2,
+6.0
+]
+]
+},
+"3956": {
+"piece": "c9 chevron 1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"sword",
+1.2,
+6.0
+]
+]
+},
+"3957": {
+"piece": "c9 chevron 1",
+"kind": "notable",
+"idea": null,
+"name": "Crane Wing (Hạc Dực)",
+"mods": [
+[
+"crit_damage_pct",
+"sword",
+4,
+20.0
+],
+[
+"attack_pct",
+"sword",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3958": {
+"piece": "c9 chevron 1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"sword",
+1.2,
+6.0
+]
+]
+},
+"3959": {
+"piece": "c9 chevron 1",
+"kind": "notable",
+"idea": null,
+"name": "Vanguard (Tiên Phong)",
+"mods": [
+[
+"crit_damage_pct",
+"sword",
+4,
+20.0
+],
+[
+"accuracy_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3960": {
+"piece": "c9 chevron 2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"3961": {
+"piece": "c9 chevron 2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"3962": {
+"piece": "c9 chevron 2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"3963": {
+"piece": "c9 chevron 2",
+"kind": "notable",
+"idea": null,
+"name": "Wild Goose Formation (Nhạn Hành Trận)",
+"mods": [
+[
+"crit_chance_pct",
+"sword",
+4,
+6.0
+],
+[
+"attack_pct",
+"sword",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3964": {
+"piece": "c9 chevron 2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"3965": {
+"piece": "c9 chevron 2",
+"kind": "notable",
+"idea": null,
+"name": "Arrowhead Array (Phong Thỉ Trận)",
+"mods": [
+[
+"crit_chance_pct",
+"sword",
+4,
+6.0
+],
+[
+"art_speed_pct",
+"sword",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3966": {
+"piece": "c9 chain",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3967": {
+"piece": "c9 chain",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3968": {
+"piece": "c9 chain",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3969": {
+"piece": "c9 chain",
+"kind": "notable",
+"idea": null,
+"name": "Chained Swords (Liên Kiếm)",
+"mods": [
+[
+"accuracy_pct",
+"",
+4,
+8.0
+],
+[
+"attack_pct",
+"sword",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3970": {
+"piece": "c9 chain",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3971": {
+"piece": "c9 chain",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3972": {
+"piece": "c9 chain",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3973": {
+"piece": "c9 chain",
+"kind": "notable",
+"idea": null,
+"name": "Meteor Hammer (Lưu Tinh Chùy)",
+"mods": [
+[
+"accuracy_pct",
+"",
+4,
+8.0
+],
+[
+"artifact_attack_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3974": {
+"piece": "c9 rack",
+"kind": "small",
+"idea": "M1 Hundred-Sword Rack (Bách Kiếm Giá)",
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"3975": {
+"piece": "c9 rack",
+"kind": "notable",
+"idea": "M1 Hundred-Sword Rack (Bách Kiếm Giá)",
+"name": "Sword Rack (Kiếm Giá)",
+"mods": [
+[
+"attack_pct",
+"sword",
+4,
+6.0
+],
+[
+"artifact_attack_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3976": {
+"piece": "c9 rack",
+"kind": "small",
+"idea": "M1 Hundred-Sword Rack (Bách Kiếm Giá)",
+"mods": [
+[
+"artifact_attack_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3977": {
+"piece": "c9 rack",
+"kind": "small",
+"idea": "M1 Hundred-Sword Rack (Bách Kiếm Giá)",
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"3978": {
+"piece": "c9 rack",
+"kind": "small",
+"idea": "M1 Hundred-Sword Rack (Bách Kiếm Giá)",
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"3979": {
+"piece": "c9 rack",
+"kind": "notable",
+"idea": "M1 Hundred-Sword Rack (Bách Kiếm Giá)",
+"name": "Flying Sword (Phi Kiếm)",
+"mods": [
+[
+"artifact_attack_pct",
+"",
+4,
+6.6
+],
+[
+"art_speed_pct",
+"sword",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3980": {
+"piece": "c9 rack",
+"kind": "small",
+"idea": "M1 Hundred-Sword Rack (Bách Kiếm Giá)",
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"3981": {
+"piece": "c9 rack",
+"kind": "notable",
+"idea": "M1 Hundred-Sword Rack (Bách Kiếm Giá)",
+"name": "Sword Array (Kiếm Trận)",
+"mods": [
+[
+"attack_pct",
+"sword",
+4,
+6.0
+],
+[
+"accuracy_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3982": {
+"piece": "c9 rack",
+"kind": "small",
+"idea": "M1 Hundred-Sword Rack (Bách Kiếm Giá)",
+"mods": [
+[
+"artifact_attack_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3983": {
+"piece": "c9 rack",
+"kind": "notable",
+"idea": "M1 Hundred-Sword Rack (Bách Kiếm Giá)",
+"name": "Hundred Swords (Bách Kiếm)",
+"mods": [
+[
+"attack_pct",
+"sword",
+5,
+7.5
+],
+[
+"artifact_attack_pct",
+"",
+3,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3984": {
+"piece": "c9 sword",
+"kind": "small",
+"idea": "M6 Ten Thousand Edges (Vạn Nhận)",
+"mods": [
+[
+"art_speed_pct",
+"sword",
+1.2,
+3.0
+]
+]
+},
+"3985": {
+"piece": "c9 sword",
+"kind": "notable",
+"idea": "M6 Ten Thousand Edges (Vạn Nhận)",
+"name": "Quick Blade (Khoái Kiếm)",
+"mods": [
+[
+"art_speed_pct",
+"sword",
+4,
+10.0
+],
+[
+"attack_pct",
+"sword,kim",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3986": {
+"piece": "c9 sword",
+"kind": "small",
+"idea": "M6 Ten Thousand Edges (Vạn Nhận)",
+"mods": [
+[
+"art_speed_pct",
+"sword",
+1.2,
+3.0
+]
+]
+},
+"3987": {
+"piece": "c9 sword",
+"kind": "notable",
+"idea": "M6 Ten Thousand Edges (Vạn Nhận)",
+"name": "Myriad Cuts (Vạn Trảm)",
+"mods": [
+[
+"art_speed_pct",
+"sword",
+4,
+10.0
+],
+[
+"crit_chance_pct",
+"sword",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3988": {
+"piece": "c9 sword",
+"kind": "small",
+"idea": "M6 Ten Thousand Edges (Vạn Nhận)",
+"mods": [
+[
+"art_speed_pct",
+"sword",
+1.2,
+3.0
+]
+]
+},
+"3989": {
+"piece": "c9 sword",
+"kind": "small",
+"idea": "M6 Ten Thousand Edges (Vạn Nhận)",
+"mods": [
+[
+"attack_pct",
+"sword,kim",
+1.2,
+2.4
+]
+]
+},
+"3990": {
+"piece": "c9 sword",
+"kind": "notable",
+"idea": "M6 Ten Thousand Edges (Vạn Nhận)",
+"name": "Ten Thousand Edges (Vạn Nhận)",
+"mods": [
+[
+"art_speed_pct",
+"sword",
+5,
+12.5
+],
+[
+"crit_damage_pct",
+"sword",
+3,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3991": {
+"piece": "c9 sword",
+"kind": "small",
+"idea": "M6 Ten Thousand Edges (Vạn Nhận)",
+"mods": [
+[
+"attack_pct",
+"sword,kim",
+1.2,
+2.4
+]
+]
+},
+"3992": {
+"piece": "c9 sword",
+"kind": "small",
+"idea": "M6 Ten Thousand Edges (Vạn Nhận)",
+"mods": [
+[
+"art_speed_pct",
+"sword",
+1.2,
+3.0
+]
+]
+},
+"3993": {
+"piece": "c9 axe",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"physical",
+1.2,
+1.5
+]
+]
+},
+"3994": {
+"piece": "c9 axe",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"physical",
+1.2,
+1.5
+]
+]
+},
+"3995": {
+"piece": "c9 axe",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"physical",
+1.2,
+1.5
+]
+]
+},
+"3996": {
+"piece": "c9 axe",
+"kind": "notable",
+"idea": null,
+"name": "Battle Axe (Chiến Phủ)",
+"mods": [
+[
+"attack_pct",
+"physical",
+4,
+5.0
+],
+[
+"crit_damage_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3997": {
+"piece": "c9 axe",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"physical",
+1.2,
+1.5
+]
+]
+},
+"3998": {
+"piece": "c9 axe",
+"kind": "notable",
+"idea": null,
+"name": "Mountain Cleave (Khai Sơn)",
+"mods": [
+[
+"attack_pct",
+"physical",
+4,
+5.0
+],
+[
+"resist_pen_pct",
+"physical",
+4,
+50
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3999": {
+"piece": "c9 axe",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"physical",
+1.2,
+1.5
+]
+]
+},
+"4000": {
+"piece": "c9 d_arch_1725",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"sword",
+1.2,
+3.0
+]
+]
+},
+"4001": {
+"piece": "c9 d_arch_1725",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"sword",
+1.2,
+3.0
+]
+]
+},
+"4002": {
+"piece": "c9 d_arch_1725",
+"kind": "notable",
+"idea": null,
+"name": "Swift Draw (Bạt Kiếm)",
+"mods": [
+[
+"art_speed_pct",
+"sword",
+4.0,
+10.0
+],
+[
+"attack_pct",
+"sword",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4003": {
+"piece": "c9 d_arch_1725",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"sword",
+1.2,
+3.0
+]
+]
+},
+"4004": {
+"piece": "c9 d_arch_1725",
+"kind": "notable",
+"idea": null,
+"name": "Blade Rain (Kiếm Vũ)",
+"mods": [
+[
+"art_speed_pct",
+"sword",
+4.0,
+10.0
+],
+[
+"crit_chance_pct",
+"sword",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4005": {
+"piece": "c10 blade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4006": {
+"piece": "c10 blade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4007": {
+"piece": "c10 blade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4008": {
+"piece": "c10 blade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4009": {
+"piece": "c10 blade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4010": {
+"piece": "c10 blade",
+"kind": "notable",
+"idea": null,
+"name": "Hanging Blade (Huyền Kiếm)",
+"mods": [
+[
+"artifact_defense_pct",
+"",
+4,
+6.6
+],
+[
+"attack_pct",
+"sword",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4011": {
+"piece": "c10 shield",
+"kind": "small",
+"idea": "★ Bronze Shield (Đồng Thuẫn)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4012": {
+"piece": "c10 shield",
+"kind": "small",
+"idea": "★ Bronze Shield (Đồng Thuẫn)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4013": {
+"piece": "c10 shield",
+"kind": "notable",
+"idea": "★ Bronze Shield (Đồng Thuẫn)",
+"name": "Shield Boss (Thuẫn Tâm)",
+"mods": [
+[
+"block_rating",
+"",
+4,
+10
+],
+[
+"artifact_defense_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4014": {
+"piece": "c10 shield",
+"kind": "small",
+"idea": "★ Bronze Shield (Đồng Thuẫn)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4015": {
+"piece": "c10 shield",
+"kind": "notable",
+"idea": "★ Bronze Shield (Đồng Thuẫn)",
+"name": "Horse Stance (Mã Bộ)",
+"mods": [
+[
+"block_rating",
+"",
+4,
+10
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4016": {
+"piece": "c10 shield",
+"kind": "small",
+"idea": "★ Bronze Shield (Đồng Thuẫn)",
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4017": {
+"piece": "c10 shield",
+"kind": "notable",
+"idea": "★ Bronze Shield (Đồng Thuẫn)",
+"name": "Bronze Shield (Đồng Thuẫn)",
+"mods": [
+[
+"block_rating",
+"",
+5,
+12
+],
+[
+"resist_pct",
+"physical",
+3,
+93
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4018": {
+"piece": "c10 shield",
+"kind": "small",
+"idea": "★ Bronze Shield (Đồng Thuẫn)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4019": {
+"piece": "c10 shield",
+"kind": "small",
+"idea": "★ Bronze Shield (Đồng Thuẫn)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4020": {
+"piece": "c10 shield",
+"kind": "small",
+"idea": "★ Bronze Shield (Đồng Thuẫn)",
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4021": {
+"piece": "c10 shield",
+"kind": "small",
+"idea": "★ Bronze Shield (Đồng Thuẫn)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4022": {
+"piece": "c10 shield",
+"kind": "small",
+"idea": "★ Bronze Shield (Đồng Thuẫn)",
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4023": {
+"piece": "c10 rack",
+"kind": "small",
+"idea": "M1 Hundred-Sword Rack (Bách Kiếm Giá)",
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"4024": {
+"piece": "c10 rack",
+"kind": "notable",
+"idea": "M1 Hundred-Sword Rack (Bách Kiếm Giá)",
+"name": "Sword Rack (Kiếm Giá)",
+"mods": [
+[
+"attack_pct",
+"sword",
+4,
+6.0
+],
+[
+"artifact_attack_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4025": {
+"piece": "c10 rack",
+"kind": "small",
+"idea": "M1 Hundred-Sword Rack (Bách Kiếm Giá)",
+"mods": [
+[
+"artifact_attack_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4026": {
+"piece": "c10 rack",
+"kind": "small",
+"idea": "M1 Hundred-Sword Rack (Bách Kiếm Giá)",
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"4027": {
+"piece": "c10 rack",
+"kind": "small",
+"idea": "M1 Hundred-Sword Rack (Bách Kiếm Giá)",
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"4028": {
+"piece": "c10 rack",
+"kind": "notable",
+"idea": "M1 Hundred-Sword Rack (Bách Kiếm Giá)",
+"name": "Flying Sword (Phi Kiếm)",
+"mods": [
+[
+"artifact_attack_pct",
+"",
+4,
+6.6
+],
+[
+"art_speed_pct",
+"sword",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4029": {
+"piece": "c10 rack",
+"kind": "small",
+"idea": "M1 Hundred-Sword Rack (Bách Kiếm Giá)",
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"4030": {
+"piece": "c10 rack",
+"kind": "notable",
+"idea": "M1 Hundred-Sword Rack (Bách Kiếm Giá)",
+"name": "Sword Array (Kiếm Trận)",
+"mods": [
+[
+"attack_pct",
+"sword",
+4,
+6.0
+],
+[
+"accuracy_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4031": {
+"piece": "c10 rack",
+"kind": "small",
+"idea": "M1 Hundred-Sword Rack (Bách Kiếm Giá)",
+"mods": [
+[
+"artifact_attack_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4032": {
+"piece": "c10 rack",
+"kind": "notable",
+"idea": "M1 Hundred-Sword Rack (Bách Kiếm Giá)",
+"name": "Twin Arms in Harmony (Song Khí Hợp Bích)",
+"mods": [
+[
+"attack_pct",
+"sword",
+2,
+3.0
+]
+],
+"pending": [],
+"cap": "#1",
+"effect": null,
+"twin_copy": false
+},
+"4033": {
+"piece": "c10 sword",
+"kind": "small",
+"idea": "M6 Ten Thousand Edges (Vạn Nhận)",
+"mods": [
+[
+"art_speed_pct",
+"sword",
+1.2,
+3.0
+]
+]
+},
+"4034": {
+"piece": "c10 sword",
+"kind": "notable",
+"idea": "M6 Ten Thousand Edges (Vạn Nhận)",
+"name": "Quick Blade (Khoái Kiếm)",
+"mods": [
+[
+"art_speed_pct",
+"sword",
+4,
+10.0
+],
+[
+"attack_pct",
+"sword,kim",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4035": {
+"piece": "c10 sword",
+"kind": "small",
+"idea": "M6 Ten Thousand Edges (Vạn Nhận)",
+"mods": [
+[
+"art_speed_pct",
+"sword",
+1.2,
+3.0
+]
+]
+},
+"4036": {
+"piece": "c10 sword",
+"kind": "notable",
+"idea": "M6 Ten Thousand Edges (Vạn Nhận)",
+"name": "Myriad Cuts (Vạn Trảm)",
+"mods": [
+[
+"art_speed_pct",
+"sword",
+4,
+10.0
+],
+[
+"crit_chance_pct",
+"sword",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4037": {
+"piece": "c10 sword",
+"kind": "small",
+"idea": "M6 Ten Thousand Edges (Vạn Nhận)",
+"mods": [
+[
+"art_speed_pct",
+"sword",
+1.2,
+3.0
+]
+]
+},
+"4038": {
+"piece": "c10 sword",
+"kind": "small",
+"idea": "M6 Ten Thousand Edges (Vạn Nhận)",
+"mods": [
+[
+"attack_pct",
+"sword,kim",
+1.2,
+2.4
+]
+]
+},
+"4039": {
+"piece": "c10 sword",
+"kind": "notable",
+"idea": "M6 Ten Thousand Edges (Vạn Nhận)",
+"name": "Ten Thousand Edges (Vạn Nhận)",
+"mods": [
+[
+"art_speed_pct",
+"sword",
+5,
+12.5
+],
+[
+"crit_damage_pct",
+"sword",
+3,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4040": {
+"piece": "c10 sword",
+"kind": "small",
+"idea": "M6 Ten Thousand Edges (Vạn Nhận)",
+"mods": [
+[
+"attack_pct",
+"sword,kim",
+1.2,
+2.4
+]
+]
+},
+"4041": {
+"piece": "c10 sword",
+"kind": "small",
+"idea": "M6 Ten Thousand Edges (Vạn Nhận)",
+"mods": [
+[
+"art_speed_pct",
+"sword",
+1.2,
+3.0
+]
+]
+},
+"4042": {
+"piece": "c10 axe",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"physical",
+1.2,
+1.5
+]
+]
+},
+"4043": {
+"piece": "c10 axe",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"physical",
+1.2,
+1.5
+]
+]
+},
+"4044": {
+"piece": "c10 axe",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"physical",
+1.2,
+1.5
+]
+]
+},
+"4045": {
+"piece": "c10 axe",
+"kind": "notable",
+"idea": null,
+"name": "Battle Axe (Chiến Phủ)",
+"mods": [
+[
+"attack_pct",
+"physical",
+4,
+5.0
+],
+[
+"crit_damage_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4046": {
+"piece": "c10 axe",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"physical",
+1.2,
+1.5
+]
+]
+},
+"4047": {
+"piece": "c10 axe",
+"kind": "notable",
+"idea": null,
+"name": "Mountain Cleave (Khai Sơn)",
+"mods": [
+[
+"attack_pct",
+"physical",
+4,
+5.0
+],
+[
+"resist_pen_pct",
+"physical",
+4,
+50
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4048": {
+"piece": "c10 axe",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"physical",
+1.2,
+1.5
+]
+]
+},
+"4049": {
+"piece": "c10 hammer",
+"kind": "small",
+"idea": "M9 Piercing Arrowhead (Xuyên Kim Tiễn)",
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+1.2,
+15
+]
+]
+},
+"4050": {
+"piece": "c10 hammer",
+"kind": "small",
+"idea": "M9 Piercing Arrowhead (Xuyên Kim Tiễn)",
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+1.2,
+15
+]
+]
+},
+"4051": {
+"piece": "c10 hammer",
+"kind": "small",
+"idea": "M9 Piercing Arrowhead (Xuyên Kim Tiễn)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4052": {
+"piece": "c10 hammer",
+"kind": "small",
+"idea": "M9 Piercing Arrowhead (Xuyên Kim Tiễn)",
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+1.2,
+15
+]
+]
+},
+"4053": {
+"piece": "c10 hammer",
+"kind": "small",
+"idea": "M9 Piercing Arrowhead (Xuyên Kim Tiễn)",
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+1.2,
+15
+]
+]
+},
+"4054": {
+"piece": "c10 hammer",
+"kind": "small",
+"idea": "M9 Piercing Arrowhead (Xuyên Kim Tiễn)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4055": {
+"piece": "c10 hammer",
+"kind": "small",
+"idea": "M9 Piercing Arrowhead (Xuyên Kim Tiễn)",
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+1.2,
+15
+]
+]
+},
+"4056": {
+"piece": "c10 hammer",
+"kind": "notable",
+"idea": "M9 Piercing Arrowhead (Xuyên Kim Tiễn)",
+"name": "Armour Piercer (Xuyên Giáp)",
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+4,
+50
+],
+[
+"attack_pct",
+"kim",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4057": {
+"piece": "c10 hammer",
+"kind": "small",
+"idea": "M9 Piercing Arrowhead (Xuyên Kim Tiễn)",
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+1.2,
+15
+]
+]
+},
+"4058": {
+"piece": "c10 hammer",
+"kind": "notable",
+"idea": "M9 Piercing Arrowhead (Xuyên Kim Tiễn)",
+"name": "Piercing Arrowhead (Xuyên Kim Tiễn)",
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+5,
+62
+],
+[
+"pierce_pct",
+"",
+3,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4059": {
+"piece": "c10 hairpin_1767",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4060": {
+"piece": "c10 hairpin_1767",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4061": {
+"piece": "c10 hairpin_1767",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4062": {
+"piece": "c10 hairpin_1767",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4063": {
+"piece": "c10 hairpin_1767",
+"kind": "notable",
+"idea": null,
+"name": "Shield Formation (Thuẫn Trận)",
+"mods": [
+[
+"block_rating",
+"",
+4.0,
+10
+],
+[
+"artifact_defense_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4064": {
+"piece": "c10 d_hook_1734",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"4065": {
+"piece": "c10 d_hook_1734",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"4066": {
+"piece": "c10 d_hook_1734",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"4067": {
+"piece": "c10 d_hook_1734",
+"kind": "notable",
+"idea": null,
+"name": "Sword Case (Kiếm Hạp)",
+"mods": [
+[
+"attack_pct",
+"sword",
+4.0,
+6.0
+],
+[
+"artifact_attack_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4068": {
+"piece": "c61 ingot",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4069": {
+"piece": "c61 ingot",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4070": {
+"piece": "c61 ingot",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4071": {
+"piece": "c61 ingot",
+"kind": "notable",
+"idea": null,
+"name": "Silver Ingot (Ngân Đĩnh)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+4,
+3.0
+],
+[
+"refining_success",
+"",
+4,
+2.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4072": {
+"piece": "c61 ingot",
+"kind": "notable",
+"idea": null,
+"name": "Horseshoe Gold (Mã Đề Kim)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+4,
+3.0
+],
+[
+"khi_van",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4073": {
+"piece": "c61 ingot",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4074": {
+"piece": "c61 ingot",
+"kind": "notable",
+"idea": null,
+"name": "Treasury Seal (Khố Ấn)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+4,
+3.0
+],
+[
+"artifact_defense_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4075": {
+"piece": "c61 diamond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4076": {
+"piece": "c61 diamond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4077": {
+"piece": "c61 diamond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4078": {
+"piece": "c61 diamond",
+"kind": "notable",
+"idea": null,
+"name": "Treasure Pearl (Bảo Châu)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+4.0,
+3.0
+],
+[
+"element_affinity_pct",
+"",
+4.0,
+4.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4079": {
+"piece": "c61 spade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4080": {
+"piece": "c61 spade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4081": {
+"piece": "c61 spade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4082": {
+"piece": "c61 spade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4083": {
+"piece": "c61 spade",
+"kind": "notable",
+"idea": null,
+"name": "Spade Money (Bố Tệ)",
+"mods": [
+[
+"refining_success",
+"",
+4,
+2.0
+],
+[
+"can_cot",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4084": {
+"piece": "c61 spade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4085": {
+"piece": "c61 spade",
+"kind": "notable",
+"idea": null,
+"name": "Bronze Spade (Đồng Sạn)",
+"mods": [
+[
+"refining_success",
+"",
+4,
+2.0
+],
+[
+"artifact_power_pct",
+"",
+4,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4086": {
+"piece": "c61 hook_1705",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4087": {
+"piece": "c61 hook_1705",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4088": {
+"piece": "c61 hook_1705",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4089": {
+"piece": "c61 hook_1705",
+"kind": "notable",
+"idea": null,
+"name": "Smelting (Dã Luyện)",
+"mods": [
+[
+"refining_success",
+"",
+4.0,
+2.0
+],
+[
+"can_cot",
+"",
+4.0,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4090": {
+"piece": "c61 coin W1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"element_affinity_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"4091": {
+"piece": "c61 coin W1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"element_affinity_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"4092": {
+"piece": "c61 coin W1",
+"kind": "notable",
+"idea": null,
+"name": "Charm Coin (Yểm Thắng Tiền)",
+"mods": [
+[
+"element_affinity_pct",
+"",
+4,
+4.6
+],
+[
+"khi_van",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4093": {
+"piece": "c61 coin W1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"element_affinity_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"4094": {
+"piece": "c61 coin W1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"element_affinity_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"4095": {
+"piece": "c61 coin W1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"element_affinity_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"4096": {
+"piece": "c61 coin W1",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"element_affinity_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"4097": {
+"piece": "c61 iron fan",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"kim",
+1.2,
+3.0
+]
+]
+},
+"4098": {
+"piece": "c61 iron fan",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"kim",
+1.2,
+3.0
+]
+]
+},
+"4099": {
+"piece": "c61 iron fan",
+"kind": "notable",
+"idea": null,
+"name": "Iron Fan (Thiết Phiến)",
+"mods": [
+[
+"art_speed_pct",
+"kim",
+4,
+10.0
+],
+[
+"accuracy_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4100": {
+"piece": "c61 iron fan",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"kim",
+1.2,
+3.0
+]
+]
+},
+"4101": {
+"piece": "c61 iron fan",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"kim",
+1.2,
+3.0
+]
+]
+},
+"4102": {
+"piece": "c61 iron fan",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"kim",
+1.2,
+3.0
+]
+]
+},
+"4103": {
+"piece": "c61 iron fan",
+"kind": "notable",
+"idea": null,
+"name": "Fan Edge (Phiến Phong)",
+"mods": [
+[
+"art_speed_pct",
+"kim",
+4,
+10.0
+],
+[
+"attack_pct",
+"kim",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4104": {
+"piece": "c68 bell",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4105": {
+"piece": "c68 bell",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4106": {
+"piece": "c68 bell",
+"kind": "notable",
+"idea": null,
+"name": "Ritual Bell (Pháp Linh)",
+"mods": [
+[
+"defense_pct",
+"",
+4,
+4.0
+],
+[
+"soul_res_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4107": {
+"piece": "c68 bell",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4108": {
+"piece": "c68 bell",
+"kind": "notable",
+"idea": null,
+"name": "Dawn Toll (Hiểu Chung)",
+"mods": [
+[
+"defense_pct",
+"",
+4,
+4.0
+],
+[
+"status_resist_pct",
+"",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4109": {
+"piece": "c68 bell",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4110": {
+"piece": "c68 bell",
+"kind": "notable",
+"idea": null,
+"name": "Great Bell Toll (Hồng Chung)",
+"mods": [
+[
+"defense_pct",
+"",
+4,
+4.0
+],
+[
+"block_rating",
+"",
+4,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4111": {
+"piece": "c68 diamond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4112": {
+"piece": "c68 diamond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4113": {
+"piece": "c68 diamond",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4114": {
+"piece": "c68 diamond",
+"kind": "notable",
+"idea": null,
+"name": "Soul-Calming Jade (Định Hồn Ngọc)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+4.0,
+3.0
+],
+[
+"soul_res_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4115": {
+"piece": "c68 spade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4116": {
+"piece": "c68 spade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4117": {
+"piece": "c68 spade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4118": {
+"piece": "c68 spade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4119": {
+"piece": "c68 spade",
+"kind": "notable",
+"idea": null,
+"name": "Spade Money (Bố Tệ)",
+"mods": [
+[
+"refining_success",
+"",
+4,
+2.0
+],
+[
+"can_cot",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4120": {
+"piece": "c68 spade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4121": {
+"piece": "c68 spade",
+"kind": "notable",
+"idea": null,
+"name": "Bronze Spade (Đồng Sạn)",
+"mods": [
+[
+"refining_success",
+"",
+4,
+2.0
+],
+[
+"artifact_power_pct",
+"",
+4,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4122": {
+"piece": "c68 bagua",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4123": {
+"piece": "c68 bagua",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4124": {
+"piece": "c68 bagua",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4125": {
+"piece": "c68 bagua",
+"kind": "notable",
+"idea": null,
+"name": "Heaven Trigram (Càn Quái)",
+"mods": [
+[
+"soul_res_pct",
+"",
+4,
+6.6
+],
+[
+"can_cot",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4126": {
+"piece": "c68 bagua",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4127": {
+"piece": "c68 bagua",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4128": {
+"piece": "c68 bagua",
+"kind": "notable",
+"idea": null,
+"name": "Lake Trigram (Đoài Quái)",
+"mods": [
+[
+"soul_res_pct",
+"",
+4,
+6.6
+],
+[
+"than_thuc_pct",
+"",
+4,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4129": {
+"piece": "c68 bagua",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4130": {
+"piece": "c68 crescent_1700",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4131": {
+"piece": "c68 crescent_1700",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4132": {
+"piece": "c68 crescent_1700",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4133": {
+"piece": "c68 crescent_1700",
+"kind": "notable",
+"idea": null,
+"name": "Bell Tower (Chung Lâu)",
+"mods": [
+[
+"defense_pct",
+"",
+4.0,
+4.0
+],
+[
+"soul_res_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4134": {
+"piece": "c68 hook_1716",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4135": {
+"piece": "c68 hook_1716",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4136": {
+"piece": "c68 hook_1716",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4137": {
+"piece": "c68 hook_1716",
+"kind": "notable",
+"idea": null,
+"name": "Bronze Drum (Đồng Cổ)",
+"mods": [
+[
+"soul_res_pct",
+"",
+4.0,
+6.6
+],
+[
+"defense_pct",
+"",
+4.0,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4138": {
+"piece": "c113 fork",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4139": {
+"piece": "c113 fork",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4140": {
+"piece": "c113 fork",
+"kind": "notable",
+"idea": null,
+"name": "Three-Pointed Blade (Tam Tiêm Đao)",
+"mods": [
+[
+"attack_pct",
+"kim",
+4.0,
+6.0
+],
+[
+"crit_chance_pct",
+"kim",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4141": {
+"piece": "c113 fork",
+"kind": "notable",
+"idea": null,
+"name": "Serpent Spear (Xà Mâu)",
+"mods": [
+[
+"attack_pct",
+"kim",
+4.0,
+6.0
+],
+[
+"accuracy_pct",
+"",
+4.0,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4142": {
+"piece": "c113 crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"physical",
+1.2,
+1.5
+]
+]
+},
+"4143": {
+"piece": "c113 crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"physical",
+1.2,
+1.5
+]
+]
+},
+"4144": {
+"piece": "c113 crook",
+"kind": "notable",
+"idea": null,
+"name": "Bone-Breaker (Toái Cốt)",
+"mods": [
+[
+"attack_pct",
+"physical",
+4.0,
+5.0
+],
+[
+"resist_pen_pct",
+"physical",
+4.0,
+50
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4145": {
+"piece": "c113 d_diamond_1518",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4146": {
+"piece": "c113 d_diamond_1518",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4147": {
+"piece": "c113 d_diamond_1518",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4148": {
+"piece": "c113 d_diamond_1518",
+"kind": "notable",
+"idea": null,
+"name": "Jade Carving (Trác Ngọc)",
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+4.0,
+20.0
+],
+[
+"crit_chance_pct",
+"kim",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4149": {
+"piece": "c113 d_hook_1691",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4150": {
+"piece": "c113 d_hook_1691",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4151": {
+"piece": "c113 d_hook_1691",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4152": {
+"piece": "c113 d_hook_1691",
+"kind": "notable",
+"idea": null,
+"name": "Bronze Wall (Đồng Tường)",
+"mods": [
+[
+"block_rating",
+"",
+4.0,
+10
+],
+[
+"can_cot",
+"",
+4.0,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4153": {
+"piece": "c113 lock W4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4154": {
+"piece": "c113 lock W4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4155": {
+"piece": "c113 lock W4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4156": {
+"piece": "c113 lock W4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4157": {
+"piece": "c113 lock W4",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4158": {
+"piece": "c113 lock W4",
+"kind": "notable",
+"idea": null,
+"name": "Binding Chain (Tỏa Liên)",
+"mods": [
+[
+"block_rating",
+"",
+4,
+10
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4159": {
+"piece": "c113 plate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4160": {
+"piece": "c113 plate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4161": {
+"piece": "c113 plate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4162": {
+"piece": "c113 plate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4163": {
+"piece": "c113 plate",
+"kind": "notable",
+"idea": null,
+"name": "Heart-Guard Mirror (Hộ Tâm Kính)",
+"mods": [
+[
+"artifact_defense_pct",
+"",
+4,
+6.6
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4164": {
+"piece": "c113 plate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4165": {
+"piece": "c116 fork",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4166": {
+"piece": "c116 fork",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4167": {
+"piece": "c116 fork",
+"kind": "notable",
+"idea": null,
+"name": "Three-Pointed Blade (Tam Tiêm Đao)",
+"mods": [
+[
+"attack_pct",
+"kim",
+4.0,
+6.0
+],
+[
+"crit_chance_pct",
+"kim",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4168": {
+"piece": "c116 fork",
+"kind": "notable",
+"idea": null,
+"name": "Serpent Spear (Xà Mâu)",
+"mods": [
+[
+"attack_pct",
+"kim",
+4.0,
+6.0
+],
+[
+"accuracy_pct",
+"",
+4.0,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4169": {
+"piece": "c116 crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"4170": {
+"piece": "c116 crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"4171": {
+"piece": "c116 crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"4172": {
+"piece": "c116 crescent",
+"kind": "notable",
+"idea": null,
+"name": "Marrow Washing (Tẩy Tủy)",
+"mods": [
+[
+"can_cot",
+"",
+4.0,
+1.33
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4173": {
+"piece": "c116 d_hairpin_1699",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"4174": {
+"piece": "c116 d_hairpin_1699",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"4175": {
+"piece": "c116 d_hairpin_1699",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"4176": {
+"piece": "c116 d_hairpin_1699",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"4177": {
+"piece": "c116 d_hairpin_1699",
+"kind": "notable",
+"idea": null,
+"name": "Embroidery Needle (Tú Hoa Châm)",
+"mods": [
+[
+"accuracy_pct",
+"",
+4.0,
+8.0
+],
+[
+"attack_pct",
+"kim",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4178": {
+"piece": "c116 rings W5",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4179": {
+"piece": "c116 rings W5",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4180": {
+"piece": "c116 rings W5",
+"kind": "notable",
+"idea": null,
+"name": "Warding Bracers (Hộ Uyển)",
+"mods": [
+[
+"artifact_defense_pct",
+"",
+4.0,
+6.6
+],
+[
+"block_rating",
+"",
+4.0,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4181": {
+"piece": "c116 rings W5",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4182": {
+"piece": "c116 rings W5",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4183": {
+"piece": "c116 plate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4184": {
+"piece": "c116 plate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4185": {
+"piece": "c116 plate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4186": {
+"piece": "c116 plate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4187": {
+"piece": "c116 plate",
+"kind": "notable",
+"idea": null,
+"name": "Heart-Guard Mirror (Hộ Tâm Kính)",
+"mods": [
+[
+"artifact_defense_pct",
+"",
+4,
+6.6
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4188": {
+"piece": "c116 plate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4189": {
+"piece": "c20 coins",
+"kind": "small",
+"idea": "M8 Ore Vein (Khoáng Mạch)",
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4190": {
+"piece": "c20 coins",
+"kind": "small",
+"idea": "M8 Ore Vein (Khoáng Mạch)",
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4191": {
+"piece": "c20 coins",
+"kind": "small",
+"idea": "M8 Ore Vein (Khoáng Mạch)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"4192": {
+"piece": "c20 coins",
+"kind": "small",
+"idea": "M8 Ore Vein (Khoáng Mạch)",
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4193": {
+"piece": "c20 coins",
+"kind": "notable",
+"idea": "M8 Ore Vein (Khoáng Mạch)",
+"name": "Ore Vein (Khoáng Mạch)",
+"mods": [
+[
+"refining_success",
+"",
+4,
+2.0
+],
+[
+"can_cot",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4194": {
+"piece": "c20 coins",
+"kind": "small",
+"idea": "M8 Ore Vein (Khoáng Mạch)",
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4195": {
+"piece": "c20 coins",
+"kind": "small",
+"idea": "M8 Ore Vein (Khoáng Mạch)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"4196": {
+"piece": "c20 coins",
+"kind": "small",
+"idea": "M8 Ore Vein (Khoáng Mạch)",
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4197": {
+"piece": "c20 coins",
+"kind": "notable",
+"idea": "M8 Ore Vein (Khoáng Mạch)",
+"name": "Copper Cash (Đồng Tiền)",
+"mods": [
+[
+"refining_success",
+"",
+4,
+2.0
+],
+[
+"artifact_power_pct",
+"",
+4,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4198": {
+"piece": "c20 whip",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+1.2,
+15
+]
+]
+},
+"4199": {
+"piece": "c20 whip",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+1.2,
+15
+]
+]
+},
+"4200": {
+"piece": "c20 whip",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+1.2,
+15
+]
+]
+},
+"4201": {
+"piece": "c20 whip",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+1.2,
+15
+]
+]
+},
+"4202": {
+"piece": "c20 whip",
+"kind": "notable",
+"idea": null,
+"name": "Steel Whip (Cương Tiên)",
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+4,
+50
+],
+[
+"attack_pct",
+"kim",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4203": {
+"piece": "c20 whip",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+1.2,
+15
+]
+]
+},
+"4204": {
+"piece": "c20 whip",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+1.2,
+15
+]
+]
+},
+"4205": {
+"piece": "c20 whip",
+"kind": "notable",
+"idea": null,
+"name": "Lashing (Tiên Kích)",
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+4,
+50
+],
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4206": {
+"piece": "c20 bow",
+"kind": "small",
+"idea": "★ Drawn Bow (Mãn Cung)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"4207": {
+"piece": "c20 bow",
+"kind": "notable",
+"idea": "★ Drawn Bow (Mãn Cung)",
+"name": "Taut String (Khẩn Huyền)",
+"mods": [
+[
+"accuracy_pct",
+"",
+4,
+8.0
+],
+[
+"attack_pct",
+"kim",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4208": {
+"piece": "c20 bow",
+"kind": "notable",
+"idea": "★ Drawn Bow (Mãn Cung)",
+"name": "Arrow on the String (Tiễn Tại Huyền)",
+"mods": [
+[
+"accuracy_pct",
+"",
+4,
+8.0
+],
+[
+"crit_chance_pct",
+"kim",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4209": {
+"piece": "c20 bow",
+"kind": "small",
+"idea": "★ Drawn Bow (Mãn Cung)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"4210": {
+"piece": "c20 bow",
+"kind": "small",
+"idea": "★ Drawn Bow (Mãn Cung)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4211": {
+"piece": "c20 bow",
+"kind": "small",
+"idea": "★ Drawn Bow (Mãn Cung)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"4212": {
+"piece": "c20 bow",
+"kind": "small",
+"idea": "★ Drawn Bow (Mãn Cung)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4213": {
+"piece": "c20 bow",
+"kind": "small",
+"idea": "★ Drawn Bow (Mãn Cung)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"4214": {
+"piece": "c20 bow",
+"kind": "notable",
+"idea": "★ Drawn Bow (Mãn Cung)",
+"name": "Drawn Bow (Mãn Cung)",
+"mods": [
+[
+"attack_pct",
+"kim",
+5,
+7.5
+],
+[
+"crit_damage_pct",
+"kim",
+3,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4215": {
+"piece": "c20 gong",
+"kind": "small",
+"idea": "★ Clear Gong (Thanh La)",
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4216": {
+"piece": "c20 gong",
+"kind": "notable",
+"idea": "★ Clear Gong (Thanh La)",
+"name": "Clear Gong (Thanh La)",
+"mods": [
+[
+"soul_res_pct",
+"",
+5,
+8.3
+],
+[
+"status_resist_pct",
+"",
+3,
+7.5
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4217": {
+"piece": "c20 gong",
+"kind": "small",
+"idea": "★ Clear Gong (Thanh La)",
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4218": {
+"piece": "c20 gong",
+"kind": "small",
+"idea": "★ Clear Gong (Thanh La)",
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"4219": {
+"piece": "c20 gong",
+"kind": "notable",
+"idea": "★ Clear Gong (Thanh La)",
+"name": "Gong Stroke (Minh La)",
+"mods": [
+[
+"soul_res_pct",
+"",
+4,
+6.6
+],
+[
+"timer_resist_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4220": {
+"piece": "c20 gong",
+"kind": "small",
+"idea": "★ Clear Gong (Thanh La)",
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4221": {
+"piece": "c20 gong",
+"kind": "small",
+"idea": "★ Clear Gong (Thanh La)",
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4222": {
+"piece": "c20 gong",
+"kind": "small",
+"idea": "★ Clear Gong (Thanh La)",
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"4223": {
+"piece": "c20 gong",
+"kind": "notable",
+"idea": "★ Clear Gong (Thanh La)",
+"name": "Woken Mind (Tỉnh Tâm)",
+"mods": [
+[
+"timer_resist_pct",
+"",
+4,
+8.0
+],
+[
+"than_thuc_pct",
+"",
+4,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4224": {
+"piece": "c20 gong",
+"kind": "small",
+"idea": "★ Clear Gong (Thanh La)",
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4225": {
+"piece": "c20 knives W3",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4226": {
+"piece": "c20 knives W3",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4227": {
+"piece": "c20 knives W3",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4228": {
+"piece": "c20 knives W3",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4229": {
+"piece": "c20 knives W3",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4230": {
+"piece": "c20 knives W3",
+"kind": "notable",
+"idea": null,
+"name": "Throwing Knives (Phi Đao)",
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+4,
+6.0
+],
+[
+"accuracy_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4231": {
+"piece": "c20 knives W3",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4232": {
+"piece": "c20 d_arch_1750",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4233": {
+"piece": "c20 d_arch_1750",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4234": {
+"piece": "c20 d_arch_1750",
+"kind": "notable",
+"idea": null,
+"name": "Chime Bells (Biên Chung)",
+"mods": [
+[
+"soul_res_pct",
+"",
+4.0,
+6.6
+],
+[
+"timer_resist_pct",
+"",
+4.0,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4235": {
+"piece": "c20 d_arch_1750",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4236": {
+"piece": "c20 d_arch_1750",
+"kind": "notable",
+"idea": null,
+"name": "Mine Gallery (Khoáng Động)",
+"mods": [
+[
+"soul_res_pct",
+"",
+4.0,
+6.6
+],
+[
+"refining_success",
+"",
+4.0,
+2.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4237": {
+"piece": "c20 d_wave_1491",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4238": {
+"piece": "c20 d_wave_1491",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4239": {
+"piece": "c20 d_wave_1491",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4240": {
+"piece": "c20 d_wave_1491",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4241": {
+"piece": "c20 d_wave_1491",
+"kind": "notable",
+"idea": null,
+"name": "Sifting Gold (Đào Kim)",
+"mods": [
+[
+"refining_success",
+"",
+4.0,
+2.0
+],
+[
+"accuracy_pct",
+"",
+4.0,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4242": {
+"piece": "c34 trident",
+"kind": "small",
+"idea": "★ Sword Intent (Kiếm Ý)",
+"mods": [
+[
+"crit_damage_pct",
+"sword",
+1.2,
+6.0
+]
+]
+},
+"4243": {
+"piece": "c34 trident",
+"kind": "small",
+"idea": "★ Sword Intent (Kiếm Ý)",
+"mods": [
+[
+"crit_damage_pct",
+"sword",
+1.2,
+6.0
+]
+]
+},
+"4244": {
+"piece": "c34 trident",
+"kind": "small",
+"idea": "★ Sword Intent (Kiếm Ý)",
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"4245": {
+"piece": "c34 trident",
+"kind": "small",
+"idea": "★ Sword Intent (Kiếm Ý)",
+"mods": [
+[
+"crit_damage_pct",
+"sword",
+1.2,
+6.0
+]
+]
+},
+"4246": {
+"piece": "c34 trident",
+"kind": "notable",
+"idea": "★ Sword Intent (Kiếm Ý)",
+"name": "Sword Heart (Kiếm Tâm)",
+"mods": [
+[
+"attack_pct",
+"sword",
+4,
+6.0
+],
+[
+"crit_damage_pct",
+"sword",
+4,
+20.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4247": {
+"piece": "c34 trident",
+"kind": "small",
+"idea": "★ Sword Intent (Kiếm Ý)",
+"mods": [
+[
+"crit_damage_pct",
+"sword",
+1.2,
+6.0
+]
+]
+},
+"4248": {
+"piece": "c34 trident",
+"kind": "notable",
+"idea": "★ Sword Intent (Kiếm Ý)",
+"name": "Point of the Blade (Kiếm Phong)",
+"mods": [
+[
+"crit_damage_pct",
+"sword",
+4,
+20.0
+],
+[
+"accuracy_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4249": {
+"piece": "c34 trident",
+"kind": "small",
+"idea": "★ Sword Intent (Kiếm Ý)",
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"4250": {
+"piece": "c34 trident",
+"kind": "notable",
+"idea": "★ Sword Intent (Kiếm Ý)",
+"name": "Sword Intent (Kiếm Ý)",
+"mods": [
+[
+"attack_pct",
+"sword",
+5,
+7.5
+],
+[
+"crit_chance_pct",
+"sword",
+3,
+4.5
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4251": {
+"piece": "c34 bow",
+"kind": "small",
+"idea": "★ Drawn Bow (Mãn Cung)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"4252": {
+"piece": "c34 bow",
+"kind": "notable",
+"idea": "★ Drawn Bow (Mãn Cung)",
+"name": "Taut String (Khẩn Huyền)",
+"mods": [
+[
+"accuracy_pct",
+"",
+4,
+8.0
+],
+[
+"attack_pct",
+"kim",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4253": {
+"piece": "c34 bow",
+"kind": "notable",
+"idea": "★ Drawn Bow (Mãn Cung)",
+"name": "Arrow on the String (Tiễn Tại Huyền)",
+"mods": [
+[
+"accuracy_pct",
+"",
+4,
+8.0
+],
+[
+"crit_chance_pct",
+"kim",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4254": {
+"piece": "c34 bow",
+"kind": "small",
+"idea": "★ Drawn Bow (Mãn Cung)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"4255": {
+"piece": "c34 bow",
+"kind": "small",
+"idea": "★ Drawn Bow (Mãn Cung)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4256": {
+"piece": "c34 bow",
+"kind": "small",
+"idea": "★ Drawn Bow (Mãn Cung)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"4257": {
+"piece": "c34 bow",
+"kind": "small",
+"idea": "★ Drawn Bow (Mãn Cung)",
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4258": {
+"piece": "c34 bow",
+"kind": "small",
+"idea": "★ Drawn Bow (Mãn Cung)",
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"4259": {
+"piece": "c34 bow",
+"kind": "notable",
+"idea": "★ Drawn Bow (Mãn Cung)",
+"name": "Drawn Bow (Mãn Cung)",
+"mods": [
+[
+"attack_pct",
+"kim",
+5,
+7.5
+],
+[
+"crit_damage_pct",
+"kim",
+3,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4260": {
+"piece": "c34 whip",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+1.2,
+15
+]
+]
+},
+"4261": {
+"piece": "c34 whip",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+1.2,
+15
+]
+]
+},
+"4262": {
+"piece": "c34 whip",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+1.2,
+15
+]
+]
+},
+"4263": {
+"piece": "c34 whip",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+1.2,
+15
+]
+]
+},
+"4264": {
+"piece": "c34 whip",
+"kind": "notable",
+"idea": null,
+"name": "Steel Whip (Cương Tiên)",
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+4,
+50
+],
+[
+"attack_pct",
+"kim",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4265": {
+"piece": "c34 whip",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+1.2,
+15
+]
+]
+},
+"4266": {
+"piece": "c34 whip",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+1.2,
+15
+]
+]
+},
+"4267": {
+"piece": "c34 whip",
+"kind": "notable",
+"idea": null,
+"name": "Lashing (Tiên Kích)",
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+4,
+50
+],
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4268": {
+"piece": "c34 d_arch_1709",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"4269": {
+"piece": "c34 d_arch_1709",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"4270": {
+"piece": "c34 d_arch_1709",
+"kind": "notable",
+"idea": null,
+"name": "Sword Rainbow (Kiếm Hồng)",
+"mods": [
+[
+"crit_chance_pct",
+"sword",
+4,
+6.0
+],
+[
+"attack_pct",
+"sword",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4271": {
+"piece": "c34 d_arch_1709",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"4272": {
+"piece": "c34 d_arch_1709",
+"kind": "notable",
+"idea": null,
+"name": "Crossguard (Kiếm Cách)",
+"mods": [
+[
+"crit_chance_pct",
+"sword",
+4,
+6.0
+],
+[
+"block_rating",
+"",
+4,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4273": {
+"piece": "c34 d_arch_1709",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"4274": {
+"piece": "c34 d_arch_1709",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"4275": {
+"piece": "c34 d_arch_1709",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"4276": {
+"piece": "c34 d_arch_1743",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"4277": {
+"piece": "c34 d_arch_1743",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"4278": {
+"piece": "c34 d_arch_1743",
+"kind": "notable",
+"idea": null,
+"name": "Piercing the Willow (Xuyên Dương)",
+"mods": [
+[
+"attack_pct",
+"sword",
+4.0,
+6.0
+],
+[
+"accuracy_pct",
+"",
+4.0,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4279": {
+"piece": "c34 d_arch_1743",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"4280": {
+"piece": "c34 d_arch_1743",
+"kind": "notable",
+"idea": null,
+"name": "Sword Bow (Kiếm Cung)",
+"mods": [
+[
+"attack_pct",
+"sword",
+4.0,
+6.0
+],
+[
+"crit_chance_pct",
+"sword",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4281": {
+"piece": "c34 blade W2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"4282": {
+"piece": "c34 blade W2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"4283": {
+"piece": "c34 blade W2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"4284": {
+"piece": "c34 blade W2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"4285": {
+"piece": "c34 blade W2",
+"kind": "notable",
+"idea": null,
+"name": "Short Sword (Đoản Kiếm)",
+"mods": [
+[
+"attack_pct",
+"sword",
+4,
+6.0
+],
+[
+"art_speed_pct",
+"sword",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4286": {
+"piece": "c34 blade W2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"4287": {
+"piece": "c34 blade W2",
+"kind": "notable",
+"idea": null,
+"name": "Sword Shine (Kiếm Quang)",
+"mods": [
+[
+"attack_pct",
+"sword",
+4,
+6.0
+],
+[
+"accuracy_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4288": {
+"piece": "c30 compass",
+"kind": "notable",
+"idea": "B4 Buried Vault (Kim Tàng Khố)",
+"name": "Lodestone (Từ Thạch)",
+"mods": [
+[
+"co_duyen_pct",
+"",
+4,
+13.3
+],
+[
+"stealth",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4289": {
+"piece": "c30 compass",
+"kind": "small",
+"idea": "B4 Buried Vault (Kim Tàng Khố)",
+"mods": [
+[
+"co_duyen_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4290": {
+"piece": "c30 compass",
+"kind": "small",
+"idea": "B4 Buried Vault (Kim Tàng Khố)",
+"mods": [
+[
+"co_duyen_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4291": {
+"piece": "c30 compass",
+"kind": "small",
+"idea": "B4 Buried Vault (Kim Tàng Khố)",
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"4292": {
+"piece": "c30 compass",
+"kind": "notable",
+"idea": "B4 Buried Vault (Kim Tàng Khố)",
+"name": "Dowsing (Tầm Mạch)",
+"mods": [
+[
+"co_duyen_pct",
+"",
+4,
+13.3
+],
+[
+"travel_speed_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4293": {
+"piece": "c30 compass",
+"kind": "small",
+"idea": "B4 Buried Vault (Kim Tàng Khố)",
+"mods": [
+[
+"co_duyen_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4294": {
+"piece": "c30 compass",
+"kind": "notable",
+"idea": "B4 Buried Vault (Kim Tàng Khố)",
+"name": "Hidden Cache (Tàng Bảo)",
+"mods": [
+[
+"co_duyen_pct",
+"",
+4,
+13.3
+],
+[
+"refining_success",
+"",
+4,
+2.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4295": {
+"piece": "c30 compass",
+"kind": "small",
+"idea": "B4 Buried Vault (Kim Tàng Khố)",
+"mods": [
+[
+"co_duyen_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4296": {
+"piece": "c30 compass",
+"kind": "notable",
+"idea": "B4 Buried Vault (Kim Tàng Khố)",
+"name": "Buried Vault (Kim Tàng Khố)",
+"mods": [
+[
+"co_duyen_pct",
+"",
+5,
+16.6
+],
+[
+"khi_van",
+"",
+3,
+0.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4297": {
+"piece": "c30 bell",
+"kind": "small",
+"idea": "M7 Golden Bell (Kim Chung Tráo)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4298": {
+"piece": "c30 bell",
+"kind": "small",
+"idea": "M7 Golden Bell (Kim Chung Tráo)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4299": {
+"piece": "c30 bell",
+"kind": "notable",
+"idea": "M7 Golden Bell (Kim Chung Tráo)",
+"name": "Bell Rim (Chung Duyên)",
+"mods": [
+[
+"defense_pct",
+"",
+4,
+4.0
+],
+[
+"block_rating",
+"",
+4,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4300": {
+"piece": "c30 bell",
+"kind": "small",
+"idea": "M7 Golden Bell (Kim Chung Tráo)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4301": {
+"piece": "c30 bell",
+"kind": "small",
+"idea": "M7 Golden Bell (Kim Chung Tráo)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4302": {
+"piece": "c30 bell",
+"kind": "small",
+"idea": "M7 Golden Bell (Kim Chung Tráo)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4303": {
+"piece": "c30 bell",
+"kind": "notable",
+"idea": "M7 Golden Bell (Kim Chung Tráo)",
+"name": "Golden Hum (Kim Âm)",
+"mods": [
+[
+"defense_pct",
+"",
+4,
+4.0
+],
+[
+"soul_res_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4304": {
+"piece": "c30 bell",
+"kind": "small",
+"idea": "M7 Golden Bell (Kim Chung Tráo)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4305": {
+"piece": "c30 bell",
+"kind": "small",
+"idea": "M7 Golden Bell (Kim Chung Tráo)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4306": {
+"piece": "c30 bell",
+"kind": "small",
+"idea": "M7 Golden Bell (Kim Chung Tráo)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4307": {
+"piece": "c30 bell",
+"kind": "notable",
+"idea": "M7 Golden Bell (Kim Chung Tráo)",
+"name": "Golden Bell (Kim Chung Tráo)",
+"mods": [
+[
+"defense_pct",
+"",
+5,
+5.0
+],
+[
+"ward_efficiency_pct",
+"",
+3,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4308": {
+"piece": "c30 fan",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4309": {
+"piece": "c30 fan",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4310": {
+"piece": "c30 fan",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4311": {
+"piece": "c30 fan",
+"kind": "notable",
+"idea": null,
+"name": "Dew Fan (Lộ Phiến)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+],
+[
+"linh_luc_regen_inc_pct",
+"",
+4,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4312": {
+"piece": "c30 fan",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4313": {
+"piece": "c30 fan",
+"kind": "notable",
+"idea": null,
+"name": "Hundred-Folded Steel (Bách Luyện Cương)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+],
+[
+"defense_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4314": {
+"piece": "c30 fan",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4315": {
+"piece": "c30 fan",
+"kind": "notable",
+"idea": null,
+"name": "Feather Fan (Vũ Phiến)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+],
+[
+"art_speed_pct",
+"kim",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4316": {
+"piece": "c30 sickle",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4317": {
+"piece": "c30 sickle",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4318": {
+"piece": "c30 sickle",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4319": {
+"piece": "c30 sickle",
+"kind": "notable",
+"idea": null,
+"name": "Sickle Moon (Liêm Nguyệt)",
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+4,
+6.0
+],
+[
+"co_duyen_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4320": {
+"piece": "c30 sickle",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4321": {
+"piece": "c30 sickle",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4322": {
+"piece": "c30 sickle",
+"kind": "notable",
+"idea": null,
+"name": "Harvest Sickle (Thu Liêm)",
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+4,
+6.0
+],
+[
+"crit_damage_pct",
+"kim",
+4,
+20.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4323": {
+"piece": "c30 d_hook_1520",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"co_duyen_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4324": {
+"piece": "c30 d_hook_1520",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"co_duyen_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4325": {
+"piece": "c30 d_hook_1520",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"co_duyen_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4326": {
+"piece": "c30 d_hook_1520",
+"kind": "notable",
+"idea": null,
+"name": "Taigong Fishing (Thái Công Điếu Ngư)",
+"mods": [
+[
+"co_duyen_pct",
+"",
+4.0,
+13.3
+],
+[
+"defense_pct",
+"",
+4.0,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4327": {
+"piece": "c30 d_crook_253",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4328": {
+"piece": "c30 d_crook_253",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4329": {
+"piece": "c30 d_crook_253",
+"kind": "notable",
+"idea": null,
+"name": "Golden Armour (Kim Giáp)",
+"mods": [
+[
+"defense_pct",
+"",
+4.0,
+4.0
+],
+[
+"block_rating",
+"",
+4.0,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4330": {
+"piece": "c30 blade W2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4331": {
+"piece": "c30 blade W2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4332": {
+"piece": "c30 blade W2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4333": {
+"piece": "c30 blade W2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4334": {
+"piece": "c30 blade W2",
+"kind": "notable",
+"idea": null,
+"name": "Hidden Edge (Tàng Phong)",
+"mods": [
+[
+"attack_pct",
+"kim",
+4,
+6.0
+],
+[
+"stealth",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4335": {
+"piece": "c30 blade W2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4336": {
+"piece": "c30 blade W2",
+"kind": "notable",
+"idea": null,
+"name": "Sleeve Blade (Tụ Lý Đao)",
+"mods": [
+[
+"attack_pct",
+"kim",
+4,
+6.0
+],
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4337": {
+"piece": "c30 d_bead_1521",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"4338": {
+"piece": "c30 d_bead_1521",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"4339": {
+"piece": "c30 d_bead_1521",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"stealth",
+"",
+1.2,
+0.8
+]
+]
+},
+"4340": {
+"piece": "c30 d_bead_1521",
+"kind": "notable",
+"idea": null,
+"name": "Sunken Pearl (Trầm Châu)",
+"mods": [
+[
+"stealth",
+"",
+4.0,
+2.6
+],
+[
+"co_duyen_pct",
+"",
+4.0,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4341": {
+"piece": "c27 arrow",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+1.2,
+15
+]
+]
+},
+"4342": {
+"piece": "c27 arrow",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+1.2,
+15
+]
+]
+},
+"4343": {
+"piece": "c27 arrow",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+1.2,
+15
+]
+]
+},
+"4344": {
+"piece": "c27 arrow",
+"kind": "notable",
+"idea": null,
+"name": "Wolf-Tooth Arrow (Lang Nha Tiễn)",
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+4,
+50
+],
+[
+"attack_pct",
+"kim",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4345": {
+"piece": "c27 arrow",
+"kind": "notable",
+"idea": null,
+"name": "Barbed Arrow (Câu Tiễn)",
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+4,
+50
+],
+[
+"crit_damage_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4346": {
+"piece": "c27 arrow",
+"kind": "notable",
+"idea": null,
+"name": "Fletching (Tiễn Vũ)",
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+4,
+50
+],
+[
+"accuracy_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4347": {
+"piece": "c27 bell",
+"kind": "small",
+"idea": "M7 Golden Bell (Kim Chung Tráo)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4348": {
+"piece": "c27 bell",
+"kind": "small",
+"idea": "M7 Golden Bell (Kim Chung Tráo)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4349": {
+"piece": "c27 bell",
+"kind": "notable",
+"idea": "M7 Golden Bell (Kim Chung Tráo)",
+"name": "Bell Rim (Chung Duyên)",
+"mods": [
+[
+"defense_pct",
+"",
+4,
+4.0
+],
+[
+"block_rating",
+"",
+4,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4350": {
+"piece": "c27 bell",
+"kind": "small",
+"idea": "M7 Golden Bell (Kim Chung Tráo)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4351": {
+"piece": "c27 bell",
+"kind": "small",
+"idea": "M7 Golden Bell (Kim Chung Tráo)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4352": {
+"piece": "c27 bell",
+"kind": "small",
+"idea": "M7 Golden Bell (Kim Chung Tráo)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4353": {
+"piece": "c27 bell",
+"kind": "notable",
+"idea": "M7 Golden Bell (Kim Chung Tráo)",
+"name": "Golden Hum (Kim Âm)",
+"mods": [
+[
+"defense_pct",
+"",
+4,
+4.0
+],
+[
+"soul_res_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4354": {
+"piece": "c27 bell",
+"kind": "small",
+"idea": "M7 Golden Bell (Kim Chung Tráo)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4355": {
+"piece": "c27 bell",
+"kind": "small",
+"idea": "M7 Golden Bell (Kim Chung Tráo)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4356": {
+"piece": "c27 bell",
+"kind": "small",
+"idea": "M7 Golden Bell (Kim Chung Tráo)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4357": {
+"piece": "c27 bell",
+"kind": "notable",
+"idea": "M7 Golden Bell (Kim Chung Tráo)",
+"name": "Golden Bell (Kim Chung Tráo)",
+"mods": [
+[
+"defense_pct",
+"",
+5,
+5.0
+],
+[
+"ward_efficiency_pct",
+"",
+3,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4358": {
+"piece": "c27 fan",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4359": {
+"piece": "c27 fan",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4360": {
+"piece": "c27 fan",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4361": {
+"piece": "c27 fan",
+"kind": "notable",
+"idea": null,
+"name": "Dew Fan (Lộ Phiến)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+],
+[
+"linh_luc_regen_inc_pct",
+"",
+4,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4362": {
+"piece": "c27 fan",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4363": {
+"piece": "c27 fan",
+"kind": "notable",
+"idea": null,
+"name": "Hundred-Folded Steel (Bách Luyện Cương)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+],
+[
+"defense_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4364": {
+"piece": "c27 fan",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4365": {
+"piece": "c27 fan",
+"kind": "notable",
+"idea": null,
+"name": "Feather Fan (Vũ Phiến)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+],
+[
+"art_speed_pct",
+"kim",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4366": {
+"piece": "c27 coin",
+"kind": "small",
+"idea": "B6 Autumn Dew (Thu Lộ)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"4367": {
+"piece": "c27 coin",
+"kind": "small",
+"idea": "B6 Autumn Dew (Thu Lộ)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"4368": {
+"piece": "c27 coin",
+"kind": "notable",
+"idea": "B6 Autumn Dew (Thu Lộ)",
+"name": "Dew Drop (Lộ Châu)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+],
+[
+"linh_luc_regen_inc_pct",
+"",
+4,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4369": {
+"piece": "c27 coin",
+"kind": "small",
+"idea": "B6 Autumn Dew (Thu Lộ)",
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4370": {
+"piece": "c27 coin",
+"kind": "notable",
+"idea": "B6 Autumn Dew (Thu Lộ)",
+"name": "Autumn Dew (Thu Lộ)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+5,
+0.21
+],
+[
+"linh_luc_pct",
+"",
+3,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4371": {
+"piece": "c27 coin",
+"kind": "small",
+"idea": "B6 Autumn Dew (Thu Lộ)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"4372": {
+"piece": "c27 coin",
+"kind": "notable",
+"idea": "B6 Autumn Dew (Thu Lộ)",
+"name": "Cold Dawn (Hàn Hiểu)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+],
+[
+"can_cot",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4373": {
+"piece": "c27 coin",
+"kind": "small",
+"idea": "B6 Autumn Dew (Thu Lộ)",
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4374": {
+"piece": "c27 coin",
+"kind": "small",
+"idea": "B6 Autumn Dew (Thu Lộ)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"4375": {
+"piece": "c27 coin",
+"kind": "small",
+"idea": "B6 Autumn Dew (Thu Lộ)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"4376": {
+"piece": "c27 coin",
+"kind": "small",
+"idea": "B6 Autumn Dew (Thu Lộ)",
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4377": {
+"piece": "c27 coin",
+"kind": "small",
+"idea": "B6 Autumn Dew (Thu Lộ)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"4378": {
+"piece": "c27 spear",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"physical",
+1.2,
+1.5
+]
+]
+},
+"4379": {
+"piece": "c27 spear",
+"kind": "notable",
+"idea": null,
+"name": "Long Spear (Trường Thương)",
+"mods": [
+[
+"attack_pct",
+"physical",
+4,
+5.0
+],
+[
+"resist_pen_pct",
+"physical",
+4,
+50
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4380": {
+"piece": "c27 spear",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"physical",
+1.2,
+1.5
+]
+]
+},
+"4381": {
+"piece": "c27 spear",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"physical",
+1.2,
+1.5
+]
+]
+},
+"4382": {
+"piece": "c27 spear",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"physical",
+1.2,
+1.5
+]
+]
+},
+"4383": {
+"piece": "c27 spear",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"physical",
+1.2,
+1.5
+]
+]
+},
+"4384": {
+"piece": "c27 spear",
+"kind": "notable",
+"idea": null,
+"name": "Spear Thrust (Thứ Thương)",
+"mods": [
+[
+"attack_pct",
+"physical",
+4,
+5.0
+],
+[
+"accuracy_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4385": {
+"piece": "c27 d_arch_1744",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"4386": {
+"piece": "c27 d_arch_1744",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"4387": {
+"piece": "c27 d_arch_1744",
+"kind": "notable",
+"idea": null,
+"name": "Dew Drinking (Ẩm Lộ)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+4.0,
+0.17
+],
+[
+"can_cot",
+"",
+4.0,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4388": {
+"piece": "c27 d_arch_1744",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"4389": {
+"piece": "c27 d_arch_1744",
+"kind": "notable",
+"idea": null,
+"name": "White Dew (Bạch Lộ)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+4.0,
+0.17
+],
+[
+"linh_luc_pct",
+"",
+4.0,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4390": {
+"piece": "c27 knives W3",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4391": {
+"piece": "c27 knives W3",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4392": {
+"piece": "c27 knives W3",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4393": {
+"piece": "c27 knives W3",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4394": {
+"piece": "c27 knives W3",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4395": {
+"piece": "c27 knives W3",
+"kind": "notable",
+"idea": null,
+"name": "Twin Knives (Song Đao)",
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+4,
+20.0
+],
+[
+"attack_pct",
+"kim",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4396": {
+"piece": "c27 knives W3",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4397": {
+"piece": "c77 crescent B",
+"kind": "notable",
+"idea": null,
+"name": "Cauldron Ear (Đỉnh Nhĩ)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+4.0,
+3.0
+],
+[
+"refining_success",
+"",
+4.0,
+2.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4398": {
+"piece": "c77 crescent B",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4399": {
+"piece": "c77 crescent B",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4400": {
+"piece": "c77 crescent B",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4401": {
+"piece": "c77 crescent B",
+"kind": "notable",
+"idea": null,
+"name": "Treasure Glow (Bảo Quang)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+4.0,
+3.0
+],
+[
+"than_thuc_pct",
+"",
+4.0,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4402": {
+"piece": "c77 spear",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4403": {
+"piece": "c77 spear",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4404": {
+"piece": "c77 spear",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4405": {
+"piece": "c77 spear",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4406": {
+"piece": "c77 spear",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4407": {
+"piece": "c77 spear",
+"kind": "notable",
+"idea": null,
+"name": "Plum Blossom Spear (Mai Hoa Thương)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+4,
+13.3
+],
+[
+"linh_luc_on_crit_pct",
+"",
+4,
+0.63
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4408": {
+"piece": "c77 wheel",
+"kind": "small",
+"idea": "M10 Whetstone Wheel (Ma Thạch Luân)",
+"mods": [
+[
+"linh_luc_on_crit_pct",
+"",
+1.2,
+0.19
+]
+]
+},
+"4409": {
+"piece": "c77 wheel",
+"kind": "small",
+"idea": "M10 Whetstone Wheel (Ma Thạch Luân)",
+"mods": [
+[
+"linh_luc_on_crit_pct",
+"",
+1.2,
+0.19
+]
+]
+},
+"4410": {
+"piece": "c77 wheel",
+"kind": "small",
+"idea": "M10 Whetstone Wheel (Ma Thạch Luân)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4411": {
+"piece": "c77 wheel",
+"kind": "small",
+"idea": "M10 Whetstone Wheel (Ma Thạch Luân)",
+"mods": [
+[
+"linh_luc_on_crit_pct",
+"",
+1.2,
+0.19
+]
+]
+},
+"4412": {
+"piece": "c77 wheel",
+"kind": "notable",
+"idea": "M10 Whetstone Wheel (Ma Thạch Luân)",
+"name": "Ten-Year Grinding (Thập Niên Ma Kiếm)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+],
+[
+"linh_luc_on_crit_pct",
+"",
+4,
+0.63
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4413": {
+"piece": "c77 wheel",
+"kind": "small",
+"idea": "M10 Whetstone Wheel (Ma Thạch Luân)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4414": {
+"piece": "c77 wheel",
+"kind": "small",
+"idea": "M10 Whetstone Wheel (Ma Thạch Luân)",
+"mods": [
+[
+"linh_luc_on_crit_pct",
+"",
+1.2,
+0.19
+]
+]
+},
+"4415": {
+"piece": "c77 wheel",
+"kind": "notable",
+"idea": "M10 Whetstone Wheel (Ma Thạch Luân)",
+"name": "Whetstone Wheel (Ma Thạch Luân)",
+"mods": [
+[
+"linh_luc_on_crit_pct",
+"",
+5,
+0.79
+],
+[
+"linh_luc_regen_pct",
+"",
+3,
+0.13
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4416": {
+"piece": "c77 wheel",
+"kind": "small",
+"idea": "M10 Whetstone Wheel (Ma Thạch Luân)",
+"mods": [
+[
+"linh_luc_on_crit_pct",
+"",
+1.2,
+0.19
+]
+]
+},
+"4417": {
+"piece": "c77 wheel",
+"kind": "small",
+"idea": "M10 Whetstone Wheel (Ma Thạch Luân)",
+"mods": [
+[
+"linh_luc_on_crit_pct",
+"",
+1.2,
+0.19
+]
+]
+},
+"4418": {
+"piece": "c77 wheel",
+"kind": "notable",
+"idea": "M10 Whetstone Wheel (Ma Thạch Luân)",
+"name": "Keen Edge (Phong Nhuệ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+],
+[
+"crit_damage_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4419": {
+"piece": "c77 ding",
+"kind": "small",
+"idea": "M2 Spirit Furnace (Linh Lô)",
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4420": {
+"piece": "c77 ding",
+"kind": "small",
+"idea": "M2 Spirit Furnace (Linh Lô)",
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4421": {
+"piece": "c77 ding",
+"kind": "small",
+"idea": "M2 Spirit Furnace (Linh Lô)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4422": {
+"piece": "c77 ding",
+"kind": "small",
+"idea": "M2 Spirit Furnace (Linh Lô)",
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4423": {
+"piece": "c77 ding",
+"kind": "notable",
+"idea": "M2 Spirit Furnace (Linh Lô)",
+"name": "Nurtured Treasure (Ôn Dưỡng)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+4,
+3.0
+],
+[
+"element_affinity_pct",
+"",
+4,
+4.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4424": {
+"piece": "c77 ding",
+"kind": "notable",
+"idea": "M2 Spirit Furnace (Linh Lô)",
+"name": "Bronze Cauldron (Đồng Đỉnh)",
+"mods": [
+[
+"refining_success",
+"",
+4,
+2.0
+],
+[
+"artifact_power_pct",
+"",
+4,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4425": {
+"piece": "c77 ding",
+"kind": "small",
+"idea": "M2 Spirit Furnace (Linh Lô)",
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4426": {
+"piece": "c77 ding",
+"kind": "small",
+"idea": "M2 Spirit Furnace (Linh Lô)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4427": {
+"piece": "c77 ding",
+"kind": "notable",
+"idea": "M2 Spirit Furnace (Linh Lô)",
+"name": "Spirit Furnace (Linh Lô)",
+"mods": [
+[
+"refining_success",
+"",
+5,
+2.5
+],
+[
+"artifact_power_pct",
+"",
+3,
+2.3
+]
+],
+"pending": [
+[
+"refine_grade_chance",
+"",
+2
+]
+],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4428": {
+"piece": "c77 ding",
+"kind": "notable",
+"idea": "M2 Spirit Furnace (Linh Lô)",
+"name": "Forging Fire (Luyện Bảo Hỏa)",
+"mods": [
+[
+"refining_success",
+"",
+4,
+2.0
+],
+[
+"than_thuc_pct",
+"",
+4,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4429": {
+"piece": "c77 d_diamond_1741",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4430": {
+"piece": "c77 d_diamond_1741",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4431": {
+"piece": "c77 d_diamond_1741",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4432": {
+"piece": "c77 d_diamond_1741",
+"kind": "notable",
+"idea": null,
+"name": "Sword Sparks (Kiếm Hoa)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+4.0,
+4.0
+],
+[
+"linh_luc_on_crit_pct",
+"",
+4.0,
+0.63
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4433": {
+"piece": "c73 crescent B",
+"kind": "notable",
+"idea": null,
+"name": "Cauldron Ear (Đỉnh Nhĩ)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+4.0,
+3.0
+],
+[
+"refining_success",
+"",
+4.0,
+2.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4434": {
+"piece": "c73 crescent B",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4435": {
+"piece": "c73 crescent B",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4436": {
+"piece": "c73 crescent B",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4437": {
+"piece": "c73 crescent B",
+"kind": "notable",
+"idea": null,
+"name": "Treasure Glow (Bảo Quang)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+4.0,
+3.0
+],
+[
+"than_thuc_pct",
+"",
+4.0,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4438": {
+"piece": "c73 spear",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4439": {
+"piece": "c73 spear",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4440": {
+"piece": "c73 spear",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4441": {
+"piece": "c73 spear",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4442": {
+"piece": "c73 spear",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4443": {
+"piece": "c73 spear",
+"kind": "notable",
+"idea": null,
+"name": "Plum Blossom Spear (Mai Hoa Thương)",
+"mods": [
+[
+"crit_damage_pct",
+"",
+4,
+13.3
+],
+[
+"linh_luc_on_crit_pct",
+"",
+4,
+0.63
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4444": {
+"piece": "c73 wheel",
+"kind": "small",
+"idea": "M10 Whetstone Wheel (Ma Thạch Luân)",
+"mods": [
+[
+"linh_luc_on_crit_pct",
+"",
+1.2,
+0.19
+]
+]
+},
+"4445": {
+"piece": "c73 wheel",
+"kind": "small",
+"idea": "M10 Whetstone Wheel (Ma Thạch Luân)",
+"mods": [
+[
+"linh_luc_on_crit_pct",
+"",
+1.2,
+0.19
+]
+]
+},
+"4446": {
+"piece": "c73 wheel",
+"kind": "small",
+"idea": "M10 Whetstone Wheel (Ma Thạch Luân)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4447": {
+"piece": "c73 wheel",
+"kind": "small",
+"idea": "M10 Whetstone Wheel (Ma Thạch Luân)",
+"mods": [
+[
+"linh_luc_on_crit_pct",
+"",
+1.2,
+0.19
+]
+]
+},
+"4448": {
+"piece": "c73 wheel",
+"kind": "notable",
+"idea": "M10 Whetstone Wheel (Ma Thạch Luân)",
+"name": "Ten-Year Grinding (Thập Niên Ma Kiếm)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+],
+[
+"linh_luc_on_crit_pct",
+"",
+4,
+0.63
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4449": {
+"piece": "c73 wheel",
+"kind": "small",
+"idea": "M10 Whetstone Wheel (Ma Thạch Luân)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4450": {
+"piece": "c73 wheel",
+"kind": "small",
+"idea": "M10 Whetstone Wheel (Ma Thạch Luân)",
+"mods": [
+[
+"linh_luc_on_crit_pct",
+"",
+1.2,
+0.19
+]
+]
+},
+"4451": {
+"piece": "c73 wheel",
+"kind": "notable",
+"idea": "M10 Whetstone Wheel (Ma Thạch Luân)",
+"name": "Whetstone Wheel (Ma Thạch Luân)",
+"mods": [
+[
+"linh_luc_on_crit_pct",
+"",
+5,
+0.79
+],
+[
+"linh_luc_regen_pct",
+"",
+3,
+0.13
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4452": {
+"piece": "c73 wheel",
+"kind": "small",
+"idea": "M10 Whetstone Wheel (Ma Thạch Luân)",
+"mods": [
+[
+"linh_luc_on_crit_pct",
+"",
+1.2,
+0.19
+]
+]
+},
+"4453": {
+"piece": "c73 wheel",
+"kind": "small",
+"idea": "M10 Whetstone Wheel (Ma Thạch Luân)",
+"mods": [
+[
+"linh_luc_on_crit_pct",
+"",
+1.2,
+0.19
+]
+]
+},
+"4454": {
+"piece": "c73 wheel",
+"kind": "notable",
+"idea": "M10 Whetstone Wheel (Ma Thạch Luân)",
+"name": "Keen Edge (Phong Nhuệ)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+],
+[
+"crit_damage_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4455": {
+"piece": "c73 ding",
+"kind": "small",
+"idea": "M2 Spirit Furnace (Linh Lô)",
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4456": {
+"piece": "c73 ding",
+"kind": "small",
+"idea": "M2 Spirit Furnace (Linh Lô)",
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4457": {
+"piece": "c73 ding",
+"kind": "small",
+"idea": "M2 Spirit Furnace (Linh Lô)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4458": {
+"piece": "c73 ding",
+"kind": "small",
+"idea": "M2 Spirit Furnace (Linh Lô)",
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4459": {
+"piece": "c73 ding",
+"kind": "notable",
+"idea": "M2 Spirit Furnace (Linh Lô)",
+"name": "Nurtured Treasure (Ôn Dưỡng)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+4,
+3.0
+],
+[
+"element_affinity_pct",
+"",
+4,
+4.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4460": {
+"piece": "c73 ding",
+"kind": "notable",
+"idea": "M2 Spirit Furnace (Linh Lô)",
+"name": "Bronze Cauldron (Đồng Đỉnh)",
+"mods": [
+[
+"refining_success",
+"",
+4,
+2.0
+],
+[
+"artifact_power_pct",
+"",
+4,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4461": {
+"piece": "c73 ding",
+"kind": "small",
+"idea": "M2 Spirit Furnace (Linh Lô)",
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4462": {
+"piece": "c73 ding",
+"kind": "small",
+"idea": "M2 Spirit Furnace (Linh Lô)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4463": {
+"piece": "c73 ding",
+"kind": "notable",
+"idea": "M2 Spirit Furnace (Linh Lô)",
+"name": "Treasure Nurtured Within (Dưỡng Bảo Nội Thể)",
+"mods": [
+[
+"refining_success",
+"",
+2,
+1.0
+]
+],
+"pending": [
+[
+"refine_grade_chance",
+"",
+2
+]
+],
+"cap": "#3",
+"effect": null,
+"twin_copy": false
+},
+"4464": {
+"piece": "c73 ding",
+"kind": "notable",
+"idea": "M2 Spirit Furnace (Linh Lô)",
+"name": "Forging Fire (Luyện Bảo Hỏa)",
+"mods": [
+[
+"refining_success",
+"",
+4,
+2.0
+],
+[
+"than_thuc_pct",
+"",
+4,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4465": {
+"piece": "c73 d_hairpin_1748",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4466": {
+"piece": "c73 d_hairpin_1748",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4467": {
+"piece": "c73 d_hairpin_1748",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4468": {
+"piece": "c73 d_hairpin_1748",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"4469": {
+"piece": "c73 d_hairpin_1748",
+"kind": "notable",
+"idea": null,
+"name": "Bellows (Phong Tương)",
+"mods": [
+[
+"refining_success",
+"",
+4.0,
+2.0
+],
+[
+"artifact_power_pct",
+"",
+4.0,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4470": {
+"piece": "c41 crown",
+"kind": "small",
+"idea": "★ Iron Discipline (Thiết Luật)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"4471": {
+"piece": "c41 crown",
+"kind": "small",
+"idea": "★ Iron Discipline (Thiết Luật)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"4472": {
+"piece": "c41 crown",
+"kind": "small",
+"idea": "★ Iron Discipline (Thiết Luật)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"4473": {
+"piece": "c41 crown",
+"kind": "small",
+"idea": "★ Iron Discipline (Thiết Luật)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4474": {
+"piece": "c41 crown",
+"kind": "small",
+"idea": "★ Iron Discipline (Thiết Luật)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4475": {
+"piece": "c41 crown",
+"kind": "small",
+"idea": "★ Iron Discipline (Thiết Luật)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"4476": {
+"piece": "c41 crown",
+"kind": "notable",
+"idea": "★ Iron Discipline (Thiết Luật)",
+"name": "Measured Breath (Điều Tức)",
+"mods": [
+[
+"can_cot",
+"",
+4,
+1.33
+],
+[
+"linh_luc_regen_inc_pct",
+"",
+4,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4477": {
+"piece": "c41 crown",
+"kind": "small",
+"idea": "★ Iron Discipline (Thiết Luật)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"4478": {
+"piece": "c41 crown",
+"kind": "notable",
+"idea": "★ Iron Discipline (Thiết Luật)",
+"name": "Iron Discipline (Thiết Luật)",
+"mods": [
+[
+"can_cot",
+"",
+5,
+1.66
+],
+[
+"status_resist_pct",
+"",
+3,
+7.5
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4479": {
+"piece": "c41 crown",
+"kind": "small",
+"idea": "★ Iron Discipline (Thiết Luật)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"4480": {
+"piece": "c41 crown",
+"kind": "notable",
+"idea": "★ Iron Discipline (Thiết Luật)",
+"name": "Stern Rule (Nghiêm Quy)",
+"mods": [
+[
+"can_cot",
+"",
+4,
+1.33
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4481": {
+"piece": "c41 arcs",
+"kind": "small",
+"idea": "M4 Vajra Body (Kim Cương Thân)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4482": {
+"piece": "c41 arcs",
+"kind": "small",
+"idea": "M4 Vajra Body (Kim Cương Thân)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4483": {
+"piece": "c41 arcs",
+"kind": "small",
+"idea": "M4 Vajra Body (Kim Cương Thân)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4484": {
+"piece": "c41 arcs",
+"kind": "notable",
+"idea": "M4 Vajra Body (Kim Cương Thân)",
+"name": "Iron Blood (Thiết Huyết)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4485": {
+"piece": "c41 arcs",
+"kind": "small",
+"idea": "M4 Vajra Body (Kim Cương Thân)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4486": {
+"piece": "c41 arcs",
+"kind": "small",
+"idea": "M4 Vajra Body (Kim Cương Thân)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4487": {
+"piece": "c41 arcs",
+"kind": "notable",
+"idea": "M4 Vajra Body (Kim Cương Thân)",
+"name": "Vajra Body (Kim Cương Thân)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+5,
+8.3
+],
+[
+"linh_luc_pct",
+"",
+3,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4488": {
+"piece": "c41 arcs",
+"kind": "small",
+"idea": "M4 Vajra Body (Kim Cương Thân)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4489": {
+"piece": "c41 arcs",
+"kind": "notable",
+"idea": "M4 Vajra Body (Kim Cương Thân)",
+"name": "Metal Skin (Kim Phu)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4490": {
+"piece": "c41 arcs",
+"kind": "notable",
+"idea": "M4 Vajra Body (Kim Cương Thân)",
+"name": "Vajra Bones (Kim Cương Cốt)",
+"mods": [
+[
+"can_cot",
+"",
+4,
+1.33
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4491": {
+"piece": "c41 d_crook_1521",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"4492": {
+"piece": "c41 d_crook_1521",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"4493": {
+"piece": "c41 d_crook_1521",
+"kind": "notable",
+"idea": null,
+"name": "Precept Rod (Giới Xích)",
+"mods": [
+[
+"can_cot",
+"",
+4.0,
+1.33
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4494": {
+"piece": "c41 d_crescent_1752",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_resist_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"4495": {
+"piece": "c41 d_crescent_1752",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_resist_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"4496": {
+"piece": "c41 d_crescent_1752",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_resist_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"4497": {
+"piece": "c41 d_crescent_1752",
+"kind": "notable",
+"idea": null,
+"name": "Proud Bones (Ngạo Cốt)",
+"mods": [
+[
+"status_resist_pct",
+"",
+4.0,
+10.0
+],
+[
+"can_cot",
+"",
+4.0,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4498": {
+"piece": "c41 d_hairpin_1754",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"4499": {
+"piece": "c41 d_hairpin_1754",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"4500": {
+"piece": "c41 d_hairpin_1754",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"4501": {
+"piece": "c41 d_hairpin_1754",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"4502": {
+"piece": "c41 d_hairpin_1754",
+"kind": "notable",
+"idea": null,
+"name": "Fasting Vows (Trai Giới)",
+"mods": [
+[
+"can_cot",
+"",
+4.0,
+1.33
+],
+[
+"status_resist_pct",
+"",
+4.0,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4503": {
+"piece": "c41 d_hook_1522",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4504": {
+"piece": "c41 d_hook_1522",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4505": {
+"piece": "c41 d_hook_1522",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4506": {
+"piece": "c41 d_hook_1522",
+"kind": "notable",
+"idea": null,
+"name": "Golden Headband (Kim Cô)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+],
+[
+"can_cot",
+"",
+4.0,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4507": {
+"piece": "c50 hook swords",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"4508": {
+"piece": "c50 hook swords",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"4509": {
+"piece": "c50 hook swords",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"4510": {
+"piece": "c50 hook swords",
+"kind": "notable",
+"idea": null,
+"name": "Hook Swords (Câu Kiếm)",
+"mods": [
+[
+"can_cot",
+"",
+4,
+1.33
+],
+[
+"attack_pct",
+"sword",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4511": {
+"piece": "c50 hook swords",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"4512": {
+"piece": "c50 hook swords",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"4513": {
+"piece": "c50 hook swords",
+"kind": "notable",
+"idea": null,
+"name": "Tiger-Head Hooks (Hổ Đầu Câu)",
+"mods": [
+[
+"can_cot",
+"",
+4,
+1.33
+],
+[
+"block_rating",
+"",
+4,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4514": {
+"piece": "c50 arcs",
+"kind": "small",
+"idea": "M4 Vajra Body (Kim Cương Thân)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4515": {
+"piece": "c50 arcs",
+"kind": "small",
+"idea": "M4 Vajra Body (Kim Cương Thân)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4516": {
+"piece": "c50 arcs",
+"kind": "small",
+"idea": "M4 Vajra Body (Kim Cương Thân)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4517": {
+"piece": "c50 arcs",
+"kind": "notable",
+"idea": "M4 Vajra Body (Kim Cương Thân)",
+"name": "Iron Blood (Thiết Huyết)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4518": {
+"piece": "c50 arcs",
+"kind": "small",
+"idea": "M4 Vajra Body (Kim Cương Thân)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4519": {
+"piece": "c50 arcs",
+"kind": "small",
+"idea": "M4 Vajra Body (Kim Cương Thân)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4520": {
+"piece": "c50 arcs",
+"kind": "notable",
+"idea": "M4 Vajra Body (Kim Cương Thân)",
+"name": "Blood Commands Spirit (Huyết Ngự Linh)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+2,
+3.3
+]
+],
+"pending": [],
+"cap": "#4",
+"effect": null,
+"twin_copy": false
+},
+"4521": {
+"piece": "c50 arcs",
+"kind": "small",
+"idea": "M4 Vajra Body (Kim Cương Thân)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4522": {
+"piece": "c50 arcs",
+"kind": "notable",
+"idea": "M4 Vajra Body (Kim Cương Thân)",
+"name": "Metal Skin (Kim Phu)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4523": {
+"piece": "c50 arcs",
+"kind": "notable",
+"idea": "M4 Vajra Body (Kim Cương Thân)",
+"name": "Vajra Bones (Kim Cương Cốt)",
+"mods": [
+[
+"can_cot",
+"",
+4,
+1.33
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4524": {
+"piece": "c50 d_hook_1526",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4525": {
+"piece": "c50 d_hook_1526",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4526": {
+"piece": "c50 d_hook_1526",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4527": {
+"piece": "c50 d_hook_1526",
+"kind": "notable",
+"idea": null,
+"name": "Bronze Skin, Iron Bones (Đồng Bì Thiết Cốt)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+],
+[
+"can_cot",
+"",
+4.0,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4528": {
+"piece": "c50 d_crook_1527",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4529": {
+"piece": "c50 d_crook_1527",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+1.2,
+1.5
+]
+]
+},
+"4530": {
+"piece": "c50 d_crook_1527",
+"kind": "notable",
+"idea": null,
+"name": "Lung Qi (Phế Khí)",
+"mods": [
+[
+"linh_luc_regen_inc_pct",
+"",
+4.0,
+5.0
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4531": {
+"piece": "c50 hairpin_1764",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4532": {
+"piece": "c50 hairpin_1764",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4533": {
+"piece": "c50 hairpin_1764",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4534": {
+"piece": "c50 hairpin_1764",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"4535": {
+"piece": "c50 hairpin_1764",
+"kind": "notable",
+"idea": null,
+"name": "Blood Spring (Huyết Tuyền)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+4.0,
+13.3
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4536": {
+"piece": "c50 d_crescent_1746",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4537": {
+"piece": "c50 d_crescent_1746",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4538": {
+"piece": "c50 d_crescent_1746",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4539": {
+"piece": "c50 d_crescent_1746",
+"kind": "notable",
+"idea": null,
+"name": "Spirit Marrow (Linh Tủy)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+4.0,
+4.0
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4540": {
+"piece": "c50 d_fork_1762",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"4541": {
+"piece": "c50 d_fork_1762",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"4542": {
+"piece": "c50 d_fork_1762",
+"kind": "notable",
+"idea": null,
+"name": "Body Refining (Luyện Thể)",
+"mods": [
+[
+"can_cot",
+"",
+4.0,
+1.33
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4543": {
+"piece": "c50 d_fork_1762",
+"kind": "notable",
+"idea": null,
+"name": "Bone Forging (Đoán Cốt)",
+"mods": [
+[
+"can_cot",
+"",
+4.0,
+1.33
+],
+[
+"block_rating",
+"",
+4.0,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4544": {
+"piece": "c58 sawblade",
+"kind": "small",
+"idea": "M5 Autumn Scythe (Thu Sát Liêm)",
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4545": {
+"piece": "c58 sawblade",
+"kind": "small",
+"idea": "M5 Autumn Scythe (Thu Sát Liêm)",
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4546": {
+"piece": "c58 sawblade",
+"kind": "small",
+"idea": "M5 Autumn Scythe (Thu Sát Liêm)",
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4547": {
+"piece": "c58 sawblade",
+"kind": "small",
+"idea": "M5 Autumn Scythe (Thu Sát Liêm)",
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4548": {
+"piece": "c58 sawblade",
+"kind": "small",
+"idea": "M5 Autumn Scythe (Thu Sát Liêm)",
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4549": {
+"piece": "c58 sawblade",
+"kind": "small",
+"idea": "M5 Autumn Scythe (Thu Sát Liêm)",
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4550": {
+"piece": "c58 sawblade",
+"kind": "notable",
+"idea": "M5 Autumn Scythe (Thu Sát Liêm)",
+"name": "Bleak Autumn (Túc Sát)",
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+4,
+6.0
+],
+[
+"crit_damage_pct",
+"kim",
+4,
+20.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4551": {
+"piece": "c58 sawblade",
+"kind": "notable",
+"idea": "M5 Autumn Scythe (Thu Sát Liêm)",
+"name": "Autumn Scythe (Thu Sát Liêm)",
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+5,
+25.0
+],
+[
+"attack_pct",
+"kim",
+3,
+4.5
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4552": {
+"piece": "c58 sawblade",
+"kind": "notable",
+"idea": "M5 Autumn Scythe (Thu Sát Liêm)",
+"name": "Autumn Wind (Thu Phong)",
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+4,
+6.0
+],
+[
+"art_speed_pct",
+"kim",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4553": {
+"piece": "c58 star",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4554": {
+"piece": "c58 star",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4555": {
+"piece": "c58 star",
+"kind": "notable",
+"idea": null,
+"name": "Death Star (Sát Tinh)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+],
+[
+"crit_damage_pct",
+"kim",
+4,
+20.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4556": {
+"piece": "c58 star",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4557": {
+"piece": "c58 star",
+"kind": "notable",
+"idea": null,
+"name": "Autumn Star (Thu Tinh)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+],
+[
+"attack_pct",
+"kim",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4558": {
+"piece": "c58 star",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4559": {
+"piece": "c58 star",
+"kind": "notable",
+"idea": null,
+"name": "Flying Dart (Phi Tiêu)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+],
+[
+"accuracy_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4560": {
+"piece": "c58 star",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4561": {
+"piece": "c58 claw",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4562": {
+"piece": "c58 claw",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4563": {
+"piece": "c58 claw",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4564": {
+"piece": "c58 claw",
+"kind": "notable",
+"idea": null,
+"name": "Eagle Claw (Ưng Trảo)",
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+4,
+20.0
+],
+[
+"attack_pct",
+"kim",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4565": {
+"piece": "c58 claw",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4566": {
+"piece": "c58 claw",
+"kind": "notable",
+"idea": null,
+"name": "Tiger Claw (Hổ Trảo)",
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+4,
+20.0
+],
+[
+"crit_chance_pct",
+"kim",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4567": {
+"piece": "c58 claw",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4568": {
+"piece": "c58 claw",
+"kind": "notable",
+"idea": null,
+"name": "Sinew-Splitting (Phân Cân Thác Cốt)",
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+4,
+20.0
+],
+[
+"resist_pen_pct",
+"physical",
+4,
+50
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4569": {
+"piece": "c58 d_tadpole_1753",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4570": {
+"piece": "c58 d_tadpole_1753",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4571": {
+"piece": "c58 d_tadpole_1753",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4572": {
+"piece": "c58 d_tadpole_1753",
+"kind": "notable",
+"idea": null,
+"name": "Rice Reaping (Cát Hòa)",
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+4.0,
+6.0
+],
+[
+"crit_damage_pct",
+"kim",
+4.0,
+20.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4573": {
+"piece": "c58 d_tadpole_1753",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4574": {
+"piece": "c58 d_crook_1718",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4575": {
+"piece": "c58 d_crook_1718",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4576": {
+"piece": "c58 d_crook_1718",
+"kind": "notable",
+"idea": null,
+"name": "Autumn Execution (Thu Quyết)",
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+4.0,
+20.0
+],
+[
+"attack_pct",
+"kim",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4577": {
+"piece": "c58 d hairpin 1719",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"kim",
+1.2,
+3.0
+]
+]
+},
+"4578": {
+"piece": "c58 d hairpin 1719",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"kim",
+1.2,
+3.0
+]
+]
+},
+"4579": {
+"piece": "c58 d hairpin 1719",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"kim",
+1.2,
+3.0
+]
+]
+},
+"4580": {
+"piece": "c58 d hairpin 1719",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"kim",
+1.2,
+3.0
+]
+]
+},
+"4581": {
+"piece": "c58 d hairpin 1719",
+"kind": "notable",
+"idea": null,
+"name": "Start of Autumn (Lập Thu)",
+"mods": [
+[
+"art_speed_pct",
+"kim",
+4.0,
+10.0
+],
+[
+"crit_chance_pct",
+"kim",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4582": {
+"piece": "c57 sawblade",
+"kind": "small",
+"idea": "M5 Autumn Scythe (Thu Sát Liêm)",
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4583": {
+"piece": "c57 sawblade",
+"kind": "small",
+"idea": "M5 Autumn Scythe (Thu Sát Liêm)",
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4584": {
+"piece": "c57 sawblade",
+"kind": "small",
+"idea": "M5 Autumn Scythe (Thu Sát Liêm)",
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4585": {
+"piece": "c57 sawblade",
+"kind": "small",
+"idea": "M5 Autumn Scythe (Thu Sát Liêm)",
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4586": {
+"piece": "c57 sawblade",
+"kind": "small",
+"idea": "M5 Autumn Scythe (Thu Sát Liêm)",
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4587": {
+"piece": "c57 sawblade",
+"kind": "small",
+"idea": "M5 Autumn Scythe (Thu Sát Liêm)",
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4588": {
+"piece": "c57 sawblade",
+"kind": "notable",
+"idea": "M5 Autumn Scythe (Thu Sát Liêm)",
+"name": "Bleak Autumn (Túc Sát)",
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+4,
+6.0
+],
+[
+"crit_damage_pct",
+"kim",
+4,
+20.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4589": {
+"piece": "c57 sawblade",
+"kind": "notable",
+"idea": "M5 Autumn Scythe (Thu Sát Liêm)",
+"name": "Autumn Scythe (Thu Sát Liêm)",
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+5,
+25.0
+],
+[
+"attack_pct",
+"kim",
+3,
+4.5
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4590": {
+"piece": "c57 sawblade",
+"kind": "notable",
+"idea": "M5 Autumn Scythe (Thu Sát Liêm)",
+"name": "Autumn Wind (Thu Phong)",
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+4,
+6.0
+],
+[
+"art_speed_pct",
+"kim",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4591": {
+"piece": "c57 star",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4592": {
+"piece": "c57 star",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4593": {
+"piece": "c57 star",
+"kind": "notable",
+"idea": null,
+"name": "Death Star (Sát Tinh)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+],
+[
+"crit_damage_pct",
+"kim",
+4,
+20.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4594": {
+"piece": "c57 star",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4595": {
+"piece": "c57 star",
+"kind": "notable",
+"idea": null,
+"name": "Autumn Star (Thu Tinh)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+],
+[
+"attack_pct",
+"kim",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4596": {
+"piece": "c57 star",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4597": {
+"piece": "c57 star",
+"kind": "notable",
+"idea": null,
+"name": "Flying Dart (Phi Tiêu)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+],
+[
+"accuracy_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4598": {
+"piece": "c57 star",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4599": {
+"piece": "c57 claw",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4600": {
+"piece": "c57 claw",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4601": {
+"piece": "c57 claw",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4602": {
+"piece": "c57 claw",
+"kind": "notable",
+"idea": null,
+"name": "Eagle Claw (Ưng Trảo)",
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+4,
+20.0
+],
+[
+"attack_pct",
+"kim",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4603": {
+"piece": "c57 claw",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4604": {
+"piece": "c57 claw",
+"kind": "notable",
+"idea": null,
+"name": "Tiger Claw (Hổ Trảo)",
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+4,
+20.0
+],
+[
+"crit_chance_pct",
+"kim",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4605": {
+"piece": "c57 claw",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4606": {
+"piece": "c57 claw",
+"kind": "notable",
+"idea": null,
+"name": "Sinew-Splitting (Phân Cân Thác Cốt)",
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+4,
+20.0
+],
+[
+"resist_pen_pct",
+"physical",
+4,
+50
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4607": {
+"piece": "c57 d_hairpin_1729",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4608": {
+"piece": "c57 d_hairpin_1729",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4609": {
+"piece": "c57 d_hairpin_1729",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4610": {
+"piece": "c57 d_hairpin_1729",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+1.2,
+1.8
+]
+]
+},
+"4611": {
+"piece": "c57 d_hairpin_1729",
+"kind": "notable",
+"idea": null,
+"name": "Frost Descent (Sương Giáng)",
+"mods": [
+[
+"crit_chance_pct",
+"kim",
+4.0,
+6.0
+],
+[
+"art_speed_pct",
+"kim",
+4.0,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4612": {
+"piece": "c57 d tadpole 1763",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4613": {
+"piece": "c57 d tadpole 1763",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4614": {
+"piece": "c57 d tadpole 1763",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4615": {
+"piece": "c57 d tadpole 1763",
+"kind": "notable",
+"idea": null,
+"name": "Scythe Wind (Liêm Phong)",
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+4.0,
+20.0
+],
+[
+"crit_chance_pct",
+"kim",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4616": {
+"piece": "c57 d tadpole 1763",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"kim",
+1.2,
+6.0
+]
+]
+},
+"4617": {
+"piece": "c100 whip",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"4618": {
+"piece": "c100 whip",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"4619": {
+"piece": "c100 whip",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"4620": {
+"piece": "c100 whip",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"4621": {
+"piece": "c100 whip",
+"kind": "notable",
+"idea": null,
+"name": "Nine-Section Whip (Cửu Tiết Tiên)",
+"mods": [
+[
+"accuracy_pct",
+"",
+4.0,
+8.0
+],
+[
+"attack_pct",
+"physical",
+4.0,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4622": {
+"piece": "c100 ji",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4623": {
+"piece": "c100 ji",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4624": {
+"piece": "c100 ji",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4625": {
+"piece": "c100 ji",
+"kind": "notable",
+"idea": null,
+"name": "Sky Halberd (Phương Thiên Kích)",
+"mods": [
+[
+"block_rating",
+"",
+4,
+10
+],
+[
+"attack_pct",
+"physical",
+4,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4626": {
+"piece": "c100 ji",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4627": {
+"piece": "c100 ji",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4628": {
+"piece": "c100 ji",
+"kind": "notable",
+"idea": null,
+"name": "Halberd Guard (Kích Vệ)",
+"mods": [
+[
+"block_rating",
+"",
+4,
+10
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4629": {
+"piece": "c100 d_hairpin_1522",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+1.2,
+15
+]
+]
+},
+"4630": {
+"piece": "c100 d_hairpin_1522",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+1.2,
+15
+]
+]
+},
+"4631": {
+"piece": "c100 d_hairpin_1522",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+1.2,
+15
+]
+]
+},
+"4632": {
+"piece": "c100 d_hairpin_1522",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+1.2,
+15
+]
+]
+},
+"4633": {
+"piece": "c100 d_hairpin_1522",
+"kind": "notable",
+"idea": null,
+"name": "Armour Breaker (Phá Giáp)",
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+4.0,
+50
+],
+[
+"attack_pct",
+"physical",
+4.0,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4634": {
+"piece": "c100 crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4635": {
+"piece": "c100 crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4636": {
+"piece": "c100 crescent",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_chance_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"4637": {
+"piece": "c100 crescent",
+"kind": "notable",
+"idea": null,
+"name": "Moon-Fang Halberd (Nguyệt Nha Kích)",
+"mods": [
+[
+"crit_chance_pct",
+"",
+4.0,
+4.0
+],
+[
+"attack_pct",
+"physical",
+4.0,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4638": {
+"piece": "c100 d_ring_1752",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"physical",
+1.2,
+1.5
+]
+]
+},
+"4639": {
+"piece": "c100 d_ring_1752",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"physical",
+1.2,
+1.5
+]
+]
+},
+"4640": {
+"piece": "c100 d_ring_1752",
+"kind": "notable",
+"idea": null,
+"name": "Sweeping Strike (Hoành Tảo)",
+"mods": [
+[
+"attack_pct",
+"physical",
+4.0,
+5.0
+],
+[
+"block_rating",
+"",
+4.0,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4641": {
+"piece": "c100 d_ring_1752",
+"kind": "notable",
+"idea": null,
+"name": "Halberd Shot at the Gate (Viên Môn Xạ Kích)",
+"mods": [
+[
+"attack_pct",
+"physical",
+4.0,
+5.0
+],
+[
+"accuracy_pct",
+"",
+4.0,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4642": {
+"piece": "c100 d_ring_1752",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"physical",
+1.2,
+1.5
+]
+]
+},
+"4643": {
+"piece": "c102 whip",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"4644": {
+"piece": "c102 whip",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"4645": {
+"piece": "c102 whip",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"4646": {
+"piece": "c102 whip",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"accuracy_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"4647": {
+"piece": "c102 whip",
+"kind": "notable",
+"idea": null,
+"name": "Nine-Section Whip (Cửu Tiết Tiên)",
+"mods": [
+[
+"accuracy_pct",
+"",
+4.0,
+8.0
+],
+[
+"attack_pct",
+"physical",
+4.0,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4648": {
+"piece": "c102 ji",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4649": {
+"piece": "c102 ji",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4650": {
+"piece": "c102 ji",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4651": {
+"piece": "c102 ji",
+"kind": "notable",
+"idea": null,
+"name": "Sky Halberd (Phương Thiên Kích)",
+"mods": [
+[
+"block_rating",
+"",
+4,
+10
+],
+[
+"attack_pct",
+"physical",
+4,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4652": {
+"piece": "c102 ji",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4653": {
+"piece": "c102 ji",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4654": {
+"piece": "c102 ji",
+"kind": "notable",
+"idea": null,
+"name": "Halberd Guard (Kích Vệ)",
+"mods": [
+[
+"block_rating",
+"",
+4,
+10
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4655": {
+"piece": "c102 d_crook_1763",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4656": {
+"piece": "c102 d_crook_1763",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4657": {
+"piece": "c102 d_crook_1763",
+"kind": "notable",
+"idea": null,
+"name": "Reclining Moon Glaive (Yển Nguyệt Đao)",
+"mods": [
+[
+"block_rating",
+"",
+4.0,
+10
+],
+[
+"attack_pct",
+"physical",
+4.0,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4658": {
+"piece": "c102 d_ring_1761",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4659": {
+"piece": "c102 d_ring_1761",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4660": {
+"piece": "c102 d_ring_1761",
+"kind": "notable",
+"idea": null,
+"name": "Forest of Halberds (Kích Lâm)",
+"mods": [
+[
+"block_rating",
+"",
+4.0,
+10
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4661": {
+"piece": "c102 d_ring_1761",
+"kind": "notable",
+"idea": null,
+"name": "Deflection (Hóa Kình)",
+"mods": [
+[
+"block_rating",
+"",
+4.0,
+10
+],
+[
+"attack_pct",
+"physical",
+4.0,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4662": {
+"piece": "c102 d_ring_1761",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"4663": {
+"piece": "c102 d_ring_1976",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4664": {
+"piece": "c102 d_ring_1976",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4665": {
+"piece": "c102 d_ring_1976",
+"kind": "notable",
+"idea": null,
+"name": "Thousand-Catty Drop (Thiên Cân Trụy)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+],
+[
+"block_rating",
+"",
+4.0,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4666": {
+"piece": "c102 d_ring_1976",
+"kind": "notable",
+"idea": null,
+"name": "Sinew Changing (Dịch Cân)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+],
+[
+"can_cot",
+"",
+4.0,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4667": {
+"piece": "c102 d_ring_1976",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4668": {
+"piece": "c102 d_hook_1728",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+1.2,
+15
+]
+]
+},
+"4669": {
+"piece": "c102 d_hook_1728",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+1.2,
+15
+]
+]
+},
+"4670": {
+"piece": "c102 d_hook_1728",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+1.2,
+15
+]
+]
+},
+"4671": {
+"piece": "c102 d_hook_1728",
+"kind": "notable",
+"idea": null,
+"name": "Horse-Cutting Sabre (Trảm Mã Đao)",
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+4.0,
+50
+],
+[
+"crit_damage_pct",
+"",
+4.0,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4672": {
+"piece": "c903 great blade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"4673": {
+"piece": "c903 great blade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"4674": {
+"piece": "c903 great blade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"4675": {
+"piece": "c903 great blade",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"sword",
+1.2,
+1.8
+]
+]
+},
+"4676": {
+"piece": "c903 great blade",
+"kind": "notable",
+"idea": null,
+"name": "Great Blade (Đại Kiếm)",
+"mods": [
+[
+"attack_pct",
+"sword",
+4.0,
+6.0
+],
+[
+"crit_damage_pct",
+"sword",
+4.0,
+20.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4677": {
+"piece": "c903 keystone -12",
+"kind": "keystone",
+"name": "Ten Thousand Swords Return (Vạn Kiếm Quy Tông)",
+"effect": "Ten Thousand Swords Return (Vạn Kiếm Quy Tông)",
+"closes": "only arts with the sword form tag may be slotted; wards -30 %",
+"mods": [
+[
+"attack_pct",
+"sword",
+25,
+37.5
+],
+[
+"artifact_attack_pct",
+"",
+25,
+41.6
+]
+]
+},
+"4678": {
+"piece": "c903 keystone +12",
+"kind": "keystone",
+"name": "Called Blow (Báo Chiêu)",
+"effect": "Called Blow (Báo Chiêu)",
+"closes": "crit chance cap 0.50 -> 0.35",
+"mods": [
+[
+"crit_damage_pct",
+"",
+25,
+83.3
+],
+[
+"art_speed_pct",
+"",
+25,
+41.6
+]
+]
+},
+"4679": {
+"piece": "c903 guard_L",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4680": {
+"piece": "c903 guard_L",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4681": {
+"piece": "c903 guard_L",
+"kind": "notable",
+"idea": null,
+"name": "Shoulder Guard (Hộ Kiên)",
+"mods": [
+[
+"artifact_defense_pct",
+"",
+4.0,
+6.6
+],
+[
+"block_rating",
+"",
+4.0,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4682": {
+"piece": "c903 guard_R",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4683": {
+"piece": "c903 guard_R",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4684": {
+"piece": "c903 guard_R",
+"kind": "notable",
+"idea": null,
+"name": "Shoulder Guard (Hộ Kiên)",
+"mods": [
+[
+"artifact_defense_pct",
+"",
+4.0,
+6.6
+],
+[
+"block_rating",
+"",
+4.0,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4685": {
+"piece": "c903 diamond_L",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"element_affinity_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"4686": {
+"piece": "c903 diamond_L",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"element_affinity_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"4687": {
+"piece": "c903 diamond_L",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"element_affinity_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"4688": {
+"piece": "c903 diamond_L",
+"kind": "notable",
+"idea": null,
+"name": "Gold Essence (Kim Tinh)",
+"mods": [
+[
+"element_affinity_pct",
+"",
+4.0,
+4.6
+],
+[
+"artifact_power_pct",
+"",
+4.0,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4689": {
+"piece": "c903 diamond_R",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"element_affinity_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"4690": {
+"piece": "c903 diamond_R",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"element_affinity_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"4691": {
+"piece": "c903 diamond_R",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"element_affinity_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"4692": {
+"piece": "c903 diamond_R",
+"kind": "notable",
+"idea": null,
+"name": "Gold Essence (Kim Tinh)",
+"mods": [
+[
+"element_affinity_pct",
+"",
+4.0,
+4.6
+],
+[
+"artifact_power_pct",
+"",
+4.0,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4693": {
+"piece": "c903 kite",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"4694": {
+"piece": "c903 kite",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"4695": {
+"piece": "c903 kite",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"4696": {
+"piece": "c903 kite",
+"kind": "notable",
+"idea": null,
+"name": "Watching the Game (Quan Kỳ)",
+"mods": [
+[
+"lifespan_pct",
+"",
+4.0,
+1.3
+],
+[
+"ngo_tinh",
+"",
+4.0,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4697": {
+"piece": "c903 kite",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"4698": {
+"piece": "c903 weiqi board",
+"kind": "small",
+"idea": "★ Rotten Axe Handle (Lạn Kha)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"4699": {
+"piece": "c903 weiqi board",
+"kind": "small",
+"idea": "★ Rotten Axe Handle (Lạn Kha)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"4700": {
+"piece": "c903 weiqi board",
+"kind": "small",
+"idea": "★ Rotten Axe Handle (Lạn Kha)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"4701": {
+"piece": "c903 weiqi board",
+"kind": "small",
+"idea": "★ Rotten Axe Handle (Lạn Kha)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"4702": {
+"piece": "c903 weiqi board",
+"kind": "small",
+"idea": "★ Rotten Axe Handle (Lạn Kha)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"4703": {
+"piece": "c903 weiqi board",
+"kind": "small",
+"idea": "★ Rotten Axe Handle (Lạn Kha)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"4704": {
+"piece": "c903 weiqi board",
+"kind": "notable",
+"idea": "★ Rotten Axe Handle (Lạn Kha)",
+"name": "Black Stone (Hắc Tử)",
+"mods": [
+[
+"lifespan_pct",
+"",
+4,
+1.3
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4705": {
+"piece": "c903 weiqi board",
+"kind": "small",
+"idea": "★ Rotten Axe Handle (Lạn Kha)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"4706": {
+"piece": "c903 weiqi board",
+"kind": "notable",
+"idea": "★ Rotten Axe Handle (Lạn Kha)",
+"name": "White Stone (Bạch Tử)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"than_thuc_pct",
+"",
+4,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4707": {
+"piece": "c903 weiqi board",
+"kind": "small",
+"idea": "★ Rotten Axe Handle (Lạn Kha)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"4708": {
+"piece": "c903 weiqi board",
+"kind": "small",
+"idea": "★ Rotten Axe Handle (Lạn Kha)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"4709": {
+"piece": "c903 weiqi board",
+"kind": "small",
+"idea": "★ Rotten Axe Handle (Lạn Kha)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"4710": {
+"piece": "c903 weiqi board",
+"kind": "notable",
+"idea": "★ Rotten Axe Handle (Lạn Kha)",
+"name": "Eye Space (Nhãn Vị)",
+"mods": [
+[
+"lifespan_pct",
+"",
+4,
+1.3
+],
+[
+"accuracy_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4711": {
+"piece": "c903 weiqi board",
+"kind": "small",
+"idea": "★ Rotten Axe Handle (Lạn Kha)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"4712": {
+"piece": "c903 weiqi board",
+"kind": "small",
+"idea": "★ Rotten Axe Handle (Lạn Kha)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"4713": {
+"piece": "c903 weiqi board",
+"kind": "small",
+"idea": "★ Rotten Axe Handle (Lạn Kha)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"4714": {
+"piece": "c903 weiqi board",
+"kind": "notable",
+"idea": "★ Rotten Axe Handle (Lạn Kha)",
+"name": "Ladder (Chinh Tử)",
+"mods": [
+[
+"pierce_pct",
+"",
+4,
+4.0
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4715": {
+"piece": "c903 weiqi board",
+"kind": "small",
+"idea": "★ Rotten Axe Handle (Lạn Kha)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"4716": {
+"piece": "c903 weiqi board",
+"kind": "notable",
+"idea": "★ Rotten Axe Handle (Lạn Kha)",
+"name": "Ko Fight (Tranh Kiếp)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4717": {
+"piece": "c903 weiqi board",
+"kind": "small",
+"idea": "★ Rotten Axe Handle (Lạn Kha)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"4718": {
+"piece": "c903 weiqi board",
+"kind": "notable",
+"idea": "★ Rotten Axe Handle (Lạn Kha)",
+"name": "Endgame (Thu Quan)",
+"mods": [
+[
+"lifespan_pct",
+"",
+4,
+1.3
+],
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4719": {
+"piece": "c903 weiqi board",
+"kind": "small",
+"idea": "★ Rotten Axe Handle (Lạn Kha)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"4720": {
+"piece": "c903 weiqi board",
+"kind": "small",
+"idea": "★ Rotten Axe Handle (Lạn Kha)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"4721": {
+"piece": "c903 weiqi board",
+"kind": "small",
+"idea": "★ Rotten Axe Handle (Lạn Kha)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"4722": {
+"piece": "c903 weiqi board",
+"kind": "notable",
+"idea": "★ Rotten Axe Handle (Lạn Kha)",
+"name": "Rotten Axe Handle (Lạn Kha)",
+"mods": [
+[
+"lifespan_pct",
+"",
+5,
+1.6
+],
+[
+"tam_ma_resist_pct",
+"",
+3,
+2.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4723": {
+"piece": "c903 linked rings",
+"kind": "small",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4724": {
+"piece": "c903 linked rings",
+"kind": "small",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4725": {
+"piece": "c903 linked rings",
+"kind": "notable",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"name": "Bronze Mirror (Đồng Kính)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+4,
+3.0
+],
+[
+"artifact_attack_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4726": {
+"piece": "c903 linked rings",
+"kind": "small",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"mods": [
+[
+"artifact_attack_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4727": {
+"piece": "c903 linked rings",
+"kind": "notable",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"name": "Twin Reflection (Song Ảnh)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+4,
+3.0
+],
+[
+"accuracy_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4728": {
+"piece": "c903 linked rings",
+"kind": "small",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4729": {
+"piece": "c903 linked rings",
+"kind": "notable",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"name": "Nine Linked Rings (Cửu Liên Hoàn)",
+"mods": [
+[
+"artifact_attack_pct",
+"",
+4,
+6.6
+],
+[
+"artifact_power_pct",
+"",
+4,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4730": {
+"piece": "c903 linked rings",
+"kind": "small",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"mods": [
+[
+"artifact_attack_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4731": {
+"piece": "c903 linked rings",
+"kind": "small",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4732": {
+"piece": "c903 linked rings",
+"kind": "small",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4733": {
+"piece": "c903 linked rings",
+"kind": "small",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4734": {
+"piece": "c903 linked rings",
+"kind": "notable",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"name": "Mirror Sense (Kính Thức)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+4,
+3.0
+],
+[
+"soul_res_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4735": {
+"piece": "c903 linked rings",
+"kind": "small",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"mods": [
+[
+"artifact_attack_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4736": {
+"piece": "c903 linked rings",
+"kind": "small",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"mods": [
+[
+"artifact_attack_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4737": {
+"piece": "c903 linked rings",
+"kind": "small",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"mods": [
+[
+"artifact_attack_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4738": {
+"piece": "c903 linked rings",
+"kind": "small",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4739": {
+"piece": "c903 linked rings",
+"kind": "notable",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"name": "Split Thought (Phân Niệm)",
+"mods": [
+[
+"artifact_attack_pct",
+"",
+4,
+6.6
+],
+[
+"art_speed_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4740": {
+"piece": "c903 linked rings",
+"kind": "small",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4741": {
+"piece": "c903 linked rings",
+"kind": "small",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4742": {
+"piece": "c903 linked rings",
+"kind": "small",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4743": {
+"piece": "c903 linked rings",
+"kind": "small",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"mods": [
+[
+"artifact_attack_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4744": {
+"piece": "c903 linked rings",
+"kind": "notable",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"name": "Divided Divine Sense (Thần Thức Phân Hóa)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+2,
+1.5
+]
+],
+"pending": [],
+"cap": "#2",
+"effect": null,
+"twin_copy": false
+},
+"4745": {
+"piece": "c903 linked rings",
+"kind": "small",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4746": {
+"piece": "c903 linked rings",
+"kind": "small",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"mods": [
+[
+"artifact_attack_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"4747": {
+"piece": "c903 linked rings",
+"kind": "small",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4748": {
+"piece": "c903 linked rings",
+"kind": "small",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4749": {
+"piece": "c903 linked rings",
+"kind": "notable",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"name": "Bright Mirror (Minh Kính)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+4,
+3.0
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4750": {
+"piece": "c903 linked rings",
+"kind": "small",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4751": {
+"piece": "c903 linked rings",
+"kind": "small",
+"idea": "M3 Divided Mirror (Phân Thần Kính)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4752": {
+"piece": "c903 pentagons R",
+"kind": "small",
+"idea": "★ Five Metals (Ngũ Kim)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4753": {
+"piece": "c903 pentagons R",
+"kind": "small",
+"idea": "★ Five Metals (Ngũ Kim)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4754": {
+"piece": "c903 pentagons R",
+"kind": "small",
+"idea": "★ Five Metals (Ngũ Kim)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4755": {
+"piece": "c903 pentagons R",
+"kind": "notable",
+"idea": "★ Five Metals (Ngũ Kim)",
+"name": "Red Gold (Xích Kim)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+4,
+3.0
+],
+[
+"element_affinity_pct",
+"",
+4,
+4.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4756": {
+"piece": "c903 pentagons R",
+"kind": "small",
+"idea": "★ Five Metals (Ngũ Kim)",
+"mods": [
+[
+"element_affinity_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"4757": {
+"piece": "c903 pentagons R",
+"kind": "small",
+"idea": "★ Five Metals (Ngũ Kim)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4758": {
+"piece": "c903 pentagons R",
+"kind": "notable",
+"idea": "★ Five Metals (Ngũ Kim)",
+"name": "Green Bronze (Thanh Đồng)",
+"mods": [
+[
+"element_affinity_pct",
+"",
+4,
+4.6
+],
+[
+"artifact_attack_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4759": {
+"piece": "c903 pentagons R",
+"kind": "small",
+"idea": "★ Five Metals (Ngũ Kim)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4760": {
+"piece": "c903 pentagons R",
+"kind": "small",
+"idea": "★ Five Metals (Ngũ Kim)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4761": {
+"piece": "c903 pentagons R",
+"kind": "notable",
+"idea": "★ Five Metals (Ngũ Kim)",
+"name": "Five Metals (Ngũ Kim)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+5,
+3.8
+],
+[
+"refining_success",
+"",
+3,
+1.5
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4762": {
+"piece": "c903 pentagons R",
+"kind": "small",
+"idea": "★ Five Metals (Ngũ Kim)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4763": {
+"piece": "c903 pentagons R",
+"kind": "small",
+"idea": "★ Five Metals (Ngũ Kim)",
+"mods": [
+[
+"element_affinity_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"4764": {
+"piece": "c903 pentagons R",
+"kind": "notable",
+"idea": "★ Five Metals (Ngũ Kim)",
+"name": "Snow Silver (Tuyết Ngân)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+4,
+3.0
+],
+[
+"artifact_defense_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4765": {
+"piece": "c903 pentagons R",
+"kind": "small",
+"idea": "★ Five Metals (Ngũ Kim)",
+"mods": [
+[
+"element_affinity_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"4766": {
+"piece": "c903 pentagons R",
+"kind": "small",
+"idea": "★ Five Metals (Ngũ Kim)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4767": {
+"piece": "c903 pentagons L",
+"kind": "small",
+"idea": "★ Five Metals (Ngũ Kim)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4768": {
+"piece": "c903 pentagons L",
+"kind": "small",
+"idea": "★ Five Metals (Ngũ Kim)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4769": {
+"piece": "c903 pentagons L",
+"kind": "small",
+"idea": "★ Five Metals (Ngũ Kim)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4770": {
+"piece": "c903 pentagons L",
+"kind": "notable",
+"idea": "★ Five Metals (Ngũ Kim)",
+"name": "Red Gold (Xích Kim)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+4,
+3.0
+],
+[
+"element_affinity_pct",
+"",
+4,
+4.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4771": {
+"piece": "c903 pentagons L",
+"kind": "small",
+"idea": "★ Five Metals (Ngũ Kim)",
+"mods": [
+[
+"element_affinity_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"4772": {
+"piece": "c903 pentagons L",
+"kind": "small",
+"idea": "★ Five Metals (Ngũ Kim)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4773": {
+"piece": "c903 pentagons L",
+"kind": "notable",
+"idea": "★ Five Metals (Ngũ Kim)",
+"name": "Green Bronze (Thanh Đồng)",
+"mods": [
+[
+"element_affinity_pct",
+"",
+4,
+4.6
+],
+[
+"artifact_attack_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4774": {
+"piece": "c903 pentagons L",
+"kind": "small",
+"idea": "★ Five Metals (Ngũ Kim)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4775": {
+"piece": "c903 pentagons L",
+"kind": "small",
+"idea": "★ Five Metals (Ngũ Kim)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4776": {
+"piece": "c903 pentagons L",
+"kind": "notable",
+"idea": "★ Five Metals (Ngũ Kim)",
+"name": "Five Metals (Ngũ Kim)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+5,
+3.8
+],
+[
+"refining_success",
+"",
+3,
+1.5
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4777": {
+"piece": "c903 pentagons L",
+"kind": "small",
+"idea": "★ Five Metals (Ngũ Kim)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4778": {
+"piece": "c903 pentagons L",
+"kind": "small",
+"idea": "★ Five Metals (Ngũ Kim)",
+"mods": [
+[
+"element_affinity_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"4779": {
+"piece": "c903 pentagons L",
+"kind": "notable",
+"idea": "★ Five Metals (Ngũ Kim)",
+"name": "Snow Silver (Tuyết Ngân)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+4,
+3.0
+],
+[
+"artifact_defense_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"4780": {
+"piece": "c903 pentagons L",
+"kind": "small",
+"idea": "★ Five Metals (Ngũ Kim)",
+"mods": [
+[
+"element_affinity_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"4781": {
+"piece": "c903 pentagons L",
+"kind": "small",
+"idea": "★ Five Metals (Ngũ Kim)",
+"mods": [
+[
+"artifact_power_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4782": {
+"piece": "c903 ring_1717",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4783": {
+"piece": "c903 ring_1717",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4784": {
+"piece": "c903 ring_1717",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"4785": {
+"piece": "c903 ring_1717",
+"kind": "notable",
+"idea": null,
+"name": "Demon-Revealing Mirror (Chiếu Yêu Kính)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+4.0,
+3.0
+],
+[
+"artifact_attack_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"4786": {
+"piece": "c903 keystone_rim_R",
+"kind": "keystone",
+"name": "Autumn Harvest (Thu Hoạch)",
+"effect": "Autumn Harvest (Thu Hoạch)",
+"closes": "linh lực regeneration 0",
+"mods": [
+[
+"linh_luc_on_crit_pct",
+"",
+30,
+4.76
+],
+[
+"crit_chance_pct",
+"",
+20,
+20.0
+]
+]
+},
+"4787": {
+"piece": "c903 keystone_rim_L",
+"kind": "keystone",
+"name": "Unyielding Breath (Bất Khuất)",
+"effect": "Unyielding Breath (Bất Khuất)",
+"closes": "maximum health -15 %",
+"mods": [
+[
+"can_cot",
+"",
+25,
+8.33
+],
+[
+"block_rating",
+"",
+25,
+62
+]
+]
+}
+}
+}

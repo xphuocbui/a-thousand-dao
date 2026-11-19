@@ -1,0 +1,2017 @@
+{
+"map": "v5-frozen-2026-11-19",
+"map_sha256": "dbdfd5dcd10b49f843c597b48e169aec86153793382986f29a46dea3247eaa96",
+"area": "chaos-fire",
+"nodes": {
+"8299": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8300": {
+"piece": "c3 flames_1",
+"kind": "notable",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"name": "Chaos Spark (Hỗn Tinh)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+],
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8301": {
+"piece": "c3 flames_1",
+"kind": "notable",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"name": "Mixed Flame (Tạp Diễm)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+4,
+6.0
+],
+[
+"resist_pen_pct",
+"chaos",
+4,
+60
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8302": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8303": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8304": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8305": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8306": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8307": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8308": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8309": {
+"piece": "c3 flames_1",
+"kind": "notable",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"name": "Twisting Fire (Triền Hỏa)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8310": {
+"piece": "c3 flames_1",
+"kind": "notable",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"name": "Heat Haze (Dương Diễm)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+4,
+6.0
+],
+[
+"evade_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8311": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8312": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8313": {
+"piece": "c3 flames_1",
+"kind": "notable",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"name": "Purple Flame (Tử Diễm)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+4,
+6.0
+],
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8314": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8315": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8316": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8317": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8318": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8319": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8320": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8321": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8322": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8323": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8324": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8325": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8326": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8327": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8328": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8329": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8330": {
+"piece": "c3 flames_1",
+"kind": "notable",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"name": "First Fire (Sơ Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+4,
+6.0
+],
+[
+"than_hon",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8331": {
+"piece": "c3 flames_1",
+"kind": "notable",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"name": "Leaping Flame (Khiêu Diễm)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+4,
+6.0
+],
+[
+"art_speed_pct",
+"hoa",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8332": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8333": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8334": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8335": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8336": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8337": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8338": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8339": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8340": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8341": {
+"piece": "c3 flames_1",
+"kind": "notable",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"name": "Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+5,
+7.5
+],
+[
+"crit_damage_pct",
+"hoa",
+3,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8342": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8343": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8344": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8345": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8346": {
+"piece": "c3 flames_1",
+"kind": "notable",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"name": "Smoke and Flame (Yên Hỏa)",
+"mods": [
+[
+"attack_pct",
+"over_time,hoa",
+4,
+8.0
+],
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8347": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8348": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8349": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8350": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8351": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8352": {
+"piece": "c3 flames_1",
+"kind": "notable",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"name": "Void Fire (Hư Hỏa)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+],
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8353": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8354": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8355": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8356": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8357": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8358": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8359": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8360": {
+"piece": "c3 flames_1",
+"kind": "small",
+"idea": "★ Chaos Flame (Hỗn Độn Hỏa)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"8361": {
+"piece": "c3 flames_2",
+"kind": "notable",
+"idea": "★ Hearth (Táo Hỏa)",
+"name": "Embers Kept (Lưu Tẫn)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"resist_pct",
+"fire",
+4,
+150
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8362": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"than_hon",
+"",
+1.2,
+0.4
+]
+]
+},
+"8363": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"than_hon",
+"",
+1.2,
+0.4
+]
+]
+},
+"8364": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"than_hon",
+"",
+1.2,
+0.4
+]
+]
+},
+"8365": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"than_hon",
+"",
+1.2,
+0.4
+]
+]
+},
+"8366": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8367": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"than_hon",
+"",
+1.2,
+0.4
+]
+]
+},
+"8368": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8369": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8370": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"than_hon",
+"",
+1.2,
+0.4
+]
+]
+},
+"8371": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"than_hon",
+"",
+1.2,
+0.4
+]
+]
+},
+"8372": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"than_hon",
+"",
+1.2,
+0.4
+]
+]
+},
+"8373": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8374": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8375": {
+"piece": "c3 flames_2",
+"kind": "notable",
+"idea": "★ Hearth (Táo Hỏa)",
+"name": "Hearthstone (Táo Thạch)",
+"mods": [
+[
+"than_hon",
+"",
+4,
+1.33
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8376": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"than_hon",
+"",
+1.2,
+0.4
+]
+]
+},
+"8377": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"than_hon",
+"",
+1.2,
+0.4
+]
+]
+},
+"8378": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"than_hon",
+"",
+1.2,
+0.4
+]
+]
+},
+"8379": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"than_hon",
+"",
+1.2,
+0.4
+]
+]
+},
+"8380": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8381": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"than_hon",
+"",
+1.2,
+0.4
+]
+]
+},
+"8382": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"than_hon",
+"",
+1.2,
+0.4
+]
+]
+},
+"8383": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8384": {
+"piece": "c3 flames_2",
+"kind": "notable",
+"idea": "★ Hearth (Táo Hỏa)",
+"name": "Inner Warmth (Nội Ôn)",
+"mods": [
+[
+"than_hon",
+"",
+4,
+1.33
+],
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8385": {
+"piece": "c3 flames_2",
+"kind": "notable",
+"idea": "★ Hearth (Táo Hỏa)",
+"name": "Family Altar (Gia Đàn)",
+"mods": [
+[
+"than_hon",
+"",
+4,
+1.33
+],
+[
+"soul_res_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8386": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8387": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"than_hon",
+"",
+1.2,
+0.4
+]
+]
+},
+"8388": {
+"piece": "c3 flames_2",
+"kind": "notable",
+"idea": "★ Hearth (Táo Hỏa)",
+"name": "Home Fire (Gia Hỏa)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"health_regen_pct",
+"",
+4,
+0.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8389": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"than_hon",
+"",
+1.2,
+0.4
+]
+]
+},
+"8390": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8391": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"than_hon",
+"",
+1.2,
+0.4
+]
+]
+},
+"8392": {
+"piece": "c3 flames_2",
+"kind": "notable",
+"idea": "★ Hearth (Táo Hỏa)",
+"name": "Hearth (Táo Hỏa)",
+"mods": [
+[
+"than_hon",
+"",
+5,
+1.66
+],
+[
+"health_regen_pct",
+"",
+3,
+0.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8393": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"than_hon",
+"",
+1.2,
+0.4
+]
+]
+},
+"8394": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"8395": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"than_hon",
+"",
+1.2,
+0.4
+]
+]
+},
+"8396": {
+"piece": "c3 flames_2",
+"kind": "small",
+"idea": "★ Hearth (Táo Hỏa)",
+"mods": [
+[
+"than_hon",
+"",
+1.2,
+0.4
+]
+]
+},
+"8397": {
+"piece": "c3 flames_2",
+"kind": "notable",
+"idea": "★ Hearth (Táo Hỏa)",
+"name": "Glowing Coals (Xích Thán)",
+"mods": [
+[
+"than_hon",
+"",
+4,
+1.33
+],
+[
+"attack_pct",
+"hoa",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8398": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"art_speed_pct",
+"hoa",
+1.2,
+3.0
+]
+]
+},
+"8399": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"art_speed_pct",
+"hoa",
+1.2,
+3.0
+]
+]
+},
+"8400": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8401": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8402": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"art_speed_pct",
+"hoa",
+1.2,
+3.0
+]
+]
+},
+"8403": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8404": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"art_speed_pct",
+"hoa",
+1.2,
+3.0
+]
+]
+},
+"8405": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"art_speed_pct",
+"hoa",
+1.2,
+3.0
+]
+]
+},
+"8406": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"art_speed_pct",
+"hoa",
+1.2,
+3.0
+]
+]
+},
+"8407": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8408": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"art_speed_pct",
+"hoa",
+1.2,
+3.0
+]
+]
+},
+"8409": {
+"piece": "c3 flames_3",
+"kind": "notable",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"name": "Bright Spark (Diệu Tinh)",
+"mods": [
+[
+"art_speed_pct",
+"hoa",
+4,
+10.0
+],
+[
+"crit_chance_pct",
+"hoa",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8410": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"art_speed_pct",
+"hoa",
+1.2,
+3.0
+]
+]
+},
+"8411": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8412": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"art_speed_pct",
+"hoa",
+1.2,
+3.0
+]
+]
+},
+"8413": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"art_speed_pct",
+"hoa",
+1.2,
+3.0
+]
+]
+},
+"8414": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"art_speed_pct",
+"hoa",
+1.2,
+3.0
+]
+]
+},
+"8415": {
+"piece": "c3 flames_3",
+"kind": "notable",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"name": "Spark Store (Tích Tinh)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+],
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8416": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"art_speed_pct",
+"hoa",
+1.2,
+3.0
+]
+]
+},
+"8417": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"art_speed_pct",
+"hoa",
+1.2,
+3.0
+]
+]
+},
+"8418": {
+"piece": "c3 flames_3",
+"kind": "notable",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"name": "Kindle (Điểm Hỏa)",
+"mods": [
+[
+"art_speed_pct",
+"hoa",
+4,
+10.0
+],
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8419": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"art_speed_pct",
+"hoa",
+1.2,
+3.0
+]
+]
+},
+"8420": {
+"piece": "c3 flames_3",
+"kind": "notable",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"name": "Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"art_speed_pct",
+"hoa",
+5,
+12.5
+],
+[
+"art_cost_pct",
+"hoa",
+3,
+-7.5
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8421": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8422": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8423": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"art_speed_pct",
+"hoa",
+1.2,
+3.0
+]
+]
+},
+"8424": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"art_speed_pct",
+"hoa",
+1.2,
+3.0
+]
+]
+},
+"8425": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8426": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"art_speed_pct",
+"hoa",
+1.2,
+3.0
+]
+]
+},
+"8427": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"art_speed_pct",
+"hoa",
+1.2,
+3.0
+]
+]
+},
+"8428": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"art_speed_pct",
+"hoa",
+1.2,
+3.0
+]
+]
+},
+"8429": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"art_speed_pct",
+"hoa",
+1.2,
+3.0
+]
+]
+},
+"8430": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"art_speed_pct",
+"hoa",
+1.2,
+3.0
+]
+]
+},
+"8431": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"art_speed_pct",
+"hoa",
+1.2,
+3.0
+]
+]
+},
+"8432": {
+"piece": "c3 flames_3",
+"kind": "notable",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"name": "Quick Flame (Tốc Hỏa)",
+"mods": [
+[
+"art_speed_pct",
+"hoa",
+4,
+10.0
+],
+[
+"accuracy_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8433": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8434": {
+"piece": "c3 flames_3",
+"kind": "small",
+"idea": "★ Spark of Origin (Nguyên Hỏa Tinh)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+}
+}
+}

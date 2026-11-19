@@ -1,0 +1,15172 @@
+{
+"map": "v5-frozen-2026-11-19",
+"map_sha256": "dbdfd5dcd10b49f843c597b48e169aec86153793382986f29a46dea3247eaa96",
+"area": "earth",
+"nodes": {
+"704": {
+"piece": "base2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"705": {
+"piece": "base2",
+"kind": "notable",
+"idea": null,
+"name": "Earth Start (Thổ Khởi)",
+"mods": [
+[
+"dao_tam",
+"",
+4,
+1.33
+],
+[
+"attack_pct",
+"tho",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"706": {
+"piece": "base2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"707": {
+"piece": "base2",
+"kind": "notable",
+"idea": null,
+"name": "Solid Ground (Kiên Địa)",
+"mods": [
+[
+"dao_tam",
+"",
+4,
+1.33
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"708": {
+"piece": "base2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"709": {
+"piece": "base2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"710": {
+"piece": "base2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"711": {
+"piece": "base2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"712": {
+"piece": "base2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"713": {
+"piece": "base2",
+"kind": "notable",
+"idea": null,
+"name": "Unwavering Faith (Tín Niệm)",
+"mods": [
+[
+"dao_tam",
+"",
+4,
+1.33
+],
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"714": {
+"piece": "base2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"715": {
+"piece": "base2",
+"kind": "notable",
+"idea": null,
+"name": "Earth Root (Thổ Căn)",
+"mods": [
+[
+"attack_pct",
+"tho",
+4,
+6.0
+],
+[
+"block_rating",
+"",
+4,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"716": {
+"piece": "base2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"717": {
+"piece": "base2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"718": {
+"piece": "base2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"719": {
+"piece": "base2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"1431": {
+"piece": "base12",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"1432": {
+"piece": "base12",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"1433": {
+"piece": "base12",
+"kind": "notable",
+"idea": null,
+"name": "Earth Seal (Thổ Ấn)",
+"mods": [
+[
+"dao_tam",
+"",
+4,
+1.33
+],
+[
+"attack_pct",
+"tho",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"1434": {
+"piece": "base12",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"1435": {
+"piece": "base12",
+"kind": "notable",
+"idea": null,
+"name": "Sky-Bearing Pillar (Kình Thiên Trụ)",
+"mods": [
+[
+"dao_tam",
+"",
+4,
+1.33
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"1436": {
+"piece": "base12",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"1947": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"1948": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"1949": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"1950": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"1951": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"1952": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"1955": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"1956": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"1957": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"1958": {
+"piece": "loose",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"2980": {
+"piece": "c87 tower",
+"kind": "small",
+"idea": "E1 Nine Palaces (Cửu Cung Đồ)",
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"2981": {
+"piece": "c87 tower",
+"kind": "small",
+"idea": "E1 Nine Palaces (Cửu Cung Đồ)",
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"2982": {
+"piece": "c87 tower",
+"kind": "small",
+"idea": "E1 Nine Palaces (Cửu Cung Đồ)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"2983": {
+"piece": "c87 tower",
+"kind": "small",
+"idea": "E1 Nine Palaces (Cửu Cung Đồ)",
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"2984": {
+"piece": "c87 tower",
+"kind": "small",
+"idea": "E1 Nine Palaces (Cửu Cung Đồ)",
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"2985": {
+"piece": "c87 tower",
+"kind": "small",
+"idea": "E1 Nine Palaces (Cửu Cung Đồ)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"2986": {
+"piece": "c87 tower",
+"kind": "small",
+"idea": "E1 Nine Palaces (Cửu Cung Đồ)",
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"2987": {
+"piece": "c87 tower",
+"kind": "small",
+"idea": "E1 Nine Palaces (Cửu Cung Đồ)",
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"2988": {
+"piece": "c87 tower",
+"kind": "small",
+"idea": "E1 Nine Palaces (Cửu Cung Đồ)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"2989": {
+"piece": "c87 tower",
+"kind": "notable",
+"idea": "E1 Nine Palaces (Cửu Cung Đồ)",
+"name": "Palace Gate (Cung Môn)",
+"mods": [
+[
+"formation_power_pct",
+"",
+5,
+5.0
+],
+[
+"than_thuc_pct",
+"",
+3,
+2.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"2990": {
+"piece": "c87 tower",
+"kind": "notable",
+"idea": "E1 Nine Palaces (Cửu Cung Đồ)",
+"name": "Nine Palaces (Cửu Cung)",
+"mods": [
+[
+"formation_power_pct",
+"",
+4,
+4.0
+],
+[
+"than_thuc_pct",
+"",
+4,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"2991": {
+"piece": "c87 stone",
+"kind": "notable",
+"idea": "★ Stone Skin (Thạch Phu)",
+"name": "Granite Skin (Cương Phu)",
+"mods": [
+[
+"resist_pct",
+"physical",
+4,
+125
+],
+[
+"resist_pct",
+"force",
+4,
+125
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"2992": {
+"piece": "c87 stone",
+"kind": "notable",
+"idea": "★ Stone Skin (Thạch Phu)",
+"name": "Stone Skin (Thạch Phu)",
+"mods": [
+[
+"resist_pct",
+"physical",
+5,
+156
+],
+[
+"khi_huyet_pct",
+"",
+3,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"2993": {
+"piece": "c87 stone",
+"kind": "small",
+"idea": "★ Stone Skin (Thạch Phu)",
+"mods": [
+[
+"resist_pct",
+"physical",
+1.2,
+37
+]
+]
+},
+"2994": {
+"piece": "c87 stone",
+"kind": "small",
+"idea": "★ Stone Skin (Thạch Phu)",
+"mods": [
+[
+"resist_pct",
+"physical",
+1.2,
+37
+]
+]
+},
+"2995": {
+"piece": "c87 stone",
+"kind": "small",
+"idea": "★ Stone Skin (Thạch Phu)",
+"mods": [
+[
+"resist_pct",
+"force",
+1.2,
+37
+]
+]
+},
+"2996": {
+"piece": "c87 stone",
+"kind": "small",
+"idea": "★ Stone Skin (Thạch Phu)",
+"mods": [
+[
+"resist_pct",
+"physical",
+1.2,
+37
+]
+]
+},
+"2997": {
+"piece": "c87 stone",
+"kind": "small",
+"idea": "★ Stone Skin (Thạch Phu)",
+"mods": [
+[
+"resist_pct",
+"physical",
+1.2,
+37
+]
+]
+},
+"2998": {
+"piece": "c87 stone",
+"kind": "small",
+"idea": "★ Stone Skin (Thạch Phu)",
+"mods": [
+[
+"resist_pct",
+"force",
+1.2,
+37
+]
+]
+},
+"2999": {
+"piece": "c87 stone",
+"kind": "small",
+"idea": "★ Stone Skin (Thạch Phu)",
+"mods": [
+[
+"resist_pct",
+"physical",
+1.2,
+37
+]
+]
+},
+"3000": {
+"piece": "c87 stone",
+"kind": "small",
+"idea": "★ Stone Skin (Thạch Phu)",
+"mods": [
+[
+"resist_pct",
+"physical",
+1.2,
+37
+]
+]
+},
+"3001": {
+"piece": "c87 foot",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"physical",
+1.2,
+37
+]
+]
+},
+"3002": {
+"piece": "c87 foot",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"physical",
+1.2,
+37
+]
+]
+},
+"3003": {
+"piece": "c87 foot",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"physical",
+1.2,
+37
+]
+]
+},
+"3004": {
+"piece": "c87 foot",
+"kind": "notable",
+"idea": null,
+"name": "Sunken Stance (Trầm Bộ)",
+"mods": [
+[
+"resist_pct",
+"physical",
+4.0,
+125
+],
+[
+"resist_pct",
+"force",
+4.0,
+125
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3005": {
+"piece": "c87 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"3006": {
+"piece": "c87 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"3007": {
+"piece": "c87 d_arch",
+"kind": "notable",
+"idea": null,
+"name": "Palace Lantern (Cung Đăng)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+4.0,
+3.0
+],
+[
+"formation_power_pct",
+"",
+4.0,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3008": {
+"piece": "c87 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"3009": {
+"piece": "c87 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"3010": {
+"piece": "c89 tower",
+"kind": "small",
+"idea": "E1 Nine Palaces (Cửu Cung Đồ)",
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3011": {
+"piece": "c89 tower",
+"kind": "small",
+"idea": "E1 Nine Palaces (Cửu Cung Đồ)",
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3012": {
+"piece": "c89 tower",
+"kind": "small",
+"idea": "E1 Nine Palaces (Cửu Cung Đồ)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"3013": {
+"piece": "c89 tower",
+"kind": "small",
+"idea": "E1 Nine Palaces (Cửu Cung Đồ)",
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3014": {
+"piece": "c89 tower",
+"kind": "small",
+"idea": "E1 Nine Palaces (Cửu Cung Đồ)",
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3015": {
+"piece": "c89 tower",
+"kind": "small",
+"idea": "E1 Nine Palaces (Cửu Cung Đồ)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"3016": {
+"piece": "c89 tower",
+"kind": "small",
+"idea": "E1 Nine Palaces (Cửu Cung Đồ)",
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3017": {
+"piece": "c89 tower",
+"kind": "small",
+"idea": "E1 Nine Palaces (Cửu Cung Đồ)",
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3018": {
+"piece": "c89 tower",
+"kind": "small",
+"idea": "E1 Nine Palaces (Cửu Cung Đồ)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"3019": {
+"piece": "c89 tower",
+"kind": "notable",
+"idea": "E1 Nine Palaces (Cửu Cung Đồ)",
+"name": "Formation Within a Formation (Trận Trung Trận)",
+"mods": [
+[
+"formation_power_pct",
+"",
+2,
+2.0
+]
+],
+"pending": [],
+"cap": "#15",
+"effect": null,
+"twin_copy": false
+},
+"3020": {
+"piece": "c89 tower",
+"kind": "notable",
+"idea": "E1 Nine Palaces (Cửu Cung Đồ)",
+"name": "Nine Palaces (Cửu Cung)",
+"mods": [
+[
+"formation_power_pct",
+"",
+4,
+4.0
+],
+[
+"than_thuc_pct",
+"",
+4,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3021": {
+"piece": "c89 foot",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"physical",
+1.2,
+37
+]
+]
+},
+"3022": {
+"piece": "c89 foot",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"physical",
+1.2,
+37
+]
+]
+},
+"3023": {
+"piece": "c89 foot",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"physical",
+1.2,
+37
+]
+]
+},
+"3024": {
+"piece": "c89 foot",
+"kind": "notable",
+"idea": null,
+"name": "Sunken Stance (Trầm Bộ)",
+"mods": [
+[
+"resist_pct",
+"physical",
+4.0,
+125
+],
+[
+"resist_pct",
+"force",
+4.0,
+125
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3025": {
+"piece": "c89 terraces",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3026": {
+"piece": "c89 terraces",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3027": {
+"piece": "c89 terraces",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3028": {
+"piece": "c89 terraces",
+"kind": "notable",
+"idea": null,
+"name": "Jade Stairs (Ngọc Giai)",
+"mods": [
+[
+"dao_tam",
+"",
+4,
+1.33
+],
+[
+"formation_power_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3029": {
+"piece": "c89 terraces",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3030": {
+"piece": "c89 terraces",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3031": {
+"piece": "c89 terraces",
+"kind": "notable",
+"idea": null,
+"name": "Quiet Court (Tĩnh Đình)",
+"mods": [
+[
+"dao_tam",
+"",
+4,
+1.33
+],
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3032": {
+"piece": "c89 terraces",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3033": {
+"piece": "c89 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"3034": {
+"piece": "c89 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"3035": {
+"piece": "c89 d_arch",
+"kind": "notable",
+"idea": null,
+"name": "Palace Lantern (Cung Đăng)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+4.0,
+3.0
+],
+[
+"formation_power_pct",
+"",
+4.0,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3036": {
+"piece": "c89 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"3037": {
+"piece": "c89 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"3038": {
+"piece": "c89 d_split",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3039": {
+"piece": "c89 d_split",
+"kind": "notable",
+"idea": null,
+"name": "Scripture Pavilion (Tàng Kinh Các)",
+"mods": [
+[
+"dao_tam",
+"",
+4.0,
+1.33
+],
+[
+"than_thuc_pct",
+"",
+4.0,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3040": {
+"piece": "c89 d_split",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3041": {
+"piece": "c89 d_split",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3042": {
+"piece": "c24 peak_inner",
+"kind": "notable",
+"idea": null,
+"name": "Central Peak (Trung Nhạc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+],
+[
+"block_rating",
+"",
+4.0,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3043": {
+"piece": "c24 peak_inner",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3044": {
+"piece": "c24 peak_inner",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3045": {
+"piece": "c24 peak_inner",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3046": {
+"piece": "c24 peak_inner",
+"kind": "notable",
+"idea": null,
+"name": "Stone Hut (Thạch Ốc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+],
+[
+"resist_pct",
+"physical",
+4.0,
+125
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3047": {
+"piece": "c24 peak_outer",
+"kind": "small",
+"idea": "E3 Five Peaks (Ngũ Nhạc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3048": {
+"piece": "c24 peak_outer",
+"kind": "small",
+"idea": "E3 Five Peaks (Ngũ Nhạc)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3049": {
+"piece": "c24 peak_outer",
+"kind": "small",
+"idea": "E3 Five Peaks (Ngũ Nhạc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3050": {
+"piece": "c24 peak_outer",
+"kind": "small",
+"idea": "E3 Five Peaks (Ngũ Nhạc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3051": {
+"piece": "c24 peak_outer",
+"kind": "notable",
+"idea": "E3 Five Peaks (Ngũ Nhạc)",
+"name": "Five Peaks (Ngũ Nhạc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"block_rating",
+"",
+4,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3052": {
+"piece": "c24 peak_outer",
+"kind": "small",
+"idea": "E3 Five Peaks (Ngũ Nhạc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3053": {
+"piece": "c24 peak_outer",
+"kind": "small",
+"idea": "E3 Five Peaks (Ngũ Nhạc)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3054": {
+"piece": "c24 peak_outer",
+"kind": "small",
+"idea": "E3 Five Peaks (Ngũ Nhạc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3055": {
+"piece": "c24 peak_outer",
+"kind": "small",
+"idea": "E3 Five Peaks (Ngũ Nhạc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3056": {
+"piece": "c24 road",
+"kind": "small",
+"idea": "★ Thick Earth (Hậu Thổ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3057": {
+"piece": "c24 road",
+"kind": "small",
+"idea": "★ Thick Earth (Hậu Thổ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3058": {
+"piece": "c24 road",
+"kind": "small",
+"idea": "★ Thick Earth (Hậu Thổ)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3059": {
+"piece": "c24 road",
+"kind": "small",
+"idea": "★ Thick Earth (Hậu Thổ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3060": {
+"piece": "c24 road",
+"kind": "small",
+"idea": "★ Thick Earth (Hậu Thổ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3061": {
+"piece": "c24 road",
+"kind": "notable",
+"idea": "★ Thick Earth (Hậu Thổ)",
+"name": "Rammed Earth (Trúc Thổ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+4,
+6.0
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3062": {
+"piece": "c24 road",
+"kind": "small",
+"idea": "★ Thick Earth (Hậu Thổ)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3063": {
+"piece": "c24 road",
+"kind": "small",
+"idea": "★ Thick Earth (Hậu Thổ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3064": {
+"piece": "c24 road",
+"kind": "small",
+"idea": "★ Thick Earth (Hậu Thổ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3065": {
+"piece": "c24 road",
+"kind": "small",
+"idea": "★ Thick Earth (Hậu Thổ)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3066": {
+"piece": "c24 road",
+"kind": "notable",
+"idea": "★ Thick Earth (Hậu Thổ)",
+"name": "Road of Stones (Thạch Lộ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+4,
+6.0
+],
+[
+"block_rating",
+"",
+4,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3067": {
+"piece": "c24 road",
+"kind": "small",
+"idea": "★ Thick Earth (Hậu Thổ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3068": {
+"piece": "c24 road",
+"kind": "small",
+"idea": "★ Thick Earth (Hậu Thổ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3069": {
+"piece": "c24 road",
+"kind": "small",
+"idea": "★ Thick Earth (Hậu Thổ)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3070": {
+"piece": "c24 road",
+"kind": "small",
+"idea": "★ Thick Earth (Hậu Thổ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3071": {
+"piece": "c24 road",
+"kind": "notable",
+"idea": "★ Thick Earth (Hậu Thổ)",
+"name": "Thick Earth (Hậu Thổ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+5,
+7.5
+],
+[
+"resist_pct",
+"physical",
+3,
+93
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3072": {
+"piece": "c24 castle",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"physical",
+1.2,
+37
+]
+]
+},
+"3073": {
+"piece": "c24 castle",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"physical",
+1.2,
+37
+]
+]
+},
+"3074": {
+"piece": "c24 castle",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"physical",
+1.2,
+37
+]
+]
+},
+"3075": {
+"piece": "c24 castle",
+"kind": "notable",
+"idea": null,
+"name": "Steadfast Citadel (Kiên Thành)",
+"mods": [
+[
+"resist_pct",
+"physical",
+4,
+125
+],
+[
+"attack_pct",
+"tho",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3076": {
+"piece": "c24 castle",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"physical",
+1.2,
+37
+]
+]
+},
+"3077": {
+"piece": "c24 castle",
+"kind": "notable",
+"idea": null,
+"name": "Gate Tower (Thành Lâu)",
+"mods": [
+[
+"resist_pct",
+"physical",
+4,
+125
+],
+[
+"block_rating",
+"",
+4,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3078": {
+"piece": "c24 castle",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"physical",
+1.2,
+37
+]
+]
+},
+"3079": {
+"piece": "c24 castle",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"physical",
+1.2,
+37
+]
+]
+},
+"3080": {
+"piece": "c24 crook2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"3081": {
+"piece": "c24 crook2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"3082": {
+"piece": "c24 crook2",
+"kind": "notable",
+"idea": null,
+"name": "Mine Shaft (Khoáng Tỉnh)",
+"mods": [
+[
+"can_cot",
+"",
+4.0,
+1.33
+],
+[
+"refining_success",
+"",
+4.0,
+2.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3083": {
+"piece": "c24 crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3084": {
+"piece": "c24 crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3085": {
+"piece": "c24 crook",
+"kind": "notable",
+"idea": null,
+"name": "Winding Path (Khúc Kính)",
+"mods": [
+[
+"block_rating",
+"",
+4.0,
+10
+],
+[
+"resist_pct",
+"physical",
+4.0,
+125
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3086": {
+"piece": "c24 hook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3087": {
+"piece": "c24 hook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3088": {
+"piece": "c24 hook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3089": {
+"piece": "c24 hook",
+"kind": "notable",
+"idea": null,
+"name": "Mountain on the Back (Phụ Sơn)",
+"mods": [
+[
+"attack_pct",
+"tho",
+4.0,
+6.0
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3090": {
+"piece": "c24 e24",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"3091": {
+"piece": "c24 e24",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"3092": {
+"piece": "c24 e24",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"3093": {
+"piece": "c24 e24",
+"kind": "notable",
+"idea": null,
+"name": "Raw Ore (Nguyên Khoáng)",
+"mods": [
+[
+"refining_success",
+"",
+4.0,
+2.0
+],
+[
+"can_cot",
+"",
+4.0,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3094": {
+"piece": "c40 peak_petal",
+"kind": "notable",
+"idea": null,
+"name": "Guardian Array (Thủ Hộ Trận)",
+"mods": [
+[
+"formation_power_pct",
+"",
+4.0,
+4.0
+],
+[
+"defense_pct",
+"",
+4.0,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3095": {
+"piece": "c40 peak_petal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3096": {
+"piece": "c40 peak_petal",
+"kind": "notable",
+"idea": null,
+"name": "Night Watch (Dạ Tuần)",
+"mods": [
+[
+"formation_power_pct",
+"",
+4.0,
+4.0
+],
+[
+"than_thuc_pct",
+"",
+4.0,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3097": {
+"piece": "c40 keep",
+"kind": "small",
+"idea": "★ Array Keeper (Thủ Trận)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3098": {
+"piece": "c40 keep",
+"kind": "small",
+"idea": "★ Array Keeper (Thủ Trận)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3099": {
+"piece": "c40 keep",
+"kind": "small",
+"idea": "★ Array Keeper (Thủ Trận)",
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3100": {
+"piece": "c40 keep",
+"kind": "small",
+"idea": "★ Array Keeper (Thủ Trận)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3101": {
+"piece": "c40 keep",
+"kind": "notable",
+"idea": "★ Array Keeper (Thủ Trận)",
+"name": "Gatehouse (Môn Lâu)",
+"mods": [
+[
+"defense_pct",
+"",
+4,
+4.0
+],
+[
+"formation_power_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3102": {
+"piece": "c40 keep",
+"kind": "small",
+"idea": "★ Array Keeper (Thủ Trận)",
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3103": {
+"piece": "c40 keep",
+"kind": "notable",
+"idea": "★ Array Keeper (Thủ Trận)",
+"name": "Keeper's Watch (Thủ Vọng)",
+"mods": [
+[
+"formation_power_pct",
+"",
+4,
+4.0
+],
+[
+"than_thuc_pct",
+"",
+4,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3104": {
+"piece": "c40 keep",
+"kind": "small",
+"idea": "★ Array Keeper (Thủ Trận)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3105": {
+"piece": "c40 keep",
+"kind": "notable",
+"idea": "★ Array Keeper (Thủ Trận)",
+"name": "Array Keeper (Thủ Trận)",
+"mods": [
+[
+"defense_pct",
+"",
+4,
+4.0
+],
+[
+"ward_efficiency_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [
+[
+"formation_upkeep_pct",
+"",
+3
+]
+],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3106": {
+"piece": "c40 crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3107": {
+"piece": "c40 crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3108": {
+"piece": "c40 crook",
+"kind": "notable",
+"idea": null,
+"name": "Settled Heart (Định Tâm)",
+"mods": [
+[
+"dao_tam",
+"",
+4.0,
+1.33
+],
+[
+"formation_power_pct",
+"",
+4.0,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3109": {
+"piece": "c40 crook2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3110": {
+"piece": "c40 crook2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3111": {
+"piece": "c40 crook2",
+"kind": "notable",
+"idea": null,
+"name": "Garrison (Trấn Thủ)",
+"mods": [
+[
+"defense_pct",
+"",
+4.0,
+4.0
+],
+[
+"ward_efficiency_pct",
+"",
+4.0,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3112": {
+"piece": "c40 caldera",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ward_efficiency_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3113": {
+"piece": "c40 caldera",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ward_efficiency_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3114": {
+"piece": "c40 caldera",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ward_efficiency_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3115": {
+"piece": "c40 caldera",
+"kind": "notable",
+"idea": null,
+"name": "Caldera (Hỏa Sơn Khẩu)",
+"mods": [
+[
+"ward_efficiency_pct",
+"",
+4,
+4.0
+],
+[
+"defense_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3116": {
+"piece": "c40 caldera",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ward_efficiency_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3117": {
+"piece": "c40 caldera",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ward_efficiency_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3118": {
+"piece": "c40 caldera",
+"kind": "notable",
+"idea": null,
+"name": "Crater Lake (Thiên Trì)",
+"mods": [
+[
+"ward_efficiency_pct",
+"",
+4,
+4.0
+],
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3119": {
+"piece": "c40 caldera",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ward_efficiency_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3120": {
+"piece": "c40 d_s40",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ward_efficiency_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3121": {
+"piece": "c40 d_s40",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ward_efficiency_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3122": {
+"piece": "c40 d_s40",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ward_efficiency_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3123": {
+"piece": "c40 d_s40",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ward_efficiency_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3124": {
+"piece": "c40 d_s40",
+"kind": "notable",
+"idea": null,
+"name": "Boundary Stone (Giới Thạch)",
+"mods": [
+[
+"ward_efficiency_pct",
+"",
+4.0,
+4.0
+],
+[
+"defense_pct",
+"",
+4.0,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3125": {
+"piece": "c78 peak_petal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"3126": {
+"piece": "c78 peak_petal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"3127": {
+"piece": "c78 peak_petal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"3128": {
+"piece": "c78 peak_petal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"3129": {
+"piece": "c78 peak_petal",
+"kind": "notable",
+"idea": null,
+"name": "Climbing High (Đăng Cao)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+4,
+3.0
+],
+[
+"accuracy_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3130": {
+"piece": "c78 peak_petal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"than_thuc_pct",
+"",
+1.2,
+0.9
+]
+]
+},
+"3131": {
+"piece": "c78 peak_petal",
+"kind": "notable",
+"idea": null,
+"name": "Gazing Peak (Vọng Nhạc)",
+"mods": [
+[
+"than_thuc_pct",
+"",
+4,
+3.0
+],
+[
+"formation_power_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3132": {
+"piece": "c78 pyramid",
+"kind": "notable",
+"idea": "E8 Array Eye (Trận Nhãn)",
+"name": "Living Array (Hoạt Trận)",
+"mods": [
+[
+"art_speed_pct",
+"formation",
+4,
+10.0
+],
+[
+"formation_power_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3133": {
+"piece": "c78 pyramid",
+"kind": "notable",
+"idea": "E8 Array Eye (Trận Nhãn)",
+"name": "Array Lines (Trận Văn)",
+"mods": [
+[
+"attack_pct",
+"formation",
+4,
+6.0
+],
+[
+"art_speed_pct",
+"formation",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3134": {
+"piece": "c78 pyramid",
+"kind": "notable",
+"idea": "E8 Array Eye (Trận Nhãn)",
+"name": "Eye of the Array (Trận Nhãn)",
+"mods": [
+[
+"attack_pct",
+"formation",
+5,
+7.5
+],
+[
+"accuracy_pct",
+"",
+3,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3135": {
+"piece": "c78 pyramid",
+"kind": "small",
+"idea": "E8 Array Eye (Trận Nhãn)",
+"mods": [
+[
+"art_speed_pct",
+"formation",
+1.2,
+3.0
+]
+]
+},
+"3136": {
+"piece": "c78 pyramid",
+"kind": "small",
+"idea": "E8 Array Eye (Trận Nhãn)",
+"mods": [
+[
+"attack_pct",
+"formation",
+1.2,
+1.8
+]
+]
+},
+"3137": {
+"piece": "c78 pyramid",
+"kind": "small",
+"idea": "E8 Array Eye (Trận Nhãn)",
+"mods": [
+[
+"attack_pct",
+"formation",
+1.2,
+1.8
+]
+]
+},
+"3138": {
+"piece": "c78 pyramid",
+"kind": "small",
+"idea": "E8 Array Eye (Trận Nhãn)",
+"mods": [
+[
+"attack_pct",
+"formation",
+1.2,
+1.8
+]
+]
+},
+"3139": {
+"piece": "c78 pyramid",
+"kind": "small",
+"idea": "E8 Array Eye (Trận Nhãn)",
+"mods": [
+[
+"attack_pct",
+"formation",
+1.2,
+1.8
+]
+]
+},
+"3140": {
+"piece": "c78 pyramid",
+"kind": "small",
+"idea": "E8 Array Eye (Trận Nhãn)",
+"mods": [
+[
+"attack_pct",
+"formation",
+1.2,
+1.8
+]
+]
+},
+"3141": {
+"piece": "c78 pyramid",
+"kind": "small",
+"idea": "E8 Array Eye (Trận Nhãn)",
+"mods": [
+[
+"art_speed_pct",
+"formation",
+1.2,
+3.0
+]
+]
+},
+"3142": {
+"piece": "c78 bailey",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"formation",
+1.2,
+3.0
+]
+]
+},
+"3143": {
+"piece": "c78 bailey",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"formation",
+1.2,
+3.0
+]
+]
+},
+"3144": {
+"piece": "c78 bailey",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"formation",
+1.2,
+3.0
+]
+]
+},
+"3145": {
+"piece": "c78 bailey",
+"kind": "notable",
+"idea": null,
+"name": "Quicksand Array (Lưu Sa Trận)",
+"mods": [
+[
+"art_speed_pct",
+"formation",
+4,
+10.0
+],
+[
+"attack_pct",
+"formation",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3146": {
+"piece": "c78 bailey",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"formation",
+1.2,
+3.0
+]
+]
+},
+"3147": {
+"piece": "c78 bailey",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"formation",
+1.2,
+3.0
+]
+]
+},
+"3148": {
+"piece": "c78 bailey",
+"kind": "notable",
+"idea": null,
+"name": "Array Drill (Luyện Trận)",
+"mods": [
+[
+"art_speed_pct",
+"formation",
+4,
+10.0
+],
+[
+"accuracy_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3149": {
+"piece": "c78 d_lens",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3150": {
+"piece": "c78 d_lens",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3151": {
+"piece": "c78 d_lens",
+"kind": "notable",
+"idea": null,
+"name": "Array Foundation (Trận Cơ)",
+"mods": [
+[
+"formation_power_pct",
+"",
+4.0,
+4.0
+],
+[
+"than_thuc_pct",
+"",
+4.0,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3152": {
+"piece": "c78 d_lens",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3153": {
+"piece": "c78 d_lens",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3154": {
+"piece": "c78 d_s78",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"formation",
+1.2,
+1.8
+]
+]
+},
+"3155": {
+"piece": "c78 d_s78",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"formation",
+1.2,
+1.8
+]
+]
+},
+"3156": {
+"piece": "c78 d_s78",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"formation",
+1.2,
+1.8
+]
+]
+},
+"3157": {
+"piece": "c78 d_s78",
+"kind": "notable",
+"idea": null,
+"name": "Geomancer's Compass (La Bàn)",
+"mods": [
+[
+"attack_pct",
+"formation",
+4.0,
+6.0
+],
+[
+"accuracy_pct",
+"",
+4.0,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3158": {
+"piece": "c23 peak_inner",
+"kind": "notable",
+"idea": null,
+"name": "Central Peak (Trung Nhạc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+],
+[
+"block_rating",
+"",
+4.0,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3159": {
+"piece": "c23 peak_inner",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3160": {
+"piece": "c23 peak_inner",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3161": {
+"piece": "c23 peak_inner",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3162": {
+"piece": "c23 peak_inner",
+"kind": "notable",
+"idea": null,
+"name": "Stone Hut (Thạch Ốc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+],
+[
+"resist_pct",
+"physical",
+4.0,
+125
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3163": {
+"piece": "c23 peak_outer",
+"kind": "small",
+"idea": "E3 Five Peaks (Ngũ Nhạc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3164": {
+"piece": "c23 peak_outer",
+"kind": "small",
+"idea": "E3 Five Peaks (Ngũ Nhạc)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3165": {
+"piece": "c23 peak_outer",
+"kind": "small",
+"idea": "E3 Five Peaks (Ngũ Nhạc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3166": {
+"piece": "c23 peak_outer",
+"kind": "small",
+"idea": "E3 Five Peaks (Ngũ Nhạc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3167": {
+"piece": "c23 peak_outer",
+"kind": "notable",
+"idea": "E3 Five Peaks (Ngũ Nhạc)",
+"name": "Five Peaks (Ngũ Nhạc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"block_rating",
+"",
+4,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3168": {
+"piece": "c23 peak_outer",
+"kind": "small",
+"idea": "E3 Five Peaks (Ngũ Nhạc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3169": {
+"piece": "c23 peak_outer",
+"kind": "small",
+"idea": "E3 Five Peaks (Ngũ Nhạc)",
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3170": {
+"piece": "c23 peak_outer",
+"kind": "small",
+"idea": "E3 Five Peaks (Ngũ Nhạc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3171": {
+"piece": "c23 peak_outer",
+"kind": "small",
+"idea": "E3 Five Peaks (Ngũ Nhạc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3172": {
+"piece": "c23 road",
+"kind": "small",
+"idea": "B3 Mother Lode (Mẫu Khoáng)",
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"3173": {
+"piece": "c23 road",
+"kind": "small",
+"idea": "B3 Mother Lode (Mẫu Khoáng)",
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"3174": {
+"piece": "c23 road",
+"kind": "small",
+"idea": "B3 Mother Lode (Mẫu Khoáng)",
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3175": {
+"piece": "c23 road",
+"kind": "small",
+"idea": "B3 Mother Lode (Mẫu Khoáng)",
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"3176": {
+"piece": "c23 road",
+"kind": "small",
+"idea": "B3 Mother Lode (Mẫu Khoáng)",
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"3177": {
+"piece": "c23 road",
+"kind": "notable",
+"idea": "B3 Mother Lode (Mẫu Khoáng)",
+"name": "Ore Seam (Khoáng Tầng)",
+"mods": [
+[
+"refining_success",
+"",
+4,
+2.0
+],
+[
+"co_duyen_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3178": {
+"piece": "c23 road",
+"kind": "small",
+"idea": "B3 Mother Lode (Mẫu Khoáng)",
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3179": {
+"piece": "c23 road",
+"kind": "small",
+"idea": "B3 Mother Lode (Mẫu Khoáng)",
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"3180": {
+"piece": "c23 road",
+"kind": "small",
+"idea": "B3 Mother Lode (Mẫu Khoáng)",
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"3181": {
+"piece": "c23 road",
+"kind": "small",
+"idea": "B3 Mother Lode (Mẫu Khoáng)",
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3182": {
+"piece": "c23 road",
+"kind": "notable",
+"idea": "B3 Mother Lode (Mẫu Khoáng)",
+"name": "Smelter's Road (Dã Luyện Lộ)",
+"mods": [
+[
+"refining_success",
+"",
+4,
+2.0
+],
+[
+"artifact_defense_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3183": {
+"piece": "c23 road",
+"kind": "small",
+"idea": "B3 Mother Lode (Mẫu Khoáng)",
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"3184": {
+"piece": "c23 road",
+"kind": "small",
+"idea": "B3 Mother Lode (Mẫu Khoáng)",
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"3185": {
+"piece": "c23 road",
+"kind": "small",
+"idea": "B3 Mother Lode (Mẫu Khoáng)",
+"mods": [
+[
+"artifact_defense_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3186": {
+"piece": "c23 road",
+"kind": "notable",
+"idea": "B3 Mother Lode (Mẫu Khoáng)",
+"name": "Mother Lode (Mẫu Khoáng)",
+"mods": [
+[
+"refining_success",
+"",
+5,
+2.5
+],
+[
+"artifact_power_pct",
+"",
+3,
+2.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3187": {
+"piece": "c23 crook2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"3188": {
+"piece": "c23 crook2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"3189": {
+"piece": "c23 crook2",
+"kind": "notable",
+"idea": null,
+"name": "Mine Shaft (Khoáng Tỉnh)",
+"mods": [
+[
+"can_cot",
+"",
+4.0,
+1.33
+],
+[
+"refining_success",
+"",
+4.0,
+2.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3190": {
+"piece": "c23 crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3191": {
+"piece": "c23 crook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3192": {
+"piece": "c23 crook",
+"kind": "notable",
+"idea": null,
+"name": "Winding Path (Khúc Kính)",
+"mods": [
+[
+"block_rating",
+"",
+4.0,
+10
+],
+[
+"resist_pct",
+"physical",
+4.0,
+125
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3193": {
+"piece": "c23 hook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3194": {
+"piece": "c23 hook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3195": {
+"piece": "c23 hook",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3196": {
+"piece": "c23 hook",
+"kind": "notable",
+"idea": null,
+"name": "Mountain on the Back (Phụ Sơn)",
+"mods": [
+[
+"attack_pct",
+"tho",
+4.0,
+6.0
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3197": {
+"piece": "c23 e24",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"3198": {
+"piece": "c23 e24",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"3199": {
+"piece": "c23 e24",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"refining_success",
+"",
+1.2,
+0.6
+]
+]
+},
+"3200": {
+"piece": "c23 e24",
+"kind": "notable",
+"idea": null,
+"name": "Raw Ore (Nguyên Khoáng)",
+"mods": [
+[
+"refining_success",
+"",
+4.0,
+2.0
+],
+[
+"can_cot",
+"",
+4.0,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3201": {
+"piece": "c23 gate",
+"kind": "notable",
+"idea": null,
+"name": "Miner's Gate (Khoáng Môn)",
+"mods": [
+[
+"can_cot",
+"",
+4,
+1.33
+],
+[
+"refining_success",
+"",
+4,
+2.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3202": {
+"piece": "c23 gate",
+"kind": "notable",
+"idea": null,
+"name": "Mountain Bones (Sơn Cốt)",
+"mods": [
+[
+"can_cot",
+"",
+4,
+1.33
+],
+[
+"block_rating",
+"",
+4,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3203": {
+"piece": "c23 gate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"3204": {
+"piece": "c23 gate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"3205": {
+"piece": "c23 gate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"3206": {
+"piece": "c23 gate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"3207": {
+"piece": "c23 gate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"3208": {
+"piece": "c23 gate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"3209": {
+"piece": "c75 peak_petal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3210": {
+"piece": "c75 peak_petal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3211": {
+"piece": "c75 peak_petal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3212": {
+"piece": "c75 peak_petal",
+"kind": "notable",
+"idea": null,
+"name": "Lotus Peak (Liên Hoa Phong)",
+"mods": [
+[
+"formation_power_pct",
+"",
+4,
+4.0
+],
+[
+"attack_pct",
+"formation",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3213": {
+"piece": "c75 peak_petal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3214": {
+"piece": "c75 peak_petal",
+"kind": "notable",
+"idea": null,
+"name": "Array Flag (Trận Kỳ)",
+"mods": [
+[
+"formation_power_pct",
+"",
+4,
+4.0
+],
+[
+"than_thuc_pct",
+"",
+4,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3215": {
+"piece": "c75 pyramid",
+"kind": "notable",
+"idea": "E8 Array Eye (Trận Nhãn)",
+"name": "Living Array (Hoạt Trận)",
+"mods": [
+[
+"art_speed_pct",
+"formation",
+4,
+10.0
+],
+[
+"formation_power_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3216": {
+"piece": "c75 pyramid",
+"kind": "notable",
+"idea": "E8 Array Eye (Trận Nhãn)",
+"name": "Array Lines (Trận Văn)",
+"mods": [
+[
+"attack_pct",
+"formation",
+4,
+6.0
+],
+[
+"art_speed_pct",
+"formation",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3217": {
+"piece": "c75 pyramid",
+"kind": "notable",
+"idea": "E8 Array Eye (Trận Nhãn)",
+"name": "Eye of the Array (Trận Nhãn)",
+"mods": [
+[
+"attack_pct",
+"formation",
+5,
+7.5
+],
+[
+"accuracy_pct",
+"",
+3,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3218": {
+"piece": "c75 pyramid",
+"kind": "small",
+"idea": "E8 Array Eye (Trận Nhãn)",
+"mods": [
+[
+"art_speed_pct",
+"formation",
+1.2,
+3.0
+]
+]
+},
+"3219": {
+"piece": "c75 pyramid",
+"kind": "small",
+"idea": "E8 Array Eye (Trận Nhãn)",
+"mods": [
+[
+"attack_pct",
+"formation",
+1.2,
+1.8
+]
+]
+},
+"3220": {
+"piece": "c75 pyramid",
+"kind": "small",
+"idea": "E8 Array Eye (Trận Nhãn)",
+"mods": [
+[
+"attack_pct",
+"formation",
+1.2,
+1.8
+]
+]
+},
+"3221": {
+"piece": "c75 pyramid",
+"kind": "small",
+"idea": "E8 Array Eye (Trận Nhãn)",
+"mods": [
+[
+"attack_pct",
+"formation",
+1.2,
+1.8
+]
+]
+},
+"3222": {
+"piece": "c75 pyramid",
+"kind": "small",
+"idea": "E8 Array Eye (Trận Nhãn)",
+"mods": [
+[
+"attack_pct",
+"formation",
+1.2,
+1.8
+]
+]
+},
+"3223": {
+"piece": "c75 pyramid",
+"kind": "small",
+"idea": "E8 Array Eye (Trận Nhãn)",
+"mods": [
+[
+"attack_pct",
+"formation",
+1.2,
+1.8
+]
+]
+},
+"3224": {
+"piece": "c75 pyramid",
+"kind": "small",
+"idea": "E8 Array Eye (Trận Nhãn)",
+"mods": [
+[
+"art_speed_pct",
+"formation",
+1.2,
+3.0
+]
+]
+},
+"3225": {
+"piece": "c75 bailey",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3226": {
+"piece": "c75 bailey",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3227": {
+"piece": "c75 bailey",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3228": {
+"piece": "c75 bailey",
+"kind": "notable",
+"idea": null,
+"name": "Barbican (Ủng Thành)",
+"mods": [
+[
+"defense_pct",
+"",
+4,
+4.0
+],
+[
+"attack_pct",
+"formation",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3229": {
+"piece": "c75 bailey",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3230": {
+"piece": "c75 bailey",
+"kind": "notable",
+"idea": null,
+"name": "Inner City (Nội Thành)",
+"mods": [
+[
+"defense_pct",
+"",
+4,
+4.0
+],
+[
+"ward_efficiency_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3231": {
+"piece": "c75 fork",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3232": {
+"piece": "c75 fork",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3233": {
+"piece": "c75 fork",
+"kind": "notable",
+"idea": null,
+"name": "Ley Point (Địa Huyệt)",
+"mods": [
+[
+"formation_power_pct",
+"",
+4.0,
+4.0
+],
+[
+"dao_tam",
+"",
+4.0,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3234": {
+"piece": "c75 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"formation",
+1.2,
+1.8
+]
+]
+},
+"3235": {
+"piece": "c75 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"formation",
+1.2,
+1.8
+]
+]
+},
+"3236": {
+"piece": "c75 d_arch",
+"kind": "notable",
+"idea": null,
+"name": "Array Gate (Trận Môn)",
+"mods": [
+[
+"attack_pct",
+"formation",
+4.0,
+6.0
+],
+[
+"art_speed_pct",
+"formation",
+4.0,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3237": {
+"piece": "c75 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"formation",
+1.2,
+1.8
+]
+]
+},
+"3238": {
+"piece": "c75 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"formation",
+1.2,
+1.8
+]
+]
+},
+"3239": {
+"piece": "c75 d_s75",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"formation",
+1.2,
+3.0
+]
+]
+},
+"3240": {
+"piece": "c75 d_s75",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"formation",
+1.2,
+3.0
+]
+]
+},
+"3241": {
+"piece": "c75 d_s75",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"art_speed_pct",
+"formation",
+1.2,
+3.0
+]
+]
+},
+"3242": {
+"piece": "c75 d_s75",
+"kind": "notable",
+"idea": null,
+"name": "Moving Mountains (Di Sơn)",
+"mods": [
+[
+"art_speed_pct",
+"formation",
+4.0,
+10.0
+],
+[
+"attack_pct",
+"formation",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3243": {
+"piece": "c48 peak_petal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3244": {
+"piece": "c48 peak_petal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3245": {
+"piece": "c48 peak_petal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3246": {
+"piece": "c48 peak_petal",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3247": {
+"piece": "c48 peak_petal",
+"kind": "notable",
+"idea": null,
+"name": "Outer Bailey (Ngoại Quách)",
+"mods": [
+[
+"block_rating",
+"",
+4.0,
+10
+],
+[
+"body_shield_pct",
+"",
+4.0,
+7.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3248": {
+"piece": "c48 keep",
+"kind": "small",
+"idea": "★ Bulwark (Kiên Lũy)",
+"mods": [
+[
+"body_shield_pct",
+"",
+1.2,
+2.3
+]
+]
+},
+"3249": {
+"piece": "c48 keep",
+"kind": "small",
+"idea": "★ Bulwark (Kiên Lũy)",
+"mods": [
+[
+"body_shield_pct",
+"",
+1.2,
+2.3
+]
+]
+},
+"3250": {
+"piece": "c48 keep",
+"kind": "notable",
+"idea": "★ Bulwark (Kiên Lũy)",
+"name": "Stone Bailey (Thạch Lũy)",
+"mods": [
+[
+"body_shield_pct",
+"",
+4,
+7.8
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3251": {
+"piece": "c48 keep",
+"kind": "small",
+"idea": "★ Bulwark (Kiên Lũy)",
+"mods": [
+[
+"body_shield_pct",
+"",
+1.2,
+2.3
+]
+]
+},
+"3252": {
+"piece": "c48 keep",
+"kind": "small",
+"idea": "★ Bulwark (Kiên Lũy)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3253": {
+"piece": "c48 keep",
+"kind": "small",
+"idea": "★ Bulwark (Kiên Lũy)",
+"mods": [
+[
+"body_shield_pct",
+"",
+1.2,
+2.3
+]
+]
+},
+"3254": {
+"piece": "c48 keep",
+"kind": "small",
+"idea": "★ Bulwark (Kiên Lũy)",
+"mods": [
+[
+"body_shield_pct",
+"",
+1.2,
+2.3
+]
+]
+},
+"3255": {
+"piece": "c48 keep",
+"kind": "small",
+"idea": "★ Bulwark (Kiên Lũy)",
+"mods": [
+[
+"body_shield_pct",
+"",
+1.2,
+2.3
+]
+]
+},
+"3256": {
+"piece": "c48 keep",
+"kind": "notable",
+"idea": "★ Bulwark (Kiên Lũy)",
+"name": "Iron Gate (Thiết Môn)",
+"mods": [
+[
+"body_shield_pct",
+"",
+4,
+7.8
+],
+[
+"block_rating",
+"",
+4,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3257": {
+"piece": "c48 keep",
+"kind": "small",
+"idea": "★ Bulwark (Kiên Lũy)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3258": {
+"piece": "c48 keep",
+"kind": "notable",
+"idea": "★ Bulwark (Kiên Lũy)",
+"name": "Bulwark (Kiên Lũy)",
+"mods": [
+[
+"body_shield_pct",
+"",
+5,
+9.8
+],
+[
+"resist_pct",
+"force",
+3,
+93
+]
+],
+"pending": [
+[
+"recharge_delay_pct",
+"",
+3
+]
+],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3259": {
+"piece": "c48 top48",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3260": {
+"piece": "c48 top48",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3261": {
+"piece": "c48 top48",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3262": {
+"piece": "c48 top48",
+"kind": "notable",
+"idea": null,
+"name": "Rampart Crest (Lũy Đỉnh)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+],
+[
+"body_shield_pct",
+"",
+4.0,
+7.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3263": {
+"piece": "c48 terraces",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3264": {
+"piece": "c48 terraces",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3265": {
+"piece": "c48 terraces",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3266": {
+"piece": "c48 terraces",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3267": {
+"piece": "c48 terraces",
+"kind": "notable",
+"idea": null,
+"name": "Earthworks (Thổ Lũy)",
+"mods": [
+[
+"block_rating",
+"",
+4,
+10
+],
+[
+"body_shield_pct",
+"",
+4,
+7.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3268": {
+"piece": "c48 terraces",
+"kind": "notable",
+"idea": null,
+"name": "Mountain Pass (Quan Ải)",
+"mods": [
+[
+"block_rating",
+"",
+4,
+10
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3269": {
+"piece": "c48 terraces",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3270": {
+"piece": "c48 terraces",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3271": {
+"piece": "c48 dz48a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"body_shield_pct",
+"",
+1.2,
+2.3
+]
+]
+},
+"3272": {
+"piece": "c48 dz48a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"body_shield_pct",
+"",
+1.2,
+2.3
+]
+]
+},
+"3273": {
+"piece": "c48 dz48a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"body_shield_pct",
+"",
+1.2,
+2.3
+]
+]
+},
+"3274": {
+"piece": "c48 dz48a",
+"kind": "notable",
+"idea": null,
+"name": "Turtle Shell (Quy Giáp)",
+"mods": [
+[
+"body_shield_pct",
+"",
+4.0,
+7.8
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3275": {
+"piece": "c48 dz48b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"force",
+1.2,
+37
+]
+]
+},
+"3276": {
+"piece": "c48 dz48b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"force",
+1.2,
+37
+]
+]
+},
+"3277": {
+"piece": "c48 dz48b",
+"kind": "notable",
+"idea": null,
+"name": "Great Wall (Trường Thành)",
+"mods": [
+[
+"resist_pct",
+"force",
+4.0,
+125
+],
+[
+"block_rating",
+"",
+4.0,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3278": {
+"piece": "c36 terrace1",
+"kind": "notable",
+"idea": "★ Deep Soil (Thâm Thổ)",
+"name": "Earth Storehouse (Địa Khố)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+],
+[
+"reserve_eff_pct",
+"",
+4,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3279": {
+"piece": "c36 terrace1",
+"kind": "small",
+"idea": "★ Deep Soil (Thâm Thổ)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3280": {
+"piece": "c36 terrace1",
+"kind": "notable",
+"idea": "★ Deep Soil (Thâm Thổ)",
+"name": "Loam (Thổ Nhưỡng)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+],
+[
+"dao_tam",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3281": {
+"piece": "c36 terrace1",
+"kind": "small",
+"idea": "★ Deep Soil (Thâm Thổ)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3282": {
+"piece": "c36 terrace1",
+"kind": "small",
+"idea": "★ Deep Soil (Thâm Thổ)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3283": {
+"piece": "c36 terrace1",
+"kind": "small",
+"idea": "★ Deep Soil (Thâm Thổ)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"3284": {
+"piece": "c36 terrace1",
+"kind": "notable",
+"idea": "★ Deep Soil (Thâm Thổ)",
+"name": "Seeping Spring (Thấm Tuyền)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+],
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3285": {
+"piece": "c36 terrace1",
+"kind": "small",
+"idea": "★ Deep Soil (Thâm Thổ)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3286": {
+"piece": "c36 terrace1",
+"kind": "small",
+"idea": "★ Deep Soil (Thâm Thổ)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3287": {
+"piece": "c36 terrace1",
+"kind": "notable",
+"idea": "★ Deep Soil (Thâm Thổ)",
+"name": "Deep Soil (Thâm Thổ)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+5,
+0.21
+],
+[
+"linh_luc_regen_inc_pct",
+"",
+3,
+3.7
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3288": {
+"piece": "c36 terrace1",
+"kind": "small",
+"idea": "★ Deep Soil (Thâm Thổ)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"3289": {
+"piece": "c36 terrace1",
+"kind": "small",
+"idea": "★ Deep Soil (Thâm Thổ)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3290": {
+"piece": "c36 terrace2",
+"kind": "small",
+"idea": "★ Five Grains (Ngũ Cốc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3291": {
+"piece": "c36 terrace2",
+"kind": "small",
+"idea": "★ Five Grains (Ngũ Cốc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3292": {
+"piece": "c36 terrace2",
+"kind": "small",
+"idea": "★ Five Grains (Ngũ Cốc)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3293": {
+"piece": "c36 terrace2",
+"kind": "small",
+"idea": "★ Five Grains (Ngũ Cốc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3294": {
+"piece": "c36 terrace2",
+"kind": "small",
+"idea": "★ Five Grains (Ngũ Cốc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3295": {
+"piece": "c36 terrace2",
+"kind": "small",
+"idea": "★ Five Grains (Ngũ Cốc)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3296": {
+"piece": "c36 terrace2",
+"kind": "small",
+"idea": "★ Five Grains (Ngũ Cốc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3297": {
+"piece": "c36 terrace2",
+"kind": "small",
+"idea": "★ Five Grains (Ngũ Cốc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3298": {
+"piece": "c36 terrace2",
+"kind": "small",
+"idea": "★ Five Grains (Ngũ Cốc)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3299": {
+"piece": "c36 terrace2",
+"kind": "notable",
+"idea": "★ Five Grains (Ngũ Cốc)",
+"name": "Five Grains (Ngũ Cốc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3300": {
+"piece": "c36 terrace3",
+"kind": "notable",
+"idea": "E7 Terraced Fields (Thê Điền)",
+"name": "Tiller's Bones (Canh Phu Cốt)",
+"mods": [
+[
+"can_cot",
+"",
+4,
+1.33
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3301": {
+"piece": "c36 terrace3",
+"kind": "small",
+"idea": "E7 Terraced Fields (Thê Điền)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"3302": {
+"piece": "c36 terrace3",
+"kind": "notable",
+"idea": "E7 Terraced Fields (Thê Điền)",
+"name": "Paddy Fields (Thủy Điền)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+4,
+4.4
+],
+[
+"can_cot",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3303": {
+"piece": "c36 terrace3",
+"kind": "small",
+"idea": "E7 Terraced Fields (Thê Điền)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"3304": {
+"piece": "c36 terrace3",
+"kind": "small",
+"idea": "E7 Terraced Fields (Thê Điền)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"3305": {
+"piece": "c36 terrace3",
+"kind": "small",
+"idea": "E7 Terraced Fields (Thê Điền)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"3306": {
+"piece": "c36 terrace3",
+"kind": "notable",
+"idea": "E7 Terraced Fields (Thê Điền)",
+"name": "Irrigation (Dẫn Thủy)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+4,
+4.4
+],
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3307": {
+"piece": "c36 terrace3",
+"kind": "small",
+"idea": "E7 Terraced Fields (Thê Điền)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"3308": {
+"piece": "c36 terrace3",
+"kind": "small",
+"idea": "E7 Terraced Fields (Thê Điền)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"3309": {
+"piece": "c36 terrace3",
+"kind": "notable",
+"idea": "E7 Terraced Fields (Thê Điền)",
+"name": "Terraced Fields (Thê Điền)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+5,
+5.5
+],
+[
+"dao_tam",
+"",
+3,
+1.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3310": {
+"piece": "c36 terrace3",
+"kind": "small",
+"idea": "E7 Terraced Fields (Thê Điền)",
+"mods": [
+[
+"can_cot",
+"",
+1.2,
+0.4
+]
+]
+},
+"3311": {
+"piece": "c36 terrace3",
+"kind": "small",
+"idea": "E7 Terraced Fields (Thê Điền)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"3312": {
+"piece": "c36 foot36",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"3313": {
+"piece": "c36 foot36",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"3314": {
+"piece": "c36 foot36",
+"kind": "notable",
+"idea": null,
+"name": "Well-Field (Tỉnh Điền)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+4.0,
+4.4
+],
+[
+"can_cot",
+"",
+4.0,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3315": {
+"piece": "c36 d_lens",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"3316": {
+"piece": "c36 d_lens",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"3317": {
+"piece": "c36 d_lens",
+"kind": "notable",
+"idea": null,
+"name": "Hidden Spring (U Tuyền)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+4.0,
+0.17
+],
+[
+"dao_tam",
+"",
+4.0,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3318": {
+"piece": "c36 d_lens",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"3319": {
+"piece": "c36 d_lens",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"3320": {
+"piece": "c19 ridge",
+"kind": "small",
+"idea": "E5 Millstone (Thạch Ma)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3321": {
+"piece": "c19 ridge",
+"kind": "small",
+"idea": "E5 Millstone (Thạch Ma)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3322": {
+"piece": "c19 ridge",
+"kind": "small",
+"idea": "E5 Millstone (Thạch Ma)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3323": {
+"piece": "c19 ridge",
+"kind": "small",
+"idea": "E5 Millstone (Thạch Ma)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3324": {
+"piece": "c19 ridge",
+"kind": "notable",
+"idea": "E5 Millstone (Thạch Ma)",
+"name": "Crushed Stone (Toái Thạch)",
+"mods": [
+[
+"attack_pct",
+"tho",
+4,
+6.0
+],
+[
+"crit_damage_pct",
+"tho",
+4,
+20.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3325": {
+"piece": "c19 ridge",
+"kind": "small",
+"idea": "E5 Millstone (Thạch Ma)",
+"mods": [
+[
+"crit_damage_pct",
+"tho",
+1.2,
+6.0
+]
+]
+},
+"3326": {
+"piece": "c19 ridge",
+"kind": "small",
+"idea": "E5 Millstone (Thạch Ma)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3327": {
+"piece": "c19 ridge",
+"kind": "notable",
+"idea": "E5 Millstone (Thạch Ma)",
+"name": "Millstone (Thạch Ma)",
+"mods": [
+[
+"attack_pct",
+"tho,slow",
+5,
+10.0
+],
+[
+"crit_damage_pct",
+"tho",
+3,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": "Grinding Weight (Trọng Ma)",
+"twin_copy": false
+},
+"3328": {
+"piece": "c19 ridge",
+"kind": "small",
+"idea": "E5 Millstone (Thạch Ma)",
+"mods": [
+[
+"crit_damage_pct",
+"tho",
+1.2,
+6.0
+]
+]
+},
+"3329": {
+"piece": "c19 ridge",
+"kind": "small",
+"idea": "E5 Millstone (Thạch Ma)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3330": {
+"piece": "c19 ridge",
+"kind": "notable",
+"idea": "E5 Millstone (Thạch Ma)",
+"name": "Mountain Crashes Down (Thái Sơn Áp Đỉnh)",
+"mods": [
+[
+"crit_damage_pct",
+"tho",
+4,
+20.0
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3331": {
+"piece": "c19 ridge",
+"kind": "small",
+"idea": "E5 Millstone (Thạch Ma)",
+"mods": [
+[
+"crit_damage_pct",
+"tho",
+1.2,
+6.0
+]
+]
+},
+"3332": {
+"piece": "c19 ridge",
+"kind": "small",
+"idea": "E5 Millstone (Thạch Ma)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3333": {
+"piece": "c19 fort",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3334": {
+"piece": "c19 fort",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3335": {
+"piece": "c19 fort",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3336": {
+"piece": "c19 fort",
+"kind": "notable",
+"idea": null,
+"name": "Hill Fort (Sơn Trại)",
+"mods": [
+[
+"block_rating",
+"",
+4,
+10
+],
+[
+"attack_pct",
+"tho",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3337": {
+"piece": "c19 fort",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3338": {
+"piece": "c19 fort",
+"kind": "notable",
+"idea": null,
+"name": "Stone City (Thạch Thành)",
+"mods": [
+[
+"block_rating",
+"",
+4,
+10
+],
+[
+"crit_damage_pct",
+"tho",
+4,
+20.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3339": {
+"piece": "c19 fort",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3340": {
+"piece": "c19 fort",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3341": {
+"piece": "c19 top19a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"tho",
+1.2,
+6.0
+]
+]
+},
+"3342": {
+"piece": "c19 top19a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"tho",
+1.2,
+6.0
+]
+]
+},
+"3343": {
+"piece": "c19 top19a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"tho",
+1.2,
+6.0
+]
+]
+},
+"3344": {
+"piece": "c19 top19a",
+"kind": "notable",
+"idea": null,
+"name": "Crag Fang (Nham Nha)",
+"mods": [
+[
+"crit_damage_pct",
+"tho",
+4.0,
+20.0
+],
+[
+"attack_pct",
+"tho",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3345": {
+"piece": "c19 foot19",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3346": {
+"piece": "c19 foot19",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3347": {
+"piece": "c19 foot19",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3348": {
+"piece": "c19 foot19",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3349": {
+"piece": "c19 foot19",
+"kind": "notable",
+"idea": null,
+"name": "Foothills (Sơn Cước)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+],
+[
+"block_rating",
+"",
+4.0,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3350": {
+"piece": "c19 mid19b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3351": {
+"piece": "c19 mid19b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3352": {
+"piece": "c19 mid19b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3353": {
+"piece": "c19 mid19b",
+"kind": "notable",
+"idea": null,
+"name": "Mountainside (Sơn Yêu)",
+"mods": [
+[
+"attack_pct",
+"tho",
+4.0,
+6.0
+],
+[
+"pierce_pct",
+"",
+4.0,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3354": {
+"piece": "c19 d_s19",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"slow",
+1.2,
+1.8
+]
+]
+},
+"3355": {
+"piece": "c19 d_s19",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"slow",
+1.2,
+1.8
+]
+]
+},
+"3356": {
+"piece": "c19 d_s19",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"slow",
+1.2,
+1.8
+]
+]
+},
+"3357": {
+"piece": "c19 d_s19",
+"kind": "notable",
+"idea": null,
+"name": "Heavy as a Mountain (Trọng Như Sơn)",
+"mods": [
+[
+"attack_pct",
+"slow",
+4.0,
+6.0
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3358": {
+"piece": "c19 d_s19",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"slow",
+1.2,
+1.8
+]
+]
+},
+"3359": {
+"piece": "c65 hill",
+"kind": "small",
+"idea": "B1 Kiln Hill (Diêu Sơn)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3360": {
+"piece": "c65 hill",
+"kind": "notable",
+"idea": "B1 Kiln Hill (Diêu Sơn)",
+"name": "Fired Clay (Đào Thổ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+4,
+6.0
+],
+[
+"resist_pct",
+"fire",
+4,
+150
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3361": {
+"piece": "c65 hill",
+"kind": "small",
+"idea": "B1 Kiln Hill (Diêu Sơn)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3362": {
+"piece": "c65 hill",
+"kind": "small",
+"idea": "B1 Kiln Hill (Diêu Sơn)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"3363": {
+"piece": "c65 hill",
+"kind": "small",
+"idea": "B1 Kiln Hill (Diêu Sơn)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3364": {
+"piece": "c65 hill",
+"kind": "small",
+"idea": "B1 Kiln Hill (Diêu Sơn)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3365": {
+"piece": "c65 hill",
+"kind": "small",
+"idea": "B1 Kiln Hill (Diêu Sơn)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3366": {
+"piece": "c65 hill",
+"kind": "notable",
+"idea": "B1 Kiln Hill (Diêu Sơn)",
+"name": "Kiln Hill (Diêu Sơn)",
+"mods": [
+[
+"attack_pct",
+"tho,hoa",
+5,
+10.0
+],
+[
+"khi_huyet_pct",
+"",
+3,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": "Burning Ground (Địa Hỏa)",
+"twin_copy": false
+},
+"3367": {
+"piece": "c65 hill",
+"kind": "small",
+"idea": "B1 Kiln Hill (Diêu Sơn)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3368": {
+"piece": "c65 hill",
+"kind": "small",
+"idea": "B1 Kiln Hill (Diêu Sơn)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"3369": {
+"piece": "c65 hill",
+"kind": "small",
+"idea": "B1 Kiln Hill (Diêu Sơn)",
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3370": {
+"piece": "c65 hill",
+"kind": "small",
+"idea": "B1 Kiln Hill (Diêu Sơn)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"3371": {
+"piece": "c65 hill",
+"kind": "notable",
+"idea": "B1 Kiln Hill (Diêu Sơn)",
+"name": "Kiln Mouth (Diêu Khẩu)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+4,
+6.0
+],
+[
+"attack_pct",
+"tho",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3372": {
+"piece": "c65 trail",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3373": {
+"piece": "c65 trail",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3374": {
+"piece": "c65 trail",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3375": {
+"piece": "c65 trail",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3376": {
+"piece": "c65 trail",
+"kind": "notable",
+"idea": null,
+"name": "Pilgrim Trail (Triều Sơn Lộ)",
+"mods": [
+[
+"timer_resist_pct",
+"",
+4,
+8.0
+],
+[
+"dao_tam",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3377": {
+"piece": "c65 trail",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3378": {
+"piece": "c65 trail",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3379": {
+"piece": "c65 trail",
+"kind": "notable",
+"idea": null,
+"name": "Steady Steps (Ổn Bộ)",
+"mods": [
+[
+"timer_resist_pct",
+"",
+4,
+8.0
+],
+[
+"status_resist_pct",
+"",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3380": {
+"piece": "c65 c65",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"fire",
+1.2,
+45
+]
+]
+},
+"3381": {
+"piece": "c65 c65",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"fire",
+1.2,
+45
+]
+]
+},
+"3382": {
+"piece": "c65 c65",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"fire",
+1.2,
+45
+]
+]
+},
+"3383": {
+"piece": "c65 c65",
+"kind": "notable",
+"idea": null,
+"name": "Terracotta Warrior (Đào Dũng)",
+"mods": [
+[
+"resist_pct",
+"fire",
+4.0,
+150
+],
+[
+"attack_pct",
+"tho",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3384": {
+"piece": "c65 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"fire",
+1.2,
+45
+]
+]
+},
+"3385": {
+"piece": "c65 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"fire",
+1.2,
+45
+]
+]
+},
+"3386": {
+"piece": "c65 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"fire",
+1.2,
+45
+]
+]
+},
+"3387": {
+"piece": "c65 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"fire",
+1.2,
+45
+]
+]
+},
+"3388": {
+"piece": "c65 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"fire",
+1.2,
+45
+]
+]
+},
+"3389": {
+"piece": "c65 d_arch",
+"kind": "notable",
+"idea": null,
+"name": "Clay Furnace (Thổ Lô)",
+"mods": [
+[
+"resist_pct",
+"fire",
+4,
+150
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3390": {
+"piece": "c65 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"fire",
+1.2,
+45
+]
+]
+},
+"3391": {
+"piece": "c65 d_arch",
+"kind": "notable",
+"idea": null,
+"name": "Kiln Fire (Diêu Hỏa)",
+"mods": [
+[
+"resist_pct",
+"fire",
+4,
+150
+],
+[
+"attack_pct",
+"hoa",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3392": {
+"piece": "c65 d_s65",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"3393": {
+"piece": "c65 d_s65",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"hoa",
+1.2,
+1.8
+]
+]
+},
+"3394": {
+"piece": "c65 d_s65",
+"kind": "notable",
+"idea": null,
+"name": "Kiln Glow (Diêu Quang)",
+"mods": [
+[
+"attack_pct",
+"hoa",
+4.0,
+6.0
+],
+[
+"attack_pct",
+"tho",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3395": {
+"piece": "c66 stairway",
+"kind": "small",
+"idea": "E10 Bedrock Root (Bàn Thạch Căn)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3396": {
+"piece": "c66 stairway",
+"kind": "small",
+"idea": "E10 Bedrock Root (Bàn Thạch Căn)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"3397": {
+"piece": "c66 stairway",
+"kind": "small",
+"idea": "E10 Bedrock Root (Bàn Thạch Căn)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3398": {
+"piece": "c66 stairway",
+"kind": "small",
+"idea": "E10 Bedrock Root (Bàn Thạch Căn)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3399": {
+"piece": "c66 stairway",
+"kind": "small",
+"idea": "E10 Bedrock Root (Bàn Thạch Căn)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3400": {
+"piece": "c66 stairway",
+"kind": "small",
+"idea": "E10 Bedrock Root (Bàn Thạch Căn)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3401": {
+"piece": "c66 stairway",
+"kind": "notable",
+"idea": "E10 Bedrock Root (Bàn Thạch Căn)",
+"name": "Bedrock (Bàn Thạch)",
+"mods": [
+[
+"dao_tam",
+"",
+4,
+1.33
+],
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3402": {
+"piece": "c66 stairway",
+"kind": "small",
+"idea": "E10 Bedrock Root (Bàn Thạch Căn)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3403": {
+"piece": "c66 stairway",
+"kind": "notable",
+"idea": "E10 Bedrock Root (Bàn Thạch Căn)",
+"name": "Bedrock Root (Bàn Thạch Căn)",
+"mods": [
+[
+"dao_tam",
+"",
+4,
+1.33
+],
+[
+"breakthrough_chance",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3404": {
+"piece": "c66 stairway",
+"kind": "small",
+"idea": "E10 Bedrock Root (Bàn Thạch Căn)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"3405": {
+"piece": "c66 trail",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3406": {
+"piece": "c66 trail",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3407": {
+"piece": "c66 trail",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3408": {
+"piece": "c66 trail",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3409": {
+"piece": "c66 trail",
+"kind": "notable",
+"idea": null,
+"name": "Pilgrim Trail (Triều Sơn Lộ)",
+"mods": [
+[
+"timer_resist_pct",
+"",
+4,
+8.0
+],
+[
+"dao_tam",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3410": {
+"piece": "c66 trail",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3411": {
+"piece": "c66 trail",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3412": {
+"piece": "c66 trail",
+"kind": "notable",
+"idea": null,
+"name": "Steady Steps (Ổn Bộ)",
+"mods": [
+[
+"timer_resist_pct",
+"",
+4,
+8.0
+],
+[
+"status_resist_pct",
+"",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3413": {
+"piece": "c66 b66",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3414": {
+"piece": "c66 b66",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3415": {
+"piece": "c66 b66",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3416": {
+"piece": "c66 b66",
+"kind": "notable",
+"idea": null,
+"name": "Forbearance (Kham Nhẫn)",
+"mods": [
+[
+"timer_resist_pct",
+"",
+4.0,
+8.0
+],
+[
+"dao_tam",
+"",
+4.0,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3417": {
+"piece": "c66 e66",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3418": {
+"piece": "c66 e66",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3419": {
+"piece": "c66 e66",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3420": {
+"piece": "c66 e66",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3421": {
+"piece": "c66 e66",
+"kind": "notable",
+"idea": null,
+"name": "Three Steps, One Bow (Tam Bộ Nhất Bái)",
+"mods": [
+[
+"dao_tam",
+"",
+4.0,
+1.33
+],
+[
+"tam_ma_resist_pct",
+"",
+4.0,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3422": {
+"piece": "c66 dz66",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"3423": {
+"piece": "c66 dz66",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"3424": {
+"piece": "c66 dz66",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"3425": {
+"piece": "c66 dz66",
+"kind": "notable",
+"idea": null,
+"name": "Unshaken Heart (Bất Động Tâm)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+4.0,
+2.6
+],
+[
+"dao_tam",
+"",
+4.0,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3426": {
+"piece": "c66 d_gate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"3427": {
+"piece": "c66 d_gate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"3428": {
+"piece": "c66 d_gate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"3429": {
+"piece": "c66 d_gate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"3430": {
+"piece": "c66 d_gate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"3431": {
+"piece": "c66 d_gate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"3432": {
+"piece": "c66 d_gate",
+"kind": "notable",
+"idea": null,
+"name": "Gate of Faith (Tín Môn)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+],
+[
+"dao_tam",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3433": {
+"piece": "c66 d_gate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"3434": {
+"piece": "c117 b117",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3435": {
+"piece": "c117 b117",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3436": {
+"piece": "c117 b117",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3437": {
+"piece": "c117 b117",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3438": {
+"piece": "c117 b117",
+"kind": "notable",
+"idea": null,
+"name": "Flying Peak (Phi Lai Phong)",
+"mods": [
+[
+"block_rating",
+"",
+4.0,
+10
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3439": {
+"piece": "c117 c117",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"physical",
+1.2,
+37
+]
+]
+},
+"3440": {
+"piece": "c117 c117",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"physical",
+1.2,
+37
+]
+]
+},
+"3441": {
+"piece": "c117 c117",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"physical",
+1.2,
+37
+]
+]
+},
+"3442": {
+"piece": "c117 c117",
+"kind": "notable",
+"idea": null,
+"name": "Stubborn Stone (Ngoan Thạch)",
+"mods": [
+[
+"resist_pct",
+"physical",
+4.0,
+125
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3443": {
+"piece": "c117 cirque",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3444": {
+"piece": "c117 cirque",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3445": {
+"piece": "c117 cirque",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3446": {
+"piece": "c117 cirque",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3447": {
+"piece": "c117 cirque",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3448": {
+"piece": "c117 cirque",
+"kind": "notable",
+"idea": null,
+"name": "Mountain Hollow (Sơn Cốc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"resist_pct",
+"physical",
+4,
+125
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3449": {
+"piece": "c117 cirque",
+"kind": "notable",
+"idea": null,
+"name": "Blessed Basin (Phúc Địa)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3450": {
+"piece": "c114 b114",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3451": {
+"piece": "c114 b114",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3452": {
+"piece": "c114 b114",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3453": {
+"piece": "c114 b114",
+"kind": "notable",
+"idea": null,
+"name": "Rolling Boulder (Cổn Thạch)",
+"mods": [
+[
+"attack_pct",
+"tho",
+4.0,
+6.0
+],
+[
+"crit_damage_pct",
+"tho",
+4.0,
+20.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3454": {
+"piece": "c114 b114",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3455": {
+"piece": "c114 cirque",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3456": {
+"piece": "c114 cirque",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3457": {
+"piece": "c114 cirque",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3458": {
+"piece": "c114 cirque",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3459": {
+"piece": "c114 cirque",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3460": {
+"piece": "c114 cirque",
+"kind": "notable",
+"idea": null,
+"name": "Blessed Basin (Phúc Địa)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3461": {
+"piece": "c114 cirque",
+"kind": "notable",
+"idea": null,
+"name": "Mountain Hollow (Sơn Cốc)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"resist_pct",
+"physical",
+4,
+125
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3462": {
+"piece": "c114 a114",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3463": {
+"piece": "c114 a114",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3464": {
+"piece": "c114 a114",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3465": {
+"piece": "c114 a114",
+"kind": "notable",
+"idea": null,
+"name": "Encircling Hills (Quần Sơn)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+],
+[
+"block_rating",
+"",
+4.0,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3466": {
+"piece": "c8 wall",
+"kind": "small",
+"idea": "E6 Rampart (Thành Tường)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3467": {
+"piece": "c8 wall",
+"kind": "small",
+"idea": "E6 Rampart (Thành Tường)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3468": {
+"piece": "c8 wall",
+"kind": "small",
+"idea": "E6 Rampart (Thành Tường)",
+"mods": [
+[
+"ward_efficiency_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3469": {
+"piece": "c8 wall",
+"kind": "small",
+"idea": "E6 Rampart (Thành Tường)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3470": {
+"piece": "c8 wall",
+"kind": "small",
+"idea": "E6 Rampart (Thành Tường)",
+"mods": [
+[
+"ward_efficiency_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3471": {
+"piece": "c8 wall",
+"kind": "small",
+"idea": "E6 Rampart (Thành Tường)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3472": {
+"piece": "c8 wall",
+"kind": "small",
+"idea": "E6 Rampart (Thành Tường)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3473": {
+"piece": "c8 wall",
+"kind": "small",
+"idea": "E6 Rampart (Thành Tường)",
+"mods": [
+[
+"ward_efficiency_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3474": {
+"piece": "c8 wall",
+"kind": "small",
+"idea": "E6 Rampart (Thành Tường)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3475": {
+"piece": "c8 wall",
+"kind": "notable",
+"idea": "E6 Rampart (Thành Tường)",
+"name": "Rampart (Thành Tường)",
+"mods": [
+[
+"defense_pct",
+"",
+5,
+5.0
+],
+[
+"block_rating",
+"",
+3,
+7
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3476": {
+"piece": "c8 wall",
+"kind": "small",
+"idea": "E6 Rampart (Thành Tường)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3477": {
+"piece": "c8 wall",
+"kind": "small",
+"idea": "E6 Rampart (Thành Tường)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3478": {
+"piece": "c8 wall",
+"kind": "small",
+"idea": "E6 Rampart (Thành Tường)",
+"mods": [
+[
+"ward_efficiency_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3479": {
+"piece": "c8 wall",
+"kind": "small",
+"idea": "E6 Rampart (Thành Tường)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3480": {
+"piece": "c8 wall",
+"kind": "small",
+"idea": "E6 Rampart (Thành Tường)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3481": {
+"piece": "c8 wall",
+"kind": "small",
+"idea": "E6 Rampart (Thành Tường)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3482": {
+"piece": "c8 wall",
+"kind": "small",
+"idea": "E6 Rampart (Thành Tường)",
+"mods": [
+[
+"ward_efficiency_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3483": {
+"piece": "c8 wall",
+"kind": "small",
+"idea": "E6 Rampart (Thành Tường)",
+"mods": [
+[
+"ward_efficiency_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3484": {
+"piece": "c8 wall",
+"kind": "small",
+"idea": "E6 Rampart (Thành Tường)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3485": {
+"piece": "c8 wall",
+"kind": "small",
+"idea": "E6 Rampart (Thành Tường)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3486": {
+"piece": "c8 wall",
+"kind": "small",
+"idea": "E6 Rampart (Thành Tường)",
+"mods": [
+[
+"ward_efficiency_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3487": {
+"piece": "c8 wall",
+"kind": "notable",
+"idea": "E6 Rampart (Thành Tường)",
+"name": "Battlements (Nữ Tường)",
+"mods": [
+[
+"defense_pct",
+"",
+4,
+4.0
+],
+[
+"ward_efficiency_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3488": {
+"piece": "c8 wall",
+"kind": "small",
+"idea": "E6 Rampart (Thành Tường)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3489": {
+"piece": "c8 wall",
+"kind": "small",
+"idea": "E6 Rampart (Thành Tường)",
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3490": {
+"piece": "c8 mesa",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"force",
+1.2,
+37
+]
+]
+},
+"3491": {
+"piece": "c8 mesa",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"force",
+1.2,
+37
+]
+]
+},
+"3492": {
+"piece": "c8 mesa",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"force",
+1.2,
+37
+]
+]
+},
+"3493": {
+"piece": "c8 mesa",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"force",
+1.2,
+37
+]
+]
+},
+"3494": {
+"piece": "c8 mesa",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"force",
+1.2,
+37
+]
+]
+},
+"3495": {
+"piece": "c8 mesa",
+"kind": "notable",
+"idea": null,
+"name": "Mesa (Cao Nguyên)",
+"mods": [
+[
+"resist_pct",
+"force",
+4,
+125
+],
+[
+"defense_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3496": {
+"piece": "c8 mesa",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"force",
+1.2,
+37
+]
+]
+},
+"3497": {
+"piece": "c8 mesa",
+"kind": "notable",
+"idea": null,
+"name": "Altar of Earth (Địa Đàn)",
+"mods": [
+[
+"resist_pct",
+"force",
+4,
+125
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3498": {
+"piece": "c8 a8",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3499": {
+"piece": "c8 a8",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3500": {
+"piece": "c8 a8",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3501": {
+"piece": "c8 a8",
+"kind": "notable",
+"idea": null,
+"name": "City Defender (Thủ Thành)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+],
+[
+"defense_pct",
+"",
+4.0,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3502": {
+"piece": "c8 c8",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ward_efficiency_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3503": {
+"piece": "c8 c8",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"ward_efficiency_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3504": {
+"piece": "c8 c8",
+"kind": "notable",
+"idea": null,
+"name": "Wall Brick (Thành Chuyên)",
+"mods": [
+[
+"ward_efficiency_pct",
+"",
+4.0,
+4.0
+],
+[
+"defense_pct",
+"",
+4.0,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3505": {
+"piece": "c8 d8",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3506": {
+"piece": "c8 d8",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3507": {
+"piece": "c8 d8",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3508": {
+"piece": "c8 d8",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3509": {
+"piece": "c8 d8",
+"kind": "notable",
+"idea": null,
+"name": "Cornerstone (Cơ Thạch)",
+"mods": [
+[
+"block_rating",
+"",
+4.0,
+10
+],
+[
+"resist_pct",
+"physical",
+4.0,
+125
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3510": {
+"piece": "c8 f8",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"force",
+1.2,
+37
+]
+]
+},
+"3511": {
+"piece": "c8 f8",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"force",
+1.2,
+37
+]
+]
+},
+"3512": {
+"piece": "c8 f8",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"resist_pct",
+"force",
+1.2,
+37
+]
+]
+},
+"3513": {
+"piece": "c8 f8",
+"kind": "notable",
+"idea": null,
+"name": "Bastion (Bảo Lũy)",
+"mods": [
+[
+"resist_pct",
+"force",
+4.0,
+125
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3514": {
+"piece": "c8 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3515": {
+"piece": "c8 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3516": {
+"piece": "c8 d_arch",
+"kind": "notable",
+"idea": null,
+"name": "Beacon Tower (Phong Hỏa Đài)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"block_rating",
+"",
+4,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3517": {
+"piece": "c8 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3518": {
+"piece": "c8 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3519": {
+"piece": "c8 d_arch",
+"kind": "notable",
+"idea": null,
+"name": "Arrow Tower (Tiễn Lâu)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+],
+[
+"defense_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3520": {
+"piece": "c8 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3521": {
+"piece": "c8 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"khi_huyet_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3522": {
+"piece": "c8 d_arch2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3523": {
+"piece": "c8 d_arch2",
+"kind": "notable",
+"idea": null,
+"name": "City Gate (Thành Môn)",
+"mods": [
+[
+"defense_pct",
+"",
+4.0,
+4.0
+],
+[
+"block_rating",
+"",
+4.0,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3524": {
+"piece": "c8 d_arch2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"defense_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3525": {
+"piece": "c16 cliff_w",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"tho",
+1.2,
+6.0
+]
+]
+},
+"3526": {
+"piece": "c16 cliff_w",
+"kind": "notable",
+"idea": null,
+"name": "Precipice (Tuyệt Bích)",
+"mods": [
+[
+"crit_damage_pct",
+"tho",
+4,
+20.0
+],
+[
+"attack_pct",
+"tho",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3527": {
+"piece": "c16 cliff_w",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"tho",
+1.2,
+6.0
+]
+]
+},
+"3528": {
+"piece": "c16 cliff_w",
+"kind": "notable",
+"idea": null,
+"name": "Stone Rain (Thạch Vũ)",
+"mods": [
+[
+"crit_damage_pct",
+"tho",
+4,
+20.0
+],
+[
+"attack_pct",
+"slow",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3529": {
+"piece": "c16 cliff_w",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"tho",
+1.2,
+6.0
+]
+]
+},
+"3530": {
+"piece": "c16 cliff_w",
+"kind": "notable",
+"idea": null,
+"name": "Sheer Drop (Huyền Nhai)",
+"mods": [
+[
+"crit_damage_pct",
+"tho",
+4,
+20.0
+],
+[
+"pierce_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3531": {
+"piece": "c16 cliff_w",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"tho",
+1.2,
+6.0
+]
+]
+},
+"3532": {
+"piece": "c16 cliff_e",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"pierce_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3533": {
+"piece": "c16 cliff_e",
+"kind": "notable",
+"idea": null,
+"name": "Cliff Face (Thạch Bích)",
+"mods": [
+[
+"pierce_pct",
+"",
+4,
+4.0
+],
+[
+"attack_pct",
+"tho",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3534": {
+"piece": "c16 cliff_e",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"pierce_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3535": {
+"piece": "c16 cliff_e",
+"kind": "notable",
+"idea": null,
+"name": "Mountain Splitter (Phách Sơn)",
+"mods": [
+[
+"pierce_pct",
+"",
+4,
+4.0
+],
+[
+"resist_pen_pct",
+"",
+4,
+40
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3536": {
+"piece": "c16 cliff_e",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"pierce_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3537": {
+"piece": "c16 cliff_e",
+"kind": "notable",
+"idea": null,
+"name": "Strange Crag (Kỳ Nham)",
+"mods": [
+[
+"pierce_pct",
+"",
+4,
+4.0
+],
+[
+"crit_chance_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3538": {
+"piece": "c16 cliff_e",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"pierce_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3539": {
+"piece": "c16 henge",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3540": {
+"piece": "c16 henge",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3541": {
+"piece": "c16 henge",
+"kind": "notable",
+"idea": null,
+"name": "Standing Stones (Lập Thạch)",
+"mods": [
+[
+"attack_pct",
+"tho",
+4,
+6.0
+],
+[
+"dao_tam",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3542": {
+"piece": "c16 henge",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3543": {
+"piece": "c16 henge",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3544": {
+"piece": "c16 henge",
+"kind": "notable",
+"idea": null,
+"name": "Stone Sentinel Maze (Bát Trận Đồ)",
+"mods": [
+[
+"attack_pct",
+"tho",
+4,
+6.0
+],
+[
+"resist_pen_pct",
+"",
+4,
+40
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3545": {
+"piece": "c16 henge",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3546": {
+"piece": "c16 henge",
+"kind": "notable",
+"idea": null,
+"name": "Stone Beam (Thạch Lương)",
+"mods": [
+[
+"attack_pct",
+"tho",
+4,
+6.0
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3547": {
+"piece": "c16 e16",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3548": {
+"piece": "c16 e16",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3549": {
+"piece": "c16 e16",
+"kind": "notable",
+"idea": null,
+"name": "Merit Stele (Công Đức Bi)",
+"mods": [
+[
+"attack_pct",
+"tho",
+4.0,
+6.0
+],
+[
+"dao_tam",
+"",
+4.0,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3550": {
+"piece": "c16 f16",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"tho",
+1.2,
+6.0
+]
+]
+},
+"3551": {
+"piece": "c16 f16",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"tho",
+1.2,
+6.0
+]
+]
+},
+"3552": {
+"piece": "c16 f16",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"tho",
+1.2,
+6.0
+]
+]
+},
+"3553": {
+"piece": "c16 f16",
+"kind": "notable",
+"idea": null,
+"name": "Flying Sand (Phi Sa Tẩu Thạch)",
+"mods": [
+[
+"crit_damage_pct",
+"tho",
+4.0,
+20.0
+],
+[
+"pierce_pct",
+"",
+4.0,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3554": {
+"piece": "c16 steps",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3555": {
+"piece": "c16 steps",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3556": {
+"piece": "c16 steps",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3557": {
+"piece": "c16 steps",
+"kind": "notable",
+"idea": null,
+"name": "Thousand Steps (Thiên Giai)",
+"mods": [
+[
+"timer_resist_pct",
+"",
+4,
+8.0
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3558": {
+"piece": "c16 steps",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3559": {
+"piece": "c16 steps",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3560": {
+"piece": "c16 steps",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3561": {
+"piece": "c16 steps",
+"kind": "notable",
+"idea": null,
+"name": "Long Climb (Phàn Sơn)",
+"mods": [
+[
+"timer_resist_pct",
+"",
+4,
+8.0
+],
+[
+"status_resist_pct",
+"",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3562": {
+"piece": "c16 d_split",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"pierce_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3563": {
+"piece": "c16 d_split",
+"kind": "notable",
+"idea": null,
+"name": "Shattered Stele (Đoạn Bi)",
+"mods": [
+[
+"pierce_pct",
+"",
+4.0,
+4.0
+],
+[
+"attack_pct",
+"tho",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3564": {
+"piece": "c16 d_split",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"pierce_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3565": {
+"piece": "c16 d_split",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"pierce_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3566": {
+"piece": "c16 d_s16",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_resist_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"3567": {
+"piece": "c16 d_s16",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_resist_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"3568": {
+"piece": "c16 d_s16",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_resist_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"3569": {
+"piece": "c16 d_s16",
+"kind": "notable",
+"idea": null,
+"name": "Warding Stone (Trấn Thạch)",
+"mods": [
+[
+"status_resist_pct",
+"",
+4.0,
+10.0
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3570": {
+"piece": "c16 d_g16",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3571": {
+"piece": "c16 d_g16",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3572": {
+"piece": "c16 d_g16",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3573": {
+"piece": "c16 d_g16",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"timer_resist_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3574": {
+"piece": "c16 d_g16",
+"kind": "notable",
+"idea": null,
+"name": "Steady as Taishan (Ổn Như Thái Sơn)",
+"mods": [
+[
+"timer_resist_pct",
+"",
+4.0,
+8.0
+],
+[
+"block_rating",
+"",
+4.0,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3575": {
+"piece": "c16 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"body_shield_pct",
+"",
+1.2,
+2.3
+]
+]
+},
+"3576": {
+"piece": "c16 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"body_shield_pct",
+"",
+1.2,
+2.3
+]
+]
+},
+"3577": {
+"piece": "c16 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"body_shield_pct",
+"",
+1.2,
+2.3
+]
+]
+},
+"3578": {
+"piece": "c16 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"body_shield_pct",
+"",
+1.2,
+2.3
+]
+]
+},
+"3579": {
+"piece": "c16 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"body_shield_pct",
+"",
+1.2,
+2.3
+]
+]
+},
+"3580": {
+"piece": "c16 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"body_shield_pct",
+"",
+1.2,
+2.3
+]
+]
+},
+"3581": {
+"piece": "c16 d_arch",
+"kind": "notable",
+"idea": null,
+"name": "Stone Shield (Thạch Thuẫn)",
+"mods": [
+[
+"body_shield_pct",
+"",
+4,
+7.8
+],
+[
+"block_rating",
+"",
+4,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3582": {
+"piece": "c16 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"body_shield_pct",
+"",
+1.2,
+2.3
+]
+]
+},
+"3583": {
+"piece": "c51 cave",
+"kind": "notable",
+"idea": "H2 Cave Gate (Động Môn)",
+"name": "Hidden Grotto (Ẩn Động)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+4,
+4.4
+],
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3584": {
+"piece": "c51 cave",
+"kind": "small",
+"idea": "H2 Cave Gate (Động Môn)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"3585": {
+"piece": "c51 cave",
+"kind": "small",
+"idea": "H2 Cave Gate (Động Môn)",
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3586": {
+"piece": "c51 cave",
+"kind": "small",
+"idea": "H2 Cave Gate (Động Môn)",
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3587": {
+"piece": "c51 cave",
+"kind": "small",
+"idea": "H2 Cave Gate (Động Môn)",
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3588": {
+"piece": "c51 cave",
+"kind": "small",
+"idea": "H2 Cave Gate (Động Môn)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"3589": {
+"piece": "c51 cave",
+"kind": "small",
+"idea": "H2 Cave Gate (Động Môn)",
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3590": {
+"piece": "c51 cave",
+"kind": "small",
+"idea": "H2 Cave Gate (Động Môn)",
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3591": {
+"piece": "c51 cave",
+"kind": "notable",
+"idea": "H2 Cave Gate (Động Môn)",
+"name": "Portable Cave Abode (Động Phủ Tùy Thân)",
+"mods": [
+[
+"formation_power_pct",
+"",
+2,
+2.0
+]
+],
+"pending": [],
+"cap": "#14",
+"effect": null,
+"twin_copy": false
+},
+"3592": {
+"piece": "c51 cave",
+"kind": "notable",
+"idea": "H2 Cave Gate (Động Môn)",
+"name": "Cave Mouth (Động Khẩu)",
+"mods": [
+[
+"formation_power_pct",
+"",
+4,
+4.0
+],
+[
+"herb_growth_pct",
+"",
+4,
+4.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3593": {
+"piece": "c51 dz51a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"3594": {
+"piece": "c51 dz51a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"3595": {
+"piece": "c51 dz51a",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"3596": {
+"piece": "c51 dz51a",
+"kind": "notable",
+"idea": null,
+"name": "Stone Moss (Thạch Đài)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+4.0,
+4.4
+],
+[
+"health_regen_inc_pct",
+"",
+4.0,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3597": {
+"piece": "c51 peak",
+"kind": "notable",
+"idea": null,
+"name": "Medicine Mountain (Dược Sơn)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+4,
+4.4
+],
+[
+"dao_tam",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3598": {
+"piece": "c51 peak",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"3599": {
+"piece": "c51 peak",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"3600": {
+"piece": "c51 peak",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"3601": {
+"piece": "c51 peak",
+"kind": "notable",
+"idea": null,
+"name": "Mountain Herbs (Sơn Thảo)",
+"mods": [
+[
+"herb_growth_pct",
+"",
+4,
+4.4
+],
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3602": {
+"piece": "c51 peak",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"3603": {
+"piece": "c51 peak",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"herb_growth_pct",
+"",
+1.2,
+1.3
+]
+]
+},
+"3604": {
+"piece": "c51 dz51b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3605": {
+"piece": "c51 dz51b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3606": {
+"piece": "c51 dz51b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3607": {
+"piece": "c51 dz51b",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"formation_power_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3608": {
+"piece": "c51 dz51b",
+"kind": "notable",
+"idea": null,
+"name": "Grotto-Heaven Array (Động Thiên Trận)",
+"mods": [
+[
+"formation_power_pct",
+"",
+4.0,
+4.0
+],
+[
+"herb_growth_pct",
+"",
+4.0,
+4.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3609": {
+"piece": "c51 d_step",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_resist_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"3610": {
+"piece": "c51 d_step",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_resist_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"3611": {
+"piece": "c51 d_step",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_resist_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"3612": {
+"piece": "c51 d_step",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_resist_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"3613": {
+"piece": "c51 d_step",
+"kind": "notable",
+"idea": null,
+"name": "Stalactite (Thạch Nhũ)",
+"mods": [
+[
+"status_resist_pct",
+"",
+4,
+10.0
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3614": {
+"piece": "c51 d_step",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_resist_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"3615": {
+"piece": "c51 d_s51",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"3616": {
+"piece": "c51 d_s51",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"3617": {
+"piece": "c51 d_s51",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"3618": {
+"piece": "c51 d_s51",
+"kind": "notable",
+"idea": null,
+"name": "Secluded Dwelling (U Cư)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4.0,
+1.8
+],
+[
+"dao_tam",
+"",
+4.0,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3619": {
+"piece": "c51 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3620": {
+"piece": "c51 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3621": {
+"piece": "c51 d_arch",
+"kind": "notable",
+"idea": null,
+"name": "Herb Garden (Dược Viên)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+4.0,
+13.3
+],
+[
+"herb_growth_pct",
+"",
+4.0,
+4.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3622": {
+"piece": "c51 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3623": {
+"piece": "c55 quarry",
+"kind": "small",
+"idea": "E9 Landslide (Sơn Băng)",
+"mods": [
+[
+"attack_pct",
+"slow",
+1.2,
+1.8
+]
+]
+},
+"3624": {
+"piece": "c55 quarry",
+"kind": "small",
+"idea": "E9 Landslide (Sơn Băng)",
+"mods": [
+[
+"attack_pct",
+"slow",
+1.2,
+1.8
+]
+]
+},
+"3625": {
+"piece": "c55 quarry",
+"kind": "small",
+"idea": "E9 Landslide (Sơn Băng)",
+"mods": [
+[
+"pierce_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3626": {
+"piece": "c55 quarry",
+"kind": "small",
+"idea": "E9 Landslide (Sơn Băng)",
+"mods": [
+[
+"attack_pct",
+"slow",
+1.2,
+1.8
+]
+]
+},
+"3627": {
+"piece": "c55 quarry",
+"kind": "notable",
+"idea": "E9 Landslide (Sơn Băng)",
+"name": "Loose Scree (Sa Thạch)",
+"mods": [
+[
+"attack_pct",
+"slow",
+4,
+6.0
+],
+[
+"pierce_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3628": {
+"piece": "c55 quarry",
+"kind": "small",
+"idea": "E9 Landslide (Sơn Băng)",
+"mods": [
+[
+"pierce_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3629": {
+"piece": "c55 quarry",
+"kind": "small",
+"idea": "E9 Landslide (Sơn Băng)",
+"mods": [
+[
+"attack_pct",
+"slow",
+1.2,
+1.8
+]
+]
+},
+"3630": {
+"piece": "c55 quarry",
+"kind": "small",
+"idea": "E9 Landslide (Sơn Băng)",
+"mods": [
+[
+"attack_pct",
+"slow",
+1.2,
+1.8
+]
+]
+},
+"3631": {
+"piece": "c55 quarry",
+"kind": "small",
+"idea": "E9 Landslide (Sơn Băng)",
+"mods": [
+[
+"pierce_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3632": {
+"piece": "c55 quarry",
+"kind": "small",
+"idea": "E9 Landslide (Sơn Băng)",
+"mods": [
+[
+"pierce_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"3633": {
+"piece": "c55 quarry",
+"kind": "small",
+"idea": "E9 Landslide (Sơn Băng)",
+"mods": [
+[
+"attack_pct",
+"slow",
+1.2,
+1.8
+]
+]
+},
+"3634": {
+"piece": "c55 quarry",
+"kind": "small",
+"idea": "E9 Landslide (Sơn Băng)",
+"mods": [
+[
+"attack_pct",
+"slow",
+1.2,
+1.8
+]
+]
+},
+"3635": {
+"piece": "c55 quarry",
+"kind": "notable",
+"idea": "E9 Landslide (Sơn Băng)",
+"name": "Falling Rock (Lạc Thạch)",
+"mods": [
+[
+"attack_pct",
+"slow",
+4,
+6.0
+],
+[
+"crit_damage_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3636": {
+"piece": "c55 quarry",
+"kind": "small",
+"idea": "E9 Landslide (Sơn Băng)",
+"mods": [
+[
+"attack_pct",
+"slow",
+1.2,
+1.8
+]
+]
+},
+"3637": {
+"piece": "c55 quarry",
+"kind": "notable",
+"idea": "E9 Landslide (Sơn Băng)",
+"name": "Landslide (Sơn Băng)",
+"mods": [
+[
+"attack_pct",
+"slow,tho",
+5,
+10.0
+],
+[
+"pierce_pct",
+"",
+3,
+3.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3638": {
+"piece": "c55 quarry",
+"kind": "small",
+"idea": "E9 Landslide (Sơn Băng)",
+"mods": [
+[
+"attack_pct",
+"slow",
+1.2,
+1.8
+]
+]
+},
+"3639": {
+"piece": "c55 a55",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"tho",
+1.2,
+6.0
+]
+]
+},
+"3640": {
+"piece": "c55 a55",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"crit_damage_pct",
+"tho",
+1.2,
+6.0
+]
+]
+},
+"3641": {
+"piece": "c55 a55",
+"kind": "notable",
+"idea": null,
+"name": "Chisel Strike (Tạc Thạch)",
+"mods": [
+[
+"crit_damage_pct",
+"tho",
+4.0,
+20.0
+],
+[
+"attack_pct",
+"slow",
+4.0,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3642": {
+"piece": "c55 d_step",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_resist_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"3643": {
+"piece": "c55 d_step",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_resist_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"3644": {
+"piece": "c55 d_step",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_resist_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"3645": {
+"piece": "c55 d_step",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_resist_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"3646": {
+"piece": "c55 d_step",
+"kind": "notable",
+"idea": null,
+"name": "Stalactite (Thạch Nhũ)",
+"mods": [
+[
+"status_resist_pct",
+"",
+4,
+10.0
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3647": {
+"piece": "c55 d_step",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"status_resist_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"3648": {
+"piece": "c55 d_s55",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"slow",
+1.2,
+1.8
+]
+]
+},
+"3649": {
+"piece": "c55 d_s55",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"slow",
+1.2,
+1.8
+]
+]
+},
+"3650": {
+"piece": "c55 d_s55",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"slow",
+1.2,
+1.8
+]
+]
+},
+"3651": {
+"piece": "c55 d_s55",
+"kind": "notable",
+"idea": null,
+"name": "Stone Quarry (Thạch Trường)",
+"mods": [
+[
+"attack_pct",
+"slow",
+4.0,
+6.0
+],
+[
+"pierce_pct",
+"",
+4.0,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3652": {
+"piece": "c55 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3653": {
+"piece": "c55 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3654": {
+"piece": "c55 d_arch",
+"kind": "notable",
+"idea": null,
+"name": "Herb Garden (Dược Viên)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+4.0,
+13.3
+],
+[
+"herb_growth_pct",
+"",
+4.0,
+4.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3655": {
+"piece": "c55 d_arch",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3656": {
+"piece": "c104 cairn",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"3657": {
+"piece": "c104 cairn",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"3658": {
+"piece": "c104 cairn",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"3659": {
+"piece": "c104 cairn",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"3660": {
+"piece": "c104 cairn",
+"kind": "notable",
+"idea": null,
+"name": "Cairn (Thạch Trủng)",
+"mods": [
+[
+"lifespan_pct",
+"",
+4,
+1.3
+],
+[
+"dao_tam",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3661": {
+"piece": "c104 cairn",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"3662": {
+"piece": "c104 cairn",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"3663": {
+"piece": "c104 cairn",
+"kind": "notable",
+"idea": null,
+"name": "Ancestral Shrine (Tổ Từ)",
+"mods": [
+[
+"lifespan_pct",
+"",
+4,
+1.3
+],
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3664": {
+"piece": "c104 a104",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3665": {
+"piece": "c104 a104",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3666": {
+"piece": "c104 a104",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3667": {
+"piece": "c104 a104",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3668": {
+"piece": "c104 a104",
+"kind": "notable",
+"idea": null,
+"name": "Mineral Spring (Khoáng Tuyền)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+4.0,
+13.3
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3669": {
+"piece": "c104 dz104",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"3670": {
+"piece": "c104 dz104",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"3671": {
+"piece": "c104 dz104",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"3672": {
+"piece": "c104 dz104",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"3673": {
+"piece": "c104 dz104",
+"kind": "notable",
+"idea": null,
+"name": "Longevity Rock (Thọ Thạch)",
+"mods": [
+[
+"lifespan_pct",
+"",
+4.0,
+1.3
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3674": {
+"piece": "c104 d_step",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3675": {
+"piece": "c104 d_step",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3676": {
+"piece": "c104 d_step",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3677": {
+"piece": "c104 d_step",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3678": {
+"piece": "c104 d_step",
+"kind": "notable",
+"idea": null,
+"name": "Wayside Pavilion (Trường Đình)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3679": {
+"piece": "c104 d_step",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3680": {
+"piece": "c106 cairn",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"3681": {
+"piece": "c106 cairn",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"3682": {
+"piece": "c106 cairn",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"3683": {
+"piece": "c106 cairn",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"3684": {
+"piece": "c106 cairn",
+"kind": "notable",
+"idea": null,
+"name": "Cairn (Thạch Trủng)",
+"mods": [
+[
+"lifespan_pct",
+"",
+4,
+1.3
+],
+[
+"dao_tam",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3685": {
+"piece": "c106 cairn",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"3686": {
+"piece": "c106 cairn",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"3687": {
+"piece": "c106 cairn",
+"kind": "notable",
+"idea": null,
+"name": "Ancestral Shrine (Tổ Từ)",
+"mods": [
+[
+"lifespan_pct",
+"",
+4,
+1.3
+],
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3688": {
+"piece": "c106 a106",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3689": {
+"piece": "c106 a106",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3690": {
+"piece": "c106 a106",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3691": {
+"piece": "c106 a106",
+"kind": "notable",
+"idea": null,
+"name": "Ancestral Reverence (Kính Tổ)",
+"mods": [
+[
+"dao_tam",
+"",
+4.0,
+1.33
+],
+[
+"tam_ma_resist_pct",
+"",
+4.0,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3692": {
+"piece": "c106 dz106",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"3693": {
+"piece": "c106 dz106",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"3694": {
+"piece": "c106 dz106",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"3695": {
+"piece": "c106 dz106",
+"kind": "notable",
+"idea": null,
+"name": "Tomb-Sweeping (Thanh Minh)",
+"mods": [
+[
+"tam_ma_resist_pct",
+"",
+4.0,
+2.6
+],
+[
+"lifespan_pct",
+"",
+4.0,
+1.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3696": {
+"piece": "c106 d_step",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3697": {
+"piece": "c106 d_step",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3698": {
+"piece": "c106 d_step",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3699": {
+"piece": "c106 d_step",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3700": {
+"piece": "c106 d_step",
+"kind": "notable",
+"idea": null,
+"name": "Wayside Pavilion (Trường Đình)",
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+4,
+13.3
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3701": {
+"piece": "c106 d_step",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"health_regen_inc_pct",
+"",
+1.2,
+4.0
+]
+]
+},
+"3702": {
+"piece": "c2 a2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3703": {
+"piece": "c2 a2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3704": {
+"piece": "c2 a2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3705": {
+"piece": "c2 a2",
+"kind": "notable",
+"idea": null,
+"name": "River Pebble (Noãn Thạch)",
+"mods": [
+[
+"attack_pct",
+"tho",
+4.0,
+6.0
+],
+[
+"block_rating",
+"",
+4.0,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3706": {
+"piece": "c2 b2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3707": {
+"piece": "c2 b2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3708": {
+"piece": "c2 b2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"attack_pct",
+"tho",
+1.2,
+1.8
+]
+]
+},
+"3709": {
+"piece": "c2 b2",
+"kind": "notable",
+"idea": null,
+"name": "River Pebble (Noãn Thạch)",
+"mods": [
+[
+"attack_pct",
+"tho",
+4.0,
+6.0
+],
+[
+"block_rating",
+"",
+4.0,
+10
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3710": {
+"piece": "c2 c2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3711": {
+"piece": "c2 c2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3712": {
+"piece": "c2 c2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3713": {
+"piece": "c2 c2",
+"kind": "notable",
+"idea": null,
+"name": "Root of Faith (Tín Căn)",
+"mods": [
+[
+"dao_tam",
+"",
+4.0,
+1.33
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3714": {
+"piece": "c2 d2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3715": {
+"piece": "c2 d2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3716": {
+"piece": "c2 d2",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3717": {
+"piece": "c2 d2",
+"kind": "notable",
+"idea": null,
+"name": "Root of Faith (Tín Căn)",
+"mods": [
+[
+"dao_tam",
+"",
+4.0,
+1.33
+],
+[
+"khi_huyet_pct",
+"",
+4.0,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3718": {
+"piece": "c2 d_gate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3719": {
+"piece": "c2 d_gate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3720": {
+"piece": "c2 d_gate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3721": {
+"piece": "c2 d_gate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3722": {
+"piece": "c2 d_gate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3723": {
+"piece": "c2 d_gate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3724": {
+"piece": "c2 d_gate",
+"kind": "notable",
+"idea": null,
+"name": "Earthen Gate (Thổ Môn)",
+"mods": [
+[
+"block_rating",
+"",
+4,
+10
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3725": {
+"piece": "c2 d_gate",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"block_rating",
+"",
+1.2,
+3
+]
+]
+},
+"3726": {
+"piece": "c902 keystone_w",
+"kind": "keystone",
+"name": "Open Sky (Không Thiên)",
+"effect": "Open Sky (Không Thiên)",
+"closes": "artifact power -30 %",
+"mods": [
+[
+"defense_pct",
+"",
+30,
+30.0
+],
+[
+"ward_efficiency_pct",
+"",
+20,
+20.0
+]
+]
+},
+"3727": {
+"piece": "c902 keystone_e",
+"kind": "keystone",
+"name": "No Ward (Vô Hộ)",
+"effect": "No Ward (Vô Hộ)",
+"closes": "no ward of any kind",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+30,
+50.0
+],
+[
+"block_rating",
+"",
+20,
+50
+]
+]
+},
+"3728": {
+"piece": "c902 star_R",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+1.2,
+12
+]
+]
+},
+"3729": {
+"piece": "c902 star_R",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+1.2,
+12
+]
+]
+},
+"3730": {
+"piece": "c902 star_R",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+1.2,
+12
+]
+]
+},
+"3731": {
+"piece": "c902 star_R",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+1.2,
+12
+]
+]
+},
+"3732": {
+"piece": "c902 star_R",
+"kind": "notable",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"name": "Ward Breaker (Phá Chướng)",
+"mods": [
+[
+"ward_bill_pct",
+"",
+4,
+8.0
+],
+[
+"resist_pen_pct",
+"",
+4,
+40
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3733": {
+"piece": "c902 star_R",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+1.2,
+12
+]
+]
+},
+"3734": {
+"piece": "c902 star_R",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+1.2,
+12
+]
+]
+},
+"3735": {
+"piece": "c902 star_R",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"ward_bill_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3736": {
+"piece": "c902 star_R",
+"kind": "notable",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"name": "Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+5,
+50
+],
+[
+"crit_damage_pct",
+"tho",
+3,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3737": {
+"piece": "c902 star_R",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"ward_bill_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3738": {
+"piece": "c902 star_R",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+1.2,
+12
+]
+]
+},
+"3739": {
+"piece": "c902 star_R",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+1.2,
+12
+]
+]
+},
+"3740": {
+"piece": "c902 star_R",
+"kind": "notable",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"name": "Falling Star (Lạc Tinh)",
+"mods": [
+[
+"attack_pct",
+"slow",
+4,
+6.0
+],
+[
+"ward_bill_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3741": {
+"piece": "c902 star_R",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+1.2,
+12
+]
+]
+},
+"3742": {
+"piece": "c902 star_R",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+1.2,
+12
+]
+]
+},
+"3743": {
+"piece": "c902 star_R",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"ward_bill_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3744": {
+"piece": "c902 star_R",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"ward_bill_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3745": {
+"piece": "c902 star_R",
+"kind": "notable",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"name": "Gravity (Trọng Lực)",
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+4,
+50
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3746": {
+"piece": "c902 star_R",
+"kind": "notable",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"name": "Mountain-Crushing Finger (Toái Sơn Chỉ)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+4,
+40
+],
+[
+"attack_pct",
+"tho",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3747": {
+"piece": "c902 star_R",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"ward_bill_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3748": {
+"piece": "c902 star_L",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+1.2,
+12
+]
+]
+},
+"3749": {
+"piece": "c902 star_L",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+1.2,
+12
+]
+]
+},
+"3750": {
+"piece": "c902 star_L",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+1.2,
+12
+]
+]
+},
+"3751": {
+"piece": "c902 star_L",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+1.2,
+12
+]
+]
+},
+"3752": {
+"piece": "c902 star_L",
+"kind": "notable",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"name": "Ward Breaker (Phá Chướng)",
+"mods": [
+[
+"ward_bill_pct",
+"",
+4,
+8.0
+],
+[
+"resist_pen_pct",
+"",
+4,
+40
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3753": {
+"piece": "c902 star_L",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+1.2,
+12
+]
+]
+},
+"3754": {
+"piece": "c902 star_L",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+1.2,
+12
+]
+]
+},
+"3755": {
+"piece": "c902 star_L",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"ward_bill_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3756": {
+"piece": "c902 star_L",
+"kind": "notable",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"name": "Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+5,
+50
+],
+[
+"crit_damage_pct",
+"tho",
+3,
+15.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3757": {
+"piece": "c902 star_L",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"ward_bill_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3758": {
+"piece": "c902 star_L",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+1.2,
+12
+]
+]
+},
+"3759": {
+"piece": "c902 star_L",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+1.2,
+12
+]
+]
+},
+"3760": {
+"piece": "c902 star_L",
+"kind": "notable",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"name": "Falling Star (Lạc Tinh)",
+"mods": [
+[
+"attack_pct",
+"slow",
+4,
+6.0
+],
+[
+"ward_bill_pct",
+"",
+4,
+8.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3761": {
+"piece": "c902 star_L",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+1.2,
+12
+]
+]
+},
+"3762": {
+"piece": "c902 star_L",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+1.2,
+12
+]
+]
+},
+"3763": {
+"piece": "c902 star_L",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"ward_bill_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3764": {
+"piece": "c902 star_L",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"ward_bill_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3765": {
+"piece": "c902 star_L",
+"kind": "notable",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"name": "Gravity (Trọng Lực)",
+"mods": [
+[
+"resist_pen_pct",
+"physical",
+4,
+50
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3766": {
+"piece": "c902 star_L",
+"kind": "notable",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"name": "Mountain-Crushing Finger (Toái Sơn Chỉ)",
+"mods": [
+[
+"resist_pen_pct",
+"",
+4,
+40
+],
+[
+"attack_pct",
+"tho",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3767": {
+"piece": "c902 star_L",
+"kind": "small",
+"idea": "★ Heavy Star (Trọng Tinh)",
+"mods": [
+[
+"ward_bill_pct",
+"",
+1.2,
+2.4
+]
+]
+},
+"3768": {
+"piece": "c902 ruyi_R",
+"kind": "small",
+"idea": "★ Ruyi (Như Ý)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"3769": {
+"piece": "c902 ruyi_R",
+"kind": "small",
+"idea": "★ Ruyi (Như Ý)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"3770": {
+"piece": "c902 ruyi_R",
+"kind": "small",
+"idea": "★ Ruyi (Như Ý)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"3771": {
+"piece": "c902 ruyi_R",
+"kind": "small",
+"idea": "★ Ruyi (Như Ý)",
+"mods": [
+[
+"mi_luc",
+"",
+1.2,
+1.2
+]
+]
+},
+"3772": {
+"piece": "c902 ruyi_R",
+"kind": "small",
+"idea": "★ Ruyi (Như Ý)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"3773": {
+"piece": "c902 ruyi_R",
+"kind": "small",
+"idea": "★ Ruyi (Như Ý)",
+"mods": [
+[
+"mi_luc",
+"",
+1.2,
+1.2
+]
+]
+},
+"3774": {
+"piece": "c902 ruyi_R",
+"kind": "notable",
+"idea": "★ Ruyi (Như Ý)",
+"name": "Cloud Head (Vân Đầu)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"mi_luc",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3775": {
+"piece": "c902 ruyi_R",
+"kind": "small",
+"idea": "★ Ruyi (Như Ý)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"3776": {
+"piece": "c902 ruyi_R",
+"kind": "notable",
+"idea": "★ Ruyi (Như Ý)",
+"name": "Ruyi Sceptre (Như Ý Trượng)",
+"mods": [
+[
+"mi_luc",
+"",
+4,
+4.0
+],
+[
+"mission_income_pct",
+"",
+4,
+5.7
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3777": {
+"piece": "c902 ruyi_R",
+"kind": "small",
+"idea": "★ Ruyi (Như Ý)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"3778": {
+"piece": "c902 ruyi_R",
+"kind": "notable",
+"idea": "★ Ruyi (Như Ý)",
+"name": "As You Wish (Như Ý)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"co_duyen_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3779": {
+"piece": "c902 ruyi_L",
+"kind": "small",
+"idea": "★ Ruyi (Như Ý)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"3780": {
+"piece": "c902 ruyi_L",
+"kind": "small",
+"idea": "★ Ruyi (Như Ý)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"3781": {
+"piece": "c902 ruyi_L",
+"kind": "small",
+"idea": "★ Ruyi (Như Ý)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"3782": {
+"piece": "c902 ruyi_L",
+"kind": "small",
+"idea": "★ Ruyi (Như Ý)",
+"mods": [
+[
+"mi_luc",
+"",
+1.2,
+1.2
+]
+]
+},
+"3783": {
+"piece": "c902 ruyi_L",
+"kind": "small",
+"idea": "★ Ruyi (Như Ý)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"3784": {
+"piece": "c902 ruyi_L",
+"kind": "small",
+"idea": "★ Ruyi (Như Ý)",
+"mods": [
+[
+"mi_luc",
+"",
+1.2,
+1.2
+]
+]
+},
+"3785": {
+"piece": "c902 ruyi_L",
+"kind": "notable",
+"idea": "★ Ruyi (Như Ý)",
+"name": "Cloud Head (Vân Đầu)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"mi_luc",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3786": {
+"piece": "c902 ruyi_L",
+"kind": "small",
+"idea": "★ Ruyi (Như Ý)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"3787": {
+"piece": "c902 ruyi_L",
+"kind": "notable",
+"idea": "★ Ruyi (Như Ý)",
+"name": "Ruyi Sceptre (Như Ý Trượng)",
+"mods": [
+[
+"mi_luc",
+"",
+4,
+4.0
+],
+[
+"mission_income_pct",
+"",
+4,
+5.7
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3788": {
+"piece": "c902 ruyi_L",
+"kind": "small",
+"idea": "★ Ruyi (Như Ý)",
+"mods": [
+[
+"khi_van",
+"",
+1.2,
+0.24
+]
+]
+},
+"3789": {
+"piece": "c902 ruyi_L",
+"kind": "notable",
+"idea": "★ Ruyi (Như Ý)",
+"name": "As You Wish (Như Ý)",
+"mods": [
+[
+"khi_van",
+"",
+4,
+0.8
+],
+[
+"co_duyen_pct",
+"",
+4,
+13.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3790": {
+"piece": "c902 cong_R",
+"kind": "small",
+"idea": "★ Earth Veins (Địa Mạch)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"3791": {
+"piece": "c902 cong_R",
+"kind": "notable",
+"idea": "★ Earth Veins (Địa Mạch)",
+"name": "Jade Cong (Ngọc Tông)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+],
+[
+"dao_tam",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3792": {
+"piece": "c902 cong_R",
+"kind": "notable",
+"idea": "★ Earth Veins (Địa Mạch)",
+"name": "Opened Vein (Khai Mạch)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+],
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3793": {
+"piece": "c902 cong_R",
+"kind": "notable",
+"idea": "★ Earth Veins (Địa Mạch)",
+"name": "Square Earth (Địa Phương)",
+"mods": [
+[
+"dao_tam",
+"",
+4,
+1.33
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3794": {
+"piece": "c902 cong_R",
+"kind": "small",
+"idea": "★ Earth Veins (Địa Mạch)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"3795": {
+"piece": "c902 cong_R",
+"kind": "small",
+"idea": "★ Earth Veins (Địa Mạch)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3796": {
+"piece": "c902 cong_R",
+"kind": "small",
+"idea": "★ Earth Veins (Địa Mạch)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"3797": {
+"piece": "c902 cong_R",
+"kind": "small",
+"idea": "★ Earth Veins (Địa Mạch)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3798": {
+"piece": "c902 cong_R",
+"kind": "small",
+"idea": "★ Earth Veins (Địa Mạch)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"3799": {
+"piece": "c902 cong_R",
+"kind": "small",
+"idea": "★ Earth Veins (Địa Mạch)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"3800": {
+"piece": "c902 cong_R",
+"kind": "small",
+"idea": "★ Earth Veins (Địa Mạch)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3801": {
+"piece": "c902 cong_R",
+"kind": "small",
+"idea": "★ Earth Veins (Địa Mạch)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"3802": {
+"piece": "c902 cong_R",
+"kind": "notable",
+"idea": "★ Earth Veins (Địa Mạch)",
+"name": "Earth Veins (Địa Mạch)",
+"mods": [
+[
+"density_bonus",
+"",
+5.6,
+0.04
+],
+[
+"cultivation_speed_pct",
+"",
+2.4,
+1.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3803": {
+"piece": "c902 cong_R",
+"kind": "small",
+"idea": "★ Earth Veins (Địa Mạch)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3804": {
+"piece": "c902 cong_R",
+"kind": "small",
+"idea": "★ Earth Veins (Địa Mạch)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"3805": {
+"piece": "c902 cong_R",
+"kind": "small",
+"idea": "★ Earth Veins (Địa Mạch)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"3806": {
+"piece": "c902 cong_L",
+"kind": "small",
+"idea": "★ Earth Veins (Địa Mạch)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"3807": {
+"piece": "c902 cong_L",
+"kind": "notable",
+"idea": "★ Earth Veins (Địa Mạch)",
+"name": "Jade Cong (Ngọc Tông)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+],
+[
+"dao_tam",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3808": {
+"piece": "c902 cong_L",
+"kind": "notable",
+"idea": "★ Earth Veins (Địa Mạch)",
+"name": "Opened Vein (Khai Mạch)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+],
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3809": {
+"piece": "c902 cong_L",
+"kind": "notable",
+"idea": "★ Earth Veins (Địa Mạch)",
+"name": "Square Earth (Địa Phương)",
+"mods": [
+[
+"dao_tam",
+"",
+4,
+1.33
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3810": {
+"piece": "c902 cong_L",
+"kind": "small",
+"idea": "★ Earth Veins (Địa Mạch)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"3811": {
+"piece": "c902 cong_L",
+"kind": "small",
+"idea": "★ Earth Veins (Địa Mạch)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3812": {
+"piece": "c902 cong_L",
+"kind": "small",
+"idea": "★ Earth Veins (Địa Mạch)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"3813": {
+"piece": "c902 cong_L",
+"kind": "small",
+"idea": "★ Earth Veins (Địa Mạch)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3814": {
+"piece": "c902 cong_L",
+"kind": "small",
+"idea": "★ Earth Veins (Địa Mạch)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"3815": {
+"piece": "c902 cong_L",
+"kind": "small",
+"idea": "★ Earth Veins (Địa Mạch)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"3816": {
+"piece": "c902 cong_L",
+"kind": "small",
+"idea": "★ Earth Veins (Địa Mạch)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3817": {
+"piece": "c902 cong_L",
+"kind": "small",
+"idea": "★ Earth Veins (Địa Mạch)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"3818": {
+"piece": "c902 cong_L",
+"kind": "notable",
+"idea": "★ Earth Veins (Địa Mạch)",
+"name": "Earth Veins (Địa Mạch)",
+"mods": [
+[
+"density_bonus",
+"",
+5.6,
+0.04
+],
+[
+"cultivation_speed_pct",
+"",
+2.4,
+1.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"3819": {
+"piece": "c902 cong_L",
+"kind": "small",
+"idea": "★ Earth Veins (Địa Mạch)",
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"3820": {
+"piece": "c902 cong_L",
+"kind": "small",
+"idea": "★ Earth Veins (Địa Mạch)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"3821": {
+"piece": "c902 cong_L",
+"kind": "small",
+"idea": "★ Earth Veins (Địa Mạch)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"3822": {
+"piece": "c902 bell",
+"kind": "small",
+"idea": "★ Temple Bell (Tự Chung)",
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3823": {
+"piece": "c902 bell",
+"kind": "small",
+"idea": "★ Temple Bell (Tự Chung)",
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3824": {
+"piece": "c902 bell",
+"kind": "notable",
+"idea": "★ Temple Bell (Tự Chung)",
+"name": "Valley Echo (Cốc Hưởng)",
+"mods": [
+[
+"soul_res_pct",
+"",
+4,
+6.6
+],
+[
+"status_resist_pct",
+"",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3825": {
+"piece": "c902 bell",
+"kind": "notable",
+"idea": "★ Temple Bell (Tự Chung)",
+"name": "Stone Drums (Thạch Cổ)",
+"mods": [
+[
+"status_resist_pct",
+"",
+4,
+10.0
+],
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3826": {
+"piece": "c902 bell",
+"kind": "small",
+"idea": "★ Temple Bell (Tự Chung)",
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3827": {
+"piece": "c902 bell",
+"kind": "small",
+"idea": "★ Temple Bell (Tự Chung)",
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3828": {
+"piece": "c902 bell",
+"kind": "small",
+"idea": "★ Temple Bell (Tự Chung)",
+"mods": [
+[
+"status_resist_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"3829": {
+"piece": "c902 bell",
+"kind": "notable",
+"idea": "★ Temple Bell (Tự Chung)",
+"name": "Bronze Bell (Đồng Chung)",
+"mods": [
+[
+"soul_res_pct",
+"",
+4,
+6.6
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3830": {
+"piece": "c902 bell",
+"kind": "small",
+"idea": "★ Temple Bell (Tự Chung)",
+"mods": [
+[
+"status_resist_pct",
+"",
+1.2,
+3.0
+]
+]
+},
+"3831": {
+"piece": "c902 bell",
+"kind": "small",
+"idea": "★ Temple Bell (Tự Chung)",
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3832": {
+"piece": "c902 bell",
+"kind": "small",
+"idea": "★ Temple Bell (Tự Chung)",
+"mods": [
+[
+"soul_res_pct",
+"",
+1.2,
+2.0
+]
+]
+},
+"3833": {
+"piece": "c902 bell",
+"kind": "notable",
+"idea": "★ Temple Bell (Tự Chung)",
+"name": "Temple Bell (Tự Chung)",
+"mods": [
+[
+"soul_res_pct",
+"",
+5,
+8.3
+],
+[
+"status_resist_pct",
+"curse",
+3,
+11.2
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3834": {
+"piece": "c902 end_R",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"3835": {
+"piece": "c902 end_R",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"3836": {
+"piece": "c902 end_R",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"3837": {
+"piece": "c902 end_R",
+"kind": "notable",
+"idea": null,
+"name": "Eave Tile (Ngõa Đương)",
+"mods": [
+[
+"lifespan_pct",
+"",
+4.0,
+1.3
+],
+[
+"dao_tam",
+"",
+4.0,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"3838": {
+"piece": "c902 keystone_rim_R",
+"kind": "keystone",
+"name": "Immovable Mountain (Bất Động Sơn)",
+"effect": "Immovable Mountain (Bất Động Sơn)",
+"closes": "art speed modifiers do nothing",
+"mods": [
+[
+"attack_pct",
+"slow",
+15,
+22.5
+],
+[
+"khi_huyet_pct",
+"",
+15,
+25.0
+],
+[
+"block_rating",
+"",
+10,
+25
+],
+[
+"resist_pct",
+"physical",
+10,
+312
+]
+]
+},
+"3839": {
+"piece": "c902 keystone_rim_L",
+"kind": "keystone",
+"name": "Earth Vein Tap (Địa Mạch Dẫn)",
+"effect": "Earth Vein Tap (Địa Mạch Dẫn)",
+"closes": "no linh lực regeneration while no formation of yours stands",
+"mods": [
+[
+"formation_power_pct",
+"",
+25,
+25.0
+],
+[
+"linh_luc_regen_inc_pct",
+"",
+25,
+31.2
+]
+]
+},
+"8917": {
+"piece": "c902 earth_seal_terrace_east",
+"kind": "small",
+"idea": "E4 Yellow Springs (Hoàng Tuyền)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"8918": {
+"piece": "c902 earth_seal_terrace_east",
+"kind": "small",
+"idea": "E4 Yellow Springs (Hoàng Tuyền)",
+"mods": [
+[
+"qi_deviation_pct",
+"",
+1.2,
+-1.2
+]
+]
+},
+"8919": {
+"piece": "c902 earth_seal_terrace_east",
+"kind": "small",
+"idea": "E4 Yellow Springs (Hoàng Tuyền)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"8920": {
+"piece": "c902 earth_seal_terrace_east",
+"kind": "small",
+"idea": "E4 Yellow Springs (Hoàng Tuyền)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"8921": {
+"piece": "c902 earth_seal_terrace_east",
+"kind": "small",
+"idea": "E4 Yellow Springs (Hoàng Tuyền)",
+"mods": [
+[
+"qi_deviation_pct",
+"",
+1.2,
+-1.2
+]
+]
+},
+"8922": {
+"piece": "c902 earth_seal_terrace_east",
+"kind": "notable",
+"idea": "E4 Yellow Springs (Hoàng Tuyền)",
+"name": "Yellow Springs (Hoàng Tuyền)",
+"mods": [
+[
+"lifespan_pct",
+"",
+5,
+1.6
+],
+[
+"tam_ma_resist_pct",
+"",
+3,
+2.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8923": {
+"piece": "c902 earth_seal_terrace_east",
+"kind": "small",
+"idea": "E4 Yellow Springs (Hoàng Tuyền)",
+"mods": [
+[
+"qi_deviation_pct",
+"",
+1.2,
+-1.2
+]
+]
+},
+"8924": {
+"piece": "c902 earth_seal_terrace_east",
+"kind": "small",
+"idea": "E4 Yellow Springs (Hoàng Tuyền)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"8925": {
+"piece": "c902 earth_seal_terrace_east",
+"kind": "small",
+"idea": "E4 Yellow Springs (Hoàng Tuyền)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"8926": {
+"piece": "c902 earth_seal_terrace_east",
+"kind": "notable",
+"idea": "E4 Yellow Springs (Hoàng Tuyền)",
+"name": "Sealed Earth (Phong Thổ)",
+"mods": [
+[
+"lifespan_pct",
+"",
+4,
+1.3
+],
+[
+"qi_deviation_pct",
+"",
+4,
+-4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8927": {
+"piece": "c902 earth_seal_terrace_east",
+"kind": "small",
+"idea": "E4 Yellow Springs (Hoàng Tuyền)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"8928": {
+"piece": "c902 earth_seal_terrace_west",
+"kind": "small",
+"idea": "E4 Yellow Springs (Hoàng Tuyền)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"8929": {
+"piece": "c902 earth_seal_terrace_west",
+"kind": "small",
+"idea": "E4 Yellow Springs (Hoàng Tuyền)",
+"mods": [
+[
+"qi_deviation_pct",
+"",
+1.2,
+-1.2
+]
+]
+},
+"8930": {
+"piece": "c902 earth_seal_terrace_west",
+"kind": "small",
+"idea": "E4 Yellow Springs (Hoàng Tuyền)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"8931": {
+"piece": "c902 earth_seal_terrace_west",
+"kind": "small",
+"idea": "E4 Yellow Springs (Hoàng Tuyền)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"8932": {
+"piece": "c902 earth_seal_terrace_west",
+"kind": "small",
+"idea": "E4 Yellow Springs (Hoàng Tuyền)",
+"mods": [
+[
+"qi_deviation_pct",
+"",
+1.2,
+-1.2
+]
+]
+},
+"8933": {
+"piece": "c902 earth_seal_terrace_west",
+"kind": "notable",
+"idea": "E4 Yellow Springs (Hoàng Tuyền)",
+"name": "Yellow Springs (Hoàng Tuyền)",
+"mods": [
+[
+"lifespan_pct",
+"",
+5,
+1.6
+],
+[
+"tam_ma_resist_pct",
+"",
+3,
+2.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"8934": {
+"piece": "c902 earth_seal_terrace_west",
+"kind": "small",
+"idea": "E4 Yellow Springs (Hoàng Tuyền)",
+"mods": [
+[
+"qi_deviation_pct",
+"",
+1.2,
+-1.2
+]
+]
+},
+"8935": {
+"piece": "c902 earth_seal_terrace_west",
+"kind": "small",
+"idea": "E4 Yellow Springs (Hoàng Tuyền)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"8936": {
+"piece": "c902 earth_seal_terrace_west",
+"kind": "small",
+"idea": "E4 Yellow Springs (Hoàng Tuyền)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"8937": {
+"piece": "c902 earth_seal_terrace_west",
+"kind": "notable",
+"idea": "E4 Yellow Springs (Hoàng Tuyền)",
+"name": "Sealed Earth (Phong Thổ)",
+"mods": [
+[
+"lifespan_pct",
+"",
+4,
+1.3
+],
+[
+"qi_deviation_pct",
+"",
+4,
+-4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"8938": {
+"piece": "c902 earth_seal_terrace_west",
+"kind": "small",
+"idea": "E4 Yellow Springs (Hoàng Tuyền)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"8939": {
+"piece": "c902 bronze_bell_storey_east",
+"kind": "small",
+"idea": "E2 Black Tortoise (Huyền Quy)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8940": {
+"piece": "c902 bronze_bell_storey_east",
+"kind": "small",
+"idea": "E2 Black Tortoise (Huyền Quy)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"8941": {
+"piece": "c902 bronze_bell_storey_east",
+"kind": "small",
+"idea": "E2 Black Tortoise (Huyền Quy)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8942": {
+"piece": "c902 bronze_bell_storey_east",
+"kind": "small",
+"idea": "E2 Black Tortoise (Huyền Quy)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"8943": {
+"piece": "c902 bronze_bell_storey_east",
+"kind": "notable",
+"idea": "E2 Black Tortoise (Huyền Quy)",
+"name": "Embryonic Breath (Thai Tức Quy Nguyên)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+2,
+0.9
+]
+],
+"pending": [],
+"cap": "#7",
+"effect": null,
+"twin_copy": false
+},
+"8944": {
+"piece": "c902 bronze_bell_storey_east",
+"kind": "small",
+"idea": "E2 Black Tortoise (Huyền Quy)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"8945": {
+"piece": "c902 bronze_bell_storey_east",
+"kind": "small",
+"idea": "E2 Black Tortoise (Huyền Quy)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8946": {
+"piece": "c902 bronze_bell_storey_east",
+"kind": "small",
+"idea": "E2 Black Tortoise (Huyền Quy)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8947": {
+"piece": "c902 bronze_bell_storey_east",
+"kind": "small",
+"idea": "E2 Black Tortoise (Huyền Quy)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8948": {
+"piece": "c902 bronze_bell_storey_east",
+"kind": "notable",
+"idea": "E2 Black Tortoise (Huyền Quy)",
+"name": "Tortoise Slumber (Quy Miên)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+],
+[
+"lifespan_pct",
+"",
+4,
+1.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8949": {
+"piece": "c902 bronze_bell_storey_east",
+"kind": "small",
+"idea": "E2 Black Tortoise (Huyền Quy)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8950": {
+"piece": "c902 bronze_bell_storey_east",
+"kind": "small",
+"idea": "E2 Black Tortoise (Huyền Quy)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8951": {
+"piece": "c902 bronze_bell_storey_west",
+"kind": "small",
+"idea": "E2 Black Tortoise (Huyền Quy)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8952": {
+"piece": "c902 bronze_bell_storey_west",
+"kind": "small",
+"idea": "E2 Black Tortoise (Huyền Quy)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"8953": {
+"piece": "c902 bronze_bell_storey_west",
+"kind": "small",
+"idea": "E2 Black Tortoise (Huyền Quy)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8954": {
+"piece": "c902 bronze_bell_storey_west",
+"kind": "small",
+"idea": "E2 Black Tortoise (Huyền Quy)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"8955": {
+"piece": "c902 bronze_bell_storey_west",
+"kind": "notable",
+"idea": "E2 Black Tortoise (Huyền Quy)",
+"name": "Black Tortoise (Huyền Quy)",
+"mods": [
+[
+"lifespan_pct",
+"",
+4,
+1.3
+],
+[
+"khi_huyet_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"8956": {
+"piece": "c902 bronze_bell_storey_west",
+"kind": "small",
+"idea": "E2 Black Tortoise (Huyền Quy)",
+"mods": [
+[
+"lifespan_pct",
+"",
+1.2,
+0.4
+]
+]
+},
+"8957": {
+"piece": "c902 bronze_bell_storey_west",
+"kind": "small",
+"idea": "E2 Black Tortoise (Huyền Quy)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8958": {
+"piece": "c902 bronze_bell_storey_west",
+"kind": "small",
+"idea": "E2 Black Tortoise (Huyền Quy)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8959": {
+"piece": "c902 bronze_bell_storey_west",
+"kind": "small",
+"idea": "E2 Black Tortoise (Huyền Quy)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8960": {
+"piece": "c902 bronze_bell_storey_west",
+"kind": "notable",
+"idea": "E2 Black Tortoise (Huyền Quy)",
+"name": "Tortoise Slumber (Quy Miên)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+],
+[
+"lifespan_pct",
+"",
+4,
+1.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"8961": {
+"piece": "c902 bronze_bell_storey_west",
+"kind": "small",
+"idea": "E2 Black Tortoise (Huyền Quy)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8962": {
+"piece": "c902 bronze_bell_storey_west",
+"kind": "small",
+"idea": "E2 Black Tortoise (Huyền Quy)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8963": {
+"piece": "c902 cloud_gate_roof_east",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8964": {
+"piece": "c902 cloud_gate_roof_east",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8965": {
+"piece": "c902 cloud_gate_roof_east",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8966": {
+"piece": "c902 cloud_gate_roof_east",
+"kind": "notable",
+"idea": null,
+"name": "Flying Eaves (Phi Diêm)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+],
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8967": {
+"piece": "c902 cloud_gate_roof_east",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8968": {
+"piece": "c902 cloud_gate_roof_east",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8969": {
+"piece": "c902 cloud_gate_roof_east",
+"kind": "notable",
+"idea": null,
+"name": "Cloud Gate (Vân Môn)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+],
+[
+"dao_tam",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8970": {
+"piece": "c902 cloud_gate_roof_east",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8971": {
+"piece": "c902 cloud_gate_roof_west",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8972": {
+"piece": "c902 cloud_gate_roof_west",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8973": {
+"piece": "c902 cloud_gate_roof_west",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8974": {
+"piece": "c902 cloud_gate_roof_west",
+"kind": "notable",
+"idea": null,
+"name": "Flying Eaves (Phi Diêm)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+],
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"8975": {
+"piece": "c902 cloud_gate_roof_west",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8976": {
+"piece": "c902 cloud_gate_roof_west",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8977": {
+"piece": "c902 cloud_gate_roof_west",
+"kind": "notable",
+"idea": null,
+"name": "Cloud Gate (Vân Môn)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+],
+[
+"dao_tam",
+"",
+4,
+1.33
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"8978": {
+"piece": "c902 cloud_gate_roof_west",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8979": {
+"piece": "c902 jade_spire_east",
+"kind": "notable",
+"idea": null,
+"name": "Jade Spire (Ngọc Tháp)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4.0,
+1.8
+],
+[
+"lifespan_pct",
+"",
+4.0,
+1.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8980": {
+"piece": "c902 jade_spire_east",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8981": {
+"piece": "c902 jade_spire_east",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8982": {
+"piece": "c902 jade_spire_east",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8983": {
+"piece": "c902 jade_spire_east",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8984": {
+"piece": "c902 jade_spire_west",
+"kind": "notable",
+"idea": null,
+"name": "Jade Spire (Ngọc Tháp)",
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+4.0,
+1.8
+],
+[
+"lifespan_pct",
+"",
+4.0,
+1.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": true
+},
+"8985": {
+"piece": "c902 jade_spire_west",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8986": {
+"piece": "c902 jade_spire_west",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8987": {
+"piece": "c902 jade_spire_west",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8988": {
+"piece": "c902 jade_spire_west",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"cultivation_speed_pct",
+"",
+1.2,
+0.5
+]
+]
+},
+"8989": {
+"piece": "c902 immortal_pearl",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"8990": {
+"piece": "c902 immortal_pearl",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"8991": {
+"piece": "c902 immortal_pearl",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+},
+"8992": {
+"piece": "c902 immortal_pearl",
+"kind": "notable",
+"idea": null,
+"name": "Immortal Pearl (Tiên Châu)",
+"mods": [
+[
+"dao_tam",
+"",
+4.0,
+1.33
+],
+[
+"lifespan_pct",
+"",
+4.0,
+1.3
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8993": {
+"piece": "c902 immortal_pearl",
+"kind": "small",
+"idea": null,
+"mods": [
+[
+"dao_tam",
+"",
+1.2,
+0.4
+]
+]
+}
+}
+}

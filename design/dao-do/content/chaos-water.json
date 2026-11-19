@@ -1,0 +1,1789 @@
+{
+"map": "v5-frozen-2026-11-19",
+"map_sha256": "dbdfd5dcd10b49f843c597b48e169aec86153793382986f29a46dea3247eaa96",
+"area": "chaos-water",
+"nodes": {
+"8664": {
+"piece": "c5 waves_1",
+"kind": "notable",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"name": "Tide Pull (Khiên Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+4,
+6.0
+],
+[
+"leech_linh_luc_pct",
+"thuy",
+4,
+4.1
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8665": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8666": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8667": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8668": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8669": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8670": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8671": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8672": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8673": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8674": {
+"piece": "c5 waves_1",
+"kind": "notable",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"name": "Dark Current (Hắc Lưu)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+],
+[
+"resist_pen_pct",
+"chaos",
+4,
+60
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8675": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8676": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8677": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8678": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8679": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8680": {
+"piece": "c5 waves_1",
+"kind": "notable",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"name": "Murky Waters (Trọc Thủy)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+],
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8681": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8682": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8683": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8684": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8685": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8686": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8687": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8688": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8689": {
+"piece": "c5 waves_1",
+"kind": "notable",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"name": "Leading Wave (Tiền Lãng)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+4,
+6.0
+],
+[
+"ngo_tinh",
+"",
+4,
+0.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8690": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8691": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8692": {
+"piece": "c5 waves_1",
+"kind": "notable",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"name": "Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+5,
+7.5
+],
+[
+"resist_pen_pct",
+"chaos",
+3,
+45
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8693": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8694": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8695": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8696": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8697": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8698": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8699": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8700": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8701": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8702": {
+"piece": "c5 waves_1",
+"kind": "notable",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"name": "Spray (Phi Mạt)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+4,
+6.0
+],
+[
+"art_speed_pct",
+"thuy",
+4,
+10.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8703": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8704": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8705": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8706": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8707": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8708": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8709": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8710": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8711": {
+"piece": "c5 waves_1",
+"kind": "notable",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"name": "Riptide (Cuồng Lưu)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+4,
+6.0
+],
+[
+"resist_pen_pct",
+"cold",
+4,
+60
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8712": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8713": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8714": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8715": {
+"piece": "c5 waves_1",
+"kind": "notable",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"name": "Deep Swirl (Thâm Toàn)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+],
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8716": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8717": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8718": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8719": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8720": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8721": {
+"piece": "c5 waves_1",
+"kind": "notable",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"name": "Crest (Lãng Đầu)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+4,
+6.0
+],
+[
+"crit_chance_pct",
+"thuy",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8722": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8723": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8724": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8725": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8726": {
+"piece": "c5 waves_1",
+"kind": "notable",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"name": "Purple Tide (Tử Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+4,
+6.0
+],
+[
+"attack_pct",
+"chaos",
+4,
+6.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8727": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8728": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8729": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8730": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"thuy",
+1.2,
+1.8
+]
+]
+},
+"8731": {
+"piece": "c5 waves_1",
+"kind": "small",
+"idea": "★ Chaos Tide (Hỗn Triều)",
+"mods": [
+[
+"attack_pct",
+"chaos",
+1.2,
+1.8
+]
+]
+},
+"8732": {
+"piece": "c5 waves_2",
+"kind": "notable",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"name": "Pure Stream (Thanh Khê)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+],
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8733": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8734": {
+"piece": "c5 waves_2",
+"kind": "notable",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"name": "Bubbling Spring (Dũng Tuyền)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+],
+[
+"linh_luc_regen_inc_pct",
+"",
+4,
+5.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8735": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8736": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"8737": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"8738": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"8739": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"8740": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"8741": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"8742": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"8743": {
+"piece": "c5 waves_2",
+"kind": "notable",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"name": "Cool Water (Lương Thủy)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+],
+[
+"health_regen_pct",
+"",
+4,
+0.4
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8744": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"8745": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8746": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8747": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"8748": {
+"piece": "c5 waves_2",
+"kind": "notable",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"name": "Reflecting Pool (Chiếu Trì)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"soul_res_pct",
+"",
+4,
+6.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8749": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"8750": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"8751": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"8752": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"8753": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8754": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"8755": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8756": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"8757": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"8758": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"8759": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"8760": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8761": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"8762": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8763": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"8764": {
+"piece": "c5 waves_2",
+"kind": "notable",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"name": "Mind-Washing Water (Tẩy Tâm Thủy)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"tam_ma_resist_pct",
+"",
+4,
+2.6
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8765": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8766": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8767": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"linh_luc_regen_pct",
+"",
+1.2,
+0.05
+]
+]
+},
+"8768": {
+"piece": "c5 waves_2",
+"kind": "notable",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"name": "Dragon Well (Long Tỉnh)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"cultivation_speed_pct",
+"",
+4,
+1.8
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8769": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"8770": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"8771": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"8772": {
+"piece": "c5 waves_2",
+"kind": "notable",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"name": "Spring Source (Tuyền Nguyên)",
+"mods": [
+[
+"ngo_tinh",
+"",
+4,
+0.8
+],
+[
+"linh_luc_regen_pct",
+"",
+4,
+0.17
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8773": {
+"piece": "c5 waves_2",
+"kind": "notable",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"name": "Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"ngo_tinh",
+"",
+5,
+1.0
+],
+[
+"linh_luc_regen_inc_pct",
+"",
+3,
+3.7
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8774": {
+"piece": "c5 waves_2",
+"kind": "small",
+"idea": "★ Clear Spring (Thanh Tuyền)",
+"mods": [
+[
+"ngo_tinh",
+"",
+1.2,
+0.24
+]
+]
+},
+"8775": {
+"piece": "c5 waves_3",
+"kind": "notable",
+"idea": "★ Ripples (Liên Y)",
+"name": "Ripples (Liên Y)",
+"mods": [
+[
+"evade_pct",
+"",
+4,
+2.6
+],
+[
+"linh_luc_pct",
+"",
+4,
+4.0
+]
+],
+"pending": [],
+"cap": null,
+"effect": null,
+"twin_copy": false
+},
+"8776": {
+"piece": "c5 waves_3",
+"kind": "small",
+"idea": "★ Ripples (Liên Y)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"8777": {
+"piece": "c5 waves_3",
+"kind": "small",
+"idea": "★ Ripples (Liên Y)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8778": {
+"piece": "c5 waves_3",
+"kind": "small",
+"idea": "★ Ripples (Liên Y)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"8779": {
+"piece": "c5 waves_3",
+"kind": "small",
+"idea": "★ Ripples (Liên Y)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"8780": {
+"piece": "c5 waves_3",
+"kind": "small",
+"idea": "★ Ripples (Liên Y)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8781": {
+"piece": "c5 waves_3",
+"kind": "small",
+"idea": "★ Ripples (Liên Y)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"8782": {
+"piece": "c5 waves_3",
+"kind": "small",
+"idea": "★ Ripples (Liên Y)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+},
+"8783": {
+"piece": "c5 waves_3",
+"kind": "small",
+"idea": "★ Ripples (Liên Y)",
+"mods": [
+[
+"linh_luc_pct",
+"",
+1.2,
+1.2
+]
+]
+},
+"8784": {
+"piece": "c5 waves_3",
+"kind": "small",
+"idea": "★ Ripples (Liên Y)",
+"mods": [
+[
+"evade_pct",
+"",
+1.2,
+0.8
+]
+]
+}
+}
+}
