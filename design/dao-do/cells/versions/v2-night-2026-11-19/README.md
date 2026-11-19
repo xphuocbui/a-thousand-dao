@@ -17,7 +17,7 @@ Passes, in order: density (wall pairs and more) per land; Chaos and islands by C
 Earth pagoda + stars, cong, ruyi, bell; Metal weiqi board, linked rings, pentagons; Water lotus, armillaries, bagua;
 Wood gourd, lanterns, stars); review window 1 (cell), 2 (wall pairs of cells), 3 (neighbourhoods, with the other lands
 across the borders in view), 4 (two-ring regions: Fire, Metal, Earth, Water), 5 (whole land: Fire). Wood stopped at
-window 3. Each pass's notes: `../../out/<land>-<pass>-progress.md`; backups `../../out/<land>-<pass>-bak.py`.
+window 3. Each pass's notes: `notes/<land>-<pass>-progress.md` (moved here from the scratch folder out/, 2026-11-19).
 
 Open for the user's eye: two star pairs on rims (Earth 8-point, Wood 4-point); Earth's curved peak (mountain or
 tent?) and the row of towers; Earth 8's wall reads as beads; Water's Ice start now framed by two arcs; Fire 49's
