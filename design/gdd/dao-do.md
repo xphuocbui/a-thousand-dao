@@ -116,8 +116,8 @@ are named parameters; their values and ranges are in Formulas.
    - **Drawing checks** (run on every build, AC-KMD-60): no crossing links, no two Dao marks closer than 0.6, no
      link grazing a Dao mark, every Dao mark reachable from every start, no cluster without a bypass, at most 6
      links on one Dao mark.
-   - **Distances:** neighbouring element starts are 12 points apart, opposite ones about 24; the Chaos start is
-     15–16 from every element start; the far rim is about 50 points out, the islands farther.
+   - **Distances** (v5 frozen map, measured 2026-11-19): neighbouring element starts are 24 points apart, the others
+     38; the Chaos start is 29 from every element start; the farthest Dao mark is 67–105 points out (Formulas B).
    - **Shape and content are placeholders.** The drawn layout is a shape placeholder that will change further (user,
      2026-11-10), and its names, modifiers, keystones and capability placements are filled in one content pass (user
      decision 2026-11-09), which also gives every element land a keystone that generates linh lực. The counts and
@@ -424,7 +424,7 @@ this GDD owns it). `w_target` was 2.07 W on the lean generated map; the user rai
 the drawn v5 map carried 1,759 notables against the 1,084 assumed and the notable grade stayed at 8 W. A life's tree
 power is set by the route it walks, not the map's mix: the route share of road nodes, small Dao marks and notables
 is re-measured by the bot on the drawn map (AC-KMD-07; the generated map's figure was 95–116 W at Qi Refining's
-end). Hub roads give general stats at S0.
+end). Hub roads grant `road_purity` to each of the five elements (rule 4).
 
 **Example:** (751 × 0.15 + 5,493 × 1.2 + 1,759 × 8) / 8,003 = (113 + 6,592 + 14,072) / 8,003 = **2.596 W**. A typical
 small Dao mark is +1.2% attack (or +0.5% cultivation speed); a notable +8% attack; a Fire road node +0.5 Fire purity.
@@ -432,19 +432,26 @@ small Dao mark is +1.2% attack (or +0.5% cultivation speed); a notable +8% attac
 ### B. Distances from the starts
 
 The drawn map replaces the generated map's bands (K1–K3, depths 5/14/20). What a start reaches is measured on every
-build (lean build, 2026-11-10; to be re-measured on the v5 map):
+build (v5 frozen map, 2026-11-19; points are Dao marks and roads opened from the start; for every start but Chaos's
+the Chaos land is closed, as for a root that has not passed the gate, with the gate-open figure in brackets where it
+differs):
 
 | Start | First notable | Nearest keystone | Keystones within 20 | Dao marks within 9 | Farthest |
 |---|---|---|---|---|---|
-| Metal, Wood, Fire, Earth, Water | 4 | 7 | 7–10 | 143–180 | 54–61 |
-| Primordial Chaos (hub) | 3 | 11 | 5 | 151 | 55 |
-| Ice | 3 | 6 | 6 | 194 | 63 |
-| Wind | 3 | 9 | 11 | 303 | 60 |
-| Light, Darkness, Thunder (islands) | 1–3 | 6–8 | 1–7 | 94–261 | 64–68 |
+| Metal, Wood, Fire, Earth, Water | 2–3 | 21–22 | 0 | 40–59 (40–66) | 74–97 (74–94) |
+| Primordial Chaos (hub) | 2 | 31 | 0 | 80 | 83 |
+| Ice | 3 | 17 | 3 | 108 | 67 |
+| Wind | 2 | 10 | 5 | 84 | 71 |
+| Light, Darkness, Thunder (islands) | 2–3 | 8–9 | 1–4 | 40–127 | 83–105 |
+
+**Against the targets (observation, 2026-11-19):** the first notable is within target from every start. The nearest
+keystone is out of range from the five element starts (21–22) and the Chaos start (31), since v5 puts its 24 keystones
+toward the rims and islands; Ice, Wind and the islands are in range. The farthest Dao mark is beyond 70 from every start
+but Ice. Open Question 23.
 
 **Targets** (`start_targets`, the authoring guide): first notable within 5 points; nearest keystone 6–13 points
-(PoE's range); every start within 70 points of the farthest Dao mark. Neighbouring element starts are 12 points
-apart and the Chaos start 15–16 from each (rule 1).
+(PoE's range); every start within 70 points of the farthest Dao mark. Neighbouring element starts are 24 points
+apart and the Chaos start 29 from each on v5 (rule 1; were 12 and 15–16 on the lean build).
 
 ### C, D. Retired: hidden cluster generation and cluster premium
 
@@ -1175,6 +1182,7 @@ Drafted with qa-lead.
 | 20 | **The map's final shape and the content pass** (the current drawing is a shape placeholder, user 2026-11-10): the redrawn shape; names, modifiers and keystones for the whole map; every element land's linh-lực keystone; the 25 capability placements; the start-cradle keystones that crowd the centre (overnight notes, Still open) | user + game-designer | Content release 1 |
 | 21 | `road_purity`, `purity_price` and `tree_breakthrough_k` are guesses; AC-KMD-101 tunes `road_purity` | systems-designer + bot | Rule 4; Formulas A2, F |
 | 22 | ~~Should island roads grant their variant's purity?~~ **Resolved 2026-11-10:** yes, a variant land's roads grant its variant's purity like an element land's (rule 4; Spiritual Roots review D4) | — | — |
+| 23 | **v5 misses `start_targets`** (measured 2026-11-19, Formulas B): the nearest keystone is 21–22 points from the element starts and 31 from the Chaos start (target 6–13), and the farthest Dao mark is 74–105 points out from every start but Ice (target 70). Options: move or add keystones near the starts, relax the targets for the larger v5 map, or accept. AC-KMD-99 fails on these until decided | user + game-designer | Before AC-KMD-99 is run |
 
 ### Known gaps in the build
 
