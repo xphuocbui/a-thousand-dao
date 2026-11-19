@@ -183,7 +183,7 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
    | Thunder (Lôi) | Offense | `attack_pct` |
    | Blood (Huyết) — **archived** | Vitality | `khi_huyet_pct` |
    | Void (Hư Không) — **archived** | Secret realms and fortunate encounters | `co_duyen_pct` |
-   | Primordial Chaos (Hỗn Độn) | Cultivation and breakthrough | `cultivation_speed_pct` and `breakthrough_chance` |
+   | Primordial Chaos (Hỗn Độn) | Cultivation, breakthrough, offence and vitality (strengthened 2026-11-19) | `cultivation_speed_pct`, `breakthrough_chance`, `attack_pct` and `khi_huyet_pct` |
 
    Each owned variant adds its lines to the stat sheet with the source
    "Biến dị: <data name>", for example "Biến dị: Quang". No variant role line sits on
@@ -274,10 +274,11 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
       purity changes, so a Tẩy Tủy Đan lifts the variant built on that element. An innate variant's purity is drawn
       from the birth purity distribution when it forms. Either kind then adds the purity its own land's roads grant
       (rule 8a).
-    - **Parent purity** (user decision 2026-11-19). Thunder (parents Fire and Metal), Ice (Water) and Wind (Water and
-      Wood) take their parents' purity as their own, recomputed whenever a parent's changes: Thunder = round(√(Fire ×
-      Metal)); Ice = Water; Wind = the higher of its birth-drawn purity and round(√(Water × Wood)). The variant's own
-      roads then add on top (rule 8a). Light, Darkness and Primordial Chaos keep `variant_purity_factor`.
+    - **Parent purity** (user decisions 2026-11-19). Thunder (parents Fire and Metal), Ice (Water), Wind (Water and
+      Wood) and Primordial Chaos (all five) take their parents' purity as their own, recomputed whenever a parent's
+      changes: Thunder = round(√(Fire × Metal)); Ice = Water; Wind = the higher of its birth-drawn purity and
+      round(√(Water × Wood)); Chaos = round of the geometric mean of all five. The variant's own roads then add on top
+      (rule 8a). Light and Darkness keep `variant_purity_factor`.
     - **Mutation Awakening (Biến Dị Khai Mở).** This system subscribes to Realms &
       Bottlenecks' `breakthrough_succeeded` event (a successful move to the next realm).
       On each event, if the Đạo Đồ capability #24 is in the character's capability
@@ -299,9 +300,11 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
     in Water's land; the Light, Darkness and Thunder islands; the Primordial
     Chaos hub; its rule 20), open to everyone. A root holding a variant may start at its start (Đạo Đồ rule
     3), and the land's Dao marks scale by the variant's purity (0.25 at purity 0). The old hidden, locked variant
-    sectors are retired. **Parents' lands** (user decision 2026-11-19): a root holding Thunder, Ice or Wind scales its
-    parents' lands at the owned rate, by the higher of the element's purity and the variant's (Thunder in Fire and
-    Metal, Ice in Water, Wind in Water and Wood). This system supplies the owned set and each variant's purity.
+    sectors are retired. **Parents' lands** (user decisions 2026-11-19): a root holding Thunder, Ice, Wind or Chaos
+    scales its parents' lands at the owned rate, by the higher of the element's purity and the variant's (Thunder in
+    Fire and Metal, Ice in Water, Wind in Water and Wood, Chaos in all five, so a Chaos root has no land below its Chaos
+    purity). **The hub's roads** give +`road_purity` to each of the five elements (Đạo Đồ rule 4), so a Chaos root
+    gains five times a land road's purity there. This system supplies the owned set and each variant's purity.
 
 **Changing the root**
 
@@ -606,33 +609,33 @@ Chaos 5 × 0.0520 = **26.0 %**.
 
 **D2. Purity.** The variant_purity formulas are defined as:
 
-`purity_v = round((Π_{e ∈ parents(v)} purity_e)^(1/m))` for Thunder, Ice and Wind (parent purity, rule 10, user decision 2026-11-19; Wind takes the higher of this and its birth draw), recomputed whenever a parent's purity changes ; `purity_v = max(1, round(variant_purity_factor · (Π_{e ∈ req(v)} purity_e)^(1/m)))` for the other derived variants (Light, Darkness, Chaos; no upper clamp; rule 10), recomputed whenever a required element's purity changes ; `purity_v = clamp(round(N(μ, σ)), p_min, p_max)` for innate variants, drawn once and fixed
+`purity_v = round((Π_{e ∈ parents(v)} purity_e)^(1/m))` for Thunder, Ice, Wind and Chaos (parent purity, rule 10, user decisions 2026-11-19; Wind takes the higher of this and its birth draw), recomputed whenever a parent's purity changes ; `purity_v = max(1, round(variant_purity_factor · (Π_{e ∈ req(v)} purity_e)^(1/m)))` for the other derived variants (Light and Darkness; no upper clamp; rule 10), recomputed whenever a required element's purity changes ; `purity_v = clamp(round(N(μ, σ)), p_min, p_max)` for innate variants, drawn once and fixed
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| variant_purity_factor | float | 0.8 | data file | Discount on the geometric mean (Light, Darkness, Chaos only) |
+| variant_purity_factor | float | 0.8 | data file | Discount on the geometric mean (Light and Darkness only) |
 | parents(v) | set | Thunder {Fire, Metal}; Ice {Water}; Wind {Water, Wood} | data file (`variant_parents`) | The elements whose purity Thunder, Ice and Wind take as their own (user decision 2026-11-19) |
 | m | int | 1, 2 or 5 | calculated | Number of required elements |
 | purity_e | int | 10 and up (uncapped, rule 8a) | calculated | Current element purity |
 | purity_v | int | derived 8 and up; innate 10 and up | calculated | The variant's purity: base (parents or birth draw) plus road purity (rule 8a) |
 
 **Output Range:**
-- Light, Darkness and Chaos are 8–80 while their parents are in the birth range; Thunder and Ice are 10–100, their
+- Light and Darkness are 8–80 while their parents are in the birth range; Thunder, Ice and Chaos are 10–100, their
   parents' range (parent purity, 2026-11-19). All follow their parents past 100 (no upper clamp, review D1), so 1 is
   the only bound.
 - Exact .5 ties cannot occur. The geometric mean of integers is an integer or irrational,
   and 0.8 g = k + 0.5 needs g = (10k + 5)/8, never an integer. Float `round()` is
   therefore safe here. Parent purity has no ties either: √n = k + 0.5 needs n = k² + k + 0.25, never an integer.
-- A Light, Darkness or Chaos variant formed with chance ∝ purity has a typical purity of about 45.5, so its
-  typical value sits at roughly 0.91 of the purity-50 figure used in Formulas E. A formed Thunder is about 56 and Ice
-  about 58 (parent purity; about 1.13 of the purity-50 figure, measured by simulation 2026-11-19).
+- A Light or Darkness variant formed with chance ∝ purity has a typical purity of about 45.5, so its
+  typical value sits at roughly 0.91 of the purity-50 figure used in Formulas E. A formed Thunder is about 56, Ice
+  about 58 and Chaos about 55 (parent purity; about 1.13 of the purity-50 figure, measured by simulation 2026-11-19).
   Innate purity has mean 50.1.
 
 **Example:** Fire 86 and Metal 40 give Thunder round(√3,440) = round(58.7) = **59** (parent purity; it was 47 with the
 0.8 discount). After a Tẩy Tủy Đan lifts Metal to 48, Thunder is round(√4,128) = **64**. Light on
 Fire 86 is round(68.8) = **69**. Five elements at 60 / 50 / 45 / 70 / 55 give Chaos
-round(0.8 × 55.3) = **44**.
+round(55.3) = **55** (parent purity; it was 44).
 
 **D3. Mutation Awakening (Biến Dị Khai Mở).** The awakening formulas are defined as:
 
@@ -693,7 +696,7 @@ linear in purity, `power_W(100) ≈ 2 · power_W(50)`.
 | purity_v | int | 8 and up | calculated | Variant purity (Formulas D2, uncapped since 2026-11-10) |
 | u_k | float | 0.1 (all keys here) | constant (Đạo Đồ Formulas F precision) | The displayed unit. Values are whole counts of u_k and are only rounded **down**, in integer arithmetic on hundredths, so rounding can lower a price but never raise it |
 | w_k | float | table below | constant (design-only; Đạo Đồ Formulas F weights, not runtime data) | W per displayed unit |
-| floor_band, ceiling_band | float | 10 / 30 W (common); 20 / 60 W (Chaos) | data file (`variant_power_band`, `variant_power_band_apex`) | The band |
+| floor_band, ceiling_band | float | 10 / 30 W (common); 60 / 140 W (Chaos, 2026-11-19) | data file (`variant_power_band`, `variant_power_band_apex`) | The band |
 | power_W | float | 0–about 60 | calculated | The variant's price |
 
 | Variant | Key | w (W/unit) | Per purity | Value p50 | Value p100 | W p50 | W p100 | In band |
@@ -705,9 +708,11 @@ linear in purity, `power_W(100) ≈ 2 · power_W(50)`.
 | Thunder (Lôi) | `attack_pct` | 1.0 | 0.30 | 15.0 | 30.0 | 15.0 | 30.0 | yes |
 | Blood (Huyết) | `khi_huyet_pct` | 1.2 | 0.25 | 12.5 | 25.0 | 15.0 | 30.0 | yes |
 | Void (Hư Không) | `co_duyen_pct` | 0.3 *guess* | 1.00 | 50.0 | 100.0 | 15.0 | 30.0 | yes |
-| Primordial Chaos (Hỗn Độn) | `cultivation_speed_pct` | 2.2 | 0.13 | 6.5 | 13.0 | 14.3 | 28.6 | |
+| Primordial Chaos (Hỗn Độn) | `cultivation_speed_pct` | 2.2 | 0.20 | 10.0 | 20.0 | 22.0 | 44.0 | |
 | | `breakthrough_chance` | 5 | 0.06 | 3.0 pp | 6.0 pp | 15.0 | 30.0 | |
-| | **Chaos total** | | | | | **29.3** | **58.6** | **yes (apex band)** |
+| | `attack_pct` | 1.0 | 0.30 | 15.0 | 30.0 | 15.0 | 30.0 | |
+| | `khi_huyet_pct` | 1.2 | 0.25 | 12.5 | 25.0 | 15.0 | 30.0 | |
+| | **Chaos total** | | | | | **67.0** | **134.0** | **yes (apex band)** |
 
 **Output Range:**
 - These bands price the role line only. A variant's Đạo Đồ land is open to everyone and scales by its
@@ -719,10 +724,11 @@ linear in purity, `power_W(100) ≈ 2 · power_W(50)`.
 - **Reachable range.** At birth purities a derived variant tops out at 80 (24 W) and averages about 45.5
   (13.7 W). Past 100 (road-raised parents, or its own land's roads) the line keeps rising linearly, past the band's
   ceiling: the bands price the birth range, and a re-price for purity above 100 is open (Open Question 15).
-- **Chaos band: 20–60 W** (user decision 2026-11-04: raised to about 30 W at purity 50).
-  Chaos is about 2 × a common variant at the same purity. The derived maximum, purity 80,
-  gives +10.4 % cultivation speed and +4.8 pp `breakthrough_chance`, 46.9 W. 0.14 / 0.06
-  would price 60.8 W at purity 100, over the band, so cultivation speed is 0.13.
+- **Chaos band: 60–140 W** (user decision 2026-11-19, "Chaos is much stronger"; was 20–60 W). Chaos is about
+  4.5 × a common variant at the same purity and is strong in fights too (`attack_pct`, `khi_huyet_pct`). At purity
+  80 it gives +16 % cultivation speed, +4.8 pp `breakthrough_chance`, +24 % attack and +20 % `khi_huyet_pct`, 107.2 W.
+  Its purity also follows its parents (D2), its lands never fall below it (rule 12), and the hub's roads feed all five
+  of its parents (Đạo Đồ rule 4).
 - Chaos's `breakthrough_chance` line is not tree-capped (the cap is per source) but joins
   Realms & Bottlenecks' per-attempt extras ceiling in its Formulas C, which Realms owns.
 - `co_duyen_pct` and `travel_speed_pct` have no Đạo Đồ weight, because the map excludes
@@ -731,8 +737,8 @@ linear in purity, `power_W(100) ≈ 2 · power_W(50)`.
 
 **Example:** Thunder at purity 59 (the Fire 86 / Metal 40 root): value = floor(0.30 × 59 /
 0.1) × 0.1 = floor(177) × 0.1 = **+17.7 % attack**, which is 17.7 W. Blood at innate
-purity 50: **+12.5 % `khi_huyet_pct`** = 15.0 W. Chaos at 44: +5.7 % cultivation speed and
-+2.6 pp `breakthrough_chance` = 12.54 + 13.0 = **25.54 W**. W figures are exact and are
+purity 50: **+12.5 % `khi_huyet_pct`** = 15.0 W. Chaos at 55: +11.0 % cultivation speed, +3.3 pp
+`breakthrough_chance`, +16.5 % attack and +13.7 % `khi_huyet_pct` = 24.2 + 16.5 + 16.5 + 16.44 = **73.64 W**. W figures are exact and are
 never rounded; prose may show them to one decimal.
 
 ### F. Root changes
@@ -840,7 +846,7 @@ Water 70 has Ice 70: both stacks ×1.14.
 | `awakening_capability` | 24 | The Đạo Đồ capability that unlocks Mutation Awakening |
 | `awakening_max_passes` | 2 **(new)** | Mutation Awakening passes per life. Structural, not a limit the code enforces: only CF→NS and NS→DT can fire it, and no pass counter is saved |
 | `variant_power_band` | [10, 30] W **(replaces `bien_di_power_band`)** | Common band: floor at purity 50, ceiling at purity 100 |
-| `variant_power_band_apex` | [20, 60] W **(new)** | Chaos band |
+| `variant_power_band_apex` | [60, 140] W **(revised 2026-11-19, was [20, 60])** | Chaos band |
 
 Removed: `bien_di_chance_factor`, `bien_di_higher_order_factor`, `bien_di_power_band` (the
 four-value form), `herb_age_root_pct` (Time moved to the Way).
@@ -1044,7 +1050,7 @@ systems split out of Combat depend on each other as follows.
 | `count_weights` | 45 / 32 / 15 / 6.5 / 1.5 | five-element weight 0.5–3; the weights sum to 100 | Tier rarity; the five-element share is also the share of lives that can reach the center keystone and Chaos (*derived*) |
 | `purity_mean` | 50 | 40–60; *derived* floor 40, below which five-element roots fail QR in time. Cultivation Techniques' `tech_norm` 2.0 is tied to it | Every purity-scaled value, element and variant |
 | `purity_sd` | 20 | 15–25 | The share of purity ≥ 85 per element: 1.1 % at 15, 4.2 % at 20, 8.4 % at 25 |
-| `purity_min` | 10 | 5–20 | The lowest element purity; the Light, Darkness and Chaos floor (0.8 × this); Thunder and Ice floor at this |
+| `purity_min` | 10 | 5–20 | The lowest element purity; the Light and Darkness floor (0.8 × this); Thunder, Ice and Chaos floor at this |
 | `pair_bonus_pct` | 3 | 1–4.5; *derived* ceiling 4.5 (5 pairs under the 50 W keystone floor) | The pair bonus; at 2 four- and five-element roots tie, at 4+ five pulls ahead |
 | `stack_purity_factor` | 0.002 | 0.001–0.004 | How much purity strengthens element stacks (Formulas H) |
 | `n_cap` | 5 | 5 only, unless a sixth curve row is added (which reopens Realms' years table) | How far innate variants can push `n_eff` |
@@ -1053,9 +1059,9 @@ systems split out of Combat depend on each other as follows.
 | `chaos_factor` | 5 | 2–8 | Chaos: about 6–25 % of five-element roots (0.09–0.38 % of births); the `min(1, …)` clamp binds sooner as it rises |
 | `innate_chance` | Wind 0.025, Blood 0.015, Void 0.005 | each 0–0.04; keep their sum ≤ 0.06 so that at most about 6 % of lives move up a curve row | Innate rarity and the share of lives whose `n_eff` exceeds `n_base` |
 | `void_max_elements` | 2 | 1–3; at 5 Void is unconditional | Void's niche as a sparse-root gift |
-| `variant_purity_factor` | 0.8 | 0.6–1.0; at 1.0 Light, Darkness or Chaos can reach purity 100 and the 30 W ceiling at birth purities (past them, Open Question 15) | Light, Darkness and Chaos purity, hence their role strength and land scale (Thunder, Ice and Wind follow their parents, 2026-11-19) |
-| `variant_effects` | Formulas E table | any value keeping each variant inside its band (common 10–30 W, Chaos 20–60 W) at purity 50 and 100 | Each variant's role strength |
-| `variant_power_band`, `variant_power_band_apex` | 10–30 W; 20–60 W | the apex ceiling should stay above the weakest keystone (50 W, registry `keystone_min_power`) only at purity 100, which a derived Chaos cannot reach at birth purities (max 80, 46.9 W; past them, Open Question 15) | How strong a variant may be |
+| `variant_purity_factor` | 0.8 | 0.6–1.0; at 1.0 Light or Darkness can reach purity 100 and the 30 W ceiling at birth purities (past them, Open Question 15) | Light and Darkness purity, hence their role strength and land scale (Thunder, Ice, Wind and Chaos follow their parents, 2026-11-19) |
+| `variant_effects` | Formulas E table | any value keeping each variant inside its band (common 10–30 W, Chaos 60–140 W) at purity 50 and 100 | Each variant's role strength |
+| `variant_power_band`, `variant_power_band_apex` | 10–30 W; 60–140 W | since 2026-11-19 Chaos is above the weakest keystone (50 W, registry `keystone_min_power`) at every purity from 44 up (58.8 W), on purpose: the user's "Chaos is much stronger" (past purity 100, Open Question 15) | How strong a variant may be |
 | `element_count_curve` | Formulas B | any change must keep the parity points | Pacing by `n_eff` |
 | `awakening_max_passes` | 2 | structural (only CF→NS and NS→DT can fire it) | Mutation Awakening's reach |
 | Tẩy Tủy Đan, Linh Căn Quả values | 6 × 3 per life; 20–35 or +8 | owned by Item DB | Root growth over a life |
@@ -1179,7 +1185,7 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
   - purity 9 or 101 is rejected at input, and 10 and 100 are accepted;
   - Thunder on {Fire 86} is rejected;
   - Void on any 3-, 4- or 5-element root is rejected, and Void on {Fire, Metal} is accepted at 50;
-  - five elements at 100 with all five derived variants, Wind and Blood is accepted, with Thunder, Ice and Wind at 100 and Light, Darkness and Chaos at 80.
+  - five elements at 100 with all five derived variants, Wind and Blood is accepted, with Thunder, Ice, Wind and Chaos at 100 and Light and Darkness at 80.
 - **AC-LC-10** [Integration · BLOCKING] Rule 2, declined. Given the AC-LC-09 root with capability #24 held, when Core Formation → Nascent Soul succeeds with rolls forced to succeed, then Light makes no draw and is not owned. When a Linh Căn Quả then adds Water, Ice (which did not qualify at birth) makes one draw and Light still makes none.
 - **AC-LC-52** [Logic · BLOCKING] Rule 2, birth perk. {Fire 86, Metal 40} + Thunder 59 with Linh Căn Thuần Tịnh gives Fire 94, Metal 48 and Thunder round(√4512) = 67, with 0 rolls and 0 change records. Fire 95 stops at 100.
 
@@ -1242,7 +1248,7 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
 
   Every entry has `id`, `name`, `desc`, `origin` and `requires`, and every id in `requires` is an element.
 - **AC-LC-19** [Config/Data · ADVISORY] Parameters.
-  - `linh_can` holds `count_weights` 45 / 32 / 15 / 6.5 / 1.5 (sum 100), `purity_mean` 50, `purity_sd` 20, `purity_min` 10, `purity_max` 100, `pair_bonus_pct` 3, `n_cap` 5, `void_max_elements` 2, `convergence_factor` 0.6, `transmutation_factor` 0.12, `chaos_factor` 5, `innate_chance` {phong 0.025, huyet 0.015, hu_khong 0.005}, `variant_purity_factor` 0.8, `awakening_capability` 24, `awakening_max_passes` 2, `variant_power_band` [10, 30], `variant_power_band_apex` [20, 60], `stack_purity_factor` 0.002 and `variant_parents` {loi: hoa, kim; bang: thuy; phong: thuy, moc} (`pair_share` removed 2026-11-19).
+  - `linh_can` holds `count_weights` 45 / 32 / 15 / 6.5 / 1.5 (sum 100), `purity_mean` 50, `purity_sd` 20, `purity_min` 10, `purity_max` 100, `pair_bonus_pct` 3, `n_cap` 5, `void_max_elements` 2, `convergence_factor` 0.6, `transmutation_factor` 0.12, `chaos_factor` 5, `innate_chance` {phong 0.025, huyet 0.015, hu_khong 0.005}, `variant_purity_factor` 0.8, `awakening_capability` 24, `awakening_max_passes` 2, `variant_power_band` [10, 30], `variant_power_band_apex` [60, 140], `stack_purity_factor` 0.002 and `variant_parents` {loi: hoa, kim; bang: thuy; phong: thuy, moc; hon_don: all five} (`pair_share` removed 2026-11-19).
   - `bien_di_chance_factor`, `bien_di_higher_order_factor`, `bien_di_purity_factor`, `bien_di_power_band`, `herb_age_root_pct`, `bien_di_counts_as_element` and `max_counted_elements` are gone from the data and from `src/`.
 - **AC-LC-20** [Logic · BLOCKING] Formula D1 chances, within 1e-9:
   - Thunder (Fire 86, Metal 40) = 0.2064 (20.6 %);
@@ -1258,8 +1264,8 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
   - Thunder (86, 40) → 59 and (86, 48) → 64;
   - Thunder (86, 28) → 49;
   - Light (86) → 69;
-  - Chaos (60 / 50 / 45 / 70 / 55) → 44;
-  - Light, Darkness or Chaos with all requirements at 10 → 8 and at 100 → 80; Thunder and Ice → 10 and 100;
+  - Chaos (60 / 50 / 45 / 70 / 55) → 55;
+  - Light or Darkness with all requirements at 10 → 8 and at 100 → 80; Thunder, Ice and Chaos → 10 and 100;
   - Ice (Water 70) → 70; Wind drawn 40 on Water 60 and Wood 70 → 65, and on Water 10 and Wood 40 → 40.
 - **AC-LC-22** [Logic · BLOCKING] Rule 10, formation over 50,000 rolls. Thunder on {Fire 86, Metal 40} forms 20.64 % ± 0.75 pp of the time, always at 59. Light on {Fire 86} forms 10.32 % ± 0.55 pp, always at 69.
 - **AC-LC-23** [Logic · BLOCKING] Formula D1, birth rates over 200,000 births:
@@ -1310,21 +1316,23 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
   | Thunder | `attack_pct` | 0.30 | 1.0 | 15.0 / 30.0 | 15.0 / 30.0 |
   | Blood | `khi_huyet_pct` | 0.25 | 1.2 | 12.5 / 25.0 | 15.0 / 30.0 |
   | Void | `co_duyen_pct` | 1.00 | 0.3 | 50.0 / 100.0 | 15.0 / 30.0 |
-  | Chaos | `cultivation_speed_pct` | 0.13 | 2.2 | 6.5 / 13.0 | 14.3 / 28.6 |
+  | Chaos | `cultivation_speed_pct` | 0.20 | 2.2 | 10.0 / 20.0 | 22.0 / 44.0 |
   | Chaos | `breakthrough_chance` | 0.06 | 5 | 3.0 / 6.0 | 15.0 / 30.0 |
-  | Chaos total | | | | | 29.3 / 58.6 |
+  | Chaos | `attack_pct` | 0.30 | 1.0 | 15.0 / 30.0 | 15.0 / 30.0 |
+  | Chaos | `khi_huyet_pct` | 0.25 | 1.2 | 12.5 / 25.0 | 15.0 / 30.0 |
+  | Chaos total | | | | | 67.0 / 134.0 |
 
   Values floor to 0.1 in integer arithmetic on hundredths:
   - Thunder 47 → 14.1 and Thunder 51 → 15.3;
   - Blood 47 → 11.7 and Ice 47 → 8.4;
-  - Chaos 44 → 5.7 and 2.6 (25.54 W);
-  - Chaos 80 → 10.4 and 4.8 (46.88 W).
+  - Chaos 44 → 8.8, 2.6, 13.2 and 11.0 (58.76 W);
+  - Chaos 80 → 16.0, 4.8, 24.0 and 20.0 (107.2 W).
 
   A floating-point floor returns 15.2 for Thunder 51 and 4.7 for Chaos 80 at the `breakthrough_chance` line, so those two cases catch it.
-- **AC-LC-28** [Config/Data · ADVISORY] Band check. `variant_effects` has one entry per variant and two for `hon_don`.
+- **AC-LC-28** [Config/Data · ADVISORY] Band check. `variant_effects` has one entry per variant and four for `hon_don`.
   - Each `per_purity` has at most 2 decimals and each `stat` exists in `character_stat_labels.json`.
   - At the AC-LC-27 weights, the seven common variants price ≥ 10 W at purity 50 and ≤ 30 W at purity 100.
-  - Chaos prices ≥ 20 W at 50 and ≤ 60 W at 100.
+  - Chaos prices ≥ 60 W at 50 and ≤ 140 W at 100.
   - The Wind and Void results are provisional: their 0.3 W weight is a guess.
 - **AC-LC-29** [Integration · BLOCKING] Rule 7, stat sheet. Each owned variant adds exactly these lines:
 
@@ -1337,7 +1345,7 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
   | Thunder 59 | `attack_pct` +17.7 | "Biến dị: Lôi" |
   | Blood 50 | `khi_huyet_pct` +12.5 | "Biến dị: Huyết" |
   | Void 75 | `co_duyen_pct` +75.0 | "Biến dị: Hư Không" |
-  | Chaos 44 | `cultivation_speed_pct` +5.7 and `breakthrough_chance` +2.6 | "Biến dị: Hỗn Độn" |
+  | Chaos 55 | `cultivation_speed_pct` +11.0, `breakthrough_chance` +3.3, `attack_pct` +16.5 and `khi_huyet_pct` +13.7 | "Biến dị: Hỗn Độn" |
 
   - An unowned variant adds no line.
   - Thunder's line reads +19.2 straight after a pill lifts Metal to 48 (Thunder 64). A floating-point floor reads
@@ -1393,7 +1401,7 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
   - over 16,000 uses each purity from 20 to 35 appears 6.25 % ± 0.8 pp.
 - **AC-LC-41** [Logic · BLOCKING] Fifth element. Given {Wood 50, Fire 60, Earth 50, Metal 40} with Wind, Blood, Thunder and Light rolled and failed, a Linh Căn Quả adds Water at 30.
   - Exactly three rolls are made, in order: Darkness (0.09), Chaos (0.09), Ice (0.036).
-  - Forced success forms Darkness 31, Chaos 36 and Ice 30 (Ice is Water's purity).
+  - Forced success forms Darkness 31, Chaos 45 and Ice 30 (Chaos and Ice take their parents' purity).
   - The root is Five-element with 5 pairs.
 - **AC-LC-42** [Logic · BLOCKING] Innate never rolls later. A Linh Căn Quả or a pill makes no draw for Wind, Blood or Void on any root. {Fire, Metal} + Void 75 that gains Water keeps Void at 75, with `n_base` 3 and `n_eff` 4.
 - **AC-LC-43** [Logic · BLOCKING] All five owned, on {Wood 50, Fire 30, Earth 60, Metal 30, Water 90} + Thunder 30:
@@ -1455,7 +1463,9 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
   - {Fire 86} + Wind 50 (no Water or Wood) scales the Water and Wood lands at the owned rate, 0.5 + 0.50 = 1.00
     (an unowned element without Wind would read 0.25).
   - {Water 70} + Ice has Ice 70; the Water land reads 1.20 with or without Ice.
-  - Light, Darkness and Chaos still read `variant_purity_factor`: Light on Fire 86 is 69.
+  - Chaos on {Wood 50, Fire 60, Earth 50, Metal 40, Water 30} is 45 and scales the Water land by 0.5 + 0.45 = 0.95
+    (Water 30 alone would read 0.80).
+  - Light and Darkness still read `variant_purity_factor`: Light on Fire 86 is 69.
 **Not testable here, by design:**
 - Total lives holding a variant (about 12.4–13.5 %) depends on E_p, an unsourced estimate that needs a bot run (Open Question 1).
 - The years-per-realm table depends on the guessed rate factor.

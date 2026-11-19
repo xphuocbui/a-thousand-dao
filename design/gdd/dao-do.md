@@ -37,7 +37,7 @@ The Đạo Đồ is the game's PoE-style passive tree.
   next to an open one.
 - **Value.** Every Dao mark's value scales with the root's purity in its element. An element land's roads also grant
   that element's purity (about 0.5 per node); road nodes on a border line grant half of each neighbour's; hub roads
-  give general stats.
+  grant about 0.5 to each of the five elements, which favours a Primordial Chaos root.
 - **Capabilities.** The map places 25 rule changes (capabilities) in its clusters; their rules live in `effects.md`.
 - **The map is a placeholder.** Both the shape (layout, regions, sizes) and the content (names, modifiers,
   keystones) are placeholders and will change (user, 2026-11-10); a later content pass also gives every element land
@@ -171,15 +171,16 @@ are named parameters; their values and ranges are in Formulas.
      a road granted there counts without a cliff (user decision 2026-11-10, re-review D-R2; Spiritual Roots rule 8a); a
      Dao mark in a border cluster (the cluster on a border line, at 59) uses the average of its two lands' multipliers
      (user decision 2026-11-18: the blend zones became border lines); a variant land's
-     (rule 20) uses that variant's purity the same way. A root holding Thunder, Ice or Wind scales its parents' lands at
+     (rule 20) uses that variant's purity the same way. A root holding Thunder, Ice, Wind or Chaos scales its parents' lands at
      the owned rate, by the higher of the element's purity and the variant's (Thunder: Fire and Metal; Ice: Water; Wind:
-     Water and Wood; Spiritual Roots rule 12, user decision 2026-11-19). Keystones and the hub are exact.
+     Water and Wood; Chaos: all five; Spiritual Roots rule 12, user decisions 2026-11-19). Keystones and the hub are exact.
    - **Roads.** An element land's road nodes grant only that element's purity, about `road_purity` (0.5) each, exact
      (Spiritual Roots rule 8a: purity is proficiency and has no cap); a border line's road nodes grant half of each
      neighbour's; an island's roads (Light, Darkness, Thunder) grant that variant's purity the same way (user decision
-     2026-11-10, Spiritual Roots review D4). A parent's roads also raise its variant, since Thunder, Ice and Wind take
+     2026-11-10, Spiritual Roots review D4). A parent's roads also raise its variant, since Thunder, Ice, Wind and Chaos take
      their parents' purity (Spiritual Roots rule 10); the Wind start has no Wind roads of its own, and Wind grows through
-     the Water–Wood border roads (user decision 2026-11-19). The hub's Source roads give general stats. The amount
+     the Water–Wood border roads (user decision 2026-11-19). The hub's Source roads grant `road_purity` to each of the five elements (user decision 2026-11-19: Chaos is much
+     stronger; a Chaos root gains five times a land road there, a one-element root the same as a land road). The amount
      is bot-tuned so purity above 100 stays rare (user decisions 2026-11-10).
    - **Keys.** Any key in the Modifier System's Stat List may appear except `leech_health_pct` and
      `bonus_ward_slots`, the rare sustain exception (user decision 2026-11-10); rare modifiers only on keystones.
@@ -1000,7 +1001,7 @@ Drafted with qa-lead.
       60 takes the Thunder start.
 - **AC-KMD-97** [Logic] Road purity (rule 4).
     - Opening 4 Fire-land road nodes raises Fire purity by 2.0 (4 × 0.5); a Fire–Earth border-line road node raises Fire
-      and Earth by 0.25 each; a hub road node raises no purity.
+      and Earth by 0.25 each; a hub road node raises each of the five elements by 0.5.
     - A root without Metal that opens 2 Metal road nodes gains Metal purity 1.0 for its stacks, and no base element.
     - Fire purity 99.5 plus one Fire road node is 100.0, and one more is 100.5 (no cap).
 - **AC-KMD-99** [Config/Data] Map size and distances (Formulas B, H). The shipped map has 7,115 visible Dao marks

@@ -177,8 +177,8 @@ def main():
             elif r.startswith(('border_', 'blend_')) and r[-2:] in PAIR:
                 a, b = PAIR[r[-2:]]
                 mods = [f"+{rp / 2:g} {EL[a]} purity", f"+{rp / 2:g} {EL[b]} purity"]
-            else:   # the hub's Source roads: "general stats" (rule 4), not yet chosen
-                mods = ['a general stat (Source road, rule 4; not yet chosen)']
+            else:   # the hub's Source roads: road_purity to each of the five elements (rule 4, user decision 2026-11-19)
+                mods = [f"+{rp:g} {EL[e]} purity" for e in ('fire', 'earth', 'metal', 'water', 'wood')]
             nodes_out[str(nd['id'])] = [round(nd['x'], 2), round(nd['y'], 2), 'r', 'road', '', mods, [], '', '', '', '', '']
         json.dump(nodes_out, open(sys.argv[2], 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
         miss_e = sorted({v[9] for v in nodes_out.values() if v[9] and not v[10]})

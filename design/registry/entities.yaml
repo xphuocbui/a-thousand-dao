@@ -3443,9 +3443,9 @@ constants:
     source: design/gdd/linh-can.md
     referenced_by:
       - design/gdd/linh-can.md
-    value: "convergence 0.6, transmutation 0.12, chaos 5; purity factor 0.8 (Light, Darkness, Chaos only)"
+    value: "convergence 0.6, transmutation 0.12, chaos 5; purity factor 0.8 (Light and Darkness only)"
     unit: factor
-    notes: "Variant formation; replaces bien_di_factors. 2026-11-19: Thunder, Ice and Wind take their parents' purity instead (variant_parents)."
+    notes: "Variant formation; replaces bien_di_factors. 2026-11-19: Thunder, Ice, Wind and Chaos take their parents' purity instead (variant_parents)."
     added: 2026-11-04
     revised: 2026-11-19
   - name: variant_parents
@@ -3454,9 +3454,9 @@ constants:
     referenced_by:
       - design/gdd/linh-can.md
       - design/gdd/dao-do.md
-    value: {loi: [hoa, kim], bang: [thuy], phong: [thuy, moc]}
+    value: {loi: [hoa, kim], bang: [thuy], phong: [thuy, moc], hon_don: [hoa, tho, kim, thuy, moc]}
     unit: element ids
-    notes: "Thunder, Ice and Wind take round(geometric mean of their parents' purity) as their own (Wind: the higher of that and its birth draw) and scale their parents' Dao Do lands at the owned rate (Spiritual Roots rules 10 and 12, Formulas D2; user decision 2026-11-19)."
+    notes: "Thunder, Ice, Wind and Chaos take round(geometric mean of their parents' purity) as their own (Wind: the higher of that and its birth draw) and scale their parents' Dao Do lands at the owned rate (Spiritual Roots rules 10 and 12, Formulas D2; user decision 2026-11-19)."
     added: 2026-11-19
     revised: ""
   - name: innate_chance
@@ -3476,11 +3476,11 @@ constants:
       - design/gdd/linh-can.md
       - design/gdd/character-stats.md
       - design/gdd/dao-do.md
-    value: "common 10-30 W; Chaos 20-60 W"
+    value: "common 10-30 W; Chaos 60-140 W"
     unit: W, floor at purity 50, ceiling at purity 100
-    notes: "Priced with the Đạo Đồ stat weights; travel_speed_pct and co_duyen_pct at 0.3 W per point are a guess (Spiritual Roots Open Question 2). Replaces bien_di_power_band."
+    notes: "Priced with the Đạo Đồ stat weights; travel_speed_pct and co_duyen_pct at 0.3 W per point are a guess (Spiritual Roots Open Question 2). Replaces bien_di_power_band. 2026-11-19: Chaos band raised from 20-60 W (Chaos is much stronger; four role lines)."
     added: 2026-11-04
-    revised: ""
+    revised: 2026-11-19
   - name: variant_catalogue_size
     status: active
     source: design/gdd/linh-can.md
