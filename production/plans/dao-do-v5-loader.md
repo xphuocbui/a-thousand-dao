@@ -3,6 +3,12 @@
 Prepared 2026-11-19 at the end of the content session, for the next session. The user's word: "let's do it in the next
 session, please prepare for it". Start that session with: **"build the Đạo Đồ map loader from the plan"**.
 
+## Progress (2026-11-20 night run)
+
+Done: 0 ADR-0004 (ddebe4f); 1 export (02454b2); 5 float purity (4e4222b); the cut-over 2-4, 6, 7, 9-13 (2bc88fc); AC-KMD-54
+allocator and world-generation probes (421c18a and later). In progress: 8, the Effects series (user: extend the runtime;
+`design/dao-do/tree-effects-engine.md`). Left: 14 (the GDD's Known gaps: the parallel session's file, ask first).
+
 ## Why
 
 The game still builds the old generated tree (`src/gameplay/dao_do/dao_do_generator.gd`, about 1,300 nodes, hidden

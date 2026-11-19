@@ -1,0 +1,2 @@
+WORLDGEN 5061 people, 10201 ms, 2.02 ms a person -> PASS (budget 30 s)
+CPU AMD Ryzen 7 9800X3D 8-Core Processor
