@@ -8,8 +8,8 @@
 > still describe the old generated map and say so. Earlier history: `reviews/dao-do-review-log.md`.
 > **The map is a shape placeholder** (user, 2026-11-10): the drawn tree's layout, regions, sizes and distances stand in
 > for the real map and will change further, as will its content. The rules here (points, opening, purity scaling,
-> roads granting purity, capabilities, starts, the drawing checks) are the design; the measured numbers (7,115
-> Dao marks, region sizes, distances in Formulas B and H) describe today's placeholder and are re-measured whenever the
+> roads granting purity, capabilities, starts, the drawing checks) are the design; the measured numbers (7,276
+> Dao marks on the v5 frozen map, region sizes, distances in Formulas B and H) describe today's placeholder and are re-measured whenever the
 > map changes.
 > **Renamed 2026-11-18** (user): formerly Meridian Map (Kinh Mạch Đồ), file `kinh-mach-do.md`. Terms renamed with it:
 > acupoint (huyệt) → Dao mark (đạo văn); meridian road (kinh lộ) → Dao path (đạo lộ); junction acupoint (hội huyệt) →
@@ -90,22 +90,25 @@ are named parameters; their values and ranges are in Formulas.
 
 **The map**
 
-1. **The map is drawn by hand.** It is the lean build of the Đạo Đồ kit (`tools/design/dao_do_rework/`,
-   `build_tree.py` with `KMD_LIGHT=1`), drawn by the rules in `design/research/dao-do-land-authoring.md`; its
-   output, `tree.json`, is the map data. It is identical in every life.
-   - **Regions** (lands, border lines, the hub, the variant starts and the islands; Dao mark counts are from the
-     lean build of 2026-11-10 and are recounted when the cell map is drawn; no blend zones, user decision 2026-11-18):
+1. **The map is drawn by hand.** It is drawn cell by cell by the method in `design/dao-do/method.md` and compiled by
+   `tools/design/dao_do_rework/cells/integrate.sh`; the v5 frozen map
+   (`design/dao-do/cells/versions/v5-frozen-2026-11-19/dao-do-map.json`, 2026-11-19) is the map data, and its content
+   is in `design/dao-do/content/` (it replaced the kit's lean build of 2026-11-10). It is identical in every life.
+   - **Regions** (lands, border lines, the hub, the Chaos land, the variant starts and the islands; Dao mark counts
+     measured on the v5 frozen map, `design/dao-do/cells/versions/v5-frozen-2026-11-19/`, 2026-11-19; no blend zones,
+     user decision 2026-11-18):
 
      | Region | What it is | Dao marks |
      |---|---|---|
-     | Five element lands | Metal, Wood, Water, Fire, Earth, each spanning 72° from border to border, with ring roads, spokes, identity districts and a second element theme | 811–980 each (4,379) + the old blend zones' 1,906, to be shared out |
-     | Five border lines | Where two lands meet: the border road (its nodes grant half of each neighbour's purity) and a border cluster at 59 (its Dao marks use the average of both lands' multipliers) | counted in the lands |
-     | The Taiji hub | The centre, holding the Primordial Chaos start; five Source roads run out to the border lines | 101 |
-     | The Wind and Ice starts | The Wind start sits on the Water–Wood border; the Ice start inside Water's land | counted in their lands |
-     | Islands | Light, Darkness and Thunder outside the outer ring, joined by bridges (Thunder only to the Wind border); the Shadow Shrine (Ám Từ), a satellite on the shadow road (kept, user decision 2026-11-10) | 217–282 each (729) |
+     | Five element lands | Metal, Wood, Water, Fire, Earth, each spanning 72° from border to border, drawn cell by cell with ring roads, a second element theme and 4 keystones each | Wood 1,070, Metal 983, Fire 968, Earth 961, Water 951 (4,933) |
+     | Five border lines | Where two lands meet: the border road (76 road nodes, each granting half of each neighbour's purity), the border combos and emblems split across it, and the Wind start's figure (their Dao marks use the average of both lands' multipliers) | 119 |
+     | The Taiji hub | The centre: the Primordial Chaos start and its 30 Source roads, each granting `road_purity` to all five elements; exact (rule 4) | 10 |
+     | The Chaos land | The purple swirl round the hub and its element motifs reaching into each land, plus six element pieces reachable only through it (two Fire ribbons, four small Earth and Water clusters); gated (rule 3), scales by Chaos purity (rule 4). With the hub it is the 815 nodes tagged `gate: chaos` | 774 |
+     | The Wind and Ice starts | The Wind start sits on the Water–Wood border; the Ice start inside Water's land | counted in their regions |
+     | Islands | Light, Darkness and Thunder outside the outer ring, joined by bridges (Thunder only to the Wind border); the Shadow Shrine (Ám Từ), a satellite on the shadow road (kept, user decision 2026-11-10); 4 keystones in all | Light 513, Darkness 489 (with the Shrine), Thunder 438 (1,440) |
 
-   - **Pieces:** 11 starts, 616 road (travel) nodes, 5,364 small Dao marks, 1,084 notables and 40 keystones, in
-     811 clusters: 7,115 visible Dao marks.
+   - **Pieces:** 11 starts, 751 road (travel) nodes, 5,493 small Dao marks, 1,759 notables and 24 keystones, in
+     887 clusters: 7,276 visible Dao marks (8,038 nodes).
    - **Grammar** (the authoring guide's rules): roads of travel nodes carry the clusters; a cluster joins a road at
      its nearest node; a notable comes after two or three small Dao marks (none only for hubs); a road node carries
      two or three clusters, one of them big toward the rim; every road that passes a cluster leaves a way around it;
@@ -183,8 +186,9 @@ are named parameters; their values and ranges are in Formulas.
      (rule 20) uses that variant's purity the same way. A root holding Thunder, Ice, Wind or Chaos scales its parents' lands at
      the owned rate, by the higher of the element's purity and the variant's (Thunder: Fire and Metal; Ice: Water; Wind:
      Water and Wood; Chaos: all five; Spiritual Roots rule 12, user decisions 2026-11-19). The Chaos land's Dao marks (every gated Dao mark outside the hub, the
-     six element pieces included) scale by Chaos purity like a variant land (rule 20; user decision 2026-11-19), so a
-     root that passed the gate without holding Chaos reads 0.25 there. Keystones and the hub are exact.
+     six element pieces included) scale by Chaos purity like a variant land (rule 20; user decision 2026-11-19), and a
+     root that passed the gate without holding Chaos scales them at the owned rate by its weakest base element's purity
+     (0.5 + purity ÷ 100, at least 0.81 since it is above 30; user decision 2026-11-19), never by its Chaos purity 0. Keystones and the hub are exact.
    - **Roads.** An element land's road nodes grant only that element's purity, about `road_purity` (0.5) each, exact
      (Spiritual Roots rule 8a: purity is proficiency and has no cap); a border line's road nodes grant half of each
      neighbour's; an island's roads (Light, Darkness, Thunder) grant that variant's purity the same way (user decision
@@ -428,7 +432,7 @@ small Dao mark is +1.2% attack (or +0.5% cultivation speed); a notable +8% attac
 ### B. Distances from the starts
 
 The drawn map replaces the generated map's bands (K1–K3, depths 5/14/20). What a start reaches is measured on every
-build (lean build, 2026-11-10):
+build (lean build, 2026-11-10; to be re-measured on the v5 map):
 
 | Start | First notable | Nearest keystone | Keystones within 20 | Dao marks within 9 | Farthest |
 |---|---|---|---|---|---|
@@ -668,18 +672,19 @@ Retired with the hidden clusters (rule 14).
 
 ### H. Map size
 
-The map's size is what the kit draws; the lean build is the shipped map (user decision 2026-11-10).
+The map's size is what was drawn cell by cell; the v5 frozen map (2026-11-19) is the shipped map. It replaced the
+lean build of 2026-11-10 (7,115 Dao marks, blend zones, 40 keystones).
 
-| Region | Visible Dao marks (lean build, 2026-11-10) |
+| Region | Visible Dao marks (v5 frozen map, 2026-11-19) |
 |---|---|
-| Earth, Water, Wood, Metal, Fire | 980, 902, 848, 838, 811 |
-| Blend zones (Earth–Metal, Wood–Water, Fire–Earth, Wood–Fire, Metal–Water; removed 2026-11-18, their Dao marks are shared out to the lands when the cell map is drawn) | 401, 398, 382, 377, 348 |
-| Darkness, Light, Thunder islands (with the Shadow Shrine) | 282, 230, 217 |
-| Taiji hub | 101 |
-| **All** | **7,115** (11 starts, 616 road nodes, 5,364 small, 1,084 notables, 40 keystones; 811 clusters) |
+| Wood, Metal, Fire, Earth, Water | 1,070, 983, 968, 961, 951 |
+| Border lines (five, with the Wind start's figure) | 119 |
+| Light, Darkness, Thunder islands (Darkness with the Shadow Shrine) | 513, 489, 438 |
+| Chaos land (gated, rule 3) | 774 |
+| Taiji hub | 10 |
+| **All** | **7,276** (11 starts, 751 road nodes, 5,493 small, 1,759 notables, 24 keystones; 887 clusters; 8,038 nodes) |
 
-**Output Range:** 7,115 at launch; the expansion only appends (rule 19). The lean build is the target; the full
-build (about 8,700) is not shipped.
+**Output Range:** 7,276 at launch; the expansion only appends (rule 19).
 
 ### H2–H4, topology generator. Retired
 
@@ -688,7 +693,7 @@ The variant sectors (rule 20) and the deterministic topology generator are retir
 
 ### Parameter keys
 
-`dao_do_tree.json` (the kit's `tree.json`, from the lean build): regions, Dao marks with ids, positions, kinds,
+`dao_do_tree.json` (from the v5 frozen map and `design/dao-do/content/`): regions, Dao marks with ids, positions, kinds,
 regions and modifiers, links, starts, clusters. Data keys: `road_purity`, `purity_price`, `tree_breakthrough_k`,
 `cap_realm_min`, `start_targets`, `tree_kind_scores`, `tree_focus_weight` (in `world_generation.json`), the capability
 mapping `dao_do_capabilities.json` (capability id to Dao mark id). Retired keys: `tree_size_target`, `road_stats`,
@@ -698,7 +703,7 @@ fill keys, `variant_sector_size` and the H2–H4 keys.
 ### Computational budget
 
 - **Player:** opening a Dao mark and recomputing the sheet is a few hundred modifier lines; the path tool is one
-  breadth-first search over 7,115 Dao marks, well under a frame.
+  breadth-first search over 7,276 Dao marks, well under a frame.
 - **NPCs (user decision 2026-11-10: live greedy, optimized).** The allocator keeps a frontier of reachable Dao marks
   with cached scores (rule 5's kind score × focus × purity multiplier, plus its small random term drawn once per
   Dao mark); opening a Dao mark adds only its new neighbours to the frontier, so each point is one pop from a heap.
@@ -1016,8 +1021,8 @@ Drafted with qa-lead.
       and Earth by 0.25 each; a hub road node raises each of the five elements by 0.5.
     - A root without Metal that opens 2 Metal road nodes gains Metal purity 1.0 for its stacks, and no base element.
     - Fire purity 99.5 plus one Fire road node is 100.0, and one more is 100.5 (no cap).
-- **AC-KMD-99** [Config/Data] Map size and distances (Formulas B, H). The shipped map has 7,115 visible Dao marks
-  (±2% after the content pass), 11 starts and 40 keystones, and no hidden cluster. From every start the first
+- **AC-KMD-99** [Config/Data] Map size and distances (Formulas B, H). The shipped map has 7,276 visible Dao marks
+  (v5 frozen map, ±2 % after later changes), 11 starts and 24 keystones, and no hidden cluster. From every start the first
   notable is within 5 points and the nearest keystone within 6–13 points (`start_targets`); a start outside a target
   is reported.
 - **AC-KMD-60** [Logic, data-driven] Drawing checks (rule 1) on the shipped `tree.json`: 0 crossing links, 0 pairs
@@ -1106,6 +1111,7 @@ Drafted with qa-lead.
     - A five-element root without Chaos at Fire 30, Earth 40, Metal 50, Water 60, Wood 70 cannot open gated nodes; at
       Fire 31 it can.
     - The Fire 30 root qualifies at once when it opens one Fire road node (Fire 30.5).
+    - The Fire 31 root (no Chaos) scales Chaos-land Dao marks by 0.5 + 0.31 = 0.81, its weakest element, not 0.25.
     - A Primordial Chaos root opens gated nodes whatever its purities, and the Chaos start is gated only for roots
       that may not start there anyway.
     - An NPC under the gate never scores or opens a gated node.
@@ -1126,7 +1132,7 @@ Drafted with qa-lead.
 **NPC allocator (rule 5; Computational budget)**
 
 - **AC-KMD-54** [Integration; BLOCKING before NPCs above Core Formation are generated] A headless perf script,
-  `tests/performance/dao_do/allocator_perf.gd` (not a gdUnit test), on the lean map (7,115 Dao marks).
+  `tests/performance/dao_do/allocator_perf.gd` (not a gdUnit test), on the v5 map (7,276 Dao marks).
     - 200 seeded Deity Transformation NPCs at 566 points: p95 ≤ 50 ms, max ≤ 100 ms per NPC; 200 Foundation
       Establishment NPCs at 120 points: p95 ≤ 5 ms.
     - World generation of 5,000 NPCs with the census's realm mix: ≤ 30 s in total.
