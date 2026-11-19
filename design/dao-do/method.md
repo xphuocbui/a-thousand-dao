@@ -16,7 +16,7 @@ work, 3.2 hard rules, 3.10 cells); that file's section 7 (tools) is superseded b
 Current state: 7,840 nodes, 856 pieces; 0 crossings, only the base map's 4 old spacing warnings, every piece passes
 R0-R4, every node reachable from the start. Built by `sh tools/design/dao_do_rework/cells/integrate.sh <tag>` (from the
 repo root) into `design/dao-do/cells/out/<tag>-map.json`; deterministic (two builds of the same files are identical).
-Frozen snapshot for the content work: `cells/versions/v4-frozen-2026-11-19/` (earlier: v3-islands, v2-night); official: `cells/official-2026-11-18/`.
+Frozen snapshot for the content work: `cells/versions/v5-frozen-2026-11-19/` (earlier: v4-frozen, v3-islands, v2-night); official: `cells/official-2026-11-18/`.
 
 ## 1. The layers
 
@@ -136,10 +136,11 @@ exactly as it is, and weave the lines round them through the empty space, never 
 
 ## 5. Before filling in the nodes
 
-- **Unfrozen again 2026-11-19** (user: "Actually unfreeze the map, lightning land needs a bit of a better redesign"):
-  Thunder's bolts redrawn (`thunder_bolts.py`) and Water's rim given four big clusters (`water_rim.py`). Freeze a new
-  snapshot before the content work; v4 below is the earlier freeze.
-- **The earlier freeze: `cells/versions/v4-frozen-2026-11-19/`** (user, 2026-11-19; commit 337f464; 7,840 nodes,
+- **Frozen again as v5: `cells/versions/v5-frozen-2026-11-19/`** (user, 2026-11-19: "freeze it then we go to the next
+  session"; built at 82ef4e1; 8,038 nodes, 867 pieces). The content work keys to v5. Between v4 and v5 the map was
+  unfrozen for Thunder's bolts (`thunder_bolts.py`, OpenAI's inside bolts `oai_thunder.py`) and Water's rim (three
+  snowflakes, `water_rim.py` and `oai_water.py`); see v5's README.
+- **The freeze before: `cells/versions/v4-frozen-2026-11-19/`** (user, 2026-11-19; commit 337f464; 7,840 nodes,
   856 pieces). Node names of traced pieces (`n_123`, `v45`) are produced by the tracing and change if a piece is
   re-traced, so key content on v4's map (or on piece + role, e.g. a piece's notables), not on keys that a re-trace
   regenerates. If the graph must change once content exists, change it deliberately and carry the content across.
@@ -147,5 +148,5 @@ exactly as it is, and weave the lines round them through the empty space, never 
   `big-clusters-draft-2026-11-18.md` (80 big clusters with picture and idea, all 25 capabilities placed; approved),
   `design/gdd/effects.md`, and the land themes in `tools/design/dao_do_rework/regions/common.py`. Rules decision 6.5:
   content first for big clusters; small and medium clusters drawn without content, their passives assigned later.
-- **Still open on the graph:** Thunder (932) waits for new picture directions (the user is not pleased with it); the
-  GDD's file table still names tools removed in the 2026-11-19 cleanups.
+- **Still open on the graph:** the GDD's file table still names tools removed in the 2026-11-19 cleanups (Thunder was
+  redone before v5; the user: "the thunderland works").
