@@ -3227,8 +3227,19 @@ constants:
       - design/gdd/linh-can.md
     value: 0.5
     unit: purity per element-land road node
-    notes: "An element land's road node grants only that element's purity; blend roads half of each neighbour's; hub roads general stats (rule 4). A guess, bot-tuned (AC-KMD-101)."
+    notes: "An element land's road node grants only that element's purity; blend roads half of each neighbour's; hub roads this much to each of the five elements (rule 4, 2026-11-19). A guess, bot-tuned (AC-KMD-101)."
     added: 2026-11-10
+    revised: ""
+  - name: chaos_gate_purity
+    status: active
+    source: design/gdd/dao-do.md
+    referenced_by:
+      - design/gdd/dao-do.md
+      - design/gdd/linh-can.md
+    value: 30
+    unit: purity, each of the five base elements, strictly above
+    notes: "The Chaos land (785 gate: chaos nodes) opens only for a Primordial Chaos root or one with all five base elements above this current purity (any source); rule 3, user decision 2026-11-19."
+    added: 2026-11-19
     revised: ""
   - name: purity_price
     status: active

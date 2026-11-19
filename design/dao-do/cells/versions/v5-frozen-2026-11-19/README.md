@@ -13,6 +13,15 @@ unfroze v4. **This is the snapshot the content work keys to.** Not made official
   are in `design/dao-do/underlays/` at that commit. `tree.svg`: the viewer drawing (links in their pictures'
   colours). `whole.png`, `<land>.png`: renders. `SHA256SUMS`: checksums of everything here.
 
+## Amendment 2026-11-19: Chaos land gate (user decision)
+
+The only deliberate change after the freeze. Every node of the hub and Chaos regions, plus the four small Earth and
+Water clusters 9271, 9272, 9548 and 9549 that hang off the Chaos ring, carries `"gate": "chaos"` (785 nodes; Đạo Đồ
+rule 3). Two Fire road nodes were added by hand so the Fire ribbons inside Chaos's flame motif join the Fire land:
+**8998** at (-5.0, 30.2) between notables 2843 and 2891, and **8999** at (5.0, 30.2) between 2858 and 2888 (edges tagged
+`ph: gate-2026-11-19`). The map now has **8,040 nodes** (753 road). No other id, position or edge changed, so the
+content keyed to this snapshot is unaffected. Checksums below were refreshed.
+
 ## What changed from v4 (`../v4-frozen-2026-11-19/`)
 
 - **Thunder (cell 932)**: the traced bolts replaced (`thunder_bolts.py`; `thunder_trace.py` keeps its clouds and drops

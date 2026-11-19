@@ -304,7 +304,8 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
     scales its parents' lands at the owned rate, by the higher of the element's purity and the variant's (Thunder in
     Fire and Metal, Ice in Water, Wind in Water and Wood, Chaos in all five, so a Chaos root has no land below its Chaos
     purity). **The hub's roads** give +`road_purity` to each of the five elements (Đạo Đồ rule 4), so a Chaos root
-    gains five times a land road's purity there. This system supplies the owned set and each variant's purity.
+    gains five times a land road's purity there. **The Chaos land is gated** (Đạo Đồ rule 3, 2026-11-19): only a root
+    holding Chaos, or with all five base elements above 30 purity, may enter it. This system supplies the owned set and each variant's purity.
 
 **Changing the root**
 
