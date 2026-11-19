@@ -131,7 +131,8 @@
     "cooldown": 6.0,
     "up": 3.0
    }
-  ]
+  ],
+  "stack_alias": {}
  },
  "b": {
   "name": "duelist-b",
@@ -259,7 +260,8 @@
     "cooldown": 6.0,
     "up": 3.0
    }
-  ]
+  ],
+  "stack_alias": {}
  },
  "stats": {
   "mean_t": 37.1773,

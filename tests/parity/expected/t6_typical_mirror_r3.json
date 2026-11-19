@@ -151,7 +151,8 @@
   "stage_mult": 1.0,
   "stack_eff": {},
   "stack_dur": {},
-  "wards": []
+  "wards": [],
+  "stack_alias": {}
  },
  "b": {
   "name": "typical-b",
@@ -299,7 +300,8 @@
   "stage_mult": 1.0,
   "stack_eff": {},
   "stack_dur": {},
-  "wards": []
+  "wards": [],
+  "stack_alias": {}
  },
  "stats": {
   "mean_t": 52.2245,

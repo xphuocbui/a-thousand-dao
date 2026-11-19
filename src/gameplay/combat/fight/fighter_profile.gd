@@ -67,6 +67,8 @@ var ward_bill_pct: float = 0.0
 var purity: Dictionary = {}
 var stack_eff: Dictionary = {}
 var stack_dur: Dictionary = {}
+## Buff stacks of an element that also count as others' ({"water": ["wood"]}: Water Begets Wood); Array[String] values.
+var stack_alias: Dictionary = {}
 ## The cleansing ward (Combat Defence & Healing): debuff stacks cleansed per pulse and the fee for each (share
 ## of qi_max); a share of every debuff batch cleansed per pulse.
 var cleanse_pulse: int = 0

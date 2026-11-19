@@ -16,9 +16,10 @@ const EVENTS_LATER := []
 const OPS := ["<=", ">=", "<", ">", "=="]
 ## Readables with no parameter, on a side.
 const SIDE_READS := ["hp_share", "hp_missing_share", "qi_share", "qi_missing_share", "distinct_statuses", "fired",
-	"curses", "ward_paid", "body_shield_share", "boss", "tam_ma", "state.any", "buff_elements"]
+	"curses", "ward_paid", "body_shield_share", "boss", "tam_ma", "state.any", "buff_elements", "evade", "since_hit",
+	"hp_max_lead"]
 ## Filter and mod-argument keys that are not mod keys.
-const FILTER_KEYS := ["for", "dtype", "element", "tags", "kind", "stack", "status", "art_id"]
+const FILTER_KEYS := ["for", "dtype", "element", "tags", "kind", "stack", "status", "art_id", "not_tags", "is_crit", "source"]
 
 var errors: PackedStringArray = []
 ## Records that compile but will not do what they say in this fighter: a read of a counter nothing in the fighter
@@ -81,6 +82,10 @@ func compile(d: Dictionary, where: String, counters: Dictionary) -> EffectDef:
 		e.per_pulse = int(lim.per_pulse)
 	if lim.has("cooldown"):
 		e.cooldown = float(lim.cooldown)
+	if lim.has("per_firing"):
+		e.per_firing = int(lim.per_firing)
+	if lim.has("scale_per_pulse"):
+		e.scale_per_pulse = float(lim.scale_per_pulse)
 	e.chance = float(d.get("chance", 1.0))
 	if d.get("held") is Dictionary:
 		e.held = true
@@ -183,6 +188,14 @@ func _read(key: String, w: String, counters: Dictionary) -> EffectDef.ReadDef:
 		r.side = 2
 		r.key = "time" if key == "time" else "event"
 		r.param = key.trim_prefix("event.")
+		return r
+	if key.begins_with("cycle."):   # the pulse index modulo n: no side
+		r.side = 2
+		r.key = "cycle"
+		r.param = key.substr(6)
+		r.window_ms = int(r.param) if r.param.is_valid_int() else 0
+		if r.window_ms < 1:
+			errors.append("%s: read %s: cycle.<n> needs a whole n of at least 1" % [w, key])
 		return r
 	var dot: int = key.find(".")
 	var side: String = key.substr(0, dot) if dot >= 0 else ""

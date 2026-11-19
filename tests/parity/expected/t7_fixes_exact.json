@@ -298,7 +298,8 @@
   "stage_mult": 1.0,
   "stack_eff": {},
   "stack_dur": {},
-  "wards": []
+  "wards": [],
+  "stack_alias": {}
  },
  "b": {
   "name": "sealer",
@@ -493,7 +494,8 @@
   "stage_mult": 1.0,
   "stack_eff": {},
   "stack_dur": {},
-  "wards": []
+  "wards": [],
+  "stack_alias": {}
  },
  "result": {
   "t_ms": 27000,

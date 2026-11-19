@@ -273,7 +273,8 @@
   "stage_mult": 1.0,
   "stack_eff": {},
   "stack_dur": {},
-  "wards": []
+  "wards": [],
+  "stack_alias": {}
  },
  "b": {
   "name": "toll-keeper",
@@ -526,7 +527,8 @@
     },
     "drain": 0.6
    }
-  ]
+  ],
+  "stack_alias": {}
  },
  "result": {
   "t_ms": 27500,

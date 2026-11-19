@@ -168,7 +168,8 @@
     "cooldown": 6.0,
     "up": 2.5
    }
-  ]
+  ],
+  "stack_alias": {}
  },
  "b": {
   "name": "breaker",
@@ -382,7 +383,8 @@
     "shield": 0.1,
     "drain": 0.8
    }
-  ]
+  ],
+  "stack_alias": {}
  },
  "result": {
   "t_ms": 64000,

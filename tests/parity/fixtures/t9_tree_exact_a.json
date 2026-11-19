@@ -1,0 +1,69 @@
+{
+  "name": "t9_tree_exact_a",
+  "slice": 9,
+  "chance_free": true,
+  "seed": 59,
+  "doc": "Slice 9 (Đạo Đồ Effects, ADR-0004 decision 3), chance-free: counted crit with a lower cap (Called Blow), mods filtered on the crit (Heaven's Eye), refunds from a crit's art cost (Autumn Harvest), stacks on crit (Fire Lotus), a summed-scale limit per pulse (Ever-Burning Furnace), batch_ended with rekindled batches (Wildfire), overheat (Overheat), costly tags (Eruption), per_firing limits (Grinding Weight), no_gain_on_hit (Boundless Sea), the pulse cycle readable (Tide) on side A; on side B blocked events with return_damage (Thorns) and live ward strength from a counter (Layered Earth), reflect_first (Returning Wave), since_hit with a shield refill (Earthen Armour), shield_hold (Glass Meridians), status_immune, delay_immune (A's crits delay B) and speed_locked (Immovable Mountain), buff_gained with a held refresh (Ageless Pine), stack_alias and stack_more (Wood Begets Fire, Rising Tide), heals from regeneration (Sun and Rain), heal ignore_taken (Still Water) and a refusal at a health share (Nirvana).",
+  "a": {
+    "name": "tree-striker",
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "gain_on_hit": 0.01,
+    "art_speed_pct": 100,
+    "arts": [
+      {"name": "ember-needle", "c": 1.2, "cost": 0.04, "cd": 0.6, "element": "fire", "dtype": "fire", "debuff": [2, 4.0], "tags": ["quick"]},
+      {"name": "costly-flare", "c": 2.4, "cost": 0.08, "cd": 3.0, "element": "fire", "dtype": "fire", "tags": ["costly"]},
+      {"name": "slow-hammer", "c": 2.0, "cost": 0.05, "cd": 3.5, "tags": ["slow"], "split": [0.5, 0.5]}
+    ],
+    "effects": [
+      {"id": "t:called-blow", "on": "always", "do": [{"mod": {"counted_crit": 1, "crit": 30, "crit_cap_to": 0.25}}]},
+      {"id": "t:heavens-eye", "on": "always", "do": [{"mod": {"L5": 20, "is_crit": true}}]},
+      {"id": "t:autumn-harvest", "on": "crit", "filter": {"kind": "art"}, "limit": {"per_pulse": 3}, "do": [{"refund": {"share": 1.0}}]},
+      {"id": "t:delay", "on": "crit", "do": [{"timer": {"side": "foe", "which": "next", "by": 0.5}}]},
+      {"id": "t:fire-lotus", "on": "crit", "do": [{"stacks": {"el": "fire", "n": 2, "for": 6, "side": "foe"}}]},
+      {"id": "t:furnace", "on": "status_applied", "filter": {"element": "fire"}, "scale": {"read": "event.stacks", "per": 1, "floor": false}, "limit": {"scale_per_pulse": 3}, "do": [{"gain_qi": {"share": 0.002}}]},
+      {"id": "t:wildfire", "on": "batch_ended", "filter": {"element": "fire", "kind": "debuff"}, "if": [{"read": "event.rekindled", "op": "==", "value": 0}], "scale": {"read": "event.stacks", "per": 2, "floor": false}, "do": [{"stacks": {"el": "fire", "n": 1, "for": 2, "side": "foe", "mark": "rekindled"}}]},
+      {"id": "t:overheat", "on": "always", "do": [{"mod": {"overheat": 30}}]},
+      {"id": "t:eruption", "on": "always", "do": [{"mod": {"L5": 15, "tags": ["costly"]}}]},
+      {"id": "t:grinding", "on": "hit_landed", "filter": {"kind": "art", "tags": ["slow"]}, "limit": {"per_firing": 1}, "do": [{"status": {"id": "slowed_time", "stacks": 1}}]},
+      {"id": "t:boundless", "on": "always", "do": [{"mod": {"no_gain_on_hit": 1}}]},
+      {"id": "t:tide-1", "on": "always", "if": [{"read": "cycle.6", "op": "==", "value": 1}], "do": [{"mod": {"L5": 6.67, "element": "fire"}}]},
+      {"id": "t:tide-3", "on": "always", "if": [{"read": "cycle.6", "op": "==", "value": 3}], "do": [{"mod": {"L5": 20, "element": "fire"}}]}
+    ]
+  },
+  "b": {
+    "name": "tree-bulwark",
+    "realm": 1,
+    "crit": 0.0,
+    "evade": 0.0,
+    "n_body": 1.5,
+    "block": 25.0,
+    "body_shield": 0.2,
+    "hregen": 0.004,
+    "art_speed_pct": 50,
+    "stack_alias": {"wood": ["fire"]},
+    "arts": [
+      {"name": "pine-guard", "c": 0.8, "cost": 0.03, "cd": 2.0, "element": "wood", "dtype": "chaos", "buff": [2, 3.0]},
+      {"name": "stone-fist", "c": 1.8, "cost": 0.05, "cd": 3.0, "element": "earth", "dtype": "phys"},
+      {"name": "slow-wave", "c": 1.0, "cost": 0.04, "cd": 4.0, "element": "water", "dtype": "cold", "statuses": [{"id": "slowed_time", "stacks": 1}]}
+    ],
+    "effects": [
+      {"id": "t:thorns", "on": "blocked", "limit": {"per_pulse": 1}, "do": [{"return_damage": {"share": 0.3, "dtype": "phys"}}]},
+      {"id": "t:layered-count", "on": "blocked", "do": [{"counter": {"id": "layers", "add": 1}}]},
+      {"id": "t:layered-earth", "on": "always", "scale": {"read": "own.counter.layers", "per": 1, "cap": 10}, "do": [{"mod": {"ward_pct": 3}}]},
+      {"id": "t:returning-wave", "on": "always", "do": [{"mod": {"reflect_first": 1}}]},
+      {"id": "t:earthen-armour", "on": "pulse", "if": [{"read": "own.since_hit", "op": ">=", "value": 3}], "do": [{"shield": {"refill": 0.1}}]},
+      {"id": "t:glass", "on": "always", "do": [{"mod": {"shield_hold": -0.5}}]},
+      {"id": "t:immovable", "on": "always", "do": [{"mod": {"status_immune": 1, "status": "slowed_time"}}, {"mod": {"delay_immune": 1}}, {"mod": {"speed_locked": 1}}]},
+      {"id": "t:ageless-pine", "on": "buff_gained", "filter": {"element": "wood"}, "do": [{"refresh": {"el": "wood", "side": "own", "kind": "buff", "hold": true}}]},
+      {"id": "t:rising-tide-up", "on": "always", "if": [{"read": "own.qi_share", "op": ">", "value": 0.5}], "do": [{"mod": {"stack_more": 1.0, "element": "wood"}}]},
+      {"id": "t:rising-tide-down", "on": "always", "if": [{"read": "own.qi_share", "op": "<", "value": 0.5}], "do": [{"mod": {"stack_more": -1.0, "element": "wood"}}]},
+      {"id": "t:sun-and-rain", "on": "heal_restored", "filter": {"source": "regen"}, "scale": {"read": "event.share", "per": 1, "floor": false}, "do": [{"gain_qi": {"share": 0.5}}]},
+      {"id": "t:still-water", "on": "overflow", "do": [{"heal": {"of": "amount", "share": 0.5, "ignore_taken": true}}]},
+      {"id": "t:still-water-closes", "on": "always", "do": [{"mod": {"heal_taken": -50}}]},
+      {"id": "t:nirvana", "on": "down", "limit": {"per_fight": 1}, "do": [{"refuse_down": {"hp_share": 0.3}}]}
+    ],
+    "counters": [{"id": "layers", "cap": 10}]
+  }
+}

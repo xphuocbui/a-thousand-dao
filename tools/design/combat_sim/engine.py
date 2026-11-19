@@ -175,6 +175,9 @@ class Build:
     #  cost (per-hit fee or cast cost, share of qi), drain (engine drain units), cooldown, up}; numbers already scaled
     # by ward strength and efficiency by the loader. A reserved ward's share is in `reserved`.
     wards: list = field(default_factory=list)
+    # Đạo Đồ Effects (2026-11-20): buff stacks of an element that also count as another's, {"water": ["wood"]}
+    # (Water Begets Wood); read by bsum and buff.<el>
+    stack_alias: dict = field(default_factory=dict)
 
 
 def from_sim(b):
@@ -263,6 +266,12 @@ class Side:
         self.hp_paid = 0.0                  # health the last art cost (Debt of Stone reads it)
         self.avoided = 0
         self.decoys = 0
+        self.fight = None                   # set by Fight: live mods inside bsum (stack_more)
+        self.in_more = False                # reading stack_more (bsum's re-entry guard)
+        self.last_hit_t = 0                 # when a hit last landed on this side (own.since_hit)
+        self.reflected = False              # reflect_first spent (Returning Wave)
+        self.crit_meter = 0                 # counted crit, per mille (Effects Formulas A)
+        self.last_cost = 0.0                # linh lực the last art paid (hit events carry it: Autumn Harvest)
         self.dealt = self.spent = self.healed = self.fat = 0.0
         self.dry_at = None
         self.log = []
@@ -279,10 +288,28 @@ class Side:
         return self.qi_max() * (1 - min(K["reserve_cap"], self.b.reserved))
 
     def count(self, lst, el):
-        return sum(x[1] for x in lst if x[0] == el)
+        n = sum(x[1] for x in lst if x[0] == el)
+        if lst is self.buffs and self.b.stack_alias:   # stacks of another element counted as this one's
+            n += sum(x[1] for x in lst if el in self.b.stack_alias.get(x[0], ()))
+        return n
 
     def bsum(self, key):
-        return sum(BUFF.get(x[0], {}).get(key, 0.0) * x[1] * stack_power(self.b, x[0], "buff") for x in self.buffs)
+        tot = 0.0
+        # stack_more is read live (Rising Tide); while it is being read its conditions see the stacks without it
+        # (a condition on linh lực would otherwise read itself through qi_max)
+        sm = self.fight is not None and not self.in_more and self.fight.has_stack_more(self)
+        for x in self.buffs:
+            els = [x[0]] + list(self.b.stack_alias.get(x[0], ())) if self.b.stack_alias else [x[0]]
+            more = 1.0
+            if sm:
+                self.in_more = True
+                try:
+                    more = max(0.0, 1 + self.fight.mod(self, "stack_more", {"element": x[0], "kind": "buff"}))
+                finally:
+                    self.in_more = False
+            for el in els:
+                tot += BUFF.get(el, {}).get(key, 0.0) * x[1] * stack_power(self.b, x[0], "buff") * more
+        return tot
 
     def dsum(self, key):
         return sum(DEBUFF.get(x[0], {}).get(key, 0.0) * x[1] * stack_power(x[3].b, x[0], "debuff") for x in self.debuffs)
@@ -329,6 +356,7 @@ class Fight:
         self.plog = [] if parity else None
         self.A, self.B = Side(b1, "A"), Side(b2, "B")
         self.A.foe, self.B.foe = self.B, self.A
+        self.A.fight = self.B.fight = self
         self.t = 0
         self.trace = trace
         self.rows = []
@@ -338,12 +366,13 @@ class Fight:
         for s in (self.A, self.B):
             for i, a in enumerate(s.b.arts):
                 # the opening cooldown honours art speed too, scoped to the art (Effect mods included)
-                hz = 1 + (s.b.art_speed_pct + self.mod(s, "art_speed", art_ctx(a))) / 100
+                hz = 1 if self.mod(s, "speed_locked") > 0 else 1 + (s.b.art_speed_pct + self.mod(s, "art_speed", art_ctx(a))) / 100
                 cd = max(K["cooldown_min"], a.cd / hz)
                 first = max(K["cooldown_min"], cd / (1 + (s.b.opening_haste_pct + self.mod(s, "opening_haste")) / 100))
                 s.ready.append(ms(first))
             s.basic_ready = ms(self.basic_cd(s))
             s.comp_ready = [ms(c.get("cd", K["basic_cooldown"])) for c in s.b.companions]
+            s.body_bar *= self.shield_hold(s)
 
     # ---------------------------------------------------------- reads
     def read(self, s, key, ev=None):
@@ -353,6 +382,8 @@ class Fight:
         if x is None:
             if key == "time":
                 return self.t / 1000
+            if key.startswith("cycle."):     # the pulse index modulo n (Tide's 6-pulse cycle)
+                return float((self.t // ms(K["pulse"])) % int(key[6:]))
             if key.startswith("event."):
                 return (ev or {}).get(key[6:], 0.0)
             raise EngineError("unknown readable %r" % key)
@@ -390,6 +421,12 @@ class Fight:
             return 1.0 if x.b.boss else 0.0
         if k == "tam_ma":
             return x.tam_ma
+        if k == "evade":                    # own evade in points before the cap (Hidden Moon)
+            return 0.0 if self.mod(x, "no_evade") > 0 else x.b.evade * 100 + self.mod(x, "evade")
+        if k == "since_hit":                # seconds since a hit last landed on the side (Earthen Armour)
+            return (self.t - x.last_hit_t) / 1000
+        if k == "hp_max_lead":              # own maximum health over the foe's, less 1, at least 0 (Mountain's Weight)
+            return max(0.0, x.hp_max / x.foe.hp_max - 1)
         if k == "state.any":                # any stance or state on (Unmoved Stance's closing)
             return 1.0 if x.state else 0.0
         if k.startswith("state."):
@@ -451,6 +488,10 @@ class Fight:
         for e in s.b.effects:
             if e.get("on") != "always":
                 continue
+            # only Effects that carry the key are evaluated (2026-11-20: reads are pure, so the sum is unchanged, and an
+            # Effect scaled by a read such as own.evade no longer recurses through an unrelated key's sum)
+            if not any(key in (a.get("mod") or {}) for a in e.get("do", [])):
+                continue
             if not self.holds(s, e.get("if")):
                 continue
             n = self.scale(s, e)
@@ -474,9 +515,32 @@ class Fight:
                     tot += m[key] * n
         return tot
 
+    def has_stack_more(self, s):
+        return any(e.get("on") == "always" and any("stack_more" in (a.get("mod") or {}) for a in e.get("do", []))
+                   for e in s.b.effects)
+
+    def shield_hold(self, s):
+        """The share every body-shield bar and gain holds (Glass Meridians: half)."""
+        return max(0.0, 1 + self.mod(s, "shield_hold"))
+
+    def art_speed(self, s, a):
+        """An art's speed multiplier as act() reads it (1 when speed_locked: Immovable Mountain)."""
+        if self.mod(s, "speed_locked") > 0:
+            return 1.0
+        return 1 + s.bsum("speed") + s.b.art_speed_pct / 100 + self.mod(s, "art_speed", art_ctx(a)) / 100
+
+    def overheat(self, s, art, ctx):
+        """Overheat: art speed that cooldown_min clips on this art, in points, up to the mod's cap."""
+        cap = self.mod(s, "overheat", ctx)
+        if cap <= 0 or art is None or art.cd <= 0:
+            return 0.0
+        clipped = (self.art_speed(s, art) - art.cd / K["cooldown_min"]) * 100
+        return min(cap, max(0.0, clipped))
+
     def layers_M(self, s, art, ctx):
         """M with layer mods. Builds with `layers` get exact caps; others scale their fixed M."""
         adds = [self.mod(s, "L%d" % i, ctx) for i in range(1, 6)]
+        adds[4] += self.overheat(s, art, ctx)
         # Sealed Meridian (Status Catalogue): on the SEALED fighter, one named layer L2-L5 counts as 1.0 when it
         # attacks. Fixed 2026-11-14 (user ruling): the seal was read from the attacker's foe, applied to the base
         # product too (so it cancelled out), and only computed when a layer mod was present. A build without
@@ -602,7 +666,7 @@ class Fight:
         hreg = s.hp_max * (s.b.hregen + s.bsum("hregen") + self.mod(s, "hregen")) * s.b.bs_mult / stag \
             * (1 + self.mod(s, "hregen_inc") / 100)
         if hreg > 0:
-            self.heal(s, hreg)
+            self.heal(s, hreg, source="regen")
         # cleansing ward
         n = s.b.cleanse_pulse
         while n > 0 and s.debuffs:
@@ -625,9 +689,14 @@ class Fight:
             f = s.U * K["fatigue_units"] * (1 + n) ** K["fatigue_pow"] * (s.g if K["fatigue_by_realm"] else 1.0)
             s.hp -= f
             s.fat += f
-        # durations
+        # durations; a debuff batch that runs out on its own raises batch_ended for its source (Wildfire)
         s.buffs = [x for x in s.buffs if x[2] is None or x[2] > self.t]
+        ended = [x for x in s.debuffs if x[2] is not None and x[2] <= self.t]
         s.debuffs = [x for x in s.debuffs if x[2] is None or x[2] > self.t]
+        for x in ended:
+            if x[3] is not None and x[1] > 0:
+                self.fire_event(x[3], "batch_ended", {"element": x[0], "stacks": x[1], "kind": "debuff",
+                                                      "rekindled": 1.0 if len(x) > 5 and x[5] == "rekindled" else 0.0})
         for sid in list(s.statuses):
             stt = s.statuses[sid]
             if stt.get("until") is not None and stt["until"] <= self.t:
@@ -648,6 +717,7 @@ class Fight:
         s.avoided = 0
         for st_ in s.eff_state.values():
             st_["pulse"] = 0
+            st_["pulse_n"] = 0.0
         # ward shield recharge
         for w in s.wshields:
             cap = w["s"].size * s.qi_base
@@ -706,7 +776,9 @@ class Fight:
                 continue
             a = self.shape(s, i, a)
             # art speed may be scoped (Sword arts, Fire arts, curse arts): read it in the art's own context
-            speed = speed_base + self.mod(s, "art_speed", art_ctx(a)) / 100
+            speed = 1.0 if self.mod(s, "speed_locked") > 0 else speed_base + self.mod(s, "art_speed", art_ctx(a)) / 100
+            for st_ in s.eff_state.values():   # per_firing limits restart with each art firing
+                st_["firing"] = 0
             cd = max(K["cooldown_min"], a.cd / speed) * self.slow(s)
             s.charges[i] -= 1
             if s.charges[i] > 0:
@@ -872,19 +944,45 @@ class Fight:
             dfn.decoys -= 1
             dfn.avoided += 1
             return 0.0
+        # Returning Wave: the first hit taken does no harm and strikes the attacker at full damage, once a fight
+        if not trig and not dfn.reflected and self.mod(dfn, "reflect_first") > 0:
+            dfn.reflected = True
+            back = self.layers_M(att, art, ctx) if kind != "companion" else att.b.M
+            D0 = att.U_att * c * back * supp(att, dfn, self.mod(att, "pierce") / 100)
+            got = self.defend(dfn, att, D0, dtype, None, dict(ctx, kind="trigger"), is_tick=False)
+            dfn.dealt += got
+            if self.plog is not None:
+                self.plog.append(["reflect", self.t, dfn.label, D0, got, att.hp, att.qi])
+            return 0.0
         # evade
         w_ev = sum(xw["w"].get("evade", 0.0) for xw in dfn.xwards
                    if xw["up"] and (xw["w"]["model"] == "reserved" or dfn.qi > 0)) / 100   # evade wards (2026-11-13)
         p_ev = min(K["evade_cap"], max(0.0, dfn.b.evade + w_ev + self.mod(dfn, "evade") / 100 - dfn.dsum("evade_down")
                                        - (att.b.acc + self.mod(att, "acc") / 100 + att.bsum("acc") - att.dsum("acc_down"))))
+        if self.mod(dfn, "no_evade") > 0:
+            p_ev = 0.0
         if self.rng.random() < p_ev:
             self.fire_event(dfn, "evaded", ctx)
             self.fire_event(att, "was_evaded", ctx)
             return 0.0
+        dfn.last_hit_t = self.t
         is_crit = False
         if kind not in ("companion",) and not trig:
-            ch = min(K["crit_cap"], att.b.crit + self.mod(att, "crit", ctx) / 100 + att.bsum("crit") + dfn.dsum("crit_taken"))
-            is_crit = self.rng.random() < ch
+            cap = K["crit_cap"]
+            cap_to = self.mod(att, "crit_cap_to")
+            if cap_to > 0:
+                cap = min(cap, cap_to)
+            ch = min(cap, att.b.crit + self.mod(att, "crit", ctx) / 100 + att.bsum("crit") + dfn.dsum("crit_taken"))
+            if self.mod(att, "counted_crit") > 0:   # Called Blow: a meter in thousandths, no draw (Effects Formulas A)
+                att.crit_meter += int(math.floor(max(0.0, ch) * 1000 + 0.5))
+                if att.crit_meter >= 1000:
+                    att.crit_meter -= 1000
+                    is_crit = True
+            else:
+                is_crit = self.rng.random() < ch
+            if self.mod(att, "sure_crit", ctx) > 0:
+                is_crit = True
+        ctx["crit"] = is_crit
         crit = (att.b.crit_mult + self.mod(att, "crit_mult", ctx) / 100 + dfn.dsum("critdmg_taken")) if is_crit else 1.0
         phys = dtype == "phys"
         more = 1 + att.bsum("dmg") + (att.bsum("dmg_phys") + dfn.dsum("phys_taken") if phys else 0)
@@ -918,9 +1016,10 @@ class Fight:
             att.trig_dmg += dealt
         else:
             att.direct_dmg += dealt
-        ev = dict(ctx, amount=dealt, crit=is_crit)
+        ev = dict(ctx, amount=dealt, crit=is_crit, cost=att.last_cost if kind == "art" and not trig else 0.0)
         # sustain on hit (a hit landed: not evaded, even if blocked to 0)
-        gain = (att.b.gain_on_hit + self.mod(att, "gain_on_hit") / 100) * att.qi_max() + (att.b.leech_qi + self.mod(att, "leech_qi") / 100) * dealt
+        on_hit = 0.0 if self.mod(att, "no_gain_on_hit") > 0 else att.b.gain_on_hit + self.mod(att, "gain_on_hit") / 100
+        gain = on_hit * att.qi_max() + (att.b.leech_qi + self.mod(att, "leech_qi") / 100) * dealt
         att.qi = min(att.qi_use(), att.qi + gain)
         lh = att.b.leech_hp + self.mod(att, "leech_hp") / 100
         if lh:
@@ -947,7 +1046,7 @@ class Fight:
         return dealt
 
     def resistance(self, dfn, dtype, qi_live=True):
-        Rw = dfn.b.ward_pts * dfn.b.ward_layer if (dfn.qi > 0 and qi_live) else 0.0
+        Rw = dfn.b.ward_pts * dfn.b.ward_layer * max(0.0, 1 + self.mod(dfn, "ward_pct") / 100) if (dfn.qi > 0 and qi_live) else 0.0
         Rb = dfn.b.body_pts * dfn.b.bs_mult + dfn.b.resist.get(dtype, 0.0) + self.mod(dfn, "resist", {"dtype": dtype})
         Rc = dfn.st("sundered") * STATUS["sundered"]["res_pts"] + dfn.st("exposed") * STATUS["exposed"]["res_all"]
         return Rw, Rb + Rc
@@ -1019,7 +1118,12 @@ class Fight:
                                          + sum(w.get("block", 0.0) for w, _ in xs))
         if is_tick:
             blk *= self.mod(dfn, "tick_block") / 100
+        if self.mod(dfn, "no_block") > 0 or (att is not None and self.mod(att, "ignore_block") > 0):
+            blk = 0.0
+        blocked = min(max(0.0, a), blk)
         a = max(0.0, a - blk)
+        if blocked > 0 and not is_tick:
+            self.fire_event(dfn, "blocked", dict(ctx or {}, amount=blocked, dtype=dtype))
         # shields
         reached = False
         if a > 0:
@@ -1047,7 +1151,7 @@ class Fight:
                 w["quiet_since"] = self.t
                 rest -= soak
             a = rest + through
-            if a > 0 and dfn.body_bar > 0 and dtype not in ("chaos", "soul"):
+            if a > 0 and dfn.body_bar > 0 and dtype not in ("chaos", "soul") and self.mod(dfn, "no_body_shield") <= 0:
                 soak = min(a, dfn.body_bar)
                 dfn.body_bar -= soak
                 a -= soak
@@ -1089,10 +1193,12 @@ class Fight:
                                           "kind": "art", "dtype": "soul"})
         return lh
 
-    def heal(self, s, amount):
+    def heal(self, s, amount, source=None, ignore_taken=False):
         amount *= 1 + s.b.healing + self.mod(s, "healing") / 100
-        # the receiver's healing taken (Combat Defence & Healing E; healing_taken_pct), floored at -50 % with curses
-        amount *= max(1 - K["curse_heal_taken_max"], 1 + self.mod(s, "heal_taken") / 100)
+        # the receiver's healing taken (Combat Defence & Healing E; healing_taken_pct), floored at -50 % with curses;
+        # ignore_taken: a heal its own closing exempts (Still Water)
+        if not ignore_taken:
+            amount *= max(1 - K["curse_heal_taken_max"], 1 + self.mod(s, "heal_taken") / 100)
         if s.st("withering"):
             amount *= 1 + STATUS["withering"]["heal_taken"]
             if s.statuses["withering"].get("crossing"):
@@ -1107,10 +1213,13 @@ class Fight:
         if got > 0:
             s.hp += got
             s.healed += got
-            self.fire_event(s, "heal_restored", dict(s.cur_ev or {}, amount=got, share=got / s.hp_max))
+            ev = dict(s.cur_ev or {}, amount=got, share=got / s.hp_max)
+            if source:
+                ev["source"] = source
+            self.fire_event(s, "heal_restored", ev)
 
     # ---------------------------------------------------------- stacks and statuses
-    def add_stacks(self, src, target, el, n, dur, buff):
+    def add_stacks(self, src, target, el, n, dur, buff, mark=None):
         if not n:
             return
         # stack_grant: each grant of the element's stacks gives that many more (Effects rule 9a; rare, flat)
@@ -1122,8 +1231,9 @@ class Fight:
             target.buffs.append([el, n, until, src, None if until is None else until - self.t])
             if self.plog is not None:
                 self.plog.append(["stacks", self.t, src.label, target.label, el, n, -1 if until is None else until, 1])
+            self.fire_event(target, "buff_gained", {"element": el, "stacks": n})
         else:
-            target.debuffs.append([el, n, until, src, None if until is None else until - self.t])
+            target.debuffs.append([el, n, until, src, None if until is None else until - self.t] + ([mark] if mark else []))
             if self.plog is not None:
                 self.plog.append(["stacks", self.t, src.label, target.label, el, n, -1 if until is None else until, 0])
             self.fire_event(src, "status_applied", {"element": el, "stacks": n})
@@ -1137,6 +1247,8 @@ class Fight:
             st["every"] = spec.get("every", K["injury_every"])
             return
         d = STATUS[sid]
+        if self.mod(target, "status_immune", {"status": sid}) > 0:
+            return      # Immovable Mountain: Slowed Time never lands
         if self.t < target.lockouts.get(sid, -1):
             return
         if d.get("stacking") == "none" and target.st(sid) > 0:
@@ -1237,12 +1349,20 @@ class Fight:
                 continue
             if e.get("chance", 1.0) < 1.0 and self.rng.random() >= e["chance"]:
                 continue
+            n = self.scale(s, e, ev)
+            spp = e.get("limit", {}).get("scale_per_pulse")
+            if spp is not None:              # the summed scale a pulse may give (Ever-Burning Furnace: 10 stacks)
+                st_ = s.eff_state[e["id"]]
+                n = min(n, spp - st_.get("pulse_n", 0.0))
+                if n <= 0:
+                    continue
+                st_["pulse_n"] = st_.get("pulse_n", 0.0) + n
             self.mark(s, e)
             if self.plog is not None:
                 self.plog.append(["effect", self.t, s.label, e["id"]])
             self.depth += 1
             try:
-                self.do(s, e, e.get("do", []), self.scale(s, e, ev), ev)
+                self.do(s, e, e.get("do", []), n, ev)
             finally:
                 self.depth -= 1
 
@@ -1254,6 +1374,8 @@ class Fight:
         if "per_pulse" in lim and st["pulse"] >= lim["per_pulse"]:
             s.clipped[e["id"]] = s.clipped.get(e["id"], 0) + 1
             return False
+        if "per_firing" in lim and st.get("firing", 0) >= lim["per_firing"]:
+            return False
         if self.t < st["next"]:
             return False
         return True
@@ -1262,6 +1384,7 @@ class Fight:
         st = s.eff_state[e["id"]]
         st["fight"] += 1
         st["pulse"] += 1
+        st["firing"] = st.get("firing", 0) + 1
         if "cooldown" in e.get("limit", {}):
             st["next"] = self.t + ms(e["limit"]["cooldown"])
 
@@ -1309,9 +1432,9 @@ class Fight:
             elif verb == "heal":
                 amt = arg.get("share", 0) * (ev.get("amount", 0.0) if arg.get("of") == "amount" else s.hp_max) * n
                 if arg.get("body_shield"):
-                    s.body_bar += amt
+                    s.body_bar += amt * self.shield_hold(s)
                 else:
-                    self.heal(s, amt)
+                    self.heal(s, amt, ignore_taken=bool(arg.get("ignore_taken")))
             elif verb == "free_hit":
                 if s.trig_count >= K["trig_cap"]:
                     s.clipped["trig_cap"] = s.clipped.get("trig_cap", 0) + 1
@@ -1334,7 +1457,7 @@ class Fight:
                     s.clipped["trig_budget"] = s.clipped.get("trig_budget", 0) + 1
             elif verb == "stacks":
                 tgt = o if arg.get("side", "foe") == "foe" else s
-                self.add_stacks(s, tgt, arg["el"], arg["n"] * n, arg.get("for"), buff=(tgt is s))
+                self.add_stacks(s, tgt, arg["el"], arg["n"] * n, arg.get("for"), buff=(tgt is s), mark=arg.get("mark"))
             elif verb == "status":
                 spec = dict(arg)
                 spec["stacks"] = spec.get("stacks", 1) * n
@@ -1377,6 +1500,8 @@ class Fight:
             elif verb == "timer":
                 tgt = s if arg.get("side", "own") == "own" else o
                 by = arg["by"] * n
+                if tgt is o and by > 0 and self.mod(o, "delay_immune") > 0:
+                    continue   # Immovable Mountain: timer delays never land
                 if tgt is o:   # a delay: falloff within the window, timer resistance [R1]
                     o.delays = [x for x in o.delays if self.t - x < ms(K["delay_window"])]
                     by = by * K["delay_falloff"] ** len(o.delays) * (1 - (o.b.timer_resist + self.mod(o, "timer_resist")) / 100)
@@ -1447,6 +1572,9 @@ class Fight:
                         continue
                     if arg.get("hold"):
                         x[2] = None
+                    elif arg.get("at_least") is not None:   # keep it at least this long from now (Fire Feeds Fire)
+                        if x[2] is not None:
+                            x[2] = max(x[2], self.t + ms(arg["at_least"]))
                     elif len(x) > 4 and x[4] is not None and x[2] is not None:
                         x[2] = self.t + x[4]
             elif verb == "consume":
@@ -1483,7 +1611,21 @@ class Fight:
             elif verb == "refuse_down" or verb == "last_act":
                 pass   # read by the Down step
             elif verb == "shield":
-                s.body_bar += arg.get("body", 0.0) * s.hp_max * n
+                if arg.get("refill") is not None:   # refill toward the starting bar, never past it (Earthen Armour)
+                    cap = s.b.body_shield * s.hp_max * self.shield_hold(s)
+                    if s.body_bar < cap:
+                        s.body_bar = min(cap, s.body_bar + arg["refill"] * cap * n)
+                else:
+                    s.body_bar += arg.get("body", 0.0) * s.hp_max * n * self.shield_hold(s)
+            elif verb == "return_damage":
+                # a share of the event's amount strikes the foe through its defence (Thorns: a share of the blocked)
+                amt = arg.get("share", 0.0) * ev.get("amount", 0.0) * n
+                if amt > 0:
+                    dt = arg.get("dtype", "phys")
+                    got = self.defend(s, o, amt, dt, None, {"dtype": dt, "kind": "trigger"}, is_tick=False)
+                    s.dealt += got
+                    if self.plog is not None:
+                        self.plog.append(["return", self.t, s.label, amt, got, o.hp, o.qi])
             elif verb == "bank":
                 pass
             elif verb == "self_hit":
@@ -1518,7 +1660,9 @@ class Fight:
                 e = refuse[0]
                 self.mark(s, e)
                 s.refusals_left -= 1
-                s.hp = K["refuse_down_health"]
+                rd = next((a["refuse_down"] for a in e.get("do", []) if "refuse_down" in a), None)
+                share = rd.get("hp_share") if isinstance(rd, dict) else None
+                s.hp = share * s.hp_max if share else K["refuse_down_health"]   # Nirvana: 30 % of maximum
                 if self.plog is not None:
                     self.plog.append(["down", self.t, s.label, "refused"])
                 rest = [a for a in e.get("do", []) if "refuse_down" not in a]
@@ -1562,6 +1706,15 @@ def match(filt, ctx):
             continue
         if k == "tags":
             if not set(v) & set(ctx.get("tags", ())):
+                return False
+        elif k == "not_tags":                # none of these tags (Thousand Talismans: arts that are not talismans)
+            if set(v) & set(ctx.get("tags", ())):
+                return False
+        elif k == "is_crit":                 # the hit is (or is not) a crit (Heaven's Eye)
+            if bool(ctx.get("crit", False)) != bool(v):
+                return False
+        elif k == "source":                  # a heal's source (Sun and Rain: regeneration)
+            if ctx.get("source") != v:
                 return False
         elif k == "dtype":
             got = ctx.get("dtype")
@@ -1642,7 +1795,8 @@ def validate(b):
                 if abs(arg.get("cost_red", 0)) > 1:   # a share (0.10 = 10 %), not points: -10 would mean 11x costs
                     raise EngineError("%s: Effect %s: cost_red %r is a share of the cost (0.1 = 10 %%), not points"
                                       % (b.name, e["id"], arg["cost_red"]))
-                bad = [k for k in arg if k not in MOD_KEYS and k not in ("for", "dtype", "element", "tags", "kind", "stack")]
+                bad = [k for k in arg if k not in MOD_KEYS and k not in ("for", "dtype", "element", "tags", "kind", "stack",
+                                                                         "status", "not_tags", "is_crit")]
                 if bad:
                     raise EngineError("%s: Effect %s: mod keys %s are not in the engine" % (b.name, e["id"], bad))
             if verb == "stacks" and isinstance(arg, dict) and arg.get("el", "") not in ELEMENTS:

@@ -25,6 +25,9 @@ static func defend(f: Fight, att: FighterState, dfn: FighterState, amount: float
 	var dp: FighterProfile = dfn.p
 	var sdt: String = str(dtype)
 	var rw: float = dp.ward_pts * dp.ward_layer if dfn.qi > 0.0 else 0.0
+	if rw != 0.0 and f.has_mods(dfn):
+		# live ward strength (Layered Earth, Open Sky: ward_pct; engine.py resistance())
+		rw = dp.ward_pts * dp.ward_layer * maxf(0.0, 1.0 + f.m(dfn, "ward_pct", null) / 100.0)
 	var ro: float = dp.body_pts * dp.bs_mult + float(dp.resist.get(dtype, 0.0))
 	if f.has_mods(dfn):
 		f.dt_ctx["dtype"] = sdt   # a reused one-key context: m() only reads it
@@ -89,7 +92,17 @@ static func defend(f: Fight, att: FighterState, dfn: FighterState, amount: float
 	var blk: float = k.block_unit[dp.realm] * dp.stage_mult * (dp.block + (f.m(dfn, "block", null) if dm else 0.0) + dp.body_block * dp.bs_mult + x_blk)
 	if is_tick:
 		blk *= (f.m(dfn, "tick_block", null) if dm else 0.0) / 100.0
+	# Keen Edge, Hidden Moon: the defender's own block counts nothing, or the attacker's hits ignore it
+	if (dm and f.m(dfn, "no_block", null) > 0.0) or (att != null and am and f.m(att, "ignore_block", null) > 0.0):
+		blk = 0.0
+	var blocked: float = minf(maxf(0.0, a), blk)
 	a = maxf(0.0, a - blk)
+	if blocked > 0.0 and not is_tick and f.listens(dfn, "blocked"):
+		# the part a block stopped (Thorns, Layered Earth)
+		var bev: Dictionary = ctx.duplicate()
+		bev["amount"] = blocked
+		bev["dtype"] = sdt
+		EffectRunner.fire(f, dfn, "blocked", bev)
 	var reached := false
 	if a > 0.0:
 		var byp: float = 0.0 if is_tick else minf(k.bypass_cap, (art.bypass if art != null else 0.0) + (f.m(att, "bypass", ctx) if am else 0.0))
@@ -119,7 +132,8 @@ static func defend(f: Fight, att: FighterState, dfn: FighterState, amount: float
 			w.quiet_since = f.t
 			rest -= soak
 		a = rest + through
-		if a > 0.0 and dfn.body_bar > 0.0 and dtype != &"chaos" and dtype != &"soul":
+		if a > 0.0 and dfn.body_bar > 0.0 and dtype != &"chaos" and dtype != &"soul" \
+				and not (dm and f.m(dfn, "no_body_shield", null) > 0.0):
 			var bsoak: float = minf(a, dfn.body_bar)
 			dfn.body_bar -= bsoak
 			a -= bsoak

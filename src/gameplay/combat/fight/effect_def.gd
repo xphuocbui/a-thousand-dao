@@ -56,6 +56,9 @@ var scale: ScaleDef = null
 var per_fight: int = -1
 var per_pulse: int = -1
 var cooldown: float = -1.0
+## per_firing: firings per art firing (-1 none); scale_per_pulse: the summed scale a pulse may give (-1 none).
+var per_firing: int = -1
+var scale_per_pulse: float = -1.0
 var chance: float = 1.0
 ## A held payload (Effects rule 16): banked on its event, spent on "until"; cap -1 for none.
 var held: bool = false

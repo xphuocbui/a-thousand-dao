@@ -361,7 +361,8 @@
   "stage_mult": 1.0,
   "stack_eff": {},
   "stack_dur": {},
-  "wards": []
+  "wards": [],
+  "stack_alias": {}
  },
  "b": {
   "name": "ledger-warden",
@@ -698,7 +699,8 @@
   "stage_mult": 1.0,
   "stack_eff": {},
   "stack_dur": {},
-  "wards": []
+  "wards": [],
+  "stack_alias": {}
  },
  "result": {
   "t_ms": 64000,

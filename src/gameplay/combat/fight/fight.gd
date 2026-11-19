@@ -73,6 +73,9 @@ func _init(profile_a: FighterProfile, profile_b: FighterProfile, constants: Comb
 		_mod_keys[str(x)] = true
 	a = FighterState.new(profile_a, "A", k)
 	b = FighterState.new(profile_b, "B", k)
+	for st in [a, b]:
+		if st.more_live:   # stack_more reads Effect mods inside the buff sums: a weak back-reference (no cycle)
+			st.fight_ref = weakref(self)
 	_fx = not (profile_a.effects.is_empty() and profile_b.effects.is_empty())
 	for p in [profile_a, profile_b]:
 		for art in p.arts:
@@ -87,13 +90,14 @@ func _open(s: FighterState) -> void:
 	for i in p.arts.size():
 		var art: ArtDef = p.arts[i]
 		# the opening cooldown honours art speed (scoped to the art), then opening haste (Combat 13)
-		var hz: float = 1.0 + (p.art_speed_pct + m(s, "art_speed", art.ctx)) / 100.0
+		var hz: float = 1.0 if m(s, "speed_locked", null) > 0.0 else 1.0 + (p.art_speed_pct + m(s, "art_speed", art.ctx)) / 100.0
 		var cd: float = maxf(k.cooldown_min, art.cd / hz)
 		var first: float = maxf(k.cooldown_min, cd / (1.0 + (p.opening_haste_pct + m(s, "opening_haste", null)) / 100.0))
 		s.ready[i] = CombatConstants.ms(first)
 	s.basic_ready = CombatConstants.ms(basic_cd(s))
 	for j in p.companions.size():
 		s.comp_ready[j] = CombatConstants.ms(p.companions[j].cd)
+	s.body_bar *= shield_hold(s)
 
 
 ## Runs the fight to a Down or the time limit and returns the result.
@@ -208,6 +212,27 @@ func _event(s: FighterState, name: String, ev: Dictionary) -> void:
 		EffectRunner.fire(self, s, name, ev)
 
 
+## The share every body-shield bar and gain holds (Glass Meridians: half): 1 + shield_hold, at least 0.
+func shield_hold(s: FighterState) -> float:
+	return maxf(0.0, 1.0 + m(s, "shield_hold", null))
+
+
+## An art's speed multiplier as act() reads it (1 when speed_locked: Immovable Mountain).
+func art_speed(s: FighterState, art: ArtDef) -> float:
+	if m(s, "speed_locked", null) > 0.0:
+		return 1.0
+	return 1.0 + s.bsum("speed") + s.p.art_speed_pct / 100.0 + m(s, "art_speed", art.ctx) / 100.0
+
+
+## Overheat: the art speed that cooldown_min clips on this art, in points, up to the mod's cap (added to L5).
+func overheat(s: FighterState, art: ArtDef, ctx: Variant) -> float:
+	var cap: float = m(s, "overheat", ctx)
+	if cap <= 0.0 or art == null or art.cd <= 0.0:
+		return 0.0
+	var clipped: float = (art_speed(s, art) - art.cd / k.cooldown_min) * 100.0
+	return minf(cap, maxf(0.0, clipped))
+
+
 ## The basic attack's cooldown in seconds (Combat A2: basic speed).
 func basic_cd(s: FighterState) -> float:
 	return maxf(k.cooldown_min, k.basic_cooldown / (1.0 + (s.p.basic_speed_pct + m(s, "basic_speed", null)) / 100.0))
@@ -239,6 +264,10 @@ func layers_m(s: FighterState, art: ArtDef, ctx: Variant) -> float:
 		adds.append(v)
 		if v != 0.0:
 			any = true
+	var heat: float = overheat(s, art, ctx) if has_mods(s) else 0.0
+	if heat != 0.0:
+		adds[4] += heat
+		any = true
 	if not any and not sealed_bites:
 		return s.p.m * mm
 	var base: PackedFloat64Array = s.p.layers if not s.p.layers.is_empty() else PackedFloat64Array([0, 0, 0, 0, 0])
@@ -318,7 +347,7 @@ func pulse(s: FighterState) -> void:
 	var hreg: float = s.hp_max * (s.p.hregen + s.bsum("hregen") + m(s, "hregen", null)) * s.p.bs_mult / stag \
 			* (1.0 + m(s, "hregen_inc", null) / 100.0)
 	if hreg > 0.0:
-		heal(s, hreg)
+		heal(s, hreg, "regen")
 	# the cleansing ward: stacks per pulse for a fee each, earliest expiry first; then a share of every batch
 	var n_cl: int = s.p.cleanse_pulse
 	while n_cl > 0 and not s.debuffs.is_empty():
@@ -352,8 +381,17 @@ func pulse(s: FighterState) -> void:
 		s.buffs = _live(s.buffs)
 		s.touch_buffs()
 	if not s.debuffs.is_empty():
+		# a debuff batch that runs out on its own is announced to its source (Wildfire), after the batches are removed
+		var ended: Array[FighterState.StackBatch] = []
+		for x in s.debuffs:
+			if x.until != -1 and x.until <= t:
+				ended.append(x)
 		s.debuffs = _live(s.debuffs)
 		s.touch_debuffs()
+		for x in ended:
+			if x.n > 0.0:
+				_event(_side(x.src_idx), "batch_ended", {"element": x.el, "stacks": x.n, "kind": "debuff",
+						"rekindled": 1.0 if x.mark == "rekindled" else 0.0})
 	for sid in (s.statuses.keys() if not s.statuses.is_empty() else EffectRunner._NONE_A):
 		var stt2: FighterState.StatusState = s.statuses[sid]
 		if stt2.until != -1 and stt2.until <= t:
@@ -380,6 +418,8 @@ func pulse(s: FighterState) -> void:
 		var es: PackedInt64Array = s.eff_state[eid]
 		es[1] = 0
 		s.eff_state[eid] = es
+	if not s.eff_pulse_n.is_empty():
+		s.eff_pulse_n.clear()
 	# ward shield recharge: standing bars refill a share after a quiet spell (Combat Defence & Healing rule 9)
 	for w in s.wshields:
 		var cap: float = w.def.size * s.qi_base
@@ -419,9 +459,11 @@ static func _sort_by_until(batches: Array[FighterState.StackBatch]) -> void:
 ## Heals [param s] by [param amount] (Combat Defence & Healing E, 19): healing and healing taken (floored with
 ## curses), Withering (with Crossing the Line it lands as damage), a heal cap from Effects, then heal_restored.
 ## Public for mechanism tests.
-func heal(s: FighterState, amount: float) -> void:
+func heal(s: FighterState, amount: float, source: String = "", ignore_taken: bool = false) -> void:
 	amount *= 1.0 + s.p.healing + m(s, "healing", null) / 100.0
-	amount *= maxf(1.0 - k.curse_heal_taken_max, 1.0 + m(s, "heal_taken", null) / 100.0)
+	# ignore_taken: a heal its own closing exempts (Still Water)
+	if not ignore_taken:
+		amount *= maxf(1.0 - k.curse_heal_taken_max, 1.0 + m(s, "heal_taken", null) / 100.0)
 	if s.st("withering") > 0.0:
 		amount *= 1.0 + k.withering_heal_taken
 		var w: FighterState.StatusState = s.statuses["withering"]
@@ -441,6 +483,8 @@ func heal(s: FighterState, amount: float) -> void:
 			var ev: Dictionary = (s.cur_ev as Dictionary).duplicate() if s.cur_ev is Dictionary else {}
 			ev["amount"] = got
 			ev["share"] = got / s.hp_max
+			if source != "":
+				ev["source"] = source
 			_event(s, "heal_restored", ev)
 
 
@@ -473,7 +517,12 @@ func act(s: FighterState) -> void:
 			continue
 		var base_id: StringName = art.id
 		art = shape(s, i, art)
-		var speed: float = speed_base + m(s, "art_speed", art.ctx) / 100.0
+		var speed: float = 1.0 if m(s, "speed_locked", null) > 0.0 else speed_base + m(s, "art_speed", art.ctx) / 100.0
+		if not s.eff_state.is_empty():   # per_firing limits restart with each art firing
+			for eid in s.eff_state:
+				var es_f: PackedInt64Array = s.eff_state[eid]
+				es_f[3] = 0
+				s.eff_state[eid] = es_f
 		var cd: float = maxf(k.cooldown_min, art.cd / speed) * slow(s)
 		s.charges[i] -= 1
 		if s.charges[i] > 0:
@@ -667,14 +716,38 @@ func hit(att: FighterState, dfn: FighterState, c: float, dtype: StringName, art:
 		ctx = {"dtype": str(dtype), "element": "", "tags": [str(kind)], "kind": str(kind), "art_id": str(kind)}
 	var am: bool = has_mods(att)
 	var dm: bool = has_mods(dfn)
+	# Returning Wave: the first hit taken does no harm and strikes the attacker at full damage, once a fight
+	if not trig and not dfn.reflected and dm and m(dfn, "reflect_first", null) > 0.0:
+		dfn.reflected = true
+		var back: float = layers_m(att, art, ctx) if kind != KIND_COMPANION else att.p.m
+		var d0: float = att.u_att * c * back * _supp(att, dfn, m(att, "pierce", null) / 100.0)
+		var rctx: Dictionary = ctx.duplicate()
+		rctx["kind"] = "trigger"
+		var got_r: float = DefencePath.defend(self, dfn, att, d0, dtype, null, rctx, false)
+		dfn.dealt += got_r
+		if _log_enabled:
+			_row(FightLogRow.Kind.REFLECT, dfn.label, &"", &"", [d0, got_r, att.hp, att.qi])
+		return 0.0
 	# evade, then crit: both rolls are drawn whenever they apply, so a zero chance never shifts the stream
 	if rng.randf() < evade_chance(att, dfn):
 		_event(dfn, "evaded", ctx)
 		_event(att, "was_evaded", ctx)
 		return 0.0
+	dfn.last_hit_t = t
 	var is_crit := false
 	if kind != KIND_COMPANION and not trig:
-		is_crit = rng.randf() < crit_chance(att, dfn, ctx)
+		var ch: float = crit_chance(att, dfn, ctx)
+		if am and m(att, "counted_crit", null) > 0.0:   # Called Blow: a meter in thousandths, no draw (Effects Formulas A)
+			att.crit_meter += int(floorf(maxf(0.0, ch) * 1000.0 + 0.5))
+			if att.crit_meter >= 1000:
+				att.crit_meter -= 1000
+				is_crit = true
+		else:
+			is_crit = rng.randf() < ch
+		if am and m(att, "sure_crit", ctx) > 0.0:
+			is_crit = true
+	if _fx:
+		ctx["crit"] = is_crit
 	var crit: float = (att.p.crit_mult + (m(att, "crit_mult", ctx) if am else 0.0) / 100.0 + dfn.dsum("critdmg_taken")) if is_crit else 1.0
 	var phys: bool = dtype == &"phys"
 	var more: float = 1.0 + att.bsum("dmg") + ((att.bsum("dmg_phys") + dfn.dsum("phys_taken")) if phys else 0.0)
@@ -711,7 +784,8 @@ func hit(att: FighterState, dfn: FighterState, c: float, dtype: StringName, art:
 		att.trig_dmg += dealt
 	else:
 		att.direct_dmg += dealt
-	var gain: float = (att.p.gain_on_hit + (m(att, "gain_on_hit", null) if am else 0.0) / 100.0) * att.qi_max() \
+	var on_hit: float = 0.0 if (am and m(att, "no_gain_on_hit", null) > 0.0) 			else att.p.gain_on_hit + (m(att, "gain_on_hit", null) if am else 0.0) / 100.0
+	var gain: float = on_hit * att.qi_max() \
 			+ (att.p.leech_qi + (m(att, "leech_qi", null) if am else 0.0) / 100.0) * dealt
 	att.qi = minf(att.qi_use(), att.qi + gain)
 	var lh: float = att.p.leech_hp + (m(att, "leech_hp", null) if am else 0.0) / 100.0
@@ -729,6 +803,7 @@ func hit(att: FighterState, dfn: FighterState, c: float, dtype: StringName, art:
 		var ev: Dictionary = ctx.duplicate()
 		ev["amount"] = dealt
 		ev["crit"] = is_crit
+		ev["cost"] = att.last_cost if kind == KIND_ART and not trig else 0.0
 		_event(att, "hit_landed", ev)
 		if is_crit:
 			var qc: float = m(att, "qi_on_crit", ctx) / 100.0   # linh_luc_on_crit_pct: pp of maximum per crit (#44 B3)
@@ -794,7 +869,8 @@ func _soul_res(att: FighterState, dfn: FighterState) -> float:
 ## Grants [param n] stacks of element [param el] from [param src] to [param target] (Effects rule 9a): plus the
 ## source's stack_grant, lasting [param dur] seconds (-1: the fight) scaled by its stack duration %, at least
 ## min_batch; a debuff raises status_applied. Public for mechanism tests.
-func add_stacks(src: FighterState, target: FighterState, el: String, n: float, dur: float, is_buff: bool) -> void:
+func add_stacks(src: FighterState, target: FighterState, el: String, n: float, dur: float, is_buff: bool,
+		mark: String = "") -> void:
 	if n == 0.0:
 		return
 	var kind: String = "buff" if is_buff else "debuff"
@@ -810,6 +886,7 @@ func add_stacks(src: FighterState, target: FighterState, el: String, n: float, d
 	batch.src_idx = _idx(src)
 	batch.src_p = src.p
 	batch.length = -1 if until == -1 else until - t
+	batch.mark = mark
 	# a buff's power reads the holder's profile, a debuff's its source's (the sim's bsum / dsum)
 	batch.power = StackMath.stack_power(k, target.p if is_buff else src.p, el, kind)
 	if is_buff:
@@ -817,6 +894,7 @@ func add_stacks(src: FighterState, target: FighterState, el: String, n: float, d
 		target.touch_buffs()
 		if _log_enabled:
 			_row(FightLogRow.Kind.STACKS, src.label, &"", StringName(el), [n, float(until), 1.0], target.label)
+		_event(target, "buff_gained", {"element": el, "stacks": n})
 	else:
 		target.debuffs.append(batch)
 		target.touch_debuffs()
@@ -841,6 +919,8 @@ func apply_status(src: FighterState, target: FighterState, spec: StatusSpec) -> 
 		ii.every = float(spec.extra.get("every", k.injury_every))
 		return
 	var d: Dictionary = k.status[sid]
+	if has_mods(target) and m(target, "status_immune", {"status": sid}) > 0.0:
+		return   # Immovable Mountain: Slowed Time never lands
 	if t < int(target.lockouts.get(sid, -1)):
 		return
 	if str(d.get("stacking", "")) == "none" and target.st(sid) > 0.0:
@@ -908,7 +988,7 @@ func cleanse(s: FighterState, n: int, el: String = "") -> float:
 			var started: int = (x.until - x.length) if (x.until != -1 and x.length != -1) else -1
 			if ff == null or started == -1 or t - started < CombatConstants.ms(float(ff)):
 				if bool(guard.get("swap_buff", false)):   # Embers Never Die: the source loses its own buff stacks instead
-					var lose: float = minf(left, EffectRunner._count(owner.buffs, x.el))
+					var lose: float = minf(left, EffectRunner._count_buffs(owner, x.el))
 					var mine: Array[FighterState.StackBatch] = []
 					for y in owner.buffs:
 						if y.el == x.el:
@@ -951,6 +1031,8 @@ func evade_chance(att: FighterState, dfn: FighterState) -> float:
 		if xw.up and (xw.def.model == ExtraWardDef.Model.RESERVED or dfn.qi > 0.0):
 			w_ev += xw.def.evade
 	w_ev /= 100.0
+	if has_mods(dfn) and m(dfn, "no_evade", null) > 0.0:
+		return 0.0
 	var ev_m: float = m(dfn, "evade", null) if has_mods(dfn) else 0.0
 	var acc_m: float = m(att, "acc", null) if has_mods(att) else 0.0
 	var p_ev: float = dfn.p.evade + w_ev + ev_m / 100.0 - dfn.dsum("evade_down") \
@@ -962,7 +1044,12 @@ func evade_chance(att: FighterState, dfn: FighterState) -> float:
 ## [param ctx]), Thunder buffs on the attacker and Thunder debuffs on the defender, within crit_cap.
 func crit_chance(att: FighterState, dfn: FighterState, ctx: Variant = null) -> float:
 	var crit_m: float = m(att, "crit", ctx) if has_mods(att) else 0.0
-	return minf(k.crit_cap, att.p.crit + crit_m / 100.0 + att.bsum("crit") + dfn.dsum("crit_taken"))
+	var cap: float = k.crit_cap
+	if has_mods(att):
+		var cap_to: float = m(att, "crit_cap_to", null)
+		if cap_to > 0.0:   # a lower crit cap (Called Blow)
+			cap = minf(cap, cap_to)
+	return minf(cap, att.p.crit + crit_m / 100.0 + att.bsum("crit") + dfn.dsum("crit_taken"))
 
 
 ## Cast wards for [param s] (Combat Defence & Healing rule 7): a ward up past its window goes down (its bar goes
@@ -1038,7 +1125,12 @@ func _defeat_check() -> void:
 		if refuse != null and s.refusals_left > 0:
 			EffectRunner.mark(self, s, refuse)
 			s.refusals_left -= 1
-			s.hp = k.refuse_down_health
+			var share_rd: float = 0.0
+			for act_def in refuse.actions:
+				if act_def.verb == "refuse_down":
+					share_rd = float((act_def.arg as Dictionary).get("hp_share", 0.0)) if act_def.arg is Dictionary else 0.0
+					break
+			s.hp = share_rd * s.hp_max if share_rd != 0.0 else k.refuse_down_health   # Nirvana: 30 % of maximum
 			if _log_enabled:
 				_row(FightLogRow.Kind.DOWN, s.label, &"", &"refused", [])
 			var rest: Array = refuse.actions.filter(func(x): return x.verb != "refuse_down")

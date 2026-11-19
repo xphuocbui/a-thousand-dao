@@ -17,6 +17,8 @@ class StackBatch extends RefCounted:
 	var src_idx: int
 	var src_p: FighterProfile
 	var length: int = -1
+	## A mark an Effect put on the batch ("rekindled": its expiry is not announced again); "" none.
+	var mark: String = ""
 	## Stack power, fixed at the grant: profiles never change in a fight, so this equals the sim's read-time value.
 	var power: float = 1.0
 
@@ -140,6 +142,18 @@ var delays: Array = []
 var summons: Array = []
 var protect: Dictionary = {}
 var refusals_left: int = 1
+## Đạo Đồ Effects (2026-11-20): when a hit last landed on this side (ms; own.since_hit), whether reflect_first is
+## spent, the counted-crit meter (per mille), and the summed scale each Effect has given this pulse (scale_per_pulse).
+var last_hit_t: int = 0
+var reflected: bool = false
+var crit_meter: int = 0
+var eff_pulse_n: Dictionary = {}
+## True while stack_more is being read (bsum then ignores stack_more, so its conditions see the stacks without it).
+var in_more: bool = false
+## True when an always-on Effect carries stack_more: buff sums are then read live, never cached.
+var more_live: bool = false
+## The fight this side is in, weakly held (stack_more reads Effect mods); set by [Fight] only when [member more_live].
+var fight_ref: WeakRef = null
 
 var _reserve_keep: float
 var _k: CombatConstants
@@ -172,6 +186,7 @@ func _init(profile: FighterProfile, side_label: String, k: CombatConstants) -> v
 	comp_ready.resize(p.companions.size())
 	state = p.state_start
 	refusals_left = p.refusals
+	more_live = p.always_by_key.has("stack_more")
 	for cid in p.counter_def:
 		counters[cid] = 0.0
 		counter_times[cid] = []
@@ -214,14 +229,45 @@ func st(sid: String) -> float:
 func bsum(key: String) -> float:
 	if buffs.is_empty():
 		return 0.0
+	if more_live:
+		return _bsum_live(key)
 	var hit: Variant = _bcache.get(key)
 	if hit != null:
 		return hit
 	var tot: float = 0.0
+	var alias: Dictionary = p.stack_alias
 	for x in buffs:
 		var tab: Dictionary = _k.buff.get(x.el, EffectRunner._NONE_D)
 		tot += float(tab.get(key, 0.0)) * x.n * x.power
+		if not alias.is_empty() and alias.has(x.el):   # stacks of this element also count as the listed ones
+			for el2 in alias[x.el]:
+				var tab2: Dictionary = _k.buff.get(el2, EffectRunner._NONE_D)
+				tot += float(tab2.get(key, 0.0)) * x.n * x.power
 	_bcache[key] = tot
+	return tot
+
+
+## bsum with stack_more read live (Rising Tide): each batch's stat is scaled by 1 + stack_more for its element, whose
+## conditions read the stacks without stack_more (the [member in_more] guard). Never cached: its inputs change by the
+## moment.
+func _bsum_live(key: String) -> float:
+	var f: Fight = fight_ref.get_ref() if fight_ref != null else null
+	var use_more: bool = f != null and not in_more
+	var tot: float = 0.0
+	var alias: Dictionary = p.stack_alias
+	for x in buffs:
+		var more: float = 1.0
+		if use_more:
+			in_more = true
+			var mctx: Dictionary = {"element": x.el, "kind": "buff"}
+			more = maxf(0.0, 1.0 + f.m(self, "stack_more", mctx))
+			in_more = false
+		var tab: Dictionary = _k.buff.get(x.el, EffectRunner._NONE_D)
+		tot += float(tab.get(key, 0.0)) * x.n * x.power * more
+		if not alias.is_empty() and alias.has(x.el):
+			for el2 in alias[x.el]:
+				var tab2: Dictionary = _k.buff.get(el2, EffectRunner._NONE_D)
+				tot += float(tab2.get(key, 0.0)) * x.n * x.power * more
 	return tot
 
 

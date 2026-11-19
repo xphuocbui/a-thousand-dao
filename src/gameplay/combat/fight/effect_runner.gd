@@ -14,12 +14,16 @@ extends RefCounted
 const _NONE_A: Array = []
 const _NONE_D: Dictionary = {}
 ## The filter keys matched by equality (the sim's match()).
-const _EQ_KEYS: Array = ["element", "kind", "status", "art_id"]
+const _EQ_KEYS: Array = ["element", "kind", "status", "art_id", "source"]
 
 static func read(f: Fight, s: FighterState, r: EffectDef.ReadDef, ev: Variant) -> float:
 	if r.side == 2:
 		if r.key == "time":
 			return f.t / 1000.0
+		if r.key == "cycle":   # the pulse index modulo n (Tide's 6-pulse cycle)
+			@warning_ignore("integer_division")
+			var pulse_index: int = f.t / f.k.pulse_ms
+			return float(pulse_index % r.window_ms)
 		var evd: Dictionary = ev if ev is Dictionary else {}
 		var v: Variant = evd.get(r.param, 0.0)
 		return float(v) if (v is float or v is int or v is bool) else 0.0
@@ -34,7 +38,7 @@ static func read(f: Fight, s: FighterState, r: EffectDef.ReadDef, ev: Variant) -
 		"qi_missing_share":
 			return 1.0 - x.qi / x.qi_max()
 		"buff":
-			return _count(x.buffs, r.param)
+			return _count_buffs(x, r.param)
 		"debuff":
 			return _count(x.debuffs, r.param)
 		"status":
@@ -73,6 +77,12 @@ static func read(f: Fight, s: FighterState, r: EffectDef.ReadDef, ev: Variant) -
 			return 1.0 if x.p.boss else 0.0
 		"tam_ma":
 			return x.tam_ma
+		"evade":   # own evade in points before the cap (Hidden Moon)
+			return 0.0 if f.m(x, "no_evade", null) > 0.0 else x.p.evade * 100.0 + f.m(x, "evade", null)
+		"since_hit":   # seconds since a hit last landed on the side (Earthen Armour)
+			return (f.t - x.last_hit_t) / 1000.0
+		"hp_max_lead":   # own maximum health over the foe's, less 1, at least 0 (Mountain's Weight)
+			return maxf(0.0, x.hp_max / f.foe_of(x).hp_max - 1.0)
 		"state.any":
 			return 1.0 if x.state != "" else 0.0
 		"state":
@@ -102,6 +112,17 @@ static func read(f: Fight, s: FighterState, r: EffectDef.ReadDef, ev: Variant) -
 					return float(x.step[i])
 			return 0.0
 	return 0.0
+
+
+## [param s]'s buff stacks of [param el], counting stacks of elements aliased to it (stack_alias).
+static func _count_buffs(s: FighterState, el: String) -> float:
+	var tot: float = _count(s.buffs, el)
+	var alias: Dictionary = s.p.stack_alias
+	if not alias.is_empty():
+		for x in s.buffs:
+			if alias.has(x.el) and (alias[x.el] as Array).has(el):
+				tot += x.n
+	return tot
 
 
 static func _count(lst: Array, el: String) -> float:
@@ -210,6 +231,14 @@ static func matches(f: Fight, filt: Dictionary, ctx: Variant) -> bool:
 					break
 			if not one:
 				return false
+		elif k == "not_tags":   # none of these tags (Thousand Talismans)
+			var have_n: Array = c.get("tags", _NONE_A)
+			for tg in filt[key]:
+				if have_n.has(str(tg)):
+					return false
+		elif k == "is_crit":   # the hit is (or is not) a crit (Heaven's Eye)
+			if bool(c.get("crit", false)) != bool(filt[key]):
+				return false
 		elif k == "dtype":
 			var got: String = str(c.get("dtype", ""))
 			var want: String = str(filt[key])
@@ -240,21 +269,29 @@ static func fire(f: Fight, s: FighterState, name: String, ev: Dictionary) -> voi
 			continue
 		if e.chance < 1.0 and f.rng.randf() >= e.chance:
 			continue
+		var n_fire: float = scale(f, s, e, ev)
+		if e.scale_per_pulse >= 0.0:   # the summed scale a pulse may give (Ever-Burning Furnace)
+			n_fire = minf(n_fire, e.scale_per_pulse - float(s.eff_pulse_n.get(e.id, 0.0)))
+			if n_fire <= 0.0:
+				continue
+			s.eff_pulse_n[e.id] = float(s.eff_pulse_n.get(e.id, 0.0)) + n_fire
 		mark(f, s, e)
 		f.log_effect(FightLogRow.Kind.EFFECT, s, e.id, [])
 		f.depth += 1
-		run(f, s, e, e.actions, scale(f, s, e, ev), ev)
+		run(f, s, e, e.actions, n_fire, ev)
 		f.depth -= 1
 
 
 ## Whether limits let Effect [param e] fire now: per fight, per pulse, its cooldown.
 static func allowed(f: Fight, s: FighterState, e: EffectDef) -> bool:
-	var st: PackedInt64Array = s.eff_state.get(e.id, PackedInt64Array([0, 0, 0]))
+	var st: PackedInt64Array = s.eff_state.get(e.id, PackedInt64Array([0, 0, 0, 0]))
 	if not s.eff_state.has(e.id):
 		s.eff_state[e.id] = st
 	if e.per_fight >= 0 and st[0] >= e.per_fight:
 		return false
 	if e.per_pulse >= 0 and st[1] >= e.per_pulse:
+		return false
+	if e.per_firing >= 0 and st[3] >= e.per_firing:
 		return false
 	if f.t < st[2]:
 		return false
@@ -266,6 +303,7 @@ static func mark(f: Fight, s: FighterState, e: EffectDef) -> void:
 	var st: PackedInt64Array = s.eff_state[e.id]
 	st[0] += 1
 	st[1] += 1
+	st[3] += 1
 	if e.cooldown >= 0.0:
 		st[2] = f.t + CombatConstants.ms(e.cooldown)
 	s.eff_state[e.id] = st
@@ -349,9 +387,9 @@ static func run(f: Fight, s: FighterState, e: EffectDef, actions: Array, n: floa
 				var base_h: float = float(ev.get("amount", 0.0)) if str(arg.get("of", "")) == "amount" else s.hp_max
 				var amt_h: float = float(arg.get("share", 0)) * base_h * n
 				if bool(arg.get("body_shield", false)):
-					s.body_bar += amt_h
+					s.body_bar += amt_h * f.shield_hold(s)
 				else:
-					f.heal(s, amt_h)
+					f.heal(s, amt_h, "", bool(arg.get("ignore_taken", false)))
 			"free_hit":
 				if s.trig_count >= int(k.trig_cap):
 					continue
@@ -373,7 +411,7 @@ static func run(f: Fight, s: FighterState, e: EffectDef, actions: Array, n: floa
 			"stacks":
 				var tgt: FighterState = o if str(arg.get("side", "foe")) == "foe" else s
 				var dur_s: float = -1.0 if arg.get("for") == null else float(arg["for"])
-				f.add_stacks(s, tgt, str(arg.el), float(arg.n) * n, dur_s, tgt == s)
+				f.add_stacks(s, tgt, str(arg.el), float(arg.n) * n, dur_s, tgt == s, str(arg.get("mark", "")))
 			"status":
 				var spec := StatusSpec.new()
 				spec.id = str(arg.id)
@@ -407,7 +445,21 @@ static func run(f: Fight, s: FighterState, e: EffectDef, actions: Array, n: floa
 				var amt_b: float = float(arg.get("share", 0)) * base_b * n
 				o.qi = maxf(0.0, o.qi - amt_b)
 			"shield":
-				s.body_bar += float(arg.get("body", 0.0)) * s.hp_max * n
+				if arg.get("refill") != null:   # refill toward the starting bar, never past it (Earthen Armour)
+					var cap_b: float = s.p.body_shield * s.hp_max * f.shield_hold(s)
+					if s.body_bar < cap_b:
+						s.body_bar = minf(cap_b, s.body_bar + float(arg.refill) * cap_b * n)
+				else:
+					s.body_bar += float(arg.get("body", 0.0)) * s.hp_max * n * f.shield_hold(s)
+			"return_damage":
+				# a share of the event's amount strikes the foe through its defence (Thorns: a share of the blocked)
+				var amt_r: float = float(arg.get("share", 0.0)) * float(ev.get("amount", 0.0)) * n
+				if amt_r > 0.0:
+					var dt_r: String = str(arg.get("dtype", "phys"))
+					var got_r: float = DefencePath.defend(f, s, o, amt_r, StringName(dt_r), null,
+							{"dtype": dt_r, "kind": "trigger"}, false)
+					s.dealt += got_r
+					f.log_effect(FightLogRow.Kind.RETURN, s, "", [amt_r, got_r, o.hp, o.qi])
 			"self_hit":
 				f.hit(o, s, float(arg.get("c", 0.0)) * n, StringName(str(arg.get("dtype", "phys"))), null,
 						Fight.KIND_TRIGGER, true)
@@ -437,6 +489,8 @@ static func run(f: Fight, s: FighterState, e: EffectDef, actions: Array, n: floa
 			"timer":
 				var tgt_t: FighterState = s if str(arg.get("side", "own")) == "own" else o
 				var by: float = float(arg.by) * n
+				if tgt_t == o and by > 0.0 and f.m(o, "delay_immune", null) > 0.0:
+					continue   # Immovable Mountain: timer delays never land
 				if tgt_t == o:
 					# a delay: falloff within the window, timer resistance (R1)
 					var recent: Array = []
@@ -527,7 +581,7 @@ static func run(f: Fight, s: FighterState, e: EffectDef, actions: Array, n: floa
 					# the largest pile; a tie goes to the pile listed first (both engines, 2026-11-14)
 					var best_n: float = -1.0
 					for x in o.buffs:
-						var cnt: float = _count(o.buffs, x.el)
+						var cnt: float = _count_buffs(o, x.el)
 						if cnt > best_n:
 							best_n = cnt
 							pile = x.el
@@ -559,6 +613,9 @@ static func run(f: Fight, s: FighterState, e: EffectDef, actions: Array, n: floa
 						continue
 					if bool(arg.get("hold", false)):
 						x.until = -1
+					elif arg.get("at_least") != null:   # keep it at least this long from now (Fire Feeds Fire)
+						if x.until != -1:
+							x.until = maxi(x.until, f.t + CombatConstants.ms(float(arg.at_least)))
 					elif x.length != -1 and x.until != -1:
 						x.until = f.t + x.length
 			"protect":

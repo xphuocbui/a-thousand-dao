@@ -116,7 +116,8 @@
   "stage_mult": 1.0,
   "stack_eff": {},
   "stack_dur": {},
-  "wards": []
+  "wards": [],
+  "stack_alias": {}
  },
  "b": {
   "name": "shell",
@@ -239,7 +240,8 @@
     "cooldown": 7.0,
     "up": 3.0
    }
-  ]
+  ],
+  "stack_alias": {}
  },
  "result": {
   "t_ms": 65000,

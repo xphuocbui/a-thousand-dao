@@ -171,7 +171,8 @@
   "stage_mult": 1.3,
   "stack_eff": {},
   "stack_dur": {},
-  "wards": []
+  "wards": [],
+  "stack_alias": {}
  },
  "b": {
   "name": "mid-stage",
@@ -285,7 +286,8 @@
   "stage_mult": 1.15,
   "stack_eff": {},
   "stack_dur": {},
-  "wards": []
+  "wards": [],
+  "stack_alias": {}
  },
  "result": {
   "t_ms": 30000,

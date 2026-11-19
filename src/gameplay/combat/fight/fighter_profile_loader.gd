@@ -71,7 +71,8 @@ func from_sim_build(d: Dictionary, where: String) -> FighterProfile:
 	for key in d:
 		var name: String = str(key)
 		if BUILD_FLOATS.has(name) or name in ["realm", "resist", "arts", "companions", "shields", "wards", "purity",
-				"stack_eff", "stack_dur", "cleanse_pulse", "effects", "counters", "layers", "boss", "states", "refusals"] \
+				"stack_eff", "stack_dur", "cleanse_pulse", "effects", "counters", "layers", "boss", "states", "refusals",
+			"stack_alias"] \
 				or name in BUILD_NEUTRAL:
 			continue
 		if name in BUILD_NOT_PORTED:
@@ -137,6 +138,16 @@ func from_sim_build(d: Dictionary, where: String) -> FighterProfile:
 		var dst: Dictionary = p.get(key)
 		for kk in src:
 			dst[str(kk)] = float(src[kk])
+	var alias_src: Dictionary = d.get("stack_alias", {}) if d.get("stack_alias") is Dictionary else {}
+	for el in alias_src:
+		var listed: Array[String] = []
+		for el2 in alias_src[el]:
+			listed.append(str(el2))
+			if not (str(el2) in ELEMENTS):
+				errors.append("%s: stack_alias element %s is not one of %s" % [where, str(el2), str(ELEMENTS)])
+		if not (str(el) in ELEMENTS):
+			errors.append("%s: stack_alias element %s is not one of %s" % [where, str(el), str(ELEMENTS)])
+		p.stack_alias[str(el)] = listed
 	for el in p.purity:
 		if not (str(el) in ELEMENTS):
 			errors.append("%s: purity element %s is not one of %s" % [where, str(el), str(ELEMENTS)])

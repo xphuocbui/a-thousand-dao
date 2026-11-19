@@ -117,7 +117,8 @@
   "stage_mult": 1.0,
   "stack_eff": {},
   "stack_dur": {},
-  "wards": []
+  "wards": [],
+  "stack_alias": {}
  },
  "b": {
   "name": "mist-wall",
@@ -255,7 +256,8 @@
     "payload": {},
     "evade": 8.0
    }
-  ]
+  ],
+  "stack_alias": {}
  },
  "stats": {
   "mean_t": 38.743140000000224,
