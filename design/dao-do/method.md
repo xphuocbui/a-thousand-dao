@@ -136,7 +136,10 @@ exactly as it is, and weave the lines round them through the empty space, never 
 
 ## 5. Before filling in the nodes
 
-- **The graph is frozen: `cells/versions/v4-frozen-2026-11-19/`** (user, 2026-11-19; commit 337f464; 7,840 nodes,
+- **Unfrozen again 2026-11-19** (user: "Actually unfreeze the map, lightning land needs a bit of a better redesign"):
+  Thunder's bolts redrawn (`thunder_bolts.py`) and Water's rim given four big clusters (`water_rim.py`). Freeze a new
+  snapshot before the content work; v4 below is the earlier freeze.
+- **The earlier freeze: `cells/versions/v4-frozen-2026-11-19/`** (user, 2026-11-19; commit 337f464; 7,840 nodes,
   856 pieces). Node names of traced pieces (`n_123`, `v45`) are produced by the tracing and change if a piece is
   re-traced, so key content on v4's map (or on piece + role, e.g. a piece's notables), not on keys that a re-trace
   regenerates. If the graph must change once content exists, change it deliberately and carry the content across.

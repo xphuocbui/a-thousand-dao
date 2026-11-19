@@ -1,0 +1,9 @@
+215 nodes in 15 pieces; 8 issues
+RULE R4: c904 keystone_hook has no notable
+RULE R3: c904 keystone_hook: a notable only 0 step(s) in from road 1813
+RULE R4: c904 keystone_dark has no notable
+RULE R3: c904 keystone_dark: a notable only 0 step(s) in from road 674
+RULE R4: c904 keystone_rim_R has no notable
+RULE R3: c904 keystone_rim_R: a notable only 0 step(s) in from road 1808
+RULE R4: c904 keystone_rim_L has no notable
+RULE R3: c904 keystone_rim_L: a notable only 0 step(s) in from road 1798

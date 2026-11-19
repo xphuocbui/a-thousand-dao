@@ -1,0 +1,4 @@
+425 nodes in 40 pieces; 3 issues
+SPACING (node too close to another piece/road node, 0.85 < 0.9): Travel node (-101.13, -37.18) and c932 oai_inner_yang n7 (-101.74, -36.60)
+RULE R4: c932 keystone_tip has no notable
+RULE R3: c932 keystone_tip: a notable only 0 step(s) in from road 578

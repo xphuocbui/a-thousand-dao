@@ -159,4 +159,10 @@ import thunder_ul  # noqa: E402
 for name in ('out_bolt_569', 'out_bolt_573', 'out_spark_566'):
     T[name] = thunder_ul.thunder[name]
 
+# 2026-11-19 (user: "the lightning bolts looks weird, especially the node placement"): the traced bolts and sparks are
+# replaced by thunder_bolts.py; the clouds stay
+T = {k: v for k, v in T.items() if not k.startswith(('bolt_', 'spark_', 'out_bolt', 'out_spark'))}
+# second pass (user: "above make more cloud at the cloud part"): the small arc cloud at 580 gives way to two bigger
+# clouds either side of it (thunder_bolts.py, cloud_579 and cloud_581)
+T.pop('arc_cloud_580', None)
 CELLS = {932: T}
