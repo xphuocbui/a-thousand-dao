@@ -11,7 +11,7 @@ into which piece, the kinds (big gold dots = notables), and the few changes the 
   - the tiny floating ring at the top of the hollow has no road to hang from and is left out.
 Links follow the drawn line (each arc through the line's midpoint). The right half is traced and mirrored, so the
 island is exactly symmetric. Outside the crescent, the outer spirals and tip curls of the first hand version stay
-(user: "add more both inside and outside"), and the side circle keeps its waxing moon.
+(user: "add more both inside and outside"). The side circle, the Shadow Shrine, is shrine_trace.py's.
 """
 import math
 import os
@@ -107,9 +107,6 @@ sw.swirl(f, xyf, 's0', 222, 1, 5, 'la', tight=1.15)
 sw.swirl(f, xyf, 's0', 138, -1, 5, 'ra', tight=1.15)
 moon['full_moon'] = f.out()
 
-# the side circle (not in moon 2): its waxing moon from the first hand version
-for name, pc in moon_ul.moon.items():
-    if name.startswith(('waxing', 'dark_curl')):
-        moon[name] = pc
+# the side circle (the Shadow Shrine) is traced in shrine_trace.py (2026-11-19); its old waxing moon is gone
 
 CELLS = {933: moon}

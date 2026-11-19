@@ -2,6 +2,7 @@
 
 Writes one SVG whose <g id="tree"> holds: road links, other base links, base nodes, then one <g class="pc"> per
 hand-placed piece (data-c cell, data-p piece, data-n nodes, data-k notables) and cell-number labels (<g class="lbl">).
+A piece's links are grouped by their 'color' (colour_links.py), each group carrying it as the CSS variable --c.
 Coordinates are map units, Fire at the bottom (y down), the same frame as render_tree.py. Arc links use the edge's
 'arc' centre and the shorter way round, as render_tree.py does.
 
@@ -52,14 +53,14 @@ def main():
         nm = n.get('name') or ''
         if nm[:1] == 'c' and nm[1:2].isdigit():
             piece[n['id']] = nm.rsplit(' ', 1)[0]
-    P = collections.defaultdict(lambda: {'lk': [], 'small': [], 'notable': [], 'keystone': []})
+    P = collections.defaultdict(lambda: {'lk': collections.defaultdict(list), 'small': [], 'notable': [], 'keystone': []})
     road, other, base_small, singles = [], [], [], []
     for e in M['edges']:
         A, B = N[e['a']], N[e['b']]
         d = link((A['x'], A['y']), (B['x'], B['y']), e.get('arc'))
         p = piece.get(e['a']) or piece.get(e['b'])
         if p:
-            P[p]['lk'].append(d)
+            P[p]['lk'][e.get('color')].append(d)
         elif A['kind'] in ('travel', 'start') and B['kind'] in ('travel', 'start'):
             road.append(d)
         else:
@@ -84,7 +85,9 @@ def main():
         cell, name = p.split(' ', 1)
         nn = len(g['small']) + len(g['notable']) + len(g['keystone'])
         o.append(f'<g class="pc" data-c="{cell[1:]}" data-p="{esc(name)}" data-n="{nn}" data-k="{len(g["notable"])}">')
-        o.append(f'<path class="lk" d="{"".join(g["lk"])}"/>')
+        for col, ds in sorted(g['lk'].items(), key=lambda kv: kv[0] or ''):
+            st = f' style="--c:{col}"' if col else ''
+            o.append(f'<path class="lk"{st} d="{"".join(ds)}"/>')
         for k, cls in (('small', 'sm'), ('notable', 'nt'), ('keystone', 'ks')):
             if g[k]:
                 o.append(f'<path class="{cls}" d="{"".join(g[k])}"/>')

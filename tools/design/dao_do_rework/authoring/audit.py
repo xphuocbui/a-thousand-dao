@@ -58,7 +58,7 @@ OTHER_NODE, OTHER_LINK, OWN_NODE, OWN_LINK = 0.9, 0.6, 0.7, 0.45
 # The Sun (cell 931) is traced from a picture drawn finer than that; the user chose looser spacing for it only
 # (2026-11-19, rules-2026-11-18.md 3.2): used whenever a Sun node is one of the two ends measured.
 SUN_OTHER_NODE, SUN_OTHER_LINK, SUN_OWN_NODE, SUN_OWN_LINK = 0.6, 0.35, 0.5, 0.3
-sun = lambda i: (N[i].get('name') or '').startswith('c931 ')
+sun = lambda i: (N[i].get('name') or '').startswith(('c931 ', 'c933 shrine_', 'c933 moon_lotus'))   # the Sun, the Shrine and its lotus (user 2026-11-19)
 CL_KINDS = {'small', 'notable', 'jewel'}
 comp = {}
 for s0 in P:
