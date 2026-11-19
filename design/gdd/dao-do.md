@@ -447,10 +447,11 @@ differs):
 
 **Against the targets (observation, 2026-11-19, after the nine start keystones):** the first notable and the nearest
 keystone are within target from every start (keystones 6–10 points out; before them the element starts were 21–22 and
-the Chaos start 31). The farthest Dao mark is beyond 70 from every start but Ice. Open Question 23.
+the Chaos start 31), and the farthest Dao mark is within the relaxed 110 from every start (67–105).
 
 **Targets** (`start_targets`, the authoring guide): first notable within 5 points; nearest keystone 6–13 points
-(PoE's range); every start within 70 points of the farthest Dao mark. Neighbouring element starts are 24 points
+(PoE's range); every start within 110 points of the farthest Dao mark (relaxed from 70 for the larger v5 map, user
+decision 2026-11-19). Neighbouring element starts are 24 points
 apart and the Chaos start 29 from each on v5 (rule 1; were 12 and 15–16 on the lean build).
 
 ### C, D. Retired: hidden cluster generation and cluster premium
@@ -857,7 +858,7 @@ marked *guess* wait for a bot run.
 | `purity_price` | 0.3 W per purity point | 0.2–0.5, guess | The value a road node counts as (A2) |
 | `tree_breakthrough_k` | 8 pp | 4–12, guess | How fast the tree's breakthrough share flattens (Formulas F) |
 | `cap_realm_min` | Core Formation | Foundation Establishment to Nascent Soul | The earliest realm a capability can be held (rule 16) |
-| `start_targets` | first notable ≤ 5 points; nearest keystone 6–13 | PoE's ranges | Drawing targets per start (Formulas B) |
+| `start_targets` | first notable ≤ 5 points; nearest keystone 6–13; farthest Dao mark ≤ 110 (was 70, relaxed 2026-11-19) | PoE's ranges, then the v5 map's size | Drawing targets per start (Formulas B) |
 | Δ_desp / `q_max` / burn share | 0.15 / 0.95 / 5% | Δ_desp 0.05–0.15, q_max ≤ 0.95, burn share 3–10%, guess | Strength of #22 and cost of #23 (Formulas E2) |
 | δ_max | 0.10 | 0.05–0.10 | Breakthrough lift from #22 and #23 (Formulas E2) |
 | `capability_stat_share` | T1 0.5, T2 0.25, T3 0 | each ≤ 0.5, with T1 ≥ T2 ≥ T3 | Stats kept beside a capability (Formulas E) |
@@ -1030,7 +1031,8 @@ Drafted with qa-lead.
     - Fire purity 99.5 plus one Fire road node is 100.0, and one more is 100.5 (no cap).
 - **AC-KMD-99** [Config/Data] Map size and distances (Formulas B, H). The shipped map has 7,295 visible Dao marks
   (v5 frozen map, ±2 % after later changes), 11 starts and 43 keystones, and no hidden cluster. From every start the first
-  notable is within 5 points and the nearest keystone within 6–13 points (`start_targets`); a start outside a target
+  notable is within 5 points, the nearest keystone within 6–13 points and the farthest Dao mark within 110 points
+  (`start_targets`); a start outside a target
   is reported.
 - **AC-KMD-60** [Logic, data-driven] Drawing checks (rule 1) on the shipped `tree.json`: 0 crossing links, 0 pairs
   of Dao marks closer than 0.6, 0 links grazing a Dao mark, 0 Dao marks unreachable from any start, 0 clusters
@@ -1182,7 +1184,7 @@ Drafted with qa-lead.
 | 20 | **The map's final shape and the content pass** (the current drawing is a shape placeholder, user 2026-11-10): the redrawn shape; names, modifiers and keystones for the whole map; every element land's linh-lực keystone; the 25 capability placements; the start-cradle keystones that crowd the centre (overnight notes, Still open) | user + game-designer | Content release 1 |
 | 21 | `road_purity`, `purity_price` and `tree_breakthrough_k` are guesses; AC-KMD-101 tunes `road_purity` | systems-designer + bot | Rule 4; Formulas A2, F |
 | 22 | ~~Should island roads grant their variant's purity?~~ **Resolved 2026-11-10:** yes, a variant land's roads grant its variant's purity like an element land's (rule 4; Spiritual Roots review D4) | — | — |
-| 23 | **v5 misses `start_targets`** (measured 2026-11-19, Formulas B): ~~the nearest keystone was 21–22 points from the element starts and 31 from the Chaos start~~ **resolved 2026-11-19:** nine keystones added near the starts (user: "add more keystones, don't move anything else"), now 6–10. Still open: the farthest Dao mark is 74–105 points out from every start but Ice (target 70): relax the target for the larger v5 map, or accept. AC-KMD-99 fails on it until decided | user + game-designer | Before AC-KMD-99 is run |
+| 23 | ~~**v5 misses `start_targets`**~~ **Resolved 2026-11-19.** (measured 2026-11-19, Formulas B): ~~the nearest keystone was 21–22 points from the element starts and 31 from the Chaos start~~ **resolved 2026-11-19:** nine keystones added near the starts (user: "add more keystones, don't move anything else"), now 6–10. The farthest-mark target was relaxed from 70 to 110 points by the user the same day (measured 67–105) | user + game-designer | Resolved 2026-11-19 |
 
 ### Known gaps in the build
 

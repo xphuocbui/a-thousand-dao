@@ -2,7 +2,7 @@
 
 Step B of `../content-method.md`. These are drafts, hand-designed and **unpriced** (effects.md rules 3-4: an Effect's
 payload is its designer's, with no W; its stat, op, scope and grid still validate). They move into `design/gdd/effects.md`
-only with the user's approval, section by section. Format as effects.md's Starter Effects. Host `MM` = the Đạo Đồ.
+only with the user's approval, section by section. The 19 keystones added 2026-11-19 were approved the same day and are in effects.md. Format as effects.md's Starter Effects. Host `MM` = the Đạo Đồ.
 **L5 +N** = N points in Combat's L5 layer, which only Effects may grant (Modifier System rule 6).
 
 ## Keystones (43)
