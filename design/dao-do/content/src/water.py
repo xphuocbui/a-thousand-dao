@@ -264,3 +264,9 @@ KEY('c904 keystone_tide_a', 'Rising Tide (Triều Dâng)', 'Rising Tide (Triều
     [('linh_luc_pct', '', 25), ('linh_luc_regen_pct', '', 25)], closes='while your linh lực is below half, your Water buff stacks do nothing')
 KEY('c904 keystone_tide_b', 'Ebb Tide (Triều Rút)', 'Ebb Tide (Triều Rút)',
     [('attack_pct', 'thuy', 25), ('art_speed_pct', 'thuy', 25)], closes='maximum linh lực −15 %')
+
+# ---- mid-land keystones (added 2026-11-19) ----
+KEY('c904 keystone_mid_a', 'Water Begets Wood (Thủy Sinh Mộc)', 'Water Begets Wood (Thủy Sinh Mộc)',
+    [('health_regen_pct', '', 25), ('linh_luc_pct', '', 25)], closes='arts of Earth (Thổ) you slot deal 50 % less')
+KEY('c904 keystone_mid_b', 'Returning Wave (Hồi Lãng)', 'Returning Wave (Hồi Lãng)',
+    [('resist_pct', 'cold', 25), ('evade_pct', '', 25)], closes='maximum health −15 % (`khi_huyet_pct` −15)')

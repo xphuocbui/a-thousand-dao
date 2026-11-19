@@ -250,3 +250,9 @@ SM('c105 w_petals_1568', CDH, [('Lava Bloom (Dung Hoa)', ('attack_pct', 'hoa,slo
 # ---- start keystone (added 2026-11-19: user "add more keystones", in the hexagon on the land's axis, 9 points out) ----
 KEY('c901 keystone_start', 'Fire Feeds Fire (Dĩ Hỏa Dưỡng Hỏa)', 'Fire Feeds Fire (Dĩ Hỏa Dưỡng Hỏa)',
     [('stack_effect_pct', 'hoa,debuff', 30), ('attack_pct', 'hoa', 20)], closes='arts of Water (Thủy) you slot deal 50 % less')
+
+# ---- mid-land keystones (added 2026-11-19: a pair either side of the axis, 15 points out) ----
+KEY('c901 keystone_mid_a', 'Nirvana (Niết Bàn)', 'Nirvana (Niết Bàn)',
+    [('khi_huyet_pct', '', 30), ('health_regen_pct', '', 20)], closes='healing taken −30 % (`healing_taken_pct` −30)')
+KEY('c901 keystone_mid_b', 'Fire Lotus (Hỏa Liên)', 'Fire Lotus (Hỏa Liên)',
+    [('crit_chance_pct', 'hoa', 25), ('stack_effect_pct', 'hoa,debuff', 25)], closes='crit damage −30 % (`crit_damage_pct` −30)')

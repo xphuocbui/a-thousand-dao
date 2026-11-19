@@ -1,6 +1,6 @@
 {
 "map": "v5-frozen-2026-11-19",
-"map_sha256": "0909a9e499b30981a2ae4586ab48c5c3088685e592ac69855469294f387966ea",
+"map_sha256": "3a0e49a43d16042d21ac876b6b0e3f244f138f59a21fbc4b1321c07031c7aec6",
 "area": "wood",
 "nodes": {
 "775": {
@@ -17224,6 +17224,48 @@
 "",
 25,
 41.6
+]
+]
+},
+"9015": {
+"piece": "c905 keystone_mid_a",
+"kind": "keystone",
+"name": "Strangling Vines (Đằng Triền)",
+"effect": "Strangling Vines (Đằng Triền)",
+"closes": "art speed −15 % (`art_speed_pct` −15)",
+"mods": [
+[
+"stack_effect_pct",
+"moc,debuff",
+30,
+120.0
+],
+[
+"attack_pct",
+"moc",
+20,
+30.0
+]
+]
+},
+"9016": {
+"piece": "c905 keystone_mid_b",
+"kind": "keystone",
+"name": "Wood Begets Fire (Mộc Sinh Hỏa)",
+"effect": "Wood Begets Fire (Mộc Sinh Hỏa)",
+"closes": "arts of Metal (Kim) you slot deal 50 % less",
+"mods": [
+[
+"attack_pct",
+"hoa",
+25,
+37.5
+],
+[
+"health_regen_pct",
+"",
+25,
+2.52
 ]
 ]
 }

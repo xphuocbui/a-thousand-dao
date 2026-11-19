@@ -241,3 +241,9 @@ KEY('c902 keystone_rim_L', 'Earth Vein Tap (Địa Mạch Dẫn)', 'Earth Vein T
 # ---- start keystone (added 2026-11-19) ----
 KEY('c902 keystone_start', 'Layered Earth (Hậu Thổ Tích)', 'Layered Earth (Hậu Thổ Tích)',
     [('block_rating', '', 30), ('defense_pct', '', 20)], closes='your evade counts nothing')
+
+# ---- mid-land keystones (added 2026-11-19) ----
+KEY('c902 keystone_mid_a', "Mountain's Weight (Sơn Nhạc Trọng)", "Mountain's Weight (Sơn Nhạc Trọng)",
+    [('khi_huyet_pct', '', 30), ('attack_pct', 'tho', 20)], closes='art speed −20 % (`art_speed_pct` −20)')
+KEY('c902 keystone_mid_b', 'Earthen Armour (Thổ Giáp)', 'Earthen Armour (Thổ Giáp)',
+    [('body_shield_pct', '', 30), ('defense_pct', '', 20)], closes='maximum linh lực −20 % (`linh_luc_pct` −20)')

@@ -266,3 +266,9 @@ KEY('c905 keystone_rim_L', 'Sun and Rain (Nhật Vũ)', 'Sun and Rain (Nhật V�
 # ---- start keystone (added 2026-11-19) ----
 KEY('c905 keystone_start', 'Ageless Pine (Vạn Niên Tùng)', 'Ageless Pine (Vạn Niên Tùng)',
     [('health_regen_pct', '', 25), ('khi_huyet_pct', '', 25)], closes='Fire resistance −25 % (`resist_pct` [fire] −25)')
+
+# ---- mid-land keystones (added 2026-11-19) ----
+KEY('c905 keystone_mid_a', 'Strangling Vines (Đằng Triền)', 'Strangling Vines (Đằng Triền)',
+    [('stack_effect_pct', 'moc,debuff', 30), ('attack_pct', 'moc', 20)], closes='art speed −15 % (`art_speed_pct` −15)')
+KEY('c905 keystone_mid_b', 'Wood Begets Fire (Mộc Sinh Hỏa)', 'Wood Begets Fire (Mộc Sinh Hỏa)',
+    [('attack_pct', 'hoa', 25), ('health_regen_pct', '', 25)], closes='arts of Metal (Kim) you slot deal 50 % less')

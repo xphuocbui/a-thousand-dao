@@ -242,3 +242,9 @@ KEY('c903 keystone_rim_R', 'Autumn Harvest (Thu Hoạch)', 'Autumn Harvest (Thu 
 # ---- start keystone (added 2026-11-19) ----
 KEY('c903 keystone_start', 'Keen Edge (Lợi Phong)', 'Keen Edge (Lợi Phong)',
     [('pierce_pct', '', 25), ('crit_damage_pct', '', 25)], closes='your own block rating counts nothing')
+
+# ---- mid-land keystones (added 2026-11-19; mid_a is the user's spot, cell 27's corner by cells 26 and 116) ----
+KEY('c903 keystone_mid_a', 'Metal Begets Water (Kim Sinh Thủy)', 'Metal Begets Water (Kim Sinh Thủy)',
+    [('attack_pct', 'kim', 25), ('linh_luc_regen_pct', '', 25)], closes='arts of Wood (Mộc) you slot deal 50 % less')
+KEY('c903 keystone_mid_b', 'Hundred Refinements (Bách Luyện)', 'Hundred Refinements (Bách Luyện)',
+    [('artifact_power_pct', '', 30), ('crit_damage_pct', '', 20)], closes='art speed −20 % (`art_speed_pct` −20)')

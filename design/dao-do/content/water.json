@@ -1,6 +1,6 @@
 {
 "map": "v5-frozen-2026-11-19",
-"map_sha256": "0909a9e499b30981a2ae4586ab48c5c3088685e592ac69855469294f387966ea",
+"map_sha256": "3a0e49a43d16042d21ac876b6b0e3f244f138f59a21fbc4b1321c07031c7aec6",
 "area": "water",
 "nodes": {
 "739": {
@@ -15279,6 +15279,48 @@
 "thuy",
 25,
 62.5
+]
+]
+},
+"9013": {
+"piece": "c904 keystone_mid_a",
+"kind": "keystone",
+"name": "Water Begets Wood (Thủy Sinh Mộc)",
+"effect": "Water Begets Wood (Thủy Sinh Mộc)",
+"closes": "arts of Earth (Thổ) you slot deal 50 % less",
+"mods": [
+[
+"health_regen_pct",
+"",
+25,
+2.52
+],
+[
+"linh_luc_pct",
+"",
+25,
+25.0
+]
+]
+},
+"9014": {
+"piece": "c904 keystone_mid_b",
+"kind": "keystone",
+"name": "Returning Wave (Hồi Lãng)",
+"effect": "Returning Wave (Hồi Lãng)",
+"closes": "maximum health −15 % (`khi_huyet_pct` −15)",
+"mods": [
+[
+"resist_pct",
+"cold",
+25,
+937
+],
+[
+"evade_pct",
+"",
+25,
+16.6
 ]
 ]
 }

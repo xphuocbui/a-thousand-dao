@@ -3301,9 +3301,9 @@ constants:
     referenced_by:
       - design/gdd/dao-do.md
     # was: 772 (generated map) before 2026-11-10; the drawn lean build.
-    value: 7285
+    value: 7295
     unit: đạo văn
-    notes: "The v5 frozen map (2026-11-19): 7,285 visible Dao marks, 11 starts, 751 road nodes, 33 keystones (9 added near the starts), 896 clusters; no hidden clusters. Was 7,115 on the lean build of 2026-11-10. Re-measure when the layout changes."
+    notes: "The v5 frozen map (2026-11-19): 7,295 visible Dao marks, 11 starts, 751 road nodes, 43 keystones (19 added 2026-11-19: 9 near the starts, 10 mid-land), 906 clusters; no hidden clusters. Was 7,115 on the lean build of 2026-11-10. Re-measure when the layout changes."
     added: 2026-11-03
     revised: 2026-11-19
   - name: tree_size_target

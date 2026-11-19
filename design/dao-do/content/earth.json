@@ -1,6 +1,6 @@
 {
 "map": "v5-frozen-2026-11-19",
-"map_sha256": "0909a9e499b30981a2ae4586ab48c5c3088685e592ac69855469294f387966ea",
+"map_sha256": "3a0e49a43d16042d21ac876b6b0e3f244f138f59a21fbc4b1321c07031c7aec6",
 "area": "earth",
 "nodes": {
 "704": {
@@ -15180,6 +15180,48 @@
 "",
 30,
 75
+],
+[
+"defense_pct",
+"",
+20,
+20.0
+]
+]
+},
+"9009": {
+"piece": "c902 keystone_mid_a",
+"kind": "keystone",
+"name": "Mountain's Weight (Sơn Nhạc Trọng)",
+"effect": "Mountain's Weight (Sơn Nhạc Trọng)",
+"closes": "art speed −20 % (`art_speed_pct` −20)",
+"mods": [
+[
+"khi_huyet_pct",
+"",
+30,
+50.0
+],
+[
+"attack_pct",
+"tho",
+20,
+30.0
+]
+]
+},
+"9010": {
+"piece": "c902 keystone_mid_b",
+"kind": "keystone",
+"name": "Earthen Armour (Thổ Giáp)",
+"effect": "Earthen Armour (Thổ Giáp)",
+"closes": "maximum linh lực −20 % (`linh_luc_pct` −20)",
+"mods": [
+[
+"body_shield_pct",
+"",
+30,
+58.8
 ],
 [
 "defense_pct",

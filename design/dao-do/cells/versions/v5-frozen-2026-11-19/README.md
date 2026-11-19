@@ -32,8 +32,9 @@ existing node's content changed (verified by rebuilding every area against the p
 | 8998-9002 | `c901`-`c905 keystone_start` | the centre of the hexagon on each element land's axis (Fire, Earth, Metal, Water, Wood) | the hexagon's inner node (1425, 1431, 1437, 1443, 1449) |
 | 9003, 9004 | `c904 keystone_tide_a`, `_b` | a mirrored pair across Water's axis near the Water start | roads 1782, 1776 |
 | 9005, 9006 | `c79 keystone_yang`, `_yin` | point-symmetric gaps in the Chaos swirl (gated with it) | arm nodes 8199, 8254 |
+| 9007-9016 | `c901`-`c905 keystone_mid_a`, `_b` | a pair in open space either side of each element land's axis, 13–20 points from its start (second request the same day; 9011 is the user's spot, cell 27's corner by cells 26 and 116) | 1936, 1934; 3175, 3059; 1525, 1704; 5373, 5285; 1839, 6060 |
 
-The map now has **8,047 nodes** (33 keystones, 817 gated). Ids 8998 and 8999 were used for an hour earlier that day by
+The map now has **8,057 nodes** (43 keystones, 817 gated). Ids 8998 and 8999 were used for an hour earlier that day by
 two Fire road nodes that were removed; they now name keystones.
 
 ## What changed from v4 (`../v4-frozen-2026-11-19/`)

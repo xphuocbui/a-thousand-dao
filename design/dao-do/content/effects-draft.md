@@ -5,7 +5,7 @@ payload is its designer's, with no W; its stat, op, scope and grid still validat
 only with the user's approval, section by section. Format as effects.md's Starter Effects. Host `MM` = the Đạo Đồ.
 **L5 +N** = N points in Combat's L5 layer, which only Effects may grant (Modifier System rule 6).
 
-## Keystones (33)
+## Keystones (43)
 
 Each keystone = its Effect (below or a starter record) + at least 50 W of plain stats (in the area's content file).
 Every element land has a linh-lực keystone (dao-do.md Open Question 20). Side = the neighbour it leans toward.
@@ -45,6 +45,16 @@ Every element land has a linh-lực keystone (dao-do.md Open Question 20). Side 
 | c905 keystone_start (9002) | Wood, the axis hexagon, 9 from the start | Ageless Pine (Vạn Niên Tùng) | **new**, start keystone | regeneration |
 | c79 keystone_yang (9005) | Chaos swirl (gated), 9 from the Chaos start | Utmost Yang (Dương Cực) | **new**, Taiji keystone | five-element offence |
 | c79 keystone_yin (9006) | Chaos swirl (gated), 10 from the Chaos start | Utmost Yin (Âm Cực) | **new**, Taiji keystone | five-element defence |
+| c901 keystone_mid_a (9007) | Fire, mid-land, 15 out | Nirvana (Niết Bàn) | **new**, mid-land keystone (2026-11-19) | last stand |
+| c901 keystone_mid_b (9008) | Fire, mid-land, its mirror | Fire Lotus (Hỏa Liên) | **new**, mid-land keystone (2026-11-19) | burn crit |
+| c902 keystone_mid_a (9009) | Earth, mid-land, 18 out | Mountain's Weight (Sơn Nhạc Trọng) | **new**, mid-land keystone (2026-11-19) | big health, heavy hitter |
+| c902 keystone_mid_b (9010) | Earth, mid-land, its mirror | Earthen Armour (Thổ Giáp) | **new**, mid-land keystone (2026-11-19) | body shield |
+| c903 keystone_mid_a (9011) | Metal, cell 27's corner by cells 26 and 116 (the user's spot), 16 out | Metal Begets Water (Kim Sinh Thủy) | **new**, mid-land keystone (2026-11-19) | Metal-Water hybrid |
+| c903 keystone_mid_b (9012) | Metal, mid-land, its mirror | Hundred Refinements (Bách Luyện) | **new**, mid-land keystone (2026-11-19) | artifact |
+| c904 keystone_mid_a (9013) | Water, mid-land, 17 out | Water Begets Wood (Thủy Sinh Mộc) | **new**, mid-land keystone (2026-11-19) | Water-Wood hybrid |
+| c904 keystone_mid_b (9014) | Water, mid-land, its mirror | Returning Wave (Hồi Lãng) | **new**, mid-land keystone (2026-11-19) | reflect, evasion |
+| c905 keystone_mid_a (9015) | Wood, mid-land, 13 out | Strangling Vines (Đằng Triền) | **new**, mid-land keystone (2026-11-19) | Wood debuff, control |
+| c905 keystone_mid_b (9016) | Wood, mid-land, its mirror | Wood Begets Fire (Mộc Sinh Hỏa) | **new**, mid-land keystone (2026-11-19) | Wood-Fire hybrid |
 
 **Closings added to starter records** (a keystone must close something; these starters have none): Overheat closes
 your art costs +35 %; Open Sky closes artifact power −30 % (`artifact_power_pct` −30); Still Water closes healing
@@ -81,6 +91,16 @@ to effects.md they are keystone variants of the starter, not changes to it.
 | Ageless Pine (Vạn Niên Tùng) | Your Wood buff stacks never fall off during a fight. | Wood batches (rule 9a) | Batch duration held | — | Fire resistance −25 % (`resist_pct` [fire] −25) | MM | Regeneration, Wood |
 | Utmost Yang (Dương Cực) | Your hits deal more for each different base element among your slotted arts. | Slotted arts, compile | L5 +6 per element | Cap +30 | Your wards are 30 % weaker | MM | Chaos, five-element arts |
 | Utmost Yin (Âm Cực) | You resist more for each different base element among your slotted arts. | Slotted arts, compile | `resist_pct` +6 per element | Cap +30 | Your hits deal 20 % less | MM | Chaos, five-element, defence |
+| Nirvana (Niết Bàn) | Once per fight, the blow that would kill you leaves you at 30 % health instead. | Lethal hit (event) | Health set to 30 % | Once per fight | Healing taken −30 % (`healing_taken_pct` −30) | MM | Last stand, body, Fire |
+| Fire Lotus (Hỏa Liên) | Your crits apply two more Burn stacks. | Crit event | +2 Burn stacks (rule 9a) | — | Crit damage −30 % (`crit_damage_pct` −30) | MM | Burn, crit |
+| Mountain's Weight (Sơn Nhạc Trọng) | Your hits deal more for each 10 % of maximum health you hold above the foe's. | Both maximum healths, fight start | L5 +4 per 10 % | Cap +32 | Art speed −20 % (`art_speed_pct` −20) | MM | Big health, heavy hitter, Earth |
+| Earthen Armour (Thổ Giáp) | After 3 s without being hit, your body shield refills 10 % a pulse. | Hits taken, pulse | Body shield restored | — | Maximum linh lực −20 % (`linh_luc_pct` −20) | MM | Body shield, body cultivator |
+| Metal Begets Water (Kim Sinh Thủy) | Each hit of a Metal art you land adds one Water buff stack to you. | Hit event | +1 Water buff stack (rule 9a) | 1 a hit | Wood (Mộc) arts you slot deal 50 % less | MM | Metal-Water hybrid, caster |
+| Hundred Refinements (Bách Luyện) | Half your artifact power also counts as attack. | Artifact power, compile | `attack_pct` + 0.5 × `artifact_power_pct` | — | Art speed −20 % (`art_speed_pct` −20) | MM | Artifact, Metal |
+| Water Begets Wood (Thủy Sinh Mộc) | Your Water buff stacks also count as Wood buff stacks. | Water batches (rule 9a) | Counted as Wood too | — | Earth (Thổ) arts you slot deal 50 % less | MM | Water-Wood hybrid, regeneration |
+| Returning Wave (Hồi Lãng) | The first hit you take in each fight does you no harm and strikes the foe instead, at full damage. | First hit taken (event) | Damage returned to the foe | Once per fight | Maximum health −15 % (`khi_huyet_pct` −15) | MM | Reflect, evasion, Water |
+| Strangling Vines (Đằng Triền) | Each time the foe reaches 5 Wood debuff stacks, it is Slowed Time for 1 s. | Wood batches on the foe (rule 9a) | Slowed Time 1 s | Once per 6 s | Art speed −15 % (`art_speed_pct` −15) | MM | Wood debuff, control |
+| Wood Begets Fire (Mộc Sinh Hỏa) | Your Wood buff stacks also count as Fire buff stacks. | Wood batches (rule 9a) | Counted as Fire too | — | Metal (Kim) arts you slot deal 50 % less | MM | Wood-Fire hybrid |
 
 ## Crown Effects of big pictures (12)
 
