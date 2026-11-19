@@ -193,7 +193,8 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
 8. **Purity as a scale.**
    - **Đạo Đồ:** a land's Dao marks scale by 0.5 + purity ÷ 100 for an owned element or variant, and by
      0.25 + purity ÷ 100 for one the root does not own (0.25 at purity 0; user decision 2026-11-10, Đạo Đồ re-review
-     D-R2, so two road nodes do not double a land); blend zones average their two lands; roads are exact and grant purity (Đạo Đồ rule 4). Variant
+     D-R2, so two road nodes do not double a land); a border cluster (where two lands meet; the blend zones became
+     border lines, Đạo Đồ 2026-11-18) averages its two lands; roads are exact and grant purity (Đạo Đồ rule 4). Variant
      roots have their own lands (Đạo Đồ rule 20; rule 12).
    - **Cultivation techniques:** a technique's speed scales by the average purity of the
      elements and variants it names ÷ 100. A technique may name an element or variant the root
@@ -287,7 +288,8 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
       counted in the tier or `n_base`, and does not scale an element land. An innate
       variant counts once toward `n_eff` (rule 3).
 12. **Variant lands (Đạo Đồ contract, revised 2026-11-10).** The Đạo Đồ gives the variant roots their own
-    starts and lands (Wind's land, Ice's start in Water's land, the Light, Darkness and Thunder islands, the Primordial
+    starts and lands (the Wind start on the Water–Wood border, which replaced Wind's land on 2026-11-18; Ice's start
+    in Water's land; the Light, Darkness and Thunder islands; the Primordial
     Chaos hub; its rule 20), open to everyone. A root holding a variant may start at its start (Đạo Đồ rule
     3), and the land's Dao marks scale by the variant's purity (0.25 at purity 0). The old hidden, locked variant
     sectors are retired. This system supplies the owned set and each variant's purity.
@@ -772,7 +774,8 @@ generating cycle.
 
 Restated for reference (each reads the full purity, with no cap; user decision 2026-11-10):
 - **The Đạo Đồ** owns Dao mark scaling (roads are exact and grant purity): `0.5 + purity / 100` for an owned
-  element or variant and `0.25 + purity / 100` for one the root does not own (0.25 at purity 0), and blend zones average their two lands.
+  element or variant and `0.25 + purity / 100` for one the root does not own (0.25 at purity 0), and a border cluster
+  averages its two lands.
 - **Cultivation Techniques** owns the technique factor: the average purity of the elements
   and variants it names ÷ 100, about 0.5 for a typical root.
 - **Character Stats** owns the element and variant role formulas (Formulas G). Formulas E
@@ -780,7 +783,7 @@ Restated for reference (each reads the full purity, with no cap; user decision 2
 
 **Example:** with Fire 86 and Thunder 47:
 A technique naming both Fire and Thunder runs at (86 + 47) ÷ 2 ÷ 100 = **0.665**. A
-Wood–Fire blend-zone Dao mark on Wood 40 and Fire 86 is (0.9 + 1.36) ÷ 2 = 1.13. The Thunder island scales by
+Wood–Fire border-cluster Dao mark on Wood 40 and Fire 86 is (0.9 + 1.36) ÷ 2 = 1.13. The Thunder island scales by
 0.5 + 0.47 = 0.97.
 
 ### H. Purity and element stacks (new, 2026-11-10)
@@ -1352,7 +1355,7 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
 - **AC-LC-34** [Integration · BLOCKING] Formula G and rule 8, with {Wood 40, Fire 86} and {Fire 86, Metal 40} + Thunder 47, Wind 62.
   - Land scale: Thunder 0.97, then 1.01 after a pill lifts it to 51; Wind 1.12, unchanged by the pill.
   - A technique naming Fire and Thunder runs at 0.665, then 0.685 after the pill.
-  - On {Wood 40, Fire 86}: Wood land 0.9, Fire 1.36, Earth at purity 0 0.25, Wood–Fire blend zone 1.13, and a Wood–Fire technique runs at 0.63.
+  - On {Wood 40, Fire 86}: Wood land 0.9, Fire 1.36, Earth at purity 0 0.25, Wood–Fire border cluster 1.13, and a Wood–Fire technique runs at 0.63.
   - Owning Thunder does not change the Fire or Metal land scale.
 - **AC-LC-35** [Integration · BLOCKING] Center keystone reads `n_base`. It is refused on four elements + Wind (`n_eff` 5) and on {Fire, Metal} + Wind, Blood, Void, and allowed on all five base elements.
 - **AC-LC-36** [Integration · BLOCKING] Rule 3, `count_gain` reads `n_base`. A Dual root + Wind and a Dual root + Thunder read the same `count_gain` as a plain Dual root, and a Triple root reads its own value.
@@ -1429,7 +1432,7 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
   usable (30 ≥ `tech_foreign_purity_min` 10) at speed 0.30; at Metal 8 it is not.
 - **AC-LC-54** [Logic · BLOCKING] Formulas H. **GIVEN** Fire purity 86, **THEN** Fire stack power is 1.172; **GIVEN** 40 more from roads (126), **THEN** 1.252, and the root's technique speed and sector scaling read 126 too. **GIVEN** Water 70 and Ice 40, **THEN** Ice's stack power is 1.15 and Water's 1.18.
 - **AC-LC-55** [Logic · BLOCKING] Debuff purity. **GIVEN** a player with Fire 120 applying Burn to a beast with no `stack_purity`, **THEN** the Burn stacks have power 1.24; **GIVEN** the beast applies its own Fire debuff to the player, **THEN** its stacks have power 1.0.
-- **AC-LC-56** [Logic · BLOCKING] Rare sources. A Wind 50 root that opens 10 Wind-land road nodes has Wind 55 (Đạo Đồ `road_purity` 0.5); a Thunder variant built on Fire 160 and Metal 140 has purity round(0.8 × √22400) = 120.
+- **AC-LC-56** [Logic · BLOCKING] Rare sources. A Wind 50 root that opens 10 Wind road nodes (open since 2026-11-18: which roads round the Wind start count as Wind roads, now that Wind's land is gone) has Wind 55 (Đạo Đồ `road_purity` 0.5); a Thunder variant built on Fire 160 and Metal 140 has purity round(0.8 × √22400) = 120.
 - **AC-LC-57** [Logic · BLOCKING] Rule 13, fruit onto a road-raised element. **GIVEN** a {Fire} root with Metal at road purity 40 and a Linh Căn Quả that picks Metal and draws 28, **THEN** Metal becomes owned at 40 (one purity draw, no loss); with road purity 15 and the same draw, Metal is owned at 28.
 
 **Not testable here, by design:**

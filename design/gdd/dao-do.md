@@ -27,15 +27,17 @@
 The Đạo Đồ is the game's PoE-style passive tree.
 
 - **The map.** One hand-drawn map of about 7,100 visible Dao marks (đạo văn): five element lands (Metal, Wood, Water,
-  Fire, Earth) with five blend zones between them, the Taiji hub (Thái Cực) at the centre, Wind's land and the Ice start inside
-  the rim, and the Light, Darkness and Thunder islands and the Shadow Shrine outside it, all joined by roads. It is
+  Fire, Earth) that meet at five border lines, the Taiji hub (Thái Cực) at the centre, the Wind start on the Water–Wood
+  border and the Ice start inside Water's land, and the Light, Darkness and Thunder islands and the Shadow Shrine
+  outside the outer ring, all joined by roads (no blend zones, user decision 2026-11-18). It is
   identical in every life and append-only from a fresh id baseline (user decision 2026-11-10).
 - **Starts.** 11 starts. The player starts at any start whose element or variant the root holds; an NPC takes its
   strongest element's (user decision 2026-11-10).
 - **Points.** Earned per level (1–110) and, mostly, at great and small breakthroughs. One point opens one Dao mark
   next to an open one.
 - **Value.** Every Dao mark's value scales with the root's purity in its element. An element land's roads also grant
-  that element's purity (about 0.5 per node); blend roads half of each neighbour's; hub roads give general stats.
+  that element's purity (about 0.5 per node); road nodes on a border line grant half of each neighbour's; hub roads
+  give general stats.
 - **Capabilities.** The map places 25 rule changes (capabilities) in its clusters; their rules live in `effects.md`.
 - **The map is a placeholder.** Both the shape (layout, regions, sizes) and the content (names, modifiers,
   keystones) are placeholders and will change (user, 2026-11-10); a later content pass also gives every element land
@@ -55,7 +57,7 @@ closes.
 
 The map follows Path of Exile's grammar: roads of travel nodes with clusters hung on them, a cluster joined to its
 road at its nearest node, notables after two or three small nodes, bigger clusters toward the rim, and a way around
-every cluster a road passes. Each element has a land, each pair of neighbours a blend zone between them, the Taiji
+every cluster a road passes. Each element has a land, neighbouring lands meet at a border line (no blend zones), the Taiji
 hub sits at the centre, and the variant roots have their own starts and lands.
 
 The spiritual root (linh căn) decides where a character starts and which lands are worth walking, because bonuses
@@ -91,15 +93,16 @@ are named parameters; their values and ranges are in Formulas.
 1. **The map is drawn by hand.** It is the lean build of the Đạo Đồ kit (`tools/design/dao_do_rework/`,
    `build_tree.py` with `KMD_LIGHT=1`), drawn by the rules in `design/research/dao-do-land-authoring.md`; its
    output, `tree.json`, is the map data. It is identical in every life.
-   - **Regions** (14; visible Dao marks in the lean build of 2026-11-10):
+   - **Regions** (lands, border lines, the hub, the variant starts and the islands; Dao mark counts are from the
+     lean build of 2026-11-10 and are recounted when the cell map is drawn; no blend zones, user decision 2026-11-18):
 
      | Region | What it is | Dao marks |
      |---|---|---|
-     | Five element lands | Metal, Wood, Water, Fire, Earth, each with its own ring roads, spokes, identity districts and a second element theme | 811–980 each (4,379) |
-     | Five blend zones | Between each pair of neighbouring lands; their rings carry one land's radius to the other's | 348–401 each (1,906) |
-     | The Taiji hub | The centre, holding the Primordial Chaos start; five Source roads run out to the blend zones | 101 |
-     | Wind's land and the Ice start | Wind has its own land between Water and Wood near the rim; Ice starts inside Water's land | counted in their lands |
-     | Islands | Light, Darkness and Thunder outside the rim, joined by bridges (Thunder only to Wind); the Shadow Shrine (Ám Từ), a satellite on the shadow road (kept, user decision 2026-11-10) | 217–282 each (729) |
+     | Five element lands | Metal, Wood, Water, Fire, Earth, each spanning 72° from border to border, with ring roads, spokes, identity districts and a second element theme | 811–980 each (4,379) + the old blend zones' 1,906, to be shared out |
+     | Five border lines | Where two lands meet: the border road (its nodes grant half of each neighbour's purity) and a border cluster at 59 (its Dao marks use the average of both lands' multipliers) | counted in the lands |
+     | The Taiji hub | The centre, holding the Primordial Chaos start; five Source roads run out to the border lines | 101 |
+     | The Wind and Ice starts | The Wind start sits on the Water–Wood border; the Ice start inside Water's land | counted in their lands |
+     | Islands | Light, Darkness and Thunder outside the outer ring, joined by bridges (Thunder only to the Wind border); the Shadow Shrine (Ám Từ), a satellite on the shadow road (kept, user decision 2026-11-10) | 217–282 each (729) |
 
    - **Pieces:** 11 starts, 616 road (travel) nodes, 5,364 small Dao marks, 1,084 notables and 40 keystones, in
      811 clusters: 7,115 visible Dao marks.
@@ -165,11 +168,13 @@ are named parameters; their values and ranges are in Formulas.
    <name> #<id>". Values are priced by the Modifier System (Formulas F reads `modifier_prices`).
    - **Land Dao marks** (small, notable, cluster) are multiplied by 0.5 + purity/100 for their land's element, or by
      0.25 at purity 0; for an element or variant the root does not own the multiplier is 0.25 + purity ÷ 100, so purity
-     a road granted there counts without a cliff (user decision 2026-11-10, re-review D-R2; Spiritual Roots rule 8a); a blend-zone Dao mark uses the average of its two lands' multipliers; a variant land's
+     a road granted there counts without a cliff (user decision 2026-11-10, re-review D-R2; Spiritual Roots rule 8a); a
+     Dao mark in a border cluster (the cluster on a border line, at 59) uses the average of its two lands' multipliers
+     (user decision 2026-11-18: the blend zones became border lines); a variant land's
      (rule 20) uses that variant's purity the same way. Keystones and the hub are exact.
    - **Roads.** An element land's road nodes grant only that element's purity, about `road_purity` (0.5) each, exact
-     (Spiritual Roots rule 8a: purity is proficiency and has no cap); a blend zone's grant half of each neighbour's;
-     a variant land's roads (Wind's land, the islands) grant that variant's purity the same way (user decision
+     (Spiritual Roots rule 8a: purity is proficiency and has no cap); a border line's road nodes grant half of each
+     neighbour's; a variant start's roads (the Wind start's and the islands') grant that variant's purity the same way (user decision
      2026-11-10, Spiritual Roots review D4); the hub's Source roads give general stats. The amount
      is bot-tuned so purity above 100 stays rare (user decisions 2026-11-10).
    - **Keys.** Any key in the Modifier System's Stat List may appear except `leech_health_pct` and
@@ -298,7 +303,7 @@ All interfaces are provisional where the other GDD does not exist yet.
 
 | System | Direction | Data | Interface owner |
 |---|---|---|---|
-| Spiritual Root | in / out | in: purity per element and variant, base element count (rules 3, 4, 20), which starts the root may pick; out: purity granted by element-land and blend-zone roads (rule 4; Spiritual Roots rule 8a) | Spiritual Root (purity); this GDD (how much the roads grant) |
+| Spiritual Root | in / out | in: purity per element and variant, base element count (rules 3, 4, 20), which starts the root may pick; out: purity granted by element-land and border-line roads (rule 4; Spiritual Roots rule 8a) | Spiritual Root (purity); this GDD (how much the roads grant) |
 | Character Stats | out | modifiers {source, stat, value}; the character's capability set (held capability ids); the tree's breakthrough curve line; the tree never computes a stat | Character Stats (stat keys and their meaning; storage of the capability set) |
 | Realms & Bottlenecks | in | the highest level reached (points_total, Formulas A) and the ladder constants (bands, great and small breakthrough bonuses); the realm (`cap_realm_min`). Its `level_gained`, `stage_reached` and `breakthrough_succeeded` events trigger the recompute | Realms |
 | Modifier System | in | the Stat List, `modifier_prices` and breadth tiers that price every Dao mark (Formulas F) | Modifier System |
@@ -385,7 +390,7 @@ The value_scale formula is defined as:
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
 | S0, N0 | float | 1.2 W, 8 W | data file (Modifier System `grade_small`, `grade_notable`) | Base small and notable values, before the purity multiplier (rule 4) |
-| `road_purity` | float | 0.5 (guess) | data file | Purity an element-land road node grants (rule 4); a blend road grants half of each neighbour's |
+| `road_purity` | float | 0.5 (guess) | data file | Purity an element-land road node grants (rule 4); a border-line road node grants half of each neighbour's |
 | `purity_price` | float | 0.3 W per purity point (guess) | data file | What one point of purity is worth, through the Dao mark multiplier and element stacks (Spiritual Roots rule 8a) |
 | R0 | float | 0.15 W | calculated | Value of an element-land road node |
 | n_road, n_sm, n_not | int | 616, 5,364, 1,084 | measured (lean build, 2026-11-10) | Road nodes, small Dao marks and notables (no starts, no keystones) |
@@ -649,7 +654,7 @@ The map's size is what the kit draws; the lean build is the shipped map (user de
 | Region | Visible Dao marks (lean build, 2026-11-10) |
 |---|---|
 | Earth, Water, Wood, Metal, Fire | 980, 902, 848, 838, 811 |
-| Blend zones (Earth–Metal, Wood–Water, Fire–Earth, Wood–Fire, Metal–Water) | 401, 398, 382, 377, 348 |
+| Blend zones (Earth–Metal, Wood–Water, Fire–Earth, Wood–Fire, Metal–Water; removed 2026-11-18, their Dao marks are shared out to the lands when the cell map is drawn) | 401, 398, 382, 377, 348 |
 | Darkness, Light, Thunder islands (with the Shadow Shrine) | 282, 230, 217 |
 | Taiji hub | 101 |
 | **All** | **7,115** (11 starts, 616 road nodes, 5,364 small, 1,084 notables, 40 keystones; 811 clusters) |
@@ -946,7 +951,7 @@ Drafted with qa-lead.
     - Every keystone's positive side has power ≥ 50 W at `modifier_prices`, or it is a **rule keystone** whose
       positive side has no price (its `effects.md` record), on the test's golden list.
     - On the lean map, w̄_map over road nodes, small Dao marks and notables is 2.10–2.20 W (2.152 at the defaults).
-    - Every element-land road node grants only its land's purity; every blend road node half of each neighbour's;
+    - Every element-land road node grants only its land's purity; every border-line road node half of each neighbour's;
       no road node carries `breakthrough_chance`.
     - No Dao mark carries `leech_health_pct` or `bonus_ward_slots`; rare modifiers appear only on keystones.
 - **AC-KMD-07** [Integration, Bot: `autoplay.gd`, ≥ 60 lives = 20 seeds × 3 origins]
@@ -968,8 +973,8 @@ Drafted with qa-lead.
     - Purity 60 gives ×1.10, purity 100 gives ×1.50, purity 140 gives ×1.90, and an absent element gives ×0.25.
     - An element the root does not own, raised to purity 1.0 by two road nodes, gives ×0.26 (not ×0.51); at purity 25,
       ×0.50; at 30, ×0.55.
-    - A blend-zone Dao mark between Wood 60 and an absent Fire gives ×0.675.
-    - A Wind-land Dao mark for a root with Wind 50 gives ×1.00; without Wind, ×0.25.
+    - A Dao mark in the Wood–Fire border cluster, on Wood 60 and an absent Fire, gives ×0.675.
+    - A Wind Dao mark (in the Wind start's figure) for a root with Wind 50 gives ×1.00; without Wind, ×0.25.
     - Keystones and the hub are ×1.0. The modifier source is exactly `Đạo Đồ: <name> #<id>`.
 - **AC-KMD-16** [Logic] A spiritual root (linh căn) change mid-life.
     - Purity 60 → 80 changes that element's open Dao marks from ×1.10 to ×1.30 on the same
@@ -987,7 +992,7 @@ Drafted with qa-lead.
     - An NPC {Wood 55, Fire 55} takes the Wood start (generating-cycle tie-break); an NPC with Thunder 80 and Metal
       60 takes the Thunder start.
 - **AC-KMD-97** [Logic] Road purity (rule 4).
-    - Opening 4 Fire-land road nodes raises Fire purity by 2.0 (4 × 0.5); a Fire–Earth blend road node raises Fire
+    - Opening 4 Fire-land road nodes raises Fire purity by 2.0 (4 × 0.5); a Fire–Earth border-line road node raises Fire
       and Earth by 0.25 each; a hub road node raises no purity.
     - A root without Metal that opens 2 Metal road nodes gains Metal purity 1.0 for its stacks, and no base element.
     - Fire purity 99.5 plus one Fire road node is 100.0, and one more is 100.5 (no cap).

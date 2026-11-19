@@ -100,6 +100,25 @@ Thunder 4; Shadow Shrine 2. Total **80**.
 
 ## Blend zones
 
+**2026-11-18, later: the blend zones are removed (user: "go with the recommendations"; rules 1b).** Each picture
+below moves into one of its two lands, near the border. Proposed mapping (Claude's; the user can change it):
+
+| # | Moves to | Why |
+|---|---|---|
+| B1 Kiln Hill | Earth | a hill built of fired clay |
+| B2 Molten Core | Fire | fire damage first |
+| B3 Mother Lode | Earth | ore in the ground |
+| B4 Buried Vault | Metal | treasure is metal |
+| B5 Mirror Lake | Water | a lake |
+| B6 Autumn Dew | Metal | Metal is autumn |
+| B7 Rain on Bamboo | Water | rain heals |
+| B8 Wind Fan | Wood, by the Wind start | Wind's speed; Wood keeps one Wind picture |
+| B9 Compass Rose (#21 Blink Mark) | Water, by the Wind start | travel; Water keeps the other |
+| B10 Wutong Perch | Wood | a tree |
+| B11 Campfire | Fire | the flame |
+
+That gives Fire 12, Earth 12, Metal 12, Water 13 and Wood 12, with Wind's two pictures either side of its border.
+
 | # | Zone | Name | Picture | Idea | Cap |
 |---|---|---|---|---|---|
 | B1 | Fire-Earth | Kiln Hill (Lò Sơn) | a kiln dome with a chimney | lava: burning ground, area damage | – |
