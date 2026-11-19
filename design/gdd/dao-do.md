@@ -1188,9 +1188,12 @@ Drafted with qa-lead.
 
 ### Known gaps in the build
 
-The spec above is the target. The built game (`src/gameplay/dao_do/`, 2026-11-05) still runs the old generated map:
+The spec above is the target. The built game (`src/gameplay/dao_do/`, 2026-11-05) still runs the old generated map (it gained the parents'-lands rule on
+2026-11-19):
 about 1,300 Dao marks with hidden clusters, variant sectors, generic roads and the 8 pp clamp. Replacing it means:
-loading the kit's lean `tree.json` (with its hidden band removed from the build), the start choice, road purity, the
+loading the v5 frozen map (`design/dao-do/cells/versions/v5-frozen-2026-11-19/dao-do-map.json`) with its content
+(`design/dao-do/content/*.json`) as game data, the start choice, road purity (the hub's roads to all five elements),
+the Chaos land gate and its scaling (rules 3-4), the 43 keystones' Effects, fractional purity (AC-KMD-102 uses 30.5), the
 breakthrough curve, `cap_realm_min`, the save migration (rule 19), the optimized allocator (AC-KMD-54) and the
 retirement of the unseal, fill and sector code. Until then every Known-gap row of the generated map (G5–G9, shape
 templates, the unseal flow, variant sectors) is moot.
