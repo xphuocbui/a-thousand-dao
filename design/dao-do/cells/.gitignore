@@ -1,0 +1,25 @@
+# Scratch and diagnostics of the Đạo Đồ cells work (regenerable): compiled maps, renders, check output, tracing aids.
+out/
+__pycache__/
+**/__pycache__/
+openai/context-map.json
+openai/oai-r2-map.json
+openai/**/context-map.json
+openai/underlay/ov-*.png
+openai/underlay/show-*.png
+openai/underlay/blend-*.png
+openai/underlay/lab-*.png
+openai/underlay/ids-*.png
+openai/underlay/contact.png
+openai/underlay/sun/contact.png
+openai/underlay/sun/*-contact.png
+openai/underlay/sun/graph*-view.png
+openai/underlay/sun/graph2-tree.png
+openai/underlay/sun/skel-view.png
+openai/underlay/sun/lab-tree.png
+openai/underlay/sun/comps-*.json
+openai/underlay/sun/skel-*.json
+openai/underlay/sun/skel2-*.json
+openai/underlay/sun/graph-inout3.json
+openai/underlay/sun/sun_drops*.json
+openai/underlay/sun/*-wide.png

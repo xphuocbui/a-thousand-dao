@@ -1,0 +1,23 @@
+Image 1 is the exact road layout of the CHAOS hub at the centre of a passive skill tree for a Chinese xianxia game:
+a white start node with a small pentagram figure, an inner ring, an outer ring, and five straight spokes between
+them. Image 2 is a moon from an earlier sketch that the art director loved: use its drawing language, applied to
+primordial chaos (hun dun).
+
+Turn image 1 into an idea sketch of "swirls into the centre": five spiral arms, one in each wedge, sweeping from the
+outer ring inwards and turning the same way round, so the whole hub reads as one pinwheel or galaxy being drawn into
+the start; between the arms, small eddies curling the same way. The spiral arms may pass the spokes only at a dot on
+the spoke. Five-fold symmetric, turning, hypnotic.
+
+STYLE TO MATCH (image 2): a celestial filigree drawing. Thin warm-gold lines for the existing roads. The new
+ornament is thin pale silver-blue lines that sweep in smooth circular arcs and curl into small spirals, with small
+gold and silver dots strung along them like beads and a slightly larger gold dot where each curl ends. Elegant,
+airy, mirrored, more empty space than ornament.
+
+RULES FOR THE DRAWING
+- Keep image 1's framing exactly: same scale, same position; every gold road line, arc, ring and node of image 1 stays
+  where it is, the same size, not redrawn bigger or moved. Only ADD ornament in the empty spaces.
+- Every ornament line is a smooth arc or spiral that could be read as a chain of beads; no freehand scribble, no
+  leaves, no faces, no creatures, no pictures. Lines do not cross each other or the roads; each ornament starts from a
+  dot on a road.
+- Square image, near-black background (#07080b), flat 2D vector look. No text, no labels, no numbers, no glow, no
+  blur, no texture, no gradients, no perspective, no frame, no starfield or scenery behind it.
