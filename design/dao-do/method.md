@@ -5,6 +5,14 @@ and figures (pieces) of small, notable and keystone nodes hung from the roads. T
 stage, filling in the nodes, starts from a known state. The rules themselves are in `rules-2026-11-18.md` (3.1 how we
 work, 3.2 hard rules, 3.10 cells); that file's section 7 (tools) is superseded by this one.
 
+**What worked (user, 2026-11-19: "I think we did 2 things right"):**
+1. **Divide by cell, then design cell by cell.** The roads split the tree into cells; each cell is designed on its
+   own, in its own file section, judged on its own, before the next. Earlier whole-tree and whole-land passes kept
+   converging on the same stamped tree (rules section 2).
+2. **Let OpenAI generate the layout and the pictures.** For a place that needs a figure, the image model draws ideas
+   over the real roads, the user picks, and the pick is traced. OpenAI also designed pieces directly (the rim pagoda).
+   It gives variety and a look the user can choose from, which hand-placing alone did not.
+
 Current state: 7,840 nodes, 856 pieces; 0 crossings, only the base map's 4 old spacing warnings, every piece passes
 R0-R4, every node reachable from the start. Built by `sh tools/design/dao_do_rework/cells/integrate.sh <tag>` (from the
 repo root) into `design/dao-do/cells/out/<tag>-map.json`; deterministic (two builds of the same files are identical).
