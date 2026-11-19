@@ -1,0 +1,35 @@
+# Spiritual Roots parent purity and the stronger Chaos (decisions #25-26, 2026-11-19): two Tự Định lives.
+# Run: godot --headless --path . -s res://src/debug_terminal/terminal_main.gd -- --no-llm
+#        --commands res://production/qa/evidence/linh-can-parent-purity/01-session-commands.txt --exit-after-commands
+new
+Lôi Thử
+m
+1
+99
+2
+50
+50
+50
+50
+50
+50
+hoa=86 kim=40
+loi
+1
+sheet
+new
+Hỗn Thử
+f
+1
+99
+2
+50
+50
+50
+50
+50
+50
+moc=60 hoa=50 tho=45 kim=70 thuy=55
+hon_don
+1
+sheet

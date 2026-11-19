@@ -1,0 +1,7 @@
+Reviewed-Content-Hash: src/gameplay/character/linh_can.gd 7d27dcb7a25a926bb9747a6bf29cce839e25225a
+Reviewed-Content-Hash: src/gameplay/dao_do/dao_do_tree.gd 205f5a7500c4f0ac9b665c1abc906590c5de6f7b
+Reviewed-Content-Hash: assets/data/character_attributes.json 63d06fefb104c2c1f63e9cdbaa391cecaee1643f
+Reviewed-Content-Hash: assets/data/character_elements.json 4abe56d1e6dce0616db3709a76e1399e91026814
+Reviewed-Content-Hash: tests/unit/character/linh_can_rules_test.gd a02e970b47bc6e9dc167ea95d209902125a1d961
+Reviewed-Content-Hash: tests/unit/character/linh_can_change_test.gd 26ce231292b93cf448603f2ef9907c26c2e0a4cf
+Reviewed-Content-Hash: tests/unit/dao_do/dao_do_tree_test.gd 071d6809b6327edbe6d2ae77010cb3e733ce559a

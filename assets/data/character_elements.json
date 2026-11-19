@@ -35,7 +35,7 @@
     "hu_khong": [{"stat": "co_duyen_pct", "per_purity": 1.00}],
     "loi": [{"stat": "attack_pct", "per_purity": 0.30}],
     "am": [{"stat": "stealth", "per_purity": 0.20}],
-    "hon_don": [{"stat": "cultivation_speed_pct", "per_purity": 0.13}, {"stat": "breakthrough_chance", "per_purity": 0.06}],
+    "hon_don": [{"stat": "cultivation_speed_pct", "per_purity": 0.2}, {"stat": "breakthrough_chance", "per_purity": 0.06}, {"stat": "attack_pct", "per_purity": 0.3}, {"stat": "khi_huyet_pct", "per_purity": 0.25}],
     "quang": [{"stat": "tam_ma_resist_pct", "per_purity": 0.20}],
     "bang": [{"stat": "dan_doc_resist_pct", "per_purity": 0.18}]
   }

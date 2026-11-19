@@ -30,10 +30,11 @@
     "chaos_factor": 5.0,
     "innate_chance": {"phong": 0.025, "huyet": 0.015, "hu_khong": 0.005},
     "variant_purity_factor": 0.8,
+    "variant_parents": {"loi": ["hoa", "kim"], "bang": ["thuy"], "phong": ["thuy", "moc"], "hon_don": ["moc", "hoa", "tho", "kim", "thuy"]},
     "awakening_max_passes": 2,
     "awakening_capability": 24,
     "variant_power_band": [10, 30],
-    "variant_power_band_apex": [20, 60]
+    "variant_power_band_apex": [60, 140]
   },
   "element_count_curve": {
     "1": {"lk_early": 1.0, "lk_mid": 1.0, "lk_late": 1.0, "tc_so": 1.0, "tc_trung": 1.0, "tc_hau": 1.0, "tc_dvm": 1.0, "kd_so": 1.0, "kd_trung": 1.0, "kd_hau": 1.0, "kd_dvm": 1.0, "na": 1.0, "ht": 1.0},

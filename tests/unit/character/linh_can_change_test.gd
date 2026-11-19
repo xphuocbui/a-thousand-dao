@@ -40,7 +40,7 @@ func test_raising_recomputes_derived_variants_only_ac38() -> void:
 	var gd := game_data()
 	var lc: LinhCan = _c({"hoa": 86, "kim": 40}, {"loi": 47, "quang": 69, "phong": 60}).linh_can
 	lc.raise_purity(gd, "kim", 8)
-	assert_eq(lc.variants, {"loi": 51, "quang": 69, "phong": 60}, "Thunder follows, the rest stay")
+	assert_eq(lc.variants, {"loi": 64, "quang": 69, "phong": 60}, "Thunder follows, the rest stay")
 
 
 func test_tay_tuy_dan_raises_the_weakest_and_stops_at_the_limit_ac39() -> void:
@@ -82,7 +82,7 @@ func test_fruit_with_a_named_element_makes_no_element_draw_ac40() -> void:
 	var res: Dictionary = TreasureEffects.apply_fruit(c, gd, r, _fruit(), "kim")
 	assert_true(res.ok and r.done(), "draws exact: %s" % r.error)
 	assert_eq(c.linh_can.elements.kim, 28, "Metal 28")
-	assert_eq(c.linh_can.variants, {"loi": 39}, "Thunder 39; Light does not roll")
+	assert_eq(c.linh_can.variants, {"loi": 49}, "Thunder 49; Light does not roll")
 	assert_eq(c.linh_can.generating_pairs(gd).size(), 1, "pairs stay at 1")
 
 
@@ -105,7 +105,7 @@ func test_fifth_element_rolls_three_derived_variants_in_order_ac41() -> void:
 	var r := ScriptedRng.new(["U", 10.0 / 16.0, "U", 0.0, "U", 0.0, "U", 0.0])
 	TreasureEffects.apply_fruit(c, gd, r, _fruit(), "thuy")
 	assert_true(r.done(), "three rolls: %s" % r.error)
-	assert_eq(c.linh_can.variants, {"am": 31, "hon_don": 36, "bang": 24}, "Darkness, Chaos, Ice")
+	assert_eq(c.linh_can.variants, {"am": 31, "hon_don": 45, "bang": 30}, "Darkness, Chaos, Ice (Chaos and Ice take parent purity)")
 	assert_eq(c.linh_can.tier_name(gd), "Five-element root", "tier")
 	assert_eq(c.linh_can.generating_pairs(gd).size(), 5, "pairs")
 
@@ -123,11 +123,11 @@ func test_innate_variants_never_roll_later_ac42() -> void:
 
 func test_all_five_owned_raises_the_weakest_with_no_rolls_ac43() -> void:
 	var gd := game_data()
-	var c := _c({"moc": 50, "hoa": 30, "tho": 60, "kim": 30, "thuy": 90}, {"loi": 24})
+	var c := _c({"moc": 50, "hoa": 30, "tho": 60, "kim": 30, "thuy": 90}, {"loi": 30})
 	var r := ScriptedRng.new([])
 	TreasureEffects.apply_fruit(c, gd, r, _fruit(), "tho")
 	assert_eq(c.linh_can.elements.hoa, 38, "Fire, by cycle order, even with a named element")
-	assert_eq(c.linh_can.variants.loi, 27, "Thunder recomputed")
+	assert_eq(c.linh_can.variants.loi, 34, "Thunder recomputed")
 	assert_eq(r.log.size(), 0, "no draw")
 	var perfect := _c({"moc": 100, "hoa": 100, "tho": 100, "kim": 100, "thuy": 100})
 	assert_false(TreasureEffects.apply_fruit(perfect, gd, r, _fruit()).ok, "refused at 100")
@@ -174,11 +174,11 @@ func test_accepted_changes_write_one_record_each_ac45() -> void:
 func test_the_birth_perk_raises_every_element_with_no_roll_ac52() -> void:
 	var gd := game_data()
 	var c := TestFixtures.character({"hoa": 86, "kim": 40})
-	c.linh_can.variants["loi"] = 47
+	c.linh_can.variants["loi"] = 59
 	ProgressionEdges.apply_birth(c, gd, "linh_can_thuan_tinh")
 	assert_eq(int(c.linh_can.purity("hoa")), 94, "Fire")
 	assert_eq(int(c.linh_can.purity("kim")), 48, "Metal")
-	assert_eq(int(c.linh_can.purity("loi")), 54, "Thunder recomputed")
+	assert_eq(int(c.linh_can.purity("loi")), 67, "Thunder recomputed")
 	var top := TestFixtures.character({"hoa": 95})
 	ProgressionEdges.apply_birth(top, gd, "linh_can_thuan_tinh")
 	assert_eq(int(top.linh_can.purity("hoa")), 100, "capped")

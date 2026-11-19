@@ -61,7 +61,7 @@ func test_dual_root_with_void_draw_order_ac05() -> void:
 	var lc := LinhCan.roll(gd, r)
 	assert_true(r.done(), "draws exact: %s %s" % [r.error, str(r.log)])
 	assert_eq(lc.elements, {"hoa": 86, "kim": 40}, "elements")
-	assert_eq(lc.variants, {"huyet": 30, "hu_khong": 75, "loi": 47}, "variants")
+	assert_eq(lc.variants, {"huyet": 30, "hu_khong": 75, "loi": 59}, "variants")
 	assert_eq(lc.base_count(), 2, "n_base")
 	assert_eq(lc.n_eff(gd), 4, "n_eff")
 	assert_eq(_sorted(lc.rolled), _sorted(["phong", "huyet", "hu_khong", "loi", "quang"]), "rolled set")
@@ -132,8 +132,9 @@ func test_ranges_hold_over_seeded_births_ac07() -> void:
 		for e in lc.elements.keys():
 			assert_true(lc.elements[e] is int and lc.elements[e] >= 10 and lc.elements[e] <= 100, "element range")
 		for id in lc.variants.keys():
-			var lo: int = 10 if gd.variant(id).origin == "innate" else 8
-			var hi: int = 100 if gd.variant(id).origin == "innate" else 80
+			var follows: bool = gd.variant(id).origin == "innate" or gd.attributes().linh_can.variant_parents.has(id)
+			var lo: int = 10 if follows else 8
+			var hi: int = 100 if follows else 80
 			assert_true(lc.variants[id] >= lo and lc.variants[id] <= hi, "%s range" % id)
 	assert_eq(_lc({"tho": 10, "thuy": 10}).derived_purity(gd, "am"), 8, "Darkness floor")
 
@@ -148,7 +149,7 @@ func test_tier_ignores_variants_ac08() -> void:
 func test_self_made_rolls_nothing_and_declines_the_rest_ac09() -> void:
 	var gd := game_data()
 	var lc := LinhCan.self_made(gd, {"hoa": 86, "kim": 40}, ["loi", "phong"])
-	assert_eq(lc.variants, {"loi": 47, "phong": 50}, "picked")
+	assert_eq(lc.variants, {"loi": 59, "phong": 50}, "picked (Thunder = round(sqrt(86 x 40)); Wind keeps 50 with no Water or Wood)")
 	assert_eq(_sorted(lc.rolled), _sorted(["phong", "huyet", "hu_khong", "loi", "quang"]), "rolled")
 	assert_eq(_sorted(lc.declined), _sorted(["huyet", "hu_khong", "quang"]), "declined")
 
@@ -165,8 +166,10 @@ func test_self_made_input_is_checked_ac09() -> void:
 	var picks: Array = ["loi", "am", "hon_don", "quang", "bang", "phong", "huyet"]
 	assert_eq(LinhCan.self_made_error(gd, all_five, picks), "", "strongest root accepted")
 	var lc := LinhCan.self_made(gd, all_five, picks)
-	for id in ["loi", "am", "hon_don", "quang", "bang"]:
-		assert_eq(lc.variants[id], 80, "%s at 80" % id)
+	for id in ["am", "quang"]:
+		assert_eq(lc.variants[id], 80, "%s at 80 (0.8 factor)" % id)
+	for id in ["loi", "hon_don", "bang", "phong"]:
+		assert_eq(lc.variants[id], 100, "%s at 100 (parent purity)" % id)
 
 
 # --- Counts and pairs -------------------------------------------------------------
@@ -258,11 +261,14 @@ func test_a_draw_equal_to_the_chance_fails_ac20() -> void:
 
 func test_derived_purity_matches_d2_ac21() -> void:
 	var gd := game_data()
-	assert_eq(_lc({"hoa": 86, "kim": 40}).derived_purity(gd, "loi"), 47, "86/40")
-	assert_eq(_lc({"hoa": 86, "kim": 48}).derived_purity(gd, "loi"), 51, "86/48")
-	assert_eq(_lc({"hoa": 86, "kim": 28}).derived_purity(gd, "loi"), 39, "86/28")
+	assert_eq(_lc({"hoa": 86, "kim": 40}).derived_purity(gd, "loi"), 59, "86/40")
+	assert_eq(_lc({"hoa": 86, "kim": 48}).derived_purity(gd, "loi"), 64, "86/48")
+	assert_eq(_lc({"hoa": 86, "kim": 28}).derived_purity(gd, "loi"), 49, "86/28")
+	assert_eq(_lc({"thuy": 70}).derived_purity(gd, "bang"), 70, "Ice = Water")
 	assert_eq(_lc({"hoa": 86}).derived_purity(gd, "quang"), 69, "Light")
-	assert_eq(_lc({"moc": 60, "hoa": 50, "tho": 45, "kim": 70, "thuy": 55}).derived_purity(gd, "hon_don"), 44, "Chaos")
+	assert_eq(_lc({"moc": 60, "hoa": 50, "tho": 45, "kim": 70, "thuy": 55}).derived_purity(gd, "hon_don"), 55, "Chaos")
+	assert_eq(_lc({"thuy": 10, "moc": 10, "tho": 10, "hoa": 10, "kim": 10}).derived_purity(gd, "hon_don"), 10, "Chaos floor")
+	assert_eq(_lc({"thuy": 10, "tho": 10}).derived_purity(gd, "am"), 8, "Darkness keeps the 0.8 factor")
 
 
 func test_each_derived_variant_rolls_only_once_ac24() -> void:
@@ -298,10 +304,15 @@ func test_values_floor_in_integer_arithmetic_ac27() -> void:
 	assert_eq(line.call("loi", 51, 0), 15.3, "Thunder 51 (a float floor gives 15.2)")
 	assert_eq(line.call("huyet", 47, 0), 11.7, "Blood 47")
 	assert_eq(line.call("bang", 47, 0), 8.4, "Ice 47")
-	assert_eq(line.call("hon_don", 44, 0), 5.7, "Chaos speed 44")
+	assert_eq(line.call("loi", 59, 0), 17.7, "Thunder 59 (a float floor gives 17.6)")
+	assert_eq(line.call("hon_don", 44, 0), 8.8, "Chaos speed 44")
 	assert_eq(line.call("hon_don", 44, 1), 2.6, "Chaos odds 44")
-	assert_eq(line.call("hon_don", 80, 0), 10.4, "Chaos speed 80")
+	assert_eq(line.call("hon_don", 44, 2), 13.2, "Chaos attack 44")
+	assert_eq(line.call("hon_don", 44, 3), 11.0, "Chaos health 44")
+	assert_eq(line.call("hon_don", 80, 0), 16.0, "Chaos speed 80")
 	assert_eq(line.call("hon_don", 80, 1), 4.8, "Chaos odds 80 (a float floor gives 4.7)")
+	assert_eq(line.call("hon_don", 80, 2), 24.0, "Chaos attack 80")
+	assert_eq(line.call("hon_don", 80, 3), 20.0, "Chaos health 80")
 
 
 func test_variant_lines_reach_the_sheet_with_data_names_ac29() -> void:
@@ -381,7 +392,7 @@ func test_a_pre_redesign_save_migrates_ac49() -> void:
 		"bien_di": {"quang": 47, "loi": 99, "phong": 39, "huyet": 6, "dan_hoa": 50, "kiem": 50},
 		"rolled": ["quang", "loi", "kiem"]}
 	var lc := LinhCan.from_dict(LinhCan.migrate_record(old, gd))
-	assert_eq(lc.variants, {"quang": 69, "loi": 47, "phong": 39, "huyet": 10}, "kept and recomputed")
+	assert_eq(lc.variants, {"quang": 69, "loi": 59, "phong": 49, "huyet": 10}, "kept and recomputed (Wind lifted to sqrt(60 x 40))")
 	assert_false(lc.rolled.has("kiem"), "relocated id dropped")
 	assert_true(lc.rolled.has("bang"), "Ice marked rolled")
 	assert_eq(lc.tier_name(gd), "Quadruple root", "tier")
@@ -400,3 +411,18 @@ func test_a_save_with_no_rolled_set_gains_no_first_roll_ac50() -> void:
 	var a := _script([["U", 0.99], ["U", 0.99]])
 	lc.awakening_pass(gd, a)
 	assert_true(a.done(), "Awakening rolls Darkness and Ice: %s" % a.error)
+
+
+func test_wind_follows_its_parents_ac58() -> void:
+	var gd := game_data()
+	var lc := _lc({"thuy": 60, "moc": 70}, {"phong": 40})
+	lc.recompute_derived(gd)
+	assert_eq(lc.variants.phong, 65, "Wind 40 on Water 60 / Wood 70 is round(sqrt(4200))")
+	lc.raise_purity(gd, "thuy", 10)
+	assert_eq(lc.variants.phong, 70, "a pill lifting Water to 70 lifts Wind, no draw")
+	var low := _lc({"thuy": 10, "moc": 40}, {"phong": 40})
+	low.recompute_derived(gd)
+	assert_eq(low.variants.phong, 40, "Wind keeps its draw when its parents are lower")
+	var none := _lc({"hoa": 86}, {"phong": 50})
+	none.recompute_derived(gd)
+	assert_eq(none.variants.phong, 50, "no Water or Wood: Wind keeps its draw")

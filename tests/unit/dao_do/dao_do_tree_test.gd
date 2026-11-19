@@ -218,8 +218,24 @@ func test_sector_scale_follows_purity_lc34() -> void:
 	assert_near(t.node_scale(gate_of.call("tho"), lc, gd), 0.25, 1e-9, "absent Earth")
 	var bridge: int = t.nodes.values().filter(func(n): return n.kind == "bridge" and n.sector == "moc-hoa")[0].id
 	assert_near(t.node_scale(bridge, lc, gd), 1.13, 1e-9, "bridge")
-	lc.variants = {"loi": 47}
-	assert_near(t.node_scale(DaoDoTree.VARIANT_ID_BASE + 300, lc, gd), 0.97, 1e-9, "Thunder sector")
+	lc.variants = {"loi": 59}
+	assert_near(t.node_scale(DaoDoTree.VARIANT_ID_BASE + 300, lc, gd), 1.09, 1e-9, "Thunder sector")
+
+
+func test_parents_lands_scale_by_the_variant_ac58() -> void:
+	var gd := game_data()
+	var t := _tree()
+	var gate_of := func(e): return t.nodes.values().filter(func(n): return n.kind == "gate" and n.sector == e)[0].id
+	var lc := LinhCan.new()
+	lc.elements = {"hoa": 86, "kim": 40}
+	lc.variants = {"loi": 59}
+	assert_near(t.node_scale(gate_of.call("kim"), lc, gd), 1.09, 1e-9, "Metal lifted to Thunder 59")
+	assert_near(t.node_scale(gate_of.call("hoa"), lc, gd), 1.36, 1e-9, "Fire keeps its higher 86")
+	var wind := LinhCan.new()
+	wind.elements = {"hoa": 86}
+	wind.variants = {"phong": 50}
+	assert_near(t.node_scale(gate_of.call("thuy"), wind, gd), 1.0, 1e-9, "Wind scales Water at the owned rate")
+	assert_near(t.node_scale(gate_of.call("tho"), wind, gd), 0.25, 1e-9, "Earth is no parent of Wind")
 
 
 func test_paths_are_shortest_and_prefer_value() -> void:

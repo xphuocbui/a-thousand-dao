@@ -72,6 +72,7 @@ static func self_made(gd: GameData, purities: Dictionary, picks: Array = []) -> 
 			lc.variants[id] = int(cfg.purity_mean) if def.origin == "innate" else lc.derived_purity(gd, id)
 		else:
 			lc.declined.append(id)
+	lc.recompute_derived(gd)
 	return lc
 
 
@@ -143,9 +144,14 @@ func variant_chance(gd: GameData, variant_id: String) -> float:
 	return minf(chance, 1.0)
 
 
-## Formulas D2: a derived variant's purity from the current element purities.
+## Formulas D2: a derived variant's purity from the current element purities. A variant listed
+## in `variant_parents` (Thunder, Ice, Chaos) takes its parents' purity as its own, the geometric
+## mean with no discount (linh-can.md rule 10, 2026-11-19); Light and Darkness keep
+## `variant_purity_factor`.
 func derived_purity(gd: GameData, variant_id: String) -> int:
 	var cfg: Dictionary = gd.attributes().linh_can
+	if cfg.get("variant_parents", {}).has(variant_id):
+		return clampi(parent_purity(gd, variant_id), 1, 100)
 	var req: Array = gd.variant(variant_id).get("requires", [])
 	if req.is_empty():
 		return 0
@@ -156,8 +162,20 @@ func derived_purity(gd: GameData, variant_id: String) -> int:
 	return clampi(int(roundf(float(cfg.variant_purity_factor) * mean)), 1, 100)
 
 
+## The round of the geometric mean of a variant's parents' purities (`variant_parents`), or 0
+## when it has none or a parent is missing (an unowned element has purity 0).
+func parent_purity(gd: GameData, variant_id: String) -> int:
+	var parents: Array = gd.attributes().linh_can.get("variant_parents", {}).get(variant_id, [])
+	if parents.is_empty():
+		return 0
+	var product: float = 1.0
+	for e in parents:
+		product *= float(elements.get(e, 0))
+	return int(roundf(pow(product, 1.0 / float(parents.size()))))
+
+
 ## Rolls every derived variant that has just become eligible, in catalogue order, one
-## uniform draw each. Returns the ids formed.
+## uniform draw each, then recomputes the owned variants. Returns the ids formed.
 func roll_newly_eligible(gd: GameData, rng: Variant) -> Array:
 	var formed: Array = []
 	for def in gd.variant_defs():
@@ -168,6 +186,7 @@ func roll_newly_eligible(gd: GameData, rng: Variant) -> Array:
 		if rng.randf() < variant_chance(gd, id):
 			variants[id] = derived_purity(gd, id)
 			formed.append(id)
+	recompute_derived(gd)
 	return formed
 
 
@@ -187,11 +206,15 @@ func awakening_pass(gd: GameData, rng: Variant) -> Array:
 	return formed
 
 
-## Recomputes every owned derived variant (after any element purity change). No roll.
+## Recomputes every owned derived variant (after any element purity change). An innate variant
+## with parents (Wind: Water and Wood) rises to its parents' purity and never falls below its own
+## (rule 10). No roll.
 func recompute_derived(gd: GameData) -> void:
 	for id in variants.keys():
 		if gd.variant(id).get("origin", "") != "innate":
 			variants[id] = derived_purity(gd, id)
+		else:
+			variants[id] = maxi(int(variants[id]), mini(parent_purity(gd, id), 100))
 
 
 ## Formulas E: the stat lines of one owned variant at its current purity, as
@@ -374,6 +397,7 @@ static func migrate_record(d: Dictionary, gd: GameData) -> Dictionary:
 			lc.variants[id] = clampi(int(old[id]), int(cfg.purity_min), int(cfg.purity_max))
 		else:
 			lc.variants[id] = lc.derived_purity(gd, str(id))
+	lc.recompute_derived(gd)
 	for id in d.get("rolled", []):
 		if not gd.variant(str(id)).is_empty():
 			lc.rolled.append(str(id))

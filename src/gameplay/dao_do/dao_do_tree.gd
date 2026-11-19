@@ -172,11 +172,12 @@ func node_scale(node_id: int, lc: LinhCan, gd: GameData) -> float:
 	if variant != "":
 		return 0.5 + lc.purity(variant) / 100.0
 	var fx: Dictionary = gd.element_effects()
+	var parents: Dictionary = gd.attributes().linh_can.get("variant_parents", {})
 	var sector: String = str(nd.sector)
 	if sector.contains("-"):
 		var parts: PackedStringArray = sector.split("-")
-		return (_element_scale(parts[0], lc, fx) + _element_scale(parts[1], lc, fx)) / 2.0
-	return _element_scale(sector, lc, fx)
+		return (_element_scale(parts[0], lc, fx, parents) + _element_scale(parts[1], lc, fx, parents)) / 2.0
+	return _element_scale(sector, lc, fx, parents)
 
 
 ## Every stat modifier from the character's open nodes, scaled: Array of {source, stat, value}.
@@ -229,7 +230,15 @@ func clusters_of(kind: String) -> Array:
 	return out
 
 
-static func _element_scale(e: String, lc: LinhCan, fx: Dictionary) -> float:
-	if not lc.elements.has(e):
+## An element land's multiplier. A held Thunder, Ice, Wind or Chaos scales its parents' lands at
+## the owned rate by the higher of the element's purity and its own (linh-can.md rule 12, 2026-11-19).
+static func _element_scale(e: String, lc: LinhCan, fx: Dictionary, parents: Dictionary = {}) -> float:
+	var best: float = -1.0
+	if lc.elements.has(e):
+		best = lc.purity(e)
+	for v in lc.variants.keys():
+		if parents.get(v, []).has(e):
+			best = maxf(best, lc.purity(v))
+	if best < 0.0:
 		return float(fx.absent_element_tree_scale)
-	return float(fx.tree_scale_base) + lc.purity(e) / 100.0
+	return float(fx.tree_scale_base) + best / 100.0

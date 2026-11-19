@@ -1,0 +1,305 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+
+  ☯  TEN THOUSAND DAOS  — debug terminal
+  LLM off | https://api.deepseek.com/chat/completions | model deepseek-chat | NO KEY | language vi | calls 0, failures 0, avg 0 ms
+
+  1 New life (choose origin, roll or set your thiên phú and linh căn)
+  2 Quick start (random tán tu)
+  3 Help: every command
+ Type a number, or any command ('help'). Enter shows this menu again.
+> new
+Tên (name) [Vô Danh]: Lôi Thử
+Giới tính m/f [m]: m
+Xuất thân (origin):
+  1) Tán tu — Nobody. Free, poor, no sect obligations.
+  2) Đệ tử tông môn — Outer disciple of a generated sect: stipend, sect missions, a better công pháp.
+  3) Con cháu gia tộc — Minor clan heir: more linh thạch and a field already growing.
+Choose 1-3 [1]: 1
+World seed [795124421]: 99
+Birth mode: 1) Thiên Định — roll, achievements on   2) Tự Định — choose, casual  [1]: 2
+Tự Định: set each thiên phú 1-100 (enter = 50).
+  Ngộ tính (Comprehension: learning công pháp and how strong it is, đốn ngộ, discovering recipes, breaking bình cảnh): 50
+  Căn cốt (Physique: khí huyết, đan độc resistance, body cultivation): 50
+  Thần hồn (Soul strength: base of thần thức (artifact control, detection)): 50
+  Khí vận (Fortune: kỳ ngộ, rare finds, crafting crits, ceiling of LLM-invented rewards): 50
+  Đạo tâm (Dao heart: resists tâm ma, qi deviation and illusions): 50
+  Mị lực (Presence: NPC attitude, prices, what people will tell you): 50
+Root purities 10-100, e.g. 'hoa=80 moc=60 tho=40' (elements: kim moc thuy hoa tho).
+  purities: hoa=86 kim=40
+Variants you qualify for: phong huyet hu_khong (one or two elements), loi (hoa+kim), am (tho+thuy), hon_don (all five), quang (hoa), bang (thuy). Any you leave out never forms.
+  variant ids (blank = none): loi
+
+━━ Lôi Thử — Tán tu ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ ROOT [linh căn]  Dual root — curve row 2, now x0.60 vs a single root
+   Mộc  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thảo age faster in your field
+   Hỏa  ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▁▁▁  86 Cực phẩm luyện đan success and quality
+   Thổ  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          more linh điền plots
+   Kim  ▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁▁▁▁  40 Trung    linh thạch from missions and bounties
+   Thủy ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          đan độc fades faster
+   Thunder [Lôi] 59  (convergence)  +17.7% attack
+
+ THIÊN PHÚ
+   Ngộ tính  ▆▆▆▆▆▁▁▁▁▁  50 Trung        Căn cốt   ▆▆▆▆▆▁▁▁▁▁  50 Trung
+   Thần hồn  ▆▆▆▆▆▁▁▁▁▁  50 Trung        Khí vận   ▆▆▆▆▆▆▁▁▁▁  55 Trung
+   Đạo tâm   ▆▆▆▆▆▁▁▁▁▁  50 Trung        Mị lực    ▆▆▆▆▆▁▁▁▁▁  50 Trung
+
+ Linh thạch 30 · more elements: slower now, much faster later
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Thiên mệnh — choose one:
+   1 Đạo Cốt Thiên Sinh   Born with Dao bones: every breakthrough comes easier.  [+12% breakthrough chance]
+   2 Bất Diệt Đạo Tâm     An unbreakable heart: a failed breakthrough costs no tu vi and half the tâm ma.  [failed breakthroughs cost no tu vi, half the tâm ma, +10 Đạo tâm]
+   3 Tổ Truyền Linh Điền  An ancestral spirit field: one more plot, herbs age faster.  [+1 linh điền plots, +40% herb growth]
+   4 Cổ Ngọc Tàn Hồn      An old jade pendant holds a remnant soul that guides you at each bình cảnh.  [+8 Ngộ tính, +6% breakthrough chance]
+   5 Thiên Đố Kỳ Duyên    Heaven's favour: more khí vận, and cơ duyên come twice as often.  [+15 Khí vận, +100% cơ duyên frequency]
+   6 Đan Tâm Thông Linh   A heart attuned to the cauldron: better luyện đan, stronger pills.  [+15% luyện đan success, +25% pill effect]
+   7 Thọ Nguyên Dư Dả     A long-lived bloodline: more years to reach the next realm.  [+20% thọ nguyên]
+   8 Linh Căn Thuần Tịnh  A pure root: every owned element is purer from birth, and you cultivate faster.  [+10% tu luyện speed, +8 purity on every root at birth]
+Pick 1-8 (Enter = cancel): 1
+Generating the world (seed 99)...
+A new world: 3 regions, 17 places, 7 sects, 5083 people, 245 recorded events (Thiên Nguyên lịch năm 300).
+Lôi Thử is born: Dual root: Fire [Hỏa] 86, Metal [Kim] 40 + Thunder [Lôi] 59
+Power Rankings: the player's panel (40 fights) and 508 coarse panels (3292 fights) rated at load.
+
+━━ Lôi Thử — Luyện Khí Sơ kỳ L1 (tầng 1) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Tuổi 16 / 120 · Xuất thân Tán tu · Tông môn — · Tự Định (casual)
+
+ ROOT [linh căn]  Dual root — curve row 2, now x0.60 vs a single root
+   Mộc  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thảo age faster in your field
+   Hỏa  ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▁▁▁  86 Cực phẩm luyện đan success and quality
+   Thổ  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          more linh điền plots
+   Kim  ▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁▁▁▁  40 Trung    linh thạch from missions and bounties
+   Thủy ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          đan độc fades faster
+   Thunder [Lôi] 59  (convergence)  +17.7% attack
+
+ THIÊN PHÚ
+   Ngộ tính  ▆▆▆▆▆▁▁▁▁▁  50 Trung        Căn cốt   ▆▆▆▆▆▁▁▁▁▁  50 Trung
+   Thần hồn  ▆▆▆▆▆▁▁▁▁▁  50 Trung        Khí vận   ▆▆▆▆▆▆▁▁▁▁  55 Trung
+   Đạo tâm   ▆▆▆▆▆▁▁▁▁▁  50 Trung        Mị lực    ▆▆▆▆▆▁▁▁▁▁  50 Trung
+
+ TRẠNG THÁI Linh lực 61 · Thần thức 50 · Khí huyết 500/500
+            Đan độc 0 (pills -0%) · Tâm ma 0 (backlash 0%) · Linh thạch 30
+ CÔNG PHÁP  Xích Diễm Công (layer 1/6)
+            tu vi 7.4 per season here ('explain rate')
+ ĐẠO NGHỆ   none yet (practice raises them)
+ CHIẾN LỰC  135 = offense 75 + defense 60 · extra slots 0/2 ('explain power')
+ ĐẠO ĐỒ  1 đạo văn open, 2 point(s) unspent ('tree')
+ THIÊN MỆNH Đạo Cốt Thiên Sinh — Born with Dao bones: every breakthrough comes easier.
+ 'explain <stat>' breaks down any number: rate, power, life, breakthrough, ngo_tinh, attack_pct …
+
+Bích Ba Trấn (l14) — Trấn, Lạc Hà Lĩnh. Linh khí 0.80, danger 1, bounties
+  Your động phủ is here.
+People here (286):
+  p109   Kỷ Tùng              Luyện Khí Sơ kỳ        Tán tu | power 51 | attitude 0
+  p110   Tô Uyển              Luyện Khí Đại viên mãn Tán tu | power 95 | attitude 0
+  p125   Âu Dương Minh        Luyện Khí Sơ kỳ        Tán tu | power 51 | attitude 0
+  p141   Triệu Uyển           Luyện Khí Đại viên mãn Tán tu | power 95 | attitude 0
+  p145   Thượng Quan Mộng     Luyện Khí Hậu kỳ       Tán tu | power 95 | attitude 0
+  p161   Chu Vân              Luyện Khí Sơ kỳ        Linh thực sư | power 51 | attitude 0
+  p165   Lạc Yên              Trúc Cơ Sơ kỳ          Đan sư | power 952 | attitude 0
+  p178   Lý Dật               Luyện Khí Sơ kỳ        Linh thực sư | power 51 | attitude 0
+  p229   Thượng Quan Thiên    Luyện Khí Hậu kỳ       Tán tu | power 95 | attitude 0
+  p242   Cung Kiếm            Luyện Khí Đại viên mãn Tán tu | power 95 | attitude 0
+  p245   Chu Quân             Luyện Khí Đại viên mãn Tán tu | power 95 | attitude 0
+  p254   Doãn Bách            Luyện Khí Đại viên mãn Tán tu | power 95 | attitude 0
+  p267   Đông Phương Bất Phàm Luyện Khí Sơ kỳ        Tán tu | power 26 | attitude 0
+  p270   Hàn Minh             Luyện Khí Hậu kỳ       Tán tu | power 105 | attitude 0
+  p281   Tô Tử Yên            Luyện Khí Đại viên mãn Kiếm tu | power 100 | attitude 0
+  ... 'db people l14' lists all
+Roads:
+  -> l13   Thanh Dương Sơn (1 season)
+  -> l15   Vạn Hoa Sơn (1 season)
+
+━━ Lôi Thử · Thiên Nguyên lịch năm 300, Xuân · Bích Ba Trấn ━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +7.4/season, next level in 1.5 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · power 27 · 2 Đạo Đồ pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Đạo Đồ point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Đạo Đồ point(s)
+  3 Plant something (plot 2 is empty)
+  4 Cultivate 1 year                     5 Closed-door 5 years
+  6 Explore Bích Ba Trấn                 7 Mission / bounty
+  8 Travel…                              9 Herb field
+ 10 Alchemy…                            11 Refine a pháp bảo…
+ 12 Draw talismans…                     13 Formations (trận pháp)
+ 14 Talk to someone… (286 here)         15 Character sheet
+ 16 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> sheet
+━━ Lôi Thử — Luyện Khí Sơ kỳ L1 (tầng 1) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Tuổi 16 / 120 · Xuất thân Tán tu · Tông môn — · Tự Định (casual)
+
+ ROOT [linh căn]  Dual root — curve row 2, now x0.60 vs a single root
+   Mộc  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thảo age faster in your field
+   Hỏa  ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▁▁▁  86 Cực phẩm luyện đan success and quality
+   Thổ  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          more linh điền plots
+   Kim  ▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁▁▁▁  40 Trung    linh thạch from missions and bounties
+   Thủy ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          đan độc fades faster
+   Thunder [Lôi] 59  (convergence)  +17.7% attack
+
+ THIÊN PHÚ
+   Ngộ tính  ▆▆▆▆▆▁▁▁▁▁  50 Trung        Căn cốt   ▆▆▆▆▆▁▁▁▁▁  50 Trung
+   Thần hồn  ▆▆▆▆▆▁▁▁▁▁  50 Trung        Khí vận   ▆▆▆▆▆▆▁▁▁▁  55 Trung
+   Đạo tâm   ▆▆▆▆▆▁▁▁▁▁  50 Trung        Mị lực    ▆▆▆▆▆▁▁▁▁▁  50 Trung
+
+ TRẠNG THÁI Linh lực 61 · Thần thức 50 · Khí huyết 500/500
+            Đan độc 0 (pills -0%) · Tâm ma 0 (backlash 0%) · Linh thạch 30
+ CÔNG PHÁP  Xích Diễm Công (layer 1/6)
+            tu vi 7.4 per season here ('explain rate')
+ ĐẠO NGHỆ   none yet (practice raises them)
+ CHIẾN LỰC  135 = offense 75 + defense 60 · extra slots 0/2 ('explain power')
+ ĐẠO ĐỒ  1 đạo văn open, 2 point(s) unspent ('tree')
+ THIÊN MỆNH Đạo Cốt Thiên Sinh — Born with Dao bones: every breakthrough comes easier.
+ 'explain <stat>' breaks down any number: rate, power, life, breakthrough, ngo_tinh, attack_pct …
+> new
+Tên (name) [Vô Danh]: Hỗn Thử
+Giới tính m/f [m]: f
+Xuất thân (origin):
+  1) Tán tu — Nobody. Free, poor, no sect obligations.
+  2) Đệ tử tông môn — Outer disciple of a generated sect: stipend, sect missions, a better công pháp.
+  3) Con cháu gia tộc — Minor clan heir: more linh thạch and a field already growing.
+Choose 1-3 [1]: 1
+World seed [795124449]: 99
+Birth mode: 1) Thiên Định — roll, achievements on   2) Tự Định — choose, casual  [1]: 2
+Tự Định: set each thiên phú 1-100 (enter = 50).
+  Ngộ tính (Comprehension: learning công pháp and how strong it is, đốn ngộ, discovering recipes, breaking bình cảnh): 50
+  Căn cốt (Physique: khí huyết, đan độc resistance, body cultivation): 50
+  Thần hồn (Soul strength: base of thần thức (artifact control, detection)): 50
+  Khí vận (Fortune: kỳ ngộ, rare finds, crafting crits, ceiling of LLM-invented rewards): 50
+  Đạo tâm (Dao heart: resists tâm ma, qi deviation and illusions): 50
+  Mị lực (Presence: NPC attitude, prices, what people will tell you): 50
+Root purities 10-100, e.g. 'hoa=80 moc=60 tho=40' (elements: kim moc thuy hoa tho).
+  purities: moc=60 hoa=50 tho=45 kim=70 thuy=55
+Variants you qualify for: phong huyet hu_khong (one or two elements), loi (hoa+kim), am (tho+thuy), hon_don (all five), quang (hoa), bang (thuy). Any you leave out never forms.
+  variant ids (blank = none): hon_don
+
+━━ Hỗn Thử — Tán tu ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ ROOT [linh căn]  Five-element root — curve row 5, now x0.30 vs a single root
+   Mộc  ▆▆▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁  60 Trung    linh thảo age faster in your field
+   Hỏa  ▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁▁  50 Trung    luyện đan success and quality
+   Thổ  ▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁▁▁  45 Trung    more linh điền plots
+   Kim  ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁  70 Thượng   linh thạch from missions and bounties
+   Thủy ▆▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁  55 Trung    đan độc fades faster
+   Primordial Chaos [Hỗn Độn] 55  (convergence)  +11% tu luyện speed, +3.3% breakthrough chance, +16.5% attack, +13.7% khí huyết
+
+ THIÊN PHÚ
+   Ngộ tính  ▆▆▆▆▆▁▁▁▁▁  50 Trung        Căn cốt   ▆▆▆▆▆▁▁▁▁▁  50 Trung
+   Thần hồn  ▆▆▆▆▆▁▁▁▁▁  50 Trung        Khí vận   ▆▆▆▆▆▆▁▁▁▁  55 Trung
+   Đạo tâm   ▆▆▆▆▆▁▁▁▁▁  50 Trung        Mị lực    ▆▆▆▆▆▁▁▁▁▁  50 Trung
+
+ Linh thạch 30 · more elements: slower now, much faster later
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Thiên mệnh — choose one:
+   1 Đạo Cốt Thiên Sinh   Born with Dao bones: every breakthrough comes easier.  [+12% breakthrough chance]
+   2 Bất Diệt Đạo Tâm     An unbreakable heart: a failed breakthrough costs no tu vi and half the tâm ma.  [failed breakthroughs cost no tu vi, half the tâm ma, +10 Đạo tâm]
+   3 Tổ Truyền Linh Điền  An ancestral spirit field: one more plot, herbs age faster.  [+1 linh điền plots, +40% herb growth]
+   4 Cổ Ngọc Tàn Hồn      An old jade pendant holds a remnant soul that guides you at each bình cảnh.  [+8 Ngộ tính, +6% breakthrough chance]
+   5 Thiên Đố Kỳ Duyên    Heaven's favour: more khí vận, and cơ duyên come twice as often.  [+15 Khí vận, +100% cơ duyên frequency]
+   6 Đan Tâm Thông Linh   A heart attuned to the cauldron: better luyện đan, stronger pills.  [+15% luyện đan success, +25% pill effect]
+   7 Thọ Nguyên Dư Dả     A long-lived bloodline: more years to reach the next realm.  [+20% thọ nguyên]
+   8 Linh Căn Thuần Tịnh  A pure root: every owned element is purer from birth, and you cultivate faster.  [+10% tu luyện speed, +8 purity on every root at birth]
+Pick 1-8 (Enter = cancel): 1
+Generating the world (seed 99)...
+A new world: 3 regions, 17 places, 7 sects, 5083 people, 245 recorded events (Thiên Nguyên lịch năm 300).
+Hỗn Thử is born: Five-element root: Wood [Mộc] 60, Fire [Hỏa] 50, Earth [Thổ] 45, Metal [Kim] 70, Water [Thủy] 55 + Primordial Chaos [Hỗn Độn] 55
+Power Rankings: the player's panel (40 fights) and 508 coarse panels (3292 fights) rated at load.
+
+━━ Hỗn Thử — Luyện Khí Sơ kỳ L1 (tầng 1) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Tuổi 16 / 120 · Xuất thân Tán tu · Tông môn — · Tự Định (casual)
+
+ ROOT [linh căn]  Five-element root — curve row 5, now x0.30 vs a single root
+   Mộc  ▆▆▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁  60 Trung    linh thảo age faster in your field
+   Hỏa  ▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁▁  50 Trung    luyện đan success and quality
+   Thổ  ▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁▁▁  45 Trung    more linh điền plots
+   Kim  ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁  70 Thượng   linh thạch from missions and bounties
+   Thủy ▆▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁  55 Trung    đan độc fades faster
+   Primordial Chaos [Hỗn Độn] 55  (convergence)  +11% tu luyện speed, +3.3% breakthrough chance, +16.5% attack, +13.7% khí huyết
+
+ THIÊN PHÚ
+   Ngộ tính  ▆▆▆▆▆▁▁▁▁▁  50 Trung        Căn cốt   ▆▆▆▆▆▁▁▁▁▁  50 Trung
+   Thần hồn  ▆▆▆▆▆▁▁▁▁▁  50 Trung        Khí vận   ▆▆▆▆▆▆▁▁▁▁  55 Trung
+   Đạo tâm   ▆▆▆▆▆▁▁▁▁▁  50 Trung        Mị lực    ▆▆▆▆▆▁▁▁▁▁  50 Trung
+
+ TRẠNG THÁI Linh lực 61 · Thần thức 50 · Khí huyết 569/569
+            Đan độc 0 (pills -0%) · Tâm ma 0 (backlash 0%) · Linh thạch 30
+ CÔNG PHÁP  Duệ Kim Công (layer 1/6)
+            tu vi 3.7 per season here ('explain rate')
+ ĐẠO NGHỆ   none yet (practice raises them)
+ CHIẾN LỰC  135 = offense 74 + defense 61 · extra slots 0/2 ('explain power')
+ ĐẠO ĐỒ  1 đạo văn open, 2 point(s) unspent ('tree')
+ THIÊN MỆNH Đạo Cốt Thiên Sinh — Born with Dao bones: every breakthrough comes easier.
+ 'explain <stat>' breaks down any number: rate, power, life, breakthrough, ngo_tinh, attack_pct …
+
+Bích Ba Trấn (l14) — Trấn, Lạc Hà Lĩnh. Linh khí 0.80, danger 1, bounties
+  Your động phủ is here.
+People here (286):
+  p109   Kỷ Tùng              Luyện Khí Sơ kỳ        Tán tu | power 51 | attitude 0
+  p110   Tô Uyển              Luyện Khí Đại viên mãn Tán tu | power 95 | attitude 0
+  p125   Âu Dương Minh        Luyện Khí Sơ kỳ        Tán tu | power 51 | attitude 0
+  p141   Triệu Uyển           Luyện Khí Đại viên mãn Tán tu | power 95 | attitude 0
+  p145   Thượng Quan Mộng     Luyện Khí Hậu kỳ       Tán tu | power 95 | attitude 0
+  p161   Chu Vân              Luyện Khí Sơ kỳ        Linh thực sư | power 51 | attitude 0
+  p165   Lạc Yên              Trúc Cơ Sơ kỳ          Đan sư | power 952 | attitude 0
+  p178   Lý Dật               Luyện Khí Sơ kỳ        Linh thực sư | power 51 | attitude 0
+  p229   Thượng Quan Thiên    Luyện Khí Hậu kỳ       Tán tu | power 95 | attitude 0
+  p242   Cung Kiếm            Luyện Khí Đại viên mãn Tán tu | power 95 | attitude 0
+  p245   Chu Quân             Luyện Khí Đại viên mãn Tán tu | power 95 | attitude 0
+  p254   Doãn Bách            Luyện Khí Đại viên mãn Tán tu | power 95 | attitude 0
+  p267   Đông Phương Bất Phàm Luyện Khí Sơ kỳ        Tán tu | power 26 | attitude 0
+  p270   Hàn Minh             Luyện Khí Hậu kỳ       Tán tu | power 105 | attitude 0
+  p281   Tô Tử Yên            Luyện Khí Đại viên mãn Kiếm tu | power 100 | attitude 0
+  ... 'db people l14' lists all
+Roads:
+  -> l13   Thanh Dương Sơn (1 season)
+  -> l15   Vạn Hoa Sơn (1 season)
+
+━━ Hỗn Thử · Thiên Nguyên lịch năm 300, Xuân · Bích Ba Trấn ━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +3.7/season, next level in 2.8 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · power 24 · 2 Đạo Đồ pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Đạo Đồ point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Đạo Đồ point(s)
+  3 Plant something (plot 2 is empty)
+  4 Cultivate 1 year                     5 Closed-door 5 years
+  6 Explore Bích Ba Trấn                 7 Mission / bounty
+  8 Travel…                              9 Herb field
+ 10 Alchemy…                            11 Refine a pháp bảo…
+ 12 Draw talismans…                     13 Formations (trận pháp)
+ 14 Talk to someone… (286 here)         15 Character sheet
+ 16 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> sheet
+━━ Hỗn Thử — Luyện Khí Sơ kỳ L1 (tầng 1) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Tuổi 16 / 120 · Xuất thân Tán tu · Tông môn — · Tự Định (casual)
+
+ ROOT [linh căn]  Five-element root — curve row 5, now x0.30 vs a single root
+   Mộc  ▆▆▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁  60 Trung    linh thảo age faster in your field
+   Hỏa  ▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁▁  50 Trung    luyện đan success and quality
+   Thổ  ▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁▁▁  45 Trung    more linh điền plots
+   Kim  ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁  70 Thượng   linh thạch from missions and bounties
+   Thủy ▆▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁  55 Trung    đan độc fades faster
+   Primordial Chaos [Hỗn Độn] 55  (convergence)  +11% tu luyện speed, +3.3% breakthrough chance, +16.5% attack, +13.7% khí huyết
+
+ THIÊN PHÚ
+   Ngộ tính  ▆▆▆▆▆▁▁▁▁▁  50 Trung        Căn cốt   ▆▆▆▆▆▁▁▁▁▁  50 Trung
+   Thần hồn  ▆▆▆▆▆▁▁▁▁▁  50 Trung        Khí vận   ▆▆▆▆▆▆▁▁▁▁  55 Trung
+   Đạo tâm   ▆▆▆▆▆▁▁▁▁▁  50 Trung        Mị lực    ▆▆▆▆▆▁▁▁▁▁  50 Trung
+
+ TRẠNG THÁI Linh lực 61 · Thần thức 50 · Khí huyết 569/569
+            Đan độc 0 (pills -0%) · Tâm ma 0 (backlash 0%) · Linh thạch 30
+ CÔNG PHÁP  Duệ Kim Công (layer 1/6)
+            tu vi 3.7 per season here ('explain rate')
+ ĐẠO NGHỆ   none yet (practice raises them)
+ CHIẾN LỰC  135 = offense 74 + defense 61 · extra slots 0/2 ('explain power')
+ ĐẠO ĐỒ  1 đạo văn open, 2 point(s) unspent ('tree')
+ THIÊN MỆNH Đạo Cốt Thiên Sinh — Born with Dao bones: every breakthrough comes easier.
+ 'explain <stat>' breaks down any number: rate, power, life, breakthrough, ngo_tinh, attack_pct …
+> (end of input)
