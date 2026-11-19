@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "_doc": "Đạo Đồ rule constants (design/gdd/dao-do.md Formulas, Parameter keys). The map itself is dao_do_map.json (ADR-0004), exported from the v5 frozen map. road_purity: purity one element-land road node grants (a border road half to each neighbour, a hub road to each of the five; rule 4). purity_price: W per purity point (Formulas A2), used to value roads. tree_breakthrough_k: scale of the tree's breakthrough curve k*ln(1+S/k) (Formulas F). cap_realm_min: realm index a capability notable needs (rule 16; 2 = Core Formation). chaos_gate_purity: every base element must be above it to enter the Chaos land without Primordial Chaos (rule 3). w_target: the per-point target in W (Formulas A2). start_targets: the authoring guide's targets from every start (Formulas B).",
+  "_doc": "Đạo Đồ rule constants (design/gdd/dao-do.md Formulas, Parameter keys). The map itself is dao_do_map.json (ADR-0004), exported from the v5 frozen map. road_purity: purity one element-land road node grants (a border road half to each neighbour, a hub road to each of the five; rule 4). purity_price: W per purity point (Formulas A2), used to value roads. tree_breakthrough_k: scale of the tree's breakthrough curve k*ln(1+S/k) (Formulas F). cap_realm_min: realm index a capability notable needs (rule 16; 2 = Core Formation). chaos_gate_purity: every base element must be above it to enter the Chaos land without Primordial Chaos (rule 3). w_target: the per-point target in W (Formulas A2). start_targets: the authoring guide's targets from every start (Formulas B). sword_bases: artifact bases that count as sword artifacts (Ten Thousand Swords Return).",
   "name": "Đạo Đồ",
   "road_purity": 0.5,
   "purity_price": 0.3,
@@ -8,5 +8,13 @@
   "cap_realm_min": 2,
   "chaos_gate_purity": 30,
   "w_target": 2.58,
-  "start_targets": {"first_notable_max": 5, "keystone_min": 6, "keystone_max": 13, "farthest_max": 110}
+  "start_targets": {
+    "first_notable_max": 5,
+    "keystone_min": 6,
+    "keystone_max": 13,
+    "farthest_max": 110
+  },
+  "sword_bases": [
+    "phi_kiem"
+  ]
 }

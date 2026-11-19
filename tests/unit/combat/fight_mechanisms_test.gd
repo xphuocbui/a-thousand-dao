@@ -337,7 +337,9 @@ func test_every_library_effect_compiles() -> void:
 		for cdef in lib[name].get("counters", []):
 			counters[str(cdef.id)] = cdef
 		for rec in lib[name].get("records", []):
-			c.compile(rec, name, counters)
+			var r: Dictionary = (rec as Dictionary).duplicate(true)
+			r.erase("fixed")   # a library marker for closings (the build compilers drop it), not an Effect field
+			c.compile(r, name, counters)
 		if c.errors.is_empty():
 			ok += 1
 		elif "; ".join(c.errors).contains("not ported yet"):
@@ -345,7 +347,8 @@ func test_every_library_effect_compiles() -> void:
 		else:
 			other.append("%s: %s" % [name, "; ".join(c.errors)])
 	assert_eq(other, [], "no library Effect fails for any reason but a later slice")
-	assert_eq(ok, 54, "all 54 library Effects compile from slice 4b on")
+	assert_eq(ok, lib.size(), "every library Effect compiles (54 item Effects from slice 4b, the Đạo Đồ's 55 since 2026-11-20)")
+	assert_eq(lib.size(), 109, "54 item Effects and the Đạo Đồ's 55")
 	assert_eq(later.size(), 0, "none waits for a later slice: %s" % str(later))
 
 

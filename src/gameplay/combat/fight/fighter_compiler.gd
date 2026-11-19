@@ -124,6 +124,7 @@ static func character_build_file(c: Character, gd: GameData, db: WorldDB, sheet:
 	var arts: Array = []
 	var wards: Array = []
 	var slots: int = int(lib.constants.slots_by_realm[r])
+	var control: Dictionary = CombatPower.controlled(c, gd, db, sheet)
 	for key in [c.main_tech, c.second_tech] + Array(c.aux_tech):
 		var e: Dictionary = c.techniques.get(str(key), {}) if str(key) != "" else {}
 		if e.is_empty() or not CongPhap.usable(c, e.def):   # rule 8: a technique the root cannot use gives nothing
@@ -136,7 +137,7 @@ static func character_build_file(c: Character, gd: GameData, db: WorldDB, sheet:
 			var aid: String = str(ab.get("ability_id", ""))
 			if int(e.layer) >= int(ab.get("unlock_layer", 1)) and lib.arts.has(aid) and arts.size() < slots 					and not arts.any(func(x): return x.lib == aid):
 				arts.append({"lib": aid})
-	for item_id in CombatPower.controlled(c, gd, db, sheet).used:
+	for item_id in control.used:
 		var rec: Dictionary = db.get_record("items", item_id)
 		var named: String = str(rec.get("named", ""))
 		if named != "":
@@ -193,7 +194,29 @@ static func character_build_file(c: Character, gd: GameData, db: WorldDB, sheet:
 		if to_engine.has(str(el)) and c.linh_can.purity(str(el)) > 0.0:
 			purity[to_engine[str(el)]] = c.linh_can.purity(str(el))
 	d["purity"] = purity
+	# the Đạo Đồ's held Effects (keystones, crown notables; ADR-0004 decision 3): their records run in the fight, their
+	# plain lines are already on the sheet; the counts some of them multiply by (empty_art_slots and art_elements the
+	# compiler counts itself)
+	var tree: DaoDoTree = DaoDoTree.load_map(gd)
+	var held: Array = tree.held_effects(c)
+	if not held.is_empty():
+		d["tree_effects"] = held
+		d["tree_lines_on_sheet"] = true
+		d["counts"] = tree_counts(c, gd, db, control)
 	return d
+
+
+## The build counts a held Đạo Đồ Effect may read (BuildFileCompiler.build_counts): empty extra item slots (Open Sky),
+## carried sword artifacts (Ten Thousand Swords Return: the `sword_bases` of dao_do_tree.json) and owned base elements
+## (Before Heaven).
+static func tree_counts(c: Character, gd: GameData, db: WorldDB, control: Dictionary) -> Dictionary:
+	var swords := 0
+	var bases: Array = gd.tree_config().get("sword_bases", [])
+	for item_id in control.get("used", []):
+		if str(db.get_record("items", item_id).get("base", "")) in bases:
+			swords += 1
+	return {"empty_extra_slots": maxi(0, int(control.get("limit", 0)) - int(control.get("extra_used", 0))),
+		"carried_sword": swords, "root_elements": c.linh_can.base_count()}
 
 
 ## A Character's pool sizes at engine realm [param r] (Combat Formulas A): {n_body, n_qi}, each

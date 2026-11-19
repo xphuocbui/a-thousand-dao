@@ -55,6 +55,7 @@ static func build(c: Character, gd: GameData, db: WorldDB, tree: DaoDoTree) -> S
 	if tree != null:
 		for m in tree.collect_mods(c, gd):
 			sheet.add_mod(m.source, m.stat, m.value, KIND_TREE, m.scope)
+		sheet._add_tree_effect_lines(c, tree)
 	ProgressionEdges.add_perk_mods(c, gd, sheet)
 	Formations.add_mods(c, gd, sheet)
 	# Physique and comprehension may be raised by anything above, so techniques come after them.
@@ -71,7 +72,32 @@ static func build(c: Character, gd: GameData, db: WorldDB, tree: DaoDoTree) -> S
 			for line in ItemStats.lines(art):
 				if not ARTIFACT_LOCAL_STATS.has(line.stat) and labels.has(line.stat) and not labels[line.stat].get("fight_only", false):
 					sheet.add_mod("Pháp bảo: %s" % art.get("name", "?"), line.stat, line.value, KIND_ITEM)
+	if tree != null:
+		sheet._add_tree_effect_from(c, tree)
 	return sheet
+
+
+## The plain lines of the Đạo Đồ Effects the character holds (their closings: maximum health -15 %, art speed -20 %;
+## combat_effects.json "lines"), under the source "Đạo Đồ: <Effect>". An Effect whose host is outside fights
+## (not_run) adds nothing. ADR-0004 decision 3.
+func _add_tree_effect_lines(c: Character, tree: DaoDoTree) -> void:
+	var lib: Dictionary = _gd.file("combat_effects").get("effects", {})
+	for name in tree.held_effects(c):
+		var e: Dictionary = lib.get(str(name).split(" (")[0], {})
+		if e.is_empty() or e.get("not_run"):
+			continue
+		for ln in e.get("lines", []):
+			add_mod("Đạo Đồ: %s" % name, str(ln.key), float(ln.value), KIND_TREE, Array(ln.get("scope", [])))
+
+
+## Lines computed from another stat after every other source (Hundred Refinements: half your artifact power counts as
+## attack; combat_effects.json "sheet_from").
+func _add_tree_effect_from(c: Character, tree: DaoDoTree) -> void:
+	var lib: Dictionary = _gd.file("combat_effects").get("effects", {})
+	for name in tree.held_effects(c):
+		var e: Dictionary = lib.get(str(name).split(" (")[0], {})
+		for f in e.get("sheet_from", []):
+			add_mod("Đạo Đồ: %s" % name, str(f.key), total(str(f.from)) * float(f.factor), KIND_TREE)
 
 
 ## Capabilities hosted by this sheet: #4 and #25 (rules 17-18).

@@ -1,16 +1,49 @@
 {
-  "_doc": "Engine forms of the Effects named Effects that items and techniques carry (design/items/catalogue-*.json, effects.md). fight.py adds an Effect's records when a build wears a piece naming it and the build file has not written its own 'eff:<Name>' records (a build's own version wins). Each entry: rule (the text it implements), records (engine Effects), optional static (lines folded into the build like item modifiers), reserve (share of linh luc reserved), count (compile-time multiplier: equipped items by role or by an art tag), approx (where the engine form is close but not exact), not_run (the rule needs a system the sim does not have). Units: dmg_more and cost_red are shares (0.15 = 15 %), L1-L5, crit, evade, healing, heal_taken and the other mods are points. Built 2026-11-13 from the hand-written forms in design/builds (harvested, conflicts resolved toward the rule text) plus new ones.",
+  "_doc": "Engine forms of the Effects named Effects that items and techniques carry (design/items/catalogue-*.json, effects.md). fight.py adds an Effect's records when a build wears a piece naming it and the build file has not written its own 'eff:<Name>' records (a build's own version wins). Each entry: rule (the text it implements), records (engine Effects), optional static (lines folded into the build like item modifiers), reserve (share of linh luc reserved), count (compile-time multiplier: equipped items by role or by an art tag), approx (where the engine form is close but not exact), not_run (the rule needs a system the sim does not have). Units: dmg_more and cost_red are shares (0.15 = 15 %), L1-L5, crit, evade, healing, heal_taken and the other mods are points. Built 2026-11-13 from the hand-written forms in design/builds (harvested, conflicts resolved toward the rule text) plus new ones. Đạo Đồ Effects (source \"Đạo Đồ\", 2026-11-20; written by tools/design/dao_do_rework/content/tree_effects.py, which explains their fields): a build file names them in tree_effects. Extra fields: lines (plain stat lines, the closing numbers), count {of, cap} by a build count, fixed records (closings, never counted), pool_more, stack_alias, no_ward, only_tag, sheet_from, pending, engine_choice.",
   "effects": {
+    "Ageless Pine": {
+      "rule": "Your Wood buff stacks never fall off during a fight. Closes: Fire resistance -25.",
+      "source": "Đạo Đồ",
+      "records": [{"id": "eff:Ageless Pine", "on": "buff_gained", "filter": {"element": "wood"}, "do": [{"refresh": {"el": "wood", "side": "own", "kind": "buff", "hold": true}}]}],
+      "lines": [{"key": "resist_pct", "value": -25, "scope": ["fire"]}]
+    },
+    "Alchemist's Heart": {
+      "rule": "The first pill you take in each fight counts twice. Closes: pill toxicity fades half as fast.",
+      "source": "Đạo Đồ",
+      "not_run": "pills are not taken inside fights yet (Alchemy: pill use in combat has no host)"
+    },
     "Armoury Count": {
       "rule": "Your hits deal 4 % more for each equipped weapon-base artifact you carry. Closes: your wards are 15 % weaker.",
       "count": {"role": "weapon"},
       "records": [{"id": "eff:Armoury Count", "on": "always", "do": [{"mod": {"dmg_more": 0.04}}]}],
       "static": [{"key": "defense_pct", "value": -15}]
     },
+    "Autumn Harvest": {
+      "rule": "Your crits refund the art's cost (3 firings a pulse). Closes: your linh lực regeneration is 0.",
+      "source": "Đạo Đồ",
+      "records": [
+        {"id": "eff:Autumn Harvest", "on": "crit", "filter": {"kind": "art"}, "limit": {"per_pulse": 3}, "do": [{"refund": {"share": 1.0}}]},
+        {"id": "eff:Autumn Harvest closes", "on": "always", "do": [{"mod": {"no_regen": 1}}], "fixed": true}
+      ]
+    },
     "Backflow": {
       "rule": "When you restore health with an art, you regain linh luc equal to 20 % of the health restored, at most 3 % of your maximum linh luc a pulse.",
       "records": [{"id": "eff:Backflow", "on": "heal_restored", "limit": {"per_pulse": 1}, "do": [{"gain_qi": {"of": "amount", "share": 0.2}}]}],
       "approx": "the 3 % a pulse cap is written as once a pulse; any heal counts, not only art heals"
+    },
+    "Bare Rack": {
+      "rule": "Your companion hits deal L5 +5 for each empty art slot, cap +20 (the basic-attack half is Pending). Closes (tree keystone): maximum health -15 %.",
+      "source": "Đạo Đồ",
+      "count": {"of": "empty_art_slots", "cap": 4},
+      "records": [{"id": "eff:Bare Rack", "on": "always", "do": [{"mod": {"L5": 5, "kind": "companion"}}]}],
+      "lines": [{"key": "khi_huyet_pct", "value": -15}],
+      "pending": "the [basic] half, until Combat adopts the basic tag (#43; re-review EF 24)"
+    },
+    "Before Heaven": {
+      "rule": "Your damage and resistance grow with the number of elements your root owns: L5 +4 and resistance +40 per owned element, cap 5 elements.",
+      "source": "Đạo Đồ",
+      "count": {"of": "root_elements", "cap": 5},
+      "records": [{"id": "eff:Before Heaven", "on": "always", "do": [{"mod": {"L5": 4, "resist": 40}}]}]
     },
     "Beneath Notice": {
       "rule": "Against an enemy of a higher realm, your escape is likelier.",
@@ -32,14 +65,57 @@
       "records": [{"id": "eff:Bought Fate", "on": "was_hit", "if": [{"read": "event.crit", "op": "==", "value": 1}], "limit": {"per_fight": 1}, "do": [{"heal": {"of": "amount", "share": 0.4}}]}],
       "approx": "the first crit taken is half undone by healing back 40 % of it (a crit's extra share at the default 1.5x is a third); stones are not in the sim"
     },
+    "Boundless Sea": {
+      "rule": "Your linh lực pool doubles but no longer regenerates on its own. Closes: linh lực on hit gives nothing.",
+      "source": "Đạo Đồ",
+      "pool_more": {"n_qi": 2.0},
+      "records": [
+        {"id": "eff:Boundless Sea", "on": "always", "do": [{"mod": {"no_regen": 1}}]},
+        {"id": "eff:Boundless Sea closes", "on": "always", "do": [{"mod": {"no_gain_on_hit": 1}}], "fixed": true}
+      ]
+    },
     "Brimming Cup": {
       "rule": "Linh luc lost to a full pool fills your Cup: you gain 1 Water buff stack for 8 s for every 5 % of maximum linh luc lost, at most 2 stacks a pulse.",
       "records": [{"id": "eff:Brimming Cup", "on": "overflow", "scale": {"read": "event.share", "per": 0.05, "cap": 2}, "do": [{"stacks": {"el": "water", "n": 1, "for": 8, "side": "own"}}]}],
       "approx": "each pulse's overflow counts on its own (a part under 5 % is lost, not carried)"
     },
+    "Burning Ground": {
+      "rule": "Your Earth arts leave burning ground: the foe gains 2 Burn stacks, once per art firing.",
+      "source": "Đạo Đồ",
+      "records": [{"id": "eff:Burning Ground", "on": "hit_landed", "filter": {"element": "earth", "kind": "art"}, "limit": {"per_firing": 1}, "do": [{"stacks": {"el": "fire", "n": 2, "for": 6, "side": "foe"}}]}]
+    },
+    "Burning Lifespan": {
+      "rule": "Once a fight, when your health first falls to 30 % or below, you burn years for 5 s of fury: L5 +40 on all hits and art speed +30 for 5 s. Closes: the result reports 2 % of your realm's base lifespan in years lost, win or lose.",
+      "source": "Đạo Đồ",
+      "counters": [{"id": "nhien_tho", "cap": 1}],
+      "records": [
+        {"id": "eff:Burning Lifespan was_hit", "on": "was_hit", "if": [{"read": "own.hp_share", "op": "<=", "value": 0.3}, {"read": "own.counter.nhien_tho", "op": "==", "value": 0}], "do": [{"counter": {"id": "nhien_tho", "add": 1}}, {"mod": {"L5": 40, "art_speed": 30, "for": 5}}]},
+        {"id": "eff:Burning Lifespan pulse", "on": "pulse", "if": [{"read": "own.hp_share", "op": "<=", "value": 0.3}, {"read": "own.counter.nhien_tho", "op": "==", "value": 0}], "do": [{"counter": {"id": "nhien_tho", "add": 1}}, {"mod": {"L5": 40, "art_speed": 30, "for": 5}}]}
+      ],
+      "pending": "the lifespan the fight burns: the fight result does not report years yet (Realms / Time & Turn host)"
+    },
+    "Called Blow": {
+      "rule": "Your crit chance is counted on a visible meter, not rolled (Effects Formulas A). Closes: crit chance cap 0.50 -> 0.35.",
+      "source": "Đạo Đồ",
+      "records": [
+        {"id": "eff:Called Blow", "on": "always", "do": [{"mod": {"counted_crit": 1}}]},
+        {"id": "eff:Called Blow closes", "on": "always", "do": [{"mod": {"crit_cap_to": 0.35}}], "fixed": true}
+      ]
+    },
     "Cold Feet": {
       "rule": "Your escape art's first firing comes at cooldown_min.",
       "not_run": "escape is not in the engine (deferred)"
+    },
+    "Dark of the Moon": {
+      "rule": "After you evade, your next hit crits (once per pulse).",
+      "source": "Đạo Đồ",
+      "records": [{"id": "eff:Dark of the Moon", "on": "evaded", "held": {"until": "hit_landed", "cap": 1}, "limit": {"per_pulse": 1}, "do": [{"mod": {"sure_crit": 1}}]}]
+    },
+    "Daybreak": {
+      "rule": "Your first Light hit each fight lays the foe bare (Exposed, 3 pulses).",
+      "source": "Đạo Đồ",
+      "records": [{"id": "eff:Daybreak", "on": "hit_landed", "filter": {"tags": ["light"]}, "limit": {"per_fight": 1}, "do": [{"status": {"id": "exposed", "dur": 3}}]}],
+      "engine_choice": "a Light hit is a hit of an art tagged light (no art in the library carries it yet)"
     },
     "Debt of Stone": {
       "rule": "When an art of yours is paid in health, you gain 1 Earth buff stack for 15 s for each 2 % of maximum health paid.",
@@ -49,7 +125,7 @@
       "rule": "Each time your Ice stacks on a target cross a multiple of 10, that target's art with the least time left is delayed by 1 s, once every 2 pulses. Closes: your arts cost 10 % more linh luc.",
       "records": [
         {"id": "eff:Deep Freeze", "on": "status_applied", "filter": {"element": "ice"}, "if": [{"read": "foe.debuff.ice", "op": ">=", "value": 10}], "limit": {"cooldown": 2}, "do": [{"timer": {"side": "foe", "which": "next", "by": 1.0}}]},
-        {"id": "eff:Deep Freeze (closes)", "on": "always", "do": [{"mod": {"cost_red": -0.10}}]}
+        {"id": "eff:Deep Freeze (closes)", "on": "always", "do": [{"mod": {"cost_red": -0.1}}]}
       ],
       "approx": "fires on any Ice grant at 10 or more stacks, once every 2 pulses, rather than exactly at each multiple of 10"
     },
@@ -63,6 +139,29 @@
       ],
       "counters": [{"id": "beat"}],
       "approx": "the Thunder stack lasts 8 s (the rule gives no length)"
+    },
+    "Earth Vein Tap": {
+      "rule": "While your own formation stands, linh lực regeneration +50 % increased; with none, none. Closes: no linh lực regeneration while no formation of yours stands.",
+      "source": "Đạo Đồ",
+      "not_run": "formations do not stand inside fights yet (Formations host)"
+    },
+    "Earthen Armour": {
+      "rule": "After 3 s without being hit, your body shield refills 10 % a pulse. Closes: maximum linh lực -20 %.",
+      "source": "Đạo Đồ",
+      "records": [{"id": "eff:Earthen Armour", "on": "pulse", "if": [{"read": "own.since_hit", "op": ">=", "value": 3}], "do": [{"shield": {"refill": 0.1}}]}],
+      "lines": [{"key": "linh_luc_pct", "value": -20}],
+      "engine_choice": "10 % of the starting bar a pulse, up to the starting bar"
+    },
+    "Ebb Tide": {
+      "rule": "The first time in a fight your linh lực falls below 30 %, restore 30 % of it. Closes: maximum linh lực -15 %.",
+      "source": "Đạo Đồ",
+      "counters": [{"id": "trieu_rut", "cap": 1}],
+      "records": [
+        {"id": "eff:Ebb Tide art_fired", "on": "art_fired", "if": [{"read": "own.qi_share", "op": "<", "value": 0.3}, {"read": "own.counter.trieu_rut", "op": "==", "value": 0}], "do": [{"gain_qi": {"share": 0.3}}, {"counter": {"id": "trieu_rut", "add": 1}}]},
+        {"id": "eff:Ebb Tide was_hit", "on": "was_hit", "if": [{"read": "own.qi_share", "op": "<", "value": 0.3}, {"read": "own.counter.trieu_rut", "op": "==", "value": 0}], "do": [{"gain_qi": {"share": 0.3}}, {"counter": {"id": "trieu_rut", "add": 1}}]}
+      ],
+      "lines": [{"key": "linh_luc_pct", "value": -15}],
+      "engine_choice": "checked after each art you fire and each hit you take"
     },
     "Echo": {
       "rule": "When one of your arts lands a hit, it has a 25 % chance to strike again for free: c_trig 0.5, same tags, once per firing, inside the trigger budget.",
@@ -85,6 +184,19 @@
       "records": [{"id": "eff:Embers Never Die", "on": "fight_start", "do": [{"protect": {"el": "fire", "swap_buff": true}}]}],
       "approx": "the closing is not run (no ward in the sim cleanses its wearer)"
     },
+    "Eruption": {
+      "rule": "Your costly Fire arts (cost share 10 % or more, the costly tag) deal L5 +15.",
+      "source": "Đạo Đồ",
+      "records": [{"id": "eff:Eruption", "on": "always", "do": [{"mod": {"L5": 15, "element": "fire", "tags": ["costly"]}}]}]
+    },
+    "Ever-Burning Furnace": {
+      "rule": "Every Burn stack your hits apply returns +0.2 pp of maximum linh lực (10 stacks a pulse). Closes: your linh lực regeneration is 0.",
+      "source": "Đạo Đồ",
+      "records": [
+        {"id": "eff:Ever-Burning Furnace", "on": "status_applied", "filter": {"element": "fire"}, "scale": {"read": "event.stacks", "per": 1, "floor": false}, "limit": {"scale_per_pulse": 10}, "do": [{"gain_qi": {"share": 0.002}}]},
+        {"id": "eff:Ever-Burning Furnace closes", "on": "always", "do": [{"mod": {"no_regen": 1}}], "fixed": true}
+      ]
+    },
     "Fan the Pyre": {
       "rule": "Each Fire hit you land refreshes the duration of every Burn batch you have on the target. Closes: your direct Fire hits deal 8 % less (softened from 15 %, user decision 2026-11-13).",
       "records": [
@@ -96,22 +208,115 @@
       "rule": "Once a fight, as you go Down, your longest-cooldown art fires at no cost (ties to the earlier slot).",
       "records": [{"id": "eff:Final Clause", "on": "down", "limit": {"per_fight": 1}, "do": [{"fire_art": {"which": "longest", "share": 1.0}}]}]
     },
+    "Fire Feeds Fire": {
+      "rule": "Your Burn stacks on the foe never fall off while you hit it at least once every 3 s. Closes: Water arts you slot deal 50 % less.",
+      "source": "Đạo Đồ",
+      "records": [
+        {"id": "eff:Fire Feeds Fire", "on": "hit_landed", "do": [{"refresh": {"el": "fire", "side": "foe", "kind": "debuff", "at_least": 3}}]},
+        {"id": "eff:Fire Feeds Fire closes", "on": "always", "do": [{"mod": {"dmg_more": -0.5, "element": "water", "kind": "art"}}], "fixed": true}
+      ],
+      "engine_choice": "each hit you land keeps every Burn batch of yours on the foe until at least 3 s later"
+    },
+    "Fire Lotus": {
+      "rule": "Your crits apply two more Burn stacks. Closes: crit damage -30 %.",
+      "source": "Đạo Đồ",
+      "records": [{"id": "eff:Fire Lotus", "on": "crit", "do": [{"stacks": {"el": "fire", "n": 2, "for": 6, "side": "foe"}}]}],
+      "lines": [{"key": "crit_damage_pct", "value": -30}],
+      "engine_choice": "the two stacks last 6 s, a typical Fire art's Burn batch"
+    },
     "First Stand": {
       "rule": "At the start of a fight, your body shield is already raised to 30 % of your maximum health. It does not refill.",
-      "records": [{"id": "eff:First Stand", "on": "fight_start", "do": [{"shield": {"body": 0.30}}]}]
+      "records": [{"id": "eff:First Stand", "on": "fight_start", "do": [{"shield": {"body": 0.3}}]}]
+    },
+    "First Thunder": {
+      "rule": "Your first art each fight fires at cooldown_min.",
+      "source": "Đạo Đồ",
+      "records": [{"id": "eff:First Thunder", "on": "fight_start", "do": [{"timer": {"side": "own", "which": "next", "by": -999}}]}]
+    },
+    "Flowing Water": {
+      "rule": "When you crit, your other arts' timers shorten by 0.5 s (3 firings a pulse). Closes (tree keystone): your art costs +40 %.",
+      "source": "Đạo Đồ",
+      "records": [
+        {"id": "eff:Flowing Water", "on": "crit", "limit": {"per_pulse": 3}, "do": [{"timer": {"side": "own", "which": "others", "by": -0.5}}]},
+        {"id": "eff:Flowing Water closes", "on": "always", "do": [{"mod": {"cost_red": -0.4}}], "fixed": true}
+      ]
+    },
+    "Frost Seal": {
+      "rule": "Your Ice stacks on the foe stop falling off once it holds 10 or more. Closes: Fire arts you slot deal 50 % less.",
+      "source": "Đạo Đồ",
+      "records": [
+        {"id": "eff:Frost Seal", "on": "status_applied", "filter": {"element": "ice"}, "if": [{"read": "foe.debuff.ice", "op": ">=", "value": 10}], "do": [{"refresh": {"el": "ice", "side": "foe", "kind": "debuff", "hold": true}}]},
+        {"id": "eff:Frost Seal closes", "on": "always", "do": [{"mod": {"dmg_more": -0.5, "element": "fire", "kind": "art"}}], "fixed": true}
+      ]
+    },
+    "Glass Meridians": {
+      "rule": "Your arts run far faster (art speed +40), on a fragile body. Closes: maximum health -25 %; your body shields hold half.",
+      "source": "Đạo Đồ",
+      "records": [{"id": "eff:Glass Meridians closes", "on": "always", "do": [{"mod": {"shield_hold": -0.5}}], "fixed": true}],
+      "lines": [
+        {"key": "art_speed_pct", "value": 40},
+        {"key": "khi_huyet_pct", "value": -25}
+      ]
     },
     "Grave-Silk Shroud": {
       "rule": "Corpse Rot is on the enemy from t = 0 without taking a slot. Closes: 15 % of maximum linh luc reserved for the fight.",
       "records": [{"id": "eff:Grave-Silk Shroud", "on": "fight_start", "do": [{"status": {"id": "corpse_rot", "side": "foe", "stacks": 1}}]}],
       "reserve": 0.15
     },
+    "Grinding Weight": {
+      "rule": "Your slow arts apply a stack of Slowed Time, once per art firing.",
+      "source": "Đạo Đồ",
+      "records": [{"id": "eff:Grinding Weight", "on": "hit_landed", "filter": {"kind": "art", "tags": ["slow"]}, "limit": {"per_firing": 1}, "do": [{"status": {"id": "slowed_time", "stacks": 1}}]}]
+    },
     "Gripping Root": {
       "rule": "When your Physical Wood hit lands, the target's art with the least time left is delayed by 0.5 s, once per 2 s.",
       "records": [{"id": "eff:Gripping Root", "on": "hit_landed", "filter": {"dtype": "phys", "element": "wood"}, "limit": {"cooldown": 2}, "do": [{"timer": {"side": "foe", "which": "next", "by": 0.5}}]}]
     },
+    "Heaven's Eye": {
+      "rule": "Your crits against an Exposed foe deal L5 +20 on that hit. Closes: your ward strength is 30 % lower.",
+      "source": "Đạo Đồ",
+      "records": [{"id": "eff:Heaven's Eye", "on": "always", "if": [{"read": "foe.status.exposed", "op": ">=", "value": 1}], "do": [{"mod": {"L5": 20, "is_crit": true}}]}],
+      "lines": [{"key": "defense_pct", "value": -30}]
+    },
+    "Heaven's Verdict": {
+      "rule": "Your slow Thunder arts deal L5 +20 against a foe below half health.",
+      "source": "Đạo Đồ",
+      "records": [{"id": "eff:Heaven's Verdict", "on": "always", "if": [{"read": "foe.hp_share", "op": "<", "value": 0.5}], "do": [{"mod": {"L5": 20, "element": "thunder", "tags": ["slow"]}}]}]
+    },
+    "Hidden Moon": {
+      "rule": "Your evade also counts as crit chance, point for point. Closes: your block and body shield count nothing; maximum health -20 %.",
+      "source": "Đạo Đồ",
+      "records": [
+        {"id": "eff:Hidden Moon", "on": "always", "scale": {"read": "own.evade", "per": 1, "floor": false}, "do": [{"mod": {"crit": 1}}]},
+        {"id": "eff:Hidden Moon closes", "on": "always", "do": [{"mod": {"no_block": 1}}, {"mod": {"no_body_shield": 1}}], "fixed": true}
+      ],
+      "lines": [{"key": "khi_huyet_pct", "value": -20}]
+    },
+    "Hundred Refinements": {
+      "rule": "Half your artifact power also counts as attack. Closes: art speed -20 %.",
+      "source": "Đạo Đồ",
+      "sheet_from": [{"key": "attack_pct", "from": "artifact_power_pct", "factor": 0.5}],
+      "lines": [{"key": "art_speed_pct", "value": -20}]
+    },
+    "Immovable Mountain": {
+      "rule": "Slowed Time and timer delays never land on you. Closes: art speed modifiers do nothing for you.",
+      "source": "Đạo Đồ",
+      "records": [
+        {"id": "eff:Immovable Mountain", "on": "always", "do": [{"mod": {"status_immune": 1, "status": "slowed_time"}}, {"mod": {"delay_immune": 1}}]},
+        {"id": "eff:Immovable Mountain closes", "on": "always", "do": [{"mod": {"speed_locked": 1}}], "fixed": true}
+      ]
+    },
     "Iron Skin Renewed": {
       "rule": "When you fire an art with a Physical part, your body shield regains 2 % of maximum health, once a pulse.",
       "records": [{"id": "eff:Iron Skin Renewed", "on": "art_fired", "filter": {"dtype": "phys"}, "limit": {"per_pulse": 1}, "do": [{"shield": {"body": 0.02}}]}]
+    },
+    "Keen Edge": {
+      "rule": "Your hits ignore the foe's block. Closes: your own block rating counts nothing.",
+      "source": "Đạo Đồ",
+      "records": [
+        {"id": "eff:Keen Edge", "on": "always", "do": [{"mod": {"ignore_block": 1}}]},
+        {"id": "eff:Keen Edge closes", "on": "always", "do": [{"mod": {"no_block": 1}}], "fixed": true}
+      ]
     },
     "Kindled Wound": {
       "rule": "Your Fire parts deal more to a target bearing your Burn: L5 +15, scope fire.",
@@ -123,6 +328,17 @@
         {"id": "eff:Lamp-Lit Reading", "on": "always", "scale": {"read": "foe.distinct_statuses", "per": 1, "cap": 5}, "do": [{"mod": {"foe_soul_res": -3}}]},
         {"id": "eff:Lamp-Lit Reading (closes)", "on": "always", "do": [{"mod": {"soul_res": -15}}]}
       ]
+    },
+    "Layered Earth": {
+      "rule": "Each hit you block raises your defence by 3 % until the fight ends, cap +30. Closes: your evade counts nothing.",
+      "source": "Đạo Đồ",
+      "counters": [{"id": "hau_tho", "cap": 10}],
+      "records": [
+        {"id": "eff:Layered Earth block", "on": "blocked", "do": [{"counter": {"id": "hau_tho", "add": 1}}]},
+        {"id": "eff:Layered Earth", "on": "always", "scale": {"read": "own.counter.hau_tho", "per": 1, "cap": 10}, "do": [{"mod": {"ward_pct": 3}}]},
+        {"id": "eff:Layered Earth closes", "on": "always", "do": [{"mod": {"no_evade": 1}}], "fixed": true}
+      ],
+      "engine_choice": "defence is ward strength, read live (ward_pct)"
     },
     "Lightning Drinker": {
       "rule": "When a Lightning part hits you, 20 % of the damage it deals after resistance returns as linh luc.",
@@ -137,13 +353,61 @@
       "rule": "Your hits deal more for each different status of yours on the target: L5 +4 each, cap +16.",
       "records": [{"id": "eff:Marked Prey", "on": "always", "scale": {"read": "foe.distinct_statuses", "per": 1, "cap": 4}, "do": [{"mod": {"L5": 4}}]}]
     },
+    "Metal Begets Water": {
+      "rule": "Each hit of a Metal art you land adds one Water buff stack to you. Closes: Wood arts you slot deal 50 % less.",
+      "source": "Đạo Đồ",
+      "records": [
+        {"id": "eff:Metal Begets Water", "on": "hit_landed", "filter": {"element": "metal", "kind": "art"}, "do": [{"stacks": {"el": "water", "n": 1, "for": 10, "side": "own"}}]},
+        {"id": "eff:Metal Begets Water closes", "on": "always", "do": [{"mod": {"dmg_more": -0.5, "element": "wood", "kind": "art"}}], "fixed": true}
+      ],
+      "engine_choice": "the stack lasts 10 s, a typical Water art's buff batch"
+    },
     "Moss Ledger": {
       "rule": "Poison stacks you lay cannot be cleansed for their first 4 s.",
       "records": [{"id": "eff:Moss Ledger", "on": "fight_start", "do": [{"protect": {"el": "wood", "for_first": 4}}]}]
     },
+    "Mountain's Weight": {
+      "rule": "Your hits deal L5 +4 for each 10 % of maximum health you hold above the foe's, cap +32. Closes: art speed -20 %.",
+      "source": "Đạo Đồ",
+      "records": [{"id": "eff:Mountain's Weight", "on": "always", "scale": {"read": "own.hp_max_lead", "per": 0.1, "cap": 8}, "do": [{"mod": {"L5": 4}}]}],
+      "lines": [{"key": "art_speed_pct", "value": -20}]
+    },
+    "Nirvana": {
+      "rule": "Once per fight, the blow that would kill you leaves you at 30 % health instead. Closes: healing taken -30 %.",
+      "source": "Đạo Đồ",
+      "records": [{"id": "eff:Nirvana", "on": "down", "limit": {"per_fight": 1}, "do": [{"refuse_down": {"hp_share": 0.3}}]}],
+      "lines": [{"key": "healing_taken_pct", "value": -30}]
+    },
+    "No Ward": {
+      "rule": "You can never use a ward, and your body hardens instead: body shield +25 %; after each pulse in which no hit reached your health, the body shield regains 2 % of maximum health. Closes: no ward of any kind.",
+      "source": "Đạo Đồ",
+      "no_ward": true,
+      "lines": [{"key": "body_shield_pct", "value": 25}],
+      "counters": [{"id": "vo_ho"}],
+      "records": [
+        {"id": "eff:No Ward hit", "on": "was_hit", "if": [{"read": "event.amount", "op": ">", "value": 0}], "do": [{"counter": {"id": "vo_ho", "set": 1}}]},
+        {"id": "eff:No Ward regain", "on": "pulse", "if": [{"read": "own.counter.vo_ho", "op": "==", "value": 0}], "do": [{"shield": {"body": 0.02}}]},
+        {"id": "eff:No Ward reset", "on": "pulse", "do": [{"counter": {"id": "vo_ho", "set": 0}}]}
+      ]
+    },
+    "Open Sky": {
+      "rule": "Your wards are 5 % stronger for each extra item slot you leave empty. Closes (tree keystone): artifact power -30 %.",
+      "source": "Đạo Đồ",
+      "count": {"of": "empty_extra_slots"},
+      "records": [{"id": "eff:Open Sky", "on": "always", "do": [{"mod": {"ward_pct": 5}}]}],
+      "lines": [{"key": "artifact_power_pct", "value": -30}]
+    },
     "Opening Cut": {
       "rule": "When a Physical hit of yours crits, it applies one Bleed stack, once per hit.",
       "records": [{"id": "eff:Opening Cut", "on": "crit", "filter": {"dtype": "phys"}, "do": [{"status": {"id": "bleed", "side": "foe", "stacks": 1}}]}]
+    },
+    "Overheat": {
+      "rule": "Art speed that cooldown_min clips on an art becomes L5 on that art, point for point, cap +30. Closes (tree keystone): your art costs +35 %.",
+      "source": "Đạo Đồ",
+      "records": [
+        {"id": "eff:Overheat", "on": "always", "do": [{"mod": {"overheat": 30}}]},
+        {"id": "eff:Overheat closes", "on": "always", "do": [{"mod": {"cost_red": -0.35}}], "fixed": true}
+      ]
     },
     "Owed Water": {
       "rule": "When your linh luc falls to 20 % of maximum or below, you regain 15 % of your maximum linh luc over the next 5 s. Once every 20 s.",
@@ -180,9 +444,30 @@
       "records": [{"id": "eff:Plucked Time", "on": "soul_hit", "filter": {"tags": ["song"]}, "limit": {"cooldown": 1}, "do": [{"timer": {"side": "foe", "which": "next", "by": 0.4}}]}],
       "approx": "the closing is not run (a filter cannot say 'neither soul nor song')"
     },
+    "Reflection": {
+      "rule": "After you evade, your next art deals L5 +15, once per evade.",
+      "source": "Đạo Đồ",
+      "records": [{"id": "eff:Reflection", "on": "evaded", "held": {"until": "art_fired", "cap": 1}, "do": [{"mod": {"L5": 15, "kind": "art"}}]}]
+    },
+    "Returning Wave": {
+      "rule": "The first hit you take in each fight does you no harm and strikes the foe instead, at full damage. Closes: maximum health -15 %.",
+      "source": "Đạo Đồ",
+      "records": [{"id": "eff:Returning Wave", "on": "always", "do": [{"mod": {"reflect_first": 1}}]}],
+      "lines": [{"key": "khi_huyet_pct", "value": -15}],
+      "engine_choice": "the hit's damage before your defence strikes the foe through its defence"
+    },
     "Rime Lock": {
       "rule": "When your Ice stacks on a target reach 10, that target's art with the least time left is delayed by 1 s, once per 4 pulses per target.",
       "records": [{"id": "eff:Rime Lock", "on": "status_applied", "filter": {"element": "ice"}, "if": [{"read": "foe.debuff.ice", "op": ">=", "value": 10}], "limit": {"cooldown": 4}, "do": [{"timer": {"side": "foe", "which": "next", "by": 1.0}}]}]
+    },
+    "Rising Tide": {
+      "rule": "While your linh lực is above half, your Water stacks count double. Closes: while it is below half, your Water stacks do nothing.",
+      "source": "Đạo Đồ",
+      "records": [
+        {"id": "eff:Rising Tide", "on": "always", "if": [{"read": "own.qi_share", "op": ">", "value": 0.5}], "do": [{"mod": {"stack_more": 1.0, "element": "water"}}]},
+        {"id": "eff:Rising Tide closes", "on": "always", "if": [{"read": "own.qi_share", "op": "<", "value": 0.5}], "do": [{"mod": {"stack_more": -1.0, "element": "water"}}], "fixed": true}
+      ],
+      "engine_choice": "your own Water buff stacks; the half reads linh lực without the stacks' own pool bonus"
     },
     "Sap Rises": {
       "rule": "Each Wood buff stack you hold adds 1 % healing, up to 20 %.",
@@ -197,7 +482,7 @@
       "rule": "You begin every fight with 8 Water buff stacks that last the whole fight. Closes: your arts cost 10 % more linh luc.",
       "records": [
         {"id": "eff:Sea Already Deep", "on": "fight_start", "do": [{"stacks": {"el": "water", "n": 8, "side": "own"}}]},
-        {"id": "eff:Sea Already Deep cost", "on": "always", "do": [{"mod": {"cost_red": -0.10}}]}
+        {"id": "eff:Sea Already Deep cost", "on": "always", "do": [{"mod": {"cost_red": -0.1}}]}
       ]
     },
     "Seal of Full Payment": {
@@ -216,14 +501,42 @@
       "rule": "Your ticks also burn the target's linh luc, 25 % of the damage each deals after resistance.",
       "records": [{"id": "eff:Spillover", "on": "tick_dealt", "do": [{"burn_qi": {"of": "amount", "share": 0.25}}]}]
     },
+    "Spirit Garden": {
+      "rule": "Herbs in your spirit fields ripen a season sooner. Closes: you can keep at most one spirit beast.",
+      "source": "Đạo Đồ",
+      "not_run": "spirit fields and seasons are outside fights (Spirit Herbs & Spirit Fields host); its closing waits with it"
+    },
     "Steady Breath": {
       "rule": "While your linh luc is at 50 % or above, arts in this piece's scope deal more: L5 +12, scope set by the host.",
       "records": [{"id": "eff:Steady Breath", "on": "always", "if": [{"read": "own.qi_share", "op": ">=", "value": 0.5}], "do": [{"mod": {"L5": 12}}]}],
       "approx": "unscoped here; a build whose host sets a scope writes its own record"
     },
+    "Still Water": {
+      "rule": "Linh lực lost to a full pool restores health at half that amount. Closes (tree keystone): healing taken from every other source -50 %.",
+      "source": "Đạo Đồ",
+      "records": [{"id": "eff:Still Water", "on": "overflow", "do": [{"heal": {"of": "amount", "share": 0.5, "ignore_taken": true}}]}],
+      "lines": [{"key": "healing_taken_pct", "value": -50}]
+    },
     "Stone Answers": {
       "rule": "When your body shield or a ward stops damage, you strike back with a free Physical hit worth 25 % of the damage stopped, at most 6 % of your maximum health per pulse.",
       "not_run": "a free hit sized by damage stopped needs a hit by amount, which the engine's free_hit (a coefficient) does not take"
+    },
+    "Strangling Vines": {
+      "rule": "Each time the foe reaches 5 Wood debuff stacks, it is Slowed Time for 1 s (once per 6 s). Closes: art speed -15 %.",
+      "source": "Đạo Đồ",
+      "records": [{"id": "eff:Strangling Vines", "on": "status_applied", "filter": {"element": "wood"}, "limit": {"cooldown": 6}, "if": [{"read": "foe.debuff.wood", "op": ">=", "value": 5}], "do": [{"status": {"id": "slowed_time", "stacks": 1, "dur": 1}}]}],
+      "lines": [{"key": "art_speed_pct", "value": -15}]
+    },
+    "Sun That Never Sets": {
+      "rule": "Each season you cultivate, you also gain 1 point of đạo tâm (+10 per realm). Closes: you can never conceal yourself; heart-demon resistance -30 %.",
+      "source": "Đạo Đồ",
+      "not_run": "seasons and đạo tâm are outside fights (Cultivation / Time & Turn host); its closings wait with it"
+    },
+    "Sun and Rain": {
+      "rule": "Your health regeneration also restores linh lực, at half the amount (as a share of each pool). Closes: maximum linh lực -30 %.",
+      "source": "Đạo Đồ",
+      "records": [{"id": "eff:Sun and Rain", "on": "heal_restored", "filter": {"source": "regen"}, "scale": {"read": "event.share", "per": 1, "floor": false}, "do": [{"gain_qi": {"share": 0.5}}]}],
+      "lines": [{"key": "linh_luc_pct", "value": -30}]
     },
     "Sword Chorus": {
       "rule": "Your sword artifact arts deal 6 % more for each other equipped artifact that gives you a sword art, with no cap. Closes: your arts that are not sword arts deal 15 % less.",
@@ -231,9 +544,49 @@
       "records": [{"id": "eff:Sword Chorus", "on": "always", "do": [{"mod": {"dmg_more": 0.06, "tags": ["sword"]}}]}],
       "approx": "applies to every sword art, not only artifact ones; the closing is not run (a filter cannot say 'not sword')"
     },
+    "Ten Thousand Poisons": {
+      "rule": "Your Poison batches last until the fight ends. Closes: your hits deal 25 % less.",
+      "source": "Đạo Đồ",
+      "records": [
+        {"id": "eff:Ten Thousand Poisons", "on": "status_applied", "filter": {"element": "wood"}, "do": [{"refresh": {"el": "wood", "side": "foe", "kind": "debuff", "hold": true}}]},
+        {"id": "eff:Ten Thousand Poisons closes", "on": "always", "do": [{"mod": {"dmg_more": -0.25}}], "fixed": true}
+      ]
+    },
+    "Ten Thousand Swords Return": {
+      "rule": "Your sword arts deal L5 +8 for each sword artifact you carry, cap +32. Closes: only arts with the sword tag may be slotted; your wards are 30 % weaker.",
+      "source": "Đạo Đồ",
+      "count": {"of": "carried_sword", "cap": 4},
+      "only_tag": "sword",
+      "records": [{"id": "eff:Ten Thousand Swords Return", "on": "always", "do": [{"mod": {"L5": 8, "tags": ["sword"]}}]}],
+      "lines": [{"key": "defense_pct", "value": -30}]
+    },
+    "Thorns": {
+      "rule": "A blocked hit returns 30 % of the blocked amount to the attacker as physical damage, once per pulse.",
+      "source": "Đạo Đồ",
+      "records": [{"id": "eff:Thorns", "on": "blocked", "limit": {"per_pulse": 1}, "do": [{"return_damage": {"share": 0.3, "dtype": "phys"}}]}],
+      "engine_choice": "the returned damage meets the attacker's defence"
+    },
+    "Thousand Talismans": {
+      "rule": "The talismans you draw before a fight cost no stock for their first two uses. Closes: arts that are not talismans deal 30 % less.",
+      "source": "Đạo Đồ",
+      "records": [{"id": "eff:Thousand Talismans closes", "on": "always", "do": [{"mod": {"dmg_more": -0.3, "kind": "art", "not_tags": ["talisman"]}}], "fixed": true}],
+      "pending": "talisman stock: the rule switches on with the Talismans GDD (the closing runs now)"
+    },
+    "Tide": {
+      "rule": "Your Water damage rises and falls in a 6-pulse cycle: L5 +0 to +20.",
+      "source": "Đạo Đồ",
+      "records": [
+        {"id": "eff:Tide phase 1", "on": "always", "if": [{"read": "cycle.6", "op": "==", "value": 1}], "do": [{"mod": {"L5": 6.67, "element": "water"}}]},
+        {"id": "eff:Tide phase 2", "on": "always", "if": [{"read": "cycle.6", "op": "==", "value": 2}], "do": [{"mod": {"L5": 13.33, "element": "water"}}]},
+        {"id": "eff:Tide phase 3", "on": "always", "if": [{"read": "cycle.6", "op": "==", "value": 3}], "do": [{"mod": {"L5": 20.0, "element": "water"}}]},
+        {"id": "eff:Tide phase 4", "on": "always", "if": [{"read": "cycle.6", "op": "==", "value": 4}], "do": [{"mod": {"L5": 13.33, "element": "water"}}]},
+        {"id": "eff:Tide phase 5", "on": "always", "if": [{"read": "cycle.6", "op": "==", "value": 5}], "do": [{"mod": {"L5": 6.67, "element": "water"}}]}
+      ],
+      "engine_choice": "a triangle over 6 pulses: 0, 6.67, 13.33, 20, 13.33, 6.67"
+    },
     "Toll Taker": {
       "rule": "When the enemy pays art cost that your Ice stacks added, you restore linh luc equal to 10 % of that extra cost.",
-      "records": [{"id": "eff:Toll Taker", "on": "foe_cost_extra", "do": [{"gain_qi": {"of": "amount", "share": 0.10}}]}]
+      "records": [{"id": "eff:Toll Taker", "on": "foe_cost_extra", "do": [{"gain_qi": {"of": "amount", "share": 0.1}}]}]
     },
     "Unmaking Glass": {
       "rule": "Each hit you land strips 1 buff stack from the target, from its largest pile, at most once a pulse; each stack stripped counts as a status you landed. Closes: your own buff stacks last 25 % shorter.",
@@ -247,10 +600,38 @@
         {"id": "eff:Unmoved Stance (closes)", "on": "always", "if": [{"read": "own.state.any", "op": ">=", "value": 1}], "do": [{"mod": {"evade": -1000}}]}
       ]
     },
+    "Unyielding Breath": {
+      "rule": "Once a fight, a blow that would put you Down leaves you at 1 health. Closes: maximum health -15 %.",
+      "source": "Đạo Đồ",
+      "records": [{"id": "eff:Unyielding Breath", "on": "down", "limit": {"per_fight": 1}, "do": [{"refuse_down": {}}]}],
+      "lines": [{"key": "khi_huyet_pct", "value": -15}]
+    },
+    "Utmost Yang": {
+      "rule": "Your hits deal L5 +6 for each different base element among your slotted arts, cap +30. Closes: your wards are 30 % weaker.",
+      "source": "Đạo Đồ",
+      "count": {"of": "art_elements", "cap": 5},
+      "records": [{"id": "eff:Utmost Yang", "on": "always", "do": [{"mod": {"L5": 6}}]}],
+      "lines": [{"key": "defense_pct", "value": -30}]
+    },
+    "Utmost Yin": {
+      "rule": "You resist 6 more for each different base element among your slotted arts, cap +30. Closes: your hits deal 20 % less.",
+      "source": "Đạo Đồ",
+      "count": {"of": "art_elements", "cap": 5},
+      "records": [
+        {"id": "eff:Utmost Yin", "on": "always", "do": [{"mod": {"resist": 6}}]},
+        {"id": "eff:Utmost Yin closes", "on": "always", "do": [{"mod": {"dmg_more": -0.2}}], "fixed": true}
+      ]
+    },
     "Verdict Stands": {
       "rule": "Your Thunder debuff stacks on a Slowed target cannot expire. Closes: Thunder stacks you lay on a foe that is not Slowed last 25 % shorter.",
       "records": [{"id": "eff:Verdict Stands", "on": "status_applied", "if": [{"read": "foe.status.slowed_time", "op": ">=", "value": 1}], "do": [{"refresh": {"el": "thunder", "side": "foe", "kind": "debuff", "hold": true}}]}],
       "approx": "held from the first status landed while Slowed; the closing is not run"
+    },
+    "Water Begets Wood": {
+      "rule": "Your Water buff stacks also count as Wood buff stacks. Closes: Earth arts you slot deal 50 % less.",
+      "source": "Đạo Đồ",
+      "stack_alias": {"water": ["wood"]},
+      "records": [{"id": "eff:Water Begets Wood closes", "on": "always", "do": [{"mod": {"dmg_more": -0.5, "element": "earth", "kind": "art"}}], "fixed": true}]
     },
     "Water Table": {
       "rule": "You gain 30 % of the linh luc the enemy's drain wards pay against your hits. Closes: your linh luc never regenerates in fights.",
@@ -267,9 +648,20 @@
       "rule": "Art costs you pay in health are halved. Closes: you can never heal above 80 % of your maximum health.",
       "records": [{"id": "eff:Whetstone Vow", "on": "always", "do": [{"mod": {"hp_cost_red": 0.5, "heal_cap": 0.8}}]}]
     },
+    "Wildfire": {
+      "rule": "When one of your Burn batches runs out, half its stacks rekindle as a new batch for 2 pulses, once per batch.",
+      "source": "Đạo Đồ",
+      "records": [{"id": "eff:Wildfire", "on": "batch_ended", "filter": {"element": "fire", "kind": "debuff"}, "scale": {"read": "event.stacks", "per": 2, "floor": false}, "if": [{"read": "event.rekindled", "op": "==", "value": 0}], "do": [{"stacks": {"el": "fire", "n": 1, "for": 2, "side": "foe", "mark": "rekindled"}}]}]
+    },
     "Wind at Your Back": {
       "rule": "When you evade, you gain 1 Wind buff stack for 4 s, at most 2 a pulse.",
       "records": [{"id": "eff:Wind at Your Back", "on": "evaded", "limit": {"per_pulse": 2}, "do": [{"stacks": {"el": "wind", "n": 1, "for": 4, "side": "own"}}]}]
+    },
+    "Wood Begets Fire": {
+      "rule": "Your Wood buff stacks also count as Fire buff stacks. Closes: Metal arts you slot deal 50 % less.",
+      "source": "Đạo Đồ",
+      "stack_alias": {"wood": ["fire"]},
+      "records": [{"id": "eff:Wood Begets Fire closes", "on": "always", "do": [{"mod": {"dmg_more": -0.5, "element": "metal", "kind": "art"}}], "fixed": true}]
     }
   }
 }
