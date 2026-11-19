@@ -19,7 +19,22 @@ The only deliberate change after the freeze. Every node of the hub and Chaos reg
 reachable only through them (Fire ribbon clusters 9139 and 9140; Earth and Water clusters 9271, 9272, 9548 and 9549),
 carries `"gate": "chaos"` (815 nodes; Đạo Đồ rules 3 and 4: gated nodes scale as Chaos land). Two Fire road nodes
 (8998, 8999) were added for an hour the same day and removed again by the user's decision, so the graph itself is
-unchanged: still **8,038 nodes**, 751 road, no id, position or edge changed. Checksums below were refreshed.
+unchanged by the gate: no id, position or edge changed. Checksums below were refreshed.
+
+## Amendment 2026-11-19: nine keystones near the starts (user decision)
+
+"Add more keystones please, but don't move anything else": nine keystone nodes were added by hand, each with one link
+to an existing node, so every start has a keystone 6–10 points away (Đạo Đồ Formulas B). Nothing else moved and no
+existing node's content changed (verified by rebuilding every area against the previous compile).
+
+| Id | Name | Placed | Linked to |
+|---|---|---|---|
+| 8998-9002 | `c901`-`c905 keystone_start` | the centre of the hexagon on each element land's axis (Fire, Earth, Metal, Water, Wood) | the hexagon's inner node (1425, 1431, 1437, 1443, 1449) |
+| 9003, 9004 | `c904 keystone_tide_a`, `_b` | a mirrored pair across Water's axis near the Water start | roads 1782, 1776 |
+| 9005, 9006 | `c79 keystone_yang`, `_yin` | point-symmetric gaps in the Chaos swirl (gated with it) | arm nodes 8199, 8254 |
+
+The map now has **8,047 nodes** (33 keystones, 817 gated). Ids 8998 and 8999 were used for an hour earlier that day by
+two Fire road nodes that were removed; they now name keystones.
 
 ## What changed from v4 (`../v4-frozen-2026-11-19/`)
 

@@ -8,7 +8,7 @@
 > still describe the old generated map and say so. Earlier history: `reviews/dao-do-review-log.md`.
 > **The map is a shape placeholder** (user, 2026-11-10): the drawn tree's layout, regions, sizes and distances stand in
 > for the real map and will change further, as will its content. The rules here (points, opening, purity scaling,
-> roads granting purity, capabilities, starts, the drawing checks) are the design; the measured numbers (7,276
+> roads granting purity, capabilities, starts, the drawing checks) are the design; the measured numbers (7,285
 > Dao marks on the v5 frozen map, region sizes, distances in Formulas B and H) describe today's placeholder and are re-measured whenever the
 > map changes.
 > **Renamed 2026-11-18** (user): formerly Meridian Map (Kinh Mạch Đồ), file `kinh-mach-do.md`. Terms renamed with it:
@@ -100,15 +100,16 @@ are named parameters; their values and ranges are in Formulas.
 
      | Region | What it is | Dao marks |
      |---|---|---|
-     | Five element lands | Metal, Wood, Water, Fire, Earth, each spanning 72° from border to border, drawn cell by cell with ring roads, a second element theme and 4 keystones each | Wood 1,070, Metal 983, Fire 968, Earth 961, Water 951 (4,933) |
+     | Five element lands | Metal, Wood, Water, Fire, Earth, each spanning 72° from border to border, drawn cell by cell with ring roads, a second element theme and 5 keystones each (Water 7), one of them in the hexagon on the land's axis about 9 points from its start (added 2026-11-19) | Wood 1,071, Metal 984, Fire 969, Earth 962, Water 954 (4,940) |
      | Five border lines | Where two lands meet: the border road (76 road nodes, each granting half of each neighbour's purity), the border combos and emblems split across it, and the Wind start's figure (their Dao marks use the average of both lands' multipliers) | 119 |
-     | The Taiji hub | The centre: the Primordial Chaos start and its 30 Source roads, each granting `road_purity` to all five elements; exact (rule 4) | 10 |
+     | The Taiji hub | The centre: the Primordial Chaos start and its 30 Source roads, each granting `road_purity` to all five elements; exact (rule 4); the yang and yin keystones in the swirl's gaps, 9 and 10 points out (added 2026-11-19) | 12 |
      | The Chaos land | The purple swirl round the hub and its element motifs reaching into each land, plus six element pieces reachable only through it (two Fire ribbons, four small Earth and Water clusters); gated (rule 3), scales by Chaos purity (rule 4). With the hub it is the 815 nodes tagged `gate: chaos` | 774 |
      | The Wind and Ice starts | The Wind start sits on the Water–Wood border; the Ice start inside Water's land | counted in their regions |
      | Islands | Light, Darkness and Thunder outside the outer ring, joined by bridges (Thunder only to the Wind border); the Shadow Shrine (Ám Từ), a satellite on the shadow road (kept, user decision 2026-11-10); 4 keystones in all | Light 513, Darkness 489 (with the Shrine), Thunder 438 (1,440) |
 
-   - **Pieces:** 11 starts, 751 road (travel) nodes, 5,493 small Dao marks, 1,759 notables and 24 keystones, in
-     887 clusters: 7,276 visible Dao marks (8,038 nodes).
+   - **Pieces:** 11 starts, 751 road (travel) nodes, 5,493 small Dao marks, 1,759 notables and 33 keystones, in
+     896 clusters: 7,285 visible Dao marks (8,047 nodes; nine keystones added near the starts on 2026-11-19, nothing
+     else moved).
    - **Grammar** (the authoring guide's rules): roads of travel nodes carry the clusters; a cluster joins a road at
      its nearest node; a notable comes after two or three small Dao marks (none only for hubs); a road node carries
      two or three clusters, one of them big toward the rim; every road that passes a cluster leaves a way around it;
@@ -167,7 +168,7 @@ are named parameters; their values and ranges are in Formulas.
      Darkness, Thunder, Ice or Wind start for that variant. A single-element root without variants has one choice.
      The start is owned at once and costs nothing. An NPC takes the start of its highest-purity element, ties broken
      in generating-cycle order (Wood, Fire, Earth, Metal, Water).
-   - **The Chaos land gate** (user decision 2026-11-19). The Chaos land, the 815 Dao marks and roads the map tags
+   - **The Chaos land gate** (user decision 2026-11-19). The Chaos land, the 817 Dao marks and roads the map tags
      `gate: chaos` (the Taiji hub, the Chaos region's swirl and element motifs, and six element pieces reachable only
      through it: two Fire ribbons inside its flame motif and four small Earth and Water clusters off its ring), can be
      opened only by a root that **holds Primordial Chaos** or whose **five
@@ -303,7 +304,7 @@ are named parameters; their values and ranges are in Formulas.
     and runs rule 1's drawing checks.
 
 **What the player cannot do:** refund or respec; start at a start its root does not hold; open a capability notable
-below Core Formation; open a Chaos-land node (815, the six pieces off it included) without Primordial Chaos or all five base elements above
+below Core Formation; open a Chaos-land node (817, the six pieces off it included) without Primordial Chaos or all five base elements above
 30 purity.
 
 ### States and Transitions
@@ -438,16 +439,15 @@ differs):
 
 | Start | First notable | Nearest keystone | Keystones within 20 | Dao marks within 9 | Farthest |
 |---|---|---|---|---|---|
-| Metal, Wood, Fire, Earth, Water | 2–3 | 21–22 | 0 | 40–59 (40–66) | 74–97 (74–94) |
-| Primordial Chaos (hub) | 2 | 31 | 0 | 80 | 83 |
-| Ice | 3 | 17 | 3 | 108 | 67 |
-| Wind | 2 | 10 | 5 | 84 | 71 |
-| Light, Darkness, Thunder (islands) | 2–3 | 8–9 | 1–4 | 40–127 | 83–105 |
+| Metal, Wood, Fire, Earth, Water | 2–3 | 7–9 | 1–3 | 42–60 (42–67) | 74–97 (74–94) |
+| Primordial Chaos (hub) | 2 | 9 | 2 | 81 | 83 |
+| Ice | 3 | 6 | 6 | 111 | 67 |
+| Wind | 2 | 10 | 9 | 84 | 71 |
+| Light, Darkness, Thunder (islands) | 2–3 | 8–9 | 1–5 | 40–127 | 83–105 |
 
-**Against the targets (observation, 2026-11-19):** the first notable is within target from every start. The nearest
-keystone is out of range from the five element starts (21–22) and the Chaos start (31), since v5 puts its 24 keystones
-toward the rims and islands; Ice, Wind and the islands are in range. The farthest Dao mark is beyond 70 from every start
-but Ice. Open Question 23.
+**Against the targets (observation, 2026-11-19, after the nine start keystones):** the first notable and the nearest
+keystone are within target from every start (keystones 6–10 points out; before them the element starts were 21–22 and
+the Chaos start 31). The farthest Dao mark is beyond 70 from every start but Ice. Open Question 23.
 
 **Targets** (`start_targets`, the authoring guide): first notable within 5 points; nearest keystone 6–13 points
 (PoE's range); every start within 70 points of the farthest Dao mark. Neighbouring element starts are 24 points
@@ -684,14 +684,14 @@ lean build of 2026-11-10 (7,115 Dao marks, blend zones, 40 keystones).
 
 | Region | Visible Dao marks (v5 frozen map, 2026-11-19) |
 |---|---|
-| Wood, Metal, Fire, Earth, Water | 1,070, 983, 968, 961, 951 |
+| Wood, Metal, Fire, Earth, Water | 1,071, 984, 969, 962, 954 |
 | Border lines (five, with the Wind start's figure) | 119 |
 | Light, Darkness, Thunder islands (Darkness with the Shadow Shrine) | 513, 489, 438 |
 | Chaos land (gated, rule 3) | 774 |
-| Taiji hub | 10 |
-| **All** | **7,276** (11 starts, 751 road nodes, 5,493 small, 1,759 notables, 24 keystones; 887 clusters; 8,038 nodes) |
+| Taiji hub | 12 |
+| **All** | **7,285** (11 starts, 751 road nodes, 5,493 small, 1,759 notables, 33 keystones; 896 clusters; 8,047 nodes) |
 
-**Output Range:** 7,276 at launch; the expansion only appends (rule 19).
+**Output Range:** 7,285 at launch; the expansion only appends (rule 19).
 
 ### H2–H4, topology generator. Retired
 
@@ -710,7 +710,7 @@ fill keys, `variant_sector_size` and the H2–H4 keys.
 ### Computational budget
 
 - **Player:** opening a Dao mark and recomputing the sheet is a few hundred modifier lines; the path tool is one
-  breadth-first search over 7,276 Dao marks, well under a frame.
+  breadth-first search over 7,285 Dao marks, well under a frame.
 - **NPCs (user decision 2026-11-10: live greedy, optimized).** The allocator keeps a frontier of reachable Dao marks
   with cached scores (rule 5's kind score × focus × purity multiplier, plus its small random term drawn once per
   Dao mark); opening a Dao mark adds only its new neighbours to the frontier, so each point is one pop from a heap.
@@ -1028,8 +1028,8 @@ Drafted with qa-lead.
       and Earth by 0.25 each; a hub road node raises each of the five elements by 0.5.
     - A root without Metal that opens 2 Metal road nodes gains Metal purity 1.0 for its stacks, and no base element.
     - Fire purity 99.5 plus one Fire road node is 100.0, and one more is 100.5 (no cap).
-- **AC-KMD-99** [Config/Data] Map size and distances (Formulas B, H). The shipped map has 7,276 visible Dao marks
-  (v5 frozen map, ±2 % after later changes), 11 starts and 24 keystones, and no hidden cluster. From every start the first
+- **AC-KMD-99** [Config/Data] Map size and distances (Formulas B, H). The shipped map has 7,285 visible Dao marks
+  (v5 frozen map, ±2 % after later changes), 11 starts and 33 keystones, and no hidden cluster. From every start the first
   notable is within 5 points and the nearest keystone within 6–13 points (`start_targets`); a start outside a target
   is reported.
 - **AC-KMD-60** [Logic, data-driven] Drawing checks (rule 1) on the shipped `tree.json`: 0 crossing links, 0 pairs
@@ -1112,8 +1112,8 @@ Drafted with qa-lead.
   share of lives with any element above 100 purity at Deity Transformation great perfection is reported; above
   10 % (guess) `road_purity` is lowered.
 - **AC-KMD-102** [Logic] Chaos land gate (rule 3). On the v5 map:
-    - {Fire 86, Metal 40} cannot open any `gate: chaos` node (815, the Fire ribbons included); the path tool finds no
-      route through one, and all 7,223 other nodes stay reachable from the Fire start.
+    - {Fire 86, Metal 40} cannot open any `gate: chaos` node (817, the Fire ribbons included); the path tool finds no
+      route through one, and all 7,230 other nodes stay reachable from the Fire start.
     - A Fire-ribbon notable (Ember Heart, 2843) on a Chaos 55 root scales by 0.5 + 0.55 = 1.05, not by Fire purity.
     - A five-element root without Chaos at Fire 30, Earth 40, Metal 50, Water 60, Wood 70 cannot open gated nodes; at
       Fire 31 it can.
@@ -1139,7 +1139,7 @@ Drafted with qa-lead.
 **NPC allocator (rule 5; Computational budget)**
 
 - **AC-KMD-54** [Integration; BLOCKING before NPCs above Core Formation are generated] A headless perf script,
-  `tests/performance/dao_do/allocator_perf.gd` (not a gdUnit test), on the v5 map (7,276 Dao marks).
+  `tests/performance/dao_do/allocator_perf.gd` (not a gdUnit test), on the v5 map (7,285 Dao marks).
     - 200 seeded Deity Transformation NPCs at 566 points: p95 ≤ 50 ms, max ≤ 100 ms per NPC; 200 Foundation
       Establishment NPCs at 120 points: p95 ≤ 5 ms.
     - World generation of 5,000 NPCs with the census's realm mix: ≤ 30 s in total.
@@ -1182,7 +1182,7 @@ Drafted with qa-lead.
 | 20 | **The map's final shape and the content pass** (the current drawing is a shape placeholder, user 2026-11-10): the redrawn shape; names, modifiers and keystones for the whole map; every element land's linh-lực keystone; the 25 capability placements; the start-cradle keystones that crowd the centre (overnight notes, Still open) | user + game-designer | Content release 1 |
 | 21 | `road_purity`, `purity_price` and `tree_breakthrough_k` are guesses; AC-KMD-101 tunes `road_purity` | systems-designer + bot | Rule 4; Formulas A2, F |
 | 22 | ~~Should island roads grant their variant's purity?~~ **Resolved 2026-11-10:** yes, a variant land's roads grant its variant's purity like an element land's (rule 4; Spiritual Roots review D4) | — | — |
-| 23 | **v5 misses `start_targets`** (measured 2026-11-19, Formulas B): the nearest keystone is 21–22 points from the element starts and 31 from the Chaos start (target 6–13), and the farthest Dao mark is 74–105 points out from every start but Ice (target 70). Options: move or add keystones near the starts, relax the targets for the larger v5 map, or accept. AC-KMD-99 fails on these until decided | user + game-designer | Before AC-KMD-99 is run |
+| 23 | **v5 misses `start_targets`** (measured 2026-11-19, Formulas B): ~~the nearest keystone was 21–22 points from the element starts and 31 from the Chaos start~~ **resolved 2026-11-19:** nine keystones added near the starts (user: "add more keystones, don't move anything else"), now 6–10. Still open: the farthest Dao mark is 74–105 points out from every start but Ice (target 70): relax the target for the larger v5 map, or accept. AC-KMD-99 fails on it until decided | user + game-designer | Before AC-KMD-99 is run |
 
 ### Known gaps in the build
 

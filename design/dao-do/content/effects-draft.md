@@ -5,7 +5,7 @@ payload is its designer's, with no W; its stat, op, scope and grid still validat
 only with the user's approval, section by section. Format as effects.md's Starter Effects. Host `MM` = the Đạo Đồ.
 **L5 +N** = N points in Combat's L5 layer, which only Effects may grant (Modifier System rule 6).
 
-## Keystones (24)
+## Keystones (33)
 
 Each keystone = its Effect (below or a starter record) + at least 50 W of plain stats (in the area's content file).
 Every element land has a linh-lực keystone (dao-do.md Open Question 20). Side = the neighbour it leans toward.
@@ -36,6 +36,15 @@ Every element land has a linh-lực keystone (dao-do.md Open Question 20). Side 
 | c931 keystone_gate_L (8995) | Light | Sun That Never Sets (Bất Lạc Nhật) | **new** | long life, cultivation |
 | c932 keystone_tip (8996) | Thunder | Glass Meridians (Lưu Ly Kinh Mạch) | starter | tempo, glass cannon |
 | c933 keystone_pendant (8997) | Darkness | Hidden Moon (Ẩn Nguyệt) | **new** | evasion crit |
+| c901 keystone_start (8998) | Fire, the axis hexagon, 9 from the start | Fire Feeds Fire (Dĩ Hỏa Dưỡng Hỏa) | **new**, start keystone (2026-11-19) | burn |
+| c902 keystone_start (8999) | Earth, the axis hexagon, 9 from the start | Layered Earth (Hậu Thổ Tích) | **new**, start keystone | block, body |
+| c903 keystone_start (9000) | Metal, the axis hexagon, 9 from the start | Keen Edge (Lợi Phong) | **new**, start keystone | crit, pierce |
+| c904 keystone_start (9001) | Water, the axis hexagon, 6 from the Ice start | Frost Seal (Băng Phong) | **new**, start keystone | Ice debuff |
+| c904 keystone_tide_a (9003) | Water, by the Water start, 7-8 out | Rising Tide (Triều Dâng) | **new**, start keystone | full-pool caster |
+| c904 keystone_tide_b (9004) | Water, by the Water start, its mirror | Ebb Tide (Triều Rút) | **new**, start keystone | comeback caster |
+| c905 keystone_start (9002) | Wood, the axis hexagon, 9 from the start | Ageless Pine (Vạn Niên Tùng) | **new**, start keystone | regeneration |
+| c79 keystone_yang (9005) | Chaos swirl (gated), 9 from the Chaos start | Utmost Yang (Dương Cực) | **new**, Taiji keystone | five-element offence |
+| c79 keystone_yin (9006) | Chaos swirl (gated), 10 from the Chaos start | Utmost Yin (Âm Cực) | **new**, Taiji keystone | five-element defence |
 
 **Closings added to starter records** (a keystone must close something; these starters have none): Overheat closes
 your art costs +35 %; Open Sky closes artifact power −30 % (`artifact_power_pct` −30); Still Water closes healing
@@ -63,6 +72,15 @@ to effects.md they are keystone variants of the starter, not changes to it.
 | Heaven's Eye (Thiên Nhãn) | Your crits against an Exposed foe deal more. | Crit event, foe's Exposed | L5 +20 on that hit | — | Your ward strength is 30 % lower | MM | Light, crit (pairs with Dawn's Daybreak, which applies Exposed) |
 | Sun That Never Sets (Bất Lạc Nhật) | Each season you cultivate, you also gain 1 point of đạo tâm. | Season end (cultivation) | `dao_tam` +1, permanent | +10 per realm | You can never conceal yourself (stealth counts 0, Concealed Breath #20 cannot be held); heart-demon resistance −30 % | MM | Long life, cultivation |
 | Hidden Moon (Ẩn Nguyệt) | Your evade also counts as crit chance, point for point. | Evade, compile | `crit_chance_pct` + evade | — | Your block and body shield count nothing; maximum health −20 % | MM | Evasion, crit, Darkness |
+| Fire Feeds Fire (Dĩ Hỏa Dưỡng Hỏa) | Your Burn stacks on the foe never fall off while you hit it at least once every 3 s. | Burn batches (rule 9a), hit events | Batch duration held | — | Water (Thủy) arts you slot deal 50 % less | MM | Burn, Fire caster |
+| Layered Earth (Hậu Thổ Tích) | Each hit you block raises your defence by 3 % until the fight ends. | Block event | `defense_pct` +3 per block | Cap +30 | Your evade counts nothing | MM | Block, body, Earth |
+| Keen Edge (Lợi Phong) | Your hits ignore the foe's block. | Foe's block rating, compile | Block rating counts 0 against your hits | — | Your own block rating counts nothing | MM | Crit, sword, Metal |
+| Frost Seal (Băng Phong) | Your Ice stacks on the foe stop falling off once it holds 10 or more. | Ice batches (rule 9a) | Batch duration held | — | Fire (Hỏa) arts you slot deal 50 % less | MM | Ice, Water caster |
+| Rising Tide (Triều Dâng) | While your linh lực is above half, your Water stacks count double. | Own linh lực, live | Water buff stacks × 2 | — | While your linh lực is below half, your Water stacks do nothing | MM | Full-pool caster, Water |
+| Ebb Tide (Triều Rút) | The first time in a fight your linh lực falls below 30 %, restore 30 % of it. | Own linh lực (event) | Restore linh lực | Once per fight | Maximum linh lực −15 % (`linh_luc_pct` −15) | MM | Comeback caster, Water |
+| Ageless Pine (Vạn Niên Tùng) | Your Wood buff stacks never fall off during a fight. | Wood batches (rule 9a) | Batch duration held | — | Fire resistance −25 % (`resist_pct` [fire] −25) | MM | Regeneration, Wood |
+| Utmost Yang (Dương Cực) | Your hits deal more for each different base element among your slotted arts. | Slotted arts, compile | L5 +6 per element | Cap +30 | Your wards are 30 % weaker | MM | Chaos, five-element arts |
+| Utmost Yin (Âm Cực) | You resist more for each different base element among your slotted arts. | Slotted arts, compile | `resist_pct` +6 per element | Cap +30 | Your hits deal 20 % less | MM | Chaos, five-element, defence |
 
 ## Crown Effects of big pictures (12)
 

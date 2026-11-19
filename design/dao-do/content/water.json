@@ -1,6 +1,6 @@
 {
 "map": "v5-frozen-2026-11-19",
-"map_sha256": "dbdfd5dcd10b49f843c597b48e169aec86153793382986f29a46dea3247eaa96",
+"map_sha256": "0909a9e499b30981a2ae4586ab48c5c3088685e592ac69855469294f387966ea",
 "area": "water",
 "nodes": {
 "739": {
@@ -15216,6 +15216,69 @@
 "bang,debuff",
 1.2,
 6.0
+]
+]
+},
+"9001": {
+"piece": "c904 keystone_start",
+"kind": "keystone",
+"name": "Frost Seal (Băng Phong)",
+"effect": "Frost Seal (Băng Phong)",
+"closes": "arts of Fire (Hỏa) you slot deal 50 % less",
+"mods": [
+[
+"stack_effect_pct",
+"bang,debuff",
+30,
+150.0
+],
+[
+"resist_pen_pct",
+"cold",
+20,
+300
+]
+]
+},
+"9003": {
+"piece": "c904 keystone_tide_a",
+"kind": "keystone",
+"name": "Rising Tide (Triều Dâng)",
+"effect": "Rising Tide (Triều Dâng)",
+"closes": "while your linh lực is below half, your Water buff stacks do nothing",
+"mods": [
+[
+"linh_luc_pct",
+"",
+25,
+25.0
+],
+[
+"linh_luc_regen_pct",
+"",
+25,
+1.09
+]
+]
+},
+"9004": {
+"piece": "c904 keystone_tide_b",
+"kind": "keystone",
+"name": "Ebb Tide (Triều Rút)",
+"effect": "Ebb Tide (Triều Rút)",
+"closes": "maximum linh lực −15 %",
+"mods": [
+[
+"attack_pct",
+"thuy",
+25,
+37.5
+],
+[
+"art_speed_pct",
+"thuy",
+25,
+62.5
 ]
 ]
 }

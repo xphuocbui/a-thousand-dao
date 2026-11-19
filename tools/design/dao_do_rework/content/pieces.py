@@ -53,7 +53,8 @@ def pieces(m, nodes, adj, area):
         if area_of(v[0]['region'], nm) != area:
             continue
         ids = {x['id'] for x in v}
-        entry = [i for i in ids if any(j not in ids for j in adj[i])]
+        # a keystone hung off a piece is a dead end, not a way in (keystones added 2026-11-19 keep the walk unchanged)
+        entry = [i for i in ids if any(j not in ids and nodes[j]['kind'] != 'keystone' for j in adj[i])]
         dist = {}
         q = collections.deque()
         for i in sorted(entry):

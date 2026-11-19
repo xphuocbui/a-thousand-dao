@@ -262,3 +262,7 @@ KEY('c905 keystone_rim_R', 'Ten Thousand Poisons (Vạn Độc)', 'Ten Thousand 
     [('stack_effect_pct', 'moc,debuff', 25), ('attack_pct', 'poison', 25)], closes='hit damage -25 %')
 KEY('c905 keystone_rim_L', 'Sun and Rain (Nhật Vũ)', 'Sun and Rain (Nhật Vũ)',
     [('health_regen_inc_pct', '', 25), ('linh_luc_regen_inc_pct', '', 25)], closes='maximum linh lực -30 %')
+
+# ---- start keystone (added 2026-11-19) ----
+KEY('c905 keystone_start', 'Ageless Pine (Vạn Niên Tùng)', 'Ageless Pine (Vạn Niên Tùng)',
+    [('health_regen_pct', '', 25), ('khi_huyet_pct', '', 25)], closes='Fire resistance −25 % (`resist_pct` [fire] −25)')

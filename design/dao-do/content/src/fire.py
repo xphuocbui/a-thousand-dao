@@ -246,3 +246,7 @@ SM('c101 d_fork_518', PENF, [('Searing Thrust (Chước Thứ)', FT), ('White Gl
 SM('c105 D_crook', FIRE, [('Cinder Store (Tích Tẫn)', LL)])
 SM('c56 w_petals_1568', HP, [('Lotus Heart (Liên Tâm)', TM)])
 SM('c105 w_petals_1568', CDH, [('Lava Bloom (Dung Hoa)', ('attack_pct', 'hoa,slow'))])
+
+# ---- start keystone (added 2026-11-19: user "add more keystones", in the hexagon on the land's axis, 9 points out) ----
+KEY('c901 keystone_start', 'Fire Feeds Fire (Dĩ Hỏa Dưỡng Hỏa)', 'Fire Feeds Fire (Dĩ Hỏa Dưỡng Hỏa)',
+    [('stack_effect_pct', 'hoa,debuff', 30), ('attack_pct', 'hoa', 20)], closes='arts of Water (Thủy) you slot deal 50 % less')

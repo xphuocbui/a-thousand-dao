@@ -1,6 +1,6 @@
 {
 "map": "v5-frozen-2026-11-19",
-"map_sha256": "dbdfd5dcd10b49f843c597b48e169aec86153793382986f29a46dea3247eaa96",
+"map_sha256": "0909a9e499b30981a2ae4586ab48c5c3088685e592ac69855469294f387966ea",
 "area": "wood",
 "nodes": {
 "775": {
@@ -17203,6 +17203,27 @@
 "",
 25,
 31.2
+]
+]
+},
+"9002": {
+"piece": "c905 keystone_start",
+"kind": "keystone",
+"name": "Ageless Pine (Vạn Niên Tùng)",
+"effect": "Ageless Pine (Vạn Niên Tùng)",
+"closes": "Fire resistance −25 % (`resist_pct` [fire] −25)",
+"mods": [
+[
+"health_regen_pct",
+"",
+25,
+2.52
+],
+[
+"khi_huyet_pct",
+"",
+25,
+41.6
 ]
 ]
 }

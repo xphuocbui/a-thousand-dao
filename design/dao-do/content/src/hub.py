@@ -48,3 +48,9 @@ MED('base0', ('attack_pct', ''), [n('Chaos Seed (Hỗn Độn Chủng)', ('attac
                                   n('Five Talents (Ngũ Tài)', ('dao_tam', ''), ('than_hon', '')),
                                   n('The Limitless (Vô Cực)', ('element_affinity_pct', ''), ('attack_pct', '')),
                                   n('Chaos Start (Hỗn Độn Khởi)', ('attack_pct', ''), ('khi_huyet_pct', ''))])
+
+# ---- Taiji keystones (added 2026-11-19): yang and yin, point-symmetric in the swirl, 9 and 10 points from the Chaos start ----
+KEY('c79 keystone_yang', 'Utmost Yang (Dương Cực)', 'Utmost Yang (Dương Cực)',
+    [('attack_pct', '', 30), ('crit_chance_pct', '', 20)], closes='your wards are 30 % weaker')
+KEY('c79 keystone_yin', 'Utmost Yin (Âm Cực)', 'Utmost Yin (Âm Cực)',
+    [('resist_pct', '', 30), ('khi_huyet_pct', '', 20)], closes='your hits deal 20 % less')

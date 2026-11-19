@@ -256,3 +256,11 @@ KEY('c904 keystone_rim_L', 'Thousand Talismans (Thiên Phù)', 'Thousand Talisma
     closes="arts that are not talismans deal 30 % less; pending: talisman stock +2 once Talismans defines it")
 KEY('c904 keystone_rim_R', 'Boundless Sea (Vô Biên Hải)', 'Boundless Sea (Vô Biên Hải)',
     [('linh_luc_pct', '', 30), ('leech_linh_luc_pct', '', 20)], closes='linh lực no longer regenerates on its own and linh lực on hit gives nothing')
+
+# ---- start keystones (added 2026-11-19): the hexagon (6 points from the Ice start) and the tide pair by the Water start ----
+KEY('c904 keystone_start', 'Frost Seal (Băng Phong)', 'Frost Seal (Băng Phong)',
+    [('stack_effect_pct', 'bang,debuff', 30), ('resist_pen_pct', 'cold', 20)], closes='arts of Fire (Hỏa) you slot deal 50 % less')
+KEY('c904 keystone_tide_a', 'Rising Tide (Triều Dâng)', 'Rising Tide (Triều Dâng)',
+    [('linh_luc_pct', '', 25), ('linh_luc_regen_pct', '', 25)], closes='while your linh lực is below half, your Water buff stacks do nothing')
+KEY('c904 keystone_tide_b', 'Ebb Tide (Triều Rút)', 'Ebb Tide (Triều Rút)',
+    [('attack_pct', 'thuy', 25), ('art_speed_pct', 'thuy', 25)], closes='maximum linh lực −15 %')

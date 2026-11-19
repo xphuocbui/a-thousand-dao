@@ -1,6 +1,6 @@
 {
 "map": "v5-frozen-2026-11-19",
-"map_sha256": "dbdfd5dcd10b49f843c597b48e169aec86153793382986f29a46dea3247eaa96",
+"map_sha256": "0909a9e499b30981a2ae4586ab48c5c3088685e592ac69855469294f387966ea",
 "area": "hub",
 "nodes": {
 "680": {
@@ -1823,6 +1823,48 @@
 "",
 1.2,
 4.0
+]
+]
+},
+"9005": {
+"piece": "c79 keystone_yang",
+"kind": "keystone",
+"name": "Utmost Yang (Dương Cực)",
+"effect": "Utmost Yang (Dương Cực)",
+"closes": "your wards are 30 % weaker",
+"mods": [
+[
+"attack_pct",
+"",
+30,
+30.0
+],
+[
+"crit_chance_pct",
+"",
+20,
+20.0
+]
+]
+},
+"9006": {
+"piece": "c79 keystone_yin",
+"kind": "keystone",
+"name": "Utmost Yin (Âm Cực)",
+"effect": "Utmost Yin (Âm Cực)",
+"closes": "your hits deal 20 % less",
+"mods": [
+[
+"resist_pct",
+"",
+30,
+750
+],
+[
+"khi_huyet_pct",
+"",
+20,
+33.3
 ]
 ]
 }

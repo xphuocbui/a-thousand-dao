@@ -3238,7 +3238,7 @@ constants:
       - design/gdd/linh-can.md
     value: 30
     unit: purity, each of the five base elements, strictly above
-    notes: "The Chaos land (815 gate: chaos nodes, the six element pieces reachable only through it included) opens only for a Primordial Chaos root or one with all five base elements above this current purity (any source); rule 3, user decision 2026-11-19."
+    notes: "The Chaos land (817 gate: chaos nodes, the six element pieces reachable only through it included) opens only for a Primordial Chaos root or one with all five base elements above this current purity (any source); rule 3, user decision 2026-11-19."
     added: 2026-11-19
     revised: ""
   - name: purity_price
@@ -3301,9 +3301,9 @@ constants:
     referenced_by:
       - design/gdd/dao-do.md
     # was: 772 (generated map) before 2026-11-10; the drawn lean build.
-    value: 7276
+    value: 7285
     unit: đạo văn
-    notes: "The v5 frozen map (2026-11-19): 7,276 visible Dao marks, 11 starts, 751 road nodes, 24 keystones, 887 clusters; no hidden clusters. Was 7,115 on the lean build of 2026-11-10. Re-measure when the layout changes."
+    notes: "The v5 frozen map (2026-11-19): 7,285 visible Dao marks, 11 starts, 751 road nodes, 33 keystones (9 added near the starts), 896 clusters; no hidden clusters. Was 7,115 on the lean build of 2026-11-10. Re-measure when the layout changes."
     added: 2026-11-03
     revised: 2026-11-19
   - name: tree_size_target

@@ -238,3 +238,7 @@ KEY('c903 keystone_rim_L', 'Unyielding Breath (Bất Khuất)', 'Unyielding Brea
     [('can_cot', '', 25), ('block_rating', '', 25)], closes='maximum health -15 %')
 KEY('c903 keystone_rim_R', 'Autumn Harvest (Thu Hoạch)', 'Autumn Harvest (Thu Hoạch)',
     [('linh_luc_on_crit_pct', '', 30), ('crit_chance_pct', '', 20)], closes='linh lực regeneration 0')
+
+# ---- start keystone (added 2026-11-19) ----
+KEY('c903 keystone_start', 'Keen Edge (Lợi Phong)', 'Keen Edge (Lợi Phong)',
+    [('pierce_pct', '', 25), ('crit_damage_pct', '', 25)], closes='your own block rating counts nothing')

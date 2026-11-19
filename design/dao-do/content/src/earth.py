@@ -237,3 +237,7 @@ KEY('c902 keystone_rim_R', 'Immovable Mountain (Bất Động Sơn)', 'Immovable
     [('attack_pct', 'slow', 15), ('khi_huyet_pct', '', 15), ('block_rating', '', 10), ('resist_pct', 'physical', 10)], closes='art speed modifiers do nothing')
 KEY('c902 keystone_rim_L', 'Earth Vein Tap (Địa Mạch Dẫn)', 'Earth Vein Tap (Địa Mạch Dẫn)',
     [('formation_power_pct', '', 25), ('linh_luc_regen_inc_pct', '', 25)], closes='no linh lực regeneration while no formation of yours stands')
+
+# ---- start keystone (added 2026-11-19) ----
+KEY('c902 keystone_start', 'Layered Earth (Hậu Thổ Tích)', 'Layered Earth (Hậu Thổ Tích)',
+    [('block_rating', '', 30), ('defense_pct', '', 20)], closes='your evade counts nothing')
