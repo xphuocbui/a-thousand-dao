@@ -16,7 +16,7 @@ work, 3.2 hard rules, 3.10 cells); that file's section 7 (tools) is superseded b
 Current state: 7,840 nodes, 856 pieces; 0 crossings, only the base map's 4 old spacing warnings, every piece passes
 R0-R4, every node reachable from the start. Built by `sh tools/design/dao_do_rework/cells/integrate.sh <tag>` (from the
 repo root) into `design/dao-do/cells/out/<tag>-map.json`; deterministic (two builds of the same files are identical).
-Last saved snapshot: `cells/versions/v3-islands-2026-11-19/`; official: `cells/official-2026-11-18/`.
+Frozen snapshot for the content work: `cells/versions/v4-frozen-2026-11-19/` (earlier: v3-islands, v2-night); official: `cells/official-2026-11-18/`.
 
 ## 1. The layers
 
@@ -136,10 +136,10 @@ exactly as it is, and weave the lines round them through the empty space, never 
 
 ## 5. Before filling in the nodes
 
-- **Freeze the graph first.** Node names of traced pieces (`n_123`, `v45`) are produced by the tracing and change if a
-  piece is re-traced; content keyed on them would come loose. Save a snapshot of the graph that gets filled (the tree
-  as of commit 064c229 is not yet saved as one), and key content on that map (or on piece + role, e.g. a piece's
-  notables), not on keys that a re-trace regenerates.
+- **The graph is frozen: `cells/versions/v4-frozen-2026-11-19/`** (user, 2026-11-19; commit 337f464; 7,840 nodes,
+  856 pieces). Node names of traced pieces (`n_123`, `v45`) are produced by the tracing and change if a piece is
+  re-traced, so key content on v4's map (or on piece + role, e.g. a piece's notables), not on keys that a re-trace
+  regenerates. If the graph must change once content exists, change it deliberately and carry the content across.
 - **What exists for content:** `design/gdd/dao-do.md` (the GDD: the 25 capabilities, the node kinds),
   `big-clusters-draft-2026-11-18.md` (80 big clusters with picture and idea, all 25 capabilities placed; approved),
   `design/gdd/effects.md`, and the land themes in `tools/design/dao_do_rework/regions/common.py`. Rules decision 6.5:
