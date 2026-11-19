@@ -27,7 +27,9 @@ const LIBRARY_FILE := "combat_library"
 ## Build-file fields a Character's fighter may have (before and after expansion).
 const KEYS := ["name", "realm", "layers", "n_body", "n_qi", "ward", "arts", "items", "modifiers", "purity", "effects",
 	"counters", "states", "unmodelled", "wards", "reserved", "stack_eff", "stack_dur", "body", "divine_sense",
-	"stage_mult"]
+	"stage_mult", "tree_effects", "tree_lines_on_sheet", "counts", "stack_alias", "no_ward"]
+## Base elements among slotted arts (the art_elements count: Utmost Yang, Utmost Yin).
+const BASE_ELEMENTS := ["fire", "water", "earth", "metal", "wood"]
 const WARD_KEYS := ["model", "payload", "drain_base", "ws_base", "we", "layers", "block"]
 const BODY_KEYS := ["block", "resistance", "shield", "layers"]
 const ART_KEYS := ["id", "c_art", "cost_share", "cooldown", "element", "kind", "buff", "debuff", "c_heal",
@@ -202,6 +204,34 @@ func _expand(src: Dictionary) -> Dictionary:
 			if not _add_library_effect(short, d, effects, counters, unmod, "item %s" % iid, worn):
 				unmod.append("item %s Effect %s: not in assets/data/combat_effects.json; write it in \"effects\" (id \"eff:<name>\") to run it" % [iid, name])
 	d.erase("items")
+	# the Đạo Đồ's held Effects by name (keystones and crown notables; ADR-0004 decision 3), as fight.py
+	var tree: Array = Array(d.get("tree_effects", [])).duplicate()
+	var on_sheet: bool = bool(d.get("tree_lines_on_sheet", false))
+	d.erase("tree_effects")
+	d.erase("tree_lines_on_sheet")
+	for ef in tree:
+		var short: String = str(ef).split(" (")[0]
+		if lib_done.has(short):
+			continue
+		lib_done[short] = true
+		if not _add_library_effect(short, d, effects, counters, unmod, "Đạo Đồ", worn, build_counts(d), not on_sheet):
+			unmod.append("Đạo Đồ Effect %s: not in assets/data/combat_effects.json (not run)" % str(ef))
+	var pm: Dictionary = d.get("_pool_more", {})
+	for f in pm:
+		d[f] = float(d.get(f, _file.n_body if str(f) == "n_body" else _file.n_qi)) * float(pm[f])
+	d.erase("_pool_more")
+	if d.has("_stack_alias"):
+		var alias: Dictionary = d.get("stack_alias", {}).duplicate(true)
+		for k in d._stack_alias:
+			alias[k] = _union(alias.get(k, []), d._stack_alias[k])
+		d["stack_alias"] = alias
+		d.erase("_stack_alias")
+	for tag in d.get("_only_tag", []):
+		var kept: Array = Array(d.get("arts", [])).filter(func(a): return a is Dictionary and str(tag) in Array(a.get("tags", [])))
+		if kept.size() < Array(d.get("arts", [])).size():
+			unmod.append("Đạo Đồ: only arts tagged %s may be slotted; %d left out" % [str(tag), Array(d.arts).size() - kept.size()])
+		d["arts"] = kept
+	d.erase("_only_tag")
 	d["effects"] = effects
 	d["counters"] = counters
 	d["states"] = states
@@ -210,7 +240,37 @@ func _expand(src: Dictionary) -> Dictionary:
 	return d
 
 
-func _lib_count(spec: Dictionary, worn: Array) -> int:
+## The compile-time counts a library Effect may multiply by (fight.py build_counts): the build file's own "counts"
+## (empty_extra_slots, carried_sword, root_elements: FighterCompiler fills them) plus empty_art_slots (the realm's
+## art slots less the arts) and art_elements (distinct base elements among the arts).
+func build_counts(d: Dictionary) -> Dictionary:
+	var out: Dictionary = (d.get("counts", {}) as Dictionary).duplicate()
+	var arts: Array = d.get("arts", [])
+	var r: int = int(d.get("realm", 0))
+	if not out.has("empty_art_slots"):
+		out["empty_art_slots"] = maxi(0, int(_c.slots_by_realm[r]) - arts.size())
+	if not out.has("art_elements"):
+		var els := {}
+		for a in arts:
+			if a is Dictionary and str(a.get("element", "")) in BASE_ELEMENTS:
+				els[str(a.element)] = true
+		out["art_elements"] = els.size()
+	return out
+
+
+static func _union(a: Array, b: Array) -> Array:
+	var seen := {}
+	for x in a + b:
+		seen[str(x)] = true
+	var out: Array = seen.keys()
+	out.sort()
+	return out
+
+
+func _lib_count(spec: Dictionary, worn: Array, counts: Dictionary = {}) -> float:
+	if spec.has("of"):
+		var c: float = float(counts.get(str(spec.of), 0))
+		return minf(c, float(spec.cap)) if spec.get("cap") != null else c
 	var n := 0
 	for iid in worn:
 		var it: Dictionary = _items.get(str(iid), {})
@@ -222,17 +282,45 @@ func _lib_count(spec: Dictionary, worn: Array) -> int:
 				if str(spec.art_tag) in Array(tags):
 					n += 1
 					break
-	return maxi(0, n - int(spec.get("minus", 0)))
+	return float(maxi(0, n - int(spec.get("minus", 0))))
 
 
-func _add_library_effect(name: String, d: Dictionary, effects: Array, counters: Array, unmod: Array, who: String, worn: Array) -> bool:
+## fight.py add_library_effect: a named Effect's library form. A Đạo Đồ entry (2026-11-20) may also carry "lines"
+## (its closing and other plain stat lines, folded like an item's modifiers; skipped when [param lines] is false
+## because the Character's sheet already holds them), "pool_more", "stack_alias", "no_ward", "only_tag", "pending",
+## and "fixed" records (closings: never multiplied by the count, kept at a count of 0).
+func _add_library_effect(name: String, d: Dictionary, effects: Array, counters: Array, unmod: Array, who: String, worn: Array,
+		counts: Dictionary = {}, lines: bool = true) -> bool:
 	if not _effects_lib.has(name):
 		return false
 	var lib: Dictionary = _effects_lib[name]
 	if lib.get("not_run"):
 		unmod.append("%s Effect %s: not run (%s)" % [who, name, str(lib.not_run)])
 		return true
-	var n: int = _lib_count(lib["count"], worn) if lib.get("count") else 1
+	if lib.get("pending"):
+		unmod.append("%s Effect %s: part not run yet (%s)" % [who, name, str(lib.pending)])
+	if lines and lib.get("lines"):
+		_apply_static(d, lib.lines, "%s Effect %s" % [who, name], unmod)
+		var pe: Variant = _passive_effect(name, unmod, lib.lines, "Effect", "lines")
+		if pe != null:
+			effects.append(pe)
+	if lib.get("pool_more"):
+		if not d.has("_pool_more"):
+			d["_pool_more"] = {}
+		for k in lib.pool_more:
+			d._pool_more[k] = float(d._pool_more.get(k, 1.0)) * float(lib.pool_more[k])
+	if lib.get("stack_alias"):
+		if not d.has("_stack_alias"):
+			d["_stack_alias"] = {}
+		for k in lib.stack_alias:
+			d._stack_alias[k] = _union(d._stack_alias.get(k, []), lib.stack_alias[k])
+	if lib.get("no_ward"):
+		d["no_ward"] = true
+	if lib.get("only_tag"):
+		if not d.has("_only_tag"):
+			d["_only_tag"] = []
+		d._only_tag.append(str(lib.only_tag))
+	var n: float = _lib_count(lib["count"], worn, counts) if lib.get("count") else 1.0
 	var have := {}
 	for e in effects:
 		have[e.get("id")] = true
@@ -240,14 +328,16 @@ func _add_library_effect(name: String, d: Dictionary, effects: Array, counters: 
 		if have.has(r0.id):
 			continue
 		var r: Dictionary = (r0 as Dictionary).duplicate(true)
-		if n != 1:
+		var fixed: bool = bool(r.get("fixed", false))
+		r.erase("fixed")
+		if n != 1.0 and not fixed:
 			for a in r.get("do", []):
 				if a.has("mod"):
 					var m := {}
 					for k in a.mod:
-						m[k] = float(a.mod[k]) * n if _mod_keys.has(str(k)) else a.mod[k]
+						m[k] = float(a.mod[k]) * n if _mod_keys.has(str(k)) and not (a.mod[k] is bool) else a.mod[k]
 					a["mod"] = m
-		if n > 0:
+		if n > 0.0 or fixed:
 			effects.append(r)
 	var have_c := {}
 	for c in counters:
@@ -494,6 +584,13 @@ func _to_build(d: Dictionary, r: int, who: String) -> Dictionary:
 	b["reserved"] = minf(float(_file.reserved_cap), total_res)
 	b["stack_eff"] = (d.get("stack_eff", {}) as Dictionary).duplicate()
 	b["stack_dur"] = (d.get("stack_dur", {}) as Dictionary).duplicate()
+	b["stack_alias"] = (d.get("stack_alias", {}) as Dictionary).duplicate(true)
+	if bool(d.get("no_ward", false)):
+		# No Ward (Đạo Đồ keystone): no ward of any kind, the default ward included (Combat Defence & Healing rule 5)
+		b["ward_pts"] = 0.0
+		b["drain"] = 0.0
+		b["wards"] = []
+		b["reserved"] = maxf(0.0, float(b.reserved) - _xres)
 	return b
 
 

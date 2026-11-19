@@ -77,6 +77,39 @@ def cases():
                "modifiers": mods, "purity": PURITY[i % len(PURITY)]}
         out.append(inp)
         i += 1
+    out += tree_cases(lib)
+    return out
+
+
+TREE_PER_CASE = 6
+
+
+def tree_cases(lib):
+    """The Đạo Đồ's Effects (2026-11-20, ADR-0004 decision 3), six to a case by name: a build file's tree_effects with
+    its counts, the lines folded here in even cases and left to the sheet in odd ones (tree_lines_on_sheet)."""
+    effects = json.load(open(os.path.join(ROOT, "assets", "data", "combat_effects.json"), encoding="utf-8"))["effects"]
+    names = sorted(k for k, v in effects.items() if v.get("source") == "Đạo Đồ")
+    arts = sorted(lib["arts"])
+    swords = [a for a in arts if "sword" in lib["arts"][a].get("tags", [])]
+    by_el = {}
+    for a in arts:
+        by_el.setdefault(lib["arts"][a].get("element", ""), a)
+    out = []
+    for k in range((len(names) + TREE_PER_CASE - 1) // TREE_PER_CASE):
+        r = k % 5
+        base = copy.deepcopy(lib["typical"][r])
+        slots = lib["constants"]["slots_by_realm"][r]
+        pick = [swords[k % len(swords)]] + [by_el[e] for e in ("fire", "water", "earth", "metal", "wood") if e in by_el]
+        pick = list(dict.fromkeys(pick))[:max(1, slots - 1)]
+        inp = {"name": "tree_%02d" % k, "realm": r, "layers": base["layers"], "n_body": base["n_body"],
+               "n_qi": base["n_qi"], "ward": base["ward"], "arts": [{"lib": a} for a in pick], "items": [],
+               "modifiers": [{"key": "attack_pct", "value": 10.0}, {"key": "khi_huyet_pct", "value": 12.0}],
+               "purity": PURITY[k % len(PURITY)],
+               "tree_effects": names[k * TREE_PER_CASE:(k + 1) * TREE_PER_CASE],
+               "counts": {"empty_extra_slots": 1 + k % 2, "carried_sword": k % 3, "root_elements": 1 + k % 5}}
+        if k % 2:
+            inp["tree_lines_on_sheet"] = True
+        out.append(inp)
     return out
 
 

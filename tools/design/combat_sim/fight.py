@@ -164,7 +164,8 @@ TOP_KEYS = {"name", "realm", "layers", "crit", "n_body", "n_qi", "art_speed_pct"
             "_comment", "effects", "counters", "companions", "shields", "basic_speed_pct", "opening_haste_pct",
             "basic_coef_add", "timer_resist_pct", "ward_bill_pct", "refusals", "divine_sense", "soul_res_pct",
             "x_soul", "tam_ma", "resist", "boss", "tags", "states", "techniques", "items", "reserved",
-            "stack_eff", "stack_dur", "wards", "pierce_pct", "stage_mult"}
+            "stack_eff", "stack_dur", "wards", "pierce_pct", "stage_mult", "tree_effects", "tree_lines_on_sheet",
+            "counts", "stack_alias", "no_ward"}
 WARD_KEYS = {"model", "payload", "drain_base", "ws_base", "we", "layers", "block"}
 BODY_KEYS = {"block", "resistance", "shield", "layers"}
 ART_KEYS = {"id", "c_art", "cost_share", "cooldown", "element", "kind", "buff", "debuff", "c_heal",
@@ -232,9 +233,28 @@ def effects_library():
     return _EFFLIB
 
 
-def _lib_count(spec, worn):
-    """The compile-time multiplier of a library Effect: worn items by first role, or by an art tag (less `minus`)."""
+BASE_ELEMENTS = ("fire", "water", "earth", "metal", "wood")
+
+
+def build_counts(d):
+    """The compile-time counts a library Effect may multiply by (Đạo Đồ Effects, 2026-11-20): the build file's own
+    "counts" (empty_extra_slots, carried_sword, root_elements: the game's FighterCompiler fills them) plus
+    empty_art_slots (the realm's art slots less the arts) and art_elements (distinct base elements among the arts)."""
+    out = dict(d.get("counts", {}) or {})
+    arts = d.get("arts", [])
+    r = realm_index(d.get("realm", 0))
+    out.setdefault("empty_art_slots", max(0, C["slots_by_realm"][r] + d.get("bonus_slots", 0) - len(arts)))
+    out.setdefault("art_elements", len({a.get("element", "") for a in arts if isinstance(a, dict)} & set(BASE_ELEMENTS)))
+    return out
+
+
+def _lib_count(spec, worn, counts=None):
+    """The compile-time multiplier of a library Effect: worn items by first role, or by an art tag (less `minus`), or a
+    build count ("of", see build_counts), capped at "cap" when given."""
     items, bases = _LIB.get("items", {}), _LIB.get("bases", {})
+    if "of" in spec:
+        n = float((counts or {}).get(spec["of"], 0))
+        return min(n, spec["cap"]) if spec.get("cap") is not None else n
     if "role" in spec:
         n = sum(1 for iid in worn if (bases.get(items.get(iid, {}).get("base"), {}).get("roles") or [None])[0] == spec["role"])
     else:
@@ -242,25 +262,47 @@ def _lib_count(spec, worn):
     return max(0, n - spec.get("minus", 0))
 
 
-def add_library_effect(name, d, effects, counters, unmod, who, worn):
-    """Add a named Effect's library form to a build being expanded. Returns False when the library has no entry."""
+def add_library_effect(name, d, effects, counters, unmod, who, worn, counts=None, lines=True):
+    """Add a named Effect's library form to a build being expanded. Returns False when the library has no entry.
+    Besides records, counters, static and reserve, a Đạo Đồ entry (2026-11-20) may carry "lines" (its closing and other
+    plain stat lines, folded like an item's modifiers; skipped when [lines] is False because the caller's sheet already
+    holds them), "pool_more" (a multiplier on n_body / n_qi after every pct line), "stack_alias", "no_ward" and
+    "only_tag" (only arts with the tag stay slotted); "pending" names what is not run yet."""
     lib = effects_library().get(name)
     if lib is None:
         return False
     if lib.get("not_run"):
         unmod.append("%s Effect %s: not run (%s)" % (who, name, lib["not_run"]))
         return True
-    n = _lib_count(lib["count"], worn) if lib.get("count") else 1
+    if lib.get("pending"):
+        unmod.append("%s Effect %s: part not run yet (%s)" % (who, name, lib["pending"]))
+    if lines and lib.get("lines"):
+        apply_static(d, lib["lines"], "%s Effect %s" % (who, name), unmod)
+        pe = passive_effect({"id": name}, unmod, lines=lib["lines"], what="Effect", prefix="lines")
+        if pe:
+            effects.append(pe)
+    for key in ("pool_more", "stack_alias"):
+        if lib.get(key):
+            tbl = d.setdefault("_" + key, {})
+            for k, v in lib[key].items():
+                tbl[k] = tbl.get(k, 1.0) * v if key == "pool_more" else sorted(set(tbl.get(k, [])) | set(v))
+    if lib.get("no_ward"):
+        d["no_ward"] = True
+    if lib.get("only_tag"):
+        d.setdefault("_only_tag", []).append(lib["only_tag"])
+    n = _lib_count(lib["count"], worn, counts) if lib.get("count") else 1
     have = {e.get("id") for e in effects}
     for r in lib.get("records", []):
         if r["id"] in have:
             continue
         r = copy.deepcopy(r)
-        if n != 1:
+        fixed = bool(r.pop("fixed", False))      # a closing: never multiplied by the count, kept at a count of 0
+        if n != 1 and not fixed:
             for a in r.get("do", []):
                 if "mod" in a:
-                    a["mod"] = {k: (v * n if k in engine.MOD_KEYS else v) for k, v in a["mod"].items()}
-        if n > 0:
+                    a["mod"] = {k: (v * n if k in engine.MOD_KEYS and not isinstance(v, bool) else v)
+                                for k, v in a["mod"].items()}
+        if n > 0 or fixed:
             effects.append(r)
     have_c = {c.get("id") for c in counters}
     for c in lib.get("counters", []):
@@ -382,7 +424,7 @@ def apply_static(d, lines, who, unmod):
 def expand_library(d):
     """Resolve {"lib": id} arts and "techniques" ids into plain build fields. Unknown ids are BadInput."""
     if not any(isinstance(a, dict) and "lib" in a for a in d.get("arts", [])) and not d.get("techniques") \
-            and not d.get("items"):
+            and not d.get("items") and not d.get("tree_effects"):
         return d
     arts_lib, techs = _library()
     d = copy.deepcopy(d)
@@ -456,6 +498,27 @@ def expand_library(d):
             if not add_library_effect(short, d, effects, counters, unmod, "item %s" % iid, worn):
                 unmod.append("item %s Effect %s: not in assets/data/combat_effects.json; write it in \"effects\" (id "
                              "\"eff:<name>\") to run it" % (iid, name))
+    # the Đạo Đồ's held Effects by name (keystones and crown notables; ADR-0004 decision 3)
+    tree = list(d.pop("tree_effects", []) or [])
+    on_sheet = bool(d.pop("tree_lines_on_sheet", False))
+    for ef in tree:
+        short = str(ef).split(" (")[0]
+        if short in lib_done:
+            continue
+        lib_done.add(short)
+        if not add_library_effect(short, d, effects, counters, unmod, "Đạo Đồ", worn, build_counts(d), lines=not on_sheet):
+            unmod.append("Đạo Đồ Effect %s: not in assets/data/combat_effects.json (not run)" % ef)
+    for f, mult in d.pop("_pool_more", {}).items():
+        d[f] = d.get(f, 1.0883 if f == "n_body" else 1.053) * mult
+    if d.get("_stack_alias"):
+        alias = d.setdefault("stack_alias", {})
+        for k, v in d.pop("_stack_alias").items():
+            alias[k] = sorted(set(alias.get(k, [])) | set(v))
+    for tag in d.pop("_only_tag", []):
+        kept = [a for a in d.get("arts", []) if tag in (a.get("tags", []) if isinstance(a, dict) else [])]
+        if len(kept) < len(d.get("arts", [])):
+            unmod.append("Đạo Đồ: only arts tagged %s may be slotted; %d left out" % (tag, len(d["arts"]) - len(kept)))
+        d["arts"] = kept
     d["effects"], d["counters"], d["states"], d["unmodelled"] = effects, counters, states, unmod
     d.pop("_pool_pct", None)
     return d
@@ -734,6 +797,12 @@ def to_build(d, r, notes, who):
         notes.append("cap_hit\t%s\treserved %.2f over reserve_cap 0.90" % (who, total_res))
     eb.stack_eff = dict(d.get("stack_eff", {}))
     eb.stack_dur = dict(d.get("stack_dur", {}))
+    eb.stack_alias = {k: list(v) for k, v in (d.get("stack_alias", {}) or {}).items()}
+    if d.get("no_ward"):
+        # No Ward (Đạo Đồ keystone): no ward of any kind, the default ward and ward shields included (Combat Defence &
+        # Healing rule 5: cannot_slot_wards, no_default_ward)
+        eb.ward_pts, eb.drain, eb.wards, eb.shields = 0.0, 0.0, [], []
+        eb.reserved = max(0.0, eb.reserved - _xres)
     eb.tags = tuple(d.get("tags", ()))
     eb.states = list(d.get("states", []))
     try:

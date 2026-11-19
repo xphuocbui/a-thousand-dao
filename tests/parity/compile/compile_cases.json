@@ -611,7 +611,8 @@
       "model": "drain",
       "drain": 1.1513759783431048
      }
-    ]
+    ],
+    "stack_alias": {}
    },
    "unmodelled": [
     "item blade-sword-nest-flag passive artifact_attack_pct +15 : no engine stat (not run)",
@@ -1431,7 +1432,8 @@
       "cooldown": 5.0,
       "up": 2.0
      }
-    ]
+    ],
+    "stack_alias": {}
    },
    "unmodelled": [
     "item blade-unbroken-edge-ring Effect Lingering Afterimage: run from the library, approximately (counter decay belongs to the build's own counters; a build with Blade counters writes its no-decay records itself (see design/builds/engine-v3/builds))"
@@ -2226,7 +2228,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": [
     "item body-echo-skin-drum Effect Echo: run from the library, approximately (once per firing is written as once a pulse)"
@@ -3122,7 +3125,8 @@
       "cooldown": 5.0,
       "up": 2.0
      }
-    ]
+    ],
+    "stack_alias": {}
    },
    "unmodelled": []
   },
@@ -3845,7 +3849,8 @@
       "cooldown": 5.0,
       "up": 2.0
      }
-    ]
+    ],
+    "stack_alias": {}
    },
    "unmodelled": [
     "item body-stone-answer-ring Effect Stone Answers: not run (a free hit sized by damage stopped needs a hit by amount, which the engine's free_hit (a coefficient) does not take)"
@@ -4390,7 +4395,8 @@
       "evade": 9.6,
       "model": "reserved"
      }
-    ]
+    ],
+    "stack_alias": {}
    },
    "unmodelled": [
     "technique character passive made_up_combat_pct +5 : no engine stat (not run)",
@@ -4991,7 +4997,8 @@
      "*|*": 10.0,
      "earth|debuff": 95.0
     },
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": [
     "technique character stack_duration_pct scope ['sword']: only element and buff/debuff scopes are run; read as unscoped for ['sword']",
@@ -5761,7 +5768,8 @@
       "shield": 0.7621069136451487,
       "model": "reserved"
      }
-    ]
+    ],
+    "stack_alias": {}
    },
    "unmodelled": []
   },
@@ -6520,7 +6528,8 @@
       "model": "drain",
       "drain": 0.47086660751257037
      }
-    ]
+    ],
+    "stack_alias": {}
    },
    "unmodelled": []
   },
@@ -7527,7 +7536,8 @@
       "model": "drain",
       "drain": 0.24881006514212983
      }
-    ]
+    ],
+    "stack_alias": {}
    },
    "unmodelled": [
     "item fire-phoenix-plume-armour Effect Phoenix Mend: run from the library, approximately (any heal counts, not only art heals; Burn lasts 6 s)",
@@ -8103,7 +8113,8 @@
      "*|debuff": 49.0
     },
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": [
     "item force-chaos-ash-to-void-pendant passive convert_pct +40 ['fire']: no engine stat (not run)",
@@ -8733,7 +8744,8 @@
       "model": "drain",
       "drain": 0.8042650523202225
      }
-    ]
+    ],
+    "stack_alias": {}
    },
    "unmodelled": []
   },
@@ -9393,7 +9405,8 @@
       "cooldown": 4.0,
       "up": 3.0
      }
-    ]
+    ],
+    "stack_alias": {}
    },
    "unmodelled": [
     "item general-bulwark-shield passive cast_ward_duration_pct +4 : no engine stat (not run)"
@@ -10211,7 +10224,8 @@
       "model": "drain",
       "drain": 0.6157089064596092
      }
-    ]
+    ],
+    "stack_alias": {}
    },
    "unmodelled": [
     "technique character passive made_up_combat_pct +5 : no engine stat (not run)",
@@ -11027,7 +11041,8 @@
     "stack_dur": {
      "*|*": 10.0
     },
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": [
     "technique character stack_duration_pct scope ['sword']: only element and buff/debuff scopes are run; read as unscoped for ['sword']",
@@ -11631,7 +11646,8 @@
       "cooldown": 4.0,
       "up": 3.0
      }
-    ]
+    ],
+    "stack_alias": {}
    },
    "unmodelled": [
     "item ice-deep-freeze-ring Effect Deep Freeze: run from the library, approximately (fires on any Ice grant at 10 or more stacks, once every 2 pulses, rather than exactly at each multiple of 10)"
@@ -12123,7 +12139,8 @@
     "stack_dur": {
      "ice|debuff": 42.0
     },
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": [
     "item ice-hoarfrost-tide-shield ward Hoarfrost Tide (Sương Triều Tráo): no free ward or art slot, not slotted"
@@ -12757,7 +12774,8 @@
     "stack_dur": {
      "ice|debuff": 30.0
     },
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": [
     "item metal-armoury-banner passive artifact_attack_pct +10 : no engine stat (not run)"
@@ -13319,7 +13337,8 @@
       "model": "per_hit",
       "cost": 0.005723076923076923
      }
-    ]
+    ],
+    "stack_alias": {}
    },
    "unmodelled": []
   },
@@ -14276,7 +14295,8 @@
       "model": "drain",
       "drain": 0.5960280594843373
      }
-    ]
+    ],
+    "stack_alias": {}
    },
    "unmodelled": [
     "item metal-heaven-minted-coin Effect Seal of Full Payment: not run (carried spirit stones are not in the sim)"
@@ -14785,7 +14805,8 @@
       "cooldown": 5.0,
       "up": 2.0
      }
-    ]
+    ],
+    "stack_alias": {}
    },
    "unmodelled": [
     "item soul-song-seal-clear-mind-robe ward Clear-Mind Ward (Thanh Minh Chú): payload 'status +45 pp' is not run",
@@ -15426,7 +15447,8 @@
       "model": "drain",
       "drain": 0.7859525833779577
      }
-    ]
+    ],
+    "stack_alias": {}
    },
    "unmodelled": [
     "technique character passive made_up_combat_pct +5 : no engine stat (not run)",
@@ -16139,7 +16161,8 @@
     "stack_dur": {
      "*|*": 10.0
     },
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": [
     "technique character stack_duration_pct scope ['sword']: only element and buff/debuff scopes are run; read as unscoped for ['sword']",
@@ -17138,7 +17161,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": [
     "item soul-song-seal-thousand-string-zither Effect Plucked Time: run from the library, approximately (the closing is not run (a filter cannot say 'neither soul nor song'))",
@@ -18041,7 +18065,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": [
     "item thunder-lightning-step-charm Effect Cold Feet: not run (escape is not in the engine (deferred))",
@@ -18577,7 +18602,8 @@
       "model": "drain",
       "drain": 1.080798021470051
      }
-    ]
+    ],
+    "stack_alias": {}
    },
    "unmodelled": [
     "item thunder-stormcaller-drum Effect Steady Breath: run from the library, approximately (unscoped here; a build whose host sets a scope writes its own record)",
@@ -19211,7 +19237,8 @@
     "stack_dur": {
      "water|buff": 20.0
     },
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": [
     "item water-brimming-shield Effect Steady Breath: run from the library, approximately (unscoped here; a build whose host sets a scope writes its own record)",
@@ -19945,7 +19972,8 @@
     "stack_dur": {
      "water|buff": 25.0
     },
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": [
     "item water-owed-water-pendant Effect Owed Water: run from the library, approximately (checked once a pulse; +3 pp regeneration for 5 s (log-shaped like every regeneration bonus, so slightly under 15 %))",
@@ -20759,7 +20787,8 @@
       "model": "drain",
       "drain": 0.2925189143289302
      }
-    ]
+    ],
+    "stack_alias": {}
    },
    "unmodelled": [
     "item water-spring-censer Effect Brimming Cup: run from the library, approximately (each pulse's overflow counts on its own (a part under 5 % is lost, not carried))",
@@ -21480,7 +21509,8 @@
       "evade": 14.4,
       "model": "reserved"
      }
-    ]
+    ],
+    "stack_alias": {}
    },
    "unmodelled": [
     "technique character stack_duration_pct scope ['sword']: only element and buff/debuff scopes are run; read as unscoped for ['sword']",
@@ -22070,7 +22100,8 @@
     "stack_dur": {
      "*|*": 10.0
     },
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": [
     "technique character stack_duration_pct scope ['sword']: only element and buff/debuff scopes are run; read as unscoped for ['sword']",
@@ -22670,7 +22701,8 @@
       "model": "drain",
       "drain": 0.8200320229763857
      }
-    ]
+    ],
+    "stack_alias": {}
    },
    "unmodelled": [
     "item wind-windbreak-shield ward Windbreak Screen (Cách Phong Bình): no free ward or art slot, not slotted"
@@ -23334,7 +23366,8 @@
       "model": "drain",
       "drain": 0.5547325164827338
      }
-    ]
+    ],
+    "stack_alias": {}
    },
    "unmodelled": []
   },
@@ -24041,7 +24074,8 @@
      "wood|buff": 20.0,
      "wood|debuff": 40.0
     },
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": []
   },
@@ -24800,7 +24834,8 @@
     "stack_dur": {
      "wood|debuff": 40.0
     },
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": [
     "item wood-venom-drinker-pendant passive leech_linh_luc_pct scope ['over_time']: the engine reads leech_qi without hit context, so it applies to every art",
@@ -25165,7 +25200,8 @@
     "stack_dur": {
      "*|*": 6.0
     },
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": []
   },
@@ -25679,7 +25715,8 @@
     "stack_dur": {
      "*|*": 6.0
     },
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": [
     "technique character passive made_up_combat_pct +5 : no engine stat (not run)"
@@ -26252,7 +26289,8 @@
     "stack_dur": {
      "*|*": 10.0
     },
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": [
     "technique character stack_duration_pct scope ['sword']: only element and buff/debuff scopes are run; read as unscoped for ['sword']",
@@ -26824,7 +26862,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": []
   },
@@ -27430,7 +27469,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": []
   },
@@ -27890,7 +27930,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": []
   },
@@ -28439,7 +28480,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": []
   },
@@ -28907,7 +28949,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": []
   },
@@ -29640,7 +29683,8 @@
     "stack_dur": {
      "*|*": 6.0
     },
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": []
   },
@@ -30383,7 +30427,8 @@
      "*|*": 7.0
     },
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": [
     "technique character passive made_up_combat_pct +5 : no engine stat (not run)",
@@ -30792,7 +30837,8 @@
     "stack_dur": {
      "*|*": 10.0
     },
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": [
     "technique character stack_duration_pct scope ['sword']: only element and buff/debuff scopes are run; read as unscoped for ['sword']",
@@ -31161,7 +31207,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": []
   },
@@ -31566,7 +31613,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": []
   },
@@ -32335,7 +32383,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": []
   },
@@ -33116,7 +33165,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": []
   },
@@ -33505,7 +33555,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": []
   },
@@ -33958,7 +34009,8 @@
     "stack_dur": {
      "*|*": 6.0
     },
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": []
   },
@@ -34540,7 +34592,8 @@
     "stack_dur": {
      "*|*": 10.0
     },
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": [
     "technique character stack_duration_pct scope ['sword']: only element and buff/debuff scopes are run; read as unscoped for ['sword']",
@@ -35327,7 +35380,8 @@
     "stack_dur": {
      "*|*": 10.0
     },
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": [
     "technique character stack_duration_pct scope ['sword']: only element and buff/debuff scopes are run; read as unscoped for ['sword']"
@@ -35792,7 +35846,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": []
   },
@@ -36126,7 +36181,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": []
   },
@@ -36552,7 +36608,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    "unmodelled": []
   },
@@ -36780,7 +36837,5653 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
+   },
+   "unmodelled": []
+  },
+  {
+   "name": "tree_00",
+   "input": {
+    "name": "tree_00",
+    "realm": 0,
+    "layers": [
+     26.517201391573252,
+     40,
+     40,
+     20,
+     10
+    ],
+    "n_body": 1.0883,
+    "n_qi": 1.053,
+    "ward": {
+     "ws_base": 30.8
+    },
+    "arts": [
+     {
+      "lib": "blade-mirror-trace-cut"
+     },
+     {
+      "lib": "ash-feather-gale"
+     }
+    ],
+    "items": [],
+    "modifiers": [
+     {
+      "key": "attack_pct",
+      "value": 10.0
+     },
+     {
+      "key": "khi_huyet_pct",
+      "value": 12.0
+     }
+    ],
+    "purity": {
+     "fire": 40.0
+    },
+    "tree_effects": [
+     "Ageless Pine",
+     "Alchemist's Heart",
+     "Autumn Harvest",
+     "Bare Rack",
+     "Before Heaven",
+     "Boundless Sea"
+    ],
+    "counts": {
+     "empty_extra_slots": 1,
+     "carried_sword": 0,
+     "root_elements": 1
+    }
+   },
+   "build": {
+    "name": "tree_00",
+    "realm": 0,
+    "M": 3.273253034402783,
+    "layers": [
+     26.517201391573252,
+     40,
+     40,
+     20,
+     10
+    ],
+    "crit": 0.15,
+    "crit_mult": 1.7,
+    "evade": 0.0,
+    "acc": 0.0,
+    "n_body": 1.0556510000000001,
+    "n_qi": 2.106,
+    "ward_pts": 448.0246339389253,
+    "drain": 0.9585058906003512,
+    "block": 15.0,
+    "regen_bonus": 0.0,
+    "hregen": 0.0,
+    "cost_red": 0.0,
+    "gain_on_hit": 0.0,
+    "leech_qi": 0.0,
+    "leech_hp": 0.0,
+    "hp_pay": 0.0,
+    "healing": 0.0,
+    "cleanse_pulse": 0,
+    "cleanse_cost": 0.0,
+    "cleanse_share": 0.0,
+    "art_speed_pct": 0.0,
+    "basic_speed_pct": 0.0,
+    "opening_haste_pct": 0.0,
+    "basic_coef_add": 0.0,
+    "ward_layer": 1.0,
+    "body_pts": 0.0,
+    "body_block": 0.0,
+    "bs_mult": 1.0,
+    "body_shield": 0.0,
+    "resist": {},
+    "shields": [],
+    "arts": [
+     {
+      "name": "blade-mirror-trace-cut",
+      "c": 1.7,
+      "cost": 0.064,
+      "cd": 3,
+      "element": "metal",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "kim",
+       "sword",
+       "artifact",
+       "quick"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "",
+      "steps": [],
+      "empower": []
+     },
+     {
+      "name": "ash-feather-gale",
+      "c": 1.95,
+      "cost": 0.08,
+      "cd": 4,
+      "element": "fire",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [
+       3,
+       6
+      ],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "fire",
+       "artifact"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "ashen-phoenix-canon",
+      "steps": [
+       {
+        "unlock": [
+         {
+          "read": "own.counter.cinder",
+          "op": ">=",
+          "value": 4
+         },
+         {
+          "any": [
+           {
+            "read": "own.hp_missing_share",
+            "op": ">=",
+            "value": 0.4
+           },
+           {
+            "read": "own.fired_within.3.group.ashen-phoenix-canon",
+            "op": ">=",
+            "value": 1
+           }
+          ]
+         }
+        ],
+        "pay": [
+         {
+          "counter": {
+           "id": "cinder",
+           "add": -4
+          }
+         }
+        ],
+        "c_mult": 4.0
+       }
+      ],
+      "empower": []
+     }
+    ],
+    "purity": {
+     "fire": 40.0
+    },
+    "effects": [
+     {
+      "id": "blade-mirror-trace-crit-afterimage",
+      "on": "crit",
+      "filter": {
+       "art_id": "blade-mirror-trace-cut"
+      },
+      "limit": {
+       "cooldown": 1
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "afterimage",
+         "add": 3
+        }
+       }
+      ]
+     },
+     {
+      "id": "gale-cinder",
+      "on": "tick_dealt",
+      "limit": {
+       "per_pulse": 2
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "cinder",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "tech:character",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "L1": 10.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "lines:Ageless Pine",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "resist": -25,
+         "dtype": "fire"
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Ageless Pine",
+      "on": "buff_gained",
+      "filter": {
+       "element": "wood"
+      },
+      "do": [
+       {
+        "refresh": {
+         "el": "wood",
+         "side": "own",
+         "kind": "buff",
+         "hold": true
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Autumn Harvest",
+      "on": "crit",
+      "filter": {
+       "kind": "art"
+      },
+      "limit": {
+       "per_pulse": 3
+      },
+      "do": [
+       {
+        "refund": {
+         "share": 1.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Autumn Harvest closes",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "no_regen": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Bare Rack",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "L5": 5,
+         "kind": "companion"
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Before Heaven",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "L5": 4,
+         "resist": 40
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Boundless Sea",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "no_regen": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Boundless Sea closes",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "no_gain_on_hit": 1
+        }
+       }
+      ]
+     }
+    ],
+    "counters": [
+     {
+      "id": "afterimage",
+      "decay_per_pulse": 0.1
+     },
+     {
+      "id": "cinder"
+     }
+    ],
+    "companions": [],
+    "divine_sense": 1.0,
+    "soul_res": 0.0,
+    "x_soul": 0.0,
+    "tam_ma": 0.0,
+    "timer_resist": 0.0,
+    "ward_bill_pct": 0.0,
+    "refusals": 1,
+    "boss": false,
+    "tags": [],
+    "states": [],
+    "reserved": 0.0,
+    "stage_mult": 1.0,
+    "stack_eff": {},
+    "stack_dur": {},
+    "wards": [],
+    "stack_alias": {}
+   },
+   "unmodelled": [
+    "Đạo Đồ Effect Alchemist's Heart: not run (pills are not taken inside fights yet (Alchemy: pill use in combat has no host))",
+    "Đạo Đồ Effect Bare Rack: part not run yet (the [basic] half, until Combat adopts the basic tag (#43; re-review EF 24))"
+   ]
+  },
+  {
+   "name": "tree_01",
+   "input": {
+    "name": "tree_01",
+    "realm": 1,
+    "layers": [
+     61.9636644762273,
+     40,
+     40,
+     20,
+     10
+    ],
+    "n_body": 1.0883,
+    "n_qi": 1.053,
+    "ward": {
+     "ws_base": 37.9
+    },
+    "arts": [
+     {
+      "lib": "blade-sword-rain"
+     },
+     {
+      "lib": "ash-feather-gale"
+     },
+     {
+      "lib": "backwash-seal"
+     }
+    ],
+    "items": [],
+    "modifiers": [
+     {
+      "key": "attack_pct",
+      "value": 10.0
+     },
+     {
+      "key": "khi_huyet_pct",
+      "value": 12.0
+     }
+    ],
+    "purity": {
+     "water": 55.0,
+     "ice": 20.0
+    },
+    "tree_effects": [
+     "Burning Ground",
+     "Burning Lifespan",
+     "Called Blow",
+     "Dark of the Moon",
+     "Daybreak",
+     "Earth Vein Tap"
+    ],
+    "counts": {
+     "empty_extra_slots": 2,
+     "carried_sword": 1,
+     "root_elements": 2
+    },
+    "tree_lines_on_sheet": true
+   },
+   "build": {
+    "name": "tree_01",
+    "realm": 1,
+    "M": 4.1903239273289525,
+    "layers": [
+     61.9636644762273,
+     40,
+     40,
+     20,
+     10
+    ],
+    "crit": 0.15,
+    "crit_mult": 1.7,
+    "evade": 0.0,
+    "acc": 0.0,
+    "n_body": 1.2188960000000002,
+    "n_qi": 1.053,
+    "ward_pts": 472.34401391573243,
+    "drain": 0.862346374534457,
+    "block": 15.7,
+    "regen_bonus": 0.0,
+    "hregen": 0.0,
+    "cost_red": 0.0,
+    "gain_on_hit": 0.0,
+    "leech_qi": 0.0,
+    "leech_hp": 0.0,
+    "hp_pay": 0.0,
+    "healing": 0.0,
+    "cleanse_pulse": 0,
+    "cleanse_cost": 0.0,
+    "cleanse_share": 0.0,
+    "art_speed_pct": 0.0,
+    "basic_speed_pct": 0.0,
+    "opening_haste_pct": 0.0,
+    "basic_coef_add": 0.0,
+    "ward_layer": 1.0,
+    "body_pts": 0.0,
+    "body_block": 0.0,
+    "bs_mult": 1.0,
+    "body_shield": 0.0,
+    "resist": {},
+    "shields": [],
+    "arts": [
+     {
+      "name": "blade-sword-rain",
+      "c": 1.4,
+      "cost": 0.08,
+      "cd": 3,
+      "element": "metal",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [
+       1,
+       6
+      ],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "kim",
+       "sword",
+       "artifact",
+       "quick"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "afterimage-sword-canon",
+      "steps": [
+       {
+        "unlock": [
+         {
+          "read": "own.counter.afterimage",
+          "op": ">=",
+          "value": 5
+         },
+         {
+          "any": [
+           {
+            "read": "own.fired_within.2.group.afterimage-sword-canon",
+            "op": ">=",
+            "value": 2
+           },
+           {
+            "read": "foe.status.bleed",
+            "op": ">=",
+            "value": 3
+           }
+          ]
+         }
+        ],
+        "pay": [
+         {
+          "counter": {
+           "id": "afterimage",
+           "add": -5
+          }
+         }
+        ],
+        "c_mult": 3.0,
+        "split": [
+         0.25,
+         0.25,
+         0.25,
+         0.25
+        ]
+       }
+      ],
+      "empower": []
+     },
+     {
+      "name": "ash-feather-gale",
+      "c": 1.95,
+      "cost": 0.08,
+      "cd": 4,
+      "element": "fire",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [
+       3,
+       6
+      ],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "fire",
+       "artifact"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "ashen-phoenix-canon",
+      "steps": [
+       {
+        "unlock": [
+         {
+          "read": "own.counter.cinder",
+          "op": ">=",
+          "value": 4
+         },
+         {
+          "any": [
+           {
+            "read": "own.hp_missing_share",
+            "op": ">=",
+            "value": 0.4
+           },
+           {
+            "read": "own.fired_within.3.group.ashen-phoenix-canon",
+            "op": ">=",
+            "value": 1
+           }
+          ]
+         }
+        ],
+        "pay": [
+         {
+          "counter": {
+           "id": "cinder",
+           "add": -4
+          }
+         }
+        ],
+        "c_mult": 4.0
+       }
+      ],
+      "empower": []
+     },
+     {
+      "name": "backwash-seal",
+      "c": 1.4,
+      "cost": 0.06,
+      "cd": 2,
+      "element": "water",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "seal",
+       "water",
+       "quick"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "",
+      "steps": [],
+      "empower": []
+     }
+    ],
+    "purity": {
+     "water": 55.0,
+     "ice": 20.0
+    },
+    "effects": [
+     {
+      "id": "blade-rain-afterimage",
+      "on": "hit_landed",
+      "filter": {
+       "art_id": "blade-sword-rain"
+      },
+      "limit": {
+       "per_pulse": 2
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "afterimage",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "gale-cinder",
+      "on": "tick_dealt",
+      "limit": {
+       "per_pulse": 2
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "cinder",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "backwash-count",
+      "on": "art_fired",
+      "filter": {
+       "element": "water"
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "backwash",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "backwash-echo",
+      "on": "art_fired",
+      "filter": {
+       "element": "water"
+      },
+      "if": [
+       {
+        "read": "own.counter.backwash",
+        "op": ">=",
+        "value": 3
+       }
+      ],
+      "do": [
+       {
+        "fire_art": {
+         "which": "last",
+         "share": 0.5
+        }
+       },
+       {
+        "gain_qi": {
+         "share": 0.02
+        }
+       },
+       {
+        "counter": {
+         "id": "backwash",
+         "set": 0
+        }
+       }
+      ]
+     },
+     {
+      "id": "tech:character",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "L1": 10.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Burning Ground",
+      "on": "hit_landed",
+      "filter": {
+       "element": "earth",
+       "kind": "art"
+      },
+      "limit": {
+       "per_firing": 1
+      },
+      "do": [
+       {
+        "stacks": {
+         "el": "fire",
+         "n": 2,
+         "for": 6,
+         "side": "foe"
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Burning Lifespan was_hit",
+      "on": "was_hit",
+      "if": [
+       {
+        "read": "own.hp_share",
+        "op": "<=",
+        "value": 0.3
+       },
+       {
+        "read": "own.counter.nhien_tho",
+        "op": "==",
+        "value": 0
+       }
+      ],
+      "do": [
+       {
+        "counter": {
+         "id": "nhien_tho",
+         "add": 1
+        }
+       },
+       {
+        "mod": {
+         "L5": 40,
+         "art_speed": 30,
+         "for": 5
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Burning Lifespan pulse",
+      "on": "pulse",
+      "if": [
+       {
+        "read": "own.hp_share",
+        "op": "<=",
+        "value": 0.3
+       },
+       {
+        "read": "own.counter.nhien_tho",
+        "op": "==",
+        "value": 0
+       }
+      ],
+      "do": [
+       {
+        "counter": {
+         "id": "nhien_tho",
+         "add": 1
+        }
+       },
+       {
+        "mod": {
+         "L5": 40,
+         "art_speed": 30,
+         "for": 5
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Called Blow",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "counted_crit": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Called Blow closes",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "crit_cap_to": 0.35
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Dark of the Moon",
+      "on": "evaded",
+      "held": {
+       "until": "hit_landed",
+       "cap": 1
+      },
+      "limit": {
+       "per_pulse": 1
+      },
+      "do": [
+       {
+        "mod": {
+         "sure_crit": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Daybreak",
+      "on": "hit_landed",
+      "filter": {
+       "tags": [
+        "light"
+       ]
+      },
+      "limit": {
+       "per_fight": 1
+      },
+      "do": [
+       {
+        "status": {
+         "id": "exposed",
+         "dur": 3
+        }
+       }
+      ]
+     }
+    ],
+    "counters": [
+     {
+      "id": "afterimage",
+      "decay_per_pulse": 0.1
+     },
+     {
+      "id": "cinder"
+     },
+     {
+      "id": "backwash",
+      "cap": 3
+     },
+     {
+      "id": "nhien_tho",
+      "cap": 1
+     }
+    ],
+    "companions": [],
+    "divine_sense": 1.0,
+    "soul_res": 0.0,
+    "x_soul": 0.0,
+    "tam_ma": 0.0,
+    "timer_resist": 0.0,
+    "ward_bill_pct": 0.0,
+    "refusals": 1,
+    "boss": false,
+    "tags": [],
+    "states": [],
+    "reserved": 0.0,
+    "stage_mult": 1.0,
+    "stack_eff": {},
+    "stack_dur": {},
+    "wards": [],
+    "stack_alias": {}
+   },
+   "unmodelled": [
+    "Đạo Đồ Effect Burning Lifespan: part not run yet (the lifespan the fight burns: the fight result does not report years yet (Realms / Time & Turn host))",
+    "Đạo Đồ Effect Earth Vein Tap: not run (formations do not stand inside fights yet (Formations host))"
+   ]
+  },
+  {
+   "name": "tree_02",
+   "input": {
+    "name": "tree_02",
+    "realm": 2,
+    "layers": [
+     111.82837263239271,
+     40,
+     40,
+     20,
+     10
+    ],
+    "n_body": 1.0883,
+    "n_qi": 1.053,
+    "ward": {
+     "ws_base": 47.9
+    },
+    "arts": [
+     {
+      "lib": "blade-thousand-cut-return"
+     },
+     {
+      "lib": "ash-feather-gale"
+     },
+     {
+      "lib": "backwash-seal"
+     },
+     {
+      "lib": "aftershock-slam"
+     }
+    ],
+    "items": [],
+    "modifiers": [
+     {
+      "key": "attack_pct",
+      "value": 10.0
+     },
+     {
+      "key": "khi_huyet_pct",
+      "value": 12.0
+     }
+    ],
+    "purity": {},
+    "tree_effects": [
+     "Earthen Armour",
+     "Ebb Tide",
+     "Eruption",
+     "Ever-Burning Furnace",
+     "Fire Feeds Fire",
+     "Fire Lotus"
+    ],
+    "counts": {
+     "empty_extra_slots": 1,
+     "carried_sword": 2,
+     "root_elements": 3
+    }
+   },
+   "build": {
+    "name": "tree_02",
+    "realm": 2,
+    "M": 5.4804236567452635,
+    "layers": [
+     111.82837263239271,
+     40,
+     40,
+     20,
+     10
+    ],
+    "crit": 0.15,
+    "crit_mult": 1.7,
+    "evade": 0.0,
+    "acc": 0.0,
+    "n_body": 1.2188960000000002,
+    "n_qi": 0.68445,
+    "ward_pts": 506.59666177039037,
+    "drain": 0.7496765499120109,
+    "block": 16.4,
+    "regen_bonus": 0.0,
+    "hregen": 0.0,
+    "cost_red": 0.0,
+    "gain_on_hit": 0.0,
+    "leech_qi": 0.0,
+    "leech_hp": 0.0,
+    "hp_pay": 0.0,
+    "healing": 0.0,
+    "cleanse_pulse": 0,
+    "cleanse_cost": 0.0,
+    "cleanse_share": 0.0,
+    "art_speed_pct": 0.0,
+    "basic_speed_pct": 0.0,
+    "opening_haste_pct": 0.0,
+    "basic_coef_add": 0.0,
+    "ward_layer": 1.0,
+    "body_pts": 0.0,
+    "body_block": 0.0,
+    "bs_mult": 1.0,
+    "body_shield": 0.0,
+    "resist": {},
+    "shields": [],
+    "arts": [
+     {
+      "name": "blade-thousand-cut-return",
+      "c": 1.8,
+      "cost": 0.1,
+      "cd": 5,
+      "element": "metal",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [
+       3,
+       6
+      ],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "kim",
+       "sword",
+       "artifact"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "",
+      "steps": [
+       {
+        "unlock": [
+         {
+          "read": "foe.debuff.metal",
+          "op": ">=",
+          "value": 15
+         },
+         {
+          "any": [
+           {
+            "read": "own.counter.afterimage",
+            "op": ">=",
+            "value": 3
+           },
+           {
+            "read": "own.fired_within.1.group.afterimage-sword-canon",
+            "op": ">=",
+            "value": 2
+           }
+          ]
+         }
+        ],
+        "pay": [
+         {
+          "consume": {
+           "el": "metal",
+           "side": "foe",
+           "kind": "debuff",
+           "n": 10
+          }
+         }
+        ],
+        "c_mult": 4.0
+       }
+      ],
+      "empower": []
+     },
+     {
+      "name": "ash-feather-gale",
+      "c": 1.95,
+      "cost": 0.08,
+      "cd": 4,
+      "element": "fire",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [
+       3,
+       6
+      ],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "fire",
+       "artifact"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "ashen-phoenix-canon",
+      "steps": [
+       {
+        "unlock": [
+         {
+          "read": "own.counter.cinder",
+          "op": ">=",
+          "value": 4
+         },
+         {
+          "any": [
+           {
+            "read": "own.hp_missing_share",
+            "op": ">=",
+            "value": 0.4
+           },
+           {
+            "read": "own.fired_within.3.group.ashen-phoenix-canon",
+            "op": ">=",
+            "value": 1
+           }
+          ]
+         }
+        ],
+        "pay": [
+         {
+          "counter": {
+           "id": "cinder",
+           "add": -4
+          }
+         }
+        ],
+        "c_mult": 4.0
+       }
+      ],
+      "empower": []
+     },
+     {
+      "name": "backwash-seal",
+      "c": 1.4,
+      "cost": 0.06,
+      "cd": 2,
+      "element": "water",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "seal",
+       "water",
+       "quick"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "",
+      "steps": [],
+      "empower": []
+     },
+     {
+      "name": "aftershock-slam",
+      "c": 0.7,
+      "cost": 0.16,
+      "cd": 9,
+      "element": "earth",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "earth",
+       "slam",
+       "heavy",
+       "quake"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "deep-vein-scripture",
+      "steps": [],
+      "empower": []
+     }
+    ],
+    "purity": {},
+    "effects": [
+     {
+      "id": "blade-return-afterimage",
+      "on": "hit_landed",
+      "filter": {
+       "art_id": "blade-thousand-cut-return"
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "afterimage",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "gale-cinder",
+      "on": "tick_dealt",
+      "limit": {
+       "per_pulse": 2
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "cinder",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "backwash-count",
+      "on": "art_fired",
+      "filter": {
+       "element": "water"
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "backwash",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "backwash-echo",
+      "on": "art_fired",
+      "filter": {
+       "element": "water"
+      },
+      "if": [
+       {
+        "read": "own.counter.backwash",
+        "op": ">=",
+        "value": 3
+       }
+      ],
+      "do": [
+       {
+        "fire_art": {
+         "which": "last",
+         "share": 0.5
+        }
+       },
+       {
+        "gain_qi": {
+         "share": 0.02
+        }
+       },
+       {
+        "counter": {
+         "id": "backwash",
+         "set": 0
+        }
+       }
+      ]
+     },
+     {
+      "id": "quake-count",
+      "on": "art_fired",
+      "filter": {
+       "tags": [
+        "heavy"
+       ]
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "quake",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "quake-echo",
+      "on": "art_fired",
+      "filter": {
+       "tags": [
+        "heavy"
+       ]
+      },
+      "scale": {
+       "read": "own.counter.quake",
+       "per": 3
+      },
+      "do": [
+       {
+        "fire_art": {
+         "which": "last",
+         "share": 0.35
+        }
+       },
+       {
+        "counter": {
+         "id": "quake",
+         "add": -3
+        }
+       }
+      ]
+     },
+     {
+      "id": "tech:character",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "L1": 10.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Earthen Armour",
+      "on": "pulse",
+      "if": [
+       {
+        "read": "own.since_hit",
+        "op": ">=",
+        "value": 3
+       }
+      ],
+      "do": [
+       {
+        "shield": {
+         "refill": 0.1
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Ebb Tide art_fired",
+      "on": "art_fired",
+      "if": [
+       {
+        "read": "own.qi_share",
+        "op": "<",
+        "value": 0.3
+       },
+       {
+        "read": "own.counter.trieu_rut",
+        "op": "==",
+        "value": 0
+       }
+      ],
+      "do": [
+       {
+        "gain_qi": {
+         "share": 0.3
+        }
+       },
+       {
+        "counter": {
+         "id": "trieu_rut",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Ebb Tide was_hit",
+      "on": "was_hit",
+      "if": [
+       {
+        "read": "own.qi_share",
+        "op": "<",
+        "value": 0.3
+       },
+       {
+        "read": "own.counter.trieu_rut",
+        "op": "==",
+        "value": 0
+       }
+      ],
+      "do": [
+       {
+        "gain_qi": {
+         "share": 0.3
+        }
+       },
+       {
+        "counter": {
+         "id": "trieu_rut",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Eruption",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "L5": 15,
+         "element": "fire",
+         "tags": [
+          "costly"
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Ever-Burning Furnace",
+      "on": "status_applied",
+      "filter": {
+       "element": "fire"
+      },
+      "scale": {
+       "read": "event.stacks",
+       "per": 1,
+       "floor": false
+      },
+      "limit": {
+       "scale_per_pulse": 10
+      },
+      "do": [
+       {
+        "gain_qi": {
+         "share": 0.002
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Ever-Burning Furnace closes",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "no_regen": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Fire Feeds Fire",
+      "on": "hit_landed",
+      "do": [
+       {
+        "refresh": {
+         "el": "fire",
+         "side": "foe",
+         "kind": "debuff",
+         "at_least": 3
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Fire Feeds Fire closes",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "dmg_more": -0.5,
+         "element": "water",
+         "kind": "art"
+        }
+       }
+      ]
+     },
+     {
+      "id": "lines:Fire Lotus",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "crit_mult": -30
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Fire Lotus",
+      "on": "crit",
+      "do": [
+       {
+        "stacks": {
+         "el": "fire",
+         "n": 2,
+         "for": 6,
+         "side": "foe"
+        }
+       }
+      ]
+     }
+    ],
+    "counters": [
+     {
+      "id": "afterimage",
+      "decay_per_pulse": 0.1
+     },
+     {
+      "id": "cinder"
+     },
+     {
+      "id": "backwash",
+      "cap": 3
+     },
+     {
+      "id": "quake"
+     },
+     {
+      "id": "trieu_rut",
+      "cap": 1
+     }
+    ],
+    "companions": [],
+    "divine_sense": 1.0,
+    "soul_res": 0.0,
+    "x_soul": 0.0,
+    "tam_ma": 0.0,
+    "timer_resist": 0.0,
+    "ward_bill_pct": 0.0,
+    "refusals": 1,
+    "boss": false,
+    "tags": [],
+    "states": [],
+    "reserved": 0.0,
+    "stage_mult": 1.0,
+    "stack_eff": {},
+    "stack_dur": {},
+    "wards": [],
+    "stack_alias": {}
+   },
+   "unmodelled": []
+  },
+  {
+   "name": "tree_03",
+   "input": {
+    "name": "tree_03",
+    "realm": 3,
+    "layers": [
+     184.88596830305372,
+     40,
+     40,
+     20,
+     10
+    ],
+    "n_body": 1.0883,
+    "n_qi": 1.053,
+    "ward": {
+     "ws_base": 62.5
+    },
+    "arts": [
+     {
+      "lib": "blade-thread-edge-cut"
+     },
+     {
+      "lib": "ash-feather-gale"
+     },
+     {
+      "lib": "backwash-seal"
+     },
+     {
+      "lib": "aftershock-slam"
+     },
+     {
+      "lib": "blade-mirror-trace-cut"
+     }
+    ],
+    "items": [],
+    "modifiers": [
+     {
+      "key": "attack_pct",
+      "value": 10.0
+     },
+     {
+      "key": "khi_huyet_pct",
+      "value": 12.0
+     }
+    ],
+    "purity": {
+     "metal": 70.0
+    },
+    "tree_effects": [
+     "First Thunder",
+     "Flowing Water",
+     "Frost Seal",
+     "Glass Meridians",
+     "Grinding Weight",
+     "Heaven's Eye"
+    ],
+    "counts": {
+     "empty_extra_slots": 2,
+     "carried_sword": 0,
+     "root_elements": 4
+    },
+    "tree_lines_on_sheet": true
+   },
+   "build": {
+    "name": "tree_03",
+    "realm": 3,
+    "M": 7.370569771936605,
+    "layers": [
+     184.88596830305372,
+     40,
+     40,
+     20,
+     10
+    ],
+    "crit": 0.15,
+    "crit_mult": 1.7,
+    "evade": 0.0,
+    "acc": 0.0,
+    "n_body": 1.2188960000000002,
+    "n_qi": 1.053,
+    "ward_pts": 556.6055276381908,
+    "drain": 0.6210170781599355,
+    "block": 17.7,
+    "regen_bonus": 0.0,
+    "hregen": 0.0,
+    "cost_red": 0.0,
+    "gain_on_hit": 0.0,
+    "leech_qi": 0.0,
+    "leech_hp": 0.0,
+    "hp_pay": 0.0,
+    "healing": 0.0,
+    "cleanse_pulse": 0,
+    "cleanse_cost": 0.0,
+    "cleanse_share": 0.0,
+    "art_speed_pct": 0.0,
+    "basic_speed_pct": 0.0,
+    "opening_haste_pct": 0.0,
+    "basic_coef_add": 0.0,
+    "ward_layer": 1.0,
+    "body_pts": 0.0,
+    "body_block": 0.0,
+    "bs_mult": 1.0,
+    "body_shield": 0.0,
+    "resist": {},
+    "shields": [],
+    "arts": [
+     {
+      "name": "blade-thread-edge-cut",
+      "c": 1.6,
+      "cost": 0.06,
+      "cd": 2,
+      "element": "metal",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [
+       1,
+       6
+      ],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "kim",
+       "sword",
+       "artifact",
+       "quick"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "",
+      "steps": [],
+      "empower": []
+     },
+     {
+      "name": "ash-feather-gale",
+      "c": 1.95,
+      "cost": 0.08,
+      "cd": 4,
+      "element": "fire",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [
+       3,
+       6
+      ],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "fire",
+       "artifact"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "ashen-phoenix-canon",
+      "steps": [
+       {
+        "unlock": [
+         {
+          "read": "own.counter.cinder",
+          "op": ">=",
+          "value": 4
+         },
+         {
+          "any": [
+           {
+            "read": "own.hp_missing_share",
+            "op": ">=",
+            "value": 0.4
+           },
+           {
+            "read": "own.fired_within.3.group.ashen-phoenix-canon",
+            "op": ">=",
+            "value": 1
+           }
+          ]
+         }
+        ],
+        "pay": [
+         {
+          "counter": {
+           "id": "cinder",
+           "add": -4
+          }
+         }
+        ],
+        "c_mult": 4.0
+       }
+      ],
+      "empower": []
+     },
+     {
+      "name": "backwash-seal",
+      "c": 1.4,
+      "cost": 0.06,
+      "cd": 2,
+      "element": "water",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "seal",
+       "water",
+       "quick"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "",
+      "steps": [],
+      "empower": []
+     },
+     {
+      "name": "aftershock-slam",
+      "c": 0.7,
+      "cost": 0.16,
+      "cd": 9,
+      "element": "earth",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "earth",
+       "slam",
+       "heavy",
+       "quake"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "deep-vein-scripture",
+      "steps": [],
+      "empower": []
+     },
+     {
+      "name": "blade-mirror-trace-cut",
+      "c": 1.7,
+      "cost": 0.064,
+      "cd": 3,
+      "element": "metal",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "kim",
+       "sword",
+       "artifact",
+       "quick"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "",
+      "steps": [],
+      "empower": []
+     }
+    ],
+    "purity": {
+     "metal": 70.0
+    },
+    "effects": [
+     {
+      "id": "gale-cinder",
+      "on": "tick_dealt",
+      "limit": {
+       "per_pulse": 2
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "cinder",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "backwash-count",
+      "on": "art_fired",
+      "filter": {
+       "element": "water"
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "backwash",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "backwash-echo",
+      "on": "art_fired",
+      "filter": {
+       "element": "water"
+      },
+      "if": [
+       {
+        "read": "own.counter.backwash",
+        "op": ">=",
+        "value": 3
+       }
+      ],
+      "do": [
+       {
+        "fire_art": {
+         "which": "last",
+         "share": 0.5
+        }
+       },
+       {
+        "gain_qi": {
+         "share": 0.02
+        }
+       },
+       {
+        "counter": {
+         "id": "backwash",
+         "set": 0
+        }
+       }
+      ]
+     },
+     {
+      "id": "quake-count",
+      "on": "art_fired",
+      "filter": {
+       "tags": [
+        "heavy"
+       ]
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "quake",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "quake-echo",
+      "on": "art_fired",
+      "filter": {
+       "tags": [
+        "heavy"
+       ]
+      },
+      "scale": {
+       "read": "own.counter.quake",
+       "per": 3
+      },
+      "do": [
+       {
+        "fire_art": {
+         "which": "last",
+         "share": 0.35
+        }
+       },
+       {
+        "counter": {
+         "id": "quake",
+         "add": -3
+        }
+       }
+      ]
+     },
+     {
+      "id": "blade-mirror-trace-crit-afterimage",
+      "on": "crit",
+      "filter": {
+       "art_id": "blade-mirror-trace-cut"
+      },
+      "limit": {
+       "cooldown": 1
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "afterimage",
+         "add": 3
+        }
+       }
+      ]
+     },
+     {
+      "id": "tech:character",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "L1": 10.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:First Thunder",
+      "on": "fight_start",
+      "do": [
+       {
+        "timer": {
+         "side": "own",
+         "which": "next",
+         "by": -999
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Flowing Water",
+      "on": "crit",
+      "limit": {
+       "per_pulse": 3
+      },
+      "do": [
+       {
+        "timer": {
+         "side": "own",
+         "which": "others",
+         "by": -0.5
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Flowing Water closes",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "cost_red": -0.4
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Frost Seal",
+      "on": "status_applied",
+      "filter": {
+       "element": "ice"
+      },
+      "if": [
+       {
+        "read": "foe.debuff.ice",
+        "op": ">=",
+        "value": 10
+       }
+      ],
+      "do": [
+       {
+        "refresh": {
+         "el": "ice",
+         "side": "foe",
+         "kind": "debuff",
+         "hold": true
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Frost Seal closes",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "dmg_more": -0.5,
+         "element": "fire",
+         "kind": "art"
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Glass Meridians closes",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "shield_hold": -0.5
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Grinding Weight",
+      "on": "hit_landed",
+      "filter": {
+       "kind": "art",
+       "tags": [
+        "slow"
+       ]
+      },
+      "limit": {
+       "per_firing": 1
+      },
+      "do": [
+       {
+        "status": {
+         "id": "slowed_time",
+         "stacks": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Heaven's Eye",
+      "on": "always",
+      "if": [
+       {
+        "read": "foe.status.exposed",
+        "op": ">=",
+        "value": 1
+       }
+      ],
+      "do": [
+       {
+        "mod": {
+         "L5": 20,
+         "is_crit": true
+        }
+       }
+      ]
+     }
+    ],
+    "counters": [
+     {
+      "id": "cinder"
+     },
+     {
+      "id": "backwash",
+      "cap": 3
+     },
+     {
+      "id": "quake"
+     },
+     {
+      "id": "afterimage",
+      "decay_per_pulse": 0.1
+     }
+    ],
+    "companions": [],
+    "divine_sense": 1.0,
+    "soul_res": 0.0,
+    "x_soul": 0.0,
+    "tam_ma": 0.0,
+    "timer_resist": 0.0,
+    "ward_bill_pct": 0.0,
+    "refusals": 1,
+    "boss": false,
+    "tags": [],
+    "states": [],
+    "reserved": 0.0,
+    "stage_mult": 1.0,
+    "stack_eff": {},
+    "stack_dur": {},
+    "wards": [],
+    "stack_alias": {}
+   },
+   "unmodelled": []
+  },
+  {
+   "name": "tree_04",
+   "input": {
+    "name": "tree_04",
+    "realm": 4,
+    "layers": [
+     292.69424043293395,
+     40,
+     40,
+     20,
+     10
+    ],
+    "n_body": 1.0883,
+    "n_qi": 1.053,
+    "ward": {
+     "ws_base": 84.1
+    },
+    "arts": [
+     {
+      "lib": "blade-twin-edge-return"
+     },
+     {
+      "lib": "ash-feather-gale"
+     },
+     {
+      "lib": "backwash-seal"
+     },
+     {
+      "lib": "aftershock-slam"
+     },
+     {
+      "lib": "blade-mirror-trace-cut"
+     },
+     {
+      "lib": "banyan-shade"
+     }
+    ],
+    "items": [],
+    "modifiers": [
+     {
+      "key": "attack_pct",
+      "value": 10.0
+     },
+     {
+      "key": "khi_huyet_pct",
+      "value": 12.0
+     }
+    ],
+    "purity": {
+     "wood": 30.0,
+     "earth": 30.0
+    },
+    "tree_effects": [
+     "Heaven's Verdict",
+     "Hidden Moon",
+     "Hundred Refinements",
+     "Immovable Mountain",
+     "Keen Edge",
+     "Layered Earth"
+    ],
+    "counts": {
+     "empty_extra_slots": 1,
+     "carried_sword": 1,
+     "root_elements": 5
+    }
+   },
+   "build": {
+    "name": "tree_04",
+    "realm": 4,
+    "M": 8.96069269424043,
+    "layers": [
+     292.69424043293395,
+     40,
+     40,
+     20,
+     10
+    ],
+    "crit": 0.15,
+    "crit_mult": 1.7,
+    "evade": 0.0,
+    "acc": 0.0,
+    "n_body": 1.001236,
+    "n_qi": 1.053,
+    "ward_pts": 630.591247004252,
+    "drain": 0.48384103354548635,
+    "block": 19.2,
+    "regen_bonus": 0.0,
+    "hregen": 0.0,
+    "cost_red": 0.0,
+    "gain_on_hit": 0.0,
+    "leech_qi": 0.0,
+    "leech_hp": 0.0,
+    "hp_pay": 0.0,
+    "healing": 0.0,
+    "cleanse_pulse": 0,
+    "cleanse_cost": 0.0,
+    "cleanse_share": 0.0,
+    "art_speed_pct": 0.0,
+    "basic_speed_pct": 0.0,
+    "opening_haste_pct": 0.0,
+    "basic_coef_add": 0.0,
+    "ward_layer": 1.0,
+    "body_pts": 0.0,
+    "body_block": 0.0,
+    "bs_mult": 1.0,
+    "body_shield": 0.0,
+    "resist": {},
+    "shields": [],
+    "arts": [
+     {
+      "name": "blade-twin-edge-return",
+      "c": 1.9,
+      "cost": 0.07,
+      "cd": 3,
+      "element": "metal",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "kim",
+       "sword",
+       "artifact",
+       "quick"
+      ],
+      "guards": [],
+      "statuses": [
+       {
+        "id": "bleed",
+        "stacks": 1
+       }
+      ],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "",
+      "steps": [],
+      "empower": []
+     },
+     {
+      "name": "ash-feather-gale",
+      "c": 1.95,
+      "cost": 0.08,
+      "cd": 4,
+      "element": "fire",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [
+       3,
+       6
+      ],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "fire",
+       "artifact"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "ashen-phoenix-canon",
+      "steps": [
+       {
+        "unlock": [
+         {
+          "read": "own.counter.cinder",
+          "op": ">=",
+          "value": 4
+         },
+         {
+          "any": [
+           {
+            "read": "own.hp_missing_share",
+            "op": ">=",
+            "value": 0.4
+           },
+           {
+            "read": "own.fired_within.3.group.ashen-phoenix-canon",
+            "op": ">=",
+            "value": 1
+           }
+          ]
+         }
+        ],
+        "pay": [
+         {
+          "counter": {
+           "id": "cinder",
+           "add": -4
+          }
+         }
+        ],
+        "c_mult": 4.0
+       }
+      ],
+      "empower": []
+     },
+     {
+      "name": "backwash-seal",
+      "c": 1.4,
+      "cost": 0.06,
+      "cd": 2,
+      "element": "water",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "seal",
+       "water",
+       "quick"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "",
+      "steps": [],
+      "empower": []
+     },
+     {
+      "name": "aftershock-slam",
+      "c": 0.7,
+      "cost": 0.16,
+      "cd": 9,
+      "element": "earth",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "earth",
+       "slam",
+       "heavy",
+       "quake"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "deep-vein-scripture",
+      "steps": [],
+      "empower": []
+     },
+     {
+      "name": "blade-mirror-trace-cut",
+      "c": 1.7,
+      "cost": 0.064,
+      "cd": 3,
+      "element": "metal",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "kim",
+       "sword",
+       "artifact",
+       "quick"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "",
+      "steps": [],
+      "empower": []
+     },
+     {
+      "name": "banyan-shade",
+      "c": 0.0,
+      "cost": 0.1,
+      "cd": 4,
+      "element": "wood",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [],
+      "heal": 4.13,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "wood",
+       "heal",
+       "banyan"
+      ],
+      "guards": [
+       {
+        "read": "own.hp_share",
+        "op": "<=",
+        "value": 0.95
+       }
+      ],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "",
+      "steps": [],
+      "empower": []
+     }
+    ],
+    "purity": {
+     "wood": 30.0,
+     "earth": 30.0
+    },
+    "effects": [
+     {
+      "id": "blade-twin-edge-crit-bleed",
+      "on": "crit",
+      "filter": {
+       "art_id": "blade-twin-edge-return"
+      },
+      "limit": {
+       "cooldown": 1
+      },
+      "do": [
+       {
+        "status": {
+         "id": "bleed",
+         "stacks": 2,
+         "dur": 5,
+         "side": "foe"
+        }
+       }
+      ]
+     },
+     {
+      "id": "gale-cinder",
+      "on": "tick_dealt",
+      "limit": {
+       "per_pulse": 2
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "cinder",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "backwash-count",
+      "on": "art_fired",
+      "filter": {
+       "element": "water"
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "backwash",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "backwash-echo",
+      "on": "art_fired",
+      "filter": {
+       "element": "water"
+      },
+      "if": [
+       {
+        "read": "own.counter.backwash",
+        "op": ">=",
+        "value": 3
+       }
+      ],
+      "do": [
+       {
+        "fire_art": {
+         "which": "last",
+         "share": 0.5
+        }
+       },
+       {
+        "gain_qi": {
+         "share": 0.02
+        }
+       },
+       {
+        "counter": {
+         "id": "backwash",
+         "set": 0
+        }
+       }
+      ]
+     },
+     {
+      "id": "quake-count",
+      "on": "art_fired",
+      "filter": {
+       "tags": [
+        "heavy"
+       ]
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "quake",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "quake-echo",
+      "on": "art_fired",
+      "filter": {
+       "tags": [
+        "heavy"
+       ]
+      },
+      "scale": {
+       "read": "own.counter.quake",
+       "per": 3
+      },
+      "do": [
+       {
+        "fire_art": {
+         "which": "last",
+         "share": 0.35
+        }
+       },
+       {
+        "counter": {
+         "id": "quake",
+         "add": -3
+        }
+       }
+      ]
+     },
+     {
+      "id": "blade-mirror-trace-crit-afterimage",
+      "on": "crit",
+      "filter": {
+       "art_id": "blade-mirror-trace-cut"
+      },
+      "limit": {
+       "cooldown": 1
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "afterimage",
+         "add": 3
+        }
+       }
+      ]
+     },
+     {
+      "id": "banyan-refund",
+      "on": "heal_restored",
+      "filter": {
+       "tags": [
+        "banyan"
+       ]
+      },
+      "do": [
+       {
+        "refund": {}
+       }
+      ]
+     },
+     {
+      "id": "tech:character",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "L1": 10.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Heaven's Verdict",
+      "on": "always",
+      "if": [
+       {
+        "read": "foe.hp_share",
+        "op": "<",
+        "value": 0.5
+       }
+      ],
+      "do": [
+       {
+        "mod": {
+         "L5": 20,
+         "element": "thunder",
+         "tags": [
+          "slow"
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Hidden Moon",
+      "on": "always",
+      "scale": {
+       "read": "own.evade",
+       "per": 1,
+       "floor": false
+      },
+      "do": [
+       {
+        "mod": {
+         "crit": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Hidden Moon closes",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "no_block": 1
+        }
+       },
+       {
+        "mod": {
+         "no_body_shield": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "lines:Hundred Refinements",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "art_speed": -20
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Immovable Mountain",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "status_immune": 1,
+         "status": "slowed_time"
+        }
+       },
+       {
+        "mod": {
+         "delay_immune": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Immovable Mountain closes",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "speed_locked": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Keen Edge",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "ignore_block": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Keen Edge closes",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "no_block": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Layered Earth block",
+      "on": "blocked",
+      "do": [
+       {
+        "counter": {
+         "id": "hau_tho",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Layered Earth",
+      "on": "always",
+      "scale": {
+       "read": "own.counter.hau_tho",
+       "per": 1,
+       "cap": 10
+      },
+      "do": [
+       {
+        "mod": {
+         "ward_pct": 3
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Layered Earth closes",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "no_evade": 1
+        }
+       }
+      ]
+     }
+    ],
+    "counters": [
+     {
+      "id": "cinder"
+     },
+     {
+      "id": "backwash",
+      "cap": 3
+     },
+     {
+      "id": "quake"
+     },
+     {
+      "id": "afterimage",
+      "decay_per_pulse": 0.1
+     },
+     {
+      "id": "hau_tho",
+      "cap": 10
+     }
+    ],
+    "companions": [],
+    "divine_sense": 1.0,
+    "soul_res": 0.0,
+    "x_soul": 0.0,
+    "tam_ma": 0.0,
+    "timer_resist": 0.0,
+    "ward_bill_pct": 0.0,
+    "refusals": 1,
+    "boss": false,
+    "tags": [],
+    "states": [],
+    "reserved": 0.0,
+    "stage_mult": 1.0,
+    "stack_eff": {},
+    "stack_dur": {},
+    "wards": [],
+    "stack_alias": {}
+   },
+   "unmodelled": []
+  },
+  {
+   "name": "tree_05",
+   "input": {
+    "name": "tree_05",
+    "realm": 0,
+    "layers": [
+     26.517201391573252,
+     40,
+     40,
+     20,
+     10
+    ],
+    "n_body": 1.0883,
+    "n_qi": 1.053,
+    "ward": {
+     "ws_base": 30.8
+    },
+    "arts": [
+     {
+      "lib": "blood-quench-blade"
+     },
+     {
+      "lib": "ash-feather-gale"
+     }
+    ],
+    "items": [],
+    "modifiers": [
+     {
+      "key": "attack_pct",
+      "value": 10.0
+     },
+     {
+      "key": "khi_huyet_pct",
+      "value": 12.0
+     }
+    ],
+    "purity": {
+     "thunder": 65.0
+    },
+    "tree_effects": [
+     "Metal Begets Water",
+     "Mountain's Weight",
+     "Nirvana",
+     "No Ward",
+     "Open Sky",
+     "Overheat"
+    ],
+    "counts": {
+     "empty_extra_slots": 2,
+     "carried_sword": 2,
+     "root_elements": 1
+    },
+    "tree_lines_on_sheet": true
+   },
+   "build": {
+    "name": "tree_05",
+    "realm": 0,
+    "M": 3.273253034402783,
+    "layers": [
+     26.517201391573252,
+     40,
+     40,
+     20,
+     10
+    ],
+    "crit": 0.15,
+    "crit_mult": 1.7,
+    "evade": 0.0,
+    "acc": 0.0,
+    "n_body": 1.2188960000000002,
+    "n_qi": 1.053,
+    "ward_pts": 0.0,
+    "drain": 0.0,
+    "block": 15.0,
+    "regen_bonus": 0.0,
+    "hregen": 0.0,
+    "cost_red": 0.0,
+    "gain_on_hit": 0.0,
+    "leech_qi": 0.0,
+    "leech_hp": 0.0,
+    "hp_pay": 0.0,
+    "healing": 0.0,
+    "cleanse_pulse": 0,
+    "cleanse_cost": 0.0,
+    "cleanse_share": 0.0,
+    "art_speed_pct": 0.0,
+    "basic_speed_pct": 0.0,
+    "opening_haste_pct": 0.0,
+    "basic_coef_add": 0.0,
+    "ward_layer": 1.0,
+    "body_pts": 0.0,
+    "body_block": 0.0,
+    "bs_mult": 1.0,
+    "body_shield": 0.0,
+    "resist": {},
+    "shields": [],
+    "arts": [
+     {
+      "name": "blood-quench-blade",
+      "c": 1.1,
+      "cost": 0.08,
+      "cd": 4,
+      "element": "metal",
+      "dtype": "phys",
+      "buff": [
+       5,
+       8
+      ],
+      "debuff": [],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "metal",
+       "sword",
+       "quench"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.06,
+      "charges": 1,
+      "group": "nine-temper-scripture",
+      "steps": [],
+      "empower": []
+     },
+     {
+      "name": "ash-feather-gale",
+      "c": 1.95,
+      "cost": 0.08,
+      "cd": 4,
+      "element": "fire",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [
+       3,
+       6
+      ],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "fire",
+       "artifact"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "ashen-phoenix-canon",
+      "steps": [
+       {
+        "unlock": [
+         {
+          "read": "own.counter.cinder",
+          "op": ">=",
+          "value": 4
+         },
+         {
+          "any": [
+           {
+            "read": "own.hp_missing_share",
+            "op": ">=",
+            "value": 0.4
+           },
+           {
+            "read": "own.fired_within.3.group.ashen-phoenix-canon",
+            "op": ">=",
+            "value": 1
+           }
+          ]
+         }
+        ],
+        "pay": [
+         {
+          "counter": {
+           "id": "cinder",
+           "add": -4
+          }
+         }
+        ],
+        "c_mult": 4.0
+       }
+      ],
+      "empower": []
+     }
+    ],
+    "purity": {
+     "thunder": 65.0
+    },
+    "effects": [
+     {
+      "id": "quench-repay",
+      "on": "crit",
+      "filter": {
+       "tags": [
+        "quench"
+       ]
+      },
+      "limit": {
+       "per_pulse": 3
+      },
+      "do": [
+       {
+        "heal": {
+         "share": 0.02
+        }
+       },
+       {
+        "counter": {
+         "id": "temper",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "gale-cinder",
+      "on": "tick_dealt",
+      "limit": {
+       "per_pulse": 2
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "cinder",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "tech:character",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "L1": 10.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Metal Begets Water",
+      "on": "hit_landed",
+      "filter": {
+       "element": "metal",
+       "kind": "art"
+      },
+      "do": [
+       {
+        "stacks": {
+         "el": "water",
+         "n": 1,
+         "for": 10,
+         "side": "own"
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Metal Begets Water closes",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "dmg_more": -0.5,
+         "element": "wood",
+         "kind": "art"
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Mountain's Weight",
+      "on": "always",
+      "scale": {
+       "read": "own.hp_max_lead",
+       "per": 0.1,
+       "cap": 8
+      },
+      "do": [
+       {
+        "mod": {
+         "L5": 4
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Nirvana",
+      "on": "down",
+      "limit": {
+       "per_fight": 1
+      },
+      "do": [
+       {
+        "refuse_down": {
+         "hp_share": 0.3
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:No Ward hit",
+      "on": "was_hit",
+      "if": [
+       {
+        "read": "event.amount",
+        "op": ">",
+        "value": 0
+       }
+      ],
+      "do": [
+       {
+        "counter": {
+         "id": "vo_ho",
+         "set": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:No Ward regain",
+      "on": "pulse",
+      "if": [
+       {
+        "read": "own.counter.vo_ho",
+        "op": "==",
+        "value": 0
+       }
+      ],
+      "do": [
+       {
+        "shield": {
+         "body": 0.02
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:No Ward reset",
+      "on": "pulse",
+      "do": [
+       {
+        "counter": {
+         "id": "vo_ho",
+         "set": 0
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Open Sky",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "ward_pct": 10.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Overheat",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "overheat": 30
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Overheat closes",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "cost_red": -0.35
+        }
+       }
+      ]
+     }
+    ],
+    "counters": [
+     {
+      "id": "temper",
+      "each_for": 10
+     },
+     {
+      "id": "cinder"
+     },
+     {
+      "id": "vo_ho"
+     }
+    ],
+    "companions": [],
+    "divine_sense": 1.0,
+    "soul_res": 0.0,
+    "x_soul": 0.0,
+    "tam_ma": 0.0,
+    "timer_resist": 0.0,
+    "ward_bill_pct": 0.0,
+    "refusals": 1,
+    "boss": false,
+    "tags": [],
+    "states": [],
+    "reserved": 0.0,
+    "stage_mult": 1.0,
+    "stack_eff": {},
+    "stack_dur": {},
+    "wards": [],
+    "stack_alias": {}
+   },
+   "unmodelled": []
+  },
+  {
+   "name": "tree_06",
+   "input": {
+    "name": "tree_06",
+    "realm": 1,
+    "layers": [
+     61.9636644762273,
+     40,
+     40,
+     20,
+     10
+    ],
+    "n_body": 1.0883,
+    "n_qi": 1.053,
+    "ward": {
+     "ws_base": 37.9
+    },
+    "arts": [
+     {
+      "lib": "chain-sword"
+     },
+     {
+      "lib": "ash-feather-gale"
+     },
+     {
+      "lib": "backwash-seal"
+     }
+    ],
+    "items": [],
+    "modifiers": [
+     {
+      "key": "attack_pct",
+      "value": 10.0
+     },
+     {
+      "key": "khi_huyet_pct",
+      "value": 12.0
+     }
+    ],
+    "purity": {
+     "wind": 45.0
+    },
+    "tree_effects": [
+     "Reflection",
+     "Returning Wave",
+     "Rising Tide",
+     "Spirit Garden",
+     "Still Water",
+     "Strangling Vines"
+    ],
+    "counts": {
+     "empty_extra_slots": 1,
+     "carried_sword": 0,
+     "root_elements": 2
+    }
+   },
+   "build": {
+    "name": "tree_06",
+    "realm": 1,
+    "M": 4.1903239273289525,
+    "layers": [
+     61.9636644762273,
+     40,
+     40,
+     20,
+     10
+    ],
+    "crit": 0.15,
+    "crit_mult": 1.7,
+    "evade": 0.0,
+    "acc": 0.0,
+    "n_body": 1.0556510000000001,
+    "n_qi": 1.053,
+    "ward_pts": 472.34401391573243,
+    "drain": 0.862346374534457,
+    "block": 15.7,
+    "regen_bonus": 0.0,
+    "hregen": 0.0,
+    "cost_red": 0.0,
+    "gain_on_hit": 0.0,
+    "leech_qi": 0.0,
+    "leech_hp": 0.0,
+    "hp_pay": 0.0,
+    "healing": 0.0,
+    "cleanse_pulse": 0,
+    "cleanse_cost": 0.0,
+    "cleanse_share": 0.0,
+    "art_speed_pct": 0.0,
+    "basic_speed_pct": 0.0,
+    "opening_haste_pct": 0.0,
+    "basic_coef_add": 0.0,
+    "ward_layer": 1.0,
+    "body_pts": 0.0,
+    "body_block": 0.0,
+    "bs_mult": 1.0,
+    "body_shield": 0.0,
+    "resist": {},
+    "shields": [],
+    "arts": [
+     {
+      "name": "chain-sword",
+      "c": 1.67,
+      "cost": 0.06,
+      "cd": 2,
+      "element": "",
+      "dtype": "phys",
+      "buff": [],
+      "debuff": [],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "sword",
+       "quick",
+       "chain"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "",
+      "steps": [],
+      "empower": []
+     },
+     {
+      "name": "ash-feather-gale",
+      "c": 1.95,
+      "cost": 0.08,
+      "cd": 4,
+      "element": "fire",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [
+       3,
+       6
+      ],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "fire",
+       "artifact"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "ashen-phoenix-canon",
+      "steps": [
+       {
+        "unlock": [
+         {
+          "read": "own.counter.cinder",
+          "op": ">=",
+          "value": 4
+         },
+         {
+          "any": [
+           {
+            "read": "own.hp_missing_share",
+            "op": ">=",
+            "value": 0.4
+           },
+           {
+            "read": "own.fired_within.3.group.ashen-phoenix-canon",
+            "op": ">=",
+            "value": 1
+           }
+          ]
+         }
+        ],
+        "pay": [
+         {
+          "counter": {
+           "id": "cinder",
+           "add": -4
+          }
+         }
+        ],
+        "c_mult": 4.0
+       }
+      ],
+      "empower": []
+     },
+     {
+      "name": "backwash-seal",
+      "c": 1.4,
+      "cost": 0.06,
+      "cd": 2,
+      "element": "water",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "seal",
+       "water",
+       "quick"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "",
+      "steps": [],
+      "empower": []
+     }
+    ],
+    "purity": {
+     "wind": 45.0
+    },
+    "effects": [
+     {
+      "id": "chain-sword-crit",
+      "on": "crit",
+      "filter": {
+       "tags": [
+        "chain"
+       ]
+      },
+      "limit": {
+       "per_pulse": 2
+      },
+      "do": [
+       {
+        "timer": {
+         "side": "own",
+         "which": "others",
+         "by": -0.5
+        }
+       }
+      ]
+     },
+     {
+      "id": "gale-cinder",
+      "on": "tick_dealt",
+      "limit": {
+       "per_pulse": 2
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "cinder",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "backwash-count",
+      "on": "art_fired",
+      "filter": {
+       "element": "water"
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "backwash",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "backwash-echo",
+      "on": "art_fired",
+      "filter": {
+       "element": "water"
+      },
+      "if": [
+       {
+        "read": "own.counter.backwash",
+        "op": ">=",
+        "value": 3
+       }
+      ],
+      "do": [
+       {
+        "fire_art": {
+         "which": "last",
+         "share": 0.5
+        }
+       },
+       {
+        "gain_qi": {
+         "share": 0.02
+        }
+       },
+       {
+        "counter": {
+         "id": "backwash",
+         "set": 0
+        }
+       }
+      ]
+     },
+     {
+      "id": "tech:character",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "L1": 10.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Reflection",
+      "on": "evaded",
+      "held": {
+       "until": "art_fired",
+       "cap": 1
+      },
+      "do": [
+       {
+        "mod": {
+         "L5": 15,
+         "kind": "art"
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Returning Wave",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "reflect_first": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Rising Tide",
+      "on": "always",
+      "if": [
+       {
+        "read": "own.qi_share",
+        "op": ">",
+        "value": 0.5
+       }
+      ],
+      "do": [
+       {
+        "mod": {
+         "stack_more": 1.0,
+         "element": "water"
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Rising Tide closes",
+      "on": "always",
+      "if": [
+       {
+        "read": "own.qi_share",
+        "op": "<",
+        "value": 0.5
+       }
+      ],
+      "do": [
+       {
+        "mod": {
+         "stack_more": -1.0,
+         "element": "water"
+        }
+       }
+      ]
+     },
+     {
+      "id": "lines:Still Water",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "heal_taken": -50
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Still Water",
+      "on": "overflow",
+      "do": [
+       {
+        "heal": {
+         "of": "amount",
+         "share": 0.5,
+         "ignore_taken": true
+        }
+       }
+      ]
+     },
+     {
+      "id": "lines:Strangling Vines",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "art_speed": -15
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Strangling Vines",
+      "on": "status_applied",
+      "filter": {
+       "element": "wood"
+      },
+      "limit": {
+       "cooldown": 6
+      },
+      "if": [
+       {
+        "read": "foe.debuff.wood",
+        "op": ">=",
+        "value": 5
+       }
+      ],
+      "do": [
+       {
+        "status": {
+         "id": "slowed_time",
+         "stacks": 1,
+         "dur": 1
+        }
+       }
+      ]
+     }
+    ],
+    "counters": [
+     {
+      "id": "cinder"
+     },
+     {
+      "id": "backwash",
+      "cap": 3
+     }
+    ],
+    "companions": [],
+    "divine_sense": 1.0,
+    "soul_res": 0.0,
+    "x_soul": 0.0,
+    "tam_ma": 0.0,
+    "timer_resist": 0.0,
+    "ward_bill_pct": 0.0,
+    "refusals": 1,
+    "boss": false,
+    "tags": [],
+    "states": [],
+    "reserved": 0.0,
+    "stage_mult": 1.0,
+    "stack_eff": {},
+    "stack_dur": {},
+    "wards": [],
+    "stack_alias": {}
+   },
+   "unmodelled": [
+    "Đạo Đồ Effect Spirit Garden: not run (spirit fields and seasons are outside fights (Spirit Herbs & Spirit Fields host); its closing waits with it)"
+   ]
+  },
+  {
+   "name": "tree_07",
+   "input": {
+    "name": "tree_07",
+    "realm": 2,
+    "layers": [
+     111.82837263239271,
+     40,
+     40,
+     20,
+     10
+    ],
+    "n_body": 1.0883,
+    "n_qi": 1.053,
+    "ward": {
+     "ws_base": 47.9
+    },
+    "arts": [
+     {
+      "lib": "debt-blade"
+     },
+     {
+      "lib": "ash-feather-gale"
+     },
+     {
+      "lib": "backwash-seal"
+     },
+     {
+      "lib": "aftershock-slam"
+     }
+    ],
+    "items": [],
+    "modifiers": [
+     {
+      "key": "attack_pct",
+      "value": 10.0
+     },
+     {
+      "key": "khi_huyet_pct",
+      "value": 12.0
+     }
+    ],
+    "purity": {
+     "fire": 40.0
+    },
+    "tree_effects": [
+     "Sun That Never Sets",
+     "Sun and Rain",
+     "Ten Thousand Poisons",
+     "Ten Thousand Swords Return",
+     "Thorns",
+     "Thousand Talismans"
+    ],
+    "counts": {
+     "empty_extra_slots": 2,
+     "carried_sword": 1,
+     "root_elements": 3
+    },
+    "tree_lines_on_sheet": true
+   },
+   "build": {
+    "name": "tree_07",
+    "realm": 2,
+    "M": 5.4804236567452635,
+    "layers": [
+     111.82837263239271,
+     40,
+     40,
+     20,
+     10
+    ],
+    "crit": 0.15,
+    "crit_mult": 1.7,
+    "evade": 0.0,
+    "acc": 0.0,
+    "n_body": 1.2188960000000002,
+    "n_qi": 1.053,
+    "ward_pts": 506.59666177039037,
+    "drain": 0.7496765499120109,
+    "block": 16.4,
+    "regen_bonus": 0.0,
+    "hregen": 0.0,
+    "cost_red": 0.0,
+    "gain_on_hit": 0.0,
+    "leech_qi": 0.0,
+    "leech_hp": 0.0,
+    "hp_pay": 0.0,
+    "healing": 0.0,
+    "cleanse_pulse": 0,
+    "cleanse_cost": 0.0,
+    "cleanse_share": 0.0,
+    "art_speed_pct": 0.0,
+    "basic_speed_pct": 0.0,
+    "opening_haste_pct": 0.0,
+    "basic_coef_add": 0.0,
+    "ward_layer": 1.0,
+    "body_pts": 0.0,
+    "body_block": 0.0,
+    "bs_mult": 1.0,
+    "body_shield": 0.0,
+    "resist": {},
+    "shields": [],
+    "arts": [
+     {
+      "name": "debt-blade",
+      "c": 1.9,
+      "cost": 0.04,
+      "cd": 3,
+      "element": "",
+      "dtype": "phys",
+      "buff": [],
+      "debuff": [],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "sword",
+       "quick",
+       "blood"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.05,
+      "charges": 1,
+      "group": "",
+      "steps": [],
+      "empower": []
+     }
+    ],
+    "purity": {
+     "fire": 40.0
+    },
+    "effects": [
+     {
+      "id": "debt-blade-interest",
+      "on": "hit_landed",
+      "filter": {
+       "art_id": "debt-blade"
+      },
+      "scale": {
+       "read": "own.hp_missing_share",
+       "per": 0.15
+      },
+      "do": [
+       {
+        "free_hit": {
+         "c": 0.4,
+         "dtype": "phys"
+        }
+       }
+      ]
+     },
+     {
+      "id": "gale-cinder",
+      "on": "tick_dealt",
+      "limit": {
+       "per_pulse": 2
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "cinder",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "backwash-count",
+      "on": "art_fired",
+      "filter": {
+       "element": "water"
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "backwash",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "backwash-echo",
+      "on": "art_fired",
+      "filter": {
+       "element": "water"
+      },
+      "if": [
+       {
+        "read": "own.counter.backwash",
+        "op": ">=",
+        "value": 3
+       }
+      ],
+      "do": [
+       {
+        "fire_art": {
+         "which": "last",
+         "share": 0.5
+        }
+       },
+       {
+        "gain_qi": {
+         "share": 0.02
+        }
+       },
+       {
+        "counter": {
+         "id": "backwash",
+         "set": 0
+        }
+       }
+      ]
+     },
+     {
+      "id": "quake-count",
+      "on": "art_fired",
+      "filter": {
+       "tags": [
+        "heavy"
+       ]
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "quake",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "quake-echo",
+      "on": "art_fired",
+      "filter": {
+       "tags": [
+        "heavy"
+       ]
+      },
+      "scale": {
+       "read": "own.counter.quake",
+       "per": 3
+      },
+      "do": [
+       {
+        "fire_art": {
+         "which": "last",
+         "share": 0.35
+        }
+       },
+       {
+        "counter": {
+         "id": "quake",
+         "add": -3
+        }
+       }
+      ]
+     },
+     {
+      "id": "tech:character",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "L1": 10.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Sun and Rain",
+      "on": "heal_restored",
+      "filter": {
+       "source": "regen"
+      },
+      "scale": {
+       "read": "event.share",
+       "per": 1,
+       "floor": false
+      },
+      "do": [
+       {
+        "gain_qi": {
+         "share": 0.5
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Ten Thousand Poisons",
+      "on": "status_applied",
+      "filter": {
+       "element": "wood"
+      },
+      "do": [
+       {
+        "refresh": {
+         "el": "wood",
+         "side": "foe",
+         "kind": "debuff",
+         "hold": true
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Ten Thousand Poisons closes",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "dmg_more": -0.25
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Ten Thousand Swords Return",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "L5": 8,
+         "tags": [
+          "sword"
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Thorns",
+      "on": "blocked",
+      "limit": {
+       "per_pulse": 1
+      },
+      "do": [
+       {
+        "return_damage": {
+         "share": 0.3,
+         "dtype": "phys"
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Thousand Talismans closes",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "dmg_more": -0.3,
+         "kind": "art",
+         "not_tags": [
+          "talisman"
+         ]
+        }
+       }
+      ]
+     }
+    ],
+    "counters": [
+     {
+      "id": "cinder"
+     },
+     {
+      "id": "backwash",
+      "cap": 3
+     },
+     {
+      "id": "quake"
+     }
+    ],
+    "companions": [],
+    "divine_sense": 1.0,
+    "soul_res": 0.0,
+    "x_soul": 0.0,
+    "tam_ma": 0.0,
+    "timer_resist": 0.0,
+    "ward_bill_pct": 0.0,
+    "refusals": 1,
+    "boss": false,
+    "tags": [],
+    "states": [],
+    "reserved": 0.0,
+    "stage_mult": 1.0,
+    "stack_eff": {},
+    "stack_dur": {},
+    "wards": [],
+    "stack_alias": {}
+   },
+   "unmodelled": [
+    "Đạo Đồ Effect Sun That Never Sets: not run (seasons and đạo tâm are outside fights (Cultivation / Time & Turn host); its closings wait with it)",
+    "Đạo Đồ Effect Thousand Talismans: part not run yet (talisman stock: the rule switches on with the Talismans GDD (the closing runs now))",
+    "Đạo Đồ: only arts tagged sword may be slotted; 3 left out"
+   ]
+  },
+  {
+   "name": "tree_08",
+   "input": {
+    "name": "tree_08",
+    "realm": 3,
+    "layers": [
+     184.88596830305372,
+     40,
+     40,
+     20,
+     10
+    ],
+    "n_body": 1.0883,
+    "n_qi": 1.053,
+    "ward": {
+     "ws_base": 62.5
+    },
+    "arts": [
+     {
+      "lib": "flying-blade-retinue"
+     },
+     {
+      "lib": "ash-feather-gale"
+     },
+     {
+      "lib": "backwash-seal"
+     },
+     {
+      "lib": "aftershock-slam"
+     },
+     {
+      "lib": "blade-mirror-trace-cut"
+     }
+    ],
+    "items": [],
+    "modifiers": [
+     {
+      "key": "attack_pct",
+      "value": 10.0
+     },
+     {
+      "key": "khi_huyet_pct",
+      "value": 12.0
+     }
+    ],
+    "purity": {
+     "water": 55.0,
+     "ice": 20.0
+    },
+    "tree_effects": [
+     "Tide",
+     "Unyielding Breath",
+     "Utmost Yang",
+     "Utmost Yin",
+     "Water Begets Wood",
+     "Wildfire"
+    ],
+    "counts": {
+     "empty_extra_slots": 1,
+     "carried_sword": 2,
+     "root_elements": 4
+    }
+   },
+   "build": {
+    "name": "tree_08",
+    "realm": 3,
+    "M": 7.370569771936605,
+    "layers": [
+     184.88596830305372,
+     40,
+     40,
+     20,
+     10
+    ],
+    "crit": 0.15,
+    "crit_mult": 1.7,
+    "evade": 0.0,
+    "acc": 0.0,
+    "n_body": 1.0556510000000001,
+    "n_qi": 1.053,
+    "ward_pts": 453.8475840742171,
+    "drain": 0.761624718498034,
+    "block": 17.7,
+    "regen_bonus": 0.0,
+    "hregen": 0.0,
+    "cost_red": 0.0,
+    "gain_on_hit": 0.0,
+    "leech_qi": 0.0,
+    "leech_hp": 0.0,
+    "hp_pay": 0.0,
+    "healing": 0.0,
+    "cleanse_pulse": 0,
+    "cleanse_cost": 0.0,
+    "cleanse_share": 0.0,
+    "art_speed_pct": 0.0,
+    "basic_speed_pct": 0.0,
+    "opening_haste_pct": 0.0,
+    "basic_coef_add": 0.0,
+    "ward_layer": 1.0,
+    "body_pts": 0.0,
+    "body_block": 0.0,
+    "bs_mult": 1.0,
+    "body_shield": 0.0,
+    "resist": {},
+    "shields": [],
+    "arts": [
+     {
+      "name": "flying-blade-retinue",
+      "c": 0.6,
+      "cost": 0.12,
+      "cd": 9,
+      "element": "metal",
+      "dtype": "phys",
+      "buff": [],
+      "debuff": [],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "metal",
+       "sword",
+       "summon"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "hundred-blades-canon",
+      "steps": [],
+      "empower": [
+       {
+        "if": [
+         {
+          "read": "foe.debuff.metal",
+          "op": ">=",
+          "value": 4
+         }
+        ],
+        "pay": [
+         {
+          "consume": {
+           "el": "metal",
+           "side": "foe",
+           "n": 12,
+           "per": 3,
+           "then": [
+            {
+             "summon": {
+              "c": 0.2,
+              "dtype": "phys",
+              "cd": 2,
+              "for": 12
+             }
+            }
+           ]
+          }
+         }
+        ],
+        "c_mult": 2.2
+       },
+       {
+        "if": [
+         {
+          "read": "foe.debuff.metal",
+          "op": "<",
+          "value": 4
+         },
+         {
+          "read": "foe.status.sundered",
+          "op": ">=",
+          "value": 2
+         },
+         {
+          "any": [
+           {
+            "read": "own.fired_within.4.group.hundred-blades-canon",
+            "op": ">=",
+            "value": 2
+           },
+           {
+            "read": "own.buff.metal",
+            "op": ">=",
+            "value": 8
+           }
+          ]
+         }
+        ],
+        "c_mult": 2.2
+       }
+      ]
+     },
+     {
+      "name": "ash-feather-gale",
+      "c": 1.95,
+      "cost": 0.08,
+      "cd": 4,
+      "element": "fire",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [
+       3,
+       6
+      ],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "fire",
+       "artifact"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "ashen-phoenix-canon",
+      "steps": [
+       {
+        "unlock": [
+         {
+          "read": "own.counter.cinder",
+          "op": ">=",
+          "value": 4
+         },
+         {
+          "any": [
+           {
+            "read": "own.hp_missing_share",
+            "op": ">=",
+            "value": 0.4
+           },
+           {
+            "read": "own.fired_within.3.group.ashen-phoenix-canon",
+            "op": ">=",
+            "value": 1
+           }
+          ]
+         }
+        ],
+        "pay": [
+         {
+          "counter": {
+           "id": "cinder",
+           "add": -4
+          }
+         }
+        ],
+        "c_mult": 4.0
+       }
+      ],
+      "empower": []
+     },
+     {
+      "name": "backwash-seal",
+      "c": 1.4,
+      "cost": 0.06,
+      "cd": 2,
+      "element": "water",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "seal",
+       "water",
+       "quick"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "",
+      "steps": [],
+      "empower": []
+     },
+     {
+      "name": "aftershock-slam",
+      "c": 0.7,
+      "cost": 0.16,
+      "cd": 9,
+      "element": "earth",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "earth",
+       "slam",
+       "heavy",
+       "quake"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "deep-vein-scripture",
+      "steps": [],
+      "empower": []
+     },
+     {
+      "name": "blade-mirror-trace-cut",
+      "c": 1.7,
+      "cost": 0.064,
+      "cd": 3,
+      "element": "metal",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "kim",
+       "sword",
+       "artifact",
+       "quick"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "",
+      "steps": [],
+      "empower": []
+     }
+    ],
+    "purity": {
+     "water": 55.0,
+     "ice": 20.0
+    },
+    "effects": [
+     {
+      "id": "retinue-summon",
+      "on": "art_fired",
+      "filter": {
+       "art_id": "flying-blade-retinue"
+      },
+      "do": [
+       {
+        "summon": {
+         "c": 0.2,
+         "dtype": "phys",
+         "cd": 2,
+         "for": 12
+        }
+       }
+      ]
+     },
+     {
+      "id": "retinue-notch",
+      "on": "hit_landed",
+      "filter": {
+       "kind": "companion"
+      },
+      "limit": {
+       "per_pulse": 3
+      },
+      "do": [
+       {
+        "stacks": {
+         "el": "metal",
+         "n": 1,
+         "for": 6,
+         "side": "foe"
+        }
+       }
+      ]
+     },
+     {
+      "id": "gale-cinder",
+      "on": "tick_dealt",
+      "limit": {
+       "per_pulse": 2
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "cinder",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "backwash-count",
+      "on": "art_fired",
+      "filter": {
+       "element": "water"
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "backwash",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "backwash-echo",
+      "on": "art_fired",
+      "filter": {
+       "element": "water"
+      },
+      "if": [
+       {
+        "read": "own.counter.backwash",
+        "op": ">=",
+        "value": 3
+       }
+      ],
+      "do": [
+       {
+        "fire_art": {
+         "which": "last",
+         "share": 0.5
+        }
+       },
+       {
+        "gain_qi": {
+         "share": 0.02
+        }
+       },
+       {
+        "counter": {
+         "id": "backwash",
+         "set": 0
+        }
+       }
+      ]
+     },
+     {
+      "id": "quake-count",
+      "on": "art_fired",
+      "filter": {
+       "tags": [
+        "heavy"
+       ]
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "quake",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "quake-echo",
+      "on": "art_fired",
+      "filter": {
+       "tags": [
+        "heavy"
+       ]
+      },
+      "scale": {
+       "read": "own.counter.quake",
+       "per": 3
+      },
+      "do": [
+       {
+        "fire_art": {
+         "which": "last",
+         "share": 0.35
+        }
+       },
+       {
+        "counter": {
+         "id": "quake",
+         "add": -3
+        }
+       }
+      ]
+     },
+     {
+      "id": "blade-mirror-trace-crit-afterimage",
+      "on": "crit",
+      "filter": {
+       "art_id": "blade-mirror-trace-cut"
+      },
+      "limit": {
+       "cooldown": 1
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "afterimage",
+         "add": 3
+        }
+       }
+      ]
+     },
+     {
+      "id": "tech:character",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "L1": 10.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Tide phase 1",
+      "on": "always",
+      "if": [
+       {
+        "read": "cycle.6",
+        "op": "==",
+        "value": 1
+       }
+      ],
+      "do": [
+       {
+        "mod": {
+         "L5": 6.67,
+         "element": "water"
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Tide phase 2",
+      "on": "always",
+      "if": [
+       {
+        "read": "cycle.6",
+        "op": "==",
+        "value": 2
+       }
+      ],
+      "do": [
+       {
+        "mod": {
+         "L5": 13.33,
+         "element": "water"
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Tide phase 3",
+      "on": "always",
+      "if": [
+       {
+        "read": "cycle.6",
+        "op": "==",
+        "value": 3
+       }
+      ],
+      "do": [
+       {
+        "mod": {
+         "L5": 20.0,
+         "element": "water"
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Tide phase 4",
+      "on": "always",
+      "if": [
+       {
+        "read": "cycle.6",
+        "op": "==",
+        "value": 4
+       }
+      ],
+      "do": [
+       {
+        "mod": {
+         "L5": 13.33,
+         "element": "water"
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Tide phase 5",
+      "on": "always",
+      "if": [
+       {
+        "read": "cycle.6",
+        "op": "==",
+        "value": 5
+       }
+      ],
+      "do": [
+       {
+        "mod": {
+         "L5": 6.67,
+         "element": "water"
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Unyielding Breath",
+      "on": "down",
+      "limit": {
+       "per_fight": 1
+      },
+      "do": [
+       {
+        "refuse_down": {}
+       }
+      ]
+     },
+     {
+      "id": "eff:Utmost Yang",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "L5": 24.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Utmost Yin",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "resist": 24.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Utmost Yin closes",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "dmg_more": -0.2
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Water Begets Wood closes",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "dmg_more": -0.5,
+         "element": "earth",
+         "kind": "art"
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Wildfire",
+      "on": "batch_ended",
+      "filter": {
+       "element": "fire",
+       "kind": "debuff"
+      },
+      "scale": {
+       "read": "event.stacks",
+       "per": 2,
+       "floor": false
+      },
+      "if": [
+       {
+        "read": "event.rekindled",
+        "op": "==",
+        "value": 0
+       }
+      ],
+      "do": [
+       {
+        "stacks": {
+         "el": "fire",
+         "n": 1,
+         "for": 2,
+         "side": "foe",
+         "mark": "rekindled"
+        }
+       }
+      ]
+     }
+    ],
+    "counters": [
+     {
+      "id": "cinder"
+     },
+     {
+      "id": "backwash",
+      "cap": 3
+     },
+     {
+      "id": "quake"
+     },
+     {
+      "id": "afterimage",
+      "decay_per_pulse": 0.1
+     }
+    ],
+    "companions": [],
+    "divine_sense": 1.0,
+    "soul_res": 0.0,
+    "x_soul": 0.0,
+    "tam_ma": 0.0,
+    "timer_resist": 0.0,
+    "ward_bill_pct": 0.0,
+    "refusals": 1,
+    "boss": false,
+    "tags": [],
+    "states": [],
+    "reserved": 0.0,
+    "stage_mult": 1.0,
+    "stack_eff": {},
+    "stack_dur": {},
+    "wards": [],
+    "stack_alias": {
+     "water": [
+      "wood"
+     ]
+    }
+   },
+   "unmodelled": []
+  },
+  {
+   "name": "tree_09",
+   "input": {
+    "name": "tree_09",
+    "realm": 4,
+    "layers": [
+     292.69424043293395,
+     40,
+     40,
+     20,
+     10
+    ],
+    "n_body": 1.0883,
+    "n_qi": 1.053,
+    "ward": {
+     "ws_base": 84.1
+    },
+    "arts": [
+     {
+      "lib": "flying-sword"
+     },
+     {
+      "lib": "ash-feather-gale"
+     },
+     {
+      "lib": "backwash-seal"
+     },
+     {
+      "lib": "aftershock-slam"
+     },
+     {
+      "lib": "blade-mirror-trace-cut"
+     },
+     {
+      "lib": "banyan-shade"
+     }
+    ],
+    "items": [],
+    "modifiers": [
+     {
+      "key": "attack_pct",
+      "value": 10.0
+     },
+     {
+      "key": "khi_huyet_pct",
+      "value": 12.0
+     }
+    ],
+    "purity": {},
+    "tree_effects": [
+     "Wood Begets Fire"
+    ],
+    "counts": {
+     "empty_extra_slots": 2,
+     "carried_sword": 0,
+     "root_elements": 5
+    },
+    "tree_lines_on_sheet": true
+   },
+   "build": {
+    "name": "tree_09",
+    "realm": 4,
+    "M": 8.96069269424043,
+    "layers": [
+     292.69424043293395,
+     40,
+     40,
+     20,
+     10
+    ],
+    "crit": 0.15,
+    "crit_mult": 1.7,
+    "evade": 0.0,
+    "acc": 0.0,
+    "n_body": 1.2188960000000002,
+    "n_qi": 1.053,
+    "ward_pts": 630.591247004252,
+    "drain": 0.48384103354548635,
+    "block": 19.2,
+    "regen_bonus": 0.0,
+    "hregen": 0.0,
+    "cost_red": 0.0,
+    "gain_on_hit": 0.0,
+    "leech_qi": 0.0,
+    "leech_hp": 0.0,
+    "hp_pay": 0.0,
+    "healing": 0.0,
+    "cleanse_pulse": 0,
+    "cleanse_cost": 0.0,
+    "cleanse_share": 0.0,
+    "art_speed_pct": 0.0,
+    "basic_speed_pct": 0.0,
+    "opening_haste_pct": 0.0,
+    "basic_coef_add": 0.0,
+    "ward_layer": 1.0,
+    "body_pts": 0.0,
+    "body_block": 0.0,
+    "bs_mult": 1.0,
+    "body_shield": 0.0,
+    "resist": {},
+    "shields": [],
+    "arts": [
+     {
+      "name": "flying-sword",
+      "c": 1.5,
+      "cost": 0.12,
+      "cd": 8,
+      "element": "",
+      "dtype": "phys",
+      "buff": [],
+      "debuff": [],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "sword",
+       "summon",
+       "heavy"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "afterimage-sword-canon",
+      "steps": [],
+      "empower": [
+       {
+        "if": [
+         {
+          "read": "own.counter.afterimage",
+          "op": ">=",
+          "value": 3
+         },
+         {
+          "any": [
+           {
+            "read": "own.fired_within.1.group.afterimage-sword-canon",
+            "op": ">=",
+            "value": 3
+           },
+           {
+            "read": "foe.status.bleed",
+            "op": ">=",
+            "value": 4
+           },
+           {
+            "read": "own.since.flying-sword",
+            "op": ">=",
+            "value": 10
+           }
+          ]
+         }
+        ],
+        "pay": [
+         {
+          "summon": {
+           "c": 0.3,
+           "dtype": "phys",
+           "cd": 1.5,
+           "for": 12
+          }
+         },
+         {
+          "summon": {
+           "c": 0.3,
+           "dtype": "phys",
+           "cd": 1.5,
+           "for": 12
+          }
+         }
+        ],
+        "c_mult": 2.8
+       }
+      ]
+     },
+     {
+      "name": "ash-feather-gale",
+      "c": 1.95,
+      "cost": 0.08,
+      "cd": 4,
+      "element": "fire",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [
+       3,
+       6
+      ],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "fire",
+       "artifact"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "ashen-phoenix-canon",
+      "steps": [
+       {
+        "unlock": [
+         {
+          "read": "own.counter.cinder",
+          "op": ">=",
+          "value": 4
+         },
+         {
+          "any": [
+           {
+            "read": "own.hp_missing_share",
+            "op": ">=",
+            "value": 0.4
+           },
+           {
+            "read": "own.fired_within.3.group.ashen-phoenix-canon",
+            "op": ">=",
+            "value": 1
+           }
+          ]
+         }
+        ],
+        "pay": [
+         {
+          "counter": {
+           "id": "cinder",
+           "add": -4
+          }
+         }
+        ],
+        "c_mult": 4.0
+       }
+      ],
+      "empower": []
+     },
+     {
+      "name": "backwash-seal",
+      "c": 1.4,
+      "cost": 0.06,
+      "cd": 2,
+      "element": "water",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "seal",
+       "water",
+       "quick"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "",
+      "steps": [],
+      "empower": []
+     },
+     {
+      "name": "aftershock-slam",
+      "c": 0.7,
+      "cost": 0.16,
+      "cd": 9,
+      "element": "earth",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "earth",
+       "slam",
+       "heavy",
+       "quake"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "deep-vein-scripture",
+      "steps": [],
+      "empower": []
+     },
+     {
+      "name": "blade-mirror-trace-cut",
+      "c": 1.7,
+      "cost": 0.064,
+      "cd": 3,
+      "element": "metal",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [],
+      "heal": 0.0,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "kim",
+       "sword",
+       "artifact",
+       "quick"
+      ],
+      "guards": [],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "",
+      "steps": [],
+      "empower": []
+     },
+     {
+      "name": "banyan-shade",
+      "c": 0.0,
+      "cost": 0.1,
+      "cd": 4,
+      "element": "wood",
+      "dtype": "elem",
+      "buff": [],
+      "debuff": [],
+      "heal": 4.13,
+      "qi_restore": 0.0,
+      "cleanse": 0,
+      "m_mult": 1.0,
+      "tags": [
+       "wood",
+       "heal",
+       "banyan"
+      ],
+      "guards": [
+       {
+        "read": "own.hp_share",
+        "op": "<=",
+        "value": 0.95
+       }
+      ],
+      "statuses": [],
+      "split": [],
+      "soul_pct": 0.0,
+      "soul_part": 0.0,
+      "bypass": 0.0,
+      "pool": "qi",
+      "convert": {},
+      "hp_cost": 0.0,
+      "charges": 1,
+      "group": "",
+      "steps": [],
+      "empower": []
+     }
+    ],
+    "purity": {},
+    "effects": [
+     {
+      "id": "flying-sword-call",
+      "on": "art_fired",
+      "filter": {
+       "art_id": "flying-sword"
+      },
+      "do": [
+       {
+        "summon": {
+         "c": 0.3,
+         "dtype": "phys",
+         "cd": 1.5,
+         "for": 12
+        }
+       }
+      ]
+     },
+     {
+      "id": "flying-sword-trail",
+      "on": "hit_landed",
+      "filter": {
+       "kind": "companion"
+      },
+      "limit": {
+       "per_pulse": 3
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "afterimage",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "gale-cinder",
+      "on": "tick_dealt",
+      "limit": {
+       "per_pulse": 2
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "cinder",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "backwash-count",
+      "on": "art_fired",
+      "filter": {
+       "element": "water"
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "backwash",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "backwash-echo",
+      "on": "art_fired",
+      "filter": {
+       "element": "water"
+      },
+      "if": [
+       {
+        "read": "own.counter.backwash",
+        "op": ">=",
+        "value": 3
+       }
+      ],
+      "do": [
+       {
+        "fire_art": {
+         "which": "last",
+         "share": 0.5
+        }
+       },
+       {
+        "gain_qi": {
+         "share": 0.02
+        }
+       },
+       {
+        "counter": {
+         "id": "backwash",
+         "set": 0
+        }
+       }
+      ]
+     },
+     {
+      "id": "quake-count",
+      "on": "art_fired",
+      "filter": {
+       "tags": [
+        "heavy"
+       ]
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "quake",
+         "add": 1
+        }
+       }
+      ]
+     },
+     {
+      "id": "quake-echo",
+      "on": "art_fired",
+      "filter": {
+       "tags": [
+        "heavy"
+       ]
+      },
+      "scale": {
+       "read": "own.counter.quake",
+       "per": 3
+      },
+      "do": [
+       {
+        "fire_art": {
+         "which": "last",
+         "share": 0.35
+        }
+       },
+       {
+        "counter": {
+         "id": "quake",
+         "add": -3
+        }
+       }
+      ]
+     },
+     {
+      "id": "blade-mirror-trace-crit-afterimage",
+      "on": "crit",
+      "filter": {
+       "art_id": "blade-mirror-trace-cut"
+      },
+      "limit": {
+       "cooldown": 1
+      },
+      "do": [
+       {
+        "counter": {
+         "id": "afterimage",
+         "add": 3
+        }
+       }
+      ]
+     },
+     {
+      "id": "banyan-refund",
+      "on": "heal_restored",
+      "filter": {
+       "tags": [
+        "banyan"
+       ]
+      },
+      "do": [
+       {
+        "refund": {}
+       }
+      ]
+     },
+     {
+      "id": "tech:character",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "L1": 10.0
+        }
+       }
+      ]
+     },
+     {
+      "id": "eff:Wood Begets Fire closes",
+      "on": "always",
+      "do": [
+       {
+        "mod": {
+         "dmg_more": -0.5,
+         "element": "metal",
+         "kind": "art"
+        }
+       }
+      ]
+     }
+    ],
+    "counters": [
+     {
+      "id": "afterimage",
+      "decay_per_pulse": 0.1
+     },
+     {
+      "id": "cinder"
+     },
+     {
+      "id": "backwash",
+      "cap": 3
+     },
+     {
+      "id": "quake"
+     }
+    ],
+    "companions": [],
+    "divine_sense": 1.0,
+    "soul_res": 0.0,
+    "x_soul": 0.0,
+    "tam_ma": 0.0,
+    "timer_resist": 0.0,
+    "ward_bill_pct": 0.0,
+    "refusals": 1,
+    "boss": false,
+    "tags": [],
+    "states": [],
+    "reserved": 0.0,
+    "stage_mult": 1.0,
+    "stack_eff": {},
+    "stack_dur": {},
+    "wards": [],
+    "stack_alias": {
+     "wood": [
+      "fire"
+     ]
+    }
    },
    "unmodelled": []
   }
