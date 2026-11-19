@@ -1,6 +1,6 @@
 """Keystones on the three islands, 2026-11-19 (user: "Keystones should connect directly to the travel nodes like in PoE,
 and add more"): each hung straight off one road node, clear of everything round it (1.6+), picked by eye among free spots
-(design/dao-do/cells/openai/ks_find.py). Light (931): a pair either side of the road where the sun joins the tree (its
+(tools/design/dao_do_rework/underlay/ks_find.py). Light (931): a pair either side of the road where the sun joins the tree (its
 axis has no free spot); Thunder (932): at the top end of its arc; the Moon (933): a pendant below the crescent, on its
 axis, off 601."""
 THEME = 'island'

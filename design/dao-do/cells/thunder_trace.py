@@ -1,7 +1,7 @@
 """Thunder (932), traced by hand by Claude 2026-11-19 from the underlay idea the user picked, "thunder 3"
-(design/dao-do/cells/openai/underlay/thunder-3.png; user: "that looks nothing like the underlay?").
+(design/dao-do/underlays/thunder/thunder-3.png; user: "that looks nothing like the underlay?").
 
-The dots of thunder 3 were measured (openai/underlay/dots.py, links.py) and are used where they are; Claude read each
+The dots of thunder 3 were measured (tools/design/dao_do_rework/underlay/dots.py, links.py) and are used where they are; Claude read each
 chain off the picture and chose the joins and kinds (cloud eyes and bolt tips = notables). Changes the rules force:
   - a figure hangs from at most two road nodes and never touches the start figure: bolts that spring from the start in
     the picture hang from the nearest pentagon or ring road node, the zigzags inside the inner pentagon (the start's own
@@ -16,9 +16,9 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-UD = os.path.join(HERE, 'openai', 'underlay')
+UD = os.path.join(HERE, '..', 'underlays', 'thunder')
 sys.path.insert(0, os.path.join(HERE, '..', '..', '..', 'tools', 'design', 'dao_do_rework', 'cells'))
-sys.path.insert(0, UD)
+sys.path.insert(0, os.path.join(HERE, '..', '..', '..', 'tools', 'design', 'dao_do_rework', 'underlay'))
 from celllib import road, roads  # noqa: E402
 from trace_lib import Underlay, even_chain, thin  # noqa: E402
 import swirl_lib as sw  # noqa: E402

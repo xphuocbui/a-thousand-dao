@@ -1,5 +1,4 @@
-"""The Moon (933), hand-placed by Claude 2026-11-19 after the underlay idea "moon 2" (design/dao-do/cells/openai/
-underlay/moon-2.png, the sketch 3 style the user liked), with more figures inside and outside the crescent (user: "moon
+"""The Moon (933), hand-placed by Claude 2026-11-19 after the underlay idea "moon 2" (design/dao-do/underlays/moon-2.png, the sketch 3 style the user liked), with more figures inside and outside the crescent (user: "moon
 we could go with 2 ... please manually add more both inside and outside the figures").
 
 Every figure is a scroll: a chain of arcs drawn by a turtle that turns a little more at each step, so the curve tightens

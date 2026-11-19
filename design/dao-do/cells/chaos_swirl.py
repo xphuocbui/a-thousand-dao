@@ -1,5 +1,5 @@
 """Chaos, the hub, redesigned 2026-11-19: a purple swirl turning in towards the middle, after the picture the user picked
-for it ("the spin swirl isn't as good as replace 1 swirls. Do that": openai/underlay/chaos2/replace-1.png; the element
+for it ("the spin swirl isn't as good as replace 1 swirls. Do that": design/dao-do/underlays/chaos/replace-1.png; the element
 motifs outside the hub are chaos_elements.py).
 
 Road change (user: "Remove the spokes"): the hub's five spokes (base-map nodes 31-35 and their ten links) are gone, so
@@ -23,7 +23,7 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, '..', '..', '..', 'tools', 'design', 'dao_do_rework', 'cells'))
-sys.path.insert(0, os.path.join(HERE, 'openai', 'underlay'))
+sys.path.insert(0, os.path.join(HERE, '..', '..', '..', 'tools', 'design', 'dao_do_rework', 'underlay'))
 from celllib import road  # noqa: E402
 from trace_lib import circum  # noqa: E402
 

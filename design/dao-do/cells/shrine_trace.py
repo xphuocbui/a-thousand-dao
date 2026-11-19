@@ -1,6 +1,6 @@
 """The Shadow Shrine (Ám Từ, the road circle 625-636 off the Moon island, cell 933), hand-traced by Claude 2026-11-19
 from the pictures the user picked: "the eclipse with moonphases 2 for the shrine, the directly above it extend it with
-another shadow lotus 1" (openai/underlay/shrine/eclipse-2.png and lotus-1.png). It replaces the waxing moon the Moon
+another shadow lotus 1" (design/dao-do/underlays/shrine/eclipse-2.png and lotus-1.png). It replaces the waxing moon the Moon
 file used to put here.
 
 Claude read every line's waypoints off gridded close-ups (picture pixels); the tracer follows the drawn line between
@@ -27,14 +27,14 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, '..', '..', '..', 'tools', 'design', 'dao_do_rework', 'cells'))
-sys.path.insert(0, os.path.join(HERE, 'openai', 'underlay'))
+sys.path.insert(0, os.path.join(HERE, '..', '..', '..', 'tools', 'design', 'dao_do_rework', 'underlay'))
 from celllib import road  # noqa: E402
 from trace_lib import even_chain  # noqa: E402
 from trace_fine import Fig, Fine, ring, link, mirror, thin_at  # noqa: E402
 
 THEME = 'island'
 S, N = 'small', 'notable'
-UD = os.path.join(HERE, 'openai', 'underlay', 'shrine')
+UD = os.path.join(HERE, '..', 'underlays', 'shrine')
 AXIS = 107.808                                      # the ring's centre (mean of road nodes 625-636)
 
 

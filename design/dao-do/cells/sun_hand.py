@@ -1,7 +1,7 @@
-"""The Sun's tree (inside the outer ring), hand-traced by Claude 2026-11-19 from the picked underlay (openai/underlay/sun/
+"""The Sun's tree (inside the outer ring), hand-traced by Claude 2026-11-19 from the picked underlay (design/dao-do/underlays/sun/
 inout-3.png; user: "1 please go", after the automatic trace lost the tree's character).
 
-Claude read each branch system off the picture (gridded close-ups, openai/underlay/sun/grid-top.png and grid-bot.png):
+Claude read each branch system off the picture (gridded close-ups, design/dao-do/underlays/sun/grid-top.png and grid-bot.png):
 its root, its forks and each branch's curl and eye, in order; the tracer follows the drawn line between those points
 (trace_lib.even_chain) and spaces nodes evenly, about 0.8 apart, under the Sun's looser spacing (rules 3.2). Roots are
 the road nodes nearest where the picture springs them (the picture also springs a branch from the inner ring between
@@ -16,11 +16,11 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(HERE, 'openai', 'underlay'))
+sys.path.insert(0, os.path.join(HERE, '..', '..', '..', 'tools', 'design', 'dao_do_rework', 'underlay'))
 from trace_lib import Underlay, even_chain, thin  # noqa: E402
 
 S, N = 'small', 'notable'
-UD = os.path.join(HERE, 'openai', 'underlay', 'sun')
+UD = os.path.join(HERE, '..', 'underlays', 'sun')
 
 
 class SunUnderlay(Underlay):

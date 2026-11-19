@@ -13,7 +13,7 @@ import os
 
 from PIL import Image
 
-BASE = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'base-map.json')
+BASE = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', '..', 'design', 'dao-do', 'cells', 'base-map.json')
 
 
 def circum(a, b, c):

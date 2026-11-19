@@ -1,7 +1,7 @@
 """The Sun (931), traced 2026-11-19 from the underlay the user picked: the Fusang 2 sun tree inside the outer ring and
-Corona 1's flames outside it (design/dao-do/cells/openai/underlay/sun/inout-3.png; user: "go with recommended").
+Corona 1's flames outside it (design/dao-do/underlays/sun/inout-3.png; user: "go with recommended").
 
-Flames (outside the outer ring): their centre lines are measured from the picture (openai/underlay/sun/flames.py); the
+Flames (outside the outer ring): their centre lines are measured from the picture (tools/design/dao_do_rework/underlay/flames.py); the
 ring has a road node every 18 degrees and the picture a flame every 9 or so, so each road node carries a twin flame: the
 flame nearest it, as drawn, its root joined to the node, and the in-between flame forking from its first node and
 joining its own drawn line about 2 out (on the node it leans towards). Nodes re-spaced evenly along each flame, its tip a
@@ -13,7 +13,7 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-UD = os.path.join(HERE, 'openai', 'underlay', 'sun')
+UD = os.path.join(HERE, '..', 'underlays', 'sun')
 sys.path.insert(0, os.path.join(HERE, '..', '..', '..', 'tools', 'design', 'dao_do_rework', 'cells'))
 from celllib import road, roads  # noqa: E402
 

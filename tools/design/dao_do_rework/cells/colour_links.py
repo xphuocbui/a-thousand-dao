@@ -17,9 +17,9 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..', '..', '..'))
-UL = os.path.join(ROOT, 'design', 'dao-do', 'cells', 'openai', 'underlay')
+UL = os.path.join(ROOT, 'design', 'dao-do', 'underlays')
 sys.path.insert(0, HERE)
-sys.path.insert(0, UL)
+sys.path.insert(0, os.path.join(HERE, '..', 'underlay'))
 from celllib import road  # noqa: E402
 from trace_fine import Fine  # noqa: E402
 
@@ -27,14 +27,14 @@ from trace_fine import Fine  # noqa: E402
 RULES = [
     ('c933 moon_lotus ', 'shrine/lotus-1.png', 0.0, -115.53, 8.5, 0.0, True),
     ('c933 shrine_eclipse ', 'shrine/eclipse-2.png', 107.8, -24.9, 10.0, 107.808, False),
-    ('c933 ', 'moon-2.png', 0.0, -103.0, 21.0, 0.0, False),
+    ('c933 ', 'moon/moon-2.png', 0.0, -103.0, 21.0, 0.0, False),
     ('c931 ', 'sun/inout-3.png', 0.0, 112.0, 21.0, 0.0, False),
-    ('c79 swirl_arm', 'chaos2/replace-1.png', 0.0, 0.0, 33.0, None, False),
-    ('c3 flames_', 'chaos2/beside-1.png', 0.0, 0.0, 33.0, None, False),
-    ('c2 ridges_', 'chaos2/beside-1.png', 0.0, 0.0, 33.0, None, False),
-    ('c4 blades_', 'chaos2/beside-1.png', 0.0, 0.0, 33.0, None, False),
-    ('c5 waves_', 'chaos2/beside-1.png', 0.0, 0.0, 33.0, None, False),
-    ('c1 vines_', 'chaos2/beside-1.png', 0.0, 0.0, 33.0, None, False),
+    ('c79 swirl_arm', 'chaos/replace-1.png', 0.0, 0.0, 33.0, None, False),
+    ('c3 flames_', 'chaos/beside-1.png', 0.0, 0.0, 33.0, None, False),
+    ('c2 ridges_', 'chaos/beside-1.png', 0.0, 0.0, 33.0, None, False),
+    ('c4 blades_', 'chaos/beside-1.png', 0.0, 0.0, 33.0, None, False),
+    ('c5 waves_', 'chaos/beside-1.png', 0.0, 0.0, 33.0, None, False),
+    ('c1 vines_', 'chaos/beside-1.png', 0.0, 0.0, 33.0, None, False),
 ]
 
 

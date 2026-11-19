@@ -1,16 +1,16 @@
 """The five elements round the hub, 2026-11-19: each land's first cell (Fire 3, Earth 2, Metal 4, Water 5, Wood 1) takes
 its element's motif, woven round the figures already there, traced by Claude from the picture the user picked ("add
-beside 1 outside part with the elements is good": openai/underlay/chaos2/beside-1.png; the swirl inside the hub is
+beside 1 outside part with the elements is good": design/dao-do/underlays/chaos/beside-1.png; the swirl inside the hub is
 chaos_swirl.py). Flames, mountain ridges, blades, wave scrolls, vines and leaves.
 
 The drawn lines are the picture's centre-line network with today's roads and figures masked out
-(openai/underlay/chaos2/skel2.py -> elem-graph.json). Each junction is a fork, each free end a notable; nodes about 1.7
+(tools/design/dao_do_rework/underlay/skel2.py -> elem-graph.json). Each junction is a fork, each free end a notable; nodes about 1.7
 apart along each stroke. Wood's leaf veins and Metal's blade notches (inner lines ending within 0.35 of another line)
 go, so a leaf or blade is its outline. Each separate part of a motif is a piece hanging from the nearest free travel
 node of its cell or its walls (within 2.6, by a link crossing nothing; never a land start or a node a swirl arm or another piece
 holds); a part with no door near joins its nearest held neighbour, else another loose part, across a gap under 1.8;
 a part with none of these is left out.
-Normal spacing (rules 3.2): each piece settles against the roads, today's figures (frozen in chaos2/keepout.json) and
+Normal spacing (rules 3.2): each piece settles against the roads, today's figures (frozen in design/dao-do/underlays/chaos/keepout.json) and
 the pieces before it.
 """
 import json
@@ -20,14 +20,14 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, '..', '..', '..', 'tools', 'design', 'dao_do_rework', 'cells'))
-sys.path.insert(0, os.path.join(HERE, 'openai', 'underlay'))
+sys.path.insert(0, os.path.join(HERE, '..', '..', '..', 'tools', 'design', 'dao_do_rework', 'underlay'))
 from celllib import road  # noqa: E402
 from trace_lib import circum  # noqa: E402
 from trace_fine import Fig, Fine, settle, thin_at, _segs, _cross  # noqa: E402
 
 THEME = 'chaos'
 S, N = 'small', 'notable'
-UD = os.path.join(HERE, 'openai', 'underlay', 'chaos2')
+UD = os.path.join(HERE, '..', 'underlays', 'chaos')
 U = Fine(os.path.join(UD, 'beside-1.png'), 0.0, 0.0, 33.0, road, node_min=0.95, link_min=0.65)   # a margin over the settling's 0.92 / 0.62
 U.path((0, 0), (0.1, 0))
 GRAPH = json.load(open(os.path.join(UD, 'elem-graph.json'), encoding='utf-8'))
@@ -247,7 +247,7 @@ for cell in CELLS_AT:
     # each held part is its own piece
     for comp in sorted(parts(F), key=lambda c: -len(c)):
         P = Fig()
-        P.nodes = {k: F.nodes[k] for k in comp if isinstance(k, str)}
+        P.nodes = {k: v for k, v in F.nodes.items() if k in comp}       # in the trace's own order (a set's order varies by run)
         P.links = [l for l in F.links if l[0] in comp or l[1] in comp]
         if not P.nodes:
             continue
@@ -313,7 +313,7 @@ for cell in CELLS_AT:
         door = next((x for a2, b2, _ in P.links for x in (a2, b2) if isinstance(x, int)), None)
         depth, par, order = {door: 0}, {door: None}, [door]
         for u in order:
-            for v in adj.get(u, ()):
+            for v in sorted(adj.get(u, ()), key=str):
                 if v not in depth:
                     depth[v] = depth[u] + 1; par[v] = u; order.append(v)
         for a2, b2, _ in P.links:

@@ -1,5 +1,4 @@
-"""Thunder (932), hand-placed by Claude 2026-11-19 after the underlay idea "thunder 3" (design/dao-do/cells/openai/
-underlay/thunder-3.png; user: "Thunder 3 is good ... please manually add more both inside and outside the figures").
+"""Thunder (932), hand-placed by Claude 2026-11-19 after the underlay idea "thunder 3" (design/dao-do/underlays/thunder-3.png; user: "Thunder 3 is good ... please manually add more both inside and outside the figures").
 
   - the five web cells (between the inner pentagon round the start and the outer ring): in each, a main bolt striking
     out from the pentagon's mid node along the cell's axis, forked, and a second bolt striking in from the outer ring

@@ -1,12 +1,13 @@
 """Splits the ornament of an underlay into connected drawn shapes (roads, start, keystones masked out) and reports,
 for each, its size, radius span round the island centre, and which road nodes or ring lines it touches.
 Measurement only. usage: python -I comps.py <img> <cx> <cy> <half> <out.json>"""
+import os
 import json, math, sys
 from collections import deque
 from PIL import Image
 img, cx, cy, half, outp = sys.argv[1], *map(float, sys.argv[2:5]), sys.argv[5]
 im = Image.open(img).convert('RGB'); W, H = im.size; px = im.load(); k = 2 * half / W
-B = json.load(open('../../../base-map.json', encoding='utf-8'))
+B = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', '..', 'design', 'dao-do', 'cells', 'base-map.json'), encoding='utf-8'))
 Nn = {n['id']: n for n in B['nodes']}
 to_px = lambda q: ((q[0] - cx + half) / k, (q[1] - cy + half) / k)
 to_map = lambda p: (cx - half + p[0] * k, cy - half + p[1] * k)

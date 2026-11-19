@@ -3,7 +3,7 @@ usage: python -I label.py <img> <dots.json> <out.png> <kept.json> [crop x0 y0 x1
 import json, math, sys
 from PIL import Image, ImageDraw
 img, dj, outp, kj = sys.argv[1:5]
-B = json.load(open('../../base-map.json', encoding='utf-8'))
+B = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', '..', 'design', 'dao-do', 'cells', 'base-map.json'), encoding='utf-8'))
 fixed = [(n['x'], n['y']) for n in B['nodes']]
 D = json.load(open(dj))
 import os

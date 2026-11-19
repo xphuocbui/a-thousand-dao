@@ -2,6 +2,7 @@
 usage: python -I links.py <img> <keep.json> <cx> <cy> <half> <out.json>
 A pair of dots (and a dot and a road node) is joined if silver line pixels connect them inside the ellipse spanning
 the pair, without passing through a third dot. Roads are gold lines, so they are not followed."""
+import os
 import json, math, sys
 from collections import deque
 from PIL import Image
@@ -12,7 +13,7 @@ W, H = im.size
 px = im.load()
 k = 2 * half / W
 K = json.load(open(kj))
-B = json.load(open('../../base-map.json', encoding='utf-8'))
+B = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', '..', 'design', 'dao-do', 'cells', 'base-map.json'), encoding='utf-8'))
 to_px = lambda q: ((q[0] - cx + half) / k, (q[1] - cy + half) / k)
 roads = [(n['id'], to_px((n['x'], n['y']))) for n in B['nodes'] if n['kind'] == 'travel']
 roads = [(i, p) for i, p in roads if -20 < p[0] < W + 20 and -20 < p[1] < H + 20]

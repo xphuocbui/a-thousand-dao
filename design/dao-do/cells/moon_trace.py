@@ -1,7 +1,7 @@
 """The Moon (933), traced by hand by Claude 2026-11-19 from the underlay idea the user picked, "moon 2"
-(design/dao-do/cells/openai/underlay/moon-2.png; user: "that looks nothing like the underlay?").
+(design/dao-do/underlays/moon/moon-2.png; user: "that looks nothing like the underlay?").
 
-The dots of moon 2 were measured (openai/underlay/dots.py) and are used where they are; Claude chose which dots chain
+The dots of moon 2 were measured (tools/design/dao_do_rework/underlay/dots.py) and are used where they are; Claude chose which dots chain
 into which piece, the kinds (big gold dots = notables), and the few changes the rules force:
   - a figure hangs from at most two road nodes, so the horn scroll's lower loop ends on its own notable instead of
     running into the great S;
@@ -19,7 +19,7 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, '..', '..', '..', 'tools', 'design', 'dao_do_rework', 'cells'))
-sys.path.insert(0, os.path.join(HERE, 'openai', 'underlay'))
+sys.path.insert(0, os.path.join(HERE, '..', '..', '..', 'tools', 'design', 'dao_do_rework', 'underlay'))
 from celllib import road  # noqa: E402
 from trace_lib import Underlay, even_chain, thin  # noqa: E402
 import swirl_lib as sw  # noqa: E402
@@ -27,7 +27,7 @@ import moon_ul  # noqa: E402
 
 THEME = 'island'
 S, N = 'small', 'notable'
-U = Underlay(os.path.join(HERE, 'openai', 'underlay', 'moon-2.png'), 0.0, -103.0, 21.0, road)
+U = Underlay(os.path.join(HERE, '..', 'underlays', 'moon', 'moon-2.png'), 0.0, -103.0, 21.0, road)
 
 
 class Fig:

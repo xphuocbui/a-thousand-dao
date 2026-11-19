@@ -1,5 +1,5 @@
 """The drawn line network of a picture (measurement only; the trace file chooses what becomes nodes). Generalised
-2026-11-19 from chaos/skel.py for the Chaos redesign (chaos2/).
+2026-11-19 from chaos/skel.py for the Chaos redesign (design/dao-do/underlays/chaos/).
 
 A pixel is line when it is bright, not a grey road disc, inside the ring rmin..rmax round the picture's centre (map
 units), off every link and node of MASK (a compiled map: its roads and pieces, so a picture that keeps today's figures
@@ -7,7 +7,7 @@ gives only what it adds), and of the colour MODE asks: 'purple' (violet, purple,
 are thinned to centre lines (Zhang-Suen) and split into strokes between ends and junctions; spurs under SPUR px off a
 junction go; a junction left with two strokes joins them. Writes {'v': [...], 's': [{'a','b','pts'}]} in map units.
 
-usage: python -I skel2.py <img> <cx> <cy> <half> <rmin> <rmax> <purple|any> <mask map.json> <out.json>
+usage: python -I tools/design/dao_do_rework/underlay/skel2.py <img> <cx> <cy> <half> <rmin> <rmax> <purple|any> <mask map.json> <out.json>
 """
 import json
 import math
@@ -15,8 +15,8 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(HERE, '..', '..', '..', '..', '..', '..', 'tools', 'design', 'dao_do_rework', 'cells'))
-sys.path.insert(0, os.path.join(HERE, '..'))
+sys.path.insert(0, os.path.join(HERE, '..', 'cells'))
+sys.path.insert(0, HERE)
 from celllib import road  # noqa: E402
 from trace_fine import Fine  # noqa: E402
 
