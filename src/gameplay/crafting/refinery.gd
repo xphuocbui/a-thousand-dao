@@ -46,7 +46,7 @@ func success_chance(c: Character, sheet: StatSheet, tier: int) -> Breakdown:
 	var b := Breakdown.new("Luyện khí success %")
 	b.base("100 - difficulty %d (%s)" % [int(cfg.difficulty[t]), _gd.artifact_tier(t).name], 100.0 - float(cfg.difficulty[t]))
 	b.add("Luyện khí level %d" % c.skill_level(skill()), float(c.skill_level(skill())) * float(cfg.success_per_level))
-	b.add("Kim purity %d" % int(c.linh_can.purity("kim")), c.linh_can.purity("kim") * float(cfg.kim_success_per_purity))
+	b.add("Kim purity %s" % LinhCan.fmt(c.linh_can.purity("kim")), c.linh_can.purity("kim") * float(cfg.kim_success_per_purity))
 	b.add("Ngộ tính %d" % int(sheet.effective("ngo_tinh", c)), sheet.effective("ngo_tinh", c) * float(cfg.ngo_tinh_per_point))
 	if sheet.total("refining_success") != 0.0:
 		b.add("refining_success", sheet.total("refining_success"))

@@ -35,7 +35,7 @@ static func character(purities: Dictionary, stat_value: int = 50, realm_index: i
 	for def in game_data().thien_phu_defs():
 		c.thien_phu[def.id] = stat_value
 	for e in purities.keys():
-		c.linh_can.elements[e] = int(purities[e])
+		c.linh_can.elements[e] = float(purities[e])
 	c.realm_index = realm_index
 	c.stage = stage
 	c.level = Ladder.stage_first_level(game_data(), realm_index, stage)

@@ -62,29 +62,27 @@ static func preview_lines(c: Character, gd: GameData, options: Array, item_id: S
 
 ## Applies a Linh Căn Quả to [param c]. Draw order (Formulas F): element (an NPC's only; the
 ## player picks), purity, then one per newly eligible derived variant. With
-## all five owned the weakest gains the raise, no draws; refused when all are at 100.
+## all five owned the weakest gains the raise past 100 too (rule 13, rule 8a), no draws; never refused.
 ## Returns {ok, message, changes}, where changes are {what, id, from, to} for the World Database.
 static func apply_fruit(c: Character, gd: GameData, rng: Variant, fx: Dictionary, named: String = "") -> Dictionary:
 	var lc: LinhCan = c.linh_can
 	var missing: Array = gd.element_cycle().filter(func(e): return not lc.elements.has(e))
 	if missing.is_empty():
-		if lc.all_at_max():
-			return {"ok": false, "message": "", "changes": []}
 		var target: String = lc.weakest_element(gd)
-		var before: int = int(lc.purity(target))
-		lc.raise_purity(gd, target, int(fx.raise))
-		return {"ok": true, "message": "Your %s root deepens: %d -> %d." % [gd.element_label(target), before, int(lc.purity(target))],
-			"changes": [{"what": "purity", "id": target, "from": before, "to": int(lc.purity(target))}]}
+		var before: float = lc.purity(target)
+		lc.raise_purity(gd, target, float(fx.raise), -1.0)
+		return {"ok": true, "message": "Your %s root deepens: %s -> %s." % [gd.element_label(target), LinhCan.fmt(before), LinhCan.fmt(lc.purity(target))],
+			"changes": [{"what": "purity", "id": target, "from": before, "to": lc.purity(target)}]}
 	var elem: String = named if missing.has(named) else str(missing[int(floorf(rng.randf() * float(missing.size())))])
 	var lo: int = int(fx.purity[0])
 	var p: int = lo + int(floorf(rng.randf() * float(int(fx.purity[1]) - lo + 1)))
 	lc.add_element(elem, p)
-	var changes: Array = [{"what": "element", "id": elem, "from": 0, "to": p}]
-	var msg: String = "A new spiritual root grows: %s %d. You are now %s." % [gd.element_label(elem), p, lc.tier_name(gd)]
+	var changes: Array = [{"what": "element", "id": elem, "from": 0, "to": lc.purity(elem)}]
+	var msg: String = "A new spiritual root grows: %s %s. You are now %s." % [gd.element_label(elem), LinhCan.fmt(lc.purity(elem)), lc.tier_name(gd)]
 	var formed: Array = lc.roll_newly_eligible(gd, rng)
 	msg += variants_text(gd, lc, formed)
 	for id in formed:
-		changes.append({"what": "variant", "id": id, "from": 0, "to": int(lc.variants[id])})
+		changes.append({"what": "variant", "id": id, "from": 0, "to": lc.purity(id)})
 	return {"ok": true, "message": msg, "changes": changes}
 
 
@@ -92,4 +90,4 @@ static func apply_fruit(c: Character, gd: GameData, rng: Variant, fx: Dictionary
 static func variants_text(gd: GameData, lc: LinhCan, ids: Array) -> String:
 	if ids.is_empty():
 		return ""
-	return " A variant root forms: %s!" % ", ".join(ids.map(func(b): return "%s %d" % [gd.element_label(b), int(lc.variants[b])]))
+	return " A variant root forms: %s!" % ", ".join(ids.map(func(b): return "%s %s" % [gd.element_label(b), LinhCan.fmt(lc.purity(b))]))

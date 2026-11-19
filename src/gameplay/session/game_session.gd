@@ -228,11 +228,7 @@ func _place_player() -> void:
 
 ## The strongest base element, ties in cycle order (cong-phap.md Edge Cases).
 func _starting_element() -> String:
-	var best: String = ""
-	for e in gd.element_cycle():
-		if player.linh_can.elements.has(e) and (best == "" or int(player.linh_can.elements[e]) > int(player.linh_can.elements[best])):
-			best = e
-	return best
+	return player.linh_can.strongest_in_cycle(gd)
 
 
 ## Writes the live player object back to its people record.
@@ -977,7 +973,7 @@ func _on_breakthrough_succeeded() -> Array:
 	var formed: Array = player.linh_can.awakening_pass(gd, rng)
 	var changes: Array = []
 	for id in formed:
-		changes.append({"what": "variant", "id": id, "from": 0, "to": int(player.linh_can.variants[id])})
+		changes.append({"what": "variant", "id": id, "from": 0, "to": player.linh_can.purity(id)})
 	_log_root_changes("player_variant_awakened", changes)
 	return [TreasureEffects.variants_text(gd, player.linh_can, formed).strip_edges()] if not formed.is_empty() else []
 

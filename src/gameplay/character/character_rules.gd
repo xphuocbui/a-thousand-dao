@@ -58,7 +58,7 @@ static func herb_growth(c: Character, gd: GameData, sheet: StatSheet) -> Breakdo
 	var fx: Dictionary = gd.element_effects()
 	var b := Breakdown.new("Linh thảo growth / season")
 	b.base("Base", 1.0)
-	b.add_pct("Mộc purity %d" % int(c.linh_can.purity("moc")), c.linh_can.purity("moc") * float(fx.herb_growth_pct_per_purity))
+	b.add_pct("Mộc purity %s" % LinhCan.fmt(c.linh_can.purity("moc")), c.linh_can.purity("moc") * float(fx.herb_growth_pct_per_purity))
 	b.mul("herb_growth_pct", sheet.mult("herb_growth_pct"))
 	return b
 
@@ -69,7 +69,7 @@ static func field_plots(c: Character, gd: GameData, sheet: StatSheet) -> Breakdo
 	var cfg: Dictionary = gd.session().field
 	var b := Breakdown.new("Linh điền plots")
 	b.base("Base", float(cfg.base_plots))
-	b.add("Thổ purity %d" % int(c.linh_can.purity("tho")), floorf(c.linh_can.purity("tho") * float(fx.field_plots_per_purity)))
+	b.add("Thổ purity %s" % LinhCan.fmt(c.linh_can.purity("tho")), floorf(c.linh_can.purity("tho") * float(fx.field_plots_per_purity)))
 	b.add("field_plots", floorf(sheet.total("field_plots")))
 	b.clamp_to(1.0, float(cfg.max_plots))
 	return b
@@ -80,7 +80,7 @@ static func dan_doc_decay(c: Character, gd: GameData, sheet: StatSheet) -> Break
 	var fx: Dictionary = gd.element_effects()
 	var b := Breakdown.new("Đan độc decay / season")
 	b.base("Natural", float(gd.attributes().derived.dan_doc_natural_decay))
-	b.add("Thủy purity %d" % int(c.linh_can.purity("thuy")), c.linh_can.purity("thuy") * float(fx.dan_doc_decay_per_purity))
+	b.add("Thủy purity %s" % LinhCan.fmt(c.linh_can.purity("thuy")), c.linh_can.purity("thuy") * float(fx.dan_doc_decay_per_purity))
 	b.add("dan_doc_decay", sheet.total("dan_doc_decay"))
 	b.clamp_to(0.0, INF)
 	return b
@@ -91,7 +91,7 @@ static func mission_income(c: Character, gd: GameData, sheet: StatSheet) -> Brea
 	var fx: Dictionary = gd.element_effects()
 	var b := Breakdown.new("Mission income multiplier")
 	b.base("Base", 1.0)
-	b.add_pct("Kim purity %d" % int(c.linh_can.purity("kim")), c.linh_can.purity("kim") * float(fx.mission_income_pct_per_purity))
+	b.add_pct("Kim purity %s" % LinhCan.fmt(c.linh_can.purity("kim")), c.linh_can.purity("kim") * float(fx.mission_income_pct_per_purity))
 	b.mul("mission_income_pct", sheet.mult("mission_income_pct"))
 	return b
 

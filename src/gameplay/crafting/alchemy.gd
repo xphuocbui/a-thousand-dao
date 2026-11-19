@@ -33,7 +33,7 @@ func success_chance(c: Character, sheet: StatSheet, recipe: Dictionary) -> Break
 	var b := Breakdown.new("Luyện đan success %")
 	b.base("100 - difficulty %d" % int(recipe.difficulty), 100.0 - float(recipe.difficulty))
 	b.add("Đan Đạo level %d" % c.skill_level(SKILL), float(c.skill_level(SKILL)) * float(cfg.skill_success_per_level))
-	b.add("Hỏa purity %d" % int(c.linh_can.purity("hoa")), c.linh_can.purity("hoa") * float(fx.alchemy_success_per_purity))
+	b.add("Hỏa purity %s" % LinhCan.fmt(c.linh_can.purity("hoa")), c.linh_can.purity("hoa") * float(fx.alchemy_success_per_purity))
 	b.add("Ngộ tính %d" % int(sheet.effective("ngo_tinh", c)), sheet.effective("ngo_tinh", c) * float(cfg.ngo_tinh_success_per_point))
 	if sheet.total("alchemy_success") != 0.0:
 		b.add("alchemy_success", sheet.total("alchemy_success"))

@@ -77,10 +77,10 @@ static func consume(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet, i
 			msg = "+%.1f years of thọ nguyên" % (float(fx.value) * m)
 		"purity":
 			var e: String = c.linh_can.weakest_element(gd)
-			var before_p: int = int(c.linh_can.purity(e))
+			var before_p: float = c.linh_can.purity(e)
 			c.linh_can.raise_purity(gd, e, purity_gain(float(fx.value), m))
-			msg = "%s purity %d -> %d" % [gd.element_label(e), before_p, int(c.linh_can.purity(e))]
-			changes.append({"what": "purity", "id": e, "from": before_p, "to": int(c.linh_can.purity(e))})
+			msg = "%s purity %s -> %s" % [gd.element_label(e), LinhCan.fmt(before_p), LinhCan.fmt(c.linh_can.purity(e))]
+			changes.append({"what": "purity", "id": e, "from": before_p, "to": c.linh_can.purity(e)})
 	var tox: float = CharacterRules.add_dan_doc(c, gd, sheet, float(recipe.toxicity))
 	c.pill_uses[item.template] = int(c.pill_uses.get(item.template, 0)) + 1
 	item["qty"] = int(item.qty) - 1

@@ -15,7 +15,29 @@ extends GdUnitTestSuite
 
 ## Asserts equality with a message.
 func assert_eq(actual: Variant, expected: Variant, msg: String = "") -> void:
-	assert_bool(actual == expected).override_failure_message("%s: expected <%s> got <%s>" % [msg, str(expected), str(actual)]).is_true()
+	assert_bool(same(actual, expected)).override_failure_message("%s: expected <%s> got <%s>" % [msg, str(expected), str(actual)]).is_true()
+
+
+## GDScript `==`, except that inside dictionaries and arrays an int and a float of the same value are equal too
+## (purities became floats, ADR-0004), as they are at the top level.
+static func same(a: Variant, b: Variant) -> bool:
+	if a is Dictionary and b is Dictionary:
+		if a.size() != b.size():
+			return false
+		for k in a:
+			if not b.has(k) or not same(a[k], b[k]):
+				return false
+		return true
+	if a is Array and b is Array:
+		if a.size() != b.size():
+			return false
+		for i in a.size():
+			if not same(a[i], b[i]):
+				return false
+		return true
+	if (a is int or a is float) and (b is int or b is float):
+		return float(a) == float(b)
+	return a == b
 
 
 ## Asserts a float is within [param tolerance] of [param expected].

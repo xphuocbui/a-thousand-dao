@@ -1,7 +1,12 @@
 class_name LinhCan
 extends RefCounted
-## A cultivator's spiritual root (linh căn): an integer purity per base element plus the
-## owned variant roots (biến dị linh căn). The root only grows. Design: design/gdd/linh-can.md.
+## A cultivator's spiritual root (linh căn): a purity per base element plus the owned variant roots
+## (biến dị linh căn). The root only grows. Design: design/gdd/linh-can.md.
+##
+## Purity is a float with no upper cap (rules 8, 8a; ADR-0004 decision 2). Birth draws, the Tẩy Tủy Đan and the
+## birth perk stop at 100; the Đạo Đồ's roads and the Linh Căn Quả on a five-element root go past it. Purity a road
+## grants is kept in [member road], apart from the owned elements, and added on read ([method purity]), so a road
+## never makes the root own an element (rule 8a).
 ##
 ## Rules implemented here:
 ## - Birth roll with a fixed draw order (Formulas A). [param rng] is duck-typed: anything with
@@ -19,10 +24,12 @@ extends RefCounted
 
 ## Variant ids moved to the Way (design/gdd/linh-can.md rule 16) are dropped by [method migrate_record].
 
-## Base element id -> purity (10..100). Absent elements are not stored.
+## Base element id -> owned purity (birth, pills, fruits; 10+). Absent elements are not stored.
 var elements: Dictionary = {}
-## Variant id -> purity.
+## Variant id -> purity before road purity (a derived variant's is recomputed from its parents).
 var variants: Dictionary = {}
+## Element or variant id -> purity granted by the Đạo Đồ's roads (owned or not). Added by [method purity].
+var road: Dictionary = {}
 ## Every variant id that has rolled or been marked rolled.
 var rolled: Array = []
 ## Variant ids a Self-made life left unpicked: they never roll, not even by Awakening.
@@ -62,14 +69,14 @@ static func self_made(gd: GameData, purities: Dictionary, picks: Array = []) -> 
 	var lc := LinhCan.new()
 	for e in gd.element_cycle():
 		if purities.has(e):
-			lc.elements[e] = int(purities[e])
+			lc.elements[e] = float(purities[e])
 	for def in gd.variant_defs():
 		var id: String = str(def.id)
 		if not lc.qualifies_at_birth(gd, id):
 			continue
 		lc.rolled.append(id)
 		if picks.has(id):
-			lc.variants[id] = int(cfg.purity_mean) if def.origin == "innate" else lc.derived_purity(gd, id)
+			lc.variants[id] = float(cfg.purity_mean) if def.origin == "innate" else lc.derived_purity(gd, id)
 		else:
 			lc.declined.append(id)
 	lc.recompute_derived(gd)
@@ -88,7 +95,7 @@ static func self_made_error(gd: GameData, purities: Dictionary, picks: Array = [
 		var p: float = float(purities[e])
 		if p < float(cfg.purity_min) or p > float(cfg.purity_max) or p != floorf(p):
 			return "Purity must be a whole number from %d to %d." % [int(cfg.purity_min), int(cfg.purity_max)]
-		lc.elements[e] = int(p)
+		lc.elements[e] = p
 	for id in picks:
 		if gd.variant(str(id)).is_empty():
 			return "Unknown variant %s." % id
@@ -98,8 +105,8 @@ static func self_made_error(gd: GameData, purities: Dictionary, picks: Array = [
 
 
 ## Purity from one raw normal draw: rounded, then clamped (AC-LC-03).
-static func purity_from_draw(cfg: Dictionary, raw: float) -> int:
-	return clampi(int(roundf(raw)), int(cfg.purity_min), int(cfg.purity_max))
+static func purity_from_draw(cfg: Dictionary, raw: float) -> float:
+	return clampf(roundf(raw), float(cfg.purity_min), float(cfg.purity_max))
 
 
 # --- Variants ---------------------------------------------------------------------
@@ -140,38 +147,40 @@ func variant_chance(gd: GameData, variant_id: String) -> float:
 		factor = float(cfg.chaos_factor) if def.requires.size() > 2 else float(cfg.convergence_factor)
 	var chance: float = factor
 	for e in def.requires:
-		chance *= float(elements.get(e, 0)) / 100.0
+		chance *= purity(str(e)) / 100.0
 	return minf(chance, 1.0)
 
 
-## Formulas D2: a derived variant's purity from the current element purities. A variant listed
-## in `variant_parents` (Thunder, Ice, Chaos) takes its parents' purity as its own, the geometric
-## mean with no discount (linh-can.md rule 10, 2026-11-19); Light and Darkness keep
-## `variant_purity_factor`.
-func derived_purity(gd: GameData, variant_id: String) -> int:
+## Formulas D2: a derived variant's purity from the current element purities (roads included). A variant
+## listed in `variant_parents` (Thunder, Ice, Chaos) takes its parents' purity as its own, the geometric mean with
+## no discount (linh-can.md rule 10, 2026-11-19); Light and Darkness keep `variant_purity_factor`. At least 1, no
+## upper clamp (rule 10).
+func derived_purity(gd: GameData, variant_id: String) -> float:
 	var cfg: Dictionary = gd.attributes().linh_can
 	if cfg.get("variant_parents", {}).has(variant_id):
-		return clampi(parent_purity(gd, variant_id), 1, 100)
+		return maxf(parent_purity(gd, variant_id), 1.0)
 	var req: Array = gd.variant(variant_id).get("requires", [])
 	if req.is_empty():
-		return 0
+		return 0.0
 	var product: float = 1.0
 	for e in req:
-		product *= float(elements.get(e, 0))
+		product *= purity(str(e))
 	var mean: float = pow(product, 1.0 / float(req.size()))
-	return clampi(int(roundf(float(cfg.variant_purity_factor) * mean)), 1, 100)
+	return maxf(roundf(float(cfg.variant_purity_factor) * mean), 1.0)
 
 
-## The round of the geometric mean of a variant's parents' purities (`variant_parents`), or 0
-## when it has none or a parent is missing (an unowned element has purity 0).
-func parent_purity(gd: GameData, variant_id: String) -> int:
+## A variant's parents' purity (`variant_parents`, roads included): the parent's own for one parent (Ice = Water),
+## else the round of the geometric mean (rule 10); 0 when it has none or a parent has purity 0.
+func parent_purity(gd: GameData, variant_id: String) -> float:
 	var parents: Array = gd.attributes().linh_can.get("variant_parents", {}).get(variant_id, [])
 	if parents.is_empty():
-		return 0
+		return 0.0
+	if parents.size() == 1:
+		return purity(str(parents[0]))
 	var product: float = 1.0
 	for e in parents:
-		product *= float(elements.get(e, 0))
-	return int(roundf(pow(product, 1.0 / float(parents.size()))))
+		product *= purity(str(e))
+	return roundf(pow(product, 1.0 / float(parents.size())))
 
 
 ## Rolls every derived variant that has just become eligible, in catalogue order, one
@@ -214,46 +223,57 @@ func recompute_derived(gd: GameData) -> void:
 		if gd.variant(id).get("origin", "") != "innate":
 			variants[id] = derived_purity(gd, id)
 		else:
-			variants[id] = maxi(int(variants[id]), mini(parent_purity(gd, id), 100))
+			variants[id] = maxf(float(variants[id]), parent_purity(gd, id))
 
 
 ## Formulas E: the stat lines of one owned variant at its current purity, as
-## {stat, value}. Floors to 0.1 in integer arithmetic on hundredths, so 0.30 x 51 is 15.3.
+## {stat, value}, at the variant's full purity (roads included). Floors to 0.1 on hundredths, so 0.30 x 51 is 15.3.
 func variant_lines(gd: GameData, variant_id: String) -> Array:
 	var out: Array = []
-	var p: int = int(variants.get(variant_id, 0))
+	var p: float = purity(variant_id) if variants.has(variant_id) else 0.0
 	for fx in gd.variant_effects(variant_id):
 		var hundredths: int = int(roundf(float(fx.per_purity) * 100.0))
-		out.append({"stat": str(fx.stat), "value": float((hundredths * p) / 10) / 10.0})
+		out.append({"stat": str(fx.stat), "value": floorf(float(hundredths) * p / 10.0 + 1e-6) / 10.0})
 	return out
 
 
 # --- Root changes -----------------------------------------------------------------
 
-## Adds a new base element (Linh Căn Quả). Returns false if it is already owned.
-## The caller rolls [method roll_newly_eligible] next.
-func add_element(element_id: String, purity_value: int) -> bool:
+## Adds a new base element (Linh Căn Quả) at [param purity_value], or at the purity roads already gave it if that is
+## higher (rule 13: the max of the two, nothing lost). Returns false if it is already owned. The caller rolls
+## [method roll_newly_eligible] next.
+func add_element(element_id: String, purity_value: float) -> bool:
 	if elements.has(element_id):
 		return false
-	elements[element_id] = clampi(purity_value, 1, 100)
+	var from_roads: float = float(road.get(element_id, 0.0))
+	elements[element_id] = maxf(maxf(purity_value, 1.0) - from_roads, 0.0)
 	return true
 
 
-## Raises an owned base element (capped at 100) and recomputes derived variants. Returns the
-## new purity, or -1 if the element is not owned. Never rolls.
-func raise_purity(gd: GameData, element_id: String, amount: int) -> int:
+## Raises an owned base element by [param amount] so that its purity (roads included) goes no higher than
+## [param cap] (100 for pills and the birth perk, rule 13; a negative cap is none: the five-element fruit, rule 8a),
+## and recomputes derived variants. Returns the new purity, or -1 if the element is not owned. Never rolls or lowers.
+func raise_purity(gd: GameData, element_id: String, amount: float, cap: float = 100.0) -> float:
 	if not elements.has(element_id):
-		return -1
-	elements[element_id] = clampi(int(elements[element_id]) + amount, 1, 100)
+		return -1.0
+	var gain: float = amount if cap < 0.0 else clampf(cap - purity(element_id), 0.0, amount)
+	elements[element_id] = float(elements[element_id]) + gain
 	recompute_derived(gd)
-	return int(elements[element_id])
+	return purity(element_id)
+
+
+## Adds purity a Đạo Đồ road grants (rule 8a; Đạo Đồ rule 4) to an element or variant, owned or not, with no cap,
+## and recomputes derived variants (a parent's roads raise its variant, rule 10).
+func add_road_purity(gd: GameData, id: String, amount: float) -> void:
+	road[id] = float(road.get(id, 0.0)) + amount
+	recompute_derived(gd)
 
 
 ## The owned base element with the lowest purity, ties in cycle order ("" if none).
 func weakest_element(gd: GameData) -> String:
 	var best: String = ""
 	for e in gd.element_cycle():
-		if elements.has(e) and (best == "" or int(elements[e]) < int(elements[best])):
+		if elements.has(e) and (best == "" or purity(e) < purity(best)):
 			best = e
 	return best
 
@@ -261,18 +281,20 @@ func weakest_element(gd: GameData) -> String:
 ## True if every owned base element is at the purity ceiling.
 func all_at_max() -> bool:
 	for e in elements.keys():
-		if int(elements[e]) < 100:
+		if purity(str(e)) < 100.0:
 			return false
 	return true
 
 
 # --- Reads ------------------------------------------------------------------------
 
-## Purity of a base element or variant; 0 if absent.
+## Purity of a base element or variant: owned purity plus road purity; an unowned id has only its road purity
+## (0 if none). Uncapped.
 func purity(id: String) -> float:
+	var r: float = float(road.get(id, 0.0))
 	if elements.has(id):
-		return float(elements[id])
-	return float(variants.get(id, 0))
+		return float(elements[id]) + r
+	return float(variants.get(id, 0.0)) + r
 
 
 ## True if the base element or variant is owned.
@@ -319,12 +341,26 @@ func tier_name(gd: GameData) -> String:
 ## Highest-purity base element id, ties in insertion order ("" if none).
 func strongest_element() -> String:
 	var best: String = ""
-	var best_p: int = -1
+	var best_p: float = -1.0
 	for e in elements.keys():
-		if int(elements[e]) > best_p:
-			best_p = int(elements[e])
+		if purity(str(e)) > best_p:
+			best_p = purity(str(e))
 			best = e
 	return best
+
+
+## Highest-purity owned base element, ties in generating-cycle order ("" if none; Đạo Đồ rule 3).
+func strongest_in_cycle(gd: GameData) -> String:
+	var best: String = ""
+	for e in gd.element_cycle():
+		if elements.has(e) and (best == "" or purity(e) > purity(best)):
+			best = e
+	return best
+
+
+## A purity for display: a whole number without decimals, else one decimal (30.5).
+static func fmt(p: float) -> String:
+	return str(int(p)) if is_equal_approx(p, roundf(p)) else "%.1f" % p
 
 
 ## Average purity of the given ids (0 if any is missing).
@@ -345,12 +381,12 @@ func describe(gd: GameData) -> String:
 	var parts: PackedStringArray = []
 	for e in gd.element_cycle():
 		if elements.has(e):
-			parts.append("%s %d" % [gd.element_label(e), int(elements[e])])
+			parts.append("%s %s" % [gd.element_label(e), fmt(purity(e))])
 	var s: String = "%s: %s" % [tier_name(gd), ", ".join(parts)]
 	var v: PackedStringArray = []
 	for def in gd.variant_defs():
 		if variants.has(def.id):
-			v.append("%s %d" % [gd.element_label(str(def.id)), int(variants[def.id])])
+			v.append("%s %s" % [gd.element_label(str(def.id)), fmt(purity(str(def.id)))])
 	if not v.is_empty():
 		s += " + " + ", ".join(v)
 	if n_eff(gd) != base_count():
@@ -362,16 +398,19 @@ func describe(gd: GameData) -> String:
 
 ## Serializable form.
 func to_dict() -> Dictionary:
-	return {"elements": elements.duplicate(), "variants": variants.duplicate(), "rolled": rolled.duplicate(), "declined": declined.duplicate()}
+	return {"elements": elements.duplicate(), "variants": variants.duplicate(), "road": road.duplicate(),
+		"rolled": rolled.duplicate(), "declined": declined.duplicate()}
 
 
-## Restores from [method to_dict] output (JSON floats become ints).
+## Restores from [method to_dict] output. Older saves held integer purities and no road purity; both read as floats.
 static func from_dict(d: Dictionary) -> LinhCan:
 	var lc := LinhCan.new()
 	for k in d.get("elements", {}).keys():
-		lc.elements[k] = int(d.elements[k])
+		lc.elements[k] = float(d.elements[k])
 	for k in d.get("variants", {}).keys():
-		lc.variants[k] = int(d.variants[k])
+		lc.variants[k] = float(d.variants[k])
+	for k in d.get("road", {}).keys():
+		lc.road[k] = float(d.road[k])
 	lc.rolled = Array(d.get("rolled", [])).map(func(x): return str(x))
 	lc.declined = Array(d.get("declined", [])).map(func(x): return str(x))
 	return lc
@@ -387,14 +426,14 @@ static func migrate_record(d: Dictionary, gd: GameData) -> Dictionary:
 	var cfg: Dictionary = gd.attributes().linh_can
 	var lc := LinhCan.new()
 	for k in d.get("elements", {}).keys():
-		lc.elements[k] = int(d.elements[k])
+		lc.elements[k] = float(d.elements[k])
 	var old: Dictionary = d.get("variants", d.get("bien_di", {}))
 	for id in old.keys():
 		var def: Dictionary = gd.variant(str(id))
 		if def.is_empty():
 			continue
 		if def.origin == "innate":
-			lc.variants[id] = clampi(int(old[id]), int(cfg.purity_min), int(cfg.purity_max))
+			lc.variants[id] = clampf(float(old[id]), float(cfg.purity_min), float(cfg.purity_max))
 		else:
 			lc.variants[id] = lc.derived_purity(gd, str(id))
 	lc.recompute_derived(gd)

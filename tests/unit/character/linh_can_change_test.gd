@@ -129,8 +129,12 @@ func test_all_five_owned_raises_the_weakest_with_no_rolls_ac43() -> void:
 	assert_eq(c.linh_can.elements.hoa, 38, "Fire, by cycle order, even with a named element")
 	assert_eq(c.linh_can.variants.loi, 34, "Thunder recomputed")
 	assert_eq(r.log.size(), 0, "no draw")
+	var high := _c({"moc": 100, "hoa": 100, "tho": 100, "kim": 100, "thuy": 95})
+	assert_true(TreasureEffects.apply_fruit(high, gd, r, _fruit()).ok, "accepted")
+	assert_eq(high.linh_can.purity("thuy"), 103.0, "95 -> 103, past 100 (rule 8a)")
 	var perfect := _c({"moc": 100, "hoa": 100, "tho": 100, "kim": 100, "thuy": 100})
-	assert_false(TreasureEffects.apply_fruit(perfect, gd, r, _fruit()).ok, "refused at 100")
+	assert_true(TreasureEffects.apply_fruit(perfect, gd, r, _fruit()).ok, "never refused")
+	assert_eq(perfect.linh_can.purity("moc"), 108.0, "the weakest, Wood by cycle order, +8")
 
 
 func test_no_change_ever_removes_anything_ac44() -> void:
@@ -142,11 +146,15 @@ func test_no_change_ever_removes_anything_ac44() -> void:
 		var before: Dictionary = c.linh_can.to_dict()
 		for step in 4:
 			match r.randi_range(0, 2):
-				0: c.linh_can.raise_purity(gd, c.linh_can.weakest_element(gd), 8)
+				0:
+					var w: String = c.linh_can.weakest_element(gd)
+					var was: float = c.linh_can.purity(w)
+					c.linh_can.raise_purity(gd, w, 8)
+					assert_true(c.linh_can.purity(w) <= maxf(was, 100.0), "a pill never takes an element past 100")
 				1: TreasureEffects.apply_fruit(c, gd, r, _fruit())
 				2: c.linh_can.awakening_pass(gd, r)
 		for e in before.elements.keys():
-			assert_true(c.linh_can.elements[e] >= before.elements[e] and c.linh_can.elements[e] <= 100, "element kept")
+			assert_true(c.linh_can.elements[e] >= before.elements[e], "element kept, purity never falls")
 		for v in before.variants.keys():
 			assert_true(c.linh_can.variants.has(v), "variant kept")
 

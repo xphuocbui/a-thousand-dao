@@ -130,7 +130,7 @@ func test_ranges_hold_over_seeded_births_ac07() -> void:
 	for i in 10000:
 		var lc := LinhCan.roll(gd, r)
 		for e in lc.elements.keys():
-			assert_true(lc.elements[e] is int and lc.elements[e] >= 10 and lc.elements[e] <= 100, "element range")
+			assert_true(lc.elements[e] == roundf(lc.elements[e]) and lc.elements[e] >= 10 and lc.elements[e] <= 100, "element range (a whole number at birth)")
 		for id in lc.variants.keys():
 			var follows: bool = gd.variant(id).origin == "innate" or gd.attributes().linh_can.variant_parents.has(id)
 			var lo: int = 10 if follows else 8
@@ -380,7 +380,7 @@ func test_round_trip_keeps_the_rolled_and_declined_sets_ac48() -> void:
 	var lc := LinhCan.self_made(gd, {"hoa": 86, "kim": 40}, ["loi", "phong"])
 	var back := LinhCan.from_dict(JSON.parse_string(JSON.stringify(lc.to_dict())))
 	assert_eq(back.to_dict(), lc.to_dict(), "round trip")
-	assert_true(back.variants.loi is int, "JSON floats become ints")
+	assert_true(back.variants.loi is float, "purities load as floats (ADR-0004 decision 2)")
 	var r := ScriptedRng.new([])
 	back.awakening_pass(gd, r)
 	assert_eq(r.log.size(), 0, "declined stays declined after reload")

@@ -231,7 +231,7 @@ static func root_block(gd: GameData, c: Character, io: TerminalIO) -> Array:
 		var p: float = c.linh_can.purity(e)
 		var el: Dictionary = gd.element(e)
 		var name_txt: String = elem(io, gd, e, "%-4s" % gd.element_name(e))
-		var val: String = ("%3d %-8s" % [int(p), gd.grade_name(p)]) if p > 0.0 else io.paint("  —         ", C_DIM)
+		var val: String = ("%3s %-8s" % [LinhCan.fmt(p), gd.grade_name(p)]) if p > 0.0 else io.paint("  —         ", C_DIM)
 		var role: String = io.paint(str(el.get("role_desc", "")), C_DIM if p <= 0.0 else "")
 		lines.append("   %s %s %s %s" % [name_txt, bar(io, p / 100.0, 20, str(el.get("ansi", "")), true), val, role])
 	for def in gd.variant_defs():
@@ -239,7 +239,7 @@ static func root_block(gd: GameData, c: Character, io: TerminalIO) -> Array:
 			var line_txt: PackedStringArray = []
 			for l in c.linh_can.variant_lines(gd, str(def.id)):
 				line_txt.append(gd.format_mod(str(l.stat), float(l.value)))
-			lines.append("   %s %d  (%s)  %s" % [io.paint(gd.element_label(str(def.id)), C_MAGENTA), int(c.linh_can.variants[def.id]), def.origin, ", ".join(line_txt)])
+			lines.append("   %s %s  (%s)  %s" % [io.paint(gd.element_label(str(def.id)), C_MAGENTA), LinhCan.fmt(c.linh_can.purity(str(def.id))), def.origin, ", ".join(line_txt)])
 	return lines
 
 
