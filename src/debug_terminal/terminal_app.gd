@@ -60,7 +60,7 @@ const HELP := [
 		["db show <id>", "any record with its history"],
 	]],
 	["Đạo Đồ", [
-		["tree", "points and openable đạo văn"], ["tree map", "ASCII map"], ["tree targets", "notables/keystones by cost"], ["tree clusters", "hidden clusters"], ["tree mode visible|silhouette", "what hidden clusters show"],
+		["tree", "points and openable đạo văn"], ["tree map [all]", "ASCII map (around your start, or all)"], ["tree targets", "notables/keystones by cost"], ["tree start <element>", "move your start before opening a Dao mark"],
 		["tree node <id>", "details"], ["tree alloc [id]", "open one adjacent đạo văn (no id: pick)"], ["tree go <id>", "open the whole path"],
 	]],
 	["LLM", [
@@ -786,20 +786,12 @@ func _match(rec: Dictionary, filter: String) -> bool:
 func _tree(args: Array) -> void:
 	var s: GameSession = session
 	match _arg(args, 0, ""):
-		"clusters":
-			io.out_lines(TerminalViews.tree_clusters(session, io))
-		"mode":
-			var mode: String = _arg(args, 1, "")
-			if mode in ["visible", "silhouette"]:
-				session.player.tree_visibility = mode
-				session.sync_player()
-				io.out("Tree display: %s." % mode)
-			else:
-				io.out("Usage: tree mode visible|silhouette")
+		"start":
+			_r(s.tree_choose_start(_arg(args, 1, "")))
 		"":
 			io.out_lines(TerminalViews.tree_summary(s, io))
 		"map":
-			io.out_lines(TerminalViews.tree_map(s, io))
+			io.out_lines(TerminalViews.tree_map(s, io, _arg(args, 1, "") == "all"))
 		"targets":
 			io.out_lines(TerminalViews.tree_targets(s))
 		"node":
@@ -811,7 +803,7 @@ func _tree(args: Array) -> void:
 		"go", "path":
 			_r(s.tree_allocate(int(_arg(args, 1, "-1")), true))
 		_:
-			io.out("tree | tree map | tree targets | tree node <id> | tree alloc <id> | tree go <id>")
+			io.out("tree | tree map [all] | tree targets | tree node <id> | tree alloc <id> | tree go <id> | tree start <element>")
 
 
 func _pick_design() -> String:
@@ -851,7 +843,7 @@ func _pick_formation() -> String:
 func _pick_huyet() -> String:
 	var s: GameSession = session
 	var rows: Array = []
-	for nid in s.tree.frontier(s.player):
+	for nid in s.tree.frontier(s.player, gd):
 		var nd: Dictionary = s.tree.node(nid)
 		var ok: Dictionary = s.tree.can_allocate(s.player, nid, gd)
 		var why: String = "" if ok.ok or s.player.tree_points <= 0 else io.paint("  (" + str(ok.reason) + ")", "2")
@@ -945,6 +937,6 @@ func _buildgen(args: Array) -> void:
 	var c := Character.from_dict(s.db.get_record("people", pid))
 	io.out_lines(TerminalViews.show(s, pid))
 	var sh := StatSheet.build(c, gd, s.db, s.tree)
-	io.out("Đạo Đồ (%d đạo văn): %s" % [c.tree_nodes.size(), ", ".join(c.tree_nodes.filter(func(n): return s.tree.node(n).kind in ["notable", "keystone", "bridge_notable"]).map(func(n): return s.tree.node(n).name))])
+	io.out("Đạo Đồ (%d đạo văn): %s" % [c.tree_nodes.size(), ", ".join(c.tree_nodes.filter(func(n): return s.tree.node(n).kind in ["notable", "keystone"]).map(func(n): return s.tree.node(n).name))])
 	io.out_lines(CombatPower.compute(c, gd, s.db, sh).lines)
 	io.out("(registered as %s at your location; 'talk %s' works)" % [pid, pid])

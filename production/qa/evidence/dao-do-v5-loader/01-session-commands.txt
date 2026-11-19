@@ -1,0 +1,30 @@
+# Đạo Đồ v5 loader (ADR-0004), the cut-over: a Tự Định life {Fire 70, Metal 40} + Thunder on the drawn map.
+# Run: godot --headless --path . -s res://src/debug_terminal/terminal_main.gd -- --no-llm
+#        --commands res://production/qa/evidence/dao-do-v5-loader/01-session-commands.txt --exit-after-commands
+new
+Đồ Thử
+m
+1
+99
+2
+50
+50
+50
+50
+50
+50
+hoa=70 kim=40
+loi
+1
+tree
+tree start kim
+tree start hoa
+tree alloc 42
+tree alloc 690
+tree node 2843
+tree go 2843
+debug tp 40
+tree go 2131
+tree targets
+tree map
+sheet

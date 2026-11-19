@@ -10,7 +10,7 @@ func _ready() -> void:
 	gd.file("combat_rankings")["enabled"] = false   # no background season batch sharing the CPU
 	var llm := LlmService.new(gd)
 	llm.enabled = false
-	var s := GameSession.new(gd, llm, DaoDoTree.generate(gd))
+	var s := GameSession.new(gd, llm, DaoDoTree.load_map(gd))
 	s.new_game(4242, {"mode": "roll", "name": "P", "gender": "male", "origin": "tan_tu"})
 	s.shutdown()
 	var k := CombatConstants.from_game_data(gd)

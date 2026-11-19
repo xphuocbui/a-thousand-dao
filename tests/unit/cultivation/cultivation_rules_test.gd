@@ -154,16 +154,17 @@ func test_derived_values_take_the_stage_multiplier_ac14() -> void:
 # --- Attempts ---------------------------------------------------------------------
 
 func test_pill_attempt_example_ac19() -> void:
-	# FE->CF, rank 1, comprehension 40, Dao heart 30, tree 2 pp: 0.045 + 0.015 + 0.02 + 0.0075 + 0.02.
+	# FE->CF, rank 1, comprehension 40, Dao heart 30, tree 2 pp on the curve 8 ln(1 + 2/8) = 1.785 pp (Đạo Đồ Formulas F,
+	# which replaced the clamp): 0.045 + 0.015 + 0.01785 + 0.0075 + 0.02.
 	var gd := game_data()
 	var c := _gate(1)
 	c.thien_phu.ngo_tinh = 40
 	c.thien_phu.dao_tam = 30
 	var sheet := _sheet(c)
 	sheet.add_mod("Đạo văn", "breakthrough_chance", 2.0, StatSheet.KIND_TREE)
-	assert_near(CultivationRules.breakthrough_chance(c, gd, sheet, 1).total, 0.1075, 1e-6, "first attempt")
+	assert_near(CultivationRules.breakthrough_chance(c, gd, sheet, 1).total, 0.1075 - 0.02 + 0.08 * log(1.25), 1e-6, "first attempt")
 	c.failed_pills = 1
-	assert_near(CultivationRules.breakthrough_chance(c, gd, sheet, 1).total, 0.1275, 1e-6, "after a failure")
+	assert_near(CultivationRules.breakthrough_chance(c, gd, sheet, 1).total, 0.1275 - 0.02 + 0.08 * log(1.25), 1e-6, "after a failure")
 
 
 func test_a_bare_attempt_uses_the_bare_chance_alone_ac21() -> void:
@@ -174,14 +175,14 @@ func test_a_bare_attempt_uses_the_bare_chance_alone_ac21() -> void:
 	assert_near(CultivationRules.breakthrough_chance(c, gd, sheet, -1).total, 0.0037, 1e-9, "bare")
 
 
-func test_tree_share_counts_as_eight_points_ac25() -> void:
+func test_tree_share_follows_the_curve_ac25() -> void:
 	var gd := game_data()
 	var c := _gate(1)
 	var sheet := StatSheet.build(c, gd, null, null)
 	sheet.add_mod("Đạo văn", "breakthrough_chance", 12.0, StatSheet.KIND_TREE)
 	sheet.add_mod("Thiên mệnh: X", "breakthrough_chance", 12.0, StatSheet.KIND_PERK)
-	assert_eq(sheet.tree_breakthrough(), 8.0, "tree capped")
-	assert_eq(sheet.total("breakthrough_chance"), 20.0, "other sources add on top")
+	assert_near(sheet.tree_breakthrough(), 8.0 * log(1.0 + 12.0 / 8.0), 1e-9, "tree on k ln(1 + S/k), Đạo Đồ Formulas F")
+	assert_near(sheet.total("breakthrough_chance"), 12.0 + 8.0 * log(2.5), 1e-9, "other sources add on top")
 
 
 func test_q_extras_clamp_at_the_ceiling_outside_extras_stay_ac65() -> void:
@@ -359,7 +360,7 @@ func test_suppression_scales_the_last_two_gates_only_ac68() -> void:
 	sheet.add_mod("Đạo văn", "breakthrough_chance", 2.0, StatSheet.KIND_TREE)
 	sheet.add_mod("Thiên mệnh: X", "breakthrough_chance", 12.0, StatSheet.KIND_PERK)
 	var b: Breakdown = CultivationRules.breakthrough_chance(c, gd, sheet, 1)
-	assert_near(b.total, 0.0648, 1e-6, "(0.0825 + 0.12) x 0.32")
+	assert_near(b.total, (0.0825 - 0.02 + 0.08 * log(1.25) + 0.12) * 0.32, 1e-6, "(0.0825 + 0.12) x 0.32, the tree's 2 pp on its curve")
 	assert_true(b.steps.any(func(s): return str(s.label).begins_with("Heavenly suppression")), "its own line")
 	var first: Breakdown = CultivationRules.breakthrough_chance(_gate(1), gd, _sheet(_gate(1)), 1)
 	assert_false(first.steps.any(func(s): return str(s.label).begins_with("Heavenly suppression")), "no line at a factor of 1")

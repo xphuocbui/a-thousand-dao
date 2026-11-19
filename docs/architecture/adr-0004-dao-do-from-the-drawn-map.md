@@ -76,7 +76,7 @@ was designed. The designed tree (the v5 frozen map, 8,057 nodes, and its content
    Each numeric closing goes through one channel only (a `static` line of its Effect).
 4. **Scoped modifiers keep their scopes.** The stat sheet holds scoped lines apart from its totals; the fighter build
    file receives them with their scopes, as item affixes are.
-5. **The cut-over** replaces `DaoDoTree.generate` with `DaoDoTree.load`, keeps the query API (`node`, `neighbors`,
+5. **The cut-over** replaces `DaoDoTree.generate` with `DaoDoTree.load_map`, keeps the query API (`node`, `neighbors`,
    `accessible`, `frontier`, `can_allocate`, `path_to`, `node_value`, `node_scale`, `collect_mods`, `describe_mods`,
    `size`), removes `ROOT_ID` (a Character holds its start), and retires the generator, hidden clusters, unseals,
    variant sectors and their data, views and tests in the same change, since none of them has data on the new map.
@@ -84,7 +84,7 @@ was designed. The designed tree (the v5 frozen map, 8,057 nodes, and its content
    (both baselines start at id 0): an old save's open Dao marks are refunded as points and a start is chosen.
 
 ### Key Interfaces
-- `DaoDoTree.load(gd) -> DaoDoTree`; `starts_for(lc) -> Array`; `npc_start(lc) -> int`; `gate_open(lc) -> bool`;
+- `DaoDoTree.load_map(gd) -> DaoDoTree`; `starts_for(lc) -> Array`; `npc_start(lc) -> int`; `gate_open(lc) -> bool`;
   `open_node(c, id, gd)` (applies road purity and capabilities); the existing query API above.
 - `LinhCan.purity(id) -> float` (owned + road), `LinhCan.add_road_purity(id, amount)`.
 - `StatSheet.add_mod(source, stat, value, kind, scope)`, `StatSheet.scoped_lines() -> Array`.

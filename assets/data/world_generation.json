@@ -173,12 +173,10 @@
     },
     "tree_focus_weight": 2,
     "tree_kind_scores": {
-      "root": 0,
-      "gate": 1,
+      "start": 1,
+      "road": 1,
       "small": 1,
-      "bridge": 1,
       "notable": 4,
-      "bridge_notable": 3,
       "keystone": 1.5
     },
     "artifact_root_element_chance": 0.6,

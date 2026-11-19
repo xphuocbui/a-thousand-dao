@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "_doc": "Display names for modifier stat keys (đạo văn, biến dị, pháp bảo affixes, công pháp bonuses). unit: pct = percent, flat = plain number, years, flag = on/off. Thiên phú keys use their names from character_attributes.json.",
+  "_doc": "Display names for modifier stat keys (đạo văn, biến dị, pháp bảo affixes, công pháp bonuses). unit: pct = percent, flat = plain number, years, flag = on/off. Thiên phú keys use their names from character_attributes.json. Labels for the Đạo Đồ v5 content keys (combat and other keys with no label before, 2026-11-19) keep the 0.01 precision they had unlabelled (precision_overrides), so no value changes. fight_only: a combat key the stat sheet does not take from worn pieces (the fight compiles the piece itself); a Đạo Đồ line with it still reaches the sheet, and the fighter reads it there.",
   "labels": {
     "cultivation_speed_pct": {
       "name": "tu luyện speed",
@@ -165,6 +165,212 @@
     "mi_luc": {
       "name": "mi_luc",
       "unit": "flat"
+    },
+    "accuracy_pct": {
+      "name": "accuracy",
+      "unit": "pct",
+      "fight_only": true
+    },
+    "art_cost_pct": {
+      "name": "art cost",
+      "unit": "pct",
+      "fight_only": true
+    },
+    "art_speed_pct": {
+      "name": "art speed",
+      "unit": "pct",
+      "fight_only": true
+    },
+    "basic_speed_pct": {
+      "name": "basic speed",
+      "unit": "pct",
+      "fight_only": true
+    },
+    "block_rating": {
+      "name": "block rating",
+      "unit": "flat",
+      "fight_only": true
+    },
+    "body_shield_pct": {
+      "name": "body shield",
+      "unit": "pct",
+      "fight_only": true
+    },
+    "companion_health_pct": {
+      "name": "companion health",
+      "unit": "pct"
+    },
+    "companion_power_pct": {
+      "name": "companion power",
+      "unit": "pct"
+    },
+    "companion_speed_pct": {
+      "name": "companion speed",
+      "unit": "pct"
+    },
+    "convert_pct": {
+      "name": "damage conversion",
+      "unit": "pct"
+    },
+    "crit_chance_pct": {
+      "name": "crit chance",
+      "unit": "pct",
+      "fight_only": true
+    },
+    "crit_damage_pct": {
+      "name": "crit damage",
+      "unit": "pct",
+      "fight_only": true
+    },
+    "curse_effect_pct": {
+      "name": "curse effect",
+      "unit": "pct"
+    },
+    "escape_pct": {
+      "name": "escape",
+      "unit": "pct"
+    },
+    "evade_pct": {
+      "name": "evade",
+      "unit": "pct",
+      "fight_only": true
+    },
+    "formation_upkeep_pct": {
+      "name": "formation upkeep",
+      "unit": "pct"
+    },
+    "free_slots": {
+      "name": "free slots",
+      "unit": "flat"
+    },
+    "healing_pct": {
+      "name": "healing",
+      "unit": "pct",
+      "fight_only": true
+    },
+    "healing_taken_pct": {
+      "name": "healing taken",
+      "unit": "pct",
+      "fight_only": true
+    },
+    "health_regen_inc_pct": {
+      "name": "health regen inc",
+      "unit": "pct",
+      "fight_only": true
+    },
+    "health_regen_pct": {
+      "name": "health regen",
+      "unit": "pct",
+      "fight_only": true
+    },
+    "leech_linh_luc_pct": {
+      "name": "leech linh luc",
+      "unit": "pct",
+      "fight_only": true
+    },
+    "linh_luc_on_crit_pct": {
+      "name": "linh luc on crit",
+      "unit": "pct",
+      "fight_only": true
+    },
+    "linh_luc_on_hit_pct": {
+      "name": "linh luc on hit",
+      "unit": "pct",
+      "fight_only": true
+    },
+    "linh_luc_regen_inc_pct": {
+      "name": "linh luc regen inc",
+      "unit": "pct",
+      "fight_only": true
+    },
+    "linh_luc_regen_pct": {
+      "name": "linh luc regen",
+      "unit": "pct",
+      "fight_only": true
+    },
+    "pierce_pct": {
+      "name": "pierce",
+      "unit": "pct",
+      "fight_only": true
+    },
+    "pill_quality_chance": {
+      "name": "pill quality chance",
+      "unit": "flat"
+    },
+    "recharge_delay_pct": {
+      "name": "recharge delay",
+      "unit": "pct"
+    },
+    "refine_grade_chance": {
+      "name": "refine grade chance",
+      "unit": "flat"
+    },
+    "reserve_eff_pct": {
+      "name": "reservation efficiency",
+      "unit": "pct"
+    },
+    "resist_pct": {
+      "name": "resistance (points)",
+      "unit": "flat",
+      "fight_only": true
+    },
+    "resist_pen_pct": {
+      "name": "resistance penetration (points)",
+      "unit": "flat",
+      "fight_only": true
+    },
+    "soul_res_pct": {
+      "name": "soul res",
+      "unit": "pct",
+      "fight_only": true
+    },
+    "stack_duration_pct": {
+      "name": "stack duration",
+      "unit": "pct",
+      "fight_only": true
+    },
+    "stack_effect_pct": {
+      "name": "stack effect",
+      "unit": "pct",
+      "fight_only": true
+    },
+    "status_duration_pct": {
+      "name": "status duration",
+      "unit": "pct",
+      "fight_only": true
+    },
+    "status_resist_pct": {
+      "name": "status resist",
+      "unit": "pct",
+      "fight_only": true
+    },
+    "talisman_power_pct": {
+      "name": "talisman power",
+      "unit": "pct"
+    },
+    "taming_chance": {
+      "name": "taming chance",
+      "unit": "flat"
+    },
+    "timer_resist_pct": {
+      "name": "timer resist",
+      "unit": "pct",
+      "fight_only": true
+    },
+    "ward_bill_pct": {
+      "name": "ward bill",
+      "unit": "pct",
+      "fight_only": true
+    },
+    "ward_efficiency_pct": {
+      "name": "ward efficiency",
+      "unit": "pct",
+      "fight_only": true
+    },
+    "x_soul": {
+      "name": "soul damage multiplier",
+      "unit": "flat",
+      "fight_only": true
     }
   },
   "precision_by_unit": {
@@ -180,6 +386,50 @@
     "alchemy_yield": 1,
     "alchemy_success": 0.1,
     "refining_success": 0.1,
-    "breakthrough_chance": 0.1
+    "breakthrough_chance": 0.1,
+    "accuracy_pct": 0.01,
+    "art_cost_pct": 0.01,
+    "art_speed_pct": 0.01,
+    "basic_speed_pct": 0.01,
+    "block_rating": 0.01,
+    "body_shield_pct": 0.01,
+    "companion_health_pct": 0.01,
+    "companion_power_pct": 0.01,
+    "companion_speed_pct": 0.01,
+    "convert_pct": 0.01,
+    "crit_chance_pct": 0.01,
+    "crit_damage_pct": 0.01,
+    "curse_effect_pct": 0.01,
+    "escape_pct": 0.01,
+    "evade_pct": 0.01,
+    "formation_upkeep_pct": 0.01,
+    "free_slots": 0.01,
+    "healing_pct": 0.01,
+    "healing_taken_pct": 0.01,
+    "health_regen_inc_pct": 0.01,
+    "health_regen_pct": 0.01,
+    "leech_linh_luc_pct": 0.01,
+    "linh_luc_on_crit_pct": 0.01,
+    "linh_luc_on_hit_pct": 0.01,
+    "linh_luc_regen_inc_pct": 0.01,
+    "linh_luc_regen_pct": 0.01,
+    "pierce_pct": 0.01,
+    "pill_quality_chance": 0.01,
+    "recharge_delay_pct": 0.01,
+    "refine_grade_chance": 0.01,
+    "reserve_eff_pct": 0.01,
+    "resist_pct": 0.01,
+    "resist_pen_pct": 0.01,
+    "soul_res_pct": 0.01,
+    "stack_duration_pct": 0.01,
+    "stack_effect_pct": 0.01,
+    "status_duration_pct": 0.01,
+    "status_resist_pct": 0.01,
+    "talisman_power_pct": 0.01,
+    "taming_chance": 0.01,
+    "timer_resist_pct": 0.01,
+    "ward_bill_pct": 0.01,
+    "ward_efficiency_pct": 0.01,
+    "x_soul": 0.01
   }
 }

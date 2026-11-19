@@ -116,6 +116,10 @@ static func character_build_file(c: Character, gd: GameData, db: WorldDB, sheet:
 		var v: float = sheet.total_except_kind(str(key), StatSheet.KIND_ITEM)
 		if v != 0.0:
 			lines.append({"key": str(key), "value": v})
+	# the sheet's scoped lines (the Đạo Đồ's, ADR-0004 decision 4) keep their scopes, as worn pieces' affixes do
+	for m in sheet.scoped_lines():
+		if str(m.stat) in combat_keys and str(m.kind) != StatSheet.KIND_ITEM:
+			lines.append({"key": str(m.stat), "value": float(m.value), "scope": Array(m.scope).duplicate()})
 	var items: Array = []
 	var arts: Array = []
 	var wards: Array = []

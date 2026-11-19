@@ -29,6 +29,8 @@ const SAVE_VERSIONS_READ := [1, 3]
 
 var gd: GameData
 var tree: DaoDoTree
+## Set by [method load_dict] when the loaded player's tree was migrated from the generated map (rule 19).
+var _player_migrated: bool = false
 var llm: LlmService
 var db: WorldDB
 var rng := RandomNumberGenerator.new()
@@ -87,13 +89,14 @@ var _notices: Array = []
 func _init(game_data: GameData, llm_service: LlmService, dao_do_tree: DaoDoTree = null) -> void:
 	gd = game_data
 	llm = llm_service
-	tree = dao_do_tree if dao_do_tree != null else DaoDoTree.generate(gd)
+	tree = dao_do_tree if dao_do_tree != null else DaoDoTree.load_map(gd)
 
 
 # --- Life cycle -------------------------------------------------------------------
 
 ## Generates a new world and player. [param spec]: mode ("roll" | "custom"), name, gender,
-## origin, and for custom: thien_phu {id: value}, purities {element: purity}, variants [ids].
+## origin, start (an element or variant id the root holds; else the strongest, Đạo Đồ rule 3), and for custom:
+## thien_phu {id: value}, purities {element: purity}, variants [ids].
 func new_game(seed_v: int, spec: Dictionary) -> Dictionary:
 	_finish_ratings(false)
 	seed_value = seed_v
@@ -123,6 +126,7 @@ func new_game(seed_v: int, spec: Dictionary) -> Dictionary:
 		player = CharacterFactory.roll_player(gd, rng, name, gender, origin)
 	if edge:
 		_grant_edge(str(spec.get("perk", "")))
+	_choose_start(str(spec.get("start", "")))
 	player.id = db.add("people", player.to_dict())
 	_place_player()
 	if edge:
@@ -139,6 +143,7 @@ func new_game(seed_v: int, spec: Dictionary) -> Dictionary:
 	var lines: Array = ["A new world: %d regions, %d places, %d sects, %d people, %d recorded events (%s năm %d)." % [
 		db.count("regions"), db.count("places"), db.count("sects"), db.count("people"), db.count("events"), gd.world_gen().calendar_name, year]]
 	lines.append("%s is born: %s" % [player.name, player.linh_can.describe(gd)])
+	lines.append(_start_line())
 	if not rated.is_empty():
 		lines.append("Power Rankings: the player's panel (%d fights) and %d coarse panels (%d fights) rated at load." % [
 			int(rated.player_fights), int(rated.coarse_panels), int(rated.fights)])
@@ -181,7 +186,6 @@ func _wire() -> void:
 	resolver = EventResolver.new(gd, db, builds, items)
 	resolver.ratings = ratings
 	resolver.rating_clock = _rating_clock   # a method, not a lambda: a lambda capturing self would cycle and leak
-	resolver.unseal_fn = _unseal_from_event
 	narrator = Narrator.new(gd, db, llm, templates, validator)
 
 
@@ -288,9 +292,6 @@ func _pass_season(mode: String) -> Dictionary:
 	var out := {"tu_vi": 0.0, "stages": 0, "points": 0, "news": [], "died": false}
 	var cultivating: bool = mode == "cultivate" or mode == "closed_door"
 	out["techniques"] = CongPhap.season_tick(player, gd, sh.effective("ngo_tinh", player), cultivating)
-	if cultivating:
-		for l in _check_technique_seals():
-			_notices.append("  " + l)
 	if cultivating:
 		var density: float = float(db.get_record("places", player.location_id).get("density", 1.0))
 		var gain: float = CultivationRules.rate_per_season(player, gd, db, sh, density, mode == "closed_door").total
@@ -738,7 +739,7 @@ func use_item(item_id: String, element: String = "") -> Dictionary:
 	if db.get_record("items", item_id).get("kind", "") == "treasure":
 		var t: Dictionary = TreasureEffects.use(player, gd, db, rng, item_id, element)
 		if t.has("unseal_item"):
-			return _use_seal_key(item_id)
+			return {"ok": false, "lines": ["The seal finds nothing to open: the Đạo Đồ has no hidden clusters (rule 6, retired)."]}
 		if t.get("needs_element", false):
 			return {"ok": false, "needs_element": true, "options": t.options, "lines": TreasureEffects.preview_lines(player, gd, t.options, item_id)}
 		if t.ok:
@@ -996,20 +997,54 @@ func tree_allocate(node_id: int, walk_path: bool) -> Dictionary:
 		if not check.ok:
 			lines.append("Cannot open #%d %s: %s" % [int(nid), tree.node(int(nid)).get("name", ""), check.reason])
 			break
-		player.tree_nodes.append(int(nid))
-		player.tree_points -= 1
+		var opened: Dictionary = tree.open_node(player, int(nid), gd)
 		lines.append("Opened #%d %s: %s" % [int(nid), tree.node(int(nid)).name, tree.describe_mods(int(nid), player.linh_can, gd)])
-		for nb in tree.neighbors(int(nid)):
-			var hint: int = int(tree.node(nb).get("cluster", -1))
-			if hint >= 0 and not player.discovered.has(hint):
-				player.discovered.append(hint)
-				lines.append("  You sense a hidden cluster nearby: %s." % tree.clusters[hint].name)
-		var cap: int = int(tree.node(int(nid)).get("capability", 0))
-		if cap > 0 and not player.has_capability(cap):
-			player.grant_capability(cap)
-			lines.append("  Capability gained: %s. %s" % [gd.capability(cap).name, gd.capability(cap).desc])
+		for id in opened.road:
+			lines.append("  %s purity +%s (now %s)." % [gd.element_label(str(id)), LinhCan.fmt(float(opened.road[id])), LinhCan.fmt(player.linh_can.purity(str(id)))])
+		if int(opened.cap) > 0:
+			lines.append("  Capability gained: %s. %s" % [gd.capability(int(opened.cap)).name, gd.capability(int(opened.cap)).desc])
 	sync_player()
 	return {"ok": true, "lines": lines}
+
+
+## The starts the player's root may pick (Đạo Đồ rule 3), as {id, key, name, current}.
+func tree_starts() -> Array:
+	var out: Array = []
+	var cur: int = tree.start_of_character(player)
+	for sid in tree.starts_for(player.linh_can, gd):
+		out.append({"id": sid, "key": str(tree.start_of[sid]), "name": str(tree.node(sid).name), "current": sid == cur})
+	return out
+
+
+## Changes the player's start to the start of [param key] (an element or variant id the root holds), allowed while no
+## Dao mark has been opened yet: at birth, and after a migrated save (rule 19). Returns {ok, lines}.
+func tree_choose_start(key: String) -> Dictionary:
+	if player.tree_nodes.size() > 1:
+		return {"ok": false, "lines": ["The start is fixed once a Dao mark is open."]}
+	var sid: int = int(tree.starts.get(key, -1))
+	if sid < 0 or not tree.starts_for(player.linh_can, gd).has(sid):
+		return {"ok": false, "lines": ["Your root may start at: %s." % ", ".join(tree_starts().map(func(x): return x.key))]}
+	player.tree_nodes = [sid]
+	sync_player()
+	return {"ok": true, "lines": ["You start at the %s (#%d)." % [str(tree.node(sid).name), sid]]}
+
+
+## Sets the player's start: [param key]'s if the root holds it, else the strongest element's (rule 3).
+func _choose_start(key: String) -> void:
+	var sid: int = int(tree.starts.get(key, -1))
+	if sid < 0 or not tree.starts_for(player.linh_can, gd).has(sid):
+		sid = tree.npc_start(player.linh_can, gd)
+	player.tree_nodes = [sid] if sid >= 0 else []
+	player.tree_baseline = DaoDoTree.BASELINE
+
+
+func _start_line() -> String:
+	var sid: int = tree.start_of_character(player)
+	var others: Array = tree_starts().filter(func(x): return not x.current)
+	var s: String = "Đạo Đồ start: %s (#%d)." % [str(tree.node(sid).get("name", "?")), sid]
+	if not others.is_empty():
+		s += " Before opening a Dao mark you may move it: 'tree start <%s>'." % "|".join(others.map(func(x): return x.key))
+	return s
 
 
 ## Buys an item from the market here.
@@ -1306,6 +1341,7 @@ func load_dict(d: Dictionary) -> Dictionary:
 	if not SAVE_VERSIONS_READ.has(int(d.get("version", 0))):
 		return {"ok": false, "lines": ["Save version %s is not supported." % str(d.get("version"))]}
 	_finish_ratings(false)
+	_player_migrated = false
 	seed_value = int(d.seed)
 	rng.seed = str(d.rng_seed).to_int()
 	rng.state = str(d.rng_state).to_int()
@@ -1320,10 +1356,13 @@ func load_dict(d: Dictionary) -> Dictionary:
 		CongPhap.migrate_record(rec, db, gd)
 		if old_ladder:
 			# The old map's ids mean nothing on the new map: the points come back unspent.
-			rec["tree_nodes"] = [DaoDoTree.ROOT_ID]
+			rec["tree_nodes"] = []
 			rec["tree_points"] = Ladder.points_total(gd, int(rec.level))
+			rec["tree_baseline"] = ""
+		migrate_tree_record(rec)
 	_wire()
 	player = Character.from_dict(db.get_record("people", str(d.player_id)))
+	var migrated: bool = _player_migrated
 	pending_event = d.get("pending_event", {})
 	pending_meta = d.get("pending_meta", {})
 	life_over = bool(d.get("life_over", false))
@@ -1337,7 +1376,33 @@ func load_dict(d: Dictionary) -> Dictionary:
 	ratings.normalise_loaded()
 	if not life_over:
 		_start_ratings()   # the season's batch is planned again from the saved state (rule 14's pending work)
-	return {"ok": true, "lines": ["Loaded %s — %s, %s." % [player.name, gd.realm_label(player.realm_index, player.stage), clock_label()]]}
+	var out: Array = ["Loaded %s — %s, %s." % [player.name, gd.realm_label(player.realm_index, player.stage), clock_label()]]
+	if migrated:
+		out.append("The Đạo Đồ was redrawn: your open Dao marks came back as %d unspent points. %s" % [player.tree_points, _start_line()])
+	return {"ok": true, "lines": out}
+
+
+## Rule 19: a people record from the generated map (no `tree_baseline`) is migrated once: every open node but the old
+## root comes back as an unspent point, its hidden-cluster state is dropped, and it takes the start of its strongest
+## element (the player may move it with [method tree_choose_start] before opening a Dao mark). A record on the
+## current baseline is left alone. Returns true if it migrated.
+func migrate_tree_record(rec: Dictionary) -> bool:
+	if str(rec.get("tree_baseline", "")) == DaoDoTree.BASELINE:
+		return false
+	if rec.get("is_beast", false):
+		rec["tree_baseline"] = DaoDoTree.BASELINE
+		return false
+	var opened: int = maxi(0, Array(rec.get("tree_nodes", [])).size() - 1)
+	rec["tree_points"] = int(rec.get("tree_points", 0)) + opened
+	for k in ["unsealed", "discovered", "fills", "tree_visibility", "open_unseals"]:
+		rec.erase(k)
+	var lc := LinhCan.from_dict(rec.get("linh_can", {}))
+	var sid: int = tree.npc_start(lc, gd)
+	rec["tree_nodes"] = [sid] if sid >= 0 else []
+	rec["tree_baseline"] = DaoDoTree.BASELINE
+	if bool(rec.get("is_player", false)):
+		_player_migrated = true
+	return true
 
 
 # --- Helpers ------------------------------------------------------------------------
@@ -1350,84 +1415,6 @@ func _herb_id(what: String) -> String:
 		if WorldDB.fold(h.name).contains(needle) or WorldDB.fold(h.id).contains(needle):
 			return h.id
 	return what
-
-
-## Uses a Dao Seal key on the nearest item-sealed cluster the realm allows.
-func _use_seal_key(item_id: String) -> Dictionary:
-	var cid: int = pick_cluster("sealed", "item")
-	if cid < 0:
-		return {"ok": false, "lines": ["The seal finds nothing it can open yet."]}
-	var line: String = unseal_cluster(cid, "item")
-	db.remove("items", item_id)
-	return {"ok": true, "lines": [line]}
-
-
-## An event's unseal effect: "sealed" or "open". An open unseal is limited per realm (rule 10).
-func _unseal_from_event(kind: String) -> String:
-	if kind == "open":
-		var key: String = str(player.realm_index)
-		if int(player.open_unseals.get(key, 0)) >= int(gd.tree_config().open_unseals_per_realm[player.realm_index]):
-			return ""
-		var open_id: int = pick_cluster("open")
-		if open_id < 0:
-			return ""
-		player.open_unseals[key] = int(player.open_unseals.get(key, 0)) + 1
-		return unseal_cluster(open_id, "story")
-	var sealed_id: int = pick_cluster("sealed", "event")
-	return unseal_cluster(sealed_id, "event") if sealed_id >= 0 else ""
-
-
-## Unseals a hidden cluster for the player if its gate allows (Đạo Đồ rule 9). An open
-## cluster gets its template fill here, recorded as canonical. Returns the text line.
-func unseal_cluster(cluster_id: int, source: String) -> String:
-	var k: Dictionary = tree.clusters.get(cluster_id, {})
-	if k.is_empty() or player.unsealed.has(cluster_id) or int(k.gate) > player.realm_index:
-		return ""
-	player.unsealed.append(cluster_id)
-	if not player.discovered.has(cluster_id):
-		player.discovered.append(cluster_id)
-	if str(k.kind) == "open":
-		player.fills[str(cluster_id)] = {"source": "template"}
-	db.log_event(year, season, "cluster_unsealed", "%s khai mở %s." % [player.name, k.name], [player.id], [], [], {"cluster": cluster_id, "source": source})
-	sync_player()
-	return "A hidden cluster opens: %s (%d đạo văn, %s)." % [k.name, int(k.size), k.location]
-
-
-## The cluster to unseal: rule 10's choice (lowest reach, then lowest id) among clusters of
-## [param kind] whose gate allows it, with [param seal] on sealed ones. -1 if none.
-func pick_cluster(kind: String, seal: String = "") -> int:
-	var dist: Dictionary = tree.distances(player)
-	var best: int = -1
-	var best_reach: int = 1 << 30
-	for k in tree.clusters_of(kind):
-		if player.unsealed.has(int(k.id)) or int(k.gate) > player.realm_index:
-			continue
-		if seal != "" and str(k.seal.type) != seal:
-			continue
-		var reach: int = 1 << 29
-		for l in k.links:
-			reach = mini(reach, int(dist.get(int(l), 1 << 29)))
-		if reach < best_reach:
-			best_reach = reach
-			best = int(k.id)
-	return best
-
-
-## Technique seals (Đạo Đồ rule 7): after enough cultivating seasons in the main slot, a
-## main method opens a technique-sealed cluster of its element. Until sealed clusters are
-## authored with their own techniques, naming the cluster's element is what "lists" it.
-func _check_technique_seals() -> Array:
-	var lines: Array = []
-	var main: Dictionary = CongPhap.main_entry(player)
-	if main.is_empty() or int(main.get("seal_seasons", 0)) < int(CongPhap.tier_of(gd, main.def).seal_seasons):
-		return lines
-	for k in tree.clusters_of("sealed"):
-		if str(k.seal.type) == "technique" and Array(main.def.names).has(k.sector) and not player.unsealed.has(int(k.id)):
-			var t: String = unseal_cluster(int(k.id), "technique")
-			if t != "":
-				lines.append(t)
-				break
-	return lines
 
 
 ## One World Database record per root change, with old and new values (linh-can.md AC-LC-45).

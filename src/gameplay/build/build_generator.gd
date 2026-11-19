@@ -2,7 +2,7 @@ class_name BuildGenerator
 extends RefCounted
 ## Generates complete NPC builds with the same rules the player uses: linh căn and
 ## thiên phú, a công pháp, pháp bảo limited by thần thức, Đạo Đồ points spent
-## greedily toward the archetype's focus sectors, and đạo nghệ skills. Every build is
+## greedily toward the archetype's focus lands (Đạo Đồ rule 5), and đạo nghệ skills. Every build is
 ## registered in the WorldDB (person + owned items) and its chiến lực cached.
 ## Design: game-concept.md (one ruleset for everyone; Dwarf Fortress-style people).
 ## Data: world_generation.json (archetypes, npc_builds, people).
@@ -200,62 +200,70 @@ func _equip_build(c: Character, rng: RandomNumberGenerator, arch_id: String) -> 
 
 
 func _allocate_tree(c: Character, rng: RandomNumberGenerator, arch_id: String) -> void:
-	var cfg: Dictionary = _gd.world_gen().npc_builds
 	var focus: Array = _gd.archetype(arch_id).get("tree_focus", []).duplicate()
 	if focus.is_empty():
 		focus = [c.linh_can.strongest_element()]
-	c.tree_nodes = [DaoDoTree.ROOT_ID]
+	var start: int = _tree.npc_start(c.linh_can, _gd)
+	c.tree_nodes = [start] if start >= 0 else []
 	c.tree_points = tree_points_for(c.realm_index, c.stage)
-	_roll_unseals(c, rng)
+	allocate(c, rng, focus)
+
+
+## Đạo Đồ rule 5 (Computational budget): spends [param c]'s points greedily from its open nodes. Every reachable
+## node is scored once when first seen: its kind's `tree_kind_scores` entry, times `tree_focus_weight` when it lies in
+## a land of [param focus] (or a road grants it), plus a random term drawn once. Opening a node adds only its new
+## neighbours, so each point is one pop. A gated node behind a closed Chaos gate is parked and joins the ranking when
+## roads open the gate; a capability notable below `cap_realm_min` is never taken. [param stats] gets the counts
+## {pushes, pops, scans} (AC-KMD-55: no rescan of the frontier per point).
+func allocate(c: Character, rng: RandomNumberGenerator, focus: Array, stats: Dictionary = {}) -> void:
+	var cfg: Dictionary = _gd.world_gen().npc_builds
 	var scores: Dictionary = cfg.tree_kind_scores
-	# Each reachable node is scored once, so spending stays cheap on the full map.
+	var focus_w: float = float(cfg.tree_focus_weight)
+	var rmin: int = int(_gd.tree_config().cap_realm_min)
+	var st := {"gate": _tree.gate_open(c.linh_can, _gd)}   # a lambda captures locals by value: shared state
 	var ranked: Array = []
-	var seen: Dictionary = {DaoDoTree.ROOT_ID: true}
-	var add_frontier := func(id: int) -> void:
+	var parked: Array = []
+	var seen: Dictionary = {}
+	stats["pushes"] = 0
+	stats["pops"] = 0
+	stats["scans"] = 0
+	for a in c.tree_nodes:
+		seen[int(a)] = true
+	var push := func(id: int, s: float) -> void:
+		var at: int = ranked.bsearch_custom([s, id], func(x, y): return float(x[0]) < float(y[0]))
+		ranked.insert(at, [s, id])
+		stats.pushes = int(stats.pushes) + 1
+	var see := func(id: int) -> void:
 		for nb in _tree.neighbors(id):
-			if seen.has(nb) or not _tree.accessible(c, nb):
+			if seen.has(nb):
 				continue
 			seen[nb] = true
 			var nd: Dictionary = _tree.node(nb)
-			if int(nd.get("requires_elements", 0)) > c.linh_can.base_count():
+			if c.realm_index < rmin and int(nd.get("cap", 0)) > 0:
 				continue
-			var s: float = float(scores.get(nd.kind, 1.0))
-			if str(nd.get("variant", "")) == "":
-				for f in focus:
-					if str(nd.sector).contains(f):
-						s *= float(cfg.tree_focus_weight)
-						break
+			var s: float = float(scores.get(str(nd.kind), 1.0))
+			var ids: Array = Array(nd.get("area_ids", [])) + Array(nd.get("grants", {}).keys())
+			for f in focus:
+				if ids.has(f):
+					s *= focus_w
+					break
 			s += rng.randf() * 0.5
-			var at: int = ranked.bsearch_custom([s, nb], func(a, b): return float(a[0]) < float(b[0]))
-			ranked.insert(at, [s, nb])
-	add_frontier.call(DaoDoTree.ROOT_ID)
+			if bool(nd.gated) and not bool(st.gate):
+				parked.append([s, nb])
+			else:
+				push.call(nb, s)
+	for a in c.tree_nodes.duplicate():
+		see.call(int(a))
 	while c.tree_points > 0 and not ranked.is_empty():
 		var best: int = ranked.pop_back()[1]
-		c.tree_nodes.append(best)
-		c.tree_points -= 1
-		var cap: int = int(_tree.node(best).get("capability", 0))
-		if cap > 0:
-			c.grant_capability(cap)
-		add_frontier.call(best)
-
-
-## Rule 14, Formulas G: a gifted NPC may hold sealed clusters. Open clusters never.
-func _roll_unseals(c: Character, rng: RandomNumberGenerator) -> void:
-	var cfg: Dictionary = ProgressionEdges.config(_gd).npc
-	var share: float = float(_gd.tree_config().npc_unseal_share[c.realm_index])
-	var edge: float = minf(ProgressionEdges.npc_edge_score(c.to_dict(), _gd).total, 1.0)
-	var a: float = share * (float(cfg.base_step) + edge * (float(cfg.max_step) - float(cfg.base_step))) / float(cfg.max_step)
-	var eligible: Array = _tree.clusters_of("sealed").filter(func(k): return int(k.gate) <= c.realm_index and c.linh_can.elements.has(k.sector))
-	var m_r: int = _tree.clusters_of("sealed").filter(func(k): return int(k.gate) <= c.realm_index).size()
-	if m_r == 0:
-		return
-	var p: float = 1.0 - pow(1.0 - a, 1.0 / float(m_r))
-	var limit: int = 2 if c.realm_index >= _gd.realm_index("nguyen_anh") else 1
-	for k in RngUtils.shuffled(rng, eligible):
-		if c.unsealed.size() >= limit:
-			break
-		if rng.randf() < p:
-			c.unsealed.append(int(k.id))
+		stats.pops = int(stats.pops) + 1
+		_tree.open_node(c, best, _gd)
+		if not bool(st.gate) and _tree.node(best).has("grants") and _tree.gate_open(c.linh_can, _gd):
+			st.gate = true
+			for p in parked:
+				push.call(int(p[1]), float(p[0]))
+			parked.clear()
+		see.call(best)
 
 
 func _train_skills(c: Character, rng: RandomNumberGenerator, arch_id: String) -> void:

@@ -1,0 +1,418 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+
+  ☯  TEN THOUSAND DAOS  — debug terminal
+  LLM off | https://api.deepseek.com/chat/completions | model deepseek-chat | NO KEY | language vi | calls 0, failures 0, avg 0 ms
+
+  1 New life (choose origin, roll or set your thiên phú and linh căn)
+  2 Quick start (random tán tu)
+  3 Help: every command
+ Type a number, or any command ('help'). Enter shows this menu again.
+> new
+Tên (name) [Vô Danh]: Đồ Thử
+Giới tính m/f [m]: m
+Xuất thân (origin):
+  1) Tán tu — Nobody. Free, poor, no sect obligations.
+  2) Đệ tử tông môn — Outer disciple of a generated sect: stipend, sect missions, a better công pháp.
+  3) Con cháu gia tộc — Minor clan heir: more linh thạch and a field already growing.
+Choose 1-3 [1]: 1
+World seed [795129303]: 99
+Birth mode: 1) Thiên Định — roll, achievements on   2) Tự Định — choose, casual  [1]: 2
+Tự Định: set each thiên phú 1-100 (enter = 50).
+  Ngộ tính (Comprehension: learning công pháp and how strong it is, đốn ngộ, discovering recipes, breaking bình cảnh): 50
+  Căn cốt (Physique: khí huyết, đan độc resistance, body cultivation): 50
+  Thần hồn (Soul strength: base of thần thức (artifact control, detection)): 50
+  Khí vận (Fortune: kỳ ngộ, rare finds, crafting crits, ceiling of LLM-invented rewards): 50
+  Đạo tâm (Dao heart: resists tâm ma, qi deviation and illusions): 50
+  Mị lực (Presence: NPC attitude, prices, what people will tell you): 50
+Root purities 10-100, e.g. 'hoa=80 moc=60 tho=40' (elements: kim moc thuy hoa tho).
+  purities: hoa=70 kim=40
+Variants you qualify for: phong huyet hu_khong (one or two elements), loi (hoa+kim), am (tho+thuy), hon_don (all five), quang (hoa), bang (thuy). Any you leave out never forms.
+  variant ids (blank = none): loi
+
+━━ Đồ Thử — Tán tu ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ ROOT [linh căn]  Dual root — curve row 2, now x0.60 vs a single root
+   Mộc  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thảo age faster in your field
+   Hỏa  ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁  70 Thượng   luyện đan success and quality
+   Thổ  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          more linh điền plots
+   Kim  ▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁▁▁▁  40 Trung    linh thạch from missions and bounties
+   Thủy ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          đan độc fades faster
+   Thunder [Lôi] 53  (convergence)  +15.9% attack
+
+ THIÊN PHÚ
+   Ngộ tính  ▆▆▆▆▆▁▁▁▁▁  50 Trung        Căn cốt   ▆▆▆▆▆▁▁▁▁▁  50 Trung
+   Thần hồn  ▆▆▆▆▆▁▁▁▁▁  50 Trung        Khí vận   ▆▆▆▆▆▆▁▁▁▁  55 Trung
+   Đạo tâm   ▆▆▆▆▆▁▁▁▁▁  50 Trung        Mị lực    ▆▆▆▆▆▁▁▁▁▁  50 Trung
+
+ Linh thạch 30 · more elements: slower now, much faster later
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Thiên mệnh — choose one:
+   1 Đạo Cốt Thiên Sinh   Born with Dao bones: every breakthrough comes easier.  [+12% breakthrough chance]
+   2 Bất Diệt Đạo Tâm     An unbreakable heart: a failed breakthrough costs no tu vi and half the tâm ma.  [failed breakthroughs cost no tu vi, half the tâm ma, +10 Đạo tâm]
+   3 Tổ Truyền Linh Điền  An ancestral spirit field: one more plot, herbs age faster.  [+1 linh điền plots, +40% herb growth]
+   4 Cổ Ngọc Tàn Hồn      An old jade pendant holds a remnant soul that guides you at each bình cảnh.  [+8 Ngộ tính, +6% breakthrough chance]
+   5 Thiên Đố Kỳ Duyên    Heaven's favour: more khí vận, and cơ duyên come twice as often.  [+15 Khí vận, +100% cơ duyên frequency]
+   6 Đan Tâm Thông Linh   A heart attuned to the cauldron: better luyện đan, stronger pills.  [+15% luyện đan success, +25% pill effect]
+   7 Thọ Nguyên Dư Dả     A long-lived bloodline: more years to reach the next realm.  [+20% thọ nguyên]
+   8 Linh Căn Thuần Tịnh  A pure root: every owned element is purer from birth, and you cultivate faster.  [+10% tu luyện speed, +8 purity on every root at birth]
+Pick 1-8 (Enter = cancel): 1
+Generating the world (seed 99)...
+A new world: 3 regions, 17 places, 7 sects, 5071 people, 230 recorded events (Thiên Nguyên lịch năm 300).
+Đồ Thử is born: Dual root: Fire [Hỏa] 70, Metal [Kim] 40 + Thunder [Lôi] 53
+Đạo Đồ start: Fire start (#36). Before opening a Dao mark you may move it: 'tree start <kim|loi>'.
+Power Rankings: the player's panel (40 fights) and 515 coarse panels (3758 fights) rated at load.
+
+━━ Đồ Thử — Luyện Khí Sơ kỳ L1 (tầng 1) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Tuổi 16 / 120 · Xuất thân Tán tu · Tông môn — · Tự Định (casual)
+
+ ROOT [linh căn]  Dual root — curve row 2, now x0.60 vs a single root
+   Mộc  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thảo age faster in your field
+   Hỏa  ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁  70 Thượng   luyện đan success and quality
+   Thổ  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          more linh điền plots
+   Kim  ▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁▁▁▁  40 Trung    linh thạch from missions and bounties
+   Thủy ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          đan độc fades faster
+   Thunder [Lôi] 53  (convergence)  +15.9% attack
+
+ THIÊN PHÚ
+   Ngộ tính  ▆▆▆▆▆▁▁▁▁▁  50 Trung        Căn cốt   ▆▆▆▆▆▁▁▁▁▁  50 Trung
+   Thần hồn  ▆▆▆▆▆▁▁▁▁▁  50 Trung        Khí vận   ▆▆▆▆▆▆▁▁▁▁  55 Trung
+   Đạo tâm   ▆▆▆▆▆▁▁▁▁▁  50 Trung        Mị lực    ▆▆▆▆▆▁▁▁▁▁  50 Trung
+
+ TRẠNG THÁI Linh lực 61 · Thần thức 50 · Khí huyết 500/500
+            Đan độc 0 (pills -0%) · Tâm ma 0 (backlash 0%) · Linh thạch 30
+ CÔNG PHÁP  Xích Diễm Công (layer 1/6)
+            tu vi 6.1 per season here ('explain rate')
+ ĐẠO NGHỆ   none yet (practice raises them)
+ CHIẾN LỰC  133 = offense 73 + defense 60 · extra slots 0/2 ('explain power')
+ ĐẠO ĐỒ  1 đạo văn open, 2 point(s) unspent ('tree')
+ THIÊN MỆNH Đạo Cốt Thiên Sinh — Born with Dao bones: every breakthrough comes easier.
+ 'explain <stat>' breaks down any number: rate, power, life, breakthrough, ngo_tinh, attack_pct …
+
+Mê Vụ Thành (l12) — Thành, Lạc Hà Lĩnh. Linh khí 0.81, danger 1, market, bounties
+  Your động phủ is here.
+People here (306):
+  p91    Cố Thanh Ca          Trúc Cơ Hậu kỳ         Tán tu | power 1,040 | attitude 0
+  p92    Lâm Mộng             Trúc Cơ Sơ kỳ          Tán tu | power 952 | attitude 0
+  p102   Bạch Thiên           Luyện Khí Đại viên mãn Tán tu | power 95 | attitude 0
+  p117   Phương Hạo           Luyện Khí Đại viên mãn Tán tu | power 105 | attitude 0
+  p120   Mộ Dung Quân         Luyện Khí Hậu kỳ       Tán tu | power 51 | attitude 0
+  p125   Âu Dương Nguyệt      Luyện Khí Sơ kỳ        Tán tu | power 51 | attitude 0
+  p129   Tư Mã Lan            Luyện Khí Sơ kỳ        Tán tu | power 51 | attitude 0
+  p155   Chu Phong            Luyện Khí Hậu kỳ       Pháp tu | power 105 | attitude 0
+  p174   Mộ Dung Tuyết        Luyện Khí Sơ kỳ        Đan sư | power 95 | attitude 0
+  p191   Cung Mộng            Luyện Khí Hậu kỳ       Đan sư | power 95 | attitude 0
+  p192   Tiêu Trần            Luyện Khí Trung kỳ     Tán tu | power 51 | attitude 0
+  p222   Lâm Nham             Luyện Khí Trung kỳ     Tán tu | power 95 | attitude 0
+  p240   Chu Hằng             Luyện Khí Sơ kỳ        Kiếm tu | power 95 | attitude 0
+  p274   Âu Dương Vân         Luyện Khí Trung kỳ     Pháp tu | power 95 | attitude 0
+  p310   Vương Vô Kỵ          Luyện Khí Sơ kỳ        Linh thực sư | power 51 | attitude 0
+  ... 'db people l12' lists all
+Roads:
+  -> l13   Thanh Dương Sơn (1 season)
+  -> l6    Thất Tinh Thành (3 seasons)
+  -> l1    Liệt Diễm Thành (3 seasons)
+
+━━ Đồ Thử · Thiên Nguyên lịch năm 300, Xuân · Mê Vụ Thành ━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +6.1/season, next level in 1.8 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · power 19 · 2 Đạo Đồ pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Đạo Đồ point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Đạo Đồ point(s)
+  3 Plant something (plot 2 is empty)
+  4 Cultivate 1 year                     5 Closed-door 5 years
+  6 Explore Mê Vụ Thành                  7 Mission / bounty
+  8 Travel…                              9 Herb field
+ 10 Alchemy…                            11 Refine a pháp bảo…
+ 12 Draw talismans…                     13 Formations (trận pháp)
+ 14 Market                              15 Talk to someone… (306 here)
+ 16 Character sheet                     17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> tree
+Đạo Đồ (7295 đạo văn on the map). Start: Fire start (#36). Capabilities: none.
+1 open (0 points spent), 2 unspent points. Next: level 2 +1, Luyện Khí Trung kỳ +13, Luyện Khí Hậu kỳ +13
+Chaos land: closed (needs Primordial Chaos or all five base elements above 30).
+Commands: tree map | tree node <id> | tree alloc <id> | tree go <id> | tree targets | tree start <element>
+Openable now:
+  #42   Road                         road     +0.5 Fire [Hỏa] purity
+  #690  Đạo văn                      small    +0.48 Thần hồn  (x1.20 from your root)
+  #694  Đạo văn                      small    +0.48 Thần hồn  (x1.20 from your root)
+  #697  Đạo văn                      small    +0.48 Thần hồn  (x1.20 from your root)
+> tree start kim
+You start at the Metal start (#104).
+ Δ Power 19 → 18 (-1)
+
+━━ Đồ Thử · Thiên Nguyên lịch năm 300, Xuân · Mê Vụ Thành ━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +6.1/season, next level in 1.8 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · power 18 · 2 Đạo Đồ pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Đạo Đồ point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Đạo Đồ point(s)
+  3 Plant something (plot 2 is empty)
+  4 Cultivate 1 year                     5 Closed-door 5 years
+  6 Explore Mê Vụ Thành                  7 Mission / bounty
+  8 Travel…                              9 Herb field
+ 10 Alchemy…                            11 Refine a pháp bảo…
+ 12 Draw talismans…                     13 Formations (trận pháp)
+ 14 Market                              15 Talk to someone… (306 here)
+ 16 Character sheet                     17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> tree start hoa
+You start at the Fire start (#36).
+> tree alloc 42
+Opened #42 Road: +0.5 Fire [Hỏa] purity
+  Fire [Hỏa] purity +0.5 (now 70.5).
+ Δ Đạo Đồ points 2 → 1 (-1) · Open đạo văn 1 → 2 (+1)
+
+━━ Đồ Thử · Thiên Nguyên lịch năm 300, Xuân · Mê Vụ Thành ━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +6.2/season, next level in 1.8 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · power 18 · 1 Đạo Đồ pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 1 Đạo Đồ point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 1 Đạo Đồ point(s)
+  3 Plant something (plot 2 is empty)
+  4 Cultivate 1 year                     5 Closed-door 5 years
+  6 Explore Mê Vụ Thành                  7 Mission / bounty
+  8 Travel…                              9 Herb field
+ 10 Alchemy…                            11 Refine a pháp bảo…
+ 12 Draw talismans…                     13 Formations (trận pháp)
+ 14 Market                              15 Talk to someone… (306 here)
+ 16 Character sheet                     17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> tree alloc 690
+Opened #690 Đạo văn: +0.48 Thần hồn  (x1.21 from your root)
+ Δ Đạo Đồ points 1 → 0 (-1) · Open đạo văn 2 → 3 (+1)
+
+━━ Đồ Thử · Thiên Nguyên lịch năm 300, Xuân · Mê Vụ Thành ━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +6.2/season, next level in 1.8 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · power 18
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Plant something (plot 2 is empty)
+  3 Cultivate 1 year                     4 Closed-door 5 years
+  5 Explore Mê Vụ Thành                  6 Mission / bounty
+  7 Travel…                              8 Herb field
+  9 Alchemy…                            10 Refine a pháp bảo…
+ 11 Draw talismans…                     12 Formations (trận pháp)
+ 13 Market                              14 Talk to someone… (306 here)
+ 15 Đạo Đồ                              16 Character sheet
+ 17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> tree node 2843
+#2843 Ember Heart (Ẩn Hỏa Tâm) — notable, area chaos, Chaos land (gated)
+  bonus: +0.65% tâm ma resistance, +0.20% breakthrough chance  (x0.25 from your root)
+  links: #2842
+  no route: behind the Chaos gate
+> tree go 2843
+Nothing to open (already open or unreachable).
+> debug tp 40
+Đạo Đồ points: 40.
+ Δ Đạo Đồ points 0 → 40 (+40)
+
+━━ Đồ Thử · Thiên Nguyên lịch năm 300, Xuân · Mê Vụ Thành ━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +6.2/season, next level in 1.8 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · power 18 · 40 Đạo Đồ pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 40 Đạo Đồ point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 40 Đạo Đồ point(s)
+  3 Plant something (plot 2 is empty)
+  4 Cultivate 1 year                     5 Closed-door 5 years
+  6 Explore Mê Vụ Thành                  7 Mission / bounty
+  8 Travel…                              9 Herb field
+ 10 Alchemy…                            11 Refine a pháp bảo…
+ 12 Draw talismans…                     13 Formations (trận pháp)
+ 14 Market                              15 Talk to someone… (306 here)
+ 16 Character sheet                     17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> tree go 2131
+Opened #694 Đạo văn: +0.48 Thần hồn  (x1.21 from your root)
+Opened #695 First Spark (Toại Hỏa): +1.6 Thần hồn, +12.1% art speed [hoa]  (x1.21 from your root)
+Opened #693 Fire Start (Hỏa Khởi): +1.6 Thần hồn, +7.2% attack [hoa]  (x1.21 from your root)
+Opened #703 Đạo văn: +0.48 Thần hồn  (x1.21 from your root)
+Opened #37 Road: +0.5 Fire [Hỏa] purity
+  Fire [Hỏa] purity +0.5 (now 71).
+Opened #67 Road: +0.5 Fire [Hỏa] purity
+  Fire [Hỏa] purity +0.5 (now 71.5).
+Opened #1479 Road: +0.5 Fire [Hỏa] purity
+  Fire [Hỏa] purity +0.5 (now 72).
+Opened #1425 Đạo văn: +0.49 Thần hồn  (x1.22 from your root)
+Opened #1426 Đạo văn: +0.49 Thần hồn  (x1.22 from your root)
+Opened #1427 Fire Seal (Hỏa Ấn): +1.6 Thần hồn, +7.3% attack [hoa]  (x1.22 from your root)
+Opened #1428 Đạo văn: +0.49 Thần hồn  (x1.22 from your root)
+Opened #1480 Road: +0.5 Fire [Hỏa] purity
+  Fire [Hỏa] purity +0.5 (now 72.5).
+Opened #1481 Road: +0.5 Fire [Hỏa] purity
+  Fire [Hỏa] purity +0.5 (now 73).
+Opened #1482 Road: +0.5 Fire [Hỏa] purity
+  Fire [Hỏa] purity +0.5 (now 73.5).
+Opened #1600 Road: +0.5 Fire [Hỏa] purity
+  Fire [Hỏa] purity +0.5 (now 74).
+Opened #2131 Đạo văn: +2.5% khí huyết  (x1.24 from your root)
+ Δ Đạo Đồ points 40 → 24 (-16) · Open đạo văn 3 → 19 (+16)
+   Power 18 → 19 (+1)
+
+━━ Đồ Thử · Thiên Nguyên lịch năm 300, Xuân · Mê Vụ Thành ━━━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +6.5/season, next level in 1.8 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · power 19 · 24 Đạo Đồ pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 24 Đạo Đồ point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 24 Đạo Đồ point(s)
+  3 Plant something (plot 2 is empty)
+  4 Cultivate 1 year                     5 Closed-door 5 years
+  6 Explore Mê Vụ Thành                  7 Mission / bounty
+  8 Travel…                              9 Herb field
+ 10 Alchemy…                            11 Refine a pháp bảo…
+ 12 Draw talismans…                     13 Formations (trận pháp)
+ 14 Market                              15 Talk to someone… (306 here)
+ 16 Character sheet                     17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> tree targets
+Notables and keystones by distance ('tree go <id>' opens the whole path):
+  #696  cost   1  Warm Blood (Ôn Huyết)          notable  +1.6 Thần hồn, +8.2% khí huyết  (x1.24 from your root)
+  #1429 cost   1  Pillar of Flame (Hỏa Trụ)      notable  +1.6 Thần hồn, +8.2% khí huyết  (x1.24 from your root)
+  #8998 cost   1  Fire Feeds Fire (Dĩ Hỏa Dưỡng Hỏa) keystone +120% stack effect [hoa,debuff], +30% attack [hoa]  [Effect: Fire Feeds Fire (Dĩ Hỏa Dưỡng Hỏa)]  [closes: arts of Water (Thủy) you slot deal 50 % less]
+  #700  cost   2  Fire Root (Hỏa Căn)            notable  +7.4% attack [hoa], +186 resistance (points) [fire]  (x1.24 from your root)
+  #2133 cost   2  Vermilion Guard (Chu Tước Hộ)  notable  +8.2% khí huyết, +186 resistance (points) [fire]  (x1.24 from your root)
+  #2134 cost   2  Hearth God (Táo Quân)          notable  +8.2% khí huyết, +0.50% health regen  (x1.24 from your root)
+  #2094 cost   3  Sun Chariot (Nhật Xa)          notable  +7.4% crit chance [hoa], +7.4% attack [fire]  (x1.24 from your root)
+  #2138 cost   3  Gentle Fire (Văn Hỏa)          notable  -12.4% art cost [hoa], +7.4% attack [hoa]  (x1.24 from your root)
+  #2488 cost   3  Ash Cloak (Hôi Bào)            notable  +9.9% healing taken, +0.50% health regen  (x1.24 from your root)
+  #2489 cost   3  Ember Rebirth (Tẫn Sinh)       notable  +9.9% healing taken, +8.2% khí huyết  (x1.24 from your root)
+  #2036 cost   4  Vermilion Guard (Chu Tước Hộ)  notable  +8.2% khí huyết, +186 resistance (points) [fire]  (x1.24 from your root)
+  #2037 cost   4  Hearth God (Táo Quân)          notable  +8.2% khí huyết, +0.50% health regen  (x1.24 from your root)
+  #2041 cost   4  Gentle Fire (Văn Hỏa)          notable  -12.4% art cost [hoa], +7.4% attack [hoa]  (x1.24 from your root)
+  #2102 cost   4  Solar Flare (Nhật Diễm)        notable  +7.4% attack [fire], +24.8% crit damage [hoa]  (x1.24 from your root)
+  #2103 cost   4  Sun Lance (Nhật Mâu)           notable  +7.4% attack [fire], +74.4 resistance penetration (points) [fire]  (x1.24 from your root)
+  #2117 cost   4  Frugal Flame (Kiệm Hỏa)        notable  -12.4% art cost [hoa], +7.4% attack [hoa]  (x1.24 from your root)
+  #2223 cost   4  Wild Blaze (Cuồng Diễm)        notable  +12.4% art speed [hoa], +7.4% attack [fire]  (x1.24 from your root)
+  #2269 cost   4  Sunfire Pearl (Nhật Hỏa Châu)  notable  +24.8% crit damage [hoa], +7.4% crit chance [fire]  (x1.24 from your root)
+  #2493 cost   4  Phoenix Nest (Phượng Sào)      notable  +0.50% health regen, +9.9% healing taken  (x1.24 from your root)
+  #2511 cost   4  Cinder Petals (Tẫn Biện)       notable  +186 resistance (points) [fire], +8.2% khí huyết  (x1.24 from your root)
+  #2513 cost   4  Cool Ash (Lãnh Hôi)            notable  +0.50% health regen, +24.8% status resist [burn]  (x1.24 from your root)
+  #2551 cost   4  Cinder Petals (Tẫn Biện)       notable  +186 resistance (points) [fire], +8.2% khí huyết  (x1.24 from your root)
+  #2553 cost   4  Cool Ash (Lãnh Hôi)            notable  +0.50% health regen, +24.8% status resist [burn]  (x1.24 from your root)
+  #2020 cost   5  Frugal Flame (Kiệm Hỏa)        notable  -12.4% art cost [hoa], +7.4% attack [hoa]  (x1.24 from your root)
+  #2045 cost   5  Creeping Embers (Mạn Tẫn)      notable  +19.8% stack effect [hoa,debuff], +7.4% attack [over_time]  (x1.24 from your root)
+  #2111 cost   5  Fire Barrier (Hỏa Chướng)      notable  +8.2% khí huyết, +186 resistance (points) [fire]  (x1.24 from your root)
+  #2115 cost   5  Ember Moat (Tẫn Hào)           notable  +8.2% khí huyết, +7.4% attack [hoa]  (x1.24 from your root)
+  #2142 cost   5  Creeping Embers (Mạn Tẫn)      notable  +19.8% stack effect [hoa,debuff], +7.4% attack [over_time]  (x1.24 from your root)
+  #2152 cost   5  Striking Flame (Kích Hỏa)      notable  +7.4% attack [hoa], +7.4% crit chance [hoa]  (x1.24 from your root)
+  #2219 cost   5  Scorching Sun (Liệt Nhật)      notable  +7.4% attack [fire], +74.4 resistance penetration (points) [fire]  (x1.24 from your root)
+  #2273 cost   5  Glint (Thiểm Quang)            notable  +7.4% crit chance [fire], +7.4% attack [fire]  (x1.24 from your root)
+  #2480 cost   5  Candle Warmth (Ôn Chúc)        notable  +16.5% health regen inc, +8.2% khí huyết  (x1.24 from your root)
+  #2528 cost   5  Heat Ward (Ngự Nhiệt)          notable  +186 resistance (points) [fire], +8.2% khí huyết  (x1.24 from your root)
+  #2558 cost   5  Fire-Tempered Body (Hỏa Luyện Thân) notable  +8.2% khí huyết, +186 resistance (points) [fire]  (x1.24 from your root)
+  #2566 cost   5  Flint Spark (Thạch Hỏa)        notable  +7.4% attack [hoa], +7.4% crit chance [hoa]  (x1.24 from your root)
+  #2888 cost   5  Furnace Wall (Lô Bích)         notable  +1.6 Thần hồn, +8.2% khí huyết  (x1.24 from your root)
+  #2891 cost   5  Furnace Wall (Lô Bích)         notable  +1.6 Thần hồn, +8.2% khí huyết  (x1.24 from your root)
+  #2014 cost   6  Fire Barrier (Hỏa Chướng)      notable  +8.2% khí huyết, +186 resistance (points) [fire]  (x1.24 from your root)
+  #2018 cost   6  Ember Moat (Tẫn Hào)           notable  +8.2% khí huyết, +7.4% attack [hoa]  (x1.24 from your root)
+  #2049 cost   6  Flame Gate (Hỏa Môn)           notable  +1.6 Thần hồn, +7.4% attack [hoa]  (x1.24 from your root)
+  #2051 cost   6  Crimson Palace (Giáng Cung)    notable  +1.6 Thần hồn, +8.2% khí huyết  (x1.24 from your root)
+  #2055 cost   6  Striking Flame (Kích Hỏa)      notable  +7.4% attack [hoa], +7.4% crit chance [hoa]  (x1.24 from your root)
+  #2099 cost   6  Dawn Blaze (Hiểu Diễm)         notable  +7.4% attack [hoa], +12.4% art speed [hoa]  (x1.24 from your root)
+  #2107 cost   6  Fire Sprite (Hỏa Linh)         notable  +0.18% linh luc on hit [hoa], +7.4% attack [hoa]  (x1.24 from your root)
+  #2123 cost   6  Cool Draft (Lương Phong)       notable  -12.4% art cost [hoa], +6.2% linh luc regen inc  (x1.24 from your root)
+  #2124 cost   6  Flash Ignition (Thuấn Nhiên)   notable  +12.4% art speed [hoa], +7.4% attack [hoa]  (x1.24 from your root)
+  #2146 cost   6  Flame Gate (Hỏa Môn)           notable  +1.6 Thần hồn, +7.4% attack [hoa]  (x1.24 from your root)
+  #2148 cost   6  Crimson Palace (Giáng Cung)    notable  +1.6 Thần hồn, +8.2% khí huyết  (x1.24 from your root)
+  #2166 cost   6  Burning Resolve (Nhiên Chí)    notable  +1.6 Thần hồn, +7.4% attack [hoa]  (x1.24 from your root)
+  #2178 cost   6  Small Flame (Vi Hỏa)           notable  +7.4% attack [hoa], +1.6 Thần hồn  (x1.24 from your root)
+  #2185 cost   6  Kindling (Dẫn Hỏa)             notable  +7.4% attack [hoa], +5.0% crit chance  (x1.24 from your root)
+  #2228 cost   6  Small Flame (Vi Hỏa)           notable  +7.4% attack [hoa], +1.6 Thần hồn  (x1.24 from your root)
+  #2235 cost   6  Kindling (Dẫn Hỏa)             notable  +7.4% attack [hoa], +5.0% crit chance  (x1.24 from your root)
+  #2417 cost   6  Clinging Embers (Phụ Tẫn)      notable  +19.8% stack effect [hoa,debuff], +7.4% attack [over_time]  (x1.24 from your root)
+  #2457 cost   6  Fire Poison (Hỏa Độc)          notable  +7.4% attack [hoa], +19.8% stack effect [hoa,debuff]  (x1.24 from your root)
+  #2465 cost   6  Warm Ash (Ôn Hôi)              notable  +0.50% health regen, +8.2% khí huyết  (x1.24 from your root)
+  #2478 cost   6  Twin Flames (Song Diễm)        notable  +8.2% khí huyết, +9.9% healing  (x1.24 from your root)
+  #2515 cost   6  Ash Lotus (Hôi Liên)           notable  +186 resistance (points) [fire], +0.50% health regen  (x1.24 from your root)
+  #2533 cost   6  Clear Heart (Minh Tâm)         notable  +1.6 Thần hồn, +3.2% tâm ma resistance  (x1.24 from your root)
+  #2555 cost   6  Ash Lotus (Hôi Liên)           notable  +186 resistance (points) [fire], +0.50% health regen  (x1.24 from your root)
+> tree map
+-...  .    .  N     N ...       .N. N..    N .     ... ... N     N  .     .   
+ ..N  .    . .      . N     N .. .   N      ..    N .    N .      . .     .  N
+ ..    . . .N   N .   N ..    -   .+    #   +    -  N .. N   . N   N  . .. . .
+.  N  . .N .    ..        -    .   .. N  N ..   .    -        ..  ...   .    .
+ ..    N    .     -. .    .   .   . .        .   .   .    . .-     .    N     
+     . N    - N. .  .N . .   . .  .  #  # +  .  . .   . . N.  . .N -      .  .
+  . . .   N ... N.    N   N  N  . .     +    . .  N  N   N    .N ... N   N .. .
+. N. -..N    ..    .          N N N  #    +  N N N          .   ....   N..- N 
+ - N... .. N  N   K    N   N....    . N #N .    ...    .     K   N. N .  ..N  -
+.N           .   N . .N  .  .  ..N  .      .  N..  ..NN . .  N    .           N
+.  .N  .     .     .N  .     ..     .   #  .     ..    ..   . .   .     .  .. 
+  .   ..  N .       .   .  -   .   +   ..   +   -   -      N . .N  . N  ..N  .
+.- . . .  .  .     .   -   . N. N  . N.  .N .  N     .  -    .    .  .  . . . -
+     N.   N       -.     ...   N. N . + #+ . N .N  N. .  N. .-      .N   .N   .
+  N -    ..   -     ..  N N    .      .  .      .    N N  N      -.        .  
+  .N NN . -     ..  .N  .. .... .N   N .. N   N. .... ..   .   N ..  -      . 
+  . .. -  N .. N  N.    N     .N +            + N.     N       .. . .N  -  N  
+    -        N .  ..         -.         #        .-        .N      .       -  .
+.-      N -   . .   . -  -     NN  ~  + #+  ~N NN     -  - . . ..N  .-.  N.   .
+  . N    ..   .N .  -  N    ~ ~ N  ~ .  # +  ~ N ~ ~       -   ..      . . . .
+ ....    .N      -.  ~ ~ ~ ~  ~  N~ N + ## +  ~  ~  ~ ~~ N ~  .          . N. 
+. N .N   ..   -  N  .    ~ ~~~ N ~~ .~N @N .~ ~ N ~~~ ~~ ~  ...  -    N.  .N  
+  . N.     -     . .~ ~ ~~~  ~   ~ ~~      ~ ~~   ~ ~  ~ ~ ~N       -   .    .
+  N   . -   N     -~  N  ~  N ~  N~ ~~  #~~ ~ ~~ ~ N ~~  N  ~- N       -      
+  .. . -  N ~  N~   N.. ~~~   ~  ~ ~ ~ N   ~ ~ ~ ~   ~~ ~..N    ~       -  . N
+.    -     ~ ~ ~     . ~  ~~ ~ ~ ~~      ~~~  ~ ~ ~ ~   N .   ~  ~ ~~  .  -. .
+.     . .  ~~ ~ N.. .-  N  ~~~  ~ N   ~~~~~   ~~  ~~~  N~ -    ~ ~   ~ N.     
+ .-  ~~N .   ~  N N       ~ ~ ~    N  ~~ N   N   ~~ N             ~ ~     N  -
+      ~ ~N~ ~  ~         -~~~ N ~ ~    ~~    ~ ~ N  ~ -  ~  ~ ~~ ~     ~~     
+-      N~  ~   ~ ~          ~           -          ~      ~        ~ ~ ~    N 
+       ~~ N   ~~~  ~~~N      N    -   N    ~ -   N     ~ ~~ ~ ~~    ~ ~  ~ ~  
+  N.N ~   ~ N~   ~       N  -   ~    ~ N ~       N -  ~    ~     ~     ~ N.  .
+N . .      ~      ~~ ~      N  ~    ~~       ~ ~         ~  N     ~  ~    .N  
+  ... S. N    N ~  ~ N~ -   ~  N K  ~      ~ ~  N ~  ~ -~N       ~  ~ .  S  .N
+N.N.  ..NN.  - ~~ ~     ~    ~~    ~     ~                 ~ ~~~  - .N ..  . N
+~   ~  NN ~     ~  ~~         ~      ~ ~  ~ ~ ~  ~ ~ ~  N       ~ ~~        .~
+~ ~ ~N ~  ~~ ~  ~~   -   ~        ~     -          ~ N    -~~        ~ ~ ~ ~~ 
+ ~ ~ ~~    ~~~   ~    N   N   ~   ~ -   N  - ~ ~       ~      ~ ~~   ~        
+~      ~    ~N  ~N ~    ~ ~~   ~  - N  ~~  N -   ~       ~         ~   ~   ~ ~
+ .N   ~~ ~~       ~ -       ~   ~     ~ S~     ~   ~ ~     -~ ~ ~N  ~ ~ ~~    
+~ ~  N ~ ~ ~ ~ ~ ~    ~       ~   -     ~    -  ~   ~  ~    N   N ~    ~~     N
+@ your start  # open  + openable  S start  N notable  K keystone  - road  . đạo văn  ~ Chaos land (closed)
+Around your start; 'tree map all' shows the whole map.
+> sheet
+━━ Đồ Thử — Luyện Khí Sơ kỳ L1 (tầng 1) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Tuổi 16 / 120 · Xuất thân Tán tu · Tông môn — · Tự Định (casual)
+
+ ROOT [linh căn]  Dual root — curve row 2, now x0.60 vs a single root
+   Mộc  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thảo age faster in your field
+   Hỏa  ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁  74 Thượng   luyện đan success and quality
+   Thổ  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          more linh điền plots
+   Kim  ▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁▁▁▁  40 Trung    linh thạch from missions and bounties
+   Thủy ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          đan độc fades faster
+   Thunder [Lôi] 54  (convergence)  +16.2% attack
+
+ THIÊN PHÚ
+   Ngộ tính  ▆▆▆▆▆▁▁▁▁▁  50 Trung        Căn cốt   ▆▆▆▆▆▁▁▁▁▁  50 Trung
+   Thần hồn  ▆▆▆▆▆▆▁▁▁▁  57 Trung   +7   Khí vận   ▆▆▆▆▆▆▁▁▁▁  55 Trung
+   Đạo tâm   ▆▆▆▆▆▁▁▁▁▁  50 Trung        Mị lực    ▆▆▆▆▆▁▁▁▁▁  50 Trung
+
+ TRẠNG THÁI Linh lực 61 · Thần thức 58 · Khí huyết 512/512
+            Đan độc 0 (pills -0%) · Tâm ma 0 (backlash 0%) · Linh thạch 30
+ CÔNG PHÁP  Xích Diễm Công (layer 1/6)
+            tu vi 6.5 per season here ('explain rate')
+ ĐẠO NGHỆ   none yet (practice raises them)
+ CHIẾN LỰC  134 = offense 74 + defense 60 · extra slots 0/2 ('explain power')
+ ĐẠO ĐỒ  19 đạo văn open, 24 point(s) unspent ('tree')
+ THIÊN MỆNH Đạo Cốt Thiên Sinh — Born with Dao bones: every breakthrough comes easier.
+ 'explain <stat>' breaks down any number: rate, power, life, breakthrough, ngo_tinh, attack_pct …
+> (end of input)

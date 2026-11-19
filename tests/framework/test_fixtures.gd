@@ -24,7 +24,7 @@ static func game_data() -> GameData:
 ## The Đạo Đồ generated from the real data, built once.
 static func tree() -> DaoDoTree:
 	if _tree == null:
-		_tree = DaoDoTree.generate(game_data())
+		_tree = DaoDoTree.load_map(game_data())
 	return _tree
 
 
@@ -40,5 +40,7 @@ static func character(purities: Dictionary, stat_value: int = 50, realm_index: i
 	c.stage = stage
 	c.level = Ladder.stage_first_level(game_data(), realm_index, stage)
 	c.level_peak = c.level
-	c.tree_nodes = [DaoDoTree.ROOT_ID]
+	var t := tree()
+	var start: int = t.npc_start(c.linh_can, game_data())
+	c.tree_nodes = [start] if start >= 0 else []
 	return c

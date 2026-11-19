@@ -92,21 +92,16 @@ var equipped: Array = []
 var equip_slots: Dictionary = {}
 
 # --- Đạo Đồ --------------------------------------------------------------
-## Allocated Đạo Đồ node ids (root included).
-var tree_nodes: Array = [0]
+## Open Đạo Đồ node ids: the start first (free, Đạo Đồ rule 3), then the Dao marks and roads opened. [] until a
+## start is chosen.
+var tree_nodes: Array = []
+## Unspent Đạo Đồ points.
 var tree_points: int = 0
+## The map baseline the tree state belongs to (Đạo Đồ rule 19; DaoDoTree.BASELINE). A save without it is from the
+## generated map and is migrated once.
+var tree_baseline: String = DaoDoTree.BASELINE
 ## Capability ids held (Character Stats rule 16). Only the Đạo Đồ adds to it.
 var capabilities: Array = []
-## Hidden cluster ids unsealed in this life.
-var unsealed: Array = []
-## Hidden cluster ids whose condition the character has discovered (hints).
-var discovered: Array = []
-## Recorded fills of open clusters: cluster id (string) -> {source}. Canonical once written.
-var fills: Dictionary = {}
-## Tree display: "silhouette" or "visible" (Đạo Đồ rule 13).
-var tree_visibility: String = "silhouette"
-## Open-cluster unseals used per realm index (string).
-var open_unseals: Dictionary = {}
 ## Years the nurtured treasure has been carried (capability #3).
 var nurture_years: int = 0
 ## The treasure chosen for nurturing (capability #3), an equipped item id, or "".
@@ -196,9 +191,8 @@ func to_dict() -> Dictionary:
 		"lifespan_bonus": lifespan_bonus, "vitality": vitality, "dan_doc": dan_doc, "tam_ma": tam_ma,
 		"linh_thach": linh_thach, "techniques": techniques.duplicate(true), "main_tech": main_tech,
 		"aux_tech": aux_tech.duplicate(), "second_tech": second_tech, "equipped": equipped.duplicate(), "equip_slots": equip_slots.duplicate(),
-		"tree_nodes": tree_nodes.duplicate(), "tree_points": tree_points, "capabilities": capabilities.duplicate(),
-		"unsealed": unsealed.duplicate(), "discovered": discovered.duplicate(), "fills": fills.duplicate(true),
-		"tree_visibility": tree_visibility, "open_unseals": open_unseals.duplicate(),
+		"tree_nodes": tree_nodes.duplicate(), "tree_points": tree_points, "tree_baseline": tree_baseline,
+		"capabilities": capabilities.duplicate(),
 		"nurture_years": nurture_years, "nurtured_id": nurtured_id, "visited": visited.duplicate(), "blink_year": blink_year,
 		"skills": skills.duplicate(true), "pill_uses": pill_uses.duplicate(), "formations": formations.duplicate(),
 		"beasts": beasts.duplicate(), "owner_id": owner_id, "loyalty": loyalty,
@@ -252,15 +246,11 @@ static func from_dict(d: Dictionary) -> Character:
 	c.equipped = Array(d.get("equipped", [])).duplicate()
 	c.equip_slots = Dictionary(d.get("equip_slots", {})).duplicate()
 	c.tree_nodes = []
-	for n in d.get("tree_nodes", [0]):
+	for n in d.get("tree_nodes", []):
 		c.tree_nodes.append(int(n))
 	c.tree_points = int(d.get("tree_points", 0))
+	c.tree_baseline = str(d.get("tree_baseline", ""))
 	c.capabilities = Array(d.get("capabilities", [])).map(func(x): return int(x))
-	c.unsealed = Array(d.get("unsealed", [])).map(func(x): return int(x))
-	c.discovered = Array(d.get("discovered", [])).map(func(x): return int(x))
-	c.fills = d.get("fills", {}).duplicate(true)
-	c.tree_visibility = str(d.get("tree_visibility", "silhouette"))
-	c.open_unseals = d.get("open_unseals", {}).duplicate()
 	c.nurture_years = int(d.get("nurture_years", 0))
 	c.nurtured_id = str(d.get("nurtured_id", ""))
 	c.visited = Array(d.get("visited", [])).map(func(x): return str(x))

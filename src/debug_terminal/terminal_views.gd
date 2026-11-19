@@ -830,61 +830,61 @@ static func event(s: GameSession, io: TerminalIO = null) -> Array:
 	return lines
 
 
-## Đạo Đồ summary: points, frontier with bonuses, and reachable notables/keystones.
+## Đạo Đồ summary: start, points, the next point sources, capabilities, and the frontier with each node's value
+## after rule 4 (AC-KMD-56, -57).
 static func tree_summary(s: GameSession, io: TerminalIO) -> Array:
 	var c: Character = s.player
 	var t: DaoDoTree = s.tree
-	var lines: Array = ["Đạo Đồ (%d of %d đạo văn shown): %d unsealed cluster(s), capabilities: %s." % [c.tree_nodes.size(), t.reported_size(c), c.unsealed.size(), ", ".join(c.capabilities.map(func(id): return str(s.gd.capability(int(id)).get("name", id)))) if not c.capabilities.is_empty() else "none"]]
-	lines.append("%d đạo văn open, %d unspent points. Commands: tree map | tree node <id> | tree alloc <id> | tree go <id> | tree targets" % [c.tree_nodes.size(), c.tree_points])
+	var sid: int = t.start_of_character(c)
+	var caps: String = ", ".join(c.capabilities.map(func(id): return str(s.gd.capability(int(id)).get("name", id)))) if not c.capabilities.is_empty() else "none"
+	var lines: Array = ["Đạo Đồ (%d đạo văn on the map). Start: %s (#%d). Capabilities: %s." % [t.size(), str(t.node(sid).get("name", "none")), sid, caps]]
+	var spent: int = maxi(0, c.tree_nodes.size() - 1)
+	lines.append("%d open (%d points spent), %d unspent points. %s" % [c.tree_nodes.size(), spent, c.tree_points, next_points_line(s.gd, c)])
+	var gate: bool = t.gate_open(c.linh_can, s.gd)
+	lines.append("Chaos land: %s." % ("open to your root" if gate else "closed (needs Primordial Chaos or all five base elements above %s)" % LinhCan.fmt(float(s.gd.tree_config().chaos_gate_purity))))
+	lines.append("Commands: tree map | tree node <id> | tree alloc <id> | tree go <id> | tree targets | tree start <element>")
 	lines.append("Openable now:")
-	for nid in t.frontier(c):
+	for nid in t.frontier(c, s.gd):
 		var nd: Dictionary = t.node(nid)
 		var ok: Dictionary = t.can_allocate(c, nid, s.gd)
-		lines.append("  #%-4d %-24s %-14s %s%s" % [nid, nd.name, nd.kind, t.describe_mods(nid, c.linh_can, s.gd), "" if ok.ok or c.tree_points <= 0 else "  (" + ok.reason + ")"])
+		lines.append("  #%-4d %-28s %-8s %s%s" % [nid, nd.name, nd.kind, t.describe_mods(nid, c.linh_can, s.gd), "" if ok.ok or c.tree_points <= 0 else "  (" + ok.reason + ")"])
 	return lines
 
 
-## Hidden clusters as the visibility mode allows (Đạo Đồ rule 13). Silhouette shows the
-## place and theme; a condition appears after a discovery. An open cluster's content stays
-## hidden in both modes until its story moment.
-static func tree_clusters(s: GameSession, io: TerminalIO) -> Array:
-	var c: Character = s.player
-	var visible: bool = c.tree_visibility == "visible"
-	var lines: Array = [rule(io, "Hidden clusters (%s mode; 'tree mode visible|silhouette')" % c.tree_visibility, "─")]
-	var ids: Array = s.tree.clusters.keys()
-	ids.sort()
-	for id in ids:
-		var k: Dictionary = s.tree.clusters[id]
-		var state: String = "UNSEALED" if c.unsealed.has(int(id)) else "hidden"
-		var known: bool = visible or c.discovered.has(int(id)) or c.unsealed.has(int(id))
-		var cond: String = "condition unknown"
-		if known:
-			cond = "seal: %s, gate %s" % [k.seal.type, s.gd.realm(int(k.gate)).name]
-		var content: String = ""
-		if known and (str(k.kind) == "sealed" or c.unsealed.has(int(id))):
-			content = ", %d đạo văn" % int(k.size)
-			if int(k.capability) > 0:
-				content += ", capability %s" % s.gd.capability(int(k.capability)).name
-		elif visible and str(k.kind) == "open":
-			content = ", to be written by the story"
-		lines.append("  %-3d %-20s %-5s %-6s %s%s [%s]" % [int(id), str(s.gd.tree_config().themes[k.theme].name), k.location, s.gd.element_name(str(k.sector)), cond, content, state])
-	return lines
+## The next point sources from the character's level (AC-KMD-56): the next level, the next small breakthrough and the
+## next great breakthrough, each with its points.
+static func next_points_line(gd: GameData, c: Character) -> String:
+	var parts: PackedStringArray = []
+	var top: int = Ladder.clamp_level(gd, 1 << 20)
+	var nxt: int = c.level_peak + 1
+	if nxt > top:
+		return ""
+	parts.append("level %d +1" % nxt)
+	var lv: int = nxt
+	while lv <= top and parts.size() < 3:
+		var extra: int = Ladder.points_total(gd, lv) - Ladder.points_total(gd, lv - 1)
+		var r: int = Ladder.realm_of_level(gd, lv)
+		if r != Ladder.realm_of_level(gd, lv - 1):
+			parts.append("%s breakthrough +%d" % [gd.realm(r).get("name", "?"), extra])
+		elif extra > 1:
+			parts.append("%s +%d" % [gd.realm_label(r, Ladder.stage_of_level(gd, lv)), extra - 1])
+		lv += 1
+	return "Next: " + ", ".join(parts)
 
 
-## Every notable and keystone with the cost (points) to reach it.
+## Every notable and keystone the character can reach, with the cost in points to open its route.
 static func tree_targets(s: GameSession) -> Array:
 	var c: Character = s.player
-	var dist: Dictionary = s.tree.distances(c)
 	var t: DaoDoTree = s.tree
+	var dist: Dictionary = t.distances(c, s.gd)
 	var rows: Array = []
 	for nd in t.nodes.values():
-		if not (nd.kind in ["notable", "keystone", "bridge_notable", "apex"]) or c.tree_nodes.has(nd.id) or not dist.has(int(nd.id)):
+		if not (str(nd.kind) in ["notable", "keystone"]) or c.tree_nodes.has(nd.id) or not dist.has(int(nd.id)):
 			continue
-		var path: Array = []
-		path.resize(int(dist[int(nd.id)]))
-		rows.append({"cost": path.size(), "line": "  #%-4d cost %2d  %-26s %-14s %s%s" % [nd.id, path.size(), nd.name, nd.kind, t.describe_mods(nd.id, c.linh_can, s.gd), ("  — " + nd.get("desc", "")) if nd.get("desc", "") != "" else ""]})
-	rows.sort_custom(func(a, b): return a.cost < b.cost)
-	return ["Notables and keystones by distance ('tree go <id>' opens the whole path):"] + rows.map(func(r): return r.line)
+		var cost: int = int(dist[int(nd.id)])
+		rows.append({"cost": cost, "id": int(nd.id), "line": "  #%-4d cost %3d  %-30s %-8s %s" % [nd.id, cost, nd.name, nd.kind, t.describe_mods(nd.id, c.linh_can, s.gd)]})
+	rows.sort_custom(func(a, b): return a.id < b.id if a.cost == b.cost else a.cost < b.cost)
+	return ["Notables and keystones by distance ('tree go <id>' opens the whole path):"] + rows.slice(0, 60).map(func(r): return r.line)
 
 
 ## One node in detail.
@@ -895,17 +895,18 @@ static func tree_node(s: GameSession, nid: int) -> Array:
 		return ["No đạo văn #%d." % nid]
 	var c: Character = s.player
 	var path: Array = t.path_to(c, s.gd, nid)
+	var where: String = str(nd.get("area", "exact"))
 	return [
-		"#%d %s — %s, sector %s, depth %d%s" % [nid, nd.name, nd.kind, nd.sector, int(nd.depth), " [OPEN]" if c.tree_nodes.has(nid) else ""],
+		"#%d %s — %s, area %s%s%s" % [nid, nd.name, nd.kind, where, ", Chaos land (gated)" if bool(nd.gated) else "", " [OPEN]" if c.tree_nodes.has(nid) else ""],
 		"  bonus: %s" % t.describe_mods(nid, c.linh_can, s.gd),
-		"  %s" % nd.get("desc", "") if nd.get("desc", "") != "" else "",
 		"  links: %s" % ", ".join(nd.links.map(func(x): return "#%d" % int(x))),
-		"  path from your open đạo văn: %s (%d points)" % [", ".join(path.map(func(x): return "#%d" % int(x))), path.size()] if not c.tree_nodes.has(nid) else "",
+		"" if c.tree_nodes.has(nid) else ("  path from your open đạo văn: %s (%d points)" % [", ".join(path.map(func(x): return "#%d" % int(x))), path.size()] if not path.is_empty() else "  no route: %s" % ("behind the Chaos gate" if bool(nd.gated) and not t.gate_open(c.linh_can, s.gd) else "a capability notable on it needs %s" % s.gd.realm(int(s.gd.tree_config().cap_realm_min)).get("name", "?"))),
 	].filter(func(l): return l != "")
 
 
-## ASCII map of the tree, PoE-style: sectors around Đạo Nguyên.
-static func tree_map(s: GameSession, io: TerminalIO) -> Array:
+## ASCII map of the drawn tree from its positions, centred on the character's start (or the whole map with
+## [param whole]).
+static func tree_map(s: GameSession, io: TerminalIO, whole: bool = false) -> Array:
 	var t: DaoDoTree = s.tree
 	var c: Character = s.player
 	var w: int = 79
@@ -920,42 +921,44 @@ static func tree_map(s: GameSession, io: TerminalIO) -> Array:
 			crow.append("")
 		grid.append(row)
 		colors.append(crow)
-	var frontier: Array = t.frontier(c)
-	var rank := {" ": 0, ".": 1, ":": 1, "o": 2, "N": 3, "K": 4, "+": 5, "#": 6, "@": 7}
+	var sid: int = t.start_of_character(c)
+	var cx: float = 0.0 if whole or sid < 0 else float(t.node(sid).x)
+	var cy: float = 0.0 if whole or sid < 0 else float(t.node(sid).y)
+	var span: float = 120.0 if whole else 30.0
+	var frontier: Array = t.frontier(c, s.gd)
+	var gate: bool = t.gate_open(c.linh_can, s.gd)
+	var rank := {" ": 0, ".": 1, "-": 1, "~": 1, "o": 2, "N": 3, "K": 4, "S": 5, "+": 6, "#": 7, "@": 8}
 	for nd in t.nodes.values():
-		if not t.accessible(c, int(nd.id)):
-			continue
-		var r: float = float(nd.depth) * 1.5
-		var x: int = int(roundf(float(w) / 2.0 + sin(deg_to_rad(float(nd.angle))) * r))
-		var y: int = int(roundf(float(h) / 2.0 - cos(deg_to_rad(float(nd.angle))) * r * 0.5))
+		var x: int = int(roundf(float(w) / 2.0 + (float(nd.x) - cx) / span * float(w) / 2.0))
+		var y: int = int(roundf(float(h) / 2.0 - (float(nd.y) - cy) / span * float(h) / 2.0))
 		if x < 0 or x >= w or y < 0 or y >= h:
 			continue
 		var ch: String = "."
 		match str(nd.kind):
-			"root": ch = "@"
-			"gate": ch = "o"
-			"notable", "bridge_notable", "apex": ch = "N"
+			"start": ch = "S"
+			"road": ch = "-"
+			"notable": ch = "N"
 			"keystone": ch = "K"
-			"bridge": ch = ":"
-		if c.tree_nodes.has(nd.id) and nd.kind != "root":
+		if bool(nd.gated) and not gate and ch == ".":
+			ch = "~"
+		if int(nd.id) == sid:
+			ch = "@"
+		elif c.tree_nodes.has(nd.id):
 			ch = "#"
 		elif frontier.has(nd.id):
 			ch = "+"
 		if rank.get(ch, 0) >= rank.get(grid[y][x], 0):
 			grid[y][x] = ch
-			var sector: String = str(nd.sector).split("-")[0]
-			colors[y][x] = str(s.gd.element(sector).get("ansi", ""))
+			var ids: Array = Array(nd.get("area_ids", []))
+			colors[y][x] = str(s.gd.element(str(ids[0])).get("ansi", "")) if not ids.is_empty() else ""
 	var lines: Array = []
 	for y in h:
 		var line := ""
 		for x in w:
 			line += io.paint(grid[y][x], colors[y][x]) if grid[y][x] != " " else " "
 		lines.append(line.trim_suffix(" ") if not io.color else line)
-	var legend: PackedStringArray = []
-	for e in s.gd.element_cycle():
-		legend.append(elem(io, s.gd, e, s.gd.element_name(e)))
-	lines.append("@ Đạo Nguyên  # open  + openable  N notable  K keystone  o gate  . đạo văn  : kỳ kinh bridge")
-	lines.append("Sectors clockwise from the top: " + " → ".join(legend) + "  (tương sinh order)")
+	lines.append("@ your start  # open  + openable  S start  N notable  K keystone  - road  . đạo văn  ~ Chaos land (closed)")
+	lines.append("%s; 'tree map all' shows the whole map." % ("The whole map" if whole else "Around your start"))
 	return lines
 
 

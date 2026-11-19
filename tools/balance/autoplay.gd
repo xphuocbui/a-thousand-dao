@@ -50,7 +50,7 @@ func _init() -> void:
 	var world: int = int(_list_arg(args, "--world", "300")[0])
 	gd.world_gen().people.world_cultivators = world
 	gd.world_gen().people.world_cultivators_min = world
-	tree = DaoDoTree.generate(gd)
+	tree = DaoDoTree.load_map(gd)
 	var rows: Array = []
 	var started: int = Time.get_ticks_msec()
 	for seed_v in seeds:
@@ -291,7 +291,7 @@ func _spend_points(s: GameSession) -> void:
 	while c.tree_points > 0:
 		var best: int = -1
 		var best_score: float = -INF
-		for nid in tree.frontier(c):
+		for nid in tree.frontier(c, gd):
 			if not tree.can_allocate(c, nid, gd).ok:
 				continue
 			var sc: float = _node_value(nid, c) + 0.5 * tree.neighbors(nid).map(func(n): return _node_value(n, c)).max()
@@ -306,7 +306,7 @@ func _node_value(nid: int, c: Character) -> float:
 	var nd: Dictionary = tree.node(nid)
 	var scale: float = tree.node_scale(nid, c.linh_can, gd)
 	var v: float = 0.0
-	for m in nd.mods:
+	for m in nd.get("mods", []):
 		v += float(TREE_WEIGHTS.get(str(m.stat), 0.2)) * float(m.value) * scale
 	return v
 

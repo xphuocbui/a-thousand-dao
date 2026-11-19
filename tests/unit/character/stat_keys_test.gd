@@ -21,10 +21,9 @@ func test_every_data_stat_key_has_a_label() -> void:
 	for t in gd.cong_phap_file().templates:
 		for b in t.bonuses:
 			_check(str(b.stat), "template %s" % t.id)
-	var themes: Dictionary = gd.tree_config().themes
-	for k in themes.keys():
-		for stat in themes[k].stats:
-			_check(str(stat), "theme %s" % k)
+	for n in gd.file("dao_do_map").nodes:
+		for m in Array(n.get("mods", [])) + Array(n.get("pending", [])):
+			_check(str(m.stat), "Đạo Đồ #%d" % int(n.id))
 
 
 func test_the_capability_catalogue_is_complete() -> void:

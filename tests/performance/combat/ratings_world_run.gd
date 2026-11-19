@@ -31,7 +31,7 @@ func _ready() -> void:
 	gd.file("combat_rankings")["enabled"] = true   # in memory only
 	var llm := LlmService.new(gd)
 	llm.enabled = false
-	var s := GameSession.new(gd, llm, DaoDoTree.generate(gd))
+	var s := GameSession.new(gd, llm, DaoDoTree.load_map(gd))
 	s.ratings_background = false
 	var t0 := Time.get_ticks_usec()
 	var made: Dictionary = s.new_game(seed_v, {"mode": "roll", "name": "Đo Lường", "gender": "male", "origin": "tan_tu"})

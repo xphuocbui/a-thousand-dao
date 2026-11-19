@@ -78,7 +78,7 @@ func _ready() -> void:
 	gd.file("combat_rankings")["enabled"] = false
 	var llm := LlmService.new(gd)
 	llm.enabled = false
-	var s := GameSession.new(gd, llm, DaoDoTree.generate(gd))
+	var s := GameSession.new(gd, llm, DaoDoTree.load_map(gd))
 	s.new_game(4242, {"mode": "roll", "name": "Spike", "gender": "male", "origin": "tan_tu"})
 	s.shutdown()
 	_report.worldgen_ms = (Time.get_ticks_usec() - t0) / 1000.0

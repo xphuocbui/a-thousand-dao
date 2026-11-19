@@ -3,14 +3,17 @@ extends RefCounted
 ## Aggregates every stat modifier a character has, keeping the source of each one so any total
 ## can be explained. Design: design/gdd/character-stats.md rules 12-15, Formulas I.
 ##
-## Stat keys are shared with data files (dao_do_tree.json, items_*.json,
+## Stat keys are shared with data files (dao_do_map.json, items_*.json,
 ## character_elements.json), e.g. cultivation_speed_pct, attack_pct, field_plots.
 ## Stats that are local to one artifact (artifact_attack_pct, artifact_defense_pct,
 ## element_affinity_pct, artifact_slots) are excluded here and applied by CombatPower and EquipSlots.
 ##
 ## Rules implemented here:
 ## - Modifiers are quantized once, on entry, to their key's grid (floored, with a tolerance).
-## - The tree's breakthrough_chance is capped at tree_breakthrough_cap; other sources are not.
+## - The tree's breakthrough_chance follows the curve k * ln(1 + sum / k), k = tree_breakthrough_k (Đạo Đồ Formulas F);
+##   other sources are not curved.
+## - A scoped modifier (a Đạo Đồ line such as attack_pct [hoa]) is held apart from the totals, which stay the plain
+##   lines; [method scoped_lines] hands them on with their scopes (to the fighter, ADR-0004 decision 4).
 ## - herb_growth_pct and alchemy_success meet character-wide ceilings: the positive modifiers
 ##   are capped, then the negative ones are added.
 ##
@@ -33,6 +36,8 @@ const KIND_ITEM := "item"
 
 ## stat -> Array of {source, value, kind}
 var _mods: Dictionary = {}
+## Scoped lines, in order: {source, stat, value, kind, scope}
+var _scoped: Array = []
 var _gd: GameData = null
 
 
@@ -49,7 +54,7 @@ static func build(c: Character, gd: GameData, db: WorldDB, tree: DaoDoTree) -> S
 				sheet.add_mod("Biến dị: %s" % def.name, str(line.stat), float(line.value))
 	if tree != null:
 		for m in tree.collect_mods(c, gd):
-			sheet.add_mod(m.source, m.stat, m.value, KIND_TREE)
+			sheet.add_mod(m.source, m.stat, m.value, KIND_TREE, m.scope)
 	ProgressionEdges.add_perk_mods(c, gd, sheet)
 	Formations.add_mods(c, gd, sheet)
 	# Physique and comprehension may be raised by anything above, so techniques come after them.
@@ -64,7 +69,7 @@ static func build(c: Character, gd: GameData, db: WorldDB, tree: DaoDoTree) -> S
 		for item_id in CombatPower.controlled(c, gd, db, sheet).used:
 			var art: Dictionary = db.get_record("items", item_id)
 			for line in ItemStats.lines(art):
-				if not ARTIFACT_LOCAL_STATS.has(line.stat) and labels.has(line.stat):
+				if not ARTIFACT_LOCAL_STATS.has(line.stat) and labels.has(line.stat) and not labels[line.stat].get("fight_only", false):
 					sheet.add_mod("Pháp bảo: %s" % art.get("name", "?"), line.stat, line.value, KIND_ITEM)
 	return sheet
 
@@ -82,8 +87,12 @@ func _add_capability_mods(c: Character) -> void:
 			add_mod("Tâm Ma Hóa Lực", "attack_pct", c.tam_ma / float(hd.divisor))
 
 
-## Adds one modifier, quantized to its key's grid. [param kind] marks tree or perk sources.
-func add_mod(source: String, stat: String, value: float, kind: String = "") -> void:
+## Adds one modifier, quantized to its key's grid. [param kind] marks tree or perk sources. A non-empty
+## [param scope] keeps the line out of the totals ([method scoped_lines]).
+func add_mod(source: String, stat: String, value: float, kind: String = "", scope: Array = []) -> void:
+	if not scope.is_empty():
+		_scoped.append({"source": source, "stat": stat, "value": _quantize(stat, value), "kind": kind, "scope": scope.duplicate()})
+		return
 	if not _mods.has(stat):
 		_mods[stat] = []
 	_mods[stat].append({"source": source, "value": _quantize(stat, value), "kind": kind})
@@ -119,12 +128,28 @@ func negative(stat: String) -> float:
 	return _sum(stat, func(m): return float(m.value) < 0.0)
 
 
-## The tree's share of breakthrough_chance, capped (percentage points).
+## The tree's share of breakthrough_chance on its curve (percentage points): k * ln(1 + raw / k), Đạo Đồ Formulas F.
 func tree_breakthrough() -> float:
-	var raw: float = _sum("breakthrough_chance", func(m): return m.kind == KIND_TREE)
-	if _gd == null:
+	var raw: float = tree_breakthrough_raw()
+	if _gd == null or raw <= 0.0:
 		return raw
-	return minf(raw, float(_gd.dao_do_config().tree_breakthrough_cap))
+	var k: float = float(_gd.dao_do_config().tree_breakthrough_k)
+	return k * log(1.0 + raw / k)
+
+
+## The tree's summed breakthrough_chance before the curve (percentage points).
+func tree_breakthrough_raw() -> float:
+	return _sum("breakthrough_chance", func(m): return m.kind == KIND_TREE)
+
+
+## Every scoped line, in the order added: {source, stat, value, kind, scope}.
+func scoped_lines() -> Array:
+	return _scoped
+
+
+## Scoped lines of one stat.
+func scoped(stat: String) -> Array:
+	return _scoped.filter(func(m): return m.stat == stat)
 
 
 ## Destiny perks' share of breakthrough_chance (percentage points).

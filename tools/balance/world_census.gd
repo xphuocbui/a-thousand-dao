@@ -16,7 +16,7 @@ func _init() -> void:
 	var size: int = int(_arg(args, "--size", str(gd.world_gen().people.world_cultivators)))
 	gd.world_gen().people.world_cultivators = size
 	gd.world_gen().people.world_cultivators_min = mini(int(gd.world_gen().people.world_cultivators_min), size)
-	var tree: DaoDoTree = DaoDoTree.generate(gd)
+	var tree: DaoDoTree = DaoDoTree.load_map(gd)
 	var rng := RandomNumberGenerator.new()
 	rng.seed = seed_v
 	var t0: int = Time.get_ticks_msec()
