@@ -163,6 +163,23 @@ def main():
                                 [IR.label(k, s) for k, s, w in v.get('pending') or []],
                                 v.get('cap') or '', caps.get(v.get('cap') or '', ''),
                                 e or '', eff.get((e or '').split(' (')[0], ''), v.get('closes') or '']
+        # Road (travel) nodes: not authored here; dao-do.md rule 4 sets them (purity = the root's proficiency, Spiritual Roots 8a)
+        EL = {'fire': 'Fire (Hỏa)', 'earth': 'Earth (Thổ)', 'metal': 'Metal (Kim)', 'water': 'Water (Thủy)', 'wood': 'Wood (Mộc)',
+              'light': 'Light (Quang)', 'thunder': 'Thunder (Lôi)', 'darkness': 'Darkness (Ám)'}
+        PAIR = {'fe': ('fire', 'earth'), 'em': ('earth', 'metal'), 'mw': ('metal', 'water'), 'ww': ('water', 'wood'), 'wf': ('wood', 'fire')}
+        rp = 0.5   # road_purity (dao-do.md Formulas A2, a guess the bot tunes)
+        for nd in m['nodes']:
+            if nd['kind'] != 'travel':
+                continue
+            r = nd['region']
+            if r in EL:
+                mods = [f"+{rp:g} {EL[r]} purity (linh căn mastery)"]
+            elif r.startswith(('border_', 'blend_')) and r[-2:] in PAIR:
+                a, b = PAIR[r[-2:]]
+                mods = [f"+{rp / 2:g} {EL[a]} purity", f"+{rp / 2:g} {EL[b]} purity"]
+            else:   # the hub's Source roads: "general stats" (rule 4), not yet chosen
+                mods = ['a general stat (Source road, rule 4; not yet chosen)']
+            nodes_out[str(nd['id'])] = [round(nd['x'], 2), round(nd['y'], 2), 'r', 'road', '', mods, [], '', '', '', '', '']
         json.dump(nodes_out, open(sys.argv[2], 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
         miss_e = sorted({v[9] for v in nodes_out.values() if v[9] and not v[10]})
         miss_c = sorted({v[7] for v in nodes_out.values() if v[7] and not v[8]})
