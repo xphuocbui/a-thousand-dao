@@ -6,6 +6,7 @@ results. Sketches are guides under the editor, never map data.
 
 usage: python -I sketch2.py --prompt <prompt.md> --ref <img1.png> [--ref <img2.png> ...] --out <prefix>
                             [--model gpt-image-2.6-sunburst] [--n 3] [--size 1536x1024] [--quality high]
+                            [--mask <mask.png>]   (transparent pixels = the only part redrawn; keeps the result aligned)
 Reads OPENAI_API_KEY. Writes <prefix>-<i>.png, <prefix>.json (model, prompt, refs, timing, usage) and
 <prefix>-sheet.png (references on the first row, results below).
 """
@@ -35,8 +36,9 @@ def multipart(fields, files):
     return b"".join(out), f"multipart/form-data; boundary={b}"
 
 
-def call(fields, refs):
-    body, ctype = multipart(fields, [("image[]", r) for r in refs])
+def call(fields, refs, mask=None):
+    files = [("image[]", r) for r in refs] + ([("mask", mask)] if mask else [])
+    body, ctype = multipart(fields, files)
     req = urllib.request.Request("https://api.openai.com/v1/images/edits", data=body, method="POST",
                                  headers={"Authorization": "Bearer " + os.environ["OPENAI_API_KEY"],
                                           "Content-Type": ctype})
@@ -69,20 +71,21 @@ def main():
     ap.add_argument("--n", type=int, default=3)
     ap.add_argument("--size", default="1536x1024")
     ap.add_argument("--quality", default="high")
+    ap.add_argument("--mask", help="PNG the size of the first --ref; its transparent pixels are the only part redrawn")
     a = ap.parse_args()
     prompt = open(a.prompt, encoding="utf-8").read().strip()
     fields = {"model": a.model, "prompt": prompt, "n": a.n, "size": a.size, "quality": a.quality,
               "input_fidelity": "high"}
     t = time.time()
     try:
-        res = call(fields, a.ref)
+        res = call(fields, a.ref, a.mask)
     except urllib.error.HTTPError as e:
         msg = e.read().decode("utf-8", "replace")
         if "input_fidelity" not in msg:
             raise SystemExit(f"{a.model}: HTTP {e.code}: {msg[:600]}")
         print("model does not take input_fidelity; retrying without it")
         fields.pop("input_fidelity")
-        res = call(fields, a.ref)
+        res = call(fields, a.ref, a.mask)
     dt = time.time() - t
     os.makedirs(os.path.dirname(os.path.abspath(a.out)), exist_ok=True)
     paths = []
@@ -90,7 +93,7 @@ def main():
         p = f"{a.out}-{i + 1}.png"
         open(p, "wb").write(base64.b64decode(d["b64_json"]))
         paths.append(p)
-    meta = {"model": a.model, "prompt_file": a.prompt, "prompt": prompt, "refs": a.ref, "size": a.size,
+    meta = {"model": a.model, "mask": a.mask, "prompt_file": a.prompt, "prompt": prompt, "refs": a.ref, "size": a.size,
             "quality": a.quality, "input_fidelity": fields.get("input_fidelity"), "seconds": round(dt, 1),
             "usage": res.get("usage"), "files": paths}
     json.dump(meta, open(a.out + ".json", "w", encoding="utf-8"), indent=1, ensure_ascii=False)

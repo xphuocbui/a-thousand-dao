@@ -1,0 +1,3274 @@
+{
+"_doc": "Layout v7 (2026-11-18). User: the bends round the big emblems were ugly; shrink each emblem to a literal small cluster. On base5 (clean base with every emblem and the rim ring removed): a small six-node cluster with two notables on each land axis at 48 and each blend axis at 59 (the Water-Wood blend keeps the Wind start), threaded on full axis roads; five full-circle rings (33.2, 41.7, 53.9, 64.3, 74.3) crossing the axes at road junctions, with one small bump over the Ice start; staggered spokes (one new in the band under ring 1), hooks into the open band, and two Darkness connectors. Hand-placed polar points; mirrored per land where marked. layout-hand is unchanged.",
+"adds": [
+{
+"land": 0,
+"kind": "cluster",
+"why": "Fire small cluster (placeholder for its emblem)",
+"node_kinds": [
+"s",
+"s",
+"N",
+"s",
+"N",
+"s"
+],
+"links": [
+[
+0,
+1
+],
+[
+1,
+2
+],
+[
+2,
+3
+],
+[
+3,
+4
+],
+[
+4,
+5
+],
+[
+5,
+0
+]
+],
+"polar": [
+[
+0.0,
+45.6
+],
+[
+-2.48,
+46.8
+],
+[
+-2.48,
+49.2
+],
+[
+0.0,
+50.4
+],
+[
+2.48,
+49.2
+],
+[
+2.48,
+46.8
+]
+]
+},
+{
+"land": 72,
+"kind": "cluster",
+"why": "Earth small cluster (placeholder for its emblem)",
+"node_kinds": [
+"s",
+"s",
+"N",
+"s",
+"N",
+"s"
+],
+"links": [
+[
+0,
+1
+],
+[
+1,
+2
+],
+[
+2,
+3
+],
+[
+3,
+4
+],
+[
+4,
+5
+],
+[
+5,
+0
+]
+],
+"polar": [
+[
+0.0,
+45.6
+],
+[
+-2.48,
+46.8
+],
+[
+-2.48,
+49.2
+],
+[
+0.0,
+50.4
+],
+[
+2.48,
+49.2
+],
+[
+2.48,
+46.8
+]
+]
+},
+{
+"land": 144,
+"kind": "cluster",
+"why": "Metal small cluster (placeholder for its emblem)",
+"node_kinds": [
+"s",
+"s",
+"N",
+"s",
+"N",
+"s"
+],
+"links": [
+[
+0,
+1
+],
+[
+1,
+2
+],
+[
+2,
+3
+],
+[
+3,
+4
+],
+[
+4,
+5
+],
+[
+5,
+0
+]
+],
+"polar": [
+[
+0.0,
+45.6
+],
+[
+-2.48,
+46.8
+],
+[
+-2.48,
+49.2
+],
+[
+0.0,
+50.4
+],
+[
+2.48,
+49.2
+],
+[
+2.48,
+46.8
+]
+]
+},
+{
+"land": 216,
+"kind": "cluster",
+"why": "Water small cluster (placeholder for its emblem)",
+"node_kinds": [
+"s",
+"s",
+"N",
+"s",
+"N",
+"s"
+],
+"links": [
+[
+0,
+1
+],
+[
+1,
+2
+],
+[
+2,
+3
+],
+[
+3,
+4
+],
+[
+4,
+5
+],
+[
+5,
+0
+]
+],
+"polar": [
+[
+0.0,
+45.6
+],
+[
+-2.48,
+46.8
+],
+[
+-2.48,
+49.2
+],
+[
+0.0,
+50.4
+],
+[
+2.48,
+49.2
+],
+[
+2.48,
+46.8
+]
+]
+},
+{
+"land": 288,
+"kind": "cluster",
+"why": "Wood small cluster (placeholder for its emblem)",
+"node_kinds": [
+"s",
+"s",
+"N",
+"s",
+"N",
+"s"
+],
+"links": [
+[
+0,
+1
+],
+[
+1,
+2
+],
+[
+2,
+3
+],
+[
+3,
+4
+],
+[
+4,
+5
+],
+[
+5,
+0
+]
+],
+"polar": [
+[
+0.0,
+45.6
+],
+[
+-2.48,
+46.8
+],
+[
+-2.48,
+49.2
+],
+[
+0.0,
+50.4
+],
+[
+2.48,
+49.2
+],
+[
+2.48,
+46.8
+]
+]
+},
+{
+"land": 0,
+"kind": "cluster",
+"why": "Wood-Fire blend small cluster (placeholder for its circle)",
+"node_kinds": [
+"s",
+"s",
+"N",
+"s",
+"N",
+"s"
+],
+"links": [
+[
+0,
+1
+],
+[
+1,
+2
+],
+[
+2,
+3
+],
+[
+3,
+4
+],
+[
+4,
+5
+],
+[
+5,
+0
+]
+],
+"polar": [
+[
+-36.0,
+56.8
+],
+[
+-37.85,
+57.9
+],
+[
+-37.85,
+60.1
+],
+[
+-36.0,
+61.2
+],
+[
+-34.15,
+60.1
+],
+[
+-34.15,
+57.9
+]
+]
+},
+{
+"land": 72,
+"kind": "cluster",
+"why": "Fire-Earth blend small cluster (placeholder for its circle)",
+"node_kinds": [
+"s",
+"s",
+"N",
+"s",
+"N",
+"s"
+],
+"links": [
+[
+0,
+1
+],
+[
+1,
+2
+],
+[
+2,
+3
+],
+[
+3,
+4
+],
+[
+4,
+5
+],
+[
+5,
+0
+]
+],
+"polar": [
+[
+-36.0,
+56.8
+],
+[
+-37.85,
+57.9
+],
+[
+-37.85,
+60.1
+],
+[
+-36.0,
+61.2
+],
+[
+-34.15,
+60.1
+],
+[
+-34.15,
+57.9
+]
+]
+},
+{
+"land": 144,
+"kind": "cluster",
+"why": "Earth-Metal blend small cluster (placeholder for its circle)",
+"node_kinds": [
+"s",
+"s",
+"N",
+"s",
+"N",
+"s"
+],
+"links": [
+[
+0,
+1
+],
+[
+1,
+2
+],
+[
+2,
+3
+],
+[
+3,
+4
+],
+[
+4,
+5
+],
+[
+5,
+0
+]
+],
+"polar": [
+[
+-36.0,
+56.8
+],
+[
+-37.85,
+57.9
+],
+[
+-37.85,
+60.1
+],
+[
+-36.0,
+61.2
+],
+[
+-34.15,
+60.1
+],
+[
+-34.15,
+57.9
+]
+]
+},
+{
+"land": 216,
+"kind": "cluster",
+"why": "Metal-Water blend small cluster (placeholder for its circle)",
+"node_kinds": [
+"s",
+"s",
+"N",
+"s",
+"N",
+"s"
+],
+"links": [
+[
+0,
+1
+],
+[
+1,
+2
+],
+[
+2,
+3
+],
+[
+3,
+4
+],
+[
+4,
+5
+],
+[
+5,
+0
+]
+],
+"polar": [
+[
+-36.0,
+56.8
+],
+[
+-37.85,
+57.9
+],
+[
+-37.85,
+60.1
+],
+[
+-36.0,
+61.2
+],
+[
+-34.15,
+60.1
+],
+[
+-34.15,
+57.9
+]
+]
+},
+{
+"land": 0,
+"kind": "road",
+"why": "Fire axis road to its cluster",
+"polar": [
+[
+0.0,
+37.5
+],
+[
+0.0,
+41.7
+],
+[
+0.0,
+45.6
+]
+]
+},
+{
+"land": 0,
+"kind": "road",
+"why": "Fire axis road from its cluster out to the open band",
+"polar": [
+[
+0.0,
+50.4
+],
+[
+0.0,
+53.9
+],
+[
+0.0,
+59.1
+],
+[
+0.0,
+64.3
+],
+[
+0.0,
+69.3
+],
+[
+0.0,
+74.3
+],
+[
+0.0,
+79.1
+]
+]
+},
+{
+"land": 72,
+"kind": "road",
+"why": "Earth axis road to its cluster",
+"polar": [
+[
+0.0,
+36.4
+],
+[
+0.0,
+41.7
+],
+[
+0.0,
+45.6
+]
+]
+},
+{
+"land": 72,
+"kind": "road",
+"why": "Earth axis road from its cluster out to the open band",
+"polar": [
+[
+0.0,
+50.4
+],
+[
+0.0,
+53.9
+],
+[
+0.0,
+59.1
+],
+[
+0.0,
+64.3
+],
+[
+0.0,
+69.3
+],
+[
+0.0,
+74.3
+],
+[
+0.0,
+80.0
+]
+]
+},
+{
+"land": 144,
+"kind": "road",
+"why": "Metal axis road to its cluster",
+"polar": [
+[
+0.0,
+36.7
+],
+[
+0.0,
+41.7
+],
+[
+0.0,
+45.6
+]
+]
+},
+{
+"land": 144,
+"kind": "road",
+"why": "Metal axis road from its cluster out to the open band",
+"polar": [
+[
+0.0,
+50.4
+],
+[
+0.0,
+53.9
+],
+[
+0.0,
+59.1
+],
+[
+0.0,
+64.3
+],
+[
+0.0,
+69.3
+],
+[
+0.0,
+74.3
+],
+[
+0.0,
+79.9
+]
+]
+},
+{
+"land": 216,
+"kind": "road",
+"why": "Water axis road, Ice start to its cluster",
+"polar": [
+[
+0.0,
+43.9
+],
+[
+0.0,
+45.6
+]
+]
+},
+{
+"land": 216,
+"kind": "road",
+"why": "Water axis road from its cluster out to the open band",
+"polar": [
+[
+0.0,
+50.4
+],
+[
+0.0,
+53.9
+],
+[
+0.0,
+59.1
+],
+[
+0.0,
+64.3
+],
+[
+0.0,
+69.3
+],
+[
+0.0,
+74.3
+],
+[
+0.0,
+79.9
+]
+]
+},
+{
+"land": 288,
+"kind": "road",
+"why": "Wood axis road to its cluster",
+"polar": [
+[
+0.0,
+36.4
+],
+[
+0.0,
+41.7
+],
+[
+0.0,
+45.6
+]
+]
+},
+{
+"land": 288,
+"kind": "road",
+"why": "Wood axis road from its cluster out to the open band",
+"polar": [
+[
+0.0,
+50.4
+],
+[
+0.0,
+53.9
+],
+[
+0.0,
+59.1
+],
+[
+0.0,
+64.3
+],
+[
+0.0,
+69.3
+],
+[
+0.0,
+74.3
+],
+[
+0.0,
+80.0
+]
+]
+},
+{
+"land": 0,
+"kind": "road",
+"why": "Wood-Fire blend axis road, inner part",
+"polar": [
+[
+-36.0,
+28.3
+],
+[
+-36.0,
+33.2
+],
+[
+-36.0,
+37.5
+],
+[
+-36.0,
+41.7
+],
+[
+-36.0,
+45.9
+]
+]
+},
+{
+"land": 0,
+"kind": "road",
+"why": "Wood-Fire blend axis road into its cluster",
+"polar": [
+[
+-36.0,
+49.6
+],
+[
+-36.0,
+53.9
+],
+[
+-36.0,
+56.8
+]
+]
+},
+{
+"land": 0,
+"kind": "road",
+"why": "Wood-Fire blend axis road out of its cluster",
+"polar": [
+[
+-36.0,
+61.2
+],
+[
+-36.0,
+64.3
+],
+[
+-36.0,
+69.4
+]
+]
+},
+{
+"land": 72,
+"kind": "road",
+"why": "Fire-Earth blend axis road, inner part",
+"polar": [
+[
+-36.0,
+28.3
+],
+[
+-36.0,
+33.2
+],
+[
+-36.0,
+37.5
+],
+[
+-36.0,
+41.7
+],
+[
+-36.0,
+45.9
+]
+]
+},
+{
+"land": 72,
+"kind": "road",
+"why": "Fire-Earth blend axis road into its cluster",
+"polar": [
+[
+-36.0,
+49.6
+],
+[
+-36.0,
+53.9
+],
+[
+-36.0,
+56.8
+]
+]
+},
+{
+"land": 72,
+"kind": "road",
+"why": "Fire-Earth blend axis road out of its cluster",
+"polar": [
+[
+-36.0,
+61.2
+],
+[
+-36.0,
+64.3
+],
+[
+-36.0,
+69.4
+]
+]
+},
+{
+"land": 144,
+"kind": "road",
+"why": "Earth-Metal blend axis road, inner part",
+"polar": [
+[
+-36.0,
+28.3
+],
+[
+-36.0,
+33.2
+],
+[
+-36.0,
+37.5
+],
+[
+-36.0,
+41.7
+],
+[
+-36.0,
+45.9
+]
+]
+},
+{
+"land": 144,
+"kind": "road",
+"why": "Earth-Metal blend axis road into its cluster",
+"polar": [
+[
+-36.0,
+49.6
+],
+[
+-36.0,
+53.9
+],
+[
+-36.0,
+56.8
+]
+]
+},
+{
+"land": 144,
+"kind": "road",
+"why": "Earth-Metal blend axis road out of its cluster",
+"polar": [
+[
+-36.0,
+61.2
+],
+[
+-36.0,
+64.3
+],
+[
+-36.0,
+69.4
+]
+]
+},
+{
+"land": 216,
+"kind": "road",
+"why": "Metal-Water blend axis road, inner part",
+"polar": [
+[
+-36.0,
+28.3
+],
+[
+-36.0,
+33.2
+],
+[
+-36.0,
+37.5
+],
+[
+-36.0,
+41.7
+],
+[
+-36.0,
+45.9
+]
+]
+},
+{
+"land": 216,
+"kind": "road",
+"why": "Metal-Water blend axis road into its cluster",
+"polar": [
+[
+-36.0,
+49.6
+],
+[
+-36.0,
+53.9
+],
+[
+-36.0,
+56.8
+]
+]
+},
+{
+"land": 216,
+"kind": "road",
+"why": "Metal-Water blend axis road out of its cluster",
+"polar": [
+[
+-36.0,
+61.2
+],
+[
+-36.0,
+64.3
+],
+[
+-36.0,
+69.4
+]
+]
+},
+{
+"land": 288,
+"kind": "road",
+"why": "Water-Wood blend axis road, inner part",
+"polar": [
+[
+-36.0,
+28.3
+],
+[
+-36.0,
+33.2
+],
+[
+-36.0,
+37.5
+],
+[
+-36.0,
+41.7
+],
+[
+-36.0,
+45.9
+]
+]
+},
+{
+"land": 0,
+"mirror": 0,
+"kind": "road",
+"why": "Fire start ring",
+"polar": [
+[
+-36,
+33.2
+],
+[
+-31,
+33.2
+],
+[
+-26,
+33.2
+],
+[
+-23,
+33.2
+],
+[
+-20,
+33.2
+],
+[
+-14,
+33.2
+],
+[
+-8,
+33.2
+],
+[
+0,
+32.8
+]
+]
+},
+{
+"land": 0,
+"mirror": 0,
+"kind": "road",
+"why": "Fire ring 1",
+"polar": [
+[
+-36,
+41.7
+],
+[
+-32,
+41.7
+],
+[
+-28,
+41.7
+],
+[
+-23,
+41.7
+],
+[
+-18,
+41.7
+],
+[
+-13,
+41.7
+],
+[
+-8.5,
+41.7
+],
+[
+-4.3,
+41.7
+],
+[
+0,
+41.7
+]
+]
+},
+{
+"land": 0,
+"mirror": 0,
+"kind": "road",
+"why": "Fire outer ring",
+"polar": [
+[
+-36,
+74.3
+],
+[
+-32,
+74.3
+],
+[
+-28,
+74.3
+],
+[
+-24,
+74.3
+],
+[
+-20,
+74.3
+],
+[
+-17,
+74.3
+],
+[
+-14.5,
+74.3
+],
+[
+-12,
+74.3
+],
+[
+-8,
+74.3
+],
+[
+-5.5,
+74.3
+],
+[
+-2.7,
+74.3
+],
+[
+0,
+74.3
+]
+]
+},
+{
+"land": 0,
+"mirror": 0,
+"kind": "road",
+"why": "Fire middle ring",
+"polar": [
+[
+-36,
+53.9
+],
+[
+-32.5,
+53.9
+],
+[
+-29,
+53.9
+],
+[
+-23,
+53.9
+],
+[
+-18,
+53.9
+],
+[
+-11,
+53.9
+],
+[
+-7.3,
+53.9
+],
+[
+-3.6,
+53.9
+],
+[
+0,
+53.9
+]
+]
+},
+{
+"land": 0,
+"mirror": 0,
+"kind": "road",
+"why": "Fire ring 2",
+"polar": [
+[
+-36,
+64.3
+],
+[
+-33.5,
+64.3
+],
+[
+-31,
+64.3
+],
+[
+-28,
+64.3
+],
+[
+-23,
+64.3
+],
+[
+-20,
+64.3
+],
+[
+-17,
+64.3
+],
+[
+-14,
+64.3
+],
+[
+-11,
+64.3
+],
+[
+-6,
+64.3
+],
+[
+-3,
+64.3
+],
+[
+0,
+64.3
+]
+]
+},
+{
+"land": 72,
+"mirror": 72,
+"kind": "road",
+"why": "Earth start ring",
+"polar": [
+[
+-36,
+33.2
+],
+[
+-31,
+33.2
+],
+[
+-26,
+33.2
+],
+[
+-23,
+33.2
+],
+[
+-20,
+33.2
+],
+[
+-14,
+33.2
+],
+[
+-8,
+33.2
+],
+[
+0,
+32.8
+]
+]
+},
+{
+"land": 72,
+"mirror": 72,
+"kind": "road",
+"why": "Earth ring 1",
+"polar": [
+[
+-36,
+41.7
+],
+[
+-32,
+41.7
+],
+[
+-28,
+41.7
+],
+[
+-23,
+41.7
+],
+[
+-18,
+41.7
+],
+[
+-13,
+41.7
+],
+[
+-8.5,
+41.7
+],
+[
+-4.3,
+41.7
+],
+[
+0,
+41.7
+]
+]
+},
+{
+"land": 72,
+"mirror": 72,
+"kind": "road",
+"why": "Earth outer ring",
+"polar": [
+[
+-36,
+74.3
+],
+[
+-32,
+74.3
+],
+[
+-28,
+74.3
+],
+[
+-24,
+74.3
+],
+[
+-20,
+74.3
+],
+[
+-17,
+74.3
+],
+[
+-14.5,
+74.3
+],
+[
+-12,
+74.3
+],
+[
+-8,
+74.3
+],
+[
+-5.5,
+74.3
+],
+[
+-2.7,
+74.3
+],
+[
+0,
+74.3
+]
+]
+},
+{
+"land": 72,
+"mirror": 72,
+"kind": "road",
+"why": "Earth middle ring",
+"polar": [
+[
+-36,
+53.9
+],
+[
+-32.5,
+53.9
+],
+[
+-29,
+53.9
+],
+[
+-23,
+53.9
+],
+[
+-18,
+53.9
+],
+[
+-11,
+53.9
+],
+[
+-7.3,
+53.9
+],
+[
+-3.6,
+53.9
+],
+[
+0,
+53.9
+]
+]
+},
+{
+"land": 72,
+"mirror": 72,
+"kind": "road",
+"why": "Earth ring 2",
+"polar": [
+[
+-36,
+64.3
+],
+[
+-33.5,
+64.3
+],
+[
+-31,
+64.3
+],
+[
+-28,
+64.3
+],
+[
+-23,
+64.3
+],
+[
+-20,
+64.3
+],
+[
+-17,
+64.3
+],
+[
+-14,
+64.3
+],
+[
+-11,
+64.3
+],
+[
+-6,
+64.3
+],
+[
+-3,
+64.3
+],
+[
+0,
+64.3
+]
+]
+},
+{
+"land": 144,
+"mirror": 144,
+"kind": "road",
+"why": "Metal start ring",
+"polar": [
+[
+-36,
+33.2
+],
+[
+-31,
+33.2
+],
+[
+-26,
+33.2
+],
+[
+-23,
+33.2
+],
+[
+-20,
+33.2
+],
+[
+-14,
+33.2
+],
+[
+-8,
+33.2
+],
+[
+0,
+32.8
+]
+]
+},
+{
+"land": 144,
+"mirror": 144,
+"kind": "road",
+"why": "Metal ring 1",
+"polar": [
+[
+-36,
+41.7
+],
+[
+-32,
+41.7
+],
+[
+-28,
+41.7
+],
+[
+-23,
+41.7
+],
+[
+-18,
+41.7
+],
+[
+-13,
+41.7
+],
+[
+-8.5,
+41.7
+],
+[
+-4.3,
+41.7
+],
+[
+0,
+41.7
+]
+]
+},
+{
+"land": 144,
+"mirror": 144,
+"kind": "road",
+"why": "Metal outer ring",
+"polar": [
+[
+-36,
+74.3
+],
+[
+-32,
+74.3
+],
+[
+-28,
+74.3
+],
+[
+-24,
+74.3
+],
+[
+-20,
+74.3
+],
+[
+-17,
+74.3
+],
+[
+-14.5,
+74.3
+],
+[
+-12,
+74.3
+],
+[
+-8,
+74.3
+],
+[
+-5.5,
+74.3
+],
+[
+-2.7,
+74.3
+],
+[
+0,
+74.3
+]
+]
+},
+{
+"land": 144,
+"mirror": 144,
+"kind": "road",
+"why": "Metal middle ring",
+"polar": [
+[
+-36,
+53.9
+],
+[
+-32.5,
+53.9
+],
+[
+-29,
+53.9
+],
+[
+-23,
+53.9
+],
+[
+-18,
+53.9
+],
+[
+-11,
+53.9
+],
+[
+-7.3,
+53.9
+],
+[
+-3.6,
+53.9
+],
+[
+0,
+53.9
+]
+]
+},
+{
+"land": 144,
+"mirror": 144,
+"kind": "road",
+"why": "Metal ring 2",
+"polar": [
+[
+-36,
+64.3
+],
+[
+-33.5,
+64.3
+],
+[
+-31,
+64.3
+],
+[
+-28,
+64.3
+],
+[
+-23,
+64.3
+],
+[
+-20,
+64.3
+],
+[
+-17,
+64.3
+],
+[
+-14,
+64.3
+],
+[
+-11,
+64.3
+],
+[
+-6,
+64.3
+],
+[
+-3,
+64.3
+],
+[
+0,
+64.3
+]
+]
+},
+{
+"land": 216,
+"mirror": 216,
+"kind": "road",
+"why": "Water start ring",
+"polar": [
+[
+-36,
+33.2
+],
+[
+-31,
+33.2
+],
+[
+-26,
+33.2
+],
+[
+-23,
+33.2
+],
+[
+-20,
+33.2
+],
+[
+-14,
+33.2
+],
+[
+-8,
+33.2
+],
+[
+0,
+32.8
+]
+]
+},
+{
+"land": 216,
+"mirror": 216,
+"kind": "road",
+"why": "Water ring 1, over the Ice start",
+"polar": [
+[
+-36,
+41.7
+],
+[
+-32,
+41.7
+],
+[
+-28,
+41.7
+],
+[
+-23,
+41.7
+],
+[
+-18,
+41.7
+],
+[
+-13,
+41.7
+],
+[
+-8.5,
+41.7
+],
+[
+-5.0,
+42.6
+],
+[
+0,
+42.8
+]
+]
+},
+{
+"land": 216,
+"mirror": 216,
+"kind": "road",
+"why": "Water outer ring",
+"polar": [
+[
+-36,
+74.3
+],
+[
+-32,
+74.3
+],
+[
+-28,
+74.3
+],
+[
+-24,
+74.3
+],
+[
+-20,
+74.3
+],
+[
+-17,
+74.3
+],
+[
+-14.5,
+74.3
+],
+[
+-12,
+74.3
+],
+[
+-8,
+74.3
+],
+[
+-5.5,
+74.3
+],
+[
+-2.7,
+74.3
+],
+[
+0,
+74.3
+]
+]
+},
+{
+"land": 288,
+"mirror": 288,
+"kind": "road",
+"why": "Wood start ring",
+"polar": [
+[
+-36,
+33.2
+],
+[
+-31,
+33.2
+],
+[
+-26,
+33.2
+],
+[
+-23,
+33.2
+],
+[
+-20,
+33.2
+],
+[
+-14,
+33.2
+],
+[
+-8,
+33.2
+],
+[
+0,
+32.8
+]
+]
+},
+{
+"land": 288,
+"mirror": 288,
+"kind": "road",
+"why": "Wood ring 1",
+"polar": [
+[
+-36,
+41.7
+],
+[
+-32,
+41.7
+],
+[
+-28,
+41.7
+],
+[
+-23,
+41.7
+],
+[
+-18,
+41.7
+],
+[
+-13,
+41.7
+],
+[
+-8.5,
+41.7
+],
+[
+-4.3,
+41.7
+],
+[
+0,
+41.7
+]
+]
+},
+{
+"land": 288,
+"mirror": 288,
+"kind": "road",
+"why": "Wood outer ring",
+"polar": [
+[
+-36,
+74.3
+],
+[
+-32,
+74.3
+],
+[
+-28,
+74.3
+],
+[
+-24,
+74.3
+],
+[
+-20,
+74.3
+],
+[
+-17,
+74.3
+],
+[
+-14.5,
+74.3
+],
+[
+-12,
+74.3
+],
+[
+-8,
+74.3
+],
+[
+-5.5,
+74.3
+],
+[
+-2.7,
+74.3
+],
+[
+0,
+74.3
+]
+]
+},
+{
+"land": 216,
+"kind": "road",
+"why": "Water middle ring, left",
+"polar": [
+[
+-36,
+53.9
+],
+[
+-32.5,
+53.9
+],
+[
+-29,
+53.9
+],
+[
+-23,
+53.9
+],
+[
+-18,
+53.9
+],
+[
+-11,
+53.9
+],
+[
+-7.3,
+53.9
+],
+[
+-3.6,
+53.9
+],
+[
+0,
+53.9
+]
+]
+},
+{
+"land": 216,
+"kind": "road",
+"why": "Water middle ring, right, to the Water-Wood axis below the Wind start",
+"polar": [
+[
+36,
+53.4
+],
+[
+32.5,
+53.9
+],
+[
+29,
+53.9
+],
+[
+23,
+53.9
+],
+[
+18,
+53.9
+],
+[
+11,
+53.9
+],
+[
+7.3,
+53.9
+],
+[
+3.6,
+53.9
+],
+[
+0,
+53.9
+]
+]
+},
+{
+"land": 216,
+"kind": "road",
+"why": "Water ring 2, left",
+"polar": [
+[
+-36,
+64.3
+],
+[
+-33.5,
+64.3
+],
+[
+-31,
+64.3
+],
+[
+-28,
+64.3
+],
+[
+-23,
+64.3
+],
+[
+-20,
+64.3
+],
+[
+-17,
+64.3
+],
+[
+-14,
+64.3
+],
+[
+-11,
+64.3
+],
+[
+-6,
+64.3
+],
+[
+-3,
+64.3
+],
+[
+0,
+64.3
+]
+]
+},
+{
+"land": 216,
+"kind": "road",
+"why": "Water ring 2, right, to the Water-Wood axis above the Wind start",
+"polar": [
+[
+36,
+64.6
+],
+[
+33.5,
+64.3
+],
+[
+31,
+64.3
+],
+[
+28,
+64.3
+],
+[
+23,
+64.3
+],
+[
+20,
+64.3
+],
+[
+17,
+64.3
+],
+[
+14,
+64.3
+],
+[
+11,
+64.3
+],
+[
+6,
+64.3
+],
+[
+3,
+64.3
+],
+[
+0,
+64.3
+]
+]
+},
+{
+"land": 288,
+"kind": "road",
+"why": "Wood middle ring, left, to the Water-Wood axis below the Wind start",
+"polar": [
+[
+-36,
+53.4
+],
+[
+-32.5,
+53.9
+],
+[
+-29,
+53.9
+],
+[
+-23,
+53.9
+],
+[
+-18,
+53.9
+],
+[
+-11,
+53.9
+],
+[
+-7.3,
+53.9
+],
+[
+-3.6,
+53.9
+],
+[
+0,
+53.9
+]
+]
+},
+{
+"land": 288,
+"kind": "road",
+"why": "Wood middle ring, right",
+"polar": [
+[
+36,
+53.9
+],
+[
+32.5,
+53.9
+],
+[
+29,
+53.9
+],
+[
+23,
+53.9
+],
+[
+18,
+53.9
+],
+[
+11,
+53.9
+],
+[
+7.3,
+53.9
+],
+[
+3.6,
+53.9
+],
+[
+0,
+53.9
+]
+]
+},
+{
+"land": 288,
+"kind": "road",
+"why": "Wood ring 2, left, to the Water-Wood axis above the Wind start",
+"polar": [
+[
+-36,
+64.6
+],
+[
+-33.5,
+64.3
+],
+[
+-31,
+64.3
+],
+[
+-28,
+64.3
+],
+[
+-23,
+64.3
+],
+[
+-20,
+64.3
+],
+[
+-17,
+64.3
+],
+[
+-14,
+64.3
+],
+[
+-11,
+64.3
+],
+[
+-6,
+64.3
+],
+[
+-3,
+64.3
+],
+[
+0,
+64.3
+]
+]
+},
+{
+"land": 288,
+"kind": "road",
+"why": "Wood ring 2, right",
+"polar": [
+[
+36,
+64.3
+],
+[
+33.5,
+64.3
+],
+[
+31,
+64.3
+],
+[
+28,
+64.3
+],
+[
+23,
+64.3
+],
+[
+20,
+64.3
+],
+[
+17,
+64.3
+],
+[
+14,
+64.3
+],
+[
+11,
+64.3
+],
+[
+6,
+64.3
+],
+[
+3,
+64.3
+],
+[
+0,
+64.3
+]
+]
+},
+{
+"land": 0,
+"mirror": 0,
+"kind": "wall",
+"why": "Fire spoke between the start ring and ring 1",
+"polar": [
+[
+-23,
+33.2
+],
+[
+-23,
+37.5
+],
+[
+-23,
+41.7
+]
+]
+},
+{
+"land": 0,
+"mirror": 0,
+"kind": "wall",
+"why": "Fire spoke between ring 1 and the middle ring",
+"polar": [
+[
+-18,
+41.7
+],
+[
+-18,
+45.8
+],
+[
+-18,
+49.9
+],
+[
+-18,
+53.9
+]
+]
+},
+{
+"land": 0,
+"mirror": 0,
+"kind": "road",
+"why": "Fire spoke between the middle ring and ring 2",
+"polar": [
+[
+-11,
+53.9
+],
+[
+-11,
+59.1
+],
+[
+-11,
+64.3
+]
+]
+},
+{
+"land": 0,
+"mirror": 0,
+"kind": "wall",
+"why": "Fire spoke between the middle ring and ring 2",
+"polar": [
+[
+-23,
+53.9
+],
+[
+-23,
+59.1
+],
+[
+-23,
+64.3
+]
+]
+},
+{
+"land": 0,
+"mirror": 0,
+"kind": "wall",
+"why": "Fire spoke between ring 2 and the outer ring",
+"polar": [
+[
+-17,
+64.3
+],
+[
+-17,
+69.3
+],
+[
+-17,
+74.3
+]
+]
+},
+{
+"land": 0,
+"mirror": 0,
+"kind": "road",
+"why": "Fire spoke between ring 2 and the outer ring",
+"polar": [
+[
+-28,
+64.3
+],
+[
+-28,
+69.3
+],
+[
+-28,
+74.3
+]
+]
+},
+{
+"land": 0,
+"mirror": 0,
+"kind": "road",
+"why": "Fire spoke hook into the open band",
+"polar": [
+[
+-12,
+74.3
+],
+[
+-12,
+79.2
+]
+],
+"open": true
+},
+{
+"land": 72,
+"mirror": 72,
+"kind": "wall",
+"why": "Earth spoke between the start ring and ring 1",
+"polar": [
+[
+-23,
+33.2
+],
+[
+-23,
+37.5
+],
+[
+-23,
+41.7
+]
+]
+},
+{
+"land": 72,
+"mirror": 72,
+"kind": "wall",
+"why": "Earth spoke between ring 1 and the middle ring",
+"polar": [
+[
+-18,
+41.7
+],
+[
+-18,
+45.8
+],
+[
+-18,
+49.9
+],
+[
+-18,
+53.9
+]
+]
+},
+{
+"land": 72,
+"mirror": 72,
+"kind": "road",
+"why": "Earth spoke between the middle ring and ring 2",
+"polar": [
+[
+-11,
+53.9
+],
+[
+-11,
+59.1
+],
+[
+-11,
+64.3
+]
+]
+},
+{
+"land": 72,
+"mirror": 72,
+"kind": "wall",
+"why": "Earth spoke between the middle ring and ring 2",
+"polar": [
+[
+-23,
+53.9
+],
+[
+-23,
+59.1
+],
+[
+-23,
+64.3
+]
+]
+},
+{
+"land": 72,
+"mirror": 72,
+"kind": "wall",
+"why": "Earth spoke between ring 2 and the outer ring",
+"polar": [
+[
+-17,
+64.3
+],
+[
+-17,
+69.3
+],
+[
+-17,
+74.3
+]
+]
+},
+{
+"land": 72,
+"mirror": 72,
+"kind": "road",
+"why": "Earth spoke between ring 2 and the outer ring",
+"polar": [
+[
+-28,
+64.3
+],
+[
+-28,
+69.3
+],
+[
+-28,
+74.3
+]
+]
+},
+{
+"land": 72,
+"mirror": 72,
+"kind": "road",
+"why": "Earth spoke hook into the open band",
+"polar": [
+[
+-12,
+74.3
+],
+[
+-12,
+79.2
+]
+],
+"open": true
+},
+{
+"land": 144,
+"mirror": 144,
+"kind": "wall",
+"why": "Metal spoke between the start ring and ring 1",
+"polar": [
+[
+-23,
+33.2
+],
+[
+-23,
+37.5
+],
+[
+-23,
+41.7
+]
+]
+},
+{
+"land": 144,
+"mirror": 144,
+"kind": "wall",
+"why": "Metal spoke between ring 1 and the middle ring",
+"polar": [
+[
+-18,
+41.7
+],
+[
+-18,
+45.8
+],
+[
+-18,
+49.9
+],
+[
+-18,
+53.9
+]
+]
+},
+{
+"land": 144,
+"mirror": 144,
+"kind": "road",
+"why": "Metal spoke between the middle ring and ring 2",
+"polar": [
+[
+-11,
+53.9
+],
+[
+-11,
+59.1
+],
+[
+-11,
+64.3
+]
+]
+},
+{
+"land": 144,
+"mirror": 144,
+"kind": "wall",
+"why": "Metal spoke between the middle ring and ring 2",
+"polar": [
+[
+-23,
+53.9
+],
+[
+-23,
+59.1
+],
+[
+-23,
+64.3
+]
+]
+},
+{
+"land": 144,
+"mirror": 144,
+"kind": "wall",
+"why": "Metal spoke between ring 2 and the outer ring",
+"polar": [
+[
+-17,
+64.3
+],
+[
+-17,
+69.3
+],
+[
+-17,
+74.3
+]
+]
+},
+{
+"land": 144,
+"mirror": 144,
+"kind": "road",
+"why": "Metal spoke between ring 2 and the outer ring",
+"polar": [
+[
+-28,
+64.3
+],
+[
+-28,
+69.3
+],
+[
+-28,
+74.3
+]
+]
+},
+{
+"land": 144,
+"mirror": 144,
+"kind": "road",
+"why": "Metal spoke hook into the open band",
+"polar": [
+[
+-12,
+74.3
+],
+[
+-12,
+79.2
+]
+],
+"open": true
+},
+{
+"land": 216,
+"mirror": 216,
+"kind": "wall",
+"why": "Water spoke between the start ring and ring 1",
+"polar": [
+[
+-23,
+33.2
+],
+[
+-23,
+37.5
+],
+[
+-23,
+41.7
+]
+]
+},
+{
+"land": 216,
+"mirror": 216,
+"kind": "wall",
+"why": "Water spoke between ring 1 and the middle ring",
+"polar": [
+[
+-18,
+41.7
+],
+[
+-18,
+45.8
+],
+[
+-18,
+49.9
+],
+[
+-18,
+53.9
+]
+]
+},
+{
+"land": 216,
+"mirror": 216,
+"kind": "road",
+"why": "Water spoke between the middle ring and ring 2",
+"polar": [
+[
+-11,
+53.9
+],
+[
+-11,
+59.1
+],
+[
+-11,
+64.3
+]
+]
+},
+{
+"land": 216,
+"mirror": 216,
+"kind": "wall",
+"why": "Water spoke between the middle ring and ring 2",
+"polar": [
+[
+-23,
+53.9
+],
+[
+-23,
+59.1
+],
+[
+-23,
+64.3
+]
+]
+},
+{
+"land": 216,
+"mirror": 216,
+"kind": "wall",
+"why": "Water spoke between ring 2 and the outer ring",
+"polar": [
+[
+-17,
+64.3
+],
+[
+-17,
+69.3
+],
+[
+-17,
+74.3
+]
+]
+},
+{
+"land": 216,
+"mirror": 216,
+"kind": "road",
+"why": "Water spoke between ring 2 and the outer ring",
+"polar": [
+[
+-28,
+64.3
+],
+[
+-28,
+69.3
+],
+[
+-28,
+74.3
+]
+]
+},
+{
+"land": 216,
+"mirror": 216,
+"kind": "road",
+"why": "Water spoke hook into the open band",
+"polar": [
+[
+-12,
+74.3
+],
+[
+-12,
+79.2
+]
+],
+"open": true
+},
+{
+"land": 288,
+"mirror": 288,
+"kind": "wall",
+"why": "Wood spoke between the start ring and ring 1",
+"polar": [
+[
+-23,
+33.2
+],
+[
+-23,
+37.5
+],
+[
+-23,
+41.7
+]
+]
+},
+{
+"land": 288,
+"mirror": 288,
+"kind": "wall",
+"why": "Wood spoke between ring 1 and the middle ring",
+"polar": [
+[
+-18,
+41.7
+],
+[
+-18,
+45.8
+],
+[
+-18,
+49.9
+],
+[
+-18,
+53.9
+]
+]
+},
+{
+"land": 288,
+"mirror": 288,
+"kind": "road",
+"why": "Wood spoke between the middle ring and ring 2",
+"polar": [
+[
+-11,
+53.9
+],
+[
+-11,
+59.1
+],
+[
+-11,
+64.3
+]
+]
+},
+{
+"land": 288,
+"mirror": 288,
+"kind": "wall",
+"why": "Wood spoke between the middle ring and ring 2",
+"polar": [
+[
+-23,
+53.9
+],
+[
+-23,
+59.1
+],
+[
+-23,
+64.3
+]
+]
+},
+{
+"land": 288,
+"mirror": 288,
+"kind": "wall",
+"why": "Wood spoke between ring 2 and the outer ring",
+"polar": [
+[
+-17,
+64.3
+],
+[
+-17,
+69.3
+],
+[
+-17,
+74.3
+]
+]
+},
+{
+"land": 288,
+"mirror": 288,
+"kind": "road",
+"why": "Wood spoke between ring 2 and the outer ring",
+"polar": [
+[
+-28,
+64.3
+],
+[
+-28,
+69.3
+],
+[
+-28,
+74.3
+]
+]
+},
+{
+"land": 288,
+"mirror": 288,
+"kind": "road",
+"why": "Wood spoke hook into the open band",
+"polar": [
+[
+-12,
+74.3
+],
+[
+-12,
+79.2
+]
+],
+"open": true
+},
+{
+"land": 72,
+"kind": "road",
+"why": "Darkness connector from its rim piece at 105 degrees down to the outer ring",
+"polar": [
+[
+33.0,
+84.0
+],
+[
+33.0,
+79.2
+],
+[
+32.0,
+74.3
+]
+]
+},
+{
+"land": 216,
+"kind": "road",
+"why": "Darkness connector from its rim piece at 204 degrees onto the Water hook",
+"polar": [
+[
+-12.0,
+79.2
+],
+[
+-12.0,
+84.0
+]
+]
+}
+]
+}

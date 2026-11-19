@@ -1,0 +1,483 @@
+{
+ "_doc": "Hand-placed cell proposal for the Wood area of the stripped tree (2026-11-18, rules 3.10). File frame (editor: Fire at the bottom). First and last points must be existing nodes (snapped within 0.45); middle points are new nodes placed by hand. road = travel nodes; wall = placeholder small nodes for a future cluster linking two roads. Proposal only: layout-hand is unchanged. v2 (2026-11-18): #15/#16 split by one chord mirrored across Wood's axis (rule 3.10 B14, user: option 1); the rest free.",
+ "adds": [
+  {
+   "cell": 1,
+   "kind": "road",
+   "why": "close the frame spur at (-62.5,0.3) onto the junction: a cell of about 110",
+   "pts": [
+    [
+     -62.5,
+     0.3
+    ],
+    [
+     -57.2,
+     -1.4
+    ]
+   ]
+  },
+  {
+   "cell": 1,
+   "kind": "road",
+   "why": "join the two arc spurs: a small cell of about 55",
+   "pts": [
+    [
+     -64.6,
+     11.5
+    ],
+    [
+     -60.8,
+     7.9
+    ],
+    [
+     -57.1,
+     3.8
+    ]
+   ]
+  },
+  {
+   "cell": 1,
+   "kind": "road",
+   "why": "close the rim arc spur across to the inner arc: the keystone's cell of about 70",
+   "pts": [
+    [
+     -78.7,
+     11.4
+    ],
+    [
+     -74.0,
+     12.6
+    ],
+    [
+     -69.2,
+     12.9
+    ],
+    [
+     -64.6,
+     11.5
+    ]
+   ]
+  },
+  {
+   "cell": 1,
+   "kind": "road",
+   "why": "split the rest of #1 east of the emblems",
+   "pts": [
+    [
+     -60.8,
+     7.9
+    ],
+    [
+     -59.6,
+     12.6
+    ],
+    [
+     -58.5,
+     16.0
+    ],
+    [
+     -56.6,
+     18.4
+    ]
+   ]
+  },
+  {
+   "cell": 1,
+   "kind": "wall",
+   "why": "split the rim strip west of the emblem",
+   "pts": [
+    [
+     -74.0,
+     12.6
+    ],
+    [
+     -73.6,
+     16.4
+    ],
+    [
+     -73.0,
+     20.4
+    ],
+    [
+     -76.0,
+     24.7
+    ]
+   ]
+  },
+  {
+   "cell": 6,
+   "kind": "road",
+   "why": "carry the spur at (-47.4,1.2) across #6 to the diagonal road",
+   "pts": [
+    [
+     -47.4,
+     1.2
+    ],
+    [
+     -41.8,
+     0.0
+    ],
+    [
+     -36.6,
+     -1.5
+    ],
+    [
+     -32.1,
+     -3.1
+    ]
+   ]
+  },
+  {
+   "cell": 6,
+   "kind": "wall",
+   "why": "split the north half of #6",
+   "pts": [
+    [
+     -47.2,
+     -15.3
+    ],
+    [
+     -45.8,
+     -10.5
+    ],
+    [
+     -44.0,
+     -5.5
+    ],
+    [
+     -41.8,
+     0.0
+    ]
+   ]
+  },
+  {
+   "cell": 6,
+   "kind": "wall",
+   "why": "split the south half of #6",
+   "pts": [
+    [
+     -36.6,
+     -1.5
+    ],
+    [
+     -37.6,
+     3.0
+    ],
+    [
+     -38.4,
+     7.2
+    ],
+    [
+     -34.6,
+     11.2
+    ]
+   ]
+  },
+  {
+   "cell": 7,
+   "kind": "road",
+   "why": "close the spur at (-36.4,19.2) onto the emblem's road end",
+   "pts": [
+    [
+     -36.4,
+     19.2
+    ],
+    [
+     -35.9,
+     15.2
+    ],
+    [
+     -34.6,
+     11.2
+    ]
+   ]
+  },
+  {
+   "cell": 7,
+   "kind": "road",
+   "why": "close the spur at (-30.3,29.8) onto the east road",
+   "pts": [
+    [
+     -30.3,
+     29.8
+    ],
+    [
+     -27.0,
+     25.4
+    ],
+    [
+     -24.1,
+     21.3
+    ]
+   ]
+  },
+  {
+   "cell": 7,
+   "kind": "wall",
+   "why": "split the cell under the start",
+   "pts": [
+    [
+     -35.9,
+     15.2
+    ],
+    [
+     -31.8,
+     16.4
+    ],
+    [
+     -28.0,
+     17.2
+    ],
+    [
+     -24.4,
+     16.6
+    ]
+   ]
+  },
+  {
+   "cell": 7,
+   "kind": "road",
+   "why": "close the spur at (-35.4,33.6) onto the north road",
+   "pts": [
+    [
+     -35.4,
+     33.6
+    ],
+    [
+     -32.2,
+     37.1
+    ],
+    [
+     -29.2,
+     40.2
+    ]
+   ]
+  },
+  {
+   "cell": 19,
+   "kind": "road",
+   "why": "close the spur at (-53.9,25.7) onto the node between the emblems",
+   "pts": [
+    [
+     -53.9,
+     25.7
+    ],
+    [
+     -55.3,
+     22.0
+    ],
+    [
+     -56.6,
+     18.4
+    ]
+   ]
+  },
+  {
+   "cell": 19,
+   "kind": "road",
+   "why": "close the spur at (-73.1,29.0) onto the emblem's west road end",
+   "pts": [
+    [
+     -73.1,
+     29.0
+    ],
+    [
+     -76.0,
+     24.7
+    ]
+   ]
+  },
+  {
+   "cell": 12,
+   "kind": "road",
+   "why": "carry the spur at (-70.8,-9.1) to the start figure's road",
+   "pts": [
+    [
+     -70.8,
+     -9.1
+    ],
+    [
+     -67.5,
+     -11.0
+    ],
+    [
+     -64.3,
+     -13.2
+    ],
+    [
+     -61.1,
+     -15.7
+    ]
+   ]
+  },
+  {
+   "cell": 12,
+   "kind": "road",
+   "why": "close the rim spur at (-76.8,-20.1) onto the new road",
+   "pts": [
+    [
+     -76.8,
+     -20.1
+    ],
+    [
+     -73.6,
+     -17.0
+    ],
+    [
+     -70.5,
+     -14.0
+    ],
+    [
+     -67.5,
+     -11.0
+    ]
+   ]
+  },
+  {
+   "cell": 10,
+   "kind": "road",
+   "why": "join the two spurs at (-48.0,56.1) and (-60.3,52.2)",
+   "pts": [
+    [
+     -48.0,
+     56.1
+    ],
+    [
+     -52.2,
+     55.0
+    ],
+    [
+     -56.4,
+     53.6
+    ],
+    [
+     -60.3,
+     52.2
+    ]
+   ]
+  },
+  {
+   "cell": 10,
+   "kind": "road",
+   "why": "close the spur at (-44.9,44.0) onto the new road",
+   "pts": [
+    [
+     -44.9,
+     44.0
+    ],
+    [
+     -46.3,
+     48.2
+    ],
+    [
+     -48.0,
+     52.2
+    ],
+    [
+     -48.0,
+     56.1
+    ]
+   ]
+  },
+  {
+   "cell": 16,
+   "kind": "road",
+   "mirror": 288,
+   "why": "chord across #16 from the emblem's road end to the rim road, mirrored into #15 across Wood's axis (B14)",
+   "pts": [
+    [
+     -40.8,
+     56.2
+    ],
+    [
+     -39.5,
+     61.3
+    ],
+    [
+     -37.9,
+     66.4
+    ],
+    [
+     -36.0,
+     71.5
+    ],
+    [
+     -34.2,
+     76.7
+    ]
+   ]
+  },
+  {
+   "cell": 16,
+   "kind": "road",
+   "why": "close the spur at (-43.3,68.5) onto the chord",
+   "pts": [
+    [
+     -43.3,
+     68.5
+    ],
+    [
+     -37.9,
+     66.4
+    ]
+   ]
+  },
+  {
+   "cell": 15,
+   "kind": "road",
+   "why": "close the spur at (-71.3,-28.3) onto the mirrored chord (its echo of the #16 spur)",
+   "pts": [
+    [
+     -71.3,
+     -28.3
+    ],
+    [
+     -69.69,
+     -31.44
+    ]
+   ]
+  },
+  {
+   "cell": 16,
+   "kind": "road",
+   "why": "split the east part of #16 (free, not mirrored)",
+   "pts": [
+    [
+     -37.9,
+     66.4
+    ],
+    [
+     -34.0,
+     65.5
+    ],
+    [
+     -30.1,
+     64.5
+    ]
+   ]
+  },
+  {
+   "cell": 15,
+   "kind": "road",
+   "why": "split the inner part of #15 (free, not mirrored)",
+   "pts": [
+    [
+     -71.15,
+     -36.68
+    ],
+    [
+     -66.5,
+     -35.4
+    ],
+    [
+     -61.6,
+     -34.6
+    ],
+    [
+     -56.0,
+     -34.1
+    ]
+   ]
+  }
+ ]
+}

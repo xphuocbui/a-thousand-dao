@@ -4,7 +4,7 @@ usage: python -I tools/design/dao_do_rework/families/sheet.py <families.json> <o
 
 Check and render only: it never chooses or changes a placement. For each family's example link styles it reports the
 hard rules of 3.2 (joined; R2 no dead-end minor node, the entry counts its road link; R3 first notable 2+ steps past
-the entry; R4 a notable; nodes 0.7 apart inside a cluster; a node 0.3 from any link not its own; no crossings) and
+the entry; R4 a notable; nodes 0.7 apart inside a cluster; a node 0.45 from any link not its own, rules 3.2; no crossings) and
 the observations (size, form). A PNG is taken with headless Chrome or Edge when <out.png> is given.
 """
 import collections
@@ -108,7 +108,7 @@ def check(nodes, links):
             if k in (i, j):
                 continue
             d = min(seg_dist(P[k], pts[t], pts[t + 1]) for t in range(len(pts) - 1))
-            if d < 0.3:
+            if d < 0.45:
                 out.append("node %d %.2f from link %d-%d" % (k, d, i, j))
     for x in range(len(curves)):
         for y in range(x + 1, len(curves)):

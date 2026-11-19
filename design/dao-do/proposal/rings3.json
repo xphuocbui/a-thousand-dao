@@ -1,0 +1,1889 @@
+{
+"_doc": "Round rings v3 (2026-11-18). User: the next-to-outer ring looked weird (make it round or nice) and the inner rings were not symmetric. Five concentric rings at the radii where the axis shapes touch them: start ring 33.2 (inner blend circles bottom, land spines), ring 1 41.7 (circles top, first emblems bottom; Water: the Ice start), middle ring 53.9 (first emblems top, outer circles bottom), ring 2 64.3 (outer circles or Wind start top, second emblems bottom), outer ring 74.3 (second emblems top, blend spine node). Each ring is one radius with hand-chosen node offsets, ends on shape nodes, mirrored across each land axis (Water and Wood written per side where the Wind start replaces a circle). Then staggered radial spokes between the rings (brick pattern), the same in every land. Replaces the old start road and the zigzag rings; applied to base3.json. layout-hand is unchanged.",
+"adds": [
+{
+"land": 0,
+"kind": "road",
+"why": "Fire start ring (mirrored)",
+"polar": [
+[
+-32.1,
+33.6
+],
+[
+-26,
+33.2
+],
+[
+-20,
+33.2
+],
+[
+-14,
+33.2
+],
+[
+-8,
+33.2
+],
+[
+0.0,
+32.8
+]
+],
+"mirror": 0
+},
+{
+"land": 0,
+"kind": "road",
+"why": "Fire ring 1 (mirrored)",
+"polar": [
+[
+-32.8,
+41.5
+],
+[
+-28,
+41.7
+],
+[
+-23,
+41.7
+],
+[
+-18,
+41.7
+],
+[
+-13,
+41.7
+],
+[
+-6.5,
+41.8
+]
+],
+"mirror": 0
+},
+{
+"land": 0,
+"kind": "road",
+"why": "Fire middle ring (mirrored)",
+"polar": [
+[
+-33.7,
+53.9
+],
+[
+-29,
+53.9
+],
+[
+-23,
+53.9
+],
+[
+-18,
+53.9
+],
+[
+-11,
+53.9
+],
+[
+-7.4,
+53.9
+],
+[
+-3.7,
+52.8
+]
+],
+"mirror": 0
+},
+{
+"land": 0,
+"kind": "road",
+"why": "Fire ring 2 (mirrored)",
+"polar": [
+[
+-34.1,
+64.2
+],
+[
+-31,
+64.3
+],
+[
+-28,
+64.3
+],
+[
+-23,
+64.3
+],
+[
+-20,
+64.3
+],
+[
+-17,
+64.3
+],
+[
+-14,
+64.3
+],
+[
+-11,
+64.3
+],
+[
+-6,
+64.3
+],
+[
+-1.2,
+64.5
+]
+],
+"mirror": 0
+},
+{
+"land": 0,
+"kind": "road",
+"why": "Fire outer ring (mirrored)",
+"polar": [
+[
+-36.0,
+74.3
+],
+[
+-32,
+74.3
+],
+[
+-28,
+74.3
+],
+[
+-24,
+74.3
+],
+[
+-20,
+74.3
+],
+[
+-17,
+74.3
+],
+[
+-14.5,
+74.3
+],
+[
+-12,
+74.3
+],
+[
+-8,
+74.3
+],
+[
+-5.5,
+74.3
+],
+[
+-2.9,
+74.8
+]
+],
+"mirror": 0
+},
+{
+"land": 72,
+"kind": "road",
+"why": "Earth start ring (mirrored)",
+"polar": [
+[
+-32.1,
+33.6
+],
+[
+-26,
+33.2
+],
+[
+-20,
+33.2
+],
+[
+-14,
+33.2
+],
+[
+-8,
+33.2
+],
+[
+0.0,
+32.8
+]
+],
+"mirror": 72
+},
+{
+"land": 72,
+"kind": "road",
+"why": "Earth ring 1 (mirrored)",
+"polar": [
+[
+-32.8,
+41.5
+],
+[
+-28,
+41.7
+],
+[
+-23,
+41.7
+],
+[
+-18,
+41.7
+],
+[
+-13,
+41.7
+],
+[
+-8.5,
+41.7
+],
+[
+-3.9,
+41.3
+]
+],
+"mirror": 72
+},
+{
+"land": 72,
+"kind": "road",
+"why": "Earth middle ring (mirrored)",
+"polar": [
+[
+-33.7,
+53.9
+],
+[
+-29,
+53.9
+],
+[
+-23,
+53.9
+],
+[
+-18,
+53.9
+],
+[
+-11,
+53.9
+],
+[
+-6.0,
+54.0
+]
+],
+"mirror": 72
+},
+{
+"land": 72,
+"kind": "road",
+"why": "Earth ring 2 (mirrored)",
+"polar": [
+[
+-34.1,
+64.2
+],
+[
+-31,
+64.3
+],
+[
+-28,
+64.3
+],
+[
+-23,
+64.3
+],
+[
+-20,
+64.3
+],
+[
+-17,
+64.3
+],
+[
+-14,
+64.3
+],
+[
+-11,
+64.3
+],
+[
+-6,
+64.3
+],
+[
+-2.0,
+64.1
+]
+],
+"mirror": 72
+},
+{
+"land": 72,
+"kind": "road",
+"why": "Earth outer ring (mirrored)",
+"polar": [
+[
+-36.0,
+74.3
+],
+[
+-32,
+74.3
+],
+[
+-28,
+74.3
+],
+[
+-24,
+74.3
+],
+[
+-20,
+74.3
+],
+[
+-17,
+74.3
+],
+[
+-14.5,
+74.3
+],
+[
+-12,
+74.3
+],
+[
+-8,
+74.3
+],
+[
+-5.5,
+74.3
+],
+[
+-3.5,
+74.2
+]
+],
+"mirror": 72
+},
+{
+"land": 144,
+"kind": "road",
+"why": "Metal start ring (mirrored)",
+"polar": [
+[
+-32.1,
+33.6
+],
+[
+-26,
+33.2
+],
+[
+-20,
+33.2
+],
+[
+-14,
+33.2
+],
+[
+-8,
+33.2
+],
+[
+0.0,
+32.8
+]
+],
+"mirror": 144
+},
+{
+"land": 144,
+"kind": "road",
+"why": "Metal ring 1 (mirrored)",
+"polar": [
+[
+-32.8,
+41.5
+],
+[
+-28,
+41.7
+],
+[
+-23,
+41.7
+],
+[
+-18,
+41.7
+],
+[
+-13,
+41.7
+],
+[
+-7.6,
+42.7
+]
+],
+"mirror": 144
+},
+{
+"land": 144,
+"kind": "road",
+"why": "Metal middle ring (mirrored)",
+"polar": [
+[
+-33.7,
+53.9
+],
+[
+-29,
+53.9
+],
+[
+-23,
+53.9
+],
+[
+-18,
+53.9
+],
+[
+-11,
+53.9
+],
+[
+-6.0,
+54.0
+]
+],
+"mirror": 144
+},
+{
+"land": 144,
+"kind": "road",
+"why": "Metal ring 2 (mirrored)",
+"polar": [
+[
+-34.1,
+64.2
+],
+[
+-31,
+64.3
+],
+[
+-28,
+64.3
+],
+[
+-23,
+64.3
+],
+[
+-20,
+64.3
+],
+[
+-17,
+64.3
+],
+[
+-14,
+64.3
+],
+[
+-11,
+64.3
+],
+[
+-6,
+64.3
+],
+[
+-0.9,
+65.3
+]
+],
+"mirror": 144
+},
+{
+"land": 144,
+"kind": "road",
+"why": "Metal outer ring (mirrored)",
+"polar": [
+[
+-36.0,
+74.3
+],
+[
+-32,
+74.3
+],
+[
+-28,
+74.3
+],
+[
+-24,
+74.3
+],
+[
+-20,
+74.3
+],
+[
+-17,
+74.3
+],
+[
+-14.5,
+74.3
+],
+[
+-12,
+74.3
+],
+[
+-8,
+74.3
+],
+[
+-4,
+74.3
+],
+[
+-0.8,
+73.7
+]
+],
+"mirror": 144
+},
+{
+"land": 216,
+"kind": "road",
+"why": "Water start ring (mirrored)",
+"polar": [
+[
+-32.1,
+33.6
+],
+[
+-26,
+33.2
+],
+[
+-20,
+33.2
+],
+[
+-14,
+33.2
+],
+[
+-8,
+33.2
+],
+[
+0.0,
+32.8
+]
+],
+"mirror": 216
+},
+{
+"land": 216,
+"kind": "road",
+"why": "Water ring 1 (mirrored)",
+"polar": [
+[
+-32.8,
+41.5
+],
+[
+-28,
+41.7
+],
+[
+-23,
+41.7
+],
+[
+-18,
+41.7
+],
+[
+-13,
+41.7
+],
+[
+-8.5,
+41.7
+],
+[
+-3.8,
+41.3
+]
+],
+"mirror": 216
+},
+{
+"land": 216,
+"kind": "road",
+"why": "Water middle ring, left",
+"polar": [
+[
+-33.7,
+53.9
+],
+[
+-29,
+53.9
+],
+[
+-23,
+53.9
+],
+[
+-18,
+53.9
+],
+[
+-11,
+53.9
+],
+[
+-5.8,
+54.5
+]
+]
+},
+{
+"land": 216,
+"kind": "road",
+"why": "Water middle ring, right, to the Wind start",
+"polar": [
+[
+36.0,
+55.1
+],
+[
+32.5,
+53.9
+],
+[
+29,
+53.9
+],
+[
+23,
+53.9
+],
+[
+18,
+53.9
+],
+[
+11,
+53.9
+],
+[
+5.8,
+54.5
+]
+]
+},
+{
+"land": 216,
+"kind": "road",
+"why": "Water ring 2, left",
+"polar": [
+[
+-34.1,
+64.2
+],
+[
+-31,
+64.3
+],
+[
+-28,
+64.3
+],
+[
+-23,
+64.3
+],
+[
+-20,
+64.3
+],
+[
+-17,
+64.3
+],
+[
+-14,
+64.3
+],
+[
+-11,
+64.3
+],
+[
+-6,
+64.3
+],
+[
+-2.3,
+65.1
+]
+]
+},
+{
+"land": 216,
+"kind": "road",
+"why": "Water ring 2, right, to the Wind start",
+"polar": [
+[
+34.7,
+63.2
+],
+[
+31,
+64.3
+],
+[
+28,
+64.3
+],
+[
+23,
+64.3
+],
+[
+20,
+64.3
+],
+[
+17,
+64.3
+],
+[
+14,
+64.3
+],
+[
+11,
+64.3
+],
+[
+6,
+64.3
+],
+[
+2.3,
+65.1
+]
+]
+},
+{
+"land": 216,
+"kind": "road",
+"why": "Water outer ring (mirrored)",
+"polar": [
+[
+-36.0,
+74.3
+],
+[
+-32,
+74.3
+],
+[
+-28,
+74.3
+],
+[
+-24,
+74.3
+],
+[
+-20,
+74.3
+],
+[
+-17,
+74.3
+],
+[
+-14.5,
+74.3
+],
+[
+-12,
+74.3
+],
+[
+-8,
+74.3
+],
+[
+-5.5,
+74.3
+],
+[
+-2.0,
+74.0
+]
+],
+"mirror": 216
+},
+{
+"land": 288,
+"kind": "road",
+"why": "Wood start ring (mirrored)",
+"polar": [
+[
+-32.1,
+33.6
+],
+[
+-26,
+33.2
+],
+[
+-20,
+33.2
+],
+[
+-14,
+33.2
+],
+[
+-8,
+33.2
+],
+[
+0.0,
+32.8
+]
+],
+"mirror": 288
+},
+{
+"land": 288,
+"kind": "road",
+"why": "Wood ring 1 (mirrored)",
+"polar": [
+[
+-32.8,
+41.5
+],
+[
+-28,
+41.7
+],
+[
+-23,
+41.7
+],
+[
+-18,
+41.7
+],
+[
+-13,
+41.7
+],
+[
+-8,
+41.7
+],
+[
+-2.4,
+42.0
+]
+],
+"mirror": 288
+},
+{
+"land": 288,
+"kind": "road",
+"why": "Wood middle ring, left, to the Wind start",
+"polar": [
+[
+-36.0,
+55.1
+],
+[
+-32.5,
+53.9
+],
+[
+-29,
+53.9
+],
+[
+-23,
+53.9
+],
+[
+-18,
+53.9
+],
+[
+-11,
+53.9
+],
+[
+-6.5,
+53.9
+],
+[
+-1.9,
+54.0
+]
+]
+},
+{
+"land": 288,
+"kind": "road",
+"why": "Wood middle ring, right",
+"polar": [
+[
+33.7,
+53.9
+],
+[
+29,
+53.9
+],
+[
+23,
+53.9
+],
+[
+18,
+53.9
+],
+[
+11,
+53.9
+],
+[
+6.5,
+53.9
+],
+[
+1.9,
+54.0
+]
+]
+},
+{
+"land": 288,
+"kind": "road",
+"why": "Wood ring 2, left, to the Wind start",
+"polar": [
+[
+-34.7,
+63.2
+],
+[
+-31,
+64.3
+],
+[
+-28,
+64.3
+],
+[
+-23,
+64.3
+],
+[
+-20,
+64.3
+],
+[
+-17,
+64.3
+],
+[
+-14,
+64.3
+],
+[
+-11,
+64.3
+],
+[
+-6,
+64.3
+],
+[
+-1.2,
+64.7
+]
+]
+},
+{
+"land": 288,
+"kind": "road",
+"why": "Wood ring 2, right",
+"polar": [
+[
+34.1,
+64.2
+],
+[
+31,
+64.3
+],
+[
+28,
+64.3
+],
+[
+23,
+64.3
+],
+[
+20,
+64.3
+],
+[
+17,
+64.3
+],
+[
+14,
+64.3
+],
+[
+11,
+64.3
+],
+[
+6,
+64.3
+],
+[
+1.2,
+64.7
+]
+]
+},
+{
+"land": 288,
+"kind": "road",
+"why": "Wood outer ring (mirrored)",
+"polar": [
+[
+-36.0,
+74.3
+],
+[
+-32,
+74.3
+],
+[
+-28,
+74.3
+],
+[
+-24,
+74.3
+],
+[
+-20,
+74.3
+],
+[
+-17,
+74.3
+],
+[
+-14.5,
+74.3
+],
+[
+-12,
+74.3
+],
+[
+-8,
+74.3
+],
+[
+-5.5,
+74.3
+],
+[
+-1.1,
+74.3
+]
+],
+"mirror": 288
+},
+{
+"land": 0,
+"mirror": 0,
+"kind": "wall",
+"why": "spoke ring 1 to middle ring at -18",
+"polar": [
+[
+-18,
+41.7
+],
+[
+-18,
+45.77
+],
+[
+-18,
+49.83
+],
+[
+-18,
+53.9
+]
+]
+},
+{
+"land": 0,
+"mirror": 0,
+"kind": "road",
+"why": "spoke middle ring to ring 2 at -11",
+"polar": [
+[
+-11,
+53.9
+],
+[
+-11,
+59.1
+],
+[
+-11,
+64.3
+]
+]
+},
+{
+"land": 0,
+"mirror": 0,
+"kind": "wall",
+"why": "spoke middle ring to ring 2 at -23",
+"polar": [
+[
+-23,
+53.9
+],
+[
+-23,
+59.1
+],
+[
+-23,
+64.3
+]
+]
+},
+{
+"land": 0,
+"mirror": 0,
+"kind": "wall",
+"why": "spoke ring 2 to outer ring at -17",
+"polar": [
+[
+-17,
+64.3
+],
+[
+-17,
+69.3
+],
+[
+-17,
+74.3
+]
+]
+},
+{
+"land": 0,
+"mirror": 0,
+"kind": "road",
+"why": "spoke ring 2 to outer ring at -28",
+"polar": [
+[
+-28,
+64.3
+],
+[
+-28,
+69.3
+],
+[
+-28,
+74.3
+]
+]
+},
+{
+"land": 0,
+"mirror": 0,
+"kind": "road",
+"why": "spoke outer ring to rim at -12",
+"polar": [
+[
+-12,
+74.3
+],
+[
+-12,
+79.15
+],
+[
+-12,
+84.0
+]
+]
+},
+{
+"land": 0,
+"mirror": 0,
+"kind": "wall",
+"why": "spoke outer ring to rim at -24",
+"polar": [
+[
+-24,
+74.3
+],
+[
+-24,
+79.15
+],
+[
+-24,
+84.0
+]
+]
+},
+{
+"land": 72,
+"mirror": 72,
+"kind": "wall",
+"why": "spoke ring 1 to middle ring at -18",
+"polar": [
+[
+-18,
+41.7
+],
+[
+-18,
+45.77
+],
+[
+-18,
+49.83
+],
+[
+-18,
+53.9
+]
+]
+},
+{
+"land": 72,
+"mirror": 72,
+"kind": "road",
+"why": "spoke middle ring to ring 2 at -11",
+"polar": [
+[
+-11,
+53.9
+],
+[
+-11,
+59.1
+],
+[
+-11,
+64.3
+]
+]
+},
+{
+"land": 72,
+"mirror": 72,
+"kind": "wall",
+"why": "spoke middle ring to ring 2 at -23",
+"polar": [
+[
+-23,
+53.9
+],
+[
+-23,
+59.1
+],
+[
+-23,
+64.3
+]
+]
+},
+{
+"land": 72,
+"mirror": 72,
+"kind": "wall",
+"why": "spoke ring 2 to outer ring at -17",
+"polar": [
+[
+-17,
+64.3
+],
+[
+-17,
+69.3
+],
+[
+-17,
+74.3
+]
+]
+},
+{
+"land": 72,
+"mirror": 72,
+"kind": "road",
+"why": "spoke ring 2 to outer ring at -28",
+"polar": [
+[
+-28,
+64.3
+],
+[
+-28,
+69.3
+],
+[
+-28,
+74.3
+]
+]
+},
+{
+"land": 72,
+"mirror": 72,
+"kind": "road",
+"why": "spoke outer ring to rim at -12",
+"polar": [
+[
+-12,
+74.3
+],
+[
+-12,
+79.15
+],
+[
+-12,
+84.0
+]
+]
+},
+{
+"land": 72,
+"mirror": 72,
+"kind": "wall",
+"why": "spoke outer ring to rim at -24",
+"polar": [
+[
+-24,
+74.3
+],
+[
+-24,
+79.15
+],
+[
+-24,
+84.0
+]
+]
+},
+{
+"land": 144,
+"mirror": 144,
+"kind": "wall",
+"why": "spoke ring 1 to middle ring at -18",
+"polar": [
+[
+-18,
+41.7
+],
+[
+-18,
+45.77
+],
+[
+-18,
+49.83
+],
+[
+-18,
+53.9
+]
+]
+},
+{
+"land": 144,
+"mirror": 144,
+"kind": "road",
+"why": "spoke middle ring to ring 2 at -11",
+"polar": [
+[
+-11,
+53.9
+],
+[
+-11,
+59.1
+],
+[
+-11,
+64.3
+]
+]
+},
+{
+"land": 144,
+"mirror": 144,
+"kind": "wall",
+"why": "spoke middle ring to ring 2 at -23",
+"polar": [
+[
+-23,
+53.9
+],
+[
+-23,
+59.1
+],
+[
+-23,
+64.3
+]
+]
+},
+{
+"land": 144,
+"mirror": 144,
+"kind": "wall",
+"why": "spoke ring 2 to outer ring at -17",
+"polar": [
+[
+-17,
+64.3
+],
+[
+-17,
+69.3
+],
+[
+-17,
+74.3
+]
+]
+},
+{
+"land": 144,
+"mirror": 144,
+"kind": "road",
+"why": "spoke ring 2 to outer ring at -28",
+"polar": [
+[
+-28,
+64.3
+],
+[
+-28,
+69.3
+],
+[
+-28,
+74.3
+]
+]
+},
+{
+"land": 144,
+"mirror": 144,
+"kind": "road",
+"why": "spoke outer ring to rim at -12",
+"polar": [
+[
+-12,
+74.3
+],
+[
+-12,
+79.15
+],
+[
+-12,
+84.0
+]
+]
+},
+{
+"land": 144,
+"mirror": 144,
+"kind": "wall",
+"why": "spoke outer ring to rim at -24",
+"polar": [
+[
+-24,
+74.3
+],
+[
+-24,
+79.15
+],
+[
+-24,
+84.0
+]
+]
+},
+{
+"land": 216,
+"mirror": 216,
+"kind": "wall",
+"why": "spoke ring 1 to middle ring at -18",
+"polar": [
+[
+-18,
+41.7
+],
+[
+-18,
+45.77
+],
+[
+-18,
+49.83
+],
+[
+-18,
+53.9
+]
+]
+},
+{
+"land": 216,
+"mirror": 216,
+"kind": "road",
+"why": "spoke middle ring to ring 2 at -11",
+"polar": [
+[
+-11,
+53.9
+],
+[
+-11,
+59.1
+],
+[
+-11,
+64.3
+]
+]
+},
+{
+"land": 216,
+"mirror": 216,
+"kind": "wall",
+"why": "spoke middle ring to ring 2 at -23",
+"polar": [
+[
+-23,
+53.9
+],
+[
+-23,
+59.1
+],
+[
+-23,
+64.3
+]
+]
+},
+{
+"land": 216,
+"mirror": 216,
+"kind": "wall",
+"why": "spoke ring 2 to outer ring at -17",
+"polar": [
+[
+-17,
+64.3
+],
+[
+-17,
+69.3
+],
+[
+-17,
+74.3
+]
+]
+},
+{
+"land": 216,
+"mirror": 216,
+"kind": "road",
+"why": "spoke ring 2 to outer ring at -28",
+"polar": [
+[
+-28,
+64.3
+],
+[
+-28,
+69.3
+],
+[
+-28,
+74.3
+]
+]
+},
+{
+"land": 216,
+"mirror": 216,
+"kind": "road",
+"why": "spoke outer ring to rim at -12",
+"polar": [
+[
+-12,
+74.3
+],
+[
+-12,
+79.15
+],
+[
+-12,
+84.0
+]
+]
+},
+{
+"land": 216,
+"mirror": 216,
+"kind": "wall",
+"why": "spoke outer ring to rim at -24",
+"polar": [
+[
+-24,
+74.3
+],
+[
+-24,
+79.15
+],
+[
+-24,
+84.0
+]
+]
+},
+{
+"land": 288,
+"mirror": 288,
+"kind": "wall",
+"why": "spoke ring 1 to middle ring at -18",
+"polar": [
+[
+-18,
+41.7
+],
+[
+-18,
+45.77
+],
+[
+-18,
+49.83
+],
+[
+-18,
+53.9
+]
+]
+},
+{
+"land": 288,
+"mirror": 288,
+"kind": "road",
+"why": "spoke middle ring to ring 2 at -11",
+"polar": [
+[
+-11,
+53.9
+],
+[
+-11,
+59.1
+],
+[
+-11,
+64.3
+]
+]
+},
+{
+"land": 288,
+"mirror": 288,
+"kind": "wall",
+"why": "spoke middle ring to ring 2 at -23",
+"polar": [
+[
+-23,
+53.9
+],
+[
+-23,
+59.1
+],
+[
+-23,
+64.3
+]
+]
+},
+{
+"land": 288,
+"mirror": 288,
+"kind": "wall",
+"why": "spoke ring 2 to outer ring at -17",
+"polar": [
+[
+-17,
+64.3
+],
+[
+-17,
+69.3
+],
+[
+-17,
+74.3
+]
+]
+},
+{
+"land": 288,
+"mirror": 288,
+"kind": "road",
+"why": "spoke ring 2 to outer ring at -28",
+"polar": [
+[
+-28,
+64.3
+],
+[
+-28,
+69.3
+],
+[
+-28,
+74.3
+]
+]
+},
+{
+"land": 288,
+"mirror": 288,
+"kind": "road",
+"why": "spoke outer ring to rim at -12",
+"polar": [
+[
+-12,
+74.3
+],
+[
+-12,
+79.15
+],
+[
+-12,
+84.0
+]
+]
+},
+{
+"land": 288,
+"mirror": 288,
+"kind": "wall",
+"why": "spoke outer ring to rim at -24",
+"polar": [
+[
+-24,
+74.3
+],
+[
+-24,
+79.15
+],
+[
+-24,
+84.0
+]
+]
+}
+]
+}

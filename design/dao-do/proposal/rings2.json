@@ -1,0 +1,445 @@
+{
+ "_doc": "Two ring layers joining the shapes on the axes (user, 2026-11-18: connect the shapes at the same level; the start shapes at the origin are left out). Ring 1: each land's first emblem (star, fortress, blade, lotus at 52, leaf at 48) to the blend circles at 37.5. Ring 2: each land's second emblem at 69.5 to the blend circles at 59, or the Wind start in the Water-Wood blend. Left halves placed by hand from the emblem's facing node to the circle's facing node, mirrored across the land's axis (B14); Water's and Wood's ring 2 halves next to the Wind start are written separately. Polar points: [offset from the land axis in degrees, radius]. Supersedes ring.json (the r 69.5 ring the user rejected). layout-hand is unchanged.",
+ "adds": [
+  {
+   "ring": 1,
+   "kind": "road",
+   "land": 0,
+   "mirror": 0,
+   "snap": 1.2,
+   "why": "Fire ring 1: star (level 1) to the Wood-Fire circle at 37.5",
+   "polar": [
+    [
+     -6.6,
+     44.2
+    ],
+    [
+     -12.0,
+     43.0
+    ],
+    [
+     -17.5,
+     41.6
+    ],
+    [
+     -23.0,
+     39.8
+    ],
+    [
+     -29.0,
+     37.8
+    ]
+   ]
+  },
+  {
+   "ring": 1,
+   "kind": "road",
+   "land": 72,
+   "mirror": 72,
+   "snap": 1.2,
+   "why": "Earth ring 1: fortress (level 1) to the Fire-Earth circle at 37.5",
+   "polar": [
+    [
+     -8.6,
+     45.7
+    ],
+    [
+     -13.6,
+     44.0
+    ],
+    [
+     -18.8,
+     42.0
+    ],
+    [
+     -24.0,
+     40.0
+    ],
+    [
+     -29.0,
+     37.8
+    ]
+   ]
+  },
+  {
+   "ring": 1,
+   "kind": "road",
+   "land": 144,
+   "mirror": 144,
+   "snap": 1.2,
+   "why": "Metal ring 1: blade (level 1), from its lower exit node, below the blade\u2019s road, to the Earth-Metal circle at 37.5",
+   "polar": [
+    [
+     -7.6,
+     42.7
+    ],
+    [
+     -12.6,
+     41.8
+    ],
+    [
+     -18.0,
+     40.6
+    ],
+    [
+     -23.5,
+     39.3
+    ],
+    [
+     -29.0,
+     37.8
+    ]
+   ]
+  },
+  {
+   "ring": 1,
+   "kind": "road",
+   "land": 216,
+   "mirror": 216,
+   "snap": 1.2,
+   "why": "Water ring 1: lotus at 52, along its existing exit road to (-10.5,45.4), then to the Metal-Water circle at 37.5, above the Ice start",
+   "polar": [
+    [
+     -6.4,
+     47.1
+    ],
+    [
+     -10.5,
+     45.4
+    ],
+    [
+     -15.4,
+     43.6
+    ],
+    [
+     -20.4,
+     41.6
+    ],
+    [
+     -25.0,
+     39.8
+    ],
+    [
+     -29.0,
+     37.8
+    ]
+   ]
+  },
+  {
+   "ring": 1,
+   "kind": "road",
+   "land": 288,
+   "mirror": 288,
+   "snap": 1.2,
+   "why": "Wood ring 1: leaf (level 1) to the Water-Wood circle at 37.5",
+   "polar": [
+    [
+     -5.3,
+     46.2
+    ],
+    [
+     -10.8,
+     44.4
+    ],
+    [
+     -16.6,
+     42.4
+    ],
+    [
+     -22.6,
+     40.2
+    ],
+    [
+     -29.0,
+     37.8
+    ]
+   ]
+  },
+  {
+   "ring": 2,
+   "kind": "road",
+   "land": 0,
+   "mirror": 0,
+   "snap": 1.2,
+   "why": "Fire ring 2: star (level 2) to the Wood-Fire circle at 59",
+   "polar": [
+    [
+     -5.2,
+     67.8
+    ],
+    [
+     -9.8,
+     66.6
+    ],
+    [
+     -14.4,
+     65.4
+    ],
+    [
+     -19.0,
+     64.2
+    ],
+    [
+     -23.4,
+     63.0
+    ],
+    [
+     -27.4,
+     62.1
+    ],
+    [
+     -31.2,
+     61.4
+    ]
+   ]
+  },
+  {
+   "ring": 2,
+   "kind": "road",
+   "land": 72,
+   "mirror": 72,
+   "snap": 1.2,
+   "why": "Earth ring 2: fortress (level 2) to the Fire-Earth circle at 59",
+   "polar": [
+    [
+     -4.6,
+     67.5
+    ],
+    [
+     -9.3,
+     66.5
+    ],
+    [
+     -14.0,
+     65.4
+    ],
+    [
+     -16.5,
+     65.0
+    ],
+    [
+     -17.8,
+     64.5
+    ],
+    [
+     -23.1,
+     63.1
+    ],
+    [
+     -27.3,
+     62.2
+    ],
+    [
+     -31.2,
+     61.4
+    ]
+   ]
+  },
+  {
+   "ring": 2,
+   "kind": "road",
+   "land": 144,
+   "mirror": 144,
+   "snap": 1.2,
+   "why": "Metal ring 2: blade (level 2) to the Earth-Metal circle at 59",
+   "polar": [
+    [
+     -5.3,
+     69.8
+    ],
+    [
+     -7.8,
+     69.0
+    ],
+    [
+     -9.8,
+     68.4
+    ],
+    [
+     -14.4,
+     66.9
+    ],
+    [
+     -17.1,
+     66.1
+    ],
+    [
+     -19.0,
+     65.3
+    ],
+    [
+     -23.4,
+     63.8
+    ],
+    [
+     -27.4,
+     62.5
+    ],
+    [
+     -31.2,
+     61.4
+    ]
+   ]
+  },
+  {
+   "ring": 2,
+   "kind": "road",
+   "land": 216,
+   "snap": 1.2,
+   "why": "Water ring 2, left: lotus (level 2) to the Metal-Water circle at 59",
+   "polar": [
+    [
+     -4.2,
+     69.7
+    ],
+    [
+     -8.8,
+     68.3
+    ],
+    [
+     -13.4,
+     66.8
+    ],
+    [
+     -18.0,
+     65.3
+    ],
+    [
+     -22.5,
+     63.9
+    ],
+    [
+     -24.7,
+     63.2
+    ],
+    [
+     -27.0,
+     62.6
+    ],
+    [
+     -31.2,
+     61.4
+    ]
+   ]
+  },
+  {
+   "ring": 2,
+   "kind": "road",
+   "land": 216,
+   "snap": 1.2,
+   "why": "Water ring 2, right: lotus (level 2) to the Wind start in the Water-Wood blend",
+   "polar": [
+    [
+     4.2,
+     69.7
+    ],
+    [
+     8.9,
+     68.3
+    ],
+    [
+     13.7,
+     66.8
+    ],
+    [
+     18.5,
+     65.3
+    ],
+    [
+     23.3,
+     63.8
+    ],
+    [
+     28.2,
+     62.4
+    ],
+    [
+     33.1,
+     61.4
+    ]
+   ]
+  },
+  {
+   "ring": 2,
+   "kind": "road",
+   "land": 288,
+   "snap": 1.2,
+   "why": "Wood ring 2, right: leaf (level 2) to the Wood-Fire circle at 59",
+   "polar": [
+    [
+     3.3,
+     69.6
+    ],
+    [
+     8.0,
+     68.3
+    ],
+    [
+     12.7,
+     66.9
+    ],
+    [
+     17.4,
+     65.5
+    ],
+    [
+     22.1,
+     64.0
+    ],
+    [
+     26.7,
+     62.6
+    ],
+    [
+     31.2,
+     61.4
+    ]
+   ]
+  },
+  {
+   "ring": 2,
+   "kind": "road",
+   "land": 288,
+   "snap": 1.2,
+   "why": "Wood ring 2, left: leaf (level 2) to the Wind start in the Water-Wood blend",
+   "polar": [
+    [
+     -3.3,
+     69.6
+    ],
+    [
+     -6.2,
+     69.0
+    ],
+    [
+     -8.2,
+     68.2
+    ],
+    [
+     -13.1,
+     66.8
+    ],
+    [
+     -18.1,
+     65.4
+    ],
+    [
+     -20.6,
+     64.7
+    ],
+    [
+     -23.0,
+     64.0
+    ],
+    [
+     -28.0,
+     62.6
+    ],
+    [
+     -33.1,
+     61.4
+    ]
+   ]
+  }
+ ]
+}
