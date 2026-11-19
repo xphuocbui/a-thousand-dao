@@ -1032,8 +1032,7 @@ def scale_row(rid=32):
     return nodes, [(rid, 'a0', None), ('a0', 'p1', c1), ('p1', 'a1', c1), ('a1', 'p2', c2), ('p2', 'a2', c2)]
 
 
-CELLS[81]['scales L'] = scale_row(32)
-CELLS[81]['scales R'] = mirror_pieces({'s': CELLS[81]['scales L']}, THEME)['s']
+# (2026-11-19: the hub cell 81 scales hung from spoke 32 are gone with the hub's spokes; the hub is Chaos's, below)
 
 
 # G1, cell 10, grown: the hex shield gets an outer rim over its top, an arc of five on the orbit 2.4 round the shield's

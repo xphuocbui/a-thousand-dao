@@ -1016,10 +1016,7 @@ for _c, _row in ((17, ('Y17_1812', 1812, 'Crescent', 'bow in', 1.1, 40, 0, False
                  (54, ('Y54_1890', 1890, 'Crescent', 'bow out', 1.1, 170, 0, True))):
     add(_c, fill_rows({}, [_row]))
 
-# --- Cell 82 (hub cell, light touch): a Diamond off 33 and its mirror off 34, in the two empty corners beside the seed
-# drop (the hub cell stays symmetric).
-add(82, fill_rows({}, [('Y82_33', 33, 'Diamond', 'round', 1.2, 80, 0, False)]))
-add(82, {'Y82_34': mirror_pieces({'p': CELLS[82]['Y82_33']}, LAND)['p']})
+# (2026-11-19: the hub cell 82 diamonds hung from spokes 33 and 34 are gone with the hub's spokes; the hub is Chaos's)
 
 # --- Cell 32: the MOON HALO's inner arc grows from 3 to 5 (notable ends at -40 and -140), the halo now big.
 _hn, _hl = CELLS[32]['moon_halo']
