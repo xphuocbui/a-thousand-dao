@@ -171,11 +171,15 @@ are named parameters; their values and ranges are in Formulas.
      a road granted there counts without a cliff (user decision 2026-11-10, re-review D-R2; Spiritual Roots rule 8a); a
      Dao mark in a border cluster (the cluster on a border line, at 59) uses the average of its two lands' multipliers
      (user decision 2026-11-18: the blend zones became border lines); a variant land's
-     (rule 20) uses that variant's purity the same way. Keystones and the hub are exact.
+     (rule 20) uses that variant's purity the same way. A root holding Thunder, Ice or Wind scales its parents' lands at
+     the owned rate, by the higher of the element's purity and the variant's (Thunder: Fire and Metal; Ice: Water; Wind:
+     Water and Wood; Spiritual Roots rule 12, user decision 2026-11-19). Keystones and the hub are exact.
    - **Roads.** An element land's road nodes grant only that element's purity, about `road_purity` (0.5) each, exact
      (Spiritual Roots rule 8a: purity is proficiency and has no cap); a border line's road nodes grant half of each
-     neighbour's; a variant start's roads (the Wind start's and the islands') grant that variant's purity the same way (user decision
-     2026-11-10, Spiritual Roots review D4); the hub's Source roads give general stats. The amount
+     neighbour's; an island's roads (Light, Darkness, Thunder) grant that variant's purity the same way (user decision
+     2026-11-10, Spiritual Roots review D4). A parent's roads also raise its variant, since Thunder, Ice and Wind take
+     their parents' purity (Spiritual Roots rule 10); the Wind start has no Wind roads of its own, and Wind grows through
+     the Water–Wood border roads (user decision 2026-11-19). The hub's Source roads give general stats. The amount
      is bot-tuned so purity above 100 stays rare (user decisions 2026-11-10).
    - **Keys.** Any key in the Modifier System's Stat List may appear except `leech_health_pct` and
      `bonus_ward_slots`, the rare sustain exception (user decision 2026-11-10); rare modifiers only on keystones.
@@ -268,7 +272,7 @@ are named parameters; their values and ranges are in Formulas.
 **Variant lands**
 
 20. **Variant roots have their own starts and lands** (user decision 2026-11-10, replacing the variant sectors of
-    2026-11-04). Wind has its land, Ice its start inside Water's land, Light, Darkness and Thunder their islands, and
+    2026-11-04). Wind has its start on the Water–Wood border (its land was removed 2026-11-18), Ice its start inside Water's land, Light, Darkness and Thunder their islands, and
     Primordial Chaos the hub. They are open to everyone, like the element lands; a variant land's Dao marks scale by
     0.5 + purity/100 for that variant, or 0.25 at purity 0. A variant start can be picked only by a root
     holding the variant (rule 3). Blood and Void, archived as roots (Spiritual Roots, 2026-11-09), have no land; their

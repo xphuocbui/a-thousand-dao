@@ -210,14 +210,15 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
     System rule 9a) are multiplied by `(1 + stack_purity_factor × P)`, a "more" multiplier of their own (Formulas H):
     - **P** is the purity, **uncapped**, of the combatant whose stack it is: a **debuff uses the applier's** purity,
       read when the batch is applied, and a **buff uses the holder's** (user decision 2026-11-10, review D3).
-      Variants (Thunder, Wind, Ice) use their own purity. Enemies, beasts and tribulations have `stack_purity` 0
+      Variants use their own purity; for Thunder, Ice and Wind it follows their parents (rule 10). Enemies, beasts and tribulations have `stack_purity` 0
       unless their record sets one; an NPC cultivator uses its root.
-    - **Ice and Water share at half rate:** Ice's P is Ice purity + `pair_share` (½) × Water purity, and Water's P is
-      Water purity + ½ × Ice purity.
+    - **Ice reads Water** (user decision 2026-11-19): Ice's purity is Water's (rule 10), so the half-rate sharing between
+      them (`pair_share`) is removed.
     - **Purity past 100** comes only from rare sources. Defined: a land's roads on the Đạo Đồ (an element
       land's for its element, a variant land's for its variant; Đạo Đồ rule 4) and a Linh Căn Quả raise (rule
       13). Intended, not yet defined: rare items and Đạo nodes (Open Question 14). Every source is small, so high
-      purity is hard to gather. Innate variants (Wind) gain purity this way too (user decision 2026-11-10, review D4).
+      purity is hard to gather. Wind gains it through its parents' roads, the Water and Wood land roads and the Water–Wood border roads; the Wind start
+      has no Wind roads of its own (user decisions 2026-11-10, review D4; 2026-11-19).
     - **Elements and variants the root does not own** can gain purity from those sources, starting at 0. That purity
       counts everywhere a purity is read (stacks, land scaling at the unowned rate of rule 8, element and variant
       roles, and techniques that name it once it reaches `tech_foreign_purity_min` 10) except the root's own counts: it does not make the root own the element, so it changes no `n_base`, pair
@@ -239,6 +240,8 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
    | Primordial Chaos (Hỗn Độn) | Convergence | owns all five base elements |
    | Light (Quang) | Transmutation (Chuyển Hóa) | owns Fire |
    | Ice (Băng) | Transmutation | owns Water |
+
+   Wind is innate, but it has **parents** for purity and lands: Water and Wood (user decision 2026-11-19; rules 10, 12).
 
    **Archived (2026-11-09):** Blood and Void keep their catalogue places and roll order. **Target after the code
    pass:** their `innate_chance` is 0 and Self-made rejects them, so no new life holds them; a save that already
@@ -271,6 +274,10 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
       purity changes, so a Tẩy Tủy Đan lifts the variant built on that element. An innate variant's purity is drawn
       from the birth purity distribution when it forms. Either kind then adds the purity its own land's roads grant
       (rule 8a).
+    - **Parent purity** (user decision 2026-11-19). Thunder (parents Fire and Metal), Ice (Water) and Wind (Water and
+      Wood) take their parents' purity as their own, recomputed whenever a parent's changes: Thunder = round(√(Fire ×
+      Metal)); Ice = Water; Wind = the higher of its birth-drawn purity and round(√(Water × Wood)). The variant's own
+      roads then add on top (rule 8a). Light, Darkness and Primordial Chaos keep `variant_purity_factor`.
     - **Mutation Awakening (Biến Dị Khai Mở).** This system subscribes to Realms &
       Bottlenecks' `breakthrough_succeeded` event (a successful move to the next realm).
       On each event, if the Đạo Đồ capability #24 is in the character's capability
@@ -292,7 +299,9 @@ pre-redesign GDD (git b7f4639) are marked **(change)**.
     in Water's land; the Light, Darkness and Thunder islands; the Primordial
     Chaos hub; its rule 20), open to everyone. A root holding a variant may start at its start (Đạo Đồ rule
     3), and the land's Dao marks scale by the variant's purity (0.25 at purity 0). The old hidden, locked variant
-    sectors are retired. This system supplies the owned set and each variant's purity.
+    sectors are retired. **Parents' lands** (user decision 2026-11-19): a root holding Thunder, Ice or Wind scales its
+    parents' lands at the owned rate, by the higher of the element's purity and the variant's (Thunder in Fire and
+    Metal, Ice in Water, Wind in Water and Wood). This system supplies the owned set and each variant's purity.
 
 **Changing the root**
 
@@ -597,28 +606,31 @@ Chaos 5 × 0.0520 = **26.0 %**.
 
 **D2. Purity.** The variant_purity formulas are defined as:
 
-`purity_v = max(1, round(variant_purity_factor · (Π_{e ∈ req(v)} purity_e)^(1/m)))` for derived variants (no upper clamp; rule 10), recomputed whenever a required element's purity changes ; `purity_v = clamp(round(N(μ, σ)), p_min, p_max)` for innate variants, drawn once and fixed
+`purity_v = round((Π_{e ∈ parents(v)} purity_e)^(1/m))` for Thunder, Ice and Wind (parent purity, rule 10, user decision 2026-11-19; Wind takes the higher of this and its birth draw), recomputed whenever a parent's purity changes ; `purity_v = max(1, round(variant_purity_factor · (Π_{e ∈ req(v)} purity_e)^(1/m)))` for the other derived variants (Light, Darkness, Chaos; no upper clamp; rule 10), recomputed whenever a required element's purity changes ; `purity_v = clamp(round(N(μ, σ)), p_min, p_max)` for innate variants, drawn once and fixed
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| variant_purity_factor | float | 0.8 | data file | Discount on the geometric mean |
+| variant_purity_factor | float | 0.8 | data file | Discount on the geometric mean (Light, Darkness, Chaos only) |
+| parents(v) | set | Thunder {Fire, Metal}; Ice {Water}; Wind {Water, Wood} | data file (`variant_parents`) | The elements whose purity Thunder, Ice and Wind take as their own (user decision 2026-11-19) |
 | m | int | 1, 2 or 5 | calculated | Number of required elements |
 | purity_e | int | 10 and up (uncapped, rule 8a) | calculated | Current element purity |
 | purity_v | int | derived 8 and up; innate 10 and up | calculated | The variant's purity: base (parents or birth draw) plus road purity (rule 8a) |
 
 **Output Range:**
-- A derived purity is 8–80 while its parents are in the birth range; it follows them past 100 (no upper clamp,
-  review D1), so 1 is the only bound.
+- Light, Darkness and Chaos are 8–80 while their parents are in the birth range; Thunder and Ice are 10–100, their
+  parents' range (parent purity, 2026-11-19). All follow their parents past 100 (no upper clamp, review D1), so 1 is
+  the only bound.
 - Exact .5 ties cannot occur. The geometric mean of integers is an integer or irrational,
   and 0.8 g = k + 0.5 needs g = (10k + 5)/8, never an integer. Float `round()` is
-  therefore safe here.
-- A derived variant formed with chance ∝ purity has a typical purity of about 45.5, so the
-  derived typical value sits at roughly 0.91 of the purity-50 figure used in Formulas E.
+  therefore safe here. Parent purity has no ties either: √n = k + 0.5 needs n = k² + k + 0.25, never an integer.
+- A Light, Darkness or Chaos variant formed with chance ∝ purity has a typical purity of about 45.5, so its
+  typical value sits at roughly 0.91 of the purity-50 figure used in Formulas E. A formed Thunder is about 56 and Ice
+  about 58 (parent purity; about 1.13 of the purity-50 figure, measured by simulation 2026-11-19).
   Innate purity has mean 50.1.
 
-**Example:** Fire 86 and Metal 40 give Thunder round(0.8 × √3,440) = round(46.9) = **47**.
-After a Tẩy Tủy Đan lifts Metal to 48, Thunder is round(0.8 × √4,128) = **51**. Light on
+**Example:** Fire 86 and Metal 40 give Thunder round(√3,440) = round(58.7) = **59** (parent purity; it was 47 with the
+0.8 discount). After a Tẩy Tủy Đan lifts Metal to 48, Thunder is round(√4,128) = **64**. Light on
 Fire 86 is round(68.8) = **69**. Five elements at 60 / 50 / 45 / 70 / 55 give Chaos
 round(0.8 × 55.3) = **44**.
 
@@ -717,8 +729,8 @@ linear in purity, `power_W(100) ≈ 2 · power_W(50)`.
   them from fills. 0.3 W per point is a *guess* carried from the earlier pricing of travel
   speed, applied to both (Open Question 2).
 
-**Example:** Thunder at purity 47 (the Fire 86 / Metal 40 root): value = floor(0.30 × 47 /
-0.1) × 0.1 = floor(141) × 0.1 = **+14.1 % attack**, which is 14.1 W. Blood at innate
+**Example:** Thunder at purity 59 (the Fire 86 / Metal 40 root): value = floor(0.30 × 59 /
+0.1) × 0.1 = floor(177) × 0.1 = **+17.7 % attack**, which is 17.7 W. Blood at innate
 purity 50: **+12.5 % `khi_huyet_pct`** = 15.0 W. Chaos at 44: +5.7 % cultivation speed and
 +2.6 pp `breakthrough_chance` = 12.54 + 13.0 = **25.54 W**. W figures are exact and are
 never rounded; prose may show them to one decimal.
@@ -781,16 +793,16 @@ Restated for reference (each reads the full purity, with no cap; user decision 2
 - **Character Stats** owns the element and variant role formulas (Formulas G). Formulas E
   sets the variant coefficients.
 
-**Example:** with Fire 86 and Thunder 47:
-A technique naming both Fire and Thunder runs at (86 + 47) ÷ 2 ÷ 100 = **0.665**. A
+**Example:** with Fire 86 and Thunder 59 (Metal 40):
+A technique naming both Fire and Thunder runs at (86 + 59) ÷ 2 ÷ 100 = **0.725**. A
 Wood–Fire border-cluster Dao mark on Wood 40 and Fire 86 is (0.9 + 1.36) ÷ 2 = 1.13. The Thunder island scales by
-0.5 + 0.47 = 0.97.
+0.5 + 0.59 = 1.09.
 
 ### H. Purity and element stacks (new, 2026-11-10)
 
 The stack_power formula is defined as:
 
-`stack_power(e) = 1 + stack_purity_factor · P(e)` ; `P(e) = purity(e)` for every element and variant except the Water–Ice pair: `P(ice) = purity(ice) + pair_share · purity(water)` and `P(water) = purity(water) + pair_share · purity(ice)`; an element not owned has birth purity 0 plus what rare sources added
+`stack_power(e) = 1 + stack_purity_factor · P(e)` ; `P(e) = purity(e)` for every element and variant (the Water–Ice half-rate pair and `pair_share` were removed on 2026-11-19: Ice's purity is Water's, rule 10); an element not owned has birth purity 0 plus what rare sources added
 
 **Variables:**
 
@@ -798,13 +810,12 @@ The stack_power formula is defined as:
 |---|---|---|---|---|
 | purity(e) | float | ≥ 0, uncapped | calculated | Birth purity plus rare raises (rule 8a): the applier's for a debuff, the holder's for a buff; `stack_purity` (default 0) for an enemy, beast or tribulation |
 | stack_purity_factor | float | 0.002 | data file | +0.2 % stack power per point of purity |
-| pair_share | float | 0.5 | data file | How much of its partner's purity Water or Ice adds |
 | stack_power(e) | float | ≥ 1 | calculated | Multiplies every buff and debuff stack of element e (Effects System rule 9a) |
 
 **Output Range:** 1.0 at purity 0, 1.2 at 100, 1.6 at 300; no ceiling.
 
 **Example:** Fire 86 gives stack_power 1.172; with 40 more from Fire land's roads, 126 gives **1.252**. A root with
-Water 70 and Ice 40: Ice's P = 40 + 35 = 75 (×1.15); Water's P = 70 + 20 = 90 (×1.18).
+Water 70 has Ice 70: both stacks ×1.14.
 
 ### Parameter keys
 
@@ -815,7 +826,8 @@ Water 70 and Ice 40: Ice's P = 40 + 35 = 75 (×1.15); Water's P = 70 + 20 = 90 (
 | `count_weights` | {1: 45, 2: 32, 3: 15, 4: 6.5, 5: 1.5} | Birth weights for the number of base elements (unchanged) |
 | `purity_mean`, `purity_sd` | 50, 20 | Purity distribution for elements and innate variants (unchanged) |
 | `purity_min`, `purity_max` | 10, 100 | Clamp on birth and roll purities only; rare sources raise purity past 100 (rule 8a) |
-| `stack_purity_factor`, `pair_share` | 0.002, 0.5 **(new)** | Formulas H |
+| `stack_purity_factor` | 0.002 **(new)** | Formulas H (`pair_share` removed 2026-11-19) |
+| `variant_parents` | Thunder Fire+Metal; Ice Water; Wind Water+Wood **(new, 2026-11-19)** | Formulas D2: whose purity Thunder, Ice and Wind take |
 | `pair_bonus_pct` | 3 | Cultivation speed per generating pair (unchanged) |
 | `element_count_curve` | table in Formulas B | Keyed by `n_eff` **(change)**; values unchanged |
 | `n_cap` | 5 **(new)** | Upper limit of `n_eff` (the curve has five rows) |
@@ -1032,17 +1044,16 @@ systems split out of Combat depend on each other as follows.
 | `count_weights` | 45 / 32 / 15 / 6.5 / 1.5 | five-element weight 0.5–3; the weights sum to 100 | Tier rarity; the five-element share is also the share of lives that can reach the center keystone and Chaos (*derived*) |
 | `purity_mean` | 50 | 40–60; *derived* floor 40, below which five-element roots fail QR in time. Cultivation Techniques' `tech_norm` 2.0 is tied to it | Every purity-scaled value, element and variant |
 | `purity_sd` | 20 | 15–25 | The share of purity ≥ 85 per element: 1.1 % at 15, 4.2 % at 20, 8.4 % at 25 |
-| `purity_min` | 10 | 5–20 | The lowest element purity; the derived-variant floor (0.8 × this) |
+| `purity_min` | 10 | 5–20 | The lowest element purity; the Light, Darkness and Chaos floor (0.8 × this); Thunder and Ice floor at this |
 | `pair_bonus_pct` | 3 | 1–4.5; *derived* ceiling 4.5 (5 pairs under the 50 W keystone floor) | The pair bonus; at 2 four- and five-element roots tie, at 4+ five pulls ahead |
 | `stack_purity_factor` | 0.002 | 0.001–0.004 | How much purity strengthens element stacks (Formulas H) |
-| `pair_share` | 0.5 | 0.25–0.75 | How much Water and Ice power each other's stacks (Formulas H) |
 | `n_cap` | 5 | 5 only, unless a sixth curve row is added (which reopens Realms' years table) | How far innate variants can push `n_eff` |
 | `convergence_factor` | 0.6 | 0.4–0.8 | Thunder and Darkness, about 1.3–2.6 % of births each |
 | `transmutation_factor` | 0.12 | 0.08–0.16 | Light and Ice, about 1.5–3.0 % of births each |
 | `chaos_factor` | 5 | 2–8 | Chaos: about 6–25 % of five-element roots (0.09–0.38 % of births); the `min(1, …)` clamp binds sooner as it rises |
 | `innate_chance` | Wind 0.025, Blood 0.015, Void 0.005 | each 0–0.04; keep their sum ≤ 0.06 so that at most about 6 % of lives move up a curve row | Innate rarity and the share of lives whose `n_eff` exceeds `n_base` |
 | `void_max_elements` | 2 | 1–3; at 5 Void is unconditional | Void's niche as a sparse-root gift |
-| `variant_purity_factor` | 0.8 | 0.6–1.0; at 1.0 a derived variant can reach purity 100 and the 30 W ceiling at birth purities (past them, Open Question 15) | Derived variant purity, hence its role strength and land scale |
+| `variant_purity_factor` | 0.8 | 0.6–1.0; at 1.0 Light, Darkness or Chaos can reach purity 100 and the 30 W ceiling at birth purities (past them, Open Question 15) | Light, Darkness and Chaos purity, hence their role strength and land scale (Thunder, Ice and Wind follow their parents, 2026-11-19) |
 | `variant_effects` | Formulas E table | any value keeping each variant inside its band (common 10–30 W, Chaos 20–60 W) at purity 50 and 100 | Each variant's role strength |
 | `variant_power_band`, `variant_power_band_apex` | 10–30 W; 20–60 W | the apex ceiling should stay above the weakest keystone (50 W, registry `keystone_min_power`) only at purity 100, which a derived Chaos cannot reach at birth purities (max 80, 46.9 W; past them, Open Question 15) | How strong a variant may be |
 | `element_count_curve` | Formulas B | any change must keep the parity points | Pacing by `n_eff` |
@@ -1124,8 +1135,8 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
   fails the test.
 - **Statistical tests.** Each uses a fixed seed stored as a constant in the test, with a
   tolerance of at least four standard errors.
-- **Notation.** {Fire 86, Metal 40} + Thunder 47 is a root with those purities that owns
-  Thunder at 47.
+- **Notation.** {Fire 86, Metal 40} + Thunder 59 is a root with those purities that owns
+  Thunder at 59.
   - Cycle order: Wood, Fire, Earth, Metal, Water.
   - Catalogue order: Wind, Blood, Void, Thunder, Darkness, Chaos, Light, Ice.
   - "Forced" means the stub makes that roll succeed (U 0.0) or fail (U 0.99).
@@ -1147,7 +1158,7 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
   - the rolled set is {Wind, Blood, Light, Ice};
   - the call log equals that list exactly: 8 U, 4 N, and the N for Wind comes directly after its U.
 - **AC-LC-05** [Logic · BLOCKING] Draw order, Dual root with Void. The stub gives U 0.50, U 0.30, U 0.60, N 86.0, N 40.0, U 0.99, U 0.010, N 30.0, U 0.004, N 75.0, U 0.10, U 0.99. Then:
-  - the root is {Fire 86, Metal 40} + Blood 30, Void 75, Thunder 47, with `n_base` 2 and `n_eff` 4;
+  - the root is {Fire 86, Metal 40} + Blood 30, Void 75, Thunder 59, with `n_base` 2 and `n_eff` 4;
   - Wind failed with no N after it, and Blood and Void each drew their N directly after success;
   - Light drew and failed; Darkness, Chaos and Ice made no draw;
   - the rolled set is {Wind, Blood, Void, Thunder, Light}.
@@ -1163,14 +1174,14 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
 - **AC-LC-08** [Logic · BLOCKING] Rule 3, tier. 1–5 base elements name Single, Dual, Triple, Quadruple and Five-element. {Fire, Metal} + Thunder is Dual, {Wood} + Wind is Single, and all five + Chaos is Five-element.
 - **AC-LC-09** [Logic · BLOCKING] Rule 2, Self-made, on {Fire 86, Metal 40} with picks Thunder and Wind:
   - the RNG is called 0 times;
-  - Thunder is 47 and Wind is 50;
+  - Thunder is 59 and Wind is 50;
   - the rolled set is {Wind, Blood, Void, Thunder, Light} and the declined set is {Blood, Void, Light};
   - purity 9 or 101 is rejected at input, and 10 and 100 are accepted;
   - Thunder on {Fire 86} is rejected;
   - Void on any 3-, 4- or 5-element root is rejected, and Void on {Fire, Metal} is accepted at 50;
-  - five elements at 100 with all five derived variants, Wind and Blood is accepted, with every derived variant at 80.
+  - five elements at 100 with all five derived variants, Wind and Blood is accepted, with Thunder, Ice and Wind at 100 and Light, Darkness and Chaos at 80.
 - **AC-LC-10** [Integration · BLOCKING] Rule 2, declined. Given the AC-LC-09 root with capability #24 held, when Core Formation → Nascent Soul succeeds with rolls forced to succeed, then Light makes no draw and is not owned. When a Linh Căn Quả then adds Water, Ice (which did not qualify at birth) makes one draw and Light still makes none.
-- **AC-LC-52** [Logic · BLOCKING] Rule 2, birth perk. {Fire 86, Metal 40} + Thunder 47 with Linh Căn Thuần Tịnh gives Fire 94, Metal 48 and Thunder round(0.8 × √4512) = 54, with 0 rolls and 0 change records. Fire 95 stops at 100.
+- **AC-LC-52** [Logic · BLOCKING] Rule 2, birth perk. {Fire 86, Metal 40} + Thunder 59 with Linh Căn Thuần Tịnh gives Fire 94, Metal 48 and Thunder round(√4512) = 67, with 0 rolls and 0 change records. Fire 95 stops at 100.
 
 **Effective count, curve and pairs**
 
@@ -1231,7 +1242,7 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
 
   Every entry has `id`, `name`, `desc`, `origin` and `requires`, and every id in `requires` is an element.
 - **AC-LC-19** [Config/Data · ADVISORY] Parameters.
-  - `linh_can` holds `count_weights` 45 / 32 / 15 / 6.5 / 1.5 (sum 100), `purity_mean` 50, `purity_sd` 20, `purity_min` 10, `purity_max` 100, `pair_bonus_pct` 3, `n_cap` 5, `void_max_elements` 2, `convergence_factor` 0.6, `transmutation_factor` 0.12, `chaos_factor` 5, `innate_chance` {phong 0.025, huyet 0.015, hu_khong 0.005}, `variant_purity_factor` 0.8, `awakening_capability` 24, `awakening_max_passes` 2, `variant_power_band` [10, 30], `variant_power_band_apex` [20, 60], `stack_purity_factor` 0.002 and `pair_share` 0.5.
+  - `linh_can` holds `count_weights` 45 / 32 / 15 / 6.5 / 1.5 (sum 100), `purity_mean` 50, `purity_sd` 20, `purity_min` 10, `purity_max` 100, `pair_bonus_pct` 3, `n_cap` 5, `void_max_elements` 2, `convergence_factor` 0.6, `transmutation_factor` 0.12, `chaos_factor` 5, `innate_chance` {phong 0.025, huyet 0.015, hu_khong 0.005}, `variant_purity_factor` 0.8, `awakening_capability` 24, `awakening_max_passes` 2, `variant_power_band` [10, 30], `variant_power_band_apex` [20, 60], `stack_purity_factor` 0.002 and `variant_parents` {loi: hoa, kim; bang: thuy; phong: thuy, moc} (`pair_share` removed 2026-11-19).
   - `bien_di_chance_factor`, `bien_di_higher_order_factor`, `bien_di_purity_factor`, `bien_di_power_band`, `herb_age_root_pct`, `bien_di_counts_as_element` and `max_counted_elements` are gone from the data and from `src/`.
 - **AC-LC-20** [Logic · BLOCKING] Formula D1 chances, within 1e-9:
   - Thunder (Fire 86, Metal 40) = 0.2064 (20.6 %);
@@ -1244,12 +1255,13 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
 
   A draw equal to the chance fails: U 0.025 on Wind does not form it.
 - **AC-LC-21** [Logic · BLOCKING] Formula D2 purity:
-  - Thunder (86, 40) → 47 and (86, 48) → 51;
-  - Thunder (86, 28) → 39;
+  - Thunder (86, 40) → 59 and (86, 48) → 64;
+  - Thunder (86, 28) → 49;
   - Light (86) → 69;
   - Chaos (60 / 50 / 45 / 70 / 55) → 44;
-  - any derived variant with all requirements at 10 → 8 and at 100 → 80.
-- **AC-LC-22** [Logic · BLOCKING] Rule 10, formation over 50,000 rolls. Thunder on {Fire 86, Metal 40} forms 20.64 % ± 0.75 pp of the time, always at 47. Light on {Fire 86} forms 10.32 % ± 0.55 pp, always at 69.
+  - Light, Darkness or Chaos with all requirements at 10 → 8 and at 100 → 80; Thunder and Ice → 10 and 100;
+  - Ice (Water 70) → 70; Wind drawn 40 on Water 60 and Wood 70 → 65, and on Water 10 and Wood 40 → 40.
+- **AC-LC-22** [Logic · BLOCKING] Rule 10, formation over 50,000 rolls. Thunder on {Fire 86, Metal 40} forms 20.64 % ± 0.75 pp of the time, always at 59. Light on {Fire 86} forms 10.32 % ± 0.55 pp, always at 69.
 - **AC-LC-23** [Logic · BLOCKING] Formula D1, birth rates over 200,000 births:
 
   | Measure | Rate | Tolerance |
@@ -1322,13 +1334,14 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
   | Darkness 47 | `stealth` +9.4 | "Biến dị: Ám" |
   | Ice 47 | `dan_doc_resist_pct` +8.4 | "Biến dị: Băng" |
   | Wind 60 | `travel_speed_pct` +60.0 | "Biến dị: Phong" |
-  | Thunder 47 | `attack_pct` +14.1 | "Biến dị: Lôi" |
+  | Thunder 59 | `attack_pct` +17.7 | "Biến dị: Lôi" |
   | Blood 50 | `khi_huyet_pct` +12.5 | "Biến dị: Huyết" |
   | Void 75 | `co_duyen_pct` +75.0 | "Biến dị: Hư Không" |
   | Chaos 44 | `cultivation_speed_pct` +5.7 and `breakthrough_chance` +2.6 | "Biến dị: Hỗn Độn" |
 
   - An unowned variant adds no line.
-  - Thunder's line reads +15.3 straight after a pill lifts it to 51.
+  - Thunder's line reads +19.2 straight after a pill lifts Metal to 48 (Thunder 64). A floating-point floor reads
+    Thunder 59 as +17.6, so that case catches it.
   - Chaos's line sits outside the tree's 8 pp cap: tree lines at the cap plus Chaos 80 total +12.8 pp on the sheet. At an attempt, Realms' q-extras ceiling then clamps that sum (its Formulas C, AC-CG-65).
 
 **Mutation Awakening (Biến Dị Khai Mở)**
@@ -1352,11 +1365,12 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
     Linh Căn Quả) changes its land's scale and not the character's start, and refunds nothing.
   - An NPC owning a variant may take its start (its strongest purity, Đạo Đồ rule 3).
   - Across every later root change and a save/load, nothing about the land's visibility changes.
-- **AC-LC-34** [Integration · BLOCKING] Formula G and rule 8, with {Wood 40, Fire 86} and {Fire 86, Metal 40} + Thunder 47, Wind 62.
-  - Land scale: Thunder 0.97, then 1.01 after a pill lifts it to 51; Wind 1.12, unchanged by the pill.
-  - A technique naming Fire and Thunder runs at 0.665, then 0.685 after the pill.
+- **AC-LC-34** [Integration · BLOCKING] Formula G and rule 8, with {Wood 40, Fire 86} and {Fire 86, Metal 40} + Thunder 59, Wind 62.
+  - Land scale: Thunder 1.09, then 1.14 after a pill lifts Metal to 48 (Thunder 64); Wind 1.12, unchanged by the pill.
+  - A technique naming Fire and Thunder runs at 0.725, then 0.75 after the pill.
   - On {Wood 40, Fire 86}: Wood land 0.9, Fire 1.36, Earth at purity 0 0.25, Wood–Fire border cluster 1.13, and a Wood–Fire technique runs at 0.63.
-  - Owning Thunder does not change the Fire or Metal land scale.
+  - Owning Thunder lifts the Metal land from 0.90 to 1.09 (Thunder 59 is higher than Metal 40; rule 12, parents'
+    lands) and leaves the Fire land at 1.36 (Fire 86 is higher).
 - **AC-LC-35** [Integration · BLOCKING] Center keystone reads `n_base`. It is refused on four elements + Wind (`n_eff` 5) and on {Fire, Metal} + Wind, Blood, Void, and allowed on all five base elements.
 - **AC-LC-36** [Integration · BLOCKING] Rule 3, `count_gain` reads `n_base`. A Dual root + Wind and a Dual root + Thunder read the same `count_gain` as a plain Dual root, and a Triple root reads its own value.
 
@@ -1368,7 +1382,7 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
   - A weakest element at 97 with potency 1.0 → 100.
   - Ties go in cycle order: {Fire 30, Metal 50, Water 30} raises Fire, and {Wood 30, Water 30} raises Wood.
   - Variants are not candidates: {Fire 40, Metal 50} + Wind 12 raises Fire.
-- **AC-LC-38** [Logic · BLOCKING] Rule 10 recompute. {Fire 86, Metal 40} + Thunder 47, Light 69, Wind 60 at potency 1.25 raises Metal to 48. Thunder becomes 51, Light stays 69 and Wind stays 60, with 0 draws. {Fire 30, Metal 30} + Thunder 24 at potency 1.0 raises Fire to 36 and Thunder to 26.
+- **AC-LC-38** [Logic · BLOCKING] Rule 10 recompute. {Fire 86, Metal 40} + Thunder 59, Light 69, Wind 60 at potency 1.25 raises Metal to 48. Thunder becomes 64, Light stays 69 and Wind stays 60, with 0 draws. {Fire 30, Metal 30} + Thunder 30 at potency 1.0 raises Fire to 36 and Thunder to 33.
 - **AC-LC-39** [Logic · BLOCKING] Refused and kept. A fourth Tẩy Tủy Đan, or one taken with every owned element at least 100 (one of them at 120 from roads), is refused. The inventory, the use counter, the purities and the World Database are all unchanged. A refusal at 100 does not count toward the three.
 - **AC-LC-40** [Logic · BLOCKING] Linh Căn Quả adds an element. Given {Fire 86, Wood 40} with the rolled set {Wind, Blood, Void, Light}, the player picking Metal, and added purity 28:
   - the call log is 1 U for the purity, then 1 U for Thunder at chance 0.14448, with no element draw;
@@ -1379,12 +1393,12 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
   - over 16,000 uses each purity from 20 to 35 appears 6.25 % ± 0.8 pp.
 - **AC-LC-41** [Logic · BLOCKING] Fifth element. Given {Wood 50, Fire 60, Earth 50, Metal 40} with Wind, Blood, Thunder and Light rolled and failed, a Linh Căn Quả adds Water at 30.
   - Exactly three rolls are made, in order: Darkness (0.09), Chaos (0.09), Ice (0.036).
-  - Forced success forms Darkness 31, Chaos 36 and Ice 24.
+  - Forced success forms Darkness 31, Chaos 36 and Ice 30 (Ice is Water's purity).
   - The root is Five-element with 5 pairs.
 - **AC-LC-42** [Logic · BLOCKING] Innate never rolls later. A Linh Căn Quả or a pill makes no draw for Wind, Blood or Void on any root. {Fire, Metal} + Void 75 that gains Water keeps Void at 75, with `n_base` 3 and `n_eff` 4.
-- **AC-LC-43** [Logic · BLOCKING] All five owned, on {Wood 50, Fire 30, Earth 60, Metal 30, Water 90} + Thunder 24:
+- **AC-LC-43** [Logic · BLOCKING] All five owned, on {Wood 50, Fire 30, Earth 60, Metal 30, Water 90} + Thunder 30:
   - a Linh Căn Quả raises Fire to 38, a tie broken in cycle order;
-  - Thunder becomes 27 and 0 rolls are made;
+  - Thunder becomes 34 and 0 rolls are made;
   - the player is offered no pick, because no element is missing;
   - a weakest element at 95 → 103 (past 100, rule 8a);
   - with all five at 100 or more, the fruit still raises the weakest by 8 and is never refused.
@@ -1412,8 +1426,9 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
   - a failed variant still makes no draw on a fruit;
   - a declined variant still makes no Awakening draw.
 - **AC-LC-49** [Logic · BLOCKING] Pre-redesign save. Given {Wood 40, Fire 86, Metal 40, Water 60} holding `quang` stored 47, `loi` stored 99, `phong` stored 39, `huyet` stored 6, `dan_hoa` and `kiem`, with an old rolled set holding `quang`, `loi` and `kiem`:
-  - after load Light is 69 and Thunder 47 (stored purities ignored);
-  - Wind is 39 and Blood is 10 (stored value kept, clamped);
+  - after load Light is 69 and Thunder 59 (stored purities ignored);
+  - Wind is 49 (its stored 39 is below round(√(Water 60 × Wood 40)) = 49, rule 10) and Blood is 10 (stored value
+    kept, clamped);
   - `dan_hoa` and `kiem` are not in the root or the rolled set;
   - Ice, which the old rolled set lacks but whose requirement is met, is marked rolled;
   - the tier is Quadruple and `n_eff` is 5.
@@ -1423,18 +1438,24 @@ Drafted with `qa-lead`, which recomputed every worked number and checked the bir
 
 - **AC-LC-51** [UI · BLOCKING] Root line and `explain`. Evidence is a retained screenshot plus transcript in `production/qa/evidence/debug-terminal/`.
   - {Fire 86, Water 60} + Wind 62: the root line (birth line) reads "Dual root: Fire [Hỏa] 86, Water [Thủy] 60 + Wind [Phong] 62 (counts as 3)". The sheet's root block shows curve row 3 and Wind 62 with origin innate.
-  - {Fire 86, Metal 40} + Thunder 47: the root line reads "Dual root: Fire [Hỏa] 86, Metal [Kim] 40 + Thunder [Lôi] 47" with no "counts as" text. The sheet's root block shows Thunder 47 with origin convergence.
+  - {Fire 86, Metal 40} + Thunder 59: the root line reads "Dual root: Fire [Hỏa] 86, Metal [Kim] 40 + Thunder [Lôi] 59" with no "counts as" text. The sheet's root block shows Thunder 59 with origin convergence.
   - A variant that failed its roll does not appear on either screen.
-  - **Provisional** (not built, Open Question 12): `explain` for Thunder shows its origin, its requirement (Fire and Metal), purity 47 and +14.1 attack with source "Biến dị: Lôi".
+  - **Provisional** (not built, Open Question 12): `explain` for Thunder shows its origin, its requirement (Fire and Metal), purity 59 and +17.7 attack with source "Biến dị: Lôi".
   - `explain rate` shows the curve row read (3 for the first fixture). **Provisional** (not built, Open Question 12): it also shows each pair source.
   - The Linh Căn Quả preview on the first fixture in FE early stage lists each missing element, and Metal shows Dual → Triple, the factor 0.9 → 0.75 and the added +3 % pair.
 - **AC-LC-53** [Logic · BLOCKING] Rule 8a. **GIVEN** a {Fire} root that gains 30 Metal purity from Metal land's roads, **THEN** Metal stacks have power 1.06, Metal-land Dao marks scale by 0.55 (0.25 + 0.30, the unowned rate; not 0.80), Metal's element role reads 30, `n_base` stays 1, no pair bonus is added, and no variant rolls. A Metal technique is
   usable (30 ≥ `tech_foreign_purity_min` 10) at speed 0.30; at Metal 8 it is not.
-- **AC-LC-54** [Logic · BLOCKING] Formulas H. **GIVEN** Fire purity 86, **THEN** Fire stack power is 1.172; **GIVEN** 40 more from roads (126), **THEN** 1.252, and the root's technique speed and sector scaling read 126 too. **GIVEN** Water 70 and Ice 40, **THEN** Ice's stack power is 1.15 and Water's 1.18.
+- **AC-LC-54** [Logic · BLOCKING] Formulas H. **GIVEN** Fire purity 86, **THEN** Fire stack power is 1.172; **GIVEN** 40 more from roads (126), **THEN** 1.252, and the root's technique speed and sector scaling read 126 too. **GIVEN** Water 70, **THEN** Ice is 70 and both stack powers are 1.14.
 - **AC-LC-55** [Logic · BLOCKING] Debuff purity. **GIVEN** a player with Fire 120 applying Burn to a beast with no `stack_purity`, **THEN** the Burn stacks have power 1.24; **GIVEN** the beast applies its own Fire debuff to the player, **THEN** its stacks have power 1.0.
-- **AC-LC-56** [Logic · BLOCKING] Rare sources. A Wind 50 root that opens 10 Wind road nodes (open since 2026-11-18: which roads round the Wind start count as Wind roads, now that Wind's land is gone) has Wind 55 (Đạo Đồ `road_purity` 0.5); a Thunder variant built on Fire 160 and Metal 140 has purity round(0.8 × √22400) = 120.
+- **AC-LC-56** [Logic · BLOCKING] Rare sources. A {Water 60, Wood 60} + Wind 50 root has Wind 60; opening 8 Water–Wood border road nodes (+0.25 Water and +0.25 Wood each, Đạo Đồ `road_purity` 0.5) gives Water 62, Wood 62 and Wind 62 (no Wind roads of their own, user decision 2026-11-19); a Thunder variant built on Fire 160 and Metal 140 has purity round(√22400) = 150.
 - **AC-LC-57** [Logic · BLOCKING] Rule 13, fruit onto a road-raised element. **GIVEN** a {Fire} root with Metal at road purity 40 and a Linh Căn Quả that picks Metal and draws 28, **THEN** Metal becomes owned at 40 (one purity draw, no loss); with road purity 15 and the same draw, Metal is owned at 28.
 
+- **AC-LC-58** [Logic · BLOCKING] Rule 10 and rule 12, parent purity and parents' lands (user decision 2026-11-19).
+  - {Water 60, Wood 70} + Wind drawn 40 has Wind 65; a pill lifting Water to 70 makes it 70, with 0 draws.
+  - {Fire 86} + Wind 50 (no Water or Wood) scales the Water and Wood lands at the owned rate, 0.5 + 0.50 = 1.00
+    (an unowned element without Wind would read 0.25).
+  - {Water 70} + Ice has Ice 70; the Water land reads 1.20 with or without Ice.
+  - Light, Darkness and Chaos still read `variant_purity_factor`: Light on Fire 86 is 69.
 **Not testable here, by design:**
 - Total lives holding a variant (about 12.4–13.5 %) depends on E_p, an unsourced estimate that needs a bot run (Open Question 1).
 - The years-per-realm table depends on the guessed rate factor.

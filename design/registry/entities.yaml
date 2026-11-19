@@ -2380,16 +2380,17 @@ constants:
     added: 2026-11-10
     revised: ""
   - name: pair_share
-    status: active
+    # 2026-11-19: removed; Ice's purity is Water's (Spiritual Roots rule 10, parent purity).
+    status: deprecated
     source: design/gdd/linh-can.md
     referenced_by:
       - design/gdd/linh-can.md
       - design/gdd/effects.md
     value: 0.5
     unit: share of the partner's purity
-    notes: "Water and Ice each add this share of the other's purity to their own for stacks (Formulas H)."
+    notes: "Water and Ice each added this share of the other's purity to their own for stacks (Formulas H). Removed 2026-11-19: Ice takes Water's purity."
     added: 2026-11-10
-    revised: ""
+    revised: 2026-11-19
   - name: bien_di_factors
     # 2026-11-04 (Spiritual Roots redesign): was chance 0.5 / 0.25/(o-1), purity 0.8; replaced by variant_factors.
     status: deprecated
@@ -3442,10 +3443,21 @@ constants:
     source: design/gdd/linh-can.md
     referenced_by:
       - design/gdd/linh-can.md
-    value: "convergence 0.6, transmutation 0.12, chaos 5; purity factor 0.8"
+    value: "convergence 0.6, transmutation 0.12, chaos 5; purity factor 0.8 (Light, Darkness, Chaos only)"
     unit: factor
-    notes: "Variant formation; replaces bien_di_factors."
+    notes: "Variant formation; replaces bien_di_factors. 2026-11-19: Thunder, Ice and Wind take their parents' purity instead (variant_parents)."
     added: 2026-11-04
+    revised: 2026-11-19
+  - name: variant_parents
+    status: active
+    source: design/gdd/linh-can.md
+    referenced_by:
+      - design/gdd/linh-can.md
+      - design/gdd/dao-do.md
+    value: {loi: [hoa, kim], bang: [thuy], phong: [thuy, moc]}
+    unit: element ids
+    notes: "Thunder, Ice and Wind take round(geometric mean of their parents' purity) as their own (Wind: the higher of that and its birth draw) and scale their parents' Dao Do lands at the owned rate (Spiritual Roots rules 10 and 12, Formulas D2; user decision 2026-11-19)."
+    added: 2026-11-19
     revised: ""
   - name: innate_chance
     status: active
