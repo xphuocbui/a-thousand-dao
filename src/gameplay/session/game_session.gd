@@ -770,6 +770,65 @@ func _map_clue_for(place_id: String) -> bool:
 	return slot != "" and knowledge.clues.any(func(c): return str(c.slot) == slot and str(c.kind) == "map")
 
 
+## Travel & Map rule 11 and Formula K: a jump between two teleport-array cities. The fee grows with the straight-line
+## distance d in tiles: round(linh_thach_max[realm] * min(fee_base_frac + fee_per_tile_frac * d, fee_frac_max) *
+## owner_mult); the jump takes jump_seasons, and the rest of the season cultivates at the destination. {} fee when
+## either end has no array.
+func teleport_fee(dest_id: String) -> Dictionary:
+	var here: Dictionary = db.get_record("places", player.location_id)
+	var dest: Dictionary = db.get_record("places", dest_id)
+	if not bool(here.get("array", false)) or not bool(dest.get("array", false)) or dest_id == player.location_id:
+		return {}
+	var tp: Dictionary = gd.file(Travel.RULES_FILE).get("teleport", {})
+	var d: int = maxi(absi(int(here.tile[0]) - int(dest.tile[0])), absi(int(here.tile[1]) - int(dest.tile[1])))
+	var frac: float = minf(float(tp.get("fee_base_frac", 0.05)) + float(tp.get("fee_per_tile_frac", 0.0005)) * float(d), float(tp.get("fee_frac_max", 0.3)))
+	var lt_max: float = float(gd.realm_budget(player.realm_index).get("linh_thach_max", 0))
+	return {"fee": int(round(lt_max * frac * float(tp.get("owner_mult", 1.0)))), "tiles": d, "seasons": float(tp.get("jump_seasons", 0.05))}
+
+
+## Jumps through the teleport array here to the one at [param dest_id] (a place id or name).
+func teleport(dest_id: String) -> Dictionary:
+	var g: Dictionary = _guard(true)
+	if not g.ok:
+		return g
+	if not db.has_record("places", dest_id):
+		var named: Array = db.find("places", func(p): return str(p.name) == dest_id)
+		dest_id = str(named[0].id) if not named.is_empty() else dest_id
+	var fee: Dictionary = teleport_fee(dest_id)
+	if fee.is_empty():
+		return {"ok": false, "lines": ["A jump needs a teleport array here and at the destination (the great cities that hold one: 'arrays')."]}
+	if player.linh_thach < int(fee.fee):
+		return {"ok": false, "lines": ["The array keepers ask %d linh thạch; you have %d." % [int(fee.fee), player.linh_thach]]}
+	player.linh_thach -= int(fee.fee)
+	var dest: Dictionary = db.get_record("places", dest_id)
+	var r: Dictionary = _pass_season("travel")
+	if r.died:
+		return {"ok": true, "lines": ["You die before the array takes you."] + death_lines()}
+	player.location_id = dest_id
+	if not player.visited.has(dest_id):
+		player.visited.append(dest_id)
+	if knowledge != null:
+		knowledge.places[dest_id] = true
+	var lines: Array = ["The array flares: %d tiles in %.2f of a season, for %d linh thạch. You arrive at %s." % [int(fee.tiles), float(fee.seasons), int(fee.fee), dest.name]]
+	var left: float = 1.0 - float(fee.seasons)
+	if not CultivationRules.at_bottleneck(player, gd):
+		var rate: float = CultivationRules.rate_per_season(player, gd, db, sheet(), float(dest.get("density", 1.0)), false, dest.get("qi", {})).total
+		var res: Dictionary = CultivationRules.add_tu_vi(player, gd, rate * left * float(gd.file(Travel.RULES_FILE).get("partial_season_efficiency", 1.0)))
+		lines.append("The rest of the season you cultivate there: +%.1f tu vi." % float(res.gained))
+	sync_player()
+	lines.append_array(_news_lines(r.news))
+	return {"ok": true, "lines": lines}
+
+
+## The teleport-array cities and the fee from here to each, as lines.
+func array_lines() -> Array:
+	var out: Array = []
+	for p in db.find("places", func(x): return bool(x.get("array", false))):
+		var fee: Dictionary = teleport_fee(str(p.id))
+		out.append("  %-5s %-22s %s" % [p.id, p.name, ("%d LT, %d tiles" % [int(fee.fee), int(fee.tiles)]) if not fee.is_empty() else ("(you are here)" if str(p.id) == player.location_id else "(no array here)")])
+	return out if not out.is_empty() else ["No teleport arrays in this world."]
+
+
 ## Capability #21: once a year, travel instantly to any visited place.
 func blink(dest_id: String) -> Dictionary:
 	var g: Dictionary = _guard(true)

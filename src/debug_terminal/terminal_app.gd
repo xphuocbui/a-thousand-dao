@@ -55,7 +55,7 @@ const HELP := [
 		["beasts / release <id>", "linh thú: your beasts (tame them by beating them in events), feeding, loyalty"],
 	]],
 	["World", [
-		["look", "this place, people, roads"], ["map", "all regions and roads"], ["travel <place> [fly]", "go anywhere you know of by the quickest way; 'fly' from Trúc Cơ"], ["search", "a season searching this region with your clues"], ["clues", "rumours, jade slips and maps you hold"], ["news [n]", "recent world events"],
+		["look", "this place, people, roads"], ["map", "all regions and roads"], ["travel <place> [fly]", "go anywhere you know of by the quickest way; 'fly' from Trúc Cơ"], ["search", "a season searching this region with your clues"], ["teleport <city>", "jump between teleport-array cities for a fee ('arrays' lists them)"], ["clues", "rumours, jade slips and maps you hold"], ["news [n]", "recent world events"],
 		["legends [n]", "history of the world"], ["db stats|people|sects|places|items|events [filter]", "database queries"],
 		["db show <id>", "any record with its history"],
 	]],
@@ -177,7 +177,7 @@ func _dispatch(text: String) -> void:
 
 
 ## Commands that pass time: with an event waiting they cannot run, so skip their pickers.
-const TIME_COMMANDS := ["go", "travel", "search", "craft", "refine", "luyenkhi", "talisman", "phu", "phuluc", "cul", "cultivate", "bequan", "closed", "mission", "work", "explore", "breakthrough", "bt"]
+const TIME_COMMANDS := ["go", "travel", "search", "teleport", "craft", "refine", "luyenkhi", "talisman", "phu", "phuluc", "cul", "cultivate", "bequan", "closed", "mission", "work", "explore", "breakthrough", "bt"]
 
 
 func _game_command(cmd: String, args: Array, raw: String) -> void:
@@ -228,6 +228,13 @@ func _game_command(cmd: String, args: Array, raw: String) -> void:
 			_r(s.explore())
 		"search":
 			_r(s.search())
+		"teleport", "array":
+			if args.is_empty():
+				io.out("\n".join(PackedStringArray(s.array_lines())))
+			else:
+				_r(s.teleport(" ".join(PackedStringArray(args))))
+		"arrays":
+			io.out("\n".join(PackedStringArray(s.array_lines())))
 		"clues":
 			io.out("\n".join(PackedStringArray(s.clue_lines())))
 		"go", "travel":

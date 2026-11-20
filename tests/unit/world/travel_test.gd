@@ -103,3 +103,20 @@ func test_each_origin_starts_at_one_of_its_approved_homes() -> void:
 	var chosen: int = int(cont.origin_homes.tong_mon[3])
 	var s2 := _session("tong_mon", str(chosen))
 	assert_eq(int(s2.db.get_record("places", s2.player.home_id).continent_id), chosen, "a chosen seat is honoured")
+
+
+func test_a_teleport_jump_costs_formula_k_and_a_twentieth_of_a_season() -> void:
+	var s := _session("tan_tu")
+	var arrays: Array = s.db.find("places", func(p): return bool(p.get("array", false)))
+	assert_true(arrays.size() >= 2, "array cities")
+	s.player.location_id = str(arrays[0].id)
+	var fee: Dictionary = s.teleport_fee(str(arrays[1].id))
+	var d: int = maxi(absi(int(arrays[0].tile[0]) - int(arrays[1].tile[0])), absi(int(arrays[0].tile[1]) - int(arrays[1].tile[1])))
+	var lt_max: float = float(s.gd.realm_budget(s.player.realm_index).linh_thach_max)
+	assert_eq(int(fee.fee), int(round(lt_max * minf(0.05 + 0.0005 * float(d), 0.3))), "Formula K")
+	s.player.linh_thach = int(fee.fee) + 5
+	var r: Dictionary = s.teleport(str(arrays[1].id))
+	assert_true(r.ok, "jumped: %s" % str(r.lines))
+	assert_eq(s.player.location_id, str(arrays[1].id), "arrived")
+	assert_eq(s.player.linh_thach, 5, "paid the fee")
+	assert_true(s.teleport_fee(str(s.db.find("places", func(p): return not bool(p.get("array", false)))[0].id)).is_empty(), "no array, no jump")
