@@ -55,7 +55,7 @@ const HELP := [
 		["beasts / release <id>", "linh thú: your beasts (tame them by beating them in events), feeding, loyalty"],
 	]],
 	["World", [
-		["look", "this place, people, roads"], ["map", "all regions and roads"], ["news [n]", "recent world events"],
+		["look", "this place, people, roads"], ["map", "all regions and roads"], ["travel <place> [fly]", "go anywhere reachable by the quickest way; 'fly' from Trúc Cơ"], ["news [n]", "recent world events"],
 		["legends [n]", "history of the world"], ["db stats|people|sects|places|items|events [filter]", "database queries"],
 		["db show <id>", "any record with its history"],
 	]],
@@ -227,9 +227,14 @@ func _game_command(cmd: String, args: Array, raw: String) -> void:
 		"explore":
 			_r(s.explore())
 		"go", "travel":
-			var dest: String = " ".join(PackedStringArray(args)) if args.size() > 0 else _pick_road()
+			var how: String = "ground"
+			var words: Array = args.duplicate()
+			if not words.is_empty() and str(words[-1]) in ["fly", "flight", "bay"]:
+				how = "flight"
+				words.pop_back()
+			var dest: String = " ".join(PackedStringArray(words)) if words.size() > 0 else _pick_road()
 			if dest != "":
-				_r(s.travel(dest))
+				_r(s.travel(dest, how))
 		"craft":
 			var rid: String = _arg(args, 0, "") if args.size() > 0 else _pick_recipe()
 			if rid != "":

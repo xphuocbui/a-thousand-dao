@@ -12,7 +12,8 @@
       "place_types": [
         "thanh",
         "tran",
-        "phuong_thi"
+        "phuong_thi",
+        "thon"
       ],
       "npc": {
         "mode": "new",
@@ -112,7 +113,12 @@
         "son",
         "coc",
         "dao",
-        "tran"
+        "tran",
+        "thon",
+        "lam",
+        "khoang",
+        "linh_mach",
+        "hoa_son"
       ],
       "npc": {
         "mode": "new",
@@ -216,7 +222,11 @@
         "son",
         "coc",
         "ho",
-        "dao"
+        "dao",
+        "lam",
+        "khoang",
+        "linh_mach",
+        "hoa_son"
       ],
       "npc": {
         "mode": "none"
@@ -300,7 +310,12 @@
       "place_types": [
         "son",
         "coc",
-        "bi_canh"
+        "bi_canh",
+        "lam",
+        "khoang",
+        "linh_mach",
+        "hoa_son",
+        "di_tich"
       ],
       "npc": {
         "mode": "none"
@@ -395,7 +410,12 @@
         "coc",
         "ho",
         "dao",
-        "bi_canh"
+        "bi_canh",
+        "lam",
+        "khoang",
+        "linh_mach",
+        "hoa_son",
+        "di_tich"
       ],
       "npc": {
         "mode": "beast",
@@ -468,7 +488,12 @@
         "coc",
         "ho",
         "bi_canh",
-        "dao"
+        "dao",
+        "lam",
+        "khoang",
+        "linh_mach",
+        "hoa_son",
+        "di_tich"
       ],
       "npc": {
         "mode": "none"
@@ -608,7 +633,8 @@
       "id": "bi_canh_mo",
       "weight": 4,
       "place_types": [
-        "bi_canh"
+        "bi_canh",
+        "di_tich"
       ],
       "npc": {
         "mode": "new",
@@ -856,7 +882,12 @@
       "place_types": [
         "son",
         "tran",
-        "coc"
+        "coc",
+        "thon",
+        "lam",
+        "khoang",
+        "linh_mach",
+        "hoa_son"
       ],
       "npc": {
         "mode": "new",
@@ -925,7 +956,12 @@
       "place_types": [
         "son",
         "coc",
-        "bi_canh"
+        "bi_canh",
+        "lam",
+        "khoang",
+        "linh_mach",
+        "hoa_son",
+        "di_tich"
       ],
       "requires_realm_min": 1,
       "npc": {
@@ -1178,7 +1214,12 @@
         "son",
         "coc",
         "bi_canh",
-        "dao"
+        "dao",
+        "lam",
+        "khoang",
+        "linh_mach",
+        "hoa_son",
+        "di_tich"
       ],
       "requires_realm_min": 1,
       "npc": {
@@ -1285,7 +1326,12 @@
         "coc",
         "bi_canh",
         "dao",
-        "phuong_thi"
+        "phuong_thi",
+        "lam",
+        "khoang",
+        "linh_mach",
+        "hoa_son",
+        "di_tich"
       ],
       "requires_realm_min": 1,
       "npc": {

@@ -1,24 +1,93 @@
 {
   "schema_version": 1,
-  "_doc": "Travel & Map Formula D (design/gdd/travel-map.md; values as written there, 25 km tiles). speed: tiles a season by mode (road, wilderness, river down and up, sea; flight by realm id). Values the GDD marks as guesses are listed in guesses. biome_cost: c_p, the travel cost of a tile part by biome (lake and sea are walked around: they carry no cost and are left out of the weights; a sea tile is impassable on foot). road_terrain_share: r_share, how much terrain slows a road (road c_t = 1 + r_share x (c_wild - 1)). travel_speed_floor: f_min, the least travel_speed_pct can slow travel to. partial_season_efficiency: eta, the cultivation rate of a trip's last part-season. flight_drain_per_season: f_drain. tools/design/map/export_continent.py reads biome_cost and road_terrain_share to cost each route; ContinentData.trip_seasons turns a route's cost into seasons.",
+  "_doc": "Travel & Map Formula D (design/gdd/travel-map.md; values as written there, 25 km tiles). speed: tiles a season by mode (road, wilderness, river down and up, sea; flight by realm id). Values the GDD marks as guesses are listed in guesses. biome_cost: c_p, the travel cost of a tile part by biome (lake and sea are walked around: they carry no cost and are left out of the weights; a sea tile is impassable on foot). road_terrain_share: r_share, how much terrain slows a road (road c_t = 1 + r_share x (c_wild - 1)). travel_speed_floor: f_min, the least travel_speed_pct can slow travel to. partial_season_efficiency: eta, the cultivation rate of a trip's last part-season. flight_drain_per_season: f_drain. tools/design/map/export_continent.py reads biome_cost and road_terrain_share to cost each route; ContinentData.trip_seasons turns a route's cost into seasons. speed.flight: tiles a season by realm (Foundation Establishment opens flight, rule 10; the keys were one realm late before 2026-11-20 and are now the GDD's FE 135, CF 200, NS 290, DT 400). hazard_per_season h[d] and mode_factor m_mode: Formula E's encounter chance 1 - exp(-sum h[d_t] m_mode dt_t) per season of a trip. teleport: rule 11 and Formula K (jump time; fee = round(linh_thach_max[realm] x min(fee_base_frac + fee_per_tile_frac x d, fee_frac_max) x owner_mult), d the straight-line tiles). encounter_place_type: the place type an encounter on the way is drawn for, by the main biome of the tile where the stretch spent most of its time (Formula E; events_templates.json place_types).",
   "speed": {
     "road": 54,
     "wilderness": 18,
     "river_down": 80,
     "river_up": 45,
     "sea": 90,
-    "flight": {"ket_dan": 135, "nguyen_anh": 200, "hoa_than": 290, "do_kiep": 400}
+    "flight": {
+      "truc_co": 135,
+      "ket_dan": 200,
+      "nguyen_anh": 290,
+      "hoa_than": 400
+    }
   },
-  "guesses": ["speed.river_down", "speed.river_up", "speed.sea", "speed.flight (above ket_dan)", "flight_drain_per_season"],
+  "guesses": [
+    "speed.river_down",
+    "speed.river_up",
+    "speed.sea",
+    "speed.flight (above truc_co)",
+    "flight_drain_per_season",
+    "hazard_per_season",
+    "mode_factor",
+    "teleport"
+  ],
   "biome_cost": {
-    "grassland": 1.0, "steppe": 1.0, "salt_flats": 1.0,
+    "grassland": 1.0,
+    "steppe": 1.0,
+    "salt_flats": 1.0,
     "badlands": 1.25,
-    "temperate_forest": 1.5, "bamboo_forest": 1.5, "desert": 1.5, "tundra": 1.5, "highland": 1.5,
-    "jungle": 2.0, "swamp": 2.0, "mangrove": 2.0, "karst": 2.0, "volcano": 2.0, "miasma": 2.0,
-    "high_mountain": 2.5, "glacier": 2.5
+    "temperate_forest": 1.5,
+    "bamboo_forest": 1.5,
+    "desert": 1.5,
+    "tundra": 1.5,
+    "highland": 1.5,
+    "jungle": 2.0,
+    "swamp": 2.0,
+    "mangrove": 2.0,
+    "karst": 2.0,
+    "volcano": 2.0,
+    "miasma": 2.0,
+    "high_mountain": 2.5,
+    "glacier": 2.5
   },
   "road_terrain_share": 0.25,
   "travel_speed_floor": 0.25,
   "partial_season_efficiency": 1.0,
-  "flight_drain_per_season": 0.6
+  "flight_drain_per_season": 0.6,
+  "hazard_per_season": [
+    0.15,
+    0.35,
+    0.7,
+    1.2
+  ],
+  "mode_factor": {
+    "wilderness": 1.0,
+    "search": 1.0,
+    "road": 0.4,
+    "river": 0.3,
+    "sea": 0.5,
+    "flight": 0.25
+  },
+  "teleport": {
+    "jump_seasons": 0.05,
+    "fee_base_frac": 0.05,
+    "fee_per_tile_frac": 0.0005,
+    "fee_frac_max": 0.3,
+    "owner_mult": 1.0
+  },
+  "encounter_place_type": {
+    "temperate_forest": "son",
+    "bamboo_forest": "son",
+    "jungle": "son",
+    "grassland": "son",
+    "steppe": "son",
+    "desert": "son",
+    "salt_flats": "son",
+    "badlands": "son",
+    "highland": "son",
+    "high_mountain": "son",
+    "karst": "son",
+    "volcano": "son",
+    "tundra": "son",
+    "glacier": "son",
+    "miasma": "son",
+    "swamp": "ho",
+    "mangrove": "ho",
+    "lake": "ho",
+    "sea": "dao",
+    "default": "son"
+  }
 }

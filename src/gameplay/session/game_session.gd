@@ -592,10 +592,12 @@ func explore() -> Dictionary:
 
 
 ## Travel to a linked place. Takes the link's seasons (faster with travel_speed_pct).
-## Travels to [param dest_id], any place reachable over the links, by the quickest path (Travel & Map rules 10-12,
-## Formula D; user decision 2026-11-20). A trip of T seasons spends ceil(T) seasons; the rest of the last season is
-## spent cultivating at the destination (leftover_cultivation).
-func travel(dest_id: String) -> Dictionary:
+## Travels to [param dest_id] (a place id or name), any reachable place, by the quickest way (Travel & Map rules
+## 9-13, Formulas D-E; user decision 2026-11-20). On the continent the trip is a tile path: roads, rivers by boat,
+## sea lanes and the wilderness, or flight when [param how] is "flight" (Foundation Establishment and up); in an old
+## generated world it follows the links. A trip of T seasons spends ceil(T) seasons and the rest of the last season
+## cultivates at the destination; each season of the trip may draw one encounter (Formula E).
+func travel(dest_id: String, how: String = "ground") -> Dictionary:
 	var g: Dictionary = _guard(true)
 	if not g.ok:
 		return g
@@ -605,13 +607,47 @@ func travel(dest_id: String) -> Dictionary:
 		if named.is_empty():
 			return {"ok": false, "lines": ["No place '%s'. Use 'map' to see roads." % dest_id]}
 		dest_id = str(named[0].id)
-	var route: Dictionary = Travel.quickest(db, player.location_id, dest_id, Travel.speed_factor(gd, sheet().total("travel_speed_pct")))
-	if route.is_empty():
-		return {"ok": false, "lines": ["%s cannot be reached from %s by road or sea." % [db.get_record("places", dest_id).get("name", dest_id), here.name]]}
-	var split: Dictionary = Travel.split(float(route.seasons))
+	if dest_id == player.location_id:
+		return {"ok": false, "lines": ["You are already at %s." % here.name]}
+	var f: float = Travel.speed_factor(gd, sheet().total("travel_speed_pct"))
+	var dest: Dictionary = db.get_record("places", dest_id)
+	var t: float = -1.0
+	var hops: String = ""
+	var stretches: Array = []
+	var flown: float = 0.0
+	if here.has("tile") and dest.has("tile") and TravelGrid.of(gd).errors.is_empty():
+		var tg: TravelGrid = TravelGrid.of(gd)
+		var fly_speed: float = 0.0
+		if how == "flight":
+			fly_speed = tg.flight_speed(str(gd.realm(player.realm_index).id))
+			if fly_speed <= 0.0:
+				return {"ok": false, "lines": ["You cannot fly yet: flight opens at %s." % gd.realm(1).name]}
+		var trip: Dictionary = tg.trip(Vector2i(int(here.tile[0]), int(here.tile[1])), Vector2i(int(dest.tile[0]), int(dest.tile[1])), how, f, fly_speed)
+		if not trip.is_empty():
+			t = float(trip.seasons)
+			stretches = tg.stretches(trip)
+			var legs: PackedStringArray = []
+			for m in trip.by_mode:
+				legs.append("%s %.2f" % [m, float(trip.by_mode[m])])
+			hops = "%d tiles: %s" % [trip.steps.size(), ", ".join(legs)]
+			if how == "flight":
+				flown = float(trip.steps.size())
+	if t < 0.0:
+		if how == "flight":
+			return {"ok": false, "lines": ["There is no flight path to %s." % dest.name]}
+		var route: Dictionary = Travel.quickest(db, player.location_id, dest_id, f)
+		if route.is_empty():
+			return {"ok": false, "lines": ["%s cannot be reached from %s." % [dest.name, here.name]]}
+		t = float(route.seasons)
+		hops = "%d leg(s)" % int(route.hops)
+		for pid in route.path:
+			if not player.visited.has(pid):
+				player.visited.append(pid)
+	var split: Dictionary = Travel.split(t)
 	var seasons: int = int(split.seasons)
 	var news: Array = []
 	var died: bool = false
+	var encounter: Dictionary = {}
 	_bulk_begin(seasons)
 	for i in seasons:
 		var r: Dictionary = _pass_season("travel")
@@ -619,17 +655,22 @@ func travel(dest_id: String) -> Dictionary:
 		if r.died:
 			died = true
 			break
+		if encounter.is_empty() and i < stretches.size() and rng.randf() < float(stretches[i].chance):
+			encounter = stretches[i]
 	_bulk_end()
 	if died:
 		return {"ok": true, "lines": ["You die on the road."] + death_lines()}
 	player.location_id = dest_id
-	for pid in route.path:
-		if not player.visited.has(pid):
-			player.visited.append(pid)
+	if not player.visited.has(dest_id):
+		player.visited.append(dest_id)
 	for b in beasts.owned(player):
 		b["location_id"] = dest_id
-	var dest: Dictionary = db.get_record("places", dest_id)
-	var lines: Array = ["You travel %.2f season(s) over %d leg(s) and arrive at %s (%d season(s) pass)." % [float(route.seasons), int(route.hops), dest.name, seasons]]
+	var lines: Array = ["You travel %.2f season(s) (%s) and arrive at %s; %d season(s) pass." % [t, hops, dest.name, seasons]]
+	if flown > 0.0:
+		var v_eff: float = TravelGrid.of(gd).flight_speed(str(gd.realm(player.realm_index).id)) * f
+		var last_tiles: float = minf(flown, v_eff * float(split.last_share))
+		var pool: float = clampf(1.0 - float(gd.file(Travel.RULES_FILE).get("flight_drain_per_season", 0.6)) * last_tiles / v_eff, 0.0, 1.0)
+		lines.append("You land with %d%% of your linh lực (Formula D flight drain)." % int(round(pool * 100.0)))
 	var left: float = 1.0 - float(split.last_share)
 	if left > 0.0 and not CultivationRules.at_bottleneck(player, gd):
 		var eta: float = float(gd.file(Travel.RULES_FILE).get("partial_season_efficiency", 1.0))
@@ -639,8 +680,30 @@ func travel(dest_id: String) -> Dictionary:
 	sync_player()
 	market.ensure_stock(rng, dest_id, year, player.realm_index, player.linh_can)
 	lines.append_array(_news_lines(news))
-	lines.append_array(_maybe_event(0.0))
+	if not encounter.is_empty():
+		lines.append_array(_road_encounter(encounter))
+	else:
+		lines.append_array(_maybe_event(0.0))
 	return {"ok": true, "lines": lines}
+
+
+## Formula E: an encounter on the way, set where the stretch spent most of its time; its biome sets the kind of
+## place the Event Engine draws for (travel_rules.json encounter_place_type).
+func _road_encounter(st: Dictionary) -> Array:
+	var tg: TravelGrid = TravelGrid.of(gd)
+	var legend: Dictionary = gd.file(ContinentData.DATA_FILE).get("legend", {}).get("biome_ids", {})
+	var biome: String = str(legend.get(str(tg.biome_at(st.tile)), "")).to_lower().replace(" ", "_")
+	var types: Dictionary = gd.file(Travel.RULES_FILE).get("encounter_place_type", {})
+	var ptype: String = str(types.get(biome, types.get("default", "son")))
+	var ctx: Dictionary = event_context()
+	ctx.place = {"id": "", "name": "giữa đường (%s)" % biome.replace("_", " "), "type": ptype, "danger": int(st.danger),
+		"region": ctx.place.get("region", ""), "biome": biome, "mode": str(st.mode)}
+	var res: Dictionary = narrator.generate_event(ctx, rng, "")
+	if not res.ok:
+		return []
+	pending_event = res.event
+	pending_meta = {"source": res.source, "warnings": res.warnings, "llm_error": res.llm_error, "on_the_road": st}
+	return ["", "*** ON THE ROAD (%s, danger %d): %s ***  (type 'event' to read, 'choose <n>' to act)" % [str(st.mode), int(st.danger), pending_event.title]]
 
 
 ## Capability #21: once a year, travel instantly to any visited place.
