@@ -1,0 +1,313 @@
+{
+  "status": "DRAFT 2026-11-20 (user decision 2026-11-20: beast lairs and special sites authored on the map before the economy prices them). Counts, gaps and the land each kind looks for; names by kind and tile. For the user's approval with sites.jpg.",
+  "params": {
+    "km_per_tile": 24.7,
+    "lair": {
+      "count": 14,
+      "biomes": [
+        "temperate_forest",
+        "bamboo_forest",
+        "jungle",
+        "swamp",
+        "mangrove",
+        "high_mountain",
+        "highland",
+        "karst",
+        "tundra"
+      ],
+      "settlement_gap": 9,
+      "place_gap": 5,
+      "road_gap": 2,
+      "gap": 26,
+      "one_per_region": true,
+      "score": "tiles to the nearest settlement (capped at 25) + 6 x relief km + 4 x (biome base density - 0.7)"
+    },
+    "special": {
+      "hot_spring": {
+        "count": 5,
+        "good": "linh_tuyen_thuy",
+        "place_gap": 6,
+        "gap": 20
+      },
+      "lava_vent": {
+        "count": 4,
+        "good": "dia_hoa_tinh",
+        "place_gap": 6,
+        "gap": 20
+      },
+      "lightning_wood": {
+        "count": 2,
+        "good": "loi_kich_moc",
+        "place_gap": 6,
+        "gap": 30,
+        "forest_reach": 8
+      }
+    }
+  },
+  "names": [
+    {
+      "kind": "beast_lair",
+      "tile": [
+        298,
+        242
+      ],
+      "name_hv": "Phục Hổ Cương",
+      "name_han": "伏虎岡",
+      "gloss": "Crouching Tiger Ridge",
+      "note": "A tiger-kind beast's ridge on the Kinh Trập highland, where the storms wake the hills."
+    },
+    {
+      "kind": "beast_lair",
+      "tile": [
+        467,
+        342
+      ],
+      "name_hv": "Vạn Xà Lâm",
+      "name_han": "萬蛇林",
+      "gloss": "Forest of Ten Thousand Snakes",
+      "note": "Deep jungle at the far end of Đan Huyệt Châu, the farthest lair from any town."
+    },
+    {
+      "kind": "beast_lair",
+      "tile": [
+        441,
+        62
+      ],
+      "name_hv": "Tuyết Lang Nguyên",
+      "name_han": "雪狼原",
+      "gloss": "Snow Wolf Plain",
+      "note": "Tundra of Hàn Sương Châu where the snow wolves run in packs."
+    },
+    {
+      "kind": "beast_lair",
+      "tile": [
+        334,
+        170
+      ],
+      "name_hv": "Bằng Sào Nhai",
+      "name_han": "鵬巢崖",
+      "gloss": "Roc's Nest Cliff",
+      "note": "A roc nests on the cliffs of Dao Quang Lĩnh."
+    },
+    {
+      "kind": "beast_lair",
+      "tile": [
+        389,
+        308
+      ],
+      "name_hv": "Huyền Viên Lâm",
+      "name_han": "玄猿林",
+      "gloss": "Dark Ape Forest",
+      "note": "Jungle below the wutong hills of Thê Ngô Lĩnh, held by dark apes."
+    },
+    {
+      "kind": "beast_lair",
+      "tile": [
+        266,
+        214
+      ],
+      "name_hv": "Thương Ưng Đài",
+      "name_han": "蒼鷹臺",
+      "gloss": "Grey Hawk Terrace",
+      "note": "The high plateau of Thiên Tuyền Nguyên, hunting ground of the grey hawks, near Chiết Kích Nguyên."
+    },
+    {
+      "kind": "beast_lair",
+      "tile": [
+        226,
+        255
+      ],
+      "name_hv": "Hắc Hùng Lĩnh",
+      "name_han": "黑熊嶺",
+      "gloss": "Black Bear Ridge",
+      "note": "Highland of Tiêu Vũ Lâm where the black bears den."
+    },
+    {
+      "kind": "beast_lair",
+      "tile": [
+        317,
+        200
+      ],
+      "name_hv": "Thiết Bối Cốc",
+      "name_han": "鐵背谷",
+      "gloss": "Iron-Back Valley",
+      "note": "Beasts with iron backs feed on the ore of Ngọc Hành Sơn."
+    },
+    {
+      "kind": "beast_lair",
+      "tile": [
+        396,
+        28
+      ],
+      "name_hv": "Hàn Giao Chử",
+      "name_han": "寒蛟渚",
+      "gloss": "Islet of the Cold Flood-Dragon",
+      "note": "A lone islet far north of Ngọc Hồ Sơn where a cold giao coils."
+    },
+    {
+      "kind": "beast_lair",
+      "tile": [
+        124,
+        54
+      ],
+      "name_hv": "Băng Tê Nguyên",
+      "name_han": "冰犀原",
+      "gloss": "Ice Rhinoceros Plain",
+      "note": "Tundra of Thanh Loan Lĩnh crossed by ice rhinoceroses."
+    },
+    {
+      "kind": "beast_lair",
+      "tile": [
+        73,
+        313
+      ],
+      "name_hv": "Vụ Báo Lâm",
+      "name_han": "霧豹林",
+      "gloss": "Mist Leopard Forest",
+      "note": "Jungle of Cô Vụ Đảo, the lonely misty island, where leopards hunt in the mist."
+    },
+    {
+      "kind": "beast_lair",
+      "tile": [
+        258,
+        151
+      ],
+      "name_hv": "Hổ Khiếu Cương",
+      "name_han": "虎嘯岡",
+      "gloss": "Tiger's Roar Ridge",
+      "note": "A ridge between the nine bends of Cửu Khúc Xuyên where a tiger's roar carries."
+    },
+    {
+      "kind": "beast_lair",
+      "tile": [
+        129,
+        302
+      ],
+      "name_hv": "Thiên Chu Lâm",
+      "name_han": "千蛛林",
+      "gloss": "Thousand Spider Wood",
+      "note": "Jungle of Thu Thủy Loan webbed by poison spiders."
+    },
+    {
+      "kind": "beast_lair",
+      "tile": [
+        73,
+        60
+      ],
+      "name_hv": "Hỏa Hồ Nguyên",
+      "name_han": "火狐原",
+      "gloss": "Fire Fox Plain",
+      "note": "Tundra of Tuyết Hỏa Giác, the horn of snow and fire, where fire foxes run on the snow."
+    },
+    {
+      "kind": "hot_spring",
+      "tile": [
+        76,
+        140
+      ],
+      "name_hv": "Tuyết Để Tuyền",
+      "name_han": "雪底泉",
+      "gloss": "Spring Under the Snow",
+      "note": "Hot water rising under the snowfields of Tuyết Hỏa Giác."
+    },
+    {
+      "kind": "hot_spring",
+      "tile": [
+        434,
+        75
+      ],
+      "name_hv": "Noãn Ngọc Tuyền",
+      "name_han": "暖玉泉",
+      "gloss": "Warm Jade Spring",
+      "note": "A warm spring in the frost land of Hàn Sương Châu, its stones warm to the touch."
+    },
+    {
+      "kind": "hot_spring",
+      "tile": [
+        109,
+        84
+      ],
+      "name_hv": "Hồ Tâm Thang",
+      "name_han": "湖心湯",
+      "gloss": "Hot Water at the Lake's Heart",
+      "note": "Hot springs on an island in the lake of Tuyết Hỏa Giác."
+    },
+    {
+      "kind": "hot_spring",
+      "tile": [
+        443,
+        349
+      ],
+      "name_hv": "Chu Sa Tuyền",
+      "name_han": "朱砂泉",
+      "gloss": "Cinnabar Spring",
+      "note": "A red hot spring in the jungle of Đan Huyệt Châu, the phoenix's cinnabar land."
+    },
+    {
+      "kind": "hot_spring",
+      "tile": [
+        180,
+        147
+      ],
+      "name_hv": "Ngọc Nhũ Tuyền",
+      "name_han": "玉乳泉",
+      "gloss": "Jade Milk Spring",
+      "note": "Warm water among the stone pillars of Ngư Ca Xuyên's karst."
+    },
+    {
+      "kind": "lava_vent",
+      "tile": [
+        364,
+        202
+      ],
+      "name_hv": "Xích Viêm Khẩu",
+      "name_han": "赤炎口",
+      "gloss": "Red Flame Mouth",
+      "note": "A vent of the volcano in Ngọc Hành Sơn."
+    },
+    {
+      "kind": "lava_vent",
+      "tile": [
+        401,
+        302
+      ],
+      "name_hv": "Niết Hỏa Khẩu",
+      "name_han": "涅火口",
+      "gloss": "Nirvana Fire Vent",
+      "note": "In Thê Ngô Lĩnh, the wutong hills where the phoenix is reborn in fire."
+    },
+    {
+      "kind": "lava_vent",
+      "tile": [
+        387,
+        140
+      ],
+      "name_hv": "Hàn Diễm Khẩu",
+      "name_han": "寒焰口",
+      "gloss": "Cold Flame Vent",
+      "note": "A vent high on Ngọc Hồ Sơn, fire under the ice of Băng Tâm's land."
+    },
+    {
+      "kind": "lava_vent",
+      "tile": [
+        487,
+        246
+      ],
+      "name_hv": "Chúc Dung Khẩu",
+      "name_han": "祝融口",
+      "gloss": "Zhurong's Mouth",
+      "note": "Named for the fire god; a vent on the east coast of Đan Huyệt Châu."
+    },
+    {
+      "kind": "lightning_wood",
+      "tile": [
+        407,
+        288
+      ],
+      "name_hv": "Lôi Ngô Lâm",
+      "name_han": "雷梧林",
+      "gloss": "Thunder-Struck Wutong Wood",
+      "note": "Wutong trees under the storm peaks of Thê Ngô Lĩnh, struck again and again."
+    }
+  ]
+}
