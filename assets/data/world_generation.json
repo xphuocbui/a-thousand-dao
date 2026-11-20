@@ -189,6 +189,30 @@
       "market": false,
       "bounties": false,
       "weight": 0
+    },
+    {
+      "id": "dong_phu",
+      "suffix": "Động phủ",
+      "density": [
+        1.0,
+        1.6
+      ],
+      "danger": 2,
+      "market": false,
+      "bounties": false,
+      "weight": 0
+    },
+    {
+      "id": "phuc_dia",
+      "suffix": "Phúc địa",
+      "density": [
+        1.2,
+        2.0
+      ],
+      "danger": 1,
+      "market": false,
+      "bounties": false,
+      "weight": 0
     }
   ],
   "travel": {
@@ -512,7 +536,7 @@
     "Đông"
   ],
   "continent": {
-    "_doc": "WorldBuilder (design/gdd/world-generation.md; Travel & Map rules 6 and 33, Formulas M; Sects F2 and F17): how the authored continent and history become the World Database. kinds: continent place kind -> the game's place type, and whether it has a market (rule 6: cities and markets trade) and bounties. sect_capacity: Sects F2 capacity = cap_base x (1 + i x Institutions), and fill the share of it a sect starts with (F17's target 0.9). npc_settled_share and settle_weight: Formulas M, where those outside sects live (the rest choose wild ground, npc_wild_pick_top of their region's wild places ranked by density x land match). rank_by_realm: a random member's rank by realm (Sects rule 7, rank by realm). master_share: the chance a random member has a master in the sect (World Generation rule 8; guess). legend_dead_rank: ranks of authored people that map onto the game's ladder.",
+    "_doc": "WorldBuilder (design/gdd/world-generation.md; Travel & Map rules 6 and 33, Formulas M; Sects F2 and F17): how the authored continent and history become the World Database. kinds: continent place kind -> the game's place type, and whether it has a market (rule 6: cities and markets trade) and bounties. sect_capacity: Sects F2 capacity = cap_base x (1 + i x Institutions), and fill the share of it a sect starts with (F17's target 0.9). npc_settled_share and settle_weight: Formulas M, where those outside sects live (the rest choose wild ground, npc_wild_pick_top of their region's wild places ranked by density x land match). rank_by_realm: a random member's rank by realm (Sects rule 7, rank by realm). master_share: the chance a random member has a master in the sect (World Generation rule 8; guess). legend_dead_rank: ranks of authored people that map onto the game's ladder. kinds also map the history's sites (secret_realm, abode, blessed_land: famous ones are places from the start, hidden ones are places once rolled, unseen until found). element_names: a blessed land's leaning (history.json English names) -> element ids (Poison has no root: it leans Darkness).",
     "kinds": {
       "city": {
         "type": "thanh",
@@ -588,6 +612,21 @@
         "type": "di_tich",
         "market": false,
         "bounties": false
+      },
+      "secret_realm": {
+        "type": "bi_canh",
+        "market": false,
+        "bounties": false
+      },
+      "abode": {
+        "type": "dong_phu",
+        "market": false,
+        "bounties": false
+      },
+      "blessed_land": {
+        "type": "phuc_dia",
+        "market": false,
+        "bounties": false
       }
     },
     "settled_kinds": [
@@ -646,6 +685,19 @@
       "former_officer": "truong_lao",
       "founder": "tong_chu",
       "last_head": "tong_chu"
+    },
+    "element_names": {
+      "Wood": "moc",
+      "Fire": "hoa",
+      "Earth": "tho",
+      "Metal": "kim",
+      "Water": "thuy",
+      "Wind": "phong",
+      "Thunder": "loi",
+      "Darkness": "am",
+      "Light": "quang",
+      "Ice": "bang",
+      "Poison": "am"
     }
   }
 }

@@ -68,6 +68,8 @@ class Export:
         self.chron, self.annals, self.records = W("chronicle_proposal"), W("annals_proposal"), W("records_proposal")
         self.items, self.territory = W("legendary_items_proposal"), W("territory_history_proposal")
         self.history = load(os.path.join(MAP, "history.json"))
+        lq = load(os.path.join(MAP, "land_qi.json"))   # Travel & Map Formula C (tools/design/map/land_qi.py)
+        self.qi = {str(q["id"]): q for q in lq["places"]}
         self.sacred = load(os.path.join(MAP, "sacred.json"))
         self.minor_design = {s["key"]: s for s in load(os.path.join(MAP, "minor_sects.json"))["minor_sects"]}
         self.place_by_name = {}
@@ -115,6 +117,11 @@ class Export:
                 for k in ("cycle", "size", "element", "dD3", "push", "tile_list"):
                     if k in s:
                         rec[k] = s[k]
+                q = self.qi.get("famous:" + s["name_hv"])
+                if q is not None:
+                    rec["qi"] = {"part": q["part"], "part_biome": q["biome"], "shares": q["shares"], "variants": q["variants"],
+                                 "land_density": q["land_density"], "land_danger": q["land_danger"]}
+                    rec["density"], rec["danger"] = q["density"], q["danger"]
                 out[s["name_hv"]] = rec
         return out
 
@@ -390,15 +397,39 @@ class Export:
         for e in self.chron["events"]:
             if e.get("slot"):
                 origin.setdefault(e["slot"], e["id"])
+        owners = {}
+        for p in self.cast["people"]:
+            if p.get("abode_slot"):
+                owners[p["abode_slot"]] = p["key"]
+        for v in self.cast["vanished_sects"]:
+            if v.get("ruin_slot"):
+                owners[v["ruin_slot"]] = v["key"]
         for s in self.history["hidden"]:
             cands = [list(c.get("tile") or c.get("centre")) for c in s["candidates"]]
-            rec = {"slot": s["slot"], "kind": s["kind"], "candidates": cands, "origin": origin.get(s["slot"], "")}
+            rec = {"slot": s["slot"], "kind": s["kind"], "candidates": cands, "origin": origin.get(s["slot"], ""),
+                   "hidden_h": s.get("hidden_H", 1000), "owner": owners.get(s["slot"], ""),
+                   "regions": [self.region_id(c.get("region"), "slot %s" % s["slot"]) for c in s["candidates"]]}
+            qis = []
+            for i, c in enumerate(s["candidates"]):
+                q = self.qi.get("slot:%s:%d" % (s["slot"], i))
+                if q is None:
+                    self.err("hidden slot %s candidate %d has no land qi (run tools/design/map/land_qi.py)" % (s["slot"], i))
+                    qis.append({})
+                    continue
+                qis.append({"qi": {"part": q["part"], "part_biome": q["biome"], "shares": q["shares"], "variants": q["variants"],
+                                   "land_density": q["land_density"], "land_danger": q["land_danger"]},
+                            "density": q["density"], "danger": q["danger"]})
+            rec["candidate_qi"] = qis
             if s["kind"].startswith("blessed"):
                 rec["tile_lists"] = [c.get("tile_list", [c.get("tile") or c.get("centre")]) for c in s["candidates"]]
+                rec["element"] = s.get("element", "")
+                rec["dD3"] = s.get("dD3", 0.0)
+                rec["push"] = s.get("push", 0)
             slots.append(rec)
         for s in self.history["tile_secrets"]:
             secrets.append({"slot": s["slot"], "kind": s["kind"], "region": self.region_id(s.get("region"), "tile secret %s" % s["slot"]),
-                            "candidates": [list(c) for c in s["candidates"]]})
+                            "candidates": [list(c) for c in s["candidates"]], "hidden_h": s.get("hidden_H", 300),
+                            "dD3": s.get("dD3", 0.0)})
         for rec in slots + secrets:
             if len(rec["candidates"]) < 2:
                 self.err("hidden slot %s has %d candidate(s); 2 or more are needed" % (rec["slot"], len(rec["candidates"])))
@@ -459,7 +490,7 @@ class Export:
 
     def version(self):
         h = hashlib.sha256()
-        for d, names in ((WORLD, sorted(os.listdir(WORLD))), (MAP, ["history.json", "sacred.json", "minor_sects.json"])):
+        for d, names in ((WORLD, sorted(os.listdir(WORLD))), (MAP, ["history.json", "sacred.json", "minor_sects.json", "land_qi.json"])):
             for n in names:
                 if n.endswith(".json"):
                     with open(os.path.join(d, n), "rb") as fh:

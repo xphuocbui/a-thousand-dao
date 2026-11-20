@@ -45,4 +45,32 @@ static func land_match(c: Character, gd: GameData, qi: Dictionary) -> Breakdown:
 	b.base("Land", 1.0)
 	b.add("Elements of the ground (Formula A)", k * sum)
 	b.clamp_to(floor_v, INF)
+	# Formula B, layer 3: an active blessed land or secret pushes shares (not renormalised), its gain capped at m3
+	var l3: float = 0.0
+	var cs3: float = float(cfg.get("share_cap_l3", 80))
+	var names: PackedStringArray = []
+	for item in active_layer3(qi):
+		for e in item.get("push", {}):
+			var p: float = c.linh_can.purity(str(e))
+			if p <= 0.0:
+				continue
+			var owned: bool = c.linh_can.elements.has(str(e)) or c.linh_can.variants.has(str(e))
+			l3 += k * (1.0 if owned else unowned) * p / 100.0 * minf(cs3, float(item.push[e])) / 100.0
+		names.append(str(item.name))
+	if l3 > 0.0:
+		b.add("Layer 3: %s (Formula B)" % ", ".join(names), minf(float(cfg.get("match_cap_l3", 0.3)), l3))
+	b.clamp_to(float(cfg.get("match_stack_min", 0.8)), INF)
 	return b
+
+
+## The active layer-3 items of a place's qi (a famous blessed land, or a hidden one once found).
+static func active_layer3(qi: Dictionary) -> Array:
+	return Array(qi.get("layer3", [])).filter(func(x): return bool(x.get("active", false)))
+
+
+## Formula B's layer-3 density add for a place's qi: min(c3, sum of the active items' dD).
+static func layer3_density(gd: GameData, qi: Dictionary) -> float:
+	var add: float = 0.0
+	for item in active_layer3(qi):
+		add += float(item.get("dD", 0.0))
+	return minf(float(gd.file(DATA_FILE).get("match", {}).get("density_cap_l3", 1.0)), add)

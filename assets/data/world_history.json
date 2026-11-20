@@ -1,7 +1,7 @@
 {
  "schema_version": 1,
  "_doc": "The authored world's history (design/gdd/world-generation.md), exported by tools/design/world/export_world.py from design/world/*.json and design/map/continent-11; do not edit by hand. start_year: every game starts here (Core Rule 11). sects: the 30 living sects with their authored start (alignment chinh | ma | trung, the four development levels, treasury, a minor sect's lord and loyalty), seat (place id), founded year, specialty (the sect archetype NPC Builds reads) and leader (a cast key). fallen_sects: sects that fell before the start. people: the fixed cast (alive: realm, home place id, traits; dead: records with peak_realm, died, cause), with master, vassal_of, served_under and abode_slot where authored. events: the landmark chronicle and the annals, ordered by year then id; place is a place id, famous a famous site's name, feature a named feature with its tile; secret events are hidden until discovered. legendary_items: the 34 unique items, held by a living cast member or lost at a place or slot. territory: eras, land changes, wars, vassal changes, grudges. hidden_slots: the 28 hidden places with their 2-3 candidate tiles and origin event; tile_secrets: the 80 with their candidates; famous_sites and features: named sites and features. data_version: a hash of the inputs, recorded in each save (Core Rule 13).",
- "data_version": "f37ffc27582bd74b",
+ "data_version": "2d88c840fcea09ac",
  "start_year": 1200,
  "sects": [
   {
@@ -11385,7 +11385,72 @@
      144
     ]
    ],
-   "origin": "C026"
+   "origin": "C026",
+   "hidden_h": 1000,
+   "owner": "",
+   "regions": [
+    6,
+    6,
+    7
+   ],
+   "candidate_qi": [
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 5.58,
+       "hoa": 9.51,
+       "tho": 28.09,
+       "kim": 46.7,
+       "thuy": 10.13
+      },
+      "variants": {
+       "bang": 10.0
+      },
+      "land_density": 1.872,
+      "land_danger": 2
+     },
+     "density": 2.4,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 5.82,
+       "hoa": 9.97,
+       "tho": 25.8,
+       "kim": 40.44,
+       "thuy": 17.97
+      },
+      "variants": {},
+      "land_density": 1.727,
+      "land_danger": 2
+     },
+     "density": 2.4,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 5.46,
+       "hoa": 20.58,
+       "tho": 20.86,
+       "kim": 32.75,
+       "thuy": 20.34
+      },
+      "variants": {},
+      "land_density": 1.391,
+      "land_danger": 2
+     },
+     "density": 2.101,
+     "danger": 2
+    }
+   ]
   },
   {
    "slot": "R-2",
@@ -11404,7 +11469,70 @@
      175
     ]
    ],
-   "origin": "C029"
+   "origin": "C029",
+   "hidden_h": 1000,
+   "owner": "",
+   "regions": [
+    11,
+    2,
+    2
+   ],
+   "candidate_qi": [
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 10.61,
+       "hoa": 22.67,
+       "tho": 9.69,
+       "kim": 9.1,
+       "thuy": 47.93
+      },
+      "variants": {},
+      "land_density": 1.884,
+      "land_danger": 2
+     },
+     "density": 2.4,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 12.69,
+       "hoa": 11.0,
+       "tho": 12.04,
+       "kim": 10.78,
+       "thuy": 53.48
+      },
+      "variants": {},
+      "land_density": 1.101,
+      "land_danger": 2
+     },
+     "density": 1.811,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "temperate_forest",
+      "shares": {
+       "moc": 15.09,
+       "hoa": 11.48,
+       "tho": 12.87,
+       "kim": 10.71,
+       "thuy": 49.85
+      },
+      "variants": {},
+      "land_density": 0.9,
+      "land_danger": 1
+     },
+     "density": 1.61,
+     "danger": 1
+    }
+   ]
   },
   {
    "slot": "R-3",
@@ -11423,7 +11551,74 @@
      268
     ]
    ],
-   "origin": "C035"
+   "origin": "C035",
+   "hidden_h": 1000,
+   "owner": "",
+   "regions": [
+    19,
+    19,
+    19
+   ],
+   "candidate_qi": [
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 6.66,
+       "hoa": 9.66,
+       "tho": 28.11,
+       "kim": 45.73,
+       "thuy": 9.84
+      },
+      "variants": {
+       "loi": 40.0
+      },
+      "land_density": 1.944,
+      "land_danger": 3
+     },
+     "density": 2.4,
+     "danger": 3
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 4.77,
+       "hoa": 10.09,
+       "tho": 28.95,
+       "kim": 47.0,
+       "thuy": 9.18
+      },
+      "variants": {
+       "am": 40.0
+      },
+      "land_density": 1.354,
+      "land_danger": 3
+     },
+     "density": 2.064,
+     "danger": 3
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 21.24,
+       "hoa": 9.01,
+       "tho": 21.92,
+       "kim": 37.29,
+       "thuy": 10.55
+      },
+      "variants": {},
+      "land_density": 1.32,
+      "land_danger": 2
+     },
+     "density": 2.03,
+     "danger": 2
+    }
+   ]
   },
   {
    "slot": "V-1",
@@ -11442,7 +11637,70 @@
      316
     ]
    ],
-   "origin": "C012"
+   "origin": "C012",
+   "hidden_h": 1000,
+   "owner": "lac_anh",
+   "regions": [
+    18,
+    12,
+    18
+   ],
+   "candidate_qi": [
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "jungle",
+      "shares": {
+       "moc": 26.45,
+       "hoa": 17.92,
+       "tho": 13.39,
+       "kim": 8.44,
+       "thuy": 33.8
+      },
+      "variants": {},
+      "land_density": 1.007,
+      "land_danger": 2
+     },
+     "density": 1.257,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "grassland",
+      "shares": {
+       "moc": 27.6,
+       "hoa": 18.73,
+       "tho": 17.91,
+       "kim": 10.09,
+       "thuy": 25.67
+      },
+      "variants": {},
+      "land_density": 0.964,
+      "land_danger": 1
+     },
+     "density": 1.214,
+     "danger": 1
+    },
+    {
+     "qi": {
+      "part": 1,
+      "part_biome": "jungle",
+      "shares": {
+       "moc": 23.78,
+       "hoa": 15.07,
+       "tho": 9.2,
+       "kim": 8.32,
+       "thuy": 43.63
+      },
+      "variants": {},
+      "land_density": 1.001,
+      "land_danger": 2
+     },
+     "density": 1.251,
+     "danger": 2
+    }
+   ]
   },
   {
    "slot": "V-2",
@@ -11461,7 +11719,70 @@
      291
     ]
    ],
-   "origin": "C008"
+   "origin": "C008",
+   "hidden_h": 1000,
+   "owner": "khai_loi",
+   "regions": [
+    19,
+    19,
+    19
+   ],
+   "candidate_qi": [
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "jungle",
+      "shares": {
+       "moc": 21.36,
+       "hoa": 29.88,
+       "tho": 14.08,
+       "kim": 8.83,
+       "thuy": 25.85
+      },
+      "variants": {},
+      "land_density": 1.008,
+      "land_danger": 2
+     },
+     "density": 1.258,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "jungle",
+      "shares": {
+       "moc": 25.63,
+       "hoa": 18.34,
+       "tho": 15.49,
+       "kim": 8.78,
+       "thuy": 31.76
+      },
+      "variants": {},
+      "land_density": 1.001,
+      "land_danger": 2
+     },
+     "density": 1.251,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "bamboo_forest",
+      "shares": {
+       "moc": 26.24,
+       "hoa": 17.08,
+       "tho": 17.58,
+       "kim": 10.98,
+       "thuy": 28.13
+      },
+      "variants": {},
+      "land_density": 0.985,
+      "land_danger": 1
+     },
+     "density": 1.235,
+     "danger": 1
+    }
+   ]
   },
   {
    "slot": "V-3",
@@ -11480,7 +11801,70 @@
      316
     ]
    ],
-   "origin": "C005"
+   "origin": "C005",
+   "hidden_h": 1000,
+   "owner": "cuu_thieu",
+   "regions": [
+    16,
+    16,
+    16
+   ],
+   "candidate_qi": [
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "jungle",
+      "shares": {
+       "moc": 30.85,
+       "hoa": 20.09,
+       "tho": 13.93,
+       "kim": 7.89,
+       "thuy": 27.24
+      },
+      "variants": {},
+      "land_density": 0.991,
+      "land_danger": 2
+     },
+     "density": 1.241,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "jungle",
+      "shares": {
+       "moc": 24.68,
+       "hoa": 18.28,
+       "tho": 16.19,
+       "kim": 9.04,
+       "thuy": 31.81
+      },
+      "variants": {},
+      "land_density": 1.004,
+      "land_danger": 2
+     },
+     "density": 1.254,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "jungle",
+      "shares": {
+       "moc": 28.36,
+       "hoa": 16.99,
+       "tho": 8.22,
+       "kim": 8.0,
+       "thuy": 38.43
+      },
+      "variants": {},
+      "land_density": 1.001,
+      "land_danger": 2
+     },
+     "density": 1.251,
+     "danger": 2
+    }
+   ]
   },
   {
    "slot": "V-4",
@@ -11499,7 +11883,70 @@
      284
     ]
    ],
-   "origin": "C015"
+   "origin": "C015",
+   "hidden_h": 1000,
+   "owner": "co_pham",
+   "regions": [
+    12,
+    10,
+    10
+   ],
+   "candidate_qi": [
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "jungle",
+      "shares": {
+       "moc": 20.33,
+       "hoa": 17.0,
+       "tho": 18.64,
+       "kim": 9.94,
+       "thuy": 34.1
+      },
+      "variants": {},
+      "land_density": 0.984,
+      "land_danger": 2
+     },
+     "density": 1.234,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "jungle",
+      "shares": {
+       "moc": 24.33,
+       "hoa": 15.39,
+       "tho": 9.04,
+       "kim": 8.16,
+       "thuy": 43.09
+      },
+      "variants": {},
+      "land_density": 0.938,
+      "land_danger": 2
+     },
+     "density": 1.188,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "bamboo_forest",
+      "shares": {
+       "moc": 21.3,
+       "hoa": 13.37,
+       "tho": 14.73,
+       "kim": 11.8,
+       "thuy": 38.8
+      },
+      "variants": {},
+      "land_density": 0.981,
+      "land_danger": 1
+     },
+     "density": 1.231,
+     "danger": 1
+    }
+   ]
   },
   {
    "slot": "A-1",
@@ -11518,7 +11965,72 @@
      139
     ]
    ],
-   "origin": "C014"
+   "origin": "C014",
+   "hidden_h": 1000,
+   "owner": "hoac_han_quang",
+   "regions": [
+    7,
+    7,
+    7
+   ],
+   "candidate_qi": [
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 14.49,
+       "hoa": 10.18,
+       "tho": 21.54,
+       "kim": 30.06,
+       "thuy": 23.74
+      },
+      "variants": {
+       "loi": 27.28
+      },
+      "land_density": 1.694,
+      "land_danger": 3
+     },
+     "density": 1.944,
+     "danger": 3
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 10.12,
+       "hoa": 10.12,
+       "tho": 27.4,
+       "kim": 41.57,
+       "thuy": 10.79
+      },
+      "variants": {},
+      "land_density": 1.585,
+      "land_danger": 2
+     },
+     "density": 1.835,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "volcano",
+      "shares": {
+       "moc": 3.73,
+       "hoa": 48.18,
+       "tho": 15.27,
+       "kim": 23.11,
+       "thuy": 9.71
+      },
+      "variants": {},
+      "land_density": 1.201,
+      "land_danger": 4
+     },
+     "density": 1.451,
+     "danger": 4
+    }
+   ]
   },
   {
    "slot": "A-2",
@@ -11537,7 +12049,70 @@
      249
     ]
    ],
-   "origin": "C022"
+   "origin": "C022",
+   "hidden_h": 1000,
+   "owner": "cao_dan_ha",
+   "regions": [
+    15,
+    16,
+    16
+   ],
+   "candidate_qi": [
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 9.35,
+       "hoa": 10.99,
+       "tho": 22.33,
+       "kim": 30.51,
+       "thuy": 26.83
+      },
+      "variants": {},
+      "land_density": 1.606,
+      "land_danger": 2
+     },
+     "density": 1.856,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 14.33,
+       "hoa": 15.7,
+       "tho": 29.5,
+       "kim": 30.31,
+       "thuy": 10.16
+      },
+      "variants": {},
+      "land_density": 1.587,
+      "land_danger": 2
+     },
+     "density": 1.837,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 15.88,
+       "hoa": 10.23,
+       "tho": 25.28,
+       "kim": 37.6,
+       "thuy": 11.01
+      },
+      "variants": {},
+      "land_density": 1.542,
+      "land_danger": 2
+     },
+     "density": 1.792,
+     "danger": 2
+    }
+   ]
   },
   {
    "slot": "A-3",
@@ -11556,7 +12131,70 @@
      170
     ]
    ],
-   "origin": "C023"
+   "origin": "C023",
+   "hidden_h": 1000,
+   "owner": "loi_vo_danh",
+   "regions": [
+    14,
+    14,
+    14
+   ],
+   "candidate_qi": [
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 12.59,
+       "hoa": 14.53,
+       "tho": 32.5,
+       "kim": 30.92,
+       "thuy": 9.47
+      },
+      "variants": {},
+      "land_density": 1.578,
+      "land_danger": 2
+     },
+     "density": 1.828,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 20.87,
+       "hoa": 11.16,
+       "tho": 27.42,
+       "kim": 28.08,
+       "thuy": 12.47
+      },
+      "variants": {},
+      "land_density": 1.602,
+      "land_danger": 2
+     },
+     "density": 1.852,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 10.53,
+       "hoa": 13.93,
+       "tho": 33.13,
+       "kim": 32.81,
+       "thuy": 9.6
+      },
+      "variants": {},
+      "land_density": 1.62,
+      "land_danger": 2
+     },
+     "density": 1.87,
+     "danger": 2
+    }
+   ]
   },
   {
    "slot": "A-4",
@@ -11575,7 +12213,70 @@
      142
     ]
    ],
-   "origin": "C013"
+   "origin": "C013",
+   "hidden_h": 1000,
+   "owner": "cung_hoa_van",
+   "regions": [
+    2,
+    2,
+    2
+   ],
+   "candidate_qi": [
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 5.9,
+       "hoa": 39.9,
+       "tho": 8.76,
+       "kim": 9.05,
+       "thuy": 36.39
+      },
+      "variants": {},
+      "land_density": 1.55,
+      "land_danger": 3
+     },
+     "density": 1.8,
+     "danger": 3
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "volcano",
+      "shares": {
+       "moc": 6.04,
+       "hoa": 47.83,
+       "tho": 6.68,
+       "kim": 6.45,
+       "thuy": 33.01
+      },
+      "variants": {},
+      "land_density": 1.36,
+      "land_danger": 4
+     },
+     "density": 1.61,
+     "danger": 4
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "volcano",
+      "shares": {
+       "moc": 5.54,
+       "hoa": 41.77,
+       "tho": 6.38,
+       "kim": 18.2,
+       "thuy": 28.11
+      },
+      "variants": {},
+      "land_density": 1.244,
+      "land_danger": 4
+     },
+     "density": 1.494,
+     "danger": 4
+    }
+   ]
   },
   {
    "slot": "A-5",
@@ -11594,7 +12295,70 @@
      224
     ]
    ],
-   "origin": "C020"
+   "origin": "C020",
+   "hidden_h": 1000,
+   "owner": "luong_lac_mai",
+   "regions": [
+    16,
+    15,
+    15
+   ],
+   "candidate_qi": [
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 13.54,
+       "hoa": 10.14,
+       "tho": 26.09,
+       "kim": 39.86,
+       "thuy": 10.37
+      },
+      "variants": {},
+      "land_density": 1.634,
+      "land_danger": 2
+     },
+     "density": 1.884,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 8.0,
+       "hoa": 10.22,
+       "tho": 27.96,
+       "kim": 43.85,
+       "thuy": 9.97
+      },
+      "variants": {},
+      "land_density": 1.536,
+      "land_danger": 2
+     },
+     "density": 1.786,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 7.61,
+       "hoa": 14.94,
+       "tho": 30.87,
+       "kim": 36.38,
+       "thuy": 10.19
+      },
+      "variants": {},
+      "land_density": 1.467,
+      "land_danger": 2
+     },
+     "density": 1.717,
+     "danger": 2
+    }
+   ]
   },
   {
    "slot": "A-6",
@@ -11613,7 +12377,72 @@
      163
     ]
    ],
-   "origin": "C024"
+   "origin": "C024",
+   "hidden_h": 1000,
+   "owner": "mac_huyet_sinh",
+   "regions": [
+    7,
+    7,
+    15
+   ],
+   "candidate_qi": [
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 8.91,
+       "hoa": 9.96,
+       "tho": 27.22,
+       "kim": 40.69,
+       "thuy": 13.22
+      },
+      "variants": {},
+      "land_density": 1.496,
+      "land_danger": 2
+     },
+     "density": 1.746,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 5.46,
+       "hoa": 7.48,
+       "tho": 18.32,
+       "kim": 51.94,
+       "thuy": 16.8
+      },
+      "variants": {
+       "loi": 10.86
+      },
+      "land_density": 1.635,
+      "land_danger": 2
+     },
+     "density": 1.885,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 3.88,
+       "hoa": 7.56,
+       "tho": 21.6,
+       "kim": 59.01,
+       "thuy": 7.95
+      },
+      "variants": {},
+      "land_density": 1.571,
+      "land_danger": 2
+     },
+     "density": 1.821,
+     "danger": 2
+    }
+   ]
   },
   {
    "slot": "L-1",
@@ -11633,6 +12462,69 @@
     ]
    ],
    "origin": "C025",
+   "hidden_h": 3000,
+   "owner": "",
+   "regions": [
+    1,
+    1,
+    1
+   ],
+   "candidate_qi": [
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "temperate_forest",
+      "shares": {
+       "moc": 44.31,
+       "hoa": 9.77,
+       "tho": 13.24,
+       "kim": 8.32,
+       "thuy": 24.36
+      },
+      "variants": {},
+      "land_density": 0.973,
+      "land_danger": 1
+     },
+     "density": 0.973,
+     "danger": 1
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "temperate_forest",
+      "shares": {
+       "moc": 44.83,
+       "hoa": 9.43,
+       "tho": 12.74,
+       "kim": 8.03,
+       "thuy": 24.97
+      },
+      "variants": {},
+      "land_density": 0.92,
+      "land_danger": 1
+     },
+     "density": 0.92,
+     "danger": 1
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "swamp",
+      "shares": {
+       "moc": 18.17,
+       "hoa": 6.59,
+       "tho": 16.03,
+       "kim": 9.51,
+       "thuy": 49.7
+      },
+      "variants": {},
+      "land_density": 0.801,
+      "land_danger": 2
+     },
+     "density": 0.801,
+     "danger": 2
+    }
+   ],
    "tile_lists": [
     [
      [
@@ -12720,7 +13612,10 @@
       67
      ]
     ]
-   ]
+   ],
+   "element": "Water",
+   "dD3": 0.7,
+   "push": 40
   },
   {
    "slot": "L-2",
@@ -12736,6 +13631,50 @@
     ]
    ],
    "origin": "C028",
+   "hidden_h": 3000,
+   "owner": "",
+   "regions": [
+    20,
+    17
+   ],
+   "candidate_qi": [
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "volcano",
+      "shares": {
+       "moc": 15.31,
+       "hoa": 56.77,
+       "tho": 12.72,
+       "kim": 7.67,
+       "thuy": 7.53
+      },
+      "variants": {},
+      "land_density": 1.305,
+      "land_danger": 4
+     },
+     "density": 1.305,
+     "danger": 4
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "desert",
+      "shares": {
+       "moc": 9.72,
+       "hoa": 16.16,
+       "tho": 22.35,
+       "kim": 12.98,
+       "thuy": 38.78
+      },
+      "variants": {},
+      "land_density": 0.595,
+      "land_danger": 2
+     },
+     "density": 0.595,
+     "danger": 2
+    }
+   ],
    "tile_lists": [
     [
      [
@@ -13461,7 +14400,10 @@
       215
      ]
     ]
-   ]
+   ],
+   "element": "Fire",
+   "dD3": 0.7,
+   "push": 40
   },
   {
    "slot": "S-1",
@@ -13481,6 +14423,69 @@
     ]
    ],
    "origin": "C033",
+   "hidden_h": 1000,
+   "owner": "",
+   "regions": [
+    18,
+    18,
+    12
+   ],
+   "candidate_qi": [
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 5.48,
+       "hoa": 23.14,
+       "tho": 31.08,
+       "kim": 27.04,
+       "thuy": 13.26
+      },
+      "variants": {},
+      "land_density": 2.106,
+      "land_danger": 2
+     },
+     "density": 2.106,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 5.29,
+       "hoa": 19.72,
+       "tho": 37.2,
+       "kim": 30.66,
+       "thuy": 7.13
+      },
+      "variants": {},
+      "land_density": 1.887,
+      "land_danger": 2
+     },
+     "density": 1.887,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 6.0,
+       "hoa": 21.46,
+       "tho": 38.8,
+       "kim": 27.27,
+       "thuy": 6.46
+      },
+      "variants": {},
+      "land_density": 1.778,
+      "land_danger": 2
+     },
+     "density": 1.778,
+     "danger": 2
+    }
+   ],
    "tile_lists": [
     [
      [
@@ -13500,7 +14505,10 @@
       245
      ]
     ]
-   ]
+   ],
+   "element": "Metal",
+   "dD3": 0.4,
+   "push": 40
   },
   {
    "slot": "S-2",
@@ -13520,6 +14528,69 @@
     ]
    ],
    "origin": "C037",
+   "hidden_h": 1000,
+   "owner": "",
+   "regions": [
+    8,
+    9,
+    7
+   ],
+   "candidate_qi": [
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 4.1,
+       "hoa": 31.19,
+       "tho": 37.26,
+       "kim": 22.43,
+       "thuy": 5.01
+      },
+      "variants": {},
+      "land_density": 2.003,
+      "land_danger": 2
+     },
+     "density": 2.003,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 18.08,
+       "hoa": 18.17,
+       "tho": 31.46,
+       "kim": 22.37,
+       "thuy": 9.93
+      },
+      "variants": {},
+      "land_density": 1.413,
+      "land_danger": 2
+     },
+     "density": 1.413,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 14.11,
+       "hoa": 8.15,
+       "tho": 18.84,
+       "kim": 47.36,
+       "thuy": 11.54
+      },
+      "variants": {},
+      "land_density": 1.409,
+      "land_danger": 2
+     },
+     "density": 1.409,
+     "danger": 2
+    }
+   ],
    "tile_lists": [
     [
      [
@@ -13539,7 +14610,10 @@
       126
      ]
     ]
-   ]
+   ],
+   "element": "Metal",
+   "dD3": 0.4,
+   "push": 40
   },
   {
    "slot": "S-3",
@@ -13559,6 +14633,69 @@
     ]
    ],
    "origin": "C031",
+   "hidden_h": 1000,
+   "owner": "",
+   "regions": [
+    12,
+    13,
+    18
+   ],
+   "candidate_qi": [
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "badlands",
+      "shares": {
+       "moc": 6.47,
+       "hoa": 24.21,
+       "tho": 46.93,
+       "kim": 17.55,
+       "thuy": 4.85
+      },
+      "variants": {},
+      "land_density": 1.525,
+      "land_danger": 2
+     },
+     "density": 1.525,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "steppe",
+      "shares": {
+       "moc": 7.75,
+       "hoa": 24.13,
+       "tho": 45.3,
+       "kim": 18.0,
+       "thuy": 4.82
+      },
+      "variants": {},
+      "land_density": 1.324,
+      "land_danger": 1
+     },
+     "density": 1.324,
+     "danger": 1
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "steppe",
+      "shares": {
+       "moc": 5.2,
+       "hoa": 21.5,
+       "tho": 37.72,
+       "kim": 28.99,
+       "thuy": 6.6
+      },
+      "variants": {},
+      "land_density": 1.261,
+      "land_danger": 1
+     },
+     "density": 1.261,
+     "danger": 1
+    }
+   ],
    "tile_lists": [
     [
      [
@@ -13578,7 +14715,10 @@
       242
      ]
     ]
-   ]
+   ],
+   "element": "Earth",
+   "dD3": 0.4,
+   "push": 40
   },
   {
    "slot": "S-4",
@@ -13598,6 +14738,69 @@
     ]
    ],
    "origin": "C030",
+   "hidden_h": 1000,
+   "owner": "",
+   "regions": [
+    5,
+    5,
+    5
+   ],
+   "candidate_qi": [
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "swamp",
+      "shares": {
+       "moc": 24.06,
+       "hoa": 8.33,
+       "tho": 13.49,
+       "kim": 9.1,
+       "thuy": 45.03
+      },
+      "variants": {},
+      "land_density": 1.124,
+      "land_danger": 2
+     },
+     "density": 1.124,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "swamp",
+      "shares": {
+       "moc": 40.5,
+       "hoa": 9.49,
+       "tho": 13.58,
+       "kim": 8.61,
+       "thuy": 27.82
+      },
+      "variants": {},
+      "land_density": 0.994,
+      "land_danger": 2
+     },
+     "density": 0.994,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "swamp",
+      "shares": {
+       "moc": 27.99,
+       "hoa": 9.13,
+       "tho": 16.95,
+       "kim": 10.62,
+       "thuy": 35.3
+      },
+      "variants": {},
+      "land_density": 0.901,
+      "land_danger": 2
+     },
+     "density": 0.901,
+     "danger": 2
+    }
+   ],
    "tile_lists": [
     [
      [
@@ -13617,7 +14820,10 @@
       71
      ]
     ]
-   ]
+   ],
+   "element": "Water",
+   "dD3": 0.4,
+   "push": 40
   },
   {
    "slot": "S-5",
@@ -13633,6 +14839,52 @@
     ]
    ],
    "origin": "C038",
+   "hidden_h": 1000,
+   "owner": "",
+   "regions": [
+    3,
+    13
+   ],
+   "candidate_qi": [
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "volcano",
+      "shares": {
+       "moc": 8.82,
+       "hoa": 50.3,
+       "tho": 11.41,
+       "kim": 8.27,
+       "thuy": 21.2
+      },
+      "variants": {},
+      "land_density": 1.2,
+      "land_danger": 4
+     },
+     "density": 1.2,
+     "danger": 4
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "karst",
+      "shares": {
+       "moc": 21.26,
+       "hoa": 18.29,
+       "tho": 20.06,
+       "kim": 12.88,
+       "thuy": 27.51
+      },
+      "variants": {
+       "am": 24.69
+      },
+      "land_density": 1.281,
+      "land_danger": 3
+     },
+     "density": 1.281,
+     "danger": 3
+    }
+   ],
    "tile_lists": [
     [
      [
@@ -13646,7 +14898,10 @@
       147
      ]
     ]
-   ]
+   ],
+   "element": "Fire",
+   "dD3": 0.4,
+   "push": 40
   },
   {
    "slot": "S-6",
@@ -13666,6 +14921,69 @@
     ]
    ],
    "origin": "C040",
+   "hidden_h": 1000,
+   "owner": "",
+   "regions": [
+    15,
+    14,
+    14
+   ],
+   "candidate_qi": [
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "highland",
+      "shares": {
+       "moc": 6.81,
+       "hoa": 22.55,
+       "tho": 36.96,
+       "kim": 27.04,
+       "thuy": 6.64
+      },
+      "variants": {},
+      "land_density": 0.945,
+      "land_danger": 1
+     },
+     "density": 0.945,
+     "danger": 1
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "highland",
+      "shares": {
+       "moc": 6.66,
+       "hoa": 22.1,
+       "tho": 47.05,
+       "kim": 18.27,
+       "thuy": 5.91
+      },
+      "variants": {},
+      "land_density": 0.913,
+      "land_danger": 1
+     },
+     "density": 0.913,
+     "danger": 1
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "highland",
+      "shares": {
+       "moc": 8.92,
+       "hoa": 16.45,
+       "tho": 36.37,
+       "kim": 30.87,
+       "thuy": 7.39
+      },
+      "variants": {},
+      "land_density": 0.923,
+      "land_danger": 1
+     },
+     "density": 0.923,
+     "danger": 1
+    }
+   ],
    "tile_lists": [
     [
      [
@@ -13685,7 +15003,10 @@
       227
      ]
     ]
-   ]
+   ],
+   "element": "Wind",
+   "dD3": 0.4,
+   "push": 40
   },
   {
    "slot": "S-7",
@@ -13705,6 +15026,69 @@
     ]
    ],
    "origin": "C036",
+   "hidden_h": 1000,
+   "owner": "",
+   "regions": [
+    6,
+    14,
+    14
+   ],
+   "candidate_qi": [
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "highland",
+      "shares": {
+       "moc": 9.38,
+       "hoa": 15.33,
+       "tho": 35.15,
+       "kim": 31.13,
+       "thuy": 9.0
+      },
+      "variants": {},
+      "land_density": 0.911,
+      "land_danger": 1
+     },
+     "density": 0.911,
+     "danger": 1
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "highland",
+      "shares": {
+       "moc": 6.64,
+       "hoa": 22.64,
+       "tho": 41.68,
+       "kim": 23.16,
+       "thuy": 5.88
+      },
+      "variants": {},
+      "land_density": 0.905,
+      "land_danger": 1
+     },
+     "density": 0.905,
+     "danger": 1
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "highland",
+      "shares": {
+       "moc": 7.89,
+       "hoa": 27.75,
+       "tho": 39.91,
+       "kim": 19.39,
+       "thuy": 5.05
+      },
+      "variants": {},
+      "land_density": 0.892,
+      "land_danger": 1
+     },
+     "density": 0.892,
+     "danger": 1
+    }
+   ],
    "tile_lists": [
     [
      [
@@ -13724,7 +15108,10 @@
       197
      ]
     ]
-   ]
+   ],
+   "element": "Wind",
+   "dD3": 0.4,
+   "push": 40
   },
   {
    "slot": "S-8",
@@ -13744,6 +15131,69 @@
     ]
    ],
    "origin": "C027",
+   "hidden_h": 1000,
+   "owner": "",
+   "regions": [
+    19,
+    15,
+    15
+   ],
+   "candidate_qi": [
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 8.28,
+       "hoa": 11.01,
+       "tho": 28.93,
+       "kim": 41.9,
+       "thuy": 9.88
+      },
+      "variants": {},
+      "land_density": 1.11,
+      "land_danger": 2
+     },
+     "density": 1.11,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 6.79,
+       "hoa": 10.26,
+       "tho": 28.64,
+       "kim": 44.27,
+       "thuy": 10.03
+      },
+      "variants": {},
+      "land_density": 1.14,
+      "land_danger": 2
+     },
+     "density": 1.14,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 5.37,
+       "hoa": 12.07,
+       "tho": 29.33,
+       "kim": 43.72,
+       "thuy": 9.51
+      },
+      "variants": {},
+      "land_density": 1.123,
+      "land_danger": 2
+     },
+     "density": 1.123,
+     "danger": 2
+    }
+   ],
    "tile_lists": [
     [
      [
@@ -13763,7 +15213,10 @@
       215
      ]
     ]
-   ]
+   ],
+   "element": "Light",
+   "dD3": 0.4,
+   "push": 40
   },
   {
    "slot": "S-9",
@@ -13783,6 +15236,74 @@
     ]
    ],
    "origin": "C041",
+   "hidden_h": 1000,
+   "owner": "",
+   "regions": [
+    15,
+    8,
+    15
+   ],
+   "candidate_qi": [
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 5.23,
+       "hoa": 7.07,
+       "tho": 16.82,
+       "kim": 54.27,
+       "thuy": 16.62
+      },
+      "variants": {
+       "bang": 7.51
+      },
+      "land_density": 1.243,
+      "land_danger": 2
+     },
+     "density": 1.243,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 5.43,
+       "hoa": 11.36,
+       "tho": 29.46,
+       "kim": 41.53,
+       "thuy": 12.21
+      },
+      "variants": {
+       "quang": 7.73,
+       "bang": 2.86
+      },
+      "land_density": 1.329,
+      "land_danger": 2
+     },
+     "density": 1.329,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 5.76,
+       "hoa": 10.68,
+       "tho": 29.32,
+       "kim": 44.78,
+       "thuy": 9.46
+      },
+      "variants": {},
+      "land_density": 1.119,
+      "land_danger": 2
+     },
+     "density": 1.119,
+     "danger": 2
+    }
+   ],
    "tile_lists": [
     [
      [
@@ -13802,7 +15323,10 @@
       212
      ]
     ]
-   ]
+   ],
+   "element": "Light",
+   "dD3": 0.4,
+   "push": 40
   },
   {
    "slot": "S-10",
@@ -13822,6 +15346,71 @@
     ]
    ],
    "origin": "C034",
+   "hidden_h": 1000,
+   "owner": "",
+   "regions": [
+    9,
+    9,
+    9
+   ],
+   "candidate_qi": [
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "volcano",
+      "shares": {
+       "moc": 16.51,
+       "hoa": 47.69,
+       "tho": 15.64,
+       "kim": 11.56,
+       "thuy": 8.6
+      },
+      "variants": {
+       "am": 40.0
+      },
+      "land_density": 1.378,
+      "land_danger": 5
+     },
+     "density": 1.378,
+     "danger": 5
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "temperate_forest",
+      "shares": {
+       "moc": 25.12,
+       "hoa": 32.26,
+       "tho": 11.59,
+       "kim": 9.64,
+       "thuy": 21.39
+      },
+      "variants": {},
+      "land_density": 1.172,
+      "land_danger": 1
+     },
+     "density": 1.172,
+     "danger": 1
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "temperate_forest",
+      "shares": {
+       "moc": 31.0,
+       "hoa": 13.82,
+       "tho": 21.78,
+       "kim": 13.84,
+       "thuy": 19.56
+      },
+      "variants": {},
+      "land_density": 0.954,
+      "land_danger": 1
+     },
+     "density": 0.954,
+     "danger": 1
+    }
+   ],
    "tile_lists": [
     [
      [
@@ -13841,7 +15430,10 @@
       129
      ]
     ]
-   ]
+   ],
+   "element": "Darkness",
+   "dD3": 0.4,
+   "push": 40
   },
   {
    "slot": "S-11",
@@ -13857,6 +15449,54 @@
     ]
    ],
    "origin": "C032",
+   "hidden_h": 1000,
+   "owner": "",
+   "regions": [
+    16,
+    16
+   ],
+   "candidate_qi": [
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 12.06,
+       "hoa": 9.62,
+       "tho": 14.26,
+       "kim": 17.92,
+       "thuy": 46.14
+      },
+      "variants": {
+       "am": 30.0
+      },
+      "land_density": 1.193,
+      "land_danger": 3
+     },
+     "density": 1.193,
+     "danger": 3
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "bamboo_forest",
+      "shares": {
+       "moc": 11.95,
+       "hoa": 9.67,
+       "tho": 12.0,
+       "kim": 13.47,
+       "thuy": 52.91
+      },
+      "variants": {
+       "am": 0.21
+      },
+      "land_density": 1.003,
+      "land_danger": 1
+     },
+     "density": 1.003,
+     "danger": 1
+    }
+   ],
    "tile_lists": [
     [
      [
@@ -13870,7 +15510,10 @@
       280
      ]
     ]
-   ]
+   ],
+   "element": "Darkness",
+   "dD3": 0.4,
+   "push": 40
   },
   {
    "slot": "S-12",
@@ -13890,6 +15533,75 @@
     ]
    ],
    "origin": "C039",
+   "hidden_h": 1000,
+   "owner": "",
+   "regions": [
+    7,
+    7,
+    7
+   ],
+   "candidate_qi": [
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "glacier",
+      "shares": {
+       "moc": 5.81,
+       "hoa": 19.67,
+       "tho": 7.71,
+       "kim": 7.12,
+       "thuy": 59.69
+      },
+      "variants": {
+       "bang": 30.04
+      },
+      "land_density": 1.175,
+      "land_danger": 4
+     },
+     "density": 1.175,
+     "danger": 4
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "glacier",
+      "shares": {
+       "moc": 8.96,
+       "hoa": 9.35,
+       "tho": 9.99,
+       "kim": 9.66,
+       "thuy": 62.04
+      },
+      "variants": {
+       "bang": 15.18
+      },
+      "land_density": 0.838,
+      "land_danger": 3
+     },
+     "density": 0.838,
+     "danger": 3
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "glacier",
+      "shares": {
+       "moc": 8.15,
+       "hoa": 8.15,
+       "tho": 9.74,
+       "kim": 9.67,
+       "thuy": 64.28
+      },
+      "variants": {
+       "bang": 24.46
+      },
+      "land_density": 0.842,
+      "land_danger": 4
+     },
+     "density": 0.842,
+     "danger": 4
+    }
+   ],
    "tile_lists": [
     [
      [
@@ -13909,7 +15621,10 @@
       22
      ]
     ]
-   ]
+   ],
+   "element": "Ice",
+   "dD3": 0.4,
+   "push": 40
   },
   {
    "slot": "S-13",
@@ -13929,6 +15644,71 @@
     ]
    ],
    "origin": "C042",
+   "hidden_h": 1000,
+   "owner": "",
+   "regions": [
+    15,
+    19,
+    15
+   ],
+   "candidate_qi": [
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 8.02,
+       "hoa": 9.67,
+       "tho": 27.87,
+       "kim": 44.34,
+       "thuy": 10.1
+      },
+      "variants": {
+       "loi": 34.44
+      },
+      "land_density": 1.217,
+      "land_danger": 3
+     },
+     "density": 1.217,
+     "danger": 3
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 5.49,
+       "hoa": 9.51,
+       "tho": 28.05,
+       "kim": 47.39,
+       "thuy": 9.56
+      },
+      "variants": {},
+      "land_density": 1.716,
+      "land_danger": 2
+     },
+     "density": 1.716,
+     "danger": 2
+    },
+    {
+     "qi": {
+      "part": 0,
+      "part_biome": "high_mountain",
+      "shares": {
+       "moc": 8.91,
+       "hoa": 10.52,
+       "tho": 28.5,
+       "kim": 42.06,
+       "thuy": 10.0
+      },
+      "variants": {},
+      "land_density": 1.118,
+      "land_danger": 2
+     },
+     "density": 1.118,
+     "danger": 2
+    }
+   ],
    "tile_lists": [
     [
      [
@@ -13948,7 +15728,10 @@
       232
      ]
     ]
-   ]
+   ],
+   "element": "Thunder",
+   "dD3": 0.4,
+   "push": 40
   }
  ],
  "tile_secrets": [
@@ -13969,7 +15752,9 @@
      292,
      110
     ]
-   ]
+   ],
+   "hidden_h": 100,
+   "dD3": 0.2
   },
   {
    "slot": "S1-2",
@@ -13988,7 +15773,9 @@
      306,
      122
     ]
-   ]
+   ],
+   "hidden_h": 200,
+   "dD3": null
   },
   {
    "slot": "S1-3",
@@ -14007,7 +15794,9 @@
      346,
      104
     ]
-   ]
+   ],
+   "hidden_h": 1000,
+   "dD3": null
   },
   {
    "slot": "S1-4",
@@ -14026,7 +15815,9 @@
      291,
      80
     ]
-   ]
+   ],
+   "hidden_h": 300,
+   "dD3": null
   },
   {
    "slot": "S2-1",
@@ -14045,7 +15836,9 @@
      70,
      102
     ]
-   ]
+   ],
+   "hidden_h": 200,
+   "dD3": null
   },
   {
    "slot": "S2-2",
@@ -14064,7 +15857,9 @@
      124,
      125
     ]
-   ]
+   ],
+   "hidden_h": 1000,
+   "dD3": null
   },
   {
    "slot": "S2-3",
@@ -14083,7 +15878,9 @@
      105,
      109
     ]
-   ]
+   ],
+   "hidden_h": 300,
+   "dD3": null
   },
   {
    "slot": "S2-4",
@@ -14102,7 +15899,9 @@
      125,
      104
     ]
-   ]
+   ],
+   "hidden_h": 100,
+   "dD3": 0.2
   },
   {
    "slot": "S3-1",
@@ -14121,7 +15920,9 @@
      146,
      98
     ]
-   ]
+   ],
+   "hidden_h": 1000,
+   "dD3": null
   },
   {
    "slot": "S3-2",
@@ -14140,7 +15941,9 @@
      154,
      118
     ]
-   ]
+   ],
+   "hidden_h": 300,
+   "dD3": null
   },
   {
    "slot": "S3-3",
@@ -14159,7 +15962,9 @@
      155,
      100
     ]
-   ]
+   ],
+   "hidden_h": 100,
+   "dD3": 0.2
   },
   {
    "slot": "S3-4",
@@ -14178,7 +15983,9 @@
      144,
      86
     ]
-   ]
+   ],
+   "hidden_h": 200,
+   "dD3": null
   },
   {
    "slot": "S4-1",
@@ -14197,7 +16004,9 @@
      200,
      129
     ]
-   ]
+   ],
+   "hidden_h": 300,
+   "dD3": null
   },
   {
    "slot": "S4-2",
@@ -14216,7 +16025,9 @@
      228,
      128
     ]
-   ]
+   ],
+   "hidden_h": 100,
+   "dD3": 0.2
   },
   {
    "slot": "S4-3",
@@ -14235,7 +16046,9 @@
      237,
      115
     ]
-   ]
+   ],
+   "hidden_h": 200,
+   "dD3": null
   },
   {
    "slot": "S4-4",
@@ -14254,7 +16067,9 @@
      240,
      114
     ]
-   ]
+   ],
+   "hidden_h": 1000,
+   "dD3": null
   },
   {
    "slot": "S5-1",
@@ -14273,7 +16088,9 @@
      243,
      116
     ]
-   ]
+   ],
+   "hidden_h": 100,
+   "dD3": 0.2
   },
   {
    "slot": "S5-2",
@@ -14292,7 +16109,9 @@
      241,
      126
     ]
-   ]
+   ],
+   "hidden_h": 200,
+   "dD3": null
   },
   {
    "slot": "S5-3",
@@ -14311,7 +16130,9 @@
      248,
      115
     ]
-   ]
+   ],
+   "hidden_h": 1000,
+   "dD3": null
   },
   {
    "slot": "S5-4",
@@ -14330,7 +16151,9 @@
      236,
      96
     ]
-   ]
+   ],
+   "hidden_h": 300,
+   "dD3": null
   },
   {
    "slot": "S6-1",
@@ -14349,7 +16172,9 @@
      355,
      147
     ]
-   ]
+   ],
+   "hidden_h": 200,
+   "dD3": null
   },
   {
    "slot": "S6-2",
@@ -14368,7 +16193,9 @@
      360,
      134
     ]
-   ]
+   ],
+   "hidden_h": 1000,
+   "dD3": null
   },
   {
    "slot": "S6-3",
@@ -14387,7 +16214,9 @@
      363,
      135
     ]
-   ]
+   ],
+   "hidden_h": 300,
+   "dD3": null
   },
   {
    "slot": "S6-4",
@@ -14406,7 +16235,9 @@
      390,
      158
     ]
-   ]
+   ],
+   "hidden_h": 100,
+   "dD3": 0.2
   },
   {
    "slot": "S7-1",
@@ -14425,7 +16256,9 @@
      409,
      123
     ]
-   ]
+   ],
+   "hidden_h": 1000,
+   "dD3": null
   },
   {
    "slot": "S7-2",
@@ -14444,7 +16277,9 @@
      408,
      148
     ]
-   ]
+   ],
+   "hidden_h": 300,
+   "dD3": null
   },
   {
    "slot": "S7-3",
@@ -14463,7 +16298,9 @@
      390,
      155
     ]
-   ]
+   ],
+   "hidden_h": 100,
+   "dD3": 0.2
   },
   {
    "slot": "S7-4",
@@ -14482,7 +16319,9 @@
      403,
      123
     ]
-   ]
+   ],
+   "hidden_h": 200,
+   "dD3": null
   },
   {
    "slot": "S8-1",
@@ -14501,7 +16340,9 @@
      435,
      137
     ]
-   ]
+   ],
+   "hidden_h": 300,
+   "dD3": null
   },
   {
    "slot": "S8-2",
@@ -14520,7 +16361,9 @@
      411,
      148
     ]
-   ]
+   ],
+   "hidden_h": 100,
+   "dD3": 0.2
   },
   {
    "slot": "S8-3",
@@ -14539,7 +16382,9 @@
      434,
      132
     ]
-   ]
+   ],
+   "hidden_h": 200,
+   "dD3": null
   },
   {
    "slot": "S8-4",
@@ -14558,7 +16403,9 @@
      450,
      141
     ]
-   ]
+   ],
+   "hidden_h": 1000,
+   "dD3": null
   },
   {
    "slot": "S9-1",
@@ -14577,7 +16424,9 @@
      458,
      99
     ]
-   ]
+   ],
+   "hidden_h": 100,
+   "dD3": 0.2
   },
   {
    "slot": "S9-2",
@@ -14596,7 +16445,9 @@
      458,
      95
     ]
-   ]
+   ],
+   "hidden_h": 200,
+   "dD3": null
   },
   {
    "slot": "S9-3",
@@ -14615,7 +16466,9 @@
      461,
      99
     ]
-   ]
+   ],
+   "hidden_h": 1000,
+   "dD3": null
   },
   {
    "slot": "S9-4",
@@ -14634,7 +16487,9 @@
      461,
      96
     ]
-   ]
+   ],
+   "hidden_h": 300,
+   "dD3": null
   },
   {
    "slot": "S10-1",
@@ -14653,7 +16508,9 @@
      133,
      253
     ]
-   ]
+   ],
+   "hidden_h": 200,
+   "dD3": null
   },
   {
    "slot": "S10-2",
@@ -14672,7 +16529,9 @@
      100,
      267
     ]
-   ]
+   ],
+   "hidden_h": 1000,
+   "dD3": null
   },
   {
    "slot": "S10-3",
@@ -14691,7 +16550,9 @@
      92,
      266
     ]
-   ]
+   ],
+   "hidden_h": 300,
+   "dD3": null
   },
   {
    "slot": "S10-4",
@@ -14710,7 +16571,9 @@
      121,
      251
     ]
-   ]
+   ],
+   "hidden_h": 100,
+   "dD3": 0.2
   },
   {
    "slot": "S11-1",
@@ -14729,7 +16592,9 @@
      140,
      178
     ]
-   ]
+   ],
+   "hidden_h": 1000,
+   "dD3": null
   },
   {
    "slot": "S11-2",
@@ -14748,7 +16613,9 @@
      119,
      192
     ]
-   ]
+   ],
+   "hidden_h": 300,
+   "dD3": null
   },
   {
    "slot": "S11-3",
@@ -14767,7 +16634,9 @@
      129,
      176
     ]
-   ]
+   ],
+   "hidden_h": 100,
+   "dD3": 0.2
   },
   {
    "slot": "S11-4",
@@ -14786,7 +16655,9 @@
      167,
      186
     ]
-   ]
+   ],
+   "hidden_h": 200,
+   "dD3": null
   },
   {
    "slot": "S12-1",
@@ -14805,7 +16676,9 @@
      156,
      232
     ]
-   ]
+   ],
+   "hidden_h": 300,
+   "dD3": null
   },
   {
    "slot": "S12-2",
@@ -14824,7 +16697,9 @@
      230,
      213
     ]
-   ]
+   ],
+   "hidden_h": 100,
+   "dD3": 0.2
   },
   {
    "slot": "S12-3",
@@ -14843,7 +16718,9 @@
      197,
      286
     ]
-   ]
+   ],
+   "hidden_h": 200,
+   "dD3": null
   },
   {
    "slot": "S12-4",
@@ -14862,7 +16739,9 @@
      226,
      207
     ]
-   ]
+   ],
+   "hidden_h": 1000,
+   "dD3": null
   },
   {
    "slot": "S13-1",
@@ -14881,7 +16760,9 @@
      198,
      202
     ]
-   ]
+   ],
+   "hidden_h": 100,
+   "dD3": 0.2
   },
   {
    "slot": "S13-2",
@@ -14900,7 +16781,9 @@
      177,
      160
     ]
-   ]
+   ],
+   "hidden_h": 200,
+   "dD3": null
   },
   {
    "slot": "S13-3",
@@ -14919,7 +16802,9 @@
      200,
      199
     ]
-   ]
+   ],
+   "hidden_h": 1000,
+   "dD3": null
   },
   {
    "slot": "S13-4",
@@ -14938,7 +16823,9 @@
      177,
      157
     ]
-   ]
+   ],
+   "hidden_h": 300,
+   "dD3": null
   },
   {
    "slot": "S14-1",
@@ -14957,7 +16844,9 @@
      276,
      175
     ]
-   ]
+   ],
+   "hidden_h": 200,
+   "dD3": null
   },
   {
    "slot": "S14-2",
@@ -14976,7 +16865,9 @@
      284,
      178
     ]
-   ]
+   ],
+   "hidden_h": 1000,
+   "dD3": null
   },
   {
    "slot": "S14-3",
@@ -14995,7 +16886,9 @@
      271,
      195
     ]
-   ]
+   ],
+   "hidden_h": 300,
+   "dD3": null
   },
   {
    "slot": "S14-4",
@@ -15014,7 +16907,9 @@
      239,
      181
     ]
-   ]
+   ],
+   "hidden_h": 100,
+   "dD3": 0.2
   },
   {
    "slot": "S15-1",
@@ -15033,7 +16928,9 @@
      357,
      196
     ]
-   ]
+   ],
+   "hidden_h": 1000,
+   "dD3": null
   },
   {
    "slot": "S15-2",
@@ -15052,7 +16949,9 @@
      335,
      219
     ]
-   ]
+   ],
+   "hidden_h": 300,
+   "dD3": null
   },
   {
    "slot": "S15-3",
@@ -15071,7 +16970,9 @@
      338,
      220
     ]
-   ]
+   ],
+   "hidden_h": 100,
+   "dD3": 0.2
   },
   {
    "slot": "S15-4",
@@ -15090,7 +16991,9 @@
      364,
      213
     ]
-   ]
+   ],
+   "hidden_h": 200,
+   "dD3": null
   },
   {
    "slot": "S16-1",
@@ -15109,7 +17012,9 @@
      371,
      278
     ]
-   ]
+   ],
+   "hidden_h": 300,
+   "dD3": null
   },
   {
    "slot": "S16-2",
@@ -15128,7 +17033,9 @@
      374,
      219
     ]
-   ]
+   ],
+   "hidden_h": 100,
+   "dD3": 0.2
   },
   {
    "slot": "S16-3",
@@ -15147,7 +17054,9 @@
      366,
      246
     ]
-   ]
+   ],
+   "hidden_h": 200,
+   "dD3": null
   },
   {
    "slot": "S16-4",
@@ -15166,7 +17075,9 @@
      377,
      252
     ]
-   ]
+   ],
+   "hidden_h": 1000,
+   "dD3": null
   },
   {
    "slot": "S17-1",
@@ -15185,7 +17096,9 @@
      399,
      183
     ]
-   ]
+   ],
+   "hidden_h": 100,
+   "dD3": 0.2
   },
   {
    "slot": "S17-2",
@@ -15204,7 +17117,9 @@
      396,
      208
     ]
-   ]
+   ],
+   "hidden_h": 200,
+   "dD3": null
   },
   {
    "slot": "S17-3",
@@ -15223,7 +17138,9 @@
      405,
      176
     ]
-   ]
+   ],
+   "hidden_h": 1000,
+   "dD3": null
   },
   {
    "slot": "S17-4",
@@ -15242,7 +17159,9 @@
      388,
      210
     ]
-   ]
+   ],
+   "hidden_h": 300,
+   "dD3": null
   },
   {
    "slot": "S18-1",
@@ -15261,7 +17180,9 @@
      210,
      311
     ]
-   ]
+   ],
+   "hidden_h": 200,
+   "dD3": null
   },
   {
    "slot": "S18-2",
@@ -15280,7 +17201,9 @@
      250,
      239
     ]
-   ]
+   ],
+   "hidden_h": 1000,
+   "dD3": null
   },
   {
    "slot": "S18-3",
@@ -15299,7 +17222,9 @@
      255,
      287
     ]
-   ]
+   ],
+   "hidden_h": 300,
+   "dD3": null
   },
   {
    "slot": "S18-4",
@@ -15318,7 +17243,9 @@
      256,
      221
     ]
-   ]
+   ],
+   "hidden_h": 100,
+   "dD3": 0.2
   },
   {
    "slot": "S19-1",
@@ -15337,7 +17264,9 @@
      283,
      255
     ]
-   ]
+   ],
+   "hidden_h": 1000,
+   "dD3": null
   },
   {
    "slot": "S19-2",
@@ -15356,7 +17285,9 @@
      299,
      258
     ]
-   ]
+   ],
+   "hidden_h": 300,
+   "dD3": null
   },
   {
    "slot": "S19-3",
@@ -15375,7 +17306,9 @@
      326,
      264
     ]
-   ]
+   ],
+   "hidden_h": 100,
+   "dD3": 0.2
   },
   {
    "slot": "S19-4",
@@ -15394,7 +17327,9 @@
      276,
      307
     ]
-   ]
+   ],
+   "hidden_h": 200,
+   "dD3": null
   },
   {
    "slot": "S20-1",
@@ -15413,7 +17348,9 @@
      407,
      297
     ]
-   ]
+   ],
+   "hidden_h": 300,
+   "dD3": null
   },
   {
    "slot": "S20-2",
@@ -15432,7 +17369,9 @@
      398,
      310
     ]
-   ]
+   ],
+   "hidden_h": 100,
+   "dD3": 0.2
   },
   {
    "slot": "S20-3",
@@ -15451,7 +17390,9 @@
      450,
      343
     ]
-   ]
+   ],
+   "hidden_h": 200,
+   "dD3": null
   },
   {
    "slot": "S20-4",
@@ -15470,7 +17411,9 @@
      418,
      294
     ]
-   ]
+   ],
+   "hidden_h": 1000,
+   "dD3": null
   }
  ],
  "famous_sites": [
@@ -15490,7 +17433,25 @@
     "every_seasons": 120,
     "open_seasons": 4,
     "rumour_lead": 4
-   }
+   },
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 5.33,
+     "hoa": 12.19,
+     "tho": 49.24,
+     "kim": 26.34,
+     "thuy": 6.9
+    },
+    "variants": {
+     "am": 10.78
+    },
+    "land_density": 0.699,
+    "land_danger": 4
+   },
+   "density": 1.409,
+   "danger": 4
   },
   {
    "name": "Phù Tang Cảnh",
@@ -15508,7 +17469,23 @@
     "every_seasons": 60,
     "open_seasons": 3,
     "rumour_lead": 4
-   }
+   },
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 15.92,
+     "hoa": 13.0,
+     "tho": 10.13,
+     "kim": 9.42,
+     "thuy": 51.52
+    },
+    "variants": {},
+    "land_density": 1.038,
+    "land_danger": 2
+   },
+   "density": 1.748,
+   "danger": 2
   },
   {
    "name": "Đào Nguyên Cảnh",
@@ -15526,7 +17503,23 @@
     "every_seasons": 80,
     "open_seasons": 2,
     "rumour_lead": 4
-   }
+   },
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 7.89,
+     "hoa": 24.62,
+     "tho": 8.27,
+     "kim": 7.74,
+     "thuy": 51.48
+    },
+    "variants": {},
+    "land_density": 1.271,
+    "land_danger": 1
+   },
+   "density": 1.981,
+   "danger": 1
   },
   {
    "name": "Cố Lũy",
@@ -15539,7 +17532,23 @@
    ],
    "region": 14,
    "holder": "thien_xu",
-   "note": "Tô Thức: cố lũy tây biên, nhân đạo thị Tam Quốc Chu lang Xích Bích, west of the old ramparts, they say, is where the Three Kingdoms fought. Fallen walls on the edge of Chiết Kích Nguyên; whose they were is for the history (#27)."
+   "note": "Tô Thức: cố lũy tây biên, nhân đạo thị Tam Quốc Chu lang Xích Bích, west of the old ramparts, they say, is where the Three Kingdoms fought. Fallen walls on the edge of Chiết Kích Nguyên; whose they were is for the history (#27).",
+   "qi": {
+    "part": 0,
+    "part_biome": "highland",
+    "shares": {
+     "moc": 5.62,
+     "hoa": 15.57,
+     "tho": 59.68,
+     "kim": 13.7,
+     "thuy": 5.43
+    },
+    "variants": {},
+    "land_density": 0.946,
+    "land_danger": 1
+   },
+   "density": 1.196,
+   "danger": 1
   },
   {
    "name": "Bắc Thần Phúc Địa",
@@ -16038,7 +18047,23 @@
      276,
      178
     ]
-   ]
+   ],
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 15.58,
+     "hoa": 11.92,
+     "tho": 32.72,
+     "kim": 28.97,
+     "thuy": 10.81
+    },
+    "variants": {},
+    "land_density": 2.008,
+    "land_danger": 2
+   },
+   "density": 2.008,
+   "danger": 2
   },
   {
    "name": "Thiên Xích Phúc Địa",
@@ -16497,7 +18522,23 @@
      233,
      119
     ]
-   ]
+   ],
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 48.06,
+     "hoa": 11.02,
+     "tho": 14.29,
+     "kim": 10.25,
+     "thuy": 16.39
+    },
+    "variants": {},
+    "land_density": 1.825,
+    "land_danger": 1
+   },
+   "density": 1.825,
+   "danger": 1
   },
   {
    "name": "Địa Linh Phúc Địa",
@@ -16956,7 +18997,23 @@
      192,
      205
     ]
-   ]
+   ],
+   "qi": {
+    "part": 0,
+    "part_biome": "steppe",
+    "shares": {
+     "moc": 8.15,
+     "hoa": 24.19,
+     "tho": 45.37,
+     "kim": 17.45,
+     "thuy": 4.84
+    },
+    "variants": {},
+    "land_density": 1.615,
+    "land_danger": 1
+   },
+   "density": 1.615,
+   "danger": 1
   },
   {
    "name": "Tuyền Cơ Đài",
@@ -16973,7 +19030,23 @@
    "size": "small",
    "element": "Earth",
    "dD3": 0.5,
-   "push": 40
+   "push": 40,
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 13.03,
+     "hoa": 11.86,
+     "tho": 32.24,
+     "kim": 32.39,
+     "thuy": 10.48
+    },
+    "variants": {},
+    "land_density": 2.013,
+    "land_danger": 2
+   },
+   "density": 2.013,
+   "danger": 2
   },
   {
    "name": "Thạch Thượng Tuyền",
@@ -16990,7 +19063,23 @@
    "size": "small",
    "element": "Water",
    "dD3": 0.5,
-   "push": 40
+   "push": 40,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 50.87,
+     "hoa": 10.72,
+     "tho": 13.4,
+     "kim": 8.93,
+     "thuy": 16.08
+    },
+    "variants": {},
+    "land_density": 1.854,
+    "land_danger": 1
+   },
+   "density": 1.854,
+   "danger": 1
   },
   {
    "name": "Châu Liêm Đình",
@@ -17007,7 +19096,23 @@
    "size": "small",
    "element": "Wood",
    "dD3": 0.5,
-   "push": 40
+   "push": 40,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 8.0,
+     "hoa": 24.16,
+     "tho": 45.83,
+     "kim": 17.17,
+     "thuy": 4.83
+    },
+    "variants": {},
+    "land_density": 1.59,
+    "land_danger": 1
+   },
+   "density": 1.59,
+   "danger": 1
   },
   {
    "name": "Văn Lôi Đài",
@@ -17024,7 +19129,25 @@
    "size": "small",
    "element": "Thunder",
    "dD3": 0.5,
-   "push": 40
+   "push": 40,
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 4.78,
+     "hoa": 51.18,
+     "tho": 16.68,
+     "kim": 13.63,
+     "thuy": 13.74
+    },
+    "variants": {
+     "bang": 0.27
+    },
+    "land_density": 2.198,
+    "land_danger": 3
+   },
+   "density": 2.198,
+   "danger": 3
   },
   {
    "name": "Tố Tâm Động",
@@ -17041,7 +19164,23 @@
    "size": "small",
    "element": "Ice",
    "dD3": 0.5,
-   "push": 40
+   "push": 40,
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 25.27,
+     "hoa": 16.36,
+     "tho": 28.45,
+     "kim": 18.27,
+     "thuy": 11.65
+    },
+    "variants": {},
+    "land_density": 1.972,
+    "land_danger": 2
+   },
+   "density": 1.972,
+   "danger": 2
   },
   {
    "name": "Hoành Thúy Đình",
@@ -17058,7 +19197,23 @@
    "size": "small",
    "element": "Wood",
    "dD3": 0.5,
-   "push": 40
+   "push": 40,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 36.48,
+     "hoa": 11.09,
+     "tho": 18.37,
+     "kim": 18.57,
+     "thuy": 15.49
+    },
+    "variants": {},
+    "land_density": 1.801,
+    "land_danger": 1
+   },
+   "density": 1.801,
+   "danger": 1
   },
   {
    "name": "Bích Ngô Đình",
@@ -17075,7 +19230,23 @@
    "size": "small",
    "element": "Fire",
    "dD3": 0.5,
-   "push": 40
+   "push": 40,
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 13.28,
+     "hoa": 9.73,
+     "tho": 25.97,
+     "kim": 40.28,
+     "thuy": 10.73
+    },
+    "variants": {},
+    "land_density": 2.012,
+    "land_danger": 2
+   },
+   "density": 2.012,
+   "danger": 2
   }
  ],
  "features": [

@@ -26,11 +26,31 @@ func test_the_world_builds_with_no_errors_at_the_authored_start_year() -> void:
 
 func test_the_base_is_the_authored_continent() -> void:
 	var cont: Dictionary = game_data().file("world_continent")
-	assert_eq(_db.count("places"), cont.places.size(), "every continent place")
+	var base: Array = _db.find("places", func(p): return p.has("continent_id"))
+	assert_eq(base.size(), cont.places.size(), "every continent place")
+	assert_eq(_db.find("places", func(p): return bool(p.get("famous", false))).size(), _hist().famous_sites.size(), "the famous sites")
+	assert_eq(_db.find("places", func(p): return bool(p.get("hidden", false))).size(), _hist().hidden_slots.size(), "a hidden place per slot")
 	assert_eq(_db.count("regions"), cont.regions.size(), "every region")
 	for p in _db.all("places"):
-		assert_true(str(p.region_id) != "" or int(p.continent_id) == 0, "%s sits in a region" % p.name)
+		assert_true(str(p.region_id) != "", "%s sits in a region" % p.name)
 		assert_true(p.has("qi") and float(p.density) >= 0.3, "%s carries its Formula C qi" % p.name)
+
+
+func test_hidden_places_sit_on_their_rolled_tiles_and_blessed_lands_give_layer_3() -> void:
+	for s in _hist().hidden_slots:
+		var roll: Dictionary = _b.ledger[str(s.slot)]
+		var place: Dictionary = _db.get_record("places", str(roll.place_id))
+		assert_eq(place.tile, roll.tile, "%s is at its rolled tile" % s.slot)
+		assert_true(bool(place.hidden), "%s is hidden until found" % s.slot)
+	var famous_land: Array = _db.find("places", func(p): return bool(p.get("famous", false)) and str(p.kind) == "blessed_land")
+	assert_false(famous_land.is_empty(), "famous blessed lands are places")
+	var l3: Array = LandQi.active_layer3(famous_land[0].qi)
+	assert_false(l3.is_empty(), "a famous blessed land's layer 3 is active from the start")
+	var hidden_l3: Array = _db.all("places").filter(func(p): return Array(p.qi.get("layer3", [])).any(func(x): return str(x.slot) != ""))
+	for p in hidden_l3:
+		for item in p.qi.layer3:
+			if str(item.slot) != "":
+				assert_false(bool(item.active), "a hidden blessed land's layer 3 waits until it is found")
 
 
 func test_routes_become_symmetric_links_timed_by_formula_d() -> void:

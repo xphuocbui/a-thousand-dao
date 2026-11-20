@@ -691,10 +691,15 @@ static func here(s: GameSession) -> Array:
 ## World map as a list of regions and their places with roads.
 static func map(s: GameSession) -> Array:
 	var lines: Array = []
+	var unknown: int = 0
 	for r in s.db.all("regions"):
 		lines.append("%s (%s)" % [r.name, r.id])
 		for pid in r.places:
 			var p: Dictionary = s.db.get_record("places", pid)
+			if s.knowledge != null and not s.knowledge.knows_place(str(pid)):
+				if not bool(p.get("hidden", false)):
+					unknown += 1
+				continue
 			var roads: PackedStringArray = []
 			for l in p.links:
 				roads.append("%s(%.2f)" % [l.to, float(l.seasons)])
@@ -704,7 +709,9 @@ static func map(s: GameSession) -> Array:
 			if pid == s.player.home_id:
 				marks += " <HOME>"
 			lines.append("  %-5s %-24s lk %.2f dg %d%s%s  roads: %s%s" % [pid, p.name, float(p.density), int(p.danger), " M" if p.market else "", " S" if p.sect_id != "" else "", ", ".join(roads), marks])
-	lines.append("M = market, S = sect headquarters, lk = linh khí density, dg = danger, roads in seasons (Formula D). 'go <place id or name>' travels by the quickest way to any reachable place.")
+	if unknown > 0:
+		lines.append("(%d more places you have not seen or heard of; travel and talk reveal them.)" % unknown)
+	lines.append("M = market, S = sect headquarters, lk = linh khí density, dg = danger, roads in seasons (Formula D). 'go <place id or name>' travels by the quickest way to any place you know.")
 	return lines
 
 

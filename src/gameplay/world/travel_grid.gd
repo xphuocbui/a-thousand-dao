@@ -45,7 +45,8 @@ var _danger: PackedByteArray
 var _elev: PackedInt32Array
 var _ground: AStarGrid2D
 var _air: AStarGrid2D
-var _unit: float = 1.0            # the cheapest seconds-per-tile: A* weights are dt / _unit, so they stay >= 1
+var _unit: float = 1.0            # the cheapest seasons-per-tile: A* weights are dt / _unit, so they stay >= 1
+var _regions: Dictionary = {}     # continent region id -> {tiles: wilderness tiles, mean_cost: their mean c_t}
 
 
 ## The travel grid of [param gd]'s continent, built once and cached; null when the continent has no grid.
@@ -112,6 +113,12 @@ func _build(gd: GameData) -> void:
 					c = maxf(c_wild, 1.0)
 			_mode[i] = mode
 			_cost[i] = c
+			if mode == MODE_WILD:
+				var rid: int = _grid.region(x, y)
+				var st: Dictionary = _regions.get(rid, {"tiles": 0, "sum": 0.0})
+				st.tiles += 1
+				st.sum += c
+				_regions[rid] = st
 			if mode == MODE_NONE:
 				_ground.set_point_solid(Vector2i(x, y), true)
 			else:
@@ -166,6 +173,12 @@ func _speed(mode: int, downstream: bool) -> float:
 			return float(sp.river_down) if downstream else float(sp.river_up)
 		_:
 			return float(sp.wilderness)
+
+
+## A region's wilderness for Formula F's search: {tiles, mean_cost} (continent region id).
+func region_stats(region_cid: int) -> Dictionary:
+	var st: Dictionary = _regions.get(region_cid, {"tiles": 0, "sum": 0.0})
+	return {"tiles": int(st.tiles), "mean_cost": float(st.sum) / maxf(1.0, float(st.tiles)) if int(st.tiles) > 0 else 1.5}
 
 
 ## The flight speed of realm [param realm_id] (tiles a season), 0 when that realm cannot fly.

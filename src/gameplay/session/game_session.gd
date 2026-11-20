@@ -82,6 +82,8 @@ var edge: bool = true
 ## Realm index -> cơ duyên events offered in that realm.
 var co_duyen_used: Dictionary = {}
 var epitaph_text: String = ""
+## What the player knows of the map: known tiles and places, clues, finds (Travel & Map rule 14; null in an old world).
+var knowledge: MapKnowledge = null
 ## The new game's chosen start place (a continent place id or name; "" = picked), read by _place_player.
 var _start_home: String = ""
 ## Lines from the yearly tick (upkeep, stipend) shown with the next action's result.
@@ -141,6 +143,7 @@ func new_game(seed_v: int, spec: Dictionary) -> Dictionary:
 	_choose_start(str(spec.get("start", "")))
 	player.id = db.add("people", player.to_dict())
 	_place_player()
+	knowledge = MapKnowledge.start(gd, db, player) if db.has_record("world", "w_meta") else null
 	if edge:
 		for si in ProgressionEdges.config(gd).player.starting_items:
 			if si.has("talisman"):
@@ -582,6 +585,10 @@ func explore() -> Dictionary:
 		else:
 			lines.append("  You sense something hidden here, but cannot find it (%.0f%% chance)." % (chance * 100.0))
 		break
+	if knowledge != null and str(place.get("kind", "")) in gd.world_gen().get("continent", {}).get("settled_kinds", []):
+		var heard: String = Discovery.rumour(gd, db, knowledge, rng, str(place.get("region_id", "")))
+		if heard != "":
+			lines.append(heard)
 	var r: Dictionary = _pass_season("")
 	lines.append_array(_news_lines(r.news))
 	if not r.died:
@@ -609,11 +616,14 @@ func travel(dest_id: String, how: String = "ground") -> Dictionary:
 		dest_id = str(named[0].id)
 	if dest_id == player.location_id:
 		return {"ok": false, "lines": ["You are already at %s." % here.name]}
+	if knowledge != null and not knowledge.knows_place(dest_id) and not _map_clue_for(dest_id):
+		return {"ok": false, "lines": ["You have not heard of such a place."]}
 	var f: float = Travel.speed_factor(gd, sheet().total("travel_speed_pct"))
 	var dest: Dictionary = db.get_record("places", dest_id)
 	var t: float = -1.0
 	var hops: String = ""
 	var stretches: Array = []
+	var path_tiles: Array = []
 	var flown: float = 0.0
 	if here.has("tile") and dest.has("tile") and TravelGrid.of(gd).errors.is_empty():
 		var tg: TravelGrid = TravelGrid.of(gd)
@@ -626,6 +636,7 @@ func travel(dest_id: String, how: String = "ground") -> Dictionary:
 		if not trip.is_empty():
 			t = float(trip.seasons)
 			stretches = tg.stretches(trip)
+			path_tiles = trip.tiles
 			var legs: PackedStringArray = []
 			for m in trip.by_mode:
 				legs.append("%s %.2f" % [m, float(trip.by_mode[m])])
@@ -666,6 +677,12 @@ func travel(dest_id: String, how: String = "ground") -> Dictionary:
 	for b in beasts.owned(player):
 		b["location_id"] = dest_id
 	var lines: Array = ["You travel %.2f season(s) (%s) and arrive at %s; %d season(s) pass." % [t, hops, dest.name, seasons]]
+	if knowledge != null and not path_tiles.is_empty():
+		var ds: float = CharacterRules.than_thuc(player, gd, sheet()).total
+		var seen: Array = knowledge.reveal_path(db, path_tiles, MapKnowledge.sight_radius(gd, ds))
+		if not seen.is_empty():
+			lines.append("You see %d place(s) you did not know along the way." % seen.size())
+		lines.append_array(Discovery.check_path(gd, db, knowledge, rng, player, ds, path_tiles, how == "flight", year, season))
 	if flown > 0.0:
 		var v_eff: float = TravelGrid.of(gd).flight_speed(str(gd.realm(player.realm_index).id)) * f
 		var last_tiles: float = minf(flown, v_eff * float(split.last_share))
@@ -704,6 +721,53 @@ func _road_encounter(st: Dictionary) -> Array:
 	pending_event = res.event
 	pending_meta = {"source": res.source, "warnings": res.warnings, "llm_error": res.llm_error, "on_the_road": st}
 	return ["", "*** ON THE ROAD (%s, danger %d): %s ***  (type 'event' to read, 'choose <n>' to act)" % [str(st.mode), int(st.danger), pending_event.title]]
+
+
+## Searches the current region for a season with the clues held for it (Travel & Map rule 17, Formula F). The
+## season is spent off-road, so it may draw an encounter at the region's danger (Formula E, mode "search").
+func search() -> Dictionary:
+	var g: Dictionary = _guard(true)
+	if not g.ok:
+		return g
+	if knowledge == null:
+		return {"ok": false, "lines": ["There is nothing hidden to search for in this world."]}
+	var place: Dictionary = db.get_record("places", player.location_id)
+	var region_id: String = str(place.get("region_id", ""))
+	var ds: float = CharacterRules.than_thuc(player, gd, sheet()).total
+	var f: float = Travel.speed_factor(gd, sheet().total("travel_speed_pct"))
+	var res: Dictionary = Discovery.search(gd, db, knowledge, rng, player, ds, f, region_id, year, season)
+	var lines: Array = ["You spend a season searching the wilds of %s." % db.get_record("regions", region_id).get("name", "")]
+	lines.append_array(res.lines)
+	var r: Dictionary = _pass_season("")
+	lines.append_array(_news_lines(r.news))
+	if r.died:
+		return {"ok": true, "lines": lines + death_lines()}
+	var hz: Array = gd.file(Travel.RULES_FILE).get("hazard_per_season", [0.15, 0.35, 0.7, 1.2])
+	var danger: int = clampi(int(place.get("danger", 1)) + 1, 1, hz.size())
+	var chance: float = 1.0 - exp(-float(hz[danger - 1]) * float(gd.file(Travel.RULES_FILE).get("mode_factor", {}).get("search", 1.0)))
+	if rng.randf() < chance:
+		lines.append_array(_road_encounter({"tile": place.get("tile", [0, 0]), "mode": "search", "danger": danger}))
+	return {"ok": true, "lines": lines}
+
+
+## The clues the player holds, as lines (never the truth: a false clue looks like a true one).
+func clue_lines() -> Array:
+	if knowledge == null or knowledge.clues.is_empty():
+		return ["You hold no clues to hidden places. Explore settlements to hear rumours."]
+	var out: Array = []
+	for c in knowledge.clues:
+		var roll: Dictionary = Discovery.ledger(db).get(str(c.slot), {})
+		var done: String = " (found)" if knowledge.found.has(str(c.slot)) else ""
+		out.append("  %-9s %s in %s, quality %.2f%s" % [str(c.kind), Discovery._kind_words(str(roll.get("kind", ""))), db.get_record("regions", str(c.region)).get("name", "?"), float(c.quality), done])
+	return out
+
+
+## Whether the player holds an exact map to the hidden place [param place_id] (it may then be travelled to).
+func _map_clue_for(place_id: String) -> bool:
+	if knowledge == null:
+		return false
+	var slot: String = str(db.get_record("places", place_id).get("slot", ""))
+	return slot != "" and knowledge.clues.any(func(c): return str(c.slot) == slot and str(c.kind) == "map")
 
 
 ## Capability #21: once a year, travel instantly to any visited place.
@@ -1445,6 +1509,7 @@ func to_dict() -> Dictionary:
 		"year": year, "season": season, "player_id": player.id, "db": db.to_dict(),
 		"pending_event": pending_event, "pending_meta": pending_meta, "life_over": life_over, "epitaph": epitaph_text, "cheated": cheated,
 		"edge": edge, "co_duyen_used": co_duyen_used,
+		"knowledge": knowledge.to_dict() if knowledge != null else {},
 	}
 
 
@@ -1488,6 +1553,8 @@ func load_dict(d: Dictionary) -> Dictionary:
 	for k in cdu.keys():
 		co_duyen_used[int(k)] = int(cdu[k])
 	epitaph_text = str(d.get("epitaph", ""))
+	var kd: Dictionary = d.get("knowledge", {})
+	knowledge = MapKnowledge.from_dict(kd) if not kd.is_empty() else null
 	ratings.normalise_loaded()
 	if not life_over:
 		_start_ratings()   # the season's batch is planned again from the saved state (rule 14's pending work)

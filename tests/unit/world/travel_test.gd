@@ -79,11 +79,13 @@ func test_any_reachable_place_can_be_reached_in_one_order() -> void:
 	var far: Dictionary = {}
 	var best: float = 0.0
 	for p in s.db.all("places"):
+		if not s.knowledge.knows_place(str(p.id)):
+			continue
 		var q: Dictionary = Travel.quickest(s.db, s.player.location_id, str(p.id))
 		if not q.is_empty() and int(q.hops) > 1 and float(q.seasons) > best:
 			best = float(q.seasons)
 			far = p
-	assert_false(far.is_empty(), "a place several legs away")
+	assert_false(far.is_empty(), "a known place several legs away")
 	var r: Dictionary = s.travel(str(far.id))
 	assert_true(r.ok, "one order: %s" % str(r.lines))
 	assert_eq(s.player.location_id, str(far.id), "arrived far away")

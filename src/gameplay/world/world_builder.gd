@@ -17,7 +17,8 @@ extends RefCounted
 ## 3. the chronicle and the annals into the event log (canon Vietnamese text);
 ## 4. the fixed cast: the living as full people at their authored realm, sect, rank and home; the dead as records;
 ## 5. the seeded rolls: each hidden slot's and tile secret's tile (Formula C, keyed on the game seed and the slot id),
-##    into the never-shown ledger [member ledger];
+##    into the never-shown ledger [member ledger]; the famous sites become places, each hidden slot a hidden place at
+##    its rolled tile, and blessed lands give their places layer 3 (qi.layer3);
 ## 6. the random cultivators: Formula A's headcount per realm less the living cast (Formula B), sect members up to
 ##    Sects F17's target with a join year (Formula D) and maybe a master, the rest settled or on chosen wild ground;
 ## 7. the unique named items (Item Database rule 20d), placed without invented history;
@@ -84,6 +85,7 @@ func generate(rng: RandomNumberGenerator, game_seed: String = "") -> WorldDB:
 	_step_history()
 	_step_cast()
 	_step_rolls()
+	_step_sites()
 	_step_random_fill(rng)
 	_step_named_items(rng)
 	# Core Rules 10 and 13: the ledger of truth and the data versions are saved with the world, never shown
@@ -293,6 +295,99 @@ func _step_rolls() -> void:
 			"region": int(s.region)}
 
 
+## The history's sites (Travel & Map rules 15 and 28): the famous ones are places from the start; each hidden slot
+## becomes a place at its rolled tile, hidden (seen by no one) until found. Every place on a blessed land's tiles gets
+## its layer 3 (Formula B) in qi.layer3, active for a famous land and for a hidden one once it is found.
+func _step_sites() -> void:
+	var kinds: Dictionary = _cfg.kinds
+	var lands: Array = []
+	var grid := ContinentGrid.load_file(str(_gd.file(ContinentData.DATA_FILE).get("grid_file", "")))
+	for f in _hist.get("famous_sites", []):
+		var k: Dictionary = kinds.get(str(f.kind), {"type": "son"})
+		var tile: Array = f.tile
+		var region_cid: int = int(f.region) if int(f.region) > 0 else grid.region(int(tile[0]), int(tile[1]))
+		var rec := {"name": str(f.name), "type": str(k.type), "kind": str(f.kind), "region_id": _region_db(region_cid),
+			"density": float(f.get("density", 1.0)), "danger": int(f.get("danger", 1)), "market": false, "bounties": false,
+			"links": [], "sect_id": "", "tile": tile, "qi": f.get("qi", {}).duplicate(true), "famous": true,
+			"holder": sect_ids.get(str(f.get("holder", "")), ""), "name_han": str(f.get("name_han", "")),
+			"gloss": str(f.get("gloss", ""))}
+		if f.has("cycle"):
+			rec["cycle"] = f.cycle
+		var id: String = _db.add("places", rec)
+		_add_to_region(id, rec.region_id)
+		if str(f.kind) == "blessed_land":
+			var tiles: Array = f.get("tile_list", [tile])
+			lands.append({"name": str(f.name), "tiles": tiles, "dD": float(f.get("dD3", 0.0)), "element": str(f.get("element", "")),
+				"push": float(f.get("push", 0)), "slot": "", "active": true})
+	for s in _hist.hidden_slots:
+		var roll: Dictionary = ledger[str(s.slot)]
+		var i: int = int(roll.candidate)
+		var cq: Dictionary = s.candidate_qi[i] if i < s.candidate_qi.size() else {}
+		var kind: String = "blessed_land" if str(s.kind).begins_with("blessed") else str(s.kind)
+		var k: Dictionary = kinds.get(kind, {"type": "son"})
+		var region: String = _region_db(int(s.regions[i]) if i < s.regions.size() else 0)
+		var rec := {"name": _hidden_name(s, kind, region), "type": str(k.type), "kind": kind, "region_id": region,
+			"density": float(cq.get("density", 1.0)), "danger": int(cq.get("danger", 1)), "market": false, "bounties": false,
+			"links": [], "sect_id": "", "tile": s.candidates[i], "qi": cq.get("qi", {}).duplicate(true), "hidden": true,
+			"slot": str(s.slot), "hidden_h": float(s.get("hidden_h", 1000)), "origin_event": str(s.get("origin", "")),
+			"owner_key": str(s.get("owner", ""))}
+		var id: String = _db.add("places", rec)
+		_add_to_region(id, region)
+		roll["place_id"] = id
+		if kind == "blessed_land":
+			var tiles: Array = s.tile_lists[i] if s.has("tile_lists") else [s.candidates[i]]
+			lands.append({"name": rec.name, "tiles": tiles, "dD": float(s.get("dD3", 0.0)), "element": str(s.get("element", "")),
+				"push": float(s.get("push", 0)), "slot": str(s.slot), "active": false})
+	var names: Dictionary = _cfg.get("element_names", {})
+	var by_tile := {}
+	for p in _db.all("places"):
+		if p.has("tile"):
+			var key := Vector2i(int(p.tile[0]), int(p.tile[1]))
+			if not by_tile.has(key):
+				by_tile[key] = []
+			by_tile[key].append(p)
+	for land in lands:
+		var push := {}
+		var el: String = str(names.get(str(land.element), ""))
+		if el != "":
+			push[el] = float(land.push)
+		for t in land.tiles:
+			for p in by_tile.get(Vector2i(int(t[0]), int(t[1])), []):
+				if not p.qi.has("layer3"):
+					p.qi["layer3"] = []
+				p.qi.layer3.append({"name": land.name, "dD": land.dD, "push": push, "slot": land.slot, "active": land.active})
+
+
+func _hidden_name(s: Dictionary, kind: String, region: String) -> String:
+	var rname: String = str(_db.get_record("regions", region).get("name", ""))
+	var owner: String = str(s.get("owner", ""))
+	if owner != "":
+		var person: String = person_ids.get(owner, "")
+		if person != "":
+			return "Động phủ của %s" % _db.get_record("people", person).name
+		for f in _hist.fallen_sects:
+			if str(f.key) == owner:
+				return "Di chỉ %s" % f.name
+	match kind:
+		"secret_realm":
+			return "Bí cảnh ở %s" % rname
+		"blessed_land":
+			return "Phúc địa ở %s" % rname
+		"ruin":
+			return "Di tích ở %s" % rname
+	return "Động phủ ở %s" % rname
+
+
+func _region_db(continent_region: int) -> String:
+	return str(_cd.regions.get(continent_region, {}).get("_db", ""))
+
+
+func _add_to_region(place_id: String, region_id: String) -> void:
+	var r: Dictionary = _db.get_record("regions", region_id)
+	if not r.is_empty():
+		r.places.append(place_id)
+
+
 # --- 6. The random cultivators ---------------------------------------------------------------------------------------
 
 ## Formula A: the realm headcount targets for a world of [param n] (largest remainder, ties to the lower realm).
@@ -391,7 +486,7 @@ func _join(rec: Dictionary, sect: Dictionary, realm: int, k: int) -> void:
 ## Formulas M: a loose cultivator outside the settlements picks among the best wild places of a region (by density x
 ## land match for their root), the band narrowing with realm.
 func _wild_home(rec: Dictionary, rng: RandomNumberGenerator) -> String:
-	var wild: Array = _db.find("places", func(p): return str(p.kind) in _cfg.wild_kinds)
+	var wild: Array = _db.find("places", func(p): return str(p.kind) in _cfg.wild_kinds and not bool(p.get("hidden", false)))
 	if wild.is_empty():
 		return str(RngUtils.pick(rng, _db.all("places")).id)
 	var region: String = str(RngUtils.pick(rng, wild).region_id)
