@@ -16,6 +16,8 @@ var _db: WorldDB
 var _builds: BuildGenerator
 ## Power Rankings (rule 11): when set and enabled, a duel is Formulas F's roll on the two ratings instead of chiến lực.
 var ratings: RatingService
+## The last season's money flows by kind (WorldMoney.season), for the harness and the economy probe.
+var last_money: Dictionary = {}
 
 
 func _init(gd: GameData, db: WorldDB, builds: BuildGenerator) -> void:
@@ -32,8 +34,15 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 	var news: Array = []
 	var stage_chance: float = 1.0 / maxf(float(cfg.npc_cultivation_seasons_per_stage), 1.0)
 	var cultivators: int = 0
+	var money: MoneyLedger = null
+	if _db.count(WorldEconomy.TABLE) > 0:   # the season's money books (Regional Economy & Trade Formula H, AC-RE-07)
+		money = MoneyLedger.new(_db)
+		money.open_season()
 	if _db.has_record("world", "w_meta"):   # the continent's sites produce and their reserves move (Travel & Map rules 21-22, 25)
 		MapProduction.season(_gd, _db, season == 0)
+		if money != null:   # the markets read the season's production, then the money moves (rule 19)
+			WorldEconomy.season(_gd, _db, money)
+			last_money = WorldMoney.season(_gd, _db, money)
 		news.append_array(MapChange.season(_db, year, season, str(_db.get_record("world", "w_meta").get("seed", ""))))
 	if season == 0:   # Lost items left untouched long enough decay (item-database.md rule 14)
 		for item in ItemRarity.decay_lost(_gd, _db, year):
@@ -55,7 +64,8 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 		if p.get("is_beast", false) and str(p.get("owner_id", "")) == "":
 			continue
 		if stage < _gd.stage_count(realm_index) - 1:
-			if rng.randf() < stage_chance:
+			# money speeds NPCs (user decision 2026-11-20): last season's provision bonus and stone boost (WorldMoney)
+			if rng.randf() < stage_chance * (1.0 + float(p.get("prov", 0.0))) * (1.0 + float(p.get("stone_boost", 0.0))):
 				p["stage"] = stage + 1
 				p["level"] = Ladder.stage_first_level(_gd, realm_index, stage + 1)
 				_builds.refresh_power(p.id)
@@ -96,11 +106,14 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 func old_age_death(p: Dictionary, year: int, season: int) -> Array:
 	var texts: Dictionary = _gd.world_gen().history.texts
 	var news: Array = []
+	var heir: String = Inheritance.heir_of(_db, _gd, p)
+	if _db.count(WorldEconomy.TABLE) > 0:   # the purse goes to the heir, the sect or the lost stash (Formula H)
+		WorldMoney.settle_death(_gd, _db, MoneyLedger.new(_db), p, heir)
 	p["alive"] = false
 	p["death_cause"] = "Thọ nguyên cạn kiệt"
 	p["death_year"] = year
 	news.append(_log(year, season, "tick_death", texts, {"a": p.id, "realm": _gd.realm(int(p.realm_index)).name}))
-	_db.items_on_death(p.id, str(p.get("location_id", "")), "", Inheritance.heir_of(_db, _gd, p))
+	_db.items_on_death(p.id, str(p.get("location_id", "")), "", heir)
 	var succ: String = _succeed_leader(p)
 	if succ != "":
 		news.append(_log(year, season, "tick_succession", texts, {"a": succ, "b": p.id}))

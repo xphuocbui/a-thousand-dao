@@ -118,7 +118,10 @@
         "lam",
         "khoang",
         "linh_mach",
-        "hoa_son"
+        "hoa_son",
+        "yeu_sao",
+        "on_tuyen",
+        "hoa_khau"
       ],
       "npc": {
         "mode": "new",
@@ -226,7 +229,10 @@
         "lam",
         "khoang",
         "linh_mach",
-        "hoa_son"
+        "hoa_son",
+        "yeu_sao",
+        "on_tuyen",
+        "hoa_khau"
       ],
       "npc": {
         "mode": "none"
@@ -315,7 +321,10 @@
         "khoang",
         "linh_mach",
         "hoa_son",
-        "di_tich"
+        "di_tich",
+        "yeu_sao",
+        "on_tuyen",
+        "hoa_khau"
       ],
       "npc": {
         "mode": "none"
@@ -415,7 +424,10 @@
         "khoang",
         "linh_mach",
         "hoa_son",
-        "di_tich"
+        "di_tich",
+        "yeu_sao",
+        "on_tuyen",
+        "hoa_khau"
       ],
       "npc": {
         "mode": "beast",
@@ -493,7 +505,10 @@
         "khoang",
         "linh_mach",
         "hoa_son",
-        "di_tich"
+        "di_tich",
+        "yeu_sao",
+        "on_tuyen",
+        "hoa_khau"
       ],
       "npc": {
         "mode": "none"
@@ -887,7 +902,10 @@
         "lam",
         "khoang",
         "linh_mach",
-        "hoa_son"
+        "hoa_son",
+        "yeu_sao",
+        "on_tuyen",
+        "hoa_khau"
       ],
       "npc": {
         "mode": "new",
@@ -961,7 +979,10 @@
         "khoang",
         "linh_mach",
         "hoa_son",
-        "di_tich"
+        "di_tich",
+        "yeu_sao",
+        "on_tuyen",
+        "hoa_khau"
       ],
       "requires_realm_min": 1,
       "npc": {
@@ -1219,7 +1240,10 @@
         "khoang",
         "linh_mach",
         "hoa_son",
-        "di_tich"
+        "di_tich",
+        "yeu_sao",
+        "on_tuyen",
+        "hoa_khau"
       ],
       "requires_realm_min": 1,
       "npc": {
@@ -1331,7 +1355,10 @@
         "khoang",
         "linh_mach",
         "hoa_son",
-        "di_tich"
+        "di_tich",
+        "yeu_sao",
+        "on_tuyen",
+        "hoa_khau"
       ],
       "requires_realm_min": 1,
       "npc": {

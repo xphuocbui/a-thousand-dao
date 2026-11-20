@@ -213,6 +213,42 @@
       "market": false,
       "bounties": false,
       "weight": 0
+    },
+    {
+      "id": "yeu_sao",
+      "suffix": "Yêu sào",
+      "density": [
+        0.9,
+        1.45
+      ],
+      "danger": 4,
+      "market": false,
+      "bounties": false,
+      "weight": 0
+    },
+    {
+      "id": "on_tuyen",
+      "suffix": "Ôn tuyền",
+      "density": [
+        1.0,
+        1.5
+      ],
+      "danger": 1,
+      "market": false,
+      "bounties": false,
+      "weight": 0
+    },
+    {
+      "id": "hoa_khau",
+      "suffix": "Địa hỏa khẩu",
+      "density": [
+        1.0,
+        1.5
+      ],
+      "danger": 3,
+      "market": false,
+      "bounties": false,
+      "weight": 0
     }
   ],
   "travel": {
@@ -627,6 +663,26 @@
         "type": "phuc_dia",
         "market": false,
         "bounties": false
+      },
+      "beast_lair": {
+        "type": "yeu_sao",
+        "market": false,
+        "bounties": false
+      },
+      "hot_spring": {
+        "type": "on_tuyen",
+        "market": false,
+        "bounties": false
+      },
+      "lava_vent": {
+        "type": "hoa_khau",
+        "market": false,
+        "bounties": false
+      },
+      "lightning_wood": {
+        "type": "lam",
+        "market": false,
+        "bounties": false
       }
     },
     "settled_kinds": [
@@ -643,7 +699,11 @@
       "island",
       "forest",
       "mine",
-      "spirit_vein"
+      "spirit_vein",
+      "beast_lair",
+      "hot_spring",
+      "lava_vent",
+      "lightning_wood"
     ],
     "sect_capacity": {
       "cap_base": {

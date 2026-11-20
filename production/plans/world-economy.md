@@ -73,3 +73,55 @@ So before the economy can price anything, the land must produce what it prices: 
 - **Balance:** an economy-only harness (tick N years: M, ΔM a year, mean price, pool levels against AC-RE-37's bands)
   first; autoplay only at checkpoints, on 10-12 processes, with the player rolled independently of world building so
   runs compare (baseline 65 / 49 / 15 / 0 of 7).
+
+## 5. Progress
+
+- **M1 done** (a63dfc5e): mines by name; faucet 124,560 a season (linh thạch kind factor 0.72).
+- **M2 done** (user-approved 2026-11-20): `design/map/continent-11/sites.json` (14 beast lairs, 5 hot springs, 4 lava
+  vents, 1 lightning wood) exported as places 231-254 (ids of earlier places unchanged), sites of their good; new
+  goods Yêu Cốt, Yêu Thú Bì, Linh Tuyền Thủy, Địa Hỏa Tinh; place types yêu sào, ôn tuyền, địa hỏa khẩu. Ice variant
+  now at 2.3 % of places (Hàn Giao Chử, a cold islet, holds Ice; the land's truth, over the 2 % target).
+- **Herb sites:** every place with herb grounds (95) is a herb site; value split among its herbs by Trade Goods
+  Formula A. The contract now has `production_value` {good: base value} per region. Non-mine value 250,235 a season
+  (herb 120k, ore 84k, beast 28k, special 18k) after tuning kind_value_mult herb 0.17, beast 1.6 and beast settle_w 1.0.
+- **L done:** `MoneyLedger` (holders sect:/npc:/pool:/stash:/player; mint, transfer, burn; season books; property test
+  watched failing on a broken burn). NPC purses seeded at reserve x U(0.5, 1.5); commons pools 20,000 each.
+  M_0 about 1.53M (GDD guess 1.2M). Old saves: the map version changed with M2, so they are refused anyway.
+- **R1 done:** `EconomyRules` (Formulas A-L2 as pure functions; the GDD's worked examples are its tests) and
+  `WorldEconomy` (markets table, calibration of d_scale and starting stock, the season tick, local prices and
+  price_index back to Formula H's D_f). d_scale herb 2.58, ore 3.87 (above the 0.5-3 range: ore supply is high
+  against baskets; AC-RE-51 flags it), beast 1.22, special 1.55. Without links markets drift apart (ore 0.70 in
+  Thúy Vi and Thiên Xu, 2.20 in Lạc Hà and Phượng Minh by season 20): R3's job.
+- **R2 (part) done:** shop prices on the continent follow Formula G at the region's local price (raw goods at the
+  bulk spread 1.10 / 0.90, finished goods at the retail spread); money through the commons pool; slippage; the
+  player's trades enter P_eff and L1. Not yet: tariffs on goods from other markets (origin tags, with R3/S1),
+  standing (S1), cargo by storage items, restock from market stock (rule 19 g, with T).
+- **R3 done:** 21 candidate links (bordering territories by road, the rest through the teleport arrays); Formula F
+  flows in (id_A, id_B) order, depleting the exporter, scaled to capacity, paid pool to pool with the importer's
+  tariff to its sect; links read Trade >= 1, Openness (default 2) and wars each season.
+- **H (world side) done:** `WorldMoney.season` after the markets: mines mint (collect_mine to the holder, the rest to
+  the market's commons pool; wild sites half to the stash), cash stipends, commons missions (pool / 3 a season, one
+  mission per cultivator at realm pay), baskets (L2) to the pool, market tax and goods sold (Inc_goods) to the
+  treasury, the treasury rule (missions to members, the track's cash share burned, its kind share kept from the next
+  goods sales). Deaths settle the purse (heir, sect, or lost_frac burned and the rest to the stash).
+  `tests/integration/economy/money_conservation_test.gd` checks ΔM = minted − burned every season on the real
+  ticker (watched failing by 301,701 without the death settlement).
+- **J done:** NPC stones (Formula J at a reference rate by realm, npc_rate_ref from Formula J's output range) and
+  the provision bonus speed NPCs' stage chance by (1 + prov) x (1 + stone_boost) (decision 2). With stones, M settles:
+  1.56M -> 1.93M over 80 seasons (about +1.3 % a year; AC-RE-37 wants -2 % to +5 %). Stones burn about 83k a season,
+  works about 36k.
+- **Player stream:** the player and the play after world building draw from rng keyed "player:<seed>", so paired
+  balance runs compare across world changes.
+- **Tick cost:** the money step about 85 ms a season (batched ledger flows, slot cache); world tick about 330 ms.
+
+### Open for the user (to ask)
+
+- **The lost-stash pool has almost no inflow.** Every linh thạch site on continent 11 has a holder, so Formula H's
+  wild-site share is 0 and only heirless purses feed it (6 stones in season 79 of the probe). Formula K would then pay
+  the player's explore finds, buried caches and discovery loot almost nothing. Options: a small share of every mine's
+  output to the stash (losses, theft, buried caches), or draw finds from the commons pool, or keep Formula K as
+  written (finds dry up).
+- **Numbers set without sign-off** (for the economy review): kind_value_mult herb 0.17, beast 1.6, linh thạch 0.72;
+  beast settle_w 1.0; the mine resource table (design/map/continent-11/mine_resources.json, DRAFT but live); Ice
+  variant at 2.3 % of places; M_0 about 1.53M (pools 20,000 each); npc_rate_ref.
+- **Calibration:** d_scale ore 3.87 (outside 0.5-3) is left until S1 adds the sects' ore spending (then recalibrate).

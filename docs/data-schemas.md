@@ -25,6 +25,7 @@ Design source: the GDDs in `design/gdd/` own the values of the files they name
 | `world_map.json` | Travel & Map land qi (Formula C inputs, built offline by `tools/design/map/land_qi.py`) and the element-match keys (Formulas A-B) | `LandQi`, `land_qi.py` |
 | `world_continent.json` | The authored continent 11 (exported by `tools/design/map/export_continent.py`; never hand-edited): regions, sects, places with their density, danger and qi, routes, arrays, origins, the grid and qi files, `mu` | `ContinentData`, `ContinentGrid`, `LandQi` |
 | `map_resources.json` | Travel & Map resource sites, production (Formula H), reserves (Formula I) and the start-reserve choices | `MapProduction`, `WorldBuilder` |
+| `economy.json` | Regional Economy & Trade: the money holders' starting values (Formula H: reserves by realm, starting purses, commons pools) | `MoneyLedger`, `WorldBuilder` |
 | `world_history.json` | The authored world's history (exported by `tools/design/world/export_world.py`; never hand-edited): sects' start, cast, chronicle and annals, legendary items, territory, hidden slots, tile secrets, famous sites | `WorldBuilder` |
 | `map_works.json` | Travel & Map works on the land (Formula J), Formula B's layer caps, the developed ground of settlements and seats, residences and cave-abode costs (Formula M) | `MapWorks`, `LandQi`, `WorldBuilder`, `GameSession` |
 | `world_generation.json` | Regions, places, sects, people, NPC builds, history, ticks, texts | `WorldGenerator`, `WorldTicker`, `BuildGenerator`, `GameSession` |

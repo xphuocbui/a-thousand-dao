@@ -30,6 +30,20 @@ func _init() -> void:
 		if r != "linh_thach":
 			non_mine_value += float(by_res[r]) * float(unit.get(r, 1))
 	print("sites %d; linh thach a season %.0f (GDD faucet ~124,000); other output %s; their value at P=1 %.0f (GDD world_production_guess 250,000)" % [sites, lt, str(by_res), non_mine_value])
+	var by_kind := {}
+	var herb_sites: int = 0
+	var kind_of: Dictionary = gd.file(MapProduction.DATA_FILE).get("resource_kind", {})
+	for r in db.all("regions"):
+		for g in r.get("production_value", {}):
+			var k: String = "herb" if not gd.herb(str(g)).is_empty() else str(kind_of.get(str(g), "ore"))
+			by_kind[k] = float(by_kind.get(k, 0.0)) + float(r.production_value[g])
+	for p in db.all("places"):
+		if p.has("herb_site"):
+			herb_sites += 1
+	var tot: float = 0.0
+	for k in by_kind:
+		tot += float(by_kind[k])
+	print("contract value_lt by kind %s = %.0f (world_production_guess 250,000); %d herb sites" % [str(by_kind), tot, herb_sites])
 	var treas: float = 0.0
 	for s in db.find("sects", func(x): return x.status == "active"):
 		treas += float(s.get("treasury", 0))
@@ -38,7 +52,8 @@ func _init() -> void:
 	for p in db.find("people", func(x): return x.alive and not x.get("is_beast", false)):
 		purses += float(p.get("linh_thach", 0))
 		alive += 1
-	print("money at year 0: treasuries %.0f + %d NPC purses %.0f = %.0f (GDD M_0 ~1,200,000)" % [treas, alive, purses, treas + purses])
+	var m0: float = MoneyLedger.new(db).money_in_world()
+	print("money at year 0: treasuries %.0f + %d NPC purses %.0f + pools %.0f = M_0 %.0f (GDD M_0 ~1,200,000)" % [treas, alive, purses, m0 - treas - purses, m0])
 	var ticker := WorldTicker.new(gd, db, BuildGenerator.new(gd, tree, db))
 	var t0: int = Time.get_ticks_msec()
 	for i in 20:

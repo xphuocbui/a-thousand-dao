@@ -19,7 +19,8 @@ func test_the_approved_counts() -> void:
 	assert_eq(cd.regions.size(), 20, "20 regions")
 	assert_eq(cd.great_sects.size(), 7, "7 great sects")
 	assert_eq(cd.minor_sects.size(), 23, "23 minor sects (Thu Phần Các added with the territory history, 2026-11-15)")
-	assert_eq(cd.places.size(), 230, "204 places, 8 sacred places, 17 ruins and one minor seat from the territory history")
+	assert_eq(cd.places.size(), 254, "204 places, 8 sacred places, 17 ruins and one minor seat from the territory history, 24 lairs and special sites")
+	assert_eq(cd.places.values().filter(func(p): return p.kind == "beast_lair").size(), 14, "the approved beast lairs (sites.json, 2026-11-20)")
 	assert_eq(cd.arrays.size(), 7, "7 teleport arrays, one per great sect")
 	var tiers := {1: 0, 2: 0}
 	for k in cd.great_sects:

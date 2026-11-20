@@ -11037,6 +11037,972 @@
    },
    "density": 1.128,
    "danger": 1
+  },
+  {
+   "id": 231,
+   "kind": "beast_lair",
+   "tile": [
+    298,
+    242
+   ],
+   "region": 19,
+   "biome": "highland",
+   "elevation_km": 1.4,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Phục Hổ Cương",
+   "on_road": false,
+   "array": false,
+   "resource": "yeu_cot",
+   "name_han": "伏虎岡",
+   "gloss": "Crouching Tiger Ridge",
+   "note": "A tiger-kind beast's ridge on the Kinh Trập highland, where the storms wake the hills.",
+   "holder": "",
+   "territory": "thinh_vu",
+   "qi": {
+    "part": 0,
+    "part_biome": "highland",
+    "shares": {
+     "moc": 6.58,
+     "hoa": 11.52,
+     "tho": 30.57,
+     "kim": 42.04,
+     "thuy": 9.28
+    },
+    "variants": {},
+    "land_density": 0.901,
+    "land_danger": 1
+   },
+   "density": 1.041,
+   "danger": 1
+  },
+  {
+   "id": 232,
+   "kind": "beast_lair",
+   "tile": [
+    467,
+    342
+   ],
+   "region": 20,
+   "biome": "jungle",
+   "elevation_km": 0.26,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Vạn Xà Lâm",
+   "on_road": false,
+   "array": false,
+   "resource": "yeu_cot",
+   "name_han": "萬蛇林",
+   "gloss": "Forest of Ten Thousand Snakes",
+   "note": "Deep jungle at the far end of Đan Huyệt Châu, the farthest lair from any town.",
+   "holder": "",
+   "territory": "phuong_minh",
+   "qi": {
+    "part": 0,
+    "part_biome": "jungle",
+    "shares": {
+     "moc": 10.46,
+     "hoa": 36.26,
+     "tho": 7.5,
+     "kim": 7.01,
+     "thuy": 38.78
+    },
+    "variants": {},
+    "land_density": 1.052,
+    "land_danger": 2
+   },
+   "density": 1.192,
+   "danger": 2
+  },
+  {
+   "id": 233,
+   "kind": "beast_lair",
+   "tile": [
+    441,
+    62
+   ],
+   "region": 9,
+   "biome": "tundra",
+   "elevation_km": 0.34,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Tuyết Lang Nguyên",
+   "on_road": false,
+   "array": false,
+   "resource": "yeu_cot",
+   "name_han": "雪狼原",
+   "gloss": "Snow Wolf Plain",
+   "note": "Tundra of Hàn Sương Châu where the snow wolves run in packs.",
+   "holder": "",
+   "territory": "bang_tam",
+   "qi": {
+    "part": 0,
+    "part_biome": "tundra",
+    "shares": {
+     "moc": 7.52,
+     "hoa": 8.67,
+     "tho": 21.16,
+     "kim": 22.39,
+     "thuy": 40.27
+    },
+    "variants": {},
+    "land_density": 0.702,
+    "land_danger": 2
+   },
+   "density": 0.842,
+   "danger": 2
+  },
+  {
+   "id": 234,
+   "kind": "beast_lair",
+   "tile": [
+    334,
+    170
+   ],
+   "region": 6,
+   "biome": "highland",
+   "elevation_km": 1.48,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Bằng Sào Nhai",
+   "on_road": false,
+   "array": false,
+   "resource": "yeu_cot",
+   "name_han": "鵬巢崖",
+   "gloss": "Roc's Nest Cliff",
+   "note": "A roc nests on the cliffs of Dao Quang Lĩnh.",
+   "holder": "",
+   "territory": "thien_xu",
+   "qi": {
+    "part": 0,
+    "part_biome": "highland",
+    "shares": {
+     "moc": 9.38,
+     "hoa": 15.33,
+     "tho": 35.15,
+     "kim": 31.13,
+     "thuy": 9.0
+    },
+    "variants": {},
+    "land_density": 0.911,
+    "land_danger": 1
+   },
+   "density": 1.051,
+   "danger": 1
+  },
+  {
+   "id": 235,
+   "kind": "beast_lair",
+   "tile": [
+    389,
+    308
+   ],
+   "region": 16,
+   "biome": "jungle",
+   "elevation_km": 0.45,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Huyền Viên Lâm",
+   "on_road": false,
+   "array": false,
+   "resource": "yeu_cot",
+   "name_han": "玄猿林",
+   "gloss": "Dark Ape Forest",
+   "note": "Jungle below the wutong hills of Thê Ngô Lĩnh, held by dark apes.",
+   "holder": "",
+   "territory": "phuong_minh",
+   "qi": {
+    "part": 0,
+    "part_biome": "jungle",
+    "shares": {
+     "moc": 24.73,
+     "hoa": 16.73,
+     "tho": 17.55,
+     "kim": 22.86,
+     "thuy": 18.13
+    },
+    "variants": {},
+    "land_density": 1.009,
+    "land_danger": 2
+   },
+   "density": 1.149,
+   "danger": 2
+  },
+  {
+   "id": 236,
+   "kind": "beast_lair",
+   "tile": [
+    266,
+    214
+   ],
+   "region": 14,
+   "biome": "highland",
+   "elevation_km": 1.71,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Thương Ưng Đài",
+   "on_road": false,
+   "array": false,
+   "resource": "yeu_cot",
+   "name_han": "蒼鷹臺",
+   "gloss": "Grey Hawk Terrace",
+   "note": "The high plateau of Thiên Tuyền Nguyên, hunting ground of the grey hawks, near Chiết Kích Nguyên.",
+   "holder": "",
+   "territory": "thien_xu",
+   "qi": {
+    "part": 0,
+    "part_biome": "highland",
+    "shares": {
+     "moc": 11.97,
+     "hoa": 18.14,
+     "tho": 42.48,
+     "kim": 19.76,
+     "thuy": 7.65
+    },
+    "variants": {
+     "phong": 20.33
+    },
+    "land_density": 0.903,
+    "land_danger": 1
+   },
+   "density": 1.043,
+   "danger": 1
+  },
+  {
+   "id": 237,
+   "kind": "beast_lair",
+   "tile": [
+    226,
+    255
+   ],
+   "region": 18,
+   "biome": "highland",
+   "elevation_km": 1.06,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Hắc Hùng Lĩnh",
+   "on_road": false,
+   "array": false,
+   "resource": "yeu_cot",
+   "name_han": "黑熊嶺",
+   "gloss": "Black Bear Ridge",
+   "note": "Highland of Tiêu Vũ Lâm where the black bears den.",
+   "holder": "",
+   "territory": "thinh_vu",
+   "qi": {
+    "part": 0,
+    "part_biome": "highland",
+    "shares": {
+     "moc": 15.57,
+     "hoa": 21.1,
+     "tho": 35.42,
+     "kim": 20.38,
+     "thuy": 7.54
+    },
+    "variants": {},
+    "land_density": 0.912,
+    "land_danger": 1
+   },
+   "density": 1.052,
+   "danger": 1
+  },
+  {
+   "id": 238,
+   "kind": "beast_lair",
+   "tile": [
+    317,
+    200
+   ],
+   "region": 15,
+   "biome": "highland",
+   "elevation_km": 1.09,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Thiết Bối Cốc",
+   "on_road": false,
+   "array": false,
+   "resource": "yeu_cot",
+   "name_han": "鐵背谷",
+   "gloss": "Iron-Back Valley",
+   "note": "Beasts with iron backs feed on the ore of Ngọc Hành Sơn.",
+   "holder": "",
+   "territory": "thien_xu",
+   "qi": {
+    "part": 0,
+    "part_biome": "highland",
+    "shares": {
+     "moc": 5.72,
+     "hoa": 33.41,
+     "tho": 39.97,
+     "kim": 16.84,
+     "thuy": 4.07
+    },
+    "variants": {},
+    "land_density": 0.901,
+    "land_danger": 1
+   },
+   "density": 1.041,
+   "danger": 1
+  },
+  {
+   "id": 239,
+   "kind": "beast_lair",
+   "tile": [
+    396,
+    28
+   ],
+   "region": 7,
+   "biome": "tundra",
+   "elevation_km": 0.09,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Hàn Giao Chử",
+   "on_road": false,
+   "array": false,
+   "resource": "yeu_cot",
+   "name_han": "寒蛟渚",
+   "gloss": "Islet of the Cold Flood-Dragon",
+   "note": "A lone islet far north of Ngọc Hồ Sơn where a cold giao coils.",
+   "holder": "",
+   "territory": "bang_tam",
+   "qi": {
+    "part": 0,
+    "part_biome": "tundra",
+    "shares": {
+     "moc": 7.3,
+     "hoa": 15.19,
+     "tho": 9.68,
+     "kim": 8.93,
+     "thuy": 58.91
+    },
+    "variants": {
+     "bang": 14.1
+    },
+    "land_density": 0.861,
+    "land_danger": 2
+   },
+   "density": 1.001,
+   "danger": 2
+  },
+  {
+   "id": 240,
+   "kind": "beast_lair",
+   "tile": [
+    124,
+    54
+   ],
+   "region": 3,
+   "biome": "tundra",
+   "elevation_km": 0.33,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Băng Tê Nguyên",
+   "on_road": false,
+   "array": false,
+   "resource": "yeu_cot",
+   "name_han": "冰犀原",
+   "gloss": "Ice Rhinoceros Plain",
+   "note": "Tundra of Thanh Loan Lĩnh crossed by ice rhinoceroses.",
+   "holder": "",
+   "territory": "thuy_vi",
+   "qi": {
+    "part": 0,
+    "part_biome": "tundra",
+    "shares": {
+     "moc": 9.18,
+     "hoa": 7.12,
+     "tho": 22.31,
+     "kim": 14.36,
+     "thuy": 47.03
+    },
+    "variants": {},
+    "land_density": 0.728,
+    "land_danger": 2
+   },
+   "density": 0.868,
+   "danger": 2
+  },
+  {
+   "id": 241,
+   "kind": "beast_lair",
+   "tile": [
+    73,
+    313
+   ],
+   "region": 10,
+   "biome": "jungle",
+   "elevation_km": 0.11,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Vụ Báo Lâm",
+   "on_road": false,
+   "array": false,
+   "resource": "yeu_cot",
+   "name_han": "霧豹林",
+   "gloss": "Mist Leopard Forest",
+   "note": "Jungle of Cô Vụ Đảo, the lonely misty island, where leopards hunt in the mist.",
+   "holder": "",
+   "territory": "lac_ha",
+   "qi": {
+    "part": 0,
+    "part_biome": "jungle",
+    "shares": {
+     "moc": 34.24,
+     "hoa": 18.63,
+     "tho": 6.97,
+     "kim": 6.68,
+     "thuy": 33.47
+    },
+    "variants": {},
+    "land_density": 1.019,
+    "land_danger": 2
+   },
+   "density": 1.159,
+   "danger": 2
+  },
+  {
+   "id": 242,
+   "kind": "beast_lair",
+   "tile": [
+    258,
+    151
+   ],
+   "region": 5,
+   "biome": "highland",
+   "elevation_km": 0.98,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Hổ Khiếu Cương",
+   "on_road": false,
+   "array": false,
+   "resource": "yeu_cot",
+   "name_han": "虎嘯岡",
+   "gloss": "Tiger's Roar Ridge",
+   "note": "A ridge between the nine bends of Cửu Khúc Xuyên where a tiger's roar carries.",
+   "holder": "",
+   "territory": "tung_dao",
+   "qi": {
+    "part": 0,
+    "part_biome": "highland",
+    "shares": {
+     "moc": 30.57,
+     "hoa": 11.21,
+     "tho": 20.72,
+     "kim": 22.66,
+     "thuy": 14.84
+    },
+    "variants": {},
+    "land_density": 0.901,
+    "land_danger": 1
+   },
+   "density": 1.041,
+   "danger": 1
+  },
+  {
+   "id": 243,
+   "kind": "beast_lair",
+   "tile": [
+    129,
+    302
+   ],
+   "region": 12,
+   "biome": "jungle",
+   "elevation_km": 0.05,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Thiên Chu Lâm",
+   "on_road": false,
+   "array": false,
+   "resource": "yeu_cot",
+   "name_han": "千蛛林",
+   "gloss": "Thousand Spider Wood",
+   "note": "Jungle of Thu Thủy Loan webbed by poison spiders.",
+   "holder": "",
+   "territory": "lac_ha",
+   "qi": {
+    "part": 0,
+    "part_biome": "jungle",
+    "shares": {
+     "moc": 24.97,
+     "hoa": 20.16,
+     "tho": 22.48,
+     "kim": 9.97,
+     "thuy": 22.43
+    },
+    "variants": {},
+    "land_density": 1.002,
+    "land_danger": 2
+   },
+   "density": 1.142,
+   "danger": 2
+  },
+  {
+   "id": 244,
+   "kind": "beast_lair",
+   "tile": [
+    73,
+    60
+   ],
+   "region": 2,
+   "biome": "tundra",
+   "elevation_km": 0.14,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Hỏa Hồ Nguyên",
+   "on_road": false,
+   "array": false,
+   "resource": "yeu_cot",
+   "name_han": "火狐原",
+   "gloss": "Fire Fox Plain",
+   "note": "Tundra of Tuyết Hỏa Giác, the horn of snow and fire, where fire foxes run on the snow.",
+   "holder": "",
+   "territory": "thuy_vi",
+   "qi": {
+    "part": 0,
+    "part_biome": "tundra",
+    "shares": {
+     "moc": 9.98,
+     "hoa": 7.66,
+     "tho": 19.24,
+     "kim": 12.08,
+     "thuy": 51.04
+    },
+    "variants": {},
+    "land_density": 0.712,
+    "land_danger": 2
+   },
+   "density": 0.852,
+   "danger": 2
+  },
+  {
+   "id": 245,
+   "kind": "hot_spring",
+   "tile": [
+    76,
+    140
+   ],
+   "region": 2,
+   "biome": "high mountain",
+   "elevation_km": 0.55,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Tuyết Để Tuyền",
+   "on_road": false,
+   "array": false,
+   "resource": "linh_tuyen_thuy",
+   "name_han": "雪底泉",
+   "gloss": "Spring Under the Snow",
+   "note": "Hot water rising under the snowfields of Tuyết Hỏa Giác.",
+   "holder": "thuy_vi",
+   "territory": "thuy_vi",
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 6.26,
+     "hoa": 41.03,
+     "tho": 6.99,
+     "kim": 6.78,
+     "thuy": 38.93
+    },
+    "variants": {},
+    "land_density": 1.457,
+    "land_danger": 3
+   },
+   "density": 1.517,
+   "danger": 3
+  },
+  {
+   "id": 246,
+   "kind": "hot_spring",
+   "tile": [
+    434,
+    75
+   ],
+   "region": 9,
+   "biome": "high mountain",
+   "elevation_km": 0.37,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Noãn Ngọc Tuyền",
+   "on_road": false,
+   "array": false,
+   "resource": "linh_tuyen_thuy",
+   "name_han": "暖玉泉",
+   "gloss": "Warm Jade Spring",
+   "note": "A warm spring in the frost land of Hàn Sương Châu, its stones warm to the touch.",
+   "holder": "bang_tam",
+   "territory": "bang_tam",
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 6.9,
+     "hoa": 21.7,
+     "tho": 15.55,
+     "kim": 15.56,
+     "thuy": 40.29
+    },
+    "variants": {},
+    "land_density": 1.405,
+    "land_danger": 2
+   },
+   "density": 1.465,
+   "danger": 2
+  },
+  {
+   "id": 247,
+   "kind": "hot_spring",
+   "tile": [
+    109,
+    84
+   ],
+   "region": 2,
+   "biome": "high mountain",
+   "elevation_km": 0.01,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Hồ Tâm Thang",
+   "on_road": false,
+   "array": false,
+   "resource": "linh_tuyen_thuy",
+   "name_han": "湖心湯",
+   "gloss": "Hot Water at the Lake's Heart",
+   "note": "Hot springs on an island in the lake of Tuyết Hỏa Giác.",
+   "holder": "thuy_vi",
+   "territory": "thuy_vi",
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 7.1,
+     "hoa": 26.39,
+     "tho": 8.69,
+     "kim": 8.5,
+     "thuy": 49.32
+    },
+    "variants": {},
+    "land_density": 1.727,
+    "land_danger": 2
+   },
+   "density": 1.787,
+   "danger": 2
+  },
+  {
+   "id": 248,
+   "kind": "hot_spring",
+   "tile": [
+    443,
+    349
+   ],
+   "region": 20,
+   "biome": "jungle",
+   "elevation_km": 0.03,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Chu Sa Tuyền",
+   "on_road": false,
+   "array": false,
+   "resource": "linh_tuyen_thuy",
+   "name_han": "朱砂泉",
+   "gloss": "Cinnabar Spring",
+   "note": "A red hot spring in the jungle of Đan Huyệt Châu, the phoenix's cinnabar land.",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "qi": {
+    "part": 0,
+    "part_biome": "jungle",
+    "shares": {
+     "moc": 10.69,
+     "hoa": 34.68,
+     "tho": 6.5,
+     "kim": 5.76,
+     "thuy": 42.37
+    },
+    "variants": {},
+    "land_density": 1.33,
+    "land_danger": 2
+   },
+   "density": 1.39,
+   "danger": 2
+  },
+  {
+   "id": 249,
+   "kind": "hot_spring",
+   "tile": [
+    180,
+    147
+   ],
+   "region": 13,
+   "biome": "karst",
+   "elevation_km": 0.22,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Ngọc Nhũ Tuyền",
+   "on_road": false,
+   "array": false,
+   "resource": "linh_tuyen_thuy",
+   "name_han": "玉乳泉",
+   "gloss": "Jade Milk Spring",
+   "note": "Warm water among the stone pillars of Ngư Ca Xuyên's karst.",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "qi": {
+    "part": 0,
+    "part_biome": "karst",
+    "shares": {
+     "moc": 17.3,
+     "hoa": 21.65,
+     "tho": 18.28,
+     "kim": 11.87,
+     "thuy": 30.9
+    },
+    "variants": {
+     "am": 25.83
+    },
+    "land_density": 1.382,
+    "land_danger": 3
+   },
+   "density": 1.442,
+   "danger": 3
+  },
+  {
+   "id": 250,
+   "kind": "lava_vent",
+   "tile": [
+    364,
+    202
+   ],
+   "region": 15,
+   "biome": "volcano",
+   "elevation_km": 1.2,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Xích Viêm Khẩu",
+   "on_road": false,
+   "array": false,
+   "resource": "dia_hoa_tinh",
+   "name_han": "赤炎口",
+   "gloss": "Red Flame Mouth",
+   "note": "A vent of the volcano in Ngọc Hành Sơn.",
+   "holder": "thien_xu",
+   "territory": "thien_xu",
+   "qi": {
+    "part": 0,
+    "part_biome": "volcano",
+    "shares": {
+     "moc": 3.49,
+     "hoa": 50.96,
+     "tho": 14.95,
+     "kim": 21.41,
+     "thuy": 9.19
+    },
+    "variants": {},
+    "land_density": 1.2,
+    "land_danger": 4
+   },
+   "density": 1.07,
+   "danger": 4
+  },
+  {
+   "id": 251,
+   "kind": "lava_vent",
+   "tile": [
+    401,
+    302
+   ],
+   "region": 16,
+   "biome": "volcano",
+   "elevation_km": 1.76,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Niết Hỏa Khẩu",
+   "on_road": false,
+   "array": false,
+   "resource": "dia_hoa_tinh",
+   "name_han": "涅火口",
+   "gloss": "Nirvana Fire Vent",
+   "note": "In Thê Ngô Lĩnh, the wutong hills where the phoenix is reborn in fire.",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "qi": {
+    "part": 0,
+    "part_biome": "volcano",
+    "shares": {
+     "moc": 4.58,
+     "hoa": 51.1,
+     "tho": 13.74,
+     "kim": 19.85,
+     "thuy": 10.72
+    },
+    "variants": {},
+    "land_density": 1.2,
+    "land_danger": 4
+   },
+   "density": 1.07,
+   "danger": 4
+  },
+  {
+   "id": 252,
+   "kind": "lava_vent",
+   "tile": [
+    387,
+    140
+   ],
+   "region": 7,
+   "biome": "volcano",
+   "elevation_km": 2.7,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Hàn Diễm Khẩu",
+   "on_road": false,
+   "array": false,
+   "resource": "dia_hoa_tinh",
+   "name_han": "寒焰口",
+   "gloss": "Cold Flame Vent",
+   "note": "A vent high on Ngọc Hồ Sơn, fire under the ice of Băng Tâm's land.",
+   "holder": "bang_tam",
+   "territory": "bang_tam",
+   "qi": {
+    "part": 0,
+    "part_biome": "volcano",
+    "shares": {
+     "moc": 3.71,
+     "hoa": 50.62,
+     "tho": 14.79,
+     "kim": 22.4,
+     "thuy": 8.47
+    },
+    "variants": {},
+    "land_density": 1.235,
+    "land_danger": 4
+   },
+   "density": 1.105,
+   "danger": 4
+  },
+  {
+   "id": 253,
+   "kind": "lava_vent",
+   "tile": [
+    487,
+    246
+   ],
+   "region": 20,
+   "biome": "volcano",
+   "elevation_km": 0.55,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Chúc Dung Khẩu",
+   "on_road": false,
+   "array": false,
+   "resource": "dia_hoa_tinh",
+   "name_han": "祝融口",
+   "gloss": "Zhurong's Mouth",
+   "note": "Named for the fire god; a vent on the east coast of Đan Huyệt Châu.",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "qi": {
+    "part": 0,
+    "part_biome": "volcano",
+    "shares": {
+     "moc": 15.31,
+     "hoa": 56.77,
+     "tho": 12.72,
+     "kim": 7.67,
+     "thuy": 7.53
+    },
+    "variants": {},
+    "land_density": 1.305,
+    "land_danger": 4
+   },
+   "density": 1.175,
+   "danger": 4
+  },
+  {
+   "id": 254,
+   "kind": "lightning_wood",
+   "tile": [
+    407,
+    288
+   ],
+   "region": 16,
+   "biome": "jungle",
+   "elevation_km": 0.02,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Lôi Ngô Lâm",
+   "on_road": false,
+   "array": false,
+   "resource": "loi_kich_moc",
+   "name_han": "雷梧林",
+   "gloss": "Thunder-Struck Wutong Wood",
+   "note": "Wutong trees under the storm peaks of Thê Ngô Lĩnh, struck again and again.",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "qi": {
+    "part": 0,
+    "part_biome": "jungle",
+    "shares": {
+     "moc": 21.98,
+     "hoa": 13.84,
+     "tho": 14.64,
+     "kim": 18.17,
+     "thuy": 31.36
+    },
+    "variants": {},
+    "land_density": 1.015,
+    "land_danger": 2
+   },
+   "density": 1.155,
+   "danger": 2
   }
  ],
  "routes": [
@@ -11666,11 +12632,11 @@
   },
   {
    "a": 44,
-   "b": 212,
+   "b": 254,
    "kind": "trunk",
-   "tiles": 27.437,
-   "km": 685.9,
-   "cost": 31.504
+   "tiles": 9.414,
+   "km": 235.4,
+   "cost": 9.731
   },
   {
    "a": 46,
@@ -12537,6 +13503,14 @@
    "cost": 13.848
   },
   {
+   "a": 212,
+   "b": 254,
+   "kind": "trunk",
+   "tiles": 22.023,
+   "km": 550.6,
+   "cost": 25.767
+  },
+  {
    "a": 38,
    "b": 49,
    "kind": "lane",
@@ -13118,19 +14092,19 @@
  "grid_file": "res://assets/map/continent_11_grid.bin",
  "qi_file": "res://assets/map/continent_11_qi.bin",
  "mu": {
-  "moc": 0.2315,
-  "hoa": 0.1443,
-  "tho": 0.1967,
-  "kim": 0.1818,
-  "thuy": 0.2457,
-  "phong": 0.0,
+  "moc": 0.2223,
+  "hoa": 0.154,
+  "tho": 0.1962,
+  "kim": 0.1803,
+  "thuy": 0.2472,
+  "phong": 0.0008,
   "huyet": 0.0,
   "hu_khong": 0.0,
-  "loi": 0.0079,
-  "am": 0.001,
+  "loi": 0.0072,
+  "am": 0.0018,
   "hon_don": 0.0,
-  "quang": 0.0049,
-  "bang": 0.0023
+  "quang": 0.0044,
+  "bang": 0.0027
  },
  "legend": {
   "biome_ids": {

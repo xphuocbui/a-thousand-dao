@@ -22,9 +22,11 @@ signal event_logged(event_id: String)
 ## "ratings" holds Power Rankings records under their person's id (RatingService); "standing" holds each (sect, person)
 ## record of Sects & Missions under "<sect id>:<person id>" (SectMembers). Neither prefix is ever generated. "world" holds
 ## the built world's own record "w_meta" (WorldBuilder: builder, data and map versions, seed, and the never-shown ledger
-## of rolled hidden spots, World Generation Core Rules 10 and 13).
+## of rolled hidden spots, World Generation Core Rules 10 and 13). "money" holds the commons and lost-stash pools and the
+## season's money books (MoneyLedger, Regional Economy & Trade Formula H); "markets" one record per great sect's market
+## (WorldEconomy, rules 1-11).
 const TABLES := {"people": "p", "sects": "s", "places": "l", "regions": "r", "items": "i", "events": "e", "ratings": "q",
-	"standing": "y", "world": "w"}
+	"standing": "y", "world": "w", "money": "m", "markets": "k"}
 
 var _tables: Dictionary = {}
 var _next_id: Dictionary = {}

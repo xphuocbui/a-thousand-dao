@@ -72,6 +72,38 @@
       "base_value": 180,
       "rarity": 4,
       "desc": "Purple-gold sand from salt flats and deserts over an ore vein (Trade Goods)."
+    },
+    {
+      "id": "yeu_cot",
+      "name": "Yêu Cốt",
+      "element": "",
+      "base_value": 10,
+      "rarity": 1,
+      "desc": "Demon-beast bone (Trade Goods)."
+    },
+    {
+      "id": "yeu_thu_bi",
+      "name": "Yêu Thú Bì",
+      "element": "",
+      "base_value": 12,
+      "rarity": 1,
+      "desc": "Demon-beast hide (Trade Goods)."
+    },
+    {
+      "id": "linh_tuyen_thuy",
+      "name": "Linh Tuyền Thủy",
+      "element": "",
+      "base_value": 8,
+      "rarity": 1,
+      "desc": "Spirit-spring water from a hot spring (Trade Goods)."
+    },
+    {
+      "id": "dia_hoa_tinh",
+      "name": "Địa Hỏa Tinh",
+      "element": "hoa",
+      "base_value": 80,
+      "rarity": 3,
+      "desc": "Earth-fire essence from a lava vent (Trade Goods)."
     }
   ]
 }

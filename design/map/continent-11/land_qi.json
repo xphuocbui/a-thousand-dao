@@ -2,11 +2,11 @@
  "_doc": "Output of tools/design/map/land_qi.py (Travel & Map Formula C on the fine map). places: every exported place by id, each famous site (famous:<name>) and each hidden slot candidate (slot:<id>:<i>), with its part, base shares, variants (outside the 100), land density (the part's mean), density (plus o_kind, clamped) and danger (after the settlement cut). mu: Formula A's world mean shares over places. check: Formula C's map targets (observations).",
  "params_file": "assets/data/world_map.json",
  "timing_s": {
-  "depth": 5.1,
+  "depth": 7.4,
   "profile": 0.1,
-  "blend": 0.5,
+  "blend": 0.6,
   "features": 0.2,
-  "finish": 0.2,
+  "finish": 0.1,
   "parts": 0.3
  },
  "instances": {
@@ -26,49 +26,49 @@
   "high_plateau": 1
  },
  "mu": {
-  "moc": 0.2315,
-  "hoa": 0.1443,
-  "tho": 0.1967,
-  "kim": 0.1818,
-  "thuy": 0.2457,
-  "phong": 0.0,
+  "moc": 0.2223,
+  "hoa": 0.154,
+  "tho": 0.1962,
+  "kim": 0.1803,
+  "thuy": 0.2472,
+  "phong": 0.0008,
   "huyet": 0.0,
   "hu_khong": 0.0,
-  "loi": 0.0079,
-  "am": 0.001,
+  "loi": 0.0072,
+  "am": 0.0018,
   "hon_don": 0.0,
-  "quang": 0.0049,
-  "bang": 0.0023
+  "quang": 0.0044,
+  "bang": 0.0027
  },
  "check": {
-  "places": 247.0,
-  "share_at_1_4": 0.1903,
-  "mean_density": 1.0896,
+  "places": 271.0,
+  "share_at_1_4": 0.1882,
+  "mean_density": 1.0951,
   "wild_tiles_share_at_1_4": 0.04,
   "mu": {
-   "moc": 0.2315,
-   "hoa": 0.1443,
-   "tho": 0.1967,
-   "kim": 0.1818,
-   "thuy": 0.2457,
-   "phong": 0.0,
+   "moc": 0.2223,
+   "hoa": 0.154,
+   "tho": 0.1962,
+   "kim": 0.1803,
+   "thuy": 0.2472,
+   "phong": 0.0008,
    "huyet": 0.0,
    "hu_khong": 0.0,
-   "loi": 0.0079,
-   "am": 0.001,
+   "loi": 0.0072,
+   "am": 0.0018,
    "hon_don": 0.0,
-   "quang": 0.0049,
-   "bang": 0.0023
+   "quang": 0.0044,
+   "bang": 0.0027
   },
   "variant_place_share": {
-   "phong": 0.0,
+   "phong": 0.0037,
    "huyet": 0.0,
    "hu_khong": 0.0,
-   "loi": 0.0202,
-   "am": 0.0054,
+   "loi": 0.0185,
+   "am": 0.0086,
    "hon_don": 0.0,
-   "quang": 0.0121,
-   "bang": 0.0216
+   "quang": 0.0111,
+   "bang": 0.0234
   },
   "element_rich": {
    "moc": {
@@ -76,8 +76,8 @@
     "regions": 4
    },
    "hoa": {
-    "places": 3.0,
-    "regions": 3
+    "places": 7.0,
+    "regions": 6
    },
    "tho": {
     "places": 1.0,
@@ -88,7 +88,7 @@
     "regions": 4
    },
    "thuy": {
-    "places": 14.33,
+    "places": 16.33,
     "regions": 5
    }
   },
@@ -109,11 +109,11 @@
     "o_kind": 0.0
    },
    "forest": {
-    "places": 3.0,
-    "mean": 1.18,
+    "places": 18.0,
+    "mean": 1.065,
     "share_at_1_4": 0.0,
     "range": [
-     1.126,
+     0.842,
      1.22
     ],
     "band": [
@@ -184,9 +184,9 @@
     "o_kind": -0.12
    },
    "mountain": {
-    "places": 10.0,
-    "mean": 1.191,
-    "share_at_1_4": 0.2,
+    "places": 14.0,
+    "mean": 1.167,
+    "share_at_1_4": 0.143,
     "range": [
      0.694,
      1.76
@@ -259,12 +259,12 @@
     "o_kind": -0.18
    },
    "valley": {
-    "places": 2.0,
-    "mean": 1.349,
-    "share_at_1_4": 0.5,
+    "places": 7.0,
+    "mean": 1.471,
+    "share_at_1_4": 0.714,
     "range": [
      1.217,
-     1.482
+     1.787
     ],
     "band": [
      1.1,
@@ -276,11 +276,9 @@
   },
   "observations": [
    "moc: 5.0 places at share 50+ in 4 regions (want 8 in 3)",
-   "mu_hoa 0.144 outside [0.15, 0.25]",
-   "hoa: 3.0 places at share 50+ in 3 regions (want 8 in 3)",
+   "hoa: 7.0 places at share 50+ in 6 regions (want 8 in 3)",
    "tho: 1.0 places at share 50+ in 1 regions (want 8 in 3)",
-   "variant loi at 0.020 of places (max 0.02)",
-   "variant bang at 0.022 of places (max 0.02)"
+   "variant bang at 0.023 of places (max 0.02)"
   ]
  },
  "places": [
@@ -5827,6 +5825,588 @@
    "density": 1.128,
    "land_danger": 1,
    "danger": 1
+  },
+  {
+   "id": 231,
+   "name": "Phục Hổ Cương",
+   "kind": "beast_lair",
+   "row": "forest",
+   "tile": [
+    298,
+    242
+   ],
+   "part": 0,
+   "biome": "highland",
+   "shares": {
+    "moc": 6.58,
+    "hoa": 11.52,
+    "tho": 30.57,
+    "kim": 42.04,
+    "thuy": 9.28
+   },
+   "variants": {},
+   "land_density": 0.901,
+   "density": 1.041,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 232,
+   "name": "Vạn Xà Lâm",
+   "kind": "beast_lair",
+   "row": "forest",
+   "tile": [
+    467,
+    342
+   ],
+   "part": 0,
+   "biome": "jungle",
+   "shares": {
+    "moc": 10.46,
+    "hoa": 36.26,
+    "tho": 7.5,
+    "kim": 7.01,
+    "thuy": 38.78
+   },
+   "variants": {},
+   "land_density": 1.052,
+   "density": 1.192,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 233,
+   "name": "Tuyết Lang Nguyên",
+   "kind": "beast_lair",
+   "row": "forest",
+   "tile": [
+    441,
+    62
+   ],
+   "part": 0,
+   "biome": "tundra",
+   "shares": {
+    "moc": 7.52,
+    "hoa": 8.67,
+    "tho": 21.16,
+    "kim": 22.39,
+    "thuy": 40.27
+   },
+   "variants": {},
+   "land_density": 0.702,
+   "density": 0.842,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 234,
+   "name": "Bằng Sào Nhai",
+   "kind": "beast_lair",
+   "row": "forest",
+   "tile": [
+    334,
+    170
+   ],
+   "part": 0,
+   "biome": "highland",
+   "shares": {
+    "moc": 9.38,
+    "hoa": 15.33,
+    "tho": 35.15,
+    "kim": 31.13,
+    "thuy": 9.0
+   },
+   "variants": {},
+   "land_density": 0.911,
+   "density": 1.051,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 235,
+   "name": "Huyền Viên Lâm",
+   "kind": "beast_lair",
+   "row": "forest",
+   "tile": [
+    389,
+    308
+   ],
+   "part": 0,
+   "biome": "jungle",
+   "shares": {
+    "moc": 24.73,
+    "hoa": 16.73,
+    "tho": 17.55,
+    "kim": 22.86,
+    "thuy": 18.13
+   },
+   "variants": {},
+   "land_density": 1.009,
+   "density": 1.149,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 236,
+   "name": "Thương Ưng Đài",
+   "kind": "beast_lair",
+   "row": "forest",
+   "tile": [
+    266,
+    214
+   ],
+   "part": 0,
+   "biome": "highland",
+   "shares": {
+    "moc": 11.97,
+    "hoa": 18.14,
+    "tho": 42.48,
+    "kim": 19.76,
+    "thuy": 7.65
+   },
+   "variants": {
+    "phong": 20.33
+   },
+   "land_density": 0.903,
+   "density": 1.043,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 237,
+   "name": "Hắc Hùng Lĩnh",
+   "kind": "beast_lair",
+   "row": "forest",
+   "tile": [
+    226,
+    255
+   ],
+   "part": 0,
+   "biome": "highland",
+   "shares": {
+    "moc": 15.57,
+    "hoa": 21.1,
+    "tho": 35.42,
+    "kim": 20.38,
+    "thuy": 7.54
+   },
+   "variants": {},
+   "land_density": 0.912,
+   "density": 1.052,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 238,
+   "name": "Thiết Bối Cốc",
+   "kind": "beast_lair",
+   "row": "forest",
+   "tile": [
+    317,
+    200
+   ],
+   "part": 0,
+   "biome": "highland",
+   "shares": {
+    "moc": 5.72,
+    "hoa": 33.41,
+    "tho": 39.97,
+    "kim": 16.84,
+    "thuy": 4.07
+   },
+   "variants": {},
+   "land_density": 0.901,
+   "density": 1.041,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 239,
+   "name": "Hàn Giao Chử",
+   "kind": "beast_lair",
+   "row": "forest",
+   "tile": [
+    396,
+    28
+   ],
+   "part": 0,
+   "biome": "tundra",
+   "shares": {
+    "moc": 7.3,
+    "hoa": 15.19,
+    "tho": 9.68,
+    "kim": 8.93,
+    "thuy": 58.91
+   },
+   "variants": {
+    "bang": 14.1
+   },
+   "land_density": 0.861,
+   "density": 1.001,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 240,
+   "name": "Băng Tê Nguyên",
+   "kind": "beast_lair",
+   "row": "forest",
+   "tile": [
+    124,
+    54
+   ],
+   "part": 0,
+   "biome": "tundra",
+   "shares": {
+    "moc": 9.18,
+    "hoa": 7.12,
+    "tho": 22.31,
+    "kim": 14.36,
+    "thuy": 47.03
+   },
+   "variants": {},
+   "land_density": 0.728,
+   "density": 0.868,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 241,
+   "name": "Vụ Báo Lâm",
+   "kind": "beast_lair",
+   "row": "forest",
+   "tile": [
+    73,
+    313
+   ],
+   "part": 0,
+   "biome": "jungle",
+   "shares": {
+    "moc": 34.24,
+    "hoa": 18.63,
+    "tho": 6.97,
+    "kim": 6.68,
+    "thuy": 33.47
+   },
+   "variants": {},
+   "land_density": 1.019,
+   "density": 1.159,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 242,
+   "name": "Hổ Khiếu Cương",
+   "kind": "beast_lair",
+   "row": "forest",
+   "tile": [
+    258,
+    151
+   ],
+   "part": 0,
+   "biome": "highland",
+   "shares": {
+    "moc": 30.57,
+    "hoa": 11.21,
+    "tho": 20.72,
+    "kim": 22.66,
+    "thuy": 14.84
+   },
+   "variants": {},
+   "land_density": 0.901,
+   "density": 1.041,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 243,
+   "name": "Thiên Chu Lâm",
+   "kind": "beast_lair",
+   "row": "forest",
+   "tile": [
+    129,
+    302
+   ],
+   "part": 0,
+   "biome": "jungle",
+   "shares": {
+    "moc": 24.97,
+    "hoa": 20.16,
+    "tho": 22.48,
+    "kim": 9.97,
+    "thuy": 22.43
+   },
+   "variants": {},
+   "land_density": 1.002,
+   "density": 1.142,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 244,
+   "name": "Hỏa Hồ Nguyên",
+   "kind": "beast_lair",
+   "row": "forest",
+   "tile": [
+    73,
+    60
+   ],
+   "part": 0,
+   "biome": "tundra",
+   "shares": {
+    "moc": 9.98,
+    "hoa": 7.66,
+    "tho": 19.24,
+    "kim": 12.08,
+    "thuy": 51.04
+   },
+   "variants": {},
+   "land_density": 0.712,
+   "density": 0.852,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 245,
+   "name": "Tuyết Để Tuyền",
+   "kind": "hot_spring",
+   "row": "valley",
+   "tile": [
+    76,
+    140
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 6.26,
+    "hoa": 41.03,
+    "tho": 6.99,
+    "kim": 6.78,
+    "thuy": 38.93
+   },
+   "variants": {},
+   "land_density": 1.457,
+   "density": 1.517,
+   "land_danger": 3,
+   "danger": 3
+  },
+  {
+   "id": 246,
+   "name": "Noãn Ngọc Tuyền",
+   "kind": "hot_spring",
+   "row": "valley",
+   "tile": [
+    434,
+    75
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 6.9,
+    "hoa": 21.7,
+    "tho": 15.55,
+    "kim": 15.56,
+    "thuy": 40.29
+   },
+   "variants": {},
+   "land_density": 1.405,
+   "density": 1.465,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 247,
+   "name": "Hồ Tâm Thang",
+   "kind": "hot_spring",
+   "row": "valley",
+   "tile": [
+    109,
+    84
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 7.1,
+    "hoa": 26.39,
+    "tho": 8.69,
+    "kim": 8.5,
+    "thuy": 49.32
+   },
+   "variants": {},
+   "land_density": 1.727,
+   "density": 1.787,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 248,
+   "name": "Chu Sa Tuyền",
+   "kind": "hot_spring",
+   "row": "valley",
+   "tile": [
+    443,
+    349
+   ],
+   "part": 0,
+   "biome": "jungle",
+   "shares": {
+    "moc": 10.69,
+    "hoa": 34.68,
+    "tho": 6.5,
+    "kim": 5.76,
+    "thuy": 42.37
+   },
+   "variants": {},
+   "land_density": 1.33,
+   "density": 1.39,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 249,
+   "name": "Ngọc Nhũ Tuyền",
+   "kind": "hot_spring",
+   "row": "valley",
+   "tile": [
+    180,
+    147
+   ],
+   "part": 0,
+   "biome": "karst",
+   "shares": {
+    "moc": 17.3,
+    "hoa": 21.65,
+    "tho": 18.28,
+    "kim": 11.87,
+    "thuy": 30.9
+   },
+   "variants": {
+    "am": 25.83
+   },
+   "land_density": 1.382,
+   "density": 1.442,
+   "land_danger": 3,
+   "danger": 3
+  },
+  {
+   "id": 250,
+   "name": "Xích Viêm Khẩu",
+   "kind": "lava_vent",
+   "row": "mountain",
+   "tile": [
+    364,
+    202
+   ],
+   "part": 0,
+   "biome": "volcano",
+   "shares": {
+    "moc": 3.49,
+    "hoa": 50.96,
+    "tho": 14.95,
+    "kim": 21.41,
+    "thuy": 9.19
+   },
+   "variants": {},
+   "land_density": 1.2,
+   "density": 1.07,
+   "land_danger": 4,
+   "danger": 4
+  },
+  {
+   "id": 251,
+   "name": "Niết Hỏa Khẩu",
+   "kind": "lava_vent",
+   "row": "mountain",
+   "tile": [
+    401,
+    302
+   ],
+   "part": 0,
+   "biome": "volcano",
+   "shares": {
+    "moc": 4.58,
+    "hoa": 51.1,
+    "tho": 13.74,
+    "kim": 19.85,
+    "thuy": 10.72
+   },
+   "variants": {},
+   "land_density": 1.2,
+   "density": 1.07,
+   "land_danger": 4,
+   "danger": 4
+  },
+  {
+   "id": 252,
+   "name": "Hàn Diễm Khẩu",
+   "kind": "lava_vent",
+   "row": "mountain",
+   "tile": [
+    387,
+    140
+   ],
+   "part": 0,
+   "biome": "volcano",
+   "shares": {
+    "moc": 3.71,
+    "hoa": 50.62,
+    "tho": 14.79,
+    "kim": 22.4,
+    "thuy": 8.47
+   },
+   "variants": {},
+   "land_density": 1.235,
+   "density": 1.105,
+   "land_danger": 4,
+   "danger": 4
+  },
+  {
+   "id": 253,
+   "name": "Chúc Dung Khẩu",
+   "kind": "lava_vent",
+   "row": "mountain",
+   "tile": [
+    487,
+    246
+   ],
+   "part": 0,
+   "biome": "volcano",
+   "shares": {
+    "moc": 15.31,
+    "hoa": 56.77,
+    "tho": 12.72,
+    "kim": 7.67,
+    "thuy": 7.53
+   },
+   "variants": {},
+   "land_density": 1.305,
+   "density": 1.175,
+   "land_danger": 4,
+   "danger": 4
+  },
+  {
+   "id": 254,
+   "name": "Lôi Ngô Lâm",
+   "kind": "lightning_wood",
+   "row": "forest",
+   "tile": [
+    407,
+    288
+   ],
+   "part": 0,
+   "biome": "jungle",
+   "shares": {
+    "moc": 21.98,
+    "hoa": 13.84,
+    "tho": 14.64,
+    "kim": 18.17,
+    "thuy": 31.36
+   },
+   "variants": {},
+   "land_density": 1.015,
+   "density": 1.155,
+   "land_danger": 2,
+   "danger": 2
   },
   {
    "id": "famous:Thiết Mã Cảnh",

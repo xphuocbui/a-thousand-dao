@@ -117,6 +117,9 @@ func new_game(seed_v: int, spec: Dictionary) -> Dictionary:
 		var gen := WorldGenerator.new(gd, tree)
 		db = gen.generate(rng)
 		year = gen.current_year
+	# The player and the play that follows draw from their own stream keyed on the seed, so a change to how much the
+	# world's build draws does not change the character a seed rolls (paired balance runs, plan world-economy B).
+	rng.seed = RngUtils.stable_hash("player:%d" % seed_v)
 	season = 0
 	_wire()
 	life_over = false

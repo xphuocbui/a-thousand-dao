@@ -43,3 +43,21 @@ func test_the_built_world_has_sites_that_produce_each_season() -> void:
 			total += float(reg.production[k])
 	assert_true(total > 0.0, "the contract publishes production by region")
 	assert_true(db.all("regions").any(func(x): return int(x.get("population", 0)) > 0), "with each region's population")
+
+
+func test_an_authored_site_yields_its_own_good_of_its_kind() -> void:
+	# a mine by its name, a beast lair and a hot spring (user decisions 2026-11-20) yield their authored good, whatever
+	# the land under them would infer; the kind picks Formula H's kind_value_mult row
+	var gd := game_data()
+	var rich := {"qi": {"land_density": 1.6, "shares": {"tho": 30.0, "kim": 40.0}}}
+	assert_eq(MapProduction.site_resource(gd, rich).resource, "linh_thach", "the land alone: rich Earth + Metal is a linh thach mine")
+	var mine := rich.duplicate(true)
+	mine["resource"] = "tinh_thiet"
+	assert_eq(MapProduction.site_resource(gd, mine), {"resource": "tinh_thiet", "kind": "ore"}, "an iron mine by its name")
+	var lair := rich.duplicate(true)
+	lair["kind"] = "beast_lair"
+	lair["resource"] = "yeu_cot"
+	assert_eq(MapProduction.site_resource(gd, lair), {"resource": "yeu_cot", "kind": "beast"}, "a lair yields beast bone")
+	var spring := rich.duplicate(true)
+	spring["resource"] = "linh_tuyen_thuy"
+	assert_eq(MapProduction.site_resource(gd, spring).kind, "special", "a hot spring's water is a special good")

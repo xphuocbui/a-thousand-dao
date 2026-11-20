@@ -455,7 +455,11 @@
       "secret_realm": "secret_realm",
       "ruin": "hidden_ruin",
       "abode": "hidden_ruin",
-      "blessed_land": "blessed_land"
+      "blessed_land": "blessed_land",
+      "beast_lair": "forest",
+      "hot_spring": "valley",
+      "lava_vent": "mountain",
+      "lightning_wood": "forest"
     },
     "rows": {
       "settlement": {

@@ -90,10 +90,33 @@ func generate(rng: RandomNumberGenerator, game_seed: String = "") -> WorldDB:
 	_step_herb_grounds()
 	_step_random_fill(rng)
 	_step_named_items(rng)
+	_step_money()
+	MapProduction.season(_gd, _db, true, false)   # the first season's contract (reserves unmoved), so the markets calibrate on real output
+	WorldEconomy.build(_gd, _db, TravelGrid.of(_gd))
 	# Core Rules 10 and 13: the ledger of truth and the data versions are saved with the world, never shown
 	_db.add("world", {"id": "w_meta", "builder": "continent", "data_version": str(_hist.get("data_version", "")),
 		"map_version": str(_gd.file(ContinentData.DATA_FILE).get("map_version", "")), "seed": _seed, "ledger": ledger})
 	return _db
+
+
+# Regional Economy & Trade Formula H: every living cultivator starts with a purse near their reserve (a keyed draw,
+# so it does not depend on the order of anything else) and each great sect's market with its commons pool; the money
+# books open at the starting M (M_0).
+func _step_money() -> void:
+	var cfg: Dictionary = _gd.file("economy").get("money", {})
+	if cfg.is_empty():
+		return
+	var res: Array = cfg.reserve_by_realm
+	var lo: float = float(cfg.purse_start[0])
+	var hi: float = float(cfg.purse_start[1])
+	for p in _db.find("people", func(x): return x.alive and not x.get("is_beast", false)):
+		var u: float = float(slot_pick("purse", str(p.id), 1000)) / 999.0
+		var r: float = float(res[clampi(int(p.get("realm_index", 0)), 0, res.size() - 1)])
+		p["linh_thach"] = snappedf(r * (lo + (hi - lo) * u), 0.01)
+	for s in _db.find("sects", func(x): return str(x.get("kind", "")) == "great" and str(x.get("status", "")) == "active"):
+		_db.put(MoneyLedger.TABLE, {"id": "pool:%s" % s.id, "balance": float(cfg.pool_start)})
+		_db.put(MoneyLedger.TABLE, {"id": "stash:%s" % s.id, "balance": 0.0})
+	MoneyLedger.new(_db).open_season()
 
 
 ## The database being built (valid after [method generate]).
@@ -407,6 +430,9 @@ func _step_herb_grounds() -> void:
 				grounds.append({"herb": str(h.id), "fit": snappedf(f, 0.01)})
 		if not grounds.is_empty():
 			p["herb_grounds"] = grounds
+			var n: int = Array(_gd.file(MapProduction.DATA_FILE).get("reserve_start_choices", [1.0])).size()
+			var pick: int = slot_pick("herb_reserve", str(p.get("continent_id", p.id)), n)
+			p["herb_site"] = MapProduction.init_herb_site(_gd, p, pick)
 
 
 func _hidden_name(s: Dictionary, kind: String, region: String) -> String:

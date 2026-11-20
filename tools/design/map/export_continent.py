@@ -305,6 +305,21 @@ def main():
             next_id += 1
             minor.append({k: s[k] for k in ("key", "name_hv", "name_han", "gloss", "alignment", "leans", "craft", "lord",
                                            "region") if k in s})
+    # beast lairs and special sites (sites.py; approved by the user 2026-11-20): places of their authored good
+    st_path = os.path.join(m, "sites.json")
+    if os.path.exists(st_path):
+        for s in load(st_path)["places"]:
+            q = {"id": next_id, "kind": s["kind"], "tile": s["tile"], "region": s["region"], "biome": s.get("biome", ""),
+                 "elevation_km": s.get("elevation_km", 0.0), "port": False, "river": False, "coast": False,
+                 "livability": 0.0, "name": s.get("name_hv", ""), "on_road": False, "array": False,
+                 "resource": s["good"]}
+            for k in ("name_han", "gloss", "note"):
+                if s.get(k):
+                    q[k] = s[k]
+            q["holder"] = sect_key(s.get("holder"))
+            q["territory"] = sect_key(s.get("territory"))
+            places.append(q)
+            next_id += 1
     by_key = {p["key"]: p for p in places if p.get("key")}
     by_name = {p["name"]: p for p in places}
     for p in places:
