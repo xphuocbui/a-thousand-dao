@@ -280,6 +280,18 @@ names rather than a place.
     - its works (rule 31).
 
     The value is stored and shown in the stat block (Pillar 2). The formula is in Formulas.
+
+    **Settlements produce too** (user decision 2026-11-20). Every village, market, town, city and sect seat works the
+    land around it: fields of the herbs whose ground fits it, and small diggings of the ore its land leans to. How much
+    depends on how many people live there and how rich their land is (Formula H2). The named sites (mines, veins, herb
+    grounds, lairs, special sites) stay the large sources; a settlement's output is many small sources spread where
+    people are. Settlements yield no linh thạch, beast parts or special goods, and they are not wild herb grounds (the
+    player does not gather there).
+
+    **Population.** A settlement's mortal population is its size weight times the livability of its land (the map
+    tools' measure of water, coast and climate), so a well-watered river town houses two or three times a poor one.
+    Population is fixed for now (no growth or famine). It drives both what a settlement makes (Formula H2) and what its
+    people need (the contract's `pop_settlement_weight`, Regional Economy & Trade Formula C's `W_set`).
 22. **Reserves thin and slowly recover.** Extraction above a site's sustainable rate lowers its reserve, and its output
     falls with it. A rested site recovers slowly. A reserve never falls below a floor, so nothing is lost for good, but
     an over-worked mine becomes a story of its own.
@@ -815,6 +827,35 @@ with `R_f` the reserve factor (I), `W_f = settle_w · owner_w`, `D_f = clamp(1 +
 **Example:** a medium linh thạch mine (10,000) near a town (W_f 0.85, worked), reserve 0.55 (R_f 0.85), D_f 1, S_f 1,
 vein dressing level 2 and worked mine level 2 (G_f 1.26): 0.85 × 0.85 × 1.26 = 0.910, so **9,104 linh thạch** a season.
 
+### H2. Settlement output (rule 21; user decision 2026-11-20)
+
+The settlement_output formula is defined as:
+
+`P_p = w_size[kind] · livability_p` ·
+`herb_p = h_s · P_p · D_land · Σ_g fit_g · ω^(rar_g − 1)` over the herbs with `fit_g ≥ fit_min`, split among them by the
+same weights (Trade Goods Formula A) ·
+`ore_p = o_s · P_p · D_land · s_top / 100`, as the ore of the place's strongest base element ·
+both then times Formula H's demand factor `D_f` and scar `S_f` (no reserve: fields and small diggings do not thin)
+
+**Variables:**
+| Variable | Type | Range | Source | Description |
+|----------|------|-------|--------|-------------|
+| w_size | float | village 1, market 3, town 4, city 8, minor seat 4, great seat 8 | data file *(guess; the old settlement weights)* | Size of a settlement kind |
+| livability_p | float | 0.34–1.94 on continent 11 | map tools (`places.json`) | How livable the place's land is (water, coast, climate) |
+| P_p | float | ~0.3–16 | calculated | Mortal population, in settlement-weight units |
+| D_land | float | ~0.6–2.0 | Formula C | The place's land density |
+| fit_g, fit_min | float | 0–1; 0.6 | Formula G; rule 18 | How well herb g fits the place; the least fit that grows |
+| ω | float | 0.5 | Trade Goods Formula A | Weight per rarity step |
+| s_top | float | 20–60 | Formula C | Share of the place's strongest base element |
+| h_s, o_s | float | 44; 98 (safe 20–80; 50–150) | data file *(guess)* | Base value per unit of population and land; set so settlements give about a third of the world's herb value and a quarter of its ore. They decide how much of the world's supply comes from where people live rather than from the named sites |
+
+**Output Range:** 0 (no fitting herb, or land that leans to no ore) up to a few thousand base value a season for a large
+city on rich ground. The named sites' `kind_value_mult` is lowered in step so the world's non-mine value stays near
+`world_production_guess`.
+**Example:** a town (weight 4) at livability 1.03 (P 4.12) on land of density 1.1, where Ngưng Khí Thảo fits at 0.8,
+Thanh Tâm Liên at 0.7 and Hỏa Linh Chi at 0.65 (Σ = 0.8 + 0.7 + 0.65 · 0.5 = 1.825), makes 44 · 4.12 · 1.1 · 1.825 =
+**364** of herbs a season; with a Metal share of 38 it also makes 98 · 4.12 · 1.1 · 0.38 = **169** of Tinh Thiết.
+
 ### I. Reserves (rule 22)
 
 The reserve_factor formula is defined as:
@@ -915,7 +956,8 @@ The aggregation formula is defined as:
 
 **Region record** `map_production_region` (once a season, about 20 × 9 entries): `contract_version` (2; was 1 before Trade Goods, 2026-11-15), `season_index`,
 `region_id`, `holder_id` (sect id, "" for wild), `pop_cultivators[5]` (heads by realm, from the Living World Tick),
-`pop_settlement_weight` (city 8, town 4, market 3, village 1 *(guess)*), and `production` per kind: `qty`, `value_lt`,
+`pop_settlement_weight` (Σ of Formula H2's population P over the region's settlements; was the sum of the kind
+weights city 8, town 4, market 3, village 1 before 2026-11-20), and `production` per kind (settlements' output included): `qty`, `value_lt`,
 `sites`, `reserve_mean` (weighted by base output), `bands` {rich, worked, thinned}, `top_rarity` (1–6),
 `by_element` (herbs only), `demand_factor_used` (echoes D_f so #43 can audit its loop).
 **`by_good`** (contract v2, amended 2026-11-15 by Trade Goods Open Question 14): per kind, each named good's part of
@@ -1715,6 +1757,13 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
   - the stacked D · M for all 5,000 cultivators takes ≤ 10 ms a season;
   - one route query across the full grid takes ≤ 50 ms;
   - after 400 seasons the save's map delta is ≤ 500 KB, and a load including the stored map takes ≤ 3 s.
+
+- **AC-TM-151** Formula H2. GIVEN the worked example's town (weight 4, livability 1.03, density 1.1, three fitting herbs,
+  Metal share 38), D_f and S_f 1, THEN it makes **364** of herbs, split among the three by fit × ω^(rarity − 1), and
+  **169** of Tinh Thiết a season.
+- **AC-TM-152** Formula H2 on continent 11. GIVEN the shipped world at season 0, THEN settlements make 25–40 % of the
+  world's herb value and 15–35 % of its ore value, and the world's non-mine value is within ±20 % of
+  `world_production_guess` (250,000).
 
 Blocked on other GDDs:
 - AC-TM-39 waits on Realms (the leftover-season exception).
