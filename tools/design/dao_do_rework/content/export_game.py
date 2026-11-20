@@ -37,6 +37,9 @@ import kit  # noqa: E402
 MAP_NAME = "v5-frozen-2026-11-19"
 MAP = os.path.join(ROOT, "design", "dao-do", "cells", "versions", MAP_NAME, "dao-do-map.json")
 CONTENT = os.path.join(ROOT, "design", "dao-do", "content")
+# Layout edits on top of the frozen map (2026-11-20): moved nodes, removed nodes, re-linked edges, changed arcs. The
+# frozen map and its content stay the design source; see the file's _doc.
+LAYOUT = os.path.join(ROOT, "design", "dao-do", "layout", "v5-layout-2026-11-20.json")
 OUT = os.path.join(ROOT, "assets", "data", "dao_do_map.json")
 LABELS = os.path.join(ROOT, "assets", "data", "character_stat_labels.json")
 ENGINE = os.path.join(ROOT, "assets", "data", "combat_engine.json")
@@ -137,8 +140,38 @@ def mod(line):
     return m
 
 
+def apply_layout(m):
+    """Apply LAYOUT to the frozen map in place; returns the removed nodes' frozen records (for the count checks)."""
+    if not os.path.exists(LAYOUT):
+        return []
+    L = json.load(open(LAYOUT, encoding="utf-8"))
+    if L["base_map_sha256"] != sha(MAP):
+        raise ValueError("layout file was made for another map: " + L["base_map_sha256"][:12])
+    gone = set(L["removed_nodes"])
+    removed = [n for n in m["nodes"] if n["id"] in gone]
+    for n in m["nodes"]:
+        p = L["positions"].get(str(n["id"]))
+        if p:
+            n["x"], n["y"] = p
+            if "u" in n:
+                n["u"], n["v"] = p
+    m["nodes"] = [n for n in m["nodes"] if n["id"] not in gone]
+    for g in m["groups"]:
+        g["nodes"] = [i for i in g["nodes"] if i not in gone]
+    drop = {tuple(e) for e in L["removed_edges"]}
+    key = lambda e: (min(e["a"], e["b"]), max(e["a"], e["b"]))
+    m["edges"] = [e for e in m["edges"] if key(e) not in drop]
+    m["edges"] += [{"a": a, "b": b, "arc": None, "ph": "layout"} for a, b in L["added_edges"]]
+    for e in m["edges"]:
+        k = "%d-%d" % key(e)
+        if k in L["arcs"]:
+            e["arc"] = L["arcs"][k]
+    return removed
+
+
 def build():
     m = json.load(open(MAP, encoding="utf-8"))
+    removed = apply_layout(m)
     content, content_area, hashes = load_content()
     groups = {g["shape"]: g for g in m["groups"]}
     wind_fig = set(groups["start:Wind start"]["nodes"])
@@ -187,15 +220,20 @@ def build():
         "baseline": "v5",
         "map": MAP_NAME,
         "map_sha256": sha(MAP),
+        "layout": os.path.basename(LAYOUT) if os.path.exists(LAYOUT) else None,
+        "layout_sha256": sha(LAYOUT) if os.path.exists(LAYOUT) else None,
         "content_sha256": content_hash,
         "starts": dict(sorted(starts.items())),
     }
+    head["_removed"] = removed
     return head, nodes, edges, m, content, hashes, content_area
 
 
 def dump(head, nodes, edges):
     lines = ["{"]
     for k, v in head.items():
+        if k.startswith("_removed"):
+            continue
         lines.append(f"  {json.dumps(k)}: {json.dumps(v, ensure_ascii=False)},")
     lines.append('  "nodes": [')
     lines.append(",\n".join("    " + json.dumps(n, ensure_ascii=False, separators=(",", ":")) for n in nodes))
@@ -226,16 +264,29 @@ def checks(head, nodes, edges, m, content, hashes, content_area):
         if h != msha:
             fails.append(f"content {a}: map_sha256 {h[:12]} is not the map's {msha[:12]}")
     marks = {n["id"] for n in nodes if n["kind"] in ("small", "notable", "keystone")}
-    cids = {int(k) for k in content}
+    removed = head.get("_removed", [])
+    gone = {n["id"] for n in removed}
+    cids = {int(k) for k in content} - gone            # content of nodes the layout removed stays in the files, unused
     if marks != cids:
         fails.append(f"content ids differ from the map's Dao marks: {len(marks - cids)} without content, "
                      f"{len(cids - marks)} not on the map")
     kinds = collections.Counter(n["kind"] for n in nodes)
     got = {"nodes": len(nodes), **{k: kinds[k] for k in ("start", "road", "small", "notable", "keystone")},
            "gate": sum(1 for n in nodes if n.get("gate")), "visible": len(marks)}
+    # the GDD counts the frozen map; the layout's removed nodes are taken off what the GDD says, and said so
+    less = collections.Counter({"nodes": len(removed)})
+    for n in removed:
+        less["road" if n["kind"] == "travel" else n["kind"]] += 1
+        if n["kind"] in ("small", "notable", "keystone"):
+            less["visible"] += 1
+        if n.get("gate"):
+            less["gate"] += 1
+    if removed:
+        notes.append(f"layout removed {len(removed)} nodes ({', '.join(str(n['id']) for n in removed)}): counts are checked "
+                     f"against the GDD table minus these; the GDD table still counts the frozen map")
     for k, v in GDD_TOTALS.items():
-        if got[k] != v:
-            fails.append(f"{k}: {got[k]}, GDD {v}")
+        if got[k] != v - less[k]:
+            fails.append(f"{k}: {got[k]}, GDD {v} minus {less[k]} removed by the layout")
     # areas, as the GDD counts them: keystones in their region (hub keystones in the hub), border pairs together
     by_region = collections.Counter()
     src = {n["id"]: n for n in m["nodes"]}
@@ -252,7 +303,12 @@ def checks(head, nodes, edges, m, content, hashes, content_area):
         elif a.startswith("border") or a == "var:phong":
             a = "border"
         by_region[a] += 1
+    area_less = collections.Counter()
+    for n in removed:
+        if n["kind"] in ("small", "notable"):
+            area_less[area(n, set(), content_area.get(str(n["id"]), ""))] += 1
     for a, v in GDD_AREAS.items():
+        v -= area_less[a]
         if by_region[a] != v:
             fails.append(f"area {a}: {by_region[a]} Dao marks, GDD {v}")
     for a in by_region:

@@ -1831,6 +1831,7 @@ func load_dict(d: Dictionary) -> Dictionary:
 			rec["tree_points"] = Ladder.points_total(gd, int(rec.level))
 			rec["tree_baseline"] = ""
 		migrate_tree_record(rec)
+		prune_removed_tree_nodes(rec)
 	_wire()
 	_reallocate_migrated()
 	player = Character.from_dict(db.get_record("people", str(d.player_id)))
@@ -1881,6 +1882,23 @@ func migrate_tree_record(rec: Dictionary) -> bool:
 	elif opened > 0 or int(rec.get("tree_points", 0)) > 0:
 		rec["_tree_realloc"] = true
 	return true
+
+
+## A layout edit on the v5 map (design/dao-do/layout/v5-layout-2026-11-20.json) may remove Dao marks; ids are never
+## reused (rule 19). A saved record that has one open drops it and gets its point back, unspent; the marks around a
+## removed one were re-linked, so the rest of the build stays connected. Returns how many it dropped.
+func prune_removed_tree_nodes(rec: Dictionary) -> int:
+	var kept: Array = []
+	var dropped := 0
+	for n in Array(rec.get("tree_nodes", [])):
+		if tree.nodes.has(int(n)):
+			kept.append(int(n))
+		else:
+			dropped += 1
+	if dropped > 0:
+		rec["tree_nodes"] = kept
+		rec["tree_points"] = int(rec.get("tree_points", 0)) + dropped
+	return dropped
 
 
 ## After a migration (rule 19), every migrated NPC spends its refunded points on the new map by rule 5, from a stream
