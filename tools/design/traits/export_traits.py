@@ -163,7 +163,7 @@ def main():
     text = open(SRC, encoding="utf-8").read()
     codes = stat_codes(text)
     out = {"schema_version": 1, "_doc": "Built by tools/design/traits/export_traits.py from design/gdd/npc-traits-catalogue.md (NPC Traits #42); do not edit by hand. Stat values are in the stat's own units (percent, points or pp, as the key reads them). pulls: the Sects F15 pulls the engine reads; notes: pulls kept as text (event weights and such, read by later systems).",
-           "personality": [], "callings": [], "calling_weights": {}, "fate": [], "gained": []}
+           "personality": [], "callings": [], "calling_weights": {}, "fate": [], "gained": [], "fade_seasons": 40}
     # personality
     sec = section(text, "## Personality")
     set_no = 0

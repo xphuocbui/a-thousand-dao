@@ -119,7 +119,7 @@
     "war_readiness_min": 3,
     "war_odds": 1.0,
     "war_odds_step": 0.1,
-    "war_odds_min": 0.6,
+    "war_odds_min": 0.6, "bold_abs_sum": 3, "bold_extra_step": 1,
     "fortune": [
       0.85,
       1.15

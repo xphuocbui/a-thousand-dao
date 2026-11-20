@@ -91,6 +91,55 @@ static func from_authored(gd: GameData, authored: Dictionary) -> Dictionary:
 		"fate": ids.call(authored.get("fate_given", [])), "gained": []}
 
 
+## Rules 11-13 and F6: grants (or refreshes) gained trait [param id] to [param person] in season [param now], expiring
+## fade_seasons later. A held one is refreshed; an opposed gained trait is replaced when the new one's grade is at least
+## its own; with both slots full the oldest of grade at most the new one's goes; else the grant is refused. Returns
+## "granted", "refreshed", "replaced" or "refused".
+static func grant(gd: GameData, person: Dictionary, id: String, now: int, target: String = "") -> String:
+	var cat := catalogue(gd)
+	var t: Dictionary = cat.by_id.get(id, {})
+	if t.is_empty() or str(cat.kind.get(id, "")) != "gained":
+		return "refused"
+	var fade: int = int(gd.file(FILE).get("fade_seasons", 40))
+	if not person.has("npc_traits"):
+		person["npc_traits"] = {"personality": [], "calling": "", "fate": [], "gained": []}
+	var g: Array = person.npc_traits.get("gained", [])
+	var rank := func(x: String) -> int: return 1 if str(cat.by_id.get(x, {}).get("grade", "small")) == "notable" else 0
+	for e in g:
+		if str(e.id) == id:
+			e["expires"] = now + fade
+			return "refreshed"
+	for i in g.size():
+		var e: Dictionary = g[i]
+		if str(e.id) == str(t.get("opposed", "")) or str(cat.by_id.get(str(e.id), {}).get("opposed", "")) == id:
+			if int(rank.call(id)) >= int(rank.call(str(e.id))):
+				g[i] = {"id": id, "expires": now + fade, "target": target}
+				person.npc_traits["gained"] = g
+				return "replaced"
+			return "refused"
+	if g.size() < 2:
+		g.append({"id": id, "expires": now + fade, "target": target})
+		person.npc_traits["gained"] = g
+		return "granted"
+	var oldest: int = -1
+	for i in g.size():
+		if int(rank.call(str(g[i].id))) <= int(rank.call(id)) and (oldest < 0 or int(g[i].expires) < int(g[oldest].expires)):
+			oldest = i
+	if oldest < 0:
+		return "refused"
+	g[oldest] = {"id": id, "expires": now + fade, "target": target}
+	person.npc_traits["gained"] = g
+	return "replaced"
+
+
+## Rule 12: removes the gained traits of [param person] that expire by season [param now].
+static func fade(person: Dictionary, now: int) -> void:
+	if not person.has("npc_traits"):
+		return
+	var g: Array = person.npc_traits.get("gained", [])
+	person.npc_traits["gained"] = g.filter(func(e): return int(e.get("expires", 0)) > now)
+
+
 ## Every trait id a person holds (personality, calling, fate-given, gained).
 static func held(person: Dictionary) -> Array:
 	var t: Dictionary = person.get("npc_traits", {})
@@ -112,12 +161,19 @@ static func pulls(gd: GameData, person: Dictionary) -> Dictionary:
 	var cat := catalogue(gd)
 	var out := {"dials": {}, "dial_when_thriving": {}, "war_odds": INF, "rebel_odds": INF, "weariness": 0.0, "loyalty": 0.0,
 		"pact_line": INF, "alignment_factor": 1.0, "attitude_speed": {"hostile": 1.0, "friendly": 1.0}, "bias_from_all": 0.0,
-		"bold": false, "never_bold": false, "needs_halved": false, "fickle": false, "first_track": "", "abs_sum": 0.0}
+		"bold": false, "never_bold": false, "needs_halved": false, "fickle": false, "first_track": "", "abs_sum": 0.0,
+		"bias_dir": {"rivals": 0.0, "opposite": 0.0, "from_righteous": 0.0}}
 	for id in held(person):
 		var t: Dictionary = cat.by_id.get(str(id), {})
 		if t.is_empty():
 			continue
-		out.bias_from_all = float(out.bias_from_all) + float(t.get("regard", {}).get("bias_all", 0.0))
+		var rg: Dictionary = t.get("regard", {})
+		out.bias_from_all = float(out.bias_from_all) + float(rg.get("bias_all", 0.0))
+		if rg.has("bias_dir"):   # F3's directed regard: to rivals, to the opposite alignment, or from righteous people
+			var tw: String = str(rg.get("toward", ""))
+			var slot: String = "rivals" if tw.contains("rival") else ("opposite" if tw.contains("opposite") else ("from_righteous" if tw.contains("righteous") else ""))
+			if slot != "":
+				out.bias_dir[slot] = float(out.bias_dir[slot]) + float(rg.bias_dir)
 		var p: Dictionary = t.get("pulls", {})
 		for d in p.get("dials", {}):
 			out.dials[d] = float(out.dials.get(d, 0.0)) + float(p.dials[d])

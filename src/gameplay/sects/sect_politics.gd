@@ -177,7 +177,15 @@ static func attitude_target(gd: GameData, db: WorldDB, a: Dictionary, b: Diction
 	var pb: Dictionary = pulls_of(gd, db, b)
 	al *= float(pa.get("alignment_factor", 1.0))
 	var pull: float = float(pb.get("bias_from_all", 0.0))
-	return al + float(c.b_k) * _borders(gd, db, a, b) + pact + g + pull - _balance_of_power(db, b, strength)
+	var bord: int = _borders(gd, db, a, b)
+	var bd: Dictionary = pa.get("bias_dir", {})
+	if bord > 0:   # a rival is a sect a shares a border with (the Cruel head's −10, F7's example)
+		pull += float(bd.get("rivals", 0.0))
+	if (aa == "chinh" and ba == "ma") or (aa == "ma" and ba == "chinh"):
+		pull += float(bd.get("opposite", 0.0))
+	if aa == "chinh":
+		pull += float(pb.get("bias_dir", {}).get("from_righteous", 0.0))
+	return al + float(c.b_k) * bord + pact + g + pull - _balance_of_power(db, b, strength)
 
 
 # F7's bp: toward the strongest great sect only, 1 per 10 % its strength exceeds the runner-up's (worked out once a
@@ -217,6 +225,10 @@ static func season(gd: GameData, db: WorldDB, money: MoneyLedger, year: int, sea
 		return news
 	_begin(gd, db)
 	_season_key = MapChange.abs_season(year, season_i)
+	for s in _active(db):   # NPC Traits rule 12: leaders' gained traits fade
+		var head: Dictionary = db.get_record("people", str(s.get("leader_id", "")))
+		if not head.is_empty():
+			NpcTraits.fade(head, _season_key)
 	var strength := strengths(gd, db)
 	_bp = _season_bp(db, strength)
 	_set_states(gd, db)
@@ -348,7 +360,7 @@ static func _set_dials(gd: GameData, db: WorldDB, strength: Dictionary) -> void:
 					need.expansion += 1
 					break
 		var pl: Dictionary = pulls_of(gd, db, s)
-		var bold: bool = (bool(pl.get("bold", false)) or float(pl.get("abs_sum", 0.0)) >= 3.0) and not bool(pl.get("never_bold", false))
+		var bold: bool = (bool(pl.get("bold", false)) or float(pl.get("abs_sum", 0.0)) >= float(_cfg(gd).get("bold_abs_sum", 3))) and not bool(pl.get("never_bold", false))
 		var fickle_d: String = ""
 		var fickle_v: int = 0
 		if bool(pl.get("fickle", false)):   # a seeded drift of one dial a season
@@ -367,7 +379,7 @@ static func _set_dials(gd: GameData, db: WorldDB, strength: Dictionary) -> void:
 				pull += fickle_v
 			var tgt: int = clampi(2 + nd + int(round(pull)), 0, 4)
 			var cur: int = int(dials.get(d, 2))
-			var step: int = mini(absi(tgt - cur), 2 if bold else 1)
+			var step: int = mini(absi(tgt - cur), 1 + (int(_cfg(gd).get("bold_extra_step", 1)) if bold else 0))
 			dials[d] = cur + signi(tgt - cur) * step
 		s["dials"] = dials
 
@@ -680,18 +692,31 @@ static func _conclude(gd: GameData, db: WorldDB, money: MoneyLedger, w: Dictiona
 				a["loyalty"] = float(c.new_lord_loyalty)
 				a["loyalty_state"] = loyalty_state(gd, float(a.loyalty))
 		news.append(db.log_event(year, season_i, "sect_war_won", "%s thắng %s, đoạt %s." % [a.name, d.name, str(w.goal.name)], [str(a.id), str(d.id)], [], [], {"war": w.id}))
+		_grant_leader(gd, db, a, "battle_hardened", year, season_i)   # NPC Traits: the trigger war_victory
+		_grant_leader(gd, db, d, "shaken", year, season_i)           # and rout
 	elif end == "failed" and str(w.goal.kind) == "rebellion":   # the lord wins: the rebel returns Restless
 		a["loyalty"] = float(c.rebel_loyalty_after)
 		a["loyalty_state"] = loyalty_state(gd, float(a.loyalty))
 		news.append(db.log_event(year, season_i, "rebellion_crushed", "%s dẹp yên cuộc nổi dậy của %s." % [d.name, a.name], [str(a.id), str(d.id)], [], [], {"war": w.id}))
 	elif end == "failed":
 		_drop_level(gd, a, "military")
+		_grant_leader(gd, db, a, "shaken", year, season_i)
+		_grant_leader(gd, db, d, "battle_hardened", year, season_i)
 		d.attitude[str(a.id)] = float(d.attitude.get(str(a.id), 0.0)) - float(c.failed_attitude)
 		news.append(db.log_event(year, season_i, "sect_war_failed", "%s đánh %s không thành." % [a.name, d.name], [str(a.id), str(d.id)], [], [], {"war": w.id}))
 	else:
 		news.append(db.log_event(year, season_i, "sect_truce", "%s và %s đình chiến." % [a.name, d.name], [str(a.id), str(d.id)], [], [], {"war": w.id}))
 	_end_war(db, w, a, d, "truce", int(c.truce_seasons))
 	return news
+
+
+# NPC Traits rule 11: a war's outcome grants its leader a gained trait (the leader's pulls change from next season).
+static func _grant_leader(gd: GameData, db: WorldDB, s: Dictionary, id: String, year: int, season_i: int) -> void:
+	if not gd.registry.has_file(NpcTraits.FILE):
+		return
+	var head: Dictionary = db.get_record("people", str(s.get("leader_id", "")))
+	if not head.is_empty() and bool(head.get("alive", false)):
+		NpcTraits.grant(gd, head, id, MapChange.abs_season(year, season_i))
 
 
 static func _end_war(_db: WorldDB, w: Dictionary, a: Dictionary, d: Dictionary, rel: String, truce: int) -> void:

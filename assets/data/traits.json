@@ -2110,5 +2110,6 @@
    "trigger": "demonic_exposure",
    "pulls": {}
   }
- ]
+ ],
+ "fade_seasons": 40
 }
