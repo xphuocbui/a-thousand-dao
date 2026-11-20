@@ -1,9 +1,21 @@
 # Travel & Map (Bản Đồ & Hành Trình)
 
-> **Status**: Designed (pending review; design-system 2026-11-10, lean mode: CD-GDD-ALIGN skipped, specialists consulted for Formulas and Acceptance Criteria; **revised 2026-11-13** for the fixed world, terrain-driven qi and the uncapped match: `design/research/fixed-world-decisions.md`; **revised again 2026-11-13** for mixed tiles on a fine map and 25 km tiles: `design/research/map-making-rules.md` section L)
+> **Status**: Implemented 2026-11-20 (not yet design-reviewed; designed 2026-11-10, revised 2026-11-13 twice:
+> `design/research/fixed-world-decisions.md`, `design/research/map-making-rules.md` section L). Built:
+> - Formula C offline on the fine map (`tools/design/map/land_qi.py`);
+> - places' qi, the element match and Formula B's layers (`LandQi`, `MapWorks`);
+> - travel by tile with flight and Formula E encounters (`TravelGrid`);
+> - map knowledge, clues, search and secrets (`MapKnowledge`, `Discovery`);
+> - herb fit and wild herb grounds (`HerbFit`);
+> - sites, production and reserves (`MapProduction`), realm cycles, hand-overs and scars (`MapChange`);
+> - works, cave abodes, developed ground and residences.
+>
+> Not built: what waits for Regional Economy & Trade (#43) and the Sects redesign (#26), and the screens (Game UI #37).
+> Plan, evidence and the acceptance-criteria audit: `production/plans/continent-world.md`,
+> `production/qa/evidence/continent-world/` (04-ac-coverage.md).
 > **Author**: user + Claude
-> **Last Updated**: 2026-11-13
-> **Last Verified**: 2026-11-10
+> **Last Updated**: 2026-11-20
+> **Last Verified**: 2026-11-20
 > **Implements Pillar**: Pillar 5 (A World That Remembers), Pillar 4 (Every Season Counts); touches Pillar 1 (Your Dao, Your Name) and Pillar 2 (Every Number Is Bounded and Visible)
 
 ## Summary
@@ -144,6 +156,10 @@ names rather than a place.
 
    **Variant qi** comes only from features and sits outside the 100. Variant features have a short reach, so each
    variant stays in at most 2 % of places (`variant_place_share_max`) and a variant root has only a few prized homes.
+
+   **As built (2026-11-20):** the miasma wasteland is laid by the map tools as a feature over its tiles (density down,
+   danger up, Earth and Darkness pushed), not as a biome of the fine map; the derived snowline, storm peaks and high
+   plateau come from the map tools' own pass (`sacred.json`).
 5. **The ground sets the cultivation rate.** Cultivating at a place multiplies the rate by the place's density, as it
    does today, and by an **element match**: how well the root's purities fit the place's shares and variants. Matching
    ground speeds cultivation **with no upper limit**, and mismatched ground slows it to ×0.8 at worst (user decision
@@ -176,19 +192,25 @@ names rather than a place.
 **Moving**
 
 9. **Four kinds of route.** Roads join places. Rivers carry boats between river places. Sea lanes carry ships between
-   ports (coastal settlements). The **wilderness** is everything else, crossed tile by tile.
+   ports (coastal settlements). The **wilderness** is everything else, crossed tile by tile. **As built
+   (2026-11-20):** boats also cross lake tiles, so a place in a lake can be reached; open sea off the lanes is
+   impassable.
 10. **Speed is tiles per season.** Each mode has a speed, slowed by terrain: road about 54 tiles (about 1,300 km),
     wilderness about 18 (less in mountains, swamps and jungle), boats and ships faster along their lanes. A mixed tile
     slows by the share of each land part, and its water parts are walked around. **Flight** opens at Foundation
     Establishment on a flying artifact. It ignores terrain and roads, and it is faster at higher realms (about 135
-    tiles a season and up). It drains linh lực per tile, so a flier may arrive with a low pool. `travel_speed_pct` applies to
+    tiles a season and up). It drains linh lực per tile, so a flier may arrive with a low pool (**as built
+    2026-11-20, user-accepted:** flight needs only the realm until flying artifacts exist in the item data, and the
+    landing pool is reported, not yet carried into a fight). `travel_speed_pct` applies to
     every mode. The numbers are in Formulas.
 11. **Teleport arrays** (truyền tống trận) join some great cities. Sects own them and charge a fee in linh thạch that
     grows with distance, and a jump takes 0.05 of a season. The owner decides who may use one (Sects #26). Capability
     #21 (Blink Mark) still works as today.
 12. **Travel uses part of a season.** A trip's length is a fraction of a season. A short hop leaves the rest of the
     season free, and the cultivator can cultivate at the destination at a reduced rate (in Formulas). A long trip runs
-    over several seasons and ages the character like any other. An encounter can interrupt a trip.
+    over several seasons and ages the character like any other. An encounter can interrupt a trip (**as built
+    2026-11-20, user-accepted:** a trip draws at most one encounter and it is met on arrival, set where its stretch
+    spent most of its time; the interruption waits for tile locations).
 13. **Danger on the way.** Each stretch of travel can draw an encounter from the Event Engine. The chance depends on
     the tiles' danger and the mode: roads are safer, the wilderness is riskier, and flight avoids ground encounters but
     not everything. The biome filters which events can happen (a sandstorm needs a desert). On a mixed tile the
@@ -207,7 +229,9 @@ names rather than a place.
     a wider band with more divine sense (thần thức), and places become known when visited or heard of. A known tile
     shows its main biome; its full mix shows once the character has crossed or stood on it, or read it on a map or
     jade slip. Bought maps, jade
-    slips (ngọc giản) and sect libraries add more. NPCs know their own region, kept abstract.
+    slips (ngọc giản) and sect libraries add more. NPCs know their own region, kept abstract. **Signposts** (as built
+    2026-11-20): standing at a place makes the places its roads and lanes lead to known, so a road can be followed out
+    of the home region.
 15. **Hidden places are left by history, and their spots are rolled.** The world's authored history names the ruins,
     dead cultivators' cave abodes and secret realms it left behind (Pillar 5: a famous dead NPC's cave is really there).
     Each has 2–4 hand-picked candidate tiles in the wilderness, and at game start the seed picks one. The same history
@@ -234,13 +258,20 @@ names rather than a place.
     so a poor fit says why. Spirit Fields read the fit of the field's place (its part), and wild herb grounds appear in
     parts where fit is 0.6 or more. A herb a cultivator gathers at a wild herb ground gets its age when gathered, by Trade Goods
     Formula K (most at `mature_years`, a seeded share older on dense, rarely reached ground; amended 2026-11-15); the
-    commons' harvest that feeds the markets counts at `mature_years`.
+    commons' harvest that feeds the markets counts at `mature_years`. **As built (2026-11-20):** a wild place (peak,
+    gorge, lake, island, forest, spirit vein, ruin, blessed land, secret realm, abode) holds the ground of every herb
+    that fits it at 0.6 or more (`map_resources.json` `herb_ground`); exploring it gathers 1-2 units with a seasonal
+    chance, aged by Formula K (access 0.5 until #43). The Advisor points a herb that cannot grow at home to the nearest
+    known herb ground.
 19. **About ten resource kinds**, kept in data: linh thạch, the five element ores, wild herbs (by element), beast
     materials and a few special goods. Each maps to Item Database materials and herbs.
 20. **Resource sites** are places of the kinds mine (including linh thạch mines), spirit vein, herb ground and beast
     lair. A site has a **reserve**, a **base output** per season and a **recovery rate**. The land decides what a site
     yields: an ore site yields its part's top base element (a Fire ore vein sits on a volcano), and a linh thạch mine
-    needs land density 1.0 or more and Earth + Metal shares of 50 or more.
+    needs land density 1.0 or more and Earth + Metal shares of 50 or more. **As built (2026-11-20):** the mines and
+    spirit veins are the sites (no herb-ground or beast-lair places are authored); the mines carry no authored grade,
+    so a site's grade follows its land density (small below 1.2, medium below 1.5, large above), a guess in
+    `map_resources.json`; a spirit vein yields linh thạch.
 21. **Every place has a production value** per resource kind per season. It is the base output times five factors:
     - its reserve;
     - its workforce (settlement size and whether an owner works it);
@@ -614,6 +645,14 @@ depth and features.
 valley at the bamboo's edge (t = 0): **1.25**, which fails Core Formation. The heart of a rich biome is where the Core
 Formation ground is.
 
+**As built (2026-11-20):** `tools/design/map/land_qi.py` computes Formula C on the 2,160 × 1,440 fine cells in about
+7 s and stores each tile part's values (`assets/map/continent_11_qi.bin`) and each place's (`world_continent.json`).
+The first guesses (`assets/data/world_map.json`) were tuned within each biome's "leans toward" and the `o_kind` offsets
+fitted to the table: 19.0 % of places at 1.4 or more, mean place density 1.09, 4.0 % of wild land at 1.4 or more.
+Missed (Open Question 14): Fire's world mean 0.144 (target 0.15–0.25), and few places reach a 50 share of one element
+(Wood 5, Fire 3, Earth 1 against 8 in 3 regions), because the 222 km blend averages a region's biomes. Blessed lands
+are not a row of the kind table (their richness is layer 3).
+
 ### D. Travel (rules 10–12)
 
 The trip_time formula is defined as:
@@ -740,6 +779,13 @@ excellent ≥ 0.8, good 0.6–0.8, fair 0.4–0.6, poor 0.2–0.4, unplantable b
 fit **1.0 (excellent)**, growth ×1.2. On a glacier: f_e 0.3, f_T 0, **unplantable** ("temperature 5, needs 55–85").
 Thanh Tâm Liên in a temperate forest (Water 30; R 50 against R_i 70, tol 15): f_e 0.825, f_R 0.833, fit **0.69 (good)**,
 growth ×0.83.
+
+**As built (2026-11-20, user-approved calibration):** the climate indexes are centred on the continent (T 0 at −10 °C
+and 100 at 40 °C; R 0 at 0 mm and 100 at 1,600 mm; `world_map.json` `climate_index`), `elem_full_share` is 25 (15 for a
+variant) instead of 40 and 20, and the herbs' first-guess bands are wider (rarity 1–2 tolerate 25 either side, rarity
+3–5 tolerate 20), so a common herb on an ordinary home grows about as before (fit 0.65–0.95) while matched ground still
+pays up to ×1.2. A herb already planted keeps growing at g_max × fit below the plant floor. At the GDD's s_full 40 a
+typical place (a fifth of the herb's element) gave f_e 0.65 and the first Foundation pill came about 1.5 times later.
 
 ### H. Production (rule 21)
 
@@ -1426,6 +1472,9 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
   - D_need 0 gives 1.000.
 
   For a variant herb, Ice 10 against s_full 20 gives f_e 0.650.
+
+  (AC-TM-69 to AC-TM-72 hold on FX-TM-HERB's values, the GDD's s_full 40 and the bands above; the shipped data use the
+  calibrated values in Formula G's "As built" note, so a test of them sets the fixture's values.)
 - **AC-TM-73** [Logic] Formula G, labels (each band includes its lower bound):
   - fit 0.800 is excellent, and 0.7999 is good;
   - 0.600 is good, and 0.400 is fair;
@@ -1683,9 +1732,12 @@ Blocked on other GDDs:
 | 5 | Scar threshold and size: which events may scar the land, and by how much | Event Engine (budgets) | Event Engine GDD |
 | 6 | Capability #8 (travel seasons cultivate) under travel with leftover seasons | Đạo Đồ, Effects | Đạo Đồ content pass |
 | 7 | Should `stealth` lower the encounter chance (a factor on `m_mode`)? | user | Before the travel build |
-| 8 | Each herb's climate band (`temp_ideal`, `rain_ideal` and tolerances), and a pill-supply re-check with linear herb fit | content, Spirit Herbs | Content pass |
-| 9 | The move from today's region-and-place graph: Market, Sects, Spirit Fields, Events and the balance bots that rely on it | programming | Architecture / code pass |
+| 8 | ~~Each herb's climate band, and a pill-supply re-check with linear herb fit~~ **Answered in part 2026-11-20:** first-guess bands in `items_herbs.json` and the Formula G calibration (user-approved; Formula G "As built"); the pill re-check on the continent is in `production/qa/evidence/continent-world/05-balance.txt`: the rare-herb pills still limit the later gates, to tune later (user decision) | content, Spirit Herbs | Rare-herb pill tuning |
+| 9 | ~~The move from today's region-and-place graph~~ **Done 2026-11-20:** places keep the graph's record shapes (links with Formula D times), so Market, Sects, Spirit Fields and Events run unchanged; travel and the balance bot use the tile path | programming | Done |
 | 10 | The map build pipeline (index image formats, the map build and map check tools, how hand corrections and candidate spots are stored): a technical decision → becomes an ADR | technical-director | `/create-architecture` |
 | 11 | The Game UI map's art style (pixel/tile, parchment, ink-wash) and the game concept's "Ink and Ledger". The two-view split (painted overview, rendered zoomed-in view) is decided | art-director, user | `/art-bible` |
 | 12 | Every number marked *(guess)* is set by the bot run, map targets first. The signature pushes, feature strengths and reaches, and depth bonuses are set once the continent is painted | systems-designer, bot | Balance Harness run |
-| 13 | World Generation & History (#27) for the fixed world: the authored history's format, the candidate spots, the per-game rolls and the random NPCs placed into the authored history | user, narrative-director | #27 rework |
+| 13 | ~~World Generation & History (#27) for the fixed world~~ **Done 2026-11-20:** see #27's Core Rules (implemented) | user, narrative-director | Done |
+| 14 | Formula C's missed targets: Fire's world mean 0.144 and few places at a 50 share of one element, against the 222 km blend radius. Lower the target, shorten the blend, or raise the signature pushes? | user, systems-designer | Next map pass |
+| 15 | A secret realm's density: its inside, set per realm, or its gate tile's land (the gates of Thiết Mã Cảnh and Vạn Cốt Trủng read the wasteland's 0.4; the kind offset +0.71 lifts them) | user | Before secret realms are entered |
+| 16 | Two authored slot candidates sit on named caves (R-3 on Tàng Trập Động, S-10 on Huyền Minh Động), so an annal naming the cave points at the hidden place (World Generation AC-WG-06) | world-builder | History data pass |
