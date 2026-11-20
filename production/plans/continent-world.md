@@ -200,6 +200,10 @@ Where Travel & Map needs them, it writes to the hand-off point named in its Inte
     recovered most of it). The user chose to review the herb rules before more tuning. Census (seed 202): Nguyên Anh
     settles at 21-26, Hóa Thần at 7-8 (target 3; to re-check over several seeds). Evidence: 05-balance.txt.
 
+**User decisions on this list (2026-11-20):** keep the herb design (fitting ground plus wild herb grounds) and tune
+the rare-herb pills later toward the targets; keep sects at 90 % of capacity at the start; accept flight by realm and
+encounters met on arrival for now; GDD updates are drafted here for the user's approval, section by section.
+
 **Data fixed on the way:** flight speeds keyed one realm late in travel_rules.json; five sea lanes dropped because a
 promoted city kept its old name; the export predated the territory-history layer (230 places, 23 minor sects).
 
