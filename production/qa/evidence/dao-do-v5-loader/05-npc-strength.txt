@@ -1,0 +1,5 @@
+realm 0: 40 NPCs, median win share vs typical 0.00 (p25 0.00, p75 0.00), tree Effects held per NPC 0.2
+realm 1: 40 NPCs, median win share vs typical 1.00 (p25 0.00, p75 1.00), tree Effects held per NPC 0.2
+realm 2: 40 NPCs, median win share vs typical 1.00 (p25 1.00, p75 1.00), tree Effects held per NPC 0.3
+realm 3: 30 NPCs, median win share vs typical 1.00 (p25 1.00, p75 1.00), tree Effects held per NPC 1.0
+realm 4: 2 NPCs, median win share vs typical 1.00 (p25 1.00, p75 1.00), tree Effects held per NPC 1.5
