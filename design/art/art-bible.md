@@ -136,11 +136,21 @@ techniques show a figure in a stance instead of a book.
 
 | Element | Fire (Hỏa) | Water (Thủy) | Wood (Mộc) | Metal (Kim) | Earth (Thổ) | Ice (Băng) | Thunder (Lôi) | Wind (Phong) |
 |---|---|---|---|---|---|---|---|---|
-| Hex | #E8442A | #3F6FE0 | #2FBF8A | #E3B341 | #B9772E | #7AD7F0 | #A15CFF | #A6EBD8 |
+| Hex | #FF7A1A | #2A50E0 | #22B07A | #FFFFFF | #B47A40 | #C8F8FF | #B060FF | #B5F5E0 |
+
+| Land (Đạo Đồ) | Light (Quang) | Darkness (Ám) |
+|---|---|---|
+| Hex | #FFFBE0 | #8A3AB8 |
+
+Revised 2026-11-20 (user): **Metal is silver-white** (was gold #E3B341, its Five Elements colour), **Earth more
+brown** (was ochre #B9772E), **Light a brighter yellow** and **Darkness a dark purple**, so Earth, Metal and Light no
+longer read as three golds and Darkness stays apart from Thunder. Painted icons made before this keep the old hues
+until regenerated (7.8, F8). **Palette v2 (same day)** replaced the table above with the values now shown, chosen by
+measurement: `design/research/poe-node-icons.md` §4b, which also holds the topic colours of the Đạo Đồ stat icons.
 
 | Damage type | Physical | Fire | Cold | Lightning | Force | Chaos | Soul |
 |---|---|---|---|---|---|---|---|
-| Hex | #C9C2B2 | #E8442A | #7AD7F0 | #A15CFF | #E58FB5 | #E0409A | #CFC4FF |
+| Hex | #BFB39A | #FF7A1A | #C8F8FF | #B060FF | #E58FB5 | #C02CA8 | #CFC4FF |
 
 These are the anchor's element colours lifted to read on near-black (Water's indigo is lifted the most). Hue is for glow
 and rim only; subjects keep the near-white core; a whole icon is never tinted. Floating damage numbers and tooltips use
@@ -176,7 +186,89 @@ most 30 % of the tile, and every badge value is also in the tooltip.
 - **F4** The debuff red is close to Fire: never a fire glow on a debuff chip.
 - **F6** The parametric pipeline looks more templated than hand-painting; quality lives in the subject library.
 - **F7** Glyphs for physical, force, chaos and soul conditions: undecided.
+- **F8 To be changed (user 2026-11-20):** the 57 painted fight icons made in the old Metal gold or Earth ochre must be
+  regenerated in the 7.5 hues of 2026-11-20: 39 arts, 10 statuses, 5 techniques, 3 wards (about $6 at medium).
+  Find them by the old hex in `assets/icons/PROVENANCE.json` prompts (#E3B341, #B9772E). **Palette v2 (same day,
+  `design/research/poe-node-icons.md` §4b) also moves Fire to flame orange #FF7A1A, Wood to qīng #22B07A, Water to
+  #2A50E0 and Earth to #B47A40**: every fight icon painted in the old Fire, Wood, Water or Earth hue joins this list,
+  and the fight screen's element colours (7.5) follow the v2 table.
 - Not adopted (user, 2026-11-12): a flash cap at 4× speed.
+
+### 7.9 Đạo Đồ node art (draft, 2026-11-20)
+
+**Current state, in short (end of 2026-11-20; the bullets below are the day's record and some are superseded):**
+- Stat icons: one per stat **and scope** (145), colour = group (palette v2, 7.5 and `design/research/poe-node-icons.md`
+  §4b), painted in **style 2** (dark, layered; NOT SETTLED, may go brighter or darker).
+- Notables: **one icon per distinct name** (1,414), coloured by main line, shown with a darkening tone (NOT SETTLED).
+  Big-picture idea icons are a fallback only.
+- Keystones, capabilities, Effect notables, starts: their own icon each (low quality, palette v2).
+- Frames: small, road, capability, start in bronze B1; **notables a gilded ruyi-cloud ring**, **keystones an engraved
+  dragon disc with an octagonal window**.
+- Roads: the qi pearl, colour-mapped per element, candidates mixed per node.
+- Files: `assets/icons/dao_do/` as WebP; `INDEX.json` maps every node id to its icon and frame; `CATALOGUE.json` holds
+  each icon's subject, real prompt and quality (everything after palette v2 is **low**, marked `"low": true`).
+- Display: icons at 85 % of the sizes below; the map's layout was spread on 2026-11-20 so no icons overlap
+  (`design/dao-do/layout/`).
+- Open: brightness of style 2 and the notable tone; crafts vs fortune gold; F8 fight-icon repaint; engine wiring.
+
+**Decided by the user (2026-11-20):** the recommended set now, the full set later; **round** nodes, as on a PoE passive
+tree. The test batch (12 icons, 6 frames) is the look check before the full run.
+
+- **Shape**: each icon is a painted **circle medallion** (`gen_ai.py` `ROUND_STYLE`): a centred, emblem-like subject in
+  one hue family, near-black outside the circle, no frame painted in. The round frame is laid over it.
+- **Frames** (user 2026-11-20: flat frames "lack depth"; **painted set B1** picked over a sculpted height-map set):
+  six painted aged-bronze rings (road, small, notable, capability, keystone, start), candidate `<kind>_dd0` in
+  `tools/asset-pipeline/icons/ai/openai/dd_frame/`. `frames_painted.py` measures each ring and cuts it so its inner edge
+  meets the painting's hole. Size rises with weight (game diameters at 1x: road 30, small 40, notable 62, capability
+  70, keystone 96, start 110 px). The painting gets an inner shadow so it sits sunk in the frame. A thin enamel line at
+  the hole is the **land tint**, coloured in-engine. States (unallocated, allocatable, allocated) are in-engine as in
+  7.7, never separate art.
+- **Travel nodes (roads)** (user 2026-11-20: "the same but differently colour coded for each element", as PoE's
+  Strength, Dexterity and Intelligence nodes): **one motif** is painted in greyscale and colour-mapped by
+  `frames_painted.colourize()` to each of the 14 road kinds: 8 single lands, border roads blended between their two
+  lands, hub roads ringed with the five elements. Motif: **qi pearl** (user 2026-11-20; acupoint star and rising qi
+  not taken), with **both candidates mixed at random**: a road shows candidate `road_candidate(node id)`, stable per
+  node. Stat icons stay antique bronze (user, "for now").
+- **Hue**: shared stat icons (small nodes, and notables outside a big picture) are painted in a neutral
+  **antique bronze (#B08D57)** so one icon reads in every land. Roads, ideas, keystones, capabilities and starts use
+  their land's hue (7.5, with Light and Darkness; hub and Chaos #E0409A).
+- **Sharing**: small nodes share one icon per stat (68); roads one motif, colour-mapped; notables in a big picture
+  share their **idea's** icon (168 ideas, a mirrored pair counting once); a **plain notable reuses the small-node icon
+  of its main stat** in the notable frame (user 2026-11-20, as PoE does: all 958 plain notables' main stats have one);
+  the 91 named pieces (25 capabilities, 12 Effect notables, 43 keystones, 11 starts) each get their own. About 340
+  paintings in all.
+- **Lookup and the full set later**: a node looks for `assets/icons/dao_do/node_<id>.png`, then
+  `idea_<idea>.png`, then `stat_<main stat>.png`. Upgrading any notable to its own icon is only adding a `node_` file.
+- **Subjects** are hand-written per icon in `tools/asset-pipeline/icons/subjects_dao_do.py`. **Descriptions are kept
+  for reuse** (user 2026-11-20): `assets/icons/dao_do/CATALOGUE.json` (tracked) holds every icon's subject, the exact
+  prompt sent, its candidate files and the nodes it serves (`catalogue_dao_do.py`, which also checks every node has a
+  subject). The full run is **one candidate per icon** (user 2026-11-20): 325 icons (66 stat, 168 idea, 25 capability,
+  12 Effect, 43 keystone, 11 start). Flat and increased regeneration share one stat icon (health, linh lực).
+- **Revised later on 2026-11-20 (user):** (1) stat icons by stat **and scope**, colour = group (palette v2, 7.5 and
+  `design/research/poe-node-icons.md` §4b), full colour field with shades; (2) **every notable has its own icon**, one
+  per distinct name (1,414; mirrored pairs share one), coloured by its main line, subjects in
+  `tools/asset-pipeline/icons/notes/`; idea icons are only a fallback now; (3) **notable and keystone frames v2**
+  (PoE study: types differ by outline, colour and window): notables a gilded gold ring with eight ruyi cloud points
+  (`dd_frame/notable2_f20`), keystones a heavy engraved dragon disc with an octagonal window (`keystone2_f20`), chosen
+  by the user; small, road, capability and start frames stay B1; (4) everything since palette v2 is painted at **low**
+  quality (user: "do the whole everything in low, but mark low"): `CATALOGUE.json` records each pick's real quality
+  and prompt from the generator log (`"low": true`), medium originals are kept, and `picks_dao_do.py` decides which
+  file is used (PICKS.json, then `_lo0`, then `_dd0`).
+- **Stat icon style 2 (2026-11-20, NOT SETTLED):** the minor-node icons were repainted darker and layered
+  (`gen_ai.STAT_STYLE2`, tag `_l2`; `design/research/poe-node-icons.md` §7). The user: "that looks better for sure, but
+  note this down, we might want it brighter or darker, let's not settle for this for now". Brightness and darkness
+  stay open: tune with the style 2 prompt's shadow share ("about a quarter near-black") or an in-engine brightness
+  curve, compare in the viewer, and keep the `_lo` set until it is decided. Notables, keystones and special icons are
+  still in the bright style.
+- **Notable tone (2026-11-20, NOT SETTLED):** the user found the notables "a bit bright". Instead of repainting, a
+  display tone darkens them: gamma 1.4 on the painting, a vignette leaving 35 % brightness at the rim, saturation 0.9
+  (`NOTE_TONE` in the viewer build; the engine should apply the same curve at draw time). The source paintings are
+  untouched, so the level can go up or down freely; a repaint in style 2 stays an option (about $8.50 at low).
+- **Install** (`install_dao_do.py`): 256 px unframed paintings in `assets/icons/dao_do/` as `stat_<stat>`,
+  `idea_<idea>`, `node_<id>` (capabilities, Effect notables, keystones, starts), `road_<kind>_<0|1>`, `frame_<kind>`,
+  plus `FRAMES.json` (each frame's hole radius, the road zoom and the road candidate rule).
+- Open: frame finish (the test frames are flat vector placeholders; a painted or ornate set may replace them),
+  backgrounds per land, connector line and arc art.
 
 ## 8. Asset Standards
 

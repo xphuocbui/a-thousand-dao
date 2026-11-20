@@ -1,0 +1,13 @@
+{
+ "_doc": "Hole radius of each frame as a share of its image width; the painting is cropped to this circle (zoomed 1/0.86, roads 1.7x more) and laid under the frame. Written by install_dao_do.py.",
+ "hole": {
+  "road": 0.322,
+  "small": 0.3496,
+  "notable": 0.2952,
+  "capability": 0.272,
+  "keystone": 0.2669,
+  "start": 0.279
+ },
+ "road_zoom": 1.7,
+ "road_candidate": "(node_id * 2654435761 >> 7) % 2"
+}

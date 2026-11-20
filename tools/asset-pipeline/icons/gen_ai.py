@@ -10,7 +10,7 @@ Costs are estimates from the providers' published per-image prices (OpenAI's is 
 Run (from the repo root):
   python -I tools/asset-pipeline/icons/gen_ai.py --set test --provider both --n 2 --dry-run   (prompts and cost only)
   python -I tools/asset-pipeline/icons/gen_ai.py --set test --provider both --n 2
-Default provider: openai (gpt-image-2, user choice 2026-11-12). Sets: test (17 icons), arts, techniques, wards, statuses, counters, stances, glyphs, chips (the last four), all.
+Default provider: openai (gpt-image-2, user choice 2026-11-12). Sets: test (17 icons), dao_do_test (the look test), dao_do (the full node set), dao_do_frames (6 painted frames), dao_do_roads (3 colourless road motifs), arts, techniques, wards, statuses, counters, stances, glyphs, chips (the last four), all.
 Subjects are hand-written per icon in subjects.py.
 """
 import argparse
@@ -35,9 +35,44 @@ QUALITY = ["high"]
 OPENAI_PRICE = {"low": 0.006, "medium": 0.053, "high": 0.211}   # gpt-image-2 1024x1024, unverified
 
 HUE = {"fire": ("vermilion", "#E8442A"), "water": ("deep blue", "#3F6FE0"), "wood": ("jade green", "#2FBF8A"),
-       "metal": ("gold", "#E3B341"), "earth": ("ochre", "#B9772E"), "ice": ("pale cyan", "#7AD7F0"),
+       "metal": ("silver white", "#DCE3EC"), "earth": ("earthen brown", "#8F5A2E"), "ice": ("pale cyan", "#7AD7F0"),
        "thunder": ("violet", "#A15CFF"), "wind": ("pale mint", "#A6EBD8"), "phys": ("bone white", "#C9C2B2"),
-       "force": ("rose", "#E58FB5"), "chaos": ("magenta", "#E0409A"), "soul": ("lavender white", "#CFC4FF")}
+       "force": ("rose", "#E58FB5"), "chaos": ("magenta", "#E0409A"), "soul": ("lavender white", "#CFC4FF"),
+       # Đạo Đồ (art bible 7.9, provisional): neutral for shared stat icons; Light and Darkness lands
+       "stat": ("antique bronze", "#B08D57"),
+       # Đạo Đồ stat families (design/research/poe-node-icons.md §4, approved for the test 2026-11-20)
+       "body": ("crimson", "#B3243A"), "linh": ("azure", "#4FA3FF"), "mind": ("lavender", "#B79CFF"),
+       "offence": ("amber", "#F0A030"), "defence": ("slate steel blue", "#7F9CB8"), "fortune": ("rich gold", "#E6B84A"),
+       "craft": ("copper", "#D08850"), "poison": ("venom green-yellow", "#A3C93A"), "sword": ("steel blue-grey", "#9FB3C8"), "light": ("bright sunlight yellow", "#FFE45C"), "dark": ("dark purple", "#6B2D8F")}
+
+# Palette v2 (2026-11-20, design/research/poe-node-icons.md 4b): chosen by measurement for the Đạo Đồ and the
+# fight screen alike (art bible 7.5). Sword joins Metal. The old values above stay only as history.
+HUE.update({
+    "body": ("crimson", "#C62839"), "fire": ("flame orange", "#FF7A1A"), "fortune": ("rich gold", "#FFD24A"),
+    "mind": ("lavender", "#B49CFF"), "offence": ("keen sky-cyan", "#7FE0FF"), "defence": ("slate blue", "#3F6F9F"),
+    "linh": ("azure", "#3D8BFF"), "craft": ("brass", "#A0A040"), "wood": ("qing blue-green", "#22B07A"),
+    "metal": ("white", "#FFFFFF"), "sword": ("white", "#FFFFFF"), "water": ("sapphire blue", "#2A50E0"),
+    "ice": ("frost white-cyan", "#C8F8FF"), "thunder": ("electric violet", "#B060FF"), "dark": ("dark violet", "#8A3AB8"),
+    "chaos": ("magenta", "#C02CA8"), "earth": ("ochre brown", "#B47A40"), "light": ("pale radiant white-gold", "#FFFBE0"),
+    "phys": ("bone", "#BFB39A"), "force": ("bone", "#BFB39A"), "wind": ("pale mint", "#B5F5E0"), "poison": ("venom lime", "#D0F040"),
+})
+
+
+def _shade(hx, f):
+    """f < 1 darkens toward black, f > 1 lightens toward white."""
+    c = [int(hx[i:i + 2], 16) for i in (1, 3, 5)]
+    c = [v * f for v in c] if f < 1 else [v + (255 - v) * (f - 1) for v in c]
+    return "#%02X%02X%02X" % tuple(int(max(0, min(255, round(v)))) for v in c)
+
+
+def _hue_turn(hx, deg):
+    """The same colour turned a few degrees round the hue wheel: a neighbouring shade inside the group."""
+    import colorsys
+    r, g, b = [int(hx[i:i + 2], 16) / 255 for i in (1, 3, 5)]
+    h, l, s_ = colorsys.rgb_to_hls(r, g, b)
+    r, g, b = colorsys.hls_to_rgb((h + deg / 360) % 1, l, s_)
+    return "#%02X%02X%02X" % (int(r * 255), int(g * 255), int(b * 255))
+
 
 # Style validated by the user on GPT Image 2 (2026-11-12): the whole tile is one hue field, painted concept art, an
 # action caught mid-moment, a dark subject against blazing light (art bible 7.2, revised).
@@ -58,10 +93,80 @@ CHIP_STYLE = ("Small square status-effect icon for a game HUD, painted in a semi
               "background is a deep, almost black {hue_name}-tinted vignette with a faint glow behind the emblem and dark "
               "space all round the edge. Minimal detail, no scene, no extra objects, no motion clutter. No text, no "
               "letters, no numbers, no border, no frame, no ring, no UI, no watermark.")
+# Đạo Đồ stat icons v2 (PoE study 2026-11-20): the colour names the family, so the whole circle is one rich colour field,
+# as PoE's passive icons and our fight icons (art bible 7.2) are; the picture names the stat.
+STAT_STYLE = ("Circular medallion icon for a passive skill tree node, semi-realistic painted concept art, Chinese xianxia "
+              "cultivation theme. The whole circle is filled with a rich, saturated {hue_name} colour field ({hex}), shading "
+              "from deep {deep} in the shadows to bright {bright} in the glow, with touches of a neighbouring shade ({accent}); "
+              "the {hue_name} must clearly dominate. One simple bold subject, centred, a dark or mid-tone silhouette cut "
+              "against glowing energy, readable at 40 pixels. Vivid and luminous, high contrast. No text, no letters, no "
+              "numbers, no border, no frame, no ring drawn around it, no UI, no watermark.")
+# Đạo Đồ stat icons, style 2 (2026-11-20, research §6-7: PoE icons are dark paintings with deep shadows and two or three
+# hues; ours were bright single-hue discs, so clusters read as flat colour). The group colour still dominates.
+STAT_STYLE2 = ("Circular medallion icon for a passive skill tree node, semi-realistic painted concept art in a dark, moody "
+               "fantasy style, Chinese xianxia cultivation theme. Deep shadows: about a quarter of the image is near-black, "
+               "with strong chiaroscuro and a rim light. The subject is lit mainly by {hue_name} light ({hex}), the dominant "
+               "colour, with a contrasting accent of {counter} and a touch of {accent}, so the palette is rich and layered, "
+               "never one flat colour. The background is dark and atmospheric, not a glowing colour field. One clear subject, "
+               "centred, detailed but readable at 40 pixels, painterly texture. No text, no letters, no numbers, no border, "
+               "no frame, no ring drawn around it, no UI, no watermark.")
+NOTE_STYLE = STAT_STYLE.replace("One simple bold subject, centred,", "A richer, more detailed subject than a small node, still centred and bold; "
+                                "it may keep a little natural colour of its own,")
+# Keystones, capabilities, Effect notables and starts: the notable style, as a dramatic iconic moment.
+SPECIAL_STYLE = NOTE_STYLE.replace("A richer, more detailed subject", "A dramatic, iconic, richly detailed subject")
+# Đạo Đồ road motif: painted colourless so one painting can be colour-mapped to every element (frames_painted.colourize).
+ROAD_STYLE = ("Circular medallion icon for a passive skill tree travel node, semi-realistic painted glowing energy, "
+              "Chinese xianxia cultivation theme. Strictly greyscale: pure white and silver light on a plain near-black "
+              "ground, no colour at all. The subject is centred and small, about half the circle, simple and bold so it "
+              "reads at 30 pixels, with a white-hot core and soft bloom. Calm and iconic. No text, no letters, no numbers, "
+              "no border, no frame, no ring drawn around it, no UI, no watermark.")
+# Đạo Đồ painted frame (option B): one ring seen straight on, centred, an empty black centre to be cut out.
+FRAME_STYLE = ("Game UI asset: a single circular ornamental frame ring for a skill tree node, seen perfectly straight on, "
+               "exactly centred, the ring's outer edge just inside the image edges. Semi-realistic painted metalwork with "
+               "real depth: bevels, raised mouldings, worn highlights on the edges, dark patina in the recesses, lit from "
+               "the top-left with a soft shadow on the lower right. The centre of the ring is completely empty flat black, "
+               "and the area outside the ring is flat black. Chinese xianxia style ornament, accents of {hue_name} "
+               "({hex}) only where named. Perfectly round, symmetric. No text, no letters, no icon or picture in the centre, "
+               "no background scene, no watermark.")
+# Đạo Đồ node style (art bible 7.9, user 2026-11-20: round nodes like a PoE passive tree). The painting is a circle
+# medallion; the round frame is added afterwards (frames_dao_do.py), so the painting carries none.
+ROUND_STYLE = ("Circular medallion icon for a passive skill tree node, semi-realistic painted concept art, Chinese "
+               "xianxia cultivation theme. The subject is centred and composed to fit inside a circle, filling about "
+               "four fifths of it, with a simple bold silhouette that still reads at 40 pixels. Lit by luminous "
+               "{hue_name} light ({hex}) with a white-hot core, nearly monochrome, one hue family from deep shadow to "
+               "bright highlight; the area outside the circle is plain near-black. Calm, iconic, emblem-like rather "
+               "than a busy scene; soft bloom, a little painterly texture. No text, no letters, no numbers, no border, "
+               "no frame, no ring drawn around it, no UI, no watermark.")
 
 def items(which):
     """(kind, id, hue, subject, style) for every icon in the set; subjects are hand-written in subjects.py."""
     sys.path.insert(0, HERE)
+    if which == "dao_do_special":
+        import subjects_dao_do as D
+        return [(k, i, D.TABLE[k][i][0], D.TABLE[k][i][1], SPECIAL_STYLE) for k in ("dd_keystone", "dd_cap", "dd_effect", "dd_start")
+                for i in D.TABLE[k]]
+    if which in ("dao_do_note_test", "dao_do_note"):
+        import subjects_dao_do as D
+        return [("dd_note", i, D.NOTE[i][0], D.NOTE[i][1], NOTE_STYLE) for i in D.NOTE]
+    if which == "dao_do_statc2":
+        import subjects_dao_do as D
+        return [("dd_statc", i, D.STATC[i][0], D.STATC[i][1], STAT_STYLE2) for i in D.STATC]
+    if which in ("dao_do_statc_test", "dao_do_statc"):
+        import subjects_dao_do as D
+        return [("dd_statc", i, D.STATC[i][0], D.STATC[i][1], STAT_STYLE) for i in D.STATC]
+    if which == "dao_do_roads":
+        import subjects_dao_do as D
+        return [("dd_roadmotif", i, h, subj, ROAD_STYLE) for i, (h, subj) in D.ROAD_MOTIF.items()]
+    if which == "dao_do_frames":
+        import subjects_dao_do as D
+        return [("dd_frame", i, h, subj, FRAME_STYLE) for i, (h, subj) in D.FRAME.items() if not i.endswith("2")]
+    if which == "dao_do_frames2":
+        import subjects_dao_do as D
+        return [("dd_frame", i, D.FRAME[i][0], D.FRAME[i][1], FRAME_STYLE) for i in ("notable2", "keystone2")]
+    if which in ("dao_do_test", "dao_do"):
+        import subjects_dao_do as D
+        keys = D.TEST if which == "dao_do_test" else [(k, i) for k in D.FULL for i in D.TABLE[k]]
+        return [(k, i, D.TABLE[k][i][0], D.TABLE[k][i][1], ROUND_STYLE) for k, i in keys]
     import subjects as S
     out = []
     names = {}
@@ -113,7 +218,10 @@ def items(which):
 
 def prompt_of(kind, iid, el, what, style):
     hn, hx = HUE[el]
-    return what + ". " + style.format(hue_name=hn, hex=hx, what=what)
+    import zlib
+    turn = 14 if zlib.crc32(("%s/%s" % (kind, iid)).encode("utf-8")) % 2 else -14
+    return what + ". " + style.format(hue_name=hn, hex=hx, what=what, deep=_shade(hx, 0.45), bright=_shade(hx, 1.45),
+                                      accent=_hue_turn(hx, turn), counter=_shade(_hue_turn(hx, 165), 0.8))
 
 
 def post(url, body, key, timeout=180):
