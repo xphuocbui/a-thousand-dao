@@ -104,3 +104,13 @@ func test_the_roads_from_where_one_stands_are_known() -> void:
 	var here: Dictionary = s.db.get_record("places", s.player.location_id)
 	for l in here.links:
 		assert_true(s.knowledge.knows_place(str(l.to)), "a signpost names %s" % s.db.get_record("places", str(l.to)).name)
+
+
+func test_a_save_from_another_map_version_is_refused() -> void:
+	var s := _session()
+	var d: Dictionary = JSON.parse_string(JSON.stringify(s.to_dict()))
+	d.db.tables.world.w_meta.map_version = "0000000000000000"
+	var t := GameSession.new(game_data(), LlmService.new(game_data()), TestFixtures.tree())
+	var res: Dictionary = t.load_dict(d)
+	assert_false(res.ok, "refused")
+	assert_true(str(res.lines[0]).contains("0000000000000000"), "naming the save's map version: %s" % str(res.lines))

@@ -4,14 +4,16 @@ extends DaoTestSuite
 
 
 func _place(t: float, r: float, shares: Dictionary, density: float = 1.1) -> Dictionary:
-	# climate_index maps -20..30 C and 0..4000 mm onto 0..100: invert it for a wanted index
-	return {"temp_c": -20.0 + t / 2.0, "rain_mm": r * 40.0, "density": density,
-		"qi": {"shares": shares, "variants": {}}}
+	# invert world_map.json climate_index for a wanted index
+	var ci: Dictionary = game_data().file("world_map").climate_index
+	var t_c: float = float(ci.t_c[0]) + t / 100.0 * (float(ci.t_c[1]) - float(ci.t_c[0]))
+	var r_mm: float = float(ci.r_mm[0]) + r / 100.0 * (float(ci.r_mm[1]) - float(ci.r_mm[0]))
+	return {"temp_c": t_c, "rain_mm": r_mm, "density": density, "qi": {"shares": shares, "variants": {}}}
 
 
 func test_hoa_linh_chi_on_a_volcano_is_excellent() -> void:
 	var gd := game_data()
-	var f: Dictionary = HerbFit.fit(gd, gd.herb("hoa_linh_chi"), _place(80.0, 20.0, {"moc": 0.0, "hoa": 60.0, "tho": 30.0, "kim": 10.0, "thuy": 0.0}))
+	var f: Dictionary = HerbFit.fit(gd, gd.herb("hoa_linh_chi"), _place(80.0, 40.0, {"moc": 0.0, "hoa": 60.0, "tho": 30.0, "kim": 10.0, "thuy": 0.0}))
 	assert_near(float(f.fit), 1.0, 0.0001, "every factor 1")
 	assert_eq(str(f.label), "excellent", "excellent")
 	assert_near(float(f.growth), 1.2, 0.0001, "growth x1.2")
@@ -27,7 +29,10 @@ func test_hoa_linh_chi_on_a_glacier_cannot_be_planted() -> void:
 
 func test_thanh_tam_lien_in_a_temperate_forest_is_good() -> void:
 	var gd := game_data()
-	var f: Dictionary = HerbFit.fit(gd, gd.herb("thanh_tam_lien"), _place(55.0, 50.0, {"moc": 50.0, "hoa": 5.0, "tho": 10.0, "kim": 5.0, "thuy": 30.0}))
+	var herb: Dictionary = gd.herb("thanh_tam_lien").duplicate()
+	herb["rain_ideal"] = 70
+	herb["rain_tol"] = 15   # the GDD's example band
+	var f: Dictionary = HerbFit.fit(gd, herb, _place(55.0, 50.0, {"moc": 50.0, "hoa": 5.0, "tho": 10.0, "kim": 5.0, "thuy": 30.0}))
 	assert_near(float(f.fit), 0.825 * (1.0 - 5.0 / 30.0), 0.001, "f_e 0.825 x f_R 0.833")
 	assert_eq(str(f.label), "good", "good")
 	assert_near(float(f.growth), 1.2 * float(f.fit), 0.0001, "growth x0.83")

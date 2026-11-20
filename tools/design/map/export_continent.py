@@ -425,6 +425,14 @@ def main():
                    "feature_bits": load(os.path.join(m, "base", "meta.json"))["legend"]["feature_bits"]},
     }
     grid_bytes = write_grid(m, roads, w, h, a.grid)
+    # the terrain's version (World Generation Core Rule 13): a save records it, and one made on another is refused
+    import hashlib
+    hh = hashlib.sha256()
+    for f in (a.grid, os.path.join(os.path.dirname(a.grid), "continent_11_qi.bin")):
+        if os.path.exists(f):
+            with open(f, "rb") as fh:
+                hh.update(fh.read())
+    out["map_version"] = hh.hexdigest()[:16]
     os.makedirs(os.path.dirname(a.out), exist_ok=True)
     with open(a.out, "w", encoding="utf-8") as fh:
         json.dump(out, fh, ensure_ascii=False, indent=1)

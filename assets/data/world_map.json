@@ -608,14 +608,14 @@
     "share_cap_l1": 30
   },
   "climate_index": {
-    "_doc": "Formula G's temperature and rainfall indexes 0-100: T from t_c (degrees C at 0 and 100), R from r_mm (mm a year at 0 and 100). A guess.",
+    "_doc": "Formula G's temperature and rainfall indexes 0-100: T from t_c (degrees C at 0 and 100), R from r_mm (mm a year at 0 and 100). Centred 2026-11-20 on the continent's own spread (places: T p10 24, median 50, p90 71; R p10 20, median 47, p90 92); a guess.",
     "t_c": [
-      -20.0,
-      30.0
+      -10.0,
+      40.0
     ],
     "r_mm": [
       0.0,
-      4000.0
+      1600.0
     ]
   }
 }

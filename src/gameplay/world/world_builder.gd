@@ -91,7 +91,7 @@ func generate(rng: RandomNumberGenerator, game_seed: String = "") -> WorldDB:
 	_step_named_items(rng)
 	# Core Rules 10 and 13: the ledger of truth and the data versions are saved with the world, never shown
 	_db.add("world", {"id": "w_meta", "builder": "continent", "data_version": str(_hist.get("data_version", "")),
-		"map_version": str(_gd.file(ContinentData.DATA_FILE).get("source", "")), "seed": _seed, "ledger": ledger})
+		"map_version": str(_gd.file(ContinentData.DATA_FILE).get("map_version", "")), "seed": _seed, "ledger": ledger})
 	return _db
 
 

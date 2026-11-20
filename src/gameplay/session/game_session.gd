@@ -1766,7 +1766,13 @@ func load_dict(d: Dictionary) -> Dictionary:
 	rng.state = str(d.rng_state).to_int()
 	year = int(d.year)
 	season = int(d.season)
-	db = WorldDB.from_dict(d.db)
+	var loaded_db: WorldDB = WorldDB.from_dict(d.db)
+	var meta: Dictionary = loaded_db.get_record("world", "w_meta")
+	var map_now: String = str(gd.file(ContinentData.DATA_FILE).get("map_version", ""))
+	if not meta.is_empty() and str(meta.get("map_version", "")) != map_now:
+		# World Generation Core Rule 13: the terrain is read from the data files, so a save made on another map is refused
+		return {"ok": false, "lines": ["This save was made on map version %s; this game has map version %s. It cannot be loaded." % [str(meta.get("map_version", "?")), map_now]]}
+	db = loaded_db
 	for rec in db.all("people"):
 		if rec.has("linh_can"):
 			rec["linh_can"] = LinhCan.migrate_record(rec.linh_can, gd)
