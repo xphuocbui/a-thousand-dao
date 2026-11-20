@@ -139,3 +139,19 @@ So before the economy can price anything, the land must produce what it prices: 
   beast settle_w 1.0; the mine resource table (design/map/continent-11/mine_resources.json, DRAFT but live); Ice
   variant at 2.3 % of places; M_0 about 1.53M (pools 20,000 each); npc_rate_ref.
 - **Calibration:** d_scale ore 3.87 (outside 0.5-3) is left until S1 adds the sects' ore spending (then recalibrate).
+
+### Progress, 2026-11-20 evening (continued)
+
+- **7ed0584f** markets price raw goods by rarity band (8 classes), compositions (Formula B), shelved cover, scarcity
+  factor in shop prices. Herb band 3 sits near its ceiling (rare goods intermittent): balance item.
+- **71be6138 / 9adcdadb** settlements produce by population and land (Travel & Map rule 21, Formula H2; user-approved):
+  P = size weight x livability; settlements 34 % of herb value, 25 % of ore; non-mine total 251,772.
+- **549448b4 / 20023bd8** herbs count as mature equivalents (Item Database Formula B, user-approved: E = x to maturity,
+  plateau s 0.1 to the knee 3, then doubling every 0.45 mature-ages); recipes count equivalents; pill quality from ρ.
+  Shops are a view of their market's pool (user decision: option A, mature herbs only).
+- **Baseline autoplay** (before the bands, settlements, shelves and equivalents): 72 / 56 / 16 / 0 of 9.
+- **Known test isolation bug:** `tests/unit/crafting/talismans_test.gd`'s combat test fails when run alone (also at the
+  committed code before these changes); it passes inside the full suite. To fix.
+- **Next:** crafted goods as value classes (Trade Goods rules 11-16, Formulas E-J); lair hide and cores; Thiết Tuyến
+  Thảo and Thiết Cốt Đan; cargo (rule 16a); origin tariffs; specialty knowledge (rule 17); the leftover politics
+  (rebellion, levy refusal, pacts called into wars); then the balance pass.
