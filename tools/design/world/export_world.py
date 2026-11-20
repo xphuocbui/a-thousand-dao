@@ -576,6 +576,8 @@ class Export:
                     used_named[g["named"]] = key
                 elif g.get("base") not in bases:
                     self.err("%s: artifact base '%s' does not exist" % (where, g.get("base")))
+                elif not 0 <= int(g.get("grade", 1)) < len(arts["grades"]):
+                    self.err("%s: artifact grade %s is outside 0-%d (%s)" % (where, g.get("grade"), len(arts["grades"]) - 1, ", ".join(x["id"] for x in arts["grades"])))
             tr = b.get("tree", {})
             if tr.get("start") and tr["start"] not in starts:
                 self.err("%s: Đạo Đồ start '%s' does not exist" % (where, tr["start"]))

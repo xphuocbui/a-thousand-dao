@@ -290,7 +290,7 @@
     "archetype_skills": {
       "dan_su": "dan_dao",
       "linh_thuc_su": "linh_thuc",
-      "tran_su": "tran_dao"
+      "tran_su": "tran_phap"
     },
     "tree_focus_weight": 2,
     "tree_kind_scores": {
