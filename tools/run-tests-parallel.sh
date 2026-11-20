@@ -47,6 +47,10 @@ for g in "${groups[@]}"; do
   summary="$(sed 's/\x1b\[[0-9;]*m//g' "$OUT/$name.log" | grep -E "Overall Summary" | tail -1)"
   n="$(echo "$summary" | sed -nE 's/.*Overall Summary: ([0-9]+) test cases.*/\1/p')"
   total=$((total + ${n:-0}))
+  if grep -q "No test cases found" "$OUT/$name.log"; then
+    echo "skip    $g  (no gdUnit tests: a script folder, run by tools/run-tests.sh)"
+    continue
+  fi
   if ! echo "$summary" | grep -q "0 errors | 0 failures"; then
     fail=1
     echo "FAILED  $g  ${summary:-no summary (crashed or timed out)}"

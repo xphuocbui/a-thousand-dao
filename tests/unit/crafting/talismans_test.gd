@@ -13,6 +13,10 @@ func _session() -> GameSession:
 	return s
 
 
+func _gd_stages(s: GameSession) -> Array:
+	return range(s.gd.stage_count(s.player.realm_index))
+
+
 func _give(s: GameSession, item: Dictionary) -> String:
 	item["owner_id"] = s.player.id
 	return s.db.add("items", item)
@@ -48,12 +52,22 @@ func test_drawing_spends_ink_and_materials_and_passes_a_season() -> void:
 
 func test_combat_uses_attack_and_defense_talismans_and_the_card_shows_them() -> void:
 	var s := _session()
-	# An evenly matched opponent (stage 0, as the new player): real fights are sharp, so against a stronger NPC the
-	# odds are 0 with or without talismans (measured 2026-11-15: none 0, attack 0.17, both 1.00 at stage 0).
+	# An opponent the talismans can matter against: real fights are sharp, so against a much stronger NPC the odds are 0
+	# with or without talismans. A new player is far below a typical Luyện Khí NPC (weak start, by design), so the test
+	# raises the player's stage until the plain odds against a stage-0 kiem_tu are above 0 and under the "sure win"
+	# line, deterministically. (Before 2026-11-20 it relied on the order other suites consumed the shared rng.)
 	var enemy_id: String = s.builds.create_person(s.rng, {"realm_index": 0, "stage": 0, "archetype": "kiem_tu", "location_id": s.player.location_id})
 	var ev: Dictionary = _event(s, {"type": "combat", "enemy": enemy_id})
 	s.pending_event = ev
-	var plain: float = Advisor.choice_odds(s, 0).chance
+	var plain: float = 0.0
+	for st in _gd_stages(s):
+		s.player.stage = st
+		s.player.level = Ladder.stage_first_level(s.gd, s.player.realm_index, st)
+		s.sync_player()
+		plain = Advisor.choice_odds(s, 0).chance
+		if plain > 0.0:
+			break
+	assert_true(plain < 0.94, "an opponent the talismans can matter against (plain odds %.2f)" % plain)
 	_give(s, s.items.talisman("hoa_cau", 2))
 	_give(s, s.items.talisman("kim_cuong", 1))
 	var with_t: Dictionary = Advisor.choice_odds(s, 0)
