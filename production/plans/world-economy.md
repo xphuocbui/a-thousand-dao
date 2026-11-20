@@ -155,3 +155,22 @@ So before the economy can price anything, the land must produce what it prices: 
 - **Next:** crafted goods as value classes (Trade Goods rules 11-16, Formulas E-J); lair hide and cores; Thiết Tuyến
   Thảo and Thiết Cốt Đan; cargo (rule 16a); origin tariffs; specialty knowledge (rule 17); the leftover politics
   (rebellion, levy refusal, pacts called into wars); then the balance pass.
+
+### Progress, 2026-11-20/21 night (user asleep: "continue the sects and works, then the simulation and bug fixing")
+
+- **a3ab2fa8, b34450c6** crafted classes for pills, talismans and artifacts (Trade Goods Formulas E-H): workshops
+  plan by price over input cost and cover, each recipe (or input group, "any material of rarity r or more") drawing
+  from the shelves; demand from the baskets' pill share and Military's crafted spending. The sects' goods spending
+  (upkeep plus investment, half in goods) is now raw demand (Formula C's goods_frac term); d_scale ore 3.87 -> 3.32.
+- **e9b59b18** lairs yield bone, hide and demon cores; items carry their origin market and pay the import tariff
+  where sold.
+- **c41232ab** sects build works on their land (worked mines, vein dressing, great array, spirit grove, up to
+  ceil(Holdings / 2)) from the Holdings investment; works upkeep in cash and goods; unpaid works fade. Mine output
+  124,560 -> 161,132 a season over 120 seasons.
+- **abb992e0** F17 intake by capacity, F3 desertions, F5b rebellions, levy refusal, rule 30 new sects.
+- **Fixes found by the bug check:** the Advisor's market hint before planting (4fd1780d), and its price estimate of a
+  30-year herb (c41232ab): both made the balance bot save for herbs it could not afford and take missions all life.
+- **Tools:** tools/run-tests-parallel.sh (616 cases in about 7-10 min), tools/balance/world_sim.gd (the chronicle).
+- **Not yet:** breakthrough pill demand (D_bt, a Realms handoff), crafted flows between markets, crafted origin tags,
+  cargo by storage items (no storage items exist yet), specialty knowledge (rule 17), Thiết Tuyến Thảo and Thiết Cốt
+  Đan (its effect is a content-pass item), NPC traits' pulls (#42), relationships (#46, another session).
