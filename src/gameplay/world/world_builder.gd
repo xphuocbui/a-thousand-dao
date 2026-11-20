@@ -301,7 +301,7 @@ func _step_cast() -> void:
 		rec["cast_key"] = str(p.key)
 		rec["born_year"] = int(p.born)
 		rec["role"] = str(p.get("role", ""))
-		rec["npc_traits"] = p.get("traits", {})
+		rec["npc_traits"] = NpcTraits.from_authored(_gd, p.get("traits", {}))   # the cast's authored traits, as catalogue ids
 		rec["build_source"] = "authored" if not authored.is_empty() else "stand-in"
 		rec.erase("pending")
 		if not sect_rec.is_empty():

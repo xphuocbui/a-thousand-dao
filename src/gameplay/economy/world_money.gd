@@ -39,6 +39,7 @@ static func season(gd: GameData, db: WorldDB, money: MoneyLedger, year: int = 0,
 	out["market_income"] = _market_income(gd, db, money)
 	out["sects"] = SectEconomy.season(gd, db, money)   # upkeep and tribute (Sects F1, F4) before the treasury rule
 	out["works_upkeep"] = SectWorks.upkeep(gd, db, money)   # the sects' layer-2 works (Travel & Map Formula J)
+	out["heads_draw"] = _heads_draw(gd, db, money)
 	out["invest"] = _treasury_rule(gd, db, money, idx, year, season_i)
 	return out
 
@@ -162,6 +163,25 @@ static func _desert(gd: GameData, db: WorldDB, members: Array) -> void:
 		p["sect_id"] = ""
 		p["sect_rank"] = ""
 		p["deserted"] = true
+
+
+# Sects F3 and F13: each sect's head draws draw_mult x the stipend of their realm from the treasury each season (the
+# leader's pull: Temperate 1, Indulgent 4; 1 by default), paid last, counted in the sect's cash costs.
+static func _heads_draw(gd: GameData, db: WorldDB, money: MoneyLedger) -> float:
+	var stip: Array = _cfg(gd).money.stipend
+	var total: float = 0.0
+	for s in db.all("sects"):
+		if str(s.get("status", "")) != "active":
+			continue
+		var head: Dictionary = db.get_record("people", str(s.get("leader_id", "")))
+		if head.is_empty() or not bool(head.get("alive", false)) or bool(head.get("is_player", false)):
+			continue
+		var mult: float = float(SectPolitics.pulls_of(gd, db, s).get("draw_mult", 1.0))
+		var due: float = mult * float(stip[clampi(int(head.get("realm_index", 0)), 0, stip.size() - 1)])
+		var paid: float = money.transfer("sect:%s" % s.id, "npc:%s" % head.id, due, "heads_draw")
+		s["cash_costs"] = float(s.get("cash_costs", 0.0)) + paid
+		total += paid
+	return total
 
 
 # Mission pay of realm [param rl] (Sects F12: base · scale[rl]).
@@ -339,7 +359,12 @@ static func _treasury_rule(gd: GameData, db: WorldDB, money: MoneyLedger, idx: D
 			continue
 		var treasury: String = "sect:%s" % str(s.id)
 		var cost: float = float(stip.get(str(s.id), 0.0)) + float(s.get("cash_costs", 0.0))
-		var t: Dictionary = EconomyRules.treasury_invest(cfg, money.balance(treasury), 0.0, cost)
+		var pl: Dictionary = SectPolitics.pulls_of(gd, db, s)
+		var cfg_s: Dictionary = cfg
+		if pl.has("invest_share"):   # Sects F15: a Diligent or Lazy head sets the invest share
+			cfg_s = cfg.duplicate(true)
+			cfg_s.money.inv_frac = float(pl.invest_share)
+		var t: Dictionary = EconomyRules.treasury_invest(cfg_s, money.balance(treasury), 0.0, cost)
 		if float(t.invest) <= 0.0:
 			continue
 		var paid: float = _pay_missions(gd, money, treasury, members.get(str(s.id), []), float(t.missions), "treasury_mission")

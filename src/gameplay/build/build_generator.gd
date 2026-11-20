@@ -74,6 +74,8 @@ func create_person(rng: RandomNumberGenerator, opts: Dictionary = {}) -> String:
 	var fresh: Dictionary = c.to_dict()
 	fresh["created_by"] = record.created_by
 	fresh["power"] = power_of(c)
+	if not c.is_beast and _gd.registry.has_file(NpcTraits.FILE):   # NPC Traits F4, keyed on the id (a reload rolls the same)
+		fresh["npc_traits"] = NpcTraits.roll(_gd, pid, str(arch_id), c.sect_id != "")
 	_db.put("people", fresh)
 	return pid
 

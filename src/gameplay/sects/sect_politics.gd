@@ -28,6 +28,8 @@ static var _adj: Dictionary = {}
 static var _held: Dictionary = {}
 static var _for_db: int = 0   # the world the cache was built for: another world rebuilds it
 static var _bp: Dictionary = {}   # this season's balance-of-power term toward the strongest great sect {sect id: bp}
+static var _pulls: Dictionary = {}   # this season's leader pulls by sect id (NPC Traits, Sects F15)
+static var _season_key: int = 0
 
 
 static func _cfg(gd: GameData) -> Dictionary:
@@ -37,6 +39,7 @@ static func _cfg(gd: GameData) -> Dictionary:
 static func _begin(gd: GameData, db: WorldDB) -> void:
 	_for_db = db.get_instance_id()
 	_bp = {}   # set again by season() once the strengths are known
+	_pulls = {}
 	_adj = {}
 	for r in gd.file(ContinentData.DATA_FILE).get("regions", []):
 		_adj[int(r.id)] = Array(r.get("neighbours", [])).map(func(n): return int(n.region))
@@ -146,6 +149,17 @@ static func _borders(gd: GameData, db: WorldDB, a: Dictionary, b: Dictionary) ->
 	return n
 
 
+## A sect's leader's Sects F15 pulls (NPC Traits), cached for the season.
+static func pulls_of(gd: GameData, db: WorldDB, s: Dictionary) -> Dictionary:
+	var sid: String = str(s.get("id", ""))
+	if _for_db == db.get_instance_id() and _pulls.has(sid):
+		return _pulls[sid]
+	var p := NpcTraits.leader_pulls(gd, db, s) if gd.registry.has_file(NpcTraits.FILE) else {}
+	if _for_db == db.get_instance_id():
+		_pulls[sid] = p
+	return p
+
+
 ## F7's target attitude of [param a] toward [param b].
 static func attitude_target(gd: GameData, db: WorldDB, a: Dictionary, b: Dictionary, strength: Dictionary) -> float:
 	var c: Dictionary = _cfg(gd)
@@ -158,7 +172,12 @@ static func attitude_target(gd: GameData, db: WorldDB, a: Dictionary, b: Diction
 		al = float(c.align_opposed)
 	var pact: float = float(c.p_k) if str(a.get("relation", {}).get(str(b.id), "")) == "pact" else 0.0
 	var g: float = float(a.get("grudge", {}).get(str(b.id), 0.0))
-	return al + float(c.b_k) * _borders(gd, db, a, b) + pact + g - _balance_of_power(db, b, strength)
+	# Sects F15: a's leader's alignment factor and bias pulls, and the regard others hold b's leader in (bias_all)
+	var pa: Dictionary = pulls_of(gd, db, a)
+	var pb: Dictionary = pulls_of(gd, db, b)
+	al *= float(pa.get("alignment_factor", 1.0))
+	var pull: float = float(pb.get("bias_from_all", 0.0))
+	return al + float(c.b_k) * _borders(gd, db, a, b) + pact + g + pull - _balance_of_power(db, b, strength)
 
 
 # F7's bp: toward the strongest great sect only, 1 per 10 % its strength exceeds the runner-up's (worked out once a
@@ -181,11 +200,12 @@ static func _season_bp(db: WorldDB, strength: Dictionary) -> Dictionary:
 
 
 ## F7's step from [param a_now] toward [param tgt].
-static func attitude_step(gd: GameData, a_now: float, tgt: float) -> float:
+static func attitude_step(gd: GameData, a_now: float, tgt: float, speed: Dictionary = {}) -> float:
 	var d: float = tgt - a_now
 	if absf(d) < 1e-9:
 		return a_now
-	var k: float = float(_cfg(gd).k_a) * absf(d)
+	# Sects F15's attitude speed: a leader's pull multiplies k_a toward hostility or toward friendship
+	var k: float = float(_cfg(gd).k_a) * absf(d) * float(speed.get("hostile" if d < 0.0 else "friendly", 1.0))
 	var stp: float = minf(5.0, minf(absf(d), maxf(1.0, float(roundi(k)) if k >= 0.0 else 1.0)))
 	return a_now + signf(d) * stp
 
@@ -196,6 +216,7 @@ static func season(gd: GameData, db: WorldDB, money: MoneyLedger, year: int, sea
 	if not db.has_record("world", WARS):
 		return news
 	_begin(gd, db)
+	_season_key = MapChange.abs_season(year, season_i)
 	var strength := strengths(gd, db)
 	_bp = _season_bp(db, strength)
 	_set_states(gd, db)
@@ -326,10 +347,28 @@ static func _set_dials(gd: GameData, db: WorldDB, strength: Dictionary) -> void:
 				if str(o.id) != str(s.id) and _borders(gd, db, s, o) > 0 and float(strength.get(str(o.id), 0.0)) * 1.5 < float(strength.get(str(s.id), 0.0)):
 					need.expansion += 1
 					break
+		var pl: Dictionary = pulls_of(gd, db, s)
+		var bold: bool = (bool(pl.get("bold", false)) or float(pl.get("abs_sum", 0.0)) >= 3.0) and not bool(pl.get("never_bold", false))
+		var fickle_d: String = ""
+		var fickle_v: int = 0
+		if bool(pl.get("fickle", false)):   # a seeded drift of one dial a season
+			var fr := RandomNumberGenerator.new()
+			fr.seed = RngUtils.stable_hash("fickle:%s:%d" % [str(s.id), _season_key])
+			fickle_d = ["tax", "expansion", "openness", "war_readiness", "recruitment"][fr.randi() % 5]
+			fickle_v = fr.randi_range(-1, 1)
 		for d in need:
-			var tgt: int = clampi(2 + clampi(int(need[d]), -2, 2), 0, 4)
+			var nd: int = clampi(int(need[d]), -2, 2)
+			if bool(pl.get("needs_halved", false)):
+				nd = int(nd / 2)
+			var pull: float = float(pl.get("dials", {}).get(d, 0.0))
+			if st == "thriving":
+				pull += float(pl.get("dial_when_thriving", {}).get(d, 0.0))
+			if d == fickle_d:
+				pull += fickle_v
+			var tgt: int = clampi(2 + nd + int(round(pull)), 0, 4)
 			var cur: int = int(dials.get(d, 2))
-			dials[d] = cur + signi(tgt - cur)
+			var step: int = mini(absi(tgt - cur), 2 if bold else 1)
+			dials[d] = cur + signi(tgt - cur) * step
 		s["dials"] = dials
 
 
@@ -347,7 +386,7 @@ static func _attitudes(gd: GameData, db: WorldDB, strength: Dictionary, year: in
 			var tgt: float = attitude_target(gd, db, s, o, strength)
 			if int(s.get("truce", {}).get(oid, 0)) > 0:
 				tgt = 0.0
-			s.attitude[oid] = attitude_step(gd, float(s.attitude.get(oid, 0.0)), tgt)
+			s.attitude[oid] = attitude_step(gd, float(s.attitude.get(oid, 0.0)), tgt, pulls_of(gd, db, s).get("attitude_speed", {}))
 	if season_i == 0:   # authored grudges fade toward 0 by grudge_fade a year
 		for s in sects:
 			for oid in s.get("grudge", {}).keys():
@@ -371,7 +410,8 @@ static func _attitudes(gd: GameData, db: WorldDB, strength: Dictionary, year: in
 				continue
 			if rel == "war":
 				continue
-			if rel == "peace" and ab >= float(c.pact_line) and ba >= float(c.pact_line):
+			var line: float = minf(float(c.pact_line), minf(float(pulls_of(gd, db, a).get("pact_line", INF)), float(pulls_of(gd, db, b).get("pact_line", INF))))
+			if rel == "peace" and ab >= line and ba >= line:
 				_set_relation(a, b, "pact")
 				news.append(db.log_event(year, season_i, "sect_pact", "%s và %s kết minh ước." % [a.name, b.name], [aid, bid], [], []))
 			elif rel == "pact" and (ab < float(c.pact_line) - float(c.pact_hysteresis) or ba < float(c.pact_line) - float(c.pact_hysteresis)):
@@ -398,7 +438,8 @@ static func _declare_wars(gd: GameData, db: WorldDB, strength: Dictionary, year:
 	for s in _greats(db):
 		if not Array(s.wars).is_empty() or int(s.dials.get("war_readiness", 2)) < int(c.war_readiness_min):
 			continue
-		var odds: float = maxf(float(c.war_odds_min), float(c.war_odds) - float(c.war_odds_step) * maxf(0.0, float(s.dials.get("expansion", 2)) - 2.0))
+		var base_odds: float = minf(float(c.war_odds), float(pulls_of(gd, db, s).get("war_odds", c.war_odds)))   # Sects F15
+		var odds: float = maxf(float(c.war_odds_min), base_odds - float(c.war_odds_step) * maxf(0.0, float(s.dials.get("expansion", 2)) - 2.0))
 		var best: Dictionary = {}
 		var best_s: float = INF
 		for o in _greats(db):
@@ -517,19 +558,21 @@ static func _resolve_wars(gd: GameData, db: WorldDB, money: MoneyLedger, strengt
 			if int(w.seasons) % int(c.military_drop_every) == 0:
 				_drop_level(gd, s, "military")
 		var thr: int = int(w.goal.threshold)
-		var limit: float = float(c.weariness_limit)
+		# Sects F15: each side's weariness limit is 40 plus its leader's pulls
+		var lim_a: float = float(c.weariness_limit) + float(pulls_of(gd, db, a).get("weariness", 0.0))
+		var lim_d: float = float(c.weariness_limit) + float(pulls_of(gd, db, d).get("weariness", 0.0))
 		var end := ""
 		if int(w.ws) >= thr:
 			end = "won"
 		elif int(w.ws) <= -thr:
 			end = "failed"
-		elif int(w.ws) > 0 and float(w.w_a) >= limit:
+		elif int(w.ws) > 0 and float(w.w_a) >= lim_a:
 			end = "truce"
-		elif int(w.ws) < 0 and float(w.w_d) >= limit:
+		elif int(w.ws) < 0 and float(w.w_d) >= lim_d:
 			end = "truce"
-		elif int(w.ws) > 0 and float(w.w_d) >= limit and absi(int(w.ws)) * 2 >= thr:
+		elif int(w.ws) > 0 and float(w.w_d) >= lim_d and absi(int(w.ws)) * 2 >= thr:
 			end = "won"
-		elif int(w.ws) < 0 and float(w.w_a) >= limit and absi(int(w.ws)) * 2 >= thr:
+		elif int(w.ws) < 0 and float(w.w_a) >= lim_a and absi(int(w.ws)) * 2 >= thr:
 			end = "failed"
 		if end == "":
 			still.append(w)
@@ -691,6 +734,7 @@ static func _loyalty(gd: GameData, db: WorldDB, strength: Dictionary, year: int,
 		var prot: float = clampf(log(maxf(float(strength.get(str(lord.id), 0.0)), 1e-9) / maxf(threat, 1e-9)) / log(2.0), -1.0, 1.0)
 		var loy: float = float(v.get("loyalty", 60.0))
 		loy += float(c.k_tax) * (2 - tax) + float(c.k_prot) * prot + float(c.k_rest) * (60.0 - loy)
+		loy += float(pulls_of(gd, db, v).get("loyalty", 0.0)) + float(pulls_of(gd, db, lord).get("loyalty", 0.0))   # both leaders' pulls (F5)
 		if not Array(lord.get("wars", [])).is_empty() and str(v.get("loyalty_state", "")) == "defiant":
 			loy -= float(c.k_refuse)   # rule 5: a Defiant vassal refuses its lord's levy
 		v["loyalty"] = clampf(loy, 0.0, 100.0)
@@ -727,7 +771,8 @@ static func _maybe_rebel(gd: GameData, db: WorldDB, v: Dictionary, lord: Diction
 				s_b = float(strength.get(str(b.id), 0.0))
 				backer = b
 	var spare: float = float(strength.get(str(lord.id), 0.0)) / float(Array(lord.get("wars", [])).size() + 1)
-	if (float(strength.get(str(v.id), 0.0)) + s_b) / maxf(spare, 1e-9) < float(c.rebel_odds):
+	var odds: float = minf(float(c.rebel_odds), float(pulls_of(gd, db, v).get("rebel_odds", c.rebel_odds)))   # the vassal head's (F15)
+	if (float(strength.get(str(v.id), 0.0)) + s_b) / maxf(spare, 1e-9) < odds:
 		return []
 	var rec: Dictionary = db.get_record("world", WARS)
 	var war := {"id": "war%d" % int(rec.next), "a": str(v.id), "d": str(lord.id), "backer": str(backer.get("id", "")),
