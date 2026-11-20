@@ -1,0 +1,2 @@
+WORLDGEN 5032 people, 9764 ms, 1.94 ms a person -> PASS (budget 30 s)
+2026-11-20, tests/performance/dao_do/worldgen_perf.gd on WorldBuilder (continent 11 + authored history, every NPC's Đạo Đồ allocated), ratings off, measured while four balance runs shared the machine (AMD Ryzen 7 9800X3D). The travel grid (about 3 s) and map knowledge are built once per game data after this, not in it.

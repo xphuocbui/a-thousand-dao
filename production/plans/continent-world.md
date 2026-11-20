@@ -139,3 +139,61 @@ user.
 
 Systems the map only hands off to (the Sects redesign, Regional Economy & Trade, Trade Goods) stay out of scope.
 Where Travel & Map needs them, it writes to the hand-off point named in its Interactions table.
+
+## 6. Progress (newest last)
+
+- A done: d360589 (Formula C on the fine map, world_map.json, qi layer, LandQi Formula A in the rate).
+- B1/B2/B4/step 7 done: 6bc91b3 (export_world.py + world_history.json, WorldBuilder). B5 + C1 done: e562870.
+- C2/C3 done: 659ae7b (TravelGrid tile travel, flight, Formula E encounters). C4/C5 done: 6d1ab3f (MapKnowledge,
+  Discovery, hidden places, blessed land layer 3, D_cap). Teleport arrays: 3faf249.
+- Phase D plan (as built next):
+  - D1 herb fit (Formula G): per-herb climate keys as first guesses in items_herbs.json; climate indexes from the grid;
+    HerbField growth x fit; unplantable below the floor.
+  - D2 resource sites (mines, veins, herb grounds, beast lairs): base output, reserves (Formula I) with seeded start
+    reserves (World Generation Formula C "reserve"), production (Formula H, price_index 1.0 until #43), the seasonal
+    production contract per region stored for #43; shown in the place view.
+  - D3 change: secret realm cycles (famous realms open/close, rumours ahead), scar and territory-change APIs with
+    events.
+  - D4 works: map_works.json (Formula J), layer 2 shared works by a place's holder, layer 1 home works; cave abodes
+    anywhere on land (travel to a tile, open an abode: Formulas M abode cost). Tụ Linh Trận stays on density_bonus
+    (counted once) until Formations #17 moves it to layer 1.
+  - D5 developed ground: prebuilt layer-2 works at settlements and seats (prebuilt_density), the settled density cap,
+    residences by grade (rent, buy, furnishing), NPC homes by realm.
+- Then B3 (54 hand-authored cast builds) and E (checks, evidence, GDD follow-ups).
+
+## 7. For the user's review (engine choices and GDD follow-ups; nothing here edits design/gdd/*)
+
+**Choices made where the GDDs left a detail open:**
+1. Formula C's first guesses: biome profiles tuned within each biome's "leans" toward the map targets
+   (`assets/data/world_map.json`). Density targets met (19.0 % of places at 1.4+, mean 1.09, 4.0 % of wild land).
+   Missed (observations): Fire's world mean 0.144 (target 0.15-0.25); few places reach a 50+ share of one element
+   (Wood 5, Fire 3, Earth 1; target 8 in 3 regions), because the 222 km blend averages a region's biomes.
+2. The miasma wasteland is a feature (density down, danger up), not a biome, as the map tools laid it.
+3. Blessed lands sit outside Formula C's kind table (their richness is layer 3); the secret realm row's offset
+   (+0.71) lifts gate tiles that read the wasteland's 0.4 (the README's open point: a realm's density should be its
+   inside).
+4. Sect specialty (the archetype members are built with), one per sect: `export_world.py` SPECIALTY.
+5. Start membership: random cultivators fill each sect to Sects F17's target (0.9 x F2 capacity), about 4,100 of
+   5,000; the rest settle by Formula M's weights or choose wild ground.
+6. Travel: rivers are planned at upstream speed and timed exactly afterwards; lakes are rowed (a lake place can be
+   reached); an encounter is met on arrival, not mid-trip (rule 12's interruption waits for tile locations);
+   standing at a place makes the places its roads lead to known (signposts).
+7. Flight needs only the realm (no flying artifact exists in the item data yet); the landing pool is reported, not
+   yet carried into a fight.
+8. Search without a clue finds nothing; rumours come from exploring settlements (25 %, a fifth false).
+9. Mines carry no authored grade: grade by land density (1.2 / 1.5); resource by rule 20.
+10. Tụ Linh Trận stays on density_bonus (counted once) until Formations #17 moves it to layer 1.
+11. Residences: optional for loose cultivators (rent or buy); sect members get one free at their seat by realm.
+
+**Data fixed on the way:** flight speeds keyed one realm late in travel_rules.json; five sea lanes dropped because a
+promoted city kept its old name; the export predated the territory-history layer (230 places, 23 minor sects).
+
+**GDD follow-ups (the parallel session's files):**
+- Travel & Map: say how a secret realm's density is set (inside vs gate); whether flight needs an artifact;
+  whether rule 12's interruption needs tile locations; the miasma wasteland as feature or biome; signposts;
+  the element-rich target versus the blend radius.
+- World Generation: the start sect membership rule (F17 target); hidden places as hidden World DB places; the
+  famous blessed lands' regions come from the grid; the cast build format (cast_builds.json) and its validator.
+- Realms (AC-CG-69 and the bot re-run): the land match, prebuilt works and the settled cap change the player's rate;
+  the census and autoplay on the continent are in production/qa/evidence/continent-world/.
+- Item Database: the 34 legendary items wait for their Effects (none placed).

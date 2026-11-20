@@ -11,9 +11,11 @@ func _init() -> void:
 	var tree := DaoDoTree.load_map(gd)
 	var rng := RandomNumberGenerator.new()
 	rng.seed = 4242
-	var gen := WorldGenerator.new(gd, tree)
+	# the world a new game builds: the authored continent and history (WorldBuilder; the old generator retired from
+	# new games 2026-11-20)
+	var gen := WorldBuilder.new(gd, tree)
 	var t0 := Time.get_ticks_usec()
-	var db: WorldDB = gen.generate(rng)
+	var db: WorldDB = gen.generate(rng, "4242")
 	var ms: float = float(Time.get_ticks_usec() - t0) / 1000.0
 	var people: int = db.count("people")
 	var ok: bool = ms <= 30000.0
