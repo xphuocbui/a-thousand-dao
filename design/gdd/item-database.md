@@ -39,7 +39,7 @@ behaviour wins when they conflict (user decision 2026-11-06). Tags, as in Combat
 categories do not: element, grade, whether an item is poisonous, a ward, body gear or a key.
 
 For the player, items are where a build becomes physical (Pillar 3): a found manual, an aged herb, a
-refined artifact. Time is stored in them (Pillar 4), because herbs gain potency with age and pills
+refined artifact. Time is stored in them (Pillar 4), because herbs gain worth with age and pills
 carry a quality. Numbers on items are bounded and visible (Pillar 2): even an item an LLM event invents
 gets its value and stats from engine budgets, and is a record in the World Database before the player
 sees it. The Item Database must stay deterministic from the seed and cheap enough to hold the world's
@@ -118,7 +118,7 @@ Numbers are not set here; named values such as `rarity_max` are defined in Formu
    Generation is a pure function of the seeded random stream it is given, the budgets and the data, so
    the same inputs always give the same item.
 9. **Value.** Every item has a value in spirit stones (linh thạch) per unit, at least 1, computed by its
-   kind: a herb from its base value and potency, a pill from its recipe price and quality, an artifact
+   kind: a herb from its base value and equivalents (Formula B), a pill from its recipe price and quality, an artifact
    from its base, grade and tier, the rest from data. Value is the price input: the Market adds its own
    margin and computes no price from other fields, though it reads rarity, template and flags to choose
    stock.
@@ -200,7 +200,7 @@ Numbers are not set here; named values such as `rarity_max` are defined in Formu
     element. The engine picks the numbers inside the budget in `events_budgets.json` (a treasure must also be on the
     realm's whitelist), creates and registers the record, and only then lets the narration name it. The narration never changes a record
     afterwards (Pillar 2).
-17. **Items explain themselves.** Every derived number on an item (a herb's potency, a pill's value, an
+17. **Items explain themselves.** Every derived number on an item (a herb's equivalents, a pill's value, an
     artifact's attack) can be shown as a Breakdown, and `describe` gives a one-line summary of any item
     that names its categories, rarity and value.
 18. **Items enter and leave by named routes.** Items enter by generation (events, Market stock, crafts,
@@ -342,7 +342,7 @@ acceptance criteria that fail today are listed so the build scope is visible.
 | 15 | Nothing changes here; listed because the nurture years and equipped list sit on the character | — |
 | 17 | `describe` shows no category, rarity or value, and items have no Breakdown | 56, 57 |
 | 18 | No counts or item measures exist in `tools/balance/` | 58, 71 to 74, 76, 77 |
-| Tuning | The quality step 0.5, the name limit 40, the potency floor 0.1 and the age floor 0.01 are hardcoded | — |
+| Tuning | The quality step 0.5 and the name limit 40 are hardcoded (the potency floor and age floor went with Formula B's curve, 2026-11-20) | — |
 | UI | No inventory, detail or equip screens match this GDD | 78 to 83 |
 | 11 | ~~No `artifact_slots` stat; a flat `equip.max_slots` (6); every piece costs thần thức; no base or extra slots, no `ring` or `necklace` roles~~ Built 2026-11-13 (`EquipSlots`): base slots, extra slots by realm and thần thức, `artifact_slots`, ring and necklace roles; no piece costs thần thức | 41, 42, 43 |
 | 19 | The lint does not check affix keys against the Modifier catalogue, rare modifiers or Chaos resistance; the Thiết Bích affix does not exist | 85a to 85d |
@@ -356,7 +356,7 @@ version 3 records (`bound` set from the template, `value` dropped, `damage_type`
 ## Formulas
 
 Everything below documents the built game unless marked **change**. The built numbers were calibrated by bot
-runs and stay as they are; `per_doubling`, `max_potency`, `element_chance`, the grade weights, `value_mult`,
+runs and stay as they are; Formula B's `s`, `x_k` and `d` (user decision 2026-11-20), `element_chance`, the grade weights, `value_mult`,
 `buy_markup` and `sell_ratio` have no recorded rationale beyond that. Manual price and tier belong to Cultivation
 Techniques Formulas E and are not redefined here.
 
@@ -391,33 +391,48 @@ The rarity formula is defined as:
 
 **Example:** Trúc Cơ Đan's price of 400 sits above two edges, so its band is 3 and its rarity is 3 + 1 = **4**.
 
-### B. Herb potency and value
+### B. Herb equivalents and value (user decision 2026-11-20; replaces the logarithmic potency)
 
-The herb_potency formula is defined as:
+The herb_equivalent formula is defined as (x = age / `mature_years`):
 
-`herb_potency = clamp(1 + per_doubling · log2(max(age, 0.01) / mature_years), 0.1, max_potency)`
+`E(x) = x` for 0 ≤ x ≤ 1 · `E(x) = 1 + s · (x − 1)` for 1 < x ≤ x_k · `E(x) = E_k · 2^((x − x_k) / d)` for x > x_k, with
+`E_k = 1 + s · (x_k − 1)`
 
 The herb_value formula is defined as:
 
-`herb_value = max(1, round(base_value · herb_potency))`
+`herb_value = max(1, round(base_value · E(x)))`
 
 **Variables:**
 
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
 | age | float | ≥ 0 | record | Years grown |
-| mature_years | float | 1–100 | data file (`items_herbs.json`) | Age of full value |
-| per_doubling | float | 0.5 | data file | Potency per doubling of age |
-| max_potency | float | 5 | data file | Reached at 256 × `mature_years` |
+| mature_years | float | 1–100 | data file (`items_herbs.json`) | Age of full value: the harvest age |
+| E | float | 0 – ∞ | calculated | How many mature herbs of its type this herb counts as |
+| s | float | 0.1 (safe 0–0.5) | data file *(guess)* | Slope of the plateau; below 1, harvesting at maturity and replanting beats waiting |
+| x_k | float | 3 (safe 2–5) | data file *(guess)* | The knee, in mature-ages, where old herbs start to compound |
+| d | float | 0.45 (safe 0.3–1.5) | data file *(guess)* | Mature-ages per doubling past the knee |
 | base_value | int | 2–3,000 | data file | Value at maturity |
 
-**Output Range:** potency 0.1–5, at 1.0 at maturity, 1.5 at twice that age and 2.0 at four times. Value is at least 1.
-`age` advances only while the herb is Planted (rule 15; amended 2026-11-15, Trade Goods rule 10). A wild-gathered herb
-is at age `mature_years · 2^j` (Trade Goods Formula K), so its potency is `1 + 0.5 · j`; market pools and shelves
-hold herbs at `mature_years` only.
+**Output Range:** E is 0 at planting, 1 at maturity, 1.2 at the knee, then has no ceiling (user decision 2026-11-20: a
+good harvest age for the market, treasures for the patient). Value is at least 1. `age` advances only while the herb is
+Planted (rule 15; Trade Goods rule 10). A wild-gathered herb is at age `mature_years · 2^j` (Trade Goods Formula K), so
+it counts as E(2^j); market pools and shelves hold herbs at `mature_years` only.
+**Why the shape:** a plot that harvests at maturity and replants earns 1 mature herb per mature-age, while a standing
+herb earns `s` on the plateau, so farmers, the commons and the market harvest at maturity. Past the knee a held herb
+overtakes the harvests it gave up at about 3.7 mature-ages and then doubles every `d`.
+**Example:** Hoàng Tinh Sâm (mature 10, base 20): age 5 gives E 0.5, value **10**; age 10 gives 1, value **20**; age 30
+gives 1.2, value **24**; age 40 gives 5.6, value **112**; age 60 gives 121.9, value **2,438**. Kim Tủy Quả (mature 50,
+base 150) at age 42 gives 0.84, value **126**.
 
-**Example:** Hoàng Tinh Sâm (mature 10, base 20): age 5 gives potency 0.5, value **10**; age 40 gives 2.0, value **40**.
-Kim Tủy Quả (mature 50, base 150) at age 42 gives 0.874, value **131**.
+**Herbs count by equivalents in recipes** (user decision 2026-11-20). A recipe ingredient "q × herb ≥ min_age" needs
+herbs of that type whose equivalents add up to `q · E(min_age / mature_years)`: any mix of young and old herbs of the
+type, so younger herbs stand in at a much higher quantity. Herbs are used oldest first, and none is split.
+**Pill quality** reads `ρ = Σ E put in / Σ q · E(min_age)` over the recipe's ingredients: rank 0 at ρ 1, rank 1 at 1.5,
+rank 2 at 2.5, rank 3 at 4 *(guesses; replaces the mean-potency thresholds 0 / 1.5 / 2.5 / 3.5)*, so putting in older or
+extra herbs raises it.
+**Example:** Trúc Cơ Đan needs 2 × Hoàng Tinh Sâm ≥ 40y = 2 · 5.6 = 11.2 equivalents: 12 market roots at age 10, two
+40-year roots, or one 50-year root (E 26.1); and 1 Hỏa Linh Chi ≥ 10y (mature 5, E 2): two mature ones.
 
 ### C. Pill value and margin
 
@@ -445,7 +460,8 @@ bought herbs at the retail markup 1.5, now that raw goods trade at the bulk spre
 its herbs are bought at the Market, even at 100 % brew success.
 
 **Today's margins (2026-11-14, at raw buy 1.10 and 100 % success; reopens the 2026-11-06 "no change" decision, by user
-decision).** Every recipe pays: Tụ Khí 3.27, Thanh Độc 3.64, Hồi Xuân 2.45, Hoàng Long 2.81, Tĩnh Tâm 1.15, Trúc Cơ 2.30,
+decision; to be re-derived with Formula B's equivalents, 2026-11-20: a recipe's herbs now cost `Σ q · E(min_age)` mature
+herbs at their market price, the cheapest way to meet it).** Every recipe pays: Tụ Khí 3.27, Thanh Độc 3.64, Hồi Xuân 2.45, Hoàng Long 2.81, Tĩnh Tâm 1.15, Trúc Cơ 2.30,
 Huyết Khí 1.45, Ngưng Nguyên 5.38, Tẩy Tủy 9.74, Diên Thọ 4.96, Hóa Anh 1.81, Hóa Thần 1.77. Ngưng Nguyên, Tẩy Tủy and
 Diên Thọ warn (+1,346 to +2,395 a brew). **Decided 2026-11-14 (user): raise their inputs, keep their prices**: Ngưng
 Nguyên 4 Kim Tủy Quả at age 84 + 1 Xích Huyết Đằng at 18 (1.73: Trade Goods Formula J prices each herb at the lowest
@@ -696,7 +712,7 @@ Formulas F) and is not priced here.
 
 - **If part of a stack is sold, given or used:** the stack splits; the moved units keep every field and merge at their destination if a key matches.
 - **If two stacks have different owners or flags:** they never merge.
-- **If a herb's age is 0:** its potency is 0.1 and its value at least 1.
+- **If a herb's age is 0:** it counts as 0 equivalents and its value is at least 1.
 - **If an affix value is negative:** it stands. No affix in today's pool is negative (Linh was, until 2026-11-13).
 
 **Using and equipping**
@@ -792,7 +808,7 @@ the Market's margin, stay with their owners.
 | Knobs | What they affect |
 |---|---|
 | `rarity_max`, `kind_offset`, `pill_band_edges` | The shared ladder |
-| `per_doubling`, `max_potency`, each herb's `mature_years` and `base_value` | Herb value over time |
+| Formula B's `s`, `x_k`, `d`, each herb's `mature_years` and `base_value` | Herb value over time: the harvest age, the plateau, where old herbs start to compound |
 | Each recipe's `price`, `yield` and quality step | Pill value |
 | Grade `power_mult`, `value_mult`, `weight`, affix count; tier `power_scale`, `value_scale` | Artifact power and price |
 | `element_chance`, the affix pool and its weights | What generated artifacts look like |
@@ -905,7 +921,7 @@ under `production/qa/evidence/balance/`, terminal evidence under `production/qa/
 - **AC-ID-21** [Logic] Formulas C, lint (revised 2026-11-14 with Trade Goods Formula J and the recipe revision). Given FX-D at raw buy 1.10 and 100 % success, margins (±0.01) are Tụ Khí 3.27, Thanh Độc 3.64, Hồi Xuân 2.45, Hoàng Long 2.81, Tĩnh Tâm 1.15, Trúc Cơ 2.30, Huyết Khí 1.45, Ngưng Nguyên 1.89, Tẩy Tủy 1.89, Diên Thọ 1.91, Hóa Anh 1.81, Hóa Thần 1.77, Thiết Cốt 1.82; no warning is logged, and the game loads. The lint tests the unrounded margin: an FX-O recipe at 2.51 with a profit of 600 warns and loads; at exactly 2.50, or with a profit of 599, it does not warn.
 - **AC-ID-22** [Logic] Rule 9. Every item in FX-D has a value of at least 1. Tinh Thiết is 15, Linh Căn Quả 4,000, FX-K's key 800, Hỏa Cầu Phù 12, Phá Cảnh Phù 300. Given FX-N, a quality-1 Hồi Xuân Đan (27) buys at 41 and sells at 16, and a 640 artifact buys at 960 and sells at 384.
 - **AC-ID-23** [Logic] Rule 2, Edge Cases. Given a saved Phi Kiếm (attack 510, value 640) and a generated manual, when reloaded under FX-O with base attack, multipliers, scales and manual pricing changed, both records and their `value_of` are unchanged.
-- **AC-ID-24** [Logic] Rule 2. Given FX-O with Hoàng Tinh Sâm `base_value` 30, an age-40 herb is worth 60. With `mature_years` 20 as well, potency 1.5 and value 45. With Hồi Xuân Đan `price` 20, quality 1 is worth 30.
+- **AC-ID-24** [Logic] Rule 2, Formula B. Given FX-O with Hoàng Tinh Sâm `base_value` 30 (mature 10), an age-40 herb counts as E 5.6 and is worth 168. With `mature_years` 20 as well, E 1.1 and value 33. With Hồi Xuân Đan `price` 20, quality 1 is worth 30.
 - **AC-ID-25** [Logic] Rule 2 change. Given FX-O with Tinh Thiết 20, Linh Căn Quả 5,000 and Hỏa Cầu Phù 14, existing records are worth those values and none stores a `value` key.
 
 **Roles**
@@ -962,7 +978,7 @@ under `production/qa/evidence/balance/`, terminal evidence under `production/qa/
 **Explaining and counting**
 
 - **AC-ID-56** [Logic] Rule 17. Given one item of each kind, `describe` returns one line naming its categories, rarity and value.
-- **AC-ID-57** [Logic] Rule 17. Given Kim Tủy Quả at age 42, a quality-1 Hồi Xuân Đan and the AC-ID-12 Phi Kiếm, a Breakdown exists for potency (0.874), value (27) and attack (510), and its lines match the shown total.
+- **AC-ID-57** [Logic] Rule 17. Given Kim Tủy Quả at age 42, a quality-1 Hồi Xuân Đan and the AC-ID-12 Phi Kiếm, a Breakdown exists for equivalents (0.84), value (27) and attack (510), and its lines match the shown total.
 - **AC-ID-58** [Logic] Rule 18. Given 3 herbs, 2 artifacts and 1 FX-K key, counts by kind sum to 6 records, and the key is counted under both consumable and other.
 
 **Load lint**
@@ -1002,7 +1018,8 @@ under `production/qa/evidence/balance/`, terminal evidence under `production/qa/
 - **AC-ID-80** [UI] Equip panel. Given FX-E, a retained screenshot shows the pieces, base and extra slots used (4 of 4 extra, E past the count), the thần thức the next extra slot needs, and each role. FX-L's unequip shows the preview.
 - **AC-ID-81** [UI] Use preview. Given Linh Căn Quả, the transcript shows the effect and choice. Backing out leaves every record unchanged.
 - **AC-ID-82** [UI] Visual requirements. With colour switched off, every rarity still reads as a word (Open Question 13).
-- **AC-ID-83** [UI] Game Feel. Given a Planted Hoàng Tinh Sâm at age 40, the transcript shows age 40, value 40, and at the next doubling age 80, potency 2.5, value 50.
+- **AC-ID-83** [UI] Game Feel. Given a Planted Hoàng Tinh Sâm at age 30, the transcript shows age 30, E 1.2, value 24, and at age 40, E 5.6, value 112.
+- **AC-ID-97** [Logic] Formula B, recipes. Given Trúc Cơ Đan (2 × Hoàng Tinh Sâm ≥ 40y, 1 Hỏa Linh Chi ≥ 10y; need 11.2 + 2 equivalents), THEN 12 mature Hoàng Tinh Sâm and 2 mature Hỏa Linh Chi meet it (ρ 14 / 13.2 = 1.06, rank 0), 11 roots do not, and one 50-year root (E 26.1) with 2 mature Hỏa Linh Chi meets it at ρ 2.13 (rank 1).
 - **AC-ID-84** [Logic] Rule 12. Given a breakthrough pill attempt, the result has `needs_confirm` and a preview before anything is consumed, and backing out leaves the pill, talisman and character unchanged. Given a quality-0 Hồi Xuân Đan at toxicity 95, using it shows no preview and toxicity is clamped at 100.
 - **AC-ID-85** [Config/Data] Rule 19 and rule 20, one case each:
   - (a) a rolled artifact carrying an Effect fails the lint;

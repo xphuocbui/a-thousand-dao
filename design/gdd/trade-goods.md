@@ -108,8 +108,9 @@ yet a stock of goods). Without this the pool kept only about 27 % of a
     ageing")*. Only a planted herb ages (Item Database state Planted); carried, stored, shelved and pooled herbs keep
     their harvest age, so holding herbs earns nothing. **Wild herbs come in an age mix** (Formula K): most units gathered
     at herb ground are at `mature_years`, and a share is older, more on dense, rarely reached ground. Market pools and
-    shelves hold herbs at `mature_years` only; an older herb sold to a market is paid at its held value and joins the
-    pool as value. Market pools spoil at the class `dk` only.
+    shelves hold herbs at `mature_years` only (user decision 2026-11-20: shops are a view of the pool); an older herb
+    sold to a market is paid at its held value (base · E, Item Database Formula B) and joins the pool as E mature units
+    of its good. Market pools spoil at the class `dk` only.
 
 **Crafted goods** (amends #43 rule 4; closes #43 Open Questions 1 and 17)
 
