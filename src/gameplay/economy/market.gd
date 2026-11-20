@@ -207,10 +207,10 @@ func item_class(item: Dictionary) -> Dictionary:
 		"herb", "material":
 			var t: String = str(item.get("template", ""))
 			return {"raw": true, "k": WorldEconomy.class_of(_gd, t), "good": t}
-		"pill":   # Trade Goods rule 11: a pill trades in its crafted class, by its recipe's price tier
-			var r: Dictionary = _gd.recipe(str(item.get("template", "")))
-			if not r.is_empty():
-				return {"raw": false, "k": CraftEconomy.class_of_recipe(_gd, r), "good": ""}
+		"pill", "talisman", "artifact":   # Trade Goods rule 11: a crafted class by its tier (a pill by its recipe)
+			var cc: String = CraftEconomy.class_of_item(_gd, item, float(_items.value_of(item)))
+			if cc != "":
+				return {"raw": false, "k": cc, "good": ""}
 	return {"raw": false, "k": "", "good": ""}
 
 

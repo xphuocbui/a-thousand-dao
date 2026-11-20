@@ -74,6 +74,9 @@ static func seed_investment(gd: GameData, db: WorldDB) -> void:
 		for tr in TRACKS:
 			inv[tr] = total_cost(gd, tr, float(s.get("levels", {}).get(tr, 0)))
 		s["invested"] = inv
+		s["spend"] = {}
+		for tr in TRACKS:   # last season's track spending (Regional Economy Formula C): upkeep at the start
+			s.spend[tr] = float(_cfg(gd).u) * float(inv[tr])
 		if not s.has("dials"):
 			s["dials"] = Dictionary(gd.file("sects_members").get("default_dials", {})).duplicate()
 
@@ -126,6 +129,10 @@ static func season(gd: GameData, db: WorldDB, money: MoneyLedger) -> Dictionary:
 			continue
 		var t: String = "sect:%s" % str(s.id)
 		var up: float = upkeep(gd, s)
+		var spend := {}   # this season's track spending: upkeep now, the investment added by the treasury rule
+		for tr in TRACKS:
+			spend[tr] = float(c.u) * float(s.invested.get(tr, 0.0))
+		s["spend"] = spend
 		var cash_due: float = up * (1.0 - gf)
 		var paid: float = money.burn(t, cash_due, "upkeep")
 		s["kind_due"] = float(s.get("kind_due", 0.0)) + up * gf
@@ -171,6 +178,9 @@ static func invest(gd: GameData, sect: Dictionary, amount: float) -> String:
 		return ""
 	var tr: String = invest_track(gd, sect)
 	sect.invested[tr] = float(sect.invested.get(tr, 0.0)) + amount
+	if not sect.has("spend"):
+		sect["spend"] = {}
+	sect.spend[tr] = float(sect.spend.get(tr, 0.0)) + amount
 	_refresh_levels(gd, sect)
 	return tr
 

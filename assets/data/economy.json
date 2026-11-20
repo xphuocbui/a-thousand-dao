@@ -64,7 +64,7 @@
     "stash_mine_share": 0.05
   },
   "classes": {
-    "_doc": "Per raw kind (rule 4; a rarity band takes its kind's values). Formulas C-E.",
+    "_doc": "Per raw kind (rule 4; a rarity band takes its kind's values). Formulas C-E. The pill, talisman and artifact rows are Trade Goods Formula E's crafted parameters.",
     "order": [
       "herb",
       "ore",
@@ -76,56 +76,72 @@
       "ore": 0.01,
       "beast": 0.1,
       "special": 0.03,
-      "pill": 0.05
+      "pill": 0.05,
+      "talisman": 0.03,
+      "artifact": 0.01
     },
     "s_cap": {
       "herb": 2,
       "ore": 6,
       "beast": 2,
       "special": 4,
-      "pill": 3
+      "pill": 3,
+      "talisman": 3,
+      "artifact": 6
     },
     "c_ref": {
       "herb": 1.5,
       "ore": 2.0,
       "beast": 1.5,
       "special": 2.0,
-      "pill": 1.5
+      "pill": 1.5,
+      "talisman": 1.5,
+      "artifact": 2.0
     },
     "eps": {
       "herb": 0.7,
       "ore": 0.4,
       "beast": 0.6,
       "special": 0.8,
-      "pill": 0.7
+      "pill": 0.7,
+      "talisman": 0.7,
+      "artifact": 0.6
     },
     "p_min": {
       "herb": 0.5,
       "ore": 0.7,
       "beast": 0.6,
       "special": 0.5,
-      "pill": 0.6
+      "pill": 0.6,
+      "talisman": 0.6,
+      "artifact": 0.7
     },
     "p_max": {
       "herb": 2.0,
       "ore": 1.6,
       "beast": 1.8,
       "special": 2.5,
-      "pill": 1.8
+      "pill": 1.8,
+      "talisman": 1.8,
+      "artifact": 1.6
     },
     "p_maxeff": {
       "herb": 3.0,
       "ore": 2.2,
       "beast": 2.5,
       "special": 4.0,
-      "pill": 2.5
+      "pill": 2.5,
+      "talisman": 2.5,
+      "artifact": 2.2
     },
     "delta": {
       "herb": 1.25,
       "ore": 1.1,
       "beast": 1.2,
       "special": 1.3,
-      "pill": 1.15
+      "pill": 1.15,
+      "talisman": 1.2,
+      "artifact": 1.1
     },
     "sub_floor": {
       "herb": 0.5,

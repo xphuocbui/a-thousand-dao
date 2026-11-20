@@ -40,10 +40,45 @@ func test_workshops_never_draw_more_than_the_shelves_hold() -> void:
 	WorldEconomy.season(gd, db)
 	var ms: Array = db.find(WorldEconomy.TABLE, func(x): return str(x.id).begins_with("mk:"))
 	for m in ms:
-		assert_eq(m.crafted.keys().size(), 5, "%s has the five pill tiers" % m.id)
+		for t in [1, 2, 3, 4, 5]:
+			assert_true(m.crafted.has("pill%d" % t), "%s has pill tier %d" % [m.id, t])
+		assert_true(m.crafted.keys().any(func(k): return str(k).begins_with("talisman")), "%s has talisman classes" % m.id)
+		assert_true(m.crafted.keys().any(func(k): return str(k).begins_with("artifact")), "%s has artifact classes" % m.id)
 		for cid in m.crafted:
 			var c: Dictionary = m.crafted[cid]
 			assert_true(float(c.get("fill_now", 0.0)) >= 0.0 and float(c.get("fill_now", 0.0)) <= 1.0 + 1e-9, "%s %s fill within 0-1" % [m.id, cid])
-			assert_true(float(c.p) >= 0.6 - 1e-9 and float(c.p) <= 2.5 + 1e-9, "%s %s price within its band" % [m.id, cid])
+			var cfg: Dictionary = gd.file("economy").classes
+			assert_true(float(c.p) >= float(cfg.p_min[c.kind]) - 1e-9 and float(c.p) <= float(cfg.p_maxeff[c.kind]) + 1e-9, "%s %s price within its band" % [m.id, cid])
 	var money := MoneyLedger.new(db)
 	assert_true(money.money_in_world() > 0.0, "the world still has its money")
+
+
+func test_military_spending_buys_talismans_and_artifacts_formula_h() -> void:
+	# Military spending 1,000 (goods half 500) gives artifacts 100 and talismans 50, spread over their tiers
+	var gd := game_data()
+	var sp := CraftEconomy.specs(gd)
+	var heads := [300, 75, 20, 4, 1]
+	var art: float = 0.0
+	var tal: float = 0.0
+	for cid in sp:
+		var d: float = CraftEconomy.class_demand(gd, sp[cid], sp, heads, [1, 1, 1, 1, 1], 1000.0)
+		if str(sp[cid].kind) == "artifact":
+			art += d
+		elif str(sp[cid].kind) == "talisman":
+			tal += d
+	assert_near(art, 100.0, 1e-6, "artifacts")
+	assert_near(tal, 50.0, 1e-6, "talismans")
+
+
+func test_a_talisman_draws_any_material_of_its_rarity() -> void:
+	# Phá Cảnh Phù takes 2 materials of rarity 3 or more: its group holds every such material, and none below
+	var gd := game_data()
+	var sp := CraftEconomy.specs(gd)
+	var pc: Dictionary = {}
+	for cid in sp:
+		for rr in sp[cid].recipes:
+			if str(rr.id) == "pha_canh":
+				pc = rr
+	assert_false(pc.is_empty(), "Phá Cảnh Phù is a crafted recipe")
+	assert_true(Array(pc.group).has("linh_moc_tam") and Array(pc.group).has("tu_kim_sa"), "rarity 3 and 4 materials")
+	assert_false(Array(pc.group).has("tinh_thiet"), "not a rarity-1 material")

@@ -27,6 +27,7 @@ const WARS := "w_wars"
 static var _adj: Dictionary = {}
 static var _held: Dictionary = {}
 static var _for_db: int = 0   # the world the cache was built for: another world rebuilds it
+static var _bp: Dictionary = {}   # this season's balance-of-power term toward the strongest great sect {sect id: bp}
 
 
 static func _cfg(gd: GameData) -> Dictionary:
@@ -35,6 +36,7 @@ static func _cfg(gd: GameData) -> Dictionary:
 
 static func _begin(gd: GameData, db: WorldDB) -> void:
 	_for_db = db.get_instance_id()
+	_bp = {}   # set again by season() once the strengths are known
 	_adj = {}
 	for r in gd.file(ContinentData.DATA_FILE).get("regions", []):
 		_adj[int(r.id)] = Array(r.get("neighbours", [])).map(func(n): return int(n.region))
@@ -157,15 +159,23 @@ static func attitude_target(gd: GameData, db: WorldDB, a: Dictionary, b: Diction
 	return al + float(c.b_k) * _borders(gd, db, a, b) + pact + g - _balance_of_power(db, b, strength)
 
 
-# F7's bp: toward the strongest great sect only, 1 per 10 % its strength exceeds the runner-up's.
+# F7's bp: toward the strongest great sect only, 1 per 10 % its strength exceeds the runner-up's (worked out once a
+# season by [method _season_bp]).
 static func _balance_of_power(db: WorldDB, b: Dictionary, strength: Dictionary) -> float:
+	if not _bp.is_empty() and _for_db == db.get_instance_id():
+		return float(_bp.get(str(b.id), 0.0))
+	return float(_season_bp(db, strength).get(str(b.id), 0.0))
+
+
+static func _season_bp(db: WorldDB, strength: Dictionary) -> Dictionary:
+	var out := {}
 	var ranked: Array = _greats(db).map(func(s): return [float(strength.get(str(s.id), 0.0)), str(s.id)])
 	if ranked.size() < 2:
-		return 0.0
+		return out
 	ranked.sort_custom(func(x, y): return x[0] > y[0])
-	if str(ranked[0][1]) != str(b.id) or float(ranked[1][0]) <= 0.0:
-		return 0.0
-	return floorf((float(ranked[0][0]) / float(ranked[1][0]) - 1.0) / 0.10)
+	if float(ranked[1][0]) > 0.0:
+		out[str(ranked[0][1])] = floorf((float(ranked[0][0]) / float(ranked[1][0]) - 1.0) / 0.10)
+	return out
 
 
 ## F7's step from [param a_now] toward [param tgt].
@@ -185,6 +195,7 @@ static func season(gd: GameData, db: WorldDB, money: MoneyLedger, year: int, sea
 		return news
 	_begin(gd, db)
 	var strength := strengths(gd, db)
+	_bp = _season_bp(db, strength)
 	_set_states(gd, db)
 	_set_dials(gd, db, strength)
 	news.append_array(_attitudes(gd, db, strength, year, season_i))
@@ -396,6 +407,8 @@ static func _resolve_wars(gd: GameData, db: WorldDB, money: MoneyLedger, strengt
 	var rec: Dictionary = db.get_record("world", WARS)
 	var stip: Dictionary = db.get_record(MoneyLedger.TABLE, "m_stipends").get("by_sect", {})
 	var still: Array = []
+	_fallen = {}
+	var members: Dictionary = _members_by_sect(db) if not rec.wars.is_empty() else {}
 	for w in rec.wars:
 		var a: Dictionary = db.get_record("sects", str(w.a))
 		var d: Dictionary = db.get_record("sects", str(w.d))
@@ -416,8 +429,8 @@ static func _resolve_wars(gd: GameData, db: WorldDB, money: MoneyLedger, strengt
 		w.seasons = int(w.seasons) + 1
 		var la: float = float(c.loss_k) * sd / maxf(sa + sd, 1e-9)
 		var ld: float = float(c.loss_k) * sa / maxf(sa + sd, 1e-9)
-		news.append_array(_war_losses(gd, db, money, a, la, year, season_i))
-		news.append_array(_war_losses(gd, db, money, d, ld, year, season_i))
+		news.append_array(_war_losses(gd, db, money, a, la, year, season_i, members.get(str(a.id), [])))
+		news.append_array(_war_losses(gd, db, money, d, ld, year, season_i, members.get(str(d.id), [])))
 		w.w_a = float(w.w_a) + 1.0 + 50.0 * la + maxf(0.0, -dws) / 2.0
 		w.w_d = float(w.w_d) + 1.0 + 50.0 * ld + maxf(0.0, dws) / 2.0
 		for s in [a, d]:   # war cost: half the stipends, paid to the market's commons (suppliers and hired hands)
@@ -445,6 +458,7 @@ static func _resolve_wars(gd: GameData, db: WorldDB, money: MoneyLedger, strengt
 			continue
 		news.append_array(_conclude(gd, db, money, w, a, d, end, year, season_i))
 	rec.wars = still
+	_drop_fallen_items(db)
 	return news
 
 
@@ -452,20 +466,55 @@ static func _defends_seat(db: WorldDB, w: Dictionary, d: Dictionary) -> bool:
 	return str(w.goal.kind) == "region" and str(w.goal.id) == str(d.get("region_id", ""))
 
 
-# F9's losses: a share of the members, lowest realm first; the dead settle their purses and the record says why.
-static func _war_losses(gd: GameData, db: WorldDB, money: MoneyLedger, s: Dictionary, share: float, year: int, season_i: int) -> Array:
-	var members: Array = db.find("people", func(p): return bool(p.get("alive", false)) and str(p.get("sect_id", "")) == str(s.id) and not bool(p.get("is_player", false)) and not bool(p.get("is_beast", false)) and not p.has("cast_key"))
-	members.sort_custom(func(x, y): return int(x.get("realm_index", 0)) < int(y.get("realm_index", 0)) or (int(x.get("realm_index", 0)) == int(y.get("realm_index", 0)) and str(x.id) < str(y.id)))
-	var n: int = int(floor(share * members.size()))
-	for i in mini(n, members.size()):
-		var p: Dictionary = members[i]
-		var heir: String = Inheritance.heir_of(db, gd, p)
-		WorldMoney.settle_death(gd, db, money, p, heir)
+# F9's losses: a share of the members, lowest realm first (the cast is spared); the dead's purses go to the sect's
+# treasury and their few items are left Lost on the field (a war death names no heir: Inheritance's search over every
+# person was too slow for a season of battles), and the record says why. [param members] are the sect's living members,
+# sorted lowest realm first, built once a season.
+static func _war_losses(gd: GameData, db: WorldDB, money: MoneyLedger, s: Dictionary, share: float, year: int, season_i: int, members: Array = []) -> Array:
+	var alive: Array = members.filter(func(p): return bool(p.get("alive", false)))
+	var n: int = int(floor(share * alive.size()))
+	for i in mini(n, alive.size()):
+		var p: Dictionary = alive[i]
+		WorldMoney.settle_death(gd, db, money, p, "")
 		p["alive"] = false
 		p["death_cause"] = "Tử trận"
 		p["death_year"] = year
-		db.items_on_death(str(p.id), str(p.get("location_id", "")), "", heir)
+		p["equipped"] = []
+		p["equip_slots"] = {}
+		_fallen[str(p.id)] = str(p.get("location_id", ""))
 	return []
+
+
+# The season's war dead {person id: place}: their items are left Lost where they fell, in one pass over the items.
+static var _fallen: Dictionary = {}
+
+
+static func _drop_fallen_items(db: WorldDB) -> void:
+	if _fallen.is_empty():
+		return
+	for item in db.all("items"):
+		var o: String = str(item.get("owner_id", ""))
+		if _fallen.has(o):
+			item["owner_id"] = _fallen[o]
+			item["lost"] = true
+	_fallen = {}
+
+
+# Each sect's living members (not the player, beasts or the cast), lowest realm first, for the season's war losses.
+static func _members_by_sect(db: WorldDB) -> Dictionary:
+	var out := {}
+	for p in db.all("people"):
+		if not bool(p.get("alive", false)) or bool(p.get("is_player", false)) or bool(p.get("is_beast", false)) or p.has("cast_key"):
+			continue
+		var sid: String = str(p.get("sect_id", ""))
+		if sid == "":
+			continue
+		if not out.has(sid):
+			out[sid] = []
+		out[sid].append(p)
+	for sid in out:
+		out[sid].sort_custom(func(x, y): return int(x.get("realm_index", 0)) < int(y.get("realm_index", 0)) or (int(x.get("realm_index", 0)) == int(y.get("realm_index", 0)) and str(x.id) < str(y.id)))
+	return out
 
 
 static func _drop_level(gd: GameData, s: Dictionary, track: String) -> void:
