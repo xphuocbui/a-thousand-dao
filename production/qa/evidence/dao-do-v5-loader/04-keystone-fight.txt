@@ -1,0 +1,5 @@
+held Effects: ["Burning Ground (Địa Hỏa)", "Autumn Harvest (Thu Hoạch)", "Unyielding Breath (Bất Khuất)", "Fire Lotus (Hỏa Liên)"]
+sheet line: crit_damage_pct -30.0 from Đạo Đồ: Fire Lotus (Hỏa Liên)
+tree Effects fired over 20 fights: { "eff:Fire Lotus": 145, "eff:Autumn Harvest": 27 }
+wins against the typical Core Formation enemy: 0 of 20
+what the fight does not run: []

@@ -6,8 +6,9 @@ session, please prepare for it". Start that session with: **"build the Đạo Đ
 ## Progress (2026-11-20 night run)
 
 Done: 0 ADR-0004 (ddebe4f); 1 export (02454b2); 5 float purity (4e4222b); the cut-over 2-4, 6, 7, 9-13 (2bc88fc); AC-KMD-54
-allocator and world-generation probes (421c18a and later). In progress: 8, the Effects series (user: extend the runtime;
-`design/dao-do/tree-effects-engine.md`). Left: 14 (the GDD's Known gaps: the parallel session's file, ask first).
+allocator and world-generation probes (421c18a, 053d3d4); 8, the Effects series (2fead7c, 800cd00, 120feb5, review
+fixes 0f7627c; `design/dao-do/tree-effects-engine.md` lists the engine choices to review). Left: 14 (the GDD's Known
+gaps: the parallel session's file, ask first); the calibration re-run (median NPC win share by realm).
 
 ## Why
 
