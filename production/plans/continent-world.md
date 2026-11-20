@@ -184,6 +184,11 @@ Where Travel & Map needs them, it writes to the hand-off point named in its Inte
 9. Mines carry no authored grade: grade by land density (1.2 / 1.5); resource by rule 20.
 10. Tụ Linh Trận stays on density_bonus (counted once) until Formations #17 moves it to layer 1.
 11. Residences: optional for loose cultivators (rent or buy); sect members get one free at their seat by realm.
+12. Formula G calibration: the climate indexes are centred on the continent (0 at -10 C and 100 at 40 C; 0 at 0 mm
+    and 100 at 1,600 mm), common herbs tolerate 25 either side, and elem_full_share is 25 (the GDD's guess 40; 15 for
+    a variant instead of 20), so a common herb on an ordinary home grows about as before (fit 0.65-0.95) while
+    matched ground still pays up to x1.2. At the GDD's 40, a typical place (a fifth of the herb's element) gave
+    f_e 0.65 and the first Foundation pill came about 1.5 times later.
 
 **Data fixed on the way:** flight speeds keyed one realm late in travel_rules.json; five sea lanes dropped because a
 promoted city kept its old name; the export predated the territory-history layer (230 places, 23 minor sects).

@@ -149,8 +149,8 @@
   "fit": {
     "_doc": "Travel & Map Formula G (rule 18): fit = f_e f_T f_R f_D. elem_floor e_floor, elem_full_share s_full (variant 20), fall the climate fall-off past the tolerance, density_need_by_rarity D_need by rarity index (0 unused), growth_max g_max, plant_floor, labels (each band includes its lower bound). Per herb: temp_ideal, temp_tol, rain_ideal, rain_tol on the 0-100 climate indexes (world_map.json climate_index). All are first guesses except the two GDD examples.",
     "elem_floor": 0.3,
-    "elem_full_share": 40,
-    "elem_full_share_variant": 20,
+    "elem_full_share": 25,
+    "elem_full_share_variant": 15,
     "fall": 30,
     "density_need_by_rarity": [
       0,

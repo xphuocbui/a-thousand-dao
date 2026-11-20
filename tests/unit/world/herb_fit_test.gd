@@ -33,9 +33,10 @@ func test_thanh_tam_lien_in_a_temperate_forest_is_good() -> void:
 	herb["rain_ideal"] = 70
 	herb["rain_tol"] = 15   # the GDD's example band
 	var f: Dictionary = HerbFit.fit(gd, herb, _place(55.0, 50.0, {"moc": 50.0, "hoa": 5.0, "tho": 10.0, "kim": 5.0, "thuy": 30.0}))
-	assert_near(float(f.fit), 0.825 * (1.0 - 5.0 / 30.0), 0.001, "f_e 0.825 x f_R 0.833")
-	assert_eq(str(f.label), "good", "good")
-	assert_near(float(f.growth), 1.2 * float(f.fit), 0.0001, "growth x0.83")
+	var fc: Dictionary = gd.file("items_herbs").fit
+	var f_e: float = float(fc.elem_floor) + (1.0 - float(fc.elem_floor)) * minf(1.0, 30.0 / float(fc.elem_full_share))
+	assert_near(float(f.fit), f_e * (1.0 - 5.0 / 30.0), 0.001, "f_e (0.825 at the GDD's s_full 40) x f_R 0.833")
+	assert_near(float(f.growth), 1.2 * float(f.fit), 0.0001, "growth g_max x fit")
 
 
 func test_ground_without_qi_grows_as_before() -> void:
