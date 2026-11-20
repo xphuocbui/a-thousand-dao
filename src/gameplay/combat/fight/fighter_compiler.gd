@@ -190,7 +190,9 @@ static func character_build_file(c: Character, gd: GameData, db: WorldDB, sheet:
 		d["arts"] = arts
 	var purity := {}
 	var to_engine: Dictionary = cm.get("scope_element", {})
-	for el in Array(c.linh_can.elements.keys()) + Array(c.linh_can.variants.keys()):
+	# owned elements and variants, and any element or variant roads raised without owning it (linh-can.md rule 8a: that
+	# purity powers its stacks too; AC-KMD-97, AC-LC-53)
+	for el in Array(c.linh_can.elements.keys()) + Array(c.linh_can.variants.keys()) + Array(c.linh_can.road.keys()):
 		if to_engine.has(str(el)) and c.linh_can.purity(str(el)) > 0.0:
 			purity[to_engine[str(el)]] = c.linh_can.purity(str(el))
 	d["purity"] = purity

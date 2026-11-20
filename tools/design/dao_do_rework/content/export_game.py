@@ -306,7 +306,29 @@ def checks(head, nodes, edges, m, content, hashes, content_area):
                      ", ".join(f"{k} {v}" for k, v in sorted(unknown.items())))
     if floors:
         notes.append(f"modifiers that quantise to 0 at x0.25 ({len(floors)}): " + "; ".join(floors[:8]))
+    notes += scope_lint(nodes, eng)
     return fails, notes
+
+
+def scope_lint(nodes, cm):
+    """How the fight reads each scoped line (2026-11-20): scoped, applied to every hit (its engine key is read without
+    hit context), or matching nothing yet (a scope tag no library art carries and no element or damage type)."""
+    lib = json.load(open(os.path.join(ROOT, "assets", "data", "combat_library.json"), encoding="utf-8"))
+    tags = collections.Counter(t for a in lib["arts"].values() for t in a.get("tags", []))
+    out = collections.Counter()
+    for n in nodes:
+        for x in n.get("mods", []):
+            sc, k = x.get("scope"), x["stat"]
+            if not sc or k in cm["static"] or k in cm["out_of_fight"] or k not in cm["passive"]:
+                continue
+            mk = cm["passive"][k][0]
+            if mk not in cm["ctx_mods"]:
+                out[f"{k} applied to every hit ({mk} is read without hit context)"] += 1
+                continue
+            dead = [t for t in sc if t not in cm["scope_element"] and t not in cm["scope_dtype"] and not tags[t]]
+            if dead:
+                out[f"{k} [{','.join(dead)}] matches no art yet"] += 1
+    return [f"scoped lines in fights: {v} x {k}" for k, v in out.most_common()]
 
 
 def main():

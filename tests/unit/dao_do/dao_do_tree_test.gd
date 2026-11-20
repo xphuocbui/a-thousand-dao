@@ -380,12 +380,14 @@ func test_an_old_generated_map_record_is_migrated_once_ac_kmd_98() -> void:
 	var llm := LlmService.new(gd)
 	llm.enabled = false
 	var s := GameSession.new(gd, llm, _t())
-	var rec := {"tree_nodes": range(86), "tree_points": 35, "unsealed": [3], "fills": {}, "is_player": false,
+	var rec := {"tree_nodes": range(86), "tree_points": 35, "unsealed": [3], "fills": {}, "is_player": false, "capabilities": [5],
 		"linh_can": {"elements": {"hoa": 70, "thuy": 40}, "variants": {}, "rolled": [], "declined": []}}
 	assert_true(s.migrate_tree_record(rec), "migrated")
 	assert_eq(rec.tree_points, 120, "85 opened + 35 unspent = 120")
 	assert_eq(rec.tree_nodes, [FIRE_START], "the strongest element's start")
 	assert_eq(rec.tree_baseline, DaoDoTree.BASELINE, "flag set")
 	assert_false(rec.has("unsealed"), "hidden-cluster state dropped")
+	assert_eq(rec.capabilities, [], "the old map's capabilities go with its Dao marks")
+	assert_true(bool(rec.get("_tree_realloc", false)), "an NPC is marked to spend its points on the new map at load")
 	assert_false(s.migrate_tree_record(rec), "loading it again changes nothing")
 	assert_eq(rec.tree_points, 120, "unchanged")

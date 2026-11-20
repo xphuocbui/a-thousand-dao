@@ -37150,7 +37150,7 @@
       "do": [
        {
         "mod": {
-         "L5": 5,
+         "dmg_more": 0.05,
          "kind": "companion"
         }
        }

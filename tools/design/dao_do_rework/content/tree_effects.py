@@ -142,8 +142,9 @@ add("Sun and Rain", "Your health regeneration also restores linh lực, at half 
 add("Bare Rack", "Your companion hits deal L5 +5 for each empty art slot, cap +20 (the basic-attack half is Pending). "
     "Closes (tree keystone): maximum health -15 %.",
     count={"of": "empty_art_slots", "cap": 4},
-    records=[R("Bare Rack", "always", [mod(L5=5, kind="companion")])],
+    records=[R("Bare Rack", "always", [mod(dmg_more=0.05, kind="companion")])],
     lines=[{"key": "khi_huyet_pct", "value": -15}],
+    engine_choice="companion hits skip the damage layers, so L5 +5 a slot is run as 5 % more damage a slot",
     pending="the [basic] half, until Combat adopts the basic tag (#43; re-review EF 24)")
 # --- keystones: the islands ------------------------------------------------------------------------------------------
 add("Heaven's Eye", "Your crits against an Exposed foe deal L5 +20 on that hit. Closes: your ward strength is 30 % "

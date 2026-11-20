@@ -1361,6 +1361,7 @@ func load_dict(d: Dictionary) -> Dictionary:
 			rec["tree_baseline"] = ""
 		migrate_tree_record(rec)
 	_wire()
+	_reallocate_migrated()
 	player = Character.from_dict(db.get_record("people", str(d.player_id)))
 	var migrated: bool = _player_migrated
 	pending_event = d.get("pending_event", {})
@@ -1396,13 +1397,36 @@ func migrate_tree_record(rec: Dictionary) -> bool:
 	rec["tree_points"] = int(rec.get("tree_points", 0)) + opened
 	for k in ["unsealed", "discovered", "fills", "tree_visibility", "open_unseals"]:
 		rec.erase(k)
+	# capabilities came from opened Dao marks of the old map: they go with them (the new map's notables grant them again)
+	rec["capabilities"] = []
 	var lc := LinhCan.from_dict(rec.get("linh_can", {}))
 	var sid: int = tree.npc_start(lc, gd)
 	rec["tree_nodes"] = [sid] if sid >= 0 else []
 	rec["tree_baseline"] = DaoDoTree.BASELINE
 	if bool(rec.get("is_player", false)):
 		_player_migrated = true
+	elif opened > 0 or int(rec.get("tree_points", 0)) > 0:
+		rec["_tree_realloc"] = true
 	return true
+
+
+## After a migration (rule 19), every migrated NPC spends its refunded points on the new map by rule 5, from a stream
+## keyed on the game seed and its id (ADR-0002), so a reload gives the same trees. The player chooses for itself.
+func _reallocate_migrated() -> void:
+	for rec in db.all("people"):
+		if not rec.get("_tree_realloc", false):
+			continue
+		rec.erase("_tree_realloc")
+		var c := Character.from_dict(rec)
+		var r := RandomNumberGenerator.new()
+		r.seed = RngUtils.stable_hash("tree_migrate:%d:%s" % [seed_value, str(rec.get("id", ""))])
+		var focus: Array = gd.archetype(c.archetype).get("tree_focus", []).duplicate()
+		if focus.is_empty():
+			focus = [c.linh_can.strongest_element()]
+		builds.allocate(c, r, focus)
+		for k in ["tree_nodes", "tree_points", "capabilities", "linh_can"]:
+			rec[k] = c.to_dict()[k]
+		db.put("people", rec)
 
 
 # --- Helpers ------------------------------------------------------------------------

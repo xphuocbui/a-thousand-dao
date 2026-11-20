@@ -6,7 +6,8 @@ crown notables: 55 Effects) has an engine form in `assets/data/combat_effects.js
 2026-11-19)" and the Starter Effects the keystones reuse). The game passes a Character's held Effects to the fight by
 name (build-file field `tree_effects`); their closing numbers (maximum health -15 % and the like) are stat lines on the
 character's sheet. **For the user's review:** the "Engine choice" column lists every place where the rule text left an
-engine detail open and a choice was made; nothing else was decided here.
+engine detail open and a choice was made; the section "Other choices made tonight" lists the rest. All of them
+are open to change.
 
 **Totals:** 48 run in full, 3 run with a part Pending, 4 Pending (their host system does not exist inside
 fights yet: shown, adding nothing; the keystone's plain modifiers still apply).
@@ -30,6 +31,36 @@ fights yet: shown, adding nothing; the keystone's plain modifiers still apply).
   recursed through an unrelated key's sum; reads are pure, so no sum changed), and `stack_more` is read with a re-entry
   guard (Rising Tide's linh lực condition would read itself through the pool's own Water stacks).
 
+## Other choices made tonight (to review)
+
+- **"Deal N % less" closings** are a `dmg_more` multiplier (-0.5, -0.3, -0.25, -0.2). For Ten Thousand Poisons the GDD
+  names `attack_pct [hit] -25` (L1 points); the multiplier was used instead, so ticks are not touched either way.
+- **Open Sky's** `defense_pct +5` per empty extra slot is run as live ward strength (`ward_pct`), counted at compile.
+- **Glass Meridians** adds the starter rule's `art_speed_pct +40` on top of the keystone's own plain +41.6 % art speed
+  (the content's positive side). If the content pass meant the 41.6 to replace the 40, remove the 40 line.
+- **Burning Lifespan** runs its fury without its closing (the lifespan the fight burns needs a host), while the four
+  fully Pending Effects add nothing at all.
+- **Counts:** a sword artifact is a piece on the `phi_kiem` base (`dao_do_tree.json sword_bases`); "elements your root
+  owns" (Before Heaven) is the base element count; `speed_locked` also ignores buff-stack speed.
+- **Map rules in the loader:** another start can be opened as a 1-point path node (no bonus); the player may move the
+  start with `tree start <element>` until the first Dao mark; the Ice start's figure scales as Water land (ADR-0004).
+
+## Behaviour check (`tools/design/combat_sim/tree_effects_check.py`)
+
+Every runnable Effect fought with and without on the same seeds (a Deity Transformation kit with Burn, Poison, Ice,
+Water and Wood buff, Metal, Earth and sword arts, evade, crit and block, against the typical enemy): 43 change fights
+in that kit. Of the rest, Ageless Pine, Burning Lifespan, Still Water, Nirvana and Tide change fights in a closer
+matchup or with Water damage arts. Three do nothing yet for a known reason: **Daybreak** (no art carries the `light`
+tag), **Eruption** (no costly Fire art in the library), **Immovable Mountain** (only matters against Slowed Time,
+delays and art-speed modifiers, none in the kit). Bare Rack's companion half did nothing (fixed, see its row).
+
+## Scoped lines in fights (`export_game.py --check`)
+
+About 2,900 scoped tree lines run scoped. **38 apply to every hit**, because their engine key is read without a hit
+context (33 `linh_luc_on_hit_pct`, 5 `leech_linh_luc_pct`), and **257 match nothing yet**: `attack_pct [over_time]`
+78 (ticks never read L1), `[light]` 110 (no Light arts), `[formation]` 47 (no formations in fights), `status_resist_pct
+[burn]` 2.
+
 ## Every Effect
 
 | Effect | Node kind | Nodes | Status | New vocabulary it uses | Engine choice (to review) |
@@ -37,7 +68,7 @@ fights yet: shown, adding nothing; the keystone's plain modifiers still apply).
 | Ageless Pine (Vạn Niên Tùng) | keystone | #9002 | Runs | `buff_gained` |  |
 | Alchemist's Heart (Đan Tâm) | keystone | #2978 | **Pending** (host outside fights): pills are not taken inside fights yet (Alchemy: pill use in combat has no host) | today's vocabulary |  |
 | Autumn Harvest (Thu Hoạch) | keystone | #4786 | Runs | today's vocabulary |  |
-| Bare Rack (Không Giá) | keystone | #6497 | Runs, part Pending: the [basic] half, until Combat adopts the basic tag (#43; re-review EF 24) | `count empty_art_slots` |  |
+| Bare Rack (Không Giá) | keystone | #6497 | Runs, part Pending: the [basic] half, until Combat adopts the basic tag (#43; re-review EF 24) | `count empty_art_slots` | companion hits skip the damage layers, so L5 +5 a slot is run as 5 % more damage a slot |
 | Boundless Sea (Vô Biên Hải) | keystone | #5585 | Runs | `no_gain_on_hit`, `pool_more` |  |
 | Burning Lifespan (Nhiên Thọ) | keystone | #2893 | Runs, part Pending: the lifespan the fight burns: the fight result does not report years yet (Realms / Time & Turn host) | today's vocabulary |  |
 | Called Blow (Báo Chiêu) | keystone | #4678 | Runs | `counted_crit`, `crit_cap_to` |  |

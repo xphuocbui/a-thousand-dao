@@ -119,3 +119,13 @@ func test_a_keystone_holder_fights() -> void:
 
 func k_of(gd: GameData) -> CombatConstants:
 	return CombatConstants.from_game_data(gd)
+
+
+func test_road_purity_on_an_unowned_element_powers_its_stacks_in_fights_ac_kmd_97() -> void:
+	var gd := game_data()
+	var c := _holder([])
+	c.linh_can.add_road_purity(gd, "kim", 1.0)
+	var db := WorldDB.new()
+	var d: Dictionary = FighterCompiler.character_build_file(c, gd, db, StatSheet.build(c, gd, db, TestFixtures.tree()))
+	assert_eq(float(d.purity.get("metal", 0.0)), 1.0, "Metal 1.0 from two roads reaches the fighter")
+	assert_false(c.linh_can.elements.has("kim"), "and owns no element")

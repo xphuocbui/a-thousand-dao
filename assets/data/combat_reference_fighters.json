@@ -149,7 +149,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    {
     "name": "typical-r1",
@@ -297,7 +298,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    {
     "name": "typical-r2",
@@ -445,7 +447,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    {
     "name": "typical-r3",
@@ -593,7 +596,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    {
     "name": "typical-r4",
@@ -741,7 +745,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    }
   ],
   "top_end": [
@@ -891,7 +896,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    {
     "name": "top_end-r1",
@@ -1039,7 +1045,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    {
     "name": "top_end-r2",
@@ -1187,7 +1194,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    {
     "name": "top_end-r3",
@@ -1335,7 +1343,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    {
     "name": "top_end-r4",
@@ -1483,7 +1492,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    }
   ],
   "top_end_the_tu": [
@@ -1633,7 +1643,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    {
     "name": "top_end_the_tu-r1",
@@ -1781,7 +1792,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    {
     "name": "top_end_the_tu-r2",
@@ -1929,7 +1941,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    {
     "name": "top_end_the_tu-r3",
@@ -2077,7 +2090,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    },
    {
     "name": "top_end_the_tu-r4",
@@ -2225,7 +2239,8 @@
     "stage_mult": 1.0,
     "stack_eff": {},
     "stack_dur": {},
-    "wards": []
+    "wards": [],
+    "stack_alias": {}
    }
   ]
  }
