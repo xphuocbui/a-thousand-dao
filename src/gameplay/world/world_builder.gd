@@ -118,7 +118,7 @@ func _step_money() -> void:
 		p["linh_thach"] = snappedf(r * (lo + (hi - lo) * u), 0.01)
 	for s in _db.find("sects", func(x): return str(x.get("kind", "")) == "great" and str(x.get("status", "")) == "active"):
 		_db.put(MoneyLedger.TABLE, {"id": "pool:%s" % s.id, "balance": float(cfg.pool_start)})
-		_db.put(MoneyLedger.TABLE, {"id": "stash:%s" % s.id, "balance": 0.0})
+		_db.put(MoneyLedger.TABLE, {"id": "stash:%s" % s.id, "balance": float(cfg.get("stash_start", 0.0))})
 	MoneyLedger.new(_db).open_season()
 
 

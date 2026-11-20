@@ -498,6 +498,8 @@ static func _sect_raw_demand(gd: GameData, db: WorldDB, m: Dictionary) -> Dictio
 			for k in mix.get(tr, {}):
 				if cfg.classes.order.has(k):
 					out[k] = float(out.get(k, 0.0)) + gf * float(s.spend[tr]) * float(mix[tr][k])
+		for k in cfg.demand.wmix:   # the works' upkeep, met in goods (Formula C's works_due · wmix)
+			out[k] = float(out.get(k, 0.0)) + gf * float(s.get("works_due", 0.0)) * float(cfg.demand.wmix[k])
 	return out
 
 

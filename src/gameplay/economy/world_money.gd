@@ -29,7 +29,7 @@ extends RefCounted
 
 
 ## One season of the money flows (steps 1-6 above). Returns the season's figures by flow, for the harness.
-static func season(gd: GameData, db: WorldDB, money: MoneyLedger) -> Dictionary:
+static func season(gd: GameData, db: WorldDB, money: MoneyLedger, year: int = 0, season_i: int = 0) -> Dictionary:
 	var out := {}
 	var idx := _index(db)
 	out["mines"] = _mines(gd, db, money)
@@ -38,7 +38,8 @@ static func season(gd: GameData, db: WorldDB, money: MoneyLedger) -> Dictionary:
 	out["baskets"] = _baskets(gd, db, money, idx)
 	out["market_income"] = _market_income(gd, db, money)
 	out["sects"] = SectEconomy.season(gd, db, money)   # upkeep and tribute (Sects F1, F4) before the treasury rule
-	out["invest"] = _treasury_rule(gd, db, money, idx)
+	out["works_upkeep"] = SectWorks.upkeep(gd, db, money)   # the sects' layer-2 works (Travel & Map Formula J)
+	out["invest"] = _treasury_rule(gd, db, money, idx, year, season_i)
 	return out
 
 
@@ -311,7 +312,7 @@ static func _region_value(gd: GameData, db: WorldDB, rid: String, cid: String) -
 # 6. The treasury rule (Formula H): invest above R = reserve_mult · Cost (Cost: this season's cash stipends), inv_miss
 # of it as missions to the sect's members, the rest to a track: its cash share burned, its kind share kept from next
 # season's goods sales.
-static func _treasury_rule(gd: GameData, db: WorldDB, money: MoneyLedger, idx: Dictionary) -> float:
+static func _treasury_rule(gd: GameData, db: WorldDB, money: MoneyLedger, idx: Dictionary, year: int = 0, season_i: int = 0) -> float:
 	var cfg: Dictionary = _cfg(gd)
 	var stip: Dictionary = db.get_record(MoneyLedger.TABLE, "m_stipends").get("by_sect", {})
 	var members: Dictionary = idx.by_sect
@@ -327,7 +328,10 @@ static func _treasury_rule(gd: GameData, db: WorldDB, money: MoneyLedger, idx: D
 		var paid: float = _pay_missions(gd, money, treasury, members.get(str(s.id), []), float(t.missions), "treasury_mission")
 		var burned: float = money.burn(treasury, float(t.track_cash), "works")
 		s["kind_due"] = float(s.get("kind_due", 0.0)) + float(t.track_kind)
-		SectEconomy.invest(gd, s, float(t.track))   # F19's track takes the season's investment (F1 raises its level)
+		var works: float = 0.0
+		if SectEconomy.invest_track(gd, s) == "holdings":   # Holdings money first builds works on the sect's land
+			works = SectWorks.build_best(gd, db, s, float(t.track), year, season_i)
+		SectEconomy.invest(gd, s, float(t.track) - works)   # F19's track takes the rest (F1 raises its level)
 		total += paid + burned
 	return total
 

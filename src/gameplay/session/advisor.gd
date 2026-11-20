@@ -515,10 +515,11 @@ static func herb_ground_for(s: GameSession, herb_id: String) -> Dictionary:
 	return best
 
 
-## Typical market price of a herb that seeds cannot provide (a mid-aged one).
+## Typical market price of a herb that seeds cannot provide: a mature one, as shops sell them (Trade Goods rule 10,
+## user decision 2026-11-20; a mid-aged herb is now a treasure on Item Database Formula B's curve, so pricing one led the
+## balance bot to save for ~1,300 LT it never needed).
 static func market_price_estimate(s: GameSession, herb_id: String) -> int:
-	var cfg: Dictionary = s.gd.session().market
-	var h: Dictionary = s.items.herb(herb_id, float(cfg.aged_herb_max_years) / 2.0)
+	var h: Dictionary = s.items.herb(herb_id, float(s.gd.herb(herb_id).get("mature_years", 1.0)))
 	return s.market.buy_price(s.player, s.sheet(), h)
 
 
