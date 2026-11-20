@@ -197,7 +197,7 @@ Without this system the other systems have a map but no past, no population and 
 | **Living World Tick** (#28) | out | A Loaded world. The chronicle stays read-only; the tick appends new events to the same log after the start | Living World Tick |
 | **LLM Game Master** (#29, parked) | out (optional, later) | The same facts and texts, to retell when it is switched on (Core Rule 14), with hidden tiles withheld (Core Rule 4); never required | LLM Game Master |
 | **New-game screen** (Game UI #37) | out | Progress through the build steps, a named failure reason, and the origin choice list | Game UI |
-| **NPC Relationships** (#46, not yet designed) | out | The fixed cast's authored ties, when that system is designed | NPC Relationships |
+| **NPC Relationships** (#46) | out | The fixed cast's authored ties (10 master ties, parents) become sư đồ and kin records at the start; generated kin and masters (`master_share`) likewise (`npc-relationships.md` rule 8, AC-NR-30) | NPC Relationships |
 
 ## Formulas
 
@@ -376,7 +376,7 @@ fight budget (`worldgen_fight_budget`) belongs to Power Rankings.
 | Living World Tick (#28) | Hard | A Loaded world and the chronicle | no GDD |
 | LLM Game Master (#29, parked) | Soft, optional | The same facts and texts, to retell later (Core Rule 14); never required | no GDD |
 | Game UI (#37) | Soft | Build progress, failure reasons and the origin list | no GDD |
-| NPC Relationships (#46) | Soft | The cast's authored ties | not yet designed |
+| NPC Relationships (#46) | Soft | The cast's authored ties | yes (2026-11-20) |
 
 **Rows added in other GDDs (2026-11-15):** Power Rankings, Regional Economy & Trade and Trade Goods each now list #27
 in their Dependencies.

@@ -904,6 +904,7 @@ earns contribution faster than a sect's stock refills). Each needs the 400-seaso
 | Market (#20) | Soft | Sect stock, prices by standing | No GDD |
 | Guidance Layer (#35) | Soft | Sect states, offers and threats | No GDD |
 | Combat | Soft | Trials and mission fights use the combat engine as built; wars do not | Yes (`combat.md` Dependencies) |
+| NPC Relationships (#46) | Soft | Taking a disciple forms sư đồ; succession may prefer the head's disciples; ranks set notability; disciples' errands cost a season's stipend of their realm (`errand_cost`, read from the stipend anchors) | Yes (`npc-relationships.md`) |
 
 **Back-links:** Realms (`canh-gioi.md`), Combat (`combat.md`), Quests, Cultivation Techniques and Item Database already list Sects. Character
 Stats needs no change: Sects reads realm only.

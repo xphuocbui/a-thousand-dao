@@ -658,6 +658,7 @@ its master **−15** and its sect head **−7**.
 | Balance Harness (#33) | Soft | Headless quest runs and the value check | Built, no GDD |
 | The Way (#39) | Soft | Quests and standing that Hiệp Đạo's Du Hiệp and Bồ Đề Đạo's Thiện Hạnh read; prices Dao nodes against the same `w_target` | In review (`dao.md`) |
 | Heavenly Tribulation (#22) | Soft | None at runtime. Its reward content pass waits on this GDD (its Open Question 9) | Approved for rules |
+| NPC Relationships (#46) | Soft | Disciples' errands are Errand-tier quests completed for the player, each costing a season's stipend of the disciple's realm (#46 rule 15a, `errand_cost`); offers may read the player's ties; `tie_share` covers only master or disciple and sect head (Open Questions 15) | Designed 2026-11-20 (`npc-relationships.md`) |
 
 **Bidirectional check.** The Event Engine and NPC Interaction & Dialogue GDDs list this system (2026-11-15). Character Stats, Đạo Đồ, Item Database, Realms, Combat and Heavenly Tribulation list this system (added
 2026-11-06 and 2026-11-07). The other upstream systems have no GDD to list it in.
@@ -968,3 +969,4 @@ Evidence: `tests/unit/quests/`, `tests/integration/quests/`, `production/qa/evid
 | 12 | Template volume: how many templates per tier and per source-fact kind does the first playable need (the no-LLM audit guesses 40 to 80 in all), and which Legendary templates tie to which fixed-cast person or history site | user | Before content authoring |
 | 13 | Do quests that share a person with an Event Engine story (a fixed-cast person with their own arc) block each other? Proposed: they share flags and may chain, with no extra rule | user + Event Engine | Content pass |
 | 14 | **Answered 2026-11-15** (Event Engine Open Question 7): a quest's B replaces the chain budget for its story (rule 19) | — | — |
+| 15 | **From NPC Relationships (2026-11-20):** `tie_share` has rows for master or disciple (0.5) and sect head (0.25) only. Should kin, kết nghĩa and đạo lữ feel a quest's change too? #46 proposes kin 0.5, kết nghĩa 0.5, đạo lữ 0.75 (`npc-relationships.md` Dependencies) | user, systems-designer | Formulas E for the new tie kinds |

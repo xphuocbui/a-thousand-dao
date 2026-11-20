@@ -2,7 +2,7 @@
 
 > **Status**: In Design
 > **Author**: user + Claude
-> **Last Updated**: 2026-11-15
+> **Last Updated**: 2026-11-20 (NPC Relationships #46 designed: rule 11, loans, Dependencies, OQ 2 answered)
 > **Last Verified**: 2026-11-15
 > **Implements Pillar**: Pillar 5, A World That Remembers; Pillar 2, Every Number Is Bounded and Visible
 
@@ -108,9 +108,13 @@ voice, #46 owns bonds; talk is free and deeds take time; a layered line library;
       refuse, and by their traits may attack (an Event Engine fight event, ambush) or leave.
     - **Provoke (Khiêu khích).** Opens a real fight event now (Event Engine, foreseen), with death possible and the
       Event Engine's mercy choice after a win. Attitude falls. In a sect's grounds the sect may react (Sects).
-11. **Bonds (hooks until #46).** Recruit a companion, take a disciple, swear brotherhood (kết nghĩa), seek Dao
+11. **Bonds.** Recruit a companion, take a disciple, swear brotherhood (kết nghĩa), seek Dao
     companionship (đạo lữ). Each has its acceptance score and requirements here; on accept, NPC Relationships (#46)
-    creates the bond and owns what it does. Until #46 is designed these verbs are **provisional** and not shipped.
+    creates the bond and owns what it does (`npc-relationships.md`: companion, sư đồ, kết nghĩa and đạo lữ records,
+    rule 6's notability gate for kết nghĩa and đạo lữ, and each kind's hook, rule 15a). The verb list gains **repay a debt**
+    and **declare enmity** (#46 rule 8), and a fight event gains **call for help** to sworn siblings (#46 rule 15a,
+    `p_help`, `help_cost`). Scores and requirements stay here; #46 refuses a second living master or đạo lữ, which the
+    verb shows greyed (rule 5).
 
 **Attitude and memory**
 
@@ -177,7 +181,7 @@ voice, #46 owns bonds; talk is free and deeds take time; a layered line library;
 | Done / Refused | Shown | The cooldown ends and the per-season count has room |
 
 **A loan:** taken → repaid (attitude up a little) or overdue (attitude down, follow-up scheduled) → repaid late or
-written off (when the lender dies; heirs are #46's).
+written off (when the lender dies; loans do not pass to heirs, #46 rule 13).
 
 ### Interactions with Other Systems
 
@@ -195,7 +199,7 @@ written off (when the lender dies; heirs are #46's).
 | Combat (#21), Power Rankings | out / in | Spar as a non-lethal foreseen fight; threat odds from fight odds; spars rated | Combat; Power Rankings |
 | Travel & Map (#25) | out | Places heard of, clues shared, guided travel | Travel & Map |
 | Công Pháp (#9) | out | Technique manual copies by teaching, under its fit rules | Công Pháp |
-| NPC Relationships (#46) | out | Bond verbs ask for bonds; flags and records feed lasting bonds | #46 (not designed) |
+| NPC Relationships (#46) | out / in | Out: bond verbs ask for bonds; flags and records feed lasting bonds. In: the player's ties for verbs, address and tone | #46 |
 | LLM Game Master (#29), parked | in | Could voice a reply later inside the decided result | — |
 | Game UI, Debug Terminal | out | The person card, verbs with accept and breakdown, replies, the known list | Game UI |
 
@@ -339,7 +343,7 @@ then a follow-up
 - **If a gift is worth 0** (a worthless item): Δatt = 0, and the line says the gift was not valued.
 - **If the person has no purse for a loan** (balance 0): the loan verb shows "won't accept: nothing to lend" with the
   purse as the failing part.
-- **If the lender dies with a loan open**: it is written off; heirs claiming it are #46's (Open Questions).
+- **If the lender dies with a loan open**: it is written off; heirs do not claim it, and a dead borrower's loan is cancelled (#46 rule 13).
 - **If the player dies with a loan open**: nothing happens to the lender's purse; the record says the debt died with
   the borrower.
 - **If ask-for-news has nothing new**: "nothing new" line; the cooldown and the per-season count are not spent.
@@ -514,7 +518,7 @@ screenshot; [Playtest].
 | # | Question | Owner | Resolve by |
 |---|---|---|---|
 | 1 | Bond verbs (companion, disciple, sworn sibling, Dao companion): their effects and NPC-to-NPC bonds | NPC Relationships (#46) | #46 GDD |
-| 2 | Heirs and debts: does a dead lender's kin claim the loan, does a dead borrower's debt pass on? | #46 | #46 GDD |
+| 2 | ~~Heirs and debts~~ **Answered 2026-11-20 by #46 rule 13:** loans are not ties; neither a dead lender's nor a dead borrower's loan passes to heirs. Debts of gratitude (ân tình) owed to the dead do pass to the heirs at half strength | #46 | — |
 | 3 | Disguise and false identity (stealth): can the player hide who they are from a person or sect? | user | Later |
 | 4 | Line library size: how many lines per verb, tones and bands before the first playable (the audit guessed 300–600)? | user + writer | Before content authoring |
 | 5 | Small Dependencies rows naming #30 in Sects, Regional Economy & Trade, Combat, Power Rankings, Travel & Map, Công Pháp | — | Next consistency pass |

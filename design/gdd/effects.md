@@ -921,6 +921,7 @@ at 0.25 takes a batch of 8 Burn stacks to 6, then 4.5, then 3.4.
 | Item DB (#13), Talismans (#18), Formations (#17), Alchemy (#15), Spirit Beasts (#19) | Soft (hosts) | Named-item, talisman, ground, pill and beast Effects | Approved; implemented | Not yet |
 | Event Engine (#23) | Soft | Life Effects; World DB reads | Implemented | Not yet |
 | NPC Builds | Soft | `npc: true` Effects | Implemented | Not yet |
+| NPC Relationships (#46) | Soft | The "has a Dao companion" group condition Effects may test (#46 rule 15a) | Designed 2026-11-20 | Yes (`npc-relationships.md`) |
 
 ## Visual/Audio Requirements
 

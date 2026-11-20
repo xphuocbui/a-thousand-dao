@@ -53,7 +53,7 @@ This GDD describes a system that is **partly built**. The people step, intake, t
     - A log event older than `news_keep_years` (50) that was never `news: true` is deleted.
     - **Never compacted or pruned:** the fixed cast, anyone the player knows or knew, anyone named by the chronicle, an open quest or story, or a held flag, and every chronicle and `news: true` event.
     *(To build.)*
-20. **A slot for NPC Relationships (S8b).** After NPC events and before traits, the tick will call NPC Relationships (#46) to form, change and fade ties. Reserved until #46 is designed.
+20. **NPC Relationships (S8b).** After NPC events and before traits, the tick calls NPC Relationships (#46), which applies the season's queued tie changes in its own order (deaths and inheritance, ends, hardening, new ties with eviction, strength changes) and touches only the people named in them; fading is computed when read, so nothing scans ties (`npc-relationships.md` rules 4, 9). Revenge and help among NPCs are this tick's choices, weighted by ties, inside the violent-death budget (Open Questions 4; NPC Relationships rule 14a).
 
 ### The season order
 
@@ -69,7 +69,7 @@ This GDD describes a system that is **partly built**. The people step, intake, t
 | S6 | **Travel & Map season update**: reserves, secret-realm cycles, fading works, ownership, contract records, regional head counts | Travel & Map | sect holdings | places, regions | To build |
 | S7 | **Regional Economy tick** (with Trade Goods): flows, prices, stock, market restock | Regional Economy & Trade | contract, `W_dead`, sects | prices, sect income | To build |
 | S8 | **NPC events**: fixed cast, people the player knows, a keyed sample | Event Engine (rule 19) | everything above | people, events | To build |
-| S8b | **NPC Relationships** (reserved): ties form, change, fade | NPC Relationships (#46) | events, people | ties | Reserved |
+| S8b | **NPC Relationships**: queued ties form, change, harden, pass to heirs, end | NPC Relationships (#46) | events, deaths, people | ties | Designed (2026-11-20), to build |
 | S9 | **NPC Traits season steps**: grants, expiries, modifier rows | NPC Traits | events' grants | traits, sheets | To build |
 | S10 | **Start the next rating batch**; check the player's lifespan; hand news (or the digest, rule 17) to the session | Power Rankings; Session | — | batch plan | Built (digest: To build) |
 | S11 | **Yearly upkeep** (Spring only): compact the dead, prune old non-news events | This GDD | log, people | stubs | To build |
@@ -108,7 +108,7 @@ A person's life state, owned by World DB, changes here only as **Alive → Dead*
 | **World Generation & History** (#27) | in | the fixed cast and their authored `fates` | World Generation |
 | **Spiritual Roots** | in | the root curve factor (Formulas H) | Spiritual Roots |
 | **Spirit Beasts** (#19) | in / out | in: beast targets per region; out: new wild beasts | Spirit Beasts (targets); this GDD (the refill) |
-| **NPC Relationships** (#46) | out / in | the reserved S8b step | NPC Relationships |
+| **NPC Relationships** (#46) | out / in | out: the S8b step, the season's deaths, rescues and betrayals; in: ties as weights for help and revenge | NPC Relationships |
 | **Save / Load** | out | stubs and a pruned log | Save / Load |
 
 ## Formulas
@@ -312,7 +312,7 @@ A bulk run of *n* seasons (rule 18) costs `n · T_tick`; a century (400 seasons)
 | World Generation & History (#27) | the fixed cast's authored `fates` (rule 15) | Soft | Designed | New field for World Gen's cast table |
 | Spiritual Roots (linh-can.md) | root curve factor for Formulas H | Hard | Designed | Read only |
 | Spirit Beasts (#19) | wild beast targets per region (Formulas I) | Soft | Built (beasts only), no GDD | Targets provisional |
-| NPC Relationships (#46) | S8b | Soft | Not designed | Reserved slot |
+| NPC Relationships (#46) | S8b | Soft | Designed 2026-11-20 | `npc-relationships.md` lists this GDD back |
 | Save / Load | stubs and pruned events (rule 19) | Hard | Built | The save must load a stub |
 | Character Stats | `injury_recovery_frac_per_season` (rule 4) | Hard | Designed | The player's rule, applied to NPCs |
 
@@ -408,7 +408,7 @@ A season must pass without a visible stall: the main thread finishes the tick wi
 1. **Intake and loose cultivators.** With the fixed 0.9 sect share retired (decision 2026-11-15), sects' demand (hundreds) far exceeds the supply (about 10 a season), so almost no new cultivator is loose; loose people then come only from desertion and collapse. Is that wanted, or should a share stay loose? Also: Sects rule 19 sets rank by realm, so `intake_rank_shares` (elder 0.06, inner 0.30) retire; canh-gioi.md rule 12 and the progression config need that edit. Owner: user, Sects. Resolve at the Sects tick build.
 2. **The tick budget.** The 60–90 ms in canh-gioi.md is the built people step alone; callee ceilings add about 48 ms plus events (no budget stated). The provisional 150 ms mean / 250 ms p99 is a guess. Measure in the Balance Harness once S5–S9 exist; owner: performance-analyst, technical-director. Related: ADR on world scale and simulation budget (architecture.md, ADR 6).
 3. **Realm shares at steady state.** Intake adds only Qi Refining and `bt_fate` bounds breakthroughs; does the stationary distribution match Realms' solved counts (3936 / 844 / 191 / 27 / 3)? Quests OQ 9 asks the same. Measure with `tools/balance/world_census.gd` over 400 seasons.
-4. **NPC duel budget** (Combat OQ 11). One rare duel a season with chance 0.6 and no death is a placeholder. When wars, feuds and NPC deaths by violence exist (Sects F9, Event Engine), set a budget of violent deaths a season so Realms' headcounts hold. Owner: world-builder, Combat.
+4. **NPC duel budget** (Combat OQ 11). One rare duel a season with chance 0.6 and no death is a placeholder. When wars, feuds and NPC deaths by violence exist (Sects F9, Event Engine), set a budget of violent deaths a season so Realms' headcounts hold. NPC Relationships rule 14a also relies on it to damp blood-feud revenge (2026-11-20). Owner: world-builder, Combat.
 5. **NPC acquisition** (Power Rankings OQ 5). The tick gives NPCs no techniques or items; does a season ever raise an NPC's build beyond stage and realm? Defer to NPC Builds (#24).
 6. **Wound and injury.** The duel does not injure or kill in the Vertical Slice; whether duels may kill, and what happens to the dead person's estate then, waits on Event Engine's death events.
 7. **Fast-forward for long seclusion.** A century at about 150 ms a season is a minute of waiting. If that is too slow, a lighter bulk mode could run S6–S7 (map, economy) once a year instead of each season during a bulk command. Decide after measuring (Open Questions 2). Owner: performance-analyst, user.

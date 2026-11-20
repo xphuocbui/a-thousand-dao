@@ -2,7 +2,7 @@
 
 > **Status**: In Design (started 2026-11-14 from the seed written for the Sects GDD)
 > **Author**: user + Claude
-> **Last Updated**: 2026-11-14
+> **Last Updated**: 2026-11-20 (rule 16 and F3 `tie` amended by NPC Relationships #46; Dependencies rows; OQ 8)
 > **Last Verified**: 2026-11-14
 > **Implements Pillar**: A fixed world with a written history; Living world tick; Power is built, not given
 
@@ -119,6 +119,10 @@ the LLM game master only reads traits to voice people.
     sets: shared traits add, opposed traits subtract, the regard pulls adjust, plus any authored tie (master, disciples,
     sect head) and the person's own stored attitude to the player when the other is the player (Formulas). No opinion is
     stored for a pair of NPCs, so the save does not grow with the number of relationships.
+    **Amended 2026-11-20 by NPC Relationships (#46):** named ties (kin, sư đồ, kết nghĩa, đạo lữ, friend, enmity…) are
+    the one stored exception: a small capped set of records per person (`npc-relationships.md` rules 1–7, Formula E),
+    which F3's `tie` term reads. Opinion itself is still never stored, and reading it never writes a tie (AC-NT-21
+    holds).
     The stored **attitude to the player** stays as built (Quests, Formulas E), and traits set its starting value when the
     player first meets someone.
 
@@ -195,6 +199,7 @@ Nothing else runs per season: opinion and choice weights are computed when read.
 | **Realms & Bottlenecks** (#8) | in | The heart-demon crisis that offers rule 15's swap |
 | **World Database** (#3) | in / out | Per person: ≤ 8 trait ids, ≤ 2 expiry seasons, ≤ 2 target ids; the player also `heart_demon_used` |
 | **Save/Load** (#5) | out | Per person: ≤ 8 trait ids, ≤ 2 expiry seasons, ≤ 2 target ids; the player also `heart_demon_used` |
+| **NPC Relationships** (#46) | in / out | In: the recorded tie value for F3 (its Formula A). Out: opinion, which weights help, revenge and the sworn-sibling help chance |
 
 ### Trait list
 
@@ -271,7 +276,7 @@ The opinion formula is defined as:
 | s, o | int | 10; 10 | data file | Equal, so the world's mean opinion stays near 0 |
 | bias_all | int | Humble +5; Arrogant −5; Renowned +5 | catalogue (same numbers as Sects F15) | Held by b; everyone's view |
 | bias_dir | int | Devout −10 to the opposite alignment; Cruel −10 to rivals | catalogue | Held by a, toward b |
-| tie | int | master or disciple +30; kin +30; Dao companion +50; own sect head +15 | data file | Authored and recorded ties |
+| tie | int | master or disciple +30; kin +30; Dao companion +50; own sect head +15 | data file | Authored and recorded ties. Since 2026-11-20 the recorded part is NPC Relationships Formula A (`tie_value`, −70 to 80: these values plus kết nghĩa, companion, blood feud and soft ties at their strength); own sect head +15 stays here, computed from the sect |
 | sect | int | same sect +10; else 0.2 · A_sect (−20 – 20) between NPCs; toward the player only +10 for the same sect, else 0 (standing already counts through k_st) | Sects F7 | Sect colouring |
 | target | int | ±50 | catalogue | A targeted gained trait toward its target (Lovestruck +50, grudge −50) |
 | standing | float | −100 – 100 | Sects F10 | The player's standing with the NPC's sect |
@@ -450,6 +455,7 @@ Cruel is held. Compassionate swaps to Callous or Cruel by a seeded pick (key ("s
 | World Generation & History (#27) | Soft | Authored people's traits, ties, parents and masters | — (no GDD) |
 | Realms & Bottlenecks (#8) | Soft | The heart-demon crisis that offers rule 15's swap | Yes (canh-gioi.md, added 2026-11-14) |
 | Sects & Missions (#26) | Soft | Sect leans for the roll (F4); standing for att0 (F3); sect attitude (F3) | Yes (F15, rule 11) |
+| NPC Relationships (#46) | Soft | The recorded part of F3's `tie` term (its Formula A); without it `tie` is 0 except the sect head | Yes (npc-relationships.md, 2026-11-20) |
 
 **Downstream (they read this system)**
 
@@ -462,6 +468,7 @@ Cruel is held. Compassionate swaps to Callous or Cruel by a seeded pick (key ("s
 | Quests (#31) | Soft | att0 at first meeting; gained traits from outcomes | Yes (quests.md, added 2026-11-14) |
 | LLM Game Master (#29) | Soft | Names and descriptions; proposals validated | — (no GDD) |
 | Save/Load (#5) | Hard | ≤ 8 ids, ≤ 2 expiries and ≤ 2 targets per person | — (no GDD) |
+| NPC Relationships (#46) | Hard | F3 opinion for help and revenge weights and `p_help`; rule 16 (amended) | Yes |
 
 **Links:** Modifier System, Character Stats, Realms & Bottlenecks, Quests and Sects & Missions all list NPC Traits back.
 Every other row marked "no GDD" is fixed when that system is designed.
@@ -637,3 +644,4 @@ gained trait.
 | 5 | The world grant rate λ (about 25 a season) depends on event volume, unknown until the Event Engine is designed | systems-designer | AC-NT-36 |
 | 6 | A minimum-spec PC and frame budget for AC-NT-33 (`project.yaml` has none) | technical-director | AC-NT-33 |
 | 7 | Whether opinion s and o should differ (o > s makes the world quarrelsome) | user | F3 |
+| 8 | Grudge (targeted gained trait, `target` −50) against an NPC Relationships enmity tie toward the same person: no-stack for now (F3 takes the more negative), or retire Grudge in favour of the tie (`npc-relationships.md` OQ 2) | user | F3 |

@@ -1702,6 +1702,7 @@ formulas:
     source: design/gdd/npc-traits.md
     referenced_by:
       - design/gdd/npc-traits.md
+      - design/gdd/npc-relationships.md
     variables:
       - n_sh
       - n_op
@@ -2332,6 +2333,76 @@ formulas:
     expression: "raw_i = root_i * max(q_i, 0.1); s_i = clamp((raw_i / mean_raw)^gamma, m_lo, m_hi); m_i = s_i / mean(s); means recomputed each Spring"
     notes: "Living World Tick Formulas H (user decision 2026-11-15: light talent and place modifiers on NPC stage speed). gamma 0.5, clamp 0.5-2.0 are guesses. Normalising keeps Realms' average climb by construction."
     added: 2026-11-15
+    revised: ""
+  - name: tie_value
+    status: active
+    source: design/gdd/npc-relationships.md
+    referenced_by:
+      - design/gdd/npc-relationships.md
+      - design/gdd/npc-traits.md
+    variables:
+      - P
+      - pin
+      - feud
+      - soft
+      - str_now
+    output_range: "-70 to 80"
+    expression: "tie(a,b) = max(0, max_{k in P} pin(k, a->b)) + feud(a->b) + soft(k_s, a->b) * str_now / 100"
+    notes: "NPC Relationships Formula A. Defines the tie term of NPC Traits F3 (trait_opinion); amends NPC Traits rule 16 (ties are the one stored exception). Grudge target and enmity do not stack: F3 takes the more negative (provisional, NR OQ 2)."
+    added: 2026-11-20
+    revised: ""
+  - name: tie_soft_strength
+    status: active
+    source: design/gdd/npc-relationships.md
+    referenced_by:
+      - design/gdd/npc-relationships.md
+    variables:
+      - str
+      - fade
+      - season_now
+      - last_season
+      - delta
+    output_range: "0 - 100"
+    expression: "str_now = max(0, str - floor(fade(k_s) * max(0, season_now - last_season))); on change str = clamp(str_now + delta, 0, 100), last_season = season_now"
+    notes: "NPC Relationships Formulas B, C. Lazy: computed on read, never written by a read (keeps NPC Traits AC-NT-21). fade friend 1.0, rival 1.0, enmity 0.5, an tinh 0.25 per season (guesses)."
+    added: 2026-11-20
+    revised: ""
+  - name: tie_bound
+    status: active
+    source: design/gdd/npc-relationships.md
+    referenced_by:
+      - design/gdd/npc-relationships.md
+    variables:
+      - N_ord
+      - N_not
+      - cap_ordinary
+      - cap_notable
+      - overflow_pinned
+    output_range: "<= 20,000 records at 5,000 cultivators (target)"
+    expression: "records <= (N_ord*cap_ordinary + N_not*cap_notable)/2 + overflow_pinned"
+    notes: "NPC Relationships Formula E. (4,250*6 + 750*16)/2 = 18,750 plus pinned overflow; about 16 bytes a record raw. Save / Load budget."
+    added: 2026-11-20
+    revised: ""
+  - name: tie_hooks
+    status: active
+    source: design/gdd/npc-relationships.md
+    referenced_by:
+      - design/gdd/npc-relationships.md
+      - design/gdd/character-stats.md
+      - design/gdd/combat.md
+      - design/gdd/quests.md
+    variables:
+      - master_cult_pct
+      - daolu_cult_pct
+      - help_min
+      - help_max
+      - help_cost
+      - errand_cost_mult
+      - stip_r
+    output_range: ["cultivation_speed_pct +0 / +5 / +8 / +13 from ties", "p_help 0-1", "errand_cost 3-2,500 linh thach"]
+    expression: "disciple: cultivation_speed_pct += master_cult_pct (master alive, higher realm); dao lu: += daolu_cult_pct each (same place at season close); p_help = clamp((op - help_min)/(100 - help_min), 0, 1); answered call: friend -help_cost or an tinh owed +help_cost; errand_cost = stip_r(disciple realm) * errand_cost_mult"
+    notes: "NPC Relationships Formula F, rule 15a (user decision 2026-11-20: one build hook per pinned kind). Rows have modifier source `tie`. help_cost and errand_cost from CD-GDD-ALIGN 2026-11-20 (Pillar 4). stip_r = Sects stipend anchors 3/20/50/325/2,500."
+    added: 2026-11-20
     revised: ""
 constants:
   - name: root_count_weights
@@ -5431,4 +5502,82 @@ constants:
     unit: ms per season tick on the main thread at 5,000 cultivators
     notes: "GUESS, not measured (Living World Tick OQ 2). The built 60-90 ms is the people step alone; callee ceilings add about 48 ms."
     added: 2026-11-15
+    revised: ""
+  - name: tie_pinned_weights
+    status: active
+    source: design/gdd/npc-relationships.md
+    referenced_by:
+      - design/gdd/npc-relationships.md
+      - design/gdd/npc-traits.md
+    value: "kin +30 / su do +30 / ket nghia +40 / dao lu +50 / companion +20 / blood feud -60 (holder)"
+    unit: opinion
+    notes: "NPC Relationships Formula A pin and feud. kin, su do and dao lu are NPC Traits F3's tie values, unchanged; the rest are guesses. Positive pinned kinds do not add up (max)."
+    added: 2026-11-20
+    revised: ""
+  - name: tie_soft_weights
+    status: active
+    source: design/gdd/npc-relationships.md
+    referenced_by:
+      - design/gdd/npc-relationships.md
+    value: "friend +25 / rival -10 / an tinh +30 debtor, +10 creditor / enmity -50 holder"
+    unit: opinion at full strength
+    notes: "NPC Relationships Formula A soft. Guesses. Enmity -50 equals the Grudge trait target term (NPC Traits F3)."
+    added: 2026-11-20
+    revised: ""
+  - name: tie_caps
+    status: active
+    source: design/gdd/npc-relationships.md
+    referenced_by:
+      - design/gdd/npc-relationships.md
+      - design/gdd/npc-interaction-dialogue.md
+    value: "cap_ordinary 6 / cap_notable 16 (player 16)"
+    unit: tie records per person, pinned inside the cap
+    notes: "User decision 2026-11-20. Pinned ties may overflow the cap; soft ties are evicted weakest first."
+    added: 2026-11-20
+    revised: ""
+  - name: tie_cultivation_bonus
+    status: active
+    source: design/gdd/npc-relationships.md
+    referenced_by:
+      - design/gdd/npc-relationships.md
+      - design/gdd/character-stats.md
+    value: "master_cult_pct +5 / daolu_cult_pct +8"
+    unit: cultivation_speed_pct
+    notes: "NPC Relationships Formula F. Guesses, scaled against generating pairs +3 each (0-15 a root). CD-GDD-ALIGN 2026-11-20: flat rows accepted (the bond is the built asset)."
+    added: 2026-11-20
+    revised: ""
+  - name: help_call
+    status: active
+    source: design/gdd/npc-relationships.md
+    referenced_by:
+      - design/gdd/npc-relationships.md
+      - design/gdd/combat.md
+      - design/gdd/event-engine.md
+    value: "help_min 30 / help_max 1 / help_cost 40"
+    unit: opinion; sworn siblings joining one fight; friend strength spent
+    notes: "NPC Relationships Formula F. Guesses. help_max bounds Combat rule 19's uncapped companion sources; help_cost answers CD-GDD-ALIGN Pillar 4 (2026-11-20)."
+    added: 2026-11-20
+    revised: ""
+  - name: errand_cost_mult
+    status: active
+    source: design/gdd/npc-relationships.md
+    referenced_by:
+      - design/gdd/npc-relationships.md
+      - design/gdd/quests.md
+      - design/gdd/sects.md
+    value: 1.0
+    unit: seasons of the disciple's realm stipend per errand (linh thach)
+    notes: "NPC Relationships Formula F. A stone sink (CD-GDD-ALIGN Pillar 4, 2026-11-20). errands_per_season 1 per disciple. Guess."
+    added: 2026-11-20
+    revised: ""
+  - name: feud_inheritance
+    status: active
+    source: design/gdd/npc-relationships.md
+    referenced_by:
+      - design/gdd/npc-relationships.md
+      - design/gdd/living-world-tick.md
+    value: "feud_threshold 90 / inherit_feud_max 3 / inherit_enmity 50 / inherit_debt 0.5"
+    unit: strength; heirs; strength; share
+    notes: "NPC Relationships Formula D, rule 13. Guesses. Inherited blood feuds pass on only as soft enmity; vendettas damped by the tick's violent-death budget (Living World Tick OQ 4)."
+    added: 2026-11-20
     revised: ""
