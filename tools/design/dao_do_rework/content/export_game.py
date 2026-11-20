@@ -53,11 +53,12 @@ FIVE = ["moc", "hoa", "tho", "kim", "thuy"]
 START_OF = {"Chaos start (Hỗn Độn)": "hon_don", "Fire start": "hoa", "Earth start": "tho", "Metal start": "kim",
             "Water start": "thuy", "Ice start (Băng)": "bang", "Wood start": "moc", "Wind start (Phong)": "phong",
             "Light start (Quang)": "quang", "Thunder start (Lôi)": "loi", "Darkness start (Ám)": "am"}
-# Đạo Đồ rule 1 region table and Formulas H (v5 frozen map, measured 2026-11-19)
+# Đạo Đồ rule 1 region table and Formulas H (v5 map measured 2026-11-19, with the layout of 2026-11-20: the frozen
+# map's 8,057 nodes less the 6 small Moon-lotus marks the layout removed)
 GDD_AREAS = {"el:moc": 1073, "el:kim": 986, "el:hoa": 971, "el:tho": 964, "el:thuy": 956, "border": 119, "hub": 12,
-             "chaos": 774, "var:quang": 513, "var:am": 489, "var:loi": 438}
-GDD_TOTALS = {"nodes": 8057, "start": 11, "road": 751, "small": 5493, "notable": 1759, "keystone": 43, "gate": 817,
-              "visible": 7295}
+             "chaos": 774, "var:quang": 513, "var:am": 483, "var:loi": 438}
+GDD_TOTALS = {"nodes": 8051, "start": 11, "road": 751, "small": 5487, "notable": 1759, "keystone": 43, "gate": 817,
+              "visible": 7289}
 CONTENT_AREA_ISLAND = {"light": "quang", "thunder": "loi", "darkness": "am"}
 
 
@@ -273,20 +274,13 @@ def checks(head, nodes, edges, m, content, hashes, content_area):
     kinds = collections.Counter(n["kind"] for n in nodes)
     got = {"nodes": len(nodes), **{k: kinds[k] for k in ("start", "road", "small", "notable", "keystone")},
            "gate": sum(1 for n in nodes if n.get("gate")), "visible": len(marks)}
-    # the GDD counts the frozen map; the layout's removed nodes are taken off what the GDD says, and said so
-    less = collections.Counter({"nodes": len(removed)})
-    for n in removed:
-        less["road" if n["kind"] == "travel" else n["kind"]] += 1
-        if n["kind"] in ("small", "notable", "keystone"):
-            less["visible"] += 1
-        if n.get("gate"):
-            less["gate"] += 1
+    # the GDD counts the map with the layout applied (its removed nodes already taken off)
     if removed:
-        notes.append(f"layout removed {len(removed)} nodes ({', '.join(str(n['id']) for n in removed)}): counts are checked "
-                     f"against the GDD table minus these; the GDD table still counts the frozen map")
+        notes.append(f"layout removed {len(removed)} nodes ({', '.join(str(n['id']) for n in removed)}); "
+                     f"the GDD table counts the map without them")
     for k, v in GDD_TOTALS.items():
-        if got[k] != v - less[k]:
-            fails.append(f"{k}: {got[k]}, GDD {v} minus {less[k]} removed by the layout")
+        if got[k] != v:
+            fails.append(f"{k}: {got[k]}, GDD {v}")
     # areas, as the GDD counts them: keystones in their region (hub keystones in the hub), border pairs together
     by_region = collections.Counter()
     src = {n["id"]: n for n in m["nodes"]}
@@ -303,12 +297,7 @@ def checks(head, nodes, edges, m, content, hashes, content_area):
         elif a.startswith("border") or a == "var:phong":
             a = "border"
         by_region[a] += 1
-    area_less = collections.Counter()
-    for n in removed:
-        if n["kind"] in ("small", "notable"):
-            area_less[area(n, set(), content_area.get(str(n["id"]), ""))] += 1
     for a, v in GDD_AREAS.items():
-        v -= area_less[a]
         if by_region[a] != v:
             fails.append(f"area {a}: {by_region[a]} Dao marks, GDD {v}")
     for a in by_region:

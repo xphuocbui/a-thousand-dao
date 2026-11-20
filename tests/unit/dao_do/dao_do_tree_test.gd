@@ -27,9 +27,8 @@ func _c(elements: Dictionary, variants: Dictionary = {}, realm: int = 0) -> Char
 
 # --- Map (rule 1, Formulas H; AC-KMD-99) ----------------------------------------------------------------------------
 
-## The GDD's table counts the frozen v5 map (8,057 nodes, 5,493 small). The layout of 2026-11-20
-## (design/dao-do/layout/v5-layout-2026-11-20.json) removed 6 small Dao marks from the Moon lotus's two lines, so the
-## exported map has 6 fewer nodes, small marks and visible marks.
+## The layout of 2026-11-20 (design/dao-do/layout/v5-layout-2026-11-20.json) removed 6 small Dao marks from the Moon
+## lotus's two lines: the frozen map's 8,057 nodes less these 6 are the GDD's counts (rule 1 table, AC-KMD-99).
 const LAYOUT_REMOVED := [7613, 7614, 7617, 7618, 7621, 7622]
 
 
@@ -38,9 +37,9 @@ func test_the_v5_map_loads_with_the_gdd_counts_ac_kmd_99() -> void:
 	var kinds := {}
 	for n in t.nodes.values():
 		kinds[n.kind] = int(kinds.get(n.kind, 0)) + 1
-	assert_eq(t.nodes.size(), 8057 - 6, "8,057 nodes less the 6 the layout removed")
-	assert_eq(t.size(), 7295 - 6, "7,295 visible Dao marks less the 6 removed")
-	assert_eq(kinds, {"start": 11, "road": 751, "small": 5493 - 6, "notable": 1759, "keystone": 43}, "kinds")
+	assert_eq(t.nodes.size(), 8051, "8,051 nodes")
+	assert_eq(t.size(), 7289, "7,289 visible Dao marks")
+	assert_eq(kinds, {"start": 11, "road": 751, "small": 5487, "notable": 1759, "keystone": 43}, "kinds")
 	for id in LAYOUT_REMOVED:
 		assert_false(t.nodes.has(id), "node %d removed by the layout" % id)
 	assert_eq(t.nodes.values().filter(func(n): return bool(n.gated)).size(), 817, "817 gated nodes")
@@ -57,7 +56,7 @@ func test_every_node_is_reachable_from_every_start_with_the_gate_open() -> void:
 	var c := _c({"moc": 50, "hoa": 50, "tho": 50, "kim": 50, "thuy": 50}, {"hon_don": 50}, 4)
 	for key in t.starts:
 		c.tree_nodes = [int(t.starts[key])]
-		assert_eq(t.distances(c, game_data()).size(), 8057 - 6, "all reachable from the %s start" % key)
+		assert_eq(t.distances(c, game_data()).size(), 8051, "all reachable from the %s start" % key)
 
 
 func test_no_capability_or_keystone_lies_on_a_road() -> void:
@@ -237,7 +236,7 @@ func test_the_chaos_land_is_shut_to_an_ordinary_root_ac_kmd_102() -> void:
 	for n in t.nodes.values():
 		if bool(n.gated):
 			assert_false(t.accessible(c, int(n.id), gd), "#%d gated" % int(n.id))
-	assert_eq(t.distances(c, gd).size(), 7240 - 6, "all 7,240 other nodes, less the 6 the layout removed, reachable from the Fire start")
+	assert_eq(t.distances(c, gd).size(), 7234, "all 7,234 other nodes reachable from the Fire start")
 	assert_eq(t.path_to(c, gd, EMBER_HEART), [], "no route to a gated node")
 	assert_false(t.frontier(c, gd).any(func(id): return bool(t.node(id).gated)), "no gated node on the frontier")
 

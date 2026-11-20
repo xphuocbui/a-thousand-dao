@@ -8,8 +8,8 @@
 > still describe the old generated map and say so. Earlier history: `reviews/dao-do-review-log.md`.
 > **The map is a shape placeholder** (user, 2026-11-10): the drawn tree's layout, regions, sizes and distances stand in
 > for the real map and will change further, as will its content. The rules here (points, opening, purity scaling,
-> roads granting purity, capabilities, starts, the drawing checks) are the design; the measured numbers (7,295
-> Dao marks on the v5 frozen map, region sizes, distances in Formulas B and H) describe today's placeholder and are re-measured whenever the
+> roads granting purity, capabilities, starts, the drawing checks) are the design; the measured numbers (7,289
+> Dao marks on the v5 map after the layout of 2026-11-20, region sizes, distances in Formulas B and H) describe today's placeholder and are re-measured whenever the
 > map changes.
 > **Renamed 2026-11-18** (user): formerly Meridian Map (Kinh Mạch Đồ), file `kinh-mach-do.md`. Terms renamed with it:
 > acupoint (huyệt) → Dao mark (đạo văn); meridian road (kinh lộ) → Dao path (đạo lộ); junction acupoint (hội huyệt) →
@@ -105,11 +105,14 @@ are named parameters; their values and ranges are in Formulas.
      | The Taiji hub | The centre: the Primordial Chaos start and its 30 Source roads, each granting `road_purity` to all five elements; exact (rule 4); the yang and yin keystones in the swirl's gaps, 9 and 10 points out (added 2026-11-19) | 12 |
      | The Chaos land | The purple swirl round the hub and its element motifs reaching into each land, plus six element pieces reachable only through it (two Fire ribbons, four small Earth and Water clusters); gated (rule 3), scales by Chaos purity (rule 4). With the hub it is the 815 nodes tagged `gate: chaos` | 774 |
      | The Wind and Ice starts | The Wind start sits on the Water–Wood border; the Ice start inside Water's land | counted in their regions |
-     | Islands | Light, Darkness and Thunder outside the outer ring, joined by bridges (Thunder only to the Wind border); the Shadow Shrine (Ám Từ), a satellite on the shadow road (kept, user decision 2026-11-10); 4 keystones in all | Light 513, Darkness 489 (with the Shrine), Thunder 438 (1,440) |
+     | Islands | Light, Darkness and Thunder outside the outer ring, joined by bridges (Thunder only to the Wind border); the Shadow Shrine (Ám Từ), a satellite on the shadow road (kept, user decision 2026-11-10); 4 keystones in all | Light 513, Darkness 483 (with the Shrine), Thunder 438 (1,434) |
 
-   - **Pieces:** 11 starts, 751 road (travel) nodes, 5,493 small Dao marks, 1,759 notables and 43 keystones, in
-     906 clusters: 7,295 visible Dao marks (8,057 nodes; nineteen keystones added on 2026-11-19, nine near the starts
-     and a mid-land pair in each land, nothing else moved).
+   - **Pieces:** 11 starts, 751 road (travel) nodes, 5,487 small Dao marks, 1,759 notables and 43 keystones, in
+     906 clusters: 7,289 visible Dao marks (8,051 nodes; nineteen keystones added on 2026-11-19, nine near the starts
+     and a mid-land pair in each land). The layout of 2026-11-20 (`design/dao-do/layout/v5-layout-2026-11-20.json`,
+     applied at export over the frozen map) spread the islands and crowded pieces so no node icons overlap, and
+     removed 6 small Dao marks from the Moon lotus's two lines to the crescent (ids 7613, 7614, 7617, 7618, 7621, 7622;
+     never reused, rule 19).
    - **Grammar** (the authoring guide's rules): roads of travel nodes carry the clusters; a cluster joins a road at
      its nearest node; a notable comes after two or three small Dao marks (none only for hubs); a road node carries
      two or three clusters, one of them big toward the rim; every road that passes a cluster leaves a way around it;
@@ -415,7 +418,7 @@ The value_scale formula is defined as:
 | `road_purity` | float | 0.5 (guess) | data file | Purity an element-land road node grants (rule 4); a border-line road node grants half of each neighbour's |
 | `purity_price` | float | 0.3 W per purity point (guess) | data file | What one point of purity is worth, through the Dao mark multiplier and element stacks (Spiritual Roots rule 8a) |
 | R0 | float | 0.15 W | calculated | Value of an element-land road node |
-| n_road, n_sm, n_not | int | 751, 5,493, 1,759 | measured (v5 frozen map, 2026-11-19) | Road nodes, small Dao marks and notables (no starts, no keystones) |
+| n_road, n_sm, n_not | int | 751, 5,487, 1,759 | measured (v5 map with the layout of 2026-11-20) | Road nodes, small Dao marks and notables (no starts, no keystones) |
 | w̄_map | float | 2.60 W | calculated | Mean W per Dao mark over the visible map; a data lint (AC-KMD-06), not a power target. The filled content measures 2.58 W, since capability notables carry less (Formulas E) |
 | Keystone | float | ≥ 50 W | data file | A keystone's positive side; its rule and closing cost are its `effects.md` record |
 
@@ -427,7 +430,7 @@ power is set by the route it walks, not the map's mix: the route share of road n
 is re-measured by the bot on the drawn map (AC-KMD-07; the generated map's figure was 95–116 W at Qi Refining's
 end). Hub roads grant `road_purity` to each of the five elements (rule 4).
 
-**Example:** (751 × 0.15 + 5,493 × 1.2 + 1,759 × 8) / 8,003 = (113 + 6,592 + 14,072) / 8,003 = **2.596 W**. A typical
+**Example:** (751 × 0.15 + 5,487 × 1.2 + 1,759 × 8) / 7,997 = (113 + 6,584 + 14,072) / 7,997 = **2.597 W**. A typical
 small Dao mark is +1.2% attack (or +0.5% cultivation speed); a notable +8% attack; a Fire road node +0.5 Fire purity.
 
 ### B. Distances from the starts
@@ -683,16 +686,16 @@ Retired with the hidden clusters (rule 14).
 The map's size is what was drawn cell by cell; the v5 frozen map (2026-11-19) is the shipped map. It replaced the
 lean build of 2026-11-10 (7,115 Dao marks, blend zones, 40 keystones).
 
-| Region | Visible Dao marks (v5 frozen map, 2026-11-19) |
+| Region | Visible Dao marks (v5 map, 2026-11-19, with the layout of 2026-11-20) |
 |---|---|
 | Wood, Metal, Fire, Earth, Water | 1,073, 986, 971, 964, 956 |
 | Border lines (five, with the Wind start's figure) | 119 |
-| Light, Darkness, Thunder islands (Darkness with the Shadow Shrine) | 513, 489, 438 |
+| Light, Darkness, Thunder islands (Darkness with the Shadow Shrine) | 513, 483, 438 |
 | Chaos land (gated, rule 3) | 774 |
 | Taiji hub | 12 |
-| **All** | **7,295** (11 starts, 751 road nodes, 5,493 small, 1,759 notables, 43 keystones; 906 clusters; 8,057 nodes) |
+| **All** | **7,289** (11 starts, 751 road nodes, 5,487 small, 1,759 notables, 43 keystones; 906 clusters; 8,051 nodes) |
 
-**Output Range:** 7,295 at launch; the expansion only appends (rule 19).
+**Output Range:** 7,289 at launch; the expansion only appends (rule 19).
 
 ### H2–H4, topology generator. Retired
 
@@ -711,7 +714,7 @@ fill keys, `variant_sector_size` and the H2–H4 keys.
 ### Computational budget
 
 - **Player:** opening a Dao mark and recomputing the sheet is a few hundred modifier lines; the path tool is one
-  breadth-first search over 7,295 Dao marks, well under a frame.
+  breadth-first search over 7,289 Dao marks, well under a frame.
 - **NPCs (user decision 2026-11-10: live greedy, optimized).** The allocator keeps a frontier of reachable Dao marks
   with cached scores (rule 5's kind score × focus × purity multiplier, plus its small random term drawn once per
   Dao mark); opening a Dao mark adds only its new neighbours to the frontier, so each point is one pop from a heap.
@@ -1029,8 +1032,8 @@ Drafted with qa-lead.
       and Earth by 0.25 each; a hub road node raises each of the five elements by 0.5.
     - A root without Metal that opens 2 Metal road nodes gains Metal purity 1.0 for its stacks, and no base element.
     - Fire purity 99.5 plus one Fire road node is 100.0, and one more is 100.5 (no cap).
-- **AC-KMD-99** [Config/Data] Map size and distances (Formulas B, H). The shipped map has 7,295 visible Dao marks
-  (v5 frozen map, ±2 % after later changes), 11 starts and 43 keystones, and no hidden cluster. From every start the first
+- **AC-KMD-99** [Config/Data] Map size and distances (Formulas B, H). The shipped map has 7,289 visible Dao marks
+  (v5 map with the layout of 2026-11-20, ±2 % after later changes), 11 starts and 43 keystones, and no hidden cluster. From every start the first
   notable is within 5 points, the nearest keystone within 6–13 points and the farthest Dao mark within 110 points
   (`start_targets`); a start outside a target
   is reported.

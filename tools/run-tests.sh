@@ -18,9 +18,10 @@ echo "== unit tests =="
 # an error stops at an interactive "Debugger Break" prompt forever. Port 0 is deliberate:
 # it is invalid, so Godot never connects (two harmless "remote port" errors are printed),
 # and it can never attach to an open editor's debugger (6007) and pause there.
-# The timeout turns any other crashed-but-idle Godot into a failure.
+# The timeout turns any other crashed-but-idle Godot into a failure. 2400 s: the world suites grew past 900 s
+# (2026-11-20, 534 cases); a timeout prints no summary, so a FAILED with no failing test is the limit, not a test.
 target="${1:-res://tests/unit}"
-timeout 900 "$GODOT_CONSOLE" --headless --path . -s -d --remote-debug tcp://127.0.0.1:0 \
+timeout 2400 "$GODOT_CONSOLE" --headless --path . -s -d --remote-debug tcp://127.0.0.1:0 \
   res://addons/gdUnit4/bin/GdUnitCmdTool.gd -a "$target" --ignoreHeadlessMode 2>&1 \
   | sed 's/\x1b\[[0-9;]*m//g' | grep -vE "remote port number must be|Remote Debugger: Unable to connect" \
   | grep -E "FAILED|ERROR:|at '.*\.gd:|Overall Summary|Executed test cases|Exit code"

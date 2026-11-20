@@ -209,7 +209,10 @@ most 30 % of the tile, and every badge value is also in the tooltip.
   each icon's subject, real prompt and quality (everything after palette v2 is **low**, marked `"low": true`).
 - Display: icons at 85 % of the sizes below; the map's layout was spread on 2026-11-20 so no icons overlap
   (`design/dao-do/layout/`).
-- Open: brightness of style 2 and the notable tone; crafts vs fortune gold; F8 fight-icon repaint; engine wiring.
+- **Deferred to release** (user 2026-11-20: "mark that to do for the future when we release"): the brightness of
+  style 2 and of the notable tone; crafts reading close to fortune gold; the F8 fight-icon repaint; a per-icon pass
+  (redo the weak ones, medium quality where it shows); wiring `INDEX.json` into the Đạo Đồ screen once a graphical one
+  exists (the game has only the debug terminal today).
 
 **Decided by the user (2026-11-20):** the recommended set now, the full set later; **round** nodes, as on a PoE passive
 tree. The test batch (12 icons, 6 frames) is the look check before the full run.
