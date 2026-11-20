@@ -106,8 +106,9 @@ static func settle_weight(gd: GameData, db: WorldDB, place: Dictionary) -> float
 
 
 ## One season of the map's production (rules 21-22, 25): every site produces and its reserve moves; the contract per
-## region and territory is published on the region records ("production": {resource: units}, "population").
-static func season(gd: GameData, db: WorldDB) -> void:
+## region and territory is published on the region records ("production": {resource: units}, and with
+## [param count_people] the "population", counted once a year by the tick).
+static func season(gd: GameData, db: WorldDB, count_people: bool = true) -> void:
 	var cfg: Dictionary = _cfg(gd)
 	var by_region := {}
 	var by_territory := {}
@@ -131,13 +132,15 @@ static func season(gd: GameData, db: WorldDB) -> void:
 				by_territory[t] = {}
 			by_territory[t][str(p.site.resource)] = float(by_territory[t].get(str(p.site.resource), 0.0)) + out
 	var pop := {}
-	for person in db.all("people"):
-		if bool(person.get("alive", false)) and not bool(person.get("is_beast", false)):
-			var rid: String = str(db.get_record("places", str(person.get("location_id", ""))).get("region_id", ""))
-			pop[rid] = int(pop.get(rid, 0)) + 1
+	if count_people:
+		for person in db.all("people"):
+			if bool(person.get("alive", false)) and not bool(person.get("is_beast", false)):
+				var rid: String = str(db.get_record("places", str(person.get("location_id", ""))).get("region_id", ""))
+				pop[rid] = int(pop.get(rid, 0)) + 1
 	for r in db.all("regions"):
 		r["production"] = by_region.get(str(r.id), {})
-		r["population"] = int(pop.get(str(r.id), 0))
+		if count_people:
+			r["population"] = int(pop.get(str(r.id), 0))
 	var meta: Dictionary = db.get_record("world", "w_meta")
 	if not meta.is_empty():
 		meta["territory_production"] = by_territory

@@ -33,7 +33,7 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 	var stage_chance: float = 1.0 / maxf(float(cfg.npc_cultivation_seasons_per_stage), 1.0)
 	var cultivators: int = 0
 	if _db.has_record("world", "w_meta"):   # the continent's sites produce and their reserves move (Travel & Map rules 21-22, 25)
-		MapProduction.season(_gd, _db)
+		MapProduction.season(_gd, _db, season == 0)
 		news.append_array(MapChange.season(_db, year, season, str(_db.get_record("world", "w_meta").get("seed", ""))))
 	if season == 0:   # Lost items left untouched long enough decay (item-database.md rule 14)
 		for item in ItemRarity.decay_lost(_gd, _db, year):
