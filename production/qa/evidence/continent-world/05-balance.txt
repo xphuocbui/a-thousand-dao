@@ -14,7 +14,9 @@ continent, wild herb grounds + bot uses the map (9335baa, 0649d7a), 119 lives:  
   bot artifact found and fixed (bdb558e): lives looped 'gather' in a sealed secret realm until the turn cap
 continent, rare herb bands 20 (4b94ee4), 120 lives on 10 processes:                   66 / 52 / 22 / 0 of 9
   cause: Hỏa Thần Quả (Deity Transformation pill) had no herb ground; widened (a1237c1, 7 grounds)
-continent, a1237c1, 144 lives on 12 processes: (pending: added when the round finishes)
+continent, a1237c1, 144 lives on 12 processes:                                        65 / 49 / 15 / 0 of 7
+  the last gate still 0 of 7 with Hỏa Thần Quả on 7 grounds: the Deity Transformation pill (4 x 100-year Hỏa Thần Quả)
+  is out of reach for these lives; part of the rare-herb pill tuning left for later (user decision)
 
 Accepted for now (user, 2026-11-20, option 2): the middle gates stay below target (Foundation -> Core Formation and
 Core Formation -> Nascent Soul about 10-20 points short) until the user has reviewed the herb rules behind them
