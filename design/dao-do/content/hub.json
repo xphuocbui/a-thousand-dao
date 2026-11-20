@@ -58,10 +58,10 @@
 "name": "Five Talents (Ngũ Tài)",
 "mods": [
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 4,
-1.33
+0.8
 ],
 [
 "than_hon",
@@ -73,7 +73,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "dao_tam"
 },
 "683": {
 "piece": "base0",
@@ -557,7 +558,7 @@
 1.8
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -566,7 +567,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "8214": {
 "piece": "c79 swirl_arm_03",
@@ -1040,7 +1042,7 @@
 "name": "Gift of Chaos (Hỗn Độn Thiên Phú)",
 "mods": [
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -1055,7 +1057,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "8247": {
 "piece": "c79 swirl_arm_06",
@@ -1364,10 +1367,10 @@
 "name": "Newborn Heart (Xích Tử Tâm)",
 "mods": [
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 4,
-1.33
+0.8
 ],
 [
 "than_hon",
@@ -1379,7 +1382,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "dao_tam"
 },
 "8269": {
 "piece": "c79 swirl_arm_08",

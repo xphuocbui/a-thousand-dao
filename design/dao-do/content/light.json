@@ -247,7 +247,7 @@
 "name": "Golden Glow (Kim Huy)",
 "mods": [
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -262,7 +262,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "830": {
 "piece": "base8",
@@ -4574,7 +4575,7 @@
 "name": "Celestial Sphere (Thiên Cầu)",
 "mods": [
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -4589,7 +4590,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "6975": {
 "piece": "c931 tree_B_r",
@@ -5243,7 +5245,7 @@
 "name": "Celestial Sphere (Thiên Cầu)",
 "mods": [
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -5258,7 +5260,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "ngo_tinh"
 },
 "7021": {
 "piece": "c931 tree_B_l",
@@ -5779,7 +5782,7 @@
 "name": "Brother Square Hole (Khổng Phương Huynh)",
 "mods": [
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -5794,7 +5797,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "7058": {
 "piece": "c931 tree_CD_r",
@@ -6309,7 +6313,7 @@
 "name": "Brother Square Hole (Khổng Phương Huynh)",
 "mods": [
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -6324,7 +6328,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "khi_van"
 },
 "7095": {
 "piece": "c931 tree_CD_l",

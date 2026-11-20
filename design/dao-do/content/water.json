@@ -23,7 +23,7 @@
 "name": "Wellspring (Thủy Nguyên)",
 "mods": [
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -38,7 +38,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "741": {
 "piece": "base4",
@@ -320,7 +321,7 @@
 8.0
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -329,7 +330,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "760": {
 "piece": "base5",
@@ -614,7 +616,7 @@
 "name": "Water Seal (Thủy Ấn)",
 "mods": [
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -629,7 +631,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "1446": {
 "piece": "base14",
@@ -959,7 +962,7 @@
 "name": "Lotus Petal (Liên Biện)",
 "mods": [
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -974,7 +977,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "ngo_tinh"
 },
 "4799": {
 "piece": "c91 meniscus",
@@ -1154,7 +1158,7 @@
 6.6
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -1163,7 +1167,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "ngo_tinh"
 },
 "4811": {
 "piece": "c91 halo",
@@ -1317,7 +1322,7 @@
 6.6
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -1326,7 +1331,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "4821": {
 "piece": "c76 wave_crest",
@@ -1967,7 +1973,7 @@
 "name": "Lotus Petal (Liên Biện)",
 "mods": [
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -1982,7 +1988,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "4863": {
 "piece": "c86 meniscus",
@@ -2162,7 +2169,7 @@
 6.6
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -2171,7 +2178,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "4875": {
 "piece": "c86 halo",
@@ -3144,7 +3152,7 @@
 1.8
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -3153,7 +3161,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "ngo_tinh"
 },
 "4937": {
 "piece": "c11 pond",
@@ -3257,7 +3266,7 @@
 6.6
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -3266,7 +3275,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "4944": {
 "piece": "c11 pond",
@@ -3622,7 +3632,7 @@
 6.6
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -3631,7 +3641,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "4967": {
 "piece": "c11 Z11_1801",
@@ -3685,16 +3696,17 @@
 0.8
 ],
 [
-"tam_ma_resist_pct",
+"breakthrough_chance",
 "",
 4.0,
-2.6
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "tam_ma_resist_pct"
 },
 "4971": {
 "piece": "c11 axis_ripple_a",
@@ -3811,7 +3823,7 @@
 0.17
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -3820,7 +3832,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "4979": {
 "piece": "c17 koi_a",
@@ -3911,7 +3924,7 @@
 0.8
 ],
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -3920,7 +3933,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "4985": {
 "piece": "c17 koi_b",
@@ -4011,7 +4025,7 @@
 1.8
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -4020,7 +4034,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "4991": {
 "piece": "c17 meander",
@@ -4111,7 +4126,7 @@
 13.3
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -4126,7 +4141,8 @@
 ],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "4997": {
 "piece": "c17 meander",
@@ -4513,7 +4529,7 @@
 2.6
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -4522,7 +4538,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "5022": {
 "piece": "c17 axis_ripple_b",
@@ -4702,7 +4719,7 @@
 0.17
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -4711,7 +4728,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "ngo_tinh"
 },
 "5034": {
 "piece": "c59 ripple_outer",
@@ -4759,10 +4777,10 @@
 "name": "Settled Silt (Trầm Sa)",
 "mods": [
 [
-"tam_ma_resist_pct",
+"breakthrough_chance",
 "",
 4,
-2.6
+0.8
 ],
 [
 "ngo_tinh",
@@ -4774,7 +4792,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "tam_ma_resist_pct"
 },
 "5038": {
 "piece": "c59 ripple_outer",
@@ -4885,10 +4904,10 @@
 "name": "Yu's Gate (Vũ Môn)",
 "mods": [
 [
-"tam_ma_resist_pct",
+"breakthrough_chance",
 "",
 4.0,
-2.6
+0.8
 ],
 [
 "ngo_tinh",
@@ -4900,7 +4919,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "tam_ma_resist_pct"
 },
 "5046": {
 "piece": "c59 endless",
@@ -5280,7 +5300,7 @@
 0.17
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -5289,7 +5309,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "5070": {
 "piece": "c54 ripple_outer",
@@ -5337,10 +5358,10 @@
 "name": "Settled Silt (Trầm Sa)",
 "mods": [
 [
-"tam_ma_resist_pct",
+"breakthrough_chance",
 "",
 4,
-2.6
+0.8
 ],
 [
 "ngo_tinh",
@@ -5352,7 +5373,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "tam_ma_resist_pct"
 },
 "5074": {
 "piece": "c54 ripple_outer",
@@ -5463,10 +5485,10 @@
 "name": "Yu's Gate (Vũ Môn)",
 "mods": [
 [
-"tam_ma_resist_pct",
+"breakthrough_chance",
 "",
 4.0,
-2.6
+0.8
 ],
 [
 "ngo_tinh",
@@ -5478,7 +5500,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "tam_ma_resist_pct"
 },
 "5082": {
 "piece": "c54 meeting_ripples",
@@ -5487,7 +5510,7 @@
 "name": "Carp Scales (Lý Lân)",
 "mods": [
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -5502,7 +5525,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "5083": {
 "piece": "c54 meeting_ripples",
@@ -5732,7 +5756,7 @@
 1.8
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -5741,7 +5765,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "5098": {
 "piece": "c54 wave_scroll_m",
@@ -5782,7 +5807,7 @@
 1.8
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -5791,7 +5816,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "5101": {
 "piece": "c54 wave_scroll_m",
@@ -5889,7 +5915,7 @@
 "name": "Golden Scales (Kim Lân)",
 "mods": [
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -5904,7 +5930,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "5108": {
 "piece": "c103 teardrop",
@@ -7615,7 +7642,7 @@
 0.17
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -7624,7 +7651,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "5217": {
 "piece": "c38 falling_drop",
@@ -7922,7 +7950,7 @@
 "name": "Winter Pond (Hàn Đường)",
 "mods": [
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -7937,7 +7965,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "5236": {
 "piece": "c38 lotus_bud",
@@ -8480,7 +8509,7 @@
 6.0
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -8489,7 +8518,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "5270": {
 "piece": "c22 lotus_bud",
@@ -8817,7 +8847,7 @@
 2.6
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -8826,7 +8856,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "5290": {
 "piece": "c26 D_hook",
@@ -9256,7 +9287,7 @@
 8.0
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -9265,7 +9296,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "5317": {
 "piece": "c26 reflection",
@@ -9597,7 +9629,7 @@
 8.0
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -9606,7 +9638,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "5339": {
 "piece": "c32 moon",
@@ -9671,7 +9704,7 @@
 4.0
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -9680,7 +9713,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "5343": {
 "piece": "c32 reflection",
@@ -10793,7 +10827,7 @@
 150
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -10802,7 +10836,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "5412": {
 "piece": "c46 lotus_bloom",
@@ -11282,7 +11317,7 @@
 4.0
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -11291,7 +11326,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "5442": {
 "piece": "c45 Z45_1782",
@@ -11515,7 +11551,7 @@
 "name": "Water Eye (Thủy Nhãn)",
 "mods": [
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -11530,7 +11566,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "5457": {
 "piece": "c115 eye_lens_a",
@@ -11971,7 +12008,7 @@
 "name": "Pebble in the Pond (Đầu Thạch)",
 "mods": [
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -11986,7 +12023,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "ngo_tinh"
 },
 "5487": {
 "piece": "c5 C_crescent2",
@@ -12034,7 +12072,7 @@
 "name": "Pebble in the Pond (Đầu Thạch)",
 "mods": [
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -12049,7 +12087,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "5491": {
 "piece": "c5 ripple_hook",
@@ -12090,7 +12129,7 @@
 4.0
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -12099,7 +12138,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "ngo_tinh"
 },
 "5494": {
 "piece": "c5 ripple_hook",
@@ -12216,7 +12256,7 @@
 4.0
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -12225,7 +12265,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "5502": {
 "piece": "c5 ripple_hook_m",
@@ -12447,16 +12488,17 @@
 1.3
 ],
 [
-"tam_ma_resist_pct",
+"breakthrough_chance",
 "",
 4,
-2.6
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "tam_ma_resist_pct"
 },
 "5516": {
 "piece": "c904 lotus",
@@ -12717,7 +12759,7 @@
 "name": "Celestial Ring (Thiên Hoàn)",
 "mods": [
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -12732,7 +12774,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "ngo_tinh"
 },
 "5533": {
 "piece": "c904 armillary_L",
@@ -13056,7 +13099,7 @@
 "name": "Celestial Ring (Thiên Hoàn)",
 "mods": [
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -13071,7 +13114,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "5554": {
 "piece": "c904 armillary_R",

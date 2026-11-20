@@ -2501,10 +2501,10 @@
 "name": "Moon Veil (Nguyệt Sa)",
 "mods": [
 [
-"tam_ma_resist_pct",
+"breakthrough_chance",
 "",
 4,
-2.6
+0.8
 ],
 [
 "escape_pct",
@@ -2516,7 +2516,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "tam_ma_resist_pct"
 },
 "7343": {
 "piece": "c933 outer_swirl_600_l",
@@ -2590,10 +2591,10 @@
 "name": "Moon Veil (Nguyệt Sa)",
 "mods": [
 [
-"tam_ma_resist_pct",
+"breakthrough_chance",
 "",
 4,
-2.6
+0.8
 ],
 [
 "escape_pct",
@@ -2605,7 +2606,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "tam_ma_resist_pct"
 },
 "7349": {
 "piece": "c933 tip_swirl_r",
@@ -3649,16 +3651,17 @@
 6.0
 ],
 [
-"tam_ma_resist_pct",
+"breakthrough_chance",
 "",
 4,
-2.6
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "tam_ma_resist_pct"
 },
 "7419": {
 "piece": "c933 shrine_eclipse",
@@ -6059,16 +6062,17 @@
 2.6
 ],
 [
-"tam_ma_resist_pct",
+"breakthrough_chance",
 "",
 4,
-2.6
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "tam_ma_resist_pct"
 },
 "7571": {
 "piece": "c933 moon_lotus",

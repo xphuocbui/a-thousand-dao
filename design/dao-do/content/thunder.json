@@ -68,16 +68,17 @@
 150
 ],
 [
-"tam_ma_resist_pct",
+"breakthrough_chance",
 "",
 4,
-2.6
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "tam_ma_resist_pct"
 },
 "844": {
 "piece": "base9",
@@ -880,16 +881,17 @@
 6.6
 ],
 [
-"lifespan_pct",
+"breakthrough_chance",
 "",
 4,
-1.3
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "lifespan_pct"
 },
 "7812": {
 "piece": "c932 cloud_upper",
@@ -1789,7 +1791,7 @@
 16.6
 ],
 [
-"khi_van",
+"breakthrough_chance",
 "",
 3,
 0.6
@@ -1798,7 +1800,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "7876": {
 "piece": "c932 arc_cloud_582",
@@ -5308,16 +5311,17 @@
 6.6
 ],
 [
-"tam_ma_resist_pct",
+"breakthrough_chance",
 "",
 4.0,
-2.6
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "tam_ma_resist_pct"
 },
 "8101": {
 "piece": "c932 oai_inner_yang",
@@ -6371,10 +6375,10 @@
 "name": "Wind Tribulation (Phong Kiếp)",
 "mods": [
 [
-"tam_ma_resist_pct",
+"breakthrough_chance",
 "",
 4,
-2.6
+0.8
 ],
 [
 "khi_huyet_pct",
@@ -6386,7 +6390,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "tam_ma_resist_pct"
 },
 "8168": {
 "piece": "c932 oai_three_tribulations",

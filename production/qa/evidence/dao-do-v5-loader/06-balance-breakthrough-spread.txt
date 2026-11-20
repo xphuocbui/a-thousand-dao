@@ -1,0 +1,34 @@
+Balance round 2026-11-20: tree breakthrough spread (content-decisions #34).
+tools/balance/autoplay.gd, ratings off, 24 lives a run, map re-exported 09:25 with build.py breakthrough_spread.
+Targets with the edge: 70 / 71 / 33 / 23 % per gate.
+
+BEFORE (edge on, 24 lives): Luyện Khí→Trúc Cơ 63% · Trúc Cơ→Kết Đan 53% · Kết Đan→Nguyên Anh 0/8
+BEFORE (edge on, instrumented 12 lives): 83% · 70% · 0/7; Kết Đan attempts mean 3.0%, max 4.0%
+BEFORE (edge off, 24 lives): 25% · 50% · 1/3
+
+== AFTER ap_on4
+  per gate (crossed / arrived at a full bar): Luyện Khí→Trúc Cơ 16/24 = 67% · Trúc Cơ→Kết Đan 11/16 = 69% · Kết Đan→Nguyên Anh 2/11 = 18% · Nguyên Anh→Hóa Thần 1/2 = 50%
+  attempts at Luyện Khí: 81 in 24 lives, mean odds 23.1%, max 35.0%
+  attempts at Trúc Cơ: 53 in 16 lives, mean odds 20.2%, max 28.0%
+  attempts at Kết Đan: 85 in 11 lives, mean odds 4.0%, max 7.0%
+  attempts at Nguyên Anh: 16 in 2 lives, mean odds 3.4%, max 4.0%
+  all      n 24 | Trúc Cơ 16/24 at 57 | Kết Đan 11/24 at 144 | death 200 | max LT 4219
+== AFTER ap_on5
+  per gate (crossed / arrived at a full bar): Luyện Khí→Trúc Cơ 21/24 = 88% · Trúc Cơ→Kết Đan 16/21 = 76% · Kết Đan→Nguyên Anh 8/16 = 50% · Nguyên Anh→Hóa Thần 1/8 = 13%
+  attempts at Luyện Khí: 58 in 24 lives, mean odds 28.3%, max 47.0%
+  attempts at Trúc Cơ: 67 in 21 lives, mean odds 23.0%, max 40.0%
+  attempts at Kết Đan: 102 in 16 lives, mean odds 5.1%, max 10.0%
+  attempts at Nguyên Anh: 54 in 8 lives, mean odds 3.7%, max 7.0%
+  all      n 24 | Trúc Cơ 21/24 at 54 | Kết Đan 16/24 at 142 | death 500 | max LT 225201
+== AFTER ap_off4
+  per gate (crossed / arrived at a full bar): Luyện Khí→Trúc Cơ 9/24 = 38% · Trúc Cơ→Kết Đan 1/9 = 11% · Kết Đan→Nguyên Anh 0/1 = 0% · Nguyên Anh→Hóa Thần 0/0 = 0%
+  attempts at Luyện Khí: 83 in 24 lives, mean odds 5.6%, max 16.0%
+  attempts at Trúc Cơ: 22 in 9 lives, mean odds 11.0%, max 18.0%
+  attempts at Kết Đan: 5 in 1 lives, mean odds 2.6%, max 5.0%
+  all      n 24 | Trúc Cơ  9/24 at 73 | Kết Đan  1/24 at 137 | death 120 | max LT 250
+
+AFTER, edge on, both runs (48 lives): Luyện Khí→Trúc Cơ 37/48 = 77% · Trúc Cơ→Kết Đan 27/37 = 73% · Kết Đan→Nguyên Anh 10/27 = 37% · Nguyên Anh→Hóa Thần 2/10 = 20%
+
+NPC world unchanged by this change: ProgressionEdges.npc_step_chance reads the edge score, not the tree's
+breakthrough line, and NPC lifespan_bonus does not come from the tree. Census before it: Nguyên Anh 26-29, Hóa Thần 2-4
+over 1,500 years (target ~27 / ~3); NPC cohort all edges 70 / 67 / 29 / 17 %.

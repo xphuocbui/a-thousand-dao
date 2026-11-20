@@ -1253,16 +1253,17 @@
 1.33
 ],
 [
-"tam_ma_resist_pct",
+"breakthrough_chance",
 "",
 4,
-2.6
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "tam_ma_resist_pct"
 },
 "8385": {
 "piece": "c3 flames_2",

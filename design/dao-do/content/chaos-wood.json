@@ -194,7 +194,7 @@
 6.0
 ],
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -203,7 +203,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "8798": {
 "piece": "c1 vines_1",
@@ -1161,7 +1162,7 @@
 "name": "Leaf Bud (Diệp Nha)",
 "mods": [
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -1176,7 +1177,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "8861": {
 "piece": "c1 vines_2",

@@ -51,6 +51,8 @@ the 2.07 W target) stays one knob for the end (choice 3).
 5. `breakthrough_chance` only in ideas about breakthroughs or late life (Fire F4, Earth E10's line, Water W10, Thunder
    T1, Fire F9), at most one notable per such picture; the tree-wide sum is reported (it runs through the curve of
    Formulas F, so it is not clamped).
+   **Amended 2026-11-20 (content-decisions #34, user):** the build also turns one cultivation-life line per piece into
+   `breakthrough_chance` at the same W (`build.py breakthrough_spread`), so a late-gate build can gather it.
 6. Words that describe a rule (while, when, below X, spreads, area, stun, on kill) are never faked with plain stats:
    that part is an Effect (§4.6) or is dropped. There is no Stun status; slowing uses Slowed Time.
 

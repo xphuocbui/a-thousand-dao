@@ -397,7 +397,7 @@
 "name": "Kindled Wood (Nhiên Mộc)",
 "mods": [
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -412,7 +412,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "1460": {
 "piece": "base16",
@@ -503,16 +504,17 @@
 1.33
 ],
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 4,
-1.33
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "dao_tam"
 },
 "1466": {
 "piece": "base17",
@@ -597,10 +599,10 @@
 "name": "Ore Bed (Khoáng Sàng)",
 "mods": [
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 4,
-1.33
+0.8
 ],
 [
 "can_cot",
@@ -612,7 +614,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "dao_tam"
 },
 "1472": {
 "piece": "base18",
@@ -703,7 +706,7 @@
 1.33
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -712,7 +715,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "1478": {
 "piece": "base19",
@@ -803,16 +807,17 @@
 6.0
 ],
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 4.0,
-1.33
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "dao_tam"
 },
 "6625": {
 "piece": "c911 crater_in_b",
@@ -1079,16 +1084,17 @@
 1.33
 ],
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 4.0,
-1.33
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "dao_tam"
 },
 "6642": {
 "piece": "c912 crystal_a",
@@ -1314,7 +1320,7 @@
 "name": "Metal Dew (Kim Lộ)",
 "mods": [
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -1329,7 +1335,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "6658": {
 "piece": "c913 falling_a",
@@ -1370,7 +1377,7 @@
 4.0
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -1379,7 +1386,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "6661": {
 "piece": "c913 falling_b",
@@ -1470,7 +1478,7 @@
 0.4
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -1479,7 +1487,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "6667": {
 "piece": "c914 reed_short_b",
@@ -1514,7 +1523,7 @@
 "name": "Reed Root (Vi Căn)",
 "mods": [
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -1529,7 +1538,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "6670": {
 "piece": "c914 reed_tall_a",
@@ -1670,7 +1680,7 @@
 6.0
 ],
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -1679,7 +1689,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "6679": {
 "piece": "c914 reed_tall_b",
@@ -1770,7 +1781,7 @@
 6.0
 ],
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -1779,7 +1790,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "6685": {
 "piece": "c915 flame_b",
@@ -1940,7 +1952,7 @@
 "name": "Resin Spark (Chi Hỏa)",
 "mods": [
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -1955,7 +1967,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 }
 }
 }

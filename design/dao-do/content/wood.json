@@ -49,7 +49,7 @@
 "name": "Wood Start (Mộc Khởi)",
 "mods": [
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -64,7 +64,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "779": {
 "piece": "base6",
@@ -397,7 +398,7 @@
 "name": "Wood Seal (Mộc Ấn)",
 "mods": [
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -412,7 +413,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "1452": {
 "piece": "base15",
@@ -822,7 +824,7 @@
 0.4
 ],
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -831,7 +833,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "5602": {
 "piece": "c13 maple",
@@ -1022,16 +1025,17 @@
 6.6
 ],
 [
-"lifespan_pct",
+"breakthrough_chance",
 "",
 4,
-1.3
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "lifespan_pct"
 },
 "5614": {
 "piece": "c13 acorn",
@@ -1209,16 +1213,17 @@
 0.4
 ],
 [
-"lifespan_pct",
+"breakthrough_chance",
 "",
 4.0,
-1.3
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "lifespan_pct"
 },
 "5625": {
 "piece": "c13 13_ring",
@@ -1379,7 +1384,7 @@
 "name": "Tree Spirit (Mộc Linh)",
 "mods": [
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -1394,7 +1399,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "5636": {
 "piece": "c13 sprout",
@@ -1763,7 +1769,7 @@
 0.4
 ],
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -1772,7 +1778,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "khi_van"
 },
 "5660": {
 "piece": "c12 maple",
@@ -1963,16 +1970,17 @@
 6.6
 ],
 [
-"lifespan_pct",
+"breakthrough_chance",
 "",
 4,
-1.3
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "lifespan_pct"
 },
 "5672": {
 "piece": "c12 acorn",
@@ -2150,16 +2158,17 @@
 0.4
 ],
 [
-"lifespan_pct",
+"breakthrough_chance",
 "",
 4.0,
-1.3
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "lifespan_pct"
 },
 "5683": {
 "piece": "c12 13_ring",
@@ -2244,7 +2253,7 @@
 "name": "Tree Spirit (Mộc Linh)",
 "mods": [
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -2259,7 +2268,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "khi_van"
 },
 "5689": {
 "piece": "c12 12_crescent",
@@ -2509,7 +2519,7 @@
 "name": "Spirit Grass (Linh Thảo)",
 "mods": [
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -2524,7 +2534,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "5706": {
 "piece": "c94 seedB_low",
@@ -2713,7 +2724,7 @@
 4.4
 ],
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -2722,7 +2733,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "khi_van"
 },
 "5717": {
 "piece": "c94 tulip",
@@ -2826,7 +2838,7 @@
 4.4
 ],
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -2835,7 +2847,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "khi_van"
 },
 "5724": {
 "piece": "c94 bud",
@@ -3165,7 +3178,7 @@
 4.4
 ],
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -3174,7 +3187,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "5745": {
 "piece": "c88 tulip",
@@ -3272,7 +3286,7 @@
 4.4
 ],
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -3281,7 +3295,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "5752": {
 "piece": "c88 bud",
@@ -3387,7 +3402,7 @@
 4.4
 ],
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -3396,7 +3411,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "5760": {
 "piece": "c88 fiddlehead",
@@ -5271,7 +5287,7 @@
 4.0
 ],
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -5280,7 +5296,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "5877": {
 "piece": "c52 blossom",
@@ -5625,7 +5642,7 @@
 6.6
 ],
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -5634,7 +5651,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "5900": {
 "piece": "c60 crozier",
@@ -5751,16 +5769,17 @@
 4.4
 ],
 [
-"lifespan_pct",
+"breakthrough_chance",
 "",
 4,
-1.3
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "lifespan_pct"
 },
 "5908": {
 "piece": "c60 leafL",
@@ -5814,7 +5833,7 @@
 1.3
 ],
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -5823,7 +5842,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "5912": {
 "piece": "c60 leafR",
@@ -5938,16 +5958,17 @@
 4.0
 ],
 [
-"lifespan_pct",
+"breakthrough_chance",
 "",
 4,
-1.3
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "lifespan_pct"
 },
 "5919": {
 "piece": "c60 rings",
@@ -6129,16 +6150,17 @@
 4.0
 ],
 [
-"lifespan_pct",
+"breakthrough_chance",
 "",
 4.0,
-1.3
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "lifespan_pct"
 },
 "5932": {
 "piece": "c60 60_tadpole",
@@ -6249,10 +6271,10 @@
 "name": "Spore Cloud (Bào Tử Vân)",
 "mods": [
 [
-"lifespan_pct",
+"breakthrough_chance",
 "",
 4.0,
-1.3
+0.8
 ],
 [
 "dan_doc_resist_pct",
@@ -6264,7 +6286,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "lifespan_pct"
 },
 "5940": {
 "piece": "c60 dandelion",
@@ -7501,7 +7524,7 @@
 "name": "Acorn (Tượng Thực)",
 "mods": [
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -7516,7 +7539,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "6016": {
 "piece": "c35 acorn",
@@ -7620,7 +7644,7 @@
 4.0
 ],
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -7629,7 +7653,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "6023": {
 "piece": "c35 wreath",
@@ -7833,7 +7858,7 @@
 13.3
 ],
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -7842,7 +7867,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "6036": {
 "piece": "c35 lyreL",
@@ -7985,7 +8011,7 @@
 4.0
 ],
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -7994,7 +8020,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "6046": {
 "piece": "c35 35_vine",
@@ -8055,7 +8082,7 @@
 "name": "Garland (Hoa Hoàn)",
 "mods": [
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -8070,7 +8097,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "6051": {
 "piece": "c35 pod",
@@ -8105,7 +8133,7 @@
 "name": "Seed Pod (Tử Giáp)",
 "mods": [
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -8120,7 +8148,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "khi_van"
 },
 "6054": {
 "piece": "c35 pod",
@@ -8200,7 +8229,7 @@
 13.3
 ],
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -8209,7 +8238,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "6060": {
 "piece": "c35 whorl",
@@ -8470,7 +8500,7 @@
 "name": "First Sprout (Sơ Nha)",
 "mods": [
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -8485,7 +8515,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "6077": {
 "piece": "c21 seed",
@@ -8778,16 +8809,17 @@
 13.3
 ],
 [
-"tam_ma_resist_pct",
+"breakthrough_chance",
 "",
 4,
-2.6
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "tam_ma_resist_pct"
 },
 "6096": {
 "piece": "c21 21_arch",
@@ -8828,7 +8860,7 @@
 1.8
 ],
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -8837,7 +8869,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "6099": {
 "piece": "c21 21_arch",
@@ -8991,7 +9024,7 @@
 13.3
 ],
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -9000,7 +9033,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "6109": {
 "piece": "c21 pod",
@@ -9035,7 +9069,7 @@
 "name": "Seed Pod (Tử Giáp)",
 "mods": [
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -9050,7 +9084,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "6112": {
 "piece": "c21 pod",
@@ -9124,7 +9159,7 @@
 "name": "Seedling Field (Miêu Điền)",
 "mods": [
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -9139,7 +9174,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "6118": {
 "piece": "c31 fir",
@@ -10111,10 +10147,10 @@
 "name": "Ginkgo (Bạch Quả)",
 "mods": [
 [
-"lifespan_pct",
+"breakthrough_chance",
 "",
 4,
-1.3
+0.8
 ],
 [
 "ngo_tinh",
@@ -10126,7 +10162,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "lifespan_pct"
 },
 "6177": {
 "piece": "c25 ginkgo",
@@ -11964,7 +12001,7 @@
 2.2
 ],
 [
-"khi_van",
+"breakthrough_chance",
 "",
 3,
 0.6
@@ -11973,7 +12010,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "khi_van"
 },
 "6292": {
 "piece": "c67 parted",
@@ -12021,7 +12059,7 @@
 "name": "Forest Path (Lâm Kính)",
 "mods": [
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -12036,7 +12074,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "khi_van"
 },
 "6296": {
 "piece": "c67 parted",
@@ -12090,7 +12129,7 @@
 0.4
 ],
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -12099,7 +12138,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "6300": {
 "piece": "c67 67_ring",
@@ -12240,7 +12280,7 @@
 1.8
 ],
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -12249,7 +12289,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "khi_van"
 },
 "6309": {
 "piece": "c67 risingleaf",
@@ -12581,7 +12622,7 @@
 2.2
 ],
 [
-"khi_van",
+"breakthrough_chance",
 "",
 3,
 0.6
@@ -12590,7 +12631,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "6331": {
 "piece": "c64 parted",
@@ -12638,7 +12680,7 @@
 "name": "Forest Path (Lâm Kính)",
 "mods": [
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -12653,7 +12695,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "6335": {
 "piece": "c64 parted",
@@ -12783,7 +12826,7 @@
 6.0
 ],
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -12792,7 +12835,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "6344": {
 "piece": "c64 splitleaf",
@@ -12846,7 +12890,7 @@
 1.8
 ],
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -12855,7 +12899,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "6348": {
 "piece": "c64 risingleaf",
@@ -13090,7 +13135,7 @@
 "name": "Hidden Glade (U Cốc)",
 "mods": [
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -13105,7 +13150,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "6363": {
 "piece": "c112 112_arch",
@@ -13863,7 +13909,7 @@
 6.0
 ],
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -13872,7 +13918,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "6411": {
 "piece": "c1 1_fork",
@@ -13931,7 +13978,7 @@
 "name": "Fortune Charm (Phúc Phù)",
 "mods": [
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4.0,
 0.8
@@ -13946,7 +13993,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "6415": {
 "piece": "c1 1_spur",
@@ -15422,10 +15470,10 @@
 "name": "Gourd Neck (Hồ Lô Cảnh)",
 "mods": [
 [
-"lifespan_pct",
+"breakthrough_chance",
 "",
 4,
-1.3
+0.8
 ],
 [
 "dan_doc_resist_pct",
@@ -15437,7 +15485,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "lifespan_pct"
 },
 "6509": {
 "piece": "c905 holo",

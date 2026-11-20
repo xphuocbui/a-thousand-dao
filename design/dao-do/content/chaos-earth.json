@@ -522,10 +522,10 @@
 "name": "Firm Resolve (Kiên Chí)",
 "mods": [
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 4,
-1.33
+0.8
 ],
 [
 "khi_huyet_pct",
@@ -537,7 +537,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "dao_tam"
 },
 "8472": {
 "piece": "c2 ridges_2",

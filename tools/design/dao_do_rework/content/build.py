@@ -140,7 +140,36 @@ def build(area, m, nodes, adj, sha):
         else:
             put(p, rec, True)
     missing = [k for k, p in ps.items() if k not in done]
+    breakthrough_spread(out, ps, nodes, errs, warns)
     return out, errs, warns, missing, caps, ps
+
+
+# content-decisions.md #34 (user decision 2026-11-20, the balance round): the drawn content held 10.4 pp of breakthrough
+# chance in all, so a player's late gates fell short (Core Formation -> Nascent Soul 0 of 15 lives). In every piece,
+# the first notable (walk order) with no capability, Effect or breakthrough line that carries a cultivation-life line
+# has that line turned into breakthrough_chance at the same W. Cultivation speed is never taken (it carries the arrival
+# at each gate); the others in this order of preference.
+SPREAD_FROM = ('tam_ma_resist_pct', 'khi_van', 'lifespan_pct', 'dao_tam', 'ngo_tinh')
+
+
+def breakthrough_spread(out, ps, nodes, errs, warns):
+    for key, p in ps.items():
+        for i in p['order']:
+            rec = out.get(i)
+            if not rec or rec['kind'] != 'notable' or rec.get('cap') or rec.get('effect'):
+                continue
+            stats = [mm[0] for mm in rec['mods']]
+            if 'breakthrough_chance' in stats:
+                break
+            pick = next((s for s in SPREAD_FROM if s in stats), None)
+            if pick is None:
+                continue
+            j = stats.index(pick)
+            k, s, w, _ = rec['mods'][j]
+            v = L.check_mod('breakthrough_chance', '', w, f"{key} #{i}", 'notable', errs, warns)
+            rec['mods'][j] = ['breakthrough_chance', '', w, v]
+            rec['spread'] = pick
+            break
 
 
 def main():

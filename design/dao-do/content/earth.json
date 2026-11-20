@@ -23,10 +23,10 @@
 "name": "Earth Start (Thổ Khởi)",
 "mods": [
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 4,
-1.33
+0.8
 ],
 [
 "attack_pct",
@@ -38,7 +38,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "dao_tam"
 },
 "706": {
 "piece": "base2",
@@ -288,10 +289,10 @@
 "name": "Earth Seal (Thổ Ấn)",
 "mods": [
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 4,
-1.33
+0.8
 ],
 [
 "attack_pct",
@@ -303,7 +304,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "dao_tam"
 },
 "1434": {
 "piece": "base12",
@@ -1209,10 +1211,10 @@
 "name": "Jade Stairs (Ngọc Giai)",
 "mods": [
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 4,
-1.33
+0.8
 ],
 [
 "formation_power_pct",
@@ -1224,7 +1226,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "dao_tam"
 },
 "3029": {
 "piece": "c89 terraces",
@@ -1385,10 +1388,10 @@
 "name": "Scripture Pavilion (Tàng Kinh Các)",
 "mods": [
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 4.0,
-1.33
+0.8
 ],
 [
 "than_thuc_pct",
@@ -1400,7 +1403,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "dao_tam"
 },
 "3040": {
 "piece": "c89 d_split",
@@ -2486,10 +2490,10 @@
 "name": "Settled Heart (Định Tâm)",
 "mods": [
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 4.0,
-1.33
+0.8
 ],
 [
 "formation_power_pct",
@@ -2501,7 +2505,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "dao_tam"
 },
 "3109": {
 "piece": "c40 crook2",
@@ -4480,16 +4485,17 @@
 4.0
 ],
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 4.0,
-1.33
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "dao_tam"
 },
 "3234": {
 "piece": "c75 d_arch",
@@ -5240,16 +5246,17 @@
 4.0
 ],
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 4,
-1.33
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "dao_tam"
 },
 "3281": {
 "piece": "c36 terrace1",
@@ -5694,16 +5701,17 @@
 5.5
 ],
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 3,
-1.0
+0.6
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "dao_tam"
 },
 "3310": {
 "piece": "c36 terrace3",
@@ -5820,16 +5828,17 @@
 0.17
 ],
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 4.0,
-1.33
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "dao_tam"
 },
 "3318": {
 "piece": "c36 d_lens",
@@ -6730,16 +6739,17 @@
 8.0
 ],
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 4,
-1.33
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "dao_tam"
 },
 "3377": {
 "piece": "c65 trail",
@@ -7121,16 +7131,17 @@
 1.33
 ],
 [
-"tam_ma_resist_pct",
+"breakthrough_chance",
 "",
 4,
-2.6
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "tam_ma_resist_pct"
 },
 "3402": {
 "piece": "c66 stairway",
@@ -7247,16 +7258,17 @@
 8.0
 ],
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 4,
-1.33
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "dao_tam"
 },
 "3410": {
 "piece": "c66 trail",
@@ -7360,16 +7372,17 @@
 8.0
 ],
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 4.0,
-1.33
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "dao_tam"
 },
 "3417": {
 "piece": "c66 e66",
@@ -7436,16 +7449,17 @@
 1.33
 ],
 [
-"tam_ma_resist_pct",
+"breakthrough_chance",
 "",
 4.0,
-2.6
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "tam_ma_resist_pct"
 },
 "3422": {
 "piece": "c66 dz66",
@@ -7493,10 +7507,10 @@
 "name": "Unshaken Heart (Bất Động Tâm)",
 "mods": [
 [
-"tam_ma_resist_pct",
+"breakthrough_chance",
 "",
 4.0,
-2.6
+0.8
 ],
 [
 "dao_tam",
@@ -7508,7 +7522,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "tam_ma_resist_pct"
 },
 "3426": {
 "piece": "c66 d_gate",
@@ -7595,10 +7610,10 @@
 "name": "Gate of Faith (Tín Môn)",
 "mods": [
 [
-"tam_ma_resist_pct",
+"breakthrough_chance",
 "",
 4,
-2.6
+0.8
 ],
 [
 "dao_tam",
@@ -7610,7 +7625,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "tam_ma_resist_pct"
 },
 "3433": {
 "piece": "c66 d_gate",
@@ -9304,16 +9320,17 @@
 6.0
 ],
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 4,
-1.33
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "dao_tam"
 },
 "3542": {
 "piece": "c16 henge",
@@ -9441,16 +9458,17 @@
 6.0
 ],
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 4.0,
-1.33
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "dao_tam"
 },
 "3550": {
 "piece": "c16 f16",
@@ -10191,16 +10209,17 @@
 4.4
 ],
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 4,
-1.33
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "dao_tam"
 },
 "3598": {
 "piece": "c51 peak",
@@ -10508,16 +10527,17 @@
 1.8
 ],
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 4.0,
-1.33
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "dao_tam"
 },
 "3619": {
 "piece": "c51 d_arch",
@@ -11147,10 +11167,10 @@
 "name": "Cairn (Thạch Trủng)",
 "mods": [
 [
-"lifespan_pct",
+"breakthrough_chance",
 "",
 4,
-1.3
+0.8
 ],
 [
 "dao_tam",
@@ -11162,7 +11182,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "lifespan_pct"
 },
 "3661": {
 "piece": "c104 cairn",
@@ -11349,10 +11370,10 @@
 "name": "Longevity Rock (Thọ Thạch)",
 "mods": [
 [
-"lifespan_pct",
+"breakthrough_chance",
 "",
 4.0,
-1.3
+0.8
 ],
 [
 "khi_huyet_pct",
@@ -11364,7 +11385,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "lifespan_pct"
 },
 "3674": {
 "piece": "c104 d_step",
@@ -11514,10 +11536,10 @@
 "name": "Cairn (Thạch Trủng)",
 "mods": [
 [
-"lifespan_pct",
+"breakthrough_chance",
 "",
 4,
-1.3
+0.8
 ],
 [
 "dao_tam",
@@ -11529,7 +11551,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "lifespan_pct"
 },
 "3685": {
 "piece": "c106 cairn",
@@ -11633,16 +11656,17 @@
 1.33
 ],
 [
-"tam_ma_resist_pct",
+"breakthrough_chance",
 "",
 4.0,
-2.6
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "tam_ma_resist_pct"
 },
 "3692": {
 "piece": "c106 dz106",
@@ -11690,10 +11714,10 @@
 "name": "Tomb-Sweeping (Thanh Minh)",
 "mods": [
 [
-"tam_ma_resist_pct",
+"breakthrough_chance",
 "",
 4.0,
-2.6
+0.8
 ],
 [
 "lifespan_pct",
@@ -11705,7 +11729,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "tam_ma_resist_pct"
 },
 "3696": {
 "piece": "c106 d_step",
@@ -11968,10 +11993,10 @@
 "name": "Root of Faith (Tín Căn)",
 "mods": [
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 4.0,
-1.33
+0.8
 ],
 [
 "khi_huyet_pct",
@@ -11983,7 +12008,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "dao_tam"
 },
 "3714": {
 "piece": "c2 d2",
@@ -12031,10 +12057,10 @@
 "name": "Root of Faith (Tín Căn)",
 "mods": [
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 4.0,
-1.33
+0.8
 ],
 [
 "khi_huyet_pct",
@@ -12046,7 +12072,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "dao_tam"
 },
 "3718": {
 "piece": "c2 d_gate",
@@ -12920,7 +12947,7 @@
 "name": "Cloud Head (Vân Đầu)",
 "mods": [
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -12935,7 +12962,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "khi_van"
 },
 "3775": {
 "piece": "c902 ruyi_R",
@@ -13096,7 +13124,7 @@
 "name": "Cloud Head (Vân Đầu)",
 "mods": [
 [
-"khi_van",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -13111,7 +13139,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "khi_van"
 },
 "3786": {
 "piece": "c902 ruyi_L",
@@ -13213,16 +13242,17 @@
 1.8
 ],
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 4,
-1.33
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "dao_tam"
 },
 "3792": {
 "piece": "c902 cong_R",
@@ -13465,16 +13495,17 @@
 1.8
 ],
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 4,
-1.33
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "dao_tam"
 },
 "3808": {
 "piece": "c902 cong_L",
@@ -13754,16 +13785,17 @@
 10.0
 ],
 [
-"tam_ma_resist_pct",
+"breakthrough_chance",
 "",
 4,
-2.6
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "tam_ma_resist_pct"
 },
 "3826": {
 "piece": "c902 bell",
@@ -13937,10 +13969,10 @@
 "name": "Eave Tile (Ngõa Đương)",
 "mods": [
 [
-"lifespan_pct",
+"breakthrough_chance",
 "",
 4.0,
-1.3
+0.8
 ],
 [
 "dao_tam",
@@ -13952,7 +13984,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "lifespan_pct"
 },
 "3838": {
 "piece": "c902 keystone_rim_R",
@@ -14143,10 +14176,10 @@
 "name": "Sealed Earth (Phong Thổ)",
 "mods": [
 [
-"lifespan_pct",
+"breakthrough_chance",
 "",
 4,
-1.3
+0.8
 ],
 [
 "qi_deviation_pct",
@@ -14158,7 +14191,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "lifespan_pct"
 },
 "8927": {
 "piece": "c902 earth_seal_terrace_east",
@@ -14308,10 +14342,10 @@
 "name": "Sealed Earth (Phong Thổ)",
 "mods": [
 [
-"lifespan_pct",
+"breakthrough_chance",
 "",
 4,
-1.3
+0.8
 ],
 [
 "qi_deviation_pct",
@@ -14323,7 +14357,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "lifespan_pct"
 },
 "8938": {
 "piece": "c902 earth_seal_terrace_west",
@@ -14473,16 +14508,17 @@
 1.8
 ],
 [
-"lifespan_pct",
+"breakthrough_chance",
 "",
 4,
-1.3
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "lifespan_pct"
 },
 "8949": {
 "piece": "c902 bronze_bell_storey_east",
@@ -14651,16 +14687,17 @@
 1.8
 ],
 [
-"lifespan_pct",
+"breakthrough_chance",
 "",
 4,
-1.3
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "lifespan_pct"
 },
 "8961": {
 "piece": "c902 bronze_bell_storey_west",
@@ -14790,16 +14827,17 @@
 0.17
 ],
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 4,
-1.33
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "dao_tam"
 },
 "8970": {
 "piece": "c902 cloud_gate_roof_east",
@@ -14916,16 +14954,17 @@
 0.17
 ],
 [
-"dao_tam",
+"breakthrough_chance",
 "",
 4,
-1.33
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "dao_tam"
 },
 "8978": {
 "piece": "c902 cloud_gate_roof_west",
@@ -14953,16 +14992,17 @@
 1.8
 ],
 [
-"lifespan_pct",
+"breakthrough_chance",
 "",
 4.0,
-1.3
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "lifespan_pct"
 },
 "8980": {
 "piece": "c902 jade_spire_east",
@@ -15029,16 +15069,17 @@
 1.8
 ],
 [
-"lifespan_pct",
+"breakthrough_chance",
 "",
 4.0,
-1.3
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": true
+"twin_copy": true,
+"spread": "lifespan_pct"
 },
 "8985": {
 "piece": "c902 jade_spire_west",
@@ -15144,16 +15185,17 @@
 1.33
 ],
 [
-"lifespan_pct",
+"breakthrough_chance",
 "",
 4.0,
-1.3
+0.8
 ]
 ],
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "lifespan_pct"
 },
 "8993": {
 "piece": "c902 immortal_pearl",

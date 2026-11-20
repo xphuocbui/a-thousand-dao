@@ -374,7 +374,7 @@
 6.0
 ],
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -383,7 +383,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "8690": {
 "piece": "c5 waves_1",
@@ -1590,7 +1591,7 @@
 "name": "Spring Source (Tuyền Nguyên)",
 "mods": [
 [
-"ngo_tinh",
+"breakthrough_chance",
 "",
 4,
 0.8
@@ -1605,7 +1606,8 @@
 "pending": [],
 "cap": null,
 "effect": null,
-"twin_copy": false
+"twin_copy": false,
+"spread": "ngo_tinh"
 },
 "8773": {
 "piece": "c5 waves_2",
