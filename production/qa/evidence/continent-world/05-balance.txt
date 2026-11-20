@@ -1,0 +1,28 @@
+# Balance on continent 11 (2026-11-20): autoplay player lives (tools/balance/autoplay.gd, ratings off) and the world
+# census (tools/balance/world_census.gd). Targets: player with the edge 70 / 71 / 33 / 23 % per gate; world of 5,000
+# with about 27 Nguyên Anh and 3 Hóa Thần (memory: difficulty targets).
+#
+# Per gate = crossed / arrived at a full bar. Rounds in order; each changed one thing.
+
+before the map (random world, after the tree breakthrough spread c99daa4), 48 lives:   77 / 73 / 37 / 20
+continent, first run (herb climate index mis-centred), 48 lives:                      50 / 27 /  0 / -
+  cause: Formula G's rainfall index put the median place at 19, so the Foundation pill's herbs grew slowly
+continent, climate index centred (af80277), 48 lives:                                 60 / 21 /  0 / -
+continent, elem_full_share 25 (b6976ed), old bot, 47 lives:                           ~66 / 42 /  0 / -
+  cause found: Xích Huyết Đằng (Core Formation pill) unplantable at most homes; no wild herb grounds
+continent, wild herb grounds + bot uses the map (9335baa, 0649d7a), 119 lives:        ~68 / 40 / 9 / 2 of 3
+  bot artifact found and fixed (bdb558e): lives looped 'gather' in a sealed secret realm until the turn cap
+continent, rare herb bands 20 (4b94ee4), 120 lives on 10 processes:                   66 / 52 / 22 / 0 of 9
+  cause: Hỏa Thần Quả (Deity Transformation pill) had no herb ground; widened (a1237c1, 7 grounds)
+continent, a1237c1, 144 lives on 12 processes: (pending: added when the round finishes)
+
+Accepted for now (user, 2026-11-20, option 2): the middle gates stay below target (Foundation -> Core Formation and
+Core Formation -> Nascent Soul about 10-20 points short) until the user has reviewed the herb rules behind them
+(production/plans/continent-world.md section 7, item 12 and the balance note). Odds per attempt are back to the old
+world's (Foundation 16-23 %, Core Formation 5-7 %); the shortfall is fewer attempts, i.e. fewer pills from rare herbs.
+
+Census, seed 202 (the continent world, 1,500 years): Nguyên Anh 50 / 48 / 40 / 30 / 26 / 21 at years 250-1500
+(target about 27: settles at it), Hóa Thần 8 / 8 / 8 / 7 / 7 / 8 (target about 3: high; 27 gate-3 arrivals, fated
+share 0.111 against a mean step chance 0.064, one seed). Seed 101 to year 750: NA 34, HT 4. NPC breakthrough odds do
+not read the map, so the difference from the random world is the start (the authored cast) and luck: to re-check over
+several seeds in parallel.

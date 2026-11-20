@@ -160,6 +160,10 @@ Where Travel & Map needs them, it writes to the hand-off point named in its Inte
   - D5 developed ground: prebuilt layer-2 works at settlements and seats (prebuilt_density), the settled density cap,
     residences by grade (rent, buy, furnishing), NPC homes by realm.
 - Then B3 (54 hand-authored cast builds) and E (checks, evidence, GDD follow-ups).
+- D done: 93807ef herb fit, b302d6a production, b7fe3c4 change, 3b71fd9 works/abodes/residences, 9335baa wild herb
+  grounds. B3 done: 6fb2d19 loader + validator, 2f8cacb the 54 builds. E: worldgen 9.8 s (73f3780), evidence
+  01-04, the AC audit (04-ac-coverage.md) and its fixes (0649d7a, a4777f4), the herb calibration (af80277, b6976ed),
+  the bot's use of the map (0649d7a, 9335baa); the balance re-measure is the last open check.
 
 ## 7. For the user's review (engine choices and GDD follow-ups; nothing here edits design/gdd/*)
 
@@ -189,6 +193,12 @@ Where Travel & Map needs them, it writes to the hand-off point named in its Inte
     a variant instead of 20), so a common herb on an ordinary home grows about as before (fit 0.65-0.95) while
     matched ground still pays up to x1.2. At the GDD's 40, a typical place (a fifth of the herb's element) gave
     f_e 0.65 and the first Foundation pill came about 1.5 times later.
+
+13. **Balance (accepted gap, user 2026-11-20):** on the continent, autoplay lives with the edge cross the gates at
+    66 / 52 / 22 % (targets 70 / 71 / 33; before the map 77 / 73 / 37). Per-attempt odds match the old world; the
+    shortfall is fewer rare-herb pills (herbs now need fitting ground; wild herb grounds and wider rare-herb bands
+    recovered most of it). The user chose to review the herb rules before more tuning. Census (seed 202): Nguyên Anh
+    settles at 21-26, Hóa Thần at 7-8 (target 3; to re-check over several seeds). Evidence: 05-balance.txt.
 
 **Data fixed on the way:** flight speeds keyed one realm late in travel_rules.json; five sea lanes dropped because a
 promoted city kept its old name; the export predated the territory-history layer (230 places, 23 minor sects).
