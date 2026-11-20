@@ -675,6 +675,7 @@ static func here(s: GameSession) -> Array:
 		lines.append("  Headquarters of %s" % s.db.get_record("sects", place.sect_id).name)
 	if s.player.home_id == place.id:
 		lines.append("  Your động phủ is here.")
+	lines.append_array(stat_block(s, place))
 	var people: Array = s.db.find("people", func(p): return p.alive and not p.get("is_player", false) and str(p.location_id) == place.id)
 	lines.append("People here (%d):" % people.size())
 	for p in people.slice(0, 15):
@@ -686,6 +687,31 @@ static func here(s: GameSession) -> Array:
 		var to: Dictionary = s.db.get_record("places", l.to)
 		lines.append("  -> %-5s %s (%.2f season%s%s)" % [l.to, to.name, float(l.seasons), "s" if float(l.seasons) != 1.0 else "", (", " + str(l.kind)) if l.has("kind") else ""])
 	return lines
+
+
+## Travel & Map rule 7: a place's stat block (its tile part and qi, climate, layer 3, the land match for the player,
+## a resource site's state). Empty for a place without qi (an old generated world).
+static func stat_block(s: GameSession, place: Dictionary) -> Array:
+	var qi: Dictionary = place.get("qi", {})
+	if qi.is_empty():
+		return []
+	var out: Array = []
+	var shares: PackedStringArray = []
+	for e in ["moc", "hoa", "tho", "kim", "thuy"]:
+		shares.append("%s %d" % [s.gd.element_name(e), int(round(float(qi.shares.get(e, 0.0))))])
+	var var_text: PackedStringArray = []
+	for v in qi.get("variants", {}):
+		var_text.append("%s %.1f" % [v, float(qi.variants[v])])
+	out.append("  Land: %s (tile %s), land density %.2f, shares %s%s" % [str(qi.get("part_biome", "")).replace("_", " "), str(place.get("tile", [])), float(qi.get("land_density", place.density)), ", ".join(shares), (", variants " + ", ".join(var_text)) if not var_text.is_empty() else ""])
+	if place.has("temp_c"):
+		out.append("  Climate: %.1f C, %d mm a year" % [float(place.temp_c), int(place.rain_mm)])
+	for item in LandQi.active_layer3(qi):
+		out.append("  Layer 3: %s, density +%.2f%s" % [item.name, float(item.dD), (", pushes " + str(item.push)) if not item.push.is_empty() else ""])
+	out.append("  Land match for you: x%.3f" % LandQi.land_match(s.player, s.gd, qi).total)
+	var site: Dictionary = place.get("site", {})
+	if not site.is_empty():
+		out.append("  Site: %s (%s), reserve %d%%, last season %d units" % [str(site.resource), str(site.grade), int(round(100.0 * float(site.reserve) / maxf(1.0, float(site.reserve_max)))), int(site.get("last_output", 0))])
+	return out
 
 
 ## World map as a list of regions and their places with roads.

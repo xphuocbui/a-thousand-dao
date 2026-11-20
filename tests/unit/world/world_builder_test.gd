@@ -128,7 +128,8 @@ func test_realm_headcounts_meet_formula_a_exactly() -> void:
 
 
 func test_hidden_spots_are_keyed_on_seed_and_slot_alone() -> void:
-	assert_eq(_b.ledger.size(), _hist().hidden_slots.size() + _hist().tile_secrets.size(), "every slot and tile secret rolled")
+	var places_and_secrets: int = _b.ledger.values().filter(func(x): return str(x.family) in ["slot", "tile_secret"]).size()
+	assert_eq(places_and_secrets, _hist().hidden_slots.size() + _hist().tile_secrets.size(), "every slot and tile secret rolled")
 	var again := WorldBuilder.new(game_data(), TestFixtures.tree())
 	again._seed = SEED
 	for s in _hist().hidden_slots:

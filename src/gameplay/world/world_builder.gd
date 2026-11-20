@@ -86,6 +86,7 @@ func generate(rng: RandomNumberGenerator, game_seed: String = "") -> WorldDB:
 	_step_cast()
 	_step_rolls()
 	_step_sites()
+	_step_resource_sites()
 	_step_random_fill(rng)
 	_step_named_items(rng)
 	# Core Rules 10 and 13: the ledger of truth and the data versions are saved with the world, never shown
@@ -368,6 +369,18 @@ func _step_sites() -> void:
 				if not p.qi.has("layer3"):
 					p.qi["layer3"] = []
 				p.qi.layer3.append({"name": land.name, "dD": land.dD, "push": push, "slot": land.slot, "active": land.active})
+
+
+## Travel & Map rules 19-20: every place of a site kind becomes a resource site; its start reserve is rolled from the
+## hand-set sizes by Formula C (kind "reserve", keyed on the place's continent id), so it differs by game.
+func _step_resource_sites() -> void:
+	var kinds: Array = _gd.file(MapProduction.DATA_FILE).get("site_kinds", [])
+	var n: int = Array(_gd.file(MapProduction.DATA_FILE).get("reserve_start_choices", [1.0])).size()
+	for p in _db.all("places"):
+		if str(p.get("kind", "")) in kinds and not bool(p.get("hidden", false)):
+			var pick: int = slot_pick("reserve", str(p.get("continent_id", p.id)), n)
+			p["site"] = MapProduction.init_site(_gd, p, pick)
+			ledger["reserve:%s" % str(p.get("continent_id", p.id))] = {"family": "reserve", "candidate": pick, "place_id": str(p.id)}
 
 
 func _hidden_name(s: Dictionary, kind: String, region: String) -> String:

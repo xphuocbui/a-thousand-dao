@@ -147,6 +147,8 @@ static func check_path(gd: GameData, db: WorldDB, k: MapKnowledge, rng: RandomNu
 		if k.found.has(str(slot)):
 			continue
 		var roll: Dictionary = led[slot]
+		if not roll.has("tile"):
+			continue   # a reserve roll, not a place or secret
 		var tile := Vector2i(int(roll.tile[0]), int(roll.tile[1]))
 		if not on.has(tile):
 			continue
