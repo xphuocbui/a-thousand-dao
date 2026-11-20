@@ -59,8 +59,34 @@ static func land_match(c: Character, gd: GameData, qi: Dictionary) -> Breakdown:
 		names.append(str(item.name))
 	if l3 > 0.0:
 		b.add("Layer 3: %s (Formula B)" % ", ".join(names), minf(float(cfg.get("match_cap_l3", 0.3)), l3))
+	var works: float = MapWorks.match_gain(gd, qi, c)
+	if works > 0.0:
+		b.add("Layers 2 and 1: works pushing the ground (Formula B)", works)
 	b.clamp_to(float(cfg.get("match_stack_min", 0.8)), INF)
 	return b
+
+
+## Formula B's stacked density for [param c] at ground with [param qi] and land density [param d4], with the
+## personal [param density_bonus]: min(cap, D4 + layer 3 + layers 2 and 1 + density_bonus), the cap D_cap or, on
+## settled ground (a settlement or sect seat), settled_density_cap. {total, lines}.
+static func stacked_density(gd: GameData, c: Character, qi: Dictionary, d4: float, density_bonus: float) -> Dictionary:
+	var lines: Array = []
+	var l3: float = layer3_density(gd, qi) if not qi.is_empty() else 0.0
+	var grade: int = int(qi.get("residences", {}).get(c.id if c != null else "", {}).get("grade", 0))
+	var w: Dictionary = MapWorks.density(gd, qi, c, grade) if not qi.is_empty() else {"l2": 0.0, "l1": 0.0, "lines": []}
+	var cap: float = float(gd.file(DATA_FILE).get("match", {}).get("density_cap", 3.0))
+	if bool(qi.get("settled", false)):
+		cap = minf(cap, float(MapWorks.cfg(gd).get("settled_density_cap", 1.8)))
+	var raw: float = d4 + l3 + float(w.l2) + float(w.l1) + density_bonus
+	if l3 > 0.0:
+		lines.append("layer 3 +%.2f" % l3)
+	if float(w.l2) > 0.0:
+		lines.append("layer 2 +%.2f" % float(w.l2))
+	if float(w.l1) > 0.0:
+		lines.append("layer 1 +%.2f" % float(w.l1))
+	if raw > cap:
+		lines.append("capped at %.2f" % cap)
+	return {"total": minf(cap, raw), "lines": lines}
 
 
 ## The active layer-3 items of a place's qi (a famous blessed land, or a hidden one once found).

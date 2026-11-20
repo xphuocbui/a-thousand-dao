@@ -350,6 +350,10 @@ func _pass_season(mode: String) -> Dictionary:
 		out.stages = r8.stages
 		out.points = r8.tree_points
 	field.grow(player, sh, 1)
+	if knowledge != null:   # Formula J upkeep and Formula M rent, once a season
+		out.news.append_array(MapWorks.upkeep(gd, db, player))
+		out.news.append_array(_bill_residence())
+		_sect_residence()
 	var d: Dictionary = gd.attributes().derived
 	player.dan_doc = maxf(player.dan_doc - CharacterRules.dan_doc_decay(player, gd, sh).total, 0.0)
 	player.tam_ma = maxf(player.tam_ma - float(d.tam_ma_natural_decay), 0.0)
@@ -833,6 +837,170 @@ func array_lines() -> Array:
 	return out if not out.is_empty() else ["No teleport arrays in this world."]
 
 
+## Builds or raises a work on the land here (Travel & Map rules 31-32, Formula J): a shared work at a place the
+## player holds, a home work at home. Permanent works take their level's seasons; upkept ones one season.
+func build_work(work_id: String, element: String = "") -> Dictionary:
+	var g: Dictionary = _guard(true)
+	if not g.ok:
+		return g
+	var place: Dictionary = db.get_record("places", player.location_id)
+	var r: Dictionary = MapWorks.build(gd, db, player, place, work_id, element)
+	if not r.ok:
+		return r
+	var lines: Array = r.lines
+	for i in int(r.seasons):
+		var t: Dictionary = _pass_season("")
+		lines.append_array(_news_lines(t.news))
+		if t.died:
+			return {"ok": true, "lines": lines + death_lines()}
+	return {"ok": true, "lines": lines}
+
+
+## The works here and what each would cost next, as lines.
+func work_lines() -> Array:
+	var place: Dictionary = db.get_record("places", player.location_id)
+	var qi: Dictionary = place.get("qi", {})
+	if qi.is_empty():
+		return ["This ground has no land qi to work."]
+	var out: Array = ["Works at %s (layer 2 shared%s; layer 1 at your home):" % [place.name, ", you hold it" if MapWorks.holds(db, player, place) else ", held by others"]]
+	if float(qi.get("prebuilt", 0.0)) > 0.0:
+		out.append("  the ground's own works: density +%.2f (kept up by its holder)" % float(qi.prebuilt))
+	var mine: Dictionary = qi.get("layer1", {}).get(player.id, {})
+	for id in MapWorks.cfg(gd).works:
+		var w: Dictionary = MapWorks.work(gd, str(id))
+		var store: Dictionary = qi.get("layer2", {}) if int(w.layer) == 2 else mine
+		var lv: int = int(store.get(id, {}).get("level", 0))
+		var next: String = "max" if lv >= int(w.max) else "next %d LT, %d materials, %d season(s)" % [int(MapWorks.cost(gd, str(id), lv + 1).lt), int(MapWorks.cost(gd, str(id), lv + 1).materials), int(MapWorks.cost(gd, str(id), lv + 1).seasons)]
+		out.append("  %-15s layer %d %-9s %-10s level %d/%d  (%s)" % [id, int(w.layer), str(w.kind), str(w.stat), lv, int(w.max), next])
+	return out
+
+
+## Opens a cave abode on the wilderness tile ([param x], [param y]) (Travel & Map rule 8, Formulas M): travels there,
+## pays round(linh_thach_max x abode_cost_frac) and a season, and the abode becomes the player's home, a new place
+## with the tile part's terrain and qi ([param part] 0-2; -1 picks the part with the best density x land match).
+func open_abode(x: int, y: int, part: int = -1) -> Dictionary:
+	var g: Dictionary = _guard(true)
+	if not g.ok:
+		return g
+	var tg: TravelGrid = TravelGrid.of(gd)
+	var here: Dictionary = db.get_record("places", player.location_id)
+	if knowledge == null or not here.has("tile") or not tg.errors.is_empty():
+		return {"ok": false, "lines": ["Cave abodes can be opened on the continent's wilderness only."]}
+	var t := Vector2i(x, y)
+	if not tg.passable(t) or db.find("places", func(p): return p.has("tile") and int(p.tile[0]) == x and int(p.tile[1]) == y).size() > 0:
+		return {"ok": false, "lines": ["Tile %d,%d is not open wilderness (water, or a place stands there)." % [x, y]]}
+	var grid := ContinentGrid.from_continent(gd)
+	var best: int = 0
+	var best_v: float = -1.0
+	for k in 3:
+		var q: Dictionary = grid.part_qi(x, y, k)
+		if q.is_empty() or int(grid.value("BIO%d" % (k + 1), x, y)) in [ContinentGrid.SEA_ID, ContinentGrid.LAKE_ID]:
+			continue
+		var v: float = float(q.density) * LandQi.land_match(player, gd, q).total
+		if (part < 0 and v > best_v) or k == part:
+			best = k
+			best_v = v
+	var q: Dictionary = grid.part_qi(x, y, best)
+	if q.is_empty():
+		return {"ok": false, "lines": ["That tile has no land to dig into."]}
+	var cost: int = int(round(float(gd.realm_budget(player.realm_index).get("linh_thach_max", 0)) * float(MapWorks.cfg(gd).get("abode_cost_frac", 0.05))))
+	var trip: Dictionary = tg.trip(Vector2i(int(here.tile[0]), int(here.tile[1])), t, "ground", Travel.speed_factor(gd, sheet().total("travel_speed_pct")))
+	if trip.is_empty():
+		return {"ok": false, "lines": ["You cannot reach tile %d,%d on foot." % [x, y]]}
+	if player.linh_thach < cost:
+		return {"ok": false, "lines": ["Opening a cave abode costs %d linh thạch; you have %d." % [cost, player.linh_thach]]}
+	var seasons: int = int(Travel.split(float(trip.seasons)).seasons) + 1
+	var lines: Array = ["You walk %.2f season(s) to tile %d,%d and open a cave abode there (%d linh thạch, a season's work)." % [float(trip.seasons), x, y, cost]]
+	_bulk_begin(seasons)
+	for i in seasons:
+		var r: Dictionary = _pass_season("travel" if i < seasons - 1 else "")
+		lines.append_array(_news_lines(r.news))
+		if r.died:
+			_bulk_end()
+			return {"ok": true, "lines": lines + death_lines()}
+	_bulk_end()
+	player.linh_thach -= cost
+	var region_cid: int = grid.region(x, y)
+	var region: Array = db.find("regions", func(r): return int(r.get("continent_id", -1)) == region_cid)
+	var rec := {"name": "Động phủ của %s" % player.name, "type": "dong_phu", "kind": "abode", "region_id": str(region[0].id) if not region.is_empty() else "",
+		"density": float(q.density), "danger": int(q.danger), "market": false, "bounties": false, "links": [], "sect_id": "",
+		"tile": [x, y], "qi": {"shares": q.shares, "variants": q.variants, "land_density": float(q.density), "part": best},
+		"owner_id": player.id, "opened_year": year}
+	WorldBuilder._climate(rec, grid)
+	var pid: String = db.add("places", rec)
+	if not region.is_empty():
+		region[0].places.append(pid)
+	knowledge.places[pid] = true
+	knowledge.reveal_path(db, trip.tiles, MapKnowledge.sight_radius(gd, CharacterRules.than_thuc(player, gd, sheet()).total))
+	player.location_id = pid
+	player.home_id = pid
+	db.log_event(year, season, "abode_opened", "%s mở động phủ tại %s." % [player.name, rec.region_id], [player.id], [pid], [], {"tile": [x, y]})
+	sync_player()
+	lines.append("Your new home: density %.2f, danger %d, land match x%.3f." % [float(q.density), int(q.danger), LandQi.land_match(player, gd, rec.qi).total])
+	return {"ok": true, "lines": lines}
+
+
+## Rents or buys a residence of [param grade] here (Travel & Map rule 34, Formula M): settled ground only, the grade
+## within the place's max_grade and the realm minimum. A sect member lives at their seat by realm for free.
+func take_residence(grade: int, buy: bool = false) -> Dictionary:
+	var g: Dictionary = _guard(false)
+	if not g.ok:
+		return g
+	var place: Dictionary = db.get_record("places", player.location_id)
+	var cfg: Dictionary = MapWorks.cfg(gd)
+	if place.get("qi", {}).is_empty() or not MapWorks.settled(gd, place):
+		return {"ok": false, "lines": ["Residences are let in settlements and sect grounds."]}
+	var max_g: int = int(cfg.max_grade.get(str(place.kind), 1))
+	if grade < 1 or grade > max_g:
+		return {"ok": false, "lines": ["%s has residences of grade 1 to %d." % [place.name, max_g]]}
+	if player.realm_index < int(cfg.grade_realm_min.get(str(grade), 0)):
+		return {"ok": false, "lines": ["Grade %d needs %s." % [grade, gd.realm(int(cfg.grade_realm_min[str(grade)])).name]]}
+	var d_res: float = float(LandQi.stacked_density(gd, player, place.qi, float(place.density), 0.0).total) + float(cfg.furnish_per_grade) * grade
+	var rent: int = MapWorks.rent(gd, player.realm_index, d_res)
+	var price: int = rent * int(cfg.buy_seasons)
+	if buy and player.linh_thach < price:
+		return {"ok": false, "lines": ["A grade %d residence here sells for %d linh thạch; you have %d." % [grade, price, player.linh_thach]]}
+	if buy:
+		player.linh_thach -= price
+	if not place.qi.has("residences"):
+		place.qi["residences"] = {}
+	place.qi.residences[player.id] = {"grade": grade, "own": buy, "rent": rent}
+	player.home_id = str(place.id)
+	sync_player()
+	return {"ok": true, "lines": ["You %s a grade %d residence at %s%s; it is your home now." % ["buy" if buy else "rent", grade, place.name, (" for %d linh thạch" % price) if buy else (" for %d linh thạch a season" % rent)]]}
+
+
+## Rule 33: a sect member lives at their seat in a residence of grade min(realm + 1, the seat's max grade), allocated
+## by the sect, free (Sects #26 owns the allocation by rank).
+func _sect_residence() -> void:
+	if player.sect_id == "":
+		return
+	var sect: Dictionary = db.get_record("sects", player.sect_id)
+	var seat: Dictionary = db.get_record("places", str(sect.get("hq_place_id", "")))
+	if seat.get("qi", {}).is_empty():
+		return
+	var grade: int = mini(player.realm_index + 1, int(MapWorks.cfg(gd).max_grade.get(str(seat.get("kind", "")), 5)))
+	if not seat.qi.has("residences"):
+		seat.qi["residences"] = {}
+	var cur: Dictionary = seat.qi.residences.get(player.id, {})
+	if cur.is_empty() or (bool(cur.get("sect", false)) and int(cur.grade) != grade):
+		seat.qi.residences[player.id] = {"grade": grade, "own": true, "rent": 0, "sect": true}
+
+
+## Formula M: bills the season's rent of a rented residence; one unpaid season ends the lease.
+func _bill_residence() -> Array:
+	for p in db.all("places"):
+		var res: Dictionary = p.get("qi", {}).get("residences", {}).get(player.id, {})
+		if res.is_empty() or bool(res.get("own", false)):
+			continue
+		if player.linh_thach >= int(res.rent):
+			player.linh_thach -= int(res.rent)
+			return []
+		p.qi.residences.erase(player.id)
+		return ["  You could not pay the rent at %s; the residence is let to someone else." % p.name]
+	return []
+
+
 ## Capability #21: once a year, travel instantly to any visited place.
 func blink(dest_id: String) -> Dictionary:
 	var g: Dictionary = _guard(true)
@@ -1107,7 +1275,10 @@ func set_slot(slot: String, index: int, key: String, confirm: bool = false) -> D
 
 ## Local spiritual qi: the place's density plus density_bonus, the same sum the rate uses.
 func local_density(sh: StatSheet) -> float:
-	return float(db.get_record("places", player.location_id).get("density", 1.0)) + sh.total("density_bonus")
+	var here: Dictionary = db.get_record("places", player.location_id)
+	if here.get("qi", {}).is_empty():
+		return float(here.get("density", 1.0)) + sh.total("density_bonus")
+	return float(LandQi.stacked_density(gd, player, here.qi, float(here.get("density", 1.0)), sh.total("density_bonus")).total)
 
 
 ## True if a talisman would go on this attempt: one held, and none used this realm step.

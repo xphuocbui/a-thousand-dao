@@ -26,6 +26,7 @@ Design source: the GDDs in `design/gdd/` own the values of the files they name
 | `world_continent.json` | The authored continent 11 (exported by `tools/design/map/export_continent.py`; never hand-edited): regions, sects, places with their density, danger and qi, routes, arrays, origins, the grid and qi files, `mu` | `ContinentData`, `ContinentGrid`, `LandQi` |
 | `map_resources.json` | Travel & Map resource sites, production (Formula H), reserves (Formula I) and the start-reserve choices | `MapProduction`, `WorldBuilder` |
 | `world_history.json` | The authored world's history (exported by `tools/design/world/export_world.py`; never hand-edited): sects' start, cast, chronicle and annals, legendary items, territory, hidden slots, tile secrets, famous sites | `WorldBuilder` |
+| `map_works.json` | Travel & Map works on the land (Formula J), Formula B's layer caps, the developed ground of settlements and seats, residences and cave-abode costs (Formula M) | `MapWorks`, `LandQi`, `WorldBuilder`, `GameSession` |
 | `world_generation.json` | Regions, places, sects, people, NPC builds, history, ticks, texts | `WorldGenerator`, `WorldTicker`, `BuildGenerator`, `GameSession` |
 | `world_names.json` | Hán-Việt name parts and personality traits | `BuildGenerator`, `WorldGenerator`, `EventContext` |
 | `combat_rules.json` | Chiến lực shares, duel curve, demon beasts | `CombatPower`, `BuildGenerator` |

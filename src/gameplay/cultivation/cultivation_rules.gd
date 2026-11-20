@@ -33,9 +33,11 @@ static func rate_per_season(c: Character, gd: GameData, db: WorldDB, sheet: Stat
 	var cp_factor: Dictionary = CongPhap.speed_factor(c, gd)
 	b.mul(cp_factor.label, cp_factor.mult)
 	b.mul("Ngộ tính %d" % int(sheet.effective("ngo_tinh", c)), 1.0 + sheet.effective("ngo_tinh", c) / float(rules.ngo_tinh_divisor))
-	var l3: float = LandQi.layer3_density(gd, qi) if not qi.is_empty() else 0.0
-	var cap: float = float(gd.file(LandQi.DATA_FILE).get("match", {}).get("density_cap", 3.0))
-	b.mul("Linh khí density" + (" (layer 3 +%.2f)" % l3 if l3 > 0.0 else ""), maxf(minf(cap, density + l3 + sheet.total("density_bonus")), 0.1))
+	if qi.is_empty():
+		b.mul("Linh khí density", maxf(density + sheet.total("density_bonus"), 0.1))
+	else:
+		var st: Dictionary = LandQi.stacked_density(gd, c, qi, density, sheet.total("density_bonus"))
+		b.mul("Linh khí density" + ((" (" + ", ".join(PackedStringArray(st.lines)) + ")") if not st.lines.is_empty() else ""), maxf(float(st.total), 0.1))
 	if not qi.is_empty():
 		b.mul("Land match (elements of the ground)", LandQi.land_match(c, gd, qi).total)
 	if not sheet.has_flag("dan_doc_no_penalty") and c.dan_doc > 0.0:

@@ -55,7 +55,7 @@ const HELP := [
 		["beasts / release <id>", "linh thú: your beasts (tame them by beating them in events), feeding, loyalty"],
 	]],
 	["World", [
-		["look", "this place, people, roads"], ["map", "all regions and roads"], ["travel <place> [fly]", "go anywhere you know of by the quickest way; 'fly' from Trúc Cơ"], ["search", "a season searching this region with your clues"], ["teleport <city>", "jump between teleport-array cities for a fee ('arrays' lists them)"], ["clues", "rumours, jade slips and maps you hold"], ["news [n]", "recent world events"],
+		["look", "this place, people, roads"], ["map", "all regions and roads"], ["travel <place> [fly]", "go anywhere you know of by the quickest way; 'fly' from Trúc Cơ"], ["search", "a season searching this region with your clues"], ["teleport <city>", "jump between teleport-array cities for a fee ('arrays' lists them)"], ["work [build <id> [element]]", "works on the land here (layer 2 where you hold it, layer 1 at home)"], ["abode <x> <y> [part]", "open a cave abode on a wilderness tile"], ["residence rent|buy <grade>", "a home in a settlement or sect ground"], ["clues", "rumours, jade slips and maps you hold"], ["news [n]", "recent world events"],
 		["legends [n]", "history of the world"], ["db stats|people|sects|places|items|events [filter]", "database queries"],
 		["db show <id>", "any record with its history"],
 	]],
@@ -177,7 +177,7 @@ func _dispatch(text: String) -> void:
 
 
 ## Commands that pass time: with an event waiting they cannot run, so skip their pickers.
-const TIME_COMMANDS := ["go", "travel", "search", "teleport", "craft", "refine", "luyenkhi", "talisman", "phu", "phuluc", "cul", "cultivate", "bequan", "closed", "mission", "work", "explore", "breakthrough", "bt"]
+const TIME_COMMANDS := ["go", "travel", "search", "teleport", "work", "abode", "craft", "refine", "luyenkhi", "talisman", "phu", "phuluc", "cul", "cultivate", "bequan", "closed", "mission", "work", "explore", "breakthrough", "bt"]
 
 
 func _game_command(cmd: String, args: Array, raw: String) -> void:
@@ -235,6 +235,21 @@ func _game_command(cmd: String, args: Array, raw: String) -> void:
 				_r(s.teleport(" ".join(PackedStringArray(args))))
 		"arrays":
 			io.out("\n".join(PackedStringArray(s.array_lines())))
+		"work", "works":
+			if args.size() >= 2 and str(args[0]) == "build":
+				_r(s.build_work(str(args[1]), str(args[2]) if args.size() > 2 else ""))
+			else:
+				io.out("\n".join(PackedStringArray(s.work_lines())))
+		"abode":
+			if args.size() >= 2:
+				_r(s.open_abode(int(args[0]), int(args[1]), int(args[2]) if args.size() > 2 else -1))
+			else:
+				io.out("abode <x> <y> [part]: open a cave abode on a wilderness tile (it becomes your home).")
+		"residence":
+			if args.size() >= 2:
+				_r(s.take_residence(int(args[1]), str(args[0]) == "buy"))
+			else:
+				io.out("residence rent|buy <grade>: a home in a settlement or sect ground (grades by place, rent by Formula M).")
 		"clues":
 			io.out("\n".join(PackedStringArray(s.clue_lines())))
 		"go", "travel":

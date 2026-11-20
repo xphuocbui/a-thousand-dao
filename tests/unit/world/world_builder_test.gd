@@ -162,3 +162,13 @@ func test_random_members_join_inside_the_history() -> void:
 	var random: int = _db.find("people", func(x): return x.alive and str(x.get("created_by", "")) == "worldgen").size()
 	assert_true(checked > 0, "random cultivators join sects")
 	assert_eq(checked, random, "in the small test world every random cultivator finds a sect place (F17 targets exceed it)")
+
+
+func test_a_game_never_writes_into_the_shared_continent_data() -> void:
+	# a regression: place qi was shared with the loaded world_continent.json, so works, rents and found blessed lands
+	# leaked into the game data and into later games
+	var p: Dictionary = _db.find("places", func(x): return x.has("continent_id"))[0]
+	p.qi["residences"] = {"probe": {"grade": 1}}
+	var src: Array = game_data().file("world_continent").places.filter(func(x): return int(x.id) == int(p.continent_id))
+	assert_false(src[0].qi.has("residences"), "the game's place qi is its own copy")
+	p.qi.erase("residences")

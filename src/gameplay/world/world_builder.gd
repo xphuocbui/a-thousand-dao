@@ -119,12 +119,17 @@ func _step_base() -> void:
 		var rec := {"name": str(p.name), "type": str(k.type), "kind": str(p.kind), "region_id": str(region.get("_db", "")),
 			"density": float(p.get("density", 1.0)), "danger": int(p.get("danger", 1)), "market": bool(k.market),
 			"bounties": bool(k.bounties), "links": [], "sect_id": "", "continent_id": int(pid), "tile": p.tile,
-			"qi": p.get("qi", {}), "holder": str(p.get("holder", "")), "territory": str(p.get("territory", "")),
+			"qi": Dictionary(p.get("qi", {})).duplicate(true), "holder": str(p.get("holder", "")), "territory": str(p.get("territory", "")),
 			"name_han": str(p.get("name_han", "")), "gloss": str(p.get("gloss", ""))}
 		for key in ["founded", "former", "lived", "former_name", "port", "river", "coast", "array"]:
 			if p.has(key):
 				rec[key] = p[key]
 		_climate(rec, grid)
+		var works_cfg: Dictionary = _gd.file(MapWorks.DATA_FILE)
+		if not rec.qi.is_empty() and str(p.kind) in works_cfg.get("settled_kinds", []):
+			# Formula M: settlements and seats start with layer-2 upkept works, kept up by their holders
+			rec.qi["settled"] = true
+			rec.qi["prebuilt"] = float(works_cfg.get("prebuilt_density", {}).get(str(p.kind), 0.0))
 		var id: String = _db.add("places", rec)
 		place_ids[int(pid)] = id
 		if not region.is_empty():
