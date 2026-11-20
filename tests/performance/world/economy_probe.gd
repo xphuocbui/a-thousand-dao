@@ -44,6 +44,21 @@ func _init() -> void:
 	for k in by_kind:
 		tot += float(by_kind[k])
 	print("contract value_lt by kind %s = %.0f (world_production_guess 250,000); %d herb sites" % [str(by_kind), tot, herb_sites])
+	var loc_h: float = 0.0
+	var loc_o: float = 0.0
+	var n_loc: int = 0
+	var top: Array = []
+	for p in db.all("places"):
+		if p.has("local"):
+			n_loc += 1
+			var hv: float = 0.0
+			for g in p.local.get("last_herbs", {}):
+				hv += float(p.local.last_herbs[g])
+			loc_h += hv
+			loc_o += float(p.local.get("last_ore", 0.0))
+			top.append([hv + float(p.local.get("last_ore", 0.0)), str(p.name), str(p.kind), float(p.local.pop)])
+	top.sort_custom(func(a, b): return a[0] > b[0])
+	print("settlements %d: herbs %.0f (%.0f %% of herb value), ore %.0f (%.0f %% of ore); largest %s; smallest %s" % [n_loc, loc_h, 100.0 * loc_h / maxf(1.0, float(by_kind.get("herb", 0.0))), loc_o, 100.0 * loc_o / maxf(1.0, float(by_kind.get("ore", 0.0))), str(top.slice(0, 3)), str(top.slice(top.size() - 3))])
 	var treas: float = 0.0
 	for s in db.find("sects", func(x): return x.status == "active"):
 		treas += float(s.get("treasury", 0))

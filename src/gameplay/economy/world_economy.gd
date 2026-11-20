@@ -224,14 +224,17 @@ static func _heads(db: WorldDB) -> Dictionary:
 	return out
 
 
-# The contract's pop_settlement_weight per region (city 8, town 4, market 3, village 1).
+# The contract's pop_settlement_weight per region: Σ of Travel & Map Formula H2's population P of its settlements
+# (the kind weights city 8, town 4, market 3, village 1 where a place has no population record).
 static func _settlement_weight(gd: GameData, db: WorldDB) -> Dictionary:
 	var w: Dictionary = gd.file(FILE).shop.w_place
 	var out := {}
 	for p in db.all("places"):
 		var rid: String = str(p.get("region_id", ""))
-		if w.has(str(p.get("kind", ""))) and not bool(p.get("hidden", false)):
-			out[rid] = float(out.get(rid, 0.0)) + float(w[str(p.kind)])
+		if not w.has(str(p.get("kind", ""))) or bool(p.get("hidden", false)):
+			continue
+		var pop: float = float(p.local.pop) if p.has("local") else float(w[str(p.kind)])
+		out[rid] = float(out.get(rid, 0.0)) + pop
 	return out
 
 

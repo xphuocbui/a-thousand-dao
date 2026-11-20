@@ -79,6 +79,41 @@ static func init_herb_site(gd: GameData, place: Dictionary, pick: int) -> Dictio
 		"worked": true, "last_output": 0.0}
 
 
+## Formula H2's record for a settlement: its population P = w_size · livability, the herbs that fit it ([param herbs],
+## {herb, fit}) and the ore of its strongest base element with that element's share.
+static func init_local(gd: GameData, place: Dictionary, herbs: Array) -> Dictionary:
+	var cfg: Dictionary = _cfg(gd)
+	var so: Dictionary = cfg.get("settlement_output", {})
+	var liv: float = float(place.get("livability", 0.0))
+	if liv <= 0.0:   # places the map tools laid without a livability (sect seats, history sites) count as average land
+		liv = float(so.get("livability_default", 1.0))
+	var pop: float = float(so.get("w_size", {}).get(str(place.get("kind", "")), 0.0)) * liv
+	var shares: Dictionary = place.get("qi", {}).get("shares", {})
+	var top: String = ""
+	for e in ["moc", "hoa", "tho", "kim", "thuy"]:
+		if top == "" or float(shares.get(e, 0.0)) > float(shares.get(top, 0.0)):
+			top = e
+	return {"pop": snappedf(pop, 0.001), "herbs": herbs, "ore": str(cfg.ore_by_element.get(top, "tinh_thiet")),
+		"s_top": float(shares.get(top, 0.0)), "last_herbs": {}, "last_ore": 0.0}
+
+
+## Formula H2: a settlement's herb value and ore value this season, before the split among herbs, times D_f.
+static func local_output(gd: GameData, db: WorldDB, place: Dictionary) -> Dictionary:
+	var cfg: Dictionary = _cfg(gd)
+	var so: Dictionary = cfg.get("settlement_output", {})
+	var loc: Dictionary = place.get("local", {})
+	var omega: float = float(cfg.get("rarity_weight", 0.5))
+	var land: float = float(place.get("qi", {}).get("land_density", place.get("density", 1.0)))
+	var wsum: float = 0.0
+	for g in loc.get("herbs", []):
+		wsum += float(g.fit) * pow(omega, int(gd.herb(str(g.herb)).get("rarity", 1)) - 1)
+	var base: float = float(loc.get("pop", 0.0)) * land
+	var d_herb: float = clampf(1.0 + float(cfg.demand_elasticity) * (_price_index(db, place, "herb") - 1.0), float(cfg.demand_min), float(cfg.demand_max))
+	var d_ore: float = clampf(1.0 + float(cfg.demand_elasticity) * (_price_index(db, place, "ore") - 1.0), float(cfg.demand_min), float(cfg.demand_max))
+	return {"herb": floor(float(so.get("h_s", 0.0)) * base * wsum * d_herb + 0.5),
+		"ore": floor(float(so.get("o_s", 0.0)) * base * float(loc.get("s_top", 0.0)) / 100.0 * d_ore + 0.5)}
+
+
 ## Trade Goods Formula A: [param value] split among the herbs of [param grounds] ({herb, fit}) by w = fit · ω^(rarity − 1),
 ## in whole base value by largest remainder (ties to the lower herb id), so the parts sum to [param value] exactly.
 static func herb_split(gd: GameData, grounds: Array, value: int) -> Dictionary:
@@ -181,6 +216,19 @@ static func season(gd: GameData, db: WorldDB, count_people: bool = true, advance
 	var by_territory := {}
 	var value_by_region := {}
 	for p in db.all("places"):
+		if p.has("local"):   # Formula H2: the settlement's fields and diggings
+			var lo: Dictionary = local_output(gd, db, p)
+			var lr: String = str(p.get("region_id", ""))
+			if not value_by_region.has(lr):
+				value_by_region[lr] = {}
+			var hs: Dictionary = herb_split(gd, p.local.get("herbs", []), int(lo.herb))
+			p.local["last_herbs"] = hs
+			p.local["last_ore"] = float(lo.ore)
+			for g in hs:
+				value_by_region[lr][g] = float(value_by_region[lr].get(g, 0.0)) + float(hs[g])
+			if float(lo.ore) > 0.0:
+				var og: String = str(p.local.ore)
+				value_by_region[lr][og] = float(value_by_region[lr].get(og, 0.0)) + float(lo.ore)
 		if p.has("herb_site"):
 			var hw: float = float(p.herb_site.get("settle_w", -1.0))
 			if hw < 0.0:

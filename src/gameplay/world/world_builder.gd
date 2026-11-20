@@ -88,6 +88,7 @@ func generate(rng: RandomNumberGenerator, game_seed: String = "") -> WorldDB:
 	_step_sites()
 	_step_resource_sites()
 	_step_herb_grounds()
+	_step_settlement_output()
 	_step_random_fill(rng)
 	_step_named_items(rng)
 	_step_money()
@@ -147,7 +148,7 @@ func _step_base() -> void:
 			"bounties": bool(k.bounties), "links": [], "sect_id": "", "continent_id": int(pid), "tile": p.tile,
 			"qi": Dictionary(p.get("qi", {})).duplicate(true), "holder": str(p.get("holder", "")), "territory": str(p.get("territory", "")),
 			"name_han": str(p.get("name_han", "")), "gloss": str(p.get("gloss", ""))}
-		for key in ["founded", "former", "lived", "former_name", "port", "river", "coast", "array", "resource"]:
+		for key in ["founded", "former", "lived", "former_name", "port", "river", "coast", "array", "resource", "livability"]:
 			if p.has(key):
 				rec[key] = p[key]
 		_climate(rec, grid)
@@ -416,6 +417,22 @@ func _step_resource_sites() -> void:
 			var pick: int = slot_pick("reserve", str(p.get("continent_id", p.id)), n)
 			p["site"] = MapProduction.init_site(_gd, p, pick)
 			ledger["reserve:%s" % str(p.get("continent_id", p.id))] = {"family": "reserve", "candidate": pick, "place_id": str(p.id)}
+
+
+## Travel & Map rule 21 and Formula H2: every settlement's population and the herbs and ore its land gives it.
+func _step_settlement_output() -> void:
+	var so: Dictionary = _gd.file(MapProduction.DATA_FILE).get("settlement_output", {})
+	var w: Dictionary = so.get("w_size", {})
+	var fit_min: float = float(_gd.file(MapProduction.DATA_FILE).get("herb_ground", {}).get("fit_min", 0.6))
+	for p in _db.all("places"):
+		if not w.has(str(p.get("kind", ""))) or p.get("qi", {}).is_empty() or bool(p.get("hidden", false)):
+			continue
+		var herbs: Array = []
+		for h in _gd.file(HerbFit.HERBS_FILE).get("herbs", []):
+			var f: float = float(HerbFit.fit(_gd, h, p).fit)
+			if f >= fit_min:
+				herbs.append({"herb": str(h.id), "fit": snappedf(f, 0.01)})
+		p["local"] = MapProduction.init_local(_gd, p, herbs)
 
 
 ## Travel & Map rule 18: a wild place holds the ground of every herb that fits it at fit_min or more.

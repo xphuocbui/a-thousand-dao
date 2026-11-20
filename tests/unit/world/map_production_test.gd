@@ -61,3 +61,52 @@ func test_an_authored_site_yields_its_own_good_of_its_kind() -> void:
 	var spring := rich.duplicate(true)
 	spring["resource"] = "linh_tuyen_thuy"
 	assert_eq(MapProduction.site_resource(gd, spring).kind, "special", "a hot spring's water is a special good")
+
+
+func test_settlement_output_follows_formula_h2() -> void:
+	# AC-TM-151: a town (weight 4) at livability 1.03 on land of density 1.1, Ngưng Khí Thảo 0.8, Thanh Tâm Liên 0.7 and
+	# Hỏa Linh Chi 0.65 (rarity 2), Metal share 38: 44 x 4.12 x 1.1 x 1.825 = 364 of herbs, 98 x 4.12 x 1.1 x 0.38 = 169
+	var gd := game_data()
+	var so: Dictionary = gd.file(MapProduction.DATA_FILE).settlement_output
+	var kept: Array = [so.h_s, so.o_s]   # the test data is shared by every suite: restored below
+	so["h_s"] = 44
+	so["o_s"] = 98   # the example's values (the shipped o_s is tuned to the continent)
+	var place := {"kind": "town", "livability": 1.03, "qi": {"land_density": 1.1, "shares": {"kim": 38.0, "moc": 20.0, "tho": 20.0, "thuy": 12.0, "hoa": 10.0}}}
+	place["local"] = MapProduction.init_local(gd, place, [{"herb": "ngung_khi_thao", "fit": 0.8}, {"herb": "thanh_tam_lien", "fit": 0.7}, {"herb": "hoa_linh_chi", "fit": 0.65}])
+	assert_near(float(place.local.pop), 4.12, 1e-6, "P = 4 x 1.03")
+	assert_eq(str(place.local.ore), "tinh_thiet", "the ore of the strongest element, Metal")
+	var out := MapProduction.local_output(gd, WorldDB.new(), place)
+	assert_eq(float(out.herb), 364.0, "herbs")
+	assert_eq(float(out.ore), 169.0, "Tinh Thiết")
+	var split := MapProduction.herb_split(gd, place.local.herbs, 364)
+	assert_eq(int(split.ngung_khi_thao) + int(split.thanh_tam_lien) + int(split.hoa_linh_chi), 364, "the split sums to the value")
+	assert_true(int(split.ngung_khi_thao) > int(split.hoa_linh_chi), "fit x rarity weights: the common herb takes more")
+	so["h_s"] = kept[0]
+	so["o_s"] = kept[1]
+
+
+func test_settlements_give_their_share_of_the_worlds_goods() -> void:
+	# AC-TM-152: on continent 11 at season 0, settlements make 25-40 % of herb value and 15-35 % of ore, and the
+	# non-mine total is within 20 % of world_production_guess
+	var gd := game_data()
+	var r := RandomNumberGenerator.new()
+	r.seed = 7
+	var db: WorldDB = WorldBuilder.new(gd, TestFixtures.tree()).generate(r, "7")
+	var by_kind := {}
+	for reg in db.all("regions"):
+		for g in reg.get("production_value", {}):
+			var k: String = WorldEconomy.kind_of(gd, str(g))
+			by_kind[k] = float(by_kind.get(k, 0.0)) + float(reg.production_value[g])
+	var lh: float = 0.0
+	var lo: float = 0.0
+	for p in db.all("places"):
+		if p.has("local"):
+			for g in p.local.last_herbs:
+				lh += float(p.local.last_herbs[g])
+			lo += float(p.local.last_ore)
+	var tot: float = 0.0
+	for k in by_kind:
+		tot += float(by_kind[k])
+	assert_true(lh / float(by_kind.herb) >= 0.25 and lh / float(by_kind.herb) <= 0.40, "settlement herbs %.0f of %.0f" % [lh, float(by_kind.herb)])
+	assert_true(lo / float(by_kind.ore) >= 0.15 and lo / float(by_kind.ore) <= 0.35, "settlement ore %.0f of %.0f" % [lo, float(by_kind.ore)])
+	assert_true(absf(tot - 250000.0) <= 50000.0, "non-mine value %.0f" % tot)

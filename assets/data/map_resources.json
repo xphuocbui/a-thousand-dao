@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "_doc": "Travel & Map resource sites, production and reserves (design/gdd/travel-map.md rules 19-22 and 25, Formulas H, I and L), read by MapProduction. site_kinds: the place kinds that are resource sites. resource rule 20: an ore site yields the material of its part's top base element (ore_by_element); a site whose land density is linh_thach_density_min or more and whose Earth + Metal shares reach linh_thach_shares_min yields linh thach instead; a spirit vein yields linh thach. grade_by_density: a site's grade (small / medium / large) by its land density (a guess: the sites are not authored with grades). site_grade_value, kind_value_mult and unit_value: Formula H's base_output = site_grade_value[grade] x kind_value_mult[kind] / unit_value (units a season). settle_w by the most developed settlement within settle_reach tiles (none 0.5), owner_w worked when a sect holds it, wild otherwise. demand_* the price hook (price_index 1.0 until Regional Economy #43). prod_mult_cap the product cap. reserve_*: Formula I. reserve_start_choices: the hand-set start reserves a site's roll picks from (World Generation Formula C, kind 'reserve'). All numbers are the GDD's guesses or marked guesses here. A mine whose resource is authored (world_continent.json place 'resource', from design/map/continent-11/mine_resources.json; user decision 2026-11-20: by its name) yields that resource; rule 20's land test is the fallback for a site with none. kind_value_mult linh_thach 0.72 (was the GDD's 1.0) tunes the mine faucet to Regional Economy's ~124,000 a season on continent 11 (2026-11-20). Beast lairs, hot springs, lava vents and lightning woods (design/map/continent-11/sites.json, approved by the user 2026-11-20) are sites of their authored good (resource_kind). A place with herb grounds is also a herb site (herb_site): Formula H's value of herbs by its grade, split among its grounds' herbs by Trade Goods Formula A (rarity_weight omega 0.5). Tuned 2026-11-20 to world_production_guess (non-mine value about 250,000 a season on continent 11): herb 0.17 (95 herb sites; the GDD's 0.4 gave 279,550 of herbs alone), beast 1.6 with settle_w_by_kind beast 1.0 (hunters go to the lairs, which lie far from settlements by design; the GDD's 0.4 gave 3,500). spoils_mult: Sects F9's captured site produces at x0.5 while its spoils (8 seasons) last.",
+  "_doc": "Travel & Map resource sites, production and reserves (design/gdd/travel-map.md rules 19-22 and 25, Formulas H, I and L), read by MapProduction. site_kinds: the place kinds that are resource sites. resource rule 20: an ore site yields the material of its part's top base element (ore_by_element); a site whose land density is linh_thach_density_min or more and whose Earth + Metal shares reach linh_thach_shares_min yields linh thach instead; a spirit vein yields linh thach. grade_by_density: a site's grade (small / medium / large) by its land density (a guess: the sites are not authored with grades). site_grade_value, kind_value_mult and unit_value: Formula H's base_output = site_grade_value[grade] x kind_value_mult[kind] / unit_value (units a season). settle_w by the most developed settlement within settle_reach tiles (none 0.5), owner_w worked when a sect holds it, wild otherwise. demand_* the price hook (price_index 1.0 until Regional Economy #43). prod_mult_cap the product cap. reserve_*: Formula I. reserve_start_choices: the hand-set start reserves a site's roll picks from (World Generation Formula C, kind 'reserve'). All numbers are the GDD's guesses or marked guesses here. A mine whose resource is authored (world_continent.json place 'resource', from design/map/continent-11/mine_resources.json; user decision 2026-11-20: by its name) yields that resource; rule 20's land test is the fallback for a site with none. kind_value_mult linh_thach 0.72 (was the GDD's 1.0) tunes the mine faucet to Regional Economy's ~124,000 a season on continent 11 (2026-11-20). Beast lairs, hot springs, lava vents and lightning woods (design/map/continent-11/sites.json, approved by the user 2026-11-20) are sites of their authored good (resource_kind). A place with herb grounds is also a herb site (herb_site): Formula H's value of herbs by its grade, split among its grounds' herbs by Trade Goods Formula A (rarity_weight omega 0.5). Tuned 2026-11-20 to world_production_guess (non-mine value about 250,000 a season on continent 11): herb 0.17 (95 herb sites; the GDD's 0.4 gave 279,550 of herbs alone), beast 1.6 with settle_w_by_kind beast 1.0 (hunters go to the lairs, which lie far from settlements by design; the GDD's 0.4 gave 3,500). spoils_mult: Sects F9's captured site produces at x0.5 while its spoils (8 seasons) last. Retuned 2026-11-20 with settlement output (Formula H2): herb 0.113 and ore 0.375 on the named sites, settlement o_s 121, so settlements give about a third of the herb value and a quarter of the ore and the non-mine total stays near 250,000.",
   "site_kinds": [
     "mine",
     "spirit_vein",
@@ -39,8 +39,8 @@
   },
   "kind_value_mult": {
     "linh_thach": 0.72,
-    "ore": 0.5,
-    "herb": 0.17,
+    "ore": 0.375,
+    "herb": 0.113,
     "beast": 1.6,
     "special": 0.2
   },
@@ -136,5 +136,19 @@
   "settle_w_by_kind": {
     "beast": 1.0
   },
-  "spoils_mult": 0.5
+  "spoils_mult": 0.5,
+  "settlement_output": {
+    "_doc": "Travel & Map rule 21 and Formula H2 (user decision 2026-11-20): every settlement makes herbs that fit its ground and the ore of its strongest base element, by its mortal population P = w_size x livability, its land density and the fit. h_s, o_s guesses set so settlements give about a third of the herb value and a quarter of the ore value.",
+    "w_size": {
+      "village": 1,
+      "market": 3,
+      "town": 4,
+      "city": 8,
+      "minor_seat": 4,
+      "great_seat": 8
+    },
+    "h_s": 44,
+    "o_s": 121,
+    "livability_default": 1.0
+  }
 }
