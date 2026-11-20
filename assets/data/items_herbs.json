@@ -71,7 +71,7 @@
       "rarity": 3,
       "desc": "Blood-red vine that strengthens khí huyết.",
       "temp_ideal": 75,
-      "temp_tol": 15,
+      "temp_tol": 20,
       "rain_ideal": 30,
       "rain_tol": 20
     },
@@ -85,7 +85,7 @@
       "rarity": 3,
       "desc": "Ice-heart grass; calms tâm ma.",
       "temp_ideal": 20,
-      "temp_tol": 15,
+      "temp_tol": 20,
       "rain_ideal": 50,
       "rain_tol": 20
     },
@@ -99,9 +99,9 @@
       "rarity": 4,
       "desc": "Golden-marrow fruit; at forty-two years it can form a golden core.",
       "temp_ideal": 45,
-      "temp_tol": 15,
+      "temp_tol": 20,
       "rain_ideal": 25,
-      "rain_tol": 15
+      "rain_tol": 20
     },
     {
       "id": "van_nien_moc_linh",
@@ -113,9 +113,9 @@
       "rarity": 5,
       "desc": "Wood spirit that only wakes after a century; extends life.",
       "temp_ideal": 60,
-      "temp_tol": 15,
+      "temp_tol": 20,
       "rain_ideal": 75,
-      "rain_tol": 15
+      "rain_tol": 20
     },
     {
       "id": "anh_tam_lien",
@@ -127,9 +127,9 @@
       "rarity": 5,
       "desc": "Infant-heart lotus; at sixty years it can birth a Nguyên Anh.",
       "temp_ideal": 50,
-      "temp_tol": 15,
-      "rain_ideal": 80,
-      "rain_tol": 10
+      "temp_tol": 20,
+      "rain_ideal": 70,
+      "rain_tol": 20
     },
     {
       "id": "hoa_than_qua",
