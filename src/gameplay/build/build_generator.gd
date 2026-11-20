@@ -62,6 +62,7 @@ func create_person(rng: RandomNumberGenerator, opts: Dictionary = {}) -> String:
 		c.traits = traits.map(func(t): return t.id)
 		ProgressionEdges.assign_npc_edges(c, _gd, rng)
 
+	c.id = str(opts.get("id", ""))   # a person whose id was reserved earlier (WorldBuilder's cast)
 	var record: Dictionary = c.to_dict()
 	record["created_by"] = str(opts.get("created_by", "worldgen"))
 	var pid: String = _db.add("people", record)

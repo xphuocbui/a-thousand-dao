@@ -20,9 +20,11 @@ signal record_added(table: String, record_id: String)
 signal event_logged(event_id: String)
 
 ## "ratings" holds Power Rankings records under their person's id (RatingService); "standing" holds each (sect, person)
-## record of Sects & Missions under "<sect id>:<person id>" (SectMembers). Neither prefix is ever generated.
+## record of Sects & Missions under "<sect id>:<person id>" (SectMembers). Neither prefix is ever generated. "world" holds
+## the built world's own record "w_meta" (WorldBuilder: builder, data and map versions, seed, and the never-shown ledger
+## of rolled hidden spots, World Generation Core Rules 10 and 13).
 const TABLES := {"people": "p", "sects": "s", "places": "l", "regions": "r", "items": "i", "events": "e", "ratings": "q",
-	"standing": "y"}
+	"standing": "y", "world": "w"}
 
 var _tables: Dictionary = {}
 var _next_id: Dictionary = {}
