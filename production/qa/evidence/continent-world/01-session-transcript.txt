@@ -1,0 +1,469 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+
+  ☯  TEN THOUSAND DAOS  — debug terminal
+  LLM off | https://api.deepseek.com/chat/completions | model deepseek-chat | NO KEY | language vi | calls 0, failures 0, avg 0 ms
+
+  1 New life (choose origin, roll or set your thiên phú and linh căn)
+  2 Quick start (random tán tu)
+  3 Help: every command
+ Type a number, or any command ('help'). Enter shows this menu again.
+> new
+Tên (name) [Vô Danh]: Lữ Khách
+Giới tính m/f [m]: m
+Xuất thân (origin):
+  1) Tán tu — Nobody. Free, poor, no sect obligations.
+  2) Đệ tử tông môn — Outer disciple of a generated sect: stipend, sect missions, a better công pháp.
+  3) Con cháu gia tộc — Minor clan heir: more linh thạch and a field already growing.
+Choose 1-3 [1]: 1
+World seed [795174465]: 99
+Birth mode: 1) Thiên Định — roll, achievements on   2) Tự Định — choose, casual  [1]: 2
+Tự Định: set each thiên phú 1-100 (enter = 50).
+  Ngộ tính (Comprehension: learning công pháp and how strong it is, đốn ngộ, discovering recipes, breaking bình cảnh): 50
+  Căn cốt (Physique: khí huyết, đan độc resistance, body cultivation): 50
+  Thần hồn (Soul strength: base of thần thức (artifact control, detection)): 50
+  Khí vận (Fortune: kỳ ngộ, rare finds, crafting crits, ceiling of LLM-invented rewards): 50
+  Đạo tâm (Dao heart: resists tâm ma, qi deviation and illusions): 50
+  Mị lực (Presence: NPC attitude, prices, what people will tell you): 50
+Root purities 10-100, e.g. 'hoa=80 moc=60 tho=40' (elements: kim moc thuy hoa tho).
+  purities: hoa=70 kim=40
+Variants you qualify for: phong huyet hu_khong (one or two elements), loi (hoa+kim), am (tho+thuy), hon_don (all five), quang (hoa), bang (thuy). Any you leave out never forms.
+  variant ids (blank = none): loi
+
+━━ Lữ Khách — Tán tu ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ ROOT [linh căn]  Dual root — curve row 2, now x0.60 vs a single root
+   Mộc  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thảo age faster in your field
+   Hỏa  ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁  70 Thượng   luyện đan success and quality
+   Thổ  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          more linh điền plots
+   Kim  ▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁▁▁▁  40 Trung    linh thạch from missions and bounties
+   Thủy ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          đan độc fades faster
+   Thunder [Lôi] 53  (convergence)  +15.9% attack
+
+ THIÊN PHÚ
+   Ngộ tính  ▆▆▆▆▆▁▁▁▁▁  50 Trung        Căn cốt   ▆▆▆▆▆▁▁▁▁▁  50 Trung
+   Thần hồn  ▆▆▆▆▆▁▁▁▁▁  50 Trung        Khí vận   ▆▆▆▆▆▆▁▁▁▁  55 Trung
+   Đạo tâm   ▆▆▆▆▆▁▁▁▁▁  50 Trung        Mị lực    ▆▆▆▆▆▁▁▁▁▁  50 Trung
+
+ Linh thạch 30 · more elements: slower now, much faster later
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Thiên mệnh — choose one:
+   1 Đạo Cốt Thiên Sinh   Born with Dao bones: every breakthrough comes easier.  [+12% breakthrough chance]
+   2 Bất Diệt Đạo Tâm     An unbreakable heart: a failed breakthrough costs no tu vi and half the tâm ma.  [failed breakthroughs cost no tu vi, half the tâm ma, +10 Đạo tâm]
+   3 Tổ Truyền Linh Điền  An ancestral spirit field: one more plot, herbs age faster.  [+1 linh điền plots, +40% herb growth]
+   4 Cổ Ngọc Tàn Hồn      An old jade pendant holds a remnant soul that guides you at each bình cảnh.  [+8 Ngộ tính, +6% breakthrough chance]
+   5 Thiên Đố Kỳ Duyên    Heaven's favour: more khí vận, and cơ duyên come twice as often.  [+15 Khí vận, +100% cơ duyên frequency]
+   6 Đan Tâm Thông Linh   A heart attuned to the cauldron: better luyện đan, stronger pills.  [+15% luyện đan success, +25% pill effect]
+   7 Thọ Nguyên Dư Dả     A long-lived bloodline: more years to reach the next realm.  [+20% thọ nguyên]
+   8 Linh Căn Thuần Tịnh  A pure root: every owned element is purer from birth, and you cultivate faster.  [+10% tu luyện speed, +8 purity on every root at birth]
+Pick 1-8 (Enter = cancel): 1
+Generating the world (seed 99)...
+A new world: 20 regions, 230 places, 41 sects, 5033 people, 517 recorded events (Thiên Nguyên lịch năm 1200).
+Lữ Khách is born: Dual root: Fire [Hỏa] 70, Metal [Kim] 40 + Thunder [Lôi] 53
+Đạo Đồ start: Fire start (#36). Before opening a Dao mark you may move it: 'tree start <kim|loi>'.
+Power Rankings: the player's panel (40 fights) and 225 coarse panels (1922 fights) rated at load.
+
+━━ Lữ Khách — Luyện Khí Sơ kỳ L1 (tầng 1) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Tuổi 16 / 120 · Xuất thân Tán tu · Tông môn — · Tự Định (casual)
+
+ ROOT [linh căn]  Dual root — curve row 2, now x0.60 vs a single root
+   Mộc  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thảo age faster in your field
+   Hỏa  ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁  70 Thượng   luyện đan success and quality
+   Thổ  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          more linh điền plots
+   Kim  ▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁▁▁▁  40 Trung    linh thạch from missions and bounties
+   Thủy ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          đan độc fades faster
+   Thunder [Lôi] 53  (convergence)  +15.9% attack
+
+ THIÊN PHÚ
+   Ngộ tính  ▆▆▆▆▆▁▁▁▁▁  50 Trung        Căn cốt   ▆▆▆▆▆▁▁▁▁▁  50 Trung
+   Thần hồn  ▆▆▆▆▆▁▁▁▁▁  50 Trung        Khí vận   ▆▆▆▆▆▆▁▁▁▁  55 Trung
+   Đạo tâm   ▆▆▆▆▆▁▁▁▁▁  50 Trung        Mị lực    ▆▆▆▆▆▁▁▁▁▁  50 Trung
+
+ TRẠNG THÁI Linh lực 61 · Thần thức 50 · Khí huyết 500/500
+            Đan độc 0 (pills -0%) · Tâm ma 0 (backlash 0%) · Linh thạch 30
+ CÔNG PHÁP  Xích Diễm Bí Điển (layer 1/6)
+            tu vi 11.4 per season here ('explain rate')
+ ĐẠO NGHỆ   none yet (practice raises them)
+ CHIẾN LỰC  133 = offense 73 + defense 60 · extra slots 0/2 ('explain power')
+ ĐẠO ĐỒ  1 đạo văn open, 2 point(s) unspent ('tree')
+ THIÊN MỆNH Đạo Cốt Thiên Sinh — Born with Dao bones: every breakthrough comes easier.
+ 'explain <stat>' breaks down any number: rate, power, life, breakthrough, ngo_tinh, attack_pct …
+
+Tống Khách Thị (l48) — Phường Thị, Hàn Sương Châu. Linh khí 1.54, danger 1, market
+  Your động phủ is here.
+People here (5):
+  p62    Tư Không Hạc Niên    Nguyên Anh Trung kỳ    Đan sư | power 61,700 | attitude 0
+  p4173  Cố Nham              Luyện Khí Đại viên mãn Tán tu | power 95 | attitude 0
+  p4244  Tiêu Trần            Luyện Khí Đại viên mãn Tán tu | power 196 | attitude 0
+  p4557  Nhạc Viễn            Luyện Khí Đại viên mãn Kiếm tu | power 95 | attitude 0
+  p4993  Thẩm Minh            Trúc Cơ Đại viên mãn   Thể tu | power 952 | attitude 0
+Roads:
+  -> l3    Băng Tâm Các (0.21 seasons, trunk)
+  -> l191  Phiến Băng Hồ (0.31 seasons, trunk)
+
+━━ Lữ Khách · Thiên Nguyên lịch năm 1200, Xuân · Tống Khách Thị ━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +11.4/season, next level in 4 seasons
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · power 19 · 2 Đạo Đồ pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Đạo Đồ point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Đạo Đồ point(s)
+  3 Plant something (plot 2 is empty)
+  4 Cultivate 1 year                     5 Closed-door 5 years
+  6 Explore Tống Khách Thị               7 Travel…
+  8 Herb field                           9 Alchemy…
+ 10 Refine a pháp bảo…                  11 Draw talismans…
+ 12 Formations (trận pháp)              13 Market
+ 14 Talk to someone… (5 here)           15 Character sheet
+ 16 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> status
+━━ Lữ Khách · Thiên Nguyên lịch năm 1200, Xuân · Tống Khách Thị ━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +11.4/season, next level in 4 seasons
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · power 19 · 2 Đạo Đồ pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Đạo Đồ point(s) to spend.  → tree
+> look
+Tống Khách Thị (l48) — Phường Thị, Hàn Sương Châu. Linh khí 1.54, danger 1, market
+  Your động phủ is here.
+People here (5):
+  p62    Tư Không Hạc Niên    Nguyên Anh Trung kỳ    Đan sư | power 61,700 | attitude 0
+  p4173  Cố Nham              Luyện Khí Đại viên mãn Tán tu | power 95 | attitude 0
+  p4244  Tiêu Trần            Luyện Khí Đại viên mãn Tán tu | power 196 | attitude 0
+  p4557  Nhạc Viễn            Luyện Khí Đại viên mãn Kiếm tu | power 95 | attitude 0
+  p4993  Thẩm Minh            Trúc Cơ Đại viên mãn   Thể tu | power 952 | attitude 0
+Roads:
+  -> l3    Băng Tâm Các (0.21 seasons, trunk)
+  -> l191  Phiến Băng Hồ (0.31 seasons, trunk)
+> map
+Lãnh Nguyệt Lâm (r1)
+  l8    Hàm Nguyệt Trang         lk 1.41 dg 1 S  roads: l190(0.52)
+  l55   Quy Điểu Trấn            lk 0.83 dg 1  roads: l34(1.17), l96(0.14), l190(1.02)
+  l95   Tuyết Lộc Thôn           lk 0.86 dg 1  roads: l97(1.05)
+  l96   Hàn Yên Thôn             lk 0.86 dg 1  roads: l55(0.14), l97(0.17)
+  l97   Noãn Ốc Thôn             lk 0.86 dg 1  roads: l95(1.05), l96(0.17), l114(0.56)
+  l190  Hạo Nguyệt Hồ            lk 1.14 dg 1  roads: l8(0.52), l55(1.02)
+  l200  Phản Cảnh Lâm            lk 1.22 dg 2  roads: 
+Tuyết Hỏa Giác (r2)
+  l9    Hồng Lô Cốc              lk 1.36 dg 2 S  roads: 
+  l30   Yên Ba Thành             lk 0.88 dg 1 M  roads: l31(1.45), l104(0.32), l166(0.32), l56(0.62), l57(1.01)
+  l56   Mục Ca Thành             lk 0.76 dg 1 M  roads: l99(0.17), l30(0.62), l57(0.23), l98(0.06)
+  l57   Bạch Sa Trấn             lk 0.77 dg 1  roads: l100(0.25), l30(1.01), l56(0.23), l101(0.08)
+  l98   Mạch Lãng Thôn           lk 0.76 dg 1  roads: l56(0.06)
+  l99   Phong Phàm Thôn          lk 0.76 dg 1  roads: l56(0.17)
+  l100  Hòa Thử Thôn             lk 0.76 dg 1  roads: l57(0.25)
+  l101  Ẩn Loan Thôn             lk 0.76 dg 1  roads: l57(0.08)
+  l210  Hỏa Ngọc Mạch            lk 1.78 dg 4  roads: 
+Thanh Loan Lĩnh (r3)
+  l1    Thúy Vi Tông             lk 1.94 dg 1 S  roads: l45(0.23), l102(1.26), l165(0.13)
+  l10   Vân Khởi Quán            lk 1.70 dg 1 S  roads: l166(0.07)
+  l31   Hàn Tân Thành            lk 0.71 dg 1 M  roads: l30(1.45), l45(0.36)
+  l45   Lam Yên Thị              lk 1.20 dg 1 M  roads: l1(0.23), l31(0.36)
+  l58   Bách Diệp Trấn           lk 0.91 dg 1  roads: l165(0.53)
+  l59   Tiều Ca Trấn             lk 0.86 dg 1  roads: l102(0.35), l103(0.24)
+  l102  Ô Đề Thôn                lk 0.86 dg 1  roads: l1(1.26), l32(0.34), l59(0.35)
+  l103  Lâm Tuyền Thôn           lk 0.86 dg 1  roads: l59(0.24)
+  l104  Thu Diệp Thôn            lk 0.86 dg 1  roads: l30(0.32)
+  l165  Bích Ngọc Khoáng         lk 1.31 dg 1  roads: l1(0.13), l58(0.53)
+  l166  Vân Mẫu Khoáng           lk 1.41 dg 2  roads: l10(0.07), l30(0.32)
+  l213  Không Sơn Viện           lk 1.35 dg 2  roads: 
+Thâm Tùng Hải (r4)
+  l2    Tùng Đào Cung            lk 1.93 dg 1 S  roads: l33(0.25), l46(0.18)
+  l11   Vạn Hác Viện             lk 1.55 dg 1 S  roads: l107(0.32), l167(0.07)
+  l32   Tùng Gian Thành          lk 0.90 dg 1 M  roads: l102(0.34), l105(0.26), l106(0.19)
+  l46   Tùng Hạ Thị              lk 1.15 dg 1 M  roads: l2(0.18), l13(1.01), l105(0.76)
+  l60   Lộc Minh Trấn            lk 0.86 dg 1  roads: l225(0.20)
+  l61   Cổ Độ Thành              lk 1.03 dg 1 M  roads: l107(0.23), l137(0.21)
+  l105  Bạch Hoa Thôn            lk 0.86 dg 1  roads: l32(0.26), l46(0.76), l225(0.60)
+  l106  Thanh Tùng Thôn          lk 0.95 dg 1  roads: l32(0.19)
+  l107  Tùng Phong Thôn          lk 0.96 dg 1  roads: l11(0.32), l61(0.23)
+  l167  Thạch Lục Khoáng         lk 1.39 dg 2  roads: l11(0.07)
+  l206  Thương Tùng Mạch         lk 1.65 dg 2  roads: 
+  l225  Hổ Khiếu Trấn            lk 1.20 dg 1  roads: l60(0.20), l105(0.60)
+  l229  Thiết Tỏa Quan           lk 1.33 dg 1  roads: 
+Cửu Khúc Xuyên (r5)
+  l12   Thải Chi Cốc             lk 1.42 dg 1 S  roads: l47(0.39)
+  l13   Lãng Đào Môn             lk 1.44 dg 1 S  roads: l46(1.01), l47(0.20)
+  l33   Đào Thanh Thành          lk 0.92 dg 1 M  roads: l2(0.25), l108(0.41)
+  l47   Đào Sa Thị               lk 1.01 dg 1 M  roads: l12(0.39), l13(0.20)
+  l62   Hà Bạn Trấn              lk 0.99 dg 1  roads: l108(0.21)
+  l63   Lâm Hạ Trấn              lk 0.96 dg 1  roads: l110(0.17), l112(0.13)
+  l108  Tuyết Ốc Thôn            lk 0.99 dg 1  roads: l33(0.41), l62(0.21), l109(0.65)
+  l109  Hàn Mai Thôn             lk 0.99 dg 1  roads: l108(0.65), l112(0.75)
+  l110  Bạch Lang Thôn           lk 1.02 dg 1  roads: l63(0.17)
+  l224  Đông Lưu Thành           lk 1.20 dg 1  roads: 
+Dao Quang Lĩnh (r6)
+  l14   Cửu Cao Phái             lk 1.40 dg 1 S  roads: l34(0.53), l142(1.11)
+  l34   Khai Dương Thành         lk 0.89 dg 1 M  roads: l14(0.53), l55(1.17), l111(0.17)
+  l64   Bích Khê Trấn            lk 0.93 dg 1  roads: l112(0.36), l140(0.21)
+  l65   Thanh Bách Thành         lk 0.91 dg 1 M  roads: l113(0.22), l140(0.42), l141(0.13), l171(0.58)
+  l111  Ba Quang Thôn            lk 0.76 dg 1  roads: l34(0.17)
+  l112  Hạc Quy Thôn             lk 0.89 dg 1  roads: l63(0.13), l64(0.36), l109(0.75)
+  l113  Lộc Uyển Thôn            lk 0.91 dg 1  roads: l65(0.22)
+  l181  Phụ Tinh Phong           lk 0.69 dg 3  roads: 
+  l182  Trích Tinh Phong         lk 1.76 dg 2  roads: 
+  l205  Tinh Tủy Mạch            lk 1.67 dg 2  roads: 
+  l218  Phá Quân Môn             lk 1.41 dg 2  roads: 
+Ngọc Hồ Sơn (r7)
+  l15   Lê Hoa Am                lk 1.63 dg 1 S  roads: l66(0.59)
+  l66   Hòe Âm Trấn              lk 0.89 dg 1  roads: l15(0.59), l114(0.65)
+  l114  Đỗ Quyên Thôn            lk 0.77 dg 1  roads: l66(0.65), l97(0.56), l115(0.16)
+  l115  Hoàng Oanh Thôn          lk 0.86 dg 1  roads: l114(0.16)
+  l183  Hồi Lộ Phong             lk 1.01 dg 2  roads: 
+  l184  Lăng Tuyệt Phong         lk 1.23 dg 3  roads: 
+  l188  Chúc Long Sơn            lk 1.07 dg 4  roads: 
+  l209  Băng Phách Mạch          lk 1.79 dg 4  roads: 
+  l214  Hồ Thiên Phái            lk 1.02 dg 3  roads: 
+Cô Yên Mạc (r8)
+  l3    Băng Tâm Các             lk 1.63 dg 1 S  roads: l35(0.90), l48(0.21)
+  l16   Dạ Quang Môn             lk 1.21 dg 1 S  roads: l227(0.11)
+  l35   Trường Vân Thành         lk 0.81 dg 1 M  roads: l3(0.90), l116(0.75), l117(0.26), l227(0.13), l36(1.20)
+  l67   Hồi Lan Thành            lk 0.76 dg 1 M  roads: l69(0.35)
+  l116  Ngư Đàm Thôn             lk 0.76 dg 1  roads: l35(0.75)
+  l117  Liên Đường Thôn          lk 0.86 dg 1  roads: l35(0.26), l41(0.95), l85(0.75), l118(0.13), l228(0.52)
+  l118  Mã Minh Thôn             lk 0.76 dg 1  roads: l117(0.13)
+  l203  Viên Đề Hạp              lk 1.22 dg 2  roads: 
+  l227  Cô Thành                 lk 1.20 dg 1  roads: l16(0.11), l35(0.13)
+Hàn Sương Châu (r9)
+  l17   Trạc Anh Đài             lk 1.41 dg 1 S  roads: l119(0.27)
+  l36   Liên Giang Thành         lk 0.90 dg 1 M  roads: l121(0.15), l191(0.57), l35(1.20)
+  l48   Tống Khách Thị           lk 1.54 dg 1 M  roads: l3(0.21), l191(0.31) <YOU> <HOME>
+  l68   Mộc Lan Thành            lk 0.82 dg 1 M  roads: l119(0.42), l120(0.18), l191(0.57), l216(0.15)
+  l69   Kê Minh Trấn             lk 0.76 dg 1  roads: l67(0.35), l121(0.32)
+  l119  Tiều Lộ Thôn             lk 1.05 dg 1  roads: l17(0.27), l68(0.42)
+  l120  Lâm Ẩn Thôn              lk 0.86 dg 1  roads: l68(0.18)
+  l121  Lô Hoa Thôn              lk 0.76 dg 1  roads: l36(0.15), l69(0.32)
+  l168  Băng Lăng Khoáng         lk 1.13 dg 2  roads: l216(0.29)
+  l189  Sương Diễm Sơn           lk 1.07 dg 4  roads: 
+  l191  Phiến Băng Hồ            lk 1.17 dg 1  roads: l36(0.57), l48(0.31), l68(0.57)
+  l201  Vô Tung Lâm              lk 1.13 dg 1  roads: 
+  l216  Hàn Giang Môn            lk 1.15 dg 1  roads: l68(0.15), l168(0.29)
+Cô Vụ Đảo (r10)
+  l18   Bình Thủy Môn            lk 1.31 dg 1 S  roads: l49(0.21), l123(0.14)
+  l37   Đàm Ảnh Thành            lk 0.80 dg 1 M  roads: l70(0.46), l72(0.77), l125(0.23), l71(0.25)
+  l49   Tương Phùng Thị          lk 0.91 dg 1 M  roads: l18(0.21), l122(0.35), l38(0.35), l39(0.87), l71(0.32)
+  l70   Xích Ngạn Trấn           lk 0.76 dg 1  roads: l37(0.46), l72(0.79), l71(0.58)
+  l71   Hải Yến Trấn             lk 0.78 dg 1  roads: l122(0.28), l226(0.41), l38(0.55), l37(0.25), l49(0.32), l70(0.58)
+  l72   Triều Âm Thành           lk 0.82 dg 1 M  roads: l37(0.77), l126(0.33), l70(0.79)
+  l122  Bối Sa Thôn              lk 0.76 dg 1  roads: l49(0.35), l71(0.28)
+  l123  Lãng Thạch Thôn          lk 0.97 dg 1  roads: l18(0.14)
+  l124  Dương Liễu Thôn          lk 0.76 dg 1  roads: l126(0.31)
+  l125  Tình Sa Thôn             lk 0.80 dg 1  roads: l37(0.23), l226(0.15)
+  l126  Nguyệt Loan Thôn         lk 0.76 dg 1  roads: l72(0.33), l124(0.31)
+  l226  Bích Không Cảng          lk 1.05 dg 1  roads: l71(0.41), l125(0.15)
+Trường Thiên Nguyên (r11)
+  l19   Mục Vân Trang            lk 1.30 dg 1 S  roads: l73(0.13)
+  l38   Nhạn Thanh Thành         lk 0.71 dg 1 M  roads: l51(1.01), l73(1.16), l133(1.91), l49(0.35), l71(0.55), l39(0.82)
+  l73   Thanh Điền Trấn          lk 0.91 dg 1  roads: l19(0.13), l38(1.16), l74(0.55), l127(0.14), l129(0.19), l131(0.44)
+  l74   Thảo Đường Thành         lk 0.76 dg 1 M  roads: l73(0.55), l128(0.18), l130(0.14)
+  l75   Ngư Lương Trấn           lk 0.74 dg 1  roads: l130(0.19), l138(0.35)
+  l127  Điền Viên Thôn           lk 0.74 dg 1  roads: l73(0.14)
+  l128  Yến Quy Thôn             lk 0.76 dg 1  roads: l74(0.18)
+  l129  Chu Tân Thôn             lk 0.88 dg 1  roads: l73(0.19)
+  l130  Lô Cảng Thôn             lk 0.76 dg 1  roads: l74(0.14), l75(0.19)
+  l131  Diêm Điền Thôn           lk 0.76 dg 1  roads: l73(0.44)
+  l195  Phù Chử Đảo              lk 1.19 dg 1  roads: 
+  l196  Tịch Chiếu Đảo           lk 1.53 dg 1  roads: 
+Thu Thủy Loan (r12)
+  l20   Thiên Bảo Trai           lk 1.25 dg 1 S  roads: l50(0.21)
+  l39   Tử Điện Thành            lk 0.80 dg 1 M  roads: l133(0.18), l134(0.15), l38(0.82), l49(0.87)
+  l50   Vật Hoa Thị              lk 0.77 dg 1 M  roads: l4(0.50), l20(0.21), l169(0.27)
+  l76   Liễu Ngạn Trấn           lk 0.80 dg 1  roads: l132(0.14), l133(0.21)
+  l77   Hòa Phong Trấn           lk 0.76 dg 1  roads: l134(0.17), l135(0.16)
+  l78   Ngũ Cốc Thành            lk 0.76 dg 1 M  roads: l135(0.26)
+  l132  Khê Thanh Thôn           lk 0.80 dg 1  roads: l76(0.14)
+  l133  Khê Đầu Thôn             lk 0.80 dg 1  roads: l38(1.91), l39(0.18), l76(0.21), l222(0.28)
+  l134  Hải Môn Thôn             lk 0.76 dg 1  roads: l27(0.52), l39(0.15), l77(0.17)
+  l135  Tân Khẩu Thôn            lk 0.76 dg 1  roads: l77(0.16), l78(0.26)
+  l169  Xích Kim Khoáng          lk 0.78 dg 2  roads: l50(0.27), l54(0.97)
+  l207  Trường Hà Mạch           lk 1.63 dg 2  roads: 
+  l219  Kim Cốc Thành            lk 1.05 dg 1  roads: 
+  l222  Hồng Vũ Thành            lk 1.05 dg 1  roads: l133(0.28), l153(0.35)
+  l223  Vô Định Thành            lk 1.20 dg 1  roads: 
+Ngư Ca Xuyên (r13)
+  l4    Lạc Hà Tông              lk 1.72 dg 1 S  roads: l50(0.50), l51(0.15)
+  l21   Nam Phố Đường            lk 1.42 dg 1 S  roads: l79(0.14)
+  l51   Hạc Đinh Thị             lk 0.89 dg 1 M  roads: l4(0.15), l38(1.01), l139(0.39)
+  l79   Phong Lâm Trấn           lk 1.10 dg 1  roads: l21(0.14), l136(0.23), l138(0.25)
+  l80   Tang Ma Thành            lk 0.80 dg 1 M  roads: l138(0.27)
+  l136  Hoa Khê Thôn             lk 0.87 dg 1  roads: l79(0.23)
+  l137  Ngân Than Thôn           lk 0.80 dg 1  roads: l61(0.21), l139(0.67)
+  l138  Phương Thảo Thôn         lk 0.73 dg 1  roads: l75(0.35), l79(0.25), l80(0.27)
+  l139  Thủy Khẩu Thôn           lk 0.80 dg 1  roads: l51(0.39), l137(0.67)
+Thiên Tuyền Nguyên (r14)
+  l5    Thiên Xu Tông            lk 2.11 dg 1 S  roads: l52(0.19), l81(1.07), l192(0.65)
+  l22   Củng Tinh Quán           lk 1.44 dg 1 S  roads: l172(0.17), l192(0.20)
+  l52   Thiên Quyền Thị          lk 0.98 dg 1 M  roads: l5(0.19), l171(0.37)
+  l81   Thạch Kiều Thành         lk 0.70 dg 1 M  roads: l5(1.07), l54(1.15)
+  l140  Mộc Hương Thôn           lk 0.91 dg 1  roads: l64(0.21), l65(0.42)
+  l141  Thụ Âm Thôn              lk 0.89 dg 1  roads: l65(0.13)
+  l170  Thần Sa Khoáng           lk 0.61 dg 2  roads: l171(0.55)
+  l171  Lưu Hoàng Khoáng         lk 0.58 dg 2  roads: l52(0.37), l65(0.58), l170(0.55)
+  l172  Vẫn Tinh Khoáng          lk 1.06 dg 1  roads: l22(0.17)
+  l192  Tinh Lạc Hồ              lk 1.25 dg 1  roads: l5(0.65), l22(0.20)
+Ngọc Hành Sơn (r15)
+  l23   Thối Tinh Môn            lk 1.70 dg 1 S  roads: l173(0.39)
+  l24   Phất Y Cốc               lk 1.30 dg 1 S  roads: l204(0.12)
+  l40   Tinh Hán Thành           lk 0.70 dg 1 M  roads: l142(0.18), l173(0.64)
+  l82   Song Kiều Trấn           lk 0.80 dg 1  roads: l142(0.44), l143(0.21)
+  l142  Thủy Đối Thôn            lk 0.80 dg 1  roads: l14(1.11), l40(0.18), l82(0.44), l144(0.14)
+  l143  Thanh Mạch Thôn          lk 0.80 dg 1  roads: l82(0.21), l204(0.96)
+  l144  Châu Bạng Thôn           lk 0.76 dg 1  roads: l142(0.14)
+  l173  Thiên Ngoại Khoáng       lk 1.24 dg 2  roads: l23(0.39), l40(0.64), l174(0.29)
+  l174  Huyền Thiết Khoáng       lk 1.09 dg 2  roads: l148(0.55), l173(0.29)
+  l175  Can Tương Khoáng         lk 1.35 dg 2  roads: l176(0.21)
+  l176  Bạch Ngân Khoáng         lk 1.46 dg 2  roads: l145(0.55), l175(0.21)
+  l185  Thanh Ải Phong           lk 0.98 dg 2  roads: 
+  l186  Cùng Mục Phong           lk 1.11 dg 3  roads: 
+  l204  Vạn Trùng Hạp            lk 1.48 dg 2  roads: l24(0.12), l143(0.96)
+Thê Ngô Lĩnh (r16)
+  l6    Phượng Minh Cung         lk 2.11 dg 1 S  roads: l53(0.24), l145(0.55)
+  l25   Trúc Thực Viên           lk 1.31 dg 1 S  roads: l53(0.53), l147(0.19)
+  l53   Thiều Âm Thị             lk 1.23 dg 1 M  roads: l6(0.24), l25(0.53)
+  l83   Mạch Điền Trấn           lk 0.79 dg 1  roads: l41(0.58), l84(0.33), l146(0.28)
+  l84   Thanh Khê Thành          lk 0.80 dg 1 M  roads: l83(0.33)
+  l145  Đào Khê Thôn             lk 0.81 dg 1  roads: l6(0.55), l146(0.22), l176(0.55)
+  l146  Hà Loan Thôn             lk 0.80 dg 1  roads: l83(0.28), l145(0.22)
+  l147  Bích Lãng Thôn           lk 1.23 dg 1  roads: l25(0.19), l28(0.54), l91(0.25)
+  l197  Tương Phi Đảo            lk 1.29 dg 1  roads: 
+  l211  Đan Sơn Mạch             lk 1.65 dg 2  roads: 
+  l212  Cao Cương Phong          lk 1.39 dg 3  roads: l44(0.58), l91(1.16)
+Triêu Dương Nguyên (r17)
+  l26   Lễ Tuyền Phái            lk 1.33 dg 1 S  roads: l87(0.19), l220(0.13)
+  l41   Lai Nghi Thành           lk 0.70 dg 1 M  roads: l83(0.58), l117(0.95), l220(0.19), l44(1.14)
+  l85   Hoàng Vân Thành          lk 0.80 dg 1 M  roads: l117(0.75), l148(0.16), l150(0.39)
+  l86   Đạo Hương Trấn           lk 0.80 dg 1  roads: l150(0.15), l152(0.14)
+  l87   Lục Dã Trấn              lk 0.89 dg 1  roads: l26(0.19)
+  l148  Thủy Điền Thôn           lk 0.80 dg 1  roads: l85(0.16), l174(0.55)
+  l149  Âu Lộ Thôn               lk 0.76 dg 1  roads: l151(0.37)
+  l150  Ngân Hạnh Thôn           lk 0.91 dg 1  roads: l85(0.39), l86(0.15)
+  l151  Lý Hoa Thôn              lk 0.76 dg 1  roads: l149(0.37), l228(0.40)
+  l152  Hoàng Ngưu Thôn          lk 0.80 dg 1  roads: l86(0.14)
+  l193  Triêu Hà Hồ              lk 1.22 dg 1  roads: 
+  l220  Vân Môn Thành            lk 1.32 dg 1  roads: l26(0.13), l41(0.19)
+  l228  Châu Lệ Cảng             lk 1.05 dg 1  roads: l93(0.76), l117(0.52), l151(0.40)
+Tiêu Vũ Lâm (r18)
+  l7    Thính Vũ Lâu             lk 2.36 dg 3 S  roads: l54(0.28)
+  l27   Hồng Đậu Trang           lk 1.50 dg 1 S  roads: l134(0.52)
+  l42   Thu Trì Thành            lk 0.80 dg 1 M  roads: l153(0.89), l155(0.81)
+  l88   Bình Dã Trấn             lk 0.79 dg 1  roads: l153(0.17)
+  l89   Xuân Thảo Thành          lk 0.80 dg 1 M  roads: l221(0.17)
+  l153  Kiều Bạn Thôn            lk 0.80 dg 1  roads: l42(0.89), l88(0.17), l156(0.53), l222(0.35)
+  l154  Bình Độ Thôn             lk 0.80 dg 1  roads: l155(0.23)
+  l155  Hoa Điền Thôn            lk 0.80 dg 1  roads: l42(0.81), l154(0.23), l221(0.71)
+  l156  Yên Kiều Thôn            lk 0.79 dg 1  roads: l153(0.53)
+  l194  Tàn Hà Hồ                lk 1.25 dg 1  roads: 
+Kinh Trập Sơn (r19)
+  l28   Xuyên Lâm Môn            lk 1.64 dg 1 S  roads: l147(0.54)
+  l43   Không Mông Thành         lk 0.80 dg 1 M  roads: l157(0.43), l178(0.54), l221(1.08)
+  l54   Hạnh Hoa Thị             lk 1.24 dg 1 M  roads: l7(0.28), l81(1.15), l90(0.58), l169(0.97)
+  l90   Lãng Hoa Thành           lk 0.69 dg 1 M  roads: l54(0.58), l158(0.64)
+  l91   Vọng Hải Trấn            lk 1.00 dg 1  roads: l92(0.63), l147(0.25), l212(1.16)
+  l92   Phong Đăng Trấn          lk 0.81 dg 1  roads: l91(0.63), l159(0.65)
+  l157  Ương Ca Thôn             lk 0.80 dg 1  roads: l43(0.43), l159(0.40)
+  l158  Song Khê Thôn            lk 0.79 dg 1  roads: l90(0.64), l221(0.24)
+  l159  Thượng Độ Thôn           lk 0.80 dg 1  roads: l92(0.65), l157(0.40), l160(0.16)
+  l160  Hà Châu Thôn             lk 0.80 dg 1  roads: l159(0.16)
+  l177  Kinh Điện Khoáng         lk 1.08 dg 2  roads: l178(0.20)
+  l178  Tử Kim Khoáng            lk 1.10 dg 2  roads: l43(0.54), l177(0.20), l179(0.26)
+  l179  Vũ Hoa Khoáng            lk 1.12 dg 2  roads: l178(0.26)
+  l187  Liệt Khuyết Phong        lk 1.60 dg 2  roads: 
+  l202  Đả Diệp Lâm              lk 1.19 dg 1  roads: 
+  l208  Kinh Lôi Mạch            lk 1.73 dg 3  roads: 
+  l221  Lôi Trạch Thành          lk 1.19 dg 1  roads: l43(1.08), l89(0.17), l155(0.71), l158(0.24)
+  l230  Thu Phần Các             lk 1.13 dg 1 S  roads: 
+Đan Huyệt Châu (r20)
+  l29   Phần Vũ Đường            lk 1.35 dg 1 S  roads: l94(0.21)
+  l44   Ngũ Thải Thành           lk 0.80 dg 1 M  roads: l164(0.23), l180(0.49), l212(0.58), l41(1.14)
+  l93   Thạch Cơ Thành           lk 0.76 dg 1 M  roads: l94(0.42), l228(0.76)
+  l94   Tang Điền Trấn           lk 0.74 dg 1  roads: l29(0.21), l93(0.42), l161(0.47), l162(0.14)
+  l161  Cúc Viên Thôn            lk 0.76 dg 1  roads: l94(0.47)
+  l162  Tang Âm Thôn             lk 0.73 dg 1  roads: l94(0.14), l163(0.31)
+  l163  Hồ Tâm Thôn              lk 0.76 dg 1  roads: l162(0.31)
+  l164  Lô Châu Thôn             lk 0.80 dg 1  roads: l44(0.23)
+  l180  Đan Thạch Khoáng         lk 1.30 dg 2  roads: l44(0.49)
+  l198  Dục Nhật Đảo             lk 1.15 dg 1  roads: 
+  l199  Đồ Nam Đảo               lk 1.09 dg 1  roads: 
+  l215  Xích Thành Môn           lk 0.95 dg 1  roads: 
+  l217  Thôn Hải Môn             lk 1.15 dg 1  roads: 
+M = market, S = sect headquarters, lk = linh khí density, dg = danger, roads in seasons (Formula D). 'go <place id or name>' travels by the quickest way to any reachable place.
+> explain rate
+Tu vi / season = 11.43
+    Luyện Khí base rate                = 10
+    Root curve (row 2)                 x0.60  -> 6
+    Xích Diễm Bí Điển (layer 1/6)      x1.01  -> 6.06
+    Ngộ tính 50                        x1.25  -> 7.57
+    Linh khí density                   x1.54  -> 11.69
+    Land match (elements of the ground) x0.98  -> 11.43
+> history
+năm 1180: Mỗi mùa xuân khi đào nở, người ta lại thấy ma trơi trên phế tích Hồng Vũ Thành.
+năm 1180: Làn sương xanh trên Thanh Ải Phong tan đi một ngày, lần đầu tiên trong ký ức người đời; người ta thấy một ngôi đền trên đỉnh, và đến chiều thì nó biến mất.
+năm 1185: Các đảo núi lửa bốc khói suốt một tháng; đan sư Hồng Lô Cốc ra khơi gom tro trước khi mưa kịp cuốn đi.
+năm 1185: Ngựa của Mục Vân Trang thắng mọi cuộc đua trong lễ hội Lạc Hà; Kim Vạn Lý đặt cược vào chúng mà vẫn thua.
+năm 1185: Quan Vũ Thanh, đại trưởng lão Thính Vũ, bí mật đến Phượng Minh bàn chuyện hòa hiếu, và trở về không có câu trả lời.
+năm 1188: Sở Ngọc Hồ trở về từ triều đình của Xu không nói một lời và tự giam mình trong băng điện của tông môn suốt một năm.
+năm 1188: Băng Tâm Các đòi Tinh Tủy Mạch trước Xu; lời thỉnh cầu bị bác bỏ, và Sở Ngọc Hồ lặng lẽ rút lui.
+năm 1189: Sau lời thỉnh cầu của Băng Tâm, Thiên Xu tăng gấp đôi lính canh ở Tinh Tủy Mạch; hạc của Cửu Cao lượn quanh ngày đêm.
+năm 1190: Bầy sói từ rừng thông sâu bám theo các đoàn thương đội tới Tùng Hạ Thị; Tùng Đào tăng gấp đôi lính canh đường.
+năm 1190: Trên bãi cát nắng Tình Sa một con cá voi mắc cạn sống được ba ngày; dân đảo đưa nó trở lại biển.
+năm 1190: Tô Mộ Vân, mười bốn tuổi, thắng cuộc thi vẽ bùa ở Hạc Đinh Thị trước các thư sĩ của Nam Phố Đường.
+năm 1190: Bến đá Thạch Cơ Thành nứt vỡ trong một cơn bão; Phượng Minh xây lại bằng đá từ phế tích Xích Thành.
+năm 1192: Một con nguyệt hồ trắng xuất hiện trên hồ ba đêm liền; dân làng nói rằng ở đâu đó phương bắc một phúc địa đang thức giấc.
+năm 1194: Đám kiếm khách trẻ của Dạ Quang lại uống bằng chén dạ quang; các trưởng lão Băng Tâm làm như không thấy.
+năm 1195: Một lữ khách nghỉ đêm trong Không Sơn Viện bỏ hoang thề rằng đã nghe thấy ai đó đọc sách thành tiếng ở phòng bên.
+năm 1195: Một nhạc công ở Thiều Âm Thị tấu một khúc nhạc không ai dạy, và mọi con chim trên đồi đều im bặt; các trưởng lão Phượng Minh trả tiền cho y đi thật xa.
+năm 1196: Giá lúa ở Mục Ca Thành tăng gấp đôi sau một mùa kém; những người chăn thả hát rong lấy tiền trên phố Yên Ba.
+năm 1196: Lũ trẻ Tân Khẩu thách nhau chạm vào rìa chướng khí gần Vô Định Thành; một đứa không trở về.
+năm 1197: Ung Hạc Minh thuần phục một hạc vương không cho ai khác cưỡi.
+năm 1197: Lữ khách trên đường rừng thấy đậu đỏ rải trên lối dẫn tới Hồng Đậu Trang, và bước vòng qua.
+năm 1198: Một trận lũ xuân làm lộ ra con phố cũ của Đông Lưu Thành trên lòng sông cạn; lũ trẻ nhặt được những đồng tiền của một tòa thành không ai còn nhớ.
+năm 1198: Vệ Văn Cơ, một trận pháp sư làm thuê, được trả tiền để bố trí lại các trận phong quanh Vạn Cốt Trủng; y bỏ việc sau một đêm.
+năm 1199: Chúc Long Sơn rền vang dưới lớp băng lần đầu tiên sau bảy trăm bảy mươi bốn năm; các ni cô Lê Hoa Am cầu nguyện suốt mùa đông.
+năm 1199: Họ Vương ở Đạo Hương gửi thư cầu hôn đến họ Tạ ở Phong Lâm; thư hồi âm vẫn chưa tới.
+năm 1199: Một cồn sông ở Hà Châu nổi lên khỏi mặt nước sau một trận động đất; cả Thính Vũ lẫn Xuyên Lâm đều đòi quyền sở hữu.
+> travel Thiên Quyền Thị
+You travel 12.21 season(s) over 23 leg(s) and arrive at Thiên Quyền Thị (13 season(s) pass).
+The rest of the season (79%) you cultivate there: +6.2 tu vi.
+  [tin đồn] Tin đồn: Tần Kiếm vừa đột phá Trúc Cơ.
+  [tin đồn] Tin đồn: Hàn Trần vừa đột phá Trúc Cơ.
+  [tin đồn] Tư Mã Huyền và Tiêu Mộng đại chiến tại Băng Tâm Các; Tiêu Mộng thắng.
+ Δ 3.25 years passed · Tu vi 0 → 6 (+6) · Tống Khách Thị → Thiên Quyền Thị
+
+━━ Lữ Khách · Thiên Nguyên lịch năm 1203, Hạ · Thiên Quyền Thị ━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▆▆▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 6/40  +7.8/season, next level in 1.3 years
+ Tuổi  19/120  ▆▆▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · power 19 · 2 Đạo Đồ pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).
+ ➤ 2 Đạo Đồ point(s) to spend.  → tree
+  1 Spend 2 Đạo Đồ point(s)
+  2 Cultivate 1 year                     3 Closed-door 5 years
+  4 Explore Thiên Quyền Thị              5 Travel…
+  6 Alchemy…                             7 Refine a pháp bảo…
+  8 Draw talismans…                      9 Market
+ 10 Talk to someone… (4 here)           11 Character sheet
+ 12 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> look
+Thiên Quyền Thị (l52) — Phường Thị, Thiên Tuyền Nguyên. Linh khí 0.98, danger 1, market
+People here (4):
+  p4151  Phương Phong         Luyện Khí Hậu kỳ       Tán tu | power 160? | attitude 0
+  p4664  Lạc Nham             Kết Đan Trung kỳ       Đan sư | power 35,700 | attitude 0
+  p4845  Trương Lăng          Luyện Khí Trung kỳ     Trận sư | power 129? | attitude 0
+  p5026  Lục Hiên             Trúc Cơ Đại viên mãn   Linh thực sư | power 1,920? | attitude 0
+Roads:
+  -> l5    Thiên Xu Tông (0.19 seasons, trunk)
+  -> l171  Lưu Hoàng Khoáng (0.37 seasons, road)
+> explain rate
+Tu vi / season = 7.79
+    Luyện Khí base rate                = 10
+    Root curve (row 2)                 x0.60  -> 6
+    Xích Diễm Bí Điển (layer 1/6)      x1.01  -> 6.06
+    Ngộ tính 50                        x1.25  -> 7.57
+    Linh khí density                   x0.98  -> 7.39
+    Land match (elements of the ground) x1.05  -> 7.79
+> (end of input)

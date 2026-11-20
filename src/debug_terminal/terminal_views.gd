@@ -684,7 +684,7 @@ static func here(s: GameSession) -> Array:
 	lines.append("Roads:")
 	for l in place.links:
 		var to: Dictionary = s.db.get_record("places", l.to)
-		lines.append("  -> %-5s %s (%d season%s)" % [l.to, to.name, int(l.seasons), "s" if int(l.seasons) > 1 else ""])
+		lines.append("  -> %-5s %s (%.2f season%s%s)" % [l.to, to.name, float(l.seasons), "s" if float(l.seasons) != 1.0 else "", (", " + str(l.kind)) if l.has("kind") else ""])
 	return lines
 
 
@@ -697,14 +697,14 @@ static func map(s: GameSession) -> Array:
 			var p: Dictionary = s.db.get_record("places", pid)
 			var roads: PackedStringArray = []
 			for l in p.links:
-				roads.append("%s(%d)" % [l.to, int(l.seasons)])
+				roads.append("%s(%.2f)" % [l.to, float(l.seasons)])
 			var marks: String = ""
 			if pid == s.player.location_id:
 				marks += " <YOU>"
 			if pid == s.player.home_id:
 				marks += " <HOME>"
 			lines.append("  %-5s %-24s lk %.2f dg %d%s%s  roads: %s%s" % [pid, p.name, float(p.density), int(p.danger), " M" if p.market else "", " S" if p.sect_id != "" else "", ", ".join(roads), marks])
-	lines.append("M = market, S = sect headquarters, lk = linh khí density, dg = danger. 'go <place id>' travels along a road.")
+	lines.append("M = market, S = sect headquarters, lk = linh khí density, dg = danger, roads in seasons (Formula D). 'go <place id or name>' travels by the quickest way to any reachable place.")
 	return lines
 
 

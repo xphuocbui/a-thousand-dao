@@ -67,6 +67,7 @@ func test_tier_above_realm_is_refused() -> void:
 func test_higher_kim_purity_raises_refining_success() -> void:
 	var s := _session()
 	var c: Character = s.player
+	c.linh_can.elements["kim"] = 10
 	var low: float = s.refinery.success_chance(c, s.sheet(), 0).total
 	c.linh_can.elements["kim"] = 90
 	var high: float = s.refinery.success_chance(c, s.sheet(), 0).total

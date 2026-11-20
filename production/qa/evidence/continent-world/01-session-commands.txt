@@ -1,0 +1,26 @@
+# Continent 11 in the game (production/plans/continent-world.md B5 + C1): a new life on the authored world.
+# Run: godot --headless --path . -s res://src/debug_terminal/terminal_main.gd -- --no-llm
+#        --commands res://production/qa/evidence/continent-world/01-session-commands.txt --exit-after-commands
+new
+Lữ Khách
+m
+1
+99
+2
+50
+50
+50
+50
+50
+50
+hoa=70 kim=40
+loi
+1
+status
+look
+map
+explain rate
+history
+travel Thiên Quyền Thị
+look
+explain rate

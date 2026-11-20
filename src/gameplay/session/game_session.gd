@@ -82,6 +82,8 @@ var edge: bool = true
 ## Realm index -> cơ duyên events offered in that realm.
 var co_duyen_used: Dictionary = {}
 var epitaph_text: String = ""
+## The new game's chosen start place (a continent place id or name; "" = picked), read by _place_player.
+var _start_home: String = ""
 ## Lines from the yearly tick (upkeep, stipend) shown with the next action's result.
 var _notices: Array = []
 
@@ -101,9 +103,18 @@ func new_game(seed_v: int, spec: Dictionary) -> Dictionary:
 	_finish_ratings(false)
 	seed_value = seed_v
 	rng.seed = seed_v
-	var gen := WorldGenerator.new(gd, tree)
-	db = gen.generate(rng)
-	year = gen.current_year
+	# World Generation & History: the authored continent and its history (WorldBuilder); the old random generator
+	# only when the authored data is missing
+	if gd.registry.has_file(WorldBuilder.HISTORY_FILE) and gd.registry.has_file(ContinentData.DATA_FILE):
+		var builder := WorldBuilder.new(gd, tree)
+		db = builder.generate(rng, str(seed_v))
+		year = builder.current_year
+		if not builder.errors.is_empty():
+			push_error("World build: %s" % "; ".join(builder.errors))
+	else:
+		var gen := WorldGenerator.new(gd, tree)
+		db = gen.generate(rng)
+		year = gen.current_year
 	season = 0
 	_wire()
 	life_over = false
@@ -115,6 +126,7 @@ func new_game(seed_v: int, spec: Dictionary) -> Dictionary:
 	var name: String = str(spec.get("name", "Vô Danh"))
 	var gender: String = str(spec.get("gender", "male"))
 	var origin: String = str(spec.get("origin", "tan_tu"))
+	_start_home = str(spec.get("home", ""))
 	if spec.has("character"):
 		# A character already created and approved in a frontend (e.g. the rerollable
 		# preview in the terminal's character creation).
@@ -191,8 +203,15 @@ func _wire() -> void:
 
 func _place_player() -> void:
 	var o: Dictionary = gd.origin(player.origin)
-	var home: Dictionary = {}
-	if bool(o.get("sect", false)):
+	var home: Dictionary = _origin_home(player.origin)
+	if not home.is_empty() and bool(o.get("sect", false)):
+		var seat_sect: Dictionary = db.get_record("sects", str(home.get("sect_id", "")))
+		if not seat_sect.is_empty():
+			player.sect_id = seat_sect.id
+			player.sect_rank = str(gd.session().sect.join_rank)
+			seat_sect.members.append(player.id)
+			sect_members.record(str(seat_sect.id), player.id)
+	elif bool(o.get("sect", false)):
 		var sects: Array = db.find("sects", func(s): return s.status == "active")
 		if not sects.is_empty():
 			var s: Dictionary = RngUtils.pick(rng, sects)
@@ -231,6 +250,26 @@ func _place_player() -> void:
 
 
 ## The strongest base element, ties in cycle order (cong-phap.md Edge Cases).
+## World Generation rule 12 and Travel & Map rule 14: on the continent, the origin's start place comes from the
+## approved home lists (world_continent.json origin_homes: a sect seat, a cultivator market or a clan town), the
+## spec's "home" (a continent place id or name) when it is one of them, else a pick by the game's stream. {} in a
+## world without continent places (an old generated world).
+func _origin_home(origin_id: String) -> Dictionary:
+	var homes: Array = gd.file(ContinentData.DATA_FILE).get("origin_homes", {}).get(origin_id, [])
+	var places: Array = []
+	for cid in homes:
+		var found: Array = db.find("places", func(p): return int(p.get("continent_id", -1)) == int(cid))
+		if not found.is_empty():
+			places.append(found[0])
+	if places.is_empty():
+		return {}
+	var want: String = str(_start_home)
+	for p in places:
+		if want != "" and (str(p.continent_id) == want or str(p.name) == want):
+			return p
+	return RngUtils.pick(rng, places)
+
+
 func _starting_element() -> String:
 	return player.linh_can.strongest_in_cycle(gd)
 
@@ -553,19 +592,24 @@ func explore() -> Dictionary:
 
 
 ## Travel to a linked place. Takes the link's seasons (faster with travel_speed_pct).
+## Travels to [param dest_id], any place reachable over the links, by the quickest path (Travel & Map rules 10-12,
+## Formula D; user decision 2026-11-20). A trip of T seasons spends ceil(T) seasons; the rest of the last season is
+## spent cultivating at the destination (leftover_cultivation).
 func travel(dest_id: String) -> Dictionary:
 	var g: Dictionary = _guard(true)
 	if not g.ok:
 		return g
 	var here: Dictionary = db.get_record("places", player.location_id)
-	var link: Dictionary = {}
-	for l in here.links:
-		if l.to == dest_id:
-			link = l
-	if link.is_empty():
-		return {"ok": false, "lines": ["%s is not reachable directly from %s. Use 'map' to see roads." % [dest_id, here.name]]}
-	var speed: float = sheet().total("travel_speed_pct")
-	var seasons: int = maxi(1, int(ceil(float(link.seasons) / maxf(1.0 + speed / 100.0, 0.1))))
+	if not db.has_record("places", dest_id):
+		var named: Array = db.find("places", func(p): return str(p.name) == dest_id)
+		if named.is_empty():
+			return {"ok": false, "lines": ["No place '%s'. Use 'map' to see roads." % dest_id]}
+		dest_id = str(named[0].id)
+	var route: Dictionary = Travel.quickest(db, player.location_id, dest_id, Travel.speed_factor(gd, sheet().total("travel_speed_pct")))
+	if route.is_empty():
+		return {"ok": false, "lines": ["%s cannot be reached from %s by road or sea." % [db.get_record("places", dest_id).get("name", dest_id), here.name]]}
+	var split: Dictionary = Travel.split(float(route.seasons))
+	var seasons: int = int(split.seasons)
 	var news: Array = []
 	var died: bool = false
 	_bulk_begin(seasons)
@@ -579,14 +623,21 @@ func travel(dest_id: String) -> Dictionary:
 	if died:
 		return {"ok": true, "lines": ["You die on the road."] + death_lines()}
 	player.location_id = dest_id
-	if not player.visited.has(dest_id):
-		player.visited.append(dest_id)
+	for pid in route.path:
+		if not player.visited.has(pid):
+			player.visited.append(pid)
 	for b in beasts.owned(player):
 		b["location_id"] = dest_id
-	sync_player()
 	var dest: Dictionary = db.get_record("places", dest_id)
+	var lines: Array = ["You travel %.2f season(s) over %d leg(s) and arrive at %s (%d season(s) pass)." % [float(route.seasons), int(route.hops), dest.name, seasons]]
+	var left: float = 1.0 - float(split.last_share)
+	if left > 0.0 and not CultivationRules.at_bottleneck(player, gd):
+		var eta: float = float(gd.file(Travel.RULES_FILE).get("partial_season_efficiency", 1.0))
+		var rate: float = CultivationRules.rate_per_season(player, gd, db, sheet(), float(dest.get("density", 1.0)), false, dest.get("qi", {})).total
+		var res: Dictionary = CultivationRules.add_tu_vi(player, gd, rate * left * eta)
+		lines.append("The rest of the season (%d%%) you cultivate there: +%.1f tu vi." % [int(round(left * 100.0)), float(res.gained)])
+	sync_player()
 	market.ensure_stock(rng, dest_id, year, player.realm_index, player.linh_can)
-	var lines: Array = ["You travel %d season(s) and arrive at %s." % [seasons, dest.name]]
 	lines.append_array(_news_lines(news))
 	lines.append_array(_maybe_event(0.0))
 	return {"ok": true, "lines": lines}

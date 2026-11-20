@@ -4,7 +4,8 @@ extends SceneTree
 ## canh-gioi.md (Formulas C2, AC-CG-69).
 ##
 ##   Godot_console.exe --headless --path . -s res://tools/balance/world_census.gd -- \
-##       [--seed 101] [--size 5000] [--years 2000] [--every 500] [--burn 500]
+##       [--seed 101] [--size 5000] [--years 2000] [--every 500] [--burn 500] [--world continent|random]
+## The world is the authored continent (WorldBuilder) unless --world random asks for the old generator.
 
 
 func _init() -> void:
@@ -20,8 +21,14 @@ func _init() -> void:
 	var rng := RandomNumberGenerator.new()
 	rng.seed = seed_v
 	var t0: int = Time.get_ticks_msec()
-	var gen := WorldGenerator.new(gd, tree)
-	var db: WorldDB = gen.generate(rng)
+	var db: WorldDB
+	if _arg(args, "--world", "continent") == "random":
+		db = WorldGenerator.new(gd, tree).generate(rng)
+	else:
+		var b := WorldBuilder.new(gd, tree)
+		db = b.generate(rng, str(seed_v))
+		if not b.errors.is_empty():
+			print("build errors: ", b.errors)
 	print("generated in %.1f s" % [float(Time.get_ticks_msec() - t0) / 1000.0])
 	_census(gd, db, 0)
 	var builds := BuildGenerator.new(gd, tree, db)

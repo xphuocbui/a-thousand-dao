@@ -227,7 +227,7 @@ func _game_command(cmd: String, args: Array, raw: String) -> void:
 		"explore":
 			_r(s.explore())
 		"go", "travel":
-			var dest: String = _arg(args, 0, "") if args.size() > 0 else _pick_road()
+			var dest: String = " ".join(PackedStringArray(args)) if args.size() > 0 else _pick_road()
 			if dest != "":
 				_r(s.travel(dest))
 		"craft":
@@ -469,8 +469,9 @@ func _pick_road() -> String:
 			marks.append(s.db.get_record("sects", to.sect_id).name)
 		if to.id == s.player.home_id:
 			marks.append("home")
-		rows.append({"label": "%-24s %d season(s) · linh khí %.2f · danger %d%s" % [to.name, int(l.seasons), float(to.density), int(to.danger), (" · " + ", ".join(marks)) if not marks.is_empty() else ""], "value": l.to})
-	return _pick("Travel from %s to:" % here.name, rows)
+		var t: float = float(l.seasons) / Travel.speed_factor(s.gd, s.sheet().total("travel_speed_pct"))
+		rows.append({"label": "%-24s %.2f season(s) · linh khí %.2f · danger %d%s" % [to.name, t, float(to.density), int(to.danger), (" · " + ", ".join(marks)) if not marks.is_empty() else ""], "value": l.to})
+	return _pick("Travel from %s to (or 'travel <place id or name>' to go anywhere reachable):" % here.name, rows)
 
 
 func _pick_recipe() -> String:
