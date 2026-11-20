@@ -11,210 +11,215 @@ Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
 > new quick Thuong 11
 Generating the world (seed 11)...
 A new world: 20 regions, 296 places, 41 sects, 5033 people, 517 recorded events (Thiên Nguyên lịch năm 1200).
-Thuong is born: Dual root: Fire [Hỏa] 65, Earth [Thổ] 52
-Đạo Đồ start: Fire start (#36). Before opening a Dao mark you may move it: 'tree start <tho>'.
-Power Rankings: the player's panel (40 fights) and 221 coarse panels (1910 fights) rated at load.
+Thuong is born: Dual root: Earth [Thổ] 45, Metal [Kim] 35
+Đạo Đồ start: Earth start (#69). Before opening a Dao mark you may move it: 'tree start <kim>'.
+Power Rankings: the player's panel (40 fights) and 222 coarse panels (1916 fights) rated at load.
 
 ━━ Thuong — Luyện Khí Sơ kỳ L1 (tầng 1) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Tuổi 16 / 144 · Xuất thân Tán tu · Tông môn — · Thiên Định (achievements on)
+ Tuổi 16 / 120 · Xuất thân Tán tu · Tông môn — · Thiên Định (achievements on)
 
  ROOT [linh căn]  Dual root — curve row 2, now x0.60 vs a single root
    Mộc  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thảo age faster in your field
-   Hỏa  ▆▆▆▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁  65 Thượng   luyện đan success and quality
-   Thổ  ▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁▁  52 Trung    more linh điền plots
-   Kim  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thạch from missions and bounties
+   Hỏa  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          luyện đan success and quality
+   Thổ  ▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁▁▁  45 Trung    more linh điền plots
+   Kim  ▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁▁▁▁▁  35 Trung    linh thạch from missions and bounties
    Thủy ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          đan độc fades faster
 
  THIÊN PHÚ
-   Ngộ tính  ▆▆▆▆▆▁▁▁▁▁  53 Trung        Căn cốt   ▆▆▆▆▆▆▁▁▁▁  60 Trung
-   Thần hồn  ▆▆▆▆▆▁▁▁▁▁  54 Trung        Khí vận   ▆▆▆▆▆▁▁▁▁▁  48 Trung
-   Đạo tâm   ▆▆▁▁▁▁▁▁▁▁  20 Hạ           Mị lực    ▆▆▁▁▁▁▁▁▁▁  24 Hạ
+   Ngộ tính  ▆▆▆▁▁▁▁▁▁▁  33 Trung        Căn cốt   ▆▆▆▆▆▆▆▁▁▁  67 Thượng
+   Thần hồn  ▆▆▆▁▁▁▁▁▁▁  34 Trung        Khí vận   ▆▆▆▁▁▁▁▁▁▁  33 Trung
+   Đạo tâm   ▆▆▆▆▆▁▁▁▁▁  48 Trung        Mị lực    ▆▆▆▁▁▁▁▁▁▁  31 Trung
 
- TRẠNG THÁI Linh lực 62 · Thần thức 54 · Khí huyết 600/600
+ TRẠNG THÁI Linh lực 56 · Thần thức 34 · Khí huyết 670/670
             Đan độc 0 (pills -0%) · Tâm ma 0 (backlash 0%) · Linh thạch 30
- CÔNG PHÁP  Xích Diễm Kinh (layer 1/6)
-            tu vi 10.4 per season here ('explain rate')
+ CÔNG PHÁP  Huyền Hoàng Công (layer 1/6)
+            tu vi 6.1 per season here ('explain rate')
  ĐẠO NGHỆ   none yet (practice raises them)
- CHIẾN LỰC  126 = offense 64 + defense 62 · extra slots 0/2 ('explain power')
+ CHIẾN LỰC  126 = offense 62 + defense 63 · extra slots 0/2 ('explain power')
  ĐẠO ĐỒ  1 đạo văn open, 2 point(s) unspent ('tree')
- THIÊN MỆNH Thọ Nguyên Dư Dả — A long-lived bloodline: more years to reach the next realm.
+ THIÊN MỆNH Linh Căn Thuần Tịnh — A pure root: every owned element is purer from birth, and you cultivate faster.
  'explain <stat>' breaks down any number: rate, power, life, breakthrough, ngo_tinh, attack_pct …
 
-Thiều Âm Thị (l53) — Phường Thị, Thê Ngô Lĩnh. Linh khí 1.23, danger 1, market
+Hạc Đinh Thị (l51) — Phường Thị, Ngư Ca Xuyên. Linh khí 0.89, danger 1, market
   Your động phủ is here.
-  Land: bamboo forest (tile 371,258), land density 1.27, shares Mộc 20, Hỏa 8, Thổ 20, Kim 33, Thủy 19
-  Climate: 24.5 C, 2261 mm a year
-  Density for you: 1.48 (place 1.23, layer 2 +0.25); land match for you: x0.957
-People here (0):
+  Land: steppe (tile 192,200), land density 0.93, shares Mộc 18, Hỏa 21, Thổ 34, Kim 13, Thủy 15
+  Climate: 16.5 C, 323 mm a year
+  Density for you: 1.14 (place 0.89, layer 2 +0.25); land match for you: x1.046
+People here (1):
+  p4798  Đông Phương Thiếu Bạch Luyện Khí Hậu kỳ       Linh thực sư | power 95 | attitude 0
 Roads:
-  -> l6    Phượng Minh Cung (0.24 seasons, trunk)
-  -> l25   Trúc Thực Viên (0.53 seasons, road)
+  -> l4    Lạc Hà Tông (0.15 seasons, trunk)
+  -> l38   Nhạn Thanh Thành (1.01 seasons, trunk)
+  -> l139  Thủy Khẩu Thôn (0.39 seasons, road)
 
-━━ Thuong · Thiên Nguyên lịch năm 1200, Xuân · Thiều Âm Thị ━━━━━━━━━━━━━━━━━━
- Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +10.4/season, next level in 4 seasons
- Tuổi  16/144  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · power 18 · 2 Đạo Đồ pt
+━━ Thuong · Thiên Nguyên lịch năm 1200, Xuân · Hạc Đinh Thị ━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +6.1/season, next level in 1.8 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · power 18 · 2 Đạo Đồ pt
  ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
-   train); Hoàng Tinh Sâm ≥40y x2: it cannot grow at home; gather it at Đan
-   Sơn Mạch (a wild herb ground); Hỏa Linh Chi ≥10y: it cannot grow at home;
-   gather it at Đan Sơn Mạch (a wild herb ground).  → go l211
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
  ➤ 2 Đạo Đồ point(s) to spend.  → tree
-  1 Gather Hoàng Tinh Sâm at Đan Sơn Mạch — for Trúc Cơ Đan
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
   2 Spend 2 Đạo Đồ point(s)
   3 Plant something (plot 2 is empty)
   4 Cultivate 1 year                     5 Closed-door 5 years
-  6 Explore Thiều Âm Thị                 7 Travel…
+  6 Explore Hạc Đinh Thị                 7 Travel…
   8 Herb field                           9 Alchemy…
  10 Refine a pháp bảo…                  11 Draw talismans…
  12 Formations (trận pháp)              13 Market
- 14 Character sheet                     15 Inventory
+ 14 Talk to someone… (1 here)           15 Character sheet
+ 16 Inventory
  Type a number, or any command ('help'). Enter shows this menu again.
 > look
-Thiều Âm Thị (l53) — Phường Thị, Thê Ngô Lĩnh. Linh khí 1.23, danger 1, market
+Hạc Đinh Thị (l51) — Phường Thị, Ngư Ca Xuyên. Linh khí 0.89, danger 1, market
   Your động phủ is here.
-  Land: bamboo forest (tile 371,258), land density 1.27, shares Mộc 20, Hỏa 8, Thổ 20, Kim 33, Thủy 19
-  Climate: 24.5 C, 2261 mm a year
-  Density for you: 1.48 (place 1.23, layer 2 +0.25); land match for you: x0.957
-People here (0):
+  Land: steppe (tile 192,200), land density 0.93, shares Mộc 18, Hỏa 21, Thổ 34, Kim 13, Thủy 15
+  Climate: 16.5 C, 323 mm a year
+  Density for you: 1.14 (place 0.89, layer 2 +0.25); land match for you: x1.046
+People here (1):
+  p4798  Đông Phương Thiếu Bạch Luyện Khí Hậu kỳ       Linh thực sư | power 95 | attitude 0
 Roads:
-  -> l6    Phượng Minh Cung (0.24 seasons, trunk)
-  -> l25   Trúc Thực Viên (0.53 seasons, road)
+  -> l4    Lạc Hà Tông (0.15 seasons, trunk)
+  -> l38   Nhạn Thanh Thành (1.01 seasons, trunk)
+  -> l139  Thủy Khẩu Thôn (0.39 seasons, road)
 > market
-Market of Thiều Âm Thị (Mị lực adjusts prices). buy <id>, sell <id>:
-  i17303   348 LT  Verdant Cycle Scripture (Thanh Hoàn Kinh) [Huyền giai main, Mộc] 9 layers, up to Kết Đan | +12% khí huyết
-  i17304   348 LT  Red Sun Scripture (Xích Nhật Kinh) [Huyền giai main, Hỏa] 9 layers, up to Kết Đan | +12% linh lực
-  i17305   348 LT  Mountain Heart Canon (Sơn Tâm Kinh) [Huyền giai main, Thổ] 9 layers, up to Kết Đan | +12% khí huyết
-  i17306   378 LT  Canh Kim Kinh [Huyền giai main, Kim] 9 layers, up to Kết Đan | +12.9% attack
-  i17307   315 LT  Thương Lan Bí Điển [Huyền giai main, Thủy] 9 layers, up to Kết Đan | +6.9% thần thức
-  i17308  2609 LT  Thanh Mộc Địa Quyết [Địa giai main, Mộc] 12 layers, up to Nguyên Anh | +12% linh lực, +8% tâm ma resistance
-  i17309  2609 LT  Xích Diễm Địa Quyết [Địa giai main, Hỏa] 12 layers, up to Nguyên Anh | +12% linh lực, +8% tâm ma resistance
-  i17310  2609 LT  Hậu Thổ Địa Quyết [Địa giai main, Thổ] 12 layers, up to Nguyên Anh | +12% linh lực, +8% tâm ma resistance
-  i17311  2609 LT  Canh Kim Địa Quyết [Địa giai main, Kim] 12 layers, up to Nguyên Anh | +12% linh lực, +8% tâm ma resistance
-  i17312  2609 LT  Huyền Thủy Địa Quyết [Địa giai main, Thủy] 12 layers, up to Nguyên Anh | +12% linh lực, +8% tâm ma resistance
-  i17313 20866 LT  Thanh Mộc Thiên Kinh [Thiên giai main, Mộc] 15 layers, up to Hóa Thần | +18% linh lực, +10% defense, +10% tâm ma resistance
-  i17314 20866 LT  Xích Diễm Thiên Kinh [Thiên giai main, Hỏa] 15 layers, up to Hóa Thần | +18% linh lực, +10% defense, +10% tâm ma resistance
-  i17315 20866 LT  Hậu Thổ Thiên Kinh [Thiên giai main, Thổ] 15 layers, up to Hóa Thần | +18% linh lực, +10% defense, +10% tâm ma resistance
-  i17316 20866 LT  Canh Kim Thiên Kinh [Thiên giai main, Kim] 15 layers, up to Hóa Thần | +18% linh lực, +10% defense, +10% tâm ma resistance
-  i17317 20866 LT  Huyền Thủy Thiên Kinh [Thiên giai main, Thủy] 15 layers, up to Hóa Thần | +18% linh lực, +10% defense, +10% tâm ma resistance
-  i17321    12 LT  Thanh Tâm Liên [Thủy] 7.7 năm, potency 1.68
-  i17322    29 LT  Hỏa Linh Chi [Hỏa] 38.7 năm, potency 2.48
-  i17323     2 LT  Ngưng Khí Thảo [Mộc] 0.4 năm, potency 0.39
-  i17324     6 LT  Ngưng Khí Thảo [Mộc] 8.4 năm, potency 2.54
-  i17325    12 LT  Thanh Tâm Liên [Thủy] 7.2 năm, potency 1.63
-  i17326     9 LT  Ngưng Khí Thảo [Mộc] 28.7 năm, potency 3.42
-  i17327   174 LT  Huyền Thủy Linh Ấn [Trung phẩm Pháp khí, Thủy] ATK 68 DEF 9 | +16.7% thần thức, +5.5% tu luyện speed
-  i17328   112 LT  Kiên Đạo Bào [Trung phẩm Pháp khí] ATK 0 DEF 31 | +15.7% pháp bảo defense
-  i17329   140 LT  Canh Kim Thiết Bích Phi Kiếm [Trung phẩm Pháp khí, Kim] ATK 51 DEF 0 | +16.2% element match bonus, +10.5 resistance (points)
-  i17330   209 LT  Huyết Khí Đan x3 (phẩm 0)
-  i17331    32 LT  Hồi Xuân Đan x3 (phẩm 0)
-  i17332    35 LT  Thanh Độc Đan x2 (phẩm 0)
-  i17333    35 LT  Xích Đồng x3
-  i17334    47 LT  Yêu Đan x3
-  i17335    35 LT  Xích Đồng x1
-  i17336    12 LT  Yêu Cốt x2
-  i17337    53 LT  Trường Sinh Tâm Pháp [Hoàng giai main, Mộc] 6 layers, up to Trúc Cơ
+Market of Hạc Đinh Thị (Mị lực adjusts prices). buy <id>, sell <id>:
+  i17303   339 LT  Verdant Cycle Scripture (Thanh Hoàn Kinh) [Huyền giai main, Mộc] 9 layers, up to Kết Đan | +12% khí huyết
+  i17304   339 LT  Red Sun Scripture (Xích Nhật Kinh) [Huyền giai main, Hỏa] 9 layers, up to Kết Đan | +12% linh lực
+  i17305   339 LT  Mountain Heart Canon (Sơn Tâm Kinh) [Huyền giai main, Thổ] 9 layers, up to Kết Đan | +12% khí huyết
+  i17306   368 LT  Canh Kim Kinh [Huyền giai main, Kim] 9 layers, up to Kết Đan | +12.9% attack
+  i17307   307 LT  Thương Lan Bí Điển [Huyền giai main, Thủy] 9 layers, up to Kết Đan | +6.9% thần thức
+  i17308  2543 LT  Thanh Mộc Địa Quyết [Địa giai main, Mộc] 12 layers, up to Nguyên Anh | +12% linh lực, +8% tâm ma resistance
+  i17309  2543 LT  Xích Diễm Địa Quyết [Địa giai main, Hỏa] 12 layers, up to Nguyên Anh | +12% linh lực, +8% tâm ma resistance
+  i17310  2543 LT  Hậu Thổ Địa Quyết [Địa giai main, Thổ] 12 layers, up to Nguyên Anh | +12% linh lực, +8% tâm ma resistance
+  i17311  2543 LT  Canh Kim Địa Quyết [Địa giai main, Kim] 12 layers, up to Nguyên Anh | +12% linh lực, +8% tâm ma resistance
+  i17312  2543 LT  Huyền Thủy Địa Quyết [Địa giai main, Thủy] 12 layers, up to Nguyên Anh | +12% linh lực, +8% tâm ma resistance
+  i17313 20337 LT  Thanh Mộc Thiên Kinh [Thiên giai main, Mộc] 15 layers, up to Hóa Thần | +18% linh lực, +10% defense, +10% tâm ma resistance
+  i17314 20337 LT  Xích Diễm Thiên Kinh [Thiên giai main, Hỏa] 15 layers, up to Hóa Thần | +18% linh lực, +10% defense, +10% tâm ma resistance
+  i17315 20337 LT  Hậu Thổ Thiên Kinh [Thiên giai main, Thổ] 15 layers, up to Hóa Thần | +18% linh lực, +10% defense, +10% tâm ma resistance
+  i17316 20337 LT  Canh Kim Thiên Kinh [Thiên giai main, Kim] 15 layers, up to Hóa Thần | +18% linh lực, +10% defense, +10% tâm ma resistance
+  i17317 20337 LT  Huyền Thủy Thiên Kinh [Thiên giai main, Thủy] 15 layers, up to Hóa Thần | +18% linh lực, +10% defense, +10% tâm ma resistance
+  i17321    14 LT  Thanh Tâm Liên [Thủy] 7.0 năm, potency 1.62
+  i17322   140 LT  Băng Tâm Thảo [Thủy] 48.7 năm, potency 1.35
+  i17323    12 LT  Hỏa Linh Chi [Hỏa] 6.8 năm, potency 1.22
+  i17324   139 LT  Băng Tâm Thảo [Thủy] 47.2 năm, potency 1.33
+  i17325    23 LT  Thanh Tâm Liên [Thủy] 42.6 năm, potency 2.91
+  i17326    24 LT  Thanh Tâm Liên [Thủy] 47.5 năm, potency 2.99
+  i17327    38 LT  Canh Kim Cổ [Phàm phẩm Pháp khí, Kim] ATK 10 DEF 10
+  i17328    85 LT  Canh Kim Dưỡng Sinh Cầm [Hạ phẩm Pháp khí, Kim] ATK 36 DEF 5 | +11% đan độc resistance
+  i17329   150 LT  Xích Diễm Kiên Lôi Trượng [Trung phẩm Pháp khí, Hỏa] ATK 26 DEF 9 | +12.6% pháp bảo defense, +25.2% pháp bảo attack
+  i17330    31 LT  Hồi Xuân Đan x3 (phẩm 0)
+  i17331    21 LT  Tụ Khí Đan x2 (phẩm 0)
+  i17332    46 LT  Hồi Xuân Đan x3 (phẩm 1)
+  i17333    10 LT  Linh Tuyền Thủy x3
+  i17334    61 LT  Hàn Ngọc x1
+  i17335    61 LT  Hàn Ngọc x1
+  i17336    10 LT  Linh Tuyền Thủy x1
+  i17337    51 LT  Duệ Kim Chân Kinh [Hoàng giai main, Kim] 6 layers, up to Trúc Cơ
 Seeds are bought with 'plant <herb id>' at home. You have 30 linh thạch.
-> buy i17324
-Bought Ngưng Khí Thảo for 6 linh thạch.
- Δ Linh thạch 30 → 24 (-6) · + Ngưng Khí Thảo
+> buy i17323
+Bought Hỏa Linh Chi for 12 linh thạch.
+ Δ Linh thạch 30 → 18 (-12) · + Hỏa Linh Chi
 
-━━ Thuong · Thiên Nguyên lịch năm 1200, Xuân · Thiều Âm Thị ━━━━━━━━━━━━━━━━━━
- Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +10.4/season, next level in 4 seasons
- Tuổi  16/144  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 24 · power 18 · 2 Đạo Đồ pt
+━━ Thuong · Thiên Nguyên lịch năm 1200, Xuân · Hạc Đinh Thị ━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +6.1/season, next level in 1.8 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 18 · power 18 · 2 Đạo Đồ pt
  ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
-   train); Hoàng Tinh Sâm ≥40y x2: it cannot grow at home; gather it at Đan
-   Sơn Mạch (a wild herb ground); Hỏa Linh Chi ≥10y: this market sells one
-   aged 39y for 29 LT.  → go l211
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   you hold one aged 7y; plant it to keep it aging.  → plant hoang_tinh_sam
  ➤ 2 Đạo Đồ point(s) to spend.  → tree
-  1 Gather Hoàng Tinh Sâm at Đan Sơn Mạch — for Trúc Cơ Đan
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
   2 Spend 2 Đạo Đồ point(s)
   3 Plant something (plot 2 is empty)
   4 Cultivate 1 year                     5 Closed-door 5 years
-  6 Explore Thiều Âm Thị                 7 Travel…
+  6 Explore Hạc Đinh Thị                 7 Travel…
   8 Herb field                           9 Alchemy…
  10 Refine a pháp bảo…                  11 Draw talismans…
  12 Formations (trận pháp)              13 Market
- 14 Character sheet                     15 Inventory
+ 14 Talk to someone… (1 here)           15 Character sheet
+ 16 Inventory
  Type a number, or any command ('help'). Enter shows this menu again.
 > buy i17336
-Bought Yêu Cốt for 12 linh thạch.
- Δ Linh thạch 24 → 12 (-12) · + Yêu Cốt
+Bought Linh Tuyền Thủy for 10 linh thạch.
+ Δ Linh thạch 18 → 8 (-10) · + Linh Tuyền Thủy
 
-━━ Thuong · Thiên Nguyên lịch năm 1200, Xuân · Thiều Âm Thị ━━━━━━━━━━━━━━━━━━
- Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +10.4/season, next level in 4 seasons
- Tuổi  16/144  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 12 · power 18 · 2 Đạo Đồ pt
+━━ Thuong · Thiên Nguyên lịch năm 1200, Xuân · Hạc Đinh Thị ━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +6.1/season, next level in 1.8 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 8 · power 18 · 2 Đạo Đồ pt
  ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
-   train); Hoàng Tinh Sâm ≥40y x2: it cannot grow at home; gather it at Đan
-   Sơn Mạch (a wild herb ground); Hỏa Linh Chi ≥10y: this market sells one
-   aged 39y for 29 LT.  → go l211
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   you hold one aged 7y; plant it to keep it aging.  → plant hoang_tinh_sam
  ➤ 2 Đạo Đồ point(s) to spend.  → tree
-  1 Gather Hoàng Tinh Sâm at Đan Sơn Mạch — for Trúc Cơ Đan
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
   2 Spend 2 Đạo Đồ point(s)
   3 Plant something (plot 2 is empty)
-  4 Cultivate 1 year                     5 Closed-door 5 years
-  6 Explore Thiều Âm Thị                 7 Travel…
-  8 Herb field                           9 Alchemy…
- 10 Refine a pháp bảo…                  11 Draw talismans…
- 12 Formations (trận pháp)              13 Market
- 14 Character sheet                     15 Inventory
+  4 Travel toward Nhạn Thanh Thành for bounty work
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Hạc Đinh Thị                 8 Travel…
+  9 Herb field                          10 Alchemy…
+ 11 Refine a pháp bảo…                  12 Draw talismans…
+ 13 Formations (trận pháp)              14 Market
+ 15 Talk to someone… (1 here)           16 Character sheet
+ 17 Inventory
  Type a number, or any command ('help'). Enter shows this menu again.
 > inv
-Linh thạch: 12
+Linh thạch: 8
 Công pháp:
-  i17302 Xích Diễm Kinh [Hoàng giai main, Hỏa] 6 layers, up to Trúc Cơ [known]
+  i17302 Huyền Hoàng Công [Hoàng giai main, Thổ] 6 layers, up to Trúc Cơ [known]
 Phù lục (used automatically):
   i17320 Phá Cảnh Phù x2 — A realm-breaking talisman: +breakthrough chance on the next attempt.
 Linh thảo (harvested):
-  i17324 Ngưng Khí Thảo [Mộc] 8.4 năm, potency 2.54
+  i17323 Hỏa Linh Chi [Hỏa] 6.8 năm, potency 1.22
 Tài liệu:
-  i17338 Yêu Cốt x1
-> sell i17324
-Sold Ngưng Khí Thảo for 4 linh thạch.
- Δ Linh thạch 12 → 16 (+4) · − Ngưng Khí Thảo
+  i17338 Linh Tuyền Thủy x1
+> sell i17323
+Sold Hỏa Linh Chi for 8 linh thạch.
+ Δ Linh thạch 8 → 16 (+8) · − Hỏa Linh Chi
 
-━━ Thuong · Thiên Nguyên lịch năm 1200, Xuân · Thiều Âm Thị ━━━━━━━━━━━━━━━━━━
- Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +10.4/season, next level in 4 seasons
- Tuổi  16/144  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 16 · power 18 · 2 Đạo Đồ pt
+━━ Thuong · Thiên Nguyên lịch năm 1200, Xuân · Hạc Đinh Thị ━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +6.1/season, next level in 1.8 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 16 · power 18 · 2 Đạo Đồ pt
  ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
-   train); Hoàng Tinh Sâm ≥40y x2: it cannot grow at home; gather it at Đan
-   Sơn Mạch (a wild herb ground); Hỏa Linh Chi ≥10y: this market sells one
-   aged 39y for 29 LT.  → go l211
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
  ➤ 2 Đạo Đồ point(s) to spend.  → tree
-  1 Gather Hoàng Tinh Sâm at Đan Sơn Mạch — for Trúc Cơ Đan
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
   2 Spend 2 Đạo Đồ point(s)
   3 Plant something (plot 2 is empty)
   4 Cultivate 1 year                     5 Closed-door 5 years
-  6 Explore Thiều Âm Thị                 7 Travel…
+  6 Explore Hạc Đinh Thị                 7 Travel…
   8 Herb field                           9 Alchemy…
  10 Refine a pháp bảo…                  11 Draw talismans…
  12 Formations (trận pháp)              13 Market
- 14 Character sheet                     15 Inventory
+ 14 Talk to someone… (1 here)           15 Character sheet
+ 16 Inventory
  Type a number, or any command ('help'). Enter shows this menu again.
 > sell i17338
-Sold Yêu Cốt for 8 linh thạch.
- Δ Linh thạch 16 → 24 (+8) · − Yêu Cốt
+Sold Linh Tuyền Thủy for 6 linh thạch.
+ Δ Linh thạch 16 → 22 (+6) · − Linh Tuyền Thủy
 
-━━ Thuong · Thiên Nguyên lịch năm 1200, Xuân · Thiều Âm Thị ━━━━━━━━━━━━━━━━━━
- Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +10.4/season, next level in 4 seasons
- Tuổi  16/144  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 24 · power 18 · 2 Đạo Đồ pt
+━━ Thuong · Thiên Nguyên lịch năm 1200, Xuân · Hạc Đinh Thị ━━━━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +6.1/season, next level in 1.8 years
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 22 · power 18 · 2 Đạo Đồ pt
  ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
-   train); Hoàng Tinh Sâm ≥40y x2: it cannot grow at home; gather it at Đan
-   Sơn Mạch (a wild herb ground); Hỏa Linh Chi ≥10y: this market sells one
-   aged 39y for 29 LT.  → go l211
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
  ➤ 2 Đạo Đồ point(s) to spend.  → tree
-  1 Gather Hoàng Tinh Sâm at Đan Sơn Mạch — for Trúc Cơ Đan
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
   2 Spend 2 Đạo Đồ point(s)
   3 Plant something (plot 2 is empty)
   4 Cultivate 1 year                     5 Closed-door 5 years
-  6 Explore Thiều Âm Thị                 7 Travel…
+  6 Explore Hạc Đinh Thị                 7 Travel…
   8 Herb field                           9 Alchemy…
  10 Refine a pháp bảo…                  11 Draw talismans…
  12 Formations (trận pháp)              13 Market
- 14 Character sheet                     15 Inventory
+ 14 Talk to someone… (1 here)           15 Character sheet
+ 16 Inventory
  Type a number, or any command ('help'). Enter shows this menu again.
 > inv
-Linh thạch: 24
+Linh thạch: 22
 Công pháp:
-  i17302 Xích Diễm Kinh [Hoàng giai main, Hỏa] 6 layers, up to Trúc Cơ [known]
+  i17302 Huyền Hoàng Công [Hoàng giai main, Thổ] 6 layers, up to Trúc Cơ [known]
 Phù lục (used automatically):
   i17320 Phá Cảnh Phù x2 — A realm-breaking talisman: +breakthrough chance on the next attempt.
 > (end of input)

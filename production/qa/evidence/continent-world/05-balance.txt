@@ -28,3 +28,7 @@ Census, seed 202 (the continent world, 1,500 years): Nguyên Anh 50 / 48 / 40 / 
 share 0.111 against a mean step chance 0.064, one seed). Seed 101 to year 750: NA 34, HT 4. NPC breakthrough odds do
 not read the map, so the difference from the random world is the start (the authored cast) and luck: to re-check over
 several seeds in parallel.
+
+world economy (70b24c14 + found money, before the player-side holders), 144 lives on 12 processes, seeds 1001-1048 with the
+player on its own stream (a new baseline; not paired with the rounds above):          72 / 56 / 16 / 0 of 9
+  raw goods now trade at the bulk spread 1.10 / 0.90 (cheaper herbs to buy, dearer to sell); NPCs speed up with money

@@ -8,9 +8,13 @@ extends RefCounted
 ## reads. The formulas are [EconomyRules]'; this class keeps the state, in the World DB's [code]markets[/code] table
 ## (one record per market, id [code]mk:<sect id>[/code]), so a saved world resumes the same.
 ##
-## A raw class is a kind (herb, ore, beast, special); goods map to kinds by the herb list and map_resources.json's
-## resource_kind. Links between markets, the sects' spending and the crafted classes join later steps of the plan
-## (production/plans/world-economy.md); until then their terms are 0.
+## A raw class is a kind and rarity band (Trade Goods rule 8a: herb 1-3, ore 1-2, beast 1, special 1-2, from the goods
+## that exist), taking its kind's parameters; goods map to kinds by the herb list and map_resources.json's
+## resource_kind. Each class pool carries its composition (Trade Goods Formula B: each good's value), and price, cover
+## and flows read the shelved part. A kind's demand is split over its bands by their season-0 world supply shares
+## (bs). Each region's price_index holds its local price by class and, for Travel & Map's demand factor and the
+## baskets, by kind (the value-weighted mean of the kind's classes). The sects' spending and the crafted classes join
+## later steps of the plan (production/plans/world-economy.md).
 ##
 ## Usage:
 ## [codeblock]
@@ -27,6 +31,40 @@ static func kind_of(gd: GameData, good_id: String) -> String:
 	if not gd.herb(good_id).is_empty():
 		return "herb"
 	return str(gd.file(MapProduction.DATA_FILE).get("resource_kind", {}).get(good_id, "ore"))
+
+
+## The raw class of good [param good_id] (Trade Goods rule 8a).
+static func class_of(gd: GameData, good_id: String) -> String:
+	return TradeGoods.class_of(gd, good_id, kind_of(gd, good_id))
+
+
+## The kind a class id belongs to ("herb2" -> "herb").
+static func kind_of_class(cid: String) -> String:
+	return cid.rstrip("0123456789")
+
+
+## The raw classes that exist: each kind's bands that hold a catalogued good (herbs, and materials whose resource kind
+## is listed), in kind order then band.
+static func class_ids(gd: GameData) -> Array:
+	var cfg: Dictionary = gd.file(FILE)
+	var seen := {}
+	for h in gd.file("items_herbs").get("herbs", []):
+		seen[TradeGoods.class_of(gd, str(h.id), "herb")] = true
+	var rk: Dictionary = gd.file(MapProduction.DATA_FILE).get("resource_kind", {})
+	for m in gd.materials():
+		var k: String = str(rk.get(str(m.id), ""))
+		if k == "" and str(m.id) in gd.file(MapProduction.DATA_FILE).get("ore_by_element", {}).values():
+			k = "ore"
+		if k == "" and str(m.id) == "tu_kim_sa":
+			k = "ore"
+		if k != "" and k != "linh_thach":
+			seen[TradeGoods.class_of(gd, str(m.id), k)] = true
+	var out: Array = []
+	for k in cfg.classes.order:
+		for b in [1, 2, 3]:
+			if seen.has("%s%d" % [k, b]):
+				out.append("%s%d" % [k, b])
+	return out
 
 
 ## The market id of a sect id.
@@ -46,13 +84,13 @@ static func market_of_region(db: WorldDB, region: Dictionary) -> String:
 ## demand scale and starting stock so the no-shock world is at rest at P = 1 (Formula C's calibration, Formula D's
 ## starting stock).
 static func build(gd: GameData, db: WorldDB, grid: TravelGrid = null) -> void:
-	var cfg: Dictionary = gd.file(FILE)
-	var kinds: Array = cfg.classes.order
+	var cids: Array = class_ids(gd)
 	for s in db.find("sects", func(x): return str(x.get("kind", "")) == "great" and str(x.get("status", "")) == "active"):
 		var hub: Dictionary = db.get_record("places", str(s.get("hq_place_id", "")))
 		var classes := {}
-		for k in kinds:
-			classes[k] = {"p": 1.0, "stock": 0.0, "s": 0.0, "d": 0.0, "cover": 0.0, "short": 0.0, "d_scale": 1.0, "d_min": 1.0}
+		for cid in cids:
+			classes[cid] = {"kind": kind_of_class(cid), "p": 1.0, "stock": 0.0, "stock_sh": 0.0, "pool": {}, "s": 0.0, "d": 0.0,
+				"cover": 0.0, "short": 0.0, "d_scale": 1.0, "d_min": 1.0, "bs": 1.0}
 		db.put(TABLE, {"id": market_id(str(s.id)), "sect_id": str(s.id), "hub_place_id": str(hub.get("id", "")),
 			"hub_tile": hub.get("tile", [0, 0]), "classes": classes, "regions": {}, "fill": [1.0, 1.0, 1.0, 1.0, 1.0],
 			"player": {}, "season": 0})
@@ -64,6 +102,7 @@ static func build(gd: GameData, db: WorldDB, grid: TravelGrid = null) -> void:
 		m.regions[str(r.id)] = {"d": _hub_distance(r, m, grid), "p_loc": {}}
 	_build_links(gd, db, grid)
 	_calibrate(gd, db)
+	_world_shares(db)
 
 
 # Rule 12's candidate links, once: markets whose territories border (a road link, hub to hub by the ground path) and,
@@ -122,34 +161,41 @@ static func _hub_distance(region: Dictionary, market: Dictionary, grid: TravelGr
 static func _inputs(gd: GameData, db: WorldDB, m: Dictionary, heads_all: Dictionary = {}, wset_all: Dictionary = {}) -> Dictionary:
 	var cfg: Dictionary = gd.file(FILE)
 	var kinds: Array = cfg.classes.order
+	var cids: Array = m.classes.keys()
 	var sect: Dictionary = db.get_record("sects", str(m.sect_id))
 	var lv: Dictionary = sect.get("levels", {})
 	var heads_by_region: Dictionary = heads_all if not heads_all.is_empty() else _heads(db)
 	var wset_by_region: Dictionary = wset_all if not wset_all.is_empty() else _settlement_weight(gd, db)
 	var reached := {}
+	var reached_g := {}
 	var need := {}
 	var regions := {}
+	for cid in cids:
+		reached[cid] = 0.0
+		reached_g[cid] = {}
 	for k in kinds:
-		reached[k] = 0.0
 		need[k] = 0.0
 	for rid in m.regions:
 		var r: Dictionary = db.get_record("regions", rid)
 		var acc: float = float(EconomyRules.access(cfg, float(m.regions[rid].d), int(lv.get("trade", 0)), int(lv.get("military", 0)), bool(r.get("war", false))).acc)
 		var val := {}
-		for k in kinds:
-			val[k] = 0.0
+		for cid in cids:
+			val[cid] = 0.0
 		for g in r.get("production_value", {}):
-			var k: String = kind_of(gd, str(g))
-			if val.has(k):
-				val[k] = float(val[k]) + float(r.production_value[g])
+			var cid: String = class_of(gd, str(g))
+			if not val.has(cid):
+				continue
+			var gv: float = float(r.production_value[g])
+			val[cid] = float(val[cid]) + gv
+			reached[cid] = float(reached[cid]) + gv * acc
+			reached_g[cid][str(g)] = float(reached_g[cid].get(str(g), 0.0)) + gv * acc
 		var heads: Array = heads_by_region.get(rid, [0, 0, 0, 0, 0])
 		var nd := {}
 		for k in kinds:
-			reached[k] = float(reached[k]) + float(val[k]) * acc
 			nd[k] = EconomyRules.population_need(cfg, k, heads, m.fill, float(wset_by_region.get(rid, 0.0)))
 			need[k] = float(need[k]) + float(nd[k])
 		regions[rid] = {"acc": acc, "value": val, "need": nd}
-	return {"collect": _collect(cfg, int(lv.get("holdings", 0))), "reached": reached, "need": need, "regions": regions}
+	return {"collect": _collect(cfg, int(lv.get("holdings", 0))), "reached": reached, "reached_g": reached_g, "need": need, "regions": regions}
 
 
 # Sects F2: collect = s_max · (H + 1) / (H + 1 + H_half).
@@ -203,34 +249,66 @@ static func _calibrate(gd: GameData, db: WorldDB) -> void:
 		n_tot[k] = 0.0
 	var heads_all := _heads(db)
 	var wset_all := _settlement_weight(gd, db)
+	var s_cls := {}
 	for m in markets:
 		var x := _inputs(gd, db, m, heads_all, wset_all)
 		ins[str(m.id)] = x
+		for cid in m.classes:
+			var k: String = kind_of_class(cid)
+			var sv: float = EconomyRules.supply(cfg, float(x.collect), float(x.reached[cid]))
+			s_tot[k] = float(s_tot[k]) + sv
+			s_cls[cid] = float(s_cls.get(cid, 0.0)) + sv
 		for k in kinds:
-			s_tot[k] = float(s_tot[k]) + EconomyRules.supply(cfg, float(x.collect), float(x.reached[k]))
 			n_tot[k] = float(n_tot[k]) + float(cfg.classes.bmix.get(k, 0.0)) * float(x.need[k])
 	var dscale := {}
 	for k in kinds:
 		var target: float = 1.0 + float(cfg.classes.dk[k]) * (float(cfg.classes.c_ref[k]) - 1.0)
 		dscale[k] = 1.0 if float(n_tot[k]) <= 0.0 else float(s_tot[k]) / (target * float(n_tot[k]))
+	var bs := {}
+	for cid in s_cls:   # Trade Goods rule 8a: a band's share of its kind's season-0 world supply
+		var k: String = kind_of_class(cid)
+		bs[cid] = 0.0 if float(s_tot[k]) <= 0.0 else float(s_cls[cid]) / float(s_tot[k])
 	for m in markets:
 		var x: Dictionary = ins[str(m.id)]
-		for k in kinds:
-			var c: Dictionary = m.classes[k]
+		for cid in m.classes:
+			var k: String = kind_of_class(cid)
+			var c: Dictionary = m.classes[cid]
 			c.d_scale = dscale[k]
-			var s: float = EconomyRules.supply(cfg, float(x.collect), float(x.reached[k]))
-			var d: float = EconomyRules.demand(cfg, k, float(dscale[k]), float(x.need[k]))
+			c.bs = float(bs.get(cid, 0.0))
+			var s: float = EconomyRules.supply(cfg, float(x.collect), float(x.reached[cid]))
+			var d: float = c.bs * EconomyRules.demand(cfg, k, float(dscale[k]), float(x.need[k]))
 			c.d_min = maxf(1.0, float(cfg.demand.d_min_share) * d)
 			c.stock = maxf(0.0, float(cfg.classes.c_ref[k]) * d - s)
+			# the starting pool is made of the market's own goods in their supply shares (all on the shelf)
+			var pool := {}
+			var rg: Dictionary = x.reached_g[cid]
+			var rsum: float = 0.0
+			for g in rg:
+				rsum += float(rg[g])
+			for g in rg:
+				if rsum > 0.0 and float(rg[g]) > 0.0:
+					pool[g] = c.stock * float(rg[g]) / rsum
+			c.pool = pool
+			c.stock_sh = _shelved(gd, pool)
 			c.s = s
 			c.d = d
 			c.cover = (c.stock + s) / maxf(d, c.d_min)
 		for rid in x.regions:   # each region's own demand (Formula L1's D_r), which the shops' slippage reads from day one
 			var d_own := {}
-			for k in kinds:
-				d_own[k] = float(dscale[k]) * float(cfg.classes.bmix.get(k, 0.0)) * float(x.regions[rid].need[k])
+			for cid in m.classes:
+				var k: String = kind_of_class(cid)
+				d_own[cid] = float(bs.get(cid, 0.0)) * float(dscale[k]) * float(cfg.classes.bmix.get(k, 0.0)) * float(x.regions[rid].need[k])
 			m.regions[rid]["d_r"] = d_own
-	db.put(TABLE, {"id": "mk_calibration", "d_scale": dscale})
+	db.put(TABLE, {"id": "mk_calibration", "d_scale": dscale, "bs": bs})
+
+
+# The shelved part of a class pool: goods at one unit or more (Trade Goods Formula B).
+static func _shelved(gd: GameData, pool: Dictionary) -> float:
+	var t: float = 0.0
+	for g in pool:
+		if float(pool[g]) >= TradeGoods.unit_value(gd, str(g)):
+			t += float(pool[g])
+	return t
 
 
 ## One season of every market (rule 19 steps (a), (c), (d), (e)): supply and demand, the flows on the links between
@@ -252,15 +330,36 @@ static func season(gd: GameData, db: WorldDB, money: MoneyLedger = null) -> void
 		var x := _inputs(gd, db, m, heads_all, wset_all)
 		ins[str(m.id)] = x
 		var pl: Dictionary = m.get("player", {})
+		var hf: float = EconomyRules.h_f(cfg, float(x.collect))
 		var row := {}
-		for k in kinds:
-			var c: Dictionary = m.classes[k]
+		for cid in m.classes:
+			var k: String = kind_of_class(cid)
+			var c: Dictionary = m.classes[cid]
 			c["tariff_in"] = 0.0
-			var s: float = EconomyRules.supply(cfg, float(x.collect), float(x.reached[k]))
-			var d_pre: float = EconomyRules.demand(cfg, k, float(c.d_scale), float(x.need[k]))
+			var s: float = EconomyRules.supply(cfg, float(x.collect), float(x.reached[cid]))
+			var d_pre: float = float(c.bs) * EconomyRules.demand(cfg, k, float(c.d_scale), float(x.need[k]))
 			var cap: float = float(cfg.shop.player_cap) * d_pre
-			var p_eff: float = clampf(float(pl.get("buy", {}).get(k, 0.0)) - float(pl.get("sell", {}).get(k, 0.0)), -cap, cap)
-			row[k] = {"s": s, "d": maxf(0.0, d_pre + p_eff), "imp": 0.0, "exp": 0.0}
+			var p_eff: float = clampf(float(pl.get("buy", {}).get(cid, 0.0)) - float(pl.get("sell", {}).get(cid, 0.0)), -cap, cap)
+			var own := {}
+			for g in x.reached_g[cid]:
+				own[g] = hf * float(x.reached_g[cid][g])
+			var sold: Dictionary = pl.get("sold_g", {}).get(cid, {})
+			var bought: Dictionary = pl.get("bought_g", {}).get(cid, {})
+			# each good's pre-draw value and the export shares of the shelved goods (Formula B's X_pre and ex)
+			var x_pre := {}
+			var sh_tot: float = 0.0
+			var s_sh: float = 0.0
+			for g in _goods(c.pool, own, sold, bought):
+				var vg: float = float(c.pool.get(g, 0.0)) + float(own.get(g, 0.0)) + float(sold.get(g, 0.0))
+				x_pre[g] = maxf(0.0, vg - minf(float(bought.get(g, 0.0)), vg))
+				if float(c.pool.get(g, 0.0)) >= TradeGoods.unit_value(gd, str(g)):
+					sh_tot += float(x_pre[g])
+					s_sh += float(own.get(g, 0.0))
+			var ex := {}
+			for g in x_pre:
+				ex[g] = float(x_pre[g]) / sh_tot if sh_tot > 0.0 and float(c.pool.get(g, 0.0)) >= TradeGoods.unit_value(gd, str(g)) else 0.0
+			row[cid] = {"s": s, "s_sh": s_sh, "d": maxf(0.0, d_pre + p_eff), "imp": 0.0, "exp": 0.0, "own": own, "sold": sold,
+				"bought": bought, "x_pre": x_pre, "ex": ex, "avail": maxf(0.0, sh_tot - maxf(0.0, d_pre + p_eff)), "imp_g": {}}
 		pre[str(m.id)] = row
 	if bool(cfg.links.get("enabled", true)):
 		_flows(gd, db, money, pre)   # (d)
@@ -268,38 +367,67 @@ static func season(gd: GameData, db: WorldDB, money: MoneyLedger = null) -> void
 		var x: Dictionary = ins[str(m.id)]
 		var tot_value := {}
 		var tot_d := {}
-		for k in kinds:
-			var c: Dictionary = m.classes[k]
-			var r: Dictionary = pre[str(m.id)][k]
+		for cid in m.classes:
+			var k: String = kind_of_class(cid)
+			var c: Dictionary = m.classes[cid]
+			var r: Dictionary = pre[str(m.id)][cid]
 			var s: float = float(r.s) + float(r.imp) - float(r.exp)
 			var d: float = float(r.d)
 			var strained: bool = float(c.cover) < float(cfg.price.c_short)
-			var pr := EconomyRules.price(cfg, k, float(c.p), float(c.stock), s, d, float(c.d_min), strained)
-			var st := EconomyRules.stock_update(cfg, k, float(c.stock), s, d, float(c.d_min))
+			# price and cover read the shelved stock and the shelved goods' supply (Trade Goods Formula B)
+			var pr := EconomyRules.price(cfg, k, float(c.p), float(c.stock_sh), float(r.s_sh) + float(r.imp) - float(r.exp), d, float(c.d_min), strained)
+			# the shared draw: exports first, then demand, spoilage and the storage overflow (#43 Formula D)
+			var total: float = float(r.imp)
+			for g in r.x_pre:
+				total += float(r.x_pre[g])
+			var left: float = maxf(0.0, total - float(r.exp) - d)
+			var spoil: float = float(cfg.classes.dk[k]) * left
+			var over: float = maxf(0.0, (left - spoil) - float(cfg.classes.s_cap[k]) * maxf(d, float(c.d_min)))
+			var v := {}
+			for g in _goods(c.pool, r.own, r.imp_g, r.sold):
+				v[g] = TradeGoods.unit_value(gd, str(g))
+			var comp := TradeGoods.compose(cfg, c.pool, r.own, r.imp_g, r.sold, r.bought, float(r.exp) + d + spoil + over, float(r.exp), v)
+			c.pool = comp.pool
+			c.stock_sh = float(comp.shelved)
+			var stock: float = 0.0
+			for g in c.pool:
+				stock += float(c.pool[g])
+			c.short = maxf(0.0, d - (total - float(r.exp)))
 			c.p = snappedf(float(pr.p), 0.000001)
 			c.cover = float(pr.cover)
 			c.s = s
 			c.d = d
 			c.imp = float(r.imp)
 			c.exp = float(r.exp)
-			c.stock = float(st.stock)
-			c.short = float(st.short)
+			c.stock = stock
 			var tv: float = 0.0
 			var td: float = 0.0
 			for rid in x.regions:
-				tv += float(x.regions[rid].value[k])
-				td += float(c.d_scale) * float(cfg.classes.bmix.get(k, 0.0)) * float(x.regions[rid].need[k])
-			tot_value[k] = tv
-			tot_d[k] = td
+				tv += float(x.regions[rid].value[cid])
+				td += float(c.bs) * float(c.d_scale) * float(cfg.classes.bmix.get(k, 0.0)) * float(x.regions[rid].need[k])
+			tot_value[cid] = tv
+			tot_d[cid] = td
 		_local_prices(gd, db, m, x, tot_value, tot_d)
 		m["player_last"] = m.get("player", {})
 		m["player"] = {}
 		m.season = int(m.season) + 1
+	_world_shares(db)
 
 
 # Rule 2: a region whose holder changed (Sects rules 17-18) joins the new holder's market this season, with its
 # distance to the new hub (straight-line; the ground path is measured once at world generation); a fallen sect's
 # market closes once it holds no region.
+# Every good named in any of [param pools], sorted (market-id and good-id order keeps results bit-identical).
+static func _goods(a: Dictionary, b: Dictionary, c: Dictionary = {}, d: Dictionary = {}) -> Array:
+	var out: Array = []
+	for x in [a, b, c, d]:
+		for g in x:
+			if not out.has(g):
+				out.append(g)
+	out.sort()
+	return out
+
+
 static func _sync_regions(db: WorldDB) -> void:
 	var where := {}
 	for m in _sorted_markets(db):
@@ -361,13 +489,11 @@ static func _openness(sect: Dictionary) -> int:
 # pool and tar · P_B · Q to its sect.
 static func _flows(gd: GameData, db: WorldDB, money: MoneyLedger, pre: Dictionary) -> void:
 	var cfg: Dictionary = gd.file(FILE)
-	var kinds: Array = cfg.classes.order
 	var avail := {}
 	for mid in pre:
-		var m: Dictionary = db.get_record(TABLE, mid)
 		avail[mid] = {}
-		for k in kinds:
-			avail[mid][k] = maxf(0.0, float(m.classes[k].stock) + float(pre[mid][k].s) - float(pre[mid][k].d))
+		for cid in pre[mid]:
+			avail[mid][cid] = float(pre[mid][cid].avail)
 	for l in links(gd, db):
 		var ma: Dictionary = db.get_record(TABLE, str(l.a))
 		var mb: Dictionary = db.get_record(TABLE, str(l.b))
@@ -380,7 +506,8 @@ static func _flows(gd: GameData, db: WorldDB, money: MoneyLedger, pre: Dictionar
 		var safe: float = clampf(1.0 - float(cfg.access.lambda_road) * pow(float(cfg.access.road_danger), mil) * (1.0 - reach), 0.0, 1.0)
 		var cap_left: float = EconomyRules.link_capacity(cfg, tm_a, tm_b, safe)
 		var flows := {}
-		for k in kinds:
+		var cids: Array = ma.classes.keys().filter(func(x): return mb.classes.has(x))
+		for k in cids:
 			var ca: Dictionary = ma.classes[k]
 			var cb: Dictionary = mb.classes[k]
 			var lo: Dictionary = ma
@@ -391,15 +518,15 @@ static func _flows(gd: GameData, db: WorldDB, money: MoneyLedger, pre: Dictionar
 			var clo: Dictionary = lo.classes[k]
 			var chi: Dictionary = hi.classes[k]
 			var s_hi: Dictionary = db.get_record("sects", str(hi.sect_id))
-			var f := EconomyRules.link_flow(cfg, k, float(clo.p), float(chi.p), float(clo.cover), float(chi.cover),
+			var f := EconomyRules.link_flow(cfg, kind_of_class(k), float(clo.p), float(chi.p), float(clo.cover), float(chi.cover),
 				float(pre[str(lo.id)][k].d), float(pre[str(hi.id)][k].d), float(chi.d_min), _openness(s_hi), float(l.d),
 				tm_a, tm_b, float(avail[str(lo.id)][k]), bool(l.get("array", false)))
 			flows[k] = {"from": str(lo.id), "to": str(hi.id), "q": float(f.q)}
 		var total: float = 0.0
-		for k in kinds:
+		for k in cids:
 			total += float(flows[k].q)
 		var scale: float = 1.0 if total <= cap_left or total <= 0.0 else cap_left / total
-		for k in kinds:
+		for k in cids:
 			var fl: Dictionary = flows[k]
 			var q: float = float(fl.q) * scale
 			if q <= 0.0:
@@ -422,6 +549,11 @@ static func _flows(gd: GameData, db: WorldDB, money: MoneyLedger, pre: Dictionar
 			avail[str(fl.from)][k] = maxf(0.0, float(avail[str(fl.from)][k]) - q)
 			pre[str(fl.from)][k].exp = float(pre[str(fl.from)][k].exp) + q
 			pre[str(fl.to)][k].imp = float(pre[str(fl.to)][k].imp) + q
+			var ex: Dictionary = pre[str(fl.from)][k].ex   # imports arrive split by the exporter's shares (Formula B)
+			var ig: Dictionary = pre[str(fl.to)][k].imp_g
+			for g in ex:
+				if float(ex[g]) > 0.0:
+					ig[g] = float(ig.get(g, 0.0)) + q * float(ex[g])
 
 
 # Formula L1 for every region of the market, and price_index = p_loc (rule 11). The player's trades count with
@@ -435,16 +567,25 @@ static func _local_prices(gd: GameData, db: WorldDB, m: Dictionary, x: Dictionar
 		var trades: Dictionary = rm.get("trades", {})
 		var p_loc := {}
 		var d_own := {}
-		for k in cfg.classes.order:
-			var c: Dictionary = m.classes[k]
-			var rho: float = 1.0 if float(tot_value[k]) <= 0.0 or float(tot_d[k]) <= 0.0 else float(tot_value[k]) / float(tot_d[k])
-			var d_r: float = float(c.d_scale) * float(cfg.classes.bmix.get(k, 0.0)) * float(rx.need[k])
-			d_own[k] = d_r
-			var t: Dictionary = trades.get(k, {})
-			p_loc[k] = snappedf(EconomyRules.local_price(cfg, k, float(c.p), float(rx.value[k]), d_r, float(rx.acc), rho,
+		var kind_w := {}
+		for cid in m.classes:
+			var k: String = kind_of_class(cid)
+			var c: Dictionary = m.classes[cid]
+			var rho: float = 1.0 if float(tot_value[cid]) <= 0.0 or float(tot_d[cid]) <= 0.0 else float(tot_value[cid]) / float(tot_d[cid])
+			var d_r: float = float(c.bs) * float(c.d_scale) * float(cfg.classes.bmix.get(k, 0.0)) * float(rx.need[k])
+			d_own[cid] = d_r
+			var t: Dictionary = trades.get(cid, {})
+			p_loc[cid] = snappedf(EconomyRules.local_price(cfg, k, float(c.p), float(rx.value[cid]), d_r, float(rx.acc), rho,
 				float(t.get("sell", 0.0)), float(t.get("buy", 0.0))), 0.000001)
 			if not t.is_empty():
-				trades[k] = {"buy": float(t.get("buy", 0.0)) * mem, "sell": float(t.get("sell", 0.0)) * mem}
+				trades[cid] = {"buy": float(t.get("buy", 0.0)) * mem, "sell": float(t.get("sell", 0.0)) * mem}
+			var w: float = maxf(float(c.d), 1e-6)   # the kind's price: its classes weighted by their demand
+			if not kind_w.has(k):
+				kind_w[k] = [0.0, 0.0]
+			kind_w[k][0] += w * float(p_loc[cid])
+			kind_w[k][1] += w
+		for k in kind_w:
+			p_loc[k] = snappedf(float(kind_w[k][0]) / maxf(float(kind_w[k][1]), 1e-12), 0.000001)
 		rm["p_loc"] = p_loc
 		rm["d_r"] = d_own
 		rm["acc"] = float(rx.acc)
@@ -453,14 +594,51 @@ static func _local_prices(gd: GameData, db: WorldDB, m: Dictionary, x: Dictionar
 		r["price_index"] = p_loc
 
 
-## The local price of class [param k] in region [param region_id] (1.0 before its market has ticked; rule 11).
+## Trade Goods Formula D: the scarcity factor of good [param good] in market [param mid]'s class pool (1 for a class
+## with no composition, or a good of no raw class).
+static func scarcity_factor(gd: GameData, db: WorldDB, mid: String, good: String) -> float:
+	var m: Dictionary = db.get_record(TABLE, mid)
+	var cid: String = class_of(gd, good)
+	if m.is_empty() or not m.classes.has(cid):
+		return 1.0
+	var wsh: Dictionary = db.get_record(TABLE, "mk_world_shares").get(cid, {})
+	if wsh.is_empty() or not wsh.has(good):
+		return 1.0
+	var v := {}
+	for g in wsh:
+		v[g] = TradeGoods.unit_value(gd, str(g))
+	return float(TradeGoods.scarcity(gd.file(FILE), m.classes[cid].pool, wsh, v).get(good, 1.0))
+
+
+# Formula D's world shares of each good in its class, summed in market-id order after every market's Formula B.
+static func _world_shares(db: WorldDB) -> void:
+	var tot := {}
+	for m in _sorted_markets(db):
+		for cid in m.classes:
+			if not tot.has(cid):
+				tot[cid] = {}
+			for g in m.classes[cid].pool:
+				tot[cid][g] = float(tot[cid].get(g, 0.0)) + float(m.classes[cid].pool[g])
+	var out := {"id": "mk_world_shares"}
+	for cid in tot:
+		var s: float = 0.0
+		for g in tot[cid]:
+			s += float(tot[cid][g])
+		var sh := {}
+		for g in tot[cid]:
+			sh[g] = 0.0 if s <= 0.0 else float(tot[cid][g]) / s
+		out[cid] = sh
+	db.put(TABLE, out)
+
+
+## The local price of class or kind [param k] in region [param region_id] (1.0 before its market has ticked; rule 11).
 static func local_price(db: WorldDB, region_id: String, k: String) -> float:
 	return float(db.get_record("regions", region_id).get("price_index", {}).get(k, 1.0))
 
 
 ## Records the player's trade of [param value] base value of class [param k] in a region (rule 16, Formula L1's
 ## buy_pl / sell_pl and Formula G's P_eff): [param buy] true for a purchase.
-static func record_player_trade(gd: GameData, db: WorldDB, region_id: String, k: String, value: float, buy: bool) -> void:
+static func record_player_trade(gd: GameData, db: WorldDB, region_id: String, k: String, value: float, buy: bool, good: String = "") -> void:
 	var r: Dictionary = db.get_record("regions", region_id)
 	var mid: String = market_of_region(db, r)
 	if mid == "":
@@ -470,6 +648,13 @@ static func record_player_trade(gd: GameData, db: WorldDB, region_id: String, k:
 	if not m.player.has(side):
 		m.player[side] = {}
 	m.player[side][k] = float(m.player[side].get(k, 0.0)) + value
+	if good != "":   # the good itself enters or leaves the class pool (Formula B's sell_pl / buy_pl)
+		var gk: String = "bought_g" if buy else "sold_g"
+		if not m.player.has(gk):
+			m.player[gk] = {}
+		if not m.player[gk].has(k):
+			m.player[gk][k] = {}
+		m.player[gk][k][good] = float(m.player[gk][k].get(good, 0.0)) + value
 	var rm: Dictionary = m.regions.get(region_id, {})
 	if rm.is_empty():
 		return

@@ -147,16 +147,15 @@ func _charm(c: Character, sheet: StatSheet) -> float:
 	return (sheet.effective("mi_luc", c) - 50.0) * float(_gd.session().market.mi_luc_price_per_point)
 
 
-## The class an item trades in (Regional Economy & Trade rule 4): a herb or material is a raw good of its kind
-## ([method WorldEconomy.kind_of]); anything else is a finished good, priced at P = 1 until Trade Goods' crafted
-## classes exist. {raw, k}.
+## The class an item trades in (Regional Economy & Trade rule 4, Trade Goods rule 8a): a herb or material is a raw good
+## of its kind and rarity band ([method WorldEconomy.class_of]); anything else is a finished good, priced at P = 1
+## until Trade Goods' crafted classes exist. {raw, k (class id), good}.
 func item_class(item: Dictionary) -> Dictionary:
 	match str(item.get("kind", "")):
-		"herb":
-			return {"raw": true, "k": "herb"}
-		"material":
-			return {"raw": true, "k": WorldEconomy.kind_of(_gd, str(item.get("template", "")))}
-	return {"raw": false, "k": ""}
+		"herb", "material":
+			var t: String = str(item.get("template", ""))
+			return {"raw": true, "k": WorldEconomy.class_of(_gd, t), "good": t}
+	return {"raw": false, "k": "", "good": ""}
 
 
 # The place an item is offered at: its shop for stock, else [param place_id].
@@ -178,10 +177,12 @@ func _shop_ctx(item: Dictionary, place: Dictionary) -> Dictionary:
 		return {}
 	var ic: Dictionary = item_class(item)
 	var p_loc: float = 1.0
+	var sf: float = 1.0
 	if bool(ic.raw):
 		p_loc = WorldEconomy.local_price(_db, str(region.id), str(ic.k))
-	return {"raw": bool(ic.raw), "k": str(ic.k), "p_loc": p_loc, "kind": str(place.get("kind", "")), "market": mid,
-		"region": str(region.id), "place": str(place.id)}
+		sf = WorldEconomy.scarcity_factor(_gd, _db, mid, str(ic.good))   # Trade Goods Formula D
+	return {"raw": bool(ic.raw), "k": str(ic.k), "good": str(ic.good), "p_loc": p_loc, "sf": sf, "kind": str(place.get("kind", "")),
+		"market": mid, "region": str(region.id), "place": str(place.id)}
 
 
 ## Price to buy one unit. On the continent: Regional Economy & Trade Formula G at the shop's region's local price (raw
@@ -190,7 +191,7 @@ func buy_price(c: Character, sheet: StatSheet, item: Dictionary, place_id: Strin
 	var ctx := _shop_ctx(item, _place_for(item, place_id))
 	if not ctx.is_empty():
 		var mi: int = int(sheet.effective("mi_luc", c))
-		return EconomyRules.buy_price(_gd.file(WorldEconomy.FILE), float(_items.value_of(item)), float(ctx.p_loc), bool(ctx.raw), str(ctx.kind), mi)
+		return EconomyRules.buy_price(_gd.file(WorldEconomy.FILE), float(_items.value_of(item)), float(ctx.p_loc), bool(ctx.raw), str(ctx.kind), mi, 0, float(ctx.sf))
 	var v: float = float(_items.value_of(item)) * float(_gd.session().market.buy_markup) * (1.0 - _charm(c, sheet))
 	return maxi(1, int(ceilf(v - 1e-6)))
 
@@ -204,9 +205,9 @@ func sell_price(c: Character, sheet: StatSheet, item: Dictionary, place_id: Stri
 		var v: float = float(_items.value_of(item))
 		var sl: float = 1.0
 		if bool(ctx.raw):
-			sl = EconomyRules.slip(cfg, str(ctx.k), _sold_here(ctx), v, _place_demand(ctx))
+			sl = EconomyRules.slip(cfg, WorldEconomy.kind_of_class(str(ctx.k)), _sold_here(ctx), v, _place_demand(ctx))
 		var mi: int = int(sheet.effective("mi_luc", c))
-		return EconomyRules.sell_price(cfg, v, float(ctx.p_loc), bool(ctx.raw), str(ctx.kind), mi, 0, 1.0, 0.0, sl)
+		return EconomyRules.sell_price(cfg, v, float(ctx.p_loc), bool(ctx.raw), str(ctx.kind), mi, 0, float(ctx.sf), 0.0, sl)
 	var vv: float = float(_items.value_of(item)) * float(_gd.session().market.sell_ratio) * (1.0 + _charm(c, sheet))
 	return maxi(1, int(floorf(vv + 1e-6)))
 
@@ -239,7 +240,7 @@ func _book_trade(c: Character, ctx: Dictionary, value: float, price: int, buy: b
 		var mk: Dictionary = _db.get_record(WorldEconomy.TABLE, str(ctx.market))
 		mk["turnover_player"] = float(mk.get("turnover_player", 0.0)) + moved
 	if bool(ctx.raw) and moved > 0:
-		WorldEconomy.record_player_trade(_gd, _db, str(ctx.region), str(ctx.k), value, buy)
+		WorldEconomy.record_player_trade(_gd, _db, str(ctx.region), str(ctx.k), value, buy, str(ctx.good))
 		if not buy:
 			var m: Dictionary = _db.get_record(WorldEconomy.TABLE, str(ctx.market))
 			if not m.player.has("sold_at"):

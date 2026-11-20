@@ -37,9 +37,11 @@ func test_a_raw_herb_sells_at_the_bulk_spread_and_the_local_price() -> void:
 	var herb: Dictionary = f.items.herb("hoa_linh_chi", 10.0)
 	var id := _give(f, herb)
 	var v: float = float(f.items.value_of(herb))
-	var p_loc: float = WorldEconomy.local_price(f.db, str(f.place.region_id), "herb")
-	var expected: int = EconomyRules.sell_price(cfg, v, p_loc, true, "city", 50, 0, 1.0, 0.0,
-		EconomyRules.slip(cfg, "herb", 0.0, v, f.market._place_demand(f.market._shop_ctx(herb, f.place))))
+	var ctx: Dictionary = f.market._shop_ctx(herb, f.place)
+	assert_eq(str(ctx.k), "herb1", "Hỏa Linh Chi (rarity 2) trades in herb band 1")
+	var p_loc: float = WorldEconomy.local_price(f.db, str(f.place.region_id), "herb1")
+	var expected: int = EconomyRules.sell_price(cfg, v, p_loc, true, "city", 50, 0, float(ctx.sf), 0.0,
+		EconomyRules.slip(cfg, "herb", 0.0, v, f.market._place_demand(ctx)))
 	assert_eq(f.market.sell_price(f.c, f.sheet, f.db.get_record("items", id), str(f.place.id)), expected, "Formula G")
 	assert_true(expected > int(v * float(f.gd.session().market.sell_ratio) * p_loc), "raw goods sell above the old retail ratio 0.6")
 
@@ -80,7 +82,9 @@ func test_a_purchase_enters_the_markets_books() -> void:
 	var r: Dictionary = f.market.buy(f.c, f.sheet, str(f.place.id), str(it.id))
 	assert_true(r.ok, r.message)
 	var m: Dictionary = f.db.get_record(WorldEconomy.TABLE, WorldEconomy.market_of_region(f.db, f.db.get_record("regions", str(f.place.region_id))))
-	assert_true(float(m.player.get("buy", {}).get("herb", 0.0)) > 0.0, "the purchase counts toward P_eff")
+	var cid: String = WorldEconomy.class_of(f.gd, str(it.template))
+	assert_true(float(m.player.get("buy", {}).get(cid, 0.0)) > 0.0, "the purchase counts toward P_eff")
+	assert_true(float(m.player.get("bought_g", {}).get(cid, {}).get(str(it.template), 0.0)) > 0.0, "and leaves the pool as that good (Formula B)")
 
 
 func test_a_pool_that_cannot_pay_the_whole_price_does_not_buy() -> void:

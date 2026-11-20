@@ -1,13 +1,13 @@
-# Regional Economy & Trade at the shop (plan production/plans/world-economy.md R2): a raw herb and beast bone bought
+# Regional Economy & Trade at the shop (plan production/plans/world-economy.md R2, T): a raw herb and spirit-spring water bought
 # and sold at a market in Thê Ngô Lĩnh (Phượng Minh Cung's market), priced by Formula G at the region's local price.
 # Run: godot --headless --path . -s res://src/debug_terminal/terminal_main.gd -- --no-llm
 #        --commands res://production/qa/evidence/world-economy/01-shop-commands.txt --exit-after-commands
 new quick Thuong 11
 look
 market
-buy i17324
+buy i17323
 buy i17336
 inv
-sell i17324
+sell i17323
 sell i17338
 inv

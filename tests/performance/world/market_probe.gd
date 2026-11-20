@@ -57,11 +57,13 @@ func _show(db: WorldDB, s: int) -> void:
 		var line: String = "%-8s %-14s" % [str(m.id), str(db.get_record("sects", str(m.sect_id)).get("name", ""))]
 		for k in m.classes:
 			var c: Dictionary = m.classes[k]
-			line += " | %s P %.3f c %.2f S %.0f D %.0f i%.0f e%.0f" % [k, float(c.p), float(c.cover), float(c.s), float(c.d), float(c.get("imp", 0.0)), float(c.get("exp", 0.0))]
+			line += " | %s %.2f c%.1f n%d" % [k, float(c.p), float(c.cover), Dictionary(c.get("pool", {})).size()]
 		var lo: float = 9.0
 		var hi: float = 0.0
 		for rid in m.regions:
 			for k in m.regions[rid].get("p_loc", {}):
+				if not m.classes.has(k):
+					continue
 				var v: float = float(m.regions[rid].p_loc[k]) / maxf(0.0001, float(m.classes[k].p))
 				lo = minf(lo, v)
 				hi = maxf(hi, v)

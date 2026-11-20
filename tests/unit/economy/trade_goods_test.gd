@@ -57,3 +57,26 @@ func test_specialty_follows_formula_c() -> void:
 	var by := {"r1": {"btt": 2400.0}, "r2": {"btt": 900.0}, "r3": {"btt": 300.0}, "r4": {"btt": 150.0}, "r5": {"btt": 40.0}}
 	var sp := TradeGoods.specialties(_cfg(), by, {"btt": 60.0})
 	assert_eq(sp.get("btt", []), ["r1", "r2", "r3"], "a specialty of three regions")
+
+
+func test_every_market_shelves_named_goods_and_prices_them_by_scarcity() -> void:
+	# Trade Goods rules 8-9 on the built world: class pools hold named goods, and a good absent from a market's pool
+	# sells dearer there than where it is plentiful
+	var gd := game_data()
+	var r := RandomNumberGenerator.new()
+	r.seed = 7
+	var db: WorldDB = WorldBuilder.new(gd, TestFixtures.tree()).generate(r, "7")
+	MapProduction.season(gd, db, true)
+	WorldEconomy.season(gd, db)
+	var ms: Array = db.find(WorldEconomy.TABLE, func(x): return str(x.id).begins_with("mk:"))
+	var named: int = 0
+	for m in ms:
+		named += m.classes.herb1.pool.size()
+	assert_true(named > ms.size(), "the herb band-1 pools hold several named goods")
+	var lo: float = INF
+	var hi: float = 0.0
+	for m in ms:
+		var sf: float = WorldEconomy.scarcity_factor(gd, db, str(m.id), "hoang_tinh_sam")
+		lo = minf(lo, sf)
+		hi = maxf(hi, sf)
+	assert_true(hi > lo + 0.05, "Hoàng Tinh Sâm's scarcity factor differs across markets (%.3f to %.3f)" % [lo, hi])

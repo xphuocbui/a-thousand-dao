@@ -255,7 +255,7 @@ static func _market_income(gd: GameData, db: WorldDB, money: MoneyLedger) -> flo
 		var collect: float = WorldEconomy._collect(cfg, int(lv.get("holdings", 0)))
 		var kind_left: float = float(s.get("kind_due", 0.0))
 		var income: float = 0.0
-		for k in cfg.classes.order:
+		for k in m.classes:
 			var c: Dictionary = m.classes[k]
 			var reached: float = 0.0
 			for rid in m.regions:
@@ -298,12 +298,12 @@ static func _v_own_shares(gd: GameData, db: WorldDB, m: Dictionary) -> Dictionar
 	return by
 
 
-# A region's production value of class k this season (the contract's production_value).
-static func _region_value(gd: GameData, db: WorldDB, rid: String, k: String) -> float:
+# A region's production value of class [param cid] this season (the contract's production_value).
+static func _region_value(gd: GameData, db: WorldDB, rid: String, cid: String) -> float:
 	var v: float = 0.0
 	var pv: Dictionary = db.get_record("regions", rid).get("production_value", {})
 	for g in pv:
-		if WorldEconomy.kind_of(gd, str(g)) == k:
+		if WorldEconomy.class_of(gd, str(g)) == cid:
 			v += float(pv[g])
 	return v
 
