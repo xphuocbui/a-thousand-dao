@@ -1,0 +1,21 @@
+{
+  "status": "DRAFT 2026-11-20, authored by Claude from each mine's name and note (user decision 2026-11-20: a mine's resource by its name, not inferred from the land); for the user's review with the economy's content. The spirit veins yield linh thach. Goods are Trade Goods' named ores (design/gdd/trade-goods.md, the ore table).",
+  "mines": [
+    {"place": 165, "name": "Bích Ngọc Khoáng", "resource": "han_ngoc", "why": "Green Jade Mine: jade, the cold-jade ore"},
+    {"place": 166, "name": "Vân Mẫu Khoáng", "resource": "huyen_hoang_thach", "why": "Mica Mine: a stone of the earth, the dark-yellow stone"},
+    {"place": 167, "name": "Thạch Lục Khoáng", "resource": "xich_dong", "why": "Malachite Mine: malachite is a copper ore, the red copper"},
+    {"place": 168, "name": "Băng Lăng Khoáng", "resource": "han_ngoc", "why": "Icicle Mine in the frost land: cold jade"},
+    {"place": 169, "name": "Xích Kim Khoáng", "resource": "tu_kim_sa", "why": "Red Gold Mine for a treasure market: the gold sand"},
+    {"place": 170, "name": "Thần Sa Khoáng", "resource": "xich_dong", "why": "Cinnabar Mine, the alchemists' first stone: a Fire ore"},
+    {"place": 171, "name": "Lưu Hoàng Khoáng", "resource": "xich_dong", "why": "Sulphur Mine near the wasteland: a Fire ore"},
+    {"place": 172, "name": "Vẫn Tinh Khoáng", "resource": "tinh_thiet", "why": "Fallen Star Mine: iron from a fallen star"},
+    {"place": 173, "name": "Thiên Ngoại Khoáng", "resource": "tinh_thiet", "why": "Iron from Beyond the Sky: Thối Tinh Môn's star iron"},
+    {"place": 174, "name": "Huyền Thiết Khoáng", "resource": "tinh_thiet", "why": "Black Iron Mine: iron"},
+    {"place": 175, "name": "Can Tương Khoáng", "resource": "tinh_thiet", "why": "Gan Jiang's Mine, sword ore for Phất Y Cốc: iron"},
+    {"place": 176, "name": "Bạch Ngân Khoáng", "resource": "tinh_thiet", "why": "Silver Mine: a Metal ore (the refined-iron class)"},
+    {"place": 177, "name": "Kinh Điện Khoáng", "resource": "tinh_thiet", "why": "Startling Lightning Mine, storm-struck ore: a Metal ore"},
+    {"place": 178, "name": "Tử Kim Khoáng", "resource": "tu_kim_sa", "why": "Purple Gold Mine: the purple-gold sand itself"},
+    {"place": 179, "name": "Vũ Hoa Khoáng", "resource": "linh_thach", "why": "Rain Flower Mine: rain-flower pebbles (vũ hoa thạch) are spirit stones in the tradition, on the richest ground of the sixteen"},
+    {"place": 180, "name": "Đan Thạch Khoáng", "resource": "huyen_hoang_thach", "why": "Red Stone Mine: a stone of the cinnabar land, the dark-yellow stone"}
+  ]
+}

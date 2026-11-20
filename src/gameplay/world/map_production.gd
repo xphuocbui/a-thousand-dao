@@ -24,6 +24,9 @@ static func _cfg(gd: GameData) -> Dictionary:
 ## Rule 20: the resource a site's land yields: {resource, kind} (kind linh_thach or ore).
 static func site_resource(gd: GameData, place: Dictionary) -> Dictionary:
 	var cfg: Dictionary = _cfg(gd)
+	if str(place.get("resource", "")) != "":   # authored by the mine's name (user decision 2026-11-20)
+		var r: String = str(place.resource)
+		return {"resource": r, "kind": "linh_thach" if r == "linh_thach" else "ore"}
 	var shares: Dictionary = place.get("qi", {}).get("shares", {})
 	var land: float = float(place.get("qi", {}).get("land_density", place.get("density", 1.0)))
 	var em: float = float(shares.get("tho", 0.0)) + float(shares.get("kim", 0.0))

@@ -374,6 +374,15 @@ def main():
         routes.append({"a": x, "b": y, "kind": "lane", "tiles": round(tl, 3), "km": round(tl * km_per_tile, 1),
                        "cost": round(tl, 3)})   # Formula D: c_t = 1 at sea
 
+    # each mine's authored resource (user decision 2026-11-20: by its name; mine_resources.json)
+    mr_path = os.path.join(m, "mine_resources.json")
+    if os.path.exists(mr_path):
+        by_pid = {p["id"]: p for p in places}
+        for row in load(mr_path)["mines"]:
+            q = by_pid.get(row["place"])
+            if q is None or q["name"] != row["name"]:
+                raise SystemExit("mine_resources.json: place %s is not %s" % (row["place"], row["name"]))
+            q["resource"] = row["resource"]
     # Travel & Map Formula C (tools/design/map/land_qi.py, run after a first export): each place's qi, and the qi layer
     qi_file, mu = "", {}
     lq_path = os.path.join(m, "land_qi.json")

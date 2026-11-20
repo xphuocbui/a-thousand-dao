@@ -8364,6 +8364,7 @@
    "territory": "thuy_vi",
    "on_road": true,
    "array": false,
+   "resource": "han_ngoc",
    "qi": {
     "part": 0,
     "part_biome": "temperate_forest",
@@ -8403,6 +8404,7 @@
    "territory": "thuy_vi",
    "on_road": true,
    "array": false,
+   "resource": "huyen_hoang_thach",
    "qi": {
     "part": 0,
     "part_biome": "high_mountain",
@@ -8442,6 +8444,7 @@
    "territory": "tung_dao",
    "on_road": true,
    "array": false,
+   "resource": "xich_dong",
    "qi": {
     "part": 0,
     "part_biome": "high_mountain",
@@ -8481,6 +8484,7 @@
    "territory": "bang_tam",
    "on_road": true,
    "array": false,
+   "resource": "han_ngoc",
    "qi": {
     "part": 0,
     "part_biome": "high_mountain",
@@ -8520,6 +8524,7 @@
    "territory": "lac_ha",
    "on_road": true,
    "array": false,
+   "resource": "tu_kim_sa",
    "qi": {
     "part": 0,
     "part_biome": "badlands",
@@ -8559,6 +8564,7 @@
    "territory": "thien_xu",
    "on_road": true,
    "array": false,
+   "resource": "xich_dong",
    "qi": {
     "part": 0,
     "part_biome": "badlands",
@@ -8598,6 +8604,7 @@
    "territory": "thien_xu",
    "on_road": true,
    "array": false,
+   "resource": "xich_dong",
    "qi": {
     "part": 0,
     "part_biome": "badlands",
@@ -8637,6 +8644,7 @@
    "territory": "thien_xu",
    "on_road": true,
    "array": false,
+   "resource": "tinh_thiet",
    "qi": {
     "part": 0,
     "part_biome": "highland",
@@ -8676,6 +8684,7 @@
    "territory": "thien_xu",
    "on_road": true,
    "array": false,
+   "resource": "tinh_thiet",
    "qi": {
     "part": 0,
     "part_biome": "high_mountain",
@@ -8715,6 +8724,7 @@
    "territory": "thien_xu",
    "on_road": true,
    "array": false,
+   "resource": "tinh_thiet",
    "qi": {
     "part": 0,
     "part_biome": "high_mountain",
@@ -8754,6 +8764,7 @@
    "territory": "thien_xu",
    "on_road": true,
    "array": false,
+   "resource": "tinh_thiet",
    "qi": {
     "part": 0,
     "part_biome": "high_mountain",
@@ -8793,6 +8804,7 @@
    "territory": "thien_xu",
    "on_road": true,
    "array": false,
+   "resource": "tinh_thiet",
    "qi": {
     "part": 0,
     "part_biome": "high_mountain",
@@ -8832,6 +8844,7 @@
    "territory": "thinh_vu",
    "on_road": true,
    "array": false,
+   "resource": "tinh_thiet",
    "qi": {
     "part": 0,
     "part_biome": "high_mountain",
@@ -8871,6 +8884,7 @@
    "territory": "thinh_vu",
    "on_road": true,
    "array": false,
+   "resource": "tu_kim_sa",
    "qi": {
     "part": 0,
     "part_biome": "high_mountain",
@@ -8910,6 +8924,7 @@
    "territory": "thinh_vu",
    "on_road": true,
    "array": false,
+   "resource": "linh_thach",
    "qi": {
     "part": 0,
     "part_biome": "high_mountain",
@@ -8949,6 +8964,7 @@
    "territory": "phuong_minh",
    "on_road": true,
    "array": false,
+   "resource": "huyen_hoang_thach",
    "qi": {
     "part": 0,
     "part_biome": "high_mountain",
