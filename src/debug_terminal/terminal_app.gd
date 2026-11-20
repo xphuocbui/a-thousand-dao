@@ -366,7 +366,8 @@ func _game_command(cmd: String, args: Array, raw: String) -> void:
 				io.out("năm %d: %s" % [int(e.year), e.text])
 		"legends", "history":
 			var n2: int = int(_arg(args, 0, "25"))
-			for e in s.db.all("events").filter(func(x): return int(x.year) < s.year - 0 and not x.data.get("news", false)).slice(-n2):
+			# World Generation rule 3: a secret event is hidden from the codex, rumours and talk until discovered
+			for e in s.db.all("events").filter(func(x): return int(x.year) < s.year - 0 and not x.data.get("news", false) and not bool(x.data.get("secret", false))).slice(-n2):
 				io.out("năm %d: %s" % [int(e.year), e.text])
 		"db":
 			_db(args)

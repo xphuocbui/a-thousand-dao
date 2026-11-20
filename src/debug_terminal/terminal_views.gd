@@ -760,6 +760,9 @@ static func person_line(s: GameSession, p: Dictionary) -> String:
 
 ## Full record of any entity id, with its history.
 static func show(s: GameSession, id: String) -> Array:
+	if id == "w_meta":   # World Generation Core Rule 10: the ledger of rolled hidden spots is never shown
+		var meta: Dictionary = s.db.get_record("world", "w_meta")
+		return ["The built world: builder %s, data %s, map %s, seed %s; the ledger of %d rolled hidden spots and reserves is never shown." % [meta.get("builder", "?"), meta.get("data_version", "?"), meta.get("map_version", "?"), meta.get("seed", "?"), Dictionary(meta.get("ledger", {})).size()]]
 	var rec: Dictionary = s.db.lookup(id)
 	if rec.is_empty():
 		return ["No record %s." % id]

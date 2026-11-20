@@ -28,7 +28,7 @@ static func build(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet, yea
 	if not sect.is_empty():
 		mates = db.find("people", func(p): return p.alive and not p.get("is_player", false) and str(p.sect_id) == c.sect_id).slice(0, int(lim.sect_mates_max))
 	var recent: Array = []
-	for e in db.events_of(c.location_id).slice(-int(lim.recent_events_max)):
+	for e in db.events_of(c.location_id).filter(func(x): return not bool(x.get("data", {}).get("secret", false))).slice(-int(lim.recent_events_max)):
 		recent.append({"year": int(e.year), "text": e.text})
 	for e in db.events_of(c.id).slice(-3):
 		recent.append({"year": int(e.year), "text": e.text})

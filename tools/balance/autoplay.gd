@@ -225,8 +225,8 @@ func _chase_condition(s: GameSession, st: Dictionary) -> bool:
 		return false
 	match str(cond.type):
 		"density_min":
-			var bonus: float = s.sheet().total("density_bonus")
-			st.target = _nearest_place(s, func(p): return float(p.get("density", 1.0)) + bonus >= float(cond.value))
+			# the stacked density the player gets there (Formula B), at a place the player knows (Travel & Map rule 14)
+			st.target = _nearest_place(s, func(p): return s.place_density(str(p.id)) >= float(cond.value))
 		"insight":
 			var types: Array = gd.event_templates().templates.filter(func(t): return t.id == "don_ngo")[0].place_types
 			if types.has(str(s.db.get_record("places", c.location_id).get("type", ""))):
@@ -239,6 +239,22 @@ func _chase_condition(s: GameSession, st: Dictionary) -> bool:
 
 func _nearest_place(s: GameSession, keep: Callable) -> String:
 	var here: String = s.player.location_id
+	if s.knowledge != null:
+		# on the continent: the nearest known place that keeps, by straight-line tiles (travel finds the way)
+		var at: Dictionary = s.db.get_record("places", here)
+		if keep.call(at):
+			return ""
+		var best: String = ""
+		var best_d: int = 1 << 30
+		for pid in s.knowledge.places:
+			var p: Dictionary = s.db.get_record("places", str(pid))
+			if p.is_empty() or not p.has("tile") or str(pid) == here or not keep.call(p):
+				continue
+			var d: int = maxi(absi(int(p.tile[0]) - int(at.tile[0])), absi(int(p.tile[1]) - int(at.tile[1])))
+			if d < best_d:
+				best_d = d
+				best = str(pid)
+		return best
 	var seen: Dictionary = {here: true}
 	var queue: Array = [here]
 	while not queue.is_empty():
@@ -496,6 +512,12 @@ func _at_market_shop(s: GameSession, st: Dictionary, plan: Dictionary) -> bool:
 
 func _travel_step(s: GameSession, st: Dictionary) -> void:
 	st.use["travel"] = int(st.use.get("travel", 0)) + 1
+	if s.knowledge != null:
+		# on the continent a trip goes the whole way by the quickest route (Travel & Map rules 10-12)
+		var r: Dictionary = s.travel(st.target)
+		if not r.ok or s.player.location_id == st.target:
+			st.target = ""
+		return
 	var hop: String = Advisor.next_hop(s, s.player.location_id, st.target)
 	if hop == "":
 		st.target = ""

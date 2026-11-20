@@ -470,6 +470,11 @@ func _step_random_fill(rng: RandomNumberGenerator) -> void:
 	var settled: Array = _db.find("places", func(p): return str(p.kind) in _cfg.settled_kinds)
 	var settle_w: Array = settled.map(func(p): return float(_cfg.settle_weight.get(str(p.kind), 1)))
 	var realm_by_rank: Array = _cfg.rank_by_realm
+	# Formulas M: npc_settled_share counts everyone in settlements and sect grounds, members at their seats
+	# included, so the loose cultivators settle at the share that brings the whole world to it
+	var members: int = mini(seats.size(), fill.size()) + living.filter(func(p): return str(p.get("sect_id", "")) != "").size()
+	var loose: int = maxi(1, fill.size() + living.size() - members)
+	var loose_settle: float = clampf((float(_cfg.npc_settled_share) * float(fill.size() + living.size()) - float(members)) / float(loose), 0.0, 1.0)
 	var idx_by_realm := {}
 	for r in fill:
 		var k: int = int(idx_by_realm.get(r, 0))
@@ -483,7 +488,7 @@ func _step_random_fill(rng: RandomNumberGenerator) -> void:
 			opts["location_id"] = str(sect.hq_place_id)
 			if rng.randf() < float(_gd.world_gen().sects.member_archetype_share):
 				opts["archetype"] = str(sect.specialty)
-		elif rng.randf() < float(_cfg.npc_settled_share):
+		elif rng.randf() < loose_settle:
 			opts["location_id"] = str(_weighted(rng, settled, settle_w).id)
 		else:
 			opts["archetype"] = "tan_tu" if rng.randf() < float(pc.loose_tan_tu_share) else ""

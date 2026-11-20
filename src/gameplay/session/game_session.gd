@@ -1280,6 +1280,16 @@ func set_slot(slot: String, index: int, key: String, confirm: bool = false) -> D
 
 
 ## Local spiritual qi: the place's density plus density_bonus, the same sum the rate uses.
+## The density the player would cultivate at in [param place_id] (Formula B's stack for them there, density_bonus
+## included; the place's density in an old generated world).
+func place_density(place_id: String) -> float:
+	var p: Dictionary = db.get_record("places", place_id)
+	var bonus: float = sheet().total("density_bonus")
+	if p.get("qi", {}).is_empty():
+		return float(p.get("density", 1.0)) + bonus
+	return float(LandQi.stacked_density(gd, player, p.qi, float(p.get("density", 1.0)), bonus).total)
+
+
 func local_density(sh: StatSheet) -> float:
 	var here: Dictionary = db.get_record("places", player.location_id)
 	if here.get("qi", {}).is_empty():

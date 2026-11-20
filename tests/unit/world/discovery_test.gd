@@ -114,3 +114,32 @@ func test_a_save_from_another_map_version_is_refused() -> void:
 	var res: Dictionary = t.load_dict(d)
 	assert_false(res.ok, "refused")
 	assert_true(str(res.lines[0]).contains("0000000000000000"), "naming the save's map version: %s" % str(res.lines))
+
+
+func test_a_false_clue_reads_like_a_true_one() -> void:
+	var s := _session()
+	var region: String = str(s.db.get_record("places", s.player.location_id).region_id)
+	var slot: String = ""
+	for k in Discovery.ledger(s.db):
+		if str(Discovery.ledger(s.db)[k].get("family", "")) == "slot":
+			slot = str(k)
+			break
+	var lines := {}
+	for is_false in [true, false]:
+		s.knowledge.clues = [{"slot": slot, "kind": "rumour", "region": region, "quality": 0.8, "false": is_false}]
+		var r := RandomNumberGenerator.new()
+		r.seed = 99   # a roll far above a Qi Refining searcher's chance, so neither finds
+		var res: Dictionary = Discovery.search(s.gd, s.db, s.knowledge, r, s.player, 50.0, 1.0, region, s.year, s.season)
+		lines[is_false] = res.lines
+	assert_eq(lines[true], lines[false], "the search reads the same whether the clue is true or false")
+
+
+func test_secret_events_stay_out_of_what_people_hear() -> void:
+	var s := _session()
+	var secret: Array = s.db.all("events").filter(func(e): return bool(e.data.get("secret", false)))
+	assert_false(secret.is_empty(), "the chronicle has secret events")
+	for e in secret:
+		for pl in e.places:
+			s.player.location_id = str(pl)
+			var ctx: Dictionary = s.event_context()
+			assert_false(ctx.recent_events.any(func(x): return str(x.text) == str(e.text)), "a secret event is not told at its place")

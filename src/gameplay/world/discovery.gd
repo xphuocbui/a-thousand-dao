@@ -124,11 +124,13 @@ static func search(gd: GameData, db: WorldDB, k: MapKnowledge, rng: RandomNumber
 		var place: Dictionary = db.get_record("places", str(roll.get("place_id", "")))
 		var h: float = float(place.get("hidden_h", 1000.0))
 		var p: float = search_chance(gd, clue, ds, h, f, int(stats.tiles), float(stats.mean_cost))
+		# the chance shown is the clue's as if it were true: a false clue must not give itself away (rule 16)
+		var shown: float = search_chance(gd, clue.merged({"false": false}, true), ds, h, f, int(stats.tiles), float(stats.mean_cost))
 		if rng.randf() < p:
 			lines.append_array(discover(gd, db, k, c, str(clue.slot), year, season, "search"))
 			found.append(str(clue.slot))
 		else:
-			lines.append("  You search for %s in %s, without luck (%.0f%% a season)." % [_kind_words(str(roll.get("kind", ""))), region.get("name", ""), p * 100.0])
+			lines.append("  You search for %s in %s, without luck (%.1f%% a season)." % [_kind_words(str(roll.get("kind", ""))), region.get("name", ""), shown * 100.0])
 	return {"lines": lines, "found": found}
 
 
