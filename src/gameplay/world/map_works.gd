@@ -65,11 +65,12 @@ static func density(gd: GameData, qi: Dictionary, c: Character, residence_grade:
 			l1p += v
 		else:
 			l1u += v
+	var furnish: float = 0.0
 	if residence_grade > 0:
-		l1p += float(cfg(gd).get("furnish_per_grade", 0.05)) * float(residence_grade)
+		furnish = float(cfg(gd).get("furnish_per_grade", 0.05)) * float(residence_grade)
 		lines.append("Layer 1: residence grade %d furnishing" % residence_grade)
 	var l2: float = minf(float(caps.get("c2p", 0.1)), l2p) + minf(float(caps.get("c2u", 0.5)), l2u)
-	var l1: float = minf(float(caps.get("c1p", 0.1)), l1p) + minf(float(caps.get("c1u", 0.75)), l1u)
+	var l1: float = minf(float(caps.get("c1p", 0.1)), l1p) + minf(float(caps.get("c1u", 0.75)), l1u) + furnish
 	return {"l2": l2, "l1": l1, "lines": lines}
 
 

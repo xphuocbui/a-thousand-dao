@@ -61,3 +61,10 @@ func test_a_field_grows_at_its_fit_on_continent_ground() -> void:
 	var mult: float = s.field.grow(s.player, s.sheet(), 4)
 	var fit: Dictionary = HerbFit.fit(gd, gd.herb(str(item.template)), home)
 	assert_near(float(item.age) - before, mult * float(fit.growth), 0.0001, "a year x the field multiplier x g_max x fit")
+
+
+func test_a_planted_herb_below_the_floor_keeps_growing_slowly_ac_tm_74() -> void:
+	var gd := game_data()
+	var f: Dictionary = HerbFit.fit(gd, gd.herb("hoa_linh_chi"), _place(5.0, 50.0, {"moc": 5.0, "hoa": 0.0, "tho": 15.0, "kim": 15.0, "thuy": 65.0}))
+	assert_false(bool(f.plantable), "cannot be planted there")
+	assert_near(float(f.growth), 1.2 * float(f.fit), 0.0001, "but one in the ground grows at g_max x fit, nothing destroyed")

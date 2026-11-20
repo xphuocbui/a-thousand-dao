@@ -894,7 +894,7 @@ func open_abode(x: int, y: int, part: int = -1) -> Dictionary:
 	if not tg.passable(t) or db.find("places", func(p): return p.has("tile") and int(p.tile[0]) == x and int(p.tile[1]) == y).size() > 0:
 		return {"ok": false, "lines": ["Tile %d,%d is not open wilderness (water, or a place stands there)." % [x, y]]}
 	var grid := ContinentGrid.from_continent(gd)
-	var best: int = 0
+	var best: int = -1
 	var best_v: float = -1.0
 	for k in 3:
 		var q: Dictionary = grid.part_qi(x, y, k)
@@ -904,6 +904,8 @@ func open_abode(x: int, y: int, part: int = -1) -> Dictionary:
 		if (part < 0 and v > best_v) or k == part:
 			best = k
 			best_v = v
+	if best < 0:
+		return {"ok": false, "lines": ["Tile %d,%d has no land to dig into (sea or lake)." % [x, y]]}
 	var q: Dictionary = grid.part_qi(x, y, best)
 	if q.is_empty():
 		return {"ok": false, "lines": ["That tile has no land to dig into."]}

@@ -90,7 +90,31 @@ func test_a_residence_is_rented_by_formula_m_and_billed_each_season() -> void:
 	assert_eq(int(res.grade), 2, "grade 2")
 	assert_eq(s.player.home_id, str(city.id), "home there")
 	var lt: int = s.player.linh_thach
-	s.cultivate(4)
-	assert_true(int(res.rent) > 0, "a rent is charged")
-	assert_eq(s.player.linh_thach, lt - int(res.rent) * 4, "four seasons of rent are billed")
+	var t0: int = s.year * 4 + s.season
+	s.cultivate(4)   # an event may stop the cultivation early: count the seasons that passed
+	var passed: int = s.year * 4 + s.season - t0
+	assert_true(int(res.rent) > 0 and passed > 0, "a rent is charged over %d season(s)" % passed)
+	assert_eq(s.player.linh_thach, lt - int(res.rent) * passed, "one rent a season")
 	assert_false(s.take_residence(4).ok, "grade 4 needs Kết Đan")
+
+
+func test_a_grade_3_residence_furnishes_015_outside_the_home_works_cap_ac_tm_119() -> void:
+	var gd := game_data()
+	var c := Character.new()
+	c.id = "probe"
+	var d: Dictionary = MapWorks.density(gd, {"shares": {}}, c, 3)
+	assert_near(float(d.l1), 0.15, 0.0001, "0.05 x grade 3, not cut to c1p 0.1")
+
+
+func test_an_abode_is_refused_on_water_ac_tm_30() -> void:
+	var s := _session()
+	s.player.linh_thach = 10000
+	var tg := TravelGrid.of(s.gd)
+	var grid := ContinentGrid.from_continent(s.gd)
+	for y in range(100, 300):
+		for x in range(100, 400):
+			if grid.main_biome(x, y) == ContinentGrid.LAKE_ID and tg.passable(Vector2i(x, y)) and s.db.find("places", func(p): return p.has("tile") and int(p.tile[0]) == x and int(p.tile[1]) == y).is_empty():
+				var r: Dictionary = s.open_abode(x, y)
+				assert_false(r.ok, "a lake tile is no ground for an abode: %s" % str(r.lines))
+				return
+	fail("no open lake tile in the search box")

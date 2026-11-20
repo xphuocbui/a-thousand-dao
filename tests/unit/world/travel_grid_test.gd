@@ -94,3 +94,12 @@ func test_encounter_chance_per_season_is_formula_e() -> void:
 	assert_eq(two.size(), 2, "1.5 seasons are two stretches")
 	assert_near(float(two[0].chance), 1.0 - exp(-0.35), 0.0005, "a full wilderness season at danger 2")
 	assert_near(float(two[1].chance), 1.0 - exp(-0.35 * 0.5), 0.0005, "half a season")
+
+
+func test_a_mixed_tiles_hazard_is_weighted_by_share_ac_tm_149() -> void:
+	# parts at danger 1 (60 %) and 3 (40 %): 0.6 x 0.15 + 0.4 x 0.70 = 0.37 a season of wilderness
+	var trip := {"steps": []}
+	for i in 18:
+		trip.steps.append({"tile": Vector2i(i, 0), "mode": "wilderness", "dt": 1.0 / 18.0, "danger": 2, "hazard": 0.6 * 0.15 + 0.4 * 0.70})
+	var st: Array = _tg().stretches(trip)
+	assert_near(float(st[0].chance), 1.0 - exp(-0.37), 0.0005, "the share-weighted hazard, not danger 2's 0.35")

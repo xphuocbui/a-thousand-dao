@@ -5,7 +5,7 @@ extends RefCounted
 ## fit = f_e * f_T * f_R * f_D, with f_e = e_floor + (1 - e_floor) * min(1, s'_e / s_full) on the place's share of the
 ## herb's element (layer pushes included), f_T = clamp(1 - max(0, |T - T_i| - tol_T) / fall_T, 0, 1) on the temperature
 ## index (f_R the same on rainfall), and f_D = min(1, D / D_need)^2 by the herb's rarity. Growth runs at g_max * fit;
-## below plant_floor the herb cannot be planted. A place without qi or climate (the old generated world) grows at x1.
+## below plant_floor the herb cannot be planted, but one already in the ground keeps growing at g_max * fit (AC-TM-74). A place without qi or climate (the old generated world) grows at x1.
 ##
 ## Data: items_herbs.json "fit" (the keys) and each herb's temp_ideal, temp_tol, rain_ideal, rain_tol (first guesses);
 ## world_map.json "climate_index" turns degrees and millimetres into the 0-100 indexes.
@@ -69,7 +69,7 @@ static func fit(gd: GameData, herb: Dictionary, place: Dictionary) -> Dictionary
 	]
 	if need > 0.0:
 		lines.append("density %.2f (needs %.1f) -> x%.2f" % [d, need, f_d])
-	return {"fit": f, "growth": float(cfg.get("growth_max", 1.2)) * f if f >= floor_v else 0.0, "plantable": f >= floor_v,
+	return {"fit": f, "growth": float(cfg.get("growth_max", 1.2)) * f, "plantable": f >= floor_v,
 		"label": label(gd, f), "lines": lines}
 
 

@@ -42,6 +42,7 @@ var _grid: ContinentGrid
 var _mode: PackedByteArray
 var _cost: PackedFloat32Array     # c_t per tile (seasons per tile at base speed = c_t / v_mode)
 var _danger: PackedByteArray
+var _hazard: PackedFloat32Array   # Formula E: sum_p w_p h[d_p] / sum_p w_p over the tile's land parts
 var _elev: PackedInt32Array
 var _ground: AStarGrid2D
 var _air: AStarGrid2D
@@ -71,6 +72,8 @@ func _build(gd: GameData) -> void:
 	_mode.resize(n)
 	_cost.resize(n)
 	_danger.resize(n)
+	_hazard.resize(n)
+	var hz: Array = _rules.get("hazard_per_season", [0.15, 0.35, 0.7, 1.2])
 	_elev.resize(n)
 	var bcost: Dictionary = _rules.biome_cost
 	var names: Dictionary = {}
@@ -92,6 +95,7 @@ func _build(gd: GameData) -> void:
 			var i: int = y * width + x
 			_elev[i] = _grid.elevation_m(x, y)
 			_danger[i] = _tile_danger(x, y)
+			_hazard[i] = _tile_hazard(x, y, hz)
 			var road: int = _grid.road(x, y)
 			var main: int = _grid.main_biome(x, y)
 			var c_wild: float = _wild_cost(x, y, bcost, names)
@@ -146,6 +150,25 @@ func _tile_danger(x: int, y: int) -> int:
 	if w <= 0.0:
 		return clampi(_grid.value("DAN1", x, y), 1, 4)
 	return clampi(int(floor(tot / w + 0.5)), 1, 4)
+
+
+## Formula E's hazard of a tile: its land parts' h[d_p] weighted by share (AC-TM-149: parts at danger 1 and 3, 60/40,
+## give 0.37), the largest part's for a water tile.
+func _tile_hazard(x: int, y: int, hz: Array) -> float:
+	if not _grid.has_qi():
+		return float(hz[0])
+	var tot: float = 0.0
+	var w: float = 0.0
+	for k in 3:
+		var b: int = _grid.value("BIO%d" % (k + 1), x, y)
+		var s: float = float(_grid.value("SHR%d" % (k + 1), x, y))
+		if s <= 0.0 or b == ContinentGrid.SEA_ID or b == ContinentGrid.LAKE_ID or b == 255:
+			continue
+		tot += s * float(hz[clampi(_grid.value("DAN%d" % (k + 1), x, y) - 1, 0, hz.size() - 1)])
+		w += s
+	if w <= 0.0:
+		return float(hz[clampi(_grid.value("DAN1", x, y) - 1, 0, hz.size() - 1)])
+	return tot / w
 
 
 ## c_wild of a tile: its land parts' biome costs weighted by share; 0 when it has no land part.
@@ -228,7 +251,7 @@ func trip(a: Vector2i, b: Vector2i, how: String = "ground", f: float = 1.0, fly_
 			name = MODE_NAMES[mode]
 		total += dt
 		by_mode[name] = float(by_mode.get(name, 0.0)) + dt
-		steps.append({"tile": t, "mode": name, "dt": dt, "danger": int(_danger[i])})
+		steps.append({"tile": t, "mode": name, "dt": dt, "danger": int(_danger[i]), "hazard": float(_hazard[i])})
 	return {"tiles": path, "steps": steps, "seasons": total, "by_mode": by_mode}
 
 
@@ -246,7 +269,7 @@ func stretches(trip_rec: Dictionary) -> Array:
 		while dt > 0.0:
 			var room: float = float(cur.season + 1) - acc
 			var take: float = minf(dt, room)
-			var h: float = float(hz[clampi(int(st.danger) - 1, 0, hz.size() - 1)])
+			var h: float = float(st.hazard) if st.has("hazard") else float(hz[clampi(int(st.danger) - 1, 0, hz.size() - 1)])
 			cur.sum += h * float(mf.get(str(st.mode), 1.0)) * take
 			var key: String = "%s|%d" % [st.mode, int(st.danger)]
 			cur.weight[key] = float(cur.weight.get(key, 0.0)) + take

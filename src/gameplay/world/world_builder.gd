@@ -546,7 +546,7 @@ func _wild_home(rec: Dictionary, rng: RandomNumberGenerator) -> String:
 func _step_named_items(rng: RandomNumberGenerator) -> void:
 	var cfg: Dictionary = _gd.artifacts_file().named
 	var held_chance: float = float(_gd.world_gen().history.legend_held_chance)
-	var candidates: Array = _db.find("people", func(p): return p.alive and not p.get("is_beast", false) and int(p.realm_index) >= int(cfg.holder_realm_min))
+	var candidates: Array = _db.find("people", func(p): return p.alive and not p.get("is_beast", false) and not p.has("cast_key") and int(p.realm_index) >= int(cfg.holder_realm_min))
 	var wild: Array = _db.find("places", func(p): return str(p.kind) in _cfg.wild_kinds or str(p.kind) == "ruin")
 	for t in _gd.named_items():
 		if not _items.is_unique(str(t.id)):
