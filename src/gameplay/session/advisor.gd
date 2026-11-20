@@ -127,7 +127,7 @@ static func progress(s: GameSession) -> Dictionary:
 	var c: Character = s.player
 	var sh: StatSheet = s.sheet()
 	var density: float = float(s.db.get_record("places", c.location_id).get("density", 1.0))
-	var rate: float = CultivationRules.rate_per_season(c, s.gd, s.db, sh, density).total
+	var rate: float = CultivationRules.rate_per_season(c, s.gd, s.db, sh, density, false, s.db.get_record("places", c.location_id).get("qi", {})).total
 	var req: float = CultivationRules.level_requirement(c, s.gd)
 	var bottleneck: bool = CultivationRules.at_bottleneck(c, s.gd)
 	var seasons: int = -1

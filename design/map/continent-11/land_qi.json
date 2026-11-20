@@ -1,0 +1,8147 @@
+{
+ "_doc": "Output of tools/design/map/land_qi.py (Travel & Map Formula C on the fine map). places: every exported place by id, each famous site (famous:<name>) and each hidden slot candidate (slot:<id>:<i>), with its part, base shares, variants (outside the 100), land density (the part's mean), density (plus o_kind, clamped) and danger (after the settlement cut). mu: Formula A's world mean shares over places. check: Formula C's map targets (observations).",
+ "params_file": "assets/data/world_map.json",
+ "timing_s": {
+  "depth": 5.1,
+  "profile": 0.1,
+  "blend": 0.5,
+  "features": 0.2,
+  "finish": 0.2,
+  "parts": 0.3
+ },
+ "instances": {
+  "lava": 16,
+  "hot_spring": 22,
+  "ice_field": 4,
+  "ore_vein": 20,
+  "karst_core": 8,
+  "river": 52,
+  "spirit_vein": 36,
+  "sacred_summit": 3,
+  "deep_cave": 3,
+  "miasma_source": 1,
+  "miasma_land": 1,
+  "snowline": 7,
+  "storm_peaks": 5,
+  "high_plateau": 1
+ },
+ "mu": {
+  "moc": 0.2315,
+  "hoa": 0.1443,
+  "tho": 0.1967,
+  "kim": 0.1818,
+  "thuy": 0.2457,
+  "phong": 0.0,
+  "huyet": 0.0,
+  "hu_khong": 0.0,
+  "loi": 0.0079,
+  "am": 0.001,
+  "hon_don": 0.0,
+  "quang": 0.0049,
+  "bang": 0.0023
+ },
+ "check": {
+  "places": 247.0,
+  "share_at_1_4": 0.1903,
+  "mean_density": 1.0896,
+  "wild_tiles_share_at_1_4": 0.04,
+  "mu": {
+   "moc": 0.2315,
+   "hoa": 0.1443,
+   "tho": 0.1967,
+   "kim": 0.1818,
+   "thuy": 0.2457,
+   "phong": 0.0,
+   "huyet": 0.0,
+   "hu_khong": 0.0,
+   "loi": 0.0079,
+   "am": 0.001,
+   "hon_don": 0.0,
+   "quang": 0.0049,
+   "bang": 0.0023
+  },
+  "variant_place_share": {
+   "phong": 0.0,
+   "huyet": 0.0,
+   "hu_khong": 0.0,
+   "loi": 0.0202,
+   "am": 0.0054,
+   "hon_don": 0.0,
+   "quang": 0.0121,
+   "bang": 0.0216
+  },
+  "element_rich": {
+   "moc": {
+    "places": 5.0,
+    "regions": 4
+   },
+   "hoa": {
+    "places": 3.0,
+    "regions": 3
+   },
+   "tho": {
+    "places": 1.0,
+    "regions": 1
+   },
+   "kim": {
+    "places": 8.67,
+    "regions": 4
+   },
+   "thuy": {
+    "places": 14.33,
+    "regions": 5
+   }
+  },
+  "rows": {
+   "blessed_land": {
+    "places": 25.0,
+    "mean": 1.465,
+    "share_at_1_4": 0.507,
+    "range": [
+     0.595,
+     2.198
+    ],
+    "band": [
+     0.3,
+     2.4
+    ],
+    "target_share": null,
+    "o_kind": 0.0
+   },
+   "forest": {
+    "places": 3.0,
+    "mean": 1.18,
+    "share_at_1_4": 0.0,
+    "range": [
+     1.126,
+     1.22
+    ],
+    "band": [
+     0.9,
+     1.45
+    ],
+    "target_share": 0.1,
+    "o_kind": 0.14
+   },
+   "hidden_ruin": {
+    "places": 28.0,
+    "mean": 1.31,
+    "share_at_1_4": 0.25,
+    "range": [
+     0.954,
+     1.944
+    ],
+    "band": [
+     1.0,
+     1.6
+    ],
+    "target_share": 0.3,
+    "o_kind": 0.25
+   },
+   "island": {
+    "places": 5.0,
+    "mean": 1.25,
+    "share_at_1_4": 0.2,
+    "range": [
+     1.09,
+     1.531
+    ],
+    "band": [
+     1.0,
+     1.5
+    ],
+    "target_share": 0.2,
+    "o_kind": 0.29
+   },
+   "lake": {
+    "places": 5.0,
+    "mean": 1.204,
+    "share_at_1_4": 0.0,
+    "range": [
+     1.14,
+     1.254
+    ],
+    "band": [
+     1.0,
+     1.4
+    ],
+    "target_share": 0.0,
+    "o_kind": 0.19
+   },
+   "mine": {
+    "places": 16.0,
+    "mean": 1.126,
+    "share_at_1_4": 0.125,
+    "range": [
+     0.582,
+     1.457
+    ],
+    "band": [
+     0.9,
+     1.45
+    ],
+    "target_share": 0.1,
+    "o_kind": -0.12
+   },
+   "mountain": {
+    "places": 10.0,
+    "mean": 1.191,
+    "share_at_1_4": 0.2,
+    "range": [
+     0.694,
+     1.76
+    ],
+    "band": [
+     1.0,
+     1.5
+    ],
+    "target_share": 0.2,
+    "o_kind": -0.13
+   },
+   "secret_realm": {
+    "places": 6.0,
+    "mean": 1.924,
+    "share_at_1_4": 1.0,
+    "range": [
+     1.409,
+     2.4
+    ],
+    "band": [
+     1.5,
+     2.2
+    ],
+    "target_share": 1.0,
+    "o_kind": 0.71
+   },
+   "sect_seat": {
+    "places": 30.0,
+    "mean": 1.544,
+    "share_at_1_4": 0.667,
+    "range": [
+     1.128,
+     2.364
+    ],
+    "band": [
+     1.2,
+     1.8
+    ],
+    "target_share": 0.67,
+    "o_kind": 0.1
+   },
+   "settlement": {
+    "places": 135.0,
+    "mean": 0.846,
+    "share_at_1_4": 0.007,
+    "range": [
+     0.685,
+     1.543
+    ],
+    "band": [
+     0.6,
+     1.1
+    ],
+    "target_share": 0.0,
+    "o_kind": -0.04
+   },
+   "spirit_vein": {
+    "places": 7.0,
+    "mean": 1.699,
+    "share_at_1_4": 1.0,
+    "range": [
+     1.63,
+     1.792
+    ],
+    "band": [
+     1.4,
+     2.0
+    ],
+    "target_share": 1.0,
+    "o_kind": -0.18
+   },
+   "valley": {
+    "places": 2.0,
+    "mean": 1.349,
+    "share_at_1_4": 0.5,
+    "range": [
+     1.217,
+     1.482
+    ],
+    "band": [
+     1.1,
+     1.6
+    ],
+    "target_share": 0.4,
+    "o_kind": 0.06
+   }
+  },
+  "observations": [
+   "moc: 5.0 places at share 50+ in 4 regions (want 8 in 3)",
+   "mu_hoa 0.144 outside [0.15, 0.25]",
+   "hoa: 3.0 places at share 50+ in 3 regions (want 8 in 3)",
+   "tho: 1.0 places at share 50+ in 1 regions (want 8 in 3)",
+   "variant loi at 0.020 of places (max 0.02)",
+   "variant bang at 0.022 of places (max 0.02)"
+  ]
+ },
+ "places": [
+  {
+   "id": 1,
+   "name": "Thúy Vi Tông",
+   "kind": "great_seat",
+   "row": "sect_seat",
+   "tile": [
+    147,
+    95
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 20.39,
+    "hoa": 9.44,
+    "tho": 20.15,
+    "kim": 38.12,
+    "thuy": 11.89
+   },
+   "variants": {},
+   "land_density": 1.838,
+   "density": 1.938,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 2,
+   "name": "Tùng Đào Cung",
+   "kind": "great_seat",
+   "row": "sect_seat",
+   "tile": [
+    236,
+    124
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 48.06,
+    "hoa": 11.02,
+    "tho": 14.29,
+    "kim": 10.25,
+    "thuy": 16.39
+   },
+   "variants": {},
+   "land_density": 1.825,
+   "density": 1.925,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 3,
+   "name": "Băng Tâm Các",
+   "kind": "great_seat",
+   "row": "sect_seat",
+   "tile": [
+    455,
+    139
+   ],
+   "part": 0,
+   "biome": "badlands",
+   "shares": {
+    "moc": 18.19,
+    "hoa": 19.9,
+    "tho": 31.61,
+    "kim": 20.45,
+    "thuy": 9.85
+   },
+   "variants": {},
+   "land_density": 1.533,
+   "density": 1.633,
+   "land_danger": 2,
+   "danger": 1
+  },
+  {
+   "id": 4,
+   "name": "Lạc Hà Tông",
+   "kind": "great_seat",
+   "row": "sect_seat",
+   "tile": [
+    198,
+    205
+   ],
+   "part": 0,
+   "biome": "steppe",
+   "shares": {
+    "moc": 8.15,
+    "hoa": 24.19,
+    "tho": 45.37,
+    "kim": 17.45,
+    "thuy": 4.84
+   },
+   "variants": {},
+   "land_density": 1.615,
+   "density": 1.715,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 5,
+   "name": "Thiên Xu Tông",
+   "kind": "great_seat",
+   "row": "sect_seat",
+   "tile": [
+    281,
+    182
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 15.58,
+    "hoa": 11.92,
+    "tho": 32.72,
+    "kim": 28.97,
+    "thuy": 10.81
+   },
+   "variants": {},
+   "land_density": 2.008,
+   "density": 2.108,
+   "land_danger": 2,
+   "danger": 1
+  },
+  {
+   "id": 6,
+   "name": "Phượng Minh Cung",
+   "kind": "great_seat",
+   "row": "sect_seat",
+   "tile": [
+    369,
+    250
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 12.53,
+    "hoa": 9.52,
+    "tho": 26.06,
+    "kim": 41.44,
+    "thuy": 10.45
+   },
+   "variants": {},
+   "land_density": 2.013,
+   "density": 2.113,
+   "land_danger": 2,
+   "danger": 1
+  },
+  {
+   "id": 7,
+   "name": "Thính Vũ Lâu",
+   "kind": "great_seat",
+   "row": "sect_seat",
+   "tile": [
+    253,
+    249
+   ],
+   "part": 0,
+   "biome": "volcano",
+   "shares": {
+    "moc": 3.73,
+    "hoa": 53.25,
+    "tho": 17.48,
+    "kim": 15.37,
+    "thuy": 10.17
+   },
+   "variants": {
+    "bang": 6.11
+   },
+   "land_density": 2.264,
+   "density": 2.364,
+   "land_danger": 4,
+   "danger": 3
+  },
+  {
+   "id": 8,
+   "name": "Hàm Nguyệt Trang",
+   "kind": "minor_seat",
+   "row": "sect_seat",
+   "tile": [
+    303,
+    75
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 41.53,
+    "hoa": 9.9,
+    "tho": 14.87,
+    "kim": 9.1,
+    "thuy": 24.6
+   },
+   "variants": {},
+   "land_density": 1.312,
+   "density": 1.412,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 9,
+   "name": "Hồng Lô Cốc",
+   "kind": "minor_seat",
+   "row": "sect_seat",
+   "tile": [
+    108,
+    78
+   ],
+   "part": 0,
+   "biome": "tundra",
+   "shares": {
+    "moc": 4.99,
+    "hoa": 47.17,
+    "tho": 8.54,
+    "kim": 9.26,
+    "thuy": 30.03
+   },
+   "variants": {},
+   "land_density": 1.264,
+   "density": 1.364,
+   "land_danger": 3,
+   "danger": 2
+  },
+  {
+   "id": 10,
+   "name": "Vân Khởi Quán",
+   "kind": "minor_seat",
+   "row": "sect_seat",
+   "tile": [
+    140,
+    125
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 16.7,
+    "hoa": 7.64,
+    "tho": 15.31,
+    "kim": 47.52,
+    "thuy": 12.84
+   },
+   "variants": {},
+   "land_density": 1.602,
+   "density": 1.702,
+   "land_danger": 2,
+   "danger": 1
+  },
+  {
+   "id": 11,
+   "name": "Vạn Hác Viện",
+   "kind": "minor_seat",
+   "row": "sect_seat",
+   "tile": [
+    215,
+    149
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 23.54,
+    "hoa": 7.16,
+    "tho": 11.49,
+    "kim": 47.85,
+    "thuy": 9.97
+   },
+   "variants": {},
+   "land_density": 1.452,
+   "density": 1.552,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 12,
+   "name": "Thải Chi Cốc",
+   "kind": "minor_seat",
+   "row": "sect_seat",
+   "tile": [
+    256,
+    72
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 29.21,
+    "hoa": 7.93,
+    "tho": 13.74,
+    "kim": 8.68,
+    "thuy": 40.44
+   },
+   "variants": {},
+   "land_density": 1.318,
+   "density": 1.418,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 13,
+   "name": "Lãng Đào Môn",
+   "kind": "minor_seat",
+   "row": "sect_seat",
+   "tile": [
+    238,
+    76
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 41.02,
+    "hoa": 8.92,
+    "tho": 12.03,
+    "kim": 7.94,
+    "thuy": 30.09
+   },
+   "variants": {},
+   "land_density": 1.337,
+   "density": 1.437,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 14,
+   "name": "Cửu Cao Phái",
+   "kind": "minor_seat",
+   "row": "sect_seat",
+   "tile": [
+    355,
+    142
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 31.13,
+    "hoa": 12.11,
+    "tho": 21.06,
+    "kim": 20.97,
+    "thuy": 14.72
+   },
+   "variants": {},
+   "land_density": 1.301,
+   "density": 1.401,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 15,
+   "name": "Lê Hoa Am",
+   "kind": "minor_seat",
+   "row": "sect_seat",
+   "tile": [
+    410,
+    140
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 8.52,
+    "hoa": 9.64,
+    "tho": 27.0,
+    "kim": 41.54,
+    "thuy": 13.31
+   },
+   "variants": {},
+   "land_density": 1.533,
+   "density": 1.633,
+   "land_danger": 2,
+   "danger": 1
+  },
+  {
+   "id": 16,
+   "name": "Dạ Quang Môn",
+   "kind": "minor_seat",
+   "row": "sect_seat",
+   "tile": [
+    431,
+    171
+   ],
+   "part": 0,
+   "biome": "steppe",
+   "shares": {
+    "moc": 12.44,
+    "hoa": 31.7,
+    "tho": 33.75,
+    "kim": 16.07,
+    "thuy": 6.04
+   },
+   "variants": {},
+   "land_density": 1.113,
+   "density": 1.213,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 17,
+   "name": "Trạc Anh Đài",
+   "kind": "minor_seat",
+   "row": "sect_seat",
+   "tile": [
+    458,
+    97
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 40.95,
+    "hoa": 10.62,
+    "tho": 13.97,
+    "kim": 9.37,
+    "thuy": 25.09
+   },
+   "variants": {},
+   "land_density": 1.305,
+   "density": 1.405,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 18,
+   "name": "Bình Thủy Môn",
+   "kind": "minor_seat",
+   "row": "sect_seat",
+   "tile": [
+    125,
+    247
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 25.72,
+    "hoa": 18.68,
+    "tho": 21.97,
+    "kim": 11.39,
+    "thuy": 22.24
+   },
+   "variants": {},
+   "land_density": 1.206,
+   "density": 1.306,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 19,
+   "name": "Mục Vân Trang",
+   "kind": "minor_seat",
+   "row": "sect_seat",
+   "tile": [
+    129,
+    168
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 16.46,
+    "hoa": 13.18,
+    "tho": 14.63,
+    "kim": 10.08,
+    "thuy": 45.66
+   },
+   "variants": {},
+   "land_density": 1.2,
+   "density": 1.3,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 20,
+   "name": "Thiên Bảo Trai",
+   "kind": "minor_seat",
+   "row": "sect_seat",
+   "tile": [
+    227,
+    215
+   ],
+   "part": 0,
+   "biome": "steppe",
+   "shares": {
+    "moc": 4.5,
+    "hoa": 20.75,
+    "tho": 40.66,
+    "kim": 29.6,
+    "thuy": 4.49
+   },
+   "variants": {},
+   "land_density": 1.146,
+   "density": 1.246,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 21,
+   "name": "Nam Phố Đường",
+   "kind": "minor_seat",
+   "row": "sect_seat",
+   "tile": [
+    181,
+    161
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 33.82,
+    "hoa": 11.6,
+    "tho": 17.24,
+    "kim": 11.47,
+    "thuy": 25.88
+   },
+   "variants": {},
+   "land_density": 1.319,
+   "density": 1.419,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 22,
+   "name": "Củng Tinh Quán",
+   "kind": "minor_seat",
+   "row": "sect_seat",
+   "tile": [
+    260,
+    181
+   ],
+   "part": 0,
+   "biome": "highland",
+   "shares": {
+    "moc": 12.28,
+    "hoa": 11.8,
+    "tho": 45.26,
+    "kim": 21.31,
+    "thuy": 9.34
+   },
+   "variants": {},
+   "land_density": 1.343,
+   "density": 1.443,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 23,
+   "name": "Thối Tinh Môn",
+   "kind": "minor_seat",
+   "row": "sect_seat",
+   "tile": [
+    387,
+    160
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 4.94,
+    "hoa": 8.56,
+    "tho": 24.54,
+    "kim": 53.33,
+    "thuy": 8.62
+   },
+   "variants": {},
+   "land_density": 1.602,
+   "density": 1.702,
+   "land_danger": 2,
+   "danger": 1
+  },
+  {
+   "id": 24,
+   "name": "Phất Y Cốc",
+   "kind": "minor_seat",
+   "row": "sect_seat",
+   "tile": [
+    335,
+    225
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 7.9,
+    "hoa": 16.14,
+    "tho": 32.92,
+    "kim": 33.5,
+    "thuy": 9.54
+   },
+   "variants": {},
+   "land_density": 1.204,
+   "density": 1.304,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 25,
+   "name": "Trúc Thực Viên",
+   "kind": "minor_seat",
+   "row": "sect_seat",
+   "tile": [
+    364,
+    278
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 32.76,
+    "hoa": 11.27,
+    "tho": 12.56,
+    "kim": 15.83,
+    "thuy": 27.59
+   },
+   "variants": {},
+   "land_density": 1.213,
+   "density": 1.313,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 26,
+   "name": "Lễ Tuyền Phái",
+   "kind": "minor_seat",
+   "row": "sect_seat",
+   "tile": [
+    409,
+    211
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 21.85,
+    "hoa": 19.32,
+    "tho": 29.4,
+    "kim": 12.33,
+    "thuy": 17.1
+   },
+   "variants": {},
+   "land_density": 1.232,
+   "density": 1.332,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 27,
+   "name": "Hồng Đậu Trang",
+   "kind": "minor_seat",
+   "row": "sect_seat",
+   "tile": [
+    181,
+    305
+   ],
+   "part": 0,
+   "biome": "jungle",
+   "shares": {
+    "moc": 23.1,
+    "hoa": 17.75,
+    "tho": 16.95,
+    "kim": 9.32,
+    "thuy": 32.89
+   },
+   "variants": {},
+   "land_density": 1.401,
+   "density": 1.501,
+   "land_danger": 2,
+   "danger": 1
+  },
+  {
+   "id": 28,
+   "name": "Xuyên Lâm Môn",
+   "kind": "minor_seat",
+   "row": "sect_seat",
+   "tile": [
+    342,
+    265
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 17.09,
+    "hoa": 9.04,
+    "tho": 23.46,
+    "kim": 40.48,
+    "thuy": 9.93
+   },
+   "variants": {},
+   "land_density": 1.542,
+   "density": 1.642,
+   "land_danger": 2,
+   "danger": 1
+  },
+  {
+   "id": 29,
+   "name": "Phần Vũ Đường",
+   "kind": "minor_seat",
+   "row": "sect_seat",
+   "tile": [
+    491,
+    240
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 23.31,
+    "hoa": 23.83,
+    "tho": 23.12,
+    "kim": 12.72,
+    "thuy": 17.01
+   },
+   "variants": {},
+   "land_density": 1.246,
+   "density": 1.346,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 30,
+   "name": "Yên Ba Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    127,
+    132
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 29.3,
+    "hoa": 8.89,
+    "tho": 13.41,
+    "kim": 10.39,
+    "thuy": 38.02
+   },
+   "variants": {},
+   "land_density": 0.921,
+   "density": 0.881,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 31,
+   "name": "Hàn Tân Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    131,
+    76
+   ],
+   "part": 0,
+   "biome": "tundra",
+   "shares": {
+    "moc": 31.04,
+    "hoa": 7.82,
+    "tho": 11.62,
+    "kim": 7.83,
+    "thuy": 41.7
+   },
+   "variants": {},
+   "land_density": 0.748,
+   "density": 0.708,
+   "land_danger": 2,
+   "danger": 1
+  },
+  {
+   "id": 32,
+   "name": "Tùng Gian Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    193,
+    124
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 36.24,
+    "hoa": 9.34,
+    "tho": 11.15,
+    "kim": 8.25,
+    "thuy": 35.02
+   },
+   "variants": {},
+   "land_density": 0.944,
+   "density": 0.904,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 33,
+   "name": "Đào Thanh Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    245,
+    131
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 44.22,
+    "hoa": 9.38,
+    "tho": 12.57,
+    "kim": 9.61,
+    "thuy": 24.23
+   },
+   "variants": {},
+   "land_density": 0.959,
+   "density": 0.919,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 34,
+   "name": "Khai Dương Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    347,
+    127
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 35.14,
+    "hoa": 9.72,
+    "tho": 11.78,
+    "kim": 8.99,
+    "thuy": 34.37
+   },
+   "variants": {},
+   "land_density": 0.934,
+   "density": 0.894,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 35,
+   "name": "Trường Vân Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    439,
+    177
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 17.9,
+    "hoa": 17.08,
+    "tho": 25.18,
+    "kim": 12.15,
+    "thuy": 27.7
+   },
+   "variants": {},
+   "land_density": 0.845,
+   "density": 0.805,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 36,
+   "name": "Liên Giang Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    487,
+    123
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 31.56,
+    "hoa": 9.5,
+    "tho": 11.01,
+    "kim": 8.47,
+    "thuy": 39.46
+   },
+   "variants": {},
+   "land_density": 0.936,
+   "density": 0.896,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 37,
+   "name": "Đàm Ảnh Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    87,
+    258
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 28.55,
+    "hoa": 14.38,
+    "tho": 17.0,
+    "kim": 10.63,
+    "thuy": 29.44
+   },
+   "variants": {},
+   "land_density": 0.842,
+   "density": 0.802,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 38,
+   "name": "Nhạn Thanh Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    146,
+    221
+   ],
+   "part": 0,
+   "biome": "steppe",
+   "shares": {
+    "moc": 17.09,
+    "hoa": 15.33,
+    "tho": 22.63,
+    "kim": 11.02,
+    "thuy": 33.93
+   },
+   "variants": {},
+   "land_density": 0.746,
+   "density": 0.706,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 39,
+   "name": "Tử Điện Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    184,
+    278
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 30.67,
+    "hoa": 15.03,
+    "tho": 17.54,
+    "kim": 10.77,
+    "thuy": 25.99
+   },
+   "variants": {},
+   "land_density": 0.838,
+   "density": 0.798,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 40,
+   "name": "Tinh Hán Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    377,
+    184
+   ],
+   "part": 0,
+   "biome": "steppe",
+   "shares": {
+    "moc": 19.43,
+    "hoa": 12.81,
+    "tho": 17.07,
+    "kim": 11.87,
+    "thuy": 38.82
+   },
+   "variants": {},
+   "land_density": 0.745,
+   "density": 0.705,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 41,
+   "name": "Lai Nghi Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    414,
+    220
+   ],
+   "part": 0,
+   "biome": "steppe",
+   "shares": {
+    "moc": 17.21,
+    "hoa": 18.71,
+    "tho": 29.13,
+    "kim": 12.53,
+    "thuy": 22.41
+   },
+   "variants": {},
+   "land_density": 0.744,
+   "density": 0.704,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 42,
+   "name": "Thu Trì Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    229,
+    308
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 27.66,
+    "hoa": 14.95,
+    "tho": 10.74,
+    "kim": 7.02,
+    "thuy": 39.62
+   },
+   "variants": {},
+   "land_density": 0.842,
+   "density": 0.802,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 43,
+   "name": "Không Mông Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    304,
+    275
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 26.74,
+    "hoa": 12.34,
+    "tho": 15.94,
+    "kim": 12.49,
+    "thuy": 32.49
+   },
+   "variants": {},
+   "land_density": 0.844,
+   "density": 0.804,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 44,
+   "name": "Ngũ Thải Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    414,
+    287
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 27.23,
+    "hoa": 13.32,
+    "tho": 10.4,
+    "kim": 9.43,
+    "thuy": 39.62
+   },
+   "variants": {},
+   "land_density": 0.842,
+   "density": 0.802,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 45,
+   "name": "Lam Yên Thị",
+   "kind": "market",
+   "row": "settlement",
+   "tile": [
+    141,
+    89
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 34.8,
+    "hoa": 11.09,
+    "tho": 18.93,
+    "kim": 19.59,
+    "thuy": 15.59
+   },
+   "variants": {},
+   "land_density": 1.243,
+   "density": 1.203,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 46,
+   "name": "Tùng Hạ Thị",
+   "kind": "market",
+   "row": "settlement",
+   "tile": [
+    230,
+    118
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 48.79,
+    "hoa": 11.02,
+    "tho": 14.02,
+    "kim": 9.7,
+    "thuy": 16.47
+   },
+   "variants": {},
+   "land_density": 1.19,
+   "density": 1.15,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 47,
+   "name": "Đào Sa Thị",
+   "kind": "market",
+   "row": "settlement",
+   "tile": [
+    243,
+    72
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 30.59,
+    "hoa": 8.74,
+    "tho": 14.26,
+    "kim": 9.12,
+    "thuy": 37.29
+   },
+   "variants": {},
+   "land_density": 1.047,
+   "density": 1.007,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 48,
+   "name": "Tống Khách Thị",
+   "kind": "market",
+   "row": "settlement",
+   "tile": [
+    458,
+    131
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 34.15,
+    "hoa": 13.42,
+    "tho": 22.3,
+    "kim": 15.51,
+    "thuy": 14.61
+   },
+   "variants": {},
+   "land_density": 1.583,
+   "density": 1.543,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 49,
+   "name": "Tương Phùng Thị",
+   "kind": "market",
+   "row": "settlement",
+   "tile": [
+    123,
+    239
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 16.91,
+    "hoa": 17.25,
+    "tho": 21.39,
+    "kim": 11.13,
+    "thuy": 33.31
+   },
+   "variants": {},
+   "land_density": 0.95,
+   "density": 0.91,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 50,
+   "name": "Vật Hoa Thị",
+   "kind": "market",
+   "row": "settlement",
+   "tile": [
+    219,
+    214
+   ],
+   "part": 0,
+   "biome": "steppe",
+   "shares": {
+    "moc": 5.34,
+    "hoa": 25.24,
+    "tho": 46.1,
+    "kim": 18.05,
+    "thuy": 5.27
+   },
+   "variants": {},
+   "land_density": 0.806,
+   "density": 0.766,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 51,
+   "name": "Hạc Đinh Thị",
+   "kind": "market",
+   "row": "settlement",
+   "tile": [
+    192,
+    200
+   ],
+   "part": 0,
+   "biome": "steppe",
+   "shares": {
+    "moc": 17.61,
+    "hoa": 20.55,
+    "tho": 33.51,
+    "kim": 13.3,
+    "thuy": 15.03
+   },
+   "variants": {},
+   "land_density": 0.931,
+   "density": 0.891,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 52,
+   "name": "Thiên Quyền Thị",
+   "kind": "market",
+   "row": "settlement",
+   "tile": [
+    288,
+    185
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 11.39,
+    "hoa": 14.72,
+    "tho": 32.46,
+    "kim": 32.2,
+    "thuy": 9.23
+   },
+   "variants": {},
+   "land_density": 1.016,
+   "density": 0.976,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 53,
+   "name": "Thiều Âm Thị",
+   "kind": "market",
+   "row": "settlement",
+   "tile": [
+    371,
+    258
+   ],
+   "part": 0,
+   "biome": "bamboo_forest",
+   "shares": {
+    "moc": 19.81,
+    "hoa": 8.08,
+    "tho": 20.45,
+    "kim": 32.88,
+    "thuy": 18.78
+   },
+   "variants": {},
+   "land_density": 1.273,
+   "density": 1.233,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 54,
+   "name": "Hạnh Hoa Thị",
+   "kind": "market",
+   "row": "settlement",
+   "tile": [
+    259,
+    244
+   ],
+   "part": 0,
+   "biome": "steppe",
+   "shares": {
+    "moc": 9.67,
+    "hoa": 16.59,
+    "tho": 29.64,
+    "kim": 27.26,
+    "thuy": 16.84
+   },
+   "variants": {},
+   "land_density": 1.275,
+   "density": 1.235,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 55,
+   "name": "Quy Điểu Trấn",
+   "kind": "town",
+   "row": "settlement",
+   "tile": [
+    352,
+    109
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 29.57,
+    "hoa": 10.7,
+    "tho": 12.43,
+    "kim": 9.75,
+    "thuy": 37.55
+   },
+   "variants": {},
+   "land_density": 0.873,
+   "density": 0.833,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 56,
+   "name": "Mục Ca Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    78,
+    157
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 15.3,
+    "hoa": 10.96,
+    "tho": 11.8,
+    "kim": 10.03,
+    "thuy": 51.91
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 57,
+   "name": "Bạch Sa Trấn",
+   "kind": "town",
+   "row": "settlement",
+   "tile": [
+    56,
+    168
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 15.15,
+    "hoa": 11.12,
+    "tho": 12.24,
+    "kim": 10.63,
+    "thuy": 50.86
+   },
+   "variants": {},
+   "land_density": 0.807,
+   "density": 0.767,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 58,
+   "name": "Bách Diệp Trấn",
+   "kind": "town",
+   "row": "settlement",
+   "tile": [
+    151,
+    120
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 20.08,
+    "hoa": 8.74,
+    "tho": 15.2,
+    "kim": 18.86,
+    "thuy": 37.11
+   },
+   "variants": {},
+   "land_density": 0.945,
+   "density": 0.905,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 59,
+   "name": "Tiều Ca Trấn",
+   "kind": "town",
+   "row": "settlement",
+   "tile": [
+    168,
+    141
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 18.98,
+    "hoa": 11.09,
+    "tho": 17.16,
+    "kim": 13.12,
+    "thuy": 39.64
+   },
+   "variants": {},
+   "land_density": 0.901,
+   "density": 0.861,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 60,
+   "name": "Lộc Minh Trấn",
+   "kind": "town",
+   "row": "settlement",
+   "tile": [
+    205,
+    100
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 36.14,
+    "hoa": 8.97,
+    "tho": 10.9,
+    "kim": 7.98,
+    "thuy": 36.01
+   },
+   "variants": {},
+   "land_density": 0.897,
+   "density": 0.857,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 61,
+   "name": "Cổ Độ Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    215,
+    164
+   ],
+   "part": 0,
+   "biome": "bamboo_forest",
+   "shares": {
+    "moc": 44.86,
+    "hoa": 10.15,
+    "tho": 12.63,
+    "kim": 8.74,
+    "thuy": 23.61
+   },
+   "variants": {},
+   "land_density": 1.073,
+   "density": 1.033,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 62,
+   "name": "Hà Bạn Trấn",
+   "kind": "town",
+   "row": "settlement",
+   "tile": [
+    255,
+    118
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 49.16,
+    "hoa": 8.78,
+    "tho": 11.0,
+    "kim": 7.32,
+    "thuy": 23.73
+   },
+   "variants": {},
+   "land_density": 1.032,
+   "density": 0.992,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 63,
+   "name": "Lâm Hạ Trấn",
+   "kind": "town",
+   "row": "settlement",
+   "tile": [
+    281,
+    136
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 48.52,
+    "hoa": 9.01,
+    "tho": 11.47,
+    "kim": 7.5,
+    "thuy": 23.5
+   },
+   "variants": {},
+   "land_density": 0.998,
+   "density": 0.958,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 64,
+   "name": "Bích Khê Trấn",
+   "kind": "town",
+   "row": "settlement",
+   "tile": [
+    286,
+    148
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 39.64,
+    "hoa": 11.36,
+    "tho": 16.1,
+    "kim": 9.35,
+    "thuy": 23.55
+   },
+   "variants": {},
+   "land_density": 0.972,
+   "density": 0.932,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 65,
+   "name": "Thanh Bách Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    300,
+    159
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 28.3,
+    "hoa": 14.86,
+    "tho": 24.71,
+    "kim": 11.91,
+    "thuy": 20.22
+   },
+   "variants": {},
+   "land_density": 0.952,
+   "density": 0.912,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 66,
+   "name": "Hòe Âm Trấn",
+   "kind": "town",
+   "row": "settlement",
+   "tile": [
+    401,
+    117
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 30.28,
+    "hoa": 9.05,
+    "tho": 11.44,
+    "kim": 9.89,
+    "thuy": 39.34
+   },
+   "variants": {},
+   "land_density": 0.931,
+   "density": 0.891,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 67,
+   "name": "Hồi Lan Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    493,
+    156
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 10.99,
+    "hoa": 17.68,
+    "tho": 25.39,
+    "kim": 13.82,
+    "thuy": 32.13
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 68,
+   "name": "Mộc Lan Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    444,
+    111
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 30.35,
+    "hoa": 10.54,
+    "tho": 12.47,
+    "kim": 9.7,
+    "thuy": 36.94
+   },
+   "variants": {},
+   "land_density": 0.856,
+   "density": 0.816,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 69,
+   "name": "Kê Minh Trấn",
+   "kind": "town",
+   "row": "settlement",
+   "tile": [
+    495,
+    141
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 17.35,
+    "hoa": 13.47,
+    "tho": 18.75,
+    "kim": 11.93,
+    "thuy": 38.49
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 70,
+   "name": "Xích Ngạn Trấn",
+   "kind": "town",
+   "row": "settlement",
+   "tile": [
+    57,
+    237
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 20.62,
+    "hoa": 17.21,
+    "tho": 19.63,
+    "kim": 10.36,
+    "thuy": 32.18
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 71,
+   "name": "Hải Yến Trấn",
+   "kind": "town",
+   "row": "settlement",
+   "tile": [
+    107,
+    245
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 23.51,
+    "hoa": 18.4,
+    "tho": 20.81,
+    "kim": 10.79,
+    "thuy": 26.5
+   },
+   "variants": {},
+   "land_density": 0.819,
+   "density": 0.779,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 72,
+   "name": "Triều Âm Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    62,
+    289
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 31.51,
+    "hoa": 13.94,
+    "tho": 9.48,
+    "kim": 7.92,
+    "thuy": 37.16
+   },
+   "variants": {},
+   "land_density": 0.861,
+   "density": 0.821,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 73,
+   "name": "Thanh Điền Trấn",
+   "kind": "town",
+   "row": "settlement",
+   "tile": [
+    134,
+    173
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 28.51,
+    "hoa": 15.66,
+    "tho": 18.57,
+    "kim": 10.05,
+    "thuy": 27.21
+   },
+   "variants": {},
+   "land_density": 0.946,
+   "density": 0.906,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 74,
+   "name": "Thảo Đường Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    152,
+    174
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 26.4,
+    "hoa": 16.01,
+    "tho": 18.72,
+    "kim": 10.03,
+    "thuy": 28.84
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 75,
+   "name": "Ngư Lương Trấn",
+   "kind": "town",
+   "row": "settlement",
+   "tile": [
+    167,
+    177
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 27.93,
+    "hoa": 14.82,
+    "tho": 17.37,
+    "kim": 9.93,
+    "thuy": 29.95
+   },
+   "variants": {},
+   "land_density": 0.781,
+   "density": 0.741,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 76,
+   "name": "Liễu Ngạn Trấn",
+   "kind": "town",
+   "row": "settlement",
+   "tile": [
+    199,
+    271
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 34.71,
+    "hoa": 17.34,
+    "tho": 21.02,
+    "kim": 9.87,
+    "thuy": 17.06
+   },
+   "variants": {},
+   "land_density": 0.844,
+   "density": 0.804,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 77,
+   "name": "Hòa Phong Trấn",
+   "kind": "town",
+   "row": "settlement",
+   "tile": [
+    169,
+    282
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 23.43,
+    "hoa": 16.28,
+    "tho": 18.55,
+    "kim": 11.4,
+    "thuy": 30.34
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 78,
+   "name": "Ngũ Cốc Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    151,
+    290
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 24.75,
+    "hoa": 16.67,
+    "tho": 18.75,
+    "kim": 11.45,
+    "thuy": 28.38
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 79,
+   "name": "Phong Lâm Trấn",
+   "kind": "town",
+   "row": "settlement",
+   "tile": [
+    177,
+    166
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 32.07,
+    "hoa": 10.66,
+    "tho": 12.61,
+    "kim": 8.28,
+    "thuy": 36.38
+   },
+   "variants": {},
+   "land_density": 1.137,
+   "density": 1.097,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 80,
+   "name": "Tang Ma Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    183,
+    181
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 36.25,
+    "hoa": 15.4,
+    "tho": 19.34,
+    "kim": 8.65,
+    "thuy": 20.35
+   },
+   "variants": {},
+   "land_density": 0.84,
+   "density": 0.8,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 81,
+   "name": "Thạch Kiều Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    294,
+    211
+   ],
+   "part": 0,
+   "biome": "steppe",
+   "shares": {
+    "moc": 9.47,
+    "hoa": 23.59,
+    "tho": 37.28,
+    "kim": 15.54,
+    "thuy": 14.13
+   },
+   "variants": {},
+   "land_density": 0.743,
+   "density": 0.703,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 82,
+   "name": "Song Kiều Trấn",
+   "kind": "town",
+   "row": "settlement",
+   "tile": [
+    359,
+    185
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 26.38,
+    "hoa": 18.97,
+    "tho": 26.44,
+    "kim": 12.54,
+    "thuy": 15.68
+   },
+   "variants": {},
+   "land_density": 0.841,
+   "density": 0.801,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 83,
+   "name": "Mạch Điền Trấn",
+   "kind": "town",
+   "row": "settlement",
+   "tile": [
+    395,
+    241
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 24.0,
+    "hoa": 18.9,
+    "tho": 23.58,
+    "kim": 9.96,
+    "thuy": 23.57
+   },
+   "variants": {},
+   "land_density": 0.834,
+   "density": 0.794,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 84,
+   "name": "Thanh Khê Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    395,
+    255
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 27.23,
+    "hoa": 9.72,
+    "tho": 11.0,
+    "kim": 14.54,
+    "thuy": 37.52
+   },
+   "variants": {},
+   "land_density": 0.84,
+   "density": 0.8,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 85,
+   "name": "Hoàng Vân Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    412,
+    182
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 30.57,
+    "hoa": 16.11,
+    "tho": 22.43,
+    "kim": 12.56,
+    "thuy": 18.32
+   },
+   "variants": {},
+   "land_density": 0.842,
+   "density": 0.802,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 86,
+   "name": "Đạo Hương Trấn",
+   "kind": "town",
+   "row": "settlement",
+   "tile": [
+    411,
+    194
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 29.1,
+    "hoa": 13.66,
+    "tho": 20.44,
+    "kim": 14.8,
+    "thuy": 22.0
+   },
+   "variants": {},
+   "land_density": 0.843,
+   "density": 0.803,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 87,
+   "name": "Lục Dã Trấn",
+   "kind": "town",
+   "row": "settlement",
+   "tile": [
+    405,
+    205
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 21.58,
+    "hoa": 14.02,
+    "tho": 24.24,
+    "kim": 18.96,
+    "thuy": 21.19
+   },
+   "variants": {},
+   "land_density": 0.934,
+   "density": 0.894,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 88,
+   "name": "Bình Dã Trấn",
+   "kind": "town",
+   "row": "settlement",
+   "tile": [
+    210,
+    276
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 40.56,
+    "hoa": 14.14,
+    "tho": 16.55,
+    "kim": 12.72,
+    "thuy": 16.03
+   },
+   "variants": {},
+   "land_density": 0.831,
+   "density": 0.791,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 89,
+   "name": "Xuân Thảo Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    257,
+    290
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 43.5,
+    "hoa": 12.62,
+    "tho": 11.01,
+    "kim": 13.15,
+    "thuy": 19.71
+   },
+   "variants": {},
+   "land_density": 0.843,
+   "density": 0.803,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 90,
+   "name": "Lãng Hoa Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    278,
+    261
+   ],
+   "part": 0,
+   "biome": "steppe",
+   "shares": {
+    "moc": 15.31,
+    "hoa": 14.39,
+    "tho": 22.07,
+    "kim": 15.45,
+    "thuy": 32.79
+   },
+   "variants": {},
+   "land_density": 0.725,
+   "density": 0.685,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 91,
+   "name": "Vọng Hải Trấn",
+   "kind": "town",
+   "row": "settlement",
+   "tile": [
+    352,
+    288
+   ],
+   "part": 0,
+   "biome": "bamboo_forest",
+   "shares": {
+    "moc": 38.44,
+    "hoa": 8.84,
+    "tho": 9.46,
+    "kim": 14.14,
+    "thuy": 29.11
+   },
+   "variants": {},
+   "land_density": 1.045,
+   "density": 1.005,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 92,
+   "name": "Phong Đăng Trấn",
+   "kind": "town",
+   "row": "settlement",
+   "tile": [
+    337,
+    299
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 34.41,
+    "hoa": 12.14,
+    "tho": 10.95,
+    "kim": 11.14,
+    "thuy": 31.37
+   },
+   "variants": {},
+   "land_density": 0.845,
+   "density": 0.805,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 93,
+   "name": "Thạch Cơ Thành",
+   "kind": "city",
+   "row": "settlement",
+   "tile": [
+    465,
+    229
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 18.53,
+    "hoa": 21.78,
+    "tho": 30.4,
+    "kim": 12.85,
+    "thuy": 16.44
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 94,
+   "name": "Tang Điền Trấn",
+   "kind": "town",
+   "row": "settlement",
+   "tile": [
+    481,
+    241
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 17.48,
+    "hoa": 20.66,
+    "tho": 27.35,
+    "kim": 15.3,
+    "thuy": 19.2
+   },
+   "variants": {},
+   "land_density": 0.781,
+   "density": 0.741,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 95,
+   "name": "Tuyết Lộc Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    356,
+    72
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 21.64,
+    "hoa": 8.44,
+    "tho": 14.04,
+    "kim": 9.58,
+    "thuy": 46.31
+   },
+   "variants": {},
+   "land_density": 0.902,
+   "density": 0.862,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 96,
+   "name": "Hàn Yên Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    358,
+    108
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 28.4,
+    "hoa": 10.23,
+    "tho": 12.15,
+    "kim": 9.43,
+    "thuy": 39.79
+   },
+   "variants": {},
+   "land_density": 0.903,
+   "density": 0.863,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 97,
+   "name": "Noãn Ốc Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    364,
+    108
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 26.63,
+    "hoa": 9.99,
+    "tho": 11.96,
+    "kim": 9.32,
+    "thuy": 42.1
+   },
+   "variants": {},
+   "land_density": 0.901,
+   "density": 0.861,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 98,
+   "name": "Mạch Lãng Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    87,
+    156
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 14.8,
+    "hoa": 10.89,
+    "tho": 11.7,
+    "kim": 10.04,
+    "thuy": 52.56
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 99,
+   "name": "Phong Phàm Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    80,
+    163
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 15.42,
+    "hoa": 11.14,
+    "tho": 12.0,
+    "kim": 10.03,
+    "thuy": 51.41
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 100,
+   "name": "Hòa Thử Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    65,
+    173
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 14.14,
+    "hoa": 10.48,
+    "tho": 11.5,
+    "kim": 10.84,
+    "thuy": 53.04
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 101,
+   "name": "Ẩn Loan Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    49,
+    177
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 12.88,
+    "hoa": 11.46,
+    "tho": 12.31,
+    "kim": 10.11,
+    "thuy": 53.24
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 102,
+   "name": "Ô Đề Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    179,
+    130
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 41.6,
+    "hoa": 10.92,
+    "tho": 14.89,
+    "kim": 10.13,
+    "thuy": 22.46
+   },
+   "variants": {},
+   "land_density": 0.901,
+   "density": 0.861,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 103,
+   "name": "Lâm Tuyền Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    166,
+    132
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 25.97,
+    "hoa": 10.38,
+    "tho": 13.66,
+    "kim": 10.65,
+    "thuy": 39.35
+   },
+   "variants": {},
+   "land_density": 0.903,
+   "density": 0.863,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 104,
+   "name": "Thu Diệp Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    136,
+    141
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 15.16,
+    "hoa": 9.44,
+    "tho": 17.9,
+    "kim": 15.57,
+    "thuy": 41.93
+   },
+   "variants": {
+    "am": 0.16
+   },
+   "land_density": 0.902,
+   "density": 0.862,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 105,
+   "name": "Bạch Hoa Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    197,
+    118
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 31.16,
+    "hoa": 10.68,
+    "tho": 12.44,
+    "kim": 9.71,
+    "thuy": 36.01
+   },
+   "variants": {},
+   "land_density": 0.902,
+   "density": 0.862,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 106,
+   "name": "Thanh Tùng Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    198,
+    128
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 44.41,
+    "hoa": 9.31,
+    "tho": 11.59,
+    "kim": 7.96,
+    "thuy": 26.73
+   },
+   "variants": {},
+   "land_density": 0.988,
+   "density": 0.948,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 107,
+   "name": "Tùng Phong Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    221,
+    160
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 43.45,
+    "hoa": 9.68,
+    "tho": 12.88,
+    "kim": 9.59,
+    "thuy": 24.4
+   },
+   "variants": {},
+   "land_density": 0.996,
+   "density": 0.956,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 108,
+   "name": "Tuyết Ốc Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    251,
+    123
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 49.2,
+    "hoa": 8.72,
+    "tho": 10.91,
+    "kim": 7.29,
+    "thuy": 23.88
+   },
+   "variants": {},
+   "land_density": 1.028,
+   "density": 0.988,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 109,
+   "name": "Hàn Mai Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    273,
+    124
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 50.07,
+    "hoa": 8.55,
+    "tho": 10.71,
+    "kim": 7.13,
+    "thuy": 23.54
+   },
+   "variants": {},
+   "land_density": 1.032,
+   "density": 0.992,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 110,
+   "name": "Bạch Lang Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    279,
+    130
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 51.05,
+    "hoa": 8.28,
+    "tho": 10.35,
+    "kim": 6.9,
+    "thuy": 23.41
+   },
+   "variants": {},
+   "land_density": 1.061,
+   "density": 1.021,
+   "land_danger": 2,
+   "danger": 1
+  },
+  {
+   "id": 111,
+   "name": "Ba Quang Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    354,
+    124
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 23.64,
+    "hoa": 10.61,
+    "tho": 11.83,
+    "kim": 10.01,
+    "thuy": 43.91
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 112,
+   "name": "Hạc Quy Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    281,
+    142
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 44.18,
+    "hoa": 9.95,
+    "tho": 13.27,
+    "kim": 8.49,
+    "thuy": 24.11
+   },
+   "variants": {},
+   "land_density": 0.933,
+   "density": 0.893,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 113,
+   "name": "Lộc Uyển Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    296,
+    152
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 36.98,
+    "hoa": 12.15,
+    "tho": 17.88,
+    "kim": 9.95,
+    "thuy": 23.04
+   },
+   "variants": {},
+   "land_density": 0.95,
+   "density": 0.91,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 114,
+   "name": "Đỗ Quyên Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    376,
+    113
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 29.98,
+    "hoa": 10.05,
+    "tho": 12.49,
+    "kim": 9.3,
+    "thuy": 38.18
+   },
+   "variants": {},
+   "land_density": 0.811,
+   "density": 0.771,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 115,
+   "name": "Hoàng Oanh Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    378,
+    119
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 24.09,
+    "hoa": 10.12,
+    "tho": 12.57,
+    "kim": 10.79,
+    "thuy": 42.42
+   },
+   "variants": {},
+   "land_density": 0.901,
+   "density": 0.861,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 116,
+   "name": "Ngư Đàm Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    470,
+    174
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 8.26,
+    "hoa": 17.56,
+    "tho": 27.97,
+    "kim": 14.45,
+    "thuy": 31.76
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 117,
+   "name": "Liên Đường Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    432,
+    180
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 24.42,
+    "hoa": 22.12,
+    "tho": 29.83,
+    "kim": 11.98,
+    "thuy": 11.65
+   },
+   "variants": {},
+   "land_density": 0.905,
+   "density": 0.865,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 118,
+   "name": "Mã Minh Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    426,
+    182
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 28.01,
+    "hoa": 23.96,
+    "tho": 30.46,
+    "kim": 11.11,
+    "thuy": 6.47
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 119,
+   "name": "Tiều Lộ Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    454,
+    102
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 35.53,
+    "hoa": 10.66,
+    "tho": 13.79,
+    "kim": 9.73,
+    "thuy": 30.29
+   },
+   "variants": {},
+   "land_density": 1.092,
+   "density": 1.052,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 120,
+   "name": "Lâm Ẩn Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    448,
+    106
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 27.36,
+    "hoa": 10.43,
+    "tho": 12.48,
+    "kim": 9.83,
+    "thuy": 39.91
+   },
+   "variants": {},
+   "land_density": 0.905,
+   "density": 0.865,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 121,
+   "name": "Lô Hoa Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    492,
+    128
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 25.53,
+    "hoa": 11.46,
+    "tho": 13.76,
+    "kim": 10.33,
+    "thuy": 38.92
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 122,
+   "name": "Bối Sa Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    111,
+    238
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 18.07,
+    "hoa": 17.87,
+    "tho": 21.89,
+    "kim": 11.02,
+    "thuy": 31.15
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 123,
+   "name": "Lãng Thạch Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    131,
+    249
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 23.15,
+    "hoa": 15.81,
+    "tho": 17.93,
+    "kim": 11.49,
+    "thuy": 31.62
+   },
+   "variants": {},
+   "land_density": 1.01,
+   "density": 0.97,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 124,
+   "name": "Dương Liễu Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    48,
+    261
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 24.61,
+    "hoa": 17.95,
+    "tho": 20.91,
+    "kim": 10.01,
+    "thuy": 26.52
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 125,
+   "name": "Tình Sa Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    95,
+    261
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 31.44,
+    "hoa": 13.34,
+    "tho": 15.54,
+    "kim": 11.42,
+    "thuy": 28.26
+   },
+   "variants": {},
+   "land_density": 0.843,
+   "density": 0.803,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 126,
+   "name": "Nguyệt Loan Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    57,
+    274
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 26.83,
+    "hoa": 14.94,
+    "tho": 17.15,
+    "kim": 11.34,
+    "thuy": 29.74
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 127,
+   "name": "Điền Viên Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    139,
+    168
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 22.37,
+    "hoa": 13.86,
+    "tho": 15.77,
+    "kim": 10.0,
+    "thuy": 38.0
+   },
+   "variants": {},
+   "land_density": 0.781,
+   "density": 0.741,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 128,
+   "name": "Yến Quy Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    147,
+    170
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 23.94,
+    "hoa": 14.07,
+    "tho": 16.14,
+    "kim": 10.01,
+    "thuy": 35.84
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 129,
+   "name": "Chu Tân Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    127,
+    176
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 22.63,
+    "hoa": 14.47,
+    "tho": 16.61,
+    "kim": 10.21,
+    "thuy": 36.07
+   },
+   "variants": {},
+   "land_density": 0.92,
+   "density": 0.88,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 130,
+   "name": "Lô Cảng Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    158,
+    176
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 25.65,
+    "hoa": 16.13,
+    "tho": 18.83,
+    "kim": 10.03,
+    "thuy": 29.36
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 131,
+   "name": "Diêm Điền Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    129,
+    190
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 29.57,
+    "hoa": 18.57,
+    "tho": 23.08,
+    "kim": 10.73,
+    "thuy": 18.05
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 132,
+   "name": "Khê Thanh Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    201,
+    265
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 31.22,
+    "hoa": 16.74,
+    "tho": 22.17,
+    "kim": 10.93,
+    "thuy": 18.94
+   },
+   "variants": {},
+   "land_density": 0.84,
+   "density": 0.8,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 133,
+   "name": "Khê Đầu Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    190,
+    273
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 31.25,
+    "hoa": 18.15,
+    "tho": 22.45,
+    "kim": 9.93,
+    "thuy": 18.22
+   },
+   "variants": {},
+   "land_density": 0.843,
+   "density": 0.803,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 134,
+   "name": "Hải Môn Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    178,
+    282
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 28.59,
+    "hoa": 16.63,
+    "tho": 18.52,
+    "kim": 12.48,
+    "thuy": 23.78
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 135,
+   "name": "Tân Khẩu Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    161,
+    283
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 23.73,
+    "hoa": 14.51,
+    "tho": 16.29,
+    "kim": 12.09,
+    "thuy": 33.38
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 136,
+   "name": "Hoa Khê Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    186,
+    169
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 42.41,
+    "hoa": 11.1,
+    "tho": 13.86,
+    "kim": 8.91,
+    "thuy": 23.72
+   },
+   "variants": {},
+   "land_density": 0.906,
+   "density": 0.866,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 137,
+   "name": "Ngân Than Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    212,
+    171
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 40.92,
+    "hoa": 10.98,
+    "tho": 14.4,
+    "kim": 10.8,
+    "thuy": 22.9
+   },
+   "variants": {},
+   "land_density": 0.844,
+   "density": 0.804,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 138,
+   "name": "Phương Thảo Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    173,
+    175
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 30.4,
+    "hoa": 14.84,
+    "tho": 17.6,
+    "kim": 9.83,
+    "thuy": 27.33
+   },
+   "variants": {},
+   "land_density": 0.77,
+   "density": 0.73,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 139,
+   "name": "Thủy Khẩu Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    187,
+    186
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 30.92,
+    "hoa": 18.21,
+    "tho": 23.84,
+    "kim": 9.48,
+    "thuy": 17.56
+   },
+   "variants": {},
+   "land_density": 0.843,
+   "density": 0.803,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 140,
+   "name": "Mộc Hương Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    283,
+    154
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 34.14,
+    "hoa": 13.11,
+    "tho": 20.17,
+    "kim": 10.78,
+    "thuy": 21.8
+   },
+   "variants": {},
+   "land_density": 0.948,
+   "density": 0.908,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 141,
+   "name": "Thụ Âm Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    302,
+    165
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 16.33,
+    "hoa": 18.83,
+    "tho": 35.66,
+    "kim": 14.58,
+    "thuy": 14.61
+   },
+   "variants": {},
+   "land_density": 0.932,
+   "density": 0.892,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 142,
+   "name": "Thủy Đối Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    371,
+    185
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 23.61,
+    "hoa": 15.66,
+    "tho": 21.79,
+    "kim": 13.38,
+    "thuy": 25.56
+   },
+   "variants": {},
+   "land_density": 0.843,
+   "density": 0.803,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 143,
+   "name": "Thanh Mạch Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    354,
+    189
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 20.65,
+    "hoa": 18.55,
+    "tho": 29.68,
+    "kim": 15.23,
+    "thuy": 15.89
+   },
+   "variants": {},
+   "land_density": 0.843,
+   "density": 0.803,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 144,
+   "name": "Châu Bạng Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    372,
+    192
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 14.58,
+    "hoa": 14.76,
+    "tho": 21.1,
+    "kim": 18.13,
+    "thuy": 31.43
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 145,
+   "name": "Đào Khê Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    379,
+    234
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 29.57,
+    "hoa": 17.19,
+    "tho": 22.47,
+    "kim": 13.05,
+    "thuy": 17.72
+   },
+   "variants": {},
+   "land_density": 0.845,
+   "density": 0.805,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 146,
+   "name": "Hà Loan Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    389,
+    237
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 29.0,
+    "hoa": 19.49,
+    "tho": 22.82,
+    "kim": 9.21,
+    "thuy": 19.48
+   },
+   "variants": {},
+   "land_density": 0.843,
+   "density": 0.803,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 147,
+   "name": "Bích Lãng Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    358,
+    279
+   ],
+   "part": 0,
+   "biome": "bamboo_forest",
+   "shares": {
+    "moc": 37.15,
+    "hoa": 8.56,
+    "tho": 9.38,
+    "kim": 14.2,
+    "thuy": 30.71
+   },
+   "variants": {},
+   "land_density": 1.27,
+   "density": 1.23,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 148,
+   "name": "Thủy Điền Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    413,
+    176
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 22.46,
+    "hoa": 22.64,
+    "tho": 25.89,
+    "kim": 12.65,
+    "thuy": 16.36
+   },
+   "variants": {},
+   "land_density": 0.843,
+   "density": 0.803,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 149,
+   "name": "Âu Lộ Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    474,
+    185
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 20.53,
+    "hoa": 16.05,
+    "tho": 18.71,
+    "kim": 10.25,
+    "thuy": 34.45
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 150,
+   "name": "Ngân Hạnh Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    412,
+    188
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 31.54,
+    "hoa": 14.98,
+    "tho": 20.71,
+    "kim": 13.18,
+    "thuy": 19.59
+   },
+   "variants": {},
+   "land_density": 0.953,
+   "density": 0.913,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 151,
+   "name": "Lý Hoa Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    459,
+    196
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 22.07,
+    "hoa": 19.96,
+    "tho": 24.63,
+    "kim": 10.82,
+    "thuy": 22.52
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 152,
+   "name": "Hoàng Ngưu Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    410,
+    200
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 25.96,
+    "hoa": 14.85,
+    "tho": 22.63,
+    "kim": 14.63,
+    "thuy": 21.92
+   },
+   "variants": {},
+   "land_density": 0.836,
+   "density": 0.796,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 153,
+   "name": "Kiều Bạn Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    204,
+    276
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 37.36,
+    "hoa": 15.85,
+    "tho": 18.67,
+    "kim": 11.08,
+    "thuy": 17.04
+   },
+   "variants": {},
+   "land_density": 0.842,
+   "density": 0.802,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 154,
+   "name": "Bình Độ Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    243,
+    288
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 38.66,
+    "hoa": 18.19,
+    "tho": 14.36,
+    "kim": 8.68,
+    "thuy": 20.1
+   },
+   "variants": {},
+   "land_density": 0.844,
+   "density": 0.804,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 155,
+   "name": "Hoa Điền Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    249,
+    290
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 38.88,
+    "hoa": 17.31,
+    "tho": 14.91,
+    "kim": 9.68,
+    "thuy": 19.22
+   },
+   "variants": {},
+   "land_density": 0.843,
+   "density": 0.803,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 156,
+   "name": "Yên Kiều Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    199,
+    298
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 37.38,
+    "hoa": 21.08,
+    "tho": 15.01,
+    "kim": 6.86,
+    "thuy": 19.67
+   },
+   "variants": {},
+   "land_density": 0.829,
+   "density": 0.789,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 157,
+   "name": "Ương Ca Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    319,
+    278
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 39.93,
+    "hoa": 11.07,
+    "tho": 14.73,
+    "kim": 15.36,
+    "thuy": 18.9
+   },
+   "variants": {},
+   "land_density": 0.837,
+   "density": 0.797,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 158,
+   "name": "Song Khê Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    263,
+    280
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 44.6,
+    "hoa": 8.57,
+    "tho": 9.57,
+    "kim": 17.29,
+    "thuy": 19.97
+   },
+   "variants": {},
+   "land_density": 0.83,
+   "density": 0.79,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 159,
+   "name": "Thượng Độ Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    321,
+    290
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 44.59,
+    "hoa": 13.37,
+    "tho": 10.51,
+    "kim": 13.27,
+    "thuy": 18.25
+   },
+   "variants": {},
+   "land_density": 0.835,
+   "density": 0.795,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 160,
+   "name": "Hà Châu Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    315,
+    293
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 41.9,
+    "hoa": 15.66,
+    "tho": 11.77,
+    "kim": 10.64,
+    "thuy": 20.04
+   },
+   "variants": {},
+   "land_density": 0.842,
+   "density": 0.802,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 161,
+   "name": "Cúc Viên Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    485,
+    223
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 14.22,
+    "hoa": 20.3,
+    "tho": 29.9,
+    "kim": 13.77,
+    "thuy": 21.81
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 162,
+   "name": "Tang Âm Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    481,
+    247
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 19.3,
+    "hoa": 19.93,
+    "tho": 23.9,
+    "kim": 14.4,
+    "thuy": 22.47
+   },
+   "variants": {},
+   "land_density": 0.773,
+   "density": 0.733,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 163,
+   "name": "Hồ Tâm Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    472,
+    260
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 20.35,
+    "hoa": 16.18,
+    "tho": 18.88,
+    "kim": 11.2,
+    "thuy": 33.38
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 0.76,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 164,
+   "name": "Lô Châu Thôn",
+   "kind": "village",
+   "row": "settlement",
+   "tile": [
+    410,
+    294
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 29.43,
+    "hoa": 15.09,
+    "tho": 15.12,
+    "kim": 17.01,
+    "thuy": 23.35
+   },
+   "variants": {},
+   "land_density": 0.843,
+   "density": 0.803,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 165,
+   "name": "Bích Ngọc Khoáng",
+   "kind": "mine",
+   "row": "mine",
+   "tile": [
+    148,
+    100
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 14.62,
+    "hoa": 7.61,
+    "tho": 17.16,
+    "kim": 51.31,
+    "thuy": 9.3
+   },
+   "variants": {},
+   "land_density": 1.426,
+   "density": 1.306,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 166,
+   "name": "Vân Mẫu Khoáng",
+   "kind": "mine",
+   "row": "mine",
+   "tile": [
+    137,
+    124
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 19.57,
+    "hoa": 7.69,
+    "tho": 15.16,
+    "kim": 46.82,
+    "thuy": 10.75
+   },
+   "variants": {},
+   "land_density": 1.525,
+   "density": 1.405,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 167,
+   "name": "Thạch Lục Khoáng",
+   "kind": "mine",
+   "row": "mine",
+   "tile": [
+    218,
+    150
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 25.58,
+    "hoa": 7.77,
+    "tho": 12.57,
+    "kim": 43.27,
+    "thuy": 10.82
+   },
+   "variants": {},
+   "land_density": 1.511,
+   "density": 1.391,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 168,
+   "name": "Băng Lăng Khoáng",
+   "kind": "mine",
+   "row": "mine",
+   "tile": [
+    429,
+    121
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 11.51,
+    "hoa": 7.31,
+    "tho": 14.07,
+    "kim": 47.44,
+    "thuy": 19.67
+   },
+   "variants": {},
+   "land_density": 1.252,
+   "density": 1.132,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 169,
+   "name": "Xích Kim Khoáng",
+   "kind": "mine",
+   "row": "mine",
+   "tile": [
+    228,
+    221
+   ],
+   "part": 0,
+   "biome": "badlands",
+   "shares": {
+    "moc": 3.48,
+    "hoa": 17.52,
+    "tho": 33.56,
+    "kim": 41.8,
+    "thuy": 3.63
+   },
+   "variants": {},
+   "land_density": 0.895,
+   "density": 0.775,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 170,
+   "name": "Thần Sa Khoáng",
+   "kind": "mine",
+   "row": "mine",
+   "tile": [
+    317,
+    173
+   ],
+   "part": 0,
+   "biome": "badlands",
+   "shares": {
+    "moc": 5.64,
+    "hoa": 14.5,
+    "tho": 29.54,
+    "kim": 45.65,
+    "thuy": 4.67
+   },
+   "variants": {},
+   "land_density": 0.734,
+   "density": 0.614,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 171,
+   "name": "Lưu Hoàng Khoáng",
+   "kind": "mine",
+   "row": "mine",
+   "tile": [
+    290,
+    175
+   ],
+   "part": 0,
+   "biome": "badlands",
+   "shares": {
+    "moc": 4.82,
+    "hoa": 13.26,
+    "tho": 29.17,
+    "kim": 47.74,
+    "thuy": 5.01
+   },
+   "variants": {},
+   "land_density": 0.702,
+   "density": 0.582,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 172,
+   "name": "Vẫn Tinh Khoáng",
+   "kind": "mine",
+   "row": "mine",
+   "tile": [
+    254,
+    186
+   ],
+   "part": 0,
+   "biome": "highland",
+   "shares": {
+    "moc": 10.0,
+    "hoa": 10.17,
+    "tho": 37.71,
+    "kim": 36.38,
+    "thuy": 5.74
+   },
+   "variants": {},
+   "land_density": 1.181,
+   "density": 1.061,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 173,
+   "name": "Thiên Ngoại Khoáng",
+   "kind": "mine",
+   "row": "mine",
+   "tile": [
+    391,
+    167
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 4.16,
+    "hoa": 7.47,
+    "tho": 19.61,
+    "kim": 57.37,
+    "thuy": 11.38
+   },
+   "variants": {},
+   "land_density": 1.363,
+   "density": 1.243,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 174,
+   "name": "Huyền Thiết Khoáng",
+   "kind": "mine",
+   "row": "mine",
+   "tile": [
+    395,
+    174
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 5.63,
+    "hoa": 7.16,
+    "tho": 16.94,
+    "kim": 53.7,
+    "thuy": 16.58
+   },
+   "variants": {},
+   "land_density": 1.21,
+   "density": 1.09,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 175,
+   "name": "Can Tương Khoáng",
+   "kind": "mine",
+   "row": "mine",
+   "tile": [
+    363,
+    210
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 4.53,
+    "hoa": 16.46,
+    "tho": 16.11,
+    "kim": 46.43,
+    "thuy": 16.47
+   },
+   "variants": {},
+   "land_density": 1.473,
+   "density": 1.353,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 176,
+   "name": "Bạch Ngân Khoáng",
+   "kind": "mine",
+   "row": "mine",
+   "tile": [
+    367,
+    217
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 10.04,
+    "hoa": 10.36,
+    "tho": 21.03,
+    "kim": 51.5,
+    "thuy": 7.08
+   },
+   "variants": {},
+   "land_density": 1.577,
+   "density": 1.457,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 177,
+   "name": "Kinh Điện Khoáng",
+   "kind": "mine",
+   "row": "mine",
+   "tile": [
+    314,
+    246
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 4.37,
+    "hoa": 10.05,
+    "tho": 24.65,
+    "kim": 54.84,
+    "thuy": 6.09
+   },
+   "variants": {},
+   "land_density": 1.202,
+   "density": 1.082,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 178,
+   "name": "Tử Kim Khoáng",
+   "kind": "mine",
+   "row": "mine",
+   "tile": [
+    310,
+    253
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 3.7,
+    "hoa": 8.66,
+    "tho": 22.86,
+    "kim": 58.28,
+    "thuy": 6.5
+   },
+   "variants": {},
+   "land_density": 1.217,
+   "density": 1.097,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 179,
+   "name": "Vũ Hoa Khoáng",
+   "kind": "mine",
+   "row": "mine",
+   "tile": [
+    302,
+    254
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 4.44,
+    "hoa": 8.51,
+    "tho": 20.4,
+    "kim": 55.11,
+    "thuy": 11.54
+   },
+   "variants": {},
+   "land_density": 1.242,
+   "density": 1.122,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 180,
+   "name": "Đan Thạch Khoáng",
+   "kind": "mine",
+   "row": "mine",
+   "tile": [
+    410,
+    305
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 10.51,
+    "hoa": 17.16,
+    "tho": 10.16,
+    "kim": 35.36,
+    "thuy": 26.81
+   },
+   "variants": {},
+   "land_density": 1.42,
+   "density": 1.3,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 181,
+   "name": "Phụ Tinh Phong",
+   "kind": "peak",
+   "row": "mountain",
+   "tile": [
+    370,
+    140
+   ],
+   "part": 0,
+   "biome": "glacier",
+   "shares": {
+    "moc": 8.22,
+    "hoa": 9.78,
+    "tho": 23.35,
+    "kim": 35.54,
+    "thuy": 23.11
+   },
+   "variants": {},
+   "land_density": 0.824,
+   "density": 0.694,
+   "land_danger": 3,
+   "danger": 3
+  },
+  {
+   "id": 182,
+   "name": "Trích Tinh Phong",
+   "kind": "peak",
+   "row": "mountain",
+   "tile": [
+    380,
+    161
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 4.93,
+    "hoa": 9.49,
+    "tho": 28.36,
+    "kim": 47.16,
+    "thuy": 10.06
+   },
+   "variants": {
+    "quang": 40.0,
+    "bang": 10.0
+   },
+   "land_density": 1.89,
+   "density": 1.76,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 183,
+   "name": "Hồi Lộ Phong",
+   "kind": "peak",
+   "row": "mountain",
+   "tile": [
+    393,
+    139
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 6.43,
+    "hoa": 11.97,
+    "tho": 27.46,
+    "kim": 42.75,
+    "thuy": 11.39
+   },
+   "variants": {},
+   "land_density": 1.137,
+   "density": 1.007,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 184,
+   "name": "Lăng Tuyệt Phong",
+   "kind": "peak",
+   "row": "mountain",
+   "tile": [
+    410,
+    146
+   ],
+   "part": 0,
+   "biome": "glacier",
+   "shares": {
+    "moc": 5.61,
+    "hoa": 9.6,
+    "tho": 28.14,
+    "kim": 43.87,
+    "thuy": 12.79
+   },
+   "variants": {
+    "quang": 40.0,
+    "bang": 10.0
+   },
+   "land_density": 1.357,
+   "density": 1.227,
+   "land_danger": 3,
+   "danger": 3
+  },
+  {
+   "id": 185,
+   "name": "Thanh Ải Phong",
+   "kind": "peak",
+   "row": "mountain",
+   "tile": [
+    351,
+    213
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 5.31,
+    "hoa": 11.38,
+    "tho": 29.28,
+    "kim": 44.58,
+    "thuy": 9.46
+   },
+   "variants": {},
+   "land_density": 1.115,
+   "density": 0.985,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 186,
+   "name": "Cùng Mục Phong",
+   "kind": "peak",
+   "row": "mountain",
+   "tile": [
+    342,
+    248
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 7.17,
+    "hoa": 9.81,
+    "tho": 28.28,
+    "kim": 44.64,
+    "thuy": 10.1
+   },
+   "variants": {
+    "loi": 40.0
+   },
+   "land_density": 1.241,
+   "density": 1.111,
+   "land_danger": 3,
+   "danger": 3
+  },
+  {
+   "id": 187,
+   "name": "Liệt Khuyết Phong",
+   "kind": "peak",
+   "row": "mountain",
+   "tile": [
+    325,
+    255
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 6.14,
+    "hoa": 9.6,
+    "tho": 28.04,
+    "kim": 46.51,
+    "thuy": 9.71
+   },
+   "variants": {},
+   "land_density": 1.726,
+   "density": 1.596,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 188,
+   "name": "Chúc Long Sơn",
+   "kind": "volcano",
+   "row": "mountain",
+   "tile": [
+    404,
+    27
+   ],
+   "part": 0,
+   "biome": "volcano",
+   "shares": {
+    "moc": 4.99,
+    "hoa": 50.41,
+    "tho": 6.73,
+    "kim": 6.16,
+    "thuy": 31.71
+   },
+   "variants": {},
+   "land_density": 1.2,
+   "density": 1.07,
+   "land_danger": 4,
+   "danger": 4
+  },
+  {
+   "id": 189,
+   "name": "Sương Diễm Sơn",
+   "kind": "volcano",
+   "row": "mountain",
+   "tile": [
+    429,
+    80
+   ],
+   "part": 0,
+   "biome": "volcano",
+   "shares": {
+    "moc": 6.2,
+    "hoa": 50.23,
+    "tho": 11.76,
+    "kim": 11.21,
+    "thuy": 20.59
+   },
+   "variants": {},
+   "land_density": 1.2,
+   "density": 1.07,
+   "land_danger": 4,
+   "danger": 4
+  },
+  {
+   "id": 190,
+   "name": "Hạo Nguyệt Hồ",
+   "kind": "lake",
+   "row": "lake",
+   "tile": [
+    315,
+    89
+   ],
+   "part": 0,
+   "biome": "lake",
+   "shares": {
+    "moc": 40.27,
+    "hoa": 7.12,
+    "tho": 10.6,
+    "kim": 6.24,
+    "thuy": 35.77
+   },
+   "variants": {},
+   "land_density": 0.95,
+   "density": 1.14,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 191,
+   "name": "Phiến Băng Hồ",
+   "kind": "lake",
+   "row": "lake",
+   "tile": [
+    466,
+    123
+   ],
+   "part": 0,
+   "biome": "lake",
+   "shares": {
+    "moc": 32.31,
+    "hoa": 23.19,
+    "tho": 12.21,
+    "kim": 10.16,
+    "thuy": 22.13
+   },
+   "variants": {},
+   "land_density": 0.977,
+   "density": 1.167,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 192,
+   "name": "Tinh Lạc Hồ",
+   "kind": "lake",
+   "row": "lake",
+   "tile": [
+    265,
+    186
+   ],
+   "part": 0,
+   "biome": "lake",
+   "shares": {
+    "moc": 13.02,
+    "hoa": 11.3,
+    "tho": 48.55,
+    "kim": 7.88,
+    "thuy": 19.25
+   },
+   "variants": {},
+   "land_density": 1.055,
+   "density": 1.245,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 193,
+   "name": "Triêu Hà Hồ",
+   "kind": "lake",
+   "row": "lake",
+   "tile": [
+    408,
+    203
+   ],
+   "part": 0,
+   "biome": "lake",
+   "shares": {
+    "moc": 25.39,
+    "hoa": 13.63,
+    "tho": 21.52,
+    "kim": 14.61,
+    "thuy": 24.84
+   },
+   "variants": {},
+   "land_density": 1.025,
+   "density": 1.215,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 194,
+   "name": "Tàn Hà Hồ",
+   "kind": "lake",
+   "row": "lake",
+   "tile": [
+    247,
+    256
+   ],
+   "part": 0,
+   "biome": "lake",
+   "shares": {
+    "moc": 17.72,
+    "hoa": 17.26,
+    "tho": 28.72,
+    "kim": 17.88,
+    "thuy": 18.42
+   },
+   "variants": {},
+   "land_density": 1.064,
+   "density": 1.254,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 195,
+   "name": "Phù Chử Đảo",
+   "kind": "island",
+   "row": "island",
+   "tile": [
+    123,
+    151
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 16.95,
+    "hoa": 10.31,
+    "tho": 11.1,
+    "kim": 10.03,
+    "thuy": 51.61
+   },
+   "variants": {},
+   "land_density": 0.902,
+   "density": 1.192,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 196,
+   "name": "Tịch Chiếu Đảo",
+   "kind": "island",
+   "row": "island",
+   "tile": [
+    29,
+    188
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 13.92,
+    "hoa": 12.27,
+    "tho": 12.71,
+    "kim": 11.95,
+    "thuy": 49.15
+   },
+   "variants": {},
+   "land_density": 1.241,
+   "density": 1.531,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 197,
+   "name": "Tương Phi Đảo",
+   "kind": "island",
+   "row": "island",
+   "tile": [
+    391,
+    276
+   ],
+   "part": 0,
+   "biome": "bamboo_forest",
+   "shares": {
+    "moc": 12.31,
+    "hoa": 9.65,
+    "tho": 12.19,
+    "kim": 14.05,
+    "thuy": 51.8
+   },
+   "variants": {},
+   "land_density": 1.001,
+   "density": 1.291,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 198,
+   "name": "Dục Nhật Đảo",
+   "kind": "island",
+   "row": "island",
+   "tile": [
+    469,
+    335
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 17.09,
+    "hoa": 13.19,
+    "tho": 9.78,
+    "kim": 9.23,
+    "thuy": 50.71
+   },
+   "variants": {},
+   "land_density": 0.856,
+   "density": 1.146,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 199,
+   "name": "Đồ Nam Đảo",
+   "kind": "island",
+   "row": "island",
+   "tile": [
+    432,
+    346
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 15.58,
+    "hoa": 12.08,
+    "tho": 10.22,
+    "kim": 9.43,
+    "thuy": 52.7
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 1.09,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 200,
+   "name": "Phản Cảnh Lâm",
+   "kind": "forest",
+   "row": "forest",
+   "tile": [
+    301,
+    114
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 58.84,
+    "hoa": 8.98,
+    "tho": 11.23,
+    "kim": 7.48,
+    "thuy": 13.47
+   },
+   "variants": {},
+   "land_density": 1.08,
+   "density": 1.22,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 201,
+   "name": "Vô Tung Lâm",
+   "kind": "forest",
+   "row": "forest",
+   "tile": [
+    472,
+    88
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 50.09,
+    "hoa": 10.61,
+    "tho": 13.45,
+    "kim": 8.88,
+    "thuy": 16.98
+   },
+   "variants": {},
+   "land_density": 0.986,
+   "density": 1.126,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 202,
+   "name": "Đả Diệp Lâm",
+   "kind": "forest",
+   "row": "forest",
+   "tile": [
+    347,
+    280
+   ],
+   "part": 0,
+   "biome": "bamboo_forest",
+   "shares": {
+    "moc": 50.98,
+    "hoa": 6.06,
+    "tho": 7.08,
+    "kim": 23.4,
+    "thuy": 12.49
+   },
+   "variants": {},
+   "land_density": 1.053,
+   "density": 1.193,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 203,
+   "name": "Viên Đề Hạp",
+   "kind": "gorge",
+   "row": "valley",
+   "tile": [
+    401,
+    160
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 10.32,
+    "hoa": 10.48,
+    "tho": 25.82,
+    "kim": 34.94,
+    "thuy": 18.44
+   },
+   "variants": {},
+   "land_density": 1.157,
+   "density": 1.217,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 204,
+   "name": "Vạn Trùng Hạp",
+   "kind": "gorge",
+   "row": "valley",
+   "tile": [
+    336,
+    221
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 11.62,
+    "hoa": 15.71,
+    "tho": 27.72,
+    "kim": 27.38,
+    "thuy": 17.57
+   },
+   "variants": {},
+   "land_density": 1.422,
+   "density": 1.482,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 205,
+   "name": "Tinh Tủy Mạch",
+   "kind": "spirit_vein",
+   "row": "spirit_vein",
+   "tile": [
+    378,
+    149
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 5.05,
+    "hoa": 9.89,
+    "tho": 28.43,
+    "kim": 46.41,
+    "thuy": 10.22
+   },
+   "variants": {},
+   "land_density": 1.854,
+   "density": 1.674,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 206,
+   "name": "Thương Tùng Mạch",
+   "kind": "spirit_vein",
+   "row": "spirit_vein",
+   "tile": [
+    242,
+    171
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 23.8,
+    "hoa": 11.09,
+    "tho": 25.34,
+    "kim": 26.7,
+    "thuy": 13.06
+   },
+   "variants": {},
+   "land_density": 1.825,
+   "density": 1.645,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 207,
+   "name": "Trường Hà Mạch",
+   "kind": "spirit_vein",
+   "row": "spirit_vein",
+   "tile": [
+    219,
+    247
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 5.83,
+    "hoa": 19.62,
+    "tho": 38.41,
+    "kim": 29.2,
+    "thuy": 6.95
+   },
+   "variants": {},
+   "land_density": 1.81,
+   "density": 1.63,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 208,
+   "name": "Kinh Lôi Mạch",
+   "kind": "spirit_vein",
+   "row": "spirit_vein",
+   "tile": [
+    333,
+    257
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 5.76,
+    "hoa": 9.53,
+    "tho": 28.06,
+    "kim": 47.0,
+    "thuy": 9.64
+   },
+   "variants": {
+    "loi": 23.23
+   },
+   "land_density": 1.907,
+   "density": 1.727,
+   "land_danger": 3,
+   "danger": 3
+  },
+  {
+   "id": 209,
+   "name": "Băng Phách Mạch",
+   "kind": "spirit_vein",
+   "row": "spirit_vein",
+   "tile": [
+    419,
+    121
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 8.16,
+    "hoa": 9.87,
+    "tho": 25.56,
+    "kim": 39.39,
+    "thuy": 17.03
+   },
+   "variants": {
+    "loi": 65.54
+   },
+   "land_density": 1.972,
+   "density": 1.792,
+   "land_danger": 4,
+   "danger": 4
+  },
+  {
+   "id": 210,
+   "name": "Hỏa Ngọc Mạch",
+   "kind": "spirit_vein",
+   "row": "spirit_vein",
+   "tile": [
+    33,
+    196
+   ],
+   "part": 0,
+   "biome": "volcano",
+   "shares": {
+    "moc": 6.56,
+    "hoa": 44.82,
+    "tho": 6.31,
+    "kim": 17.59,
+    "thuy": 24.73
+   },
+   "variants": {},
+   "land_density": 1.959,
+   "density": 1.779,
+   "land_danger": 4,
+   "danger": 4
+  },
+  {
+   "id": 211,
+   "name": "Đan Sơn Mạch",
+   "kind": "spirit_vein",
+   "row": "spirit_vein",
+   "tile": [
+    375,
+    217
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 11.8,
+    "hoa": 12.84,
+    "tho": 25.43,
+    "kim": 31.4,
+    "thuy": 18.53
+   },
+   "variants": {},
+   "land_density": 1.829,
+   "density": 1.649,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 212,
+   "name": "Cao Cương Phong",
+   "kind": "peak",
+   "row": "mountain",
+   "tile": [
+    400,
+    296
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 10.62,
+    "hoa": 11.72,
+    "tho": 23.6,
+    "kim": 35.13,
+    "thuy": 18.93
+   },
+   "variants": {
+    "loi": 40.0,
+    "quang": 40.0
+   },
+   "land_density": 1.524,
+   "density": 1.394,
+   "land_danger": 3,
+   "danger": 3
+  },
+  {
+   "id": 213,
+   "name": "Không Sơn Viện",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    156,
+    111
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 15.27,
+    "hoa": 10.35,
+    "tho": 23.42,
+    "kim": 32.47,
+    "thuy": 18.49
+   },
+   "variants": {},
+   "land_density": 1.102,
+   "density": 1.352,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 214,
+   "name": "Hồ Thiên Phái",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    400,
+    24
+   ],
+   "part": 0,
+   "biome": "tundra",
+   "shares": {
+    "moc": 7.68,
+    "hoa": 11.57,
+    "tho": 10.49,
+    "kim": 9.6,
+    "thuy": 60.67
+   },
+   "variants": {
+    "bang": 22.49
+   },
+   "land_density": 0.773,
+   "density": 1.023,
+   "land_danger": 3,
+   "danger": 3
+  },
+  {
+   "id": 215,
+   "name": "Xích Thành Môn",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    491,
+    208
+   ],
+   "part": 0,
+   "biome": "steppe",
+   "shares": {
+    "moc": 13.35,
+    "hoa": 16.8,
+    "tho": 22.75,
+    "kim": 12.26,
+    "thuy": 34.83
+   },
+   "variants": {},
+   "land_density": 0.704,
+   "density": 0.954,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 216,
+   "name": "Hàn Giang Môn",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    440,
+    116
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 31.54,
+    "hoa": 10.58,
+    "tho": 13.17,
+    "kim": 10.93,
+    "thuy": 33.78
+   },
+   "variants": {},
+   "land_density": 0.901,
+   "density": 1.151,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 217,
+   "name": "Thôn Hải Môn",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    472,
+    359
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 15.84,
+    "hoa": 11.77,
+    "tho": 9.51,
+    "kim": 9.33,
+    "thuy": 53.55
+   },
+   "variants": {},
+   "land_density": 0.9,
+   "density": 1.15,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 218,
+   "name": "Phá Quân Môn",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    376,
+    164
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 8.6,
+    "hoa": 9.79,
+    "tho": 27.37,
+    "kim": 43.26,
+    "thuy": 10.98
+   },
+   "variants": {
+    "quang": 0.38,
+    "bang": 6.11
+   },
+   "land_density": 1.155,
+   "density": 1.405,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": 219,
+   "name": "Kim Cốc Thành",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    182,
+    273
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 21.34,
+    "hoa": 17.08,
+    "tho": 20.56,
+    "kim": 11.59,
+    "thuy": 29.44
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 1.05,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 220,
+   "name": "Vân Môn Thành",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    410,
+    216
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 18.83,
+    "hoa": 19.3,
+    "tho": 30.29,
+    "kim": 12.33,
+    "thuy": 19.25
+   },
+   "variants": {},
+   "land_density": 1.071,
+   "density": 1.321,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 221,
+   "name": "Lôi Trạch Thành",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    265,
+    289
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 39.34,
+    "hoa": 11.06,
+    "tho": 10.25,
+    "kim": 13.24,
+    "thuy": 26.1
+   },
+   "variants": {},
+   "land_density": 0.94,
+   "density": 1.19,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 222,
+   "name": "Hồng Vũ Thành",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    196,
+    275
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 35.12,
+    "hoa": 20.49,
+    "tho": 24.76,
+    "kim": 12.53,
+    "thuy": 7.1
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 1.05,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 223,
+   "name": "Vô Định Thành",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    229,
+    209
+   ],
+   "part": 0,
+   "biome": "steppe",
+   "shares": {
+    "moc": 5.07,
+    "hoa": 21.89,
+    "tho": 46.35,
+    "kim": 20.88,
+    "thuy": 5.81
+   },
+   "variants": {},
+   "land_density": 0.952,
+   "density": 1.202,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 224,
+   "name": "Đông Lưu Thành",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    259,
+    110
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 46.23,
+    "hoa": 9.15,
+    "tho": 11.61,
+    "kim": 7.65,
+    "thuy": 25.36
+   },
+   "variants": {},
+   "land_density": 0.947,
+   "density": 1.197,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 225,
+   "name": "Hổ Khiếu Trấn",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    208,
+    104
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 39.46,
+    "hoa": 8.85,
+    "tho": 10.99,
+    "kim": 7.8,
+    "thuy": 32.9
+   },
+   "variants": {},
+   "land_density": 0.948,
+   "density": 1.198,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 226,
+   "name": "Bích Không Cảng",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    97,
+    256
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 23.08,
+    "hoa": 16.02,
+    "tho": 18.69,
+    "kim": 11.81,
+    "thuy": 30.39
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 1.05,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 227,
+   "name": "Cô Thành",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    435,
+    174
+   ],
+   "part": 0,
+   "biome": "steppe",
+   "shares": {
+    "moc": 17.14,
+    "hoa": 22.49,
+    "tho": 29.58,
+    "kim": 13.67,
+    "thuy": 17.12
+   },
+   "variants": {},
+   "land_density": 0.951,
+   "density": 1.201,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 228,
+   "name": "Châu Lệ Cảng",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    446,
+    199
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 16.02,
+    "hoa": 20.47,
+    "tho": 29.15,
+    "kim": 13.14,
+    "thuy": 21.23
+   },
+   "variants": {},
+   "land_density": 0.8,
+   "density": 1.05,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 229,
+   "name": "Thiết Tỏa Quan",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    235,
+    176
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 25.58,
+    "hoa": 11.41,
+    "tho": 22.57,
+    "kim": 27.11,
+    "thuy": 13.33
+   },
+   "variants": {},
+   "land_density": 1.077,
+   "density": 1.327,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": 230,
+   "name": "Thu Phần Các",
+   "kind": "minor_seat",
+   "row": "sect_seat",
+   "tile": [
+    257,
+    282
+   ],
+   "part": 0,
+   "biome": "bamboo_forest",
+   "shares": {
+    "moc": 48.05,
+    "hoa": 11.03,
+    "tho": 12.2,
+    "kim": 19.65,
+    "thuy": 9.06
+   },
+   "variants": {},
+   "land_density": 1.028,
+   "density": 1.128,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": "famous:Thiết Mã Cảnh",
+   "name": "Thiết Mã Cảnh",
+   "kind": "secret_realm",
+   "row": "secret_realm",
+   "tile": [
+    244,
+    206
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 5.33,
+    "hoa": 12.19,
+    "tho": 49.24,
+    "kim": 26.34,
+    "thuy": 6.9
+   },
+   "variants": {
+    "am": 10.78
+   },
+   "land_density": 0.699,
+   "density": 1.409,
+   "land_danger": 4,
+   "danger": 4
+  },
+  {
+   "id": "famous:Phù Tang Cảnh",
+   "name": "Phù Tang Cảnh",
+   "kind": "secret_realm",
+   "row": "secret_realm",
+   "tile": [
+    466,
+    338
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 15.92,
+    "hoa": 13.0,
+    "tho": 10.13,
+    "kim": 9.42,
+    "thuy": 51.52
+   },
+   "variants": {},
+   "land_density": 1.038,
+   "density": 1.748,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "famous:Đào Nguyên Cảnh",
+   "name": "Đào Nguyên Cảnh",
+   "kind": "secret_realm",
+   "row": "secret_realm",
+   "tile": [
+    108,
+    146
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 7.89,
+    "hoa": 24.62,
+    "tho": 8.27,
+    "kim": 7.74,
+    "thuy": 51.48
+   },
+   "variants": {},
+   "land_density": 1.271,
+   "density": 1.981,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": "famous:Cố Lũy",
+   "name": "Cố Lũy",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    254,
+    199
+   ],
+   "part": 0,
+   "biome": "highland",
+   "shares": {
+    "moc": 5.62,
+    "hoa": 15.57,
+    "tho": 59.68,
+    "kim": 13.7,
+    "thuy": 5.43
+   },
+   "variants": {},
+   "land_density": 0.946,
+   "density": 1.196,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": "famous:Tuyền Cơ Đài",
+   "name": "Tuyền Cơ Đài",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    280,
+    177
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 13.03,
+    "hoa": 11.86,
+    "tho": 32.24,
+    "kim": 32.39,
+    "thuy": 10.48
+   },
+   "variants": {},
+   "land_density": 2.013,
+   "density": 2.013,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "famous:Thạch Thượng Tuyền",
+   "name": "Thạch Thượng Tuyền",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    237,
+    118
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 50.87,
+    "hoa": 10.72,
+    "tho": 13.4,
+    "kim": 8.93,
+    "thuy": 16.08
+   },
+   "variants": {},
+   "land_density": 1.854,
+   "density": 1.854,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": "famous:Châu Liêm Đình",
+   "name": "Châu Liêm Đình",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    200,
+    205
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 8.0,
+    "hoa": 24.16,
+    "tho": 45.83,
+    "kim": 17.17,
+    "thuy": 4.83
+   },
+   "variants": {},
+   "land_density": 1.59,
+   "density": 1.59,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": "famous:Văn Lôi Đài",
+   "name": "Văn Lôi Đài",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    254,
+    251
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 4.78,
+    "hoa": 51.18,
+    "tho": 16.68,
+    "kim": 13.63,
+    "thuy": 13.74
+   },
+   "variants": {
+    "bang": 0.27
+   },
+   "land_density": 2.198,
+   "density": 2.198,
+   "land_danger": 3,
+   "danger": 3
+  },
+  {
+   "id": "famous:Tố Tâm Động",
+   "name": "Tố Tâm Động",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    456,
+    136
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 25.27,
+    "hoa": 16.36,
+    "tho": 28.45,
+    "kim": 18.27,
+    "thuy": 11.65
+   },
+   "variants": {},
+   "land_density": 1.972,
+   "density": 1.972,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "famous:Hoành Thúy Đình",
+   "name": "Hoành Thúy Đình",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    147,
+    88
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 36.48,
+    "hoa": 11.09,
+    "tho": 18.37,
+    "kim": 18.57,
+    "thuy": 15.49
+   },
+   "variants": {},
+   "land_density": 1.801,
+   "density": 1.801,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": "famous:Bích Ngô Đình",
+   "name": "Bích Ngô Đình",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    365,
+    252
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 13.28,
+    "hoa": 9.73,
+    "tho": 25.97,
+    "kim": 40.28,
+    "thuy": 10.73
+   },
+   "variants": {},
+   "land_density": 2.012,
+   "density": 2.012,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "famous:Bắc Thần Phúc Địa",
+   "name": "Bắc Thần Phúc Địa",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    281,
+    182
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 15.58,
+    "hoa": 11.92,
+    "tho": 32.72,
+    "kim": 28.97,
+    "thuy": 10.81
+   },
+   "variants": {},
+   "land_density": 2.008,
+   "density": 2.008,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "famous:Thiên Xích Phúc Địa",
+   "name": "Thiên Xích Phúc Địa",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    236,
+    124
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 48.06,
+    "hoa": 11.02,
+    "tho": 14.29,
+    "kim": 10.25,
+    "thuy": 16.39
+   },
+   "variants": {},
+   "land_density": 1.825,
+   "density": 1.825,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": "famous:Địa Linh Phúc Địa",
+   "name": "Địa Linh Phúc Địa",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    198,
+    205
+   ],
+   "part": 0,
+   "biome": "steppe",
+   "shares": {
+    "moc": 8.15,
+    "hoa": 24.19,
+    "tho": 45.37,
+    "kim": 17.45,
+    "thuy": 4.84
+   },
+   "variants": {},
+   "land_density": 1.615,
+   "density": 1.615,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": "slot:R-1:0",
+   "name": "R-1",
+   "kind": "secret_realm",
+   "row": "secret_realm",
+   "tile": [
+    380,
+    155
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 5.58,
+    "hoa": 9.51,
+    "tho": 28.09,
+    "kim": 46.7,
+    "thuy": 10.13
+   },
+   "variants": {
+    "bang": 10.0
+   },
+   "land_density": 1.872,
+   "density": 2.4,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:R-1:1",
+   "name": "R-1",
+   "kind": "secret_realm",
+   "row": "secret_realm",
+   "tile": [
+    377,
+    142
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 5.82,
+    "hoa": 9.97,
+    "tho": 25.8,
+    "kim": 40.44,
+    "thuy": 17.97
+   },
+   "variants": {},
+   "land_density": 1.727,
+   "density": 2.4,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:R-1:2",
+   "name": "R-1",
+   "kind": "secret_realm",
+   "row": "secret_realm",
+   "tile": [
+    396,
+    144
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 5.46,
+    "hoa": 20.58,
+    "tho": 20.86,
+    "kim": 32.75,
+    "thuy": 20.34
+   },
+   "variants": {},
+   "land_density": 1.391,
+   "density": 2.101,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:R-2:0",
+   "name": "R-2",
+   "kind": "secret_realm",
+   "row": "secret_realm",
+   "tile": [
+    26,
+    193
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 10.61,
+    "hoa": 22.67,
+    "tho": 9.69,
+    "kim": 9.1,
+    "thuy": 47.93
+   },
+   "variants": {},
+   "land_density": 1.884,
+   "density": 2.4,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:R-2:1",
+   "name": "R-2",
+   "kind": "secret_realm",
+   "row": "secret_realm",
+   "tile": [
+    5,
+    184
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 12.69,
+    "hoa": 11.0,
+    "tho": 12.04,
+    "kim": 10.78,
+    "thuy": 53.48
+   },
+   "variants": {},
+   "land_density": 1.101,
+   "density": 1.811,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:R-2:2",
+   "name": "R-2",
+   "kind": "secret_realm",
+   "row": "secret_realm",
+   "tile": [
+    55,
+    175
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 15.09,
+    "hoa": 11.48,
+    "tho": 12.87,
+    "kim": 10.71,
+    "thuy": 49.85
+   },
+   "variants": {},
+   "land_density": 0.9,
+   "density": 1.61,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": "slot:R-3:0",
+   "name": "R-3",
+   "kind": "secret_realm",
+   "row": "secret_realm",
+   "tile": [
+    339,
+    256
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 6.66,
+    "hoa": 9.66,
+    "tho": 28.11,
+    "kim": 45.73,
+    "thuy": 9.84
+   },
+   "variants": {
+    "loi": 40.0
+   },
+   "land_density": 1.944,
+   "density": 2.4,
+   "land_danger": 3,
+   "danger": 3
+  },
+  {
+   "id": "slot:R-3:1",
+   "name": "R-3",
+   "kind": "secret_realm",
+   "row": "secret_realm",
+   "tile": [
+    318,
+    256
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 4.77,
+    "hoa": 10.09,
+    "tho": 28.95,
+    "kim": 47.0,
+    "thuy": 9.18
+   },
+   "variants": {
+    "am": 40.0
+   },
+   "land_density": 1.354,
+   "density": 2.064,
+   "land_danger": 3,
+   "danger": 3
+  },
+  {
+   "id": "slot:R-3:2",
+   "name": "R-3",
+   "kind": "secret_realm",
+   "row": "secret_realm",
+   "tile": [
+    337,
+    268
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 21.24,
+    "hoa": 9.01,
+    "tho": 21.92,
+    "kim": 37.29,
+    "thuy": 10.55
+   },
+   "variants": {},
+   "land_density": 1.32,
+   "density": 2.03,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:V-1:0",
+   "name": "V-1",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    190,
+    307
+   ],
+   "part": 0,
+   "biome": "jungle",
+   "shares": {
+    "moc": 26.45,
+    "hoa": 17.92,
+    "tho": 13.39,
+    "kim": 8.44,
+    "thuy": 33.8
+   },
+   "variants": {},
+   "land_density": 1.007,
+   "density": 1.257,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:V-1:1",
+   "name": "V-1",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    174,
+    301
+   ],
+   "part": 0,
+   "biome": "grassland",
+   "shares": {
+    "moc": 27.6,
+    "hoa": 18.73,
+    "tho": 17.91,
+    "kim": 10.09,
+    "thuy": 25.67
+   },
+   "variants": {},
+   "land_density": 0.964,
+   "density": 1.214,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": "slot:V-1:2",
+   "name": "V-1",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    203,
+    316
+   ],
+   "part": 1,
+   "biome": "jungle",
+   "shares": {
+    "moc": 23.78,
+    "hoa": 15.07,
+    "tho": 9.2,
+    "kim": 8.32,
+    "thuy": 43.63
+   },
+   "variants": {},
+   "land_density": 1.001,
+   "density": 1.251,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:V-2:0",
+   "name": "V-2",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    291,
+    306
+   ],
+   "part": 0,
+   "biome": "jungle",
+   "shares": {
+    "moc": 21.36,
+    "hoa": 29.88,
+    "tho": 14.08,
+    "kim": 8.83,
+    "thuy": 25.85
+   },
+   "variants": {},
+   "land_density": 1.008,
+   "density": 1.258,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:V-2:1",
+   "name": "V-2",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    256,
+    308
+   ],
+   "part": 0,
+   "biome": "jungle",
+   "shares": {
+    "moc": 25.63,
+    "hoa": 18.34,
+    "tho": 15.49,
+    "kim": 8.78,
+    "thuy": 31.76
+   },
+   "variants": {},
+   "land_density": 1.001,
+   "density": 1.251,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:V-2:2",
+   "name": "V-2",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    275,
+    291
+   ],
+   "part": 0,
+   "biome": "bamboo_forest",
+   "shares": {
+    "moc": 26.24,
+    "hoa": 17.08,
+    "tho": 17.58,
+    "kim": 10.98,
+    "thuy": 28.13
+   },
+   "variants": {},
+   "land_density": 0.985,
+   "density": 1.235,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": "slot:V-3:0",
+   "name": "V-3",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    371,
+    309
+   ],
+   "part": 0,
+   "biome": "jungle",
+   "shares": {
+    "moc": 30.85,
+    "hoa": 20.09,
+    "tho": 13.93,
+    "kim": 7.89,
+    "thuy": 27.24
+   },
+   "variants": {},
+   "land_density": 0.991,
+   "density": 1.241,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:V-3:1",
+   "name": "V-3",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    366,
+    298
+   ],
+   "part": 0,
+   "biome": "jungle",
+   "shares": {
+    "moc": 24.68,
+    "hoa": 18.28,
+    "tho": 16.19,
+    "kim": 9.04,
+    "thuy": 31.81
+   },
+   "variants": {},
+   "land_density": 1.004,
+   "density": 1.254,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:V-3:2",
+   "name": "V-3",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    381,
+    316
+   ],
+   "part": 0,
+   "biome": "jungle",
+   "shares": {
+    "moc": 28.36,
+    "hoa": 16.99,
+    "tho": 8.22,
+    "kim": 8.0,
+    "thuy": 38.43
+   },
+   "variants": {},
+   "land_density": 1.001,
+   "density": 1.251,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:V-4:0",
+   "name": "V-4",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    120,
+    300
+   ],
+   "part": 0,
+   "biome": "jungle",
+   "shares": {
+    "moc": 20.33,
+    "hoa": 17.0,
+    "tho": 18.64,
+    "kim": 9.94,
+    "thuy": 34.1
+   },
+   "variants": {},
+   "land_density": 0.984,
+   "density": 1.234,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:V-4:1",
+   "name": "V-4",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    90,
+    303
+   ],
+   "part": 0,
+   "biome": "jungle",
+   "shares": {
+    "moc": 24.33,
+    "hoa": 15.39,
+    "tho": 9.04,
+    "kim": 8.16,
+    "thuy": 43.09
+   },
+   "variants": {},
+   "land_density": 0.938,
+   "density": 1.188,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:V-4:2",
+   "name": "V-4",
+   "kind": "ruin",
+   "row": "hidden_ruin",
+   "tile": [
+    109,
+    284
+   ],
+   "part": 0,
+   "biome": "bamboo_forest",
+   "shares": {
+    "moc": 21.3,
+    "hoa": 13.37,
+    "tho": 14.73,
+    "kim": 11.8,
+    "thuy": 38.8
+   },
+   "variants": {},
+   "land_density": 0.981,
+   "density": 1.231,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": "slot:A-1:0",
+   "name": "A-1",
+   "kind": "abode",
+   "row": "hidden_ruin",
+   "tile": [
+    414,
+    116
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 14.49,
+    "hoa": 10.18,
+    "tho": 21.54,
+    "kim": 30.06,
+    "thuy": 23.74
+   },
+   "variants": {
+    "loi": 27.28
+   },
+   "land_density": 1.694,
+   "density": 1.944,
+   "land_danger": 3,
+   "danger": 3
+  },
+  {
+   "id": "slot:A-1:1",
+   "name": "A-1",
+   "kind": "abode",
+   "row": "hidden_ruin",
+   "tile": [
+    419,
+    129
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 10.12,
+    "hoa": 10.12,
+    "tho": 27.4,
+    "kim": 41.57,
+    "thuy": 10.79
+   },
+   "variants": {},
+   "land_density": 1.585,
+   "density": 1.835,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:A-1:2",
+   "name": "A-1",
+   "kind": "abode",
+   "row": "hidden_ruin",
+   "tile": [
+    387,
+    139
+   ],
+   "part": 0,
+   "biome": "volcano",
+   "shares": {
+    "moc": 3.73,
+    "hoa": 48.18,
+    "tho": 15.27,
+    "kim": 23.11,
+    "thuy": 9.71
+   },
+   "variants": {},
+   "land_density": 1.201,
+   "density": 1.451,
+   "land_danger": 4,
+   "danger": 4
+  },
+  {
+   "id": "slot:A-2:0",
+   "name": "A-2",
+   "kind": "abode",
+   "row": "hidden_ruin",
+   "tile": [
+    373,
+    211
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 9.35,
+    "hoa": 10.99,
+    "tho": 22.33,
+    "kim": 30.51,
+    "thuy": 26.83
+   },
+   "variants": {},
+   "land_density": 1.606,
+   "density": 1.856,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:A-2:1",
+   "name": "A-2",
+   "kind": "abode",
+   "row": "hidden_ruin",
+   "tile": [
+    381,
+    223
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 14.33,
+    "hoa": 15.7,
+    "tho": 29.5,
+    "kim": 30.31,
+    "thuy": 10.16
+   },
+   "variants": {},
+   "land_density": 1.587,
+   "density": 1.837,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:A-2:2",
+   "name": "A-2",
+   "kind": "abode",
+   "row": "hidden_ruin",
+   "tile": [
+    356,
+    249
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 15.88,
+    "hoa": 10.23,
+    "tho": 25.28,
+    "kim": 37.6,
+    "thuy": 11.01
+   },
+   "variants": {},
+   "land_density": 1.542,
+   "density": 1.792,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:A-3:0",
+   "name": "A-3",
+   "kind": "abode",
+   "row": "hidden_ruin",
+   "tile": [
+    287,
+    193
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 12.59,
+    "hoa": 14.53,
+    "tho": 32.5,
+    "kim": 30.92,
+    "thuy": 9.47
+   },
+   "variants": {},
+   "land_density": 1.578,
+   "density": 1.828,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:A-3:1",
+   "name": "A-3",
+   "kind": "abode",
+   "row": "hidden_ruin",
+   "tile": [
+    242,
+    176
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 20.87,
+    "hoa": 11.16,
+    "tho": 27.42,
+    "kim": 28.08,
+    "thuy": 12.47
+   },
+   "variants": {},
+   "land_density": 1.602,
+   "density": 1.852,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:A-3:2",
+   "name": "A-3",
+   "kind": "abode",
+   "row": "hidden_ruin",
+   "tile": [
+    279,
+    170
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 10.53,
+    "hoa": 13.93,
+    "tho": 33.13,
+    "kim": 32.81,
+    "thuy": 9.6
+   },
+   "variants": {},
+   "land_density": 1.62,
+   "density": 1.87,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:A-4:0",
+   "name": "A-4",
+   "kind": "abode",
+   "row": "hidden_ruin",
+   "tile": [
+    106,
+    82
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 5.9,
+    "hoa": 39.9,
+    "tho": 8.76,
+    "kim": 9.05,
+    "thuy": 36.39
+   },
+   "variants": {},
+   "land_density": 1.55,
+   "density": 1.8,
+   "land_danger": 3,
+   "danger": 3
+  },
+  {
+   "id": "slot:A-4:1",
+   "name": "A-4",
+   "kind": "abode",
+   "row": "hidden_ruin",
+   "tile": [
+    75,
+    138
+   ],
+   "part": 0,
+   "biome": "volcano",
+   "shares": {
+    "moc": 6.04,
+    "hoa": 47.83,
+    "tho": 6.68,
+    "kim": 6.45,
+    "thuy": 33.01
+   },
+   "variants": {},
+   "land_density": 1.36,
+   "density": 1.61,
+   "land_danger": 4,
+   "danger": 4
+  },
+  {
+   "id": "slot:A-4:2",
+   "name": "A-4",
+   "kind": "abode",
+   "row": "hidden_ruin",
+   "tile": [
+    101,
+    142
+   ],
+   "part": 0,
+   "biome": "volcano",
+   "shares": {
+    "moc": 5.54,
+    "hoa": 41.77,
+    "tho": 6.38,
+    "kim": 18.2,
+    "thuy": 28.11
+   },
+   "variants": {},
+   "land_density": 1.244,
+   "density": 1.494,
+   "land_danger": 4,
+   "danger": 4
+  },
+  {
+   "id": "slot:A-5:0",
+   "name": "A-5",
+   "kind": "abode",
+   "row": "hidden_ruin",
+   "tile": [
+    368,
+    255
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 13.54,
+    "hoa": 10.14,
+    "tho": 26.09,
+    "kim": 39.86,
+    "thuy": 10.37
+   },
+   "variants": {},
+   "land_density": 1.634,
+   "density": 1.884,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:A-5:1",
+   "name": "A-5",
+   "kind": "abode",
+   "row": "hidden_ruin",
+   "tile": [
+    330,
+    251
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 8.0,
+    "hoa": 10.22,
+    "tho": 27.96,
+    "kim": 43.85,
+    "thuy": 9.97
+   },
+   "variants": {},
+   "land_density": 1.536,
+   "density": 1.786,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:A-5:2",
+   "name": "A-5",
+   "kind": "abode",
+   "row": "hidden_ruin",
+   "tile": [
+    338,
+    224
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 7.61,
+    "hoa": 14.94,
+    "tho": 30.87,
+    "kim": 36.38,
+    "thuy": 10.19
+   },
+   "variants": {},
+   "land_density": 1.467,
+   "density": 1.717,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:A-6:0",
+   "name": "A-6",
+   "kind": "abode",
+   "row": "hidden_ruin",
+   "tile": [
+    413,
+    139
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 8.91,
+    "hoa": 9.96,
+    "tho": 27.22,
+    "kim": 40.69,
+    "thuy": 13.22
+   },
+   "variants": {},
+   "land_density": 1.496,
+   "density": 1.746,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:A-6:1",
+   "name": "A-6",
+   "kind": "abode",
+   "row": "hidden_ruin",
+   "tile": [
+    423,
+    120
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 5.46,
+    "hoa": 7.48,
+    "tho": 18.32,
+    "kim": 51.94,
+    "thuy": 16.8
+   },
+   "variants": {
+    "loi": 10.86
+   },
+   "land_density": 1.635,
+   "density": 1.885,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:A-6:2",
+   "name": "A-6",
+   "kind": "abode",
+   "row": "hidden_ruin",
+   "tile": [
+    388,
+    163
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 3.88,
+    "hoa": 7.56,
+    "tho": 21.6,
+    "kim": 59.01,
+    "thuy": 7.95
+   },
+   "variants": {},
+   "land_density": 1.571,
+   "density": 1.821,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:L-1:0",
+   "name": "L-1",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    311,
+    77
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 44.31,
+    "hoa": 9.77,
+    "tho": 13.24,
+    "kim": 8.32,
+    "thuy": 24.36
+   },
+   "variants": {},
+   "land_density": 0.973,
+   "density": 0.973,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": "slot:L-1:1",
+   "name": "L-1",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    324,
+    101
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 44.83,
+    "hoa": 9.43,
+    "tho": 12.74,
+    "kim": 8.03,
+    "thuy": 24.97
+   },
+   "variants": {},
+   "land_density": 0.92,
+   "density": 0.92,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": "slot:L-1:2",
+   "name": "L-1",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    347,
+    64
+   ],
+   "part": 0,
+   "biome": "swamp",
+   "shares": {
+    "moc": 18.17,
+    "hoa": 6.59,
+    "tho": 16.03,
+    "kim": 9.51,
+    "thuy": 49.7
+   },
+   "variants": {},
+   "land_density": 0.801,
+   "density": 0.801,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:L-2:0",
+   "name": "L-2",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    487,
+    246
+   ],
+   "part": 0,
+   "biome": "volcano",
+   "shares": {
+    "moc": 15.31,
+    "hoa": 56.77,
+    "tho": 12.72,
+    "kim": 7.67,
+    "thuy": 7.53
+   },
+   "variants": {},
+   "land_density": 1.305,
+   "density": 1.305,
+   "land_danger": 4,
+   "danger": 4
+  },
+  {
+   "id": "slot:L-2:1",
+   "name": "L-2",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    427,
+    223
+   ],
+   "part": 0,
+   "biome": "desert",
+   "shares": {
+    "moc": 9.72,
+    "hoa": 16.16,
+    "tho": 22.35,
+    "kim": 12.98,
+    "thuy": 38.78
+   },
+   "variants": {},
+   "land_density": 0.595,
+   "density": 0.595,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:S-1:0",
+   "name": "S-1",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    247,
+    248
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 5.48,
+    "hoa": 23.14,
+    "tho": 31.08,
+    "kim": 27.04,
+    "thuy": 13.26
+   },
+   "variants": {},
+   "land_density": 2.106,
+   "density": 2.106,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:S-1:1",
+   "name": "S-1",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    256,
+    239
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 5.29,
+    "hoa": 19.72,
+    "tho": 37.2,
+    "kim": 30.66,
+    "thuy": 7.13
+   },
+   "variants": {},
+   "land_density": 1.887,
+   "density": 1.887,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:S-1:2",
+   "name": "S-1",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    214,
+    245
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 6.0,
+    "hoa": 21.46,
+    "tho": 38.8,
+    "kim": 27.27,
+    "thuy": 6.46
+   },
+   "variants": {},
+   "land_density": 1.778,
+   "density": 1.778,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:S-2:0",
+   "name": "S-2",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    454,
+    148
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 4.1,
+    "hoa": 31.19,
+    "tho": 37.26,
+    "kim": 22.43,
+    "thuy": 5.01
+   },
+   "variants": {},
+   "land_density": 2.003,
+   "density": 2.003,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:S-2:1",
+   "name": "S-2",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    462,
+    135
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 18.08,
+    "hoa": 18.17,
+    "tho": 31.46,
+    "kim": 22.37,
+    "thuy": 9.93
+   },
+   "variants": {},
+   "land_density": 1.413,
+   "density": 1.413,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:S-2:2",
+   "name": "S-2",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    427,
+    126
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 14.11,
+    "hoa": 8.15,
+    "tho": 18.84,
+    "kim": 47.36,
+    "thuy": 11.54
+   },
+   "variants": {},
+   "land_density": 1.409,
+   "density": 1.409,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:S-3:0",
+   "name": "S-3",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    204,
+    210
+   ],
+   "part": 0,
+   "biome": "badlands",
+   "shares": {
+    "moc": 6.47,
+    "hoa": 24.21,
+    "tho": 46.93,
+    "kim": 17.55,
+    "thuy": 4.85
+   },
+   "variants": {},
+   "land_density": 1.525,
+   "density": 1.525,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:S-3:1",
+   "name": "S-3",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    194,
+    208
+   ],
+   "part": 0,
+   "biome": "steppe",
+   "shares": {
+    "moc": 7.75,
+    "hoa": 24.13,
+    "tho": 45.3,
+    "kim": 18.0,
+    "thuy": 4.82
+   },
+   "variants": {},
+   "land_density": 1.324,
+   "density": 1.324,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": "slot:S-3:2",
+   "name": "S-3",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    224,
+    242
+   ],
+   "part": 0,
+   "biome": "steppe",
+   "shares": {
+    "moc": 5.2,
+    "hoa": 21.5,
+    "tho": 37.72,
+    "kim": 28.99,
+    "thuy": 6.6
+   },
+   "variants": {},
+   "land_density": 1.261,
+   "density": 1.261,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": "slot:S-4:0",
+   "name": "S-4",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    252,
+    69
+   ],
+   "part": 0,
+   "biome": "swamp",
+   "shares": {
+    "moc": 24.06,
+    "hoa": 8.33,
+    "tho": 13.49,
+    "kim": 9.1,
+    "thuy": 45.03
+   },
+   "variants": {},
+   "land_density": 1.124,
+   "density": 1.124,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:S-4:1",
+   "name": "S-4",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    243,
+    77
+   ],
+   "part": 0,
+   "biome": "swamp",
+   "shares": {
+    "moc": 40.5,
+    "hoa": 9.49,
+    "tho": 13.58,
+    "kim": 8.61,
+    "thuy": 27.82
+   },
+   "variants": {},
+   "land_density": 0.994,
+   "density": 0.994,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:S-4:2",
+   "name": "S-4",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    264,
+    71
+   ],
+   "part": 0,
+   "biome": "swamp",
+   "shares": {
+    "moc": 27.99,
+    "hoa": 9.13,
+    "tho": 16.95,
+    "kim": 10.62,
+    "thuy": 35.3
+   },
+   "variants": {},
+   "land_density": 0.901,
+   "density": 0.901,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:S-5:0",
+   "name": "S-5",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    172,
+    147
+   ],
+   "part": 0,
+   "biome": "volcano",
+   "shares": {
+    "moc": 8.82,
+    "hoa": 50.3,
+    "tho": 11.41,
+    "kim": 8.27,
+    "thuy": 21.2
+   },
+   "variants": {},
+   "land_density": 1.2,
+   "density": 1.2,
+   "land_danger": 4,
+   "danger": 4
+  },
+  {
+   "id": "slot:S-5:1",
+   "name": "S-5",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    182,
+    147
+   ],
+   "part": 0,
+   "biome": "karst",
+   "shares": {
+    "moc": 21.26,
+    "hoa": 18.29,
+    "tho": 20.06,
+    "kim": 12.88,
+    "thuy": 27.51
+   },
+   "variants": {
+    "am": 24.69
+   },
+   "land_density": 1.281,
+   "density": 1.281,
+   "land_danger": 3,
+   "danger": 3
+  },
+  {
+   "id": "slot:S-6:0",
+   "name": "S-6",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    326,
+    223
+   ],
+   "part": 0,
+   "biome": "highland",
+   "shares": {
+    "moc": 6.81,
+    "hoa": 22.55,
+    "tho": 36.96,
+    "kim": 27.04,
+    "thuy": 6.64
+   },
+   "variants": {},
+   "land_density": 0.945,
+   "density": 0.945,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": "slot:S-6:1",
+   "name": "S-6",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    286,
+    209
+   ],
+   "part": 0,
+   "biome": "highland",
+   "shares": {
+    "moc": 6.66,
+    "hoa": 22.1,
+    "tho": 47.05,
+    "kim": 18.27,
+    "thuy": 5.91
+   },
+   "variants": {},
+   "land_density": 0.913,
+   "density": 0.913,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": "slot:S-6:2",
+   "name": "S-6",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    286,
+    227
+   ],
+   "part": 0,
+   "biome": "highland",
+   "shares": {
+    "moc": 8.92,
+    "hoa": 16.45,
+    "tho": 36.37,
+    "kim": 30.87,
+    "thuy": 7.39
+   },
+   "variants": {},
+   "land_density": 0.923,
+   "density": 0.923,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": "slot:S-7:0",
+   "name": "S-7",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    334,
+    170
+   ],
+   "part": 0,
+   "biome": "highland",
+   "shares": {
+    "moc": 9.38,
+    "hoa": 15.33,
+    "tho": 35.15,
+    "kim": 31.13,
+    "thuy": 9.0
+   },
+   "variants": {},
+   "land_density": 0.911,
+   "density": 0.911,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": "slot:S-7:1",
+   "name": "S-7",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    305,
+    198
+   ],
+   "part": 0,
+   "biome": "highland",
+   "shares": {
+    "moc": 6.64,
+    "hoa": 22.64,
+    "tho": 41.68,
+    "kim": 23.16,
+    "thuy": 5.88
+   },
+   "variants": {},
+   "land_density": 0.905,
+   "density": 0.905,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": "slot:S-7:2",
+   "name": "S-7",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    316,
+    197
+   ],
+   "part": 0,
+   "biome": "highland",
+   "shares": {
+    "moc": 7.89,
+    "hoa": 27.75,
+    "tho": 39.91,
+    "kim": 19.39,
+    "thuy": 5.05
+   },
+   "variants": {},
+   "land_density": 0.892,
+   "density": 0.892,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": "slot:S-8:0",
+   "name": "S-8",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    291,
+    240
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 8.28,
+    "hoa": 11.01,
+    "tho": 28.93,
+    "kim": 41.9,
+    "thuy": 9.88
+   },
+   "variants": {},
+   "land_density": 1.11,
+   "density": 1.11,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:S-8:1",
+   "name": "S-8",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    345,
+    222
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 6.79,
+    "hoa": 10.26,
+    "tho": 28.64,
+    "kim": 44.27,
+    "thuy": 10.03
+   },
+   "variants": {},
+   "land_density": 1.14,
+   "density": 1.14,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:S-8:2",
+   "name": "S-8",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    347,
+    215
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 5.37,
+    "hoa": 12.07,
+    "tho": 29.33,
+    "kim": 43.72,
+    "thuy": 9.51
+   },
+   "variants": {},
+   "land_density": 1.123,
+   "density": 1.123,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:S-9:0",
+   "name": "S-9",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    385,
+    170
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 5.23,
+    "hoa": 7.07,
+    "tho": 16.82,
+    "kim": 54.27,
+    "thuy": 16.62
+   },
+   "variants": {
+    "bang": 7.51
+   },
+   "land_density": 1.243,
+   "density": 1.243,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:S-9:1",
+   "name": "S-9",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    414,
+    146
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 5.43,
+    "hoa": 11.36,
+    "tho": 29.46,
+    "kim": 41.53,
+    "thuy": 12.21
+   },
+   "variants": {
+    "quang": 7.73,
+    "bang": 2.86
+   },
+   "land_density": 1.329,
+   "density": 1.329,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:S-9:2",
+   "name": "S-9",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    353,
+    212
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 5.76,
+    "hoa": 10.68,
+    "tho": 29.32,
+    "kim": 44.78,
+    "thuy": 9.46
+   },
+   "variants": {},
+   "land_density": 1.119,
+   "density": 1.119,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:S-10:0",
+   "name": "S-10",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    470,
+    129
+   ],
+   "part": 0,
+   "biome": "volcano",
+   "shares": {
+    "moc": 16.51,
+    "hoa": 47.69,
+    "tho": 15.64,
+    "kim": 11.56,
+    "thuy": 8.6
+   },
+   "variants": {
+    "am": 40.0
+   },
+   "land_density": 1.378,
+   "density": 1.378,
+   "land_danger": 5,
+   "danger": 5
+  },
+  {
+   "id": "slot:S-10:1",
+   "name": "S-10",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    470,
+    123
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 25.12,
+    "hoa": 32.26,
+    "tho": 11.59,
+    "kim": 9.64,
+    "thuy": 21.39
+   },
+   "variants": {},
+   "land_density": 1.172,
+   "density": 1.172,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": "slot:S-10:2",
+   "name": "S-10",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    476,
+    129
+   ],
+   "part": 0,
+   "biome": "temperate_forest",
+   "shares": {
+    "moc": 31.0,
+    "hoa": 13.82,
+    "tho": 21.78,
+    "kim": 13.84,
+    "thuy": 19.56
+   },
+   "variants": {},
+   "land_density": 0.954,
+   "density": 0.954,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": "slot:S-11:0",
+   "name": "S-11",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    394,
+    286
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 12.06,
+    "hoa": 9.62,
+    "tho": 14.26,
+    "kim": 17.92,
+    "thuy": 46.14
+   },
+   "variants": {
+    "am": 30.0
+   },
+   "land_density": 1.193,
+   "density": 1.193,
+   "land_danger": 3,
+   "danger": 3
+  },
+  {
+   "id": "slot:S-11:1",
+   "name": "S-11",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    390,
+    280
+   ],
+   "part": 0,
+   "biome": "bamboo_forest",
+   "shares": {
+    "moc": 11.95,
+    "hoa": 9.67,
+    "tho": 12.0,
+    "kim": 13.47,
+    "thuy": 52.91
+   },
+   "variants": {
+    "am": 0.21
+   },
+   "land_density": 1.003,
+   "density": 1.003,
+   "land_danger": 1,
+   "danger": 1
+  },
+  {
+   "id": "slot:S-12:0",
+   "name": "S-12",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    396,
+    25
+   ],
+   "part": 0,
+   "biome": "glacier",
+   "shares": {
+    "moc": 5.81,
+    "hoa": 19.67,
+    "tho": 7.71,
+    "kim": 7.12,
+    "thuy": 59.69
+   },
+   "variants": {
+    "bang": 30.04
+   },
+   "land_density": 1.175,
+   "density": 1.175,
+   "land_danger": 4,
+   "danger": 4
+  },
+  {
+   "id": "slot:S-12:1",
+   "name": "S-12",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    414,
+    32
+   ],
+   "part": 0,
+   "biome": "glacier",
+   "shares": {
+    "moc": 8.96,
+    "hoa": 9.35,
+    "tho": 9.99,
+    "kim": 9.66,
+    "thuy": 62.04
+   },
+   "variants": {
+    "bang": 15.18
+   },
+   "land_density": 0.838,
+   "density": 0.838,
+   "land_danger": 3,
+   "danger": 3
+  },
+  {
+   "id": "slot:S-12:2",
+   "name": "S-12",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    421,
+    22
+   ],
+   "part": 0,
+   "biome": "glacier",
+   "shares": {
+    "moc": 8.15,
+    "hoa": 8.15,
+    "tho": 9.74,
+    "kim": 9.67,
+    "thuy": 64.28
+   },
+   "variants": {
+    "bang": 24.46
+   },
+   "land_density": 0.842,
+   "density": 0.842,
+   "land_danger": 4,
+   "danger": 4
+  },
+  {
+   "id": "slot:S-13:0",
+   "name": "S-13",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    344,
+    247
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 8.02,
+    "hoa": 9.67,
+    "tho": 27.87,
+    "kim": 44.34,
+    "thuy": 10.1
+   },
+   "variants": {
+    "loi": 34.44
+   },
+   "land_density": 1.217,
+   "density": 1.217,
+   "land_danger": 3,
+   "danger": 3
+  },
+  {
+   "id": "slot:S-13:1",
+   "name": "S-13",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    329,
+    258
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 5.49,
+    "hoa": 9.51,
+    "tho": 28.05,
+    "kim": 47.39,
+    "thuy": 9.56
+   },
+   "variants": {},
+   "land_density": 1.716,
+   "density": 1.716,
+   "land_danger": 2,
+   "danger": 2
+  },
+  {
+   "id": "slot:S-13:2",
+   "name": "S-13",
+   "kind": "blessed_land",
+   "row": "blessed_land",
+   "tile": [
+    344,
+    232
+   ],
+   "part": 0,
+   "biome": "high_mountain",
+   "shares": {
+    "moc": 8.91,
+    "hoa": 10.52,
+    "tho": 28.5,
+    "kim": 42.06,
+    "thuy": 10.0
+   },
+   "variants": {},
+   "land_density": 1.118,
+   "density": 1.118,
+   "land_danger": 2,
+   "danger": 2
+  }
+ ]
+}

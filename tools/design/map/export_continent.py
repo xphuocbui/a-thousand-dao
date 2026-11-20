@@ -271,6 +271,7 @@ def main():
         for pr in hp.get("promotions", []):
             q = by_id[pr["place_id"]]
             q["kind"] = "city"
+            q["former_name"] = q["name"]   # sea lanes and origin choices in the earlier layers name the town
             q["name"] = pr["name_hv"]
             for k in ("name_han", "gloss"):
                 if pr.get(k):
@@ -306,6 +307,9 @@ def main():
                                            "region") if k in s})
     by_key = {p["key"]: p for p in places if p.get("key")}
     by_name = {p["name"]: p for p in places}
+    for p in places:
+        if p.get("former_name"):
+            by_name.setdefault(p["former_name"], p)
 
     regions = []
     for r in regions_doc["regions"]:
@@ -370,6 +374,23 @@ def main():
         routes.append({"a": x, "b": y, "kind": "lane", "tiles": round(tl, 3), "km": round(tl * km_per_tile, 1),
                        "cost": round(tl, 3)})   # Formula D: c_t = 1 at sea
 
+    # Travel & Map Formula C (tools/design/map/land_qi.py, run after a first export): each place's qi, and the qi layer
+    qi_file, mu = "", {}
+    lq_path = os.path.join(m, "land_qi.json")
+    if os.path.exists(lq_path):
+        lq = load(lq_path)
+        qi_by_id = {q["id"]: q for q in lq["places"] if isinstance(q["id"], int)}
+        for p in places:
+            q = qi_by_id.get(p["id"])
+            if q is None or q["name"] != p["name"]:
+                continue
+            p["qi"] = {"part": q["part"], "part_biome": q["biome"], "shares": q["shares"], "variants": q["variants"],
+                       "land_density": q["land_density"], "land_danger": q["land_danger"]}
+            p["density"] = q["density"]
+            p["danger"] = q["danger"]
+        mu = lq["mu"]
+        qi_file = "res://assets/map/continent_11_qi.bin"
+    missing_qi = [p["name"] for p in places if "density" not in p]
     out = {
         "schema_version": 1,
         "_doc": ("The authored continent (design/map/continent-11, approved by the user 2026-11-13/14), exported by "
@@ -381,7 +402,11 @@ def main():
                  "kind road | trunk | lane, length in tiles and km, and cost: Travel & Map Formula D's sum of c_t "
                  "along the route (road tiles 1 + r_share x (c_wild - 1) from the tile's biome mix, sea 1; "
                  "ContinentData.trip_seasons divides it by the mode's speed). grid_file: the tile grid (ContinentGrid; "
-                 "the layers are listed in the exporter); legend: biome ids and feature bits as the grid stores them. arrays: the teleport-array cities. origins: the origin home choices (approved); origin_homes: per origin id, the place ids a character of that origin may start at."),
+                 "the layers are listed in the exporter); legend: biome ids and feature bits as the grid stores them. arrays: the teleport-array cities. origins: the origin home choices (approved); origin_homes: per origin id, the place ids a character of that origin may start at. "
+                 "Each place also carries density, danger and qi (Travel & Map Formula C, tools/design/map/land_qi.py: the tile part it reads, its "
+                 "biome, the five base shares summing to 100, variants outside the 100, land density and land danger before the kind's offset and "
+                 "settlement cut); qi_file: the per-tile-part qi layer (S<k><el>, V<k><el> shares x 100, DEN<k> density x 1000, DAN<k> danger, k = 1..3 "
+                 "the tile's parts); mu: Formula A's world mean shares over places."),
         "source": m.replace("\\", "/"),
         "grid": [w, h],
         "km_per_tile": km_per_tile,
@@ -394,6 +419,8 @@ def main():
         "origins": origins.get("origins", {}),
         "origin_homes": origin_homes,
         "grid_file": "res://" + a.grid.replace("\\", "/"),
+        "qi_file": qi_file,
+        "mu": mu,
         "legend": {"biome_ids": load(os.path.join(m, "base", "meta.json"))["legend"]["biome_ids"],
                    "feature_bits": load(os.path.join(m, "base", "meta.json"))["legend"]["feature_bits"]},
     }
@@ -406,7 +433,7 @@ def main():
         kinds[r["kind"]] = kinds.get(r["kind"], 0) + 1
     print(json.dumps({"regions": len(regions), "great_sects": len(great_out), "minor_sects": len(minor_out),
                       "places": len(places), "routes": kinds, "arrays": len(out["arrays"]),
-                      "lanes_not_traced": missing_lanes, "origins_unresolved": unresolved, "out": a.out, "grid": a.grid, "grid_bytes": grid_bytes},
+                      "lanes_not_traced": missing_lanes, "places_without_qi": missing_qi, "origins_unresolved": unresolved, "out": a.out, "grid": a.grid, "grid_bytes": grid_bytes},
                      ensure_ascii=False))
     return 0
 

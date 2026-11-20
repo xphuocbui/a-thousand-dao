@@ -294,7 +294,7 @@ func _pass_season(mode: String) -> Dictionary:
 	out["techniques"] = CongPhap.season_tick(player, gd, sh.effective("ngo_tinh", player), cultivating)
 	if cultivating:
 		var density: float = float(db.get_record("places", player.location_id).get("density", 1.0))
-		var gain: float = CultivationRules.rate_per_season(player, gd, db, sh, density, mode == "closed_door").total
+		var gain: float = CultivationRules.rate_per_season(player, gd, db, sh, density, mode == "closed_door", db.get_record("places", player.location_id).get("qi", {})).total
 		var res: Dictionary = CultivationRules.add_tu_vi(player, gd, gain)
 		out.tu_vi = gain
 		out.stages = res.stages
@@ -303,7 +303,7 @@ func _pass_season(mode: String) -> Dictionary:
 			sh = sheet()
 	elif mode == "travel" and player.has_capability(8):
 		var density_t: float = float(db.get_record("places", player.location_id).get("density", 1.0))
-		var r8: Dictionary = CultivationRules.add_tu_vi(player, gd, float(gd.capability(8).params.rate_mult) * CultivationRules.rate_per_season(player, gd, db, sh, density_t).total)
+		var r8: Dictionary = CultivationRules.add_tu_vi(player, gd, float(gd.capability(8).params.rate_mult) * CultivationRules.rate_per_season(player, gd, db, sh, density_t, false, db.get_record("places", player.location_id).get("qi", {})).total)
 		out.tu_vi = r8.gained
 		out.stages = r8.stages
 		out.points = r8.tree_points

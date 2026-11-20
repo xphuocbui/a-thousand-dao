@@ -292,7 +292,7 @@ static func sheet(s: GameSession, io: TerminalIO) -> Array:
 	var kh: float = CharacterRules.khi_huyet_max(c, gd, sh).total
 	lines.append(io.paint(" TRẠNG THÁI", C_BOLD) + " Linh lực %.0f · Thần thức %.0f · Khí huyết %.0f/%.0f" % [CharacterRules.linh_luc(c, gd, sh).total, CharacterRules.than_thuc(c, gd, sh).total, kh * c.vitality, kh])
 	lines.append("            Đan độc %.0f (pills -%d%%) · Tâm ma %.0f (backlash %.0f%%) · Linh thạch %d" % [c.dan_doc, int(c.dan_doc), c.tam_ma, CultivationRules.backlash_chance(c, gd, sh).total, c.linh_thach])
-	var rate: float = CultivationRules.rate_per_season(c, gd, s.db, sh, float(s.db.get_record("places", c.location_id).get("density", 1.0))).total
+	var rate: float = CultivationRules.rate_per_season(c, gd, s.db, sh, float(s.db.get_record("places", c.location_id).get("density", 1.0)), false, s.db.get_record("places", c.location_id).get("qi", {})).total
 	lines.append(io.paint(" CÔNG PHÁP", C_BOLD) + "  %s" % CongPhap.speed_factor(c, gd).label)
 	lines.append("            tu vi %.1f per season here ('explain rate')" % rate)
 	var skills: PackedStringArray = []
@@ -447,7 +447,7 @@ static func explain(s: GameSession, what: String) -> Array:
 	var density: float = float(s.db.get_record("places", c.location_id).get("density", 1.0))
 	match what:
 		"rate", "tu_vi", "cultivation":
-			return Array(CultivationRules.rate_per_season(c, gd, s.db, sh, density).lines())
+			return Array(CultivationRules.rate_per_season(c, gd, s.db, sh, density, false, s.db.get_record("places", c.location_id).get("qi", {})).lines())
 		"power", "chien_luc":
 			if s.ratings_on():
 				return power_lines(s) + [""] + Array(CombatPower.compute(c, gd, s.db, sh).lines)

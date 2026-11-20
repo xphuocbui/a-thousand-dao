@@ -1,0 +1,610 @@
+{
+  "schema_version": 1,
+  "_doc": "Travel & Map land qi and match (design/gdd/travel-map.md rules 2-5 and 27, Formulas A-C). land: Formula C's inputs, used by tools/design/map/land_qi.py to build the qi of every fine cell and tile part once (assets/map/continent_11_qi.bin and the places' values in world_continent.json); the game reads the built values, not these. Elements: moc Wood, hoa Fire, tho Earth, kim Metal, thuy Water; variants are outside the 100. Every number here is a first guess (the GDD marks them so) unless noted; o_kind is set by land_qi.py --fit to meet Formula C's map targets. match: Formula A and B keys the game reads.",
+  "land": {
+    "cell_km": 6.175,
+    "fine_factor": 4,
+    "depth_full_km": 555,
+    "blend_radius_km": 222,
+    "density_min": 0.3,
+    "density_max": 2.4,
+    "_biomes_doc": "Per biome (fine_biome.png ids): profile P_b over moc/hoa/tho/kim/thuy (sums to 100), sig the signature element (null: no depth), sigma the signature push at full depth, b base density, g_d density added at full depth, x base danger, g_x danger added at full depth. b and sig are the GDD's values (Formulas C); profiles follow rule 2's 'leans toward' and the volcano's stated Fire 45, Earth 40, Metal 15.",
+    "biomes": {
+      "temperate_forest": {
+        "id": 0,
+        "profile": {
+          "moc": 45,
+          "hoa": 12,
+          "tho": 15,
+          "kim": 10,
+          "thuy": 18
+        },
+        "sig": "moc",
+        "sigma": 40,
+        "b": 0.9,
+        "g_d": 0.2,
+        "x": 1,
+        "g_x": 1
+      },
+      "bamboo_forest": {
+        "id": 1,
+        "profile": {
+          "moc": 55,
+          "hoa": 5,
+          "tho": 5,
+          "kim": 25,
+          "thuy": 10
+        },
+        "sig": "moc",
+        "sigma": 40,
+        "b": 1.0,
+        "g_d": 0.2,
+        "x": 1,
+        "g_x": 1
+      },
+      "jungle": {
+        "id": 2,
+        "profile": {
+          "moc": 45,
+          "hoa": 25,
+          "tho": 5,
+          "kim": 5,
+          "thuy": 20
+        },
+        "sig": "moc",
+        "sigma": 40,
+        "b": 1.0,
+        "g_d": 0.2,
+        "x": 2,
+        "g_x": 1
+      },
+      "grassland": {
+        "id": 3,
+        "profile": {
+          "moc": 30,
+          "hoa": 25,
+          "tho": 30,
+          "kim": 10,
+          "thuy": 5
+        },
+        "sig": null,
+        "sigma": 0,
+        "b": 0.8,
+        "g_d": 0,
+        "x": 1,
+        "g_x": 0
+      },
+      "steppe": {
+        "id": 4,
+        "profile": {
+          "moc": 5,
+          "hoa": 25,
+          "tho": 45,
+          "kim": 20,
+          "thuy": 5
+        },
+        "sig": "tho",
+        "sigma": 40,
+        "b": 0.7,
+        "g_d": 0.2,
+        "x": 1,
+        "g_x": 1
+      },
+      "desert": {
+        "id": 5,
+        "profile": {
+          "moc": 2,
+          "hoa": 55,
+          "tho": 25,
+          "kim": 16,
+          "thuy": 2
+        },
+        "sig": "hoa",
+        "sigma": 40,
+        "b": 0.6,
+        "g_d": 0.2,
+        "x": 2,
+        "g_x": 1
+      },
+      "salt_flats": {
+        "id": 6,
+        "profile": {
+          "moc": 5,
+          "hoa": 5,
+          "tho": 20,
+          "kim": 45,
+          "thuy": 25
+        },
+        "sig": "kim",
+        "sigma": 40,
+        "b": 0.6,
+        "g_d": 0.2,
+        "x": 2,
+        "g_x": 1
+      },
+      "badlands": {
+        "id": 7,
+        "profile": {
+          "moc": 5,
+          "hoa": 25,
+          "tho": 50,
+          "kim": 15,
+          "thuy": 5
+        },
+        "sig": "tho",
+        "sigma": 40,
+        "b": 0.6,
+        "g_d": 0.2,
+        "x": 2,
+        "g_x": 1
+      },
+      "swamp": {
+        "id": 8,
+        "profile": {
+          "moc": 35,
+          "hoa": 2,
+          "tho": 10,
+          "kim": 3,
+          "thuy": 50
+        },
+        "sig": "thuy",
+        "sigma": 40,
+        "b": 0.8,
+        "g_d": 0.2,
+        "x": 2,
+        "g_x": 1
+      },
+      "mangrove": {
+        "id": 9,
+        "profile": {
+          "moc": 35,
+          "hoa": 5,
+          "tho": 5,
+          "kim": 5,
+          "thuy": 50
+        },
+        "sig": "thuy",
+        "sigma": 40,
+        "b": 0.8,
+        "g_d": 0.2,
+        "x": 2,
+        "g_x": 1
+      },
+      "highland": {
+        "id": 10,
+        "profile": {
+          "moc": 5,
+          "hoa": 15,
+          "tho": 65,
+          "kim": 10,
+          "thuy": 5
+        },
+        "sig": "tho",
+        "sigma": 40,
+        "b": 0.9,
+        "g_d": 0.2,
+        "x": 1,
+        "g_x": 1
+      },
+      "high_mountain": {
+        "id": 11,
+        "profile": {
+          "moc": 5,
+          "hoa": 10,
+          "tho": 30,
+          "kim": 45,
+          "thuy": 10
+        },
+        "sig": "kim",
+        "sigma": 40,
+        "b": 1.1,
+        "g_d": 0.2,
+        "x": 2,
+        "g_x": 1
+      },
+      "karst": {
+        "id": 12,
+        "profile": {
+          "moc": 5,
+          "hoa": 5,
+          "tho": 40,
+          "kim": 25,
+          "thuy": 25
+        },
+        "sig": "tho",
+        "sigma": 40,
+        "b": 1.0,
+        "g_d": 0.2,
+        "x": 2,
+        "g_x": 1
+      },
+      "volcano": {
+        "id": 13,
+        "profile": {
+          "moc": 0,
+          "hoa": 45,
+          "tho": 40,
+          "kim": 15,
+          "thuy": 0
+        },
+        "sig": null,
+        "sigma": 0,
+        "b": 1.1,
+        "g_d": 0,
+        "x": 3,
+        "g_x": 0
+      },
+      "tundra": {
+        "id": 14,
+        "profile": {
+          "moc": 5,
+          "hoa": 5,
+          "tho": 30,
+          "kim": 15,
+          "thuy": 45
+        },
+        "sig": "thuy",
+        "sigma": 40,
+        "b": 0.7,
+        "g_d": 0.2,
+        "x": 2,
+        "g_x": 1
+      },
+      "glacier": {
+        "id": 15,
+        "profile": {
+          "moc": 5,
+          "hoa": 5,
+          "tho": 15,
+          "kim": 15,
+          "thuy": 60
+        },
+        "sig": null,
+        "sigma": 0,
+        "b": 0.8,
+        "g_d": 0,
+        "x": 3,
+        "g_x": 0
+      },
+      "miasma": {
+        "id": 16,
+        "profile": {
+          "moc": 10,
+          "hoa": 15,
+          "tho": 40,
+          "kim": 20,
+          "thuy": 15
+        },
+        "sig": null,
+        "sigma": 0,
+        "b": 0.4,
+        "g_d": 0,
+        "x": 4,
+        "g_x": 0
+      },
+      "lake": {
+        "id": 17,
+        "profile": {
+          "moc": 25,
+          "hoa": 2,
+          "tho": 10,
+          "kim": 3,
+          "thuy": 60
+        },
+        "sig": null,
+        "sigma": 0,
+        "b": 0.9,
+        "g_d": 0,
+        "x": 1,
+        "g_x": 0
+      },
+      "sea": {
+        "id": 18,
+        "profile": {
+          "moc": 10,
+          "hoa": 10,
+          "tho": 10,
+          "kim": 10,
+          "thuy": 60
+        },
+        "sig": null,
+        "sigma": 0,
+        "b": 0.5,
+        "g_d": 0,
+        "x": 2,
+        "g_x": 0
+      }
+    },
+    "_features_doc": "Rule 4's features: push (A_f,e, points on base elements and variants at the feature's own cells), reach_km (R_f), density (a_f) and danger (x_f) at its own cells, all fading as max(0, 1 - distance / reach). Each connected group of a feature's tiles (or fine cells for river) is one instance: within an instance the nearest cell counts, instances of the same kind add up (Formulas C). Sources: features.png bits (lava 1, hot_spring 2, ice_field 4, ore_vein 32, karst_core 64), fine_water.png (river 4, lake 2), sacred.json (spirit veins by grade, sacred summits, deep caves, the miasma source and its wasteland, the derived snowline, storm peaks and high plateau). Spirit vein density by grade and the reaches of veins, springs, vents, snow and the source repeat sacred.json's params, so the approved seat and vein estimates hold.",
+    "features": {
+      "lava": {
+        "push": {
+          "hoa": 80
+        },
+        "reach_km": 111,
+        "density": 0.1,
+        "danger": 1
+      },
+      "hot_spring": {
+        "push": {
+          "hoa": 20,
+          "thuy": 20
+        },
+        "reach_km": 111,
+        "density": 0.3,
+        "danger": 0
+      },
+      "ice_field": {
+        "push": {
+          "bang": 40,
+          "thuy": 20
+        },
+        "reach_km": 62,
+        "density": 0.1,
+        "danger": 1
+      },
+      "snowline": {
+        "push": {
+          "bang": 10
+        },
+        "reach_km": 62,
+        "density": 0.0,
+        "danger": 0
+      },
+      "storm_peaks": {
+        "push": {
+          "loi": 40
+        },
+        "reach_km": 111,
+        "density": 0.1,
+        "danger": 1
+      },
+      "high_plateau": {
+        "push": {
+          "phong": 35
+        },
+        "reach_km": 111,
+        "density": 0.0,
+        "danger": 0
+      },
+      "river": {
+        "push": {
+          "thuy": 15,
+          "moc": 8
+        },
+        "reach_km": 37,
+        "density": 0.05,
+        "danger": 0
+      },
+      "ore_vein": {
+        "push": {
+          "kim": 40
+        },
+        "reach_km": 111,
+        "density": 0.1,
+        "danger": 0
+      },
+      "spirit_vein": {
+        "push": {},
+        "reach_km": 222,
+        "density_by_grade": {
+          "1": 0.9,
+          "2": 0.7,
+          "3": 0.4
+        },
+        "danger": 0
+      },
+      "sacred_summit": {
+        "push": {
+          "quang": 40
+        },
+        "reach_km": 111,
+        "density": 0.3,
+        "danger": 0
+      },
+      "deep_cave": {
+        "push": {
+          "am": 40
+        },
+        "reach_km": 111,
+        "density": 0.2,
+        "danger": 1
+      },
+      "karst_core": {
+        "push": {
+          "am": 30
+        },
+        "reach_km": 62,
+        "density": 0.1,
+        "danger": 1
+      },
+      "miasma_source": {
+        "push": {
+          "am": 50
+        },
+        "reach_km": 111,
+        "density": -0.2,
+        "danger": 2
+      },
+      "miasma_land": {
+        "push": {
+          "tho": 20,
+          "am": 10
+        },
+        "reach_km": 25,
+        "density": -0.4,
+        "danger": 2
+      }
+    },
+    "_kinds_doc": "Place kind (world_continent.json) -> Formula C's kind row; o_kind is that row's density offset (set by land_qi.py --fit), danger_cut how much a settlement lowers danger (rule 6; never below 1). bands are Formula C's density band and the share at 1.4 or more per row, the targets --fit aims at.",
+    "kinds": {
+      "village": "settlement",
+      "town": "settlement",
+      "city": "settlement",
+      "market": "settlement",
+      "peak": "mountain",
+      "volcano": "mountain",
+      "gorge": "valley",
+      "lake": "lake",
+      "forest": "forest",
+      "island": "island",
+      "mine": "mine",
+      "spirit_vein": "spirit_vein",
+      "great_seat": "sect_seat",
+      "minor_seat": "sect_seat",
+      "secret_realm": "secret_realm",
+      "ruin": "hidden_ruin",
+      "abode": "hidden_ruin",
+      "blessed_land": "blessed_land"
+    },
+    "rows": {
+      "settlement": {
+        "band": [
+          0.6,
+          1.1
+        ],
+        "share_1_4": 0.0,
+        "o_kind": -0.04,
+        "danger_cut": 1
+      },
+      "mountain": {
+        "band": [
+          1.0,
+          1.5
+        ],
+        "share_1_4": 0.2,
+        "o_kind": -0.13,
+        "danger_cut": 0
+      },
+      "valley": {
+        "band": [
+          1.1,
+          1.6
+        ],
+        "share_1_4": 0.4,
+        "o_kind": 0.06,
+        "danger_cut": 0
+      },
+      "lake": {
+        "band": [
+          1.0,
+          1.4
+        ],
+        "share_1_4": 0.0,
+        "o_kind": 0.19,
+        "danger_cut": 0
+      },
+      "forest": {
+        "band": [
+          0.9,
+          1.45
+        ],
+        "share_1_4": 0.1,
+        "o_kind": 0.14,
+        "danger_cut": 0
+      },
+      "island": {
+        "band": [
+          1.0,
+          1.5
+        ],
+        "share_1_4": 0.2,
+        "o_kind": 0.29,
+        "danger_cut": 0
+      },
+      "mine": {
+        "band": [
+          0.9,
+          1.45
+        ],
+        "share_1_4": 0.1,
+        "o_kind": -0.12,
+        "danger_cut": 0
+      },
+      "spirit_vein": {
+        "band": [
+          1.4,
+          2.0
+        ],
+        "share_1_4": 1.0,
+        "o_kind": -0.18,
+        "danger_cut": 0
+      },
+      "sect_seat": {
+        "band": [
+          1.2,
+          1.8
+        ],
+        "share_1_4": 0.67,
+        "o_kind": 0.1,
+        "danger_cut": 1
+      },
+      "secret_realm": {
+        "band": [
+          1.5,
+          2.2
+        ],
+        "share_1_4": 1.0,
+        "o_kind": 0.71,
+        "danger_cut": 0
+      },
+      "hidden_ruin": {
+        "band": [
+          1.0,
+          1.6
+        ],
+        "share_1_4": 0.3,
+        "o_kind": 0.25,
+        "danger_cut": 0
+      },
+      "blessed_land": {
+        "band": [
+          0.3,
+          2.4
+        ],
+        "share_1_4": null,
+        "o_kind": 0.0,
+        "danger_cut": 0,
+        "fit": false,
+        "note": "Blessed lands are not a row of Formula C's table: their richness is layer 3 (Formula B), so their land density takes no offset."
+      }
+    },
+    "targets": {
+      "places_share_at_1_4": [
+        0.15,
+        0.21
+      ],
+      "place_density_mean": [
+        1.05,
+        1.2
+      ],
+      "wild_tiles_share_at_1_4": [
+        0.02,
+        0.06
+      ],
+      "mu_base": [
+        0.15,
+        0.25
+      ],
+      "variant_place_share_max": 0.02,
+      "variant_place_min_share": 5,
+      "element_rich_share": 50,
+      "element_rich_places_min": 8,
+      "element_rich_regions_min": 3
+    }
+  },
+  "match": {
+    "match_gain": 1.0,
+    "match_land_min": 0.8,
+    "match_unowned_rate": 0.5,
+    "match_stack_min": 0.8,
+    "match_cap_l3": 0.3,
+    "match_cap_l2": 0.15,
+    "match_cap_l1": 0.15,
+    "density_cap": 3.0,
+    "density_cap_l3": 1.0,
+    "share_cap_l3": 80,
+    "share_cap_l2": 30,
+    "share_cap_l1": 30
+  }
+}

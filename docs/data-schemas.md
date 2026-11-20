@@ -22,6 +22,8 @@ Design source: the GDDs in `design/gdd/` own the values of the files they name
 | `items_cong_phap.json` | Công pháp tiers, name parts, bonus pool | `ItemFactory` |
 | `items_materials.json` | Materials (trade goods, future crafting) | `ItemFactory` |
 | `dao_do_tree.json` | Đạo Đồ generator: rings, pools, notables, keystones | `DaoDoTree` |
+| `world_map.json` | Travel & Map land qi (Formula C inputs, built offline by `tools/design/map/land_qi.py`) and the element-match keys (Formulas A-B) | `LandQi`, `land_qi.py` |
+| `world_continent.json` | The authored continent 11 (exported by `tools/design/map/export_continent.py`; never hand-edited): regions, sects, places with their density, danger and qi, routes, arrays, origins, the grid and qi files, `mu` | `ContinentData`, `ContinentGrid`, `LandQi` |
 | `world_generation.json` | Regions, places, sects, people, NPC builds, history, ticks, texts | `WorldGenerator`, `WorldTicker`, `BuildGenerator`, `GameSession` |
 | `world_names.json` | Hán-Việt name parts and personality traits | `BuildGenerator`, `WorldGenerator`, `EventContext` |
 | `combat_rules.json` | Chiến lực shares, duel curve, demon beasts | `CombatPower`, `BuildGenerator` |
@@ -143,6 +145,22 @@ keys, inner_share, sealed_share, size_realm_gates, cap_min_n, premium), themes a
 element_themes, keystones and center_keystone, the variant sector keys, tree_breakthrough_cap,
 npc_unseal_share and open_unseals_per_realm. Sealed cluster content is theme-pool filler until
 the authored pass (the GDD's Open Question 6).
+
+### world_map.json — land qi and the element match (design/gdd/travel-map.md Formulas A-C)
+
+- `land`: Formula C's inputs, read only by `tools/design/map/land_qi.py`. `cell_km` (6.175, the fine cell),
+  `depth_full_km` 555, `blend_radius_km` 222, `density_min`/`density_max` 0.3/2.4. `biomes.<name>`: `id` (the fine
+  biome image's value), `profile` (P_b over moc/hoa/tho/kim/thuy, sums to 100), `sig` (signature element or null),
+  `sigma` (signature push at full depth, points), `b` (base density), `g_d` (density added at full depth), `x` (base
+  danger), `g_x` (danger added at full depth). `features.<name>`: `push` (points per element at the feature's own
+  cells; variants sit outside the 100), `reach_km` (R_f), `density` (a_f) or `density_by_grade` (spirit veins),
+  `danger` (x_f). `kinds`: place kind -> Formula C's row; `rows.<row>`: `band` and `share_1_4` (the row's targets),
+  `o_kind` (density offset, fitted by `land_qi.py --fit`), `danger_cut` (how much a settlement lowers danger, never
+  below 1), `fit` false for a row outside the table (blessed lands). `targets`: Formula C's map targets, reported by
+  the tool as observations. All numbers are first guesses unless the GDD states them.
+- `match`: `match_gain` k 1.0, `match_land_min` 0.8 (floor; no ceiling), `match_unowned_rate` 0.5 (purity only
+  from rare sources), and Formula B's stack keys (`match_stack_min`, `match_cap_l3/l2/l1`, `density_cap`,
+  `density_cap_l3`, `share_cap_l3/l2/l1`) for the layers still to come.
 
 ### world_generation.json
 - `regions`, `places_per_region` (`min`/`max`), `place_types[]` (`suffix`, `weight`,

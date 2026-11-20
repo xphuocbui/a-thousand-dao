@@ -22,7 +22,9 @@ static func curve_factor(c: Character, gd: GameData) -> float:
 
 ## Formulas I: cultivation per season, computed once at the start of the season.
 ## [param density] is the place's spiritual qi.
-static func rate_per_season(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet, density: float, closed_door: bool = false) -> Breakdown:
+## [param qi] is the place's land qi (Travel & Map Formula C, a continent place's "qi"); its land match (Formula A,
+## [LandQi]) multiplies the rate. A place without qi (the old generated world) gives x1.
+static func rate_per_season(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet, density: float, closed_door: bool = false, qi: Dictionary = {}) -> Breakdown:
 	var rules: Dictionary = gd.cultivation_rules()
 	var realm: Dictionary = gd.realm(c.realm_index)
 	var b := Breakdown.new("Tu vi / season")
@@ -32,6 +34,8 @@ static func rate_per_season(c: Character, gd: GameData, db: WorldDB, sheet: Stat
 	b.mul(cp_factor.label, cp_factor.mult)
 	b.mul("Ngộ tính %d" % int(sheet.effective("ngo_tinh", c)), 1.0 + sheet.effective("ngo_tinh", c) / float(rules.ngo_tinh_divisor))
 	b.mul("Linh khí density", maxf(density + sheet.total("density_bonus"), 0.1))
+	if not qi.is_empty():
+		b.mul("Land match (elements of the ground)", LandQi.land_match(c, gd, qi).total)
 	if not sheet.has_flag("dan_doc_no_penalty") and c.dan_doc > 0.0:
 		b.mul("Đan độc %d" % int(c.dan_doc), maxf(1.0 - c.dan_doc / float(rules.dan_doc_divisor), 0.0))
 	if closed_door:

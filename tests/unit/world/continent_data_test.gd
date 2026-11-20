@@ -18,25 +18,28 @@ func test_the_approved_counts() -> void:
 	var cd := _cd()
 	assert_eq(cd.regions.size(), 20, "20 regions")
 	assert_eq(cd.great_sects.size(), 7, "7 great sects")
-	assert_eq(cd.minor_sects.size(), 22, "22 minor sects")
-	assert_eq(cd.places.size(), 212, "204 places and 8 sacred places")
+	assert_eq(cd.minor_sects.size(), 23, "23 minor sects (Thu Phần Các added with the territory history, 2026-11-15)")
+	assert_eq(cd.places.size(), 230, "204 places, 8 sacred places, 17 ruins and one minor seat from the territory history")
 	assert_eq(cd.arrays.size(), 7, "7 teleport arrays, one per great sect")
 	var tiers := {1: 0, 2: 0}
 	for k in cd.great_sects:
 		tiers[int(cd.great_sects[k].tier)] += 1
-	assert_eq(tiers, {1: 3, 2: 4}, "3 tier-1 and 4 tier-2 great sects")
+	assert_eq(tiers, {1: 4, 2: 3}, "4 tier-1 and 3 tier-2 great sects (Thính Vũ Lâu promoted to tier 1, f5b6fa0)")
 
 
-func test_every_settlement_but_one_off_road_minor_seat_reaches_every_other_ac_tm_128() -> void:
-	# Finding 2026-11-15: Hồng Lô Cốc, a minor seat on a landmass of its own, has no road and no port in the design
-	# data (places.py's own reach check does not count minor seats). This pins it so a change shows.
+func test_every_settlement_but_two_off_road_minor_seats_reaches_every_other_ac_tm_128() -> void:
+	# Findings: Hồng Lô Cốc (2026-11-15), a minor seat on a landmass of its own, has no road and no port in the design
+	# data (places.py's own reach check does not count minor seats); Thu Phần Các (2026-11-20), the minor seat added with
+	# the territory history (history_places.json), has no road drawn yet. Both are reached on foot once wilderness
+	# travel exists (Travel & Map rule 10). This pins them so a change shows.
 	var cd := _cd()
 	var settled: Array = cd.settled_ids()
-	assert_eq(settled.size(), 180, "180 settlements")
+	assert_eq(settled.size(), 181, "181 settlements")
 	var main: Dictionary = cd.reachable_from(int(settled[0]))
 	var cut: Array = settled.filter(func(id): return not main.has(id))
-	assert_eq(cut.map(func(id): return str(cd.places[id].name)), ["Hồng Lô Cốc"], "the one cut-off settlement")
-	assert_eq(str(cd.places[cut[0]].kind), "minor_seat", "a minor seat")
+	assert_eq(cut.map(func(id): return str(cd.places[id].name)), ["Hồng Lô Cốc", "Thu Phần Các"], "the two cut-off settlements")
+	for id in cut:
+		assert_eq(str(cd.places[id].kind), "minor_seat", "%s is a minor seat" % cd.places[id].name)
 
 
 func test_routes_are_symmetric_and_have_lengths() -> void:
@@ -72,7 +75,7 @@ func test_trip_time_is_formula_d() -> void:
 
 
 func test_each_origin_starts_where_the_fixed_world_decisions_say() -> void:
-	# a sect disciple at any of the 29 seats, a loose cultivator at one of the 10 markets, a clan heir in one of 7 towns
+	# a sect disciple at any of the 30 seats (Thu Phần Các added 2026-11-15), a loose cultivator at one of the 10 markets, a clan heir in one of 7 towns
 	var cd := _cd()
 	var kinds := func(oid: String) -> Array:
 		var out := {}
@@ -81,7 +84,7 @@ func test_each_origin_starts_where_the_fixed_world_decisions_say() -> void:
 		var k: Array = out.keys()
 		k.sort()
 		return k
-	assert_eq(cd.origin_homes.get("tong_mon", []).size(), 29, "29 seats")
+	assert_eq(cd.origin_homes.get("tong_mon", []).size(), 30, "30 seats")
 	assert_eq(kinds.call("tong_mon"), ["great_seat", "minor_seat"], "only seats")
 	assert_eq(cd.origin_homes.get("tan_tu", []).size(), 10, "10 markets")
 	assert_eq(kinds.call("tan_tu"), ["market"], "only markets")

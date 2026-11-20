@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "_doc": "The authored continent (design/map/continent-11, approved by the user 2026-11-13/14), exported by tools/design/map/export_continent.py; do not edit by hand, edit the design data and re-export. regions: id, name, holder (great sect key), centre tile, size, neighbours, biome shares. great_sects / minor_sects: key, names, tier or lord, leans, seat (place id). places: id, kind, tile [x, y] on the 540 x 360 grid (25 km tiles), region, holder and territory (great sect keys), land flags, names (holder: the great or minor sect key holding the place,  for an unheld wild site); sacred places follow the 204 settled and wild ones. routes: a, b (place ids, a < b), kind road | trunk | lane, length in tiles and km, and cost: Travel & Map Formula D's sum of c_t along the route (road tiles 1 + r_share x (c_wild - 1) from the tile's biome mix, sea 1; ContinentData.trip_seasons divides it by the mode's speed). grid_file: the tile grid (ContinentGrid; the layers are listed in the exporter); legend: biome ids and feature bits as the grid stores them. arrays: the teleport-array cities. origins: the origin home choices (approved); origin_homes: per origin id, the place ids a character of that origin may start at.",
+ "_doc": "The authored continent (design/map/continent-11, approved by the user 2026-11-13/14), exported by tools/design/map/export_continent.py; do not edit by hand, edit the design data and re-export. regions: id, name, holder (great sect key), centre tile, size, neighbours, biome shares. great_sects / minor_sects: key, names, tier or lord, leans, seat (place id). places: id, kind, tile [x, y] on the 540 x 360 grid (25 km tiles), region, holder and territory (great sect keys), land flags, names (holder: the great or minor sect key holding the place,  for an unheld wild site); sacred places follow the 204 settled and wild ones. routes: a, b (place ids, a < b), kind road | trunk | lane, length in tiles and km, and cost: Travel & Map Formula D's sum of c_t along the route (road tiles 1 + r_share x (c_wild - 1) from the tile's biome mix, sea 1; ContinentData.trip_seasons divides it by the mode's speed). grid_file: the tile grid (ContinentGrid; the layers are listed in the exporter); legend: biome ids and feature bits as the grid stores them. arrays: the teleport-array cities. origins: the origin home choices (approved); origin_homes: per origin id, the place ids a character of that origin may start at. Each place also carries density, danger and qi (Travel & Map Formula C, tools/design/map/land_qi.py: the tile part it reads, its biome, the five base shares summing to 100, variants outside the 100, land density and land danger before the kind's offset and settlement cut); qi_file: the per-tile-part qi layer (S<k><el>, V<k><el> shares x 100, DEN<k> density x 1000, DAN<k> danger, k = 1..3 the tile's parts); mu: Formula A's world mean shares over places.",
  "source": "design/map/continent-11",
  "grid": [
   540,
@@ -1621,7 +1621,7 @@
    "name": "Thính Vũ Lâu",
    "name_han": "聽雨樓",
    "gloss": "Tower Where One Listens to the Rain",
-   "tier": 2,
+   "tier": 1,
    "leans": [
     "Metal",
     "Water",
@@ -1694,7 +1694,7 @@
    "name": "Thối Tinh Môn",
    "name_han": "淬星門",
    "gloss": "Gate of the Quenched Stars",
-   "alignment": "chính đạo",
+   "alignment": "trung lập",
    "leans": [
     "Metal",
     "Fire"
@@ -1724,7 +1724,7 @@
    "name": "Củng Tinh Quán",
    "name_han": "拱星觀",
    "gloss": "Abbey of the Bowing Stars",
-   "alignment": "chính đạo",
+   "alignment": "trung lập",
    "leans": [
     "Earth",
     "Metal"
@@ -2018,6 +2018,21 @@
    "lord": "phuong_minh",
    "region": 20,
    "seat": 29
+  },
+  {
+   "key": "thu_phan",
+   "name": "Thu Phần Các",
+   "name_han": "秋墳閣",
+   "gloss": "Pavilion of the Autumn Graves",
+   "alignment": "ma đạo",
+   "leans": [
+    "Darkness",
+    "Metal"
+   ],
+   "craft": "soul arts and grave wards",
+   "lord": "thinh_vu",
+   "region": 19,
+   "seat": 230
   }
  ],
  "places": [
@@ -2041,7 +2056,23 @@
    "holder": "thuy_vi",
    "territory": "thuy_vi",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 20.39,
+     "hoa": 9.44,
+     "tho": 20.15,
+     "kim": 38.12,
+     "thuy": 11.89
+    },
+    "variants": {},
+    "land_density": 1.838,
+    "land_danger": 1
+   },
+   "density": 1.938,
+   "danger": 1
   },
   {
    "id": 2,
@@ -2063,7 +2094,23 @@
    "holder": "tung_dao",
    "territory": "tung_dao",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 48.06,
+     "hoa": 11.02,
+     "tho": 14.29,
+     "kim": 10.25,
+     "thuy": 16.39
+    },
+    "variants": {},
+    "land_density": 1.825,
+    "land_danger": 1
+   },
+   "density": 1.925,
+   "danger": 1
   },
   {
    "id": 3,
@@ -2085,7 +2132,23 @@
    "holder": "bang_tam",
    "territory": "bang_tam",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "badlands",
+    "shares": {
+     "moc": 18.19,
+     "hoa": 19.9,
+     "tho": 31.61,
+     "kim": 20.45,
+     "thuy": 9.85
+    },
+    "variants": {},
+    "land_density": 1.533,
+    "land_danger": 2
+   },
+   "density": 1.633,
+   "danger": 1
   },
   {
    "id": 4,
@@ -2107,7 +2170,23 @@
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "steppe",
+    "shares": {
+     "moc": 8.15,
+     "hoa": 24.19,
+     "tho": 45.37,
+     "kim": 17.45,
+     "thuy": 4.84
+    },
+    "variants": {},
+    "land_density": 1.615,
+    "land_danger": 1
+   },
+   "density": 1.715,
+   "danger": 1
   },
   {
    "id": 5,
@@ -2129,7 +2208,23 @@
    "holder": "thien_xu",
    "territory": "thien_xu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 15.58,
+     "hoa": 11.92,
+     "tho": 32.72,
+     "kim": 28.97,
+     "thuy": 10.81
+    },
+    "variants": {},
+    "land_density": 2.008,
+    "land_danger": 2
+   },
+   "density": 2.108,
+   "danger": 1
   },
   {
    "id": 6,
@@ -2151,7 +2246,23 @@
    "holder": "phuong_minh",
    "territory": "phuong_minh",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 12.53,
+     "hoa": 9.52,
+     "tho": 26.06,
+     "kim": 41.44,
+     "thuy": 10.45
+    },
+    "variants": {},
+    "land_density": 2.013,
+    "land_danger": 2
+   },
+   "density": 2.113,
+   "danger": 1
   },
   {
    "id": 7,
@@ -2173,7 +2284,25 @@
    "holder": "thinh_vu",
    "territory": "thinh_vu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "volcano",
+    "shares": {
+     "moc": 3.73,
+     "hoa": 53.25,
+     "tho": 17.48,
+     "kim": 15.37,
+     "thuy": 10.17
+    },
+    "variants": {
+     "bang": 6.11
+    },
+    "land_density": 2.264,
+    "land_danger": 4
+   },
+   "density": 2.364,
+   "danger": 3
   },
   {
    "id": 8,
@@ -2195,7 +2324,23 @@
    "holder": "ham_nguyet",
    "territory": "tung_dao",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 41.53,
+     "hoa": 9.9,
+     "tho": 14.87,
+     "kim": 9.1,
+     "thuy": 24.6
+    },
+    "variants": {},
+    "land_density": 1.312,
+    "land_danger": 1
+   },
+   "density": 1.412,
+   "danger": 1
   },
   {
    "id": 9,
@@ -2217,7 +2362,23 @@
    "holder": "hong_lo",
    "territory": "thuy_vi",
    "on_road": false,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "tundra",
+    "shares": {
+     "moc": 4.99,
+     "hoa": 47.17,
+     "tho": 8.54,
+     "kim": 9.26,
+     "thuy": 30.03
+    },
+    "variants": {},
+    "land_density": 1.264,
+    "land_danger": 3
+   },
+   "density": 1.364,
+   "danger": 2
   },
   {
    "id": 10,
@@ -2239,7 +2400,23 @@
    "holder": "van_khoi",
    "territory": "thuy_vi",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 16.7,
+     "hoa": 7.64,
+     "tho": 15.31,
+     "kim": 47.52,
+     "thuy": 12.84
+    },
+    "variants": {},
+    "land_density": 1.602,
+    "land_danger": 2
+   },
+   "density": 1.702,
+   "danger": 1
   },
   {
    "id": 11,
@@ -2261,7 +2438,23 @@
    "holder": "van_hac",
    "territory": "tung_dao",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 23.54,
+     "hoa": 7.16,
+     "tho": 11.49,
+     "kim": 47.85,
+     "thuy": 9.97
+    },
+    "variants": {},
+    "land_density": 1.452,
+    "land_danger": 1
+   },
+   "density": 1.552,
+   "danger": 1
   },
   {
    "id": 12,
@@ -2283,7 +2476,23 @@
    "holder": "thai_chi",
    "territory": "tung_dao",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 29.21,
+     "hoa": 7.93,
+     "tho": 13.74,
+     "kim": 8.68,
+     "thuy": 40.44
+    },
+    "variants": {},
+    "land_density": 1.318,
+    "land_danger": 1
+   },
+   "density": 1.418,
+   "danger": 1
   },
   {
    "id": 13,
@@ -2305,7 +2514,23 @@
    "holder": "lang_dao",
    "territory": "tung_dao",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 41.02,
+     "hoa": 8.92,
+     "tho": 12.03,
+     "kim": 7.94,
+     "thuy": 30.09
+    },
+    "variants": {},
+    "land_density": 1.337,
+    "land_danger": 1
+   },
+   "density": 1.437,
+   "danger": 1
   },
   {
    "id": 14,
@@ -2327,7 +2552,23 @@
    "holder": "cuu_cao",
    "territory": "thien_xu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 31.13,
+     "hoa": 12.11,
+     "tho": 21.06,
+     "kim": 20.97,
+     "thuy": 14.72
+    },
+    "variants": {},
+    "land_density": 1.301,
+    "land_danger": 1
+   },
+   "density": 1.401,
+   "danger": 1
   },
   {
    "id": 15,
@@ -2349,7 +2590,23 @@
    "holder": "le_hoa",
    "territory": "bang_tam",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 8.52,
+     "hoa": 9.64,
+     "tho": 27.0,
+     "kim": 41.54,
+     "thuy": 13.31
+    },
+    "variants": {},
+    "land_density": 1.533,
+    "land_danger": 2
+   },
+   "density": 1.633,
+   "danger": 1
   },
   {
    "id": 16,
@@ -2371,7 +2628,23 @@
    "holder": "da_quang",
    "territory": "bang_tam",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "steppe",
+    "shares": {
+     "moc": 12.44,
+     "hoa": 31.7,
+     "tho": 33.75,
+     "kim": 16.07,
+     "thuy": 6.04
+    },
+    "variants": {},
+    "land_density": 1.113,
+    "land_danger": 1
+   },
+   "density": 1.213,
+   "danger": 1
   },
   {
    "id": 17,
@@ -2393,7 +2666,23 @@
    "holder": "trac_anh",
    "territory": "bang_tam",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 40.95,
+     "hoa": 10.62,
+     "tho": 13.97,
+     "kim": 9.37,
+     "thuy": 25.09
+    },
+    "variants": {},
+    "land_density": 1.305,
+    "land_danger": 1
+   },
+   "density": 1.405,
+   "danger": 1
   },
   {
    "id": 18,
@@ -2415,7 +2704,23 @@
    "holder": "binh_thuy",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 25.72,
+     "hoa": 18.68,
+     "tho": 21.97,
+     "kim": 11.39,
+     "thuy": 22.24
+    },
+    "variants": {},
+    "land_density": 1.206,
+    "land_danger": 1
+   },
+   "density": 1.306,
+   "danger": 1
   },
   {
    "id": 19,
@@ -2437,7 +2742,23 @@
    "holder": "muc_van",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 16.46,
+     "hoa": 13.18,
+     "tho": 14.63,
+     "kim": 10.08,
+     "thuy": 45.66
+    },
+    "variants": {},
+    "land_density": 1.2,
+    "land_danger": 1
+   },
+   "density": 1.3,
+   "danger": 1
   },
   {
    "id": 20,
@@ -2459,7 +2780,23 @@
    "holder": "thien_bao",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "steppe",
+    "shares": {
+     "moc": 4.5,
+     "hoa": 20.75,
+     "tho": 40.66,
+     "kim": 29.6,
+     "thuy": 4.49
+    },
+    "variants": {},
+    "land_density": 1.146,
+    "land_danger": 1
+   },
+   "density": 1.246,
+   "danger": 1
   },
   {
    "id": 21,
@@ -2481,7 +2818,23 @@
    "holder": "nam_pho",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 33.82,
+     "hoa": 11.6,
+     "tho": 17.24,
+     "kim": 11.47,
+     "thuy": 25.88
+    },
+    "variants": {},
+    "land_density": 1.319,
+    "land_danger": 1
+   },
+   "density": 1.419,
+   "danger": 1
   },
   {
    "id": 22,
@@ -2503,7 +2856,23 @@
    "holder": "cung_tinh",
    "territory": "thien_xu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "highland",
+    "shares": {
+     "moc": 12.28,
+     "hoa": 11.8,
+     "tho": 45.26,
+     "kim": 21.31,
+     "thuy": 9.34
+    },
+    "variants": {},
+    "land_density": 1.343,
+    "land_danger": 1
+   },
+   "density": 1.443,
+   "danger": 1
   },
   {
    "id": 23,
@@ -2525,7 +2894,23 @@
    "holder": "thoi_tinh",
    "territory": "thien_xu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 4.94,
+     "hoa": 8.56,
+     "tho": 24.54,
+     "kim": 53.33,
+     "thuy": 8.62
+    },
+    "variants": {},
+    "land_density": 1.602,
+    "land_danger": 2
+   },
+   "density": 1.702,
+   "danger": 1
   },
   {
    "id": 24,
@@ -2547,7 +2932,23 @@
    "holder": "phat_y",
    "territory": "thien_xu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 7.9,
+     "hoa": 16.14,
+     "tho": 32.92,
+     "kim": 33.5,
+     "thuy": 9.54
+    },
+    "variants": {},
+    "land_density": 1.204,
+    "land_danger": 1
+   },
+   "density": 1.304,
+   "danger": 1
   },
   {
    "id": 25,
@@ -2569,7 +2970,23 @@
    "holder": "truc_thuc",
    "territory": "phuong_minh",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 32.76,
+     "hoa": 11.27,
+     "tho": 12.56,
+     "kim": 15.83,
+     "thuy": 27.59
+    },
+    "variants": {},
+    "land_density": 1.213,
+    "land_danger": 1
+   },
+   "density": 1.313,
+   "danger": 1
   },
   {
    "id": 26,
@@ -2591,7 +3008,23 @@
    "holder": "le_tuyen",
    "territory": "phuong_minh",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 21.85,
+     "hoa": 19.32,
+     "tho": 29.4,
+     "kim": 12.33,
+     "thuy": 17.1
+    },
+    "variants": {},
+    "land_density": 1.232,
+    "land_danger": 1
+   },
+   "density": 1.332,
+   "danger": 1
   },
   {
    "id": 27,
@@ -2613,7 +3046,23 @@
    "holder": "hong_dau",
    "territory": "thinh_vu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "jungle",
+    "shares": {
+     "moc": 23.1,
+     "hoa": 17.75,
+     "tho": 16.95,
+     "kim": 9.32,
+     "thuy": 32.89
+    },
+    "variants": {},
+    "land_density": 1.401,
+    "land_danger": 2
+   },
+   "density": 1.501,
+   "danger": 1
   },
   {
    "id": 28,
@@ -2635,7 +3084,23 @@
    "holder": "xuyen_lam",
    "territory": "thinh_vu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 17.09,
+     "hoa": 9.04,
+     "tho": 23.46,
+     "kim": 40.48,
+     "thuy": 9.93
+    },
+    "variants": {},
+    "land_density": 1.542,
+    "land_danger": 2
+   },
+   "density": 1.642,
+   "danger": 1
   },
   {
    "id": 29,
@@ -2657,7 +3122,23 @@
    "holder": "phan_vu",
    "territory": "phuong_minh",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 23.31,
+     "hoa": 23.83,
+     "tho": 23.12,
+     "kim": 12.72,
+     "thuy": 17.01
+    },
+    "variants": {},
+    "land_density": 1.246,
+    "land_danger": 1
+   },
+   "density": 1.346,
+   "danger": 1
   },
   {
    "id": 30,
@@ -2680,7 +3161,24 @@
    "holder": "thuy_vi",
    "territory": "thuy_vi",
    "on_road": true,
-   "array": true
+   "array": true,
+   "founded": 590,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 29.3,
+     "hoa": 8.89,
+     "tho": 13.41,
+     "kim": 10.39,
+     "thuy": 38.02
+    },
+    "variants": {},
+    "land_density": 0.921,
+    "land_danger": 1
+   },
+   "density": 0.881,
+   "danger": 1
   },
   {
    "id": 31,
@@ -2703,7 +3201,24 @@
    "holder": "thuy_vi",
    "territory": "thuy_vi",
    "on_road": true,
-   "array": false
+   "array": false,
+   "founded": 430,
+   "qi": {
+    "part": 0,
+    "part_biome": "tundra",
+    "shares": {
+     "moc": 31.04,
+     "hoa": 7.82,
+     "tho": 11.62,
+     "kim": 7.83,
+     "thuy": 41.7
+    },
+    "variants": {},
+    "land_density": 0.748,
+    "land_danger": 2
+   },
+   "density": 0.708,
+   "danger": 1
   },
   {
    "id": 32,
@@ -2726,7 +3241,24 @@
    "holder": "tung_dao",
    "territory": "tung_dao",
    "on_road": true,
-   "array": true
+   "array": true,
+   "founded": 240,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 36.24,
+     "hoa": 9.34,
+     "tho": 11.15,
+     "kim": 8.25,
+     "thuy": 35.02
+    },
+    "variants": {},
+    "land_density": 0.944,
+    "land_danger": 1
+   },
+   "density": 0.904,
+   "danger": 1
   },
   {
    "id": 33,
@@ -2749,7 +3281,24 @@
    "holder": "tung_dao",
    "territory": "tung_dao",
    "on_road": true,
-   "array": false
+   "array": false,
+   "founded": 300,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 44.22,
+     "hoa": 9.38,
+     "tho": 12.57,
+     "kim": 9.61,
+     "thuy": 24.23
+    },
+    "variants": {},
+    "land_density": 0.959,
+    "land_danger": 1
+   },
+   "density": 0.919,
+   "danger": 1
   },
   {
    "id": 34,
@@ -2772,7 +3321,24 @@
    "holder": "thien_xu",
    "territory": "thien_xu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "founded": 280,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 35.14,
+     "hoa": 9.72,
+     "tho": 11.78,
+     "kim": 8.99,
+     "thuy": 34.37
+    },
+    "variants": {},
+    "land_density": 0.934,
+    "land_danger": 1
+   },
+   "density": 0.894,
+   "danger": 1
   },
   {
    "id": 35,
@@ -2795,7 +3361,24 @@
    "holder": "bang_tam",
    "territory": "bang_tam",
    "on_road": true,
-   "array": true
+   "array": true,
+   "founded": 470,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 17.9,
+     "hoa": 17.08,
+     "tho": 25.18,
+     "kim": 12.15,
+     "thuy": 27.7
+    },
+    "variants": {},
+    "land_density": 0.845,
+    "land_danger": 1
+   },
+   "density": 0.805,
+   "danger": 1
   },
   {
    "id": 36,
@@ -2818,7 +3401,24 @@
    "holder": "bang_tam",
    "territory": "bang_tam",
    "on_road": true,
-   "array": false
+   "array": false,
+   "founded": 350,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 31.56,
+     "hoa": 9.5,
+     "tho": 11.01,
+     "kim": 8.47,
+     "thuy": 39.46
+    },
+    "variants": {},
+    "land_density": 0.936,
+    "land_danger": 1
+   },
+   "density": 0.896,
+   "danger": 1
   },
   {
    "id": 37,
@@ -2841,7 +3441,24 @@
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "founded": 410,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 28.55,
+     "hoa": 14.38,
+     "tho": 17.0,
+     "kim": 10.63,
+     "thuy": 29.44
+    },
+    "variants": {},
+    "land_density": 0.842,
+    "land_danger": 1
+   },
+   "density": 0.802,
+   "danger": 1
   },
   {
    "id": 38,
@@ -2864,7 +3481,24 @@
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "founded": 450,
+   "qi": {
+    "part": 0,
+    "part_biome": "steppe",
+    "shares": {
+     "moc": 17.09,
+     "hoa": 15.33,
+     "tho": 22.63,
+     "kim": 11.02,
+     "thuy": 33.93
+    },
+    "variants": {},
+    "land_density": 0.746,
+    "land_danger": 1
+   },
+   "density": 0.706,
+   "danger": 1
   },
   {
    "id": 39,
@@ -2887,7 +3521,24 @@
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": true
+   "array": true,
+   "founded": 360,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 30.67,
+     "hoa": 15.03,
+     "tho": 17.54,
+     "kim": 10.77,
+     "thuy": 25.99
+    },
+    "variants": {},
+    "land_density": 0.838,
+    "land_danger": 1
+   },
+   "density": 0.798,
+   "danger": 1
   },
   {
    "id": 40,
@@ -2910,7 +3561,24 @@
    "holder": "thien_xu",
    "territory": "thien_xu",
    "on_road": true,
-   "array": true
+   "array": true,
+   "founded": 260,
+   "qi": {
+    "part": 0,
+    "part_biome": "steppe",
+    "shares": {
+     "moc": 19.43,
+     "hoa": 12.81,
+     "tho": 17.07,
+     "kim": 11.87,
+     "thuy": 38.82
+    },
+    "variants": {},
+    "land_density": 0.745,
+    "land_danger": 1
+   },
+   "density": 0.705,
+   "danger": 1
   },
   {
    "id": 41,
@@ -2933,7 +3601,24 @@
    "holder": "phuong_minh",
    "territory": "phuong_minh",
    "on_road": true,
-   "array": true
+   "array": true,
+   "founded": 530,
+   "qi": {
+    "part": 0,
+    "part_biome": "steppe",
+    "shares": {
+     "moc": 17.21,
+     "hoa": 18.71,
+     "tho": 29.13,
+     "kim": 12.53,
+     "thuy": 22.41
+    },
+    "variants": {},
+    "land_density": 0.744,
+    "land_danger": 1
+   },
+   "density": 0.704,
+   "danger": 1
   },
   {
    "id": 42,
@@ -2956,7 +3641,24 @@
    "holder": "thinh_vu",
    "territory": "thinh_vu",
    "on_road": true,
-   "array": true
+   "array": true,
+   "founded": 400,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 27.66,
+     "hoa": 14.95,
+     "tho": 10.74,
+     "kim": 7.02,
+     "thuy": 39.62
+    },
+    "variants": {},
+    "land_density": 0.842,
+    "land_danger": 1
+   },
+   "density": 0.802,
+   "danger": 1
   },
   {
    "id": 43,
@@ -2979,7 +3681,24 @@
    "holder": "thinh_vu",
    "territory": "thinh_vu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "founded": 200,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 26.74,
+     "hoa": 12.34,
+     "tho": 15.94,
+     "kim": 12.49,
+     "thuy": 32.49
+    },
+    "variants": {},
+    "land_density": 0.844,
+    "land_danger": 1
+   },
+   "density": 0.804,
+   "danger": 1
   },
   {
    "id": 44,
@@ -3002,7 +3721,24 @@
    "holder": "phuong_minh",
    "territory": "phuong_minh",
    "on_road": true,
-   "array": false
+   "array": false,
+   "founded": 300,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 27.23,
+     "hoa": 13.32,
+     "tho": 10.4,
+     "kim": 9.43,
+     "thuy": 39.62
+    },
+    "variants": {},
+    "land_density": 0.842,
+    "land_danger": 1
+   },
+   "density": 0.802,
+   "danger": 1
   },
   {
    "id": 45,
@@ -3025,7 +3761,23 @@
    "holder": "thuy_vi",
    "territory": "thuy_vi",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 34.8,
+     "hoa": 11.09,
+     "tho": 18.93,
+     "kim": 19.59,
+     "thuy": 15.59
+    },
+    "variants": {},
+    "land_density": 1.243,
+    "land_danger": 1
+   },
+   "density": 1.203,
+   "danger": 1
   },
   {
    "id": 46,
@@ -3048,7 +3800,23 @@
    "holder": "tung_dao",
    "territory": "tung_dao",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 48.79,
+     "hoa": 11.02,
+     "tho": 14.02,
+     "kim": 9.7,
+     "thuy": 16.47
+    },
+    "variants": {},
+    "land_density": 1.19,
+    "land_danger": 1
+   },
+   "density": 1.15,
+   "danger": 1
   },
   {
    "id": 47,
@@ -3071,7 +3839,23 @@
    "holder": "tung_dao",
    "territory": "tung_dao",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 30.59,
+     "hoa": 8.74,
+     "tho": 14.26,
+     "kim": 9.12,
+     "thuy": 37.29
+    },
+    "variants": {},
+    "land_density": 1.047,
+    "land_danger": 1
+   },
+   "density": 1.007,
+   "danger": 1
   },
   {
    "id": 48,
@@ -3094,7 +3878,23 @@
    "holder": "bang_tam",
    "territory": "bang_tam",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 34.15,
+     "hoa": 13.42,
+     "tho": 22.3,
+     "kim": 15.51,
+     "thuy": 14.61
+    },
+    "variants": {},
+    "land_density": 1.583,
+    "land_danger": 1
+   },
+   "density": 1.543,
+   "danger": 1
   },
   {
    "id": 49,
@@ -3117,7 +3917,23 @@
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 16.91,
+     "hoa": 17.25,
+     "tho": 21.39,
+     "kim": 11.13,
+     "thuy": 33.31
+    },
+    "variants": {},
+    "land_density": 0.95,
+    "land_danger": 1
+   },
+   "density": 0.91,
+   "danger": 1
   },
   {
    "id": 50,
@@ -3140,7 +3956,23 @@
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "steppe",
+    "shares": {
+     "moc": 5.34,
+     "hoa": 25.24,
+     "tho": 46.1,
+     "kim": 18.05,
+     "thuy": 5.27
+    },
+    "variants": {},
+    "land_density": 0.806,
+    "land_danger": 1
+   },
+   "density": 0.766,
+   "danger": 1
   },
   {
    "id": 51,
@@ -3163,7 +3995,23 @@
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "steppe",
+    "shares": {
+     "moc": 17.61,
+     "hoa": 20.55,
+     "tho": 33.51,
+     "kim": 13.3,
+     "thuy": 15.03
+    },
+    "variants": {},
+    "land_density": 0.931,
+    "land_danger": 1
+   },
+   "density": 0.891,
+   "danger": 1
   },
   {
    "id": 52,
@@ -3186,7 +4034,23 @@
    "holder": "thien_xu",
    "territory": "thien_xu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 11.39,
+     "hoa": 14.72,
+     "tho": 32.46,
+     "kim": 32.2,
+     "thuy": 9.23
+    },
+    "variants": {},
+    "land_density": 1.016,
+    "land_danger": 1
+   },
+   "density": 0.976,
+   "danger": 1
   },
   {
    "id": 53,
@@ -3209,7 +4073,23 @@
    "holder": "phuong_minh",
    "territory": "phuong_minh",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "bamboo_forest",
+    "shares": {
+     "moc": 19.81,
+     "hoa": 8.08,
+     "tho": 20.45,
+     "kim": 32.88,
+     "thuy": 18.78
+    },
+    "variants": {},
+    "land_density": 1.273,
+    "land_danger": 1
+   },
+   "density": 1.233,
+   "danger": 1
   },
   {
    "id": 54,
@@ -3232,7 +4112,23 @@
    "holder": "thinh_vu",
    "territory": "thinh_vu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "steppe",
+    "shares": {
+     "moc": 9.67,
+     "hoa": 16.59,
+     "tho": 29.64,
+     "kim": 27.26,
+     "thuy": 16.84
+    },
+    "variants": {},
+    "land_density": 1.275,
+    "land_danger": 1
+   },
+   "density": 1.235,
+   "danger": 1
   },
   {
    "id": 55,
@@ -3254,11 +4150,27 @@
    "holder": "tung_dao",
    "territory": "tung_dao",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 29.57,
+     "hoa": 10.7,
+     "tho": 12.43,
+     "kim": 9.75,
+     "thuy": 37.55
+    },
+    "variants": {},
+    "land_density": 0.873,
+    "land_danger": 1
+   },
+   "density": 0.833,
+   "danger": 1
   },
   {
    "id": 56,
-   "kind": "town",
+   "kind": "city",
    "tile": [
     78,
     157
@@ -3270,13 +4182,31 @@
    "river": false,
    "coast": true,
    "livability": 1.16,
-   "name": "Mục Ca Trấn",
-   "name_han": "牧歌鎮",
-   "gloss": "Herders' Song Town",
+   "name": "Mục Ca Thành",
+   "name_han": "牧歌城",
+   "gloss": "Herders' Song City",
    "holder": "thuy_vi",
    "territory": "thuy_vi",
    "on_road": true,
-   "array": false
+   "array": false,
+   "former_name": "Mục Ca Trấn",
+   "founded": 700,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 15.3,
+     "hoa": 10.96,
+     "tho": 11.8,
+     "kim": 10.03,
+     "thuy": 51.91
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 57,
@@ -3298,7 +4228,23 @@
    "holder": "thuy_vi",
    "territory": "thuy_vi",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 15.15,
+     "hoa": 11.12,
+     "tho": 12.24,
+     "kim": 10.63,
+     "thuy": 50.86
+    },
+    "variants": {},
+    "land_density": 0.807,
+    "land_danger": 1
+   },
+   "density": 0.767,
+   "danger": 1
   },
   {
    "id": 58,
@@ -3320,7 +4266,23 @@
    "holder": "thuy_vi",
    "territory": "thuy_vi",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 20.08,
+     "hoa": 8.74,
+     "tho": 15.2,
+     "kim": 18.86,
+     "thuy": 37.11
+    },
+    "variants": {},
+    "land_density": 0.945,
+    "land_danger": 1
+   },
+   "density": 0.905,
+   "danger": 1
   },
   {
    "id": 59,
@@ -3342,7 +4304,23 @@
    "holder": "thuy_vi",
    "territory": "thuy_vi",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 18.98,
+     "hoa": 11.09,
+     "tho": 17.16,
+     "kim": 13.12,
+     "thuy": 39.64
+    },
+    "variants": {},
+    "land_density": 0.901,
+    "land_danger": 1
+   },
+   "density": 0.861,
+   "danger": 1
   },
   {
    "id": 60,
@@ -3364,11 +4342,27 @@
    "holder": "lang_dao",
    "territory": "tung_dao",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 36.14,
+     "hoa": 8.97,
+     "tho": 10.9,
+     "kim": 7.98,
+     "thuy": 36.01
+    },
+    "variants": {},
+    "land_density": 0.897,
+    "land_danger": 1
+   },
+   "density": 0.857,
+   "danger": 1
   },
   {
    "id": 61,
-   "kind": "town",
+   "kind": "city",
    "tile": [
     215,
     164
@@ -3380,13 +4374,31 @@
    "river": true,
    "coast": false,
    "livability": 0.96,
-   "name": "Cổ Độ Trấn",
-   "name_han": "古渡鎮",
-   "gloss": "Old Ferry Town",
+   "name": "Cổ Độ Thành",
+   "name_han": "古渡城",
+   "gloss": "Old Ferry City",
    "holder": "tung_dao",
    "territory": "tung_dao",
    "on_road": true,
-   "array": false
+   "array": false,
+   "former_name": "Cổ Độ Trấn",
+   "founded": 320,
+   "qi": {
+    "part": 0,
+    "part_biome": "bamboo_forest",
+    "shares": {
+     "moc": 44.86,
+     "hoa": 10.15,
+     "tho": 12.63,
+     "kim": 8.74,
+     "thuy": 23.61
+    },
+    "variants": {},
+    "land_density": 1.073,
+    "land_danger": 1
+   },
+   "density": 1.033,
+   "danger": 1
   },
   {
    "id": 62,
@@ -3408,7 +4420,23 @@
    "holder": "thai_chi",
    "territory": "tung_dao",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 49.16,
+     "hoa": 8.78,
+     "tho": 11.0,
+     "kim": 7.32,
+     "thuy": 23.73
+    },
+    "variants": {},
+    "land_density": 1.032,
+    "land_danger": 1
+   },
+   "density": 0.992,
+   "danger": 1
   },
   {
    "id": 63,
@@ -3430,7 +4458,23 @@
    "holder": "tung_dao",
    "territory": "tung_dao",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 48.52,
+     "hoa": 9.01,
+     "tho": 11.47,
+     "kim": 7.5,
+     "thuy": 23.5
+    },
+    "variants": {},
+    "land_density": 0.998,
+    "land_danger": 1
+   },
+   "density": 0.958,
+   "danger": 1
   },
   {
    "id": 64,
@@ -3452,11 +4496,27 @@
    "holder": "thien_xu",
    "territory": "thien_xu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 39.64,
+     "hoa": 11.36,
+     "tho": 16.1,
+     "kim": 9.35,
+     "thuy": 23.55
+    },
+    "variants": {},
+    "land_density": 0.972,
+    "land_danger": 1
+   },
+   "density": 0.932,
+   "danger": 1
   },
   {
    "id": 65,
-   "kind": "town",
+   "kind": "city",
    "tile": [
     300,
     159
@@ -3468,13 +4528,31 @@
    "river": true,
    "coast": false,
    "livability": 0.7,
-   "name": "Thanh Bách Trấn",
-   "name_han": "青柏鎮",
-   "gloss": "Green Cypress Town",
+   "name": "Thanh Bách Thành",
+   "name_han": "青柏城",
+   "gloss": "Green Cypress City",
    "holder": "thien_xu",
    "territory": "thien_xu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "former_name": "Thanh Bách Trấn",
+   "founded": 520,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 28.3,
+     "hoa": 14.86,
+     "tho": 24.71,
+     "kim": 11.91,
+     "thuy": 20.22
+    },
+    "variants": {},
+    "land_density": 0.952,
+    "land_danger": 1
+   },
+   "density": 0.912,
+   "danger": 1
   },
   {
    "id": 66,
@@ -3496,11 +4574,27 @@
    "holder": "le_hoa",
    "territory": "bang_tam",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 30.28,
+     "hoa": 9.05,
+     "tho": 11.44,
+     "kim": 9.89,
+     "thuy": 39.34
+    },
+    "variants": {},
+    "land_density": 0.931,
+    "land_danger": 1
+   },
+   "density": 0.891,
+   "danger": 1
   },
   {
    "id": 67,
-   "kind": "town",
+   "kind": "city",
    "tile": [
     493,
     156
@@ -3512,17 +4606,35 @@
    "river": false,
    "coast": true,
    "livability": 0.81,
-   "name": "Hồi Lan Trấn",
-   "name_han": "迴瀾鎮",
-   "gloss": "Turning Waves Town",
+   "name": "Hồi Lan Thành",
+   "name_han": "迴瀾城",
+   "gloss": "Turning Waves City",
    "holder": "bang_tam",
    "territory": "bang_tam",
    "on_road": true,
-   "array": false
+   "array": false,
+   "former_name": "Hồi Lan Trấn",
+   "founded": 760,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 10.99,
+     "hoa": 17.68,
+     "tho": 25.39,
+     "kim": 13.82,
+     "thuy": 32.13
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 68,
-   "kind": "town",
+   "kind": "city",
    "tile": [
     444,
     111
@@ -3534,13 +4646,31 @@
    "river": false,
    "coast": true,
    "livability": 0.73,
-   "name": "Mộc Lan Trấn",
-   "name_han": "木蘭鎮",
-   "gloss": "Magnolia Town",
+   "name": "Mộc Lan Thành",
+   "name_han": "木蘭城",
+   "gloss": "Magnolia City",
    "holder": "bang_tam",
    "territory": "bang_tam",
    "on_road": true,
-   "array": false
+   "array": false,
+   "former_name": "Mộc Lan Trấn",
+   "founded": 620,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 30.35,
+     "hoa": 10.54,
+     "tho": 12.47,
+     "kim": 9.7,
+     "thuy": 36.94
+    },
+    "variants": {},
+    "land_density": 0.856,
+    "land_danger": 1
+   },
+   "density": 0.816,
+   "danger": 1
   },
   {
    "id": 69,
@@ -3562,7 +4692,23 @@
    "holder": "bang_tam",
    "territory": "bang_tam",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 17.35,
+     "hoa": 13.47,
+     "tho": 18.75,
+     "kim": 11.93,
+     "thuy": 38.49
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 70,
@@ -3584,7 +4730,23 @@
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 20.62,
+     "hoa": 17.21,
+     "tho": 19.63,
+     "kim": 10.36,
+     "thuy": 32.18
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 71,
@@ -3606,11 +4768,27 @@
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 23.51,
+     "hoa": 18.4,
+     "tho": 20.81,
+     "kim": 10.79,
+     "thuy": 26.5
+    },
+    "variants": {},
+    "land_density": 0.819,
+    "land_danger": 1
+   },
+   "density": 0.779,
+   "danger": 1
   },
   {
    "id": 72,
-   "kind": "town",
+   "kind": "city",
    "tile": [
     62,
     289
@@ -3622,13 +4800,31 @@
    "river": true,
    "coast": true,
    "livability": 1.23,
-   "name": "Triều Âm Trấn",
-   "name_han": "潮音鎮",
-   "gloss": "Tide Song Town",
+   "name": "Triều Âm Thành",
+   "name_han": "潮音城",
+   "gloss": "Tide Song City",
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "former_name": "Triều Âm Trấn",
+   "founded": 540,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 31.51,
+     "hoa": 13.94,
+     "tho": 9.48,
+     "kim": 7.92,
+     "thuy": 37.16
+    },
+    "variants": {},
+    "land_density": 0.861,
+    "land_danger": 1
+   },
+   "density": 0.821,
+   "danger": 1
   },
   {
    "id": 73,
@@ -3650,11 +4846,27 @@
    "holder": "muc_van",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 28.51,
+     "hoa": 15.66,
+     "tho": 18.57,
+     "kim": 10.05,
+     "thuy": 27.21
+    },
+    "variants": {},
+    "land_density": 0.946,
+    "land_danger": 1
+   },
+   "density": 0.906,
+   "danger": 1
   },
   {
    "id": 74,
-   "kind": "town",
+   "kind": "city",
    "tile": [
     152,
     174
@@ -3666,13 +4878,31 @@
    "river": false,
    "coast": true,
    "livability": 1.21,
-   "name": "Thảo Đường Trấn",
-   "name_han": "草塘鎮",
-   "gloss": "Grass Pond Town",
+   "name": "Thảo Đường Thành",
+   "name_han": "草塘城",
+   "gloss": "Grass Pond City",
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "former_name": "Thảo Đường Trấn",
+   "founded": 680,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 26.4,
+     "hoa": 16.01,
+     "tho": 18.72,
+     "kim": 10.03,
+     "thuy": 28.84
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 75,
@@ -3694,7 +4924,23 @@
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 27.93,
+     "hoa": 14.82,
+     "tho": 17.37,
+     "kim": 9.93,
+     "thuy": 29.95
+    },
+    "variants": {},
+    "land_density": 0.781,
+    "land_danger": 1
+   },
+   "density": 0.741,
+   "danger": 1
   },
   {
    "id": 76,
@@ -3716,7 +4962,23 @@
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 34.71,
+     "hoa": 17.34,
+     "tho": 21.02,
+     "kim": 9.87,
+     "thuy": 17.06
+    },
+    "variants": {},
+    "land_density": 0.844,
+    "land_danger": 1
+   },
+   "density": 0.804,
+   "danger": 1
   },
   {
    "id": 77,
@@ -3738,11 +5000,27 @@
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 23.43,
+     "hoa": 16.28,
+     "tho": 18.55,
+     "kim": 11.4,
+     "thuy": 30.34
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 78,
-   "kind": "town",
+   "kind": "city",
    "tile": [
     151,
     290
@@ -3754,13 +5032,31 @@
    "river": false,
    "coast": true,
    "livability": 0.83,
-   "name": "Ngũ Cốc Trấn",
-   "name_han": "五穀鎮",
-   "gloss": "Five Grains Town",
+   "name": "Ngũ Cốc Thành",
+   "name_han": "五穀城",
+   "gloss": "Five Grains City",
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "former_name": "Ngũ Cốc Trấn",
+   "founded": 1010,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 24.75,
+     "hoa": 16.67,
+     "tho": 18.75,
+     "kim": 11.45,
+     "thuy": 28.38
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 79,
@@ -3782,11 +5078,27 @@
    "holder": "nam_pho",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 32.07,
+     "hoa": 10.66,
+     "tho": 12.61,
+     "kim": 8.28,
+     "thuy": 36.38
+    },
+    "variants": {},
+    "land_density": 1.137,
+    "land_danger": 1
+   },
+   "density": 1.097,
+   "danger": 1
   },
   {
    "id": 80,
-   "kind": "town",
+   "kind": "city",
    "tile": [
     183,
     181
@@ -3798,17 +5110,35 @@
    "river": true,
    "coast": false,
    "livability": 1.38,
-   "name": "Tang Ma Trấn",
-   "name_han": "桑麻鎮",
-   "gloss": "Mulberry and Hemp Town",
+   "name": "Tang Ma Thành",
+   "name_han": "桑麻城",
+   "gloss": "Mulberry and Hemp City",
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "former_name": "Tang Ma Trấn",
+   "founded": 330,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 36.25,
+     "hoa": 15.4,
+     "tho": 19.34,
+     "kim": 8.65,
+     "thuy": 20.35
+    },
+    "variants": {},
+    "land_density": 0.84,
+    "land_danger": 1
+   },
+   "density": 0.8,
+   "danger": 1
   },
   {
    "id": 81,
-   "kind": "town",
+   "kind": "city",
    "tile": [
     294,
     211
@@ -3820,13 +5150,31 @@
    "river": true,
    "coast": false,
    "livability": 0.4,
-   "name": "Thạch Kiều Trấn",
-   "name_han": "石橋鎮",
-   "gloss": "Stone Bridge Town",
+   "name": "Thạch Kiều Thành",
+   "name_han": "石橋城",
+   "gloss": "Stone Bridge City",
    "holder": "thien_xu",
    "territory": "thien_xu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "former_name": "Thạch Kiều Trấn",
+   "founded": 150,
+   "qi": {
+    "part": 0,
+    "part_biome": "steppe",
+    "shares": {
+     "moc": 9.47,
+     "hoa": 23.59,
+     "tho": 37.28,
+     "kim": 15.54,
+     "thuy": 14.13
+    },
+    "variants": {},
+    "land_density": 0.743,
+    "land_danger": 1
+   },
+   "density": 0.703,
+   "danger": 1
   },
   {
    "id": 82,
@@ -3848,7 +5196,23 @@
    "holder": "thien_xu",
    "territory": "thien_xu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 26.38,
+     "hoa": 18.97,
+     "tho": 26.44,
+     "kim": 12.54,
+     "thuy": 15.68
+    },
+    "variants": {},
+    "land_density": 0.841,
+    "land_danger": 1
+   },
+   "density": 0.801,
+   "danger": 1
   },
   {
    "id": 83,
@@ -3870,11 +5234,27 @@
    "holder": "phuong_minh",
    "territory": "phuong_minh",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 24.0,
+     "hoa": 18.9,
+     "tho": 23.58,
+     "kim": 9.96,
+     "thuy": 23.57
+    },
+    "variants": {},
+    "land_density": 0.834,
+    "land_danger": 1
+   },
+   "density": 0.794,
+   "danger": 1
   },
   {
    "id": 84,
-   "kind": "town",
+   "kind": "city",
    "tile": [
     395,
     255
@@ -3886,17 +5266,35 @@
    "river": true,
    "coast": true,
    "livability": 1.2,
-   "name": "Thanh Khê Trấn",
-   "name_han": "清溪鎮",
-   "gloss": "Clear Brook Town",
+   "name": "Thanh Khê Thành",
+   "name_han": "清溪城",
+   "gloss": "Clear Brook City",
    "holder": "phuong_minh",
    "territory": "phuong_minh",
    "on_road": true,
-   "array": false
+   "array": false,
+   "former_name": "Thanh Khê Trấn",
+   "founded": 560,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 27.23,
+     "hoa": 9.72,
+     "tho": 11.0,
+     "kim": 14.54,
+     "thuy": 37.52
+    },
+    "variants": {},
+    "land_density": 0.84,
+    "land_danger": 1
+   },
+   "density": 0.8,
+   "danger": 1
   },
   {
    "id": 85,
-   "kind": "town",
+   "kind": "city",
    "tile": [
     412,
     182
@@ -3908,13 +5306,31 @@
    "river": true,
    "coast": false,
    "livability": 1.35,
-   "name": "Hoàng Vân Trấn",
-   "name_han": "黃雲鎮",
-   "gloss": "Yellow Clouds of Grain Town",
+   "name": "Hoàng Vân Thành",
+   "name_han": "黃雲城",
+   "gloss": "Yellow Clouds of Grain City",
    "holder": "phuong_minh",
    "territory": "phuong_minh",
    "on_road": true,
-   "array": false
+   "array": false,
+   "former_name": "Hoàng Vân Trấn",
+   "founded": 600,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 30.57,
+     "hoa": 16.11,
+     "tho": 22.43,
+     "kim": 12.56,
+     "thuy": 18.32
+    },
+    "variants": {},
+    "land_density": 0.842,
+    "land_danger": 1
+   },
+   "density": 0.802,
+   "danger": 1
   },
   {
    "id": 86,
@@ -3936,7 +5352,23 @@
    "holder": "phuong_minh",
    "territory": "phuong_minh",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 29.1,
+     "hoa": 13.66,
+     "tho": 20.44,
+     "kim": 14.8,
+     "thuy": 22.0
+    },
+    "variants": {},
+    "land_density": 0.843,
+    "land_danger": 1
+   },
+   "density": 0.803,
+   "danger": 1
   },
   {
    "id": 87,
@@ -3958,7 +5390,23 @@
    "holder": "le_tuyen",
    "territory": "phuong_minh",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 21.58,
+     "hoa": 14.02,
+     "tho": 24.24,
+     "kim": 18.96,
+     "thuy": 21.19
+    },
+    "variants": {},
+    "land_density": 0.934,
+    "land_danger": 1
+   },
+   "density": 0.894,
+   "danger": 1
   },
   {
    "id": 88,
@@ -3980,11 +5428,27 @@
    "holder": "thinh_vu",
    "territory": "thinh_vu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 40.56,
+     "hoa": 14.14,
+     "tho": 16.55,
+     "kim": 12.72,
+     "thuy": 16.03
+    },
+    "variants": {},
+    "land_density": 0.831,
+    "land_danger": 1
+   },
+   "density": 0.791,
+   "danger": 1
   },
   {
    "id": 89,
-   "kind": "town",
+   "kind": "city",
    "tile": [
     257,
     290
@@ -3996,17 +5460,35 @@
    "river": true,
    "coast": false,
    "livability": 0.95,
-   "name": "Xuân Thảo Trấn",
-   "name_han": "春草鎮",
-   "gloss": "Spring Grass Town",
+   "name": "Xuân Thảo Thành",
+   "name_han": "春草城",
+   "gloss": "Spring Grass City",
    "holder": "thinh_vu",
    "territory": "thinh_vu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "former_name": "Xuân Thảo Trấn",
+   "founded": 640,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 43.5,
+     "hoa": 12.62,
+     "tho": 11.01,
+     "kim": 13.15,
+     "thuy": 19.71
+    },
+    "variants": {},
+    "land_density": 0.843,
+    "land_danger": 1
+   },
+   "density": 0.803,
+   "danger": 1
   },
   {
    "id": 90,
-   "kind": "town",
+   "kind": "city",
    "tile": [
     278,
     261
@@ -4018,13 +5500,31 @@
    "river": true,
    "coast": true,
    "livability": 0.97,
-   "name": "Lãng Hoa Trấn",
-   "name_han": "浪花鎮",
-   "gloss": "Spray Flowers Town",
+   "name": "Lãng Hoa Thành",
+   "name_han": "浪花城",
+   "gloss": "Spray Flowers City",
    "holder": "thinh_vu",
    "territory": "thinh_vu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "former_name": "Lãng Hoa Trấn",
+   "founded": 800,
+   "qi": {
+    "part": 0,
+    "part_biome": "steppe",
+    "shares": {
+     "moc": 15.31,
+     "hoa": 14.39,
+     "tho": 22.07,
+     "kim": 15.45,
+     "thuy": 32.79
+    },
+    "variants": {},
+    "land_density": 0.725,
+    "land_danger": 1
+   },
+   "density": 0.685,
+   "danger": 1
   },
   {
    "id": 91,
@@ -4046,7 +5546,23 @@
    "holder": "xuyen_lam",
    "territory": "thinh_vu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "bamboo_forest",
+    "shares": {
+     "moc": 38.44,
+     "hoa": 8.84,
+     "tho": 9.46,
+     "kim": 14.14,
+     "thuy": 29.11
+    },
+    "variants": {},
+    "land_density": 1.045,
+    "land_danger": 1
+   },
+   "density": 1.005,
+   "danger": 1
   },
   {
    "id": 92,
@@ -4068,11 +5584,27 @@
    "holder": "thinh_vu",
    "territory": "thinh_vu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 34.41,
+     "hoa": 12.14,
+     "tho": 10.95,
+     "kim": 11.14,
+     "thuy": 31.37
+    },
+    "variants": {},
+    "land_density": 0.845,
+    "land_danger": 1
+   },
+   "density": 0.805,
+   "danger": 1
   },
   {
    "id": 93,
-   "kind": "town",
+   "kind": "city",
    "tile": [
     465,
     229
@@ -4084,13 +5616,31 @@
    "river": false,
    "coast": true,
    "livability": 0.88,
-   "name": "Thạch Cơ Trấn",
-   "name_han": "石磯鎮",
-   "gloss": "Stone Jetty Town",
+   "name": "Thạch Cơ Thành",
+   "name_han": "石磯城",
+   "gloss": "Stone Jetty City",
    "holder": "phuong_minh",
    "territory": "phuong_minh",
    "on_road": true,
-   "array": false
+   "array": false,
+   "former_name": "Thạch Cơ Trấn",
+   "founded": 776,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 18.53,
+     "hoa": 21.78,
+     "tho": 30.4,
+     "kim": 12.85,
+     "thuy": 16.44
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 94,
@@ -4112,7 +5662,23 @@
    "holder": "phan_vu",
    "territory": "phuong_minh",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 17.48,
+     "hoa": 20.66,
+     "tho": 27.35,
+     "kim": 15.3,
+     "thuy": 19.2
+    },
+    "variants": {},
+    "land_density": 0.781,
+    "land_danger": 1
+   },
+   "density": 0.741,
+   "danger": 1
   },
   {
    "id": 95,
@@ -4134,7 +5700,23 @@
    "holder": "ham_nguyet",
    "territory": "tung_dao",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 21.64,
+     "hoa": 8.44,
+     "tho": 14.04,
+     "kim": 9.58,
+     "thuy": 46.31
+    },
+    "variants": {},
+    "land_density": 0.902,
+    "land_danger": 1
+   },
+   "density": 0.862,
+   "danger": 1
   },
   {
    "id": 96,
@@ -4156,7 +5738,23 @@
    "holder": "tung_dao",
    "territory": "tung_dao",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 28.4,
+     "hoa": 10.23,
+     "tho": 12.15,
+     "kim": 9.43,
+     "thuy": 39.79
+    },
+    "variants": {},
+    "land_density": 0.903,
+    "land_danger": 1
+   },
+   "density": 0.863,
+   "danger": 1
   },
   {
    "id": 97,
@@ -4178,7 +5776,23 @@
    "holder": "tung_dao",
    "territory": "tung_dao",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 26.63,
+     "hoa": 9.99,
+     "tho": 11.96,
+     "kim": 9.32,
+     "thuy": 42.1
+    },
+    "variants": {},
+    "land_density": 0.901,
+    "land_danger": 1
+   },
+   "density": 0.861,
+   "danger": 1
   },
   {
    "id": 98,
@@ -4200,7 +5814,23 @@
    "holder": "thuy_vi",
    "territory": "thuy_vi",
    "on_road": false,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 14.8,
+     "hoa": 10.89,
+     "tho": 11.7,
+     "kim": 10.04,
+     "thuy": 52.56
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 99,
@@ -4222,7 +5852,23 @@
    "holder": "thuy_vi",
    "territory": "thuy_vi",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 15.42,
+     "hoa": 11.14,
+     "tho": 12.0,
+     "kim": 10.03,
+     "thuy": 51.41
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 100,
@@ -4244,7 +5890,23 @@
    "holder": "thuy_vi",
    "territory": "thuy_vi",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 14.14,
+     "hoa": 10.48,
+     "tho": 11.5,
+     "kim": 10.84,
+     "thuy": 53.04
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 101,
@@ -4266,7 +5928,23 @@
    "holder": "thuy_vi",
    "territory": "thuy_vi",
    "on_road": false,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 12.88,
+     "hoa": 11.46,
+     "tho": 12.31,
+     "kim": 10.11,
+     "thuy": 53.24
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 102,
@@ -4288,7 +5966,23 @@
    "holder": "thuy_vi",
    "territory": "thuy_vi",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 41.6,
+     "hoa": 10.92,
+     "tho": 14.89,
+     "kim": 10.13,
+     "thuy": 22.46
+    },
+    "variants": {},
+    "land_density": 0.901,
+    "land_danger": 1
+   },
+   "density": 0.861,
+   "danger": 1
   },
   {
    "id": 103,
@@ -4310,7 +6004,23 @@
    "holder": "thuy_vi",
    "territory": "thuy_vi",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 25.97,
+     "hoa": 10.38,
+     "tho": 13.66,
+     "kim": 10.65,
+     "thuy": 39.35
+    },
+    "variants": {},
+    "land_density": 0.903,
+    "land_danger": 1
+   },
+   "density": 0.863,
+   "danger": 1
   },
   {
    "id": 104,
@@ -4332,7 +6042,25 @@
    "holder": "thuy_vi",
    "territory": "thuy_vi",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 15.16,
+     "hoa": 9.44,
+     "tho": 17.9,
+     "kim": 15.57,
+     "thuy": 41.93
+    },
+    "variants": {
+     "am": 0.16
+    },
+    "land_density": 0.902,
+    "land_danger": 1
+   },
+   "density": 0.862,
+   "danger": 1
   },
   {
    "id": 105,
@@ -4354,7 +6082,23 @@
    "holder": "tung_dao",
    "territory": "tung_dao",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 31.16,
+     "hoa": 10.68,
+     "tho": 12.44,
+     "kim": 9.71,
+     "thuy": 36.01
+    },
+    "variants": {},
+    "land_density": 0.902,
+    "land_danger": 1
+   },
+   "density": 0.862,
+   "danger": 1
   },
   {
    "id": 106,
@@ -4376,7 +6120,23 @@
    "holder": "tung_dao",
    "territory": "tung_dao",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 44.41,
+     "hoa": 9.31,
+     "tho": 11.59,
+     "kim": 7.96,
+     "thuy": 26.73
+    },
+    "variants": {},
+    "land_density": 0.988,
+    "land_danger": 1
+   },
+   "density": 0.948,
+   "danger": 1
   },
   {
    "id": 107,
@@ -4398,7 +6158,23 @@
    "holder": "tung_dao",
    "territory": "tung_dao",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 43.45,
+     "hoa": 9.68,
+     "tho": 12.88,
+     "kim": 9.59,
+     "thuy": 24.4
+    },
+    "variants": {},
+    "land_density": 0.996,
+    "land_danger": 1
+   },
+   "density": 0.956,
+   "danger": 1
   },
   {
    "id": 108,
@@ -4420,7 +6196,23 @@
    "holder": "tung_dao",
    "territory": "tung_dao",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 49.2,
+     "hoa": 8.72,
+     "tho": 10.91,
+     "kim": 7.29,
+     "thuy": 23.88
+    },
+    "variants": {},
+    "land_density": 1.028,
+    "land_danger": 1
+   },
+   "density": 0.988,
+   "danger": 1
   },
   {
    "id": 109,
@@ -4442,7 +6234,23 @@
    "holder": "tung_dao",
    "territory": "tung_dao",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 50.07,
+     "hoa": 8.55,
+     "tho": 10.71,
+     "kim": 7.13,
+     "thuy": 23.54
+    },
+    "variants": {},
+    "land_density": 1.032,
+    "land_danger": 1
+   },
+   "density": 0.992,
+   "danger": 1
   },
   {
    "id": 110,
@@ -4464,7 +6272,23 @@
    "holder": "tung_dao",
    "territory": "tung_dao",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 51.05,
+     "hoa": 8.28,
+     "tho": 10.35,
+     "kim": 6.9,
+     "thuy": 23.41
+    },
+    "variants": {},
+    "land_density": 1.061,
+    "land_danger": 2
+   },
+   "density": 1.021,
+   "danger": 1
   },
   {
    "id": 111,
@@ -4486,7 +6310,23 @@
    "holder": "cuu_cao",
    "territory": "thien_xu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 23.64,
+     "hoa": 10.61,
+     "tho": 11.83,
+     "kim": 10.01,
+     "thuy": 43.91
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 112,
@@ -4508,7 +6348,23 @@
    "holder": "thien_xu",
    "territory": "thien_xu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 44.18,
+     "hoa": 9.95,
+     "tho": 13.27,
+     "kim": 8.49,
+     "thuy": 24.11
+    },
+    "variants": {},
+    "land_density": 0.933,
+    "land_danger": 1
+   },
+   "density": 0.893,
+   "danger": 1
   },
   {
    "id": 113,
@@ -4530,7 +6386,23 @@
    "holder": "thien_xu",
    "territory": "thien_xu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 36.98,
+     "hoa": 12.15,
+     "tho": 17.88,
+     "kim": 9.95,
+     "thuy": 23.04
+    },
+    "variants": {},
+    "land_density": 0.95,
+    "land_danger": 1
+   },
+   "density": 0.91,
+   "danger": 1
   },
   {
    "id": 114,
@@ -4552,7 +6424,23 @@
    "holder": "bang_tam",
    "territory": "bang_tam",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 29.98,
+     "hoa": 10.05,
+     "tho": 12.49,
+     "kim": 9.3,
+     "thuy": 38.18
+    },
+    "variants": {},
+    "land_density": 0.811,
+    "land_danger": 1
+   },
+   "density": 0.771,
+   "danger": 1
   },
   {
    "id": 115,
@@ -4574,7 +6462,23 @@
    "holder": "bang_tam",
    "territory": "bang_tam",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 24.09,
+     "hoa": 10.12,
+     "tho": 12.57,
+     "kim": 10.79,
+     "thuy": 42.42
+    },
+    "variants": {},
+    "land_density": 0.901,
+    "land_danger": 1
+   },
+   "density": 0.861,
+   "danger": 1
   },
   {
    "id": 116,
@@ -4596,7 +6500,23 @@
    "holder": "bang_tam",
    "territory": "bang_tam",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 8.26,
+     "hoa": 17.56,
+     "tho": 27.97,
+     "kim": 14.45,
+     "thuy": 31.76
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 117,
@@ -4618,7 +6538,23 @@
    "holder": "da_quang",
    "territory": "bang_tam",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 24.42,
+     "hoa": 22.12,
+     "tho": 29.83,
+     "kim": 11.98,
+     "thuy": 11.65
+    },
+    "variants": {},
+    "land_density": 0.905,
+    "land_danger": 1
+   },
+   "density": 0.865,
+   "danger": 1
   },
   {
    "id": 118,
@@ -4640,7 +6576,23 @@
    "holder": "bang_tam",
    "territory": "bang_tam",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 28.01,
+     "hoa": 23.96,
+     "tho": 30.46,
+     "kim": 11.11,
+     "thuy": 6.47
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 119,
@@ -4662,7 +6614,23 @@
    "holder": "trac_anh",
    "territory": "bang_tam",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 35.53,
+     "hoa": 10.66,
+     "tho": 13.79,
+     "kim": 9.73,
+     "thuy": 30.29
+    },
+    "variants": {},
+    "land_density": 1.092,
+    "land_danger": 1
+   },
+   "density": 1.052,
+   "danger": 1
   },
   {
    "id": 120,
@@ -4684,7 +6652,23 @@
    "holder": "bang_tam",
    "territory": "bang_tam",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 27.36,
+     "hoa": 10.43,
+     "tho": 12.48,
+     "kim": 9.83,
+     "thuy": 39.91
+    },
+    "variants": {},
+    "land_density": 0.905,
+    "land_danger": 1
+   },
+   "density": 0.865,
+   "danger": 1
   },
   {
    "id": 121,
@@ -4706,7 +6690,23 @@
    "holder": "bang_tam",
    "territory": "bang_tam",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 25.53,
+     "hoa": 11.46,
+     "tho": 13.76,
+     "kim": 10.33,
+     "thuy": 38.92
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 122,
@@ -4728,7 +6728,23 @@
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 18.07,
+     "hoa": 17.87,
+     "tho": 21.89,
+     "kim": 11.02,
+     "thuy": 31.15
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 123,
@@ -4750,7 +6766,23 @@
    "holder": "binh_thuy",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 23.15,
+     "hoa": 15.81,
+     "tho": 17.93,
+     "kim": 11.49,
+     "thuy": 31.62
+    },
+    "variants": {},
+    "land_density": 1.01,
+    "land_danger": 1
+   },
+   "density": 0.97,
+   "danger": 1
   },
   {
    "id": 124,
@@ -4772,7 +6804,23 @@
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 24.61,
+     "hoa": 17.95,
+     "tho": 20.91,
+     "kim": 10.01,
+     "thuy": 26.52
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 125,
@@ -4794,7 +6842,23 @@
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 31.44,
+     "hoa": 13.34,
+     "tho": 15.54,
+     "kim": 11.42,
+     "thuy": 28.26
+    },
+    "variants": {},
+    "land_density": 0.843,
+    "land_danger": 1
+   },
+   "density": 0.803,
+   "danger": 1
   },
   {
    "id": 126,
@@ -4816,7 +6880,23 @@
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 26.83,
+     "hoa": 14.94,
+     "tho": 17.15,
+     "kim": 11.34,
+     "thuy": 29.74
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 127,
@@ -4838,7 +6918,23 @@
    "holder": "muc_van",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 22.37,
+     "hoa": 13.86,
+     "tho": 15.77,
+     "kim": 10.0,
+     "thuy": 38.0
+    },
+    "variants": {},
+    "land_density": 0.781,
+    "land_danger": 1
+   },
+   "density": 0.741,
+   "danger": 1
   },
   {
    "id": 128,
@@ -4860,7 +6956,23 @@
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 23.94,
+     "hoa": 14.07,
+     "tho": 16.14,
+     "kim": 10.01,
+     "thuy": 35.84
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 129,
@@ -4882,7 +6994,23 @@
    "holder": "muc_van",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 22.63,
+     "hoa": 14.47,
+     "tho": 16.61,
+     "kim": 10.21,
+     "thuy": 36.07
+    },
+    "variants": {},
+    "land_density": 0.92,
+    "land_danger": 1
+   },
+   "density": 0.88,
+   "danger": 1
   },
   {
    "id": 130,
@@ -4904,7 +7032,23 @@
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 25.65,
+     "hoa": 16.13,
+     "tho": 18.83,
+     "kim": 10.03,
+     "thuy": 29.36
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 131,
@@ -4926,7 +7070,23 @@
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 29.57,
+     "hoa": 18.57,
+     "tho": 23.08,
+     "kim": 10.73,
+     "thuy": 18.05
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 132,
@@ -4948,7 +7108,23 @@
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 31.22,
+     "hoa": 16.74,
+     "tho": 22.17,
+     "kim": 10.93,
+     "thuy": 18.94
+    },
+    "variants": {},
+    "land_density": 0.84,
+    "land_danger": 1
+   },
+   "density": 0.8,
+   "danger": 1
   },
   {
    "id": 133,
@@ -4970,7 +7146,23 @@
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 31.25,
+     "hoa": 18.15,
+     "tho": 22.45,
+     "kim": 9.93,
+     "thuy": 18.22
+    },
+    "variants": {},
+    "land_density": 0.843,
+    "land_danger": 1
+   },
+   "density": 0.803,
+   "danger": 1
   },
   {
    "id": 134,
@@ -4992,7 +7184,23 @@
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 28.59,
+     "hoa": 16.63,
+     "tho": 18.52,
+     "kim": 12.48,
+     "thuy": 23.78
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 135,
@@ -5014,7 +7222,23 @@
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 23.73,
+     "hoa": 14.51,
+     "tho": 16.29,
+     "kim": 12.09,
+     "thuy": 33.38
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 136,
@@ -5036,7 +7260,23 @@
    "holder": "nam_pho",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 42.41,
+     "hoa": 11.1,
+     "tho": 13.86,
+     "kim": 8.91,
+     "thuy": 23.72
+    },
+    "variants": {},
+    "land_density": 0.906,
+    "land_danger": 1
+   },
+   "density": 0.866,
+   "danger": 1
   },
   {
    "id": 137,
@@ -5058,7 +7298,23 @@
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 40.92,
+     "hoa": 10.98,
+     "tho": 14.4,
+     "kim": 10.8,
+     "thuy": 22.9
+    },
+    "variants": {},
+    "land_density": 0.844,
+    "land_danger": 1
+   },
+   "density": 0.804,
+   "danger": 1
   },
   {
    "id": 138,
@@ -5080,7 +7336,23 @@
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 30.4,
+     "hoa": 14.84,
+     "tho": 17.6,
+     "kim": 9.83,
+     "thuy": 27.33
+    },
+    "variants": {},
+    "land_density": 0.77,
+    "land_danger": 1
+   },
+   "density": 0.73,
+   "danger": 1
   },
   {
    "id": 139,
@@ -5102,7 +7374,23 @@
    "holder": "lac_ha",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 30.92,
+     "hoa": 18.21,
+     "tho": 23.84,
+     "kim": 9.48,
+     "thuy": 17.56
+    },
+    "variants": {},
+    "land_density": 0.843,
+    "land_danger": 1
+   },
+   "density": 0.803,
+   "danger": 1
   },
   {
    "id": 140,
@@ -5124,7 +7412,23 @@
    "holder": "thien_xu",
    "territory": "thien_xu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 34.14,
+     "hoa": 13.11,
+     "tho": 20.17,
+     "kim": 10.78,
+     "thuy": 21.8
+    },
+    "variants": {},
+    "land_density": 0.948,
+    "land_danger": 1
+   },
+   "density": 0.908,
+   "danger": 1
   },
   {
    "id": 141,
@@ -5146,7 +7450,23 @@
    "holder": "thien_xu",
    "territory": "thien_xu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 16.33,
+     "hoa": 18.83,
+     "tho": 35.66,
+     "kim": 14.58,
+     "thuy": 14.61
+    },
+    "variants": {},
+    "land_density": 0.932,
+    "land_danger": 1
+   },
+   "density": 0.892,
+   "danger": 1
   },
   {
    "id": 142,
@@ -5168,7 +7488,23 @@
    "holder": "thien_xu",
    "territory": "thien_xu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 23.61,
+     "hoa": 15.66,
+     "tho": 21.79,
+     "kim": 13.38,
+     "thuy": 25.56
+    },
+    "variants": {},
+    "land_density": 0.843,
+    "land_danger": 1
+   },
+   "density": 0.803,
+   "danger": 1
   },
   {
    "id": 143,
@@ -5190,7 +7526,23 @@
    "holder": "thien_xu",
    "territory": "thien_xu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 20.65,
+     "hoa": 18.55,
+     "tho": 29.68,
+     "kim": 15.23,
+     "thuy": 15.89
+    },
+    "variants": {},
+    "land_density": 0.843,
+    "land_danger": 1
+   },
+   "density": 0.803,
+   "danger": 1
   },
   {
    "id": 144,
@@ -5212,7 +7564,23 @@
    "holder": "thien_xu",
    "territory": "thien_xu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 14.58,
+     "hoa": 14.76,
+     "tho": 21.1,
+     "kim": 18.13,
+     "thuy": 31.43
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 145,
@@ -5234,7 +7602,23 @@
    "holder": "phuong_minh",
    "territory": "phuong_minh",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 29.57,
+     "hoa": 17.19,
+     "tho": 22.47,
+     "kim": 13.05,
+     "thuy": 17.72
+    },
+    "variants": {},
+    "land_density": 0.845,
+    "land_danger": 1
+   },
+   "density": 0.805,
+   "danger": 1
   },
   {
    "id": 146,
@@ -5256,7 +7640,23 @@
    "holder": "phuong_minh",
    "territory": "phuong_minh",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 29.0,
+     "hoa": 19.49,
+     "tho": 22.82,
+     "kim": 9.21,
+     "thuy": 19.48
+    },
+    "variants": {},
+    "land_density": 0.843,
+    "land_danger": 1
+   },
+   "density": 0.803,
+   "danger": 1
   },
   {
    "id": 147,
@@ -5278,7 +7678,23 @@
    "holder": "truc_thuc",
    "territory": "phuong_minh",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "bamboo_forest",
+    "shares": {
+     "moc": 37.15,
+     "hoa": 8.56,
+     "tho": 9.38,
+     "kim": 14.2,
+     "thuy": 30.71
+    },
+    "variants": {},
+    "land_density": 1.27,
+    "land_danger": 1
+   },
+   "density": 1.23,
+   "danger": 1
   },
   {
    "id": 148,
@@ -5300,7 +7716,23 @@
    "holder": "phuong_minh",
    "territory": "phuong_minh",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 22.46,
+     "hoa": 22.64,
+     "tho": 25.89,
+     "kim": 12.65,
+     "thuy": 16.36
+    },
+    "variants": {},
+    "land_density": 0.843,
+    "land_danger": 1
+   },
+   "density": 0.803,
+   "danger": 1
   },
   {
    "id": 149,
@@ -5322,7 +7754,23 @@
    "holder": "phuong_minh",
    "territory": "phuong_minh",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 20.53,
+     "hoa": 16.05,
+     "tho": 18.71,
+     "kim": 10.25,
+     "thuy": 34.45
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 150,
@@ -5344,7 +7792,23 @@
    "holder": "phuong_minh",
    "territory": "phuong_minh",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 31.54,
+     "hoa": 14.98,
+     "tho": 20.71,
+     "kim": 13.18,
+     "thuy": 19.59
+    },
+    "variants": {},
+    "land_density": 0.953,
+    "land_danger": 1
+   },
+   "density": 0.913,
+   "danger": 1
   },
   {
    "id": 151,
@@ -5366,7 +7830,23 @@
    "holder": "phuong_minh",
    "territory": "phuong_minh",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 22.07,
+     "hoa": 19.96,
+     "tho": 24.63,
+     "kim": 10.82,
+     "thuy": 22.52
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 152,
@@ -5388,7 +7868,23 @@
    "holder": "phuong_minh",
    "territory": "phuong_minh",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 25.96,
+     "hoa": 14.85,
+     "tho": 22.63,
+     "kim": 14.63,
+     "thuy": 21.92
+    },
+    "variants": {},
+    "land_density": 0.836,
+    "land_danger": 1
+   },
+   "density": 0.796,
+   "danger": 1
   },
   {
    "id": 153,
@@ -5410,7 +7906,23 @@
    "holder": "thinh_vu",
    "territory": "thinh_vu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 37.36,
+     "hoa": 15.85,
+     "tho": 18.67,
+     "kim": 11.08,
+     "thuy": 17.04
+    },
+    "variants": {},
+    "land_density": 0.842,
+    "land_danger": 1
+   },
+   "density": 0.802,
+   "danger": 1
   },
   {
    "id": 154,
@@ -5432,7 +7944,23 @@
    "holder": "thinh_vu",
    "territory": "thinh_vu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 38.66,
+     "hoa": 18.19,
+     "tho": 14.36,
+     "kim": 8.68,
+     "thuy": 20.1
+    },
+    "variants": {},
+    "land_density": 0.844,
+    "land_danger": 1
+   },
+   "density": 0.804,
+   "danger": 1
   },
   {
    "id": 155,
@@ -5454,7 +7982,23 @@
    "holder": "thinh_vu",
    "territory": "thinh_vu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 38.88,
+     "hoa": 17.31,
+     "tho": 14.91,
+     "kim": 9.68,
+     "thuy": 19.22
+    },
+    "variants": {},
+    "land_density": 0.843,
+    "land_danger": 1
+   },
+   "density": 0.803,
+   "danger": 1
   },
   {
    "id": 156,
@@ -5476,7 +8020,23 @@
    "holder": "hong_dau",
    "territory": "thinh_vu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 37.38,
+     "hoa": 21.08,
+     "tho": 15.01,
+     "kim": 6.86,
+     "thuy": 19.67
+    },
+    "variants": {},
+    "land_density": 0.829,
+    "land_danger": 1
+   },
+   "density": 0.789,
+   "danger": 1
   },
   {
    "id": 157,
@@ -5498,7 +8058,23 @@
    "holder": "thinh_vu",
    "territory": "thinh_vu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 39.93,
+     "hoa": 11.07,
+     "tho": 14.73,
+     "kim": 15.36,
+     "thuy": 18.9
+    },
+    "variants": {},
+    "land_density": 0.837,
+    "land_danger": 1
+   },
+   "density": 0.797,
+   "danger": 1
   },
   {
    "id": 158,
@@ -5520,7 +8096,23 @@
    "holder": "thinh_vu",
    "territory": "thinh_vu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 44.6,
+     "hoa": 8.57,
+     "tho": 9.57,
+     "kim": 17.29,
+     "thuy": 19.97
+    },
+    "variants": {},
+    "land_density": 0.83,
+    "land_danger": 1
+   },
+   "density": 0.79,
+   "danger": 1
   },
   {
    "id": 159,
@@ -5542,7 +8134,23 @@
    "holder": "thinh_vu",
    "territory": "thinh_vu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 44.59,
+     "hoa": 13.37,
+     "tho": 10.51,
+     "kim": 13.27,
+     "thuy": 18.25
+    },
+    "variants": {},
+    "land_density": 0.835,
+    "land_danger": 1
+   },
+   "density": 0.795,
+   "danger": 1
   },
   {
    "id": 160,
@@ -5564,7 +8172,23 @@
    "holder": "thinh_vu",
    "territory": "thinh_vu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 41.9,
+     "hoa": 15.66,
+     "tho": 11.77,
+     "kim": 10.64,
+     "thuy": 20.04
+    },
+    "variants": {},
+    "land_density": 0.842,
+    "land_danger": 1
+   },
+   "density": 0.802,
+   "danger": 1
   },
   {
    "id": 161,
@@ -5586,7 +8210,23 @@
    "holder": "phuong_minh",
    "territory": "phuong_minh",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 14.22,
+     "hoa": 20.3,
+     "tho": 29.9,
+     "kim": 13.77,
+     "thuy": 21.81
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 162,
@@ -5608,7 +8248,23 @@
    "holder": "phuong_minh",
    "territory": "phuong_minh",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 19.3,
+     "hoa": 19.93,
+     "tho": 23.9,
+     "kim": 14.4,
+     "thuy": 22.47
+    },
+    "variants": {},
+    "land_density": 0.773,
+    "land_danger": 1
+   },
+   "density": 0.733,
+   "danger": 1
   },
   {
    "id": 163,
@@ -5630,7 +8286,23 @@
    "holder": "phuong_minh",
    "territory": "phuong_minh",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 20.35,
+     "hoa": 16.18,
+     "tho": 18.88,
+     "kim": 11.2,
+     "thuy": 33.38
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 0.76,
+   "danger": 1
   },
   {
    "id": 164,
@@ -5652,7 +8324,23 @@
    "holder": "phuong_minh",
    "territory": "phuong_minh",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 29.43,
+     "hoa": 15.09,
+     "tho": 15.12,
+     "kim": 17.01,
+     "thuy": 23.35
+    },
+    "variants": {},
+    "land_density": 0.843,
+    "land_danger": 1
+   },
+   "density": 0.803,
+   "danger": 1
   },
   {
    "id": 165,
@@ -5675,7 +8363,23 @@
    "holder": "hong_lo",
    "territory": "thuy_vi",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 14.62,
+     "hoa": 7.61,
+     "tho": 17.16,
+     "kim": 51.31,
+     "thuy": 9.3
+    },
+    "variants": {},
+    "land_density": 1.426,
+    "land_danger": 1
+   },
+   "density": 1.306,
+   "danger": 1
   },
   {
    "id": 166,
@@ -5698,7 +8402,23 @@
    "holder": "van_khoi",
    "territory": "thuy_vi",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 19.57,
+     "hoa": 7.69,
+     "tho": 15.16,
+     "kim": 46.82,
+     "thuy": 10.75
+    },
+    "variants": {},
+    "land_density": 1.525,
+    "land_danger": 2
+   },
+   "density": 1.405,
+   "danger": 2
   },
   {
    "id": 167,
@@ -5721,7 +8441,23 @@
    "holder": "van_hac",
    "territory": "tung_dao",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 25.58,
+     "hoa": 7.77,
+     "tho": 12.57,
+     "kim": 43.27,
+     "thuy": 10.82
+    },
+    "variants": {},
+    "land_density": 1.511,
+    "land_danger": 2
+   },
+   "density": 1.391,
+   "danger": 2
   },
   {
    "id": 168,
@@ -5744,7 +8480,23 @@
    "holder": "bang_tam",
    "territory": "bang_tam",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 11.51,
+     "hoa": 7.31,
+     "tho": 14.07,
+     "kim": 47.44,
+     "thuy": 19.67
+    },
+    "variants": {},
+    "land_density": 1.252,
+    "land_danger": 2
+   },
+   "density": 1.132,
+   "danger": 2
   },
   {
    "id": 169,
@@ -5767,7 +8519,23 @@
    "holder": "thien_bao",
    "territory": "lac_ha",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "badlands",
+    "shares": {
+     "moc": 3.48,
+     "hoa": 17.52,
+     "tho": 33.56,
+     "kim": 41.8,
+     "thuy": 3.63
+    },
+    "variants": {},
+    "land_density": 0.895,
+    "land_danger": 2
+   },
+   "density": 0.775,
+   "danger": 2
   },
   {
    "id": 170,
@@ -5790,7 +8558,23 @@
    "holder": "thien_xu",
    "territory": "thien_xu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "badlands",
+    "shares": {
+     "moc": 5.64,
+     "hoa": 14.5,
+     "tho": 29.54,
+     "kim": 45.65,
+     "thuy": 4.67
+    },
+    "variants": {},
+    "land_density": 0.734,
+    "land_danger": 2
+   },
+   "density": 0.614,
+   "danger": 2
   },
   {
    "id": 171,
@@ -5813,7 +8597,23 @@
    "holder": "thien_xu",
    "territory": "thien_xu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "badlands",
+    "shares": {
+     "moc": 4.82,
+     "hoa": 13.26,
+     "tho": 29.17,
+     "kim": 47.74,
+     "thuy": 5.01
+    },
+    "variants": {},
+    "land_density": 0.702,
+    "land_danger": 2
+   },
+   "density": 0.582,
+   "danger": 2
   },
   {
    "id": 172,
@@ -5836,7 +8636,23 @@
    "holder": "cung_tinh",
    "territory": "thien_xu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "highland",
+    "shares": {
+     "moc": 10.0,
+     "hoa": 10.17,
+     "tho": 37.71,
+     "kim": 36.38,
+     "thuy": 5.74
+    },
+    "variants": {},
+    "land_density": 1.181,
+    "land_danger": 1
+   },
+   "density": 1.061,
+   "danger": 1
   },
   {
    "id": 173,
@@ -5859,7 +8675,23 @@
    "holder": "thoi_tinh",
    "territory": "thien_xu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 4.16,
+     "hoa": 7.47,
+     "tho": 19.61,
+     "kim": 57.37,
+     "thuy": 11.38
+    },
+    "variants": {},
+    "land_density": 1.363,
+    "land_danger": 2
+   },
+   "density": 1.243,
+   "danger": 2
   },
   {
    "id": 174,
@@ -5882,7 +8714,23 @@
    "holder": "thien_xu",
    "territory": "thien_xu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 5.63,
+     "hoa": 7.16,
+     "tho": 16.94,
+     "kim": 53.7,
+     "thuy": 16.58
+    },
+    "variants": {},
+    "land_density": 1.21,
+    "land_danger": 2
+   },
+   "density": 1.09,
+   "danger": 2
   },
   {
    "id": 175,
@@ -5905,7 +8753,23 @@
    "holder": "phat_y",
    "territory": "thien_xu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 4.53,
+     "hoa": 16.46,
+     "tho": 16.11,
+     "kim": 46.43,
+     "thuy": 16.47
+    },
+    "variants": {},
+    "land_density": 1.473,
+    "land_danger": 2
+   },
+   "density": 1.353,
+   "danger": 2
   },
   {
    "id": 176,
@@ -5928,7 +8792,23 @@
    "holder": "thien_xu",
    "territory": "thien_xu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 10.04,
+     "hoa": 10.36,
+     "tho": 21.03,
+     "kim": 51.5,
+     "thuy": 7.08
+    },
+    "variants": {},
+    "land_density": 1.577,
+    "land_danger": 2
+   },
+   "density": 1.457,
+   "danger": 2
   },
   {
    "id": 177,
@@ -5951,7 +8831,23 @@
    "holder": "thinh_vu",
    "territory": "thinh_vu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 4.37,
+     "hoa": 10.05,
+     "tho": 24.65,
+     "kim": 54.84,
+     "thuy": 6.09
+    },
+    "variants": {},
+    "land_density": 1.202,
+    "land_danger": 2
+   },
+   "density": 1.082,
+   "danger": 2
   },
   {
    "id": 178,
@@ -5974,7 +8870,23 @@
    "holder": "thinh_vu",
    "territory": "thinh_vu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 3.7,
+     "hoa": 8.66,
+     "tho": 22.86,
+     "kim": 58.28,
+     "thuy": 6.5
+    },
+    "variants": {},
+    "land_density": 1.217,
+    "land_danger": 2
+   },
+   "density": 1.097,
+   "danger": 2
   },
   {
    "id": 179,
@@ -5997,7 +8909,23 @@
    "holder": "thinh_vu",
    "territory": "thinh_vu",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 4.44,
+     "hoa": 8.51,
+     "tho": 20.4,
+     "kim": 55.11,
+     "thuy": 11.54
+    },
+    "variants": {},
+    "land_density": 1.242,
+    "land_danger": 2
+   },
+   "density": 1.122,
+   "danger": 2
   },
   {
    "id": 180,
@@ -6020,7 +8948,23 @@
    "holder": "phuong_minh",
    "territory": "phuong_minh",
    "on_road": true,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 10.51,
+     "hoa": 17.16,
+     "tho": 10.16,
+     "kim": 35.36,
+     "thuy": 26.81
+    },
+    "variants": {},
+    "land_density": 1.42,
+    "land_danger": 2
+   },
+   "density": 1.3,
+   "danger": 2
   },
   {
    "id": 181,
@@ -6043,7 +8987,23 @@
    "holder": "",
    "territory": "thien_xu",
    "on_road": false,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "glacier",
+    "shares": {
+     "moc": 8.22,
+     "hoa": 9.78,
+     "tho": 23.35,
+     "kim": 35.54,
+     "thuy": 23.11
+    },
+    "variants": {},
+    "land_density": 0.824,
+    "land_danger": 3
+   },
+   "density": 0.694,
+   "danger": 3
   },
   {
    "id": 182,
@@ -6066,7 +9026,26 @@
    "holder": "",
    "territory": "thien_xu",
    "on_road": false,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 4.93,
+     "hoa": 9.49,
+     "tho": 28.36,
+     "kim": 47.16,
+     "thuy": 10.06
+    },
+    "variants": {
+     "quang": 40.0,
+     "bang": 10.0
+    },
+    "land_density": 1.89,
+    "land_danger": 2
+   },
+   "density": 1.76,
+   "danger": 2
   },
   {
    "id": 183,
@@ -6089,7 +9068,23 @@
    "holder": "",
    "territory": "bang_tam",
    "on_road": false,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 6.43,
+     "hoa": 11.97,
+     "tho": 27.46,
+     "kim": 42.75,
+     "thuy": 11.39
+    },
+    "variants": {},
+    "land_density": 1.137,
+    "land_danger": 2
+   },
+   "density": 1.007,
+   "danger": 2
   },
   {
    "id": 184,
@@ -6112,7 +9107,26 @@
    "holder": "",
    "territory": "bang_tam",
    "on_road": false,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "glacier",
+    "shares": {
+     "moc": 5.61,
+     "hoa": 9.6,
+     "tho": 28.14,
+     "kim": 43.87,
+     "thuy": 12.79
+    },
+    "variants": {
+     "quang": 40.0,
+     "bang": 10.0
+    },
+    "land_density": 1.357,
+    "land_danger": 3
+   },
+   "density": 1.227,
+   "danger": 3
   },
   {
    "id": 185,
@@ -6135,7 +9149,23 @@
    "holder": "",
    "territory": "thien_xu",
    "on_road": false,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 5.31,
+     "hoa": 11.38,
+     "tho": 29.28,
+     "kim": 44.58,
+     "thuy": 9.46
+    },
+    "variants": {},
+    "land_density": 1.115,
+    "land_danger": 2
+   },
+   "density": 0.985,
+   "danger": 2
   },
   {
    "id": 186,
@@ -6158,7 +9188,25 @@
    "holder": "",
    "territory": "thien_xu",
    "on_road": false,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 7.17,
+     "hoa": 9.81,
+     "tho": 28.28,
+     "kim": 44.64,
+     "thuy": 10.1
+    },
+    "variants": {
+     "loi": 40.0
+    },
+    "land_density": 1.241,
+    "land_danger": 3
+   },
+   "density": 1.111,
+   "danger": 3
   },
   {
    "id": 187,
@@ -6181,7 +9229,23 @@
    "holder": "",
    "territory": "thinh_vu",
    "on_road": false,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 6.14,
+     "hoa": 9.6,
+     "tho": 28.04,
+     "kim": 46.51,
+     "thuy": 9.71
+    },
+    "variants": {},
+    "land_density": 1.726,
+    "land_danger": 2
+   },
+   "density": 1.596,
+   "danger": 2
   },
   {
    "id": 188,
@@ -6204,7 +9268,23 @@
    "holder": "",
    "territory": "bang_tam",
    "on_road": false,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "volcano",
+    "shares": {
+     "moc": 4.99,
+     "hoa": 50.41,
+     "tho": 6.73,
+     "kim": 6.16,
+     "thuy": 31.71
+    },
+    "variants": {},
+    "land_density": 1.2,
+    "land_danger": 4
+   },
+   "density": 1.07,
+   "danger": 4
   },
   {
    "id": 189,
@@ -6227,7 +9307,23 @@
    "holder": "",
    "territory": "bang_tam",
    "on_road": false,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "volcano",
+    "shares": {
+     "moc": 6.2,
+     "hoa": 50.23,
+     "tho": 11.76,
+     "kim": 11.21,
+     "thuy": 20.59
+    },
+    "variants": {},
+    "land_density": 1.2,
+    "land_danger": 4
+   },
+   "density": 1.07,
+   "danger": 4
   },
   {
    "id": 190,
@@ -6250,7 +9346,23 @@
    "holder": "",
    "territory": "tung_dao",
    "on_road": false,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "lake",
+    "shares": {
+     "moc": 40.27,
+     "hoa": 7.12,
+     "tho": 10.6,
+     "kim": 6.24,
+     "thuy": 35.77
+    },
+    "variants": {},
+    "land_density": 0.95,
+    "land_danger": 1
+   },
+   "density": 1.14,
+   "danger": 1
   },
   {
    "id": 191,
@@ -6273,7 +9385,23 @@
    "holder": "",
    "territory": "bang_tam",
    "on_road": false,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "lake",
+    "shares": {
+     "moc": 32.31,
+     "hoa": 23.19,
+     "tho": 12.21,
+     "kim": 10.16,
+     "thuy": 22.13
+    },
+    "variants": {},
+    "land_density": 0.977,
+    "land_danger": 1
+   },
+   "density": 1.167,
+   "danger": 1
   },
   {
    "id": 192,
@@ -6296,7 +9424,23 @@
    "holder": "",
    "territory": "thien_xu",
    "on_road": false,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "lake",
+    "shares": {
+     "moc": 13.02,
+     "hoa": 11.3,
+     "tho": 48.55,
+     "kim": 7.88,
+     "thuy": 19.25
+    },
+    "variants": {},
+    "land_density": 1.055,
+    "land_danger": 1
+   },
+   "density": 1.245,
+   "danger": 1
   },
   {
    "id": 193,
@@ -6319,7 +9463,23 @@
    "holder": "",
    "territory": "phuong_minh",
    "on_road": false,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "lake",
+    "shares": {
+     "moc": 25.39,
+     "hoa": 13.63,
+     "tho": 21.52,
+     "kim": 14.61,
+     "thuy": 24.84
+    },
+    "variants": {},
+    "land_density": 1.025,
+    "land_danger": 1
+   },
+   "density": 1.215,
+   "danger": 1
   },
   {
    "id": 194,
@@ -6342,7 +9502,23 @@
    "holder": "",
    "territory": "thinh_vu",
    "on_road": false,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "lake",
+    "shares": {
+     "moc": 17.72,
+     "hoa": 17.26,
+     "tho": 28.72,
+     "kim": 17.88,
+     "thuy": 18.42
+    },
+    "variants": {},
+    "land_density": 1.064,
+    "land_danger": 1
+   },
+   "density": 1.254,
+   "danger": 1
   },
   {
    "id": 195,
@@ -6365,7 +9541,23 @@
    "holder": "",
    "territory": "lac_ha",
    "on_road": false,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 16.95,
+     "hoa": 10.31,
+     "tho": 11.1,
+     "kim": 10.03,
+     "thuy": 51.61
+    },
+    "variants": {},
+    "land_density": 0.902,
+    "land_danger": 1
+   },
+   "density": 1.192,
+   "danger": 1
   },
   {
    "id": 196,
@@ -6388,7 +9580,23 @@
    "holder": "",
    "territory": "lac_ha",
    "on_road": false,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 13.92,
+     "hoa": 12.27,
+     "tho": 12.71,
+     "kim": 11.95,
+     "thuy": 49.15
+    },
+    "variants": {},
+    "land_density": 1.241,
+    "land_danger": 1
+   },
+   "density": 1.531,
+   "danger": 1
   },
   {
    "id": 197,
@@ -6411,7 +9619,23 @@
    "holder": "",
    "territory": "phuong_minh",
    "on_road": false,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "bamboo_forest",
+    "shares": {
+     "moc": 12.31,
+     "hoa": 9.65,
+     "tho": 12.19,
+     "kim": 14.05,
+     "thuy": 51.8
+    },
+    "variants": {},
+    "land_density": 1.001,
+    "land_danger": 1
+   },
+   "density": 1.291,
+   "danger": 1
   },
   {
    "id": 198,
@@ -6434,7 +9658,23 @@
    "holder": "",
    "territory": "phuong_minh",
    "on_road": false,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 17.09,
+     "hoa": 13.19,
+     "tho": 9.78,
+     "kim": 9.23,
+     "thuy": 50.71
+    },
+    "variants": {},
+    "land_density": 0.856,
+    "land_danger": 1
+   },
+   "density": 1.146,
+   "danger": 1
   },
   {
    "id": 199,
@@ -6457,7 +9697,23 @@
    "holder": "",
    "territory": "phuong_minh",
    "on_road": false,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 15.58,
+     "hoa": 12.08,
+     "tho": 10.22,
+     "kim": 9.43,
+     "thuy": 52.7
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 1.09,
+   "danger": 1
   },
   {
    "id": 200,
@@ -6480,7 +9736,23 @@
    "holder": "",
    "territory": "tung_dao",
    "on_road": false,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 58.84,
+     "hoa": 8.98,
+     "tho": 11.23,
+     "kim": 7.48,
+     "thuy": 13.47
+    },
+    "variants": {},
+    "land_density": 1.08,
+    "land_danger": 2
+   },
+   "density": 1.22,
+   "danger": 2
   },
   {
    "id": 201,
@@ -6503,7 +9775,23 @@
    "holder": "",
    "territory": "bang_tam",
    "on_road": false,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 50.09,
+     "hoa": 10.61,
+     "tho": 13.45,
+     "kim": 8.88,
+     "thuy": 16.98
+    },
+    "variants": {},
+    "land_density": 0.986,
+    "land_danger": 1
+   },
+   "density": 1.126,
+   "danger": 1
   },
   {
    "id": 202,
@@ -6526,7 +9814,23 @@
    "holder": "",
    "territory": "thinh_vu",
    "on_road": false,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "bamboo_forest",
+    "shares": {
+     "moc": 50.98,
+     "hoa": 6.06,
+     "tho": 7.08,
+     "kim": 23.4,
+     "thuy": 12.49
+    },
+    "variants": {},
+    "land_density": 1.053,
+    "land_danger": 1
+   },
+   "density": 1.193,
+   "danger": 1
   },
   {
    "id": 203,
@@ -6549,7 +9853,23 @@
    "holder": "",
    "territory": "bang_tam",
    "on_road": false,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 10.32,
+     "hoa": 10.48,
+     "tho": 25.82,
+     "kim": 34.94,
+     "thuy": 18.44
+    },
+    "variants": {},
+    "land_density": 1.157,
+    "land_danger": 2
+   },
+   "density": 1.217,
+   "danger": 2
   },
   {
    "id": 204,
@@ -6572,7 +9892,23 @@
    "holder": "",
    "territory": "thien_xu",
    "on_road": false,
-   "array": false
+   "array": false,
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 11.62,
+     "hoa": 15.71,
+     "tho": 27.72,
+     "kim": 27.38,
+     "thuy": 17.57
+    },
+    "variants": {},
+    "land_density": 1.422,
+    "land_danger": 2
+   },
+   "density": 1.482,
+   "danger": 2
   },
   {
    "id": 205,
@@ -6595,7 +9931,23 @@
    "gloss": "Star Marrow Vein",
    "note": "A wild vein high in Dao Quang Lĩnh, near Trích Tinh Phong, 4 tiles from Băng Tâm's border.",
    "holder": "thien_xu",
-   "territory": "thien_xu"
+   "territory": "thien_xu",
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 5.05,
+     "hoa": 9.89,
+     "tho": 28.43,
+     "kim": 46.41,
+     "thuy": 10.22
+    },
+    "variants": {},
+    "land_density": 1.854,
+    "land_danger": 2
+   },
+   "density": 1.674,
+   "danger": 2
   },
   {
    "id": 206,
@@ -6618,7 +9970,23 @@
    "gloss": "Vein of the Grey Pines",
    "note": "A wild vein under the old pine sea, 4 tiles from Thiên Xu's border.",
    "holder": "tung_dao",
-   "territory": "tung_dao"
+   "territory": "tung_dao",
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 23.8,
+     "hoa": 11.09,
+     "tho": 25.34,
+     "kim": 26.7,
+     "thuy": 13.06
+    },
+    "variants": {},
+    "land_density": 1.825,
+    "land_danger": 2
+   },
+   "density": 1.645,
+   "danger": 2
   },
   {
    "id": 207,
@@ -6641,7 +10009,23 @@
    "gloss": "Vein of the Long River",
    "note": "Vương Duy: trường hà lạc nhật viên, the long river and the round setting sun. On the border with Thính Vũ.",
    "holder": "lac_ha",
-   "territory": "lac_ha"
+   "territory": "lac_ha",
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 5.83,
+     "hoa": 19.62,
+     "tho": 38.41,
+     "kim": 29.2,
+     "thuy": 6.95
+    },
+    "variants": {},
+    "land_density": 1.81,
+    "land_danger": 2
+   },
+   "density": 1.63,
+   "danger": 2
   },
   {
    "id": 208,
@@ -6664,7 +10048,25 @@
    "gloss": "Vein of the Startling Thunder",
    "note": "In Kinh Trập Sơn, the mountains of the thunder that wakes the sleepers; within reach of the storm peaks, so it carries Thunder. 5 tiles from Thiên Xu's border.",
    "holder": "thinh_vu",
-   "territory": "thinh_vu"
+   "territory": "thinh_vu",
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 5.76,
+     "hoa": 9.53,
+     "tho": 28.06,
+     "kim": 47.0,
+     "thuy": 9.64
+    },
+    "variants": {
+     "loi": 23.23
+    },
+    "land_density": 1.907,
+    "land_danger": 3
+   },
+   "density": 1.727,
+   "danger": 3
   },
   {
    "id": 209,
@@ -6687,7 +10089,25 @@
    "gloss": "Vein of the Ice Soul",
    "note": "Băng phách, the ice soul, is an old name for the moon. Under the ice mountains of Ngọc Hồ Sơn, within reach of the storm peaks.",
    "holder": "bang_tam",
-   "territory": "bang_tam"
+   "territory": "bang_tam",
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 8.16,
+     "hoa": 9.87,
+     "tho": 25.56,
+     "kim": 39.39,
+     "thuy": 17.03
+    },
+    "variants": {
+     "loi": 65.54
+    },
+    "land_density": 1.972,
+    "land_danger": 4
+   },
+   "density": 1.792,
+   "danger": 4
   },
   {
    "id": 210,
@@ -6710,7 +10130,23 @@
    "gloss": "Fire Jade Vein",
    "note": "Under a volcano on an island off Tuyết Hỏa Giác, far out in the western sea, where Lạc Hà's waters begin.",
    "holder": "thuy_vi",
-   "territory": "thuy_vi"
+   "territory": "thuy_vi",
+   "qi": {
+    "part": 0,
+    "part_biome": "volcano",
+    "shares": {
+     "moc": 6.56,
+     "hoa": 44.82,
+     "tho": 6.31,
+     "kim": 17.59,
+     "thuy": 24.73
+    },
+    "variants": {},
+    "land_density": 1.959,
+    "land_danger": 4
+   },
+   "density": 1.779,
+   "danger": 4
   },
   {
    "id": 211,
@@ -6733,7 +10169,23 @@
    "gloss": "Vein of the Cinnabar Mountain",
    "note": "Sơn Hải Kinh's cinnabar mountain is where the phoenix is born. 3 tiles from Thiên Xu's border.",
    "holder": "phuong_minh",
-   "territory": "phuong_minh"
+   "territory": "phuong_minh",
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 11.8,
+     "hoa": 12.84,
+     "tho": 25.43,
+     "kim": 31.4,
+     "thuy": 18.53
+    },
+    "variants": {},
+    "land_density": 1.829,
+    "land_danger": 2
+   },
+   "density": 1.649,
+   "danger": 2
   },
   {
    "id": 212,
@@ -6756,7 +10208,819 @@
    "gloss": "Peak of the High Ridge",
    "note": "Kinh Thi: phượng hoàng minh hĩ, vu bỉ cao cương, the phoenix sings on that high ridge. A sacred summit (Light).",
    "holder": "",
-   "territory": "phuong_minh"
+   "territory": "phuong_minh",
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 10.62,
+     "hoa": 11.72,
+     "tho": 23.6,
+     "kim": 35.13,
+     "thuy": 18.93
+    },
+    "variants": {
+     "loi": 40.0,
+     "quang": 40.0
+    },
+    "land_density": 1.524,
+    "land_danger": 3
+   },
+   "density": 1.394,
+   "danger": 3
+  },
+  {
+   "id": 213,
+   "kind": "ruin",
+   "tile": [
+    156,
+    111
+   ],
+   "region": 3,
+   "biome": "high mountain",
+   "elevation_km": 1.6,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Không Sơn Viện",
+   "on_road": false,
+   "array": false,
+   "former": "sect",
+   "lived": [
+    180,
+    500
+   ],
+   "name_han": "空山院",
+   "gloss": "Academy of the Empty Mountain",
+   "note": "Left empty after its master gave the hills to Thúy Vi's founder; quiet and never looted.",
+   "holder": "thuy_vi",
+   "territory": "thuy_vi",
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 15.27,
+     "hoa": 10.35,
+     "tho": 23.42,
+     "kim": 32.47,
+     "thuy": 18.49
+    },
+    "variants": {},
+    "land_density": 1.102,
+    "land_danger": 2
+   },
+   "density": 1.352,
+   "danger": 2
+  },
+  {
+   "id": 214,
+   "kind": "ruin",
+   "tile": [
+    400,
+    24
+   ],
+   "region": 7,
+   "biome": "tundra",
+   "elevation_km": 0.0,
+   "port": false,
+   "river": false,
+   "coast": true,
+   "livability": 0.02,
+   "name": "Hồ Thiên Phái",
+   "on_road": false,
+   "array": false,
+   "former": "sect",
+   "lived": [
+    210,
+    425
+   ],
+   "name_han": "胡天派",
+   "gloss": "School of the Northern Sky",
+   "note": "Buried by the eruption of Chúc Long Sơn under the ice.",
+   "holder": "bang_tam",
+   "territory": "bang_tam",
+   "qi": {
+    "part": 0,
+    "part_biome": "tundra",
+    "shares": {
+     "moc": 7.68,
+     "hoa": 11.57,
+     "tho": 10.49,
+     "kim": 9.6,
+     "thuy": 60.67
+    },
+    "variants": {
+     "bang": 22.49
+    },
+    "land_density": 0.773,
+    "land_danger": 3
+   },
+   "density": 1.023,
+   "danger": 3
+  },
+  {
+   "id": 215,
+   "kind": "ruin",
+   "tile": [
+    491,
+    208
+   ],
+   "region": 20,
+   "biome": "steppe",
+   "elevation_km": 0.15,
+   "port": false,
+   "river": false,
+   "coast": true,
+   "livability": 0.47,
+   "name": "Xích Thành Môn",
+   "on_road": false,
+   "array": false,
+   "former": "sect",
+   "lived": [
+    250,
+    590
+   ],
+   "name_han": "赤城門",
+   "gloss": "Gate of the Red Wall",
+   "note": "The red-cliff gate Phượng Minh destroyed under Thiên Xu's writ.",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "qi": {
+    "part": 0,
+    "part_biome": "steppe",
+    "shares": {
+     "moc": 13.35,
+     "hoa": 16.8,
+     "tho": 22.75,
+     "kim": 12.26,
+     "thuy": 34.83
+    },
+    "variants": {},
+    "land_density": 0.704,
+    "land_danger": 1
+   },
+   "density": 0.954,
+   "danger": 1
+  },
+  {
+   "id": 216,
+   "kind": "ruin",
+   "tile": [
+    440,
+    116
+   ],
+   "region": 9,
+   "biome": "temperate forest",
+   "elevation_km": 0.01,
+   "port": false,
+   "river": false,
+   "coast": true,
+   "livability": 0.63,
+   "name": "Hàn Giang Môn",
+   "on_road": false,
+   "array": false,
+   "former": "sect",
+   "lived": [
+    300,
+    498
+   ],
+   "name_han": "寒江門",
+   "gloss": "Gate of the Cold River",
+   "note": "The fishers' sect of the frost coast, conquered by Băng Tâm.",
+   "holder": "bang_tam",
+   "territory": "bang_tam",
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 31.54,
+     "hoa": 10.58,
+     "tho": 13.17,
+     "kim": 10.93,
+     "thuy": 33.78
+    },
+    "variants": {},
+    "land_density": 0.901,
+    "land_danger": 1
+   },
+   "density": 1.151,
+   "danger": 1
+  },
+  {
+   "id": 217,
+   "kind": "ruin",
+   "tile": [
+    472,
+    359
+   ],
+   "region": 20,
+   "biome": "temperate forest",
+   "elevation_km": 0.03,
+   "port": false,
+   "river": false,
+   "coast": true,
+   "livability": 0.52,
+   "name": "Thôn Hải Môn",
+   "on_road": false,
+   "array": false,
+   "former": "sect",
+   "lived": [
+    640,
+    781
+   ],
+   "name_han": "吞海門",
+   "gloss": "Gate That Swallows the Sea",
+   "note": "The pirates' hold on an islet of the southern gulf.",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 15.84,
+     "hoa": 11.77,
+     "tho": 9.51,
+     "kim": 9.33,
+     "thuy": 53.55
+    },
+    "variants": {},
+    "land_density": 0.9,
+    "land_danger": 1
+   },
+   "density": 1.15,
+   "danger": 1
+  },
+  {
+   "id": 218,
+   "kind": "ruin",
+   "tile": [
+    376,
+    164
+   ],
+   "region": 6,
+   "biome": "high mountain",
+   "elevation_km": 2.91,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.0,
+   "name": "Phá Quân Môn",
+   "on_road": false,
+   "array": false,
+   "former": "sect",
+   "lived": [
+    720,
+    874
+   ],
+   "name_han": "破軍門",
+   "gloss": "Gate of the Army-Breaker Star",
+   "note": "The mountain fort of the vassal that rebelled against Thiên Xu.",
+   "holder": "thien_xu",
+   "territory": "thien_xu",
+   "qi": {
+    "part": 0,
+    "part_biome": "high_mountain",
+    "shares": {
+     "moc": 8.6,
+     "hoa": 9.79,
+     "tho": 27.37,
+     "kim": 43.26,
+     "thuy": 10.98
+    },
+    "variants": {
+     "quang": 0.38,
+     "bang": 6.11
+    },
+    "land_density": 1.155,
+    "land_danger": 2
+   },
+   "density": 1.405,
+   "danger": 2
+  },
+  {
+   "id": 219,
+   "kind": "ruin",
+   "tile": [
+    182,
+    273
+   ],
+   "region": 12,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": false,
+   "river": false,
+   "coast": true,
+   "livability": 0.82,
+   "name": "Kim Cốc Thành",
+   "on_road": false,
+   "array": false,
+   "former": "city",
+   "lived": [
+    760,
+    1003
+   ],
+   "name_han": "金谷城",
+   "gloss": "City of the Golden Valley",
+   "note": "Kim Cốc Viên's merchant city, burned in the crash of 1003.",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 21.34,
+     "hoa": 17.08,
+     "tho": 20.56,
+     "kim": 11.59,
+     "thuy": 29.44
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 1.05,
+   "danger": 1
+  },
+  {
+   "id": 220,
+   "kind": "ruin",
+   "tile": [
+    410,
+    216
+   ],
+   "region": 17,
+   "biome": "grassland",
+   "elevation_km": 0.0,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 1.08,
+   "name": "Vân Môn Thành",
+   "on_road": false,
+   "array": false,
+   "former": "city",
+   "lived": [
+    130,
+    340
+   ],
+   "name_han": "雲門城",
+   "gloss": "City of the Cloud Gate",
+   "note": "Cửu Thiều's city, named for the ancient Vân Môn music, twin of the Thiều; abandoned after the War of the Nine Shao.",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 18.83,
+     "hoa": 19.3,
+     "tho": 30.29,
+     "kim": 12.33,
+     "thuy": 19.25
+    },
+    "variants": {},
+    "land_density": 1.071,
+    "land_danger": 1
+   },
+   "density": 1.321,
+   "danger": 1
+  },
+  {
+   "id": 221,
+   "kind": "ruin",
+   "tile": [
+    265,
+    289
+   ],
+   "region": 19,
+   "biome": "temperate forest",
+   "elevation_km": -0.08,
+   "port": false,
+   "river": true,
+   "coast": true,
+   "livability": 0.82,
+   "name": "Lôi Trạch Thành",
+   "on_road": false,
+   "array": false,
+   "former": "city",
+   "lived": [
+    170,
+    480
+   ],
+   "name_han": "雷澤城",
+   "gloss": "City of the Thunder Marsh",
+   "note": "Khải Lôi's river-mouth city, burned by the lightning of Hầu Xuân Lôi's tribulation.",
+   "holder": "thinh_vu",
+   "territory": "thinh_vu",
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 39.34,
+     "hoa": 11.06,
+     "tho": 10.25,
+     "kim": 13.24,
+     "thuy": 26.1
+    },
+    "variants": {},
+    "land_density": 0.94,
+    "land_danger": 1
+   },
+   "density": 1.19,
+   "danger": 1
+  },
+  {
+   "id": 222,
+   "kind": "ruin",
+   "tile": [
+    196,
+    275
+   ],
+   "region": 12,
+   "biome": "grassland",
+   "elevation_km": 0.02,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.79,
+   "name": "Hồng Vũ Thành",
+   "on_road": false,
+   "array": false,
+   "former": "city",
+   "lived": [
+    260,
+    618
+   ],
+   "name_han": "紅雨城",
+   "gloss": "City of the Red Rain",
+   "note": "Lý Hạ: peach petals falling like red rain. Lạc Anh's city on the Petal Shore, burned in the war over its land.",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 35.12,
+     "hoa": 20.49,
+     "tho": 24.76,
+     "kim": 12.53,
+     "thuy": 7.1
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 1.05,
+   "danger": 1
+  },
+  {
+   "id": 223,
+   "kind": "ruin",
+   "tile": [
+    229,
+    209
+   ],
+   "region": 12,
+   "biome": "steppe",
+   "elevation_km": 0.23,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.23,
+   "name": "Vô Định Thành",
+   "on_road": false,
+   "array": false,
+   "former": "city",
+   "lived": [
+    600,
+    803
+   ],
+   "name_han": "無定城",
+   "gloss": "City of the Vô Định River",
+   "note": "Trần Đào: the bones by the Vô Định river that wives still dream of. Burned in the battle of 803 and left to the miasma.",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "qi": {
+    "part": 0,
+    "part_biome": "steppe",
+    "shares": {
+     "moc": 5.07,
+     "hoa": 21.89,
+     "tho": 46.35,
+     "kim": 20.88,
+     "thuy": 5.81
+    },
+    "variants": {},
+    "land_density": 0.952,
+    "land_danger": 1
+   },
+   "density": 1.202,
+   "danger": 1
+  },
+  {
+   "id": 224,
+   "kind": "ruin",
+   "tile": [
+    259,
+    110
+   ],
+   "region": 5,
+   "biome": "temperate forest",
+   "elevation_km": 0.0,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.52,
+   "name": "Đông Lưu Thành",
+   "on_road": false,
+   "array": false,
+   "former": "city",
+   "lived": [
+    90,
+    280
+   ],
+   "name_han": "東流城",
+   "gloss": "City Where All Flows East",
+   "note": "Lý Bạch: all things since ancient times flow east like water. A mortal town left dry when the river changed its course.",
+   "holder": "tung_dao",
+   "territory": "tung_dao",
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 46.23,
+     "hoa": 9.15,
+     "tho": 11.61,
+     "kim": 7.65,
+     "thuy": 25.36
+    },
+    "variants": {},
+    "land_density": 0.947,
+    "land_danger": 1
+   },
+   "density": 1.197,
+   "danger": 1
+  },
+  {
+   "id": 225,
+   "kind": "ruin",
+   "tile": [
+    208,
+    104
+   ],
+   "region": 4,
+   "biome": "temperate forest",
+   "elevation_km": -0.03,
+   "port": false,
+   "river": true,
+   "coast": false,
+   "livability": 0.74,
+   "name": "Hổ Khiếu Trấn",
+   "on_road": false,
+   "array": false,
+   "former": "town",
+   "lived": [
+    380,
+    734
+   ],
+   "name_han": "虎嘯鎮",
+   "gloss": "Town of the Tiger's Roar",
+   "note": "A forest town overrun by a beast tide.",
+   "holder": "tung_dao",
+   "territory": "tung_dao",
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 39.46,
+     "hoa": 8.85,
+     "tho": 10.99,
+     "kim": 7.8,
+     "thuy": 32.9
+    },
+    "variants": {},
+    "land_density": 0.948,
+    "land_danger": 1
+   },
+   "density": 1.198,
+   "danger": 1
+  },
+  {
+   "id": 226,
+   "kind": "ruin",
+   "tile": [
+    97,
+    256
+   ],
+   "region": 10,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": false,
+   "river": false,
+   "coast": true,
+   "livability": 0.83,
+   "name": "Bích Không Cảng",
+   "on_road": false,
+   "array": false,
+   "former": "city",
+   "lived": [
+    410,
+    705
+   ],
+   "name_han": "碧空港",
+   "gloss": "Harbour of the Blue Sky",
+   "note": "Lý Bạch: the lone sail vanishes into the blue sky. Cô Phàm's harbour, emptied when the fleet was lost.",
+   "holder": "lac_ha",
+   "territory": "lac_ha",
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 23.08,
+     "hoa": 16.02,
+     "tho": 18.69,
+     "kim": 11.81,
+     "thuy": 30.39
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 1.05,
+   "danger": 1
+  },
+  {
+   "id": 227,
+   "kind": "ruin",
+   "tile": [
+    435,
+    174
+   ],
+   "region": 8,
+   "biome": "steppe",
+   "elevation_km": 0.01,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.64,
+   "name": "Cô Thành",
+   "on_road": false,
+   "array": false,
+   "former": "city",
+   "lived": [
+    520,
+    726
+   ],
+   "name_han": "孤城",
+   "gloss": "The Lone Fortress",
+   "note": "Vương Xương Linh, the poet of Băng Tâm: the lone fortress looks far toward the jade gate. Destroyed in the Desert Road War.",
+   "holder": "bang_tam",
+   "territory": "bang_tam",
+   "qi": {
+    "part": 0,
+    "part_biome": "steppe",
+    "shares": {
+     "moc": 17.14,
+     "hoa": 22.49,
+     "tho": 29.58,
+     "kim": 13.67,
+     "thuy": 17.12
+    },
+    "variants": {},
+    "land_density": 0.951,
+    "land_danger": 1
+   },
+   "density": 1.201,
+   "danger": 1
+  },
+  {
+   "id": 228,
+   "kind": "ruin",
+   "tile": [
+    446,
+    199
+   ],
+   "region": 17,
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "port": false,
+   "river": false,
+   "coast": true,
+   "livability": 1.01,
+   "name": "Châu Lệ Cảng",
+   "on_road": false,
+   "array": false,
+   "former": "city",
+   "lived": [
+    600,
+    762
+   ],
+   "name_han": "珠淚港",
+   "gloss": "Harbour of Pearl Tears",
+   "note": "Lý Thương Ẩn: the pearl in the moonlit sea has tears. Burned by Thôn Hải's raiders.",
+   "holder": "phuong_minh",
+   "territory": "phuong_minh",
+   "qi": {
+    "part": 0,
+    "part_biome": "grassland",
+    "shares": {
+     "moc": 16.02,
+     "hoa": 20.47,
+     "tho": 29.15,
+     "kim": 13.14,
+     "thuy": 21.23
+    },
+    "variants": {},
+    "land_density": 0.8,
+    "land_danger": 1
+   },
+   "density": 1.05,
+   "danger": 1
+  },
+  {
+   "id": 229,
+   "kind": "ruin",
+   "tile": [
+    235,
+    176
+   ],
+   "region": 4,
+   "biome": "temperate forest",
+   "elevation_km": 0.57,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.29,
+   "name": "Thiết Tỏa Quan",
+   "on_road": false,
+   "array": false,
+   "former": "fort",
+   "lived": [
+    503,
+    508
+   ],
+   "name_han": "鐵鎖關",
+   "gloss": "Fort of the Iron Chain",
+   "note": "Lưu Vũ Tích: the thousand-fathom iron chain sank to the river bed. The Tùng Đào and Lạc Hà fort that Thiên Xu broke in the War of the Pivot.",
+   "holder": "tung_dao",
+   "territory": "tung_dao",
+   "qi": {
+    "part": 0,
+    "part_biome": "temperate_forest",
+    "shares": {
+     "moc": 25.58,
+     "hoa": 11.41,
+     "tho": 22.57,
+     "kim": 27.11,
+     "thuy": 13.33
+    },
+    "variants": {},
+    "land_density": 1.077,
+    "land_danger": 1
+   },
+   "density": 1.327,
+   "danger": 1
+  },
+  {
+   "id": 230,
+   "kind": "minor_seat",
+   "tile": [
+    257,
+    282
+   ],
+   "region": 19,
+   "biome": "bamboo forest",
+   "elevation_km": 0.13,
+   "port": false,
+   "river": false,
+   "coast": false,
+   "livability": 0.42,
+   "name": "Thu Phần Các",
+   "key": "thu_phan",
+   "on_road": false,
+   "array": false,
+   "name_han": "秋墳閣",
+   "gloss": "Pavilion of the Autumn Graves",
+   "note": "Lý Hạ: thu phần quỷ xướng Bão gia thi, ghosts sing old poems in the autumn graves. A bamboo hill 10 tiles from the ruins of Lôi Trạch Thành.",
+   "holder": "thu_phan",
+   "territory": "thinh_vu",
+   "qi": {
+    "part": 0,
+    "part_biome": "bamboo_forest",
+    "shares": {
+     "moc": 48.05,
+     "hoa": 11.03,
+     "tho": 12.2,
+     "kim": 19.65,
+     "thuy": 9.06
+    },
+    "variants": {},
+    "land_density": 1.028,
+    "land_danger": 1
+   },
+   "density": 1.128,
+   "danger": 1
   }
  ],
  "routes": [
@@ -6962,11 +11226,11 @@
   },
   {
    "a": 16,
-   "b": 35,
+   "b": 227,
    "kind": "road",
-   "tiles": 11.071,
-   "km": 276.8,
-   "cost": 11.071
+   "tiles": 5.828,
+   "km": 145.7,
+   "cost": 5.828
   },
   {
    "a": 17,
@@ -7066,19 +11330,19 @@
   },
   {
    "a": 26,
-   "b": 41,
-   "kind": "road",
-   "tiles": 14.485,
-   "km": 362.1,
-   "cost": 14.485
-  },
-  {
-   "a": 26,
    "b": 87,
    "kind": "road",
    "tiles": 10.243,
    "km": 256.1,
    "cost": 10.266
+  },
+  {
+   "a": 26,
+   "b": 220,
+   "kind": "road",
+   "tiles": 7.071,
+   "km": 176.8,
+   "cost": 7.071
   },
   {
    "a": 27,
@@ -7201,6 +11465,14 @@
    "cost": 13.899
   },
   {
+   "a": 35,
+   "b": 227,
+   "kind": "road",
+   "tiles": 7.243,
+   "km": 181.1,
+   "cost": 7.243
+  },
+  {
    "a": 36,
    "b": 121,
    "kind": "road",
@@ -7313,6 +11585,14 @@
    "cost": 51.211
   },
   {
+   "a": 41,
+   "b": 220,
+   "kind": "road",
+   "tiles": 10.243,
+   "km": 256.1,
+   "cost": 10.243
+  },
+  {
    "a": 42,
    "b": 153,
    "kind": "road",
@@ -7330,14 +11610,6 @@
   },
   {
    "a": 43,
-   "b": 89,
-   "kind": "road",
-   "tiles": 63.456,
-   "km": 1586.4,
-   "cost": 66.684
-  },
-  {
-   "a": 43,
    "b": 157,
    "kind": "road",
    "tiles": 20.971,
@@ -7351,6 +11623,14 @@
    "tiles": 25.314,
    "km": 632.8,
    "cost": 28.971
+  },
+  {
+   "a": 43,
+   "b": 221,
+   "kind": "trunk",
+   "tiles": 55.627,
+   "km": 1390.7,
+   "cost": 58.105
   },
   {
    "a": 44,
@@ -7506,11 +11786,11 @@
   },
   {
    "a": 60,
-   "b": 105,
+   "b": 225,
    "kind": "road",
-   "tiles": 33.556,
-   "km": 838.9,
-   "cost": 37.751
+   "tiles": 10.071,
+   "km": 251.8,
+   "cost": 10.976
   },
   {
    "a": 61,
@@ -7634,19 +11914,19 @@
   },
   {
    "a": 68,
-   "b": 168,
-   "kind": "road",
-   "tiles": 20.314,
-   "km": 507.8,
-   "cost": 23.65
-  },
-  {
-   "a": 68,
    "b": 191,
    "kind": "road",
    "tiles": 27.799,
    "km": 695.0,
    "cost": 30.959
+  },
+  {
+   "a": 68,
+   "b": 216,
+   "kind": "road",
+   "tiles": 7.243,
+   "km": 181.1,
+   "cost": 8.148
   },
   {
    "a": 69,
@@ -7666,11 +11946,11 @@
   },
   {
    "a": 71,
-   "b": 125,
+   "b": 226,
    "kind": "road",
-   "tiles": 24.627,
-   "km": 615.7,
-   "cost": 25.092
+   "tiles": 22.213,
+   "km": 555.3,
+   "cost": 22.369
   },
   {
    "a": 72,
@@ -7890,19 +12170,11 @@
   },
   {
    "a": 89,
-   "b": 155,
+   "b": 221,
    "kind": "road",
-   "tiles": 45.113,
-   "km": 1127.8,
-   "cost": 47.049
-  },
-  {
-   "a": 89,
-   "b": 158,
-   "kind": "road",
-   "tiles": 19.657,
-   "km": 491.4,
-   "cost": 21.546
+   "tiles": 8.414,
+   "km": 210.4,
+   "cost": 9.313
   },
   {
    "a": 90,
@@ -7954,11 +12226,11 @@
   },
   {
    "a": 93,
-   "b": 151,
+   "b": 228,
    "kind": "road",
-   "tiles": 43.77,
-   "km": 1094.2,
-   "cost": 43.77
+   "tiles": 40.941,
+   "km": 1023.5,
+   "cost": 40.941
   },
   {
    "a": 94,
@@ -8001,6 +12273,14 @@
    "cost": 30.064
   },
   {
+   "a": 105,
+   "b": 225,
+   "kind": "road",
+   "tiles": 29.142,
+   "km": 728.6,
+   "cost": 32.431
+  },
+  {
    "a": 108,
    "b": 109,
    "kind": "road",
@@ -8034,11 +12314,11 @@
   },
   {
    "a": 117,
-   "b": 151,
+   "b": 228,
    "kind": "road",
-   "tiles": 47.669,
-   "km": 1191.7,
-   "cost": 47.957
+   "tiles": 27.87,
+   "km": 696.8,
+   "cost": 28.158
   },
   {
    "a": 124,
@@ -8049,12 +12329,20 @@
    "cost": 16.728
   },
   {
-   "a": 133,
-   "b": 153,
+   "a": 125,
+   "b": 226,
    "kind": "road",
-   "tiles": 27.728,
-   "km": 693.2,
-   "cost": 27.876
+   "tiles": 8.071,
+   "km": 201.8,
+   "cost": 8.336
+  },
+  {
+   "a": 133,
+   "b": 222,
+   "kind": "road",
+   "tiles": 14.828,
+   "km": 370.7,
+   "cost": 14.873
   },
   {
    "a": 137,
@@ -8113,12 +12401,28 @@
    "cost": 19.899
   },
   {
+   "a": 151,
+   "b": 228,
+   "kind": "road",
+   "tiles": 21.799,
+   "km": 545.0,
+   "cost": 21.799
+  },
+  {
    "a": 153,
    "b": 156,
    "kind": "road",
    "tiles": 27.385,
    "km": 684.6,
    "cost": 28.791
+  },
+  {
+   "a": 153,
+   "b": 222,
+   "kind": "road",
+   "tiles": 18.899,
+   "km": 472.5,
+   "cost": 19.003
   },
   {
    "a": 154,
@@ -8129,12 +12433,28 @@
    "cost": 12.462
   },
   {
+   "a": 155,
+   "b": 221,
+   "kind": "road",
+   "tiles": 37.284,
+   "km": 932.1,
+   "cost": 38.437
+  },
+  {
    "a": 157,
    "b": 159,
    "kind": "road",
    "tiles": 20.142,
    "km": 503.6,
    "cost": 21.723
+  },
+  {
+   "a": 158,
+   "b": 221,
+   "kind": "road",
+   "tiles": 11.828,
+   "km": 295.7,
+   "cost": 12.806
   },
   {
    "a": 159,
@@ -8151,6 +12471,14 @@
    "tiles": 16.728,
    "km": 418.2,
    "cost": 16.728
+  },
+  {
+   "a": 168,
+   "b": 216,
+   "kind": "road",
+   "tiles": 13.071,
+   "km": 326.8,
+   "cost": 15.502
   },
   {
    "a": 170,
@@ -8516,6 +12844,12 @@
      "kind": "minor_seat",
      "region": 20,
      "region_name": "Đan Huyệt Châu"
+    },
+    {
+     "sect": "Thu Phần Các",
+     "kind": "minor_seat",
+     "region": 19,
+     "region_name": "Kinh Trập Sơn"
     }
    ],
    "start": "at the seat, as an outer disciple"
@@ -8740,7 +13074,8 @@
    26,
    27,
    28,
-   29
+   29,
+   230
   ],
   "tan_tu": [
    45,
@@ -8765,6 +13100,22 @@
   ]
  },
  "grid_file": "res://assets/map/continent_11_grid.bin",
+ "qi_file": "res://assets/map/continent_11_qi.bin",
+ "mu": {
+  "moc": 0.2315,
+  "hoa": 0.1443,
+  "tho": 0.1967,
+  "kim": 0.1818,
+  "thuy": 0.2457,
+  "phong": 0.0,
+  "huyet": 0.0,
+  "hu_khong": 0.0,
+  "loi": 0.0079,
+  "am": 0.001,
+  "hon_don": 0.0,
+  "quang": 0.0049,
+  "bang": 0.0023
+ },
  "legend": {
   "biome_ids": {
    "0": "temperate_forest",
