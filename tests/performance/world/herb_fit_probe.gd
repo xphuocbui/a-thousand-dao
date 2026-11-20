@@ -27,6 +27,11 @@ func _init() -> void:
 			mean /= float(fits.size())
 			line += " | %s mean %.2f median %.2f" % [str(h.id).left(10), mean, fits[fits.size() / 2]]
 		print(line)
+	var grounds := {}
+	for p in db.all("places"):
+		for g in p.get("herb_grounds", []):
+			grounds[str(g.herb)] = int(grounds.get(str(g.herb), 0)) + 1
+	print("wild herb grounds by herb (Travel & Map rule 18): ", grounds)
 	var all: Array = db.all("places").filter(func(x): return x.has("temp_c"))
 	var t := []
 	var r := []

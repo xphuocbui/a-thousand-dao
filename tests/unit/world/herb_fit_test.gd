@@ -68,3 +68,30 @@ func test_a_planted_herb_below_the_floor_keeps_growing_slowly_ac_tm_74() -> void
 	var f: Dictionary = HerbFit.fit(gd, gd.herb("hoa_linh_chi"), _place(5.0, 50.0, {"moc": 5.0, "hoa": 0.0, "tho": 15.0, "kim": 15.0, "thuy": 65.0}))
 	assert_false(bool(f.plantable), "cannot be planted there")
 	assert_near(float(f.growth), 1.2 * float(f.fit), 0.0001, "but one in the ground grows at g_max x fit, nothing destroyed")
+
+
+func test_exploring_a_wild_herb_ground_gathers_its_herbs_aged_by_formula_k() -> void:
+	var gd := game_data()
+	var llm := LlmService.new(gd)
+	llm.enabled = false
+	var s := GameSession.new(gd, llm, TestFixtures.tree())
+	s.new_game(4242, {"mode": "roll", "name": "Hái", "gender": "male", "origin": "tan_tu"})
+	s.pending_event = {}
+	var ground: Array = s.db.all("places").filter(func(p): return not Array(p.get("herb_grounds", [])).is_empty())
+	assert_false(ground.is_empty(), "the continent has wild herb grounds")
+	for g in ground[0].herb_grounds:
+		assert_true(float(g.fit) >= 0.6, "a ground fits its herb at 0.6 or more")
+	var hg: Dictionary = gd.file("map_resources").herb_ground
+	var chance: float = float(hg.gather_chance)
+	hg["gather_chance"] = 1.0
+	s.player.location_id = str(ground[0].id)
+	var before: int = s.db.items_of(s.player.id).filter(func(i): return str(i.kind) == "herb").size()
+	var r: Dictionary = s.explore()
+	hg["gather_chance"] = chance
+	assert_true(r.ok, "explored: %s" % str(r.lines))
+	var herbs: Array = s.db.items_of(s.player.id).filter(func(i): return str(i.kind) == "herb")
+	assert_true(herbs.size() > before, "herbs gathered")
+	for h in herbs.slice(before):
+		var mature: float = float(gd.herb(str(h.template)).mature_years)
+		var steps: float = log(float(h.age) / mature) / log(2.0)
+		assert_near(steps, round(steps), 0.0001, "age is mature_years x 2^j (%s at %.1f)" % [h.template, float(h.age)])

@@ -460,7 +460,15 @@ static func ingredient_status(s: GameSession, c: Character, sh: StatSheet, ing: 
 		var where: String = "plant it to keep it aging" if at_home and free else ("free a plot and plant it" if at_home else "plant it at home")
 		return {"text": "%s: you hold one aged %.0fy; %s" % [label, float(y.age), where], "command": "plant %s" % y.id if at_home and free else "",
 			"action": "Plant your %s (%.0fy)" % [herb.get("name", ing.herb), float(y.age)], "ready": false}
-	if int(herb.get("rarity", 99)) <= int(gd.session().field.seed_rarity_by_realm[c.realm_index]):
+	var home_fit: Dictionary = HerbFit.fit(gd, herb, s.db.get_record("places", c.home_id))
+	if not bool(home_fit.plantable) or int(herb.get("rarity", 99)) > int(gd.session().field.seed_rarity_by_realm[c.realm_index]):
+		var ground: Dictionary = herb_ground_for(s, str(ing.herb))
+		if not ground.is_empty():
+			var here: bool = c.location_id == str(ground.id)
+			return {"text": "%s: %s; gather it at %s (a wild herb ground)" % [label, "it cannot grow at home" if not bool(home_fit.plantable) else "no seeds sold", ground.name],
+				"command": "explore" if here else "go %s" % ground.id, "action": "Gather %s at %s" % [herb.get("name", ing.herb), ground.name],
+				"ready": false, "gather_at": str(ground.id)}
+	if int(herb.get("rarity", 99)) <= int(gd.session().field.seed_rarity_by_realm[c.realm_index]) and bool(home_fit.plantable):
 		return {"text": "%s: plant a seed (%d LT)" % [label, int(herb.seed_price)], "command": "plant %s" % ing.herb if c.location_id == c.home_id else "", "action": "Plant %s (%d LT)" % [herb.get("name", ing.herb), int(herb.seed_price)], "ready": false}
 	# Seeds are not sold: buy a young one at a market and let it age in the field.
 	var place: Dictionary = s.db.get_record("places", c.location_id)
@@ -474,6 +482,24 @@ static func ingredient_status(s: GameSession, c: Character, sh: StatSheet, ing: 
 				"action": "Buy %s %.0fy (%d LT)" % [herb.get("name", ing.herb), float(o.age), price], "ready": false, "price": price}
 	var est: int = market_price_estimate(s, str(ing.herb))
 	return {"text": "%s: no seeds sold; find one exploring" % label, "command": "", "action": "", "ready": false, "price": est}
+
+
+## The nearest known wild herb ground of [param herb_id] (Travel & Map rule 18), by straight-line tiles; {} if none.
+static func herb_ground_for(s: GameSession, herb_id: String) -> Dictionary:
+	if s.knowledge == null:
+		return {}
+	var here: Dictionary = s.db.get_record("places", s.player.location_id)
+	var best: Dictionary = {}
+	var best_d: int = 1 << 30
+	for pid in s.knowledge.places:
+		var p: Dictionary = s.db.get_record("places", str(pid))
+		if not Array(p.get("herb_grounds", [])).any(func(g): return str(g.herb) == herb_id):
+			continue
+		var d: int = maxi(absi(int(p.tile[0]) - int(here.tile[0])), absi(int(p.tile[1]) - int(here.tile[1])))
+		if d < best_d:
+			best_d = d
+			best = p
+	return best
 
 
 ## Typical market price of a herb that seeds cannot provide (a mid-aged one).

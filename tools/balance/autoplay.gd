@@ -128,6 +128,8 @@ func _step(s: GameSession, st: Dictionary) -> void:
 		_travel_step(s, st)
 		return
 	var plan: Dictionary = _plan(s)
+	if _gather(s, st, plan):
+		return
 	if c.location_id == c.home_id:
 		if _tend_field(s, plan):
 			return
@@ -161,6 +163,21 @@ func _step(s: GameSession, st: Dictionary) -> void:
 		return
 	st.use["cultivate"] = int(st.use.get("cultivate", 0)) + 1
 	s.cultivate(1)
+
+
+## Travel & Map rule 18 in play: an ingredient the plan says to gather at a wild herb ground: travel there and explore
+## until it is in hand (a few seasons at most per visit). Returns true when it spent the turn.
+func _gather(s: GameSession, st: Dictionary, plan: Dictionary) -> bool:
+	for stt in plan.get("statuses", []):
+		if not stt.has("gather_at") or bool(stt.get("ready", false)):
+			continue
+		if s.player.location_id != str(stt.gather_at):
+			st.target = str(stt.gather_at)
+			return false
+		st.use["gather"] = int(st.use.get("gather", 0)) + 1
+		s.explore()
+		return true
+	return false
 
 
 ## The next breakthrough: {recipe, tag, pill, statuses: [ingredient status], realm}.

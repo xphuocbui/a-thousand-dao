@@ -87,6 +87,7 @@ func generate(rng: RandomNumberGenerator, game_seed: String = "") -> WorldDB:
 	_step_rolls()
 	_step_sites()
 	_step_resource_sites()
+	_step_herb_grounds()
 	_step_random_fill(rng)
 	_step_named_items(rng)
 	# Core Rules 10 and 13: the ledger of truth and the data versions are saved with the world, never shown
@@ -390,6 +391,22 @@ func _step_resource_sites() -> void:
 			var pick: int = slot_pick("reserve", str(p.get("continent_id", p.id)), n)
 			p["site"] = MapProduction.init_site(_gd, p, pick)
 			ledger["reserve:%s" % str(p.get("continent_id", p.id))] = {"family": "reserve", "candidate": pick, "place_id": str(p.id)}
+
+
+## Travel & Map rule 18: a wild place holds the ground of every herb that fits it at fit_min or more.
+func _step_herb_grounds() -> void:
+	var hg: Dictionary = _gd.file(MapProduction.DATA_FILE).get("herb_ground", {})
+	var kinds: Array = hg.get("kinds", [])
+	for p in _db.all("places"):
+		if not str(p.get("kind", "")) in kinds or p.get("qi", {}).is_empty():
+			continue
+		var grounds: Array = []
+		for h in _gd.file(HerbFit.HERBS_FILE).get("herbs", []):
+			var f: float = float(HerbFit.fit(_gd, h, p).fit)
+			if f >= float(hg.get("fit_min", 0.6)):
+				grounds.append({"herb": str(h.id), "fit": snappedf(f, 0.01)})
+		if not grounds.is_empty():
+			p["herb_grounds"] = grounds
 
 
 func _hidden_name(s: Dictionary, kind: String, region: String) -> String:

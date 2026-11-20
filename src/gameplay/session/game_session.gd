@@ -593,6 +593,7 @@ func explore() -> Dictionary:
 		else:
 			lines.append("  You sense something hidden here, but cannot find it (%.0f%% chance)." % (chance * 100.0))
 		break
+	lines.append_array(_gather_herbs(place))
 	if knowledge != null and str(place.get("kind", "")) in gd.world_gen().get("continent", {}).get("settled_kinds", []):
 		var heard: String = Discovery.rumour(gd, db, knowledge, rng, str(place.get("region_id", "")))
 		if heard != "":
@@ -731,6 +732,39 @@ func _road_encounter(st: Dictionary) -> Array:
 	pending_event = res.event
 	pending_meta = {"source": res.source, "warnings": res.warnings, "llm_error": res.llm_error, "on_the_road": st}
 	return ["", "*** ON THE ROAD (%s, danger %d): %s ***  (type 'event' to read, 'choose <n>' to act)" % [str(st.mode), int(st.danger), pending_event.title]]
+
+
+## Travel & Map rule 18 and Trade Goods Formula K: gathering at a wild herb ground while exploring it. Returns lines.
+func _gather_herbs(place: Dictionary) -> Array:
+	var grounds: Array = place.get("herb_grounds", [])
+	var hg: Dictionary = gd.file(MapProduction.DATA_FILE).get("herb_ground", {})
+	if grounds.is_empty() or rng.randf() >= float(hg.get("gather_chance", 0.6)):
+		return []
+	var total: float = 0.0
+	for g in grounds:
+		total += float(g.fit)
+	var x: float = rng.randf() * total
+	var pick: Dictionary = grounds[-1]
+	for g in grounds:
+		x -= float(g.fit)
+		if x <= 0.0:
+			pick = g
+			break
+	var herb: Dictionary = gd.herb(str(pick.herb))
+	var q: float = minf(float(hg.get("q_max", 0.5)), float(hg.get("q_base", 0.15)) * float(place.get("density", 1.0)) * (1.0 - float(hg.get("access_default", 0.5))))
+	var units: int = rng.randi_range(int(hg.get("units_min", 1)), int(hg.get("units_max", 2)))
+	var out: Array = []
+	for u in units:
+		var j: int = 0
+		var key: String = "%s:herb:%s:%d:%s:%d" % [str(seed_value), str(place.id), year * 4 + season, str(pick.herb), u]
+		while j < 8 and float(RngUtils.stable_hash("%s:%d" % [key, j]) % 100000) / 100000.0 < q:
+			j += 1
+		var age: float = float(herb.get("mature_years", 1)) * pow(2.0, float(j))
+		var item: Dictionary = items.herb(str(pick.herb), age)
+		item["owner_id"] = player.id
+		db.add("items", item)
+		out.append("  You gather %s (%.0f năm) from the wild herb ground here." % [herb.get("name", pick.herb), age])
+	return out
 
 
 ## Searches the current region for a season with the clues held for it (Travel & Map rule 17, Formula F). The
