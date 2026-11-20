@@ -265,9 +265,19 @@ func sell_price(c: Character, sheet: StatSheet, item: Dictionary, place_id: Stri
 		if bool(ctx.raw):
 			sl = EconomyRules.slip(cfg, WorldEconomy.kind_of_class(str(ctx.k)), _sold_here(ctx), v, _place_demand(ctx))
 		var mi: int = int(sheet.effective("mi_luc", c))
-		return EconomyRules.sell_price(cfg, v, float(ctx.p_loc), bool(ctx.raw), str(ctx.kind), mi, 0, float(ctx.sf), 0.0, sl)
+		return EconomyRules.sell_price(cfg, v, float(ctx.p_loc), bool(ctx.raw), str(ctx.kind), mi, 0, float(ctx.sf), _tar_in(item, ctx), sl)
 	var vv: float = float(_items.value_of(item)) * float(_gd.session().market.sell_ratio) * (1.0 + _charm(c, sheet))
 	return maxi(1, int(floorf(vv + 1e-6)))
+
+
+# Formula G's tar_in: an item from another market pays this market's import tariff when sold here (rule 16; its
+# origin_market is set when a shop sells it, when it is gathered or harvested). 0 for an untagged item or one from here.
+func _tar_in(item: Dictionary, ctx: Dictionary) -> float:
+	var origin: String = str(item.get("origin_market", ""))
+	if origin == "" or origin == str(ctx.market):
+		return 0.0
+	var sect: Dictionary = _db.get_record("sects", str(_db.get_record(WorldEconomy.TABLE, str(ctx.market)).get("sect_id", "")))
+	return EconomyRules.tariff(_gd.file(WorldEconomy.FILE), int(sect.get("dials", {}).get("openness", 2)))
 
 
 # Formula G's q_sold: base value of the class the player sold at this place this season.
@@ -322,6 +332,7 @@ func buy(c: Character, sheet: StatSheet, place_id: String, item_id: String) -> D
 		c.linh_thach -= price
 	else:
 		_book_trade(c, ctx, float(_items.value_of(item)), price, true)
+		item["origin_market"] = str(ctx.market)   # Formula G: a shop's item carries its market
 	var bought_id: String = item_id
 	if int(item.get("qty", 1)) > 1:
 		item["qty"] = int(item.qty) - 1

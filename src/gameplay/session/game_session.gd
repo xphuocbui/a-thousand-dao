@@ -773,6 +773,7 @@ func _gather_herbs(place: Dictionary) -> Array:
 		var age: float = float(herb.get("mature_years", 1)) * pow(2.0, float(j))
 		var item: Dictionary = items.herb(str(pick.herb), age)
 		item["owner_id"] = player.id
+		item["origin_market"] = WorldEconomy.market_of_region(db, db.get_record("regions", str(place.get("region_id", ""))))   # Formula G: gathered here
 		db.add("items", item)
 		out.append("  You gather %s (%.0f năm) from the wild herb ground here." % [herb.get("name", pick.herb), age])
 	return out

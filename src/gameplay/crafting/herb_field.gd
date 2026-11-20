@@ -103,6 +103,8 @@ func harvest(c: Character, plot: int) -> Dictionary:
 		return {"ok": false, "message": "You must be at your động phủ to harvest."}
 	var item: Dictionary = p[plot]
 	item["plot"] = -1
+	if _db.count(WorldEconomy.TABLE) > 0:   # Regional Economy Formula G: a harvested herb is tagged with its home's market
+		item["origin_market"] = WorldEconomy.market_of_region(_db, _db.get_record("regions", str(_db.get_record("places", c.home_id).get("region_id", ""))))
 	return {"ok": true, "message": "Harvested %s." % _items.describe(item), "item_id": item.id}
 
 

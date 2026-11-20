@@ -110,3 +110,12 @@ func test_settlements_give_their_share_of_the_worlds_goods() -> void:
 	assert_true(lh / float(by_kind.herb) >= 0.25 and lh / float(by_kind.herb) <= 0.40, "settlement herbs %.0f of %.0f" % [lh, float(by_kind.herb)])
 	assert_true(lo / float(by_kind.ore) >= 0.15 and lo / float(by_kind.ore) <= 0.35, "settlement ore %.0f of %.0f" % [lo, float(by_kind.ore)])
 	assert_true(absf(tot - 250000.0) <= 50000.0, "non-mine value %.0f" % tot)
+
+
+func test_a_lair_yields_bone_hide_and_cores() -> void:
+	# Trade Goods Formula A for beast sites: value shared by ω^(rarity - 1): bone and hide (rarity 1) 0.4 each, cores
+	# (rarity 2) 0.2, in whole base value
+	var gd := game_data()
+	var parts := MapProduction.kind_split(gd, "beast", "yeu_cot", 1000)
+	assert_eq(parts, {"yeu_cot": 400, "yeu_dan": 200, "yeu_thu_bi": 400}, "the split")
+	assert_eq(MapProduction.kind_split(gd, "ore", "tinh_thiet", 500), {"tinh_thiet": 500}, "an ore site keeps its one good")

@@ -141,6 +141,40 @@ static func herb_split(gd: GameData, grounds: Array, value: int) -> Dictionary:
 	return out
 
 
+## Trade Goods Formula A for a beast lair: its [param value] shared among the beast goods (bone, hide, demon cores) by
+## ω^(rarity − 1), whole base value by largest remainder; any other site keeps its one [param resource].
+static func kind_split(gd: GameData, kind: String, resource: String, value: int) -> Dictionary:
+	if kind != "beast" or value <= 0:
+		return {resource: value}
+	var rk: Dictionary = _cfg(gd).get("resource_kind", {})
+	var grounds: Array = []
+	for g in rk:
+		if str(rk[g]) == "beast" and not gd.material(str(g)).is_empty():
+			grounds.append(str(g))
+	grounds.sort()
+	var omega: float = float(_cfg(gd).get("rarity_weight", 0.5))
+	var ws := []
+	var total: int = 0
+	for g in grounds:
+		var w: int = int(round(pow(omega, int(gd.material(g).get("rarity", 1)) - 1) * 1000000.0))
+		ws.append([g, w])
+		total += w
+	if total <= 0:
+		return {resource: value}
+	var out := {}
+	var given: int = 0
+	var rems := []
+	for e in ws:
+		var part: int = (value * int(e[1])) / total
+		out[e[0]] = part
+		given += part
+		rems.append([(value * int(e[1])) % total, e[0]])
+	rems.sort_custom(func(a, b): return a[0] > b[0] or (a[0] == b[0] and str(a[1]) < str(b[1])))
+	for i in value - given:
+		out[rems[i][1]] = int(out[rems[i][1]]) + 1
+	return out
+
+
 ## Formula I's reserve factor for r = reserve / reserve_max.
 static func reserve_factor(gd: GameData, r: float) -> float:
 	var floor_v: float = float(_cfg(gd).reserve_floor)
@@ -265,7 +299,9 @@ static func season(gd: GameData, db: WorldDB, count_people: bool = true, advance
 			if not value_by_region.has(rid):
 				value_by_region[rid] = {}
 			var vv: float = out * float(cfg.unit_value.get(str(p.site.resource), 1))
-			value_by_region[rid][str(p.site.resource)] = float(value_by_region[rid].get(str(p.site.resource), 0.0)) + vv
+			var parts: Dictionary = kind_split(gd, str(p.site.kind), str(p.site.resource), int(round(vv)))
+			for g in parts:
+				value_by_region[rid][g] = float(value_by_region[rid].get(g, 0.0)) + float(parts[g])
 		var t: String = str(p.get("territory", ""))
 		if t != "":
 			if not by_territory.has(t):

@@ -114,3 +114,33 @@ func test_the_first_sale_of_a_new_world_has_almost_no_slippage() -> void:
 	var ctx: Dictionary = market._shop_ctx(herb, place)
 	assert_true(market._place_demand(ctx) > 100.0, "a city's share of its region's herb demand is known at season 0")
 	assert_true(EconomyRules.slip(gd.file("economy"), "herb", 0.0, float(items.value_of(herb)), market._place_demand(ctx)) > 0.95, "a first small sale keeps 95 % or more")
+
+
+func test_goods_carried_from_another_market_pay_its_import_tariff() -> void:
+	# Regional Economy rule 16, Formula G's tar_in: a herb tagged with another market sells for (1 - tariff) of the same
+	# herb from here (Openness 2: 0.12)
+	var f := _setup()
+	var here: String = WorldEconomy.market_of_region(f.db, f.db.get_record("regions", str(f.place.region_id)))
+	var other: String = ""
+	for m in f.db.find(WorldEconomy.TABLE, func(x): return str(x.id).begins_with("mk:")):
+		if str(m.id) != here:
+			other = str(m.id)
+			break
+	var local: Dictionary = f.items.herb("hoang_tinh_sam", 10.0)
+	local["origin_market"] = here
+	var carried: Dictionary = f.items.herb("hoang_tinh_sam", 10.0)
+	carried["origin_market"] = other
+	var p_local: int = f.market.sell_price(f.c, f.sheet, local, str(f.place.id))
+	var p_carried: int = f.market.sell_price(f.c, f.sheet, carried, str(f.place.id))
+	assert_true(p_carried < p_local, "the carried herb sells for less (%d < %d)" % [p_carried, p_local])
+	assert_near(float(p_carried) / float(p_local), 0.88, 0.06, "about 1 - 0.12")
+
+
+func test_a_bought_item_carries_its_markets_tag() -> void:
+	var f := _setup()
+	f.market.ensure_stock(rng(3), str(f.place.id), 0, 0)
+	var it: Dictionary = f.market.stock(str(f.place.id)).filter(func(x): return str(x.kind) == "herb")[0]
+	var r: Dictionary = f.market.buy(f.c, f.sheet, str(f.place.id), str(it.id))
+	assert_true(r.ok, r.message)
+	var mine: Dictionary = f.db.get_record("items", str(r.item_id))
+	assert_eq(str(mine.get("origin_market", "")), WorldEconomy.market_of_region(f.db, f.db.get_record("regions", str(f.place.region_id))), "tagged with the shop's market")
