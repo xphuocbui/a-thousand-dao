@@ -1,0 +1,2114 @@
+{
+ "schema_version": 1,
+ "_doc": "Built by tools/design/traits/export_traits.py from design/gdd/npc-traits-catalogue.md (NPC Traits #42); do not edit by hand. Stat values are in the stat's own units (percent, points or pp, as the key reads them). pulls: the Sects F15 pulls the engine reads; notes: pulls kept as text (event weights and such, read by later systems).",
+ "personality": [
+  {
+   "id": "brave",
+   "name": "Brave",
+   "name_vi": "dũng mãnh",
+   "set": 1,
+   "boon": [
+    {
+     "stat": "khi_huyet_pct",
+     "value": 2.0
+    }
+   ],
+   "cost": [
+    {
+     "stat": "evade_pct",
+     "value": -0.8
+    }
+   ],
+   "tags": {
+    "bold": 2.0,
+    "aggressive": 1.5,
+    "cautious": 0.5
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "war_odds": 0.9,
+    "weariness": 5.0,
+    "rebel_odds": 0.8
+   }
+  },
+  {
+   "id": "cautious",
+   "name": "Cautious",
+   "name_vi": "thận trọng",
+   "set": 1,
+   "boon": [
+    {
+     "stat": "evade_pct",
+     "value": 0.8
+    }
+   ],
+   "cost": [
+    {
+     "stat": "khi_huyet_pct",
+     "value": -2.0
+    }
+   ],
+   "tags": {
+    "cautious": 2.0,
+    "bold": 0.5,
+    "aggressive": 0.67
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "war_odds": 1.2,
+    "weariness": -10.0,
+    "rebel_odds": 1.3
+   }
+  },
+  {
+   "id": "calm",
+   "name": "Calm",
+   "name_vi": "trầm tĩnh",
+   "set": 2,
+   "boon": [
+    {
+     "stat": "qi_deviation_pct",
+     "value": -1.2
+    }
+   ],
+   "cost": [
+    {
+     "stat": "status_resist_pct",
+     "value": -3.0
+    }
+   ],
+   "tags": {
+    "aggressive": 0.67,
+    "vengeful": 0.67
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "attitude_speed": 0.7,
+    "attitude_speed_when": "hostile"
+   }
+  },
+  {
+   "id": "wrathful",
+   "name": "Wrathful",
+   "name_vi": "nóng nảy",
+   "set": 2,
+   "boon": [
+    {
+     "stat": "status_resist_pct",
+     "value": 3.0
+    }
+   ],
+   "cost": [
+    {
+     "stat": "qi_deviation_pct",
+     "value": 1.2
+    }
+   ],
+   "tags": {
+    "aggressive": 1.5,
+    "cautious": 0.67
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "attitude_speed": 1.5,
+    "attitude_speed_when": "hostile",
+    "dials": {
+     "war_readiness": 1.0
+    }
+   }
+  },
+  {
+   "id": "content",
+   "name": "Content",
+   "name_vi": "an phận",
+   "set": 3,
+   "boon": [
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": 0.8
+    }
+   ],
+   "cost": [
+    {
+     "stat": "cultivation_speed_pct",
+     "value": -0.5
+    }
+   ],
+   "tags": {
+    "humble": 1.5,
+    "ambitious": 0.5
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "dials": {
+     "expansion": -1.0
+    },
+    "rebel_odds": 1.3
+   }
+  },
+  {
+   "id": "ambitious",
+   "name": "Ambitious",
+   "name_vi": "dã tâm",
+   "set": 3,
+   "boon": [
+    {
+     "stat": "cultivation_speed_pct",
+     "value": 0.5
+    }
+   ],
+   "cost": [
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": -0.8
+    }
+   ],
+   "tags": {
+    "ambitious": 2.0,
+    "bold": 1.5,
+    "humble": 0.67
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "dials": {
+     "expansion": 1.0
+    },
+    "rebel_odds": 0.8,
+    "notes": [
+     "head-seat challenge ×3 as an elder"
+    ]
+   }
+  },
+  {
+   "id": "diligent",
+   "name": "Diligent",
+   "name_vi": "cần mẫn",
+   "set": 4,
+   "boon": [
+    {
+     "stat": "mission_income_pct",
+     "value": 1.7
+    }
+   ],
+   "cost": [
+    {
+     "stat": "healing_taken_pct",
+     "value": -2.4
+    }
+   ],
+   "tags": {
+    "diligent": 2.0,
+    "indulgent": 0.5
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "invest_share": 0.6
+   }
+  },
+  {
+   "id": "lazy",
+   "name": "Lazy",
+   "name_vi": "biếng nhác",
+   "set": 4,
+   "boon": [
+    {
+     "stat": "healing_taken_pct",
+     "value": 2.4
+    }
+   ],
+   "cost": [
+    {
+     "stat": "mission_income_pct",
+     "value": -1.7
+    }
+   ],
+   "tags": {
+    "indulgent": 1.5,
+    "diligent": 0.5
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "invest_share": 0.35
+   }
+  },
+  {
+   "id": "forgiving",
+   "name": "Forgiving",
+   "name_vi": "khoan dung",
+   "set": 5,
+   "boon": [
+    {
+     "stat": "healing_taken_pct",
+     "value": 2.4
+    }
+   ],
+   "cost": [
+    {
+     "stat": "status_resist_pct",
+     "value": -3.0
+    }
+   ],
+   "tags": {
+    "forgiving": 2.0,
+    "merciful": 1.5,
+    "vengeful": 0.5
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "notes": [
+     "event fade 20 %"
+    ]
+   }
+  },
+  {
+   "id": "vengeful",
+   "name": "Vengeful",
+   "name_vi": "thù dai",
+   "set": 5,
+   "boon": [
+    {
+     "stat": "escape_pct",
+     "value": 1.2
+    }
+   ],
+   "cost": [
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": -0.8
+    }
+   ],
+   "tags": {
+    "vengeful": 2.0,
+    "merciful": 0.67,
+    "forgiving": 0.5
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "notes": [
+     "event fade 0 %, losses ×1.5"
+    ]
+   }
+  },
+  {
+   "id": "generous",
+   "name": "Generous",
+   "name_vi": "khoan hậu",
+   "set": 6,
+   "boon": [
+    {
+     "stat": "mi_luc",
+     "value": 1.2
+    }
+   ],
+   "cost": [
+    {
+     "stat": "mission_income_pct",
+     "value": -1.7
+    }
+   ],
+   "tags": {
+    "generous": 2.0,
+    "greedy": 0.5
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "dials": {
+     "tax": -1.0
+    },
+    "loyalty": 1.0
+   }
+  },
+  {
+   "id": "greedy",
+   "name": "Greedy",
+   "name_vi": "tham lam",
+   "set": 6,
+   "boon": [
+    {
+     "stat": "mission_income_pct",
+     "value": 1.7
+    }
+   ],
+   "cost": [
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": -0.8
+    }
+   ],
+   "tags": {
+    "greedy": 2.0,
+    "generous": 0.5
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "dials": {
+     "tax": 1.0
+    },
+    "loyalty": -1.0
+   }
+  },
+  {
+   "id": "gregarious",
+   "name": "Gregarious",
+   "name_vi": "hào sảng",
+   "set": 7,
+   "boon": [
+    {
+     "stat": "travel_speed_pct",
+     "value": 4.0
+    }
+   ],
+   "cost": [
+    {
+     "stat": "stealth",
+     "value": -0.8
+    }
+   ],
+   "tags": {
+    "social": 2.0,
+    "solitary": 0.5
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "dials": {
+     "openness": 1.0
+    },
+    "pact_line": 35.0
+   }
+  },
+  {
+   "id": "reclusive",
+   "name": "Reclusive",
+   "name_vi": "ẩn dật",
+   "set": 7,
+   "boon": [
+    {
+     "stat": "stealth",
+     "value": 0.8
+    }
+   ],
+   "cost": [
+    {
+     "stat": "travel_speed_pct",
+     "value": -4.0
+    }
+   ],
+   "tags": {
+    "solitary": 2.0,
+    "social": 0.5
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "dials": {
+     "openness": -1.0,
+     "recruitment": -1.0
+    }
+   }
+  },
+  {
+   "id": "honest",
+   "name": "Honest",
+   "name_vi": "chân thật",
+   "set": 8,
+   "boon": [
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": 0.8
+    }
+   ],
+   "cost": [
+    {
+     "stat": "stealth",
+     "value": -0.8
+    }
+   ],
+   "tags": {
+    "honest": 2.0,
+    "deceitful": 0.0
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "notes": [
+     "pact keeping: never breaks"
+    ]
+   }
+  },
+  {
+   "id": "deceitful",
+   "name": "Deceitful",
+   "name_vi": "gian trá",
+   "set": 8,
+   "boon": [
+    {
+     "stat": "stealth",
+     "value": 0.8
+    }
+   ],
+   "cost": [
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": -0.8
+    }
+   ],
+   "tags": {
+    "deceitful": 2.0,
+    "disloyal": 1.5,
+    "honest": 0.5
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "notes": [
+     "pact keeping ×2 to break",
+     "betrayal ×2"
+    ]
+   }
+  },
+  {
+   "id": "humble",
+   "name": "Humble",
+   "name_vi": "khiêm tốn",
+   "set": 9,
+   "boon": [
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": 0.8
+    }
+   ],
+   "cost": [
+    {
+     "stat": "mi_luc",
+     "value": -1.2
+    }
+   ],
+   "tags": {
+    "humble": 2.0,
+    "ambitious": 0.67
+   },
+   "regard": {
+    "bias_all": 5.0
+   },
+   "weight": 1.0,
+   "pulls": {
+    "attitude_bias_from_all": 5.0
+   }
+  },
+  {
+   "id": "arrogant",
+   "name": "Arrogant",
+   "name_vi": "kiêu ngạo",
+   "set": 9,
+   "boon": [
+    {
+     "stat": "mi_luc",
+     "value": 1.2
+    }
+   ],
+   "cost": [
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": -0.8
+    }
+   ],
+   "tags": {
+    "aggressive": 1.5,
+    "ambitious": 1.5,
+    "humble": 0.5
+   },
+   "regard": {
+    "bias_all": -5.0
+   },
+   "weight": 1.0,
+   "pulls": {
+    "attitude_bias_from_all": -5.0,
+    "war_odds": 0.9
+   }
+  },
+  {
+   "id": "just",
+   "name": "Just",
+   "name_vi": "công chính",
+   "set": 10,
+   "boon": [
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": 0.8
+    }
+   ],
+   "cost": [
+    {
+     "stat": "stealth",
+     "value": -0.8
+    }
+   ],
+   "tags": {
+    "honest": 1.5,
+    "greedy": 0.67,
+    "deceitful": 0.67
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "notes": [
+     "vassal disputes: +2 loyalty to each side"
+    ]
+   }
+  },
+  {
+   "id": "arbitrary",
+   "name": "Arbitrary",
+   "name_vi": "độc đoán",
+   "set": 10,
+   "boon": [
+    {
+     "stat": "stealth",
+     "value": 0.8
+    }
+   ],
+   "cost": [
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": -0.8
+    }
+   ],
+   "tags": {
+    "pragmatic": 1.5,
+    "honest": 0.67
+   },
+   "regard": {},
+   "weight": 0.7,
+   "pulls": {
+    "notes": [
+     "vassal disputes: +5 to one side, −5 to the other (seeded)"
+    ]
+   }
+  },
+  {
+   "id": "patient",
+   "name": "Patient",
+   "name_vi": "nhẫn nại",
+   "set": 11,
+   "boon": [
+    {
+     "stat": "cultivation_speed_pct",
+     "value": 0.5
+    }
+   ],
+   "cost": [
+    {
+     "stat": "travel_speed_pct",
+     "value": -4.0
+    }
+   ],
+   "tags": {
+    "cautious": 1.5,
+    "diligent": 1.5,
+    "bold": 0.67
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "weariness": 10.0
+   }
+  },
+  {
+   "id": "impatient",
+   "name": "Impatient",
+   "name_vi": "nóng vội",
+   "set": 11,
+   "boon": [
+    {
+     "stat": "travel_speed_pct",
+     "value": 4.0
+    }
+   ],
+   "cost": [
+    {
+     "stat": "cultivation_speed_pct",
+     "value": -0.5
+    }
+   ],
+   "tags": {
+    "bold": 1.5,
+    "cautious": 0.67
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "weariness": -10.0,
+    "bold": true
+   }
+  },
+  {
+   "id": "temperate",
+   "name": "Temperate",
+   "name_vi": "điều độ",
+   "set": 12,
+   "boon": [
+    {
+     "stat": "khi_huyet_pct",
+     "value": 2.0
+    }
+   ],
+   "cost": [
+    {
+     "stat": "mi_luc",
+     "value": -1.2
+    }
+   ],
+   "tags": {
+    "indulgent": 0.5,
+    "greedy": 0.67
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "draw_mult": 1.0
+   }
+  },
+  {
+   "id": "indulgent",
+   "name": "Indulgent",
+   "name_vi": "hưởng lạc",
+   "set": 12,
+   "boon": [
+    {
+     "stat": "mi_luc",
+     "value": 1.2
+    }
+   ],
+   "cost": [
+    {
+     "stat": "khi_huyet_pct",
+     "value": -2.0
+    }
+   ],
+   "tags": {
+    "indulgent": 2.0,
+    "diligent": 0.67
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "draw_mult": 4.0
+   }
+  },
+  {
+   "id": "trusting",
+   "name": "Trusting",
+   "name_vi": "cả tin",
+   "set": 13,
+   "boon": [
+    {
+     "stat": "mi_luc",
+     "value": 1.2
+    }
+   ],
+   "cost": [
+    {
+     "stat": "escape_pct",
+     "value": -1.2
+    }
+   ],
+   "tags": {
+    "loyal": 1.5,
+    "cautious": 0.67
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "pact_line": 35.0,
+    "pact_line_scope": "defence"
+   }
+  },
+  {
+   "id": "paranoid",
+   "name": "Paranoid",
+   "name_vi": "đa nghi",
+   "set": 13,
+   "boon": [
+    {
+     "stat": "escape_pct",
+     "value": 1.2
+    }
+   ],
+   "cost": [
+    {
+     "stat": "mi_luc",
+     "value": -1.2
+    }
+   ],
+   "tags": {
+    "cautious": 1.5,
+    "social": 0.67,
+    "loyal": 0.67
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "dials": {
+     "war_readiness": 1.0
+    },
+    "loyalty": -1.0
+   }
+  },
+  {
+   "id": "devout",
+   "name": "Devout",
+   "name_vi": "mộ đạo",
+   "set": 14,
+   "boon": [
+    {
+     "stat": "cultivation_speed_pct",
+     "value": 0.5
+    }
+   ],
+   "cost": [
+    {
+     "stat": "mission_income_pct",
+     "value": -1.7
+    }
+   ],
+   "tags": {
+    "devout": 2.0,
+    "pragmatic": 0.5
+   },
+   "regard": {
+    "bias_dir": -10.0,
+    "toward": "to the opposite alignment"
+   },
+   "weight": 1.0,
+   "pulls": {
+    "alignment_factor": 2.0
+   }
+  },
+  {
+   "id": "pragmatic",
+   "name": "Pragmatic",
+   "name_vi": "thực dụng",
+   "set": 14,
+   "boon": [
+    {
+     "stat": "mission_income_pct",
+     "value": 1.7
+    }
+   ],
+   "cost": [
+    {
+     "stat": "cultivation_speed_pct",
+     "value": -0.5
+    }
+   ],
+   "tags": {
+    "pragmatic": 2.0,
+    "devout": 0.5
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "alignment_factor": 0.0
+   }
+  },
+  {
+   "id": "stubborn",
+   "name": "Stubborn",
+   "name_vi": "cố chấp",
+   "set": 15,
+   "boon": [
+    {
+     "stat": "status_resist_pct",
+     "value": 3.0
+    }
+   ],
+   "cost": [
+    {
+     "stat": "escape_pct",
+     "value": -1.2
+    }
+   ],
+   "tags": {
+    "loyal": 1.5,
+    "disloyal": 0.67
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "never_bold": true,
+    "needs_halved": true
+   }
+  },
+  {
+   "id": "fickle",
+   "name": "Fickle",
+   "name_vi": "thất thường",
+   "set": 15,
+   "boon": [
+    {
+     "stat": "escape_pct",
+     "value": 1.2
+    }
+   ],
+   "cost": [
+    {
+     "stat": "status_resist_pct",
+     "value": -3.0
+    }
+   ],
+   "tags": {
+    "disloyal": 1.5,
+    "loyal": 0.67
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "fickle": true
+   }
+  },
+  {
+   "id": "compassionate",
+   "name": "Compassionate",
+   "name_vi": "từ bi",
+   "set": 16,
+   "boon": [
+    {
+     "stat": "healing_pct",
+     "value": 2.4
+    }
+   ],
+   "cost": [
+    {
+     "stat": "mission_income_pct",
+     "value": -1.7
+    }
+   ],
+   "tags": {
+    "merciful": 2.0,
+    "generous": 1.5,
+    "aggressive": 0.5
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "weariness": -10.0,
+    "weariness_for_truce": true,
+    "dials": {
+     "recruitment": 1.0
+    }
+   }
+  },
+  {
+   "id": "callous",
+   "name": "Callous",
+   "name_vi": "lạnh lùng",
+   "set": 16,
+   "boon": [
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": 0.8
+    }
+   ],
+   "cost": [
+    {
+     "stat": "healing_pct",
+     "value": -2.4
+    }
+   ],
+   "tags": {
+    "pragmatic": 1.5,
+    "merciful": 0.5
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "half_loss_weariness": true
+   }
+  },
+  {
+   "id": "cruel",
+   "name": "Cruel",
+   "name_vi": "tàn nhẫn",
+   "set": 16,
+   "boon": [
+    {
+     "stat": "status_resist_pct",
+     "value": 3.0
+    }
+   ],
+   "cost": [
+    {
+     "stat": "mi_luc",
+     "value": -1.2
+    }
+   ],
+   "tags": {
+    "aggressive": 2.0,
+    "vengeful": 1.5,
+    "merciful": 0.5
+   },
+   "regard": {
+    "bias_dir": -10.0,
+    "toward": "to rivals"
+   },
+   "weight": 0.5,
+   "pulls": {
+    "war_odds": 0.8,
+    "notes": [
+     "raids cost the target ×1.5 production"
+    ]
+   }
+  },
+  {
+   "id": "warlike",
+   "name": "Warlike",
+   "name_vi": "hiếu chiến",
+   "set": 17,
+   "boon": [
+    {
+     "stat": "status_resist_pct",
+     "value": 3.0
+    }
+   ],
+   "cost": [
+    {
+     "stat": "cultivation_speed_pct",
+     "value": -0.5
+    }
+   ],
+   "tags": {
+    "bold": 1.5,
+    "aggressive": 1.5,
+    "merciful": 0.67
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "dials": {
+     "war_readiness": 1.0
+    },
+    "notes": [
+     "duel challenges ×2"
+    ]
+   }
+  },
+  {
+   "id": "peaceable",
+   "name": "Peaceable",
+   "name_vi": "ôn hòa",
+   "set": 17,
+   "boon": [
+    {
+     "stat": "cultivation_speed_pct",
+     "value": 0.5
+    }
+   ],
+   "cost": [
+    {
+     "stat": "status_resist_pct",
+     "value": -3.0
+    }
+   ],
+   "tags": {
+    "merciful": 1.5,
+    "aggressive": 0.5
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "dials": {
+     "war_readiness": -1.0
+    },
+    "notes": [
+     "duel challenges ×0.5"
+    ]
+   }
+  },
+  {
+   "id": "loyal",
+   "name": "Loyal",
+   "name_vi": "trung thành",
+   "set": 18,
+   "boon": [
+    {
+     "stat": "mission_income_pct",
+     "value": 1.7
+    }
+   ],
+   "cost": [
+    {
+     "stat": "escape_pct",
+     "value": -1.2
+    }
+   ],
+   "tags": {
+    "loyal": 2.0,
+    "disloyal": 0.5
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "notes": [
+     "betraying own sect ×0.25",
+     "head-seat challenge ×0.5"
+    ]
+   }
+  },
+  {
+   "id": "faithless",
+   "name": "Faithless",
+   "name_vi": "bạc nghĩa",
+   "set": 18,
+   "boon": [
+    {
+     "stat": "escape_pct",
+     "value": 1.2
+    }
+   ],
+   "cost": [
+    {
+     "stat": "mission_income_pct",
+     "value": -1.7
+    }
+   ],
+   "tags": {
+    "disloyal": 2.0,
+    "loyal": 0.5
+   },
+   "regard": {},
+   "weight": 1.0,
+   "pulls": {
+    "notes": [
+     "betraying own sect ×2",
+     "head-seat challenge ×1.5"
+    ]
+   }
+  }
+ ],
+ "callings": [
+  {
+   "id": "strategist",
+   "name": "Strategist",
+   "name_vi": "binh gia",
+   "boon": [
+    {
+     "stat": "escape_pct",
+     "value": 1.2
+    }
+   ],
+   "cost": [
+    {
+     "stat": "cultivation_speed_pct",
+     "value": -0.5
+    }
+   ],
+   "tags": {
+    "ambitious": 1.5,
+    "cautious": 1.5
+   },
+   "pulls": {
+    "first_track": "military",
+    "war_odds": 0.9
+   }
+  },
+  {
+   "id": "steward",
+   "name": "Steward",
+   "name_vi": "chưởng quỹ",
+   "boon": [
+    {
+     "stat": "mission_income_pct",
+     "value": 1.7
+    }
+   ],
+   "cost": [
+    {
+     "stat": "travel_speed_pct",
+     "value": -4.0
+    }
+   ],
+   "tags": {
+    "diligent": 1.5,
+    "indulgent": 0.67
+   },
+   "pulls": {
+    "first_track": "holdings",
+    "dial_when_thriving": {
+     "tax": -1.0
+    }
+   }
+  },
+  {
+   "id": "diplomat",
+   "name": "Diplomat",
+   "name_vi": "thuyết khách",
+   "boon": [
+    {
+     "stat": "mi_luc",
+     "value": 1.2
+    }
+   ],
+   "cost": [
+    {
+     "stat": "khi_huyet_pct",
+     "value": -2.0
+    }
+   ],
+   "tags": {
+    "social": 1.5,
+    "aggressive": 0.67
+   },
+   "pulls": {
+    "attitude_speed": 1.3,
+    "attitude_speed_when": "friendly",
+    "pact_line": 35.0
+   }
+  },
+  {
+   "id": "merchant",
+   "name": "Merchant",
+   "name_vi": "thương gia",
+   "boon": [
+    {
+     "stat": "travel_speed_pct",
+     "value": 4.0
+    }
+   ],
+   "cost": [
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": -0.8
+    }
+   ],
+   "tags": {
+    "greedy": 1.5,
+    "pragmatic": 1.5
+   },
+   "pulls": {
+    "first_track": "trade",
+    "dials": {
+     "openness": 1.0
+    }
+   }
+  },
+  {
+   "id": "teacher",
+   "name": "Teacher",
+   "name_vi": "truyền đạo",
+   "boon": [
+    {
+     "stat": "healing_pct",
+     "value": 2.4
+    }
+   ],
+   "cost": [
+    {
+     "stat": "cultivation_speed_pct",
+     "value": -0.5
+    }
+   ],
+   "tags": {
+    "generous": 1.5,
+    "solitary": 0.67
+   },
+   "pulls": {
+    "first_track": "institutions",
+    "dials": {
+     "recruitment": 1.0
+    }
+   }
+  },
+  {
+   "id": "schemer",
+   "name": "Schemer",
+   "name_vi": "mưu sĩ",
+   "boon": [
+    {
+     "stat": "stealth",
+     "value": 0.8
+    }
+   ],
+   "cost": [
+    {
+     "stat": "mi_luc",
+     "value": -1.2
+    }
+   ],
+   "tags": {
+    "deceitful": 1.5,
+    "honest": 0.67
+   },
+   "pulls": {
+    "notes": [
+     "pact keeping ×2 to break",
+     "spying and betrayal against rivals ×2"
+    ]
+   }
+  },
+  {
+   "id": "alchemist",
+   "name": "Alchemist",
+   "name_vi": "đan sư",
+   "boon": [
+    {
+     "stat": "alchemy_success",
+     "value": 0.4
+    }
+   ],
+   "cost": [
+    {
+     "stat": "khi_huyet_pct",
+     "value": -2.0
+    }
+   ],
+   "tags": {
+    "cautious": 1.5,
+    "diligent": 1.5
+   },
+   "pulls": {
+    "first_track": "institutions"
+   }
+  },
+  {
+   "id": "refiner",
+   "name": "Refiner",
+   "name_vi": "luyện khí sư",
+   "boon": [
+    {
+     "stat": "refining_success",
+     "value": 0.6
+    }
+   ],
+   "cost": [
+    {
+     "stat": "cultivation_speed_pct",
+     "value": -0.5
+    }
+   ],
+   "tags": {
+    "diligent": 1.5,
+    "indulgent": 0.67
+   },
+   "pulls": {
+    "first_track": "military"
+   }
+  },
+  {
+   "id": "formation_master",
+   "name": "Formation master",
+   "name_vi": "trận sư",
+   "boon": [
+    {
+     "stat": "formation_power_pct",
+     "value": 1.2
+    }
+   ],
+   "cost": [
+    {
+     "stat": "escape_pct",
+     "value": -1.2
+    }
+   ],
+   "tags": {
+    "cautious": 1.5,
+    "bold": 0.67
+   },
+   "pulls": {
+    "first_track": "military",
+    "dials": {
+     "war_readiness": 1.0
+    }
+   }
+  },
+  {
+   "id": "talisman_maker",
+   "name": "Talisman maker",
+   "name_vi": "phù sư",
+   "boon": [
+    {
+     "stat": "than_thuc_pct",
+     "value": 0.9
+    }
+   ],
+   "cost": [
+    {
+     "stat": "evade_pct",
+     "value": -0.8
+    }
+   ],
+   "tags": {
+    "devout": 1.5,
+    "diligent": 1.5
+   },
+   "pulls": {
+    "first_track": "institutions"
+   }
+  },
+  {
+   "id": "beast_tamer",
+   "name": "Beast tamer",
+   "name_vi": "ngự thú sư",
+   "boon": [
+    {
+     "stat": "companion_health_pct",
+     "value": 3.0
+    }
+   ],
+   "cost": [
+    {
+     "stat": "mi_luc",
+     "value": -1.2
+    }
+   ],
+   "tags": {
+    "merciful": 1.5,
+    "social": 0.67
+   },
+   "pulls": {
+    "first_track": "holdings"
+   }
+  },
+  {
+   "id": "herbalist",
+   "name": "Herbalist",
+   "name_vi": "linh thực sư",
+   "boon": [
+    {
+     "stat": "herb_growth_pct",
+     "value": 1.3
+    }
+   ],
+   "cost": [
+    {
+     "stat": "travel_speed_pct",
+     "value": -4.0
+    }
+   ],
+   "tags": {
+    "diligent": 1.5,
+    "aggressive": 0.67
+   },
+   "pulls": {
+    "first_track": "holdings",
+    "dials": {
+     "expansion": -1.0
+    }
+   }
+  },
+  {
+   "id": "duelist",
+   "name": "Duelist",
+   "name_vi": "đấu sĩ",
+   "boon": [
+    {
+     "stat": "evade_pct",
+     "value": 0.8
+    }
+   ],
+   "cost": [
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": -0.8
+    }
+   ],
+   "tags": {
+    "bold": 1.5,
+    "aggressive": 1.5
+   },
+   "pulls": {
+    "dials": {
+     "war_readiness": 1.0
+    },
+    "notes": [
+     "duel challenges ×1.5"
+    ]
+   }
+  },
+  {
+   "id": "wanderer",
+   "name": "Wanderer",
+   "name_vi": "du hiệp",
+   "boon": [
+    {
+     "stat": "travel_speed_pct",
+     "value": 4.0
+    }
+   ],
+   "cost": [
+    {
+     "stat": "mission_income_pct",
+     "value": -1.7
+    }
+   ],
+   "tags": {
+    "solitary": 1.5,
+    "loyal": 0.67
+   },
+   "pulls": {
+    "dials": {
+     "openness": 1.0,
+     "recruitment": -1.0
+    }
+   }
+  }
+ ],
+ "calling_weights": {
+  "kiem_tu": {
+   "duelist": 6.0,
+   "wanderer": 3.0,
+   "refiner": 1.0
+  },
+  "the_tu": {
+   "duelist": 6.0,
+   "beast_tamer": 2.0,
+   "wanderer": 2.0
+  },
+  "phap_tu": {
+   "duelist": 4.0,
+   "talisman_maker": 4.0,
+   "teacher": 2.0
+  },
+  "dan_su": {
+   "alchemist": 6.0,
+   "herbalist": 3.0,
+   "merchant": 1.0
+  },
+  "tran_su": {
+   "formation_master": 6.0,
+   "refiner": 3.0,
+   "talisman_maker": 1.0
+  },
+  "linh_thuc_su": {
+   "herbalist": 6.0,
+   "beast_tamer": 3.0,
+   "alchemist": 1.0
+  },
+  "tan_tu": {
+   "wanderer": 6.0,
+   "merchant": 2.0,
+   "beast_tamer": 1.0,
+   "schemer": 1.0
+  },
+  "sect_member": {
+   "strategist": 0.5,
+   "steward": 0.5,
+   "diplomat": 0.5,
+   "merchant": 0.5,
+   "teacher": 0.5,
+   "schemer": 0.5
+  }
+ },
+ "fate": [
+  {
+   "id": "heaven_favoured",
+   "name": "Heaven-favoured",
+   "name_vi": "thiên quyến",
+   "pair": "fortune",
+   "rows": [
+    {
+     "stat": "co_duyen_pct",
+     "value": 26.6
+    }
+   ],
+   "world_price": "envy ×1.5",
+   "tags": {
+    "bold": 1.5
+   },
+   "regard": {},
+   "reads": "khi_van"
+  },
+  {
+   "id": "ill_starred",
+   "name": "Ill-starred",
+   "name_vi": "mệnh khắc",
+   "pair": "fortune",
+   "rows": [
+    {
+     "stat": "co_duyen_pct",
+     "value": -26.6
+    },
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": 5.3
+    }
+   ],
+   "world_price": "",
+   "tags": {
+    "cautious": 1.5
+   },
+   "regard": {},
+   "reads": "khi_van (inverse)"
+  },
+  {
+   "id": "wise_born",
+   "name": "Wise-born",
+   "name_vi": "tuệ căn",
+   "pair": "comprehension",
+   "rows": [
+    {
+     "stat": "ngo_tinh",
+     "value": 1.6
+    }
+   ],
+   "world_price": "envy ×1.5; rival sects poach them as a disciple ×2",
+   "tags": {},
+   "regard": {},
+   "reads": "ngo_tinh"
+  },
+  {
+   "id": "dull_witted",
+   "name": "Dull-witted",
+   "name_vi": "độn căn",
+   "pair": "comprehension",
+   "rows": [
+    {
+     "stat": "ngo_tinh",
+     "value": -1.6
+    },
+    {
+     "stat": "dao_tam",
+     "value": 2.66
+    }
+   ],
+   "world_price": "",
+   "tags": {
+    "humble": 1.5
+   },
+   "regard": {},
+   "reads": "ngo_tinh (inverse)"
+  },
+  {
+   "id": "iron_boned",
+   "name": "Iron-boned",
+   "name_vi": "thiết cốt",
+   "pair": "root_bone",
+   "rows": [
+    {
+     "stat": "can_cot",
+     "value": 2.66
+    }
+   ],
+   "world_price": "duel challenges against them ×1.5",
+   "tags": {
+    "bold": 1.5
+   },
+   "regard": {},
+   "reads": "can_cot"
+  },
+  {
+   "id": "frail",
+   "name": "Frail",
+   "name_vi": "thể nhược",
+   "pair": "root_bone",
+   "rows": [
+    {
+     "stat": "can_cot",
+     "value": -2.66
+    },
+    {
+     "stat": "ngo_tinh",
+     "value": 1.6
+    }
+   ],
+   "world_price": "",
+   "tags": {
+    "cautious": 1.5
+   },
+   "regard": {},
+   "reads": "can_cot (inverse)"
+  },
+  {
+   "id": "spirit_eyed",
+   "name": "Spirit-eyed",
+   "name_vi": "linh nhãn",
+   "pair": "soul",
+   "rows": [
+    {
+     "stat": "than_hon",
+     "value": 2.66
+    }
+   ],
+   "world_price": "soul-devouring hunts against them ×1.5",
+   "tags": {},
+   "regard": {},
+   "reads": "than_hon"
+  },
+  {
+   "id": "hollow_souled",
+   "name": "Hollow-souled",
+   "name_vi": "hồn khuyết",
+   "pair": "soul",
+   "rows": [
+    {
+     "stat": "than_hon",
+     "value": -2.66
+    },
+    {
+     "stat": "khi_huyet_pct",
+     "value": 13.3
+    }
+   ],
+   "world_price": "",
+   "tags": {},
+   "regard": {},
+   "reads": "than_hon (inverse)"
+  },
+  {
+   "id": "pure_hearted",
+   "name": "Pure-hearted",
+   "name_vi": "xích tử tâm",
+   "pair": "dao_heart",
+   "rows": [
+    {
+     "stat": "dao_tam",
+     "value": 2.66
+    }
+   ],
+   "world_price": "deceptions against them ×1.5",
+   "tags": {
+    "honest": 1.5,
+    "deceitful": 0.67
+   },
+   "regard": {},
+   "reads": "dao_tam"
+  },
+  {
+   "id": "demon_seeded",
+   "name": "Demon-seeded",
+   "name_vi": "ma chủng",
+   "pair": "dao_heart",
+   "rows": [
+    {
+     "stat": "cultivation_speed_pct",
+     "value": 3.6
+    },
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": -5.3
+    }
+   ],
+   "world_price": "",
+   "tags": {
+    "aggressive": 1.5,
+    "merciful": 0.67
+   },
+   "regard": {
+    "bias_dir": -10.0,
+    "toward": "from righteous-aligned people"
+   },
+   "reads": "dao_tam (inverse)"
+  }
+ ],
+ "gained": [
+  {
+   "id": "scarred",
+   "name": "Scarred",
+   "name_vi": "chiến thương",
+   "grade": "notable",
+   "rows": [
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": -5.3
+    }
+   ],
+   "tags": {
+    "cautious": 1.5
+   },
+   "regard": {},
+   "opposed": "",
+   "trigger": "near_death",
+   "pulls": {}
+  },
+  {
+   "id": "battle_hardened",
+   "name": "Battle-hardened",
+   "name_vi": "bách chiến",
+   "grade": "small",
+   "rows": [
+    {
+     "stat": "status_resist_pct",
+     "value": 3.0
+    },
+    {
+     "stat": "healing_taken_pct",
+     "value": -2.4
+    }
+   ],
+   "tags": {
+    "bold": 1.5
+   },
+   "regard": {},
+   "opposed": "shaken",
+   "trigger": "war_victory",
+   "pulls": {
+    "dials": {
+     "war_readiness": 1.0
+    }
+   }
+  },
+  {
+   "id": "shaken",
+   "name": "Shaken",
+   "name_vi": "kinh hồn",
+   "grade": "small",
+   "rows": [
+    {
+     "stat": "escape_pct",
+     "value": 1.2
+    },
+    {
+     "stat": "status_resist_pct",
+     "value": -3.0
+    }
+   ],
+   "tags": {
+    "cautious": 1.5,
+    "bold": 0.67
+   },
+   "regard": {},
+   "opposed": "battle_hardened",
+   "trigger": "rout",
+   "pulls": {
+    "war_odds": 1.2
+   }
+  },
+  {
+   "id": "renowned",
+   "name": "Renowned",
+   "name_vi": "thành danh",
+   "grade": "small",
+   "rows": [
+    {
+     "stat": "mi_luc",
+     "value": 1.2
+    },
+    {
+     "stat": "stealth",
+     "value": -0.8
+    }
+   ],
+   "tags": {
+    "ambitious": 1.5
+   },
+   "regard": {
+    "bias_all": 5.0
+   },
+   "opposed": "disgraced",
+   "trigger": "public_feat",
+   "pulls": {
+    "dials": {
+     "recruitment": 1.0
+    }
+   }
+  },
+  {
+   "id": "disgraced",
+   "name": "Disgraced",
+   "name_vi": "ô danh",
+   "grade": "small",
+   "rows": [
+    {
+     "stat": "stealth",
+     "value": 0.8
+    },
+    {
+     "stat": "mi_luc",
+     "value": -1.2
+    }
+   ],
+   "tags": {
+    "humble": 1.5
+   },
+   "regard": {
+    "bias_all": -5.0
+   },
+   "opposed": "renowned",
+   "trigger": "public_shame",
+   "pulls": {
+    "dials": {
+     "recruitment": -1.0
+    }
+   }
+  },
+  {
+   "id": "humbled",
+   "name": "Humbled",
+   "name_vi": "khuất phục",
+   "grade": "small",
+   "rows": [
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": 0.8
+    },
+    {
+     "stat": "mission_income_pct",
+     "value": -1.7
+    }
+   ],
+   "tags": {
+    "humble": 1.5,
+    "ambitious": 0.67
+   },
+   "regard": {},
+   "opposed": "",
+   "trigger": "defeated_by_lesser",
+   "pulls": {}
+  },
+  {
+   "id": "embittered",
+   "name": "Embittered",
+   "name_vi": "oán hận",
+   "grade": "small",
+   "rows": [
+    {
+     "stat": "status_resist_pct",
+     "value": 3.0
+    },
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": -0.8
+    }
+   ],
+   "tags": {
+    "vengeful": 1.5,
+    "forgiving": 0.67
+   },
+   "regard": {},
+   "opposed": "",
+   "trigger": "betrayed",
+   "pulls": {
+    "notes": [
+     "event fade 0 %"
+    ]
+   }
+  },
+  {
+   "id": "grudge",
+   "name": "Grudge",
+   "name_vi": "thù hận",
+   "grade": "small",
+   "rows": [
+    {
+     "stat": "evade_pct",
+     "value": 0.8
+    },
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": -0.8
+    }
+   ],
+   "tags": {
+    "vengeful": 1.5
+   },
+   "regard": {
+    "target": -50.0
+   },
+   "opposed": "",
+   "trigger": "wronged_by_target",
+   "pulls": {}
+  },
+  {
+   "id": "lovestruck",
+   "name": "Lovestruck",
+   "name_vi": "si tình",
+   "grade": "small",
+   "rows": [
+    {
+     "stat": "mi_luc",
+     "value": 1.2
+    },
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": -0.8
+    }
+   ],
+   "tags": {
+    "merciful": 1.5
+   },
+   "regard": {
+    "target": 50.0
+   },
+   "opposed": "",
+   "trigger": "courtship",
+   "pulls": {}
+  },
+  {
+   "id": "grieving",
+   "name": "Grieving",
+   "name_vi": "tang thương",
+   "grade": "notable",
+   "rows": [
+    {
+     "stat": "cultivation_speed_pct",
+     "value": -3.6
+    }
+   ],
+   "tags": {
+    "solitary": 1.5,
+    "aggressive": 0.67
+   },
+   "regard": {},
+   "opposed": "",
+   "trigger": "bereaved",
+   "pulls": {}
+  },
+  {
+   "id": "sworn_sibling",
+   "name": "Sworn sibling",
+   "name_vi": "kết nghĩa",
+   "grade": "small",
+   "rows": [
+    {
+     "stat": "healing_pct",
+     "value": 2.4
+    },
+    {
+     "stat": "mission_income_pct",
+     "value": -1.7
+    }
+   ],
+   "tags": {
+    "loyal": 1.5
+   },
+   "regard": {
+    "target": 30.0
+   },
+   "opposed": "",
+   "trigger": "sworn_oath",
+   "pulls": {}
+  },
+  {
+   "id": "life_debt",
+   "name": "Life-debt",
+   "name_vi": "ân cứu mạng",
+   "grade": "small",
+   "rows": [
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": 0.8
+    },
+    {
+     "stat": "escape_pct",
+     "value": -1.2
+    }
+   ],
+   "tags": {
+    "loyal": 1.5,
+    "generous": 1.5
+   },
+   "regard": {
+    "target": 30.0
+   },
+   "opposed": "",
+   "trigger": "saved_by_target",
+   "pulls": {}
+  },
+  {
+   "id": "hunted",
+   "name": "Hunted",
+   "name_vi": "bị truy sát",
+   "grade": "small",
+   "rows": [
+    {
+     "stat": "stealth",
+     "value": 0.8
+    },
+    {
+     "stat": "mission_income_pct",
+     "value": -1.7
+    }
+   ],
+   "tags": {
+    "cautious": 1.5,
+    "social": 0.67
+   },
+   "regard": {},
+   "opposed": "",
+   "trigger": "bounty_posted",
+   "pulls": {}
+  },
+  {
+   "id": "enlightened",
+   "name": "Enlightened",
+   "name_vi": "đốn ngộ",
+   "grade": "notable",
+   "rows": [
+    {
+     "stat": "cultivation_speed_pct",
+     "value": 3.6
+    }
+   ],
+   "tags": {
+    "devout": 1.5
+   },
+   "regard": {},
+   "opposed": "",
+   "trigger": "epiphany",
+   "pulls": {}
+  },
+  {
+   "id": "oath_bound",
+   "name": "Oath-bound",
+   "name_vi": "lập thệ",
+   "grade": "small",
+   "rows": [
+    {
+     "stat": "tam_ma_resist_pct",
+     "value": 0.8
+    },
+    {
+     "stat": "escape_pct",
+     "value": -1.2
+    }
+   ],
+   "tags": {
+    "honest": 1.5,
+    "loyal": 1.5,
+    "deceitful": 0.67
+   },
+   "regard": {},
+   "opposed": "",
+   "trigger": "heart_oath",
+   "pulls": {
+    "notes": [
+     "pact keeping: never breaks"
+    ]
+   }
+  },
+  {
+   "id": "demon_tainted",
+   "name": "Demon-tainted",
+   "name_vi": "nhiễm ma",
+   "grade": "notable",
+   "rows": [
+    {
+     "stat": "qi_deviation_pct",
+     "value": 8.0
+    }
+   ],
+   "tags": {
+    "aggressive": 1.5
+   },
+   "regard": {
+    "bias_dir": -10.0,
+    "toward": "from righteous-aligned people"
+   },
+   "opposed": "",
+   "trigger": "demonic_exposure",
+   "pulls": {}
+  }
+ ]
+}
