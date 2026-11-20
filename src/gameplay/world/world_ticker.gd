@@ -34,6 +34,7 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 	var cultivators: int = 0
 	if _db.has_record("world", "w_meta"):   # the continent's sites produce and their reserves move (Travel & Map rules 21-22, 25)
 		MapProduction.season(_gd, _db)
+		news.append_array(MapChange.season(_db, year, season, str(_db.get_record("world", "w_meta").get("seed", ""))))
 	if season == 0:   # Lost items left untouched long enough decay (item-database.md rule 14)
 		for item in ItemRarity.decay_lost(_gd, _db, year):
 			news.append(_log(year, season, "tick_item_decay", texts, {"item": str(item.get("name", item.id)), "place": str(item.owner_id)}))

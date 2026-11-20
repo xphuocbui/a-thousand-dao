@@ -563,6 +563,10 @@ func explore() -> Dictionary:
 		return g
 	var cfg: Dictionary = gd.session().explore
 	var place: Dictionary = db.get_record("places", player.location_id)
+	if place.has("cycle"):   # Travel & Map rule 26: a secret realm on a cycle is entered only while open
+		var st: Dictionary = MapChange.realm_state(place, MapChange.abs_season(year, season), str(db.get_record("world", "w_meta").get("seed", "")))
+		if not bool(st.open):
+			return {"ok": false, "lines": ["The gate of %s is sealed. It opens in %d season(s)." % [place.name, int(st.next_open_in)]]}
 	var b: Dictionary = EventContext.budget(player, gd, sheet())
 	var found: int = int(roundf(RngUtils.range_f(rng, cfg.loot_linh_thach_frac) * float(b.linh_thach_max)))
 	player.linh_thach += found
