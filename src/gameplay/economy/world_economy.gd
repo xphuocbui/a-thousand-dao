@@ -242,6 +242,7 @@ static func season(gd: GameData, db: WorldDB, money: MoneyLedger = null) -> void
 	var kinds: Array = cfg.classes.order
 	if money == null:
 		money = MoneyLedger.new(db)
+	_sync_regions(db)
 	var markets: Array = _sorted_markets(db)
 	var ins := {}
 	var pre := {}
@@ -294,6 +295,35 @@ static func season(gd: GameData, db: WorldDB, money: MoneyLedger = null) -> void
 		m["player_last"] = m.get("player", {})
 		m["player"] = {}
 		m.season = int(m.season) + 1
+
+
+# Rule 2: a region whose holder changed (Sects rules 17-18) joins the new holder's market this season, with its
+# distance to the new hub (straight-line; the ground path is measured once at world generation); a fallen sect's
+# market closes once it holds no region.
+static func _sync_regions(db: WorldDB) -> void:
+	var where := {}
+	for m in _sorted_markets(db):
+		for rid in m.regions.keys():
+			where[rid] = str(m.id)
+	for r in db.all("regions"):
+		var rid: String = str(r.id)
+		var want: String = market_of_region(db, r)
+		var have: String = str(where.get(rid, ""))
+		if want == have:
+			continue
+		var entry := {"d": 0.0, "p_loc": {}}
+		if have != "":
+			var old: Dictionary = db.get_record(TABLE, have)
+			entry = old.regions[rid]
+			old.regions.erase(rid)
+		if want != "":
+			var m: Dictionary = db.get_record(TABLE, want)
+			entry["d"] = Vector2(float(r.centre_tile[0]), float(r.centre_tile[1])).distance_to(Vector2(float(m.hub_tile[0]), float(m.hub_tile[1])))
+			entry["trades"] = {}
+			m.regions[rid] = entry
+	for m in _sorted_markets(db):
+		if m.regions.is_empty():
+			db.remove(TABLE, str(m.id))
 
 
 ## The links between markets (rule 12): two markets whose territories border, or whose seats both hold a teleport

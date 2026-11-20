@@ -114,13 +114,27 @@ So before the economy can price anything, the land must produce what it prices: 
   balance runs compare across world changes.
 - **Tick cost:** the money step about 85 ms a season (batched ledger flows, slot cache); world tick about 330 ms.
 
+- **Found money (user decision 2026-11-20, "a share of every mine"):** 5 % of every mine's output goes to its
+  market's lost stash (losses, theft, buried caches); explore finds, buried caches and discovery loot draw from it
+  (Formula K). The design's wild-site share alone left the stash empty: every mine on continent 11 has a holder.
+- **H (player side) done:** the player's stipend is paid by the sect's treasury, a sect mission by the treasury and a
+  bounty by the town's commons, explore finds and caches by the lost stash, event money by the commons; array fees
+  half burned and half to the array's holder, rent and residences to the place's holder, seeds bought from the
+  commons, a cave abode's opening burned (`MoneyLedger.player_take` / `player_pay`). Player-only sinks (crafting
+  fuel, ink, formations, beast feed, works) still write the purse directly: the player is outside M.
+- **S1 done:** `SectEconomy`: F1 investment, levels and upkeep (goods share in kind, cash share burned; two unpaid
+  seasons drop a level), F2 capacity, F4 tribute, F17 intake (function; intake still by the world target), F19's
+  track takes the treasury rule's investment. The market tax is split among a market's sects by V_own (F3 share_s).
+- **S2 done:** `SectPolitics`: F6 dials from needs (trait pulls wait for #42), F7 attitudes with authored grudges and
+  the balance-of-power damper, pacts and feuds, F18 war declaration and goal, F9 war score with keyed fortune, losses
+  (members die, purses settled), weariness, war cost, Military drops, spoils (a captured site at x0.5 for 8
+  seasons), fall of a great sect with no region; F5 loyalty and F5b's new lord. Markets follow the holders each
+  season (rule 2). Not yet: rebellion (F5b check 2), levy refusal, pacts' defence calls in a war, the rebel becoming a
+  great sect, members' rank and desertion. Probe (120 seasons, seed 11): three wars, two won (border sites), one
+  feud, then peace; tier-1 levels 13-14 (F1's 11-14); M about +1.5 % a year.
+
 ### Open for the user (to ask)
 
-- **The lost-stash pool has almost no inflow.** Every linh thạch site on continent 11 has a holder, so Formula H's
-  wild-site share is 0 and only heirless purses feed it (6 stones in season 79 of the probe). Formula K would then pay
-  the player's explore finds, buried caches and discovery loot almost nothing. Options: a small share of every mine's
-  output to the stash (losses, theft, buried caches), or draw finds from the commons pool, or keep Formula K as
-  written (finds dry up).
 - **Numbers set without sign-off** (for the economy review): kind_value_mult herb 0.17, beast 1.6, linh thạch 0.72;
   beast settle_w 1.0; the mine resource table (design/map/continent-11/mine_resources.json, DRAFT but live); Ice
   variant at 2.3 % of places; M_0 about 1.53M (pools 20,000 each); npc_rate_ref.

@@ -202,9 +202,12 @@ func _apply(c: Character, sheet: StatSheet, rng: RandomNumberGenerator, event: D
 	match str(fx.type):
 		"linh_thach":
 			var amt: int = int(fx.amount)
+			# Formula K: an event's money comes from the commons of the market here, and a loss goes to it
+			var pool: String = "pool:%s" % MoneyLedger.market_sect_of(_db, str(c.location_id))
 			if amt < 0:
-				amt = -mini(-amt, c.linh_thach)
-			c.linh_thach += amt
+				amt = -MoneyLedger.player_pay(_db, c, pool, mini(-amt, c.linh_thach), "event")
+			else:
+				amt = MoneyLedger.player_take(_db, c, pool, amt, "event")
 			return "linh thạch %+d (now %d)" % [amt, c.linh_thach]
 		"tu_vi":
 			var res: Dictionary = CultivationRules.add_tu_vi(c, _gd, float(fx.amount))

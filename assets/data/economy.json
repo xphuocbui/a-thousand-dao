@@ -2,7 +2,7 @@
   "schema_version": 1,
   "_doc": "Regional Economy & Trade (design/gdd/regional-economy-trade.md) and the money holders of its Formula H. Values marked guess in the GDD are guesses here too; the economy harness tunes them.",
   "money": {
-    "_doc": "Formula H and J. reserve_by_realm: what an NPC keeps, 2 x the realm's mission pay (Sects F12: 10 x 1 / 8 / 60 / 400 / 3,000). An NPC's starting purse is its reserve x a keyed draw in purse_start (world generation; WorldBuilder._step_money). Each great sect's market starts with a commons pool of pool_start and an empty lost-stash pool. stipend: Sects' cash stipend a season by realm before the kind share (kind_stipend). mission_base x mission_scale: Sects F12's mission pay by realm. tf0 + tf_step x Tax: Sects F3's market tax rate. npc_rate_ref: an NPC's reference cultivation rate by realm (tu vi a season), from Formula J's output range (15 / 70 / 2,000 / 57,000 / 1.2M stones at the cap = 0.5 x rate x spt); NPCs have no rate of their own, so their stones and baskets speed their stage chance by (1 + prov) x (1 + stone_boost) (user decision 2026-11-20: money speeds NPCs).",
+    "_doc": "Formula H and J. reserve_by_realm: what an NPC keeps, 2 x the realm's mission pay (Sects F12: 10 x 1 / 8 / 60 / 400 / 3,000). An NPC's starting purse is its reserve x a keyed draw in purse_start (world generation; WorldBuilder._step_money). Each great sect's market starts with a commons pool of pool_start and an empty lost-stash pool. stipend: Sects' cash stipend a season by realm before the kind share (kind_stipend). mission_base x mission_scale: Sects F12's mission pay by realm. tf0 + tf_step x Tax: Sects F3's market tax rate. npc_rate_ref: an NPC's reference cultivation rate by realm (tu vi a season), from Formula J's output range (15 / 70 / 2,000 / 57,000 / 1.2M stones at the cap = 0.5 x rate x spt); NPCs have no rate of their own, so their stones and baskets speed their stage chance by (1 + prov) x (1 + stone_boost) (user decision 2026-11-20: money speeds NPCs). stash_mine_share: the share of every mine's output that goes to its market's lost-stash pool (losses, theft, buried caches), from which explore finds, caches and discovery loot are drawn (Formula K; user decision 2026-11-20: the design's wild-site share alone left the stash empty on continent 11, where every mine has a holder).",
     "reserve_by_realm": [
       20,
       160,
@@ -60,7 +60,8 @@
       200,
       760,
       2400
-    ]
+    ],
+    "stash_mine_share": 0.05
   },
   "classes": {
     "_doc": "Per raw kind (rule 4; a rarity band takes its kind's values). Formulas C-E.",
@@ -248,5 +249,14 @@
   "provision": {
     "_doc": "Formula L2.",
     "prov_max": 0.15
+  },
+  "goods": {
+    "_doc": "Trade Goods (design/gdd/trade-goods.md Formulas B, C, D; TradeGoods). dust: below this fraction of a unit a good with no inflow is dropped from a pool. sigma, eta, wsh_min: the scarcity factor's softening, strength and world-share floor. theta_s, n_spec: a specialty's bar (a share of the top region's output) and most regions. Guesses.",
+    "dust": 0.01,
+    "sigma": 0.12,
+    "eta": 0.18,
+    "wsh_min": 0.005,
+    "theta_s": 0.1,
+    "n_spec": 3
   }
 }

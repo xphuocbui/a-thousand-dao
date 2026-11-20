@@ -3,8 +3,9 @@ extends RefCounted
 
 ## The world's money flows each season (design/gdd/regional-economy-trade.md rule 5 and Formulas H, I, L2; Sects F3's
 ## income, stipends and treasury rule), every one through [MoneyLedger] so the season's books balance:
-## 1. **Mines** mint their output (the only faucet): a held site's sect collects collect_mine of it (Formula I), the
-##    market's commons pool the rest; a wild site's output goes half to the lost-stash pool, half to the pool.
+## 1. **Mines** mint their output (the only faucet): stash_mine_share of it goes to the market's lost-stash pool (user
+##    decision 2026-11-20), then a held site's sect collects collect_mine of the rest (Formula I) and the market's commons
+##    pool the remainder; a wild site's goes half to the stash, half to the pool.
 ## 2. **Stipends**: each sect pays its members' cash stipends by realm (the kind share is goods, not cash).
 ## 3. **Commons missions**: each pool posts about a third of its balance as missions (it keeps 2-4 seasons of mission
 ##    cash); the market's cultivators take them, at most one a season at their realm's pay, shared pro rata.
@@ -36,6 +37,7 @@ static func season(gd: GameData, db: WorldDB, money: MoneyLedger) -> Dictionary:
 	out["commons_missions"] = _commons_missions(gd, db, money, idx)
 	out["baskets"] = _baskets(gd, db, money, idx)
 	out["market_income"] = _market_income(gd, db, money)
+	out["sects"] = SectEconomy.season(gd, db, money)   # upkeep and tribute (Sects F1, F4) before the treasury rule
 	out["invest"] = _treasury_rule(gd, db, money, idx)
 	return out
 
@@ -90,6 +92,8 @@ static func _market_sect(db: WorldDB, place: Dictionary) -> String:
 static func _mines(gd: GameData, db: WorldDB, money: MoneyLedger) -> float:
 	var cfg: Dictionary = _cfg(gd)
 	var total: float = 0.0
+	for s in db.all("sects"):   # each sect's income before costs this season (Sects F4's gross_v)
+		s["gross_income"] = 0.0
 	for p in db.all("places"):
 		if not p.has("site") or str(p.site.get("kind", "")) != "linh_thach":
 			continue
@@ -98,10 +102,16 @@ static func _mines(gd: GameData, db: WorldDB, money: MoneyLedger) -> float:
 			continue
 		var ms: String = _market_sect(db, p)
 		var pool: String = "pool:%s" % ms if ms != "" else ""
+		if ms != "":   # losses, theft and buried caches: the stash that found money is drawn from (user decision 2026-11-20)
+			var lost: float = out * float(cfg.money.stash_mine_share)
+			money.mint("stash:%s" % ms, lost, "mine")
+			total += lost
+			out -= lost
 		var holder: Dictionary = _sect(db, str(p.get("holder", "")))
 		if not holder.is_empty():
 			var share: float = EconomyRules.collect_mine(cfg, WorldEconomy._collect(cfg, int(holder.get("levels", {}).get("holdings", 0))))
 			money.mint("sect:%s" % holder.id, out * share, "mine")
+			holder["gross_income"] = float(holder.get("gross_income", 0.0)) + out * share
 			if pool != "":
 				money.mint(pool, out * (1.0 - share), "mine")
 			else:
@@ -236,7 +246,12 @@ static func _market_income(gd: GameData, db: WorldDB, money: MoneyLedger) -> flo
 		var tax_dial: int = int(s.get("dials", {}).get("tax", 2))
 		var tf: float = float(cfg.money.tf0) + float(cfg.money.tf_step) * tax_dial
 		var tax: float = tf * EconomyRules.trade_mult(cfg, int(lv.get("trade", 0))) * float(m.get("turnover", 0.0))
-		total += money.transfer(pool, treasury, tax, "market_tax")
+		var shares := _v_own_shares(gd, db, m)
+		for sid in shares:   # Sects F3: each sect of the market taxes its share of the land's value (share_s)
+			var got: float = money.transfer(pool, "sect:%s" % sid, tax * float(shares[sid]), "market_tax")
+			var rec: Dictionary = db.get_record("sects", str(sid))
+			rec["gross_income"] = float(rec.get("gross_income", 0.0)) + got
+			total += got
 		var collect: float = WorldEconomy._collect(cfg, int(lv.get("holdings", 0)))
 		var kind_left: float = float(s.get("kind_due", 0.0))
 		var income: float = 0.0
@@ -250,8 +265,37 @@ static func _market_income(gd: GameData, db: WorldDB, money: MoneyLedger) -> flo
 			kind_left -= own
 			income += EconomyRules.goods_income(cfg, coll, own, 0.0, float(c.p)).income
 		s["kind_due"] = maxf(0.0, kind_left)
-		total += money.transfer(pool, treasury, income, "goods_sold")
+		var sold: float = money.transfer(pool, treasury, income, "goods_sold")
+		s["gross_income"] = float(s.get("gross_income", 0.0)) + sold
+		total += sold
 	return total
+
+
+# Sects F3's share_s: each sect's share of its market's production value (V_own, Formula I: the sites it holds, mines
+# in linh thach and goods at P = 1), the great sect taking what no vassal holds. {sect id: share}.
+static func _v_own_shares(gd: GameData, db: WorldDB, m: Dictionary) -> Dictionary:
+	var unit: Dictionary = gd.file(MapProduction.DATA_FILE).unit_value
+	var by := {}
+	var total: float = 0.0
+	for p in db.all("places"):
+		if not m.regions.has(str(p.get("region_id", ""))):
+			continue
+		var v: float = 0.0
+		if p.has("site"):
+			v += float(p.site.get("last_output", 0.0)) * float(unit.get(str(p.site.get("resource", "")), 1))
+		if p.has("herb_site"):
+			v += float(p.herb_site.get("last_output", 0.0))
+		if v <= 0.0:
+			continue
+		var h: Dictionary = _sect(db, str(p.get("holder", "")))
+		var sid: String = str(h.id) if not h.is_empty() else str(m.sect_id)
+		by[sid] = float(by.get(sid, 0.0)) + v
+		total += v
+	if total <= 0.0:
+		return {str(m.sect_id): 1.0}
+	for sid in by:
+		by[sid] = float(by[sid]) / total
+	return by
 
 
 # A region's production value of class k this season (the contract's production_value).
@@ -283,7 +327,7 @@ static func _treasury_rule(gd: GameData, db: WorldDB, money: MoneyLedger, idx: D
 		var paid: float = _pay_missions(gd, money, treasury, members.get(str(s.id), []), float(t.missions), "treasury_mission")
 		var burned: float = money.burn(treasury, float(t.track_cash), "works")
 		s["kind_due"] = float(s.get("kind_due", 0.0)) + float(t.track_kind)
-		s["invested"] = float(s.get("invested", 0.0)) + float(t.track)
+		SectEconomy.invest(gd, s, float(t.track))   # F19's track takes the season's investment (F1 raises its level)
 		total += paid + burned
 	return total
 

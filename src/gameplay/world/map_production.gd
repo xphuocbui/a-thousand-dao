@@ -128,6 +128,8 @@ static func production(gd: GameData, place: Dictionary, settle_w: float, price_i
 	var d_f: float = clampf(1.0 + float(cfg.demand_elasticity) * (price_index - 1.0), float(cfg.demand_min), float(cfg.demand_max))
 	var s_f: float = clampf(float(site.get("scar", 1.0)), 0.0, float(cfg.scar_max))
 	var g_f: float = 1.0 + float(site.get("works_prod", 0.0))
+	if int(site.get("spoils", 0)) > 0:   # Sects F9: a captured site produces at spoils_mult while its spoils last
+		g_f *= float(cfg.get("spoils_mult", 0.5))
 	var mult: float = minf(r_f * settle_w * owner_w * d_f * s_f * g_f, float(cfg.prod_mult_cap))
 	return {"output": floor(float(site.base_output) * mult + 0.5 + 1e-6), "r_f": r_f, "w_f": settle_w * owner_w, "d_f": d_f, "s_f": s_f, "g_f": g_f}
 
@@ -205,6 +207,8 @@ static func season(gd: GameData, db: WorldDB, count_people: bool = true, advance
 		p.site["last_output"] = out
 		if advance:
 			p.site["reserve"] = snappedf(next_reserve(gd, p.site, out, float(cfg.recover_rate.get(str(p.site.kind), 0.01))), 0.01)
+			if int(p.site.get("spoils", 0)) > 0:
+				p.site["spoils"] = int(p.site.spoils) - 1
 		var rid: String = str(p.get("region_id", ""))
 		if not by_region.has(rid):
 			by_region[rid] = {}

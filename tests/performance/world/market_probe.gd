@@ -36,6 +36,21 @@ func _init() -> void:
 func _show(db: WorldDB, s: int) -> void:
 	var money := MoneyLedger.new(db)
 	print("-- season %d  links %d  M %.0f" % [s, db.get_record(WorldEconomy.TABLE, "mk_links").get("links", []).size(), money.money_in_world()])
+	var kinds := {}
+	for e in db.all("events"):
+		var t: String = str(e.get("type", ""))
+		if t.begins_with("sect_") or t.begins_with("vassal_") or t == "territory_change":
+			kinds[t] = int(kinds.get(t, 0)) + 1
+	var rel := {}
+	for sx in db.all("sects"):
+		if str(sx.get("status", "")) == "active" and str(sx.get("kind", "")) == "great":
+			for o in sx.get("relation", {}):
+				rel[str(sx.relation[o])] = int(rel.get(str(sx.relation[o]), 0)) + 1
+	var levels: Array = []
+	for sx in db.find("sects", func(x): return str(x.get("kind", "")) == "great"):
+		levels.append("%s %s %s tr %.0f" % [str(sx.get("key", "")), str(sx.get("status", "")), str(sx.get("levels", {}).values()), float(sx.get("treasury", 0.0))])
+	print("   politics %s relations %s" % [str(kinds), str(rel)])
+	print("   sects " + " | ".join(levels))
 	var ms: Array = db.find(WorldEconomy.TABLE, func(x): return str(x.id).begins_with("mk:"))
 	ms.sort_custom(func(a, b): return str(a.id) < str(b.id))
 	for m in ms:

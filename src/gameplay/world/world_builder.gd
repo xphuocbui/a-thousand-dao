@@ -91,6 +91,8 @@ func generate(rng: RandomNumberGenerator, game_seed: String = "") -> WorldDB:
 	_step_random_fill(rng)
 	_step_named_items(rng)
 	_step_money()
+	SectEconomy.seed_investment(_gd, _db)   # Sects F1: the authored levels as investment, and the stance dials
+	SectPolitics.setup(_gd, _db, _hist.get("territory", {}).get("grudges", []))   # attitudes, grudges, S0
 	MapProduction.season(_gd, _db, true, false)   # the first season's contract (reserves unmoved), so the markets calibrate on real output
 	WorldEconomy.build(_gd, _db, TravelGrid.of(_gd))
 	# Core Rules 10 and 13: the ledger of truth and the data versions are saved with the world, never shown

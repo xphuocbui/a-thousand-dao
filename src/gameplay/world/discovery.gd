@@ -190,6 +190,7 @@ static func discover(gd: GameData, db: WorldDB, k: MapKnowledge, c: Character, s
 		var pay: Dictionary = _cfg(gd).get("secret_pay", {}).get(str(roll.get("kind", "")), {})
 		if pay.has("linh_thach_frac"):
 			var lt: int = int(round(float(gd.realm_budget(c.realm_index).get("linh_thach_max", 0)) * float(pay.linh_thach_frac)))
-			c.linh_thach += lt
+			# Formula K: a buried cache is the lost stash's money (the market where it lies)
+			lt = MoneyLedger.player_take(db, c, "stash:%s" % MoneyLedger.market_sect_of(db, str(c.location_id)), lt, "found")
 			lines.append("  The cache holds %d linh thạch." % lt)
 	return lines

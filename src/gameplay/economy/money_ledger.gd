@@ -160,6 +160,39 @@ func burn(from: String, amount: float, cause: String) -> float:
 	return n
 
 
+## The player is paid up to [param amount] by [param from] (whole stones; Formula H's payers: a treasury, a commons
+## pool, a lost stash). Off the continent (a world with no markets) the money is made, as built. Returns what was paid.
+static func player_take(db: WorldDB, c: Character, from: String, amount: float, cause: String) -> int:
+	if db.count(WorldEconomy.TABLE) == 0:
+		var n: int = int(round(amount))
+		c.linh_thach += n
+		return n
+	if from.ends_with(":"):   # no payer here (a place outside every market): nothing is paid
+		return 0
+	return int(MoneyLedger.new(db, c).transfer(from, PLAYER, amount, cause))
+
+
+## The player pays [param amount] to [param to], or burns it when [param to] is "" (a sink: fees, works, fuel). The
+## caller checks the purse first. Off the continent the money simply leaves. Returns what was paid.
+static func player_pay(db: WorldDB, c: Character, to: String, amount: float, cause: String) -> int:
+	if to.ends_with(":"):   # no payee here: the money is burned
+		to = ""
+	if db.count(WorldEconomy.TABLE) == 0 or to == "":
+		var n: int = mini(int(amount), c.linh_thach)
+		if db.count(WorldEconomy.TABLE) == 0:
+			c.linh_thach -= n
+			return n
+		return int(MoneyLedger.new(db, c).burn(PLAYER, n, cause))
+	return int(MoneyLedger.new(db, c).transfer(PLAYER, to, amount, cause))
+
+
+## The great sect whose market holds [param place_id]'s region ("" for none).
+static func market_sect_of(db: WorldDB, place_id: String) -> String:
+	var place: Dictionary = db.get_record("places", place_id)
+	var mid: String = WorldEconomy.market_of_region(db, db.get_record("regions", str(place.get("region_id", ""))))
+	return "" if mid == "" else str(db.get_record(WorldEconomy.TABLE, mid).get("sect_id", ""))
+
+
 ## M: the money in the world, every holder but the player (Formula H).
 func money_in_world() -> float:
 	var m: float = 0.0

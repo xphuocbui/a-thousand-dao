@@ -69,7 +69,7 @@ func plant_seed(c: Character, sheet: StatSheet, herb_id: String) -> Dictionary:
 	var price: int = int(t.seed_price)
 	if c.linh_thach < price:
 		return {"ok": false, "message": "A %s seed costs %d linh thạch; you have %d." % [t.name, price, c.linh_thach]}
-	c.linh_thach -= price
+	MoneyLedger.player_pay(_db, c, "pool:%s" % MoneyLedger.market_sect_of(_db, str(c.home_id)), price, "seeds")   # bought from the commons
 	var item: Dictionary = _items.herb(herb_id, 0.0)
 	item["owner_id"] = c.id
 	item["plot"] = check.plot

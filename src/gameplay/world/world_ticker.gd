@@ -43,6 +43,7 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 		if money != null:   # the markets read the season's production, then the money moves (rule 19)
 			WorldEconomy.season(_gd, _db, money)
 			last_money = WorldMoney.season(_gd, _db, money)
+			news.append_array(SectPolitics.season(_gd, _db, money, year, season, str(_db.get_record("world", "w_meta").get("seed", ""))))
 		news.append_array(MapChange.season(_db, year, season, str(_db.get_record("world", "w_meta").get("seed", ""))))
 	if season == 0:   # Lost items left untouched long enough decay (item-database.md rule 14)
 		for item in ItemRarity.decay_lost(_gd, _db, year):

@@ -385,7 +385,9 @@ func _yearly() -> void:
 		player.nurture_years += 1
 	if player.sect_id != "":
 		var stipend: int = int(gd.session().sect.stipend_per_year_by_realm.get(gd.realm(player.realm_index).id, 0))
-		player.linh_thach += stipend
+		var got: int = MoneyLedger.player_take(db, player, "sect:%s" % player.sect_id, stipend, "stipend")   # paid by the treasury (Formula H)
+		if got < stipend:
+			_notices.append("  Your sect's treasury could pay only %d of your %d linh thạch stipend." % [got, stipend])
 	for l in beasts.feed(player):
 		_notices.append("  " + l)
 	for l in formations.pay_upkeep(player):
@@ -544,8 +546,13 @@ func mission() -> Dictionary:
 	income.mul("Realm scale", float(cfg.income_realm_scale.get(gd.realm(player.realm_index).id, 1.0)))
 	income.mul("Kim/mission multiplier", CharacterRules.mission_income(player, gd, sh).total)
 	var earned: int = int(roundf(income.total))
-	player.linh_thach += earned
+	# Formula H: a sect mission is paid by the sect's treasury, a bounty by the town's commons (the market's pool)
+	var client: String = "sect:%s" % sect.id if not sect.is_empty() and sect.hq_place_id == player.location_id else "pool:%s" % MoneyLedger.market_sect_of(db, player.location_id)
+	var asked: int = earned
+	earned = MoneyLedger.player_take(db, player, client, earned, "player_mission")
 	var lines: Array = ["%s: +%d linh thạch (now %d)." % [kind, earned, player.linh_thach]]
+	if earned < asked:
+		lines.append("  The client could pay only %d of the %d agreed." % [earned, asked])
 	if not sect.is_empty() and sect.hq_place_id == player.location_id:
 		# Sects rule 25, F10, F12: contribution and standing with the sect
 		var rw: Dictionary = sect_members.mission_reward(player, earned)
@@ -576,7 +583,8 @@ func explore() -> Dictionary:
 			return {"ok": false, "lines": ["The gate of %s is sealed. It opens in %d season(s)." % [place.name, int(st.next_open_in)]]}
 	var b: Dictionary = EventContext.budget(player, gd, sheet())
 	var found: int = int(roundf(RngUtils.range_f(rng, cfg.loot_linh_thach_frac) * float(b.linh_thach_max)))
-	player.linh_thach += found
+	# Formula K: found money is drawn from the lost stash of the market here (fed by a share of every mine)
+	found = MoneyLedger.player_take(db, player, "stash:%s" % MoneyLedger.market_sect_of(db, player.location_id), found, "found")
 	var lines: Array = ["You explore %s for a season and find %d linh thạch." % [place.name, found]]
 	if rng.randf() < float(cfg.get("material_find_chance", 0.0)):
 		var m: Dictionary = items.random_material(rng, int(b.get("material_rarity_max", 1)))
@@ -846,7 +854,12 @@ func teleport(dest_id: String) -> Dictionary:
 		return {"ok": false, "lines": ["A jump needs a teleport array here and at the destination (the great cities that hold one: 'arrays')."]}
 	if player.linh_thach < int(fee.fee):
 		return {"ok": false, "lines": ["The array keepers ask %d linh thạch; you have %d." % [int(fee.fee), player.linh_thach]]}
-	player.linh_thach -= int(fee.fee)
+	# Formula H: f_burn of the fee powers the arrays, the rest goes to the sect that holds the array here
+	var f_burn: float = float(gd.file(WorldEconomy.FILE).get("money", {}).get("f_burn", 0.5)) if db.count(WorldEconomy.TABLE) > 0 else 1.0
+	var burned: int = int(round(int(fee.fee) * f_burn))
+	MoneyLedger.player_pay(db, player, "", burned, "array_fees")
+	var keeper: String = str(db.get_record("places", player.location_id).get("holder", ""))
+	MoneyLedger.player_pay(db, player, "sect:%s" % keeper if keeper != "" else "", int(fee.fee) - burned, "array_fees")
 	var dest: Dictionary = db.get_record("places", dest_id)
 	var r: Dictionary = _pass_season("travel")
 	if r.died:
@@ -962,7 +975,7 @@ func open_abode(x: int, y: int, part: int = -1) -> Dictionary:
 			_bulk_end()
 			return {"ok": true, "lines": lines + death_lines()}
 	_bulk_end()
-	player.linh_thach -= cost
+	MoneyLedger.player_pay(db, player, "", cost, "works")   # a cave abode's opening is works (burned)
 	var region_cid: int = grid.region(x, y)
 	var region: Array = db.find("regions", func(r): return int(r.get("continent_id", -1)) == region_cid)
 	var rec := {"name": "Động phủ của %s" % player.name, "type": "dong_phu", "kind": "abode", "region_id": str(region[0].id) if not region.is_empty() else "",
@@ -1005,8 +1018,9 @@ func take_residence(grade: int, buy: bool = false) -> Dictionary:
 	var price: int = rent * int(cfg.buy_seasons)
 	if buy and player.linh_thach < price:
 		return {"ok": false, "lines": ["A grade %d residence here sells for %d linh thạch; you have %d." % [grade, price, player.linh_thach]]}
-	if buy:
-		player.linh_thach -= price
+	if buy:   # paid to the sect that holds the place (burned where none does)
+		var seller: String = str(place.get("holder", ""))
+		MoneyLedger.player_pay(db, player, "sect:%s" % seller if seller != "" else "", price, "residence")
 	if not place.qi.has("residences"):
 		place.qi["residences"] = {}
 	place.qi.residences[player.id] = {"grade": grade, "own": buy, "rent": rent}
@@ -1039,7 +1053,8 @@ func _bill_residence() -> Array:
 		if res.is_empty() or bool(res.get("own", false)):
 			continue
 		if player.linh_thach >= int(res.rent):
-			player.linh_thach -= int(res.rent)
+			var landlord: String = str(p.get("holder", ""))
+			MoneyLedger.player_pay(db, player, "sect:%s" % landlord if landlord != "" else "", int(res.rent), "rent")
 			return []
 		p.qi.residences.erase(player.id)
 		return ["  You could not pay the rent at %s; the residence is let to someone else." % p.name]
