@@ -71,7 +71,15 @@ static func start(gd: GameData, db: WorldDB, c: Character) -> MapKnowledge:
 			k.places[str(p.id)] = true
 	k.places[str(c.home_id)] = true
 	k.places[str(c.location_id)] = true
+	k.signposts(db, str(c.location_id))
 	return k
+
+
+## The places a road or lane from [param place_id] leads to become known (the signposts where one stands).
+func signposts(db: WorldDB, place_id: String) -> void:
+	places[place_id] = true
+	for l in db.get_record("places", place_id).get("links", []):
+		places[str(l.to)] = true
 
 
 ## Marks the tiles of a trip crossed and the band of [param r] tiles around them known; places on those tiles become

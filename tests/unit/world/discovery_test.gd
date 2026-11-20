@@ -97,3 +97,10 @@ func test_knowledge_survives_a_save() -> void:
 	assert_eq(t.knowledge.known_tile_count(), s.knowledge.known_tile_count(), "the same known tiles")
 	assert_eq(t.knowledge.clues.size(), 1, "and clues")
 	assert_eq(t.knowledge.places.size(), s.knowledge.places.size(), "and places")
+
+
+func test_the_roads_from_where_one_stands_are_known() -> void:
+	var s := _session()
+	var here: Dictionary = s.db.get_record("places", s.player.location_id)
+	for l in here.links:
+		assert_true(s.knowledge.knows_place(str(l.to)), "a signpost names %s" % s.db.get_record("places", str(l.to)).name)

@@ -685,6 +685,8 @@ func travel(dest_id: String, how: String = "ground") -> Dictionary:
 	for b in beasts.owned(player):
 		b["location_id"] = dest_id
 	var lines: Array = ["You travel %.2f season(s) (%s) and arrive at %s; %d season(s) pass." % [t, hops, dest.name, seasons]]
+	if knowledge != null:
+		knowledge.signposts(db, dest_id)
 	if knowledge != null and not path_tiles.is_empty():
 		var ds: float = CharacterRules.than_thuc(player, gd, sheet()).total
 		var seen: Array = knowledge.reveal_path(db, path_tiles, MapKnowledge.sight_radius(gd, ds))
