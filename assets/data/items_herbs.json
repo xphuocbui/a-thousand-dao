@@ -140,10 +140,10 @@
       "seed_price": 1200,
       "rarity": 6,
       "desc": "Spirit-changing fruit; at a hundred years it can carry a soul to Hóa Thần.",
-      "temp_ideal": 85,
-      "temp_tol": 10,
-      "rain_ideal": 20,
-      "rain_tol": 15
+      "temp_ideal": 75,
+      "temp_tol": 20,
+      "rain_ideal": 25,
+      "rain_tol": 20
     }
   ],
   "fit": {
