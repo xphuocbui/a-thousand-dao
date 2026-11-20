@@ -2,7 +2,8 @@
   "schema_version": 1,
   "potency": {
     "per_doubling": 0.5,
-    "max_potency": 5
+    "max_potency": 5,
+    "_doc": "Retired 2026-11-20 (Item Database Formula B now uses the equivalent block); kept for old readers only."
   },
   "herbs": [
     {
@@ -181,5 +182,11 @@
         "poor"
       ]
     ]
+  },
+  "equivalent": {
+    "_doc": "Item Database Formula B (user decision 2026-11-20): a herb of age a counts as E(x) mature herbs of its type, x = a / mature_years: E = x to maturity, 1 + s (x - 1) to the knee x_k, then E_k 2^((x - x_k) / d). Herb value = base_value x E; recipes count equivalents.",
+    "s": 0.1,
+    "x_k": 3,
+    "d": 0.45
   }
 }

@@ -432,7 +432,8 @@ type, so younger herbs stand in at a much higher quantity. Herbs are used oldest
 rank 2 at 2.5, rank 3 at 4 *(guesses; replaces the mean-potency thresholds 0 / 1.5 / 2.5 / 3.5)*, so putting in older or
 extra herbs raises it.
 **Example:** Trúc Cơ Đan needs 2 × Hoàng Tinh Sâm ≥ 40y = 2 · 5.6 = 11.2 equivalents: 12 market roots at age 10, two
-40-year roots, or one 50-year root (E 26.1); and 1 Hỏa Linh Chi ≥ 10y (mature 5, E 2): two mature ones.
+40-year roots, or one 50-year root (E 26.1); and 1 Hỏa Linh Chi ≥ 10y (mature 5: twice mature, on the plateau, E 1.1):
+two mature ones, since no herb is split.
 
 ### C. Pill value and margin
 
@@ -1019,7 +1020,7 @@ under `production/qa/evidence/balance/`, terminal evidence under `production/qa/
 - **AC-ID-81** [UI] Use preview. Given Linh Căn Quả, the transcript shows the effect and choice. Backing out leaves every record unchanged.
 - **AC-ID-82** [UI] Visual requirements. With colour switched off, every rarity still reads as a word (Open Question 13).
 - **AC-ID-83** [UI] Game Feel. Given a Planted Hoàng Tinh Sâm at age 30, the transcript shows age 30, E 1.2, value 24, and at age 40, E 5.6, value 112.
-- **AC-ID-97** [Logic] Formula B, recipes. Given Trúc Cơ Đan (2 × Hoàng Tinh Sâm ≥ 40y, 1 Hỏa Linh Chi ≥ 10y; need 11.2 + 2 equivalents), THEN 12 mature Hoàng Tinh Sâm and 2 mature Hỏa Linh Chi meet it (ρ 14 / 13.2 = 1.06, rank 0), 11 roots do not, and one 50-year root (E 26.1) with 2 mature Hỏa Linh Chi meets it at ρ 2.13 (rank 1).
+- **AC-ID-97** [Logic] Formula B, recipes. Given Trúc Cơ Đan (2 × Hoàng Tinh Sâm ≥ 40y, 1 Hỏa Linh Chi ≥ 10y; need 11.2 + 1.1 equivalents), THEN 12 mature Hoàng Tinh Sâm and 2 mature Hỏa Linh Chi meet it (ρ 14 / 12.3 = 1.14, rank 0), 11 roots do not, and one 50-year root (E 26.1) with 2 mature Hỏa Linh Chi meets it at ρ 2.29 (rank 1).
 - **AC-ID-84** [Logic] Rule 12. Given a breakthrough pill attempt, the result has `needs_confirm` and a preview before anything is consumed, and backing out leaves the pill, talisman and character unchanged. Given a quality-0 Hồi Xuân Đan at toxicity 95, using it shows no preview and toxicity is clamped at 100.
 - **AC-ID-85** [Config/Data] Rule 19 and rule 20, one case each:
   - (a) a rolled artifact carrying an Effect fails the lint;

@@ -282,6 +282,8 @@ static func _calibrate(gd: GameData, db: WorldDB) -> void:
 			var d: float = c.bs * EconomyRules.demand(cfg, k, float(dscale[k]), float(x.need[k]))
 			c.d_min = maxf(1.0, float(cfg.demand.d_min_share) * d)
 			c.stock = maxf(0.0, float(cfg.classes.c_ref[k]) * d - s)
+			if c.stock <= 0.0:   # a glut market starts with what its first season would leave (Formula D), so its shelves are not empty
+				c.stock = (1.0 - float(cfg.classes.dk[k])) * maxf(0.0, s - d)
 			# the starting pool is made of the market's own goods in their supply shares (all on the shelf)
 			var pool := {}
 			var rg: Dictionary = x.reached_g[cid]

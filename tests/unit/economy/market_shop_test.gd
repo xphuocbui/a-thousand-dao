@@ -110,7 +110,7 @@ func test_the_first_sale_of_a_new_world_has_almost_no_slippage() -> void:
 	var place: Dictionary = db.find("places", func(p): return bool(p.get("market", false)) and str(p.get("kind", "")) == "city")[0]
 	var items := ItemFactory.new(gd)
 	var market := Market.new(gd, db, items)
-	var herb: Dictionary = items.herb("ngung_khi_thao", 8.0)
+	var herb: Dictionary = items.herb("ngung_khi_thao", 1.0)   # a mature herb (an 8-year one is now a treasure, E ~2,650)
 	var ctx: Dictionary = market._shop_ctx(herb, place)
 	assert_true(market._place_demand(ctx) > 100.0, "a city's share of its region's herb demand is known at season 0")
 	assert_true(EconomyRules.slip(gd.file("economy"), "herb", 0.0, float(items.value_of(herb)), market._place_demand(ctx)) > 0.95, "a first small sale keeps 95 % or more")

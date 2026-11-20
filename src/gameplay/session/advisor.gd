@@ -433,9 +433,25 @@ static func ingredient_status(s: GameSession, c: Character, sh: StatSheet, ing: 
 	var need_age: float = float(ing.min_age)
 	var qty: int = int(ing.qty)
 	var label: String = "%s ≥%.0fy%s" % [herb.get("name", ing.herb), need_age, " x%d" % qty if qty > 1 else ""]
-	var have: int = s.db.items_of(c.id).filter(func(i): return i.kind == "herb" and int(i.get("plot", -1)) < 0 and i.template == ing.herb and float(i.age) >= need_age).size()
-	if have >= qty:
+	# Item Database Formula B: herbs of the type count by their equivalents against qty · E(min_age)
+	var need_e: float = float(qty) * ItemFactory.equivalents_at(gd, str(ing.herb), need_age)
+	var have_e: float = 0.0
+	for i in s.db.items_of(c.id):
+		if i.kind == "herb" and int(i.get("plot", -1)) < 0 and i.template == ing.herb:
+			have_e += s.items.herb_equivalents(i)
+	if have_e >= need_e - 1e-9:
 		return {"text": "%s ✓" % label, "command": "", "action": "", "ready": true}
+	var have: int = 0
+	var place_m: Dictionary = s.db.get_record("places", c.location_id)
+	if bool(place_m.get("market", false)):   # mature herbs bought here count one each
+		var offers_m: Array = s.market.stock(place_m.id).filter(func(i): return i.kind == "herb" and i.template == ing.herb)
+		if not offers_m.is_empty():
+			var o_m: Dictionary = offers_m[0]
+			var price_m: int = s.market.buy_price(c, sh, o_m)
+			var short: int = int(ceil(need_e - have_e - 1e-9))
+			return {"text": "%s: %.1f of %.1f equivalents held; this market sells mature ones at %d LT (%d more)" % [label, have_e, need_e, price_m, short],
+				"command": "buy %s" % o_m.id if c.linh_thach >= price_m else "", "action": "Buy %s (%d LT)" % [herb.get("name", ing.herb), price_m],
+				"ready": false, "price": price_m}
 	var growing: Array = []
 	var planted: Dictionary = s.field.planted(c)
 	for p in planted.keys():

@@ -14,9 +14,10 @@
       0,
       1.5,
       2.5,
-      3.5
+      4
     ],
-    "mutated_pill": "tu_khi_dan"
+    "mutated_pill": "tu_khi_dan",
+    "_doc_quality": "Item Database Formula B (2026-11-20): pill quality reads rho = equivalents put in / equivalents the recipe needs; rank q at rho >= thresholds[q] (rank 0 at the bare minimum)."
   },
   "recipes": [
     {

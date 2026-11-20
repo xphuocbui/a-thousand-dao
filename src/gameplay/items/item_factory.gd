@@ -42,19 +42,33 @@ func random_herb(rng: RandomNumberGenerator, rarity_max: int, age_range: Array, 
 	return herb(t.id, RngUtils.range_f(rng, age_range))
 
 
-## Potency of a herb: 1 + per_doubling x log2(age / mature_years), clamped.
-## A herb younger than its mature age has potency below 1.
+## Item Database Formula B: how many mature herbs of [param herb_id] a herb of [param age] counts as. E = x to maturity
+## (x = age / mature_years), 1 + s (x - 1) on the plateau to the knee x_k, then E_k 2^((x - x_k) / d).
+static func equivalents_at(gd: GameData, herb_id: String, age: float) -> float:
+	var cfg: Dictionary = gd.file("items_herbs").get("equivalent", {"s": 0.1, "x_k": 3, "d": 0.45})
+	var x: float = maxf(age, 0.0) / maxf(float(gd.herb(herb_id).get("mature_years", 1.0)), 1e-6)
+	var s: float = float(cfg.s)
+	var xk: float = float(cfg.x_k)
+	if x <= 1.0:
+		return x
+	if x <= xk:
+		return 1.0 + s * (x - 1.0)
+	return (1.0 + s * (xk - 1.0)) * pow(2.0, (x - xk) / float(cfg.d))
+
+
+## A herb's equivalents (Formula B), the number its value, recipes and pill quality read.
+func herb_equivalents(item: Dictionary) -> float:
+	return equivalents_at(_gd, str(item.template), float(item.get("age", 0.0)))
+
+
+## Kept for old callers: a herb's equivalents (the logarithmic potency was retired 2026-11-20).
 func herb_potency(item: Dictionary) -> float:
-	var cfg: Dictionary = _gd.file("items_herbs").potency
-	var mature: float = float(_gd.herb(item.template).get("mature_years", 1.0))
-	var age: float = maxf(float(item.age), 0.01)
-	var p: float = 1.0 + float(cfg.per_doubling) * (log(age / mature) / log(2.0))
-	return clampf(p, 0.1, float(cfg.max_potency))
+	return herb_equivalents(item)
 
 
-## Market value of a herb (base value x potency, at least 1).
+## Market value of a herb (base value x equivalents, at least 1; Item Database Formula B).
 func herb_value(item: Dictionary) -> int:
-	return maxi(1, int(roundf(float(_gd.herb(item.template).get("base_value", 1)) * herb_potency(item))))
+	return maxi(1, int(roundf(float(_gd.herb(item.template).get("base_value", 1)) * herb_equivalents(item))))
 
 
 # --- Pills ------------------------------------------------------------------------
@@ -341,7 +355,7 @@ func value_of(item: Dictionary) -> int:
 func describe(item: Dictionary) -> String:
 	match str(item.get("kind", "")):
 		"herb":
-			return "%s [%s] %.1f năm, potency %.2f" % [item.name, _gd.element_name(item.element), float(item.age), herb_potency(item)]
+			return "%s [%s] %.1f năm, E %.2f" % [item.name, _gd.element_name(item.element), float(item.age), herb_equivalents(item)]
 		"pill":
 			return "%s x%d (phẩm %d)" % [item.name, int(item.qty), int(item.quality)]
 		"artifact":

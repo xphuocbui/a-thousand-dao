@@ -258,5 +258,10 @@
     "wsh_min": 0.005,
     "theta_s": 0.1,
     "n_spec": 3
+  },
+  "shelf": {
+    "_doc": "Regional Economy & Trade Edge Cases (restock) and AC-RE-35, Trade Goods rules 8 and 10 (user decision 2026-11-20: shops are a view of the pool, herbs at mature age only): each season a market place's shelf lists the shelved goods of its market's raw pools, each at the place's share of the pool by settlement weight; herb_max and material_max cap the items listed per good (a view, not a withdrawal).",
+    "herb_max": 6,
+    "material_max": 20
   }
 }

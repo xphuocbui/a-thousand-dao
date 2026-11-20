@@ -274,8 +274,11 @@ func _apply(c: Character, sheet: StatSheet, rng: RandomNumberGenerator, event: D
 				return ""
 			var r2: Dictionary = Advisor.recipe_for_tag(_gd, str(_gd.realm(c.realm_index + 1).entry_requirement.item_tag))
 			for ing in r2.get("ingredients", []):
-				var have: int = _db.items_of(c.id).filter(func(i): return i.kind == "herb" and i.template == ing.herb and float(i.age) >= float(ing.min_age)).size()
-				if have < int(ing.qty):
+				var have_e: float = 0.0   # counted by equivalents (Item Database Formula B)
+				for i in _db.items_of(c.id):
+					if i.kind == "herb" and i.template == ing.herb:
+						have_e += _items.herb_equivalents(i)
+				if have_e < float(ing.qty) * ItemFactory.equivalents_at(_gd, str(ing.herb), float(ing.min_age)) - 1e-9:
 					return _give(c, _items.herb(str(ing.herb), float(ing.min_age) + 1.0), items)
 			return ""
 		"treasure":

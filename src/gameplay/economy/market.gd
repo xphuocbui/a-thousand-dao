@@ -54,16 +54,20 @@ func ensure_stock(rng: RandomNumberGenerator, place_id: String, year: int, realm
 	var place: Dictionary = _db.get_record("places", place_id)
 	if place.is_empty() or not bool(place.get("market", false)):
 		return
+	restock_raw(place_id)   # raw goods: a view of the market's pools, each season (continent only)
 	var cfg: Dictionary = _gd.session().market
 	if place.has("stock_year") and year - int(place.stock_year) < int(cfg.restock_every_years):
 		return
+	var on_continent: bool = not _shop_ctx({"kind": "herb", "template": "ngung_khi_thao"}, place).is_empty()
 	for old in stock(place_id):
-		if not bool(old.get("reserved", false)):
+		if not bool(old.get("reserved", false)) and not (on_continent and str(old.get("kind", "")) in ["herb", "material"]):
 			_db.remove("items", old.id)
 	var owner: String = owner_of(place_id)
 	var tier: int = clampi(realm_index, 0, _gd.realms().size() - 1)
 	var barred: Array = breakthrough_main_herbs(_gd)
 	var herbs: Array = _gd.herbs().filter(func(t): return int(t.rarity) <= int(cfg.stock_herb_rarity_max) and not barred.has(t.id))
+	if on_continent:   # raw goods come from the market's pools instead (restock_raw, once a season)
+		herbs = []
 	for i in int(cfg.stock_herbs) if not herbs.is_empty() else 0:
 		var t: Dictionary = RngUtils.weighted_pick(rng, herbs.map(func(x): return {"id": x.id, "weight": 1.0 / float(x.rarity)}))
 		var h: Dictionary = _items.herb(t.id, RngUtils.range_f(rng, [0.0, float(cfg.aged_herb_max_years)]))
@@ -92,7 +96,7 @@ func ensure_stock(rng: RandomNumberGenerator, place_id: String, year: int, realm
 		p["owner_id"] = owner
 		_db.add("items", p)
 	var mat_rarity: int = int(_gd.realm_budget(tier).get("material_rarity_max", 2))
-	for i in int(cfg.get("stock_materials", 0)):
+	for i in int(cfg.get("stock_materials", 0)) if not on_continent else 0:
 		var m: Dictionary = _items.random_material(rng, mat_rarity)
 		m["qty"] = rng.randi_range(1, int(cfg.get("stock_material_qty_max", 1)))
 		m["owner_id"] = owner
@@ -103,6 +107,54 @@ func ensure_stock(rng: RandomNumberGenerator, place_id: String, year: int, realm
 		cp["owner_id"] = owner
 		_db.add("items", cp)
 	place["stock_year"] = year
+
+
+## Regional Economy & Trade's restock (Edge Cases, AC-RE-35; Trade Goods rules 8 and 10): once a season a continent
+## place's raw shelf is rebuilt as a view of its market's pools: each shelved good at the place's share of the pool by
+## settlement weight, in whole units, herbs at their mature age (capped at shelf.herb_max items and material_max units
+## a good). A view, not a withdrawal: the pool changes only through the player's trades (Formula B's buy_pl).
+func restock_raw(place_id: String) -> void:
+	var place: Dictionary = _db.get_record("places", place_id)
+	if place.is_empty() or not bool(place.get("market", false)):
+		return
+	var ctx := _shop_ctx({"kind": "herb", "template": "ngung_khi_thao"}, place)
+	if ctx.is_empty():
+		return
+	var m: Dictionary = _db.get_record(WorldEconomy.TABLE, str(ctx.market))
+	if int(place.get("shelf_season", -1)) == int(m.get("season", 0)):
+		return
+	place["shelf_season"] = int(m.get("season", 0))
+	for old in stock(place_id):
+		if str(old.get("kind", "")) in ["herb", "material"] and not bool(old.get("reserved", false)):
+			_db.remove("items", old.id)
+	var cfg: Dictionary = _gd.file(WorldEconomy.FILE)
+	var w: Dictionary = cfg.shop.w_place
+	var tot_w: float = 0.0
+	for p in _db.all("places"):
+		if bool(p.get("market", false)) and WorldEconomy.market_of_region(_db, _db.get_record("regions", str(p.get("region_id", "")))) == str(ctx.market):
+			tot_w += float(w.get(str(p.get("kind", "")), 1.0))
+	var share: float = float(w.get(str(place.get("kind", "")), 1.0)) / maxf(tot_w, 1.0)
+	var owner: String = owner_of(place_id)
+	for cid in m.classes:
+		var pool: Dictionary = m.classes[cid].pool
+		var goods: Array = pool.keys()
+		goods.sort()
+		for g in goods:
+			var v: float = TradeGoods.unit_value(_gd, str(g))
+			if float(pool[g]) < v:   # an unshelved good is not on any shelf
+				continue
+			var units: int = int(floor(share * float(pool[g]) / v))
+			if units <= 0:
+				continue
+			if not _gd.herb(str(g)).is_empty():
+				for i in mini(units, int(cfg.shelf.herb_max)):
+					var h: Dictionary = _items.herb(str(g), float(_gd.herb(str(g)).get("mature_years", 1)))
+					h["owner_id"] = owner
+					_db.add("items", h)
+			elif not _gd.material(str(g)).is_empty():
+				var mt: Dictionary = _items.material(str(g), mini(units, int(cfg.shelf.material_max)))
+				mt["owner_id"] = owner
+				_db.add("items", mt)
 
 
 ## Rule 18: stocks a reserved copy of each par-tier single-element main method for every realm

@@ -41,27 +41,39 @@ func success_chance(c: Character, sheet: StatSheet, recipe: Dictionary) -> Break
 	return b
 
 
-## Picks the youngest qualifying herbs for each ingredient (keeping older herbs).
-## Returns {ok, items: [item ids], missing: [text]}.
+## The equivalents an ingredient needs (Item Database Formula B): qty · E(min_age).
+func ingredient_need(ing: Dictionary) -> float:
+	return float(ing.qty) * ItemFactory.equivalents_at(_gd, str(ing.herb), float(ing.min_age))
+
+
+## Picks herbs for each ingredient by equivalents (Item Database Formula B): herbs of the type, oldest first, until
+## their equivalents reach qty · E(min_age); no herb is split. Returns {ok, items: [item ids], missing: [text], need,
+## put} (need and put: the recipe's equivalents needed and put in, for pill quality).
 func find_ingredients(c: Character, recipe: Dictionary) -> Dictionary:
 	var used: Dictionary = {}
 	var chosen: Array = []
 	var missing: Array = []
 	var owned: Array = _db.items_of(c.id).filter(func(i): return i.kind == "herb" and int(i.get("plot", -1)) < 0)
-	owned.sort_custom(func(a, b): return float(a.age) < float(b.age))
+	owned.sort_custom(func(a, b): return float(a.age) > float(b.age) or (float(a.age) == float(b.age) and str(a.id) < str(b.id)))
+	var need_tot: float = 0.0
+	var put_tot: float = 0.0
 	for ing in recipe.ingredients:
-		var need: int = int(ing.qty)
+		var need: float = ingredient_need(ing)
+		need_tot += need
+		var got: float = 0.0
 		for item in owned:
-			if need == 0:
+			if got >= need - 1e-9:
 				break
-			if used.has(item.id) or item.template != ing.herb or float(item.age) < float(ing.min_age):
+			if used.has(item.id) or item.template != ing.herb:
 				continue
 			used[item.id] = true
 			chosen.append(item.id)
-			need -= 1
-		if need > 0:
-			missing.append("%d x %s (>= %.0f năm)" % [need, _gd.herb(ing.herb).get("name", ing.herb), float(ing.min_age)])
-	return {"ok": missing.is_empty(), "items": chosen, "missing": missing}
+			got += _items.herb_equivalents(item)
+		put_tot += got
+		if got < need - 1e-9:
+			missing.append("%.1f more of %s (mature ones count 1 each; %d x >= %.0f năm needs %.1f)" % [need - got,
+				_gd.herb(ing.herb).get("name", ing.herb), int(ing.qty), float(ing.min_age), need])
+	return {"ok": missing.is_empty(), "items": chosen, "missing": missing, "need": need_tot, "put": put_tot}
 
 
 ## Crafts a recipe. Ingredients are consumed whether or not it succeeds.
@@ -76,11 +88,10 @@ func craft(c: Character, sheet: StatSheet, rng: RandomNumberGenerator, recipe_id
 	var plan: Dictionary = find_ingredients(c, recipe)
 	if not plan.ok:
 		return {"ok": false, "message": "Missing: %s" % ", ".join(plan.missing)}
-	var potency: float = 0.0
 	for iid in plan.items:
-		potency += _items.herb_potency(_db.get_record("items", iid))
 		_db.remove("items", iid)
-	potency /= float(plan.items.size())
+	# Item Database Formula B: pill quality reads rho, the equivalents put in over those the recipe needs
+	var potency: float = float(plan.put) / maxf(float(plan.need), 1e-9)
 	var chance: float = success_chance(c, sheet, recipe).total
 	var roll: float = rng.randf() * 100.0
 	var out := {"ok": true, "success": roll < chance, "chance": chance, "roll": roll, "pill_id": "", "quality": 0, "yield": 0, "levels": 0}
