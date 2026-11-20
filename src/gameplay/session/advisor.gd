@@ -442,16 +442,6 @@ static func ingredient_status(s: GameSession, c: Character, sh: StatSheet, ing: 
 	if have_e >= need_e - 1e-9:
 		return {"text": "%s ✓" % label, "command": "", "action": "", "ready": true}
 	var have: int = 0
-	var place_m: Dictionary = s.db.get_record("places", c.location_id)
-	if bool(place_m.get("market", false)):   # mature herbs bought here count one each
-		var offers_m: Array = s.market.stock(place_m.id).filter(func(i): return i.kind == "herb" and i.template == ing.herb)
-		if not offers_m.is_empty():
-			var o_m: Dictionary = offers_m[0]
-			var price_m: int = s.market.buy_price(c, sh, o_m)
-			var short: int = int(ceil(need_e - have_e - 1e-9))
-			return {"text": "%s: %.1f of %.1f equivalents held; this market sells mature ones at %d LT (%d more)" % [label, have_e, need_e, price_m, short],
-				"command": "buy %s" % o_m.id if c.linh_thach >= price_m else "", "action": "Buy %s (%d LT)" % [herb.get("name", ing.herb), price_m],
-				"ready": false, "price": price_m}
 	var growing: Array = []
 	var planted: Dictionary = s.field.planted(c)
 	for p in planted.keys():
@@ -488,7 +478,8 @@ static func ingredient_status(s: GameSession, c: Character, sh: StatSheet, ing: 
 				"ready": false, "gather_at": str(ground.id), "price": market_price_estimate(s, str(ing.herb))}
 	if int(herb.get("rarity", 99)) <= int(gd.session().field.seed_rarity_by_realm[c.realm_index]) and bool(home_fit.plantable):
 		return {"text": "%s: plant a seed (%d LT)" % [label, int(herb.seed_price)], "command": "plant %s" % ing.herb if c.location_id == c.home_id else "", "action": "Plant %s (%d LT)" % [herb.get("name", ing.herb), int(herb.seed_price)], "ready": false}
-	# Seeds are not sold: buy a young one at a market and let it age in the field.
+	# Seeds are not sold or cannot grow at home: buy mature herbs here, which count one equivalent each (Item Database
+	# Formula B), or one to plant and age
 	var place: Dictionary = s.db.get_record("places", c.location_id)
 	if bool(place.get("market", false)):
 		var offers: Array = s.market.stock(place.id).filter(func(i): return i.kind == "herb" and i.template == ing.herb)
@@ -496,8 +487,10 @@ static func ingredient_status(s: GameSession, c: Character, sh: StatSheet, ing: 
 		if not offers.is_empty():
 			var o: Dictionary = offers[0]
 			var price: int = s.market.buy_price(c, sh, o)
-			return {"text": "%s: this market sells one aged %.0fy for %d LT" % [label, float(o.age), price], "command": "buy %s" % o.id if c.linh_thach >= price else "",
-				"action": "Buy %s %.0fy (%d LT)" % [herb.get("name", ing.herb), float(o.age), price], "ready": false, "price": price}
+			var short: int = int(ceil(need_e - have_e - 1e-9))
+			return {"text": "%s: %.1f of %.1f equivalents held; this market sells mature ones at %d LT (%d more)" % [label, have_e, need_e, price, short],
+				"command": "buy %s" % o.id if c.linh_thach >= price else "", "action": "Buy %s (%d LT)" % [herb.get("name", ing.herb), price],
+				"ready": false, "price": price}
 	var est: int = market_price_estimate(s, str(ing.herb))
 	return {"text": "%s: no seeds sold; find one exploring" % label, "command": "", "action": "", "ready": false, "price": est}
 
