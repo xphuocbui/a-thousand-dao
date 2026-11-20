@@ -138,13 +138,30 @@ static func _stipends(gd: GameData, db: WorldDB, money: MoneyLedger, idx: Dictio
 		if _sect(db, sid).is_empty():
 			continue
 		var pays: Array = []
+		var due: float = 0.0
 		for p in idx.by_sect[sid]:
-			pays.append(["npc:%s" % p.id, float(stip[clampi(int(p.get("realm_index", 0)), 0, stip.size() - 1)]) * cash_share])
+			var amt: float = float(stip[clampi(int(p.get("realm_index", 0)), 0, stip.size() - 1)]) * cash_share
+			pays.append(["npc:%s" % p.id, amt])
+			due += amt
 		var paid: float = money.pay_out("sect:%s" % sid, pays, "stipend")
 		by_sect[sid] = paid
 		total += paid
+		if paid + 1e-6 < due:   # Sects F3: an unpaid sect loses members (Luyện Khí first, to the loose)
+			_desert(gd, db, idx.by_sect[sid])
 	db.put(MoneyLedger.TABLE, {"id": "m_stipends", "by_sect": by_sect})
 	return total
+
+
+# Sects F3's stipend-shortfall desertions: desert_share of the sect's Luyện Khí members leave and become loose.
+static func _desert(gd: GameData, db: WorldDB, members: Array) -> void:
+	var lk: Array = members.filter(func(p): return int(p.get("realm_index", 0)) == 0 and not p.has("cast_key"))
+	lk.sort_custom(func(a, b): return str(a.id) < str(b.id))
+	var n: int = int(floor(float(gd.file("sects_members").economy.desert_share) * lk.size()))
+	for i in n:
+		var p: Dictionary = lk[i]
+		p["sect_id"] = ""
+		p["sect_rank"] = ""
+		p["deserted"] = true
 
 
 # Mission pay of realm [param rl] (Sects F12: base · scale[rl]).

@@ -86,3 +86,36 @@ func test_a_long_run_keeps_money_conserved_through_wars() -> void:
 		ticker.tick(r, 1200 + i / 4, i % 4)
 		assert_near(money.season_check().gap, 0.0, 0.5, "season %d" % i)
 	assert_true(db.find("events", func(e): return str(e.get("type", "")) == "sect_war").size() > 0, "a war was declared")
+
+
+func test_a_defiant_vassal_with_a_backer_rebels_and_new_sects_fill_a_thinned_territory() -> void:
+	# F5b check 2 and rule 30 on the built world: a vassal pushed to defiance with a strong backer goes to war on its
+	# lord; a territory that lost a vassal sees a new sect founded by a loose cultivator, paid from their purse
+	var gd := game_data()
+	var r := RandomNumberGenerator.new()
+	r.seed = 7
+	var db: WorldDB = WorldBuilder.new(gd, TestFixtures.tree()).generate(r, "7")
+	var money := MoneyLedger.new(db)
+	var v: Dictionary = db.find("sects", func(s): return str(s.get("kind", "")) == "minor" and str(s.get("status", "")) == "active")[0]
+	var lord: Dictionary = db.get_record("sects", str(v.lord_id))
+	var backer: Dictionary = db.find("sects", func(s): return str(s.get("kind", "")) == "great" and str(s.id) != str(lord.id))[0]
+	backer.attitude[str(v.id)] = 80.0
+	backer.attitude[str(lord.id)] = -80.0
+	v["loyalty"] = 5.0
+	v["loyalty_state"] = "defiant"
+	var st := SectPolitics.strengths(gd, db)
+	st[str(backer.id)] = float(st.get(str(lord.id), 1.0)) * 3.0
+	var news := SectPolitics._maybe_rebel(gd, db, v, lord, st, 1200, 0)
+	assert_false(news.is_empty(), "it rebels")
+	assert_true(Array(v.wars).has(str(lord.id)), "at war with its lord")
+	# a thinned territory: drop a vassal, force the founding chance
+	var g: Dictionary = lord
+	var other: Array = SectEconomy.vassals(db, g)
+	other[0]["status"] = "fallen"
+	gd.file("sects_members").politics["found_chance"] = 1.0
+	var m_before: float = money.money_in_world()
+	var born := SectPolitics._found_sects(gd, db, money, 1200, 1, "7")
+	gd.file("sects_members").politics["found_chance"] = 0.02
+	assert_false(born.is_empty(), "a new sect is founded")
+	assert_eq(SectEconomy.vassals(db, g).size(), int(g.minor_start), "the territory is whole again")
+	assert_near(money.money_in_world(), m_before, 1e-6, "the founder paid the treasury: no money made")

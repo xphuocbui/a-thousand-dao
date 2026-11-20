@@ -152,7 +152,7 @@ func new_cultivator(rng: RandomNumberGenerator) -> void:
 	var sects: Array = _db.all("sects").filter(func(s): return str(s.get("status", "active")) == "active")
 	var sect: Dictionary = {}
 	if not sects.is_empty() and rng.randf() < float(npc.intake_sect_share):
-		sect = RngUtils.pick(rng, sects)
+		sect = _intake_sect(rng, sects)
 		opts["sect_id"] = sect.id
 		opts["location_id"] = sect.hq_place_id
 		var u: float = rng.randf()
@@ -168,6 +168,25 @@ func new_cultivator(rng: RandomNumberGenerator) -> void:
 	var pid: String = _builds.create_person(rng, opts)
 	if not sect.is_empty():
 		sect.members.append(pid)
+
+
+# Sects F17: the sect a new cultivator joins, weighted by each sect's intake this season (a sect at or over its target
+# takes none); any sect when none has room (as before the economy).
+func _intake_sect(rng: RandomNumberGenerator, sects: Array) -> Dictionary:
+	if not sects.any(func(s): return s.has("invested")):
+		return RngUtils.pick(rng, sects)
+	var counts := {}
+	for p in _db.all("people"):
+		if bool(p.get("alive", false)) and str(p.get("sect_id", "")) != "":
+			counts[str(p.sect_id)] = int(counts.get(str(p.sect_id), 0)) + 1
+	var w: Array = []
+	for s in sects:
+		var k: int = SectEconomy.intake(_gd, _db, s, int(counts.get(str(s.id), 0)))
+		if k > 0:
+			w.append({"id": str(s.id), "weight": float(k)})
+	if w.is_empty():
+		return RngUtils.pick(rng, sects)
+	return _db.get_record("sects", str(RngUtils.weighted_pick(rng, w).id))
 
 
 func _log(year: int, season: int, type: String, texts: Dictionary, refs: Dictionary) -> String:

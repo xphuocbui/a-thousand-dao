@@ -92,6 +92,8 @@ static func setup(gd: GameData, db: WorldDB, grudges: Array = []) -> void:
 			s.attitude[str(o.id)] = attitude_target(gd, db, s, o, strength)
 			s.relation[str(o.id)] = "feud" if float(s.attitude[str(o.id)]) <= float(_cfg(gd).feud_line) else "peace"
 		s["s0"] = float(strength.get(str(s.id), 0.0))
+	for g in _greats(db):   # rule 30: how many vassals each territory starts with
+		g["minor_start"] = SectEconomy.vassals(db, g).size()
 	db.put("world", {"id": WARS, "wars": [], "next": 1})
 
 
@@ -202,6 +204,82 @@ static func season(gd: GameData, db: WorldDB, money: MoneyLedger, year: int, sea
 	news.append_array(_declare_wars(gd, db, strength, year, season_i))
 	news.append_array(_resolve_wars(gd, db, money, strength, year, season_i, game_seed))
 	news.append_array(_loyalty(gd, db, strength, year, season_i))
+	news.append_array(_found_sects(gd, db, money, year, season_i, game_seed))
+	return news
+
+
+# Rule 30: in a great sect's territory that holds fewer minor sects than it started with, a strong loose cultivator may
+# found one (a keyed chance a season): the seat is the territory's densest unclaimed place, the founder heads it and
+# pays its starting treasury from their own purse (at most what they hold), and it becomes the great sect's vassal.
+static func _found_sects(gd: GameData, db: WorldDB, money: MoneyLedger, year: int, season_i: int, game_seed: String) -> Array:
+	var c: Dictionary = _cfg(gd)
+	var news: Array = []
+	for g in _greats(db):
+		if SectEconomy.vassals(db, g).size() >= int(g.get("minor_start", 0)):
+			continue
+		var r := RandomNumberGenerator.new()
+		r.seed = RngUtils.stable_hash("%s:found:%s:%d" % [game_seed, str(g.id), MapChange.abs_season(year, season_i)])
+		if r.randf() >= float(c.found_chance):
+			continue
+		var regions := {}
+		for reg in db.all("regions"):
+			if str(reg.get("holder", "")) == str(g.id):
+				regions[str(reg.id)] = true
+		var place_region := {}
+		var best_place: Dictionary = {}
+		var best_d: float = -1.0
+		for p in db.all("places"):
+			place_region[str(p.id)] = str(p.get("region_id", ""))
+			if not regions.has(str(p.get("region_id", ""))) or bool(p.get("hidden", false)) or str(p.get("sect_id", "")) != "":
+				continue
+			if not str(p.get("kind", "")) in ["village", "town", "peak", "gorge", "forest", "lake", "island"]:
+				continue
+			var dens: float = float(p.get("qi", {}).get("land_density", p.get("density", 1.0)))
+			if dens > best_d:
+				best_d = dens
+				best_place = p
+		if best_place.is_empty():
+			continue
+		var founder: Dictionary = {}
+		for p in db.all("people"):
+			if not bool(p.get("alive", false)) or bool(p.get("is_player", false)) or bool(p.get("is_beast", false)) or str(p.get("sect_id", "")) != "":
+				continue
+			if int(p.get("realm_index", 0)) < int(c.found_realm_min) or not regions.has(str(place_region.get(str(p.get("location_id", "")), ""))):
+				continue
+			if founder.is_empty() or int(p.realm_index) > int(founder.realm_index) or (int(p.realm_index) == int(founder.realm_index) and str(p.id) < str(founder.id)):
+				founder = p
+		if founder.is_empty():
+			continue
+		var names: Dictionary = gd.file("world_names")
+		var taken := {}
+		for s in db.all("sects"):
+			taken[str(s.name)] = true
+		var nm: String = ""
+		for i in 20:
+			nm = "%s %s" % [RngUtils.pick(r, names.sect_first), RngUtils.pick(r, names.sect_suffix)]
+			if not taken.has(nm):
+				break
+		var lv: Dictionary = Dictionary(c.found_levels).duplicate()
+		var rec := {"name": nm, "key": "founded_%d_%d_%s" % [year, season_i, str(g.id)], "kind": "minor", "alignment": str(g.get("alignment", "trung")),
+			"specialty": "", "hq_place_id": str(best_place.id), "region_id": str(best_place.get("region_id", "")), "leader_id": str(founder.id),
+			"members": [str(founder.id)], "status": "active", "founded_year": year, "levels": lv, "treasury": 0.0, "lord_id": str(g.id),
+			"loyalty": 60.0, "loyalty_state": "loyal", "attitude": {}, "grudge": {}, "relation": {}, "truce": {}, "wars": [],
+			"dials": Dictionary(gd.file("sects_members").get("default_dials", {})).duplicate()}
+		var sid: String = db.add("sects", rec)
+		var inv := {}
+		var spend := {}
+		for tr in SectEconomy.TRACKS:
+			inv[tr] = SectEconomy.total_cost(gd, tr, float(lv.get(tr, 0)))
+			spend[tr] = 0.0
+		rec["invested"] = inv
+		rec["spend"] = spend
+		money.transfer("npc:%s" % founder.id, "sect:%s" % sid, float(c.found_treasury), "sect_founding")
+		founder["sect_id"] = sid
+		founder["sect_rank"] = str(gd.world_gen().sects.rank_ladder[-1])
+		best_place["sect_id"] = sid
+		best_place["holder"] = sid
+		news.append(db.log_event(year, season_i, "sect_founded_new", "%s lập %s tại %s, quy phục %s." % [founder.get("name", founder.id), nm, best_place.name, g.name],
+			[str(founder.id), sid, str(g.id)], [str(best_place.id)], []))
 	return news
 
 
@@ -547,7 +625,22 @@ static func _conclude(gd: GameData, db: WorldDB, money: MoneyLedger, w: Dictiona
 					v["lord_id"] = str(a.id)
 					v["loyalty"] = float(c.new_lord_loyalty)
 					v["loyalty_state"] = loyalty_state(gd, float(v.loyalty))
+			"rebellion":   # the rebel wins its freedom: it takes the backer (or the bordering great sect that likes it best) as lord
+				var nl: String = str(w.get("backer", ""))
+				if nl == "":
+					var best: float = -INF
+					for b in _greats(db):
+						if str(b.id) != str(d.id) and float(b.attitude.get(str(a.id), 0.0)) > best:
+							best = float(b.attitude.get(str(a.id), 0.0))
+							nl = str(b.id)
+				a["lord_id"] = nl
+				a["loyalty"] = float(c.new_lord_loyalty)
+				a["loyalty_state"] = loyalty_state(gd, float(a.loyalty))
 		news.append(db.log_event(year, season_i, "sect_war_won", "%s thắng %s, đoạt %s." % [a.name, d.name, str(w.goal.name)], [str(a.id), str(d.id)], [], [], {"war": w.id}))
+	elif end == "failed" and str(w.goal.kind) == "rebellion":   # the lord wins: the rebel returns Restless
+		a["loyalty"] = float(c.rebel_loyalty_after)
+		a["loyalty_state"] = loyalty_state(gd, float(a.loyalty))
+		news.append(db.log_event(year, season_i, "rebellion_crushed", "%s dẹp yên cuộc nổi dậy của %s." % [d.name, a.name], [str(a.id), str(d.id)], [], [], {"war": w.id}))
 	elif end == "failed":
 		_drop_level(gd, a, "military")
 		d.attitude[str(a.id)] = float(d.attitude.get(str(a.id), 0.0)) - float(c.failed_attitude)
@@ -598,9 +691,11 @@ static func _loyalty(gd: GameData, db: WorldDB, strength: Dictionary, year: int,
 		var prot: float = clampf(log(maxf(float(strength.get(str(lord.id), 0.0)), 1e-9) / maxf(threat, 1e-9)) / log(2.0), -1.0, 1.0)
 		var loy: float = float(v.get("loyalty", 60.0))
 		loy += float(c.k_tax) * (2 - tax) + float(c.k_prot) * prot + float(c.k_rest) * (60.0 - loy)
+		if not Array(lord.get("wars", [])).is_empty() and str(v.get("loyalty_state", "")) == "defiant":
+			loy -= float(c.k_refuse)   # rule 5: a Defiant vassal refuses its lord's levy
 		v["loyalty"] = clampf(loy, 0.0, 100.0)
 		v["loyalty_state"] = loyalty_state(gd, float(v.loyalty))
-		if str(v.loyalty_state) != "defiant":
+		if str(v.loyalty_state) != "defiant" or Array(v.get("wars", [])).has(str(lord.id)):
 			continue
 		for b in _greats(db):   # F5b check 1: a bordering great sect that likes the vassal and not its lord
 			if str(b.id) == str(lord.id):
@@ -612,4 +707,36 @@ static func _loyalty(gd: GameData, db: WorldDB, strength: Dictionary, year: int,
 				lord.attitude[str(b.id)] = float(lord.attitude.get(str(b.id), 0.0)) - float(c.seek_lord_attitude)
 				news.append(db.log_event(year, season_i, "vassal_new_lord", "%s bỏ %s, quy phục %s." % [v.name, lord.name, b.name], [str(v.id), str(lord.id), str(b.id)], [], []))
 				break
+		if str(v.get("lord_id", "")) != str(lord.id):
+			continue
+		news.append_array(_maybe_rebel(gd, db, v, lord, strength, year, season_i))
 	return news
+
+
+# F5b check 2: a Defiant vassal rebels when its strength with a backer's, over the lord's strength spread over its wars
+# (the rebellion counted), reaches rebel_odds; the rebellion is a war of the vassal on its lord for its freedom.
+static func _maybe_rebel(gd: GameData, db: WorldDB, v: Dictionary, lord: Dictionary, strength: Dictionary, year: int, season_i: int) -> Array:
+	var c: Dictionary = _cfg(gd)
+	var backer: Dictionary = {}
+	var s_b: float = 0.0
+	for b in _greats(db):
+		if str(b.id) == str(lord.id):
+			continue
+		if float(b.attitude.get(str(v.id), 0.0)) >= float(c.backer_attitude) and float(b.attitude.get(str(lord.id), 0.0)) <= -float(c.backer_attitude):
+			if float(strength.get(str(b.id), 0.0)) > s_b:
+				s_b = float(strength.get(str(b.id), 0.0))
+				backer = b
+	var spare: float = float(strength.get(str(lord.id), 0.0)) / float(Array(lord.get("wars", [])).size() + 1)
+	if (float(strength.get(str(v.id), 0.0)) + s_b) / maxf(spare, 1e-9) < float(c.rebel_odds):
+		return []
+	var rec: Dictionary = db.get_record("world", WARS)
+	var war := {"id": "war%d" % int(rec.next), "a": str(v.id), "d": str(lord.id), "backer": str(backer.get("id", "")),
+		"goal": {"kind": "rebellion", "id": str(v.id), "name": str(v.name), "threshold": int(c.goal_thresholds.vassal)},
+		"ws": 0, "w_a": 0.0, "w_d": 0.0, "seasons": 0, "began": [year, season_i]}
+	rec.next = int(rec.next) + 1
+	rec.wars.append(war)
+	v.wars.append(str(lord.id))
+	lord.wars.append(str(v.id))
+	v["loyalty_state"] = "rebelling"
+	_set_relation(v, lord, "war")
+	return [db.log_event(year, season_i, "vassal_rebellion", "%s nổi dậy chống %s." % [v.name, lord.name], [str(v.id), str(lord.id)], [], [], {"war": war.id})]
