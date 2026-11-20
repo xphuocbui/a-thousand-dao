@@ -104,6 +104,7 @@ func db() -> WorldDB:
 func _step_base() -> void:
 	var kinds: Dictionary = _cfg.kinds
 	var travel: Dictionary = _gd.file(TRAVEL_FILE)
+	var grid := ContinentGrid.load_file(str(_gd.file(ContinentData.DATA_FILE).get("grid_file", "")))
 	for rid in _sorted_keys(_cd.regions):
 		var r: Dictionary = _cd.regions[rid]
 		var id: String = _db.add("regions", {"name": str(r.name), "name_han": str(r.get("name_han", "")),
@@ -122,6 +123,7 @@ func _step_base() -> void:
 		for key in ["founded", "former", "lived", "former_name", "port", "river", "coast", "array"]:
 			if p.has(key):
 				rec[key] = p[key]
+		_climate(rec, grid)
 		var id: String = _db.add("places", rec)
 		place_ids[int(pid)] = id
 		if not region.is_empty():
@@ -295,6 +297,14 @@ func _step_rolls() -> void:
 			"region": int(s.region)}
 
 
+## The tile's climate on a place record (Formula G reads it): annual mean temperature (C) and rainfall (mm).
+static func _climate(rec: Dictionary, grid: ContinentGrid) -> void:
+	if grid == null or not grid.errors.is_empty() or not rec.has("tile"):
+		return
+	rec["temp_c"] = snappedf(grid.temperature_c(int(rec.tile[0]), int(rec.tile[1])), 0.1)
+	rec["rain_mm"] = grid.rainfall_mm(int(rec.tile[0]), int(rec.tile[1]))
+
+
 ## The history's sites (Travel & Map rules 15 and 28): the famous ones are places from the start; each hidden slot
 ## becomes a place at its rolled tile, hidden (seen by no one) until found. Every place on a blessed land's tiles gets
 ## its layer 3 (Formula B) in qi.layer3, active for a famous land and for a hidden one once it is found.
@@ -313,6 +323,7 @@ func _step_sites() -> void:
 			"gloss": str(f.get("gloss", ""))}
 		if f.has("cycle"):
 			rec["cycle"] = f.cycle
+		_climate(rec, grid)
 		var id: String = _db.add("places", rec)
 		_add_to_region(id, rec.region_id)
 		if str(f.kind) == "blessed_land":
@@ -331,6 +342,7 @@ func _step_sites() -> void:
 			"links": [], "sect_id": "", "tile": s.candidates[i], "qi": cq.get("qi", {}).duplicate(true), "hidden": true,
 			"slot": str(s.slot), "hidden_h": float(s.get("hidden_h", 1000)), "origin_event": str(s.get("origin", "")),
 			"owner_key": str(s.get("owner", ""))}
+		_climate(rec, grid)
 		var id: String = _db.add("places", rec)
 		_add_to_region(id, region)
 		roll["place_id"] = id

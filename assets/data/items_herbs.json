@@ -13,7 +13,11 @@
       "base_value": 2,
       "seed_price": 2,
       "rarity": 1,
-      "desc": "Common qi-gathering grass."
+      "desc": "Common qi-gathering grass.",
+      "temp_ideal": 50,
+      "temp_tol": 25,
+      "rain_ideal": 55,
+      "rain_tol": 25
     },
     {
       "id": "thanh_tam_lien",
@@ -23,7 +27,11 @@
       "base_value": 6,
       "seed_price": 5,
       "rarity": 1,
-      "desc": "A lotus that cools the heart and washes out toxins."
+      "desc": "A lotus that cools the heart and washes out toxins.",
+      "temp_ideal": 55,
+      "temp_tol": 15,
+      "rain_ideal": 70,
+      "rain_tol": 15
     },
     {
       "id": "hoa_linh_chi",
@@ -33,7 +41,11 @@
       "base_value": 10,
       "seed_price": 8,
       "rarity": 2,
-      "desc": "Fire-natured lingzhi; the base of most pills."
+      "desc": "Fire-natured lingzhi; the base of most pills.",
+      "temp_ideal": 70,
+      "temp_tol": 15,
+      "rain_ideal": 40,
+      "rain_tol": 20
     },
     {
       "id": "hoang_tinh_sam",
@@ -43,7 +55,11 @@
       "base_value": 20,
       "seed_price": 15,
       "rarity": 2,
-      "desc": "Earth ginseng; at forty years it can found a Trúc Cơ."
+      "desc": "Earth ginseng; at forty years it can found a Trúc Cơ.",
+      "temp_ideal": 45,
+      "temp_tol": 15,
+      "rain_ideal": 45,
+      "rain_tol": 20
     },
     {
       "id": "xich_huyet_dang",
@@ -53,7 +69,11 @@
       "base_value": 45,
       "seed_price": 30,
       "rarity": 3,
-      "desc": "Blood-red vine that strengthens khí huyết."
+      "desc": "Blood-red vine that strengthens khí huyết.",
+      "temp_ideal": 75,
+      "temp_tol": 15,
+      "rain_ideal": 30,
+      "rain_tol": 20
     },
     {
       "id": "bang_tam_thao",
@@ -63,7 +83,11 @@
       "base_value": 60,
       "seed_price": 40,
       "rarity": 3,
-      "desc": "Ice-heart grass; calms tâm ma."
+      "desc": "Ice-heart grass; calms tâm ma.",
+      "temp_ideal": 20,
+      "temp_tol": 15,
+      "rain_ideal": 50,
+      "rain_tol": 20
     },
     {
       "id": "kim_tuy_qua",
@@ -73,7 +97,11 @@
       "base_value": 150,
       "seed_price": 90,
       "rarity": 4,
-      "desc": "Golden-marrow fruit; at forty-two years it can form a golden core."
+      "desc": "Golden-marrow fruit; at forty-two years it can form a golden core.",
+      "temp_ideal": 45,
+      "temp_tol": 15,
+      "rain_ideal": 25,
+      "rain_tol": 15
     },
     {
       "id": "van_nien_moc_linh",
@@ -83,7 +111,11 @@
       "base_value": 400,
       "seed_price": 250,
       "rarity": 5,
-      "desc": "Wood spirit that only wakes after a century; extends life."
+      "desc": "Wood spirit that only wakes after a century; extends life.",
+      "temp_ideal": 60,
+      "temp_tol": 15,
+      "rain_ideal": 75,
+      "rain_tol": 15
     },
     {
       "id": "anh_tam_lien",
@@ -93,7 +125,11 @@
       "base_value": 900,
       "seed_price": 400,
       "rarity": 5,
-      "desc": "Infant-heart lotus; at sixty years it can birth a Nguyên Anh."
+      "desc": "Infant-heart lotus; at sixty years it can birth a Nguyên Anh.",
+      "temp_ideal": 50,
+      "temp_tol": 15,
+      "rain_ideal": 80,
+      "rain_tol": 10
     },
     {
       "id": "hoa_than_qua",
@@ -103,7 +139,47 @@
       "base_value": 3000,
       "seed_price": 1200,
       "rarity": 6,
-      "desc": "Spirit-changing fruit; at a hundred years it can carry a soul to Hóa Thần."
+      "desc": "Spirit-changing fruit; at a hundred years it can carry a soul to Hóa Thần.",
+      "temp_ideal": 85,
+      "temp_tol": 10,
+      "rain_ideal": 20,
+      "rain_tol": 15
     }
-  ]
+  ],
+  "fit": {
+    "_doc": "Travel & Map Formula G (rule 18): fit = f_e f_T f_R f_D. elem_floor e_floor, elem_full_share s_full (variant 20), fall the climate fall-off past the tolerance, density_need_by_rarity D_need by rarity index (0 unused), growth_max g_max, plant_floor, labels (each band includes its lower bound). Per herb: temp_ideal, temp_tol, rain_ideal, rain_tol on the 0-100 climate indexes (world_map.json climate_index). All are first guesses except the two GDD examples.",
+    "elem_floor": 0.3,
+    "elem_full_share": 40,
+    "elem_full_share_variant": 20,
+    "fall": 30,
+    "density_need_by_rarity": [
+      0,
+      0,
+      0,
+      1.0,
+      1.2,
+      1.5,
+      1.8
+    ],
+    "growth_max": 1.2,
+    "plant_floor": 0.2,
+    "labels": [
+      [
+        0.8,
+        "excellent"
+      ],
+      [
+        0.6,
+        "good"
+      ],
+      [
+        0.4,
+        "fair"
+      ],
+      [
+        0.2,
+        "poor"
+      ]
+    ]
+  }
 }

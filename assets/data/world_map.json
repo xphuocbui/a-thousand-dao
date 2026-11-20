@@ -606,5 +606,16 @@
     "share_cap_l3": 80,
     "share_cap_l2": 30,
     "share_cap_l1": 30
+  },
+  "climate_index": {
+    "_doc": "Formula G's temperature and rainfall indexes 0-100: T from t_c (degrees C at 0 and 100), R from r_mm (mm a year at 0 and 100). A guess.",
+    "t_c": [
+      -20.0,
+      30.0
+    ],
+    "r_mm": [
+      0.0,
+      4000.0
+    ]
   }
 }

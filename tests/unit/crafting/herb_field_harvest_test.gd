@@ -40,6 +40,7 @@ func test_harvest_named_plot_forces_young_herb() -> void:
 
 func test_growth_scales_with_moc_purity() -> void:
 	var s := _session()
+	s.db.get_record("places", s.player.home_id)["qi"] = {}   # plain ground: the Mộc multiplier alone (Formula G off)
 	var h := _plant(s, "ngung_khi_thao", 0.0, 0)
 	s.player.linh_can.elements = {"moc": 100}
 	s.player.perks.clear()

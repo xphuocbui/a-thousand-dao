@@ -41,6 +41,7 @@ func test_cultivate_passes_time_and_gains_tu_vi() -> void:
 
 func test_herbs_age_with_time() -> void:
 	var s := _session()
+	s.db.get_record("places", s.player.home_id)["qi"] = {}   # plain ground: time alone (herb fit is herb_fit_test's)
 	var planted: Dictionary = s.field.planted(s.player)
 	var first: Dictionary = planted.values()[0]
 	var before: float = float(first.age)

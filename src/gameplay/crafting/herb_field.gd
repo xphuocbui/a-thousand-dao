@@ -63,6 +63,9 @@ func plant_seed(c: Character, sheet: StatSheet, herb_id: String) -> Dictionary:
 	var check: Dictionary = _can_work(c, sheet)
 	if not check.ok:
 		return check
+	var hf: Dictionary = HerbFit.fit(_gd, t, _db.get_record("places", c.home_id))
+	if not bool(hf.plantable):
+		return {"ok": false, "message": "%s cannot grow here (fit %.2f, %s): %s." % [t.name, float(hf.fit), hf.label, "; ".join(PackedStringArray(hf.lines))]}
 	var price: int = int(t.seed_price)
 	if c.linh_thach < price:
 		return {"ok": false, "message": "A %s seed costs %d linh thạch; you have %d." % [t.name, price, c.linh_thach]}
@@ -84,6 +87,9 @@ func transplant(c: Character, sheet: StatSheet, item_id: String) -> Dictionary:
 	var check: Dictionary = _can_work(c, sheet)
 	if not check.ok:
 		return check
+	var hf: Dictionary = HerbFit.fit(_gd, _gd.herb(str(item.get("template", ""))), _db.get_record("places", c.home_id))
+	if not bool(hf.plantable):
+		return {"ok": false, "message": "%s cannot grow here (fit %.2f, %s): %s." % [item.name, float(hf.fit), hf.label, "; ".join(PackedStringArray(hf.lines))]}
 	item["plot"] = check.plot
 	return {"ok": true, "message": "Transplanted %s (%.1f năm) into plot %d." % [item.name, float(item.age), check.plot], "item_id": item_id}
 
@@ -104,8 +110,10 @@ func harvest(c: Character, plot: int) -> Dictionary:
 func grow(c: Character, sheet: StatSheet, seasons: int) -> float:
 	var mult: float = CharacterRules.herb_growth(c, _gd, sheet).total
 	var years: float = float(seasons) / float(_gd.cultivation_rules().seasons_per_year) * mult
+	var home: Dictionary = _db.get_record("places", c.home_id)
 	for item in planted(c).values():
-		item["age"] = float(item.age) + years
+		# Travel & Map Formula G: growth at g_max x fit on the field's ground (x1 where the ground has no qi)
+		item["age"] = float(item.age) + years * float(HerbFit.fit(_gd, _gd.herb(str(item.get("template", ""))), home).growth)
 	if c.has_capability(12):
 		var rate: float = float(_gd.capability(12).params.rate)
 		for item in _db.items_of(c.id):
