@@ -261,17 +261,21 @@ func _step_cast() -> void:
 		var sect_rec: Dictionary = _db.get_record("sects", sect) if sect != "" else {}
 		if not sect_rec.is_empty():
 			opts["archetype"] = str(sect_rec.specialty)
-		# Builds are hand-authored (user decision 2026-11-20, plan step B3); until a person's authored build exists,
-		# the builder fills it from a stream keyed on the person alone, so it is the same in every game.
-		var crng := RandomNumberGenerator.new()
-		crng.seed = RngUtils.stable_hash("cast:" + str(p.key))
-		_builds.create_person(crng, opts)
+		# Core Rule 6: builds are hand-authored (user decision 2026-11-20; design/world/cast_builds.json); a person whose
+		# build is not written yet is filled from a stream keyed on the person alone, the same in every game.
+		var authored: Dictionary = _hist.get("cast_builds", {}).get(str(p.key), {})
+		if not authored.is_empty():
+			CastBuilds.make(_gd, _tree, _db, _items, _builds, p, authored, pid, sect, str(opts.sect_rank), home, current_year)
+		else:
+			var crng := RandomNumberGenerator.new()
+			crng.seed = RngUtils.stable_hash("cast:" + str(p.key))
+			_builds.create_person(crng, opts)
 		var rec: Dictionary = _db.get_record("people", pid)
 		rec["cast_key"] = str(p.key)
 		rec["born_year"] = int(p.born)
 		rec["role"] = str(p.get("role", ""))
 		rec["npc_traits"] = p.get("traits", {})
-		rec["build_source"] = "stand-in"
+		rec["build_source"] = "authored" if not authored.is_empty() else "stand-in"
 		rec.erase("pending")
 		if not sect_rec.is_empty():
 			sect_rec.members.append(pid)

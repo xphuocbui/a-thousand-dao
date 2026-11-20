@@ -449,6 +449,7 @@ class Export:
         self.check_wars(sects)
         items = self.legendary()
         slots, secrets = self.hidden()
+        builds = self.cast_builds()
         T = self.territory
         territory = {"eras": T["eras"], "land_changes": T["land_changes"], "wars": T["wars"],
                      "vassal_lord_changes": T["vassal_lord_changes"], "grudges": T["grudges"], "other_events": T["other_events"]}
@@ -486,7 +487,108 @@ class Export:
             "famous_sites": list(self.famous.values()),
             "features": [dict(v, name=k) for k, v in self.features.items()],
             "living_cast_by_realm": self.living_by_realm,
+            "cast_builds": builds,
         }
+
+    # -- the cast's hand-authored builds (Core Rule 6) -------------------------------------------------------------
+    def cast_builds(self):
+        """design/world/cast_builds.json, checked id by id (World Generation's Checking: a build naming a technique,
+        item or Đạo Đồ node that does not exist fails). A living person with no build is reported (an observation
+        until all are written; the builder fills those from a keyed stream)."""
+        path = os.path.join(WORLD, "cast_builds.json")
+        if not os.path.exists(path):
+            self.warn("no design/world/cast_builds.json yet: every living cast member's build is a keyed stand-in")
+            return {}
+        data = load(path)
+        builds = data.get("builds", {})
+        cp = load(os.path.join(ROOT, "assets", "data", "items_cong_phap.json"))
+        temps = {t["id"]: t for t in cp["templates"]}
+        tiers = {t["rank"]: t for t in cp["tiers"]}
+        arts = load(os.path.join(ROOT, "assets", "data", "items_artifacts.json"))
+        bases = {b["id"] for b in arts["bases"]}
+        named = {n["id"] for n in load(os.path.join(ROOT, "assets", "data", "items_named.json"))["named"]}
+        dmap = load(os.path.join(ROOT, "assets", "data", "dao_do_map.json"))
+        nodes = {int(n["id"]): n for n in dmap["nodes"]}
+        starts = set(dmap["starts"].keys())
+        attrs = load(os.path.join(ROOT, "assets", "data", "character_attributes.json"))
+        talents = {t["id"] for t in attrs["thien_phu"]}
+        elems = load(os.path.join(ROOT, "assets", "data", "character_elements.json"))
+        variants = {v["id"]: v for v in elems["variants"]}
+        archetypes = {a["id"] for a in self.wg["archetypes"]}
+        skills = set(self.wg["npc_builds"]["archetype_skills"].values()) | {"dan_dao"}
+        for f in ("crafting_formations", "crafting_refining", "crafting_talismans"):
+            sk = load(os.path.join(ROOT, "assets", "data", f + ".json")).get("skill")
+            if sk:
+                skills.add(sk)
+        realm_rank = {r: i for i, r in enumerate(REALMS)}
+        used_named = {}
+        for key, b in builds.items():
+            where = "build %s" % key
+            person = self.people_by.get(key)
+            if person is None or not person.get("alive"):
+                self.err("%s: no living cast member %s" % (where, key))
+                continue
+            root = b.get("root", {})
+            for e, v in root.get("elements", {}).items():
+                if e not in ("kim", "moc", "thuy", "hoa", "tho"):
+                    self.err("%s: '%s' is not a base element" % (where, e))
+                if not 10 <= float(v) <= 100:
+                    self.err("%s: %s purity %s is outside 10-100" % (where, e, v))
+            for vid, v in root.get("variants", {}).items():
+                d = variants.get(vid)
+                if d is None:
+                    self.err("%s: '%s' is not a variant" % (where, vid))
+                    continue
+                for req in d.get("requires", []):
+                    if req not in root.get("elements", {}):
+                        self.err("%s: variant %s needs %s in the root" % (where, vid, req))
+            if not root.get("elements"):
+                self.err("%s: the root names no element" % where)
+            for t, v in b.get("thien_phu", {}).items():
+                if t not in talents or not 1 <= int(v) <= 100:
+                    self.err("%s: talent %s = %s" % (where, t, v))
+            if b.get("archetype") not in archetypes:
+                self.err("%s: archetype '%s' does not exist" % (where, b.get("archetype")))
+            ri = realm_rank.get(person["realm"], 0)
+            for slot, tech in [("main", b.get("main", {}))] + [("aux", a) for a in b.get("aux", [])]:
+                t = temps.get(tech.get("tech"))
+                if t is None:
+                    self.err("%s: %s technique '%s' is not in the catalogue" % (where, slot, tech.get("tech")))
+                    continue
+                kind = t.get("tech_kind", "main")
+                if slot == "main" and kind != "main":
+                    self.err("%s: '%s' is a %s technique, not a main method" % (where, t["id"], kind))
+                if slot == "aux" and kind == "main":
+                    self.err("%s: '%s' is a main method, not an auxiliary one" % (where, t["id"]))
+                top = tiers.get(int(t["tier"]), {}).get("max_realm")
+                if top in realm_rank and ri > realm_rank[top] + 1:
+                    self.warn("%s: '%s' (tier %s, for up to %s) is far below %s" % (where, t["id"], t["tier"], top, person["realm"]))
+                if not 1 <= int(tech.get("layer", 1)) <= int(t.get("layers", 1)):
+                    self.err("%s: layer %s of '%s' is outside 1-%s" % (where, tech.get("layer"), t["id"], t.get("layers")))
+            if len(b.get("aux", [])) > 2:
+                self.err("%s: at most 2 auxiliary techniques (AC-CP-42)" % where)
+            for g in b.get("gear", []):
+                if "named" in g:
+                    if g["named"] not in named:
+                        self.err("%s: named item '%s' does not exist" % (where, g["named"]))
+                    elif g["named"] in used_named:
+                        self.err("%s: named item '%s' is already %s's" % (where, g["named"], used_named[g["named"]]))
+                    used_named[g["named"]] = key
+                elif g.get("base") not in bases:
+                    self.err("%s: artifact base '%s' does not exist" % (where, g.get("base")))
+            tr = b.get("tree", {})
+            if tr.get("start") and tr["start"] not in starts:
+                self.err("%s: Đạo Đồ start '%s' does not exist" % (where, tr["start"]))
+            for nid in tr.get("targets", []):
+                if int(nid) not in nodes:
+                    self.err("%s: Đạo Đồ node %s does not exist" % (where, nid))
+            for sk in b.get("skills", {}):
+                if sk not in skills:
+                    self.err("%s: skill '%s' does not exist (known: %s)" % (where, sk, ", ".join(sorted(skills))))
+        missing = [k for k, p in self.people_by.items() if p.get("alive") and k not in builds]
+        if missing:
+            self.warn("%d living cast member(s) have no authored build yet: %s" % (len(missing), ", ".join(missing)))
+        return builds
 
     def version(self):
         h = hashlib.sha256()
