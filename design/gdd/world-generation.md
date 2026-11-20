@@ -1,9 +1,12 @@
 # World Generation & History
 
-> **Status**: In Design
+> **Status**: Implemented 2026-11-20 (not yet design-reviewed). Every new game's world is built by WorldBuilder
+> (`src/gameplay/world/world_builder.gd`) from the exported data (`assets/data/world_history.json` by
+> `tools/design/world/export_world.py`, `assets/data/world_continent.json` by `tools/design/map/export_continent.py`);
+> plan and evidence: `production/plans/continent-world.md`, `production/qa/evidence/continent-world/`.
 > **Author**: user + Claude
-> **Last Updated**: 2026-11-15
-> **Last Verified**: 2026-11-15
+> **Last Updated**: 2026-11-20
+> **Last Verified**: 2026-11-20
 > **Implements Pillar**: Pillar 5, A World That Remembers
 
 ## Summary
@@ -78,11 +81,19 @@ Without this system the other systems have a map but no past, no population and 
    dead person is a record only. A living one is a full person in the World Database. The 60–100 count covers the
    living cast and the core legends; dead people named only by the wider chronicle (rule 3) are records outside the
    count (user decision 2026-11-15).
-6. **Every living fixed character has a fully authored build** (user decision 2026-11-15): techniques, arts, gear and
-   Đạo Đồ choices, written in the same format NPC Build Generation emits and checked by the same validator.
-   Nothing about their build is rolled. Their Power Rankings rating is not authored: it is measured like everyone
-   else's. **Risk:** these builds depend on the Đạo Đồ, whose shape is a placeholder (parked). A tree change
-   makes them fail the load check (Edge Cases) until they are redone.
+6. **Every living fixed character has a fully authored build** (user decisions 2026-11-15 and 2026-11-20;
+   `design/world/cast_builds.json`, exported into `world_history.json`):
+   - root and variants, talents, archetype and stage;
+   - the main method and up to two auxiliary techniques from the catalogue, with their layers;
+   - gear: a named item, or an artifact base, grade and element;
+   - the Đạo Đồ start and the targets taken in order (the points walk the shortest route to each, and any left go to
+     the start's land);
+   - craft skills.
+
+   Every choice is authored. Only an artifact's affixes are rolled, from a stream keyed on the person alone, so the
+   build is the same in every game. `export_world.py --check` refuses a build whose technique, item, base, grade, node
+   or skill does not exist (Edge Cases). Their Power Rankings rating is not authored: it is measured like everyone
+   else's. **Risk:** a Đạo Đồ change can move a target or a route, so the check is re-run after every tree export.
 7. **Sect start state is authored in part.** Each of the 30 sects has a table row with its alignment, its four
    development levels (Holdings, Institutions, Military, Trade) and its treasury, and each minor sect also its
    starting loyalty, as Sects & Missions Open Question 9 deferred. The leader's traits come with the cast (rule 5).
@@ -96,16 +107,33 @@ Without this system the other systems have a map but no past, no population and 
    `design/world/sect_start_proposal.json`.
 8. **The random cultivators fill the headcount left over.** For each realm, the target headcount (5,000 in all, never
    below 3,000, shares from Realms & Bottlenecks) minus the fixed cast's living members in that realm. A realm the
-   cast already fills gets none. Each random cultivator gets a short generated personal history that fits inside the
-   chronicle: no event before the person was born or old enough for their realm, none in a sect before its founding
-   year, and a master only if that master was in the sect then and is of a higher realm.
+   cast already fills gets none. **Where they start** (user decision 2026-11-20):
+   - each sect fills to Sects F17's target (0.9 × its F2 capacity, cap_base × (1 + i × Institutions)), with members
+     drawn from the shuffled fill and ranked by realm (Sects rule 7), about 4,100 of 5,000;
+   - the rest settle in settlements by Travel & Map Formula M's weights, at the share that brings everyone (sect
+     members at their seats included) to npc_settled_share 0.85;
+   - the remainder choose wild ground in a region (the top npc_wild_pick_top of its wild places by density × land
+     match for their root).
+
+   Each random cultivator gets a short generated personal history that fits inside the chronicle: no event before the
+   person was born or old enough for their realm, none in a sect before its founding year (the join year is Formula
+   D's), and a master only if that master was in the sect then and is of a higher realm (a member has one with
+   master_share 0.3, a guess).
 9. **Hidden spots are rolled once per game, per slot.** For each hidden slot and each tile secret, the seed picks one
    of its candidate tiles (2–3 hand-picked candidates). Each pick uses a keyed stream (ADR-0002), keyed on the game
    seed and the slot's stable id, so the picks do not depend on the order the slots are processed or on one another's
    draws. Two hidden places never take the same tile: Checking refuses any overlap between candidate sets, so no
    collision can happen. Each resource site's reserve is picked from its hand-set sizes the same way.
+
+   **As built** (2026-11-20): each hidden slot becomes a World DB place at its rolled tile, marked hidden: seen by no
+   one, in no view and in no travel list until found (Travel & Map rules 15–17), with its tile part's land qi and a
+   name from its history (a dead cultivator's abode, a vanished sect's ruin). A hidden blessed land's layer 3 turns on
+   when it is found. Each resource site's start reserve is rolled the same way (kind `reserve`, keyed on the site's
+   continent id) from Travel & Map's hand-set sizes.
 10. **The ledger of truth is saved and never shown.** The rolled spots and reserves are written to a per-game table.
-    Clues (Travel & Map rule 16) read it. Nothing in the player's interface does.
+    Clues (Travel & Map rule 16) read it. Nothing in the player's interface does. The ledger lives in the built world's
+    own record (World DB table `world`, record `w_meta`, with the builder, data and map versions and the seed). The
+    debug view of that record shows only its size.
 11. **Every game starts on the same date,** the world's authored starting year of the Thiên Nguyên calendar. The
     chronicle covers 1,200 years (user decision 2026-11-15): year 0 is its first event and the starting year is 1,200.
     The old generator's 300 years was a placeholder. The span is authored, not rolled.
@@ -114,8 +142,11 @@ Without this system the other systems have a map but no past, no population and 
     player's rule for their home region (Travel & Map rule 14).
 13. **The save holds the world.** Generation runs once, at a new game, and the result is written to the save. Loading a
     save never regenerates; the seed is only a record. The terrain is not copied into the save: it is read from the
-    versioned data files, and the save records the map version (user decision 2026-11-15). Generation must finish
-    inside the load budget in ADR-0003 decision 12.
+    versioned data files, and the save records the map version (user decision 2026-11-15). **The map version** is a
+    hash of the terrain files (the tile grid and the land-qi layers, `world_continent.json` `map_version`, stamped by
+    `export_continent.py`). The built world records it, and loading a save made on another map version is refused with
+    both versions named (built 2026-11-20). Generation must finish inside the load budget in ADR-0003 decision 12
+    (measured 2026-11-20: 9.8 s for 5,032 people against 30 s).
 14. **Text stands alone; an LLM may retell it later.** Every player-facing text this system produces is authored or
     built from templates over World Database facts: the chronicle's lines, each random cultivator's personal history
     (sentence templates per history-event kind, in a data file this GDD owns) and the sect and place descriptions. No
@@ -292,7 +323,10 @@ fight budget (`worldgen_fight_budget`) belongs to Power Rankings.
   higher realm): the person has no master.
 - **If a unique named item is authored as held by a cast member or in a chronicle event:** it starts there. Item
   Database rule 20d then places only the items still unplaced, so every unique named item has exactly one record
-  (AC-ID-90).
+  (AC-ID-90). **Its random holders are drawn from the random cultivators only** (2026-11-20): the cast's gear is
+  authored, so it is the same in every game.
+- **If a famous site names no region** (the famous blessed lands name only their sect): its region is the one its tile
+  lies in, read from the tile grid.
 - **If two chronicle events share a year:** the log orders them by year, then by event id, ascending.
 - **If a step throws, or generation runs past the load budget:** Failed, naming the step number. Nothing is saved.
 - **If the player cancels while Building:** the half-built world is discarded and the game returns to Unbuilt. Nothing
@@ -537,7 +571,7 @@ UI is not built.
 | 1 | ~~Who are the 30–70 cast members besides the 29 sect heads: names, roles, realms, home places?~~ **Answered 2026-11-15:** the roster is drafted and approved in `design/world/cast_proposal.json`: 69 people (51 living: 14 Nguyên Anh, 30 Kết Đan, 4 Trúc Cơ, 1 Luyện Khí, 2 Hóa Thần; 18 dead records), plus 4 vanished sects and 10 master ties. **Traits for all 51 living are approved 2026-11-15** in `design/world/leader_traits_proposal.json` (3 personality traits from 3 sets and 1 calling each; 5 people also hold a fate-given trait). **Still open:** the fully authored builds for the 51 living (Core Rule 6; Open Question 4) | user, world-builder | Roster and traits answered; builds open |
 | 2 | ~~How long is the chronicle in years, and what is the starting year?~~ **Answered 2026-11-15:** 1,200 years, starting year 1,200 (Core Rule 11). The 7 great sects are founded 700–1,100 years ago and the three-sect battlefield war about 400 years back. **The chronicle itself is drafted and approved 2026-11-15** in `design/world/chronicle_proposal.json`: 42 events, with one origin event for each of the 28 hidden slots | user, world-builder | Answered |
 | 3 | ~~The 29 sects' starting levels, dials, attitudes, treasuries, alignments and leaders' traits, under F1's settle levels~~ **Answered in part 2026-11-15:** alignments, levels, treasuries and loyalty are approved in `design/world/sect_start_proposal.json` (Thính Vũ Lâu is ma đạo; Xuyên Lâm Môn and Dạ Quang Môn start at loyalty 40); dials and attitudes start at their formula targets, not authored (Core Rule 7). **The 29 leaders' traits are approved too** (3 personality traits from 3 sets and 1 calling each), in `design/world/leader_traits_proposal.json`. Known weaknesses: Military uses wars only, and the treasuries are guesses until Sects' balance run (AC-SM-42) | user, systems-designer | Leaders' traits open |
-| 4 | When are the 60–100 hand-built cast builds written, given that the Đạo Đồ shape is parked? If the cost is too high, the fallback is to hand-build the 29 heads and a few dozen of the rest, and generate the others | user | Before the cast is authored |
+| 4 | ~~When are the 60–100 hand-built cast builds written, given that the Đạo Đồ shape is parked?~~ **Answered 2026-11-20:** all 54 living builds are hand-authored on the v5 Đạo Đồ (`design/world/cast_builds.json`; review sheet `design/world/cast-builds.md`, awaiting the user's review) | user | Answered |
 | 5 | ~~Can the player see, type or share a seed?~~ **Answered 2026-11-15:** the seed shows on the pause screen and in the save list, and the new-game screen has an optional seed field (blank = random). Re-rolling stays allowed (Edge Cases) | user, ux-designer | Answered |
 | 6 | ~~Does the save copy the continent's terrain, or read it from files at runtime?~~ **Answered 2026-11-15:** terrain stays in the versioned data files and is not copied; each save records the map version, and a save made on another map version is refused with both versions named (Edge Cases, Seeds and saves). Map hand edits land between releases | user, technical-director | Answered |
 | 7 | ~~Replace the old `realm_distribution` weights with Realms' solved counts~~ **Done 2026-11-15:** `assets/data/world_generation.json` now holds 3,936 / 844 / 191 / 27 / 3. The census at seed 101 starts at 3,877 / 896 / 200 / 25 / 2 (the generator still rolls realms at random; Formula A's exact targets come with the rework). AC-CG-69's 2,000-year run was not re-run | gameplay-programmer | Done; AC-CG-69 re-run open |
