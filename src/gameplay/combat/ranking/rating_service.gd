@@ -173,8 +173,10 @@ static func _norm(v: Variant) -> Variant:
 ## Brings every person's rating record up to date with the World DB (States and Transitions): a new fighter becomes
 ## Provisional; a dead one Gone; one at a new realm Provisional there, its offset carried (Edge Cases); a Rated one
 ## whose build signature or data version changed Stale; a Provisional one's base follows its stage (Formulas G).
-func refresh() -> void:
+func refresh(season_key: int = -1) -> void:
 	for p in _db.all("people"):
+		if season_key >= 0 and int(p.get("joined_season", -1)) == season_key:
+			continue   # created by an event after this season's plan: it joins the next one (AC-PR-48)
 		refresh_person(p)
 
 
@@ -306,7 +308,7 @@ func plan_season(game_seed: int, season_key: int, year: int, season_in_year: int
 
 func _plan(game_seed: int, season_key: int, year: int, season_in_year: int, player: Character,
 		player_sheet: StatSheet, budget: int) -> SeasonBatch:
-	refresh()
+	refresh(season_key)
 	var b := SeasonBatch.new(self)
 	b.game_seed = game_seed
 	b.season = season_key
@@ -322,7 +324,7 @@ func _plan(game_seed: int, season_key: int, year: int, season_in_year: int, play
 			var pp: FighterProfile = FighterCompiler.compile(player, _gd, _db, player_sheet, [], [])
 			if pp != null:
 				b.panels.append(_queue_panel(prec, pp, false, build_sig(_db.get_record("people", player.id)), season_key))
-	var living: Array = _db.all("people").filter(func(x): return bool(x.get("alive", true)) and not bool(x.get("is_player", false)))
+	var living: Array = _db.all("people").filter(func(x): return bool(x.get("alive", true)) and not bool(x.get("is_player", false)) and int(x.get("joined_season", -1)) != season_key)
 	var waiting: Array = living.filter(func(x):
 		var st: String = str(_db.get_record(TABLE, str(x.id)).state)
 		return st == STALE or st == PROVISIONAL)

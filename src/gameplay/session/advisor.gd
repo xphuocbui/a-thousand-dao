@@ -461,13 +461,15 @@ static func ingredient_status(s: GameSession, c: Character, sh: StatSheet, ing: 
 		return {"text": "%s: you hold one aged %.0fy; %s" % [label, float(y.age), where], "command": "plant %s" % y.id if at_home and free else "",
 			"action": "Plant your %s (%.0fy)" % [herb.get("name", ing.herb), float(y.age)], "ready": false}
 	var home_fit: Dictionary = HerbFit.fit(gd, herb, s.db.get_record("places", c.home_id))
-	if not bool(home_fit.plantable) or int(herb.get("rarity", 99)) > int(gd.session().field.seed_rarity_by_realm[c.realm_index]):
+	var at: Dictionary = s.db.get_record("places", c.location_id)
+	var sold_here: bool = bool(at.get("market", false)) and s.market.stock(str(at.id)).any(func(i): return i.kind == "herb" and i.template == ing.herb)
+	if not sold_here and (not bool(home_fit.plantable) or int(herb.get("rarity", 99)) > int(gd.session().field.seed_rarity_by_realm[c.realm_index])):
 		var ground: Dictionary = herb_ground_for(s, str(ing.herb))
 		if not ground.is_empty():
 			var here: bool = c.location_id == str(ground.id)
 			return {"text": "%s: %s; gather it at %s (a wild herb ground)" % [label, "it cannot grow at home" if not bool(home_fit.plantable) else "no seeds sold", ground.name],
 				"command": "explore" if here else "go %s" % ground.id, "action": "Gather %s at %s" % [herb.get("name", ing.herb), ground.name],
-				"ready": false, "gather_at": str(ground.id)}
+				"ready": false, "gather_at": str(ground.id), "price": market_price_estimate(s, str(ing.herb))}
 	if int(herb.get("rarity", 99)) <= int(gd.session().field.seed_rarity_by_realm[c.realm_index]) and bool(home_fit.plantable):
 		return {"text": "%s: plant a seed (%d LT)" % [label, int(herb.seed_price)], "command": "plant %s" % ing.herb if c.location_id == c.home_id else "", "action": "Plant %s (%d LT)" % [herb.get("name", ing.herb), int(herb.seed_price)], "ready": false}
 	# Seeds are not sold: buy a young one at a market and let it age in the field.

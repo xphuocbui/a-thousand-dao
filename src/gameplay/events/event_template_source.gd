@@ -61,14 +61,23 @@ func generate(ctx: Dictionary, rng: RandomNumberGenerator, template_id: String =
 	return {}
 
 
+## Marks a person an event created with the season it joined the world (Power Rankings AC-PR-48: the season's batch,
+## planned before the event, takes them only from the next season, so a reloaded game plans the same batch).
+func _joined(pid: String, ctx: Dictionary) -> String:
+	var rec: Dictionary = _db.get_record("people", pid)
+	if not rec.is_empty():
+		rec["joined_season"] = int(ctx.get("year", 0)) * int(_gd.cultivation_rules().seasons_per_year) + int(ctx.get("season", 0))
+	return pid
+
+
 func _bind_npc(spec: Dictionary, ctx: Dictionary, rng: RandomNumberGenerator) -> String:
 	var mode: String = str(spec.get("mode", "none"))
 	var realm: int = clampi(int(ctx.player.realm_index) + int(spec.get("realm_offset", 0)), 0, _gd.realms().size() - 1)
 	match mode:
 		"new":
-			return _builds.create_person(rng, {"realm_index": realm, "archetype": str(spec.get("archetype", "")), "location_id": ctx.place.id, "created_by": "event"})
+			return _joined(_builds.create_person(rng, {"realm_index": realm, "archetype": str(spec.get("archetype", "")), "location_id": ctx.place.id, "created_by": "event"}), ctx)
 		"beast":
-			return _builds.create_person(rng, {"realm_index": realm, "is_beast": true, "location_id": ctx.place.id, "created_by": "event"})
+			return _joined(_builds.create_person(rng, {"realm_index": realm, "is_beast": true, "location_id": ctx.place.id, "created_by": "event"}), ctx)
 		"existing_sect":
 			var mates: Array = _db.find("people", func(p): return p.alive and not p.get("is_player", false) and str(p.sect_id) == str(ctx.sect.id) and str(ctx.sect.id) != "")
 			return str(RngUtils.pick(rng, mates).id) if not mates.is_empty() else "!"

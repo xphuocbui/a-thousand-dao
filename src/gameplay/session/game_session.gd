@@ -724,7 +724,7 @@ func _road_encounter(st: Dictionary) -> Array:
 	var types: Dictionary = gd.file(Travel.RULES_FILE).get("encounter_place_type", {})
 	var ptype: String = str(types.get(biome, types.get("default", "son")))
 	var ctx: Dictionary = event_context()
-	ctx.place = {"id": "", "name": "giữa đường (%s)" % biome.replace("_", " "), "type": ptype, "danger": int(st.danger),
+	ctx.place = {"id": player.location_id, "name": "giữa đường (%s)" % biome.replace("_", " "), "type": ptype, "danger": int(st.danger),
 		"region": ctx.place.get("region", ""), "biome": biome, "mode": str(st.mode)}
 	var res: Dictionary = narrator.generate_event(ctx, rng, "")
 	if not res.ok:
