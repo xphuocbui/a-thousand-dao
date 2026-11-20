@@ -175,7 +175,11 @@ func _gather(s: GameSession, st: Dictionary, plan: Dictionary) -> bool:
 			st.target = str(stt.gather_at)
 			return false
 		st.use["gather"] = int(st.use.get("gather", 0)) + 1
-		s.explore()
+		var r: Dictionary = s.explore()
+		if not bool(r.get("ok", false)):
+			# refused (a sealed realm, a waiting event): spend the season cultivating instead, so time always passes
+			st.use["cultivate"] = int(st.use.get("cultivate", 0)) + 1
+			s.cultivate(1)
 		return true
 	return false
 

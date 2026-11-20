@@ -497,6 +497,8 @@ static func herb_ground_for(s: GameSession, herb_id: String) -> Dictionary:
 		var p: Dictionary = s.db.get_record("places", str(pid))
 		if not Array(p.get("herb_grounds", [])).any(func(g): return str(g.herb) == herb_id):
 			continue
+		if p.has("cycle") and not bool(MapChange.realm_state(p, s.season_index(), str(s.db.get_record("world", "w_meta").get("seed", ""))).open):
+			continue   # a sealed secret realm cannot be explored now
 		var d: int = maxi(absi(int(p.tile[0]) - int(here.tile[0])), absi(int(p.tile[1]) - int(here.tile[1])))
 		if d < best_d:
 			best_d = d
