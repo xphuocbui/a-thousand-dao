@@ -835,7 +835,9 @@ func array_lines() -> Array:
 	var out: Array = []
 	for p in db.find("places", func(x): return bool(x.get("array", false))):
 		var fee: Dictionary = teleport_fee(str(p.id))
-		out.append("  %-5s %-22s %s" % [p.id, p.name, ("%d LT, %d tiles" % [int(fee.fee), int(fee.tiles)]) if not fee.is_empty() else ("(you are here)" if str(p.id) == player.location_id else "(no array here)")])
+		var here_array: bool = bool(db.get_record("places", player.location_id).get("array", false))
+		var note: String = "(you are here)" if str(p.id) == player.location_id else ("%d LT, %d tiles" % [int(fee.fee), int(fee.tiles)] if not fee.is_empty() else ("" if here_array else "(go to an array city to jump)"))
+		out.append("  %-5s %-22s %s" % [p.id, p.name, note])
 	return out if not out.is_empty() else ["No teleport arrays in this world."]
 
 
@@ -952,6 +954,8 @@ func take_residence(grade: int, buy: bool = false) -> Dictionary:
 	var cfg: Dictionary = MapWorks.cfg(gd)
 	if place.get("qi", {}).is_empty() or not MapWorks.settled(gd, place):
 		return {"ok": false, "lines": ["Residences are let in settlements and sect grounds."]}
+	if player.sect_id != "" and str(place.get("sect_id", "")) == player.sect_id:
+		return {"ok": false, "lines": ["Your sect houses you here by your realm; there is nothing to rent."]}
 	var max_g: int = int(cfg.max_grade.get(str(place.kind), 1))
 	if grade < 1 or grade > max_g:
 		return {"ok": false, "lines": ["%s has residences of grade 1 to %d." % [place.name, max_g]]}

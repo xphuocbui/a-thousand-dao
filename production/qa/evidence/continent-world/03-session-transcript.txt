@@ -1,0 +1,502 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+
+  ☯  TEN THOUSAND DAOS  — debug terminal
+  LLM off | https://api.deepseek.com/chat/completions | model deepseek-chat | NO KEY | language vi | calls 0, failures 0, avg 0 ms
+
+  1 New life (choose origin, roll or set your thiên phú and linh căn)
+  2 Quick start (random tán tu)
+  3 Help: every command
+ Type a number, or any command ('help'). Enter shows this menu again.
+> new
+Tên (name) [Vô Danh]: Thám Hiểm
+Giới tính m/f [m]: f
+Xuất thân (origin):
+  1) Tán tu — Nobody. Free, poor, no sect obligations.
+  2) Đệ tử tông môn — Outer disciple of a generated sect: stipend, sect missions, a better công pháp.
+  3) Con cháu gia tộc — Minor clan heir: more linh thạch and a field already growing.
+Choose 1-3 [1]: 2
+World seed [795180169]: 77
+Birth mode: 1) Thiên Định — roll, achievements on   2) Tự Định — choose, casual  [1]: 2
+Tự Định: set each thiên phú 1-100 (enter = 50).
+  Ngộ tính (Comprehension: learning công pháp and how strong it is, đốn ngộ, discovering recipes, breaking bình cảnh): 50
+  Căn cốt (Physique: khí huyết, đan độc resistance, body cultivation): 50
+  Thần hồn (Soul strength: base of thần thức (artifact control, detection)): 50
+  Khí vận (Fortune: kỳ ngộ, rare finds, crafting crits, ceiling of LLM-invented rewards): 50
+  Đạo tâm (Dao heart: resists tâm ma, qi deviation and illusions): 50
+  Mị lực (Presence: NPC attitude, prices, what people will tell you): 50
+Root purities 10-100, e.g. 'hoa=80 moc=60 tho=40' (elements: kim moc thuy hoa tho).
+  purities: kim=80 tho=55
+Variants you qualify for: phong huyet hu_khong (one or two elements), loi (hoa+kim), am (tho+thuy), hon_don (all five), quang (hoa), bang (thuy). Any you leave out never forms.
+  variant ids (blank = none): phong
+
+━━ Thám Hiểm — Đệ tử tông môn ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ ROOT [linh căn]  Dual root — curve row 3, now x0.50 vs a single root
+   Mộc  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thảo age faster in your field
+   Hỏa  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          luyện đan success and quality
+   Thổ  ▆▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁  55 Trung    more linh điền plots
+   Kim  ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▁▁▁▁  80 Thượng   linh thạch from missions and bounties
+   Thủy ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          đan độc fades faster
+   Wind [Phong] 50  (innate)  +50% travel speed
+
+ THIÊN PHÚ
+   Ngộ tính  ▆▆▆▆▆▁▁▁▁▁  50 Trung        Căn cốt   ▆▆▆▆▆▁▁▁▁▁  50 Trung
+   Thần hồn  ▆▆▆▆▆▁▁▁▁▁  50 Trung        Khí vận   ▆▆▆▆▆▁▁▁▁▁  50 Trung
+   Đạo tâm   ▆▆▆▆▆▁▁▁▁▁  50 Trung        Mị lực    ▆▆▆▆▆▁▁▁▁▁  50 Trung
+
+ Linh thạch 50 · more elements: slower now, much faster later
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Thiên mệnh — choose one:
+   1 Đạo Cốt Thiên Sinh   Born with Dao bones: every breakthrough comes easier.  [+12% breakthrough chance]
+   2 Bất Diệt Đạo Tâm     An unbreakable heart: a failed breakthrough costs no tu vi and half the tâm ma.  [failed breakthroughs cost no tu vi, half the tâm ma, +10 Đạo tâm]
+   3 Tổ Truyền Linh Điền  An ancestral spirit field: one more plot, herbs age faster.  [+1 linh điền plots, +40% herb growth]
+   4 Cổ Ngọc Tàn Hồn      An old jade pendant holds a remnant soul that guides you at each bình cảnh.  [+8 Ngộ tính, +6% breakthrough chance]
+   5 Thiên Đố Kỳ Duyên    Heaven's favour: more khí vận, and cơ duyên come twice as often.  [+15 Khí vận, +100% cơ duyên frequency]
+   6 Đan Tâm Thông Linh   A heart attuned to the cauldron: better luyện đan, stronger pills.  [+15% luyện đan success, +25% pill effect]
+   7 Thọ Nguyên Dư Dả     A long-lived bloodline: more years to reach the next realm.  [+20% thọ nguyên]
+   8 Linh Căn Thuần Tịnh  A pure root: every owned element is purer from birth, and you cultivate faster.  [+10% tu luyện speed, +8 purity on every root at birth]
+Pick 1-8 (Enter = cancel): 1
+Generating the world (seed 77)...
+A new world: 20 regions, 272 places, 41 sects, 5033 people, 518 recorded events (Thiên Nguyên lịch năm 1200).
+Thám Hiểm is born: Dual root: Earth [Thổ] 55, Metal [Kim] 80 + Wind [Phong] 50 (counts as 3)
+Đạo Đồ start: Metal start (#104). Before opening a Dao mark you may move it: 'tree start <tho|phong>'.
+Power Rankings: the player's panel (40 fights) and 256 coarse panels (2064 fights) rated at load.
+
+━━ Thám Hiểm — Luyện Khí Sơ kỳ L1 (tầng 1) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Tuổi 16 / 120 · Xuất thân Đệ tử tông môn · Tông môn Hồng Đậu Trang (outer disciple (ngoại môn)) · Tự Định (casual)
+
+ ROOT [linh căn]  Dual root — curve row 3, now x0.50 vs a single root
+   Mộc  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thảo age faster in your field
+   Hỏa  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          luyện đan success and quality
+   Thổ  ▆▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁  55 Trung    more linh điền plots
+   Kim  ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▁▁▁▁  80 Thượng   linh thạch from missions and bounties
+   Thủy ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          đan độc fades faster
+   Wind [Phong] 50  (innate)  +50% travel speed
+
+ THIÊN PHÚ
+   Ngộ tính  ▆▆▆▆▆▁▁▁▁▁  50 Trung        Căn cốt   ▆▆▆▆▆▁▁▁▁▁  50 Trung
+   Thần hồn  ▆▆▆▆▆▁▁▁▁▁  50 Trung        Khí vận   ▆▆▆▆▆▁▁▁▁▁  50 Trung
+   Đạo tâm   ▆▆▆▆▆▁▁▁▁▁  50 Trung        Mị lực    ▆▆▆▆▆▁▁▁▁▁  50 Trung
+
+ TRẠNG THÁI Linh lực 61 · Thần thức 50 · Khí huyết 500/500
+            Đan độc 0 (pills -0%) · Tâm ma 0 (backlash 0%) · Linh thạch 50
+ CÔNG PHÁP  Duệ Kim Công (layer 1/6)
+            tu vi 12.2 per season here ('explain rate')
+ ĐẠO NGHỆ   none yet (practice raises them)
+ CHIẾN LỰC  124 = offense 64 + defense 60 · extra slots 0/2 ('explain power')
+ ĐẠO ĐỒ  1 đạo văn open, 2 point(s) unspent ('tree')
+ THIÊN MỆNH Đạo Cốt Thiên Sinh — Born with Dao bones: every breakthrough comes easier.
+ 'explain <stat>' breaks down any number: rate, power, life, breakthrough, ngo_tinh, attack_pct …
+
+Hồng Đậu Trang (l27) — Tông môn, Tiêu Vũ Lâm. Linh khí 1.50, danger 1
+  Headquarters of Hồng Đậu Trang
+  Your động phủ is here.
+  Land: jungle (tile 181,305), land density 1.40, shares Mộc 23, Hỏa 18, Thổ 17, Kim 9, Thủy 33
+  Climate: 26.0 C, 1184 mm a year
+  Density for you: 1.80 (place 1.50, layer 2 +0.40, capped at 1.80); land match for you: x0.914
+People here (38):
+  p31    Nghê Hồng Đậu        Kết Đan Hậu kỳ         Tán tu, Hồng Đậu Trang | power 33,600 | attitude 0
+  p97    Cố Lan               Luyện Khí Đại viên mãn Đan sư, Hồng Đậu Trang | power 95 | attitude 0
+  p236   Lâm Vân              Luyện Khí Trung kỳ     Đan sư, Hồng Đậu Trang | power 51 | attitude 0
+  p415   Lục Tùng             Luyện Khí Hậu kỳ       Kiếm tu, Hồng Đậu Trang | power 95 | attitude 0
+  p495   Lạc Thần             Kết Đan Trung kỳ       Tán tu, Hồng Đậu Trang | power 33,600 | attitude 0
+  p580   Ôn Lạc Anh           Luyện Khí Sơ kỳ        Tán tu, Hồng Đậu Trang | power 51 | attitude 0
+  p795   Mộ Dung Ngọc         Luyện Khí Trung kỳ     Tán tu, Hồng Đậu Trang | power 51 | attitude 0
+  p832   Ôn Hà                Trúc Cơ Trung kỳ       Linh thực sư, Hồng Đậu Trang | power 1,040 | attitude 0
+  p973   Đông Phương Minh     Luyện Khí Đại viên mãn Pháp tu, Hồng Đậu Trang | power 105 | attitude 0
+  p1104  Đông Phương Thanh    Luyện Khí Trung kỳ     Thể tu, Hồng Đậu Trang | power 51 | attitude 0
+  p1169  Tư Mã Tuyết          Luyện Khí Sơ kỳ        Tán tu, Hồng Đậu Trang | power 51 | attitude 0
+  p1427  Tư Mã Dao            Luyện Khí Hậu kỳ       Trận sư, Hồng Đậu Trang | power 95 | attitude 0
+  p1510  Ôn Nghiên            Luyện Khí Trung kỳ     Tán tu, Hồng Đậu Trang | power 54 | attitude 0
+  p1559  Lý Tùng              Luyện Khí Trung kỳ     Tán tu, Hồng Đậu Trang | power 51 | attitude 0
+  p1825  Cố Tùng              Luyện Khí Trung kỳ     Tán tu, Hồng Đậu Trang | power 95 | attitude 0
+  ... 'db people l27' lists all
+Roads:
+  -> l134  Hải Môn Thôn (0.52 seasons, road)
+
+━━ Thám Hiểm · Thiên Nguyên lịch năm 1200, Xuân · Hồng Đậu Trang ━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +12.2/season, next level in 4 seasons
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 50 · power 19 · 2 Đạo Đồ pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Đạo Đồ point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Đạo Đồ point(s)
+  3 Plant something (plot 1 is empty)
+  4 Cultivate 1 year                     5 Closed-door 5 years
+  6 Explore Hồng Đậu Trang               7 Mission / bounty
+  8 Travel…                              9 Herb field
+ 10 Alchemy…                            11 Refine a pháp bảo…
+ 12 Draw talismans…                     13 Formations (trận pháp)
+ 14 Talk to someone… (38 here)          15 Character sheet
+ 16 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> look
+Hồng Đậu Trang (l27) — Tông môn, Tiêu Vũ Lâm. Linh khí 1.50, danger 1
+  Headquarters of Hồng Đậu Trang
+  Your động phủ is here.
+  Land: jungle (tile 181,305), land density 1.40, shares Mộc 23, Hỏa 18, Thổ 17, Kim 9, Thủy 33
+  Climate: 26.0 C, 1184 mm a year
+  Density for you: 1.80 (place 1.50, layer 2 +0.40, capped at 1.80); land match for you: x0.914
+People here (38):
+  p31    Nghê Hồng Đậu        Kết Đan Hậu kỳ         Tán tu, Hồng Đậu Trang | power 33,600 | attitude 0
+  p97    Cố Lan               Luyện Khí Đại viên mãn Đan sư, Hồng Đậu Trang | power 95 | attitude 0
+  p236   Lâm Vân              Luyện Khí Trung kỳ     Đan sư, Hồng Đậu Trang | power 51 | attitude 0
+  p415   Lục Tùng             Luyện Khí Hậu kỳ       Kiếm tu, Hồng Đậu Trang | power 95 | attitude 0
+  p495   Lạc Thần             Kết Đan Trung kỳ       Tán tu, Hồng Đậu Trang | power 33,600 | attitude 0
+  p580   Ôn Lạc Anh           Luyện Khí Sơ kỳ        Tán tu, Hồng Đậu Trang | power 51 | attitude 0
+  p795   Mộ Dung Ngọc         Luyện Khí Trung kỳ     Tán tu, Hồng Đậu Trang | power 51 | attitude 0
+  p832   Ôn Hà                Trúc Cơ Trung kỳ       Linh thực sư, Hồng Đậu Trang | power 1,040 | attitude 0
+  p973   Đông Phương Minh     Luyện Khí Đại viên mãn Pháp tu, Hồng Đậu Trang | power 105 | attitude 0
+  p1104  Đông Phương Thanh    Luyện Khí Trung kỳ     Thể tu, Hồng Đậu Trang | power 51 | attitude 0
+  p1169  Tư Mã Tuyết          Luyện Khí Sơ kỳ        Tán tu, Hồng Đậu Trang | power 51 | attitude 0
+  p1427  Tư Mã Dao            Luyện Khí Hậu kỳ       Trận sư, Hồng Đậu Trang | power 95 | attitude 0
+  p1510  Ôn Nghiên            Luyện Khí Trung kỳ     Tán tu, Hồng Đậu Trang | power 54 | attitude 0
+  p1559  Lý Tùng              Luyện Khí Trung kỳ     Tán tu, Hồng Đậu Trang | power 51 | attitude 0
+  p1825  Cố Tùng              Luyện Khí Trung kỳ     Tán tu, Hồng Đậu Trang | power 95 | attitude 0
+  ... 'db people l27' lists all
+Roads:
+  -> l134  Hải Môn Thôn (0.52 seasons, road)
+> map
+Lãnh Nguyệt Lâm (r1)
+  l8    Hàm Nguyệt Trang         lk 1.41 dg 1 S  roads: l190(0.52)
+Tuyết Hỏa Giác (r2)
+  l9    Hồng Lô Cốc              lk 1.36 dg 2 S  roads: 
+  l30   Yên Ba Thành             lk 0.88 dg 1 M  roads: l31(1.45), l104(0.32), l166(0.32), l56(0.62), l57(1.01)
+  l56   Mục Ca Thành             lk 0.76 dg 1 M  roads: l99(0.17), l30(0.62), l57(0.23), l98(0.06)
+  l233  Đào Nguyên Cảnh          lk 1.98 dg 1  roads: 
+Thanh Loan Lĩnh (r3)
+  l1    Thúy Vi Tông             lk 1.94 dg 1 S  roads: l45(0.23), l102(1.26), l165(0.13)
+  l10   Vân Khởi Quán            lk 1.70 dg 1 S  roads: l166(0.07)
+  l31   Hàn Tân Thành            lk 0.71 dg 1 M  roads: l30(1.45), l45(0.36)
+  l243  Hoành Thúy Đình          lk 1.80 dg 1  roads: 
+Thâm Tùng Hải (r4)
+  l2    Tùng Đào Cung            lk 1.93 dg 1 S  roads: l33(0.25), l46(0.18)
+  l11   Vạn Hác Viện             lk 1.55 dg 1 S  roads: l107(0.32), l167(0.07)
+  l32   Tùng Gian Thành          lk 0.90 dg 1 M  roads: l102(0.34), l105(0.26), l106(0.19)
+  l61   Cổ Độ Thành              lk 1.03 dg 1 M  roads: l107(0.23), l137(0.21)
+  l236  Thiên Xích Phúc Địa      lk 1.83 dg 1  roads: 
+  l239  Thạch Thượng Tuyền       lk 1.85 dg 1  roads: 
+Cửu Khúc Xuyên (r5)
+  l12   Thải Chi Cốc             lk 1.42 dg 1 S  roads: l47(0.39)
+  l13   Lãng Đào Môn             lk 1.44 dg 1 S  roads: l46(1.01), l47(0.20)
+  l33   Đào Thanh Thành          lk 0.92 dg 1 M  roads: l2(0.25), l108(0.41)
+Dao Quang Lĩnh (r6)
+  l14   Cửu Cao Phái             lk 1.40 dg 1 S  roads: l34(0.53), l142(1.11)
+  l34   Khai Dương Thành         lk 0.89 dg 1 M  roads: l14(0.53), l55(1.17), l111(0.17)
+  l65   Thanh Bách Thành         lk 0.91 dg 1 M  roads: l113(0.22), l140(0.42), l141(0.13), l171(0.58)
+Ngọc Hồ Sơn (r7)
+  l15   Lê Hoa Am                lk 1.63 dg 1 S  roads: l66(0.59)
+Cô Yên Mạc (r8)
+  l3    Băng Tâm Các             lk 1.63 dg 1 S  roads: l35(0.90), l48(0.21)
+  l16   Dạ Quang Môn             lk 1.21 dg 1 S  roads: l227(0.11)
+  l35   Trường Vân Thành         lk 0.81 dg 1 M  roads: l3(0.90), l116(0.75), l117(0.26), l227(0.13), l36(1.20)
+  l67   Hồi Lan Thành            lk 0.76 dg 1 M  roads: l69(0.35)
+Hàn Sương Châu (r9)
+  l17   Trạc Anh Đài             lk 1.41 dg 1 S  roads: l119(0.27)
+  l36   Liên Giang Thành         lk 0.90 dg 1 M  roads: l121(0.15), l191(0.57), l35(1.20)
+  l68   Mộc Lan Thành            lk 0.82 dg 1 M  roads: l119(0.42), l120(0.18), l191(0.57), l216(0.15)
+  l242  Tố Tâm Động              lk 1.97 dg 2  roads: 
+Cô Vụ Đảo (r10)
+  l18   Bình Thủy Môn            lk 1.31 dg 1 S  roads: l49(0.21), l123(0.14)
+  l37   Đàm Ảnh Thành            lk 0.80 dg 1 M  roads: l70(0.46), l72(0.77), l125(0.23), l71(0.25)
+  l72   Triều Âm Thành           lk 0.82 dg 1 M  roads: l37(0.77), l126(0.33), l70(0.79)
+Trường Thiên Nguyên (r11)
+  l19   Mục Vân Trang            lk 1.30 dg 1 S  roads: l73(0.13)
+  l38   Nhạn Thanh Thành         lk 0.71 dg 1 M  roads: l51(1.01), l73(1.16), l133(1.91), l49(0.35), l71(0.55), l39(0.82)
+  l74   Thảo Đường Thành         lk 0.76 dg 1 M  roads: l73(0.55), l128(0.18), l130(0.14)
+Thu Thủy Loan (r12)
+  l20   Thiên Bảo Trai           lk 1.25 dg 1 S  roads: l50(0.21)
+  l39   Tử Điện Thành            lk 0.80 dg 1 M  roads: l133(0.18), l134(0.15), l38(0.82), l49(0.87)
+  l78   Ngũ Cốc Thành            lk 0.76 dg 1 M  roads: l135(0.26)
+  l134  Hải Môn Thôn             lk 0.76 dg 1  roads: l27(0.52), l39(0.15), l77(0.17)
+Ngư Ca Xuyên (r13)
+  l4    Lạc Hà Tông              lk 1.72 dg 1 S  roads: l50(0.50), l51(0.15)
+  l21   Nam Phố Đường            lk 1.42 dg 1 S  roads: l79(0.14)
+  l80   Tang Ma Thành            lk 0.80 dg 1 M  roads: l138(0.27)
+  l237  Địa Linh Phúc Địa        lk 1.62 dg 1  roads: 
+  l240  Châu Liêm Đình           lk 1.59 dg 1  roads: 
+Thiên Tuyền Nguyên (r14)
+  l5    Thiên Xu Tông            lk 2.11 dg 1 S  roads: l52(0.19), l81(1.07), l192(0.65)
+  l22   Củng Tinh Quán           lk 1.44 dg 1 S  roads: l172(0.17), l192(0.20)
+  l81   Thạch Kiều Thành         lk 0.70 dg 1 M  roads: l5(1.07), l54(1.15)
+  l231  Thiết Mã Cảnh            lk 1.41 dg 4  roads: 
+  l234  Cố Lũy                   lk 1.20 dg 1  roads: 
+  l235  Bắc Thần Phúc Địa        lk 2.01 dg 2  roads: 
+  l238  Tuyền Cơ Đài             lk 2.01 dg 2  roads: 
+Ngọc Hành Sơn (r15)
+  l23   Thối Tinh Môn            lk 1.70 dg 1 S  roads: l173(0.39)
+  l24   Phất Y Cốc               lk 1.30 dg 1 S  roads: l204(0.12)
+  l40   Tinh Hán Thành           lk 0.70 dg 1 M  roads: l142(0.18), l173(0.64)
+Thê Ngô Lĩnh (r16)
+  l6    Phượng Minh Cung         lk 2.11 dg 1 S  roads: l53(0.24), l145(0.55)
+  l25   Trúc Thực Viên           lk 1.31 dg 1 S  roads: l53(0.53), l147(0.19)
+  l84   Thanh Khê Thành          lk 0.80 dg 1 M  roads: l83(0.33)
+  l244  Bích Ngô Đình            lk 2.01 dg 2  roads: 
+Triêu Dương Nguyên (r17)
+  l26   Lễ Tuyền Phái            lk 1.33 dg 1 S  roads: l87(0.19), l220(0.13)
+  l41   Lai Nghi Thành           lk 0.70 dg 1 M  roads: l83(0.58), l117(0.95), l220(0.19), l44(1.14)
+  l85   Hoàng Vân Thành          lk 0.80 dg 1 M  roads: l117(0.75), l148(0.16), l150(0.39)
+Tiêu Vũ Lâm (r18)
+  l7    Thính Vũ Lâu             lk 2.36 dg 3 S  roads: l54(0.28)
+  l27   Hồng Đậu Trang           lk 1.50 dg 1 S  roads: l134(0.52) <YOU> <HOME>
+  l42   Thu Trì Thành            lk 0.80 dg 1 M  roads: l153(0.89), l155(0.81)
+  l88   Bình Dã Trấn             lk 0.79 dg 1  roads: l153(0.17)
+  l89   Xuân Thảo Thành          lk 0.80 dg 1 M  roads: l221(0.17)
+  l153  Kiều Bạn Thôn            lk 0.80 dg 1  roads: l42(0.89), l88(0.17), l156(0.53), l222(0.35)
+  l154  Bình Độ Thôn             lk 0.80 dg 1  roads: l155(0.23)
+  l155  Hoa Điền Thôn            lk 0.80 dg 1  roads: l42(0.81), l154(0.23), l221(0.71)
+  l156  Yên Kiều Thôn            lk 0.79 dg 1  roads: l153(0.53)
+  l194  Tàn Hà Hồ                lk 1.25 dg 1  roads: 
+  l241  Văn Lôi Đài              lk 2.20 dg 3  roads: 
+Kinh Trập Sơn (r19)
+  l28   Xuyên Lâm Môn            lk 1.64 dg 1 S  roads: l147(0.54)
+  l43   Không Mông Thành         lk 0.80 dg 1 M  roads: l157(0.43), l178(0.54), l221(1.08)
+  l90   Lãng Hoa Thành           lk 0.69 dg 1 M  roads: l54(0.58), l158(0.64)
+  l230  Thu Phần Các             lk 1.13 dg 1 S  roads: 
+Đan Huyệt Châu (r20)
+  l29   Phần Vũ Đường            lk 1.35 dg 1 S  roads: l94(0.21)
+  l44   Ngũ Thải Thành           lk 0.80 dg 1 M  roads: l164(0.23), l180(0.49), l212(0.58), l41(1.14)
+  l93   Thạch Cơ Thành           lk 0.76 dg 1 M  roads: l94(0.42), l228(0.76)
+  l232  Phù Tang Cảnh            lk 1.75 dg 2  roads: 
+(163 more places you have not seen or heard of; travel and talk reveal them.)
+M = market, S = sect headquarters, lk = linh khí density, dg = danger, roads in seasons (Formula D). 'go <place id or name>' travels by the quickest way to any place you know.
+> explore
+You explore Hồng Đậu Trang for a season and find 12 linh thạch.
+  You also gather Linh Thạch Khoáng x2.
+  [tin đồn] Tin đồn: Trương Khinh Vũ vừa đột phá Trúc Cơ.
+  [tin đồn] Tin đồn: Cung Thanh Ca vừa đột phá Kết Đan.
+  [tin đồn] Tin đồn: Doãn Dật vừa đột phá Trúc Cơ.
+ Δ 1 season passed · Linh thạch 50 → 62 (+12) · + Linh Thạch Khoáng ×2
+
+━━ Thám Hiểm · Thiên Nguyên lịch năm 1200, Hạ · Hồng Đậu Trang ━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +12.2/season, next level in 4 seasons
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 62 · power 19 · 2 Đạo Đồ pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Đạo Đồ point(s) to spend.  → tree
+
+╔══ Gặp gỡ cố nhân ══════════════════════════════════════ [template:co_nhan]
+║ Tống Tọa Vân (Nguyên Anh Sơ kỳ) đang ngồi uống trà ở Hồng Đậu Trang. Nghe
+║ nói người này từng Vân mẫu ở Vân Mẫu Khoáng cạn dần; quán chủ Tống Tọa Vân
+║ nói rằng mây rồi cũng trôi qua. Ánh mắt hai người chạm nhau.
+║
+║  1) Đến bắt chuyện (Mị lực)
+║       ██████░░░░  55% Mị lực 50 vs 45
+║  2) Lặng lẽ quan sát
+║       certain
+╚═ type 1-2 to choose
+> 2
+» choose 2
+> Lặng lẽ quan sát
+
+Ngươi ghi nhớ khí tức của Tống Tọa Vân.
+
+> explore
+You explore Hồng Đậu Trang for a season and find 8 linh thạch.
+  You also gather Tinh Thiết x2.
+  [tin đồn] Tin đồn: Thượng Quan Dật vừa đột phá Trúc Cơ.
+  [tin đồn] Tin đồn: Diệp Phong vừa đột phá Kết Đan.
+  [tin đồn] Lâm Hà và Trương Kiếm đại chiến tại Hàm Nguyệt Trang; Trương Kiếm thắng.
+ Δ 1 season passed · Linh thạch 62 → 70 (+8) · + Tinh Thiết ×2
+
+━━ Thám Hiểm · Thiên Nguyên lịch năm 1200, Thu · Hồng Đậu Trang ━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +12.2/season, next level in 4 seasons
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 70 · power 19 · 2 Đạo Đồ pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Đạo Đồ point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Đạo Đồ point(s)
+  3 Plant something (plot 1 is empty)
+  4 Refine a Pháp khí…
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Hồng Đậu Trang               8 Mission / bounty
+  9 Travel…                             10 Herb field
+ 11 Alchemy…                            12 Draw talismans…
+ 13 Formations (trận pháp)              14 Talk to someone… (39 here)
+ 15 Character sheet                     16 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> 2
+» tree
+Đạo Đồ (7295 đạo văn on the map). Start: Metal start (#104). Capabilities: none.
+1 open (0 points spent), 2 unspent points. Next: level 2 +1, Luyện Khí Trung kỳ +13, Luyện Khí Hậu kỳ +13
+Chaos land: closed (needs Primordial Chaos or all five base elements above 30).
+Commands: tree map | tree node <id> | tree alloc <id> | tree go <id> | tree targets | tree start <element>
+Openable now:
+  #720  Đạo văn                      small    +0.52 Căn cốt  (x1.30 from your root)
+  #728  Đạo văn                      small    +0.52 Căn cốt  (x1.30 from your root)
+> explore
+You explore Hồng Đậu Trang for a season and find 10 linh thạch.
+  [tin đồn] Tin đồn: Cung Bách vừa đột phá Trúc Cơ.
+  [tin đồn] Tin đồn: Hàn Thanh vừa đột phá Trúc Cơ.
+  [tin đồn] Tin đồn: Mạc Uyển vừa đột phá Trúc Cơ.
+ Δ 1 season passed · Linh thạch 70 → 80 (+10)
+
+━━ Thám Hiểm · Thiên Nguyên lịch năm 1200, Đông · Hồng Đậu Trang ━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +12.2/season, next level in 4 seasons
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 80 · power 19 · 2 Đạo Đồ pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Đạo Đồ point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Đạo Đồ point(s)
+  3 Plant something (plot 1 is empty)
+  4 Refine a Pháp khí…
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Hồng Đậu Trang               8 Mission / bounty
+  9 Travel…                             10 Herb field
+ 11 Alchemy…                            12 Draw talismans…
+ 13 Formations (trận pháp)              14 Talk to someone… (39 here)
+ 15 Character sheet                     16 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> 2
+» tree
+Đạo Đồ (7295 đạo văn on the map). Start: Metal start (#104). Capabilities: none.
+1 open (0 points spent), 2 unspent points. Next: level 2 +1, Luyện Khí Trung kỳ +13, Luyện Khí Hậu kỳ +13
+Chaos land: closed (needs Primordial Chaos or all five base elements above 30).
+Commands: tree map | tree node <id> | tree alloc <id> | tree go <id> | tree targets | tree start <element>
+Openable now:
+  #720  Đạo văn                      small    +0.52 Căn cốt  (x1.30 from your root)
+  #728  Đạo văn                      small    +0.52 Căn cốt  (x1.30 from your root)
+> explore
+You explore Hồng Đậu Trang for a season and find 12 linh thạch.
+  [tin đồn] Tin đồn: Lâm Khải vừa đột phá Trúc Cơ.
+  [tin đồn] Tin đồn: Tô Hiên vừa đột phá Trúc Cơ.
+  [tin đồn] Lục Lạc Anh và Thẩm Viễn đại chiến tại Thiên Xu Tông; Thẩm Viễn thắng.
+ Δ 1 season passed · Linh thạch 80 → 104 (+24)
+
+━━ Thám Hiểm · Thiên Nguyên lịch năm 1201, Xuân · Hồng Đậu Trang ━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +12.2/season, next level in 4 seasons
+ Tuổi  17/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 104 · power 19 · 2 Đạo Đồ pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Đạo Đồ point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Đạo Đồ point(s)
+  3 Plant something (plot 1 is empty)
+  4 Refine a Pháp khí…
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Hồng Đậu Trang               8 Mission / bounty
+  9 Travel…                             10 Herb field
+ 11 Alchemy…                            12 Draw talismans…
+ 13 Formations (trận pháp)              14 Talk to someone… (39 here)
+ 15 Character sheet                     16 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> 2
+» tree
+Đạo Đồ (7295 đạo văn on the map). Start: Metal start (#104). Capabilities: none.
+1 open (0 points spent), 2 unspent points. Next: level 2 +1, Luyện Khí Trung kỳ +13, Luyện Khí Hậu kỳ +13
+Chaos land: closed (needs Primordial Chaos or all five base elements above 30).
+Commands: tree map | tree node <id> | tree alloc <id> | tree go <id> | tree targets | tree start <element>
+Openable now:
+  #720  Đạo văn                      small    +0.52 Căn cốt  (x1.30 from your root)
+  #728  Đạo văn                      small    +0.52 Căn cốt  (x1.30 from your root)
+> clues
+You hold no clues to hidden places. Explore settlements to hear rumours.
+> search
+You spend a season searching the wilds of Tiêu Vũ Lâm.
+You hold no clue for Tiêu Vũ Lâm; you search the wilds and find nothing you were looking for.
+  [tin đồn] Tin đồn: Cung Khải vừa đột phá Trúc Cơ.
+  [tin đồn] Tin đồn: Lục Cảnh vừa đột phá Trúc Cơ.
+  [tin đồn] Lạc Lăng và Diệp Kiếm đại chiến tại Thính Vũ Lâu; Lạc Lăng thắng.
+ Δ 1 season passed
+
+━━ Thám Hiểm · Thiên Nguyên lịch năm 1201, Hạ · Hồng Đậu Trang ━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +12.2/season, next level in 4 seasons
+ Tuổi  17/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 104 · power 19 · 2 Đạo Đồ pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Đạo Đồ point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Đạo Đồ point(s)
+  3 Plant something (plot 1 is empty)
+  4 Refine a Pháp khí…
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Hồng Đậu Trang               8 Mission / bounty
+  9 Travel…                             10 Herb field
+ 11 Alchemy…                            12 Draw talismans…
+ 13 Formations (trận pháp)              14 Talk to someone… (39 here)
+ 15 Character sheet                     16 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> 2
+» tree
+Đạo Đồ (7295 đạo văn on the map). Start: Metal start (#104). Capabilities: none.
+1 open (0 points spent), 2 unspent points. Next: level 2 +1, Luyện Khí Trung kỳ +13, Luyện Khí Hậu kỳ +13
+Chaos land: closed (needs Primordial Chaos or all five base elements above 30).
+Commands: tree map | tree node <id> | tree alloc <id> | tree go <id> | tree targets | tree start <element>
+Openable now:
+  #720  Đạo văn                      small    +0.52 Căn cốt  (x1.30 from your root)
+  #728  Đạo văn                      small    +0.52 Căn cốt  (x1.30 from your root)
+> arrays
+  l30   Yên Ba Thành           (go to an array city to jump)
+  l32   Tùng Gian Thành        (go to an array city to jump)
+  l35   Trường Vân Thành       (go to an array city to jump)
+  l39   Tử Điện Thành          (go to an array city to jump)
+  l40   Tinh Hán Thành         (go to an array city to jump)
+  l41   Lai Nghi Thành         (go to an array city to jump)
+  l42   Thu Trì Thành          (go to an array city to jump)
+> work
+Sect mission for Hồng Đậu Trang: +16 linh thạch (now 120).
+  +4 contribution (now 4), standing +3.0 (now 3).
+  [tin đồn] Tin đồn: Phương Nham vừa đột phá Trúc Cơ.
+  [tin đồn] Tin đồn: Giang Băng vừa đột phá Trúc Cơ.
+  [tin đồn] Tin đồn: Lâm Nhược vừa đột phá Trúc Cơ.
+ Δ 1 season passed · Linh thạch 104 → 120 (+16)
+
+━━ Thám Hiểm · Thiên Nguyên lịch năm 1201, Thu · Hồng Đậu Trang ━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +12.2/season, next level in 4 seasons
+ Tuổi  17/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 120 · power 19 · 2 Đạo Đồ pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Đạo Đồ point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Đạo Đồ point(s)
+  3 Plant something (plot 1 is empty)
+  4 Refine a Pháp khí…
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Hồng Đậu Trang               8 Mission / bounty
+  9 Travel…                             10 Herb field
+ 11 Alchemy…                            12 Draw talismans…
+ 13 Formations (trận pháp)              14 Talk to someone… (39 here)
+ 15 Character sheet                     16 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> residence rent 1
+Your sect houses you here by your realm; there is nothing to rent.
+> look
+Hồng Đậu Trang (l27) — Tông môn, Tiêu Vũ Lâm. Linh khí 1.50, danger 1
+  Headquarters of Hồng Đậu Trang
+  Your động phủ is here.
+  Land: jungle (tile 181,305), land density 1.40, shares Mộc 23, Hỏa 18, Thổ 17, Kim 9, Thủy 33
+  Climate: 26.0 C, 1184 mm a year
+  Density for you: 1.80 (place 1.50, layer 2 +0.40, layer 1 +0.05, capped at 1.80); land match for you: x0.914
+People here (39):
+  p18    Tống Tọa Vân         Nguyên Anh Sơ kỳ       Đan sư, Vân Khởi Quán | power 481,000 | attitude 0
+  p31    Nghê Hồng Đậu        Kết Đan Đại viên mãn   Tán tu, Hồng Đậu Trang | power 53,800 | attitude 0
+  p97    Cố Lan               Luyện Khí Đại viên mãn Đan sư, Hồng Đậu Trang | power 95 | attitude 0
+  p236   Lâm Vân              Luyện Khí Đại viên mãn Đan sư, Hồng Đậu Trang | power 52 | attitude 0
+  p415   Lục Tùng             Luyện Khí Hậu kỳ       Kiếm tu, Hồng Đậu Trang | power 98 | attitude 0
+  p495   Lạc Thần             Kết Đan Hậu kỳ         Tán tu, Hồng Đậu Trang | power 55,100 | attitude 0
+  p580   Ôn Lạc Anh           Luyện Khí Sơ kỳ        Tán tu, Hồng Đậu Trang | power 50 | attitude 0
+  p795   Mộ Dung Ngọc         Luyện Khí Đại viên mãn Tán tu, Hồng Đậu Trang | power 51 | attitude 0
+  p832   Ôn Hà                Trúc Cơ Hậu kỳ         Linh thực sư, Hồng Đậu Trang | power 1,660 | attitude 0
+  p973   Đông Phương Minh     Luyện Khí Đại viên mãn Pháp tu, Hồng Đậu Trang | power 107 | attitude 0
+  p1104  Đông Phương Thanh    Luyện Khí Hậu kỳ       Thể tu, Hồng Đậu Trang | power 51 | attitude 0
+  p1169  Tư Mã Tuyết          Luyện Khí Sơ kỳ        Tán tu, Hồng Đậu Trang | power 51 | attitude 0
+  p1427  Tư Mã Dao            Luyện Khí Hậu kỳ       Trận sư, Hồng Đậu Trang | power 95 | attitude 0
+  p1510  Ôn Nghiên            Luyện Khí Trung kỳ     Tán tu, Hồng Đậu Trang | power 55 | attitude 0
+  p1559  Lý Tùng              Luyện Khí Hậu kỳ       Tán tu, Hồng Đậu Trang | power 52 | attitude 0
+  ... 'db people l27' lists all
+Roads:
+  -> l134  Hải Môn Thôn (0.52 seasons, road)
+> travel Tử Điện Thành fly
+You cannot fly yet: flight opens at Trúc Cơ.
+> (end of input)

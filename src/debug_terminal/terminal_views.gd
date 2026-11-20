@@ -702,12 +702,14 @@ static func stat_block(s: GameSession, place: Dictionary) -> Array:
 	var var_text: PackedStringArray = []
 	for v in qi.get("variants", {}):
 		var_text.append("%s %.1f" % [v, float(qi.variants[v])])
-	out.append("  Land: %s (tile %s), land density %.2f, shares %s%s" % [str(qi.get("part_biome", "")).replace("_", " "), str(place.get("tile", [])), float(qi.get("land_density", place.density)), ", ".join(shares), (", variants " + ", ".join(var_text)) if not var_text.is_empty() else ""])
+	var tile: Array = place.get("tile", [0, 0])
+	out.append("  Land: %s (tile %d,%d), land density %.2f, shares %s%s" % [str(qi.get("part_biome", "")).replace("_", " "), int(tile[0]), int(tile[1]), float(qi.get("land_density", place.density)), ", ".join(shares), (", variants " + ", ".join(var_text)) if not var_text.is_empty() else ""])
 	if place.has("temp_c"):
 		out.append("  Climate: %.1f C, %d mm a year" % [float(place.temp_c), int(place.rain_mm)])
 	for item in LandQi.active_layer3(qi):
 		out.append("  Layer 3: %s, density +%.2f%s" % [item.name, float(item.dD), (", pushes " + str(item.push)) if not item.push.is_empty() else ""])
-	out.append("  Land match for you: x%.3f" % LandQi.land_match(s.player, s.gd, qi).total)
+	var st: Dictionary = LandQi.stacked_density(s.gd, s.player, qi, float(place.density), s.sheet().total("density_bonus"))
+	out.append("  Density for you: %.2f (place %.2f%s); land match for you: x%.3f" % [float(st.total), float(place.density), (", " + ", ".join(PackedStringArray(st.lines))) if not st.lines.is_empty() else "", LandQi.land_match(s.player, s.gd, qi).total])
 	var site: Dictionary = place.get("site", {})
 	if not site.is_empty():
 		out.append("  Site: %s (%s), reserve %d%%, last season %d units" % [str(site.resource), str(site.grade), int(round(100.0 * float(site.reserve) / maxf(1.0, float(site.reserve_max)))), int(site.get("last_output", 0))])

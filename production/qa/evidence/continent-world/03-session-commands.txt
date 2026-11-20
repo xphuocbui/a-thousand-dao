@@ -1,0 +1,36 @@
+# Continent 11, the map's systems in one life: stat block, known map, rumours and search, arrays, works, cave abode.
+# Run: godot --headless --path . -s res://src/debug_terminal/terminal_main.gd -- --no-llm
+#        --commands res://production/qa/evidence/continent-world/03-session-commands.txt --exit-after-commands
+new
+Thám Hiểm
+f
+2
+77
+2
+50
+50
+50
+50
+50
+50
+kim=80 tho=55
+phong
+1
+look
+map
+explore
+2
+explore
+2
+explore
+2
+explore
+2
+clues
+search
+2
+arrays
+work
+residence rent 1
+look
+travel Tử Điện Thành fly
