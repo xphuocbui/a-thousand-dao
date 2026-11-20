@@ -67,5 +67,8 @@ func _show(db: WorldDB, s: int) -> void:
 				var v: float = float(m.regions[rid].p_loc[k]) / maxf(0.0001, float(m.classes[k].p))
 				lo = minf(lo, v)
 				hi = maxf(hi, v)
+		for k in m.get("crafted", {}):
+			var cc: Dictionary = m.crafted[k]
+			line += " | %s %.2f plan %.0f fill %.2f c%.1f" % [k, float(cc.p), float(cc.plan), float(cc.get("fill_now", 1.0)), float(cc.cover)]
 		line += " | p_loc/P %.2f-%.2f | pool %.0f treasury %.0f" % [lo, hi, MoneyLedger.new(db).balance("pool:%s" % m.sect_id), MoneyLedger.new(db).balance("sect:%s" % m.sect_id)]
 		print(line)

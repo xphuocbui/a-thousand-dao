@@ -252,6 +252,19 @@ static func _calibrate(gd: GameData, db: WorldDB) -> void:
 		n_tot[k] = 0.0
 	var heads_all := _heads(db)
 	var wset_all := _settlement_weight(gd, db)
+	# Trade Goods Formulas E and G: the pill classes at rest, and the raw inputs their workshops draw, which d_scale is
+	# solved with (AC-RE-51)
+	var craft_draw: Dictionary = CraftEconomy.build(gd, db, CraftEconomy.heads_by_market(db, heads_all))
+	var craft_kind := {}
+	var craft_cls := {}
+	for mid in craft_draw:
+		for g in craft_draw[mid]:
+			var gk: String = kind_of(gd, str(g))
+			craft_kind[gk] = float(craft_kind.get(gk, 0.0)) + float(craft_draw[mid][g])
+			var gc: String = class_of(gd, str(g))
+			if not craft_cls.has(mid):
+				craft_cls[mid] = {}
+			craft_cls[mid][gc] = float(craft_cls[mid].get(gc, 0.0)) + float(craft_draw[mid][g])
 	var s_cls := {}
 	for m in markets:
 		var x := _inputs(gd, db, m, heads_all, wset_all)
@@ -266,7 +279,7 @@ static func _calibrate(gd: GameData, db: WorldDB) -> void:
 	var dscale := {}
 	for k in kinds:
 		var target: float = 1.0 + float(cfg.classes.dk[k]) * (float(cfg.classes.c_ref[k]) - 1.0)
-		dscale[k] = 1.0 if float(n_tot[k]) <= 0.0 else float(s_tot[k]) / (target * float(n_tot[k]))
+		dscale[k] = 1.0 if float(n_tot[k]) <= 0.0 else maxf(0.0, float(s_tot[k]) / target - float(craft_kind.get(k, 0.0))) / float(n_tot[k])
 	var bs := {}
 	for cid in s_cls:   # Trade Goods rule 8a: a band's share of its kind's season-0 world supply
 		var k: String = kind_of_class(cid)
@@ -279,7 +292,7 @@ static func _calibrate(gd: GameData, db: WorldDB) -> void:
 			c.d_scale = dscale[k]
 			c.bs = float(bs.get(cid, 0.0))
 			var s: float = EconomyRules.supply(cfg, float(x.collect), float(x.reached[cid]))
-			var d: float = c.bs * EconomyRules.demand(cfg, k, float(dscale[k]), float(x.need[k]))
+			var d: float = c.bs * EconomyRules.demand(cfg, k, float(dscale[k]), float(x.need[k])) + float(craft_cls.get(str(m.id), {}).get(cid, 0.0))
 			c.d_min = maxf(1.0, float(cfg.demand.d_min_share) * d)
 			c.stock = maxf(0.0, float(cfg.classes.c_ref[k]) * d - s)
 			if c.stock <= 0.0:   # a glut market starts with what its first season would leave (Formula D), so its shelves are not empty
@@ -366,6 +379,10 @@ static func season(gd: GameData, db: WorldDB, money: MoneyLedger = null) -> void
 			row[cid] = {"s": s, "s_sh": s_sh, "d": maxf(0.0, d_pre + p_eff), "imp": 0.0, "exp": 0.0, "own": own, "sold": sold,
 				"bought": bought, "x_pre": x_pre, "ex": ex, "avail": maxf(0.0, sh_tot - maxf(0.0, d_pre + p_eff)), "imp_g": {}}
 		pre[str(m.id)] = row
+	CraftEconomy.draw_inputs(gd, db, pre)   # Trade Goods Formulas F and G: the workshops' draw and craft_in demand
+	for mid in pre:
+		for cid in pre[mid]:
+			pre[mid][cid].avail = maxf(0.0, float(pre[mid][cid].avail) - float(pre[mid][cid].get("craft_in", 0.0)))
 	if bool(cfg.links.get("enabled", true)):
 		_flows(gd, db, money, pre)   # (d)
 	for m in markets:   # (e)
@@ -386,12 +403,13 @@ static func season(gd: GameData, db: WorldDB, money: MoneyLedger = null) -> void
 			for g in r.x_pre:
 				total += float(r.x_pre[g])
 			var left: float = maxf(0.0, total - float(r.exp) - d)
+			var d_shared: float = maxf(0.0, d - float(r.get("craft_in", 0.0)))   # the workshops' draw is goods-specific (in bought)
 			var spoil: float = float(cfg.classes.dk[k]) * left
 			var over: float = maxf(0.0, (left - spoil) - float(cfg.classes.s_cap[k]) * maxf(d, float(c.d_min)))
 			var v := {}
 			for g in _goods(c.pool, r.own, r.imp_g, r.sold):
 				v[g] = TradeGoods.unit_value(gd, str(g))
-			var comp := TradeGoods.compose(cfg, c.pool, r.own, r.imp_g, r.sold, r.bought, float(r.exp) + d + spoil + over, float(r.exp), v)
+			var comp := TradeGoods.compose(cfg, c.pool, r.own, r.imp_g, r.sold, r.bought, float(r.exp) + d_shared + spoil + over, float(r.exp), v)
 			c.pool = comp.pool
 			c.stock_sh = float(comp.shelved)
 			var stock: float = 0.0
@@ -413,6 +431,21 @@ static func season(gd: GameData, db: WorldDB, money: MoneyLedger = null) -> void
 			tot_value[cid] = tv
 			tot_d[cid] = td
 		_local_prices(gd, db, m, x, tot_value, tot_d)
+	CraftEconomy.settle(gd, db, CraftEconomy.heads_by_market(db, heads_all))   # crafted demand, prices, next plans
+	for m in markets:   # crafted local prices are the market's (regional crafted supply comes later)
+		for rid in m.regions:
+			var r: Dictionary = db.get_record("regions", rid)
+			var pi: Dictionary = r.get("price_index", {})
+			var w: float = 0.0
+			var t: float = 0.0
+			for cid in m.get("crafted", {}):
+				var cc: Dictionary = m.crafted[cid]
+				pi[cid] = float(cc.p)
+				t += maxf(float(cc.d), 1e-6) * float(cc.p)
+				w += maxf(float(cc.d), 1e-6)
+			if w > 0.0:
+				pi[CraftEconomy.KIND] = snappedf(t / w, 0.000001)
+			r["price_index"] = pi
 		m["player_last"] = m.get("player", {})
 		m["player"] = {}
 		m.season = int(m.season) + 1

@@ -207,6 +207,10 @@ func item_class(item: Dictionary) -> Dictionary:
 		"herb", "material":
 			var t: String = str(item.get("template", ""))
 			return {"raw": true, "k": WorldEconomy.class_of(_gd, t), "good": t}
+		"pill":   # Trade Goods rule 11: a pill trades in its crafted class, by its recipe's price tier
+			var r: Dictionary = _gd.recipe(str(item.get("template", "")))
+			if not r.is_empty():
+				return {"raw": false, "k": CraftEconomy.class_of_recipe(_gd, r), "good": ""}
 	return {"raw": false, "k": "", "good": ""}
 
 
@@ -233,6 +237,8 @@ func _shop_ctx(item: Dictionary, place: Dictionary) -> Dictionary:
 	if bool(ic.raw):
 		p_loc = WorldEconomy.local_price(_db, str(region.id), str(ic.k))
 		sf = WorldEconomy.scarcity_factor(_gd, _db, mid, str(ic.good))   # Trade Goods Formula D
+	elif str(ic.k) != "":   # a crafted class: its price, held within loc_band_fin of the market's (Formula G)
+		p_loc = WorldEconomy.local_price(_db, str(region.id), str(ic.k))
 	return {"raw": bool(ic.raw), "k": str(ic.k), "good": str(ic.good), "p_loc": p_loc, "sf": sf, "kind": str(place.get("kind", "")),
 		"market": mid, "region": str(region.id), "place": str(place.id)}
 
@@ -291,7 +297,7 @@ func _book_trade(c: Character, ctx: Dictionary, value: float, price: int, buy: b
 	if buy and moved > 0:   # the player's purchases are part of the market's turnover (Sects F3's Turn_m)
 		var mk: Dictionary = _db.get_record(WorldEconomy.TABLE, str(ctx.market))
 		mk["turnover_player"] = float(mk.get("turnover_player", 0.0)) + moved
-	if bool(ctx.raw) and moved > 0:
+	if str(ctx.k) != "" and moved > 0:   # raw and crafted trades enter the market's books (P_eff, L1)
 		WorldEconomy.record_player_trade(_gd, _db, str(ctx.region), str(ctx.k), value, buy, str(ctx.good))
 		if not buy:
 			var m: Dictionary = _db.get_record(WorldEconomy.TABLE, str(ctx.market))
