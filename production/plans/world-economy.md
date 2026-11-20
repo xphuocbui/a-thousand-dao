@@ -174,3 +174,41 @@ So before the economy can price anything, the land must produce what it prices: 
 - **Not yet:** breakthrough pill demand (D_bt, a Realms handoff), crafted flows between markets, crafted origin tags,
   cargo by storage items (no storage items exist yet), specialty knowledge (rule 17), Thiết Tuyến Thảo and Thiết Cốt
   Đan (its effect is a content-pass item), NPC traits' pulls (#42), relationships (#46, another session).
+
+### Progress, 2026-11-21 (night, continued)
+
+- **b8cc1383** tools/balance/world_sim.gd (a chronicle per decade) and assets/data/traits.json, exported from the
+  NPC Traits catalogue by tools/design/traits/export_traits.py (37 personality, 14 callings, 10 fate-given, 16
+  gained; the Sects F15 pulls parsed; pulls the engine doesn't read yet are kept as notes).
+- **49552e63** NPCs roll traits (F4, keyed on the person id); the cast keeps its authored ones. Leaders' F15 pulls
+  reach the politics (dial pulls, bold, Stubborn, Fickle, war and rebel odds, weariness limits, loyalty, pact line,
+  alignment factor, attitude speed and bias), the head's draw (F13) and the invest share.
+- **530e7d1e** gained traits (grant, refresh, replace, fade at 40 seasons; a won war makes the head Battle-hardened,
+  a lost one Shaken); directed regard (Cruel -10 to rivals, Devout -10 to the opposite alignment, righteous sects -10
+  to a Demon-seeded head); F6's boldness constants in data.
+- **Suite:** 627 cases green (JOBS=4).
+
+**What the simulations show (observation; probes in tests/performance/world/):**
+
+1. **Great-sect wars stop after the first burst** (sim-11.md, sim-11-traits.md; war_probe.gd). Not a bug: with F7's
+   terms only chính against ma can reach the feud line (-30 alignment, -5 a shared border); same or neutral alignment
+   pairs sit between -25 and +25. F7's "+ events" term has no feeder yet (the Event Engine). Thính Vũ Lâu is the only
+   ma great sect, so one pair can fight. **Decision for the user:** a source of hostility between great sects that
+   aren't chính against ma (border friction over sites, events, rivalry of the strongest two, or a lower feud line).
+2. **Crafted prices above the band (1.8-2.1) for two reasons** (price_drift_probe.gd, craft_plan_probe.gd):
+   - **Military's crafted demand is lumpy by design:** Sects F19 invests in exactly one track a season, and Trade
+     Goods D_mil reads last season's Military spending. A talisman class sees demand of about 100, then about 470,
+     then 100, then 390. Stock runs out in the high seasons, and Formula F's plan falls back in the low ones, so supply
+     settles near 130 against a mean demand of about 230. **Decision for the user:** D_mil reads the mean of the last 4
+     seasons' Military spending (recommended), or F19 spreads investment over tracks by deficit.
+   - **pill5 (and part of pill4, artifact5-6) can't be made:** no rarity-4 herb or material exists on the map, so the
+     workshops' fill is 0 while Hóa Thần baskets keep demanding. The known rare-goods scarcity: content, in the balance
+     pass.
+3. **The census sits above Realms' solved counts, and money is not the cause** (census_probe.gd): with the money
+   speed-up switched off the census drifts the same way (40 years: Trúc Cơ 1,244, Nguyên Anh 47 against 844 and 27).
+   census_cause_probe.gd: world generation starts everyone at about half their lifespan, so in the first 20 years
+   only 64 die of age against 591 breakthroughs, and 96 % of Luyện Khí reach the last stage. A transient: Kết Đan and
+   above live 500-2,000 years. The 2026-11-05 run (2,000 years, random world) held Nguyên Anh at 29. A 400-year run on
+   the continent settles it (sim-11-400y.md). If the long run is still high, the census retune (approved with the
+   money decision) moves the NPC gate odds; if only the start is off, world generation's ages are the fix (a
+   proposal, as World Generation owns them).
