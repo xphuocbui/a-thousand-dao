@@ -5,7 +5,9 @@ extends SceneTree
 ##
 ##   Godot_console.exe --headless --path . -s res://tools/balance/autoplay.gd -- \
 ##       [--seeds 101,202,303] [--origins tan_tu,gia_toc,tong_mon] [--elements 0|1..5]
-##       [--edge on|off] [--verbose]
+##       [--edge on|off] [--ratings on|off] [--verbose]
+##
+## --ratings off (default) turns Power Rankings off: its season fights feed no breakthrough odds.
 ##
 ## --edge off plays baseline lives (no thiên mệnh, no starting items, no cơ duyên) to tune
 ## the 3-in-10 baseline; --edge on (default) plays the main character with a random perk.
@@ -46,6 +48,9 @@ func _init() -> void:
 	verbose = args.has("--verbose")
 	perk_id = str(_list_arg(args, "--perk", "any")[0]).replace("any", "")
 	gd = GameData.load_from("res://assets/data")
+	# Power Rankings' season fights feed no breakthrough odds and cost minutes a life: off unless asked for
+	if str(_list_arg(args, "--ratings", "off")[0]) != "on":
+		gd.file("combat_rankings")["enabled"] = false
 	# A life's odds do not depend on how many strangers exist, so lives run in a small world.
 	var world: int = int(_list_arg(args, "--world", "300")[0])
 	gd.world_gen().people.world_cultivators = world
@@ -83,7 +88,7 @@ func _life(seed_v: int, origin: String, elements: int) -> Dictionary:
 	s.new_game(seed_v, spec)
 	var st := {"seed": seed_v, "origin": origin, "root": s.player.linh_can.describe(gd), "elements": s.player.linh_can.n_eff(gd),
 		"reached": {}, "arrived": {}, "tech_price": 0, "events": 0, "bt_attempts": 0, "crafts": 0, "trips": 0, "max_lt": 0, "target": "", "next_trip_year": 0,
-		"pill_sources": [], "builds": 0, "refines": 0, "turn": 0, "use": {}}
+		"pill_sources": [], "builds": 0, "refines": 0, "turn": 0, "use": {}, "odds": {}, "first_lines": {}}
 	for turn in MAX_TURNS:
 		# Nothing after the last gate changes the gate odds, so the life stops there.
 		if s.life_over or s.player.realm_index >= gd.realms().size() - 1:
@@ -194,7 +199,16 @@ func _breakthrough_if_ready(s: GameSession, st: Dictionary) -> bool:
 		return false
 	st.bt_attempts += 1
 	var before: int = c.realm_index
-	s.breakthrough(true)
+	var out: Dictionary = s.breakthrough(true)
+	# every attempt's odds, and the first attempt's breakdown at each gate (2026-11-20 tuning round)
+	for ln in out.get("lines", []):
+		var t: String = str(ln)
+		if t.begins_with("Roll "):
+			if not st.odds.has(before):
+				st.odds[before] = []
+			st.odds[before].append(t.get_slice(" vs ", 1).trim_suffix("%.").to_float() / 100.0)
+	if not st.first_lines.has(before):
+		st.first_lines[before] = out.get("lines", [])
 	if c.realm_index > before:
 		st.reached[c.realm_index] = c.age
 		st.pill_sources.append("pill" if has_pill else "no pill")
@@ -582,6 +596,21 @@ func _summary(rows: Array, origins: Array) -> void:
 		var crossed: int = rows.filter(func(r): return r.reached.has(ri + 1)).size()
 		gates.append("%s→%s %d/%d = %.0f%%" % [gd.realm(ri).name, gd.realm(ri + 1).name, crossed, arrived, 100.0 * float(crossed) / maxf(float(arrived), 1.0)])
 	print("  per gate (crossed / arrived at a full bar): " + " · ".join(gates))
+	for ri in range(0, gd.realms().size() - 1):
+		var all_odds: Array = []
+		var lives: int = 0
+		for r in rows:
+			if r.odds.has(ri):
+				all_odds.append_array(r.odds[ri])
+				lives += 1
+		if not all_odds.is_empty():
+			var mean: float = 0.0
+			for x in all_odds:
+				mean += float(x)
+			print("  attempts at %s: %d in %d lives, mean odds %.1f%%, max %.1f%%" % [gd.realm(ri).name, all_odds.size(), lives, 100.0 * mean / all_odds.size(), 100.0 * float(all_odds.max())])
+			var ex: Array = rows.filter(func(r): return r.first_lines.has(ri))
+			if not ex.is_empty():
+				print("    first attempt breakdown (seed %d %s): %s" % [ex[0].seed, ex[0].origin, " | ".join(Array(ex[0].first_lines[ri]).slice(0, 14))])
 	var reached: Array = [rows.size(), 0, 0, 0]
 	for r in rows:
 		for ri in [1, 2, 3]:
