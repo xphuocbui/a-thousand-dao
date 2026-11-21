@@ -153,13 +153,16 @@ static func held(person: Dictionary) -> Array:
 
 
 ## Sects F15: a person's summed pulls. dials {dial: Σ}, dial_when_thriving {dial: Σ}, war_odds and rebel_odds (the
-## lowest; 1.0 when none), weariness Σ, invest_share and draw_mult (the trait's value; defaults inv_frac and 1), loyalty
+## lowest of the traits' values, which replaces the default; absent when no trait gives one), weariness Σ (and
+## weariness_truce Σ, the part that counts for accepting a truce only), half_loss_weariness, invest_share and draw_mult
+## (the trait's value; absent when none), loyalty
 ## Σ, pact_line (the lowest), alignment_factor (the product), attitude_speed {hostile, friendly}, bias_from_all Σ (regard
 ## bias_all and the attitude-bias pull), bold, never_bold, needs_halved, fickle, first_track, abs_sum (the dial pulls'
 ## absolute sum, F6's boldness test).
 static func pulls(gd: GameData, person: Dictionary) -> Dictionary:
 	var cat := catalogue(gd)
-	var out := {"dials": {}, "dial_when_thriving": {}, "war_odds": INF, "rebel_odds": INF, "weariness": 0.0, "loyalty": 0.0,
+	var out := {"dials": {}, "dial_when_thriving": {}, "war_odds": INF, "rebel_odds": INF, "weariness": 0.0, "weariness_truce": 0.0,
+		"half_loss_weariness": false, "loyalty": 0.0,
 		"pact_line": INF, "alignment_factor": 1.0, "attitude_speed": {"hostile": 1.0, "friendly": 1.0}, "bias_from_all": 0.0,
 		"bold": false, "never_bold": false, "needs_halved": false, "fickle": false, "first_track": "", "abs_sum": 0.0,
 		"bias_dir": {"rivals": 0.0, "opposite": 0.0, "from_righteous": 0.0}}
@@ -184,7 +187,12 @@ static func pulls(gd: GameData, person: Dictionary) -> Dictionary:
 			out.war_odds = minf(float(out.war_odds), float(p.war_odds))
 		if p.has("rebel_odds"):
 			out.rebel_odds = minf(float(out.rebel_odds), float(p.rebel_odds))
-		out.weariness = float(out.weariness) + float(p.get("weariness", 0.0))
+		if bool(p.get("weariness_for_truce", false)):
+			out.weariness_truce = float(out.weariness_truce) + float(p.get("weariness", 0.0))
+		else:
+			out.weariness = float(out.weariness) + float(p.get("weariness", 0.0))
+		if bool(p.get("half_loss_weariness", false)):
+			out.half_loss_weariness = true
 		out.loyalty = float(out.loyalty) + float(p.get("loyalty", 0.0))
 		if p.has("pact_line") and str(p.get("pact_line_scope", "")) == "":
 			out.pact_line = minf(float(out.pact_line), float(p.pact_line))
@@ -202,9 +210,9 @@ static func pulls(gd: GameData, person: Dictionary) -> Dictionary:
 		if str(p.get("first_track", "")) != "" and str(out.first_track) == "":
 			out.first_track = str(p.first_track)
 	if float(out.war_odds) == INF:
-		out.war_odds = 1.0
+		out.erase("war_odds")
 	if float(out.rebel_odds) == INF:
-		out.rebel_odds = 1.0
+		out.erase("rebel_odds")
 	return out
 
 

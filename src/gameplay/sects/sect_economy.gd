@@ -82,7 +82,7 @@ static func seed_investment(gd: GameData, db: WorldDB) -> void:
 
 
 ## F19: the track a season's investment goes to.
-static func invest_track(gd: GameData, sect: Dictionary) -> String:
+static func invest_track(gd: GameData, sect: Dictionary, first_track: String = "") -> String:
 	var c: Dictionary = _cfg(gd)
 	var recent: Dictionary = sect.get("track_trouble", {})
 	for tr in TRACKS:
@@ -98,14 +98,27 @@ static func invest_track(gd: GameData, sect: Dictionary) -> String:
 	var rest_sum: float = 0.0
 	for tr in rest:
 		rest_sum += float(rest[tr])
-	var best: String = ""
+	if total <= 0.0 and TRACKS.has(first_track):
+		return first_track
 	var best_d: float = -INF
+	var dd := {}
 	for tr in TRACKS:
 		var mix: float = mil if tr == "military" else (1.0 - mil) * float(rest.get(tr, 0.0)) / maxf(rest_sum, 1e-9)
 		var share: float = 0.0 if total <= 0.0 else float(inv.get(tr, 0.0)) / total
-		var d: float = mix - share
-		if d > best_d + 1e-12:
-			best_d = d
+		dd[tr] = mix - share
+		best_d = maxf(best_d, float(dd[tr]))
+	var tied: Array = TRACKS.filter(func(tr): return float(dd[tr]) >= best_d - 1e-9)
+	if tied.size() == 1:
+		return str(tied[0])
+	if tied.has(first_track):
+		return first_track
+	var best: String = str(tied[0])   # the cheapest next level among the tied tracks
+	var best_c: float = INF
+	for tr in tied:
+		var lv: int = int(floor(level_of(gd, tr, float(inv.get(tr, 0.0)))))
+		var cost: float = total_cost(gd, tr, lv + 1) - total_cost(gd, tr, lv)
+		if cost < best_c - 1e-9:
+			best_c = cost
 			best = tr
 	return best
 
@@ -173,10 +186,10 @@ static func season(gd: GameData, db: WorldDB, money: MoneyLedger) -> Dictionary:
 
 
 ## Adds a season's track investment (the treasury rule's track share) to the track F19 picks and refreshes its level.
-static func invest(gd: GameData, sect: Dictionary, amount: float) -> String:
+static func invest(gd: GameData, sect: Dictionary, amount: float, first_track: String = "") -> String:
 	if amount <= 0.0 or not sect.has("invested"):
 		return ""
-	var tr: String = invest_track(gd, sect)
+	var tr: String = invest_track(gd, sect, first_track)
 	sect.invested[tr] = float(sect.invested.get(tr, 0.0)) + amount
 	if not sect.has("spend"):
 		sect["spend"] = {}

@@ -62,6 +62,7 @@ static func build(c: Character, gd: GameData, db: WorldDB, tree: DaoDoTree) -> S
 	for line in CongPhap.bonus_lines(c, gd, sheet.effective("can_cot", c), sheet.effective("ngo_tinh", c)):
 		sheet.add_mod(line.source, line.stat, line.value)
 	sheet._add_capability_mods(c)
+	sheet._add_trait_mods(c)
 	# Last, because control is limited by thần thức, which everything above can raise. No affix
 	# touches thần thức, so reading it here is not circular (item-database.md rule 11).
 	if db != null:
@@ -75,6 +76,22 @@ static func build(c: Character, gd: GameData, db: WorldDB, tree: DaoDoTree) -> S
 	if tree != null:
 		sheet._add_tree_effect_from(c, tree)
 	return sheet
+
+
+## NPC Traits rule 5: each held trait's stat rows (a personality trait's or calling's boon and cost; a fate-given or
+## gained trait's rows), under the source "<kind>: <name>" (tính tình, nghề nghiệp, bẩm sinh, hậu thiên).
+func _add_trait_mods(c: Character) -> void:
+	if c.npc_traits.is_empty() or not _gd.registry.has_file(NpcTraits.FILE):
+		return
+	var cat := NpcTraits.catalogue(_gd)
+	var label := {"personality": "Tính tình", "callings": "Nghề nghiệp", "fate": "Bẩm sinh", "gained": "Hậu thiên"}
+	for id in NpcTraits.held({"npc_traits": c.npc_traits}):
+		var t: Dictionary = cat.by_id.get(str(id), {})
+		if t.is_empty():
+			continue
+		var src: String = "%s: %s" % [label.get(str(cat.kind[str(id)]), "Đặc tính"), str(t.get("name_vi", t.get("name", id)))]
+		for row in Array(t.get("boon", [])) + Array(t.get("cost", [])) + Array(t.get("rows", [])):
+			add_mod(src, str(row.stat), float(row.value))
 
 
 ## The plain lines of the Đạo Đồ Effects the character holds (their closings: maximum health -15 %, art speed -20 %;

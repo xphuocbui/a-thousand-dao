@@ -450,7 +450,7 @@ static func _declare_wars(gd: GameData, db: WorldDB, strength: Dictionary, year:
 	for s in _greats(db):
 		if not Array(s.wars).is_empty() or int(s.dials.get("war_readiness", 2)) < int(c.war_readiness_min):
 			continue
-		var base_odds: float = minf(float(c.war_odds), float(pulls_of(gd, db, s).get("war_odds", c.war_odds)))   # Sects F15
+		var base_odds: float = float(pulls_of(gd, db, s).get("war_odds", c.war_odds))   # Sects F15: the leader's replaces it
 		var odds: float = maxf(float(c.war_odds_min), base_odds - float(c.war_odds_step) * maxf(0.0, float(s.dials.get("expansion", 2)) - 2.0))
 		var best: Dictionary = {}
 		var best_s: float = INF
@@ -562,8 +562,11 @@ static func _resolve_wars(gd: GameData, db: WorldDB, money: MoneyLedger, strengt
 		var ld: float = float(c.loss_k) * sa / maxf(sa + sd, 1e-9)
 		news.append_array(_war_losses(gd, db, money, a, la, year, season_i, members.get(str(a.id), [])))
 		news.append_array(_war_losses(gd, db, money, d, ld, year, season_i, members.get(str(d.id), [])))
-		w.w_a = float(w.w_a) + 1.0 + 50.0 * la + maxf(0.0, -dws) / 2.0
-		w.w_d = float(w.w_d) + 1.0 + 50.0 * ld + maxf(0.0, dws) / 2.0
+		# F9's weariness; a Callous head takes half the weariness from losses (F15)
+		var ha: float = 0.5 if bool(pulls_of(gd, db, a).get("half_loss_weariness", false)) else 1.0
+		var hd: float = 0.5 if bool(pulls_of(gd, db, d).get("half_loss_weariness", false)) else 1.0
+		w.w_a = float(w.w_a) + 1.0 + 50.0 * la * ha + maxf(0.0, -dws) / 2.0
+		w.w_d = float(w.w_d) + 1.0 + 50.0 * ld * hd + maxf(0.0, dws) / 2.0
 		for s in [a, d]:   # war cost: half the stipends, paid to the market's commons (suppliers and hired hands)
 			var ms: String = str(s.id) if str(s.get("kind", "")) == "great" else str(s.get("lord_id", ""))
 			money.transfer("sect:%s" % s.id, "pool:%s" % ms, float(c.war_cost) * float(stip.get(str(s.id), 0.0)), "war_cost")
@@ -573,14 +576,17 @@ static func _resolve_wars(gd: GameData, db: WorldDB, money: MoneyLedger, strengt
 		# Sects F15: each side's weariness limit is 40 plus its leader's pulls
 		var lim_a: float = float(c.weariness_limit) + float(pulls_of(gd, db, a).get("weariness", 0.0))
 		var lim_d: float = float(c.weariness_limit) + float(pulls_of(gd, db, d).get("weariness", 0.0))
+		# Compassionate accepts a truce 10 earlier (F15): the truce-only part of the pull
+		var tr_a: float = lim_a + float(pulls_of(gd, db, a).get("weariness_truce", 0.0))
+		var tr_d: float = lim_d + float(pulls_of(gd, db, d).get("weariness_truce", 0.0))
 		var end := ""
 		if int(w.ws) >= thr:
 			end = "won"
 		elif int(w.ws) <= -thr:
 			end = "failed"
-		elif int(w.ws) > 0 and float(w.w_a) >= lim_a:
+		elif int(w.ws) > 0 and float(w.w_a) >= tr_a:
 			end = "truce"
-		elif int(w.ws) < 0 and float(w.w_d) >= lim_d:
+		elif int(w.ws) < 0 and float(w.w_d) >= tr_d:
 			end = "truce"
 		elif int(w.ws) > 0 and float(w.w_d) >= lim_d and absi(int(w.ws)) * 2 >= thr:
 			end = "won"
@@ -796,7 +802,7 @@ static func _maybe_rebel(gd: GameData, db: WorldDB, v: Dictionary, lord: Diction
 				s_b = float(strength.get(str(b.id), 0.0))
 				backer = b
 	var spare: float = float(strength.get(str(lord.id), 0.0)) / float(Array(lord.get("wars", [])).size() + 1)
-	var odds: float = minf(float(c.rebel_odds), float(pulls_of(gd, db, v).get("rebel_odds", c.rebel_odds)))   # the vassal head's (F15)
+	var odds: float = float(pulls_of(gd, db, v).get("rebel_odds", c.rebel_odds))   # the vassal head's replaces it (F15)
 	if (float(strength.get(str(v.id), 0.0)) + s_b) / maxf(spare, 1e-9) < odds:
 		return []
 	var rec: Dictionary = db.get_record("world", WARS)

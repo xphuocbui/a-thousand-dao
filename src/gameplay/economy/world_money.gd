@@ -371,9 +371,10 @@ static func _treasury_rule(gd: GameData, db: WorldDB, money: MoneyLedger, idx: D
 		var burned: float = money.burn(treasury, float(t.track_cash), "works")
 		s["kind_due"] = float(s.get("kind_due", 0.0)) + float(t.track_kind)
 		var works: float = 0.0
-		if SectEconomy.invest_track(gd, s) == "holdings":   # Holdings money first builds works on the sect's land
+		var ft: String = str(pl.get("first_track", ""))   # the leader's first track settles F19's ties (F15)
+		if SectEconomy.invest_track(gd, s, ft) == "holdings":   # Holdings money first builds works on the sect's land
 			works = SectWorks.build_best(gd, db, s, float(t.track), year, season_i)
-		SectEconomy.invest(gd, s, float(t.track) - works)   # F19's track takes the rest (F1 raises its level)
+		SectEconomy.invest(gd, s, float(t.track) - works, ft)   # F19's track takes the rest (F1 raises its level)
 		total += paid + burned
 	return total
 

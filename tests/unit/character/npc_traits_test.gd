@@ -76,3 +76,92 @@ func test_directed_regard_reaches_the_pulls() -> void:
 	var gd := game_data()
 	var p := NpcTraits.pulls(gd, {"npc_traits": {"personality": ["cruel", "devout"], "calling": "", "fate": ["demon_seeded"], "gained": []}})
 	assert_eq(p.bias_dir, {"rivals": -10.0, "opposite": -10.0, "from_righteous": -10.0}, "directed regard")
+
+
+func test_war_and_rebel_odds_replace_the_default() -> void:
+	# Sects F15: a Cautious head's war odds 1.2 and rebel odds 1.3 replace the defaults; with none, nothing is set
+	var gd := game_data()
+	var p := NpcTraits.pulls(gd, {"npc_traits": {"personality": ["cautious"], "calling": "", "fate": [], "gained": []}})
+	assert_eq(float(p.war_odds), 1.2, "war odds")
+	assert_eq(float(p.rebel_odds), 1.3, "rebel odds")
+	var none := NpcTraits.pulls(gd, {})
+	assert_false(none.has("war_odds") or none.has("rebel_odds"), "no trait, no odds")
+	var both := NpcTraits.pulls(gd, {"npc_traits": {"personality": ["cautious", "cruel"], "calling": "", "fate": [], "gained": []}})
+	assert_eq(float(both.war_odds), 0.8, "with several, the lowest")
+
+
+func test_compassionate_truce_and_callous_losses() -> void:
+	var gd := game_data()
+	var p := NpcTraits.pulls(gd, {"npc_traits": {"personality": ["compassionate"], "calling": "", "fate": [], "gained": []}})
+	assert_eq(float(p.weariness), 0.0, "the general limit is untouched")
+	assert_eq(float(p.weariness_truce), -10.0, "a truce 10 earlier")
+	var q := NpcTraits.pulls(gd, {"npc_traits": {"personality": ["callous"], "calling": "", "fate": [], "gained": []}})
+	assert_true(bool(q.half_loss_weariness), "half weariness from losses")
+
+
+func test_trait_rows_reach_the_stat_sheet_and_survive_a_round_trip() -> void:
+	# rule 5: Brave's boon maximum health +2.0 % and cost evade -0.8 pp, under the trait's name
+	var gd := game_data()
+	var c := Character.new()
+	c.npc_traits = {"personality": ["brave"], "calling": "", "fate": [], "gained": []}
+	var back := Character.from_dict(c.to_dict())
+	assert_eq(back.npc_traits, c.npc_traits, "round trip")
+	var sheet := StatSheet.build(back, gd, null, null)
+	assert_eq(sheet.total("khi_huyet_pct"), 2.0, "boon")
+	assert_eq(sheet.total("evade_pct"), -0.8, "cost")
+	assert_eq(str(sheet.sources("khi_huyet_pct")[0].source), "Tính tình: dũng mãnh", "source")
+
+
+func test_invest_ties_go_to_the_leaders_first_track() -> void:
+	# F19 rule 3: a sect with nothing invested goes to the leader's first track; a tie goes to it too
+	var gd := game_data()
+	var s := {"invested": {"holdings": 0.0, "institutions": 0.0, "military": 0.0, "trade": 0.0}, "dials": {"war_readiness": 2}}
+	assert_eq(SectEconomy.invest_track(gd, s, "trade"), "trade", "nothing invested")
+	assert_eq(SectEconomy.invest_track(gd, s, ""), SectEconomy.invest_track(gd, s), "no first track: as before")
+
+
+func test_catalogue_data_checks() -> void:
+	# AC-NTC-02, 03, 04, 05, 07, 08 on assets/data/traits.json
+	var gd := game_data()
+	var f: Dictionary = gd.file(NpcTraits.FILE)
+	var sets := {}
+	for t in f.personality:
+		sets[int(t.set)] = true
+	assert_eq([f.personality.size(), sets.size(), f.callings.size(), f.fate.size(), f.gained.size()], [37, 18, 14, 10, 16], "AC-NTC-07 counts")
+	var core := {}
+	for t in f.personality:
+		var twos: int = 0
+		assert_true(Dictionary(t.tags).size() <= 3, "%s: at most three weights" % t.id)
+		for tag in t.tags:
+			if float(t.tags[tag]) == 2.0:
+				twos += 1
+				core[tag] = int(core.get(tag, 0)) + 1
+		assert_true(twos <= 1, "%s: at most one 2.0" % t.id)
+		assert_eq([Array(t.boon).size(), Array(t.cost).size()], [1, 1], "AC-NTC-04 %s: one boon, one cost" % t.id)
+	assert_eq(core.size(), 20, "AC-NTC-02: 20 core tags")
+	assert_eq(core.values().filter(func(n): return n != 1).size(), 0, "each the core of exactly one trait")
+	var reach := {}
+	for arch in f.calling_weights:
+		if arch == "sect_member":
+			continue
+		var sum: float = 0.0
+		for cid in f.calling_weights[arch]:
+			sum += float(f.calling_weights[arch][cid])
+			reach[cid] = true
+		assert_eq(sum, 10.0, "AC-NTC-03 %s weights sum to 10" % arch)
+	for cid in f.calling_weights.sect_member:
+		reach[cid] = true
+	assert_eq(reach.size(), 14, "all 14 callings reachable")
+	for t in f.callings:
+		assert_eq(Array(t.tags.values()).filter(func(w): return float(w) != 1.5 and float(w) != 0.67).size(), 0, "AC-NTC-03 %s tags" % t.id)
+		for r in Array(t.boon) + Array(t.cost):
+			assert_false(str(r.stat) == "attack_pct" or str(r.stat).begins_with("crit"), "AC-NTC-04 no offence row")
+	for t in f.gained:
+		assert_true(str(t.trigger) != "", "AC-NTC-05 %s has a trigger" % t.id)
+	var by := {}
+	for t in f.personality:
+		by[str(t.id)] = t
+	for id in ["brave", "ambitious"]:
+		assert_eq(float(by[id].pulls.rebel_odds), 0.8, "AC-NTC-08 %s" % id)
+	for id in ["cautious", "content"]:
+		assert_eq(float(by[id].pulls.rebel_odds), 1.3, "AC-NTC-08 %s" % id)
