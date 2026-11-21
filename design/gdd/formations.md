@@ -1,8 +1,8 @@
 # Formations (Trận Pháp)
 
-> **Status**: In Design
+> **Status**: Approved (design-review round 6, 2026-11-21, lean)
 > **Author**: user + Claude
-> **Last Updated**: 2026-11-21
+> **Last Updated**: 2026-11-21 (design-review round 6: APPROVED, no edit to the rules)
 > **Last Verified**: 2026-11-21
 > **Implements Pillar**: 3 (Power Is Built, Not Given), 2 (Every Number Is Bounded and Visible)
 > **Creative Director Review (CD-GDD-ALIGN)**: REVISED 2026-11-21 — Pillar 1 concern (diagram diversity) answered by a harness diversity check in Open Question 6
@@ -19,7 +19,7 @@ Formations (Trận Pháp) are arrangements of linh thạch-fuelled arrays, in tw
 
 **Home and world arrays** are standing works. The player raises them over years at a cave abode or a place (Tụ Linh, Thanh Mộc, Hộ Sơn, plus teleport and protective arrays). They burn linh thạch as upkeep or fuel and feed cultivation, the economy, travel and defence.
 
-**Combat formation diagrams (trận đồ)** replace Combat's plain row of art slots. A diagram is a graph of nodes. Each node is an art slot with its own rule: a positive effect, a negative effect, or a condition. Links between nodes let arts feed each other. Diagrams come in many shapes (a ring plus a centre, a chain, a fork) and are not tied to an element. A player obtains them by crafting (positions rolled like an artifact's affixes) or by being taught them from công pháp and formation manuals. Laying a diagram for a foreseen fight burns linh thạch by its size and grade, and a carried diagram works at Combat's carried-ground share (100 % foreseen, 70 % ambush, 50 % blind).
+**Combat formation diagrams (trận đồ)** replace Combat's plain row of art slots. A diagram is a graph of nodes. Each node is an art slot with its own rule: a positive effect, a negative effect, or a condition. Links between nodes let arts feed each other. Diagrams come in many shapes (a ring plus a centre, a chain, a fork) and are not tied to an element. A player obtains them by crafting (positions rolled like an artifact's affixes) or by being taught them from công pháp and formation manuals. Laying a diagram for a foreseen fight burns linh thạch by its size and grade, and a diagram that is not laid works at Combat's carried-ground share (70 % in a foreseen fight or an ambush, 50 % blind); a laid diagram works at 100 %.
 
 **Player fantasy:** the player studies a diagram, slots arts into its nodes, accepts the cost of a weak node for a strong centre, and watches the arrangement pay off in the fight. The arrangement is the build (Pillar 3). Every slot rule and every stone spent is visible in the fight's Breakdown (Pillar 2). Without Formations the game loses a build axis that rewards preparation, and linh thạch loses its formation-fuel sink (World Economy decision 7).
 
@@ -29,34 +29,34 @@ Formations (Trận Pháp) are arrangements of linh thạch-fuelled arrays, in tw
 
 **Part I: Combat formation diagrams (trận đồ)**
 
-1. **A diagram is a record**: id, grade, level, node list, link list, source, `fuel_frac` by grade, and its own `reserve_share` (rule 9a). Nodes are numbered from 1. Each node has a **polarity** (positive, negative or conditioned) and one **rule**.
+1. **A diagram is a record**: id, grade, level, node list, link list, source, the realm and Trận Pháp skill it requires (rule 8), the sects that teach it (Sects owns which), and its own `reserve_share` (rule 9a). `fuel_frac` and `cost_lt` are looked up by grade in the data file, not stored in the record. Nodes are numbered from 1. Each node has a **polarity** (positive, negative or conditioned), one **rule**, and a `node_score` (F4).
 2. **The default line diagram ("Plain Row")** is known to everyone and is the diagram of any combatant that lays none. It has `slot_count` plain nodes, no rules, no links and no fuel. A character with only the default line behaves exactly as Combat rule 13 does today.
-3. **Node budget.** `slot_count` (Combat Formulas A2, including `bonus_slots`) is the budget. A diagram of N nodes can be laid only if N ≤ `slot_count`. The remaining `slot_count − N` slots are **plain slots**: unlinked, no rule, placed after the diagram's nodes. Kind-locked slots (`free_slots[kind]`) stay outside the pool and the diagram. The art pool's size therefore never changes; the diagram changes only how it is arranged and what each slot does.
+3. **Node budget.** `slot_count` (Combat Formulas A2, including `bonus_slots`) is the budget. A diagram of N nodes can be set (so neither laid nor carried) only if N ≤ `slot_count`. The remaining `slot_count − N` slots are **plain slots**: unlinked, no rule, placed after the diagram's nodes. Kind-locked slots (`free_slots[kind]`) stay outside the pool and the diagram. The art pool's size therefore never changes; the diagram changes only how it is arranged and what each slot does.
 4. **Slot order is the node index.** Each node's art is placed by the player (or the NPC generator). The node index replaces Combat's separate order for diagram nodes; plain slots keep the player's order after them (Combat rule 13, amended 2026-11-21).
 5. **Node rules** act on the art slotted in the node, in three forms:
-   - A **Modifier node**: one plain number on a stat of that art, tag-scoped (cooldown, damage, cost, art speed). Positive or negative.
+   - A **Modifier node**: one plain number on a stat of that art, tag-scoped (damage, art cost `art_cost_pct`, art speed `art_speed_pct`; there is no separate cooldown key: a faster art is `art_speed_pct`, and Combat A2 divides the cooldown by it). Positive or negative.
    - An **Effect node**: a rule with its own Effect record, e.g. "the art fires one extra time when health is below 40 %". Conditioned nodes read a Combat guard-vocabulary condition (health or linh lực share, a status, fight time).
    - A **gate node**: the art in it fires or counts only while a condition holds. It is a conditioned node with the cost-of-power role.
 
    An empty node does nothing but still counts toward N. Magnitudes are scaled by diagram strength (rule 7).
 6. **Links** come in two kinds, declared per link:
    - **Adjacency** (undirected): a node rule may read its linked nodes' arts (their tags, whether they are filled). It moves no timers.
-   - **Feed** (directed): when the source node's art fires, the target node's art timer drops by the amount the link declares. A feed is **one hop per instant** (a fed art's firing does not feed again in the same instant), never takes a timer below `cooldown_min`, and does nothing to an art that is already ready.
-7. **Diagram strength.** Every positive node and link magnitude is scaled by S (Formulas F1: grade, level and `formation_power_pct`); negative magnitudes are not. A diagram has its own level, raised at the abode like an array (F3); taught diagrams start at L1. A diagram's level L is limited to Trận Pháp skill + 1 and by `max_level`, as home arrays are today; the keystone Formation Within a Formation still adds 2 levels. (Formulas D.)
+   - **Feed** (directed): when the source node's art fires, the target node's art timer drops by the amount the link declares. A feed is **one hop per instant** (a fed art's firing does not feed again in the same instant), and does nothing to an art that is already ready. The new timer is `min(timer, max(timer − feed, cooldown_min))` (`cooldown_min` is Combat's value): a feed never takes a timer below `cooldown_min` and never raises one that is already below it. The floor is deliberate: a feed shortens a wait but never makes an art ready in the same instant, and a feed larger than `timer − cooldown_min` gains nothing more (a bounded brake; Open Question 10).
+7. **Diagram strength.** The magnitudes of positive and conditioned nodes, and every link's feed amount, are scaled by S (Formulas F1: grade, level and `formation_power_pct`); the magnitude of a **negative-polarity node** (a drawback, rule 1's polarity field, not the sign of the number: a −20 % `art_cost_pct` node is a benefit) is not. A node whose authored number is a price is negative-polarity whatever its condition; conditioned polarity is for benefits behind a condition. S and the share multiply **authored numbers only**: Modifier values, feed seconds and an Effect's numeric magnitude. Conditions, thresholds, counts ("one extra time") and gates are never scaled. A diagram has its own level, raised at the abode like an array (F3); taught diagrams start at L1. The effective level is `L_eff = min(L, min(max_level, Trận Pháp skill + 1) + 2 with the keystone Formation Within a Formation, +0 without)`: the keystone's 2 levels are added after both caps. A scaled `art_speed_pct` still passes through Combat A2's `cooldown_min` floor (A2 divides, so a cooldown never goes negative), and every other scaled Modifier value keeps its key's bounds in the Modifier System (F1).
 8. **Sources.** A diagram is **crafted** (a Trận Pháp craft yields an item whose node rules are rolled like an artifact's affixes, within the grade cap) or **taught** (a công pháp or formation manual teaches a fixed authored diagram, owned as a known id). Both need realm and skill as the record says, so players unlock diagrams as they become able to.
-9. **Laying, carrying and fuel** (Combat rule 12). In a **foreseen** fight the player may **lay** the diagram: it pays the lay fuel in linh thạch (Formulas F2: by N, grade, level and the realm budget), when the fight begins, and all node and link magnitudes count at 100 %. A diagram that is **carried** (not laid, or in an ambush or a blind fight) is the same loadout and pays no fuel, and its magnitudes run at Combat's `carried_ground_share`: 70 % in an ambush, 50 % blind. Laying is the paid way to reach full strength; carrying is the free fallback.
+9. **Laying, carrying and fuel** (Combat rule 12). In a **foreseen** fight the player may **lay** the diagram: it pays the lay fuel in linh thạch (Formulas F2: by N, grade, level and the realm budget), when the fight begins, and all node and link magnitudes count at 100 %. A diagram that is **carried** (not laid, or in an ambush or a blind fight) is the same loadout and pays no fuel, and its magnitudes run at Combat's `carried_ground_share`: 70 % in a foreseen fight not laid (by choice or because the fuel is short) or in an ambush, 50 % blind. Laying is the paid way to reach full strength; carrying is the free fallback.
 9a. **Reservation cost** (user decision 2026-11-21). Every diagram record authors a `reserve_share` of maximum linh lực that its specific shape costs (a lean 3-node chain a few percent, a large ring more; the default line 0). It is held from t = 0 for the whole fight under Combat Defence & Healing rule 10, whenever the diagram is **laid or carried**, and it is **never scaled** by S, level or the carried share: it is the price of having the shape up. Reservation efficiency applies as it does for wards, the effective share counts toward `reserve_cap` (90 %) together with any ward reservations, and a diagram that would pass the cap cannot be set. The usable maximum is `qi_max × (1 − Σ reserved)`, so a costly diagram means fewer casts (Combat Defence rule 10).
 10. **One diagram per side.** A side has exactly one diagram in a fight. It never competes under Combat's "one formation per side away from home", which picks one ground object besides it (a laid ground array or a carried ground), whichever is stronger (Combat rule 12, amended 2026-11-21). At the player's own abode every standing home array (Part II) also counts beside the diagram.
-11. **Visibility** (Pillar 2). Each node's and link's contribution appears as lines in the fight's opening Breakdown, and each feed that fires is logged in the fight record with its source, target and seconds taken off.
-12. **NPCs.** The NPC generator picks, from the diagrams its sect and Trận Pháp skill allow, the one with the best **fit score** against its arts' tags (Formulas), and places arts in the nodes by greedy fit. With no better fit it uses the default line. An NPC lays for foreseen fights and carries otherwise. Its fuel is booked as an aggregate in #43 Formula H, not per NPC.
+11. **Visibility** (Pillar 2). Each node's and link's contribution appears as lines in the fight's opening Breakdown, together with the lay fuel burnt, the share (100 / 70 / 50 %) and the linh lực reserved (rule 9a), and each feed that fires is logged in the fight record with its source, target and seconds taken off.
+12. **NPCs.** The NPC generator picks, from the diagrams its sect and Trận Pháp skill allow, the one with the best **fit score** against its arts' tags (Formulas), and places arts in the nodes by greedy fit. With no better fit it uses the default line. An NPC lays for foreseen fights and carries otherwise. An NPC that lays pays F2 from its own purse when the fight begins; Formula H books the season's sum as one line (`burn_formation`), not per NPC.
 
 **Part II: Home and world arrays**
 
 13. **An array record**: id, kind (**standing**, **teleport**, **protective**), grade, level, where it stands (cave abode, a place, or a sect's seat), fuel model. Level, build cost and the Trận Pháp skill cap follow the quick spec (`cost_lt × cost_growth^(L−1)` plus materials; max level `min(max_level, skill + 1)`).
-14. **Standing arrays** (Tụ Linh, Thanh Mộc, Hộ Sơn) keep the current yearly upkeep `Σ levels × upkeep_lt_per_level`, cut by Thổ purity; one that goes unpaid drops a level. Tụ Linh still counts once as a layer-1 work for Travel & Map. Standing arrays are **home works** at the abode: each takes one slot (`design/gdd/cave-abode.md` rule 4, F3), and its level cannot pass the abode's level ceiling; build cost, upkeep and the skill cap stay here.
+14. **Standing arrays** (Tụ Linh, Thanh Mộc, Hộ Sơn) keep the current yearly upkeep `Σ levels × upkeep_lt_per_level`, cut by Thổ purity; one that goes unpaid drops a level. **Cave Abode rules 9 and 10 apply first:** a **dormant** array (rule 9, slot lost) owes no upkeep, keeps its level and never Lapses; an array **left behind** (rule 10) stops counting, owes no Formations upkeep and fades on Cave Abode's clock (one level every `fade_seasons`, gone at 0, and gone on a claim, rule 11), so the yearly Lapse applies only to arrays at the owner's current home; the abode's own seasonal works upkeep (Cave Abode rule 8) does not bill arrays. Tụ Linh still counts once as a layer-1 work for Travel & Map. Standing arrays are **home works** at the abode: each takes one slot (`design/gdd/cave-abode.md` rule 4, F3), and its level cannot pass the abode's level ceiling; build cost, upkeep and the skill cap stay here.
 15. **Teleport arrays** link two sites. The jump fee, the travel time (0.05 of a season) and who may use the array are Travel & Map rule 11 and Formula K and Sects #26; Formations adds **no second burn**, and the share of the fee that #43 burns (`f_burn`) is the array's fuel. **Protective arrays** burn linh thạch each time they trigger (what triggers them is set in Interactions).
 16. **Sect-owned arrays** belong to the Sects GDD; Formations defines only the record shape they use.
-17. **Every stone burnt** by rules 9, 14 and 15 (laid diagrams, standing upkeep, protective triggers; teleport already via `f_burn`) is a sink booked in #43 Formula H. Linh thạch stays money only, so no stat is priced in stones.
+17. **Every stone burnt** by rules 9, 13, 14 and the protective part of 15 (laid diagrams, build and raise stones of every array kind and of diagrams (F3), standing upkeep, protective triggers) is a sink booked in #43 Formula H as `burn_formation`. **Teleport fuel is not booked here**: it stays in `burn_fees` via `f_burn` (rule 15), so it is never booked twice. Formations books all other array and diagram stones; the abode's `burn_abode` covers its grade, slots, fields and claims only, and holds no array cost (back-link owed in Cave Abode rule 14 and Regional Economy's `burn_formation` row). Linh thạch stays money only, so no stat is priced in stones.
 
 ### States and Transitions
 
@@ -65,11 +65,11 @@ Formations (Trận Pháp) are arrangements of linh thạch-fuelled arrays, in tw
 | State | Meaning | Enters from | Leaves to |
 |---|---|---|---|
 | Unknown | Not learned or owned | none | Known (taught, crafted or found) |
-| Known | In the collection; can be set as the loadout if N ≤ `slot_count` | Unknown | Set; Unknown only if a crafted item is lost or sold |
-| Set | Chosen as the loadout, arts placed in nodes (preparation screen) | Known | Known (swapped), Laid, Carried |
+| Known | In the collection; can be set as the loadout if N ≤ `slot_count` | Unknown, Set (swapped out) | Set; Unknown only if a crafted item is lost or sold |
+| Set | Chosen as the loadout, arts placed in nodes (preparation screen); stays Set across fights until swapped | Known, In fight | Known (swapped), Laid, Carried |
 | Laid | Foreseen fight, fuel paid, magnitudes 100 % | Set, in a foreseen fight, fuel affordable | In fight |
 | Carried | Not laid, or ambush or blind; no fuel, share 70 % or 50 % | Set | In fight |
-| In fight | Node and link rules run; feeds fire | Laid, Carried | Known (the fight ends) |
+| In fight | Node and link rules run; feeds fire | Laid, Carried | Set (the fight ends; the loadout persists) |
 
 A fight never consumes a diagram. The lay fuel is paid when the fight begins, so a fight declined or cancelled before it starts burns nothing (Edge Cases).
 
@@ -97,7 +97,7 @@ A fight never consumes a diagram. The lay fuel is paid when the fight begins, so
 | Modifier System #40 | in | Modifier node shape: plain number, tag-scoped; `formation_power_pct`, `formation_upkeep_pct` | Modifier System |
 | Effects System #41 | in | Effect node records, conditions, the keystone +2 levels, Earth Vein Tap ("while your own formation stands") | Effects System |
 | Cultivation Techniques | in | Taught diagrams: which công pháp or manual teaches which diagram | Cultivation Techniques |
-| Regional Economy #43 | out | Stones burnt (laid diagrams, upkeep, jumps, triggers) as sinks in Formula H; NPC fuel as an aggregate | Regional Economy owns the ledger |
+| Regional Economy #43 | out | Stones burnt (laid diagrams, array and diagram build and raise stones, upkeep, triggers) as sinks in Formula H; jump fees stay in `burn_fees`; NPC fuel as an aggregate | Regional Economy owns the ledger |
 | Travel & Map | out | Tụ Linh as a layer-1 work; teleport arrays as links between sites | Travel & Map owns travel time and density; Formations owns the array |
 | Sects | in/out | Sect-owned arrays use this record shape; sects teach diagrams | Sects |
 | NPC Builds | out | The catalogue and fit score; NPC Builds owns who gets which | NPC Builds |
@@ -116,7 +116,7 @@ The diagram_strength formula is defined as:
 
 `S = clamp(grade_mult[g] × level_growth^(L−1) × (1 + formation_power_pct / 100), S_min, S_max)`
 
-A node's or link's authored positive magnitude `v` becomes `v × S × share`. A **negative** magnitude is **not** scaled by S (levelling a diagram must not make its price worse), but it is multiplied by `share` like everything else, so a carried diagram is a weaker version of the same trade and never a worse one.
+An authored number `v` on a positive or conditioned node, or a feed's seconds, becomes `v × S × share`. The number on a **negative-polarity node** (a drawback; polarity is rule 1's field, not the sign: a −20 % `art_cost_pct` node is positive) is **not** scaled by S (levelling a diagram must not make its price worse), but it is multiplied by `share` like everything else, so a carried diagram is a weaker version of the same trade and never a worse one. Conditions, thresholds, counts and gates are not numbers S scales (rule 7). `L` is `L_eff` (rule 7). **Bounds after scaling:** a scaled `art_speed_pct` goes through Combat A2 (`cd / (1 + art_speed_pct / 100)`, floored at `cooldown_min`, so the cooldown is never negative), and every other scaled Modifier value is clamped to its key's bounds in the Modifier System.
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
@@ -127,16 +127,18 @@ A node's or link's authored positive magnitude `v` becomes `v × S × share`. A 
 | level_growth | float | 1.25 | data file *(guess)* | Strength per level |
 | formation_power_pct | float | −50 to about 200 | Modifier System | The existing key |
 | S_min, S_max | float | 0.25, 8 | data file *(guess)* | Bounds (Pillar 2) |
-| share | float | 1.0 / 0.7 / 0.5 | Combat `carried_ground_share` | Laid or foreseen / ambush / blind |
+| share | float | 1.0 / 0.7 / 0.5 | Combat `carried_ground_share` | Laid / carried (foreseen not laid, or ambush) / blind |
 
-**Output Range:** 1.0 (grade 0, L1, no power) to 8 (clamped; the unclamped maximum, grade 4 at L7 with +100 % power, is 1.75 × 3.81 × 2 = 13.3).
+**Output Range:** 0.5 (grade 0, L1, power −50 %; 1.0 with no power; `S_min` 0.25 is a safety bound that the stated power range does not reach) to 8 (clamped; the unclamped maximum, grade 4 at L7 with +100 % power, is 1.75 × 3.81 × 2 = 13.3).
 **Example:** grade 2, L3, power +20 %: 1.3 × 1.5625 × 1.2 = 2.44, so a +10 % art-speed node gives +24.4 % laid and +17.1 % in an ambush.
 
 ### F2. Fuel to lay a diagram
 
 The lay_fuel formula is defined as:
 
-`fuel = ceil(N × fuel_frac[g] × fuel_growth^(L−1) × linh_thach_max[realm])`
+`fuel = ceil(N × fuel_frac[g] × fuel_growth^(L−1) × linh_thach_max[realm] − 1e-6)`
+
+The `− 1e-6` is the project's rounding tolerance (as Regional Economy's formulas): it keeps a product that is exact in decimal (288) from becoming 289 through floating-point error.
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
@@ -146,7 +148,7 @@ The lay_fuel formula is defined as:
 | fuel_growth | float | 1.6 | data file *(guess)* | Per level; above `level_growth`, so each level costs more per point of strength |
 | linh_thach_max[realm] | int | 80 / 600 / 5,000 / 40,000 / 300,000 | `events_budgets.json` (as Travel & Map K) | The layer's realm budget; keeps fuel meaningful at every realm |
 
-**Output Range:** 0.2 % of the budget (N=1, grade 0, L1) to 45.9 % (N=7, grade 4, L5; 2,294 at Core Formation).
+**Output Range:** 0.2 % of the budget (N=1, grade 0, L1) to 45.9 % (N=7, grade 4, L5; 2,294 at Core Formation) without the keystone, and 117 % (N=7, grade 4, L7 with the keystone; 5,873 at Core Formation) with it. Above 100 % the diagram is simply carried (fuel short), which is the intended brake.
 **Example:** Core Formation, N=5, grade 2, L3: 5 × 0.0045 × 2.56 × 5,000 = **288** (5.8 % of the budget; a Travel & Map jump of 450 tiles costs 1,375).
 
 ### F3. Raising a diagram or array a level
@@ -155,7 +157,7 @@ The raise_cost formula is defined as:
 
 `raise_cost(L) = cost_lt[id or grade] × cost_growth^(L−1)` linh thạch, plus `materials_per_level × L` units of rarity ≥ `material_rarity`.
 
-Max level = `min(max_level, Trận Pháp skill + 1)`. For the three arrays this is the existing quick-spec formula unchanged (Tụ Linh 150 × 2.5^(L−1), Thanh Mộc 120, Hộ Sơn 100; `crafting_formations.json`). A diagram has its own level, raised at the abode like an array with `cost_lt[grade]` (values set with the first catalogue); a taught diagram starts at L1.
+Max level = `min(max_level, Trận Pháp skill + 1)`; **with the keystone Formation Within a Formation a diagram's maximum level is that cap + 2** (headroom, as the Effects System defines the keystone), so a stored L can reach cap + 2 and rule 7's `L_eff` then adds nothing beyond it. `raise_cost(L)` is the cost to reach L from L−1 (L2 of Tụ Linh = 150 × 2.5 = 375). For the three arrays this is the existing quick-spec formula unchanged (Tụ Linh 150 × 2.5^(L−1), Thanh Mộc 120, Hộ Sơn 100; `crafting_formations.json`). A diagram has its own level, raised at the abode like an array with `cost_lt[grade]` (values set with the first catalogue); a taught diagram starts at L1.
 
 ### F4. NPC fit score
 
@@ -166,10 +168,10 @@ The fit_score formula is defined as:
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
 | node_score[n] | float | signed | diagram record | Authored value of a node for an art that matches its scope (negative for a drawback) |
-| m(art, n) | int | 0 or 1 | calculated | 1 if the placed art satisfies the node's tag scope |
-| fit_min | float | 0 | data file *(guess)* | Below this the NPC uses the default line |
+| m(art, n) | int | 0 or 1 | calculated | 1 if the placed art satisfies the node's tag scope, or the node has no tag scope (an Effect or gate node); links are not scored |
+| fit_min | float | 0 | data file *(guess)* | At or below this the NPC uses the default line (a diagram that scores exactly `fit_min` is no better fit) |
 
-Arts are placed greedily by weight against the largest `|node_score|` first. An NPC takes the highest-fit diagram among those its sect and Trận Pháp skill allow; ties go to fewer nodes, then lower id.
+Arts are placed greedily: take the nodes in descending `|node_score|` (ties by node index) and give each the unplaced art with the highest `node_score × m` (ties by pool order). An NPC takes the highest-fit diagram among those its sect and Trận Pháp skill allow; ties go to fewer nodes, then lower id.
 
 ### F5. Protective array
 
@@ -208,12 +210,13 @@ The diagram_reservation formula is defined as:
 
 **Diagram, laying and fuel**
 
-- **If a diagram's N exceeds `slot_count`** (a bonus source ends, or the realm is lower than a taught diagram assumed): it cannot be laid; the preparation screen warns first and the fight uses the default line. It is never truncated, because a diagram missing nodes breaks its links.
-- **If the fuel is short when the player wants to lay a diagram in a foreseen fight**: the diagram is carried at the 70 % share (the ambush share) and burns nothing.
+- **If a diagram's N exceeds `slot_count`** (a bonus source ends, or the realm is lower than a taught diagram assumed): it cannot be set (so neither laid nor carried); the preparation screen warns first and the fight uses the default line. It is never truncated, because a diagram missing nodes breaks its links.
+- **If the fuel is short when the player wants to lay a diagram in a foreseen fight**: the diagram is carried at the 70 % share and burns nothing. A foreseen fight in which the player chooses not to lay is the same: carried at 70 %, 0 burnt.
 - **If a foreseen fight is declined, avoided or cancelled before it starts**: nothing is burnt. Fuel is paid when the fight begins, with the opening Breakdown. A fight that begins and ends at once (flight at t=0) has already burnt its fuel.
 - **If a diagram's effective reservation plus the side's ward reservations would pass `reserve_cap`**: the diagram cannot be set (as a ward cannot be slotted); the preparation screen says which reservation to drop, and the fight uses the default line.
-- **If the Trận Pháp skill cap falls below a diagram's level L**: the effective level is `min(L, cap)` for strength and fuel until the skill recovers; the stored level is not lowered.
-- **If the keystone gives L above `max_level`**: effective L is at most `max_level + 2`, and both strength and fuel use it.
+- **If the Trận Pháp skill cap falls below a diagram's level L**: the effective level is `L_eff` (rule 7, `min(L, cap)` without the keystone) for strength and fuel until the skill recovers; the stored level is not lowered.
+- **If the keystone gives L above `max_level`**: effective L is `L_eff` (rule 7), at most `max_level + 2`, and both strength and fuel use it.
+- **If a feed's target timer is already below `cooldown_min`**: the feed does nothing; it never raises a timer (rule 6).
 - **If a crafted diagram is lost or sold while it is the Set diagram**: the loadout becomes the default line. A taught diagram cannot be lost.
 - **If `formation_power_pct` is negative or very high**: S stays within `S_min` 0.25 and `S_max` 8.
 
@@ -258,6 +261,8 @@ The diagram_reservation formula is defined as:
 
 **Circularity:** none added. Formations reads Combat's constants and exposes a diagram record; Combat compiles it and never writes back (systems index, circular dependency 2 and 4).
 
+**Back-link owed (review 2026-11-21, rounds 1 and 2):** Cave Abode rule 14 should read "except Formations' standing arrays and diagrams", Cave Abode rule 8 should exclude standing arrays from the abode's seasonal works upkeep (their upkeep is Formations' yearly tick, rule 14), and Regional Economy's `burn_formation` row should add build and raise stones of every array kind and of diagrams (rule 17; jump fees stay in `burn_fees`). Back-link owed (round 3, restated round 4): Combat A2 already floors a scaled `art_speed_pct` at `cooldown_min`; nothing is owed there. Round 4: Cave Abode rule 11 should name standing arrays among the faded upkept works a claim loses (Formations rule 14). Not edited here.
+
 Back-links added 2026-11-21 in Regional Economy (Formula H gains `burn_formation`), Sects and công pháp; Character Stats already listed Formations. Combat rules 12 and 13 were amended the same day (the diagram never competes under "one formation per side"; slot order is the node index).
 
 ## Visual/Audio Requirements
@@ -274,7 +279,7 @@ The fight is read, not played, so feel means preparation and clarity. **The mome
 
 - **Before the fight:** placing arts in nodes is a small puzzle: strong arts in positive nodes, cheap ones carrying the drawbacks. The screen shows the price of each choice at once: fuel, reservation and the share.
 - **During the fight:** feeds and gates are logged by name, so the player can follow why an art fired early or waited.
-- **After the fight:** the result names the diagram's contribution: the node or feed that added the most, and what the reservation cost in casts. A loss should point at a node choice the player can change.
+- **After the fight:** the fight log shows what the diagram did: each feed that fired (source, target, seconds), the lay fuel burnt, the share and the linh lực reserved. A loss should point at a node choice the player can change. A per-node tally of contribution is tracked for the UX spec (Open Question 9), not a rule here.
 
 ## UI Requirements
 
@@ -312,28 +317,28 @@ All of these work in the Debug Terminal first, with numbered menus as elsewhere.
 **Core rules**
 
 - **AC-FO-01** [Logic] Rules 1, 2. **GIVEN** a combatant with no diagram, **THEN** it uses the default line: `slot_count` plain nodes, no rules, no links, fuel 0, and its fight is identical to Combat rule 13's result for the same loadout.
-- **AC-FO-02** [Logic] Rule 3. **GIVEN** `slot_count` 5 and a 3-node diagram, **THEN** the pool is 3 diagram nodes plus 2 plain slots, 5 arts in all. **GIVEN** a 6-node diagram and `slot_count` 5, **THEN** it cannot be laid, a warning shows, and the fight uses the default line. Kind-locked slots stay outside both.
+- **AC-FO-02** [Logic] Rule 3. **GIVEN** `slot_count` 5 and a 3-node diagram, **THEN** the pool is 3 diagram nodes plus 2 plain slots, 5 arts in all. **GIVEN** a 6-node diagram and `slot_count` 5, **THEN** it cannot be set (neither laid nor carried), a warning shows, and the fight uses the default line. Kind-locked slots stay outside both.
 - **AC-FO-03** [Logic] Rule 4. **GIVEN** arts A, B, C in nodes 1, 2, 3 with equal timers and too little linh lực for all three, **THEN** they pay in node order 1, 2, 3, and plain slots pay after them in the player's order.
-- **AC-FO-04** [Logic] Rule 5. **GIVEN** a Modifier node (−20 % cooldown on its art), an Effect node and a gate node ("fires only above 50 % health"), **THEN** each acts only on the art in its node; the gated art stays ready at 49 % health and fires on the first instant health is ≥ 50 %. **GIVEN** every art gated and false, **THEN** the basic attack still fires.
-- **AC-FO-05** [Logic] Rule 6. **GIVEN** a feed of 2 s from node 1 to node 2 and node 2's art cooling with 6 s left, **WHEN** node 1's art fires, **THEN** node 2 has 4 s left. **GIVEN** its timer is within 1 s of the `cooldown_min` floor, **THEN** it stops at the floor. **GIVEN** its art is ready, **THEN** nothing changes. **GIVEN** feeds 1→2 and 2→1, **WHEN** node 1 fires, **THEN** node 2 is fed once and node 1 is not fed again in that instant.
+- **AC-FO-04** [Logic] Rule 5. **GIVEN** a diagram laid at S = 1 (share 1.0) with an Effect node "the art fires one extra time below 40 % health", **THEN** only its art fires twice at 39.9 % health and once at 40.0 %. **GIVEN** a Modifier node (+25 % `art_speed_pct` on its art), an Effect node and a gate node ("fires only at or above 50 % health"), **THEN** each acts only on the art in its node (a +25 % `art_speed_pct` node takes a 10 s art to 8 s, 10 / 1.25, and leaves its neighbours at 10 s); the gated art stays ready at 49.9 % health and fires on the first instant health is ≥ 50 %. **GIVEN** every art gated and false, **THEN** the basic attack still fires.
+- **AC-FO-05** [Logic] Rule 6. **GIVEN** a diagram laid at S = 1 with a feed of 2 s from node 1 to node 2 and node 2's art cooling with 6 s left, **WHEN** node 1's art fires, **THEN** node 2 has 4 s left (a feed scales like any positive number: at S = 2.44 it takes 4.88 s). **GIVEN** `cooldown_min` 0.5 s and its timer 1.0 s, **THEN** it stops at 0.5 s; **GIVEN** its timer 0.3 s, **THEN** it stays 0.3 s (a feed never raises a timer). **GIVEN** its art is ready, **THEN** nothing changes. **GIVEN** feeds 1→2 and 2→1, **WHEN** node 1 fires, **THEN** node 2 is fed once and node 1 is not fed again in that instant.
 - **AC-FO-06** [Logic] Rule 6. **GIVEN** an adjacency node "+X while a linked slot holds a Fire art", **THEN** the bonus applies with a Fire art linked and not with an empty or non-Fire neighbour, and no timer moves.
 - **AC-FO-07** [Logic] Rule 8. **GIVEN** a crafted diagram at grade cap 2, **THEN** every rolled node is within grade 2's range and the roll is deterministic for the seed. **GIVEN** a taught diagram, **THEN** it is identical for everyone who learns it and starts at L1.
-- **AC-FO-08** [Logic] Rule 9. **GIVEN** a foreseen fight, a Core Formation owner (budget 5,000), N=5, grade 2, L3 and enough stones, **WHEN** the fight begins, **THEN** exactly 288 stones are burnt and magnitudes count at 100 %. **GIVEN** an ambush, **THEN** 0 burnt and share 0.7; **GIVEN** blind, 0.5. **GIVEN** a foreseen fight with 100 stones, **THEN** the diagram is carried at 0.7 and 0 burnt.
+- **AC-FO-08** [Logic] Rule 9. **GIVEN** a foreseen fight, a Core Formation owner (budget 5,000), N=5, grade 2, L3 and enough stones, **WHEN** the fight begins, **THEN** exactly 288 stones are burnt and magnitudes count at 100 %. **GIVEN** an ambush, **THEN** 0 burnt and share 0.7; **GIVEN** blind, 0.5. **GIVEN** a foreseen fight with 100 stones, **THEN** the diagram is carried at 0.7 and 0 burnt. **GIVEN** a foreseen fight, enough stones and the player chooses not to lay, **THEN** 0.7 and 0 burnt.
 - **AC-FO-09** [Logic] Rule 9, edge. **GIVEN** a foreseen fight declined before it starts, **THEN** 0 stones are burnt.
 - **AC-FO-10** [Integration] Rule 10. **GIVEN** a fight away from home with both sides laid, **THEN** each side counts exactly one diagram. **GIVEN** a fight at the player's abode with Hộ Sơn L3 standing, **THEN** the diagram and Hộ Sơn both count as separate Modifier sources.
 - **AC-FO-11** [Logic] Rule 11. **GIVEN** a laid diagram with two non-zero nodes and one feed that fires, **THEN** the opening Breakdown has a line for each node and link contribution, and the fight record has one entry per feed with source, target and seconds taken off.
-- **AC-FO-12** [Logic] Rule 12, F4. **GIVEN** an NPC allowed diagrams with fits 4, 7 and 7 (the latter two with 5 and 6 nodes), **THEN** it takes the 5-node one. **GIVEN** the best fit below `fit_min`, **THEN** the default line. **GIVEN** its purse below the lay fuel, **THEN** it carries.
-- **AC-FO-13** [Logic] Rules 13, 14, F3. **GIVEN** Tụ Linh at L2 with Thổ purity 75, **THEN** the build cost is 375 stones and the upkeep 14 a year. **GIVEN** the yearly tick with upkeep unpaid, **THEN** it drops exactly one level, and a level-0 array is Unbuilt.
+- **AC-FO-12** [Logic] Rule 12, F4. **GIVEN** an NPC allowed diagrams with fits 4, 7 and 7 (the latter two with 5 and 6 nodes), **THEN** it takes the 5-node one. **GIVEN** the best fit at or below `fit_min` (0, including exactly 0), **THEN** the default line. **GIVEN** its purse below the lay fuel, **THEN** it carries.
+- **AC-FO-13** [Logic] Rules 13, 14, F3. **GIVEN** Tụ Linh at L2 with Thổ purity 75 (inputs from the quick spec `luyen-khi-and-tran-phap.md`: `upkeep_lt_per_level` 10, 0.4 % cut per purity point), **THEN** the cost to reach L2 (rule 13's build/raise cost) is 375 stones (L1 is 150) and the upkeep is 14 a year. **GIVEN** the yearly tick with upkeep unpaid, **THEN** it drops exactly one level, and a level-0 array is Unbuilt.
 - **AC-FO-14** [Integration] Rule 15. **GIVEN** a Core Formation traveller jumping 450 tiles on a sect array, **THEN** the fee is 1,375 (Travel & Map K), `f_burn` of it is burnt, and Formations charges nothing further.
 - **AC-FO-15** [Logic] Rule 15, F5. **GIVEN** a protective array at L3, Core Formation owner, **WHEN** it triggers once for an attack by three raiders, **THEN** defence +30 % (33 % at power +20 %), 60 stones burnt once. **GIVEN** the owner has 59 stones, **THEN** it does not trigger and burns nothing.
-- **AC-FO-16** [Integration] Rule 17. **GIVEN** one season with a laid diagram, array upkeep and a protective trigger, **THEN** each burnt amount appears as its own entry in #43 Formula H's sink ledger and `ΔM = F_mine − sinks` still holds.
+- **AC-FO-16** [Integration] Rule 17. **GIVEN** a span that contains a yearly upkeep tick, a laid diagram, an array raise and a protective trigger, **THEN** `burn_formation` in #43 Formula H rises by exactly lay fuel + raise stones + upkeep + trigger burn (one summed sink; a jump fee is not in it, it stays in `burn_fees`) and `ΔM = F_mine − sinks` still holds.
 
 **Formulas (boundaries) and edge cases**
 
-- **AC-FO-17** [Logic] F1. **GIVEN** grade 2, L3, power +20 %, **THEN** S = 2.44 (±0.01); a +10 node is +24.4 laid and +17.1 in an ambush. **GIVEN** grade 0, L1, power 0, **THEN** S = 1.0. **GIVEN** power −90 %, **THEN** S is clamped to 0.25. **GIVEN** grade 4, L7, power +100 %, **THEN** S is clamped to 8.
-- **AC-FO-18** [Logic] F1. **GIVEN** a −15 % node at S = 2.44, **THEN** it stays −15 % laid and −10.5 % in an ambush (negatives are unscaled by S, scaled by share).
-- **AC-FO-19** [Logic] F2. **GIVEN** N=1, grade 0, L1, Qi Refining, **THEN** fuel is 1 (the ceil). **GIVEN** N=7, grade 4, L5, Core Formation, **THEN** 2,294. The calculation must give exactly 288 for AC-FO-08, not 289 from floating-point error.
-- **AC-FO-20** [Logic] Edge. **GIVEN** a Trận Pháp skill cap of 2 and a diagram at L4, **THEN** strength and fuel use L=2 and the stored L is 4. **GIVEN** the keystone gives L=7 at `max_level` 5, **THEN** L=7 is used and 8 is not.
+- **AC-FO-17** [Logic] F1. **GIVEN** grade 2, L3, power +20 %, **THEN** S = 2.44 (±0.01); a +10 node is +24.4 laid and +17.1 in an ambush. **GIVEN** grade 0, L1, power 0, **THEN** S = 1.0. **GIVEN** power −50 % (grade 0, L1), **THEN** S = 0.5. **GIVEN** the clamp unit-tested directly with an unclamped value of 0.1, **THEN** S = 0.25. **GIVEN** grade 4, L7, power +100 %, **THEN** S is clamped to 8.
+- **AC-FO-18** [Logic] F1. **GIVEN** a negative-polarity node of −15 % at S = 2.44, **THEN** it stays −15 % laid and −10.5 % in an ambush (drawbacks are unscaled by S, scaled by share). **GIVEN** a positive-polarity −20 % `art_cost_pct` node at S = 2.44, **THEN** it is −48.8 % laid (polarity, not sign, decides; inside `art_cost_pct`'s 0 to 0.5 reduction bound). **GIVEN** a +25 % `art_speed_pct` node at S = 8 on a 1 s art, **THEN** the scaled +200 % gives 0.33 s, floored at `cooldown_min` 0.5 s.
+- **AC-FO-19** [Logic] F2. **GIVEN** N=1, grade 0, L1, Qi Refining, **THEN** fuel is 1 (the ceil). **GIVEN** N=7, grade 4, L5, Core Formation, **THEN** 2,294. The calculation (with F2's `− 1e-6`) must give exactly 288 for AC-FO-08, not 289 from floating-point error. **GIVEN** N=7, grade 4, L7, Core Formation, **THEN** 5,873.
+- **AC-FO-20** [Logic] Edge. **GIVEN** Trận Pháp skill 1 (cap 2) and a diagram stored at L4 without the keystone, **THEN** strength and fuel use L=2 and the stored L is 4. **GIVEN** skill 6, `max_level` 5, the keystone and a stored L7 (reachable: F3 allows cap + 2), **THEN** L=7 is used; **GIVEN** the same diagram without the keystone, **THEN** L=5 is used and the stored L stays 7. **GIVEN** skill 1 and the keystone with a stored L4, **THEN** L_eff = min(4, 2 + 2) = 4.
 - **AC-FO-21** [Logic] Edge. **GIVEN** a node with a −20 % drawback left empty, **THEN** the drawback does not apply but the slot holds no art, so the diagram loses one art against a full one.
 - **AC-FO-22** [Logic] Edge. **GIVEN** a Set crafted diagram sold, **THEN** the next fight uses the default line; a taught one stays known.
 
@@ -361,3 +366,5 @@ All of these work in the Debug Terminal first, with numbered menus as elsewhere.
 | 6 | Starting values (`grade_mult`, `level_growth`, `fuel_frac`, `fuel_growth`, `trigger_frac`, `reserve_share`), and a diversity check: no single diagram (the default line excepted) is Set by more than `diagram_share_max` (guess 25 %) of NPCs at any realm, so the catalogue keeps distinct builds (Pillar 1) | Balance Harness (#33) | Harness pass after the catalogue |
 | 7 | Which Event kinds count as an attack that triggers a protective array, and whether sect-seat arrays matter while sect wars stay abstract | Events + Sects | With the Sects follow-up |
 | 8 | May the Advisor preset a different diagram for ambush and blind fights than for foreseen ones? | user | Before the preparation UX spec |
+| 10 | Should a feed ever be able to make an art ready at once (no remaining-timer floor), so a chain can fire the centre art in the same instant? Today a feed floors at `cooldown_min` (rule 6, round 1 decision) | user + Combat | With the first catalogue and the harness |
+| 9 | A per-node contribution tally after a fight (seconds fed, extra fires, gate waits) so the result can name the strongest node | UX + Combat | With `/ux-design` for the diagram editor |
