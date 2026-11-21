@@ -347,7 +347,14 @@ static func settle(gd: GameData, db: WorldDB, heads_by_market: Dictionary) -> vo
 					rc_cost += w * float(m.classes.get(rc, {}).get("p", 1.0)) * WorldEconomy.scarcity_factor(gd, db, str(m.id), str(g))
 				cost += float(rr.share) * rc_cost
 			c.plan = float(plan_next(cfg, float(c.plan), float(c.plan_ref), float(c.p) / maxf(cost, 1e-9), float(c.cover), float(c.get("fill_now", 1.0)), kind).plan)
+			c.plan_ref = ref_next(cfg, float(c.plan_ref), d)
 			c.fill = float(c.get("fill_now", 1.0))
+
+
+## Formula F's drift of the plan at rest toward this season's demand [param d]: plan_ref + ρ_ref (d − plan_ref) (user
+## decision 2026-11-21: workshops follow lasting demand).
+static func ref_next(cfg: Dictionary, plan_ref: float, d: float) -> float:
+	return plan_ref + float(cfg.crafted.get("rho_ref", 0.0)) * (d - plan_ref)
 
 
 ## Formula F's plan update from the plan, the plan at rest, the price over the inputs' cost [param ratio], the cover and

@@ -82,3 +82,15 @@ func test_a_talisman_draws_any_material_of_its_rarity() -> void:
 	assert_false(pc.is_empty(), "Phá Cảnh Phù is a crafted recipe")
 	assert_true(Array(pc.group).has("linh_moc_tam") and Array(pc.group).has("tu_kim_sa"), "rarity 3 and 4 materials")
 	assert_false(Array(pc.group).has("tinh_thiet"), "not a rarity-1 material")
+
+
+func test_the_plan_at_rest_drifts_toward_demand_formula_f() -> void:
+	# Formula F (user decision 2026-11-21): plan_ref' = plan_ref + 0.05 (D - plan_ref); 100 at demand 300 gives 110,
+	# and a class whose demand stays at 300 closes half the gap in about 14 seasons
+	var cfg: Dictionary = game_data().file("economy")
+	assert_near(CraftEconomy.ref_next(cfg, 100.0, 300.0), 110.0, 1e-9, "one season")
+	assert_near(CraftEconomy.ref_next(cfg, 100.0, 40.0), 97.0, 1e-9, "it shrinks too")
+	var r: float = 100.0
+	for i in 14:
+		r = CraftEconomy.ref_next(cfg, r, 300.0)
+	assert_near(r, 200.0, 5.0, "half the gap in about 3.5 years")

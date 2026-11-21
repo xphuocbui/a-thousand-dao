@@ -436,7 +436,9 @@ The craft_plan formula is defined as:
 
 `r = P[m,c] / Σ_g a[c,g] · P[m,k(g)] · sf[m,g]` · `plan* = plan_ref[m,c] · r^κ · (c_ref[c] / max(c[m,c], c_lo))^λ_c` ·
 `plan' = clamp(p̂ · (plan*/p̂)^α_p, p̂/δ_p, p̂ · δ_p)`, with `p̂ = max(plan, φ_p · plan_ref[m,c])`; if `plan_ref = 0` the
-plan is 0 and no floor applies ·
+plan is 0 and no floor applies · then `plan_ref' = plan_ref + ρ_ref · (D[m,c] − plan_ref)`, this season's demand (user
+decision 2026-11-21: workshops follow lasting demand; calibrated on season 0's upkeep-only spending, plan_ref sat at a
+third to a sixth of live Military demand, and the plan cannot pass about 2 × plan_ref) ·
 `v_g = sh[m,g] · stock_k + S_own[m,g] + sell_pl[m,g]`, k = k(g) (the good's own value in this market before the craft draw, exactly Formula B's pre-draw value, so `cd ≤ v_g − buy_pl ≤ v_g ≤ X0` and workshops never draw value the pool does not hold; design-review 7: the old `sh · (stock_k + S_k)` spread the class's supply by last-tick share) ·
 `fill_g = min(1, (v_g − buy_pl[m,g]) / D_g)` (the player's purchase is served first, so workshops are measured against what is left; design-review 8) with `D_g = need[m,g] + (v_g / Σ_{g' shelved, k(g')=k} v_g') · max(0, D_k − craft_in[m,k])`: the
 rest of the class's demand falls on **shelved goods only**, in proportion to their value, as Formula B draws it
@@ -461,7 +463,8 @@ season it cannot make anything ·
 | need[m,g] | float | ≥ 0 | G | Inputs the full plan would use (Formula G); what the fill is measured against |
 | fill_c[m,c] | float | 0–1 | calculated (step c) | This season's slot fill of the class; read by the plan update (f) and by next season's `craft_in` (G) |
 | fill_tol | float | 0.95 | data file *(guess; design-review 10)* | Slot fill at or above which the plan may rise; below it `plan' ≤ plan` (no windup). A tolerance, not 1, so float rounding or a tiny shortfall does not freeze the plan |
-| plan_ref | float | ≥ 0 | E (calibration) | The plan at rest |
+| plan_ref | float | ≥ 0 | E (calibration), then drifts (F) | The plan at rest |
+| ρ_ref | float | 0.05 | data file *(guess)* | Share of the gap between demand and plan_ref closed each season (half-life about 3.5 years) |
 | c[m,c] | float | ≥ 0 | #43 Formula E (this season's (e)) | The class's cover, `(stock + S) / max(D, D_min)` |
 | κ | float | 0.5 | data file *(guess)* | How strongly the plan answers the price ratio |
 | λ_c | float | 0.5 | data file *(guess; user decision 2026-11-14, design-review 1)* | How strongly the plan answers cover: damps the stock loop |

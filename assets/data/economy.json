@@ -291,7 +291,7 @@
     "material_max": 20
   },
   "crafted": {
-    "_doc": "Trade Goods Formulas E-H (CraftEconomy): pill classes by tier (Item Database pill_band_edges), with the pill row of classes' price and stock parameters. v_lo: each tier's demand floor (about one item). tp_by_realm: the pill tier each realm's basket buys. Craft plan: kappa (answer to price over input cost), lambda (to cover), c_lo, alpha_p (inertia), delta_p (largest move), phi_p (floor as a share of the plan at rest), fill_tol (no windup below it). ps: workshop success. Guesses.",
+    "_doc": "Trade Goods Formulas E-H (CraftEconomy): pill classes by tier (Item Database pill_band_edges), with the pill row of classes' price and stock parameters. v_lo: each tier's demand floor (about one item). tp_by_realm: the pill tier each realm's basket buys. Craft plan: kappa (answer to price over input cost), lambda (to cover), c_lo, alpha_p (inertia), delta_p (largest move), phi_p (floor as a share of the plan at rest), fill_tol (no windup below it), rho_ref (the plan at rest drifts toward demand by this share a season, user decision 2026-11-21). ps: workshop success. Guesses.",
     "v_lo": [
       1,
       20,
@@ -314,6 +314,7 @@
     "delta_p": 1.15,
     "phi_p": 0.05,
     "fill_tol": 0.95,
+    "rho_ref": 0.05,
     "ps": 0.8
   }
 }
