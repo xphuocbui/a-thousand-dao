@@ -273,3 +273,23 @@ So before the economy can price anything, the land must produce what it prices: 
     at feud or war for people's opinions (F3). Which does the design mean?
 11. **The census retune** (part of the money decision): one 400-year seed returns near target; Kết Đan and Nguyên Anh
     were still above it. Measure several seeds, then decide.
+
+### The user's answers (2026-11-21)
+
+1. **Site friction:** neighbouring great sects that want the same mine, lair or special site lose attitude each
+   season, more for richer sites (a Sects F7 amendment, approved section by section).
+2. **D_mil reads the mean of the last 4 seasons'** Military spending (Trade Goods H, Regional Economy C).
+3. **Both:** a few scarce rarity-4 herb and ore sites on continent 11 now (remote, guarded; proposed for approval like
+   sites.json), and secret realms and events as the main source later.
+4. **Steady-state starting ages** in World Generation (GDD edit for approval).
+5. **The catalogue's 0.67 stands:** fix F2's example to 69 / 15 / 15 %.
+6. **The items_of refactor is approved:** every owner change goes through WorldDB and the owner index stays on;
+   checked by the property test and a byte-identical world run.
+7. **Design the sinks next** (formation fuel, crafting fuel, the cave abode), moved up the queue.
+8. **Keep the proposed trigger ids;** the Event Engine renames them when designed.
+9. **A sect assigns a master on joining:** a higher-realm member with room may take the newcomer, weighted by realm and
+   standing (a Sects rule; fills NPC Relationships rule 8's "sect life" source).
+10. **Keep both meanings of "rival":** a bordering sect for sect attitudes (F7), a sect at feud or war for people's
+    opinions (F3); write each definition into its GDD.
+11. **Several seeds first:** after decision 4 lands, 4-6 seeds of 400 years at low priority, then a retune proposal
+    only if they agree.
