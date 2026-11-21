@@ -2346,27 +2346,29 @@ formulas:
       - feud
       - soft
       - str_now
-    output_range: "-70 to 80"
-    expression: "tie(a,b) = max(0, max_{k in P} pin(k, a->b)) + feud(a->b) + soft(k_s, a->b) * str_now / 100"
-    notes: "NPC Relationships Formula A. Defines the tie term of NPC Traits F3 (trait_opinion); amends NPC Traits rule 16 (ties are the one stored exception). Grudge target and enmity do not stack: F3 takes the more negative (provisional, NR OQ 2)."
+      - debt
+      - d_now
+    output_range: "-70 to 105 (before F3's clamp to -100..100)"
+    expression: "tie(a,b) = max(0, max_{k in P} pin(k, a->b)) + feud(a->b) + soft(k_s, a->b) * str_now / 100 + debt(a->b) * d_now / 100"
+    notes: "NPC Relationships Formula A. Defines the tie term of NPC Traits F3 (trait_opinion); amends NPC Traits rule 16 (ties are the one stored exception). Grudge target and enmity do not stack: F3 takes the more negative (provisional, NR OQ 2). 2026-11-21 re-review: debt of gratitude is its own part (rule 1a); a feud and soft enmity never share a record (rules 11, 13); a favour owed has no weight."
     added: 2026-11-20
-    revised: ""
+    revised: 2026-11-21
   - name: tie_soft_strength
     status: active
     source: design/gdd/npc-relationships.md
     referenced_by:
       - design/gdd/npc-relationships.md
     variables:
-      - str
-      - fade
+      - s
+      - rate
       - season_now
-      - last_season
+      - set_season
       - delta
     output_range: "0 - 100"
-    expression: "str_now = max(0, str - floor(fade(k_s) * max(0, season_now - last_season))); on change str = clamp(str_now + delta, 0, 100), last_season = season_now"
-    notes: "NPC Relationships Formulas B, C. Lazy: computed on read, never written by a read (keeps NPC Traits AC-NT-21). fade friend 1.0, rival 1.0, enmity 0.5, an tinh 0.25 per season (guesses)."
+    expression: "s_now = max(0, s - rate(k) * max(0, season_now - set_season)) in hundredths (s 0-10,000); str_now = s_now / 100; same kind: s = clamp(s_now + 100*delta, 0, 10000), set_season = season_now; new part s = 100*delta (delta > 0), set_season = season_now; inherited: s = max(s_now, 100*value), set_season = season_now"
+    notes: "NPC Relationships Formulas B, C (soft kinds and debts). Lazy: computed on read, never written by a read (keeps NPC Traits AC-NT-21). Hundredths make fading exact (2026-11-21 re-review: the old floor froze touched ties). rate friend 100, rival 100, enmity 50, debt 25 hundredths a season (guesses; 0 rejected at load)."
     added: 2026-11-20
-    revised: ""
+    revised: 2026-11-21
   - name: tie_bound
     status: active
     source: design/gdd/npc-relationships.md
@@ -2377,12 +2379,17 @@ formulas:
       - N_not
       - cap_ordinary
       - cap_notable
-      - overflow_pinned
-    output_range: "<= 20,000 records at 5,000 cultivators (target)"
-    expression: "records <= (N_ord*cap_ordinary + N_not*cap_notable)/2 + overflow_pinned"
-    notes: "NPC Relationships Formula E. (4,250*6 + 750*16)/2 = 18,750 plus pinned overflow; about 16 bytes a record raw. Save / Load budget."
+      - O_sd
+      - O_kill
+      - O_other
+      - O_res
+      - soft_reserve
+      - met_notable_max
+    output_range: "<= 23,000 records at 5,000 cultivators with 100 known player kills (target, provisional)"
+    expression: "per-source bounds: records <= sum_p cap_p / 2 + P + M_out (P pinned records, M_out mourner enmity outside the killer cap); estimate = (N_ord*cap_ordinary + N_not*cap_notable)/2 + O_sd + O_kill + O_other + O_res"
+    notes: "NPC Relationships Formula E (2026-11-21 re-review). Round 3 (2026-11-21): N_ord 4,248, N_not <= 752 (met list hard-capped at met_notable_max 500): capped 18,760 + O_sd ~1,500 (<= N) + O_kill 8 x (1 + feuds the dead held) per known death (800 for 100 player kills) + O_other <= 500 + O_res ~600 (soft reserve) = 22,160 expected (round 4: arithmetic corrected); about 80 bytes a record raw (~1.8 MB), a measured target not a guarantee. NPC kills pending Living World Tick OQ 4. cap_ordinary safe 2-6 (never below soft_reserve, which the data load rejects above its cap; round 6); cap 3 gives 12,388 capped, about 15,788 in all. Save / Load budget."
     added: 2026-11-20
-    revised: ""
+    revised: 2026-11-21
   - name: tie_hooks
     status: active
     source: design/gdd/npc-relationships.md
@@ -2396,14 +2403,17 @@ formulas:
       - daolu_cult_pct
       - help_min
       - help_max
-      - help_cost
+      - favour_cost_mult
       - errand_cost_mult
+      - errand_margin
+      - errands_max
       - stip_r
-    output_range: ["cultivation_speed_pct +0 / +5 / +8 / +13 from ties", "p_help 0-1", "errand_cost 3-2,500 linh thach"]
-    expression: "disciple: cultivation_speed_pct += master_cult_pct (master alive, higher realm); dao lu: += daolu_cult_pct each (same place at season close); p_help = clamp((op - help_min)/(100 - help_min), 0, 1); answered call: friend -help_cost or an tinh owed +help_cost; errand_cost = stip_r(disciple realm) * errand_cost_mult"
-    notes: "NPC Relationships Formula F, rule 15a (user decision 2026-11-20: one build hook per pinned kind). Rows have modifier source `tie`. help_cost and errand_cost from CD-GDD-ALIGN 2026-11-20 (Pillar 4). stip_r = Sects stipend anchors 3/20/50/325/2,500."
+      - favour_call_seasons
+    output_range: ["cultivation_speed_pct +0 / +5 / +8 / +13 from ties", "p_help 0-1", "errand_cost and favour_cost 3-2,500 linh thach", "errand reward budget <= errand_margin * errand_cost at price; <= 0.68 * cost once sold (a small loss); raw commons at the bulk buy price (1.10) are worth up to ~1.08 * cost with the stones (a small discount on goods); stone share refunded from the burn"]
+    expression: "disciple: cultivation_speed_pct += master_cult_pct (row added or removed by the S8b hook pass while the master lives at a higher realm); dao lu: += daolu_cult_pct each (row present while both share a location_id at the end of the season); p_help = 0 if favour_owed(caller->sibling) else clamp((op - help_min)/(100 - help_min), 0, 1); joiner = highest p_help among those who answer (ties: lower id); favour called in by an event presented within favour_call_seasons of the join, or when the player is reachable (refusal or a lapsed accepted task: refuse_delta slight), or cleared early by favour_cost = ceil(stip_r(sibling realm) * favour_cost_mult), burned; errand_cost = ceil(stip_r(max(player realm, disciple realm)) * errand_cost_mult), burned; B_errand = floor(errand_margin * errand_cost) (no min with B_quests, round 5), money and raw-commons items only; at most errands_max errands a season by the player's realm, one per disciple"
+    notes: "NPC Relationships Formula F, rule 15a (user decision 2026-11-20: one build hook per pinned kind). Rows are plain modifiers with source `tie`, added or removed by the hook pass at the end of S8b (user decision 2026-11-21). 2026-11-21 re-review: favour repaid by a deed (user decision), stones optional; errands at the higher realm, one per disciple, no outcomes outside B and no wealth/standing outcomes. Burns are not on the user's sink list (NR OQ 7). stip_r = Sects stipend anchors 3/20/50/325/2,500."
     added: 2026-11-20
-    revised: ""
+    revised: 2026-11-21
 constants:
   - name: root_count_weights
     status: active
@@ -5519,22 +5529,22 @@ constants:
     source: design/gdd/npc-relationships.md
     referenced_by:
       - design/gdd/npc-relationships.md
-    value: "friend +25 / rival -10 / an tinh +30 debtor, +10 creditor / enmity -50 holder"
+    value: "friend +25 / rival -10 / enmity -50 holder; debt (an tinh) +30 debtor, +10 creditor"
     unit: opinion at full strength
-    notes: "NPC Relationships Formula A soft. Guesses. Enmity -50 equals the Grudge trait target term (NPC Traits F3)."
+    notes: "NPC Relationships Formula A soft and debt. Guesses. Enmity -50 equals the Grudge trait target term (NPC Traits F3). 2026-11-21: an tinh is its own debt part beside the soft kind (rule 1a)."
     added: 2026-11-20
-    revised: ""
+    revised: 2026-11-21
   - name: tie_caps
     status: active
     source: design/gdd/npc-relationships.md
     referenced_by:
       - design/gdd/npc-relationships.md
       - design/gdd/npc-interaction-dialogue.md
-    value: "cap_ordinary 6 / cap_notable 16 (player 16)"
-    unit: tie records per person, pinned inside the cap
-    notes: "User decision 2026-11-20. Pinned ties may overflow the cap; soft ties are evicted weakest first."
+    value: "cap_ordinary 6 / cap_notable 16 (player 16) / soft_reserve 2 ordinary, 4 notable"
+    unit: tie records per person, pinned inside the cap; soft-only records always allowed
+    notes: "User decision 2026-11-20. Pinned ties may overflow the cap; soft-only records are evicted weakest first. Soft reserve (user decision 2026-11-21): soft-only limit = max(soft_reserve, cap - pinned)."
     added: 2026-11-20
-    revised: ""
+    revised: 2026-11-21
   - name: tie_cultivation_bonus
     status: active
     source: design/gdd/npc-relationships.md
@@ -5553,11 +5563,11 @@ constants:
       - design/gdd/npc-relationships.md
       - design/gdd/combat.md
       - design/gdd/event-engine.md
-    value: "help_min 30 / help_max 1 / help_cost 40"
-    unit: opinion; sworn siblings joining one fight; friend strength spent
-    notes: "NPC Relationships Formula F. Guesses. help_max bounds Combat rule 19's uncapped companion sources; help_cost answers CD-GDD-ALIGN Pillar 4 (2026-11-20)."
+    value: "help_min 30 / help_max 1 / favour_call_seasons 4 / refuse_delta 30 / favour_cost_mult 1.0"
+    unit: opinion; sworn siblings joining one fight; seasons until the call-in; strength; seasons of the sibling's realm stipend to clear a favour early
+    notes: "NPC Relationships Formula F, rule 15a. Guesses. help_max bounds Combat rule 19's uncapped companion sources. A sibling who joins leaves favour_owed (p_help 0); the favour is repaid by a deed: a call-in event presented within favour_call_seasons of the join (when the player is reachable); refusing or a lapsed accepted task is a slight (friend -30, or enmity 30); favour_cost (burned) clears it early, optional (user decision 2026-11-21). Replaced help_cost 40."
     added: 2026-11-20
-    revised: ""
+    revised: 2026-11-21
   - name: errand_cost_mult
     status: active
     source: design/gdd/npc-relationships.md
@@ -5566,9 +5576,49 @@ constants:
       - design/gdd/quests.md
       - design/gdd/sects.md
     value: 1.0
-    unit: seasons of the disciple's realm stipend per errand (linh thach)
-    notes: "NPC Relationships Formula F. A stone sink (CD-GDD-ALIGN Pillar 4, 2026-11-20). errands_per_season 1 per disciple. Guess."
+    unit: seasons of the stipend of the higher of the player's and the disciple's realm, per errand (linh thach)
+    notes: "NPC Relationships Formula F. A stone sink, burned when paid (CD-GDD-ALIGN Pillar 4, 2026-11-20; not on the user's sink list, NR OQ 7). Set by the higher of the two realms (2026-11-21 re-review). Guess."
     added: 2026-11-20
+    revised: 2026-11-21
+  - name: errand_bounds
+    status: active
+    source: design/gdd/npc-relationships.md
+    referenced_by:
+      - design/gdd/npc-relationships.md
+    value: "errands_max 2 / 3 / 4 / 6 / 8 by the player's realm, one per disciple (in-progress errands count) / errand_margin 1.0"
+    unit: errands in progress at once (round 6); errand reward budget as a multiple of errand_cost
+    notes: "NPC Relationships Formula F, rule 15a (design-review 2026-11-21; user: bound payouts, not bond counts). Round 3: errand_margin 1.25 -> 1.0 (items used at full price made errands a profit). Round 5: B_errand = floor(errand_margin * errand_cost) (the min with B_quests never bound); items are raw commons, bound 1.08 at bulk price; money and items only (no outcomes outside B, no wealth or standing). Errand items are a goods faucet (world-economy plan). Guesses."
+    added: 2026-11-21
+    revised: 2026-11-21
+  - name: met_window
+    status: deprecated
+    source: design/gdd/npc-relationships.md
+    referenced_by:
+      - design/gdd/npc-relationships.md
+    value: 40
+    unit: seasons since the player last met a person, for notability (cap_notable)
+    notes: "Deprecated 2026-11-21 (re-review, user decision): replaced by met_notable_max 500, because a window did not bound N_not."
+    added: 2026-11-21
+    revised: 2026-11-21
+  - name: met_notable_max
+    status: active
+    source: design/gdd/npc-relationships.md
+    referenced_by:
+      - design/gdd/npc-relationships.md
+    value: 500
+    unit: people on the player's met list (most recently met), for notability (cap_notable)
+    notes: "NPC Relationships rule 6 (user decision 2026-11-21, re-review). Replaced met_window 40 (a window did not bound N_not). The list lives on the player in the World DB; dropping off it queues an eviction at the next S8b. Round 6: safe range 100-650 (1,000 gives 24,660 records, over the 23,000 target). Guess."
+    added: 2026-11-21
+    revised: ""
+  - name: tie_event_caps
+    status: active
+    source: design/gdd/npc-relationships.md
+    referenced_by:
+      - design/gdd/npc-relationships.md
+    value: "avenger_max 1 / gratitude_max 1"
+    unit: Event Engine draws a season from the avenger and gratitude pools
+    notes: "NPC Relationships rule 15b (2026-11-21 re-review): feuds and debts toward the player act. Event Engine owns the pools' contents. Guesses."
+    added: 2026-11-21
     revised: ""
   - name: feud_inheritance
     status: active
@@ -5576,8 +5626,8 @@ constants:
     referenced_by:
       - design/gdd/npc-relationships.md
       - design/gdd/living-world-tick.md
-    value: "feud_threshold 90 / inherit_feud_max 3 / inherit_enmity 50 / inherit_debt 0.5"
-    unit: strength; heirs; strength; share
+    value: "feud_threshold 90 / inherit_feud_max 3 / inherit_enmity 50 / inherit_debt 0.5 / mourner_max 5"
+    unit: strength; heirs; strength; share; mourners
     notes: "NPC Relationships Formula D, rule 13. Guesses. Inherited blood feuds pass on only as soft enmity; vendettas damped by the tick's violent-death budget (Living World Tick OQ 4)."
     added: 2026-11-20
     revised: ""
