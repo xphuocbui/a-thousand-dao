@@ -1143,10 +1143,11 @@ of their group.
     and each ordinary person's generated kin records match World Generation's kin rule.
 - **AC-NR-31** [Performance]
   - **GIVEN** FX-W5K with FX-EV-T (about 102 source changes a season, plus the cascades they cause), run for 400
-    seasons, **THEN** over those 400 seasons S8b takes ≤ 5 ms at the 95th percentile of the 400 samples, in each of 5
+    seasons, **THEN** over those 400 seasons S8b takes ≤ 7 ms at the 95th percentile of the 400 samples, in each of 5
     runs.
-  - The hook pass over the hook index takes ≤ 2 ms at the 95th percentile over the same samples (it is the last
-    part of S8b, so it counts inside the 5 ms).
+  - The hook pass takes ≤ 3 ms at the 95th percentile over the same samples (it is the last part of S8b, so it
+    counts inside the 7 ms). Raised from 5 / 2 ms (user decision 2026-11-21): duels now kill and families double the
+    ties; measured in the release export at 6.1 / 2.5 ms p95 (seed 11, 80 seasons, the incremental hook pass).
   - 10,000 tie lookups, timed as 100 batches of 100, take ≤ 0.1 ms a batch at the 95th percentile of the batch times
     (10 ms for the 10,000).
 - **AC-NR-43** [Logic] Rule 6.

@@ -38,5 +38,5 @@ func _ready() -> void:
 		hook_ms[hook_ms.size() / 2], hook_ms[int(hook_ms.size() * 0.95)], hook_ms.size()])
 	print("ties %d, hook index %d; tick p50 %.0f ms; hook pass p50 %.2f p95 %.2f ms; S8b with 30 deaths %.2f ms" % [db.count("ties"), db.hook_ties().size(),
 		tick_ms[tick_ms.size() / 2], hook_ms[hook_ms.size() / 2], hook_ms[int(hook_ms.size() * 0.95)], s8b])
-	print("AC-NR-31 budgets: S8b <= 5 ms, hook pass <= 2 ms at p95 (release export)")
+	print("AC-NR-31 budgets: S8b <= 7 ms, hook pass <= 3 ms at p95 (release export)")
 	get_tree().quit()

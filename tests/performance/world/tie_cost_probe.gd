@@ -1,6 +1,6 @@
 extends SceneTree
 ## Probe (observation only): the cost of NPC Relationships' S8b (TieTick.run) and its hook pass in the built world,
-## per season over 20 years, against AC-NR-31's budgets (S8b <= 5 ms, the hook pass <= 2 ms at the 95th percentile).
+## per season over 20 years, against AC-NR-31's budgets (S8b <= 7 ms, the hook pass <= 3 ms at the 95th percentile; raised 2026-11-21).
 
 func _init() -> void:
 	var gd := GameData.load_from("res://assets/data")

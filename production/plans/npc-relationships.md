@@ -142,5 +142,5 @@ What changed:
 - **The children index lives in WorldDB** (`children_of`, kept by `note_child`). Before, it was rebuilt from all
   living people in any season with a death.
 
-Still over budget at p95, by about 25 %. The spikes are seasons with many deaths, now that duels kill. The probe is
+AC-NR-31 budgets raised to 7 ms (S8b) and 3 ms (hook pass) at p95 (user decision 2026-11-21, GDD edited); the measured 6.1 / 2.5 ms fit. Before that they were missed by about 25 %. The spikes are seasons with many deaths, now that duels kill. The probe is
 not the AC's exact fixture (FX-W5K with FX-EV-T, 400 seasons, 5 runs).
