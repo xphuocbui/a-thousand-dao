@@ -173,12 +173,12 @@ static func brew_plan(s: GameSession) -> Dictionary:
 	var rate: float = maxf(float(progress(s).rate), 1.0)
 	var climb: float = _seasons_to_full_bar(c, gd, rate) * season
 	var refill: float = float(gd.breakthrough_rules().failure_tu_vi_loss_pct) * Ladder.bar_cost(gd, c.realm_index) / _rate_at_stage(c, gd, rate, Ladder.GREAT_PERFECTION) * season
-	var first: float = _pack_capacity(recipe, 1, plots) / h
+	var first: float = _pack_capacity(recipe, 1, plots, gd) / h
 	var b: int = 0
 	var last: float = c.age + maxf(first, climb)
 	while last <= cap - season:
 		b += 1
-		last = maxf(c.age + _pack_capacity(recipe, b + 1, plots) / h, last + refill + season)
+		last = maxf(c.age + _pack_capacity(recipe, b + 1, plots, gd) / h, last + refill + season)
 	return {"b": b, "years_first": first, "p_brew": p_brew}
 
 
@@ -199,17 +199,40 @@ static func _seasons_to_full_bar(c: Character, gd: GameData, rate: float) -> flo
 	return seasons + maxf(Ladder.bar_cost(gd, c.realm_index) - held, 0.0) / _rate_at_stage(c, gd, rate, Ladder.GREAT_PERFECTION)
 
 
+## Whether [param herb_id] is a main herb of [param recipe] (Alchemy rule 11).
+static func _is_main_herb_of(recipe: Dictionary, herb_id: String) -> bool:
+	for ing in recipe.get("ingredients", []):
+		if Alchemy.is_herb_entry(ing) and str(ing.herb) == herb_id:
+			return true
+	return false
+
+
 ## The plant plan (Formulas D): the herb the next free plot should grow. Recipes are filled in
 ## order, counting herbs held and growing, so plots rotate into the staggered layout. Returns a
 ## herb id, or "" when [param recipes] brews are covered.
 static func next_plant(s: GameSession, recipe: Dictionary, recipes: int) -> String:
 	var c: Character = s.player
 	var supply: Dictionary = {}
+	var by_element: Dictionary = {}   # element -> herbs of it held or growing, not yet given to a recipe
 	for it in s.db.items_of(c.id):
 		if it.kind == "herb":
 			supply[it.template] = int(supply.get(it.template, 0)) + 1
 	for k in recipes:
 		for ing in recipe.ingredients:
+			if not Alchemy.is_herb_entry(ing):
+				# Alchemy rule 5: an element value; one owned herb of the element covers it (the plan ages it), else the
+				# plan grows the element's basic herb. Main herbs are counted first, so they are not taken here.
+				var el: String = str(ing.element)
+				if not by_element.has(el):
+					var n: int = 0
+					for t in supply:
+						if ItemFactory.herb_elements(s.gd.herb(str(t))).has(el) and not _is_main_herb_of(recipe, str(t)):
+							n += int(supply[t])
+					by_element[el] = n
+				if int(by_element[el]) > 0:
+					by_element[el] = int(by_element[el]) - 1
+					continue
+				return Alchemy.basic_herb(s.gd, el)
 			for i in int(ing.qty):
 				var left: int = int(supply.get(ing.herb, 0))
 				if left > 0:
@@ -220,9 +243,15 @@ static func next_plant(s: GameSession, recipe: Dictionary, recipes: int) -> Stri
 
 
 ## C_k: the smallest herb-years per plot that fit [param k] recipes' herbs in [param plots] plots.
-static func _pack_capacity(recipe: Dictionary, k: int, plots: int) -> float:
+static func _pack_capacity(recipe: Dictionary, k: int, plots: int, gd: GameData = null) -> float:
 	var ages: Array = []
 	for ing in recipe.ingredients:
+		if not Alchemy.is_herb_entry(ing):
+			# an element value: the basic herb's cheaper plan (cycling mature herbs or one old herb), Alchemy rule 5
+			if gd != null:
+				for i in k:
+					ages.append_array(Alchemy.companion_ages(gd, str(ing.element), float(ing.value)))
+			continue
 		for i in int(ing.qty) * k:
 			ages.append(float(ing.min_age))
 	ages.sort()
@@ -429,16 +458,18 @@ static func _breakthrough_goals(s: GameSession, c: Character, gd: GameData, sh: 
 ## of a herb, so held, ripening and missing herbs are counted against [code]ing.qty[/code].
 static func ingredient_status(s: GameSession, c: Character, sh: StatSheet, ing: Dictionary) -> Dictionary:
 	var gd: GameData = s.gd
+	if not Alchemy.is_herb_entry(ing):
+		return _element_status(s, c, sh, ing)
 	var herb: Dictionary = gd.herb(str(ing.herb))
 	var need_age: float = float(ing.min_age)
 	var qty: int = int(ing.qty)
 	var label: String = "%s ≥%.0fy%s" % [herb.get("name", ing.herb), need_age, " x%d" % qty if qty > 1 else ""]
-	# Item Database Formula B: herbs of the type count by their equivalents against qty · E(min_age)
-	var need_e: float = float(qty) * ItemFactory.equivalents_at(gd, str(ing.herb), need_age)
+	# Alchemy rule 5: a main herb needs qty herbs of that herb, each at least min_age (no substitution)
+	var need_e: float = float(qty)
 	var have_e: float = 0.0
 	for i in s.db.items_of(c.id):
-		if i.kind == "herb" and int(i.get("plot", -1)) < 0 and i.template == ing.herb:
-			have_e += s.items.herb_equivalents(i)
+		if i.kind == "herb" and int(i.get("plot", -1)) < 0 and i.template == ing.herb and float(i.age) >= need_age - 1e-9:
+			have_e += 1.0
 	if have_e >= need_e - 1e-9:
 		return {"text": "%s ✓" % label, "command": "", "action": "", "ready": true}
 	var have: int = 0
@@ -488,11 +519,34 @@ static func ingredient_status(s: GameSession, c: Character, sh: StatSheet, ing: 
 			var o: Dictionary = offers[0]
 			var price: int = s.market.buy_price(c, sh, o)
 			var short: int = int(ceil(need_e - have_e - 1e-9))
-			return {"text": "%s: %.1f of %.1f equivalents held; this market sells mature ones at %d LT (%d more)" % [label, have_e, need_e, price, short],
+			return {"text": "%s: %d of %d held; this market sells mature ones at %d LT (%d more)" % [label, int(have_e), int(need_e), price, short],
 				"command": "buy %s" % o.id if c.linh_thach >= price else "", "action": "Buy %s (%d LT)" % [herb.get("name", ing.herb), price],
 				"ready": false, "price": price}
 	var est: int = market_price_estimate(s, str(ing.herb))
 	return {"text": "%s: no seeds sold; find one exploring" % label, "command": "", "action": "", "ready": false, "price": est}
+
+
+## An element-value ingredient's status (Alchemy rule 5): met by the value held; otherwise the element's basic herb is
+## planned like a main herb of mature ones, enough of them to make up the shortfall.
+static func _element_status(s: GameSession, c: Character, sh: StatSheet, ing: Dictionary) -> Dictionary:
+	var gd: GameData = s.gd
+	var el: String = str(ing.element)
+	var need: float = float(ing.value)
+	var have: float = 0.0
+	for i in s.db.items_of(c.id):
+		if i.kind == "herb" and int(i.get("plot", -1)) < 0 and ItemFactory.herb_elements(gd.herb(str(i.template))).has(el):
+			have += Alchemy.value_at(gd, str(i.template), float(i.age))
+	var label: String = Alchemy.entry_label(gd, ing)
+	if have >= need - 1e-9:
+		return {"text": "%s ✓" % label, "command": "", "action": "", "ready": true}
+	var basic: String = Alchemy.basic_herb(gd, el)
+	if basic == "":
+		return {"text": "%s: %.0f of %.0f held" % [label, have, need], "command": "", "action": "", "ready": false}
+	var t: Dictionary = gd.herb(basic)
+	var n: int = int(ceil((need - have) / maxf(float(t.get("base_value", 1)), 1e-9) - 1e-9))
+	var st: Dictionary = ingredient_status(s, c, sh, {"herb": basic, "min_age": float(t.get("mature_years", 1.0)), "qty": maxi(n, 1)})
+	st["text"] = "%s: %.0f of %.0f held; %s" % [label, have, need, str(st.text)]
+	return st
 
 
 ## The nearest known wild herb ground of [param herb_id] (Travel & Map rule 18), by straight-line tiles; {} if none.

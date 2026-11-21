@@ -308,11 +308,26 @@ func _apply(c: Character, sheet: StatSheet, rng: RandomNumberGenerator, event: D
 				return ""
 			var r2: Dictionary = Advisor.recipe_for_tag(_gd, str(_gd.realm(c.realm_index + 1).entry_requirement.item_tag))
 			for ing in r2.get("ingredients", []):
-				var have_e: float = 0.0   # counted by equivalents (Item Database Formula B)
+				if not Alchemy.is_herb_entry(ing):
+					# an element value (Alchemy rule 5): give one basic herb old enough to cover the shortfall
+					var el: String = str(ing.element)
+					var held: float = 0.0
+					for i in _db.items_of(c.id):
+						if i.kind == "herb" and ItemFactory.herb_elements(_gd.herb(str(i.template))).has(el):
+							held += Alchemy.value_at(_gd, str(i.template), float(i.age))
+					if held < float(ing.value) - 1e-9:
+						var basic: String = Alchemy.basic_herb(_gd, el)
+						if basic != "":
+							var age: float = float(_gd.herb(basic).get("mature_years", 1.0))
+							while Alchemy.value_at(_gd, basic, age) < float(ing.value) - held - 1e-9 and age < 500.0:
+								age += 1.0
+							return _give(c, _items.herb(basic, age), items)
+					continue
+				var have_n: int = 0   # a main herb: qty herbs of that herb, each at least min_age (Alchemy rule 5)
 				for i in _db.items_of(c.id):
-					if i.kind == "herb" and i.template == ing.herb:
-						have_e += _items.herb_equivalents(i)
-				if have_e < float(ing.qty) * ItemFactory.equivalents_at(_gd, str(ing.herb), float(ing.min_age)) - 1e-9:
+					if i.kind == "herb" and i.template == ing.herb and float(i.age) >= float(ing.min_age) - 1e-9:
+						have_n += 1
+				if have_n < int(ing.qty):
 					return _give(c, _items.herb(str(ing.herb), float(ing.min_age) + 1.0), items)
 			return ""
 		"treasure":

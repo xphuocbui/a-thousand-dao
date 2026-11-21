@@ -39,7 +39,8 @@ func test_bottleneck_without_pill_names_the_recipe_and_herb_progress() -> void:
 	var recipe: Dictionary = Advisor.recipe_for_tag(s.gd, str(s.gd.realm(1).entry_requirement.item_tag))
 	assert_true(str(g.text).contains(recipe.name), "names the pill: %s" % g.text)
 	for ing in recipe.ingredients:
-		assert_true(str(g.text).contains(s.gd.herb(ing.herb).name), "mentions %s: %s" % [ing.herb, g.text])
+		var name: String = s.gd.herb(str(ing.herb)).name if Alchemy.is_herb_entry(ing) else s.gd.element_name(str(ing.element))
+		assert_true(str(g.text).contains(name), "mentions %s: %s" % [name, g.text])
 	assert_true(str(g.text).contains("Without it"), "states the pill-less chance")
 
 

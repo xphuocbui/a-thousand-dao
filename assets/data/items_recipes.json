@@ -17,7 +17,10 @@
       4
     ],
     "mutated_pill": "tu_khi_dan",
-    "_doc_quality": "Item Database Formula B (2026-11-20): pill quality reads rho = equivalents put in / equivalents the recipe needs; rank q at rho >= thresholds[q] (rank 0 at the bare minimum)."
+    "_doc_quality": "Item Database Formula B (2026-11-20): pill quality reads rho = equivalents put in / equivalents the recipe needs; rank q at rho >= thresholds[q] (rank 0 at the bare minimum).",
+    "fuel_frac": 0.05,
+    "_doc_fuel": "Alchemy F2 (2026-11-21): fuel = ceil(fuel_frac x price) linh thach per brew, burned on success or failure.",
+    "_doc_ingredients": "Alchemy rule 5 (herb element rework 2026-11-21): an ingredient is either a strict main herb {herb, min_age, qty} (breakthrough recipes only: qty herbs of that herb, each at least min_age) or an element value {element, value} that any herbs listing the element fill by value (Item Database Formula B); `usual` names the herb NPC workshops source it from (Trade Goods)."
   },
   "recipes": [
     {
@@ -25,9 +28,9 @@
       "name": "Tụ Khí Đan",
       "ingredients": [
         {
-          "herb": "ngung_khi_thao",
-          "min_age": 1,
-          "qty": 2
+          "element": "moc",
+          "value": 4,
+          "usual": "ngung_khi_thao"
         }
       ],
       "difficulty": 40,
@@ -48,9 +51,9 @@
       "name": "Thanh Độc Đan",
       "ingredients": [
         {
-          "herb": "thanh_tam_lien",
-          "min_age": 3,
-          "qty": 1
+          "element": "thuy",
+          "value": 6,
+          "usual": "thanh_tam_lien"
         }
       ],
       "difficulty": 45,
@@ -70,14 +73,14 @@
       "name": "Hồi Xuân Đan",
       "ingredients": [
         {
-          "herb": "ngung_khi_thao",
-          "min_age": 1,
-          "qty": 1
+          "element": "moc",
+          "value": 2,
+          "usual": "ngung_khi_thao"
         },
         {
-          "herb": "thanh_tam_lien",
-          "min_age": 3,
-          "qty": 1
+          "element": "thuy",
+          "value": 6,
+          "usual": "thanh_tam_lien"
         }
       ],
       "difficulty": 40,
@@ -97,14 +100,14 @@
       "name": "Hoàng Long Đan",
       "ingredients": [
         {
-          "herb": "hoa_linh_chi",
-          "min_age": 10,
-          "qty": 1
+          "element": "hoa",
+          "value": 11,
+          "usual": "hoa_linh_chi"
         },
         {
-          "herb": "hoang_tinh_sam",
-          "min_age": 10,
-          "qty": 1
+          "element": "tho",
+          "value": 20,
+          "usual": "hoang_tinh_sam"
         }
       ],
       "difficulty": 60,
@@ -125,14 +128,9 @@
       "name": "Tĩnh Tâm Đan",
       "ingredients": [
         {
-          "herb": "thanh_tam_lien",
-          "min_age": 10,
-          "qty": 1
-        },
-        {
-          "herb": "bang_tam_thao",
-          "min_age": 30,
-          "qty": 1
+          "element": "thuy",
+          "value": 68,
+          "usual": "bang_tam_thao"
         }
       ],
       "difficulty": 60,
@@ -157,9 +155,9 @@
           "qty": 2
         },
         {
-          "herb": "hoa_linh_chi",
-          "min_age": 10,
-          "qty": 1
+          "element": "hoa",
+          "value": 11,
+          "usual": "hoa_linh_chi"
         }
       ],
       "difficulty": 55,
@@ -179,9 +177,9 @@
       "name": "Huyết Khí Đan",
       "ingredients": [
         {
-          "herb": "xich_huyet_dang",
-          "min_age": 20,
-          "qty": 1
+          "element": "hoa",
+          "value": 45,
+          "usual": "xich_huyet_dang"
         }
       ],
       "difficulty": 55,
@@ -208,9 +206,9 @@
           "qty": 2
         },
         {
-          "herb": "xich_huyet_dang",
-          "min_age": 18,
-          "qty": 1
+          "element": "hoa",
+          "value": 41,
+          "usual": "xich_huyet_dang"
         }
       ],
       "difficulty": 70,
@@ -230,14 +228,14 @@
       "name": "Tẩy Tủy Đan",
       "ingredients": [
         {
-          "herb": "xich_huyet_dang",
-          "min_age": 40,
-          "qty": 1
+          "element": "hoa",
+          "value": 50,
+          "usual": "xich_huyet_dang"
         },
         {
-          "herb": "bang_tam_thao",
-          "min_age": 40,
-          "qty": 1
+          "element": "thuy",
+          "value": 62,
+          "usual": "bang_tam_thao"
         }
       ],
       "difficulty": 70,
@@ -245,7 +243,7 @@
       "yield": 1,
       "xp": 150,
       "toxicity": 25,
-      "price": 2500,
+      "price": 430,
       "effect": {
         "type": "purity",
         "value": 6,
@@ -258,14 +256,14 @@
       "name": "Diên Thọ Đan",
       "ingredients": [
         {
-          "herb": "van_nien_moc_linh",
-          "min_age": 100,
-          "qty": 1
+          "element": "moc",
+          "value": 400,
+          "usual": "van_nien_moc_linh"
         },
         {
-          "herb": "kim_tuy_qua",
-          "min_age": 50,
-          "qty": 1
+          "element": "kim",
+          "value": 150,
+          "usual": "kim_tuy_qua"
         }
       ],
       "difficulty": 75,
@@ -273,7 +271,7 @@
       "yield": 1,
       "xp": 250,
       "toxicity": 5,
-      "price": 5000,
+      "price": 2140,
       "effect": {
         "type": "lifespan",
         "value": 15,
@@ -291,9 +289,9 @@
           "qty": 4
         },
         {
-          "herb": "hoa_linh_chi",
-          "min_age": 10,
-          "qty": 1
+          "element": "hoa",
+          "value": 11,
+          "usual": "hoa_linh_chi"
         }
       ],
       "difficulty": 72,
@@ -318,9 +316,9 @@
           "qty": 4
         },
         {
-          "herb": "van_nien_moc_linh",
-          "min_age": 80,
-          "qty": 1
+          "element": "moc",
+          "value": 320,
+          "usual": "van_nien_moc_linh"
         }
       ],
       "difficulty": 75,

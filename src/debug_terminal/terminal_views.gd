@@ -642,6 +642,10 @@ static func field(s: GameSession) -> Array:
 		var uses: PackedStringArray = []
 		for r in s.gd.recipes():
 			for ing in r.ingredients:
+				if not Alchemy.is_herb_entry(ing):
+					if ItemFactory.herb_elements(s.gd.herb(str(h.template))).has(str(ing.element)):
+						uses.append("%s (%s)" % [r.name, Alchemy.entry_label(s.gd, ing)])
+					continue
 				if ing.herb == h.template:
 					var left: float = s.field.years_until(c, sh, h, float(ing.min_age))
 					uses.append("%s %s" % [r.name, "READY" if left <= 0.0 else "in %.1f y" % left])
@@ -659,7 +663,7 @@ static func recipes(s: GameSession) -> Array:
 		var plan: Dictionary = s.alchemy.find_ingredients(c, r)
 		var ing: PackedStringArray = []
 		for i in r.ingredients:
-			ing.append("%dx %s>=%.0fy" % [int(i.qty), s.gd.herb(i.herb).name, float(i.min_age)])
+			ing.append(Alchemy.entry_label(s.gd, i))
 		lines.append("  %-17s %-18s lvl %d  %3.0f%%  %s  %s" % [r.id, r.name, int(r.min_level), s.alchemy.success_chance(c, sh, r).total, "HAVE" if plan.ok else "need " + ", ".join(plan.missing), "| " + str(r.desc)])
 		lines.append("      ingredients: " + ", ".join(ing))
 	return lines

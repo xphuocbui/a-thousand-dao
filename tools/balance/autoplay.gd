@@ -199,8 +199,9 @@ func _plan(s: GameSession) -> Dictionary:
 	if not recipe.is_empty():
 		for ing in recipe.ingredients:
 			var stt: Dictionary = Advisor.ingredient_status(s, c, s.sheet(), ing)
-			stt["herb"] = str(ing.herb)
-			stt["min_age"] = float(ing.min_age)
+			var hid: String = str(ing.herb) if Alchemy.is_herb_entry(ing) else Alchemy.basic_herb(gd, str(ing.element))
+			stt["herb"] = hid
+			stt["min_age"] = float(ing.get("min_age", gd.herb(hid).get("mature_years", 1.0)))
 			statuses.append(stt)
 	return {"recipe": recipe, "tag": tag, "pill": Advisor.best_pill(s, tag), "statuses": statuses}
 
@@ -432,8 +433,9 @@ func _craft(s: GameSession, st: Dictionary, plan: Dictionary) -> bool:
 func _reserved(plan: Dictionary, r: Dictionary) -> bool:
 	var plan_herbs: Array = plan.get("statuses", []).map(func(x): return x.herb)
 	for ing in r.ingredients:
-		if plan_herbs.has(ing.herb):
-			return true
+		for hid in Alchemy.entry_herbs(gd, ing):   # a main herb, or every herb of an element value
+			if plan_herbs.has(hid):
+				return true
 	return false
 
 

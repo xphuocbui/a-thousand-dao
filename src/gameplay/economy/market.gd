@@ -40,6 +40,8 @@ static func breakthrough_main_herbs(gd: GameData) -> Array:
 		var main: String = ""
 		var most: float = -1.0
 		for ing in r.ingredients:
+			if not Alchemy.is_herb_entry(ing):
+				continue   # element values are not main herbs (Alchemy rule 11)
 			var years: float = float(ing.qty) * float(ing.min_age)
 			if years > most:
 				most = years

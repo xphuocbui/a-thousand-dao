@@ -37,19 +37,17 @@ func _player_with(herbs: Array) -> Dictionary:
 	return {"gd": gd, "db": db, "c": c, "alchemy": Alchemy.new(gd, db, items)}
 
 
-func test_young_herbs_stand_in_for_old_at_a_higher_quantity() -> void:
-	# AC-ID-97: Trúc Cơ Đan needs 2 x Hoàng Tinh Sâm >= 40y (4.8 equivalents under D_y) and 1 Hỏa Linh Chi >= 10y (1.1)
+func test_the_main_herb_is_never_substituted_by_younger_ones() -> void:
+	# AC-ID-97 (revised 2026-11-21, Alchemy rules 5 and 11): Trúc Cơ Đan's main herb is 2 Hoàng Tinh Sâm, each >= 40 years,
+	# with no substitution; its companion is Fire >= 11 by value, which two mature Hỏa Linh Chi (10 each) fill
 	var recipe: Dictionary = game_data().recipe("truc_co_dan")
 	var young: Array = []
 	for i in 5:
 		young.append(["hoang_tinh_sam", 10.0])
 	var ok := _player_with(young + [["hoa_linh_chi", 5.0], ["hoa_linh_chi", 5.0]])
 	var plan: Dictionary = ok.alchemy.find_ingredients(ok.c, recipe)
-	assert_true(plan.ok, "5 mature roots and 2 mature Hỏa Linh Chi meet it: %s" % str(plan.missing))
-	assert_near(float(plan.put) / float(plan.need), 7.0 / 5.9, 0.01, "ρ 7 / 5.9")
-	var short := _player_with(young.slice(0, 4) + [["hoa_linh_chi", 5.0], ["hoa_linh_chi", 5.0]])
-	assert_false(short.alchemy.find_ingredients(short.c, recipe).ok, "4 roots fall short of 4.8")
-	var old := _player_with([["hoang_tinh_sam", 50.0], ["hoa_linh_chi", 5.0], ["hoa_linh_chi", 5.0]])
+	assert_false(plan.ok, "five 10-year roots never stand in for the main herb")
+	var old := _player_with([["hoang_tinh_sam", 40.0], ["hoang_tinh_sam", 50.0], ["hoa_linh_chi", 5.0], ["hoa_linh_chi", 5.0]])
 	var p2: Dictionary = old.alchemy.find_ingredients(old.c, recipe)
-	assert_true(p2.ok, "one 50-year root does it")
-	assert_near(float(p2.put) / float(p2.need), 6.8 / 5.9, 0.01, "ρ 6.8 / 5.9")
+	assert_true(p2.ok, "two roots of 40 and 50 years and Fire 20: %s" % str(p2.missing))
+	assert_near(float(p2.put) / float(p2.need), (48.0 + 96.0 + 20.0) / 107.0, 0.01, "ρ 164 / 107: quality rank 1")

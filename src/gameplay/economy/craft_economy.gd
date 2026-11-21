@@ -90,8 +90,10 @@ static func _build_specs(gd: GameData) -> Dictionary:
 		var a := {}
 		var tot: float = 0.0
 		for ing in r.ingredients:
-			var v: float = float(ing.qty) * ItemFactory.equivalents_at(gd, str(ing.herb), float(ing.min_age)) * float(gd.herb(str(ing.herb)).get("base_value", 1))
-			a[str(ing.herb)] = float(a.get(str(ing.herb), 0.0)) + v
+			# Alchemy rule 5: a main herb's value at min_age, or an element value sourced from its usual herb (Trade Goods)
+			var good: String = str(ing.herb) if Alchemy.is_herb_entry(ing) else str(ing.get("usual", Alchemy.basic_herb(gd, str(ing.element))))
+			var v: float = Alchemy.entry_need(gd, ing)
+			a[good] = float(a.get(good, 0.0)) + v
 			tot += v
 		for g in a:
 			a[g] = float(a[g]) / maxf(tot, 1e-9)

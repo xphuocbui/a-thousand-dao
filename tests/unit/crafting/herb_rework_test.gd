@@ -108,3 +108,89 @@ func test_basic_seeds_sold_at_every_realm() -> void:
 	for id in ["ngung_khi_thao", "thanh_tam_lien", "hoa_linh_chi", "hoang_tinh_sam", "thiet_tuyen_thao"]:
 		assert_true(ids.has(id), "%s seeds at Qi Refining" % id)
 	assert_false(ids.has("kim_tuy_qua"), "a rarity-4 multi-element herb is still gated at Qi Refining")
+
+
+# --- Step 5: recipes by element value, a strict breakthrough main herb, fuel and the designed p_brew (Alchemy) ---
+
+func _alch_with(herbs: Array, stones: int = 0) -> Dictionary:
+	var gd := game_data()
+	var db := WorldDB.new()
+	var items := ItemFactory.new(gd)
+	var c := TestFixtures.character({"hoa": 60})
+	c.linh_thach = stones
+	c.id = db.add("people", c.to_dict())
+	for h in herbs:
+		var it := items.herb(str(h[0]), float(h[1]))
+		it["owner_id"] = c.id
+		db.add("items", it)
+	return {"gd": gd, "db": db, "c": c, "items": items, "alchemy": Alchemy.new(gd, db, items)}
+
+
+func test_breakthrough_recipe_has_a_main_herb_and_a_companion_value() -> void:
+	var r: Dictionary = game_data().recipe("truc_co_dan")
+	assert_eq(r.ingredients[0], {"herb": "hoang_tinh_sam", "min_age": 40, "qty": 2}, "main herb kept as calibrated")
+	assert_eq(str(r.ingredients[1].element), "hoa", "companion by element")
+	assert_eq(int(r.ingredients[1].value), 11, "Fire >= 11")
+
+
+func test_main_herb_is_never_substituted() -> void:
+	var r: Dictionary = game_data().recipe("ngung_nguyen_dan")
+	var w := _alch_with([["kim_tuy_qua", 42.0], ["kim_tuy_qua", 30.0], ["kim_tuy_qua", 30.0], ["thiet_tuyen_thao", 1.0], ["xich_huyet_dang", 20.0]])
+	var plan: Dictionary = w.alchemy.find_ingredients(w.c, r)
+	assert_false(plan.ok, "one Kim Tủy Quả at 42 and younger ones do not make the main herb")
+	var ok := _alch_with([["kim_tuy_qua", 42.0], ["kim_tuy_qua", 45.0], ["xich_huyet_dang", 20.0]])
+	assert_true(ok.alchemy.find_ingredients(ok.c, r).ok, "two at 42 or more, and Fire 45 from the vine")
+
+
+func test_element_value_adds_up_young_herbs() -> void:
+	var r: Dictionary = game_data().recipe("hoang_long_dan")
+	var herbs: Array = [["hoa_linh_chi", 5.0], ["hoa_linh_chi", 5.0]]
+	for i in 4:
+		herbs.append(["hoang_tinh_sam", 2.5])   # value 5 each
+	var w := _alch_with(herbs)
+	var plan: Dictionary = w.alchemy.find_ingredients(w.c, r)
+	assert_true(plan.ok, "Earth 4 x 5 = 20 and Fire 2 x 10 = 20: %s" % str(plan.missing))
+	var short := _alch_with(herbs.slice(0, 5))
+	assert_false(short.alchemy.find_ingredients(short.c, r).ok, "three young roots (15) fall short of Earth 20")
+
+
+func test_multi_element_herb_fills_one_ingredient_only() -> void:
+	var r := {"id": "t", "ingredients": [{"element": "hoa", "value": 40}, {"element": "moc", "value": 40}]}
+	var w := _alch_with([["xich_huyet_dang", 20.0]])   # Fire + Wood, value 45
+	assert_false(w.alchemy.find_ingredients(w.c, r).ok, "one vine cannot fill both")
+	var w2 := _alch_with([["xich_huyet_dang", 20.0], ["xich_huyet_dang", 20.0]])
+	assert_true(w2.alchemy.find_ingredients(w2.c, r).ok, "two vines fill one each")
+
+
+func test_brew_burns_fuel_win_or_lose_and_is_refused_without_it() -> void:
+	var gd := game_data()
+	var r: Dictionary = gd.recipe("tu_khi_dan")
+	var fuel: int = int(ceil(float(gd.file("items_recipes").alchemy.fuel_frac) * float(r.price) - 1e-6))
+	var w := _alch_with([["ngung_khi_thao", 1.0], ["ngung_khi_thao", 1.0]], 100)
+	var res: Dictionary = w.alchemy.craft(w.c, StatSheet.build(w.c, gd, null, null), rng(7), "tu_khi_dan")
+	assert_true(res.ok, "brewed: %s" % str(res.get("message", "")))
+	assert_eq(w.c.linh_thach, 100 - fuel, "fuel %d burned" % fuel)
+	var broke := _alch_with([["ngung_khi_thao", 1.0], ["ngung_khi_thao", 1.0]], 0)
+	var res2: Dictionary = broke.alchemy.craft(broke.c, StatSheet.build(broke.c, gd, null, null), rng(7), "tu_khi_dan")
+	assert_false(res2.ok, "no fuel, no brew")
+	assert_eq(broke.db.items_of(broke.c.id).filter(func(i): return i.kind == "herb").size(), 2, "herbs untouched")
+
+
+func test_alchemy_success_divides_the_failure_chance() -> void:
+	var gd := game_data()
+	var w := _alch_with([])
+	w.c.skills["dan_dao"] = {"level": 5, "xp": 0.0}
+	var recipe := {"id": "t", "difficulty": 70}
+	var sh := StatSheet.build(w.c, gd, null, null)
+	var p0: float = w.alchemy.success_chance(w.c, sh, recipe).total
+	sh.add_mod("test", "alchemy_success", 20.0)
+	var p20: float = w.alchemy.success_chance(w.c, sh, recipe).total
+	var alch: float = sh.total("alchemy_success")
+	assert_eq(alch, 20.0, "no cap on alchemy_success (Character Stats rule 14)")
+	assert_near(100.0 - p20, (100.0 - p0) / (1.0 + alch / 100.0), 0.01, "failure %.2f -> %.2f divided by 1 + %.0f %%" % [100.0 - p0, 100.0 - p20, alch])
+	var easy := {"id": "e", "difficulty": 0}
+	assert_eq(w.alchemy.success_chance(w.c, sh, easy).total, 95.0, "clamped at 95")
+
+
+func test_market_never_stocks_the_four_main_herbs() -> void:
+	assert_eq(Market.breakthrough_main_herbs(game_data()), ["hoang_tinh_sam", "kim_tuy_qua", "anh_tam_lien", "hoa_than_qua"], "main herbs")
