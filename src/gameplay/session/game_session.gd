@@ -1550,6 +1550,22 @@ func sell(item_id: String) -> Dictionary:
 	return {"ok": r.ok, "lines": [r.message]}
 
 
+## NPC Traits F3: at the player's first meeting with [param npc], its attitude to the player starts at att0 (its
+## opinion of the player from traits, ties and sect, plus a quarter of the player's standing with its sect). Later
+## meetings change nothing here (Quests' attitude rules take over).
+func meet(npc: Dictionary) -> void:
+	if bool(npc.get("met_player", false)) or not gd.registry.has_file(NpcTraits.FILE):
+		return
+	npc["met_player"] = true
+	var st: float = 0.0
+	if str(npc.get("sect_id", "")) != "":
+		st = sect_members.standing(str(npc.sect_id), player.id)
+	var prec: Dictionary = db.get_record("people", player.id)
+	if prec.is_empty():
+		prec = player.to_dict()
+	npc["attitude"] = NpcTraits.att0(gd, db, npc, prec, st, int(gd.session().talk.hostile_threshold))
+
+
 ## Talks to a person at the same place (once per season each).
 func talk(npc_id: String, player_line: String) -> Dictionary:
 	var g: Dictionary = _guard(false)
@@ -1565,6 +1581,7 @@ func talk(npc_id: String, player_line: String) -> Dictionary:
 	if int(npc.get("last_talk_season", -1)) == season_index():
 		return {"ok": false, "lines": ["You already spoke with %s this season." % npc.name]}
 	npc["last_talk_season"] = season_index()
+	meet(npc)
 	var ctx: Dictionary = event_context()
 	var r: Dictionary = narrator.talk(npc, ctx, player_line, rng)
 	var cfg: Dictionary = gd.session().talk

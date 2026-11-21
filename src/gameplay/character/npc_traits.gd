@@ -91,6 +91,75 @@ static func from_authored(gd: GameData, authored: Dictionary) -> Dictionary:
 		"fate": ids.call(authored.get("fate_given", [])), "gained": []}
 
 
+## F3: person [param a]'s opinion of person [param b] (records), −100 to 100: s per shared personality trait or calling,
+## −o per opposed pair (one set's two sides, or a gained trait and its opposite, between the two people), b's bias_all,
+## a's directed regard toward b (to rivals: b's sect is at feud or war with a's; to the opposite alignment, by sect),
+## righteous people's regard for a Demon-seeded b, the ties (master or disciple, own sect head; NPC Relationships adds
+## the rest), the sect term (same sect +10; between NPCs of two sects 0.2 x a's sect's attitude to b's; toward the
+## player only the same-sect +10), and a targeted gained trait of a's naming b (Grudge −50, Lovestruck +50).
+static func opinion(gd: GameData, db: WorldDB, a: Dictionary, b: Dictionary) -> float:
+	var cat := catalogue(gd)
+	var c: Dictionary = gd.file(FILE).get("opinion", {})
+	var ta: Dictionary = a.get("npc_traits", {})
+	var tb: Dictionary = b.get("npc_traits", {})
+	var pa: Array = ta.get("personality", [])
+	var pb: Array = tb.get("personality", [])
+	var n_sh: int = pa.filter(func(x): return pb.has(x)).size()
+	if str(ta.get("calling", "")) != "" and str(ta.get("calling", "")) == str(tb.get("calling", "")):
+		n_sh += 1
+	var n_op: int = 0
+	for x in pa:
+		for y in pb:
+			if x != y and int(cat.by_id.get(x, {}).get("set", -1)) == int(cat.by_id.get(y, {}).get("set", -2)):
+				n_op += 1
+	var ga: Array = Array(ta.get("gained", [])).map(func(e): return str(e.get("id", "")))
+	var gb: Array = Array(tb.get("gained", [])).map(func(e): return str(e.get("id", "")))
+	for x in ga:
+		for y in gb:
+			if str(cat.by_id.get(x, {}).get("opposed", "")) == y:
+				n_op += 1
+	var op: float = float(c.get("s", 10)) * n_sh - float(c.get("o", 10)) * n_op
+	var sa: Dictionary = db.get_record("sects", str(a.get("sect_id", ""))) if db != null else {}
+	var sb: Dictionary = db.get_record("sects", str(b.get("sect_id", ""))) if db != null else {}
+	var al_a: String = str(sa.get("alignment", ""))
+	var al_b: String = str(sb.get("alignment", ""))
+	var opposite: bool = (al_a == "chinh" and al_b == "ma") or (al_a == "ma" and al_b == "chinh")
+	var rival: bool = not sa.is_empty() and not sb.is_empty() and ["feud", "war"].has(str(sa.get("relation", {}).get(str(sb.id), "")))
+	for id in held(b):
+		var rg: Dictionary = cat.by_id.get(str(id), {}).get("regard", {})
+		op += float(rg.get("bias_all", 0.0))
+		if rg.has("bias_dir") and str(rg.get("toward", "")).contains("righteous") and al_a == "chinh":
+			op += float(rg.bias_dir)
+	for id in held(a):
+		var rg: Dictionary = cat.by_id.get(str(id), {}).get("regard", {})
+		if not rg.has("bias_dir"):
+			continue
+		var tw: String = str(rg.get("toward", ""))
+		if (tw.contains("rival") and rival) or (tw.contains("opposite") and opposite):
+			op += float(rg.bias_dir)
+	var tie: Dictionary = c.get("tie", {})
+	if str(a.get("master_id", "")) == str(b.get("id", "?")) or str(b.get("master_id", "")) == str(a.get("id", "?")):
+		op += float(tie.get("master", 30))
+	if not sb.is_empty() and str(sb.get("leader_id", "")) == str(b.get("id", "?")) and str(a.get("sect_id", "")) == str(sb.id):
+		op += float(tie.get("own_head", 15))
+	if not sa.is_empty() and str(sa.id) == str(sb.get("id", "?")):
+		op += float(c.get("sect_same", 10))
+	elif not sa.is_empty() and not sb.is_empty() and not bool(a.get("is_player", false)) and not bool(b.get("is_player", false)):
+		op += float(c.get("sect_k", 0.2)) * float(sa.get("attitude", {}).get(str(sb.id), 0.0))
+	for e in ta.get("gained", []):
+		if str(e.get("target", "")) != "" and str(e.target) == str(b.get("id", "?")):
+			op += float(cat.by_id.get(str(e.id), {}).get("regard", {}).get("target", 0.0))
+	return clampf(op, -100.0, 100.0)
+
+
+## F3's att0: an NPC's starting attitude to the player at their first meeting, from the NPC's opinion of the player and
+## the player's standing with the NPC's sect; clamped to [hostile_threshold + 1, att0_max].
+static func att0(gd: GameData, db: WorldDB, npc: Dictionary, player: Dictionary, standing: float, hostile_threshold: int) -> int:
+	var c: Dictionary = gd.file(FILE).get("opinion", {})
+	var v: float = roundf(opinion(gd, db, npc, player) + float(c.get("k_st", 0.25)) * standing)
+	return clampi(int(v), hostile_threshold + 1, int(c.get("att0_max", 30)))
+
+
 ## Rules 11-13 and F6: grants (or refreshes) gained trait [param id] to [param person] in season [param now], expiring
 ## fade_seasons later. A held one is refreshed; an opposed gained trait is replaced when the new one's grade is at least
 ## its own; with both slots full the oldest of grade at most the new one's goes; else the grant is refused. Returns

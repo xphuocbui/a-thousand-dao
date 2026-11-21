@@ -165,3 +165,33 @@ func test_catalogue_data_checks() -> void:
 		assert_eq(float(by[id].pulls.rebel_odds), 0.8, "AC-NTC-08 %s" % id)
 	for id in ["cautious", "content"]:
 		assert_eq(float(by[id].pulls.rebel_odds), 1.3, "AC-NTC-08 %s" % id)
+
+
+func test_f3_example_starting_attitude() -> void:
+	# F3's example: a Brave, Vengeful, Devout (chính) NPC meets a Brave, Forgiving, Humble, ma-aligned player with
+	# standing −20: +10 (Brave shared) − 10 (Vengeful against Forgiving) + 5 (Humble) − 10 (Devout to the opposite
+	# alignment) − 5 (a quarter of the standing) = −10
+	var gd := game_data()
+	var db := WorldDB.new()
+	db.put("sects", {"id": "s1", "alignment": "chinh", "attitude": {}, "relation": {}, "leader_id": ""})
+	db.put("sects", {"id": "s2", "alignment": "ma", "attitude": {}, "relation": {}, "leader_id": ""})
+	var npc := {"id": "p1", "sect_id": "s1", "npc_traits": {"personality": ["brave", "vengeful", "devout"], "calling": "", "fate": [], "gained": []}}
+	var pl := {"id": "p2", "sect_id": "s2", "is_player": true, "npc_traits": {"personality": ["brave", "forgiving", "humble"], "calling": "", "fate": [], "gained": []}}
+	assert_eq(NpcTraits.opinion(gd, db, npc, pl), -5.0, "opinion before standing")
+	assert_eq(NpcTraits.att0(gd, db, npc, pl, -20.0, -30), -10, "att0")
+	# traits alone never make a stranger hostile: the floor is the hostile threshold + 1
+	npc.npc_traits.gained = [{"id": "grudge", "expires": 99, "target": "p2"}]
+	assert_eq(NpcTraits.att0(gd, db, npc, pl, -100.0, -30), -29, "the floor")
+
+
+func test_f3_example_master_and_disciple() -> void:
+	# a Brave master and a Brave disciple in different sects: 10 + 30 = 40 (50 in the same sect)
+	var gd := game_data()
+	var db := WorldDB.new()
+	db.put("sects", {"id": "s1", "alignment": "trung", "attitude": {"s2": 0.0}, "relation": {}, "leader_id": ""})
+	db.put("sects", {"id": "s2", "alignment": "trung", "attitude": {"s1": 0.0}, "relation": {}, "leader_id": ""})
+	var m := {"id": "p1", "sect_id": "s1", "npc_traits": {"personality": ["brave"], "calling": "", "fate": [], "gained": []}}
+	var d := {"id": "p2", "sect_id": "s2", "master_id": "p1", "npc_traits": {"personality": ["brave"], "calling": "", "fate": [], "gained": []}}
+	assert_eq(NpcTraits.opinion(gd, db, m, d), 40.0, "different sects")
+	d.sect_id = "s1"
+	assert_eq(NpcTraits.opinion(gd, db, m, d), 50.0, "same sect")

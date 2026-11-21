@@ -2111,5 +2111,20 @@
    "pulls": {}
   }
  ],
- "fade_seasons": 40
+ "fade_seasons": 40,
+ "opinion": {
+  "_doc": "F3 opinion and att0 (design/gdd/npc-traits.md F3). s, o: shared and opposed weights; tie: master or disciple, kin, Dao companion, own sect head; sect_same: same sect; sect_k: share of the sects' attitude between NPCs of different sects; k_st: weight of the player's standing; att0_max: ceiling at a first meeting (the floor is the hostile threshold + 1).",
+  "s": 10,
+  "o": 10,
+  "tie": {
+   "master": 30,
+   "kin": 30,
+   "companion": 50,
+   "own_head": 15
+  },
+  "sect_same": 10,
+  "sect_k": 0.2,
+  "k_st": 0.25,
+  "att0_max": 30
+ }
 }

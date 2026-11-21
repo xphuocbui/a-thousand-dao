@@ -15,6 +15,8 @@ import unicodedata
 SRC = "design/gdd/npc-traits-catalogue.md"
 OUT = "assets/data/traits.json"
 MINUS = "−"
+# F3's constants (npc-traits.md F3 Variables), carried in the data file for the engine
+OPINION = {"_doc": "F3 opinion and att0 (design/gdd/npc-traits.md F3). s, o: shared and opposed weights; tie: master or disciple, kin, Dao companion, own sect head; sect_same: same sect; sect_k: share of the sects' attitude between NPCs of different sects; k_st: weight of the player's standing; att0_max: ceiling at a first meeting (the floor is the hostile threshold + 1).", "s": 10, "o": 10, "tie": {"master": 30, "kin": 30, "companion": 50, "own_head": 15}, "sect_same": 10, "sect_k": 0.2, "k_st": 0.25, "att0_max": 30}
 
 
 def slug(name):
@@ -163,7 +165,8 @@ def main():
     text = open(SRC, encoding="utf-8").read()
     codes = stat_codes(text)
     out = {"schema_version": 1, "_doc": "Built by tools/design/traits/export_traits.py from design/gdd/npc-traits-catalogue.md (NPC Traits #42); do not edit by hand. Stat values are in the stat's own units (percent, points or pp, as the key reads them). pulls: the Sects F15 pulls the engine reads; notes: pulls kept as text (event weights and such, read by later systems).",
-           "personality": [], "callings": [], "calling_weights": {}, "fate": [], "gained": [], "fade_seasons": 40}
+           "personality": [], "callings": [], "calling_weights": {}, "fate": [], "gained": [], "fade_seasons": 40,
+           "opinion": OPINION}
     # personality
     sec = section(text, "## Personality")
     set_no = 0
