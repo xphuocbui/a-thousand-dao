@@ -778,7 +778,7 @@ The herb_growth formula is defined as: `growth = g_max · fit` when `fit ≥ pla
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| s'_e | float | 0–100+ | calculated (B) | The place's share of the herb's element, layer pushes included |
+| s'_e | float | 0–100+ | calculated (B) | The place's share of the herb's element, layer pushes included; for a multi-element herb, the largest share among its elements (herb element rework, user decision 2026-11-21; `production/plans/herb-element-rework.md`) |
 | e_floor, s_full | float | 0.3; 40 (20 for a variant) | data file (`elem_floor`, `elem_full_share`) | A herb off its element still grows a little |
 | T, R | float | 0–100 | calculated (land) | Temperature and rainfall indexes |
 | T_i, R_i, tol, fall | float | per herb; tol 10–20, fall 30 | data file (new herb keys `temp_ideal`, `temp_tol`, `rain_ideal`, `rain_tol`) | The herb's ideal climate band |

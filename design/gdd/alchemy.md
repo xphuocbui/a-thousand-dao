@@ -145,7 +145,7 @@ The recipe_price formula is defined as:
 | Tẩy Tủy Đan | Fire 50 + Water 62 = 112 | 6.06 (2,500) | **430** | 1.80 |
 | Diên Thọ Đan | Wood 400 + Metal 150 = 550 | 3.51 (5,000) | **2,140** | 1.80 |
 
-The other nine recipes sit at 0.86–3.16 with fuel; those above 2.5 earn under `margin_warn_profit` (600) a brew, so the lint does not warn. Trúc Cơ Đan's 0.86 is allowed: it is for one's own use.
+The other nine recipes sit at 0.86–3.16 with fuel; those above 2.5 earn under `margin_warn_profit` (600) a brew, so the lint does not warn. Trúc Cơ Đan's margin is 1.74 under the re-tuned curve (its Earth 96, Formulas F5).
 
 ### F5. Breakthrough recipes as element values (rule 11)
 
@@ -153,12 +153,12 @@ The breakthrough_values formula is defined as: `V_e = Σ qty × base_value × E(
 
 | Pill | Element values |
 |---|---|
-| Trúc Cơ Đan (FE) | Earth ≥ 224, Fire ≥ 11 |
+| Trúc Cơ Đan (FE) | Earth ≥ 96, Fire ≥ 11 |
 | Ngưng Nguyên Đan (CF) | Metal ≥ 252, Fire ≥ 41 |
 | Hóa Anh Đan (NS) | Water ≥ 3,600, Fire ≥ 11 |
 | Hóa Thần Đan (DT) | Fire ≥ 12,000, Wood ≥ 320 |
 
-**Provisional, blocking implementation (CD-GDD-ALIGN 2026-11-21).** **These values are fair only once Item Database re-tunes Formula B per basic herb** (`production/plans/herb-element-rework.md`). With today's curve, Water 3,600 from the basic Water herb (Thanh Tâm Liên, mature at 3) is reached by one lotus about 21 years old, where the old recipe needed Anh Tâm Liên at 60. The Realms Formula D re-run follows that re-tune.
+**Provisional, blocking implementation (CD-GDD-ALIGN 2026-11-21).** **These values are fair only once Item Database re-tunes Formula B per basic herb** (`production/plans/herb-element-rework.md`). The re-tune is decided (Item Database Formula B's effective knee and doubling, K_y 30, D_y 10 years; 2026-11-21), and these values are computed under it: only Trúc Cơ Đan changes (Earth 224 → 96, as Hoàng Tinh Sâm's doubling became 10 years). Water 3,600 now takes the basic lotus about 113 years, while the multi-element Anh Tâm Liên still meets it at 60, as the calibrated recipe did. The Realms Formula D re-run remains owed.
 
 ### F6. Mastery
 
@@ -291,7 +291,7 @@ All of these work in the debug terminal first, with numbered menus.
 **Formulas and data**
 
 - **AC-AL-12** [Config] F4. **GIVEN** the shipped recipes, **THEN** Ngưng Nguyên Đan is 1,140, Tẩy Tủy Đan 430 and Diên Thọ Đan 2,140, each with margin 1.80 (±0.02) including fuel, and no recipe above 2.5 earns `margin_warn_profit` or more a brew.
-- **AC-AL-13** [Config] F5. **GIVEN** the shipped breakthrough recipes, **THEN** their element values are Earth 224 + Fire 11, Metal 252 + Fire 41, Water 3,600 + Fire 11, and Fire 12,000 + Wood 320.
+- **AC-AL-13** [Config] F5. **GIVEN** the shipped breakthrough recipes, **THEN** their element values are Earth 96 + Fire 11, Metal 252 + Fire 41, Water 3,600 + Fire 11, and Fire 12,000 + Wood 320.
 
 **Cross-system**
 
@@ -309,9 +309,9 @@ All of these work in the debug terminal first, with numbered menus.
 
 | # | Question | Owner | Resolve by |
 |---|---|---|---|
-| 1 | Item Database re-tunes Formula B per basic herb (or in years) so no short-lived herb explodes in value; then the breakthrough values (F5) are re-checked | Item Database; user | Herb rework |
+| 1 | **Decided 2026-11-21:** Item Database's effective knee and doubling (K_y 30, D_y 10 years); F5 recomputed under it. The Realms re-run (question 2) remains | Item Database; user | Done |
 | 2 | Realms Formula D re-run for value-form recipes; does the player edge (0.70/0.70/0.30/0.20) hold? Also re-check `M_market ≈ 0` now that Ngưng Nguyên Đan costs 1,140 instead of 3,000 | Realms; Balance Harness | After 1 |
 | 3 | Back-links owed: Trade Goods (prices, value-form lint, NPC fuel, band moves), Regional Economy (`burn_craft`), Sects (kind pills), Realms | user | After this GDD |
-| 4 | The catalogue: which five current herbs become multi-element herbs, which are retired; more recipes for multi-element herbs | user | Herb rework |
+| 4 | **Closed 2026-11-21:** six multi-element herbs (Xích Huyết Đằng Fire+Wood, Băng Tâm Thảo Water+Metal, Kim Tủy Quả Metal+Earth, Vạn Niên Mộc Linh Wood+Earth, Anh Tâm Liên Water+Wood, Hóa Thần Quả Fire+Metal); new recipes for them are content work | user | Done |
 | 5 | `fuel_frac` (0.05) and the sink size: is crafting fuel worth keeping as a sink, or only as a cost? | Balance Harness | Harness pass |
 | 6 | Code lags the design: `alchemy_success` is added linearly in `alchemy.gd`; recipes are named-herb in `items_recipes.json` | implementer | Before implementation |

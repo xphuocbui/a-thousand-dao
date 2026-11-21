@@ -1,14 +1,16 @@
 # Plan: herb element rework (decided 2026-11-21, during /design-system alchemy)
 
-Status: **decided; amendments owed.** Alchemy (`design/gdd/alchemy.md`) carries the recipe side now. The rest is
-applied after the Spirit Herbs review loop finishes (that loop must not have its file edited mid-run).
+Status: **decided; amendments applied 2026-11-21** (Realms re-run and data still owed). Alchemy (`design/gdd/alchemy.md`) carries the recipe side; Item Database, Trade Goods, Spirit Herbs, Travel & Map,
+Regional Economy, Sects and Realms carry the rest.
 
 ## The user's decisions (2026-11-21)
 
-1. **Five basic herbs, one per element**, reusing the five existing low-rarity herbs: Ngưng Khí Thảo (Wood),
-   Thanh Tâm Liên (Water), Hỏa Linh Chi (Fire), Hoàng Tinh Sâm (Earth), Kim Tủy Quả (Metal). There are also
-   **multi-element herbs** (some herbs with two or more elements); the other five current herbs become multi-element
-   herbs or are retired, decided with the catalogue.
+1. **Five basic herbs, one per element**: Ngưng Khí Thảo (Wood), Thanh Tâm Liên (Water), Hỏa Linh Chi (Fire),
+   Hoàng Tinh Sâm (Earth) and **Thiết Tuyến Thảo (Metal)**, Trade Goods' Metal fallback (corrected 2026-11-21: Kim Tủy Quả
+   is the rare Metal + Earth herb). Six multi-element herbs: Xích Huyết Đằng Fire+Wood, Băng Tâm Thảo Water+Metal,
+   Kim Tủy Quả Metal+Earth, Vạn Niên Mộc Linh Wood+Earth, Anh Tâm Liên Water+Wood, Hóa Thần Quả Fire+Metal.
+   Formula B gains an effective knee and doubling in years (K_y 30, D_y 10). Basic seeds sell at every realm; a
+   multi-element herb's fit reads its largest element share (Travel & Map Formula G).
 2. **No tier grid: a herb's worth is its value from age**, Item Database Formula B (`base_value × E(age / mature_years)`,
    linear to maturity, a plateau, then doubling past the knee: the 2026-11-20 curve is kept).
 3. **Recipes ask for element value**: an ingredient is "element ≥ V". Any herbs of that element add up by value, so

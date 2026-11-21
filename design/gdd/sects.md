@@ -904,6 +904,7 @@ earns contribution faster than a sect's stock refills). Each needs the 400-seaso
 | Event Engine (#23) and LLM Game Master (#29) | Soft | Event outcomes that move attitude, loyalty and standing, within budgets | No | — |
 | Market (#20) | Soft | Item prices, `linh_thach_max` | No | — |
 | Formations (#17) | Soft | Sect-owned arrays (teleport, protective, standing at the seat) use Formations' array record; sects teach combat diagrams. The seat's `def` 1.2 "Formations bonus" stays Sects' number until Formations Open Question 7 settles whether seat arrays feed it | Yes (`design/gdd/formations.md`, designed 2026-11-21) | Yes |
+| Alchemy (#15) | Soft | Pills for the kind stipend come from workshops brewing Alchemy's recipes (Trade Goods' kind share) | Yes (`design/gdd/alchemy.md`, designed 2026-11-21) | Yes |
 | Cave Abode & Home Works (#47) | Soft | The abode's active works and grade for the `seat_density` check (rule 29) | Yes (`design/gdd/cave-abode.md`, designed 2026-11-21) | Yes |
 
 **Downstream (they read this system)**

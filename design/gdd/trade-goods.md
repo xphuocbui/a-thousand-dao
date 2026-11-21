@@ -174,7 +174,7 @@ guards the profit. "Land" names the matching biomes or features (Travel & Map ru
 fit (Travel & Map rule 18). Specialty status is **computed** (Formula C); "likely specialty" is only an expectation from
 how narrow the land is.
 
-**Herbs** (site: herb ground; weight 1 each)
+**Herbs** (site: herb ground; weight 1 each). *(herb element rework, user decision 2026-11-21; `production/plans/herb-element-rework.md`: the five fallbacks are the **basic herbs**, one per element; the other six are **multi-element herbs**, with elements as below.)*
 
 | id | Name | Element | Rarity | V | Land | Status | Likely specialty |
 |---|---|---|---|---|---|---|---|
@@ -183,12 +183,12 @@ how narrow the land is.
 | hoa_linh_chi | Hỏa Linh Chi (fire lingzhi) | Fire | 2 | 10 | Volcano edge, desert, jungle | existing; Fire fallback | no |
 | hoang_tinh_sam | Hoàng Tinh Sâm (yellow-essence ginseng) | Earth | 2 | 20 | Highland, steppe | existing; Earth fallback | no |
 | thiet_tuyen_thao | Thiết Tuyến Thảo (iron-thread grass) | Metal | 1 | 3 (mature 1 year) | High mountain, salt flats, bamboo forest | **new**; Metal fallback | no |
-| xich_huyet_dang | Xích Huyết Đằng (red-blood vine) | Fire | 3 | 45 | Jungle, volcano | existing | maybe |
-| bang_tam_thao | Băng Tâm Thảo (ice-heart grass) | Water | 3 | 60 | Tundra, glacier edge | existing | maybe |
-| kim_tuy_qua | Kim Tủy Quả (golden-marrow fruit) | Metal | 4 | 150 | High mountain with an ore vein | existing | yes |
-| van_nien_moc_linh | Vạn Niên Mộc Linh (myriad-year wood spirit) | Wood | 5 | 400 | Old temperate forest, high density | existing | yes |
-| anh_tam_lien | Anh Tâm Liên (nascent-heart lotus) | Water | 5 | 900 | Lake at a spirit vein | existing | yes |
-| hoa_than_qua | Hóa Thần Quả (deity-transformation fruit) | Fire | 6 | 3,000 | Volcano at a lava vent, very high density | existing | yes |
+| xich_huyet_dang | Xích Huyết Đằng (red-blood vine) | Fire + Wood | 3 | 45 | Jungle, volcano | existing | maybe |
+| bang_tam_thao | Băng Tâm Thảo (ice-heart grass) | Water + Metal | 3 | 60 | Tundra, glacier edge | existing | maybe |
+| kim_tuy_qua | Kim Tủy Quả (golden-marrow fruit) | Metal + Earth | 4 | 150 | High mountain with an ore vein | existing | yes |
+| van_nien_moc_linh | Vạn Niên Mộc Linh (myriad-year wood spirit) | Wood + Earth | 5 | 400 | Old temperate forest, high density | existing | yes |
+| anh_tam_lien | Anh Tâm Liên (nascent-heart lotus) | Water + Wood | 5 | 900 | Lake at a spirit vein | existing | yes |
+| hoa_than_qua | Hóa Thần Quả (deity-transformation fruit) | Fire + Metal | 6 | 3,000 | Volcano at a lava vent, very high density | existing | yes |
 
 **Ores** (site: mine; resource kind: element ore; weight 5 each)
 
@@ -241,7 +241,7 @@ A crafted class uses #43's market states: a crafted class in shortage makes the 
 | Travel & Map (#25) | in / out | In: site kind, element, biome, density, herb fit, top rarity. Out: the site yield table and the contract's `by_good` split |
 | Item Database | in / out | In: templates, values, the rarity ladder. Out: the `trade` block (`good_class`, `weight`, `source`), the crafted-origin rule, and a revised `pill_margin` lint (raw buy at 1.10, not 1.5) |
 | Market (#20) | out | Named goods on shelves; the scarcity factor in shop prices |
-| Alchemy, Artifact Refining, Talismans | in / out | In: recipes (a crafted class's inputs). Out: the craft plan as NPC workshop output |
+| Alchemy, Artifact Refining, Talismans | in / out | In: recipes (a crafted class's inputs). Out: the craft plan as NPC workshop output; Alchemy's recipes are by element value and each brew pays fuel (`design/gdd/alchemy.md`, 2026-11-21) |
 | Sects & Missions (#26) | out | Workshop output; kind stipends in pills; Military's crafted demand |
 | Codex (#12) | out | Discovered specialties (Discover setting) |
 | Game UI (#37) | out | The scarcity line in the price breakdown; specialty map markers |
@@ -580,7 +580,7 @@ sale (allowed for recipes meant for one's own use).
 **Example** (at ps_mean 1): the shipped Ngưng Nguyên Đan 5.38 (+1,466 a brew), Tẩy Tủy Đan 9.74 (+1,346) and Diên Thọ Đan
 4.96 (+2,395) warn. **Decided 2026-11-14 (user): raise their inputs and keep their prices**: Ngưng Nguyên 4 Kim Tủy Quả at
 age 84 + 1 Xích Huyết Đằng at 18 (**1.73**: inputs 4 × 225 + 45 = 945, 0.6 · 3,000 / (1.10 · 945); an earlier 1.89 priced Kim Tủy Quả at `herb_value(84)`); Tẩy Tủy 4 Xích Huyết Đằng at 80 + 3 Băng Tâm Thảo at 120 (**1.89**); Diên
-Thọ 2 Vạn Niên Mộc Linh at 200 + 1 Kim Tủy Quả at 100 (**1.91**). Tụ Khí Đan 3.27 (+10), Thanh Độc Đan 3.64 (+17) and Hoàng
+Thọ 2 Vạn Niên Mộc Linh at 200 + 1 Kim Tủy Quả at 100 (**1.91**). **Superseded 2026-11-21 (user, Alchemy rule 12):** the three keep their built ingredients, now as element values, and their prices fall instead: Ngưng Nguyên 1,140, Tẩy Tủy 430, Diên Thọ 2,140 (margin 1.80 with fuel, Alchemy F4; provisional until the Realms re-run). The lint reads ingredient values and includes the brew fuel (5 % of the price, Alchemy F2); Ngưng Nguyên and Tẩy Tủy move down one `pill_band_edges` band. Tụ Khí Đan 3.27 (+10), Thanh Độc Đan 3.64 (+17) and Hoàng
 Long Đan 2.81 (+70) are above 2.5 but earn too little to warn, so with the revised recipes no recipe warns. Herbs older
 than `mature_years` are never on a shelf (rule 10): they come from wild gathering (Formula K) or fields, and the lint
 prices them at their held value, as a craft that uses them consumes that value.

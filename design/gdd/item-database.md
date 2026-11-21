@@ -396,7 +396,7 @@ The rarity formula is defined as:
 The herb_equivalent formula is defined as (x = age / `mature_years`):
 
 `E(x) = x` for 0 ≤ x ≤ 1 · `E(x) = 1 + s · (x − 1)` for 1 < x ≤ x_k · `E(x) = E_k · 2^((x − x_k) / d)` for x > x_k, with
-`E_k = 1 + s · (x_k − 1)`
+`E_k = 1 + s · (x_k − 1)`. **Effective knee and doubling** (herb element rework, user decision 2026-11-21; `production/plans/herb-element-rework.md`): `x_k` and `d` here are `x_k,eff = max(x_k, K_y / mature_years)` and `d_eff = max(d, D_y / mature_years)`, so a short-lived herb's knee and doubling are measured in years and it cannot compound within a few years of planting; a long-lived herb (Kim Tủy Quả and up) keeps `x_k` and `d`.
 
 The herb_value formula is defined as:
 
@@ -412,6 +412,7 @@ The herb_value formula is defined as:
 | s | float | 0.1 (safe 0–0.5) | data file *(guess)* | Slope of the plateau; below 1, harvesting at maturity and replanting beats waiting |
 | x_k | float | 3 (safe 2–5) | data file *(guess)* | The knee, in mature-ages, where old herbs start to compound |
 | d | float | 0.45 (safe 0.3–1.5) | data file *(guess)* | Mature-ages per doubling past the knee |
+| K_y, D_y | float | 30, 10 years | data file *(guess; 2026-11-21)* | The least knee age and the least doubling time in years (effective knee and doubling) |
 | base_value | int | 2–3,000 | data file | Value at maturity |
 
 **Output Range:** E is 0 at planting, 1 at maturity, 1.2 at the knee, then has no ceiling (user decision 2026-11-20: a
@@ -420,20 +421,16 @@ Planted (rule 15; Trade Goods rule 10). A wild-gathered herb is at age `mature_y
 it counts as E(2^j); market pools and shelves hold herbs at `mature_years` only.
 **Why the shape:** a plot that harvests at maturity and replants earns 1 mature herb per mature-age, while a standing
 herb earns `s` on the plateau, so farmers, the commons and the market harvest at maturity. Past the knee a held herb
-overtakes the harvests it gave up at about 3.7 mature-ages and then doubles every `d`.
+overtakes the harvests it gave up at about 3.7 mature-ages and then doubles every `d_eff`.
 **Example:** Hoàng Tinh Sâm (mature 10, base 20): age 5 gives E 0.5, value **10**; age 10 gives 1, value **20**; age 30
-gives 1.2, value **24**; age 40 gives 5.6, value **112**; age 60 gives 121.9, value **2,438**. Kim Tủy Quả (mature 50,
+gives 1.2, value **24**; age 40 gives 2.4, value **48**; age 60 gives 9.6, value **192** (its doubling is 10 years under `D_y`; it was 112 and 2,438 before 2026-11-21). Kim Tủy Quả (mature 50,
 base 150) at age 42 gives 0.84, value **126**.
 
-**Herbs count by equivalents in recipes** (user decision 2026-11-20). A recipe ingredient "q × herb ≥ min_age" needs
-herbs of that type whose equivalents add up to `q · E(min_age / mature_years)`: any mix of young and old herbs of the
-type, so younger herbs stand in at a much higher quantity. Herbs are used oldest first, and none is split.
-**Pill quality** reads `ρ = Σ E put in / Σ q · E(min_age)` over the recipe's ingredients: rank 0 at ρ 1, rank 1 at 1.5,
-rank 2 at 2.5, rank 3 at 4 *(guesses; replaces the mean-potency thresholds 0 / 1.5 / 2.5 / 3.5)*, so putting in older or
-extra herbs raises it.
-**Example:** Trúc Cơ Đan needs 2 × Hoàng Tinh Sâm ≥ 40y = 2 · 5.6 = 11.2 equivalents: 12 market roots at age 10, two
-40-year roots, or one 50-year root (E 26.1); and 1 Hỏa Linh Chi ≥ 10y (mature 5: twice mature, on the plateau, E 1.1):
-two mature ones, since no herb is split.
+**Herbs count by element value in recipes** (herb element rework, user decision 2026-11-21; `production/plans/herb-element-rework.md`; Alchemy rule 5). A recipe ingredient is "element ≥ V": herbs of that element whose `herb_value`s add up to V, any mix of ages, so younger herbs stand in at a higher quantity; a multi-element herb fills one ingredient of one of its elements at its full value, and none is split.
+**Pill quality** reads `ρ = Σ value put in / Σ V` over the recipe's ingredients (Alchemy F3): rank 0 at ρ 1, rank 1 at 1.5, rank 2 at 2.5, rank 3 at 4 *(guesses)*, so putting in older or extra herbs raises it.
+**Example:** Trúc Cơ Đan needs Earth ≥ 96 and Fire ≥ 11 (Alchemy F5): two Hoàng Tinh Sâm at 40 (48 each), five mature roots (20 each) or one root at 60 (192); and two mature Hỏa Linh Chi (10 each), since no herb is split.
+
+**Herb catalogue** (herb element rework, user decision 2026-11-21; `production/plans/herb-element-rework.md`). A herb's `element` is a list. Five **basic herbs**, one per element: Ngưng Khí Thảo (Wood), Thanh Tâm Liên (Water), Hỏa Linh Chi (Fire), Hoàng Tinh Sâm (Earth) and Thiết Tuyến Thảo (Metal, Trade Goods' new Metal fallback). Six **multi-element herbs**: Xích Huyết Đằng (Fire + Wood), Băng Tâm Thảo (Water + Metal), Kim Tủy Quả (Metal + Earth), Vạn Niên Mộc Linh (Wood + Earth), Anh Tâm Liên (Water + Wood) and Hóa Thần Quả (Fire + Metal); their base values and rarities are unchanged.
 
 ### C. Pill value and margin
 

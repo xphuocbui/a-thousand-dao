@@ -885,14 +885,18 @@ formulas:
     referenced_by:
       - design/gdd/item-database.md
       - design/gdd/trade-goods.md
+      - design/gdd/alchemy.md
     variables:
       - base_value
-      - herb_potency
+      - E
+      - K_y
+      - D_y
     output_range: "1 upward"
-    expression: "max(1, round(base_value*herb_potency))"
-    notes: "Built."
+    # was (2026-11-06): max(1, round(base_value*herb_potency)); replaced by the equivalents curve (2026-11-20) and the effective knee and doubling (2026-11-21, herb element rework)
+    expression: "max(1, round(base_value * E(age/mature_years))); E linear to 1, plateau 1 + s(x-1) to x_k,eff, then E_k * 2^((x - x_k,eff)/d_eff); x_k,eff = max(x_k 3, K_y 30 / mature_years), d_eff = max(d 0.45, D_y 10 / mature_years)"
+    notes: "Item Database Formula B. Recipes count herbs by element value (Alchemy rule 5)."
     added: 2026-11-06
-    revised: ""
+    revised: 2026-11-21
   - name: pill_value
     status: active
     source: design/gdd/item-database.md
@@ -5946,7 +5950,7 @@ constants:
     referenced_by:
       - design/gdd/alchemy.md
       - design/gdd/canh-gioi.md
-    value: "FE Earth 224 + Fire 11; CF Metal 252 + Fire 41; NS Water 3,600 + Fire 11; DT Fire 12,000 + Wood 320"
+    value: "FE Earth 96 + Fire 11; CF Metal 252 + Fire 41; NS Water 3,600 + Fire 11; DT Fire 12,000 + Wood 320"
     unit: element value (Item Database Formula B) per breakthrough recipe
     notes: "Alchemy F5 (herb element rework 2026-11-21): translated from the calibrated herb recipes. Provisional, blocking implementation until Item Database re-tunes Formula B per basic herb and Realms Formula D is re-run."
     added: 2026-11-21
