@@ -56,6 +56,10 @@ Measured with `tools/balance/autoplay.gd` (`--edge off` = baseline, `--edge on` 
 
 A life created with `edge: false` (balance baseline) gets none of the four.
 
+**Successors (Codex & Karmic Carryover #12, 2026-11-21):** in Continue mode every successor, heir or reborn, picks a
+destiny perk from `3 + perk_extra` options (karma) and has parts 3 and 4 from then on; only a reborn also receives
+part 2's two Phá Cảnh Phù. An heir keeps the dead life's birth mode (`codex-karmic-carryover.md` rule 5).
+
 ## NPC edges
 
 Each NPC gets an edge score e in [0, 1] from sources in character_edges.json → `npc`:

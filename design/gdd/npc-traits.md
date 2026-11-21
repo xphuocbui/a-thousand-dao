@@ -469,6 +469,7 @@ Cruel is held. Compassionate swaps to Callous or Cruel by a seeded pick (key ("s
 | LLM Game Master (#29) | Soft | Names and descriptions; proposals validated | — (no GDD) |
 | Save/Load (#5) | Hard | ≤ 8 ids, ≤ 2 expiries and ≤ 2 targets per person | — (no GDD) |
 | NPC Relationships (#46) | Hard | F3 opinion for help and revenge weights and `p_help`; rule 16 (amended) | Yes |
+| Codex & Karmic Carryover (#12) | Soft | An heir successor keeps their traits' stat rows, and trait-gated event options appear for the player; nothing is forced (`codex-karmic-carryover.md` Edge Cases) | Yes |
 
 **Links:** Modifier System, Character Stats, Realms & Bottlenecks, Quests and Sects & Missions all list NPC Traits back.
 Every other row marked "no GDD" is fixed when that system is designed.

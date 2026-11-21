@@ -313,6 +313,7 @@ A bulk run of *n* seasons (rule 18) costs `n · T_tick`; a century (400 seasons)
 | Spiritual Roots (linh-can.md) | root curve factor for Formulas H | Hard | Designed | Read only |
 | Spirit Beasts (#19) | wild beast targets per region (Formulas I) | Soft | Built (beasts only), no GDD | Targets provisional |
 | NPC Relationships (#46) | S8b | Soft | Designed 2026-11-20 | `npc-relationships.md` lists this GDD back |
+| Codex & Karmic Carryover (#12) | rule 9 (the player's estate, unchanged); the closed-door ticks for a rebirth's 4 × `rebirth_years` seasons | Soft | Approved 2026-11-21 | `codex-karmic-carryover.md` lists this GDD back |
 | Cave Abode & Home Works (#47) | S6 (abode step) | Soft | Approved 2026-11-21 | `cave-abode.md` lists this GDD back |
 | Save / Load | stubs and pruned events (rule 19) | Hard | Built | The save must load a stub |
 | Character Stats | `injury_recovery_frac_per_season` (rule 4) | Hard | Designed | The player's rule, applied to NPCs |

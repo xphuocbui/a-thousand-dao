@@ -302,11 +302,11 @@ never adds stat power beyond what a lucky Fated roll gives.
 | Game UI (#37) | Soft | The mode choice, the succession screen, the Codex screens |
 | NPC Relationships (#46) | Soft | Its Open Question 5 (successor play) is answered by rule 4 |
 
-**Back-links owed:** Achievements (the `one_life` flag and `death_reloaded`); Event Engine (the past-life pool and
-`recognition_max`); NPC Traits (an heir's trait-gated options for the player); NPC Relationships Open Question 5
-(answered here); Living World Tick rule 9 (the player's estate
-uses it unchanged; a rebirth runs ticks); Progression Edges (perk pick for every successor, talismans only for a
-reborn); Achievements (the shared gate); World Generation (stable ids and candidate sites read by the Codex).
+**Back-links written 2026-11-21:** NPC Relationships Open Question 5 (answered by rule 4); Achievements (the shared
+gate, the `one_life` set and `death_reloaded`; `design/quick-specs/phu-luc-linh-thu-thanh-tuu.md`); Progression Edges
+(the successor's perk pick, talismans only for a reborn, the heir's birth mode;
+`design/quick-specs/progression-and-edges.md`); Event Engine (the past-life pool); NPC Traits (an heir's traits);
+Living World Tick (the estate and the rebirth ticks); World Generation (stable ids and candidate sites).
 
 ## Visual/Audio Requirements
 

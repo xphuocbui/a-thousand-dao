@@ -379,6 +379,7 @@ fight budget (`worldgen_fight_budget`) belongs to Power Rankings.
 | LLM Game Master (#29, parked) | Soft, optional | The same facts and texts, to retell later (Core Rule 14); never required | no GDD |
 | Game UI (#37) | Soft | Build progress, failure reasons and the origin list | no GDD |
 | NPC Relationships (#46) | Soft | The cast's authored ties | yes (2026-11-20) |
+| Codex & Karmic Carryover (#12) | Soft | Stable authored ids, hidden places' candidate sites and origins, read by the Codex (never this game's rolled site) | yes (2026-11-21) |
 
 **Rows added in other GDDs (2026-11-15):** Power Rankings, Regional Economy & Trade and Trade Goods each now list #27
 in their Dependencies.

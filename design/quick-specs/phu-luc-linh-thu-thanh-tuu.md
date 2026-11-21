@@ -65,6 +65,11 @@ event). Checked after every command. Earned only in Fated-birth (Thiên Định)
 in `user://achievements.json`; scripted runs (`--commands`) keep them in memory so tests
 never write the player's record (`--achievements-file` overrides).
 
+**From Codex & Karmic Carryover (#12, 2026-11-21):** achievements count in both play modes (One Life and Continue),
+and the Codex uses the same writing gate (Fated birth, not `cheated`) and the same profile pattern. A small set marked
+`one_life` in `meta_achievements.json` is earned only in a One Life playthrough whose save was not reloaded past a
+death (`death_reloaded`, keyed by `playthrough_id`; `codex-karmic-carryover.md` rule 11).
+
 ## Tuning knobs
 
 | Knob | File | Safe range | Effect |
