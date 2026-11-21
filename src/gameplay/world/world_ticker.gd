@@ -61,7 +61,7 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 		var realm_index: int = int(p.realm_index)
 		var stage: int = int(p.get("stage", 0))
 		var base_life: float = float(_gd.realm(realm_index).lifespan)
-		var lifespan: float = base_life + minf(float(p.get("lifespan_bonus", 0.0)), base_life * float(_gd.attributes().bonus_ceilings.lifespan_frac))
+		var lifespan: float = base_life + CultivationRules.lifespan_bonus_curved(_gd, realm_index, float(p.get("lifespan_bonus", 0.0)))
 		if float(p.age) >= lifespan:
 			news.append_array(old_age_death(p, year, season))
 			continue

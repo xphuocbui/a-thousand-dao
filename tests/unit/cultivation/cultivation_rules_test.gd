@@ -312,15 +312,20 @@ func test_failure_insight_stops_at_its_cap_ac64() -> void:
 
 # --- Lifespan and points ----------------------------------------------------------
 
-func test_lifespan_bonus_meets_the_ceiling_and_penalties_follow_ac61() -> void:
+func test_lifespan_bonus_follows_the_curve_and_penalties_follow_ac61() -> void:
+	# Character Stats Formulas I: B_life = k ln(1 + (pill_years + lifespan_years+) / k) + lifespan_years-,
+	# k = f_life x the realm's base lifespan (0.15 x 120 = 18 at Qi Refining); the curve replaced the ceiling
 	var gd := game_data()
 	var c := _at(10)
 	c.lifespan_bonus = 10.0
 	var sheet := _sheet(c)
 	sheet.add_mod("a", "lifespan_years", 15.0)
-	assert_near(CultivationRules.lifespan(c, gd, sheet).total, 138.0, 0.001, "min(25, 18)")
+	var curved: float = 18.0 * log(1.0 + 25.0 / 18.0)
+	assert_near(CultivationRules.lifespan(c, gd, sheet).total, 120.0 + curved, 0.001, "18 ln(1 + 25/18) = 15.67, not min(25, 18)")
 	sheet.add_mod("b", "lifespan_years", -5.0)
-	assert_near(CultivationRules.lifespan(c, gd, sheet).total, 133.0, 0.001, "penalty after the cap")
+	assert_near(CultivationRules.lifespan(c, gd, sheet).total, 115.0 + curved, 0.001, "the penalty after the curve")
+	c.lifespan_bonus = 1000.0
+	assert_true(CultivationRules.lifespan(c, gd, sheet).total > 120.0 + 18.0, "no ceiling: a large bonus passes the old 18")
 
 
 func test_points_match_the_table_kmd01() -> void:

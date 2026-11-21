@@ -16,7 +16,8 @@ extends RefCounted
 ##   lines; [method scoped_lines] hands them on with their scopes (to the fighter, ADR-0004 decision 4).
 ## - herb_growth_pct follows the bonus curve k * ln(1 + sum+ / k) + sum- (k from bonus_curves; Character Stats rule 14,
 ##   Formulas I: curves replaced the ceilings 2026-11-10). alchemy_success has no cap: Alchemy divides the failure chance
-##   by it (Alchemy F1). A key left in bonus_ceilings still caps its positive modifiers (lifespan_frac, read elsewhere).
+##   by it (Alchemy F1). The lifespan bonus has its own curve (CultivationRules.lifespan_bonus_curved). A key put in
+##   bonus_ceilings would still cap its positive modifiers; none is there now.
 ##
 ## Usage:
 ## [codeblock]

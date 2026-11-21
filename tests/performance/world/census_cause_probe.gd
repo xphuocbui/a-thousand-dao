@@ -46,7 +46,7 @@ func _dump(gd: GameData, db: WorldDB, year: int) -> void:
 			n += 1
 			var base_life: float = float(gd.realm(rl).lifespan)
 			lb += float(p.get("lifespan_bonus", 0.0))
-			age_frac += float(p.age) / (base_life + minf(float(p.get("lifespan_bonus", 0.0)), base_life * float(gd.attributes().bonus_ceilings.lifespan_frac)))
+			age_frac += float(p.age) / (base_life + CultivationRules.lifespan_bonus_curved(gd, rl, float(p.get("lifespan_bonus", 0.0))))
 			if int(p.get("stage", 0)) >= gd.stage_count(rl) - 1:
 				last += 1
 				if bool(p.get("bt_fate", {}).get("ok", false)) and int(p.bt_fate.get("realm", -1)) == rl:

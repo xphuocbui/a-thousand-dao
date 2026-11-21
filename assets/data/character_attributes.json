@@ -59,8 +59,8 @@
     "effective_talent_max": 150,
     "heart_demon_strength": {"threshold": 50, "divisor": 2, "deviation_pct": 100}
   },
-  "bonus_ceilings": {"lifespan_frac": 0.15},
-  "bonus_curves": {"herb_growth_pct": 10},
+  "bonus_ceilings": {},
+  "bonus_curves": {"herb_growth_pct": 10, "lifespan_frac": 0.15},
   "start": {
     "age": 16.0,
     "linh_thach": 50,

@@ -126,16 +126,25 @@ static func _climb(c: Character, gd: GameData, level: int, out: Dictionary) -> v
 		out.levels_gained.append(level)
 
 
+## The lifespan bonus on its curve (Character Stats Formulas I; the curve replaced the ceiling 2026-11-10):
+## k ln(1 + positive / k) with k = f_life x the realm's base lifespan (bonus_curves.lifespan_frac). No upper bound.
+static func lifespan_bonus_curved(gd: GameData, realm_index: int, positive: float) -> float:
+	if positive <= 0.0:
+		return 0.0
+	var k: float = float(gd.attributes().get("bonus_curves", {}).get("lifespan_frac", 0.15)) * float(gd.realm(realm_index).lifespan)
+	return k * log(1.0 + positive / k) if k > 0.0 else positive
+
+
 ## The lifespan cap (Realms rule 14, Character Stats Formulas I). Pill years and positive
-## lifespan_years meet the ceiling; penalties apply after it.
+## lifespan_years follow the bonus curve; penalties apply after it.
 static func lifespan(c: Character, gd: GameData, sheet: StatSheet) -> Breakdown:
 	var b := Breakdown.new("Thọ nguyên")
 	var base_life: float = float(gd.realm(c.realm_index).lifespan)
 	b.base("%s lifespan" % gd.realm(c.realm_index).name, base_life)
 	var positive: float = c.lifespan_bonus + sheet.positive("lifespan_years")
-	var ceiling: float = float(gd.attributes().bonus_ceilings.lifespan_frac) * base_life
 	if positive > 0.0:
-		b.add("Lifespan bonus" if positive <= ceiling else "Lifespan bonus (%.1f, ceiling %.1f)" % [positive, ceiling], minf(positive, ceiling))
+		var curved: float = lifespan_bonus_curved(gd, c.realm_index, positive)
+		b.add("Lifespan bonus (%.1f, curved to %.1f)" % [positive, curved], curved)
 	if sheet.negative("lifespan_years") != 0.0:
 		b.add("lifespan_years penalties", sheet.negative("lifespan_years"))
 	b.add_pct("lifespan_pct", sheet.total("lifespan_pct"))
