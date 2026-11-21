@@ -167,14 +167,14 @@ static func basket_demand(gd: GameData, cid: String, heads: Array, fill: Array) 
 	return class_demand(gd, {"kind": "pill", "tier": int(cid.substr(4))}, {}, heads, fill, 0.0)
 
 
-## Military's track spending last season over a market's sects (its great sect and their vassals).
+## Military's track spending (Formula H's spend_Mil, the mean of the last mil_window seasons) over a market's sects (its great sect and their vassals).
 static func military_spend(db: WorldDB, m: Dictionary) -> float:
 	var t: float = 0.0
 	for s in db.all("sects"):
 		if str(s.get("status", "")) != "active":
 			continue
 		if str(s.id) == str(m.sect_id) or str(s.get("lord_id", "")) == str(m.sect_id):
-			t += float(s.get("spend", {}).get("military", 0.0))
+			t += SectEconomy.mil_spend_mean(s)   # Formula H: the mean of the last mil_window seasons
 	return t
 
 

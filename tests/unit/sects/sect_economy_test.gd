@@ -89,3 +89,23 @@ func test_intake_follows_f17() -> void:
 	assert_eq(SectEconomy.capacity(gd, db, s), 56, "25 x (1 + 0.25 x 5)")
 	assert_eq(SectEconomy.intake(gd, db, s, 38), 1, "one Luyện Khí member")
 	assert_eq(SectEconomy.intake(gd, db, s, 51), 0, "none at or above the target")
+
+
+func test_military_demand_reads_the_mean_of_the_last_four_seasons() -> void:
+	# Trade Goods H's spend_Mil (user decision 2026-11-21): committed Military spending 100, 470, 100, 390 reads 265
+	# after four seasons; the first season reads its own value; a fifth season drops the oldest
+	var gd := game_data()
+	var db := WorldDB.new()
+	var s := _sect({"military": 2})
+	s["treasury"] = 1e9
+	db.put("sects", s)
+	var money := MoneyLedger.new(db)
+	var reads: Array = []
+	for v in [100.0, 470.0, 100.0, 390.0, 470.0]:
+		s["spend"] = {"military": v}   # the season's committed value (upkeep plus investment)
+		reads.append(SectEconomy.mil_spend_mean(s))   # what the markets read next season
+		SectEconomy.season(gd, db, money)   # the next season resets the spending
+	assert_near(float(reads[0]), 100.0, 1e-9, "one season: its own value")
+	assert_near(float(reads[1]), 285.0, 1e-9, "two seasons")
+	assert_near(float(reads[3]), 265.0, 1e-9, "four seasons: (100 + 470 + 100 + 390) / 4")
+	assert_near(float(reads[4]), 357.5, 1e-9, "the fifth drops the oldest: (470 + 100 + 390 + 470) / 4")

@@ -143,6 +143,7 @@ static func season(gd: GameData, db: WorldDB, money: MoneyLedger) -> Dictionary:
 		var t: String = "sect:%s" % str(s.id)
 		var up: float = upkeep(gd, s)
 		var spend := {}   # this season's track spending: upkeep now, the investment added by the treasury rule
+		_note_mil(gd, s)
 		for tr in TRACKS:
 			spend[tr] = float(c.u) * float(s.invested.get(tr, 0.0))
 		s["spend"] = spend
@@ -183,6 +184,27 @@ static func season(gd: GameData, db: WorldDB, money: MoneyLedger) -> Dictionary:
 		v["cash_costs"] = float(v.get("cash_costs", 0.0)) + moved
 		out.tribute = float(out.tribute) + moved
 	return out
+
+
+## Trade Goods H's spend_Mil (Regional Economy C's spend_T for Military): the mean of the last `mil_window` committed
+## seasons of Military spending, fewer at the start of a game. Read before this season's spending is reset (the markets
+## read last season's committed values).
+static func mil_spend_mean(sect: Dictionary) -> float:
+	var hist: Array = sect.get("mil_hist", [])
+	var t: float = float(sect.get("spend", {}).get("military", 0.0))
+	for v in hist:
+		t += float(v)
+	return t / float(hist.size() + 1)
+
+
+# Keeps the committed Military spending of the seasons before last (mil_window − 1 of them) before a season resets it.
+static func _note_mil(gd: GameData, s: Dictionary) -> void:
+	var n: int = int(gd.file(WorldEconomy.FILE).demand.get("mil_window", 1)) - 1
+	if n <= 0:
+		return
+	var hist: Array = s.get("mil_hist", [])
+	hist.push_front(float(s.get("spend", {}).get("military", 0.0)))
+	s["mil_hist"] = hist.slice(0, n)
 
 
 ## Adds a season's track investment (the treasury rule's track share) to the track F19 picks and refreshes its level.

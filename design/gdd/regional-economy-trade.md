@@ -290,7 +290,7 @@ The market_demand formula is defined as:
 | W_set, set_w | float | ≥ 0; 50 | contract (Travel & Map Formula H2's population P, summed over the market's settlements; 2026-11-20); data file *(guess)* | Mortal population (in settlement-weight units) and its scale |
 | bmix[k] | float | herb 0.40, ore 0.2, beast 0.2, special 0.1, pill 0.10 (sums to 1; herb was 0.5 before Trade Goods, 2026-11-14; FX-RE-B injects herb 0.5) | data file *(guess)*; the same table as L2 | The class's share of a basket and of settlement demand; the pill share is crafted demand (Trade Goods Formula H) |
 | d_scale[k] | float | ~0.5–3 (guess; was 0.3–1.5 before `bmix` was applied here) | data file (computed once by a calibration tool) | Sets world demand so every class starts at P = 1 |
-| spend_T | float | ≥ 0 | Sects F1, F3 | Investment plus upkeep paid into track T, including the track share of F3 `invest`; **the previous season's committed value** (rule 19; design-review 10) |
+| spend_T | float | ≥ 0 | Sects F1, F3 | Investment plus upkeep paid into track T, including the track share of F3 `invest`; **the previous season's committed value** (rule 19; design-review 10). For T = Military, the mean of the last `mil_window` (4) committed seasons (Trade Goods H; user decision 2026-11-21) |
 | works_due | float | ≥ 0 | Travel & Map L (`works_upkeep_due_lt`) | Layer-2 works upkeep |
 | goods_frac | float | 0.5 | data file *(guess)* | Share of sect spending met in goods from its own collection (in kind, no cash; I); the rest is cash and burned (H) |
 | mix[T,k] | float | Institutions → herb 1; Military → ore 0.42, beast 0.28, artifact 0.2, talisman 0.1 (Trade Goods Formula H; was ore 0.6, beast 0.4); Holdings and Trade → ore 1 | data file *(guess)* | What each track uses |

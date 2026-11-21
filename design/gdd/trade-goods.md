@@ -522,6 +522,8 @@ The crafted_demand formula is defined as:
 | bt_rate[rl], V_bt[rl], tp_bt(rl) | float, int | ≥ 0 | Realms & Bottlenecks *(handoff)* | Share attempting a breakthrough this season, the value and tier of its breakthrough pill |
 | mil_cr[kind] | float | artifact 0.2, talisman 0.1 | data file *(guess)* | Part of Military's goods spending moved to crafted goods; its ore and beast mix (#43 C) is scaled by 0.7 |
 | ω_t | float | 0–1, summing to 1 | calculated: heads × basket by tier | How Military's crafted spending spreads over tiers |
+| spend_Mil | float | ≥ 0 | Regional Economy C (`spend_T`, T = Military) | The mean of the last `mil_window` committed seasons of Military spending (fewer at the start of a game): Sects F19 invests in one track a season, so one season's value swings about four-fold (user decision 2026-11-21) |
+| mil_window | int | 4 | data file | Seasons averaged |
 | kind_pill | float | `min(kind_stipend, bmix[pill])` = 0.10 | calculated | Share of a member's stipend paid in pills; #43's `kind_stipend` (15 %) keeps its total, the other 0.05 stays in herbs |
 
 **Output Range:** ≥ 0. Kind pills sit inside the members' basket term: they change who pays (the sect instead of the

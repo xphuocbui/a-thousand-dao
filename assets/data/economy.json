@@ -183,6 +183,7 @@
     ],
     "set_w": 50,
     "goods_frac": 0.5,
+    "mil_window": 4,
     "mix": {
       "institutions": {
         "herb": 1.0
