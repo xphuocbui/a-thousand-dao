@@ -51,7 +51,7 @@ var soul_part: float = 0.0
 ## The pool it is paid from (Combat 11, R12): qi, tam_ma or than_thuc.
 var pool: StringName = &"qi"
 ## Formations rule 5: a diagram node's Modifier on this art, in points (0 outside a diagram): art speed added to the
-## side's art speed, and art cost (−20 = 20 % cheaper; the cost factor never goes below 0.5).
+## side's art speed, and art cost (−20 = 20 % cheaper; Diagrams clamps it at compile to its data bound).
 var node_speed_pct: float = 0.0
 var node_cost_pct: float = 0.0
 ## Guards (Combat 13): conditions that must all hold for the art to fire.

@@ -142,3 +142,12 @@ func test_a_feed_takes_seconds_off_a_cooling_timer_with_the_floor_ac_fo_05() -> 
 	var p2: FighterProfile = FighterCompiler.from_data("typical", 1, gd)
 	Diagrams.apply(gd, p2, d, [ids[0], ids[1]], 2.4375, 1.0)
 	assert_eq(int(p2.feeds[0][2]), 4875, "a feed scales like any positive number: 4.875 s at S 2.44")
+
+
+func test_a_cost_node_stays_within_its_bound_ac_fo_18() -> void:
+	var gd := game_data()
+	var p: FighterProfile = FighterCompiler.from_data("typical", 1, gd)
+	var first: String = str(p.arts[0].id)
+	var d := {"id": "fx", "grade": 4, "links": [], "nodes": [{"polarity": "+", "rule": {"type": "mod", "key": "art_cost_pct", "value": -20.0}}]}
+	Diagrams.apply(gd, p, d, [first], 8.0, 1.0)
+	assert_eq(p.arts[0].node_cost_pct, float(Diagrams.cfg(gd).node_cost_min_pct), "-160 % is held at the bound")

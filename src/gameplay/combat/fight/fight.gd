@@ -663,7 +663,7 @@ func pay(s: FighterState, art: ArtDef) -> bool:
 	s.hp_paid = 0.0
 	var cost_up: float = (1.0 + s.dsum("cost_up")) * (1.0 + s.st("heavy_breath") * k.heavy_cost_up)
 	var cost: float = art.cost * k.cost_scale * (1.0 - minf(k.cost_red_cap, p.cost_red + m(s, "cost_red", art.ctx))) \
-			* cost_up * s.qi_base * maxf(0.5, 1.0 + art.node_cost_pct / 100.0)
+			* cost_up * s.qi_base * (1.0 + art.node_cost_pct / 100.0)
 	if art.pool == &"tam_ma":
 		var need: float = cost / s.qi_max() * 100.0
 		if s.tam_ma < need:

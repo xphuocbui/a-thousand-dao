@@ -198,7 +198,7 @@ static func apply(gd: GameData, p: FighterProfile, diagram: Dictionary, placemen
 			"mod":
 				if _matches(node, Array(art.tags_s)):
 					var v: float = scaled(float(rule.value), pol, s, share)
-					_set_mod(art, str(rule.key), v)
+					_set_mod(art, str(rule.key), v, float(cfg(gd).node_cost_min_pct))
 					lines.append("node %d (%s %s): %s %+.1f%% on %s" % [ni + 1, pol, str(rule.key), str(rule.key), v, art.id])
 			"adj_mod":
 				var hit: bool = false
@@ -207,7 +207,7 @@ static func apply(gd: GameData, p: FighterProfile, diagram: Dictionary, placemen
 						hit = true
 				if hit:
 					var v2: float = scaled(float(rule.value), pol, s, share)
-					_set_mod(art, str(rule.key), v2)
+					_set_mod(art, str(rule.key), v2, float(cfg(gd).node_cost_min_pct))
 					lines.append("node %d (%s, beside %s): %s %+.1f%% on %s" % [ni + 1, pol, str(rule.tag), str(rule.key), v2, art.id])
 			"gate":
 				var ec := EffectCompiler.new(CombatConstants.from_game_data(gd))
@@ -247,12 +247,12 @@ static func apply(gd: GameData, p: FighterProfile, diagram: Dictionary, placemen
 	return lines
 
 
-static func _set_mod(art: ArtDef, key: String, v: float) -> void:
+static func _set_mod(art: ArtDef, key: String, v: float, cost_min_pct: float = -50.0) -> void:
 	match key:
 		"art_speed_pct":
 			art.node_speed_pct += v
-		"art_cost_pct":
-			art.node_cost_pct += v
+		"art_cost_pct":   # F1's bounds: art_cost_pct's reduction stays within its Modifier System bound
+			art.node_cost_pct = maxf(cost_min_pct, art.node_cost_pct + v)
 		"damage_pct":
 			art.m_mult *= 1.0 + v / 100.0
 

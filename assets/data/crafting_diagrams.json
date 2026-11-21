@@ -1,10 +1,11 @@
 {
   "schema_version": 1,
-  "_doc": "Formations Part I, combat formation diagrams (design/gdd/formations.md rules 1-12, Formulas F1-F4, F6; Diagrams). strength: F1's grade_mult by grade 0-4, level_growth, s_min and s_max, max_level (rule 7's cap before the keystone's +2). fuel: F2's fuel_frac by grade (share of the realm's events_budgets linh_thach_max per node) and fuel_growth. share: Combat rule 12's carried_ground_share (laid 1.0, carried 0.7 in a foreseen fight not laid or an ambush, 0.5 blind). fit_min: F4, at or below it an NPC uses the default line. cost_lt: F3's raise cost by grade, cost_growth (values set with the first catalogue: Open Question 4). diagrams: the catalogue, hand-authored by the user (Open Question 4); empty until then, so every combatant fights with the default line. Values are the GDD's guesses.",
+  "_doc": "Formations Part I, combat formation diagrams (design/gdd/formations.md rules 1-12, Formulas F1-F4, F6; Diagrams). strength: F1's grade_mult by grade 0-4, level_growth, s_min and s_max, max_level (rule 7's cap before the keystone's +2). fuel: F2's fuel_frac by grade (share of the realm's events_budgets linh_thach_max per node) and fuel_growth. share: Combat rule 12's carried_ground_share (laid 1.0, carried 0.7 in a foreseen fight not laid or an ambush, 0.5 blind). fit_min: F4, at or below it an NPC uses the default line. node_cost_min_pct: F1's bound on a node's art_cost_pct (the Modifier System's 0 to 0.5 reduction). cost_lt: F3's raise cost by grade, cost_growth (values set with the first catalogue: Open Question 4). diagrams: the catalogue, hand-authored by the user (Open Question 4); empty until then, so every combatant fights with the default line. Values are the GDD's guesses.",
   "strength": {"grade_mult": [1.0, 1.15, 1.3, 1.5, 1.75], "level_growth": 1.25, "s_min": 0.25, "s_max": 8.0, "max_level": 5},
   "fuel": {"fuel_frac": [0.002, 0.003, 0.0045, 0.007, 0.01], "fuel_growth": 1.6},
   "share": {"laid": 1.0, "carried": 0.7, "blind": 0.5},
   "fit_min": 0.0,
+  "node_cost_min_pct": -50.0,
   "cost_lt": [0, 0, 0, 0, 0],
   "cost_growth": 2.5,
   "diagrams": []
