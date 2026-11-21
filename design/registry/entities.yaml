@@ -899,6 +899,7 @@ formulas:
     referenced_by:
       - design/gdd/item-database.md
       - design/gdd/trade-goods.md
+      - design/gdd/alchemy.md
     variables:
       - price
       - quality
@@ -2141,6 +2142,7 @@ formulas:
     referenced_by:
       - design/gdd/trade-goods.md
       - design/gdd/item-database.md
+      - design/gdd/alchemy.md
     variables:
       - sr_fin
       - V_out
@@ -2616,7 +2618,7 @@ formulas:
       - field_level
       - plots_per_field_level
     output_range: ["1", "no upper bound (Character Stats rule 14, max_plots removed 2026-11-10)"]
-    expression: "plots = max(1, base_plots 3 + floor(tho_purity * 0.04) + total(field_plots)) (Character Stats Formulas G, read by Realms Formula D); total(field_plots) = tree and edges + floor(field_level * plots_per_field_level 1) from the Linh Dien field work (Cave Abode slot, a modifier with source home work)"
+    expression: "plots = max(1, floor(base_plots 3 + tho_purity * 0.04 + total(field_plots))) (Character Stats Formulas G, read by Realms Formula D; one floor on the whole sum); total(field_plots) = tree and edges + field_level * plots_per_field_level (1, raw) from the Linh Dien field work (Cave Abode slot, a modifier with source home work)"
     notes: "Spirit Herbs F2, rules 3-4. No change owed in Realms D. The built max_plots 12 in session_actions.json is stale. plots_per_field_level is a guess."
     added: 2026-11-21
     revised: ""
@@ -2633,6 +2635,55 @@ formulas:
     output_range: ["level 0 to 9", "+36 raw herb_growth_pct at level 9 (hgp +15.3)"]
     expression: "xp per season = xp_per_herb_year (2) * delta_age of each Planted growing herb (Frozen herbs earn none); level n+1 costs xp_per_level (100) * (n+1); level L adds mastery_growth_per_level (4) * L raw herb_growth_pct"
     notes: "Spirit Herbs F4, rule 9. Guesses. Reaching level 9 costs 4,500 xp, about 2,250 herb-years."
+    added: 2026-11-21
+    revised: ""
+  - name: brew_success
+    status: active
+    source: design/gdd/alchemy.md
+    referenced_by:
+      - design/gdd/alchemy.md
+      - design/gdd/canh-gioi.md
+      - design/gdd/character-stats.md
+    variables:
+      - difficulty
+      - dan_dao_level
+      - comprehension
+      - purity_fire
+      - alchemy_success
+    output_range: ["0.05", "0.95"]
+    expression: "p0 = (100 - difficulty + 6 * L + 0.1 * comprehension) / 100; p_brew = clamp(1 - (1 - p0 - 0.0025 * Fire) / (1 + max(0, alchemy_success)/100), 0.05, 0.95)"
+    notes: "Alchemy F1; the same form as Realms Formula D's p_brew and Character Stats rule 14 (alchemy_success divides the failure chance). The built alchemy.gd still adds alchemy_success linearly."
+    added: 2026-11-21
+    revised: ""
+  - name: brew_fuel
+    status: active
+    source: design/gdd/alchemy.md
+    referenced_by:
+      - design/gdd/alchemy.md
+      - design/gdd/regional-economy-trade.md
+    variables:
+      - fuel_frac
+      - price
+    output_range: ["1 stone", "2,000 (Hoa Than Dan)"]
+    expression: "fuel = ceil(fuel_frac 0.05 * recipe price), paid when the brew starts, burned on success or failure; NPC workshops pay it as one aggregate burn"
+    notes: "Alchemy F2, rule 6. The crafting-fuel sink of World Economy decision 7. fuel_frac is a guess."
+    added: 2026-11-21
+    revised: ""
+  - name: recipe_price
+    status: active
+    source: design/gdd/alchemy.md
+    referenced_by:
+      - design/gdd/alchemy.md
+      - design/gdd/trade-goods.md
+    variables:
+      - m_star
+      - bm_raw
+      - sr_fin
+      - V_in
+      - fuel_frac
+    output_range: ["a price that sets the craft margin at m* 1.8"]
+    expression: "price = m* * bm_raw * V_in / (sr_fin * yield * ps_mean - m* * fuel_frac), m* 1.8, bm_raw 1.10, sr_fin 0.6, ps_mean 1; Ngung Nguyen Dan 1,140, Tay Tuy Dan 430, Dien Tho Dan 2,140 (provisional)"
+    notes: "Alchemy F4, rule 12 (user decision 2026-11-21: price follows the margin; replaces the 2026-11-14 'raise inputs, keep prices' for those three). Provisional until the Realms re-run checks M_market."
     added: 2026-11-21
     revised: ""
 constants:
@@ -5886,5 +5937,17 @@ constants:
     value: "start_age(origin), 16 for every origin today"
     unit: years of world ticks before a reborn successor enters (4 x years seasons)
     notes: "Codex & Karmic Carryover Formula C. The reborn is born in the season of the death; ticks run as the closed-door command does."
+    added: 2026-11-21
+    revised: ""
+  - name: breakthrough_values
+    # PROVISIONAL (Alchemy CD-GDD-ALIGN 2026-11-21): blocking implementation until the Formula B re-tune and the Realms re-run.
+    status: active
+    source: design/gdd/alchemy.md
+    referenced_by:
+      - design/gdd/alchemy.md
+      - design/gdd/canh-gioi.md
+    value: "FE Earth 224 + Fire 11; CF Metal 252 + Fire 41; NS Water 3,600 + Fire 11; DT Fire 12,000 + Wood 320"
+    unit: element value (Item Database Formula B) per breakthrough recipe
+    notes: "Alchemy F5 (herb element rework 2026-11-21): translated from the calibrated herb recipes. Provisional, blocking implementation until Item Database re-tunes Formula B per basic herb and Realms Formula D is re-run."
     added: 2026-11-21
     revised: ""
