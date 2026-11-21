@@ -229,3 +229,23 @@ So before the economy can price anything, the land must produce what it prices: 
 - **Still slow outside the tick:** `items_of` scans every item (5-9 ms a call at 18,000-30,000 items) and the player's
   commands and the Advisor call it often. The owner index could stay on all the time once every owner change goes
   through WorldDB (about 15 places assign `owner_id` directly today). A refactor to propose, not done unattended.
+
+### Decisions for the user (2026-11-21 morning)
+
+1. **Wars between great sects** (finding 1): add a source of hostility for pairs that aren't chính against ma, or
+   accept a quiet world until the Event Engine feeds F7's events term. Options: border friction over sites, the
+   rivalry of the two strongest, a lower feud line.
+2. **Military's crafted demand** (finding 2): D_mil reads the mean of the last 4 seasons' Military spending
+   (recommended; a one-line formula change in Trade Goods H and Regional Economy C), or F19 spreads investment.
+3. **Rarity-4 inputs** (finding 2): pill5 and the top artifacts can't be made because no rarity-4 herb or material
+   exists on the map. Author sites for them, or let the top tiers come only from secret realms and events.
+4. **World Generation's ages** (finding 3): start people at the steady-state age spread, so the first century's
+   census matches the target (a proposal for World Generation's owner).
+5. **NPC Traits F2's example** reads 0.5 for the Vengeful NPC's merciful weight; the catalogue says 0.67. Fix the
+   example (72 / 16 / 12 % becomes 69 / 15 / 15 %), or the catalogue.
+6. **items_of** stays a full scan outside the tick (5-9 ms a call): route every owner change through WorldDB so the
+   owner index can stay on (about 15 call sites). Refactor to approve.
+7. **High-realm wealth**: Nguyên Anh and Hóa Thần lives end with 1-4 million linh thạch unspent (ape3, ape4); the
+   planned sinks (formation fuel, crafting fuel, the abode) are the answer; until then the number is only a note.
+8. **Gained-trait triggers** wired from world events (bereaved, defeated_by_lesser, betrayed, war_victory, rout) are
+   the catalogue's proposed ids; the Event Engine owns the final ones.
