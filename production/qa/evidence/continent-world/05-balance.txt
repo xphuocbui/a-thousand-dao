@@ -39,7 +39,8 @@ Checkpoints on the same seeds 1001-1024 (72 lives, 6 processes each; the first h
   ape3 4fd1780d (the same, another run)                                     71 / 48 / 22 / 1 of 4
   ape4 530e7d1e (crafted classes, sects' works and intake, the Advisor's price fix, leader traits; 2026-11-21)
                                                                           61 / 44 / 40 / 2 of 6
-  Luyện Khí -> Trúc Cơ falls 10 points from ape3. Since ape3, crafted pills became value classes whose prices sit at
-  1.6-1.8 x base (finding 2 in production/plans/world-economy.md: Military's lumpy demand, rare inputs missing), so a
-  player buying pills gets fewer. Balance pass item; the targets are 70 / 71 / 33 / 23. Wealth: median life peak
+  Luyện Khí -> Trúc Cơ is 10 points under ape3, but within noise: about 65 arrivals a run gives a standard error of
+  about 8 points on the difference. ape4 made more attempts per life (3.3 against 2.7) at slightly lower mean odds
+  (21.0 % against 22.9 %); crafted pill prices (1.6-1.8 x base, finding 2 in production/plans/world-economy.md) may
+  explain the lower odds. The 144-life rounds are needed to tell. Targets 70 / 71 / 33 / 23. Wealth: median life peak
   608 linh thach, p90 448,520 (Nguyên Anh and Hóa Thần lives that never spend: high-realm sinks are planned).

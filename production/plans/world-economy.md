@@ -224,7 +224,8 @@ So before the economy can price anything, the land must produce what it prices: 
 - **f5c0c117, f4a023cf** the world tick: about 12 % cheaper a season, and it no longer slows with age (deaths scanned
   every item; now an owner index during the people step and a living view of the people). Results byte-identical.
 - **ape4 checkpoint** (72 lives, 530e7d1e): 61 / 44 / 40 / 2 of 6 against ape3's 71 / 48 / 22 / 1 of 4
-  (05-balance.txt). Luyện Khí -> Trúc Cơ fell 10 points, likely the crafted pill prices (finding 2).
+  (05-balance.txt). Luyện Khí -> Trúc Cơ is 10 points lower, inside the noise of 72-life runs (about 8 points);
+  attempts rose, odds fell slightly. A 144-life round is needed before calling it.
 - **Still slow outside the tick:** `items_of` scans every item (5-9 ms a call at 18,000-30,000 items) and the player's
   commands and the Advisor call it often. The owner index could stay on all the time once every owner change goes
   through WorldDB (about 15 places assign `owner_id` directly today). A refactor to propose, not done unattended.
