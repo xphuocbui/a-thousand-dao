@@ -183,6 +183,7 @@ func new_cultivator(rng: RandomNumberGenerator) -> void:
 				rank = str(r)
 				break
 		opts["sect_rank"] = rank
+		opts["master_id"] = SectEconomy.pick_master(_gd, _db, sect, 0, rng)   # Sects rule 20a
 	else:
 		opts["location_id"] = str(RngUtils.pick(rng, _db.all("places")).id)
 	var pid: String = _builds.create_person(rng, opts)

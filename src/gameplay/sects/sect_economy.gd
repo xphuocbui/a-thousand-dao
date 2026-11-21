@@ -227,6 +227,33 @@ static func _refresh_levels(gd: GameData, sect: Dictionary) -> void:
 	sect["levels"] = lv
 
 
+## Rule 20a: the master [param sect] gives a newcomer of realm [param realm], or "" (user decision 2026-11-21). With
+## chance master_share (World Generation rule 8's), a living member of a higher realm with fewer than disciples_max
+## living disciples, weighted 1 + rank index. Disciples are counted among the sect's members (masters are given only
+## within a sect).
+static func pick_master(gd: GameData, db: WorldDB, sect: Dictionary, realm: int, rng: RandomNumberGenerator) -> String:
+	var share: float = float(gd.world_gen().get("continent", {}).get("master_share", 0.0))
+	if share <= 0.0 or rng.randf() >= share:
+		return ""
+	var cap: int = int(gd.file("sects_members").get("masters", {}).get("disciples_max", 0))
+	var ladder: Array = gd.world_gen().sects.rank_ladder
+	var members: Array = []
+	var held := {}
+	for mid in sect.get("members", []):
+		var m: Dictionary = db.get_record("people", str(mid))
+		if m.is_empty() or not bool(m.get("alive", true)):
+			continue
+		members.append(m)
+		var mm: String = str(m.get("master_id", ""))
+		if mm != "":
+			held[mm] = int(held.get(mm, 0)) + 1
+	var w: Array = []
+	for m in members:
+		if int(m.get("realm_index", 0)) > realm and int(held.get(str(m.id), 0)) < cap:
+			w.append({"id": str(m.id), "weight": 1.0 + float(maxi(ladder.find(str(m.get("sect_rank", ""))), 0))})
+	return "" if w.is_empty() else str(RngUtils.weighted_pick(rng, w).id)
+
+
 ## F17: Luyện Khí members a sect takes in this season.
 static func intake(gd: GameData, db: WorldDB, sect: Dictionary, members: int) -> int:
 	var c: Dictionary = _cfg(gd)

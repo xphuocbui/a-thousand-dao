@@ -72,12 +72,16 @@ func create_person(rng: RandomNumberGenerator, opts: Dictionary = {}) -> String:
 		ProgressionEdges.assign_npc_edges(c, _gd, rng)
 
 	c.id = str(opts.get("id", ""))   # a person whose id was reserved earlier (WorldBuilder's cast)
+	c.master_id = str(opts.get("master_id", ""))   # Sects rule 20a: a master given at joining
 	var record: Dictionary = c.to_dict()
 	record["created_by"] = str(opts.get("created_by", "worldgen"))
 	var pid: String = _db.add("people", record)
 	c.id = pid
 	if not c.is_beast and _gd.registry.has_file(NpcTraits.FILE):   # NPC Traits F4, keyed on the world and the id
-		c.npc_traits = NpcTraits.roll(_gd, trait_key(pid), str(arch_id), c.sect_id != "", [], c.thien_phu)
+		var lean: Array = []   # NPC Traits F5: a master known at creation leans the roll toward the master's personality
+		if c.master_id != "":
+			lean = _db.get_record("people", c.master_id).get("npc_traits", {}).get("personality", [])
+		c.npc_traits = NpcTraits.roll(_gd, trait_key(pid), str(arch_id), c.sect_id != "", lean, c.thien_phu)
 	if not c.is_beast:
 		_equip_build(c, rng, arch_id)
 		_allocate_tree(c, rng, arch_id)

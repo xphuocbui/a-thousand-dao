@@ -119,3 +119,39 @@ func test_a_defiant_vassal_with_a_backer_rebels_and_new_sects_fill_a_thinned_ter
 	assert_false(born.is_empty(), "a new sect is founded")
 	assert_eq(SectEconomy.vassals(db, g).size(), int(g.minor_start), "the territory is whole again")
 	assert_near(money.money_in_world(), m_before, 1e-6, "the founder paid the treasury: no money made")
+
+
+func test_site_friction_lowers_the_attitude_target_f7() -> void:
+	# F7's site friction (user decision 2026-11-21): two trung great sects holding neighbouring regions, border sites
+	# worth 59,425 a season: fr = round(30 x (1 - 2^(-59425 / 30000))) = 22, both ways; a site away from the border
+	# does not count; no shared border, no friction
+	var gd := game_data()
+	var regions: Array = gd.file(ContinentData.DATA_FILE).get("regions", [])
+	var r0: Dictionary = regions[0]
+	var r1: int = int(r0.neighbours[0].region)
+	var far: int = -1   # a region bordering neither
+	for r in regions:
+		var nb: Array = Array(r.get("neighbours", [])).map(func(n): return int(n.region))
+		if int(r.id) != int(r0.id) and int(r.id) != r1 and not nb.has(int(r0.id)) and not nb.has(r1):
+			far = int(r.id)
+			break
+	var db := _db_two("trung", "trung")
+	db.put("regions", {"id": "r_a", "continent_id": int(r0.id), "holder": "s1"})
+	db.put("regions", {"id": "r_b", "continent_id": r1, "holder": "s2"})
+	db.put("regions", {"id": "r_far", "continent_id": far, "holder": "s1"})
+	db.put("places", {"id": "l_1", "region_id": "r_a", "site": {"base_output": 28800.0}})
+	db.put("places", {"id": "l_2", "region_id": "r_b", "site": {"base_output": 30625.0}})
+	db.put("places", {"id": "l_3", "region_id": "r_far", "site": {"base_output": 50000.0}})
+	var a: Dictionary = db.get_record("sects", "s1")
+	var b: Dictionary = db.get_record("sects", "s2")
+	SectPolitics._begin(gd, db)
+	assert_eq(SectPolitics.friction(gd, db, a, b), 22.0, "59,425 on the border")
+	assert_eq(SectPolitics.friction(gd, db, b, a), 22.0, "the same both ways")
+	var bo: int = SectPolitics._borders(gd, db, a, b)
+	assert_eq(SectPolitics.attitude_target(gd, db, a, b, {}), 20.0 + float(gd.file("sects_members").politics.b_k) * bo - 22.0, "the target loses it")
+	var db2 := _db_two("trung", "trung")
+	db2.put("regions", {"id": "r_a", "continent_id": int(r0.id), "holder": "s1"})
+	db2.put("regions", {"id": "r_far", "continent_id": far, "holder": "s2"})
+	db2.put("places", {"id": "l_1", "region_id": "r_a", "site": {"base_output": 28800.0}})
+	SectPolitics._begin(gd, db2)
+	assert_eq(SectPolitics.friction(gd, db2, db2.get_record("sects", "s1"), db2.get_record("sects", "s2")), 0.0, "no shared border")

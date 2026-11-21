@@ -109,3 +109,33 @@ func test_military_demand_reads_the_mean_of_the_last_four_seasons() -> void:
 	assert_near(float(reads[1]), 285.0, 1e-9, "two seasons")
 	assert_near(float(reads[3]), 265.0, 1e-9, "four seasons: (100 + 470 + 100 + 390) / 4")
 	assert_near(float(reads[4]), 357.5, 1e-9, "the fifth drops the oldest: (470 + 100 + 390 + 470) / 4")
+
+
+func test_a_newcomer_gets_a_master_at_joining_rule_20a() -> void:
+	# Sects rule 20a (user decision 2026-11-21): with chance master_share (0.3) a higher-realm member with fewer than
+	# disciples_max (3) living disciples; a member at the cap, a member of the newcomer's realm and the dead never teach
+	var gd := game_data()
+	var db := WorldDB.new()
+	db.put("people", {"id": "p_full", "alive": true, "realm_index": 2, "sect_rank": "truong_lao"})
+	db.put("people", {"id": "p_free", "alive": true, "realm_index": 1, "sect_rank": "noi_mon"})
+	db.put("people", {"id": "p_same", "alive": true, "realm_index": 0, "sect_rank": "ngoai_mon"})
+	db.put("people", {"id": "p_dead", "alive": false, "realm_index": 3, "sect_rank": "truong_lao"})
+	var members: Array = ["p_full", "p_free", "p_same", "p_dead"]
+	for i in 3:
+		db.put("people", {"id": "p_d%d" % i, "alive": true, "realm_index": 0, "master_id": "p_full"})
+		members.append("p_d%d" % i)
+	var sect := {"id": "s_x", "members": members}
+	var r := rng(20)
+	var got := {}
+	for i in 2000:
+		var m: String = SectEconomy.pick_master(gd, db, sect, 0, r)
+		got[m] = int(got.get(m, 0)) + 1
+	assert_eq(got.keys().filter(func(k): return k != ""), ["p_free"], "only the free higher-realm member teaches")
+	assert_near(float(got.get("p_free", 0)) / 2000.0, 0.30, 0.04, "about master_share of newcomers get one")
+	for i in 3:   # the free member reaches the cap too
+		db.put("people", {"id": "p_e%d" % i, "alive": true, "realm_index": 0, "master_id": "p_free"})
+		sect.members.append("p_e%d" % i)
+	var none: bool = true
+	for i in 200:
+		none = none and SectEconomy.pick_master(gd, db, sect, 0, r) == ""
+	assert_true(none, "everyone at the cap: no master")

@@ -31,6 +31,8 @@ static var _bp: Dictionary = {}   # this season's balance-of-power term toward t
 static var _pulls: Dictionary = {}   # this season's leader pulls by sect id (NPC Traits, Sects F15)
 static var _season_key: int = 0
 static var _seed_s: String = ""
+static var _fr: Dictionary = {}   # this season's site friction by pair "<id>|<id>" (F7)
+static var _site_v: Dictionary = {}   # continent region id -> its resource sites' base output a season (F7's friction)
 
 
 static func _cfg(gd: GameData) -> Dictionary:
@@ -45,11 +47,21 @@ static func _begin(gd: GameData, db: WorldDB) -> void:
 	for r in gd.file(ContinentData.DATA_FILE).get("regions", []):
 		_adj[int(r.id)] = Array(r.get("neighbours", [])).map(func(n): return int(n.region))
 	_held = {}
+	var cid_of := {}
 	for r in db.all("regions"):
 		var h: String = str(r.get("holder", ""))
 		if not _held.has(h):
 			_held[h] = {}
 		_held[h][int(r.get("continent_id", -1))] = true
+		cid_of[str(r.id)] = int(r.get("continent_id", -1))
+	_fr = {}
+	_site_v = {}   # F7's site friction: each region's resource sites, their base output a season summed
+	for p in db.all("places"):
+		var site: Dictionary = p.get("site", {})
+		if site.is_empty() or bool(p.get("hidden", false)):
+			continue
+		var cid: int = int(cid_of.get(str(p.get("region_id", "")), -1))
+		_site_v[cid] = float(_site_v.get(cid, 0.0)) + float(site.get("base_output", 0.0))
 
 
 static func _active(db: WorldDB) -> Array:
@@ -150,6 +162,32 @@ static func _borders(gd: GameData, db: WorldDB, a: Dictionary, b: Dictionary) ->
 	return n
 
 
+## F7's site friction between great sects [param a] and [param b] (user decision 2026-11-21): round(fr_max · (1 −
+## 2^(−V / V_half))), V the base output a season of the resource sites in a region either holds that borders a region
+## the other holds. The same both ways; 0 for a pair that shares no border or is not two great sects.
+static func friction(gd: GameData, db: WorldDB, a: Dictionary, b: Dictionary) -> float:
+	if str(a.get("kind", "")) != "great" or str(b.get("kind", "")) != "great":
+		return 0.0
+	if _adj.is_empty() or _for_db != db.get_instance_id():
+		_begin(gd, db)
+	var key: String = "%s|%s" % ([str(a.id), str(b.id)] if str(a.id) < str(b.id) else [str(b.id), str(a.id)])
+	if _fr.has(key):
+		return float(_fr[key])
+	var v: float = 0.0
+	for pair in [[_held.get(str(a.id), {}), _held.get(str(b.id), {})], [_held.get(str(b.id), {}), _held.get(str(a.id), {})]]:
+		for cid in pair[0]:
+			for nb in _adj.get(cid, []):
+				if pair[1].has(int(nb)):
+					v += float(_site_v.get(cid, 0.0))
+					break
+	var c: Dictionary = _cfg(gd)
+	var fr: float = 0.0
+	if v > 0.0 and float(c.get("fr_v_half", 0.0)) > 0.0:
+		fr = float(roundi(float(c.get("fr_max", 0.0)) * (1.0 - pow(2.0, -v / float(c.fr_v_half)))))
+	_fr[key] = fr
+	return fr
+
+
 ## A sect's leader's Sects F15 pulls (NPC Traits), cached for the season.
 static func pulls_of(gd: GameData, db: WorldDB, s: Dictionary) -> Dictionary:
 	var sid: String = str(s.get("id", ""))
@@ -186,7 +224,7 @@ static func attitude_target(gd: GameData, db: WorldDB, a: Dictionary, b: Diction
 		pull += float(bd.get("opposite", 0.0))
 	if aa == "chinh":
 		pull += float(pb.get("bias_dir", {}).get("from_righteous", 0.0))
-	return al + float(c.b_k) * bord + pact + g + pull - _balance_of_power(db, b, strength)
+	return al + float(c.b_k) * bord + pact + g + pull - _balance_of_power(db, b, strength) - friction(gd, db, a, b)
 
 
 # F7's bp: toward the strongest great sect only, 1 per 10 % its strength exceeds the runner-up's (worked out once a

@@ -152,6 +152,12 @@ nothing in this paragraph fixes a number.
 20. **Joining.** A loose cultivator who passes the sect's gate (spiritual root fit if the sect asks, a realm floor,
     **standing** at least the recruit line, and the sect's Recruitment dial) joins as an outer disciple. A minor sect's
     gate is easier, its teaching and manuals smaller, and its lord's reach can pull you into its levy.
+20a. **Masters at joining** (user decision 2026-11-21). When a sect takes in an NPC (F17 intake or rule 20), with chance
+    `master_share` (0.3, World Generation rule 8's share, so it holds after the first generation) it gives the newcomer
+    a master: a living member of a higher realm with fewer than `disciples_max` (3) living disciples, weighted
+    `w = 1 + rank index` (outer 1, inner 2, elder 3, head 4; rank follows realm, rule 19). The pair holds sư đồ (NPC
+    Relationships rule 8, sect life), and the newcomer's traits roll with the master's lean (NPC Traits F5). No eligible
+    member: no master. The player is never assigned one; they ask through the bond verb.
 21. **Standing** (−100 to 100, per sect and per player) is what a sect thinks of the player. It sets offers, prices
     (a discount at good standing, a surcharge at poor), who recruits you, which manuals you may buy, and whether the
     sect hunts you. This answers Quests open question 10. Harming a sect's members, stealing, deserting or breaking a
@@ -505,7 +511,7 @@ are added.
 
 The attitude formula is defined as:
 
-`A_tgt = align[a, b] + b_k · borders + p_k · pact + Σ pull + g − bp` · `ΔA = sign(A_tgt − A) · min(5, |A_tgt − A|, max(1, round(k_a · |A_tgt − A|))) + events` (round half away from zero;
+`A_tgt = align[a, b] + b_k · borders + p_k · pact + Σ pull + g − bp − fr` · `ΔA = sign(A_tgt − A) · min(5, |A_tgt − A|, max(1, round(k_a · |A_tgt − A|))) + events` (round half away from zero;
 attitude always reaches its target, with no dead band)
 
 Lines: a **pact** forms when A ≥ 40 both ways. A **feud** starts when A ≤ −40 one way and ends when A ≥ −20. **War** is
@@ -520,6 +526,9 @@ defence-pact partners. A **truce** lasts 8 seasons with A_tgt = 0.
 | b_k | int | −5 | data file | Per shared border region |
 | p_k | int | 15 | data file | For a standing pact |
 | g | int | −30 – 0 | World Generation rule 7 | Authored grudge from the history (user decision 2026-11-15); fades toward 0 by `grudge_fade` (guess 1) a year; 0 for pairs with none |
+| fr | int | 0 – fr_max | calculated | **Site friction** (user decision 2026-11-21): `round(fr_max · (1 − 2^(−V / V_half)))`, V the summed base output a season of the border sites: resource sites (Travel & Map rules 19–20: mines, spirit veins, beast lairs, special sites) in a region either sect holds that borders a region the other holds. Same both ways; great sects only |
+| fr_max | int | 30 | data file *(guess)* | The most a pair loses to friction |
+| V_half | float | 30,000 | data file *(guess)* | Border-site output (base value a season) that gives half of fr_max; one spirit vein makes 28,800 |
 | bp | int | 0 – ∞ | calculated | Balance of power: toward the strongest sect only, 1 per 10 % its strength exceeds the runner-up's (damper against one sect snowballing) |
 | k_a | float | 0.15 | data file | Speed toward the target |
 | war_odds | float | 1.0; traits 0.8–1.2 (F15: Cruel 0.8, Cautious 1.2) | data file, traits | Strength ratio a leader needs to declare war |
@@ -527,7 +536,9 @@ defence-pact partners. A **truce** lasts 8 seasons with A_tgt = 0.
 
 **Output Range:** −100 to 100.
 **Example:** chính vs ma, 2 shared borders, a Cruel head (−10 to rivals): A_tgt = −50. From −20, attitude runs −25, −29, −32,
-−35, −37, −39, −41: the feud starts in season 7.
+−35, −37, −39, −41: the feud starts in season 7. **Site friction:** Thiên Xu (trung) and Tùng Đào (chính), 4 shared
+borders, 9 border sites worth 59,425 a season: fr = round(30 · (1 − 2^−1.98)) = 22, A_tgt = 0 − 20 − 22 = **−42**, a feud
+with no trait; two chính sects with 1 border and 29,225: +20 − 5 − 15 = **0**.
 
 ### F8. War strength
 
