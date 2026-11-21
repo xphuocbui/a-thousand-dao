@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# FOR THE FULL SUITE USE tools/run-tests-parallel.sh (one Godot process per test group, JOBS at a time; it also runs
+# tests/integration and tests/parity). This serial script is for the smoke session and pipe check below, or one target.
 # Runs the gdUnit4 unit suites (tests/unit/**), the scripted debug-terminal smoke session,
 # and (when node is installed) the line-by-line pipe check. Exit 0 only when every unit
 # test passes, the smoke session exits 0 with no "SCRIPT ERROR", and the pipe check passes.
