@@ -28,14 +28,28 @@ func herb(template_id: String, age: float) -> Dictionary:
 	var t: Dictionary = _gd.herb(template_id)
 	return {
 		"kind": "herb", "template": template_id, "name": t.get("name", template_id),
-		"element": t.get("element", ""), "age": maxf(age, 0.0), "rarity": int(t.get("rarity", 1)),
+		"element": t.get("element", ""), "elements": herb_elements(t), "age": maxf(age, 0.0), "rarity": int(t.get("rarity", 1)),
 		"owner_id": "", "plot": -1,
 	}
 
 
+## A herb template's elements (Item Database herb catalogue, 2026-11-21): a multi-element herb lists them in
+## `elements`; a basic herb has only its `element`. A recipe ingredient of element e accepts any herb listing e.
+static func herb_elements(t: Dictionary) -> Array:
+	var els: Array = t.get("elements", [])
+	if els.is_empty() and str(t.get("element", "")) != "":
+		return [str(t.element)]
+	return els.duplicate()
+
+
+## Whether a herb template is one of the five basic herbs (a single element).
+static func is_basic_herb(t: Dictionary) -> bool:
+	return herb_elements(t).size() <= 1
+
+
 ## Random herb up to a rarity, optionally of an element, with age in [param age_range].
 func random_herb(rng: RandomNumberGenerator, rarity_max: int, age_range: Array, element: String = "") -> Dictionary:
-	var pool: Array = _gd.herbs().filter(func(h): return int(h.rarity) <= rarity_max and (element == "" or h.element == element))
+	var pool: Array = _gd.herbs().filter(func(h): return int(h.rarity) <= rarity_max and (element == "" or herb_elements(h).has(element)))
 	if pool.is_empty():
 		pool = _gd.herbs().filter(func(h): return int(h.rarity) <= maxi(rarity_max, 1))
 	var t: Dictionary = RngUtils.weighted_pick(rng, pool.map(func(h): return {"id": h.id, "weight": 1.0 / float(h.rarity)}))

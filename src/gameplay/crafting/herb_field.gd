@@ -47,10 +47,11 @@ func free_plot(c: Character, sheet: StatSheet) -> int:
 	return -1
 
 
-## Herb templates whose seeds can be bought anywhere at a realm (seed_rarity_by_realm).
+## Herb templates whose seeds can be bought at a realm: the five basic herbs at every realm, a multi-element herb
+## only up to seed_rarity_by_realm (Spirit Herbs rule 5, herb element rework 2026-11-21).
 func seed_catalog(realm_index: int = 0) -> Array:
 	var max_r: int = int(_gd.session().field.seed_rarity_by_realm[realm_index])
-	return _gd.herbs().filter(func(h): return int(h.rarity) <= max_r)
+	return _gd.herbs().filter(func(h): return ItemFactory.is_basic_herb(h) or int(h.rarity) <= max_r)
 
 
 ## Buys a seed and plants it. Returns {ok, message, item_id}.

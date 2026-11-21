@@ -34,6 +34,17 @@ static func climate(gd: GameData, place: Dictionary) -> Dictionary:
 		"R": clampf((float(place.rain_mm) - float(r[0])) / (float(r[1]) - float(r[0])) * 100.0, 0.0, 100.0)}
 
 
+## [share, f_e] of element [param e] on ground with [param qi] (Formula G's element factor).
+static func _element_factor(cfg: Dictionary, qi: Dictionary, e: String) -> Array:
+	var share: float = float(qi.get("shares", {}).get(e, qi.get("variants", {}).get(e, 0.0)))
+	for item in LandQi.active_layer3(qi):
+		share += float(item.get("push", {}).get(e, 0.0))
+	var variant: bool = not qi.get("shares", {}).has(e)
+	var s_full: float = float(cfg.get("elem_full_share_variant", 20.0)) if variant else float(cfg.get("elem_full_share", 40.0))
+	var e_floor: float = float(cfg.get("elem_floor", 0.3))
+	return [share, e_floor + (1.0 - e_floor) * minf(1.0, share / s_full)]
+
+
 static func _band(x: float, ideal: float, tol: float, fall: float) -> float:
 	return clampf(1.0 - maxf(0.0, absf(x - ideal) - tol) / fall, 0.0, 1.0)
 
@@ -45,14 +56,18 @@ static func fit(gd: GameData, herb: Dictionary, place: Dictionary) -> Dictionary
 	var cl: Dictionary = climate(gd, place)
 	if qi.is_empty() or cl.is_empty() or not herb.has("temp_ideal"):
 		return {"fit": -1.0, "growth": 1.0, "plantable": true, "label": "", "lines": ["no land qi here: grows as it always has"]}
+	# A multi-element herb reads the element whose share fits it best (Travel & Map Formula G, herb element rework 2026-11-21).
 	var e: String = str(herb.get("element", ""))
-	var share: float = float(qi.get("shares", {}).get(e, qi.get("variants", {}).get(e, 0.0)))
-	for item in LandQi.active_layer3(qi):
-		share += float(item.get("push", {}).get(e, 0.0))
-	var variant: bool = not qi.get("shares", {}).has(e)
-	var s_full: float = float(cfg.get("elem_full_share_variant", 20.0)) if variant else float(cfg.get("elem_full_share", 40.0))
-	var e_floor: float = float(cfg.get("elem_floor", 0.3))
-	var f_e: float = e_floor + (1.0 - e_floor) * minf(1.0, share / s_full)
+	var share: float = 0.0
+	var f_e: float = -1.0
+	for el in ItemFactory.herb_elements(herb):
+		var r: Array = _element_factor(cfg, qi, str(el))
+		if float(r[1]) > f_e:
+			e = str(el)
+			share = float(r[0])
+			f_e = float(r[1])
+	if f_e < 0.0:
+		f_e = float(cfg.get("elem_floor", 0.3))
 	var fall: float = float(cfg.get("fall", 30.0))
 	var f_t: float = _band(float(cl.T), float(herb.temp_ideal), float(herb.temp_tol), fall)
 	var f_r: float = _band(float(cl.R), float(herb.rain_ideal), float(herb.rain_tol), fall)
