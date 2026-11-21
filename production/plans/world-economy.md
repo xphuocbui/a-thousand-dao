@@ -209,6 +209,9 @@ So before the economy can price anything, the land must produce what it prices: 
    census_cause_probe.gd: world generation starts everyone at about half their lifespan, so in the first 20 years
    only 64 die of age against 591 breakthroughs, and 96 % of Luyện Khí reach the last stage. A transient: Kết Đan and
    above live 500-2,000 years. The 2026-11-05 run (2,000 years, random world) held Nguyên Anh at 29. A 400-year run on
-   the continent settles it (sim-11-400y.md). If the long run is still high, the census retune (approved with the
-   money decision) moves the NPC gate odds; if only the start is off, world generation's ages are the fix (a
-   proposal, as World Generation owns them).
+   the continent settled it (sim-11-400y.md): by year 1600 the census is 3,949 / 818 / 196 / 34 / 3 against 3,936 /
+   844 / 191 / 27 / 3. **The steady state is on target; no gate retune.** The first century overshoots (Trúc Cơ
+   about 1,250 at years 20-80, Kết Đan about 300) because world generation's ages leave too few early deaths. A
+   proposal for World Generation (which owns the ages): start people at their steady-state age spread, so a new
+   game's first century looks like its later ones. The same run: M grows 0.2-0.6 % a year (inside the band); crafted
+   prices stay at 1.7-2.3 and ore at about 1.45 for the whole 400 years (finding 2); one war in 400 years (finding 1).

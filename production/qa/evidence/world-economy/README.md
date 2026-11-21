@@ -9,6 +9,9 @@ mines by name; beast lairs and special sites authored on the map).
 
 | `sim-11.md` | A 100-year world simulation with no player (tools/balance/world_sim.gd, seed 11, 2026-11-21): money +3.6 % a year in the first decade falling to +0.6 %; prices drift above the 0.9-1.15 band (ore 1.48, special 1.91, crafted 1.85-2.16 by year 1300: the sects' goods spending grows with their investment, which the calibration does not count); the census runs high (Trúc Cơ 1,185 against 844, Nguyên Anh 44 against 27; money speeds NPCs, to retune); one war burst (Thính Vũ Lâu takes two vassals from Phượng Minh Cung, new sects fill the gap), then 80 years of peace and loyalty, because leaders have no traits yet. |
 
+| `sim-11-traits.md` | The same 100 years with leaders' trait pulls (2026-11-21): more feuds and a pact among minor sects; great-sect wars still stop after the first burst. |
+| `sim-11-400y.md` | 400 years (2026-11-21): the census returns to target by year 1600 (3,949 / 818 / 196 / 34 / 3), so the first century's excess is world generation's age spread; money +0.2-0.6 % a year; crafted prices 1.7-2.3 throughout; one war; 687 ms a season (beside other runs at low priority). |
+
 Automated: `tests/unit/economy/` (the ledger and its conservation property test, the formulas against the GDD's worked
 examples, the markets on the built continent, the shop).
 Probes (observations): `tests/performance/world/economy_probe.gd` (faucet, contract value, M_0),
