@@ -227,7 +227,10 @@ So before the economy can price anything, the land must produce what it prices: 
   (05-balance.txt). Luyện Khí -> Trúc Cơ is 10 points lower, inside the noise of 72-life runs (about 8 points);
   attempts rose, odds fell slightly. A 144-life round is needed before calling it.
 - **ape5 checkpoint** (144 lives, 0ec31ba8, the same seeds as ape1): **69 / 55 / 33 / 27 %** against 70 / 71 / 33 / 23
-  (ape1 76 / 58 / 16 / 22). Only Trúc Cơ -> Kết Đan is short; that is the balance pass's first target.
+  (ape1 76 / 58 / 16 / 22). Only Trúc Cơ -> Kết Đan is short; that is the balance pass's first target. The lives that
+  die at peak Trúc Cơ spend 100+ years there with 1-5 attempts: their lifetime peak is 600-2,700 linh thạch against a
+  Ngưng Nguyên Đan base price of 3,000 (times the pill price index), and crafting it needs Đan Đạo 5 (several stop at
+  3) and two Kim Tủy Quả of age 42. The lever is the Trúc Cơ income or the pill's price and recipe, a balance call.
 - **Still slow outside the tick:** `items_of` scans every item (5-9 ms a call at 18,000-30,000 items) and the player's
   commands and the Advisor call it often. The owner index could stay on all the time once every owner change goes
   through WorldDB (about 15 places assign `owner_id` directly today). A refactor to propose, not done unattended.
