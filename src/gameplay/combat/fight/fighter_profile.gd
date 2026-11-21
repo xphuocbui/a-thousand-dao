@@ -84,6 +84,9 @@ var timer_resist: float = 0.0
 var basic_coef_add: float = 0.0
 ## Slotted arts in slot order.
 var arts: Array[ArtDef] = []
+## Formations rule 6: a diagram's feeds [from slot, to slot, ms]: when the art in the first slot fires, the second's
+## timer drops by the ms, never below cooldown_min and never raised. Empty with the default line.
+var feeds: Array = []
 ## Effects (slice 4a): the compiled records in order; self-counter definitions by id ({cap, decay_per_pulse,
 ## each_for}); per stat key, the always-on mod entries [EffectDef, value, mod dict] in Effect and action order (the
 ## order the sim sums them); per event, the Effects listening (held ones included) in order. Built by the loader.

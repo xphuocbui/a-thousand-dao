@@ -90,7 +90,7 @@ func _open(s: FighterState) -> void:
 	for i in p.arts.size():
 		var art: ArtDef = p.arts[i]
 		# the opening cooldown honours art speed (scoped to the art), then opening haste (Combat 13)
-		var hz: float = 1.0 if m(s, "speed_locked", null) > 0.0 else 1.0 + (p.art_speed_pct + m(s, "art_speed", art.ctx)) / 100.0
+		var hz: float = 1.0 if m(s, "speed_locked", null) > 0.0 else 1.0 + (p.art_speed_pct + m(s, "art_speed", art.ctx) + art.node_speed_pct) / 100.0
 		var cd: float = maxf(k.cooldown_min, art.cd / hz)
 		var first: float = maxf(k.cooldown_min, cd / (1.0 + (p.opening_haste_pct + m(s, "opening_haste", null)) / 100.0))
 		s.ready[i] = CombatConstants.ms(first)
@@ -217,11 +217,28 @@ func shield_hold(s: FighterState) -> float:
 	return maxf(0.0, 1.0 + m(s, "shield_hold", null))
 
 
+## Formations rule 6: the art in slot [param i] fired, so each feed from it takes its seconds off a cooling target's
+## timer, floored at cooldown_min and never raising a timer already below it (one hop: a fed timer is never ready in
+## the same instant). Logged as a FEED row: the source and target slots and the ms taken off.
+func _feed(s: FighterState, i: int) -> void:
+	for f in s.p.feeds:
+		if int(f[0]) != i:
+			continue
+		var j: int = int(f[1])
+		var rem: int = s.ready[j] - t
+		if rem <= 0:
+			continue   # ready already: nothing changes
+		var new_rem: int = mini(rem, maxi(rem - int(f[2]), k.cooldown_min_ms))
+		s.ready[j] = t + new_rem
+		if _log_enabled:
+			_row(FightLogRow.Kind.FEED, s.label, &"", s.p.arts[j].id, [float(i), float(j), float(rem - new_rem)])
+
+
 ## An art's speed multiplier as act() reads it (1 when speed_locked: Immovable Mountain).
 func art_speed(s: FighterState, art: ArtDef) -> float:
 	if m(s, "speed_locked", null) > 0.0:
 		return 1.0
-	return 1.0 + s.bsum("speed") + s.p.art_speed_pct / 100.0 + m(s, "art_speed", art.ctx) / 100.0
+	return 1.0 + s.bsum("speed") + s.p.art_speed_pct / 100.0 + m(s, "art_speed", art.ctx) / 100.0 + art.node_speed_pct / 100.0
 
 
 ## Overheat: the art speed that cooldown_min clips on this art, in points, up to the mod's cap (added to L5).
@@ -517,7 +534,7 @@ func act(s: FighterState) -> void:
 			continue
 		var base_id: StringName = art.id
 		art = shape(s, i, art)
-		var speed: float = 1.0 if m(s, "speed_locked", null) > 0.0 else speed_base + m(s, "art_speed", art.ctx) / 100.0
+		var speed: float = 1.0 if m(s, "speed_locked", null) > 0.0 else speed_base + m(s, "art_speed", art.ctx) / 100.0 + art.node_speed_pct / 100.0
 		if not s.eff_state.is_empty():   # per_firing limits restart with each art firing
 			for eid in s.eff_state:
 				var es_f: PackedInt64Array = s.eff_state[eid]
@@ -531,6 +548,8 @@ func act(s: FighterState) -> void:
 			s.ready[i] = t + CombatConstants.ms(cd)
 			s.charges[i] = art.charges
 		s.fired[i] += 1
+		if not p.feeds.is_empty():
+			_feed(s, i)
 		if _fx:   # only Effect reads (fired_within, since) look at the fire log
 			s.fire_log.append([t, str(base_id), art.tags_s, art.group])
 			var log_keep: Array = []
@@ -644,7 +663,7 @@ func pay(s: FighterState, art: ArtDef) -> bool:
 	s.hp_paid = 0.0
 	var cost_up: float = (1.0 + s.dsum("cost_up")) * (1.0 + s.st("heavy_breath") * k.heavy_cost_up)
 	var cost: float = art.cost * k.cost_scale * (1.0 - minf(k.cost_red_cap, p.cost_red + m(s, "cost_red", art.ctx))) \
-			* cost_up * s.qi_base
+			* cost_up * s.qi_base * maxf(0.5, 1.0 + art.node_cost_pct / 100.0)
 	if art.pool == &"tam_ma":
 		var need: float = cost / s.qi_max() * 100.0
 		if s.tam_ma < need:

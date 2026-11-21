@@ -81,7 +81,7 @@ func build(c: Character, formation_id: String) -> Dictionary:
 	if not ck.ok:
 		return {"ok": false, "message": "Cannot build: %s." % ck.reason}
 	var f: Dictionary = def(formation_id)
-	c.linh_thach -= int(ck.cost.lt)
+	MoneyLedger.player_pay(_db, c, "", int(ck.cost.lt), "formation")   # Formations rule 17: burn_formation (Formula H)
 	MaterialBag.spend(c, _gd, _db, int(ck.cost.rarity), int(ck.cost.materials))
 	var lv: int = level(c, formation_id) + 1
 	c.formations[formation_id] = lv
@@ -123,8 +123,27 @@ func pay_upkeep(c: Character) -> Array:
 		if int(c.formations[worst]) <= 0:
 			c.formations.erase(worst)
 		due = upkeep(c)
-	c.linh_thach -= mini(due, c.linh_thach)
+	MoneyLedger.player_pay(_db, c, "", mini(due, c.linh_thach), "formation")   # rule 17: burn_formation
 	return lines
+
+
+## Formations F5: a protective array of [param level] for an owner of [param owner_realm], once for one event:
+## {defense_pct = per_level × L × (1 + 0.5 × formation_power_pct / 100), burn = trigger_frac × L × linh_thach_max}.
+static func protective(gd: GameData, level: int, power_pct: float, owner_realm: int) -> Dictionary:
+	var pc: Dictionary = gd.file("crafting_formations").get("protective", {"per_level": 10.0, "trigger_frac": 0.004})
+	var budget: float = float(gd.file("events_budgets").per_realm[str(gd.realm(clampi(owner_realm, 0, gd.realms().size() - 1)).id)].linh_thach_max)
+	return {"defense_pct": float(pc.per_level) * level * (1.0 + 0.5 * power_pct / 100.0),
+		"burn": int(ceil(float(pc.trigger_frac) * level * budget - 1e-6))}
+
+
+## Formations F5 and rule 15: a protective array triggers once for an event when its owner [param c] can pay the burn
+## (booked as burn_formation); otherwise it does not trigger and burns nothing. Returns {fired, defense_pct, burn}.
+func trigger_protective(c: Character, level: int, power_pct: float) -> Dictionary:
+	var pr: Dictionary = protective(_gd, level, power_pct, c.realm_index)
+	if c.linh_thach < int(pr.burn):
+		return {"fired": false, "defense_pct": 0.0, "burn": 0}
+	MoneyLedger.player_pay(_db, c, "", int(pr.burn), "formation")
+	return {"fired": true, "defense_pct": float(pr.defense_pct), "burn": int(pr.burn)}
 
 
 ## Adds formation modifiers to a stat sheet ("home" formations only while at home),

@@ -53,3 +53,48 @@ How it started: the world economy's decision 7 (stone sinks: formation fuel, cra
 - What makes a diagram stronger (grade, level, Trận Pháp skill, formation_power_pct) and the fuel formula.
 - NPC loadouts: how the NPC generator picks and arranges a diagram.
 - Home and world arrays: teleport and protective arrays, their fuel, who owns sect arrays.
+
+## Build, 2026-11-21 evening (user away: "continue with the implementation of relationships and formations")
+
+The build reads the approved GDD's working copy (blob `8f2cdf8a`, unchanged since 16:35). **The catalogue is not
+built**: Open Question 4 says the first catalogue (diagrams, shapes, node rules, `reserve_share`, `cost_lt[grade]`)
+is the user's to hand-author, so `assets/data/crafting_diagrams.json` ships `"diagrams": []` and every combatant fights
+with the default line until it is filled.
+
+### Built
+
+- **`Diagrams`** (`src/gameplay/crafting/diagrams.gd`), data `crafting_diagrams.json`:
+  - F1 strength and F1's scaling (drawbacks by the share only, polarity not sign);
+  - rule 7's effective level (skill cap, the keystone's +2 after the caps);
+  - F2 lay fuel (with the 1e-6 tolerance), F3 raise cost, F6 reservation;
+  - rules 3 and 9a: the node budget and the reservation cap;
+  - F4 placement and the NPC's choice (ties to fewer nodes, then id; at or below fit_min the default line);
+  - rule 9's laying (`prepare`): foreseen and affordable, the fuel burnt as `formation` (Formula H's
+    `burn_formation`), the player from the Character's purse, an NPC from its ledger purse; otherwise carried at the
+    share;
+  - `apply`: compiles a diagram into a FighterProfile (node order first, plain slots after; Modifier nodes as per-art
+    `node_speed_pct` / `node_cost_pct` / damage `m_mult`; adjacency Modifier nodes; gate nodes as guards; feeds; the
+    reservation) on copies of the shared arts; `compile_for`: the Set diagram (Character `diagram`) or an NPC's best
+    fit, wired into the event fight check for both sides.
+- **The fight engine** (`fight.gd`): node art speed and cost; `_feed` after each firing (floored at cooldown_min,
+  never raising a timer, a FEED log row). The python sim is untouched (nodes are 0 without a diagram).
+- **Arrays** (`formations.gd`): builds and upkeep burnt through MoneyLedger as `formation`; F5's protective array
+  (`protective`, `trigger_protective`: once per event, only when the owner can pay); data `protective` in
+  `crafting_formations.json`.
+- Tests: `tests/unit/crafting/diagrams_test.gd` (AC-FO-01, 02, 03, 04, 05, 12, 17, 18, 19, 20, 24, 26) and
+  `formations_burn_test.gd` (AC-FO-08, 09, 12's purse, 15, burn_formation). Watched failing: the feed floor, laying
+  without the fuel.
+
+### Not built, and why (decisions for the user)
+
+1. **The catalogue** (Open Question 4): yours to author; nothing is invented here.
+2. **Effect nodes** ("fires one extra time below 40 % health", AC-FO-04's first case): an Effect node needs its own
+   Effect record in the fight's EffectRunner; built when the catalogue names one.
+3. **Crafting diagrams** (rule 8, Open Question 5): the node count by grade and the pool of rolled rules are open.
+4. **The preparation screen, the terminal diagram commands and raising a diagram's level at the abode** (UI, AC-FO-23):
+   with `/ux-design` and the catalogue.
+5. **Teleport arrays** stay Travel & Map's fee (rule 15; no second burn, already built). **Sect-owned arrays** and
+   which events trigger a protective array (Open Question 7) wait on Sects.
+6. **Standing arrays' dormant and left-behind states** (rule 14) wait on Cave Abode (#47), designed but not built.
+7. **Situation:** the event fight check passes Combat's default `FORESEEN`; where events set ambush or blind, the
+   share follows.

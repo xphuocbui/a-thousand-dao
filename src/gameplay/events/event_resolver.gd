@@ -30,6 +30,8 @@ var last_fight_names: Array = []
 var ratings: RatingService
 ## Callable() -> [game seed, season key] for Power Rankings' keyed event-fight seeds (rule 13); set by GameSession.
 var rating_clock: Callable
+## Formations rule 11: the last event fight's diagram Breakdown lines (both sides).
+var last_diagram_lines: Array = []
 
 
 func _init(gd: GameData, db: WorldDB, builds: BuildGenerator, items: ItemFactory) -> void:
@@ -142,9 +144,12 @@ func fight_check(c: Character, sheet: StatSheet, enemy: Character, rng: RandomNu
 	var errors: Array = []
 	var req := FightRequest.new()
 	req.a = FighterCompiler.compile(c, _gd, _db, sheet, [], errors)
-	req.b = FighterCompiler.compile(enemy, _gd, _db, _builds.sheet_of(enemy), [], errors)   # with its Đạo Đồ
+	var enemy_sheet: StatSheet = _builds.sheet_of(enemy)
+	req.b = FighterCompiler.compile(enemy, _gd, _db, enemy_sheet, [], errors)   # with its Đạo Đồ
 	if req.a == null or req.b == null:
 		return {"ran": false, "win": false, "line": "fight engine could not compile: %s" % "; ".join(errors)}
+	# Formations rules 1-12: each side's combat diagram becomes its loadout (the default line when none is set)
+	last_diagram_lines = Diagrams.compile_for(_gd, _db, c, req.a, sheet, req.situation, -1) 		+ Diagrams.compile_for(_gd, _db, enemy, req.b, enemy_sheet, req.situation, -1)
 	var rated: bool = ratings != null and ratings.enabled() and enemy.id != "" and _db.has_record("people", enemy.id) 		and rating_clock.is_valid()
 	if rated:   # Power Rankings rule 13 / ADR-0003 decision 4: a rated pair fight takes a keyed seed, no session draw
 		var clock: Array = rating_clock.call()
