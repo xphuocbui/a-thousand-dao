@@ -116,13 +116,16 @@ static func local_output(gd: GameData, db: WorldDB, place: Dictionary) -> Dictio
 
 ## Trade Goods Formula A: [param value] split among the herbs of [param grounds] ({herb, fit}) by w = fit · ω^(rarity − 1),
 ## in whole base value by largest remainder (ties to the lower herb id), so the parts sum to [param value] exactly.
-static func herb_split(gd: GameData, grounds: Array, value: int) -> Dictionary:
+static func herb_split(gd: GameData, grounds: Array, value: int, blessed: bool = false) -> Dictionary:
 	var omega: float = float(_cfg(gd).get("rarity_weight", 0.5))
+	var rare_min: int = int(_cfg(gd).get("rare_ground", {}).get("rarity_min", 99))
 	var ws := []
 	var total: int = 0
 	for g in grounds:
 		var h: Dictionary = gd.herb(str(g.herb))
-		var w: int = int(round(float(g.fit) * pow(omega, int(h.get("rarity", 1)) - 1) * 1000000.0))
+		var rar: int = int(h.get("rarity", 1))
+		var rw: float = 1.0 if blessed and rar >= rare_min else pow(omega, rar - 1)   # Formula A: a blessed land's rare herbs
+		var w: int = int(round(float(g.fit) * rw * 1000000.0))
 		ws.append([str(g.herb), w])
 		total += w
 	var out := {}
@@ -272,7 +275,8 @@ static func season(gd: GameData, db: WorldDB, count_people: bool = true, advance
 			p.herb_site["last_output"] = hv
 			if advance:
 				p.herb_site["reserve"] = snappedf(next_reserve(gd, p.herb_site, hv, float(cfg.recover_rate.herb)), 0.01)
-			var split: Dictionary = herb_split(gd, p.get("herb_grounds", []), int(hv))
+			var blessed: bool = str(p.get("kind", "")) in Array(cfg.get("rare_ground", {}).get("kinds", []))
+			var split: Dictionary = herb_split(gd, p.get("herb_grounds", []), int(hv), blessed)
 			p.herb_site["by_good"] = split
 			var hr: String = str(p.get("region_id", ""))
 			if not value_by_region.has(hr):

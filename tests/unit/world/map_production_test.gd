@@ -119,3 +119,17 @@ func test_a_lair_yields_bone_hide_and_cores() -> void:
 	var parts := MapProduction.kind_split(gd, "beast", "yeu_cot", 1000)
 	assert_eq(parts, {"yeu_cot": 400, "yeu_dan": 200, "yeu_thu_bi": 400}, "the split")
 	assert_eq(MapProduction.kind_split(gd, "ore", "tinh_thiet", 500), {"tinh_thiet": 500}, "an ore site keeps its one good")
+
+
+func test_a_blessed_lands_rare_herbs_are_not_diluted_formula_a() -> void:
+	# Trade Goods Formula A (user decision 2026-11-21): Hóa Thần Quả (rarity 6, fit 1.0) and Hỏa Linh Chi (rarity 2,
+	# fit 1.0) share 3,300 of value. On a wild ground: w 0.03125 and 0.5, so 194 / 3,106; at a blessed land the rare
+	# herb takes fit alone: w 1.0 and 0.5, so 2,200 / 1,100
+	var gd := game_data()
+	var grounds := [{"herb": "hoa_than_qua", "fit": 1.0}, {"herb": "hoa_linh_chi", "fit": 1.0}]
+	var wild: Dictionary = MapProduction.herb_split(gd, grounds, 3300)
+	var blessed: Dictionary = MapProduction.herb_split(gd, grounds, 3300, true)
+	assert_eq([int(wild.hoa_than_qua), int(wild.hoa_linh_chi)], [194, 3106], "diluted on a wild ground")
+	assert_eq([int(blessed.hoa_than_qua), int(blessed.hoa_linh_chi)], [2200, 1100], "a full share at a blessed land")
+	var below := [{"herb": "xich_huyet_dang", "fit": 1.0}, {"herb": "hoa_linh_chi", "fit": 1.0}]   # rarity 3: under rare_min
+	assert_eq(MapProduction.herb_split(gd, below, 3300, true), MapProduction.herb_split(gd, below, 3300), "rarity 3 keeps ω")

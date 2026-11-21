@@ -256,7 +256,9 @@ crafted class is c = (kind, tier), and a named good is g; `k(g)` is the class of
 
 The site_yield formula is defined as:
 
-`w[s,g] = fit[s,g] · ω^(rar_g − 1)` · `value_g[s] = value_lt[s,k] · w[s,g] / Σ_g' w[s,g']`, made into whole units by
+`w[s,g] = fit[s,g] · ω^(rar_g − 1)`, or `fit[s,g]` alone for a herb of rarity `rare_min` or more at a blessed land
+(phúc địa; user decision 2026-11-21: the blessed lands are where rare herbs are found, so commons do not dilute them) ·
+`value_g[s] = value_lt[s,k] · w[s,g] / Σ_g' w[s,g']`, made into whole units by
 largest remainder (floor every part, then give the leftover units one each to the largest fractional parts; ties go to
 the lower `good_id`)
 
@@ -266,6 +268,7 @@ the lower `good_id`)
 | fit[s,g] | float | 0.6–1 (herbs); 1 (other goods) | calculated (Travel & Map Formula G) | Herb fit at the site's part; a non-herb good that meets its `source` counts as 1 |
 | rar_g | int | 1–6 | data file | The good's rarity (Item Database rule 7) |
 | ω | float | 0.5 | data file *(guess)* | Weight per rarity step; rarer goods take a smaller part |
+| rare_min | int | 4 | data file *(guess)* | At a blessed land, herbs of this rarity or more take weight `fit` (no ω) |
 | value_lt[s,k] | int | ≥ 0 | Travel & Map Formula L | The site's value of kind k this season |
 
 **Output Range:** whole numbers from 0 to `value_lt` that always sum to `value_lt` exactly. The fallback good (rule 3) is

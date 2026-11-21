@@ -293,3 +293,29 @@ So before the economy can price anything, the land must produce what it prices: 
     opinions (F3); write each definition into its GDD.
 11. **Several seeds first:** after decision 4 lands, 4-6 seeds of 400 years at low priority, then a retune proposal
     only if they agree.
+
+### Progress, 2026-11-21 (day)
+
+- **cb9b81d3** decision 6: the owner index stays on (WorldDB.set_owner; eight hand-set owners routed). A 40-year
+  chronicle is byte-identical to the commit before, timings aside (461 against 498 ms a season).
+- **ad46b134** decisions 5 and 10 in the GDDs. **a6672fbf** decision 2: D_mil reads the 4-season mean.
+- **0a4f168c** decisions 1 and 9: site friction (F7) and masters at joining (rule 20a). A 100-year run (seed 11):
+  wars every decade (Thiên Xu against Tùng Đào, Thính Vũ against Phượng Minh; 1 in 400 years before); 70-100 people
+  Grieving at a time (master ties now last). The Thiên Xu–Tùng Đào war is re-declared every decade: a balance
+  observation for the pass. Census at year 1300: 3,274 / 1,383 / 294 / 43 / 6 against the 400-year run's 3,451 /
+  1,210 / 297 / 39 / 3 (one seed; masters change no cultivation in code; decision 11's seeds settle it).
+- **The 4-season mean did not lower crafted prices** (talisman 2.02, artifact 1.97 at year 40, against 1.98 and 1.94
+  before). crafted_gap_probe.gd found the cause: plan_ref is calibrated on season 0's upkeep-only Military spending,
+  so live demand is 3-6 × plan_ref (mk:s7 talisman3: plan_ref 34, demand 214), while Formula F's plan reaches about
+  2 × plan_ref at most. The user chose (2026-11-21) **plan_ref drifts toward demand**, ρ_ref 0.05 a season (Trade
+  Goods Formula F). **ca3dcaaa**: at year 40 talisman 2.02 → 1.47, artifact 1.97 → 1.63; still above the band, and
+  the raw classes rise under them (herb 1.29, ore 1.37, special 1.84 at year 40): input supply is the next limit.
+- **3e6c386b** site friction counted sites in units, not value (a spirit vein's stones outweighed a large mine 30 to
+  1). Fixed; the user chose V_half 45,000 (2026-11-21), which keeps the approved outcome.
+- **Correction to finding 2 and decision 3** (rare_goods_probe.gd): rarity 4+ goods are on the map. Kim Tủy Quả
+  (rarity 4) has 30 wild grounds and grows in 16 settlements; Vạn Niên Mộc Linh 5 / 9, Anh Tâm Liên 15 / 10, Hóa Thần
+  Quả (6) 7 / 1; Tử Kim Sa from two small mines and Lôi Kích Mộc from one lightning wood (rarity-4 materials). Both
+  settlements and wild herb sites feed the markets (MapProduction.season), but each ground's output is shared by
+  fit × ω^(rarity − 1), ω 0.5 (Trade Goods Formula A), so a rarity-6 herb gets 1/32 of a rarity-1 herb's weight, and
+  pill5 needs 4 Hóa Thần Quả of age 100 (many mature equivalents) and a Vạn Niên Mộc Linh: its workshops' fill is 0
+  where they plan. The gap is thin supply, not missing goods.

@@ -133,6 +133,11 @@
     "loi_kich_moc": "special"
   },
   "rarity_weight": 0.5,
+  "rare_ground": {
+    "_doc": "Trade Goods Formula A (user decision 2026-11-21): at a place of these kinds, herbs of rarity_min or more take weight fit alone (no rarity_weight), so commons do not dilute the blessed lands' rare herbs.",
+    "kinds": ["blessed_land"],
+    "rarity_min": 4
+  },
   "settle_w_by_kind": {
     "beast": 1.0
   },
