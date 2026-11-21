@@ -249,3 +249,6 @@ So before the economy can price anything, the land must produce what it prices: 
    planned sinks (formation fuel, crafting fuel, the abode) are the answer; until then the number is only a note.
 8. **Gained-trait triggers** wired from world events (bereaved, defeated_by_lesser, betrayed, war_victory, rout) are
    the catalogue's proposed ids; the Event Engine owns the final ones.
+9. **Masters after world generation**: new cultivators never get a master (only world generation assigns them), so
+   master and disciple ties, and the grief and inheritance they carry, die out with the first generation
+   (sim-11-200y-gained.md). Sects rule or NPC Relationships should say how a newcomer finds a master.
