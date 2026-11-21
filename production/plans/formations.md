@@ -98,3 +98,13 @@ with the default line until it is filled.
 6. **Standing arrays' dormant and left-behind states** (rule 14) wait on Cave Abode (#47), designed but not built.
 7. **Situation:** the event fight check passes Combat's default `FORESEEN`; where events set ambush or blind, the
    share follows.
+8. **The node-rule schema is provisional:** the GDD names Modifier, Effect and gate nodes but no record format; the
+   build uses `{type: mod | adj_mod | gate, key: art_speed_pct | art_cost_pct | damage_pct, value, scope, tag, cond}`.
+   The catalogue may change it.
+9. **Only the event fight check compiles diagrams.** The trial-fight odds (event_resolver's 24 keyed fights) and Power
+   Rankings' compiles do not, so shown odds and ratings will ignore a diagram once the catalogue exists; wire them
+   then (the fuel is paid only after a fight runs, so trial fights must decide without paying).
+10. **Laying is automatic unless the Set diagram says `lay: false`;** the preparation screen will give the choice.
+11. **This session edited `formations.gd` and `crafting_formations.json`** after telling the design session it would
+   stay out of them (the user then asked for the implementation); the Cave Abode design session may touch standing
+   arrays: check before both edit the same file.

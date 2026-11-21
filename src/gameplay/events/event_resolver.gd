@@ -149,7 +149,8 @@ func fight_check(c: Character, sheet: StatSheet, enemy: Character, rng: RandomNu
 	if req.a == null or req.b == null:
 		return {"ran": false, "win": false, "line": "fight engine could not compile: %s" % "; ".join(errors)}
 	# Formations rules 1-12: each side's combat diagram becomes its loadout (the default line when none is set)
-	last_diagram_lines = Diagrams.compile_for(_gd, _db, c, req.a, sheet, req.situation, -1) 		+ Diagrams.compile_for(_gd, _db, enemy, req.b, enemy_sheet, req.situation, -1)
+	var fuel_due: Array = []   # Formations rule 9: the lay fuel is paid only once the fight has run
+	last_diagram_lines = Diagrams.compile_for(_gd, _db, c, req.a, sheet, req.situation, -1, fuel_due) 		+ Diagrams.compile_for(_gd, _db, enemy, req.b, enemy_sheet, req.situation, -1, fuel_due)
 	var rated: bool = ratings != null and ratings.enabled() and enemy.id != "" and _db.has_record("people", enemy.id) 		and rating_clock.is_valid()
 	if rated:   # Power Rankings rule 13 / ADR-0003 decision 4: a rated pair fight takes a keyed seed, no session draw
 		var clock: Array = rating_clock.call()
@@ -162,6 +163,8 @@ func fight_check(c: Character, sheet: StatSheet, enemy: Character, rng: RandomNu
 	var r: FightResult = _service.resolve(req)
 	if r == null:
 		return {"ran": false, "win": false, "line": "fight engine refused the fight: %s" % "; ".join(_service.errors)}
+	for due in fuel_due:
+		Diagrams.pay_fuel(_db, due[0], int(due[1]))
 	last_fight = r
 	last_fight_names = [c.name, enemy.name]
 	var code: String = r.win_code()

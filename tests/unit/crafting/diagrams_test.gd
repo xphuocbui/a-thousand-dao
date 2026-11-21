@@ -151,3 +151,64 @@ func test_a_cost_node_stays_within_its_bound_ac_fo_18() -> void:
 	var d := {"id": "fx", "grade": 4, "links": [], "nodes": [{"polarity": "+", "rule": {"type": "mod", "key": "art_cost_pct", "value": -20.0}}]}
 	Diagrams.apply(gd, p, d, [first], 8.0, 1.0)
 	assert_eq(p.arts[0].node_cost_pct, float(Diagrams.cfg(gd).node_cost_min_pct), "-160 % is held at the bound")
+
+
+func test_an_adjacency_node_reads_its_linked_art_and_moves_no_timer_ac_fo_06() -> void:
+	var gd := game_data()
+	var p: FighterProfile = FighterCompiler.from_data("typical", 1, gd)
+	var ids: Array = p.arts.map(func(a): return str(a.id))
+	var tag: String = "fire"   # a fixture tag on the neighbour (the typical kit's arts carry none)
+	p.arts[1].tags_s = ["fire"]
+	var d := {"id": "fx", "grade": 0, "nodes": [
+		{"polarity": "+", "rule": {"type": "adj_mod", "key": "art_speed_pct", "value": 20.0, "tag": tag}},
+		{"polarity": "+", "rule": {}}], "links": [{"kind": "adj", "a": 1, "b": 2}]}
+	Diagrams.apply(gd, p, d, [ids[0], ids[1]], 1.0, 1.0)
+	assert_eq(p.arts[0].node_speed_pct, 20.0, "+20 while the linked art carries %s" % tag)
+	assert_eq(p.feeds, [], "adjacency moves no timer")
+	var p2: FighterProfile = FighterCompiler.from_data("typical", 1, gd)
+	Diagrams.apply(gd, p2, d, [ids[0], ""], 1.0, 1.0)
+	assert_eq(p2.arts[0].node_speed_pct, 0.0, "an empty neighbour gives nothing")
+	var d2: Dictionary = d.duplicate(true)
+	d2.nodes[0].rule.tag = "no_such_tag"
+	var p3: FighterProfile = FighterCompiler.from_data("typical", 1, gd)
+	Diagrams.apply(gd, p3, d2, [ids[0], ids[1]], 1.0, 1.0)
+	assert_eq(p3.arts[0].node_speed_pct, 0.0, "a neighbour without the tag gives nothing")
+
+
+func test_a_feed_that_fires_is_logged_with_source_target_and_seconds_ac_fo_11() -> void:
+	var gd := game_data()
+	var p: FighterProfile = FighterCompiler.from_data("typical", 1, gd)
+	var ids: Array = p.arts.map(func(a): return str(a.id))
+	var d := {"id": "fx", "grade": 0, "nodes": [{"polarity": "+", "rule": {}}, {"polarity": "+", "rule": {}}],
+		"links": [{"kind": "feed", "from": 1, "to": 2, "seconds": 2.0}]}
+	var lines: Array = Diagrams.apply(gd, p, d, [ids[0], ids[1]], 1.0, 1.0)
+	assert_true(lines.any(func(l): return str(l).begins_with("feed 1 -> 2")), "the opening Breakdown has the feed line")
+	var f := Fight.new(p, FighterCompiler.from_data("typical", 1, gd), CombatConstants.from_game_data(gd), 7, Fight.Order.COIN, true)
+	var r: FightResult = f.run()
+	var feeds: Array = r.log_rows.filter(func(row): return row.kind == FightLogRow.Kind.FEED)
+	assert_true(feeds.size() > 0, "the fight record has FEED rows (%d)" % feeds.size())
+	assert_eq(str(feeds[0].art_id), ids[1], "the target art")
+
+
+func test_a_deferred_fuel_is_burnt_only_when_paid_ac_fo_09() -> void:
+	var gd := game_data()
+	var db := WorldDB.new()
+	db.add(WorldEconomy.TABLE, {"id": "k_test", "sect_id": "s1", "regions": []})
+	var c := Character.from_dict({"id": "p1", "realm_index": 2, "linh_thach": 1000})
+	var rec: Dictionary = c.to_dict()
+	rec["is_player"] = true
+	db.put("people", rec)
+	var nodes: Array = []
+	for i in 3:
+		nodes.append({"polarity": "+", "rule": {}})
+	c.diagram = {"record": {"id": "fx", "grade": 2, "nodes": nodes, "links": []}, "level": 1, "placement": []}
+	var p: FighterProfile = FighterCompiler.from_data("typical", 2, gd)
+	var due: Array = []
+	Diagrams.compile_for(gd, db, c, p, null, FightRequest.Situation.FORESEEN, 5, due)
+	assert_eq([c.linh_thach, due.size()], [1000, 1], "decided, not paid: a fight refused now burns nothing")
+	Diagrams.pay_fuel(db, due[0][0], int(due[0][1]))
+	assert_eq(c.linh_thach, 1000 - int(due[0][1]), "paid once the fight has run")
+	c.diagram["lay"] = false
+	var due2: Array = []
+	Diagrams.compile_for(gd, db, c, FighterCompiler.from_data("typical", 2, gd), null, FightRequest.Situation.FORESEEN, 5, due2)
+	assert_eq(due2.size(), 0, "the player chose not to lay")

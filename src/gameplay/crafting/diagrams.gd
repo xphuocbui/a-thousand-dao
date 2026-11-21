@@ -269,8 +269,10 @@ static func _copy(a: ArtDef) -> ArtDef:
 ## Rules 3, 7-12: compiles [param c]'s diagram into fighter [param p] for a fight in [param situation]: the Set one
 ## (rule 2: the default line when none, or when it cannot be set), or for an NPC with none set the best fit from the
 ## catalogue its realm and Trận Pháp skill allow (rule 12; the catalogue is empty until the user authors it). Lays it
-## when it can (rule 9). Returns the Breakdown lines.
-static func compile_for(gd: GameData, db: WorldDB, c: Character, p: FighterProfile, sheet: StatSheet, situation: int, slot_count: int) -> Array:
+## when it can and the Set diagram's `lay` preference allows (rule 9; on unless the player turned it off). With
+## [param pending] (an Array) the fuel is not burnt here: [c, fuel] is appended for the caller to pay with
+## [method pay_fuel] once the fight has run (a refused fight burns nothing). Returns the Breakdown lines.
+static func compile_for(gd: GameData, db: WorldDB, c: Character, p: FighterProfile, sheet: StatSheet, situation: int, slot_count: int, pending: Variant = null) -> Array:
 	if p == null:
 		return []
 	var set: Dictionary = c.diagram
@@ -295,7 +297,9 @@ static func compile_for(gd: GameData, db: WorldDB, c: Character, p: FighterProfi
 	if not bool(ok.ok):
 		return ["diagram %s not set (%s): the default line" % [record.get("id", ""), ok.reason]]
 	var l_eff: int = level_eff(gd, level, skill, c.has_capability(15))
-	var prep: Dictionary = prepare(gd, db, c, record, l_eff, situation)
+	var prep: Dictionary = prepare(gd, db, c, record, l_eff, situation, bool(set.get("lay", true)), pending == null)
+	if bool(prep.laid) and pending is Array:
+		pending.append([c, int(prep.fuel)])
 	var s: float = strength(gd, int(record.get("grade", 0)), l_eff, sheet.total("formation_power_pct") if sheet != null else 0.0)
 	var lines: Array = apply(gd, p, record, placement, s, float(prep.share), eff)
 	if bool(prep.laid):
@@ -306,15 +310,23 @@ static func compile_for(gd: GameData, db: WorldDB, c: Character, p: FighterProfi
 ## Rule 9 and F2: prepares [param c]'s set diagram for a fight in [param situation]: in a foreseen fight the owner
 ## lays it when [param lay] and the fuel is affordable (burnt as burn_formation, Formula H), else it is carried.
 ## [param level] is the effective level (rule 7). Returns {laid, share, fuel}; nothing is burnt when not laid.
-static func prepare(gd: GameData, db: WorldDB, c: Character, diagram: Dictionary, level: int, situation: int, lay: bool = true) -> Dictionary:
+static func prepare(gd: GameData, db: WorldDB, c: Character, diagram: Dictionary, level: int, situation: int, lay: bool = true, pay: bool = true) -> Dictionary:
 	if diagram.is_empty():
 		return {"laid": false, "share": 1.0, "fuel": 0}
 	var need: int = fuel(gd, Array(diagram.get("nodes", [])).size(), int(diagram.get("grade", 0)), level, c.realm_index)
 	var npc: bool = str(c.id) != "" and db.has_record("people", c.id) and not bool(db.get_record("people", c.id).get("is_player", false))
 	var purse: float = MoneyLedger.new(db).balance("npc:%s" % c.id) if npc else float(c.linh_thach)
 	var laid: bool = lay and situation == FightRequest.Situation.FORESEEN and purse >= float(need)
-	if laid and npc:   # an NPC pays from its own purse; Formula H books it under burn_formation with the rest (rule 12)
-		MoneyLedger.new(db).burn("npc:%s" % c.id, need, "formation")
-	elif laid:
-		MoneyLedger.player_pay(db, c, "", need, "formation")
+	if laid and pay:
+		pay_fuel(db, c, need)
 	return {"laid": laid, "share": share_of(gd, situation, laid), "fuel": need if laid else 0}
+
+
+## Rule 9: burns [param fuel] linh thạch of lay fuel as burn_formation (Formula H): an NPC from its own purse (rule 12),
+## the player from the Character's.
+static func pay_fuel(db: WorldDB, c: Character, fuel_lt: int) -> void:
+	var npc: bool = str(c.id) != "" and db.has_record("people", c.id) and not bool(db.get_record("people", c.id).get("is_player", false))
+	if npc:
+		MoneyLedger.new(db).burn("npc:%s" % c.id, fuel_lt, "formation")
+	else:
+		MoneyLedger.player_pay(db, c, "", fuel_lt, "formation")
