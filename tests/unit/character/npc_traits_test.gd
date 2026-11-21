@@ -214,3 +214,16 @@ func test_f2_choice_weights_and_the_pick() -> void:
 	assert_true(absf(counts[0] / 2000.0 - 3.0 / 4.34) < 0.03, "retaliate about 69 %% (got %d)" % counts[0])
 	assert_eq(NpcTraits.pick_choice(gd, p, choices, "insult", 5), NpcTraits.pick_choice(gd, p, choices, "insult", 5), "keyed")
 	assert_eq(NpcTraits.pick_choice(gd, honest, [{"base": 1.0, "tags": ["deceitful"]}], "lie", 1), 0, "all zero: base weights")
+
+
+func test_f5_a_disciple_leans_toward_the_master() -> void:
+	# F5's example: a disciple shares about 0.60 of the master's three traits on average, against 0.24 at random
+	var gd := game_data()
+	var master: Array = ["brave", "honest", "diligent"]
+	var shared: float = 0.0
+	var random: float = 0.0
+	for i in 600:
+		shared += NpcTraits.roll(gd, "d%d" % i, "kiem_tu", true, master).personality.filter(func(x): return master.has(x)).size()
+		random += NpcTraits.roll(gd, "d%d" % i, "kiem_tu", true).personality.filter(func(x): return master.has(x)).size()
+	assert_true(absf(shared / 600.0 - 0.60) < 0.12, "about 0.60 shared (got %.2f)" % (shared / 600.0))
+	assert_true(absf(random / 600.0 - 0.24) < 0.08, "about 0.24 at random (got %.2f)" % (random / 600.0))

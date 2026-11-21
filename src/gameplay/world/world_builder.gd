@@ -582,6 +582,10 @@ func _join(rec: Dictionary, sect: Dictionary, realm: int, k: int) -> void:
 	if not masters.is_empty():
 		var pick: Dictionary = masters[RngUtils.stable_hash("%s:master_pick:%s" % [_seed, rec.id]) % masters.size()]
 		rec["master_id"] = str(pick.id)
+		# NPC Traits F5: a master known at creation: the disciple's roll leans toward the master's personality
+		if rec.has("npc_traits") and not rec.has("cast_key") and _gd.registry.has_file(NpcTraits.FILE):
+			rec["npc_traits"] = NpcTraits.roll(_gd, str(rec.id), str(rec.get("archetype", "")), true, pick.get("npc_traits", {}).get("personality", []))
+			_builds.refresh_power(str(rec.id))
 
 
 ## Formulas M: a loose cultivator outside the settlements picks among the best wild places of a region (by density x

@@ -2131,5 +2131,10 @@
   "_doc": "F2 choice weight (design/gdd/npc-traits.md F2): the product of the person's trait-by-tag weights is clamped to [m_lo, m_hi]; a 0 weight in the catalogue is F2's never.",
   "m_lo": 0.1,
   "m_hi": 5.0
+ },
+ "inherit": {
+  "_doc": "F5 (design/gdd/npc-traits.md F5): h, the chance per known parent to pass a personality trait (no kin are recorded yet); m_master, the roll's lean toward a master known at creation.",
+  "h": 0.5,
+  "m_master": 3.0
  }
 }

@@ -15,6 +15,8 @@ import unicodedata
 SRC = "design/gdd/npc-traits-catalogue.md"
 OUT = "assets/data/traits.json"
 MINUS = "−"
+# F5's constants (npc-traits.md F5 Variables)
+INHERIT = {"_doc": "F5 (design/gdd/npc-traits.md F5): h, the chance per known parent to pass a personality trait (no kin are recorded yet); m_master, the roll's lean toward a master known at creation.", "h": 0.5, "m_master": 3.0}
 # F2's clamp (npc-traits.md F2 Variables)
 CHOICE = {"_doc": "F2 choice weight (design/gdd/npc-traits.md F2): the product of the person's trait-by-tag weights is clamped to [m_lo, m_hi]; a 0 weight in the catalogue is F2's never.", "m_lo": 0.1, "m_hi": 5.0}
 # F3's constants (npc-traits.md F3 Variables), carried in the data file for the engine
@@ -168,7 +170,7 @@ def main():
     codes = stat_codes(text)
     out = {"schema_version": 1, "_doc": "Built by tools/design/traits/export_traits.py from design/gdd/npc-traits-catalogue.md (NPC Traits #42); do not edit by hand. Stat values are in the stat's own units (percent, points or pp, as the key reads them). pulls: the Sects F15 pulls the engine reads; notes: pulls kept as text (event weights and such, read by later systems).",
            "personality": [], "callings": [], "calling_weights": {}, "fate": [], "gained": [], "fade_seasons": 40,
-           "opinion": OPINION, "choice": CHOICE}
+           "opinion": OPINION, "choice": CHOICE, "inherit": INHERIT}
     # personality
     sec = section(text, "## Personality")
     set_no = 0

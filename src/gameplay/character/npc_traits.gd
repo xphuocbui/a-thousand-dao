@@ -35,20 +35,22 @@ static func catalogue(gd: GameData) -> Dictionary:
 	return out
 
 
-## F4: a person's traits from a stream keyed on [param key] (their id): 3 personality draws by weight, each removing the
-## drawn trait's whole set; 1 calling by the archetype's weights (sect members also weigh the leader callings); 0-2
+## F4: a person's traits from a stream keyed on [param key] (their id): 3 personality draws by weight (F5: times m_master
+## on [param master_personality], the master's traits), each removing the drawn trait's whole set; 1 calling by the archetype's weights (sect members also weigh the leader callings); 0-2
 ## fate-given traits (P 0.90 / 0.09 / 0.01), the second never the first's pair.
-static func roll(gd: GameData, key: String, archetype: String, sect_member: bool) -> Dictionary:
+static func roll(gd: GameData, key: String, archetype: String, sect_member: bool, master_personality: Array = []) -> Dictionary:
 	var cat := catalogue(gd)
 	var f: Dictionary = cat.file
 	var r := RandomNumberGenerator.new()
 	r.seed = RngUtils.stable_hash("traits:" + key)
 	var pool: Array = Array(f.get("personality", [])).duplicate()
+	var m_master: float = float(f.get("inherit", {}).get("m_master", 3.0))   # F5: a master known at creation
 	var pers: Array = []
 	for i in 3:
 		if pool.is_empty():
 			break
-		var t: Dictionary = RngUtils.weighted_pick(r, pool.map(func(x): return {"id": str(x.id), "set": int(x.set), "weight": float(x.get("weight", 1.0))}))
+		var t: Dictionary = RngUtils.weighted_pick(r, pool.map(func(x): return {"id": str(x.id), "set": int(x.set),
+			"weight": float(x.get("weight", 1.0)) * (m_master if master_personality.has(str(x.id)) else 1.0)}))
 		pers.append(str(t.id))
 		pool = pool.filter(func(x): return int(x.set) != int(t.set))
 	var cw: Dictionary = Dictionary(f.get("calling_weights", {}).get(archetype, f.get("calling_weights", {}).get("tan_tu", {}))).duplicate()
