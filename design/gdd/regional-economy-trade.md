@@ -508,7 +508,7 @@ ledger**, which counts what was burned so the harness can check `ΔM = F_mine �
 | f_burn | float | 0.5 | data file *(guess)* | Share of array fees burned powering arrays |
 | lost_frac | float | 0.3 | data file *(guess)* | Share of an heirless death's purse lost (it can seed a hidden place) |
 | W_dead | float | ≥ 0 | Living World Tick | Purses of NPCs who died this season with no heir or sect |
-| burn_formation | float | ≥ 0 | Formations (#17) F2, F5, rule 14 | Stones burnt this season laying combat diagrams (NPCs as an aggregate), on standing-array upkeep and on protective triggers; teleport arrays stay in `burn_fees` |
+| burn_formation | float | ≥ 0 | Formations (#17) F2, F5, rule 14 | Stones burnt this season laying combat diagrams (NPCs as an aggregate), building and raising arrays of every kind and diagrams (Formations F3, rule 17), on standing-array upkeep and on protective triggers; teleport jump fees stay in `burn_fees` |
 | burn_abode | float | ≥ 0 | Cave Abode & Home Works (#47) F1, F2, F4 | Stones spent this season on abode grade raises, abode upkeep and claims; NPC abodes as one aggregate |
 | M_0 | float | ~1,200,000 | data file *(guess)* | Starting money, about 10 seasons of the faucet |
 | inv_miss | float | 0.5 | data file *(guess)*; user decision 2026-11-14, design-review 7 | Share of Sects F3's `invest` posted as missions from the treasury; the rest goes to the track F19 picks as `spend_T` |
@@ -961,7 +961,7 @@ Tolerance: ±0.5 in the last digit shown; money ledgers must balance exactly.
 - **AC-RE-06** [Logic] Rule 5. **THEN** the price table has 4 classes and no linh thạch; a mine's access is 1 and its
   `price_index` is 1.0.
 - **AC-RE-07** [Harness] Rule 5, Formula H. **GIVEN** FX-RE-WORLD with a scripted player, **THEN** every season
-  ΔM = F_mine − (burn_works + burn_stone + burn_fees + burn_heirless) − player_net within 1e-6 (float
+  ΔM = F_mine − (burn_works + burn_stone + burn_fees + burn_formation + burn_abode + burn_heirless) − player_net within 1e-6 (float
   ledgers); missions, cash stipends, tribute, tax, mission fees, the head's draw, war cost, the unburned teleport fees,
   tariffs, `Buy_short` and loot only move balances between holders, each from the payer Formula H names.
 

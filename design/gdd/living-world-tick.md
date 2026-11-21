@@ -66,7 +66,7 @@ This GDD describes a system that is **partly built**. The people step, intake, t
 | S3b | **Wild beast refill** per region | This GDD + Spirit Beasts | beasts per region, danger | new beasts | To build |
 | S4 | **Duel** (rare) | This GDD + Power Rankings | ratings | events | Built |
 | S5 | **Sects season tick**: great sects, then vassals; F17 claims the pool, loose ones placed | Sects & Missions | pool, treasuries | sects, members, ranks | To build |
-| S6 | **Travel & Map season update**: reserves, secret-realm cycles, fading works, ownership, contract records, regional head counts | Travel & Map | sect holdings | places, regions | To build |
+| S6 | **Travel & Map season update**: reserves, secret-realm cycles, fading works, ownership, contract records, regional head counts; then the **abode step**: grade upkeep and its fade clock, NPC abode raises (Cave Abode & Home Works #47 rules 8, 12) | Travel & Map; Cave Abode | sect holdings, purses | places, regions, homes | To build |
 | S7 | **Regional Economy tick** (with Trade Goods): flows, prices, stock, market restock | Regional Economy & Trade | contract, `W_dead`, sects | prices, sect income | To build |
 | S8 | **NPC events**: fixed cast, people the player knows, a keyed sample | Event Engine (rule 19) | everything above | people, events | To build |
 | S8b | **NPC Relationships**: queued ties form, change, harden, pass to heirs, end; then the hook pass (`tie` rows) | NPC Relationships (#46) | events, deaths, breakthroughs, travel, people | ties, `tie` modifier rows | Approved (2026-11-21), to build |
@@ -313,6 +313,7 @@ A bulk run of *n* seasons (rule 18) costs `n · T_tick`; a century (400 seasons)
 | Spiritual Roots (linh-can.md) | root curve factor for Formulas H | Hard | Designed | Read only |
 | Spirit Beasts (#19) | wild beast targets per region (Formulas I) | Soft | Built (beasts only), no GDD | Targets provisional |
 | NPC Relationships (#46) | S8b | Soft | Designed 2026-11-20 | `npc-relationships.md` lists this GDD back |
+| Cave Abode & Home Works (#47) | S6 (abode step) | Soft | Approved 2026-11-21 | `cave-abode.md` lists this GDD back |
 | Save / Load | stubs and pruned events (rule 19) | Hard | Built | The save must load a stub |
 | Character Stats | `injury_recovery_frac_per_season` (rule 4) | Hard | Designed | The player's rule, applied to NPCs |
 
