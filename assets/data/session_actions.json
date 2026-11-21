@@ -2,7 +2,6 @@
   "schema_version": 1,
   "field": {
     "base_plots": 3,
-    "max_plots": 12,
     "must_be_home": true,
     "seed_rarity_by_realm": [
       3,

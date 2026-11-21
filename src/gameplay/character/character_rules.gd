@@ -63,7 +63,7 @@ static func herb_growth(c: Character, gd: GameData, sheet: StatSheet) -> Breakdo
 	return b
 
 
-## Field plots = base + Thổ purity x k + field_plots stat (capped by data).
+## Field plots = base + Thổ purity x k + field_plots stat, at least 1 and with no upper bound (Spirit Herbs F2).
 static func field_plots(c: Character, gd: GameData, sheet: StatSheet) -> Breakdown:
 	var fx: Dictionary = gd.element_effects()
 	var cfg: Dictionary = gd.session().field
@@ -71,7 +71,7 @@ static func field_plots(c: Character, gd: GameData, sheet: StatSheet) -> Breakdo
 	b.base("Base", float(cfg.base_plots))
 	b.add("Thổ purity %s" % LinhCan.fmt(c.linh_can.purity("tho")), floorf(c.linh_can.purity("tho") * float(fx.field_plots_per_purity)))
 	b.add("field_plots", floorf(sheet.total("field_plots")))
-	b.clamp_to(1.0, float(cfg.max_plots))
+	b.clamp_to(1.0, INF)   # no upper bound (Character Stats Formulas G, max_plots removed 2026-11-10)
 	return b
 
 
