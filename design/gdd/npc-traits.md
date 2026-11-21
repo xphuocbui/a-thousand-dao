@@ -259,7 +259,7 @@ Pick: `u = rand01(key: "choice", event_id, person_id, season)`; take the first c
 
 **Output Range:** 0.1 · base to 5 · base, or 0 with `never`. If every choice is 0, base weights are used.
 **Example:** "a rival insults you", a Wrathful, Vengeful NPC: retaliate (aggressive, vengeful) 1.5 · 2.0 = 3.0; endure
-(cautious) 0.67; reconcile (merciful) 0.5: odds **72 / 16 / 12 %**.
+(cautious) 0.67; reconcile (merciful) 0.67 (Vengeful's aversion): odds **69 / 15 / 15 %**.
 
 ### F3. Opinion and the starting attitude to the player
 
@@ -275,7 +275,7 @@ The opinion formula is defined as:
 | n_op | int | 0–5 | calculated | Opposed pairs between the two people's personality and gained traits (never within one person) |
 | s, o | int | 10; 10 | data file | Equal, so the world's mean opinion stays near 0 |
 | bias_all | int | Humble +5; Arrogant −5; Renowned +5 | catalogue (same numbers as Sects F15) | Held by b; everyone's view |
-| bias_dir | int | Devout −10 to the opposite alignment; Cruel −10 to rivals | catalogue | Held by a, toward b |
+| bias_dir | int | Devout −10 to the opposite alignment; Cruel −10 to rivals: people whose sect is at feud or war with a's sect (Sects F7's lines; user decision 2026-11-21) | catalogue | Held by a, toward b |
 | tie | int | master or disciple +30; kin +30; Dao companion +50; own sect head +15 | data file | Authored and recorded ties. Since 2026-11-20 the recorded part is NPC Relationships Formula A (`tie_value`, −70 to 80: these values plus kết nghĩa, companion, blood feud and soft ties at their strength); own sect head +15 stays here, computed from the sect |
 | sect | int | same sect +10; else 0.2 · A_sect (−20 – 20) between NPCs; toward the player only +10 for the same sect, else 0 (standing already counts through k_st) | Sects F7 | Sect colouring |
 | target | int | ±50 | catalogue | A targeted gained trait toward its target (Lovestruck +50, grudge −50) |
@@ -488,7 +488,7 @@ step unless stated.
   0.3, `ngo_tinh` 5, `mi_luc` 1.0.
 - **FX-CAT:** the catalogue's 37 personality traits in 18 sets and its 6 seed callings (`npc-traits-catalogue.md`) plus test gained traits Scarred (notable),
   Renowned (small, bias_all +5), Humbled (small), Grudge (targeted, −50), Lovestruck (targeted, +50), Grieving. Tag weights:
-  Wrathful × aggressive 1.5, Vengeful × vengeful 2.0, Wrathful × cautious 0.67, Vengeful × merciful 0.5, Honest × deceitful
+  Wrathful × aggressive 1.5, Vengeful × vengeful 2.0, Wrathful × cautious 0.67, Vengeful × merciful 0.67, Honest × deceitful
   `never`; all other pairs 1.0.
 - **FX-W5K:** a generated world of 5,000 people from a fixed seed, default leans, no authored people.
 - **FX-EV:** an Event Engine stub granting λ = 25 gained traits a season to keyed, uniformly drawn people, half small and
@@ -521,7 +521,7 @@ step unless stated.
 **Pulls and the player rule (F2, F7, rules 8–9)**
 
 - **AC-NT-06** [Logic] F2. **GIVEN** a Wrathful, Vengeful NPC and choices retaliate (aggressive, vengeful), endure
-  (cautious), reconcile (merciful), base 1 each, **THEN** weights are 3.0 / 0.67 / 0.5 (Σ 4.17), odds 71.9 / 16.1 / 12.0 %;
+  (cautious), reconcile (merciful), base 1 each, **THEN** weights are 3.0 / 0.67 / 0.67 (Σ 4.34), odds 69.1 / 15.4 / 15.4 %;
   u = 0.50 picks retaliate, 0.75 endure, 0.90 reconcile.
 - **AC-NT-07** [Logic] F2 bounds. **GIVEN** a product of 2.0⁴, **THEN** the weight is 5.0 · base; 0.5⁴ gives 0.1 · base;
   Honest on a deceitful choice gives 0; every choice at 0 falls back to base weights.

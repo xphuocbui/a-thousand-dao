@@ -523,6 +523,7 @@ defence-pact partners. A **truce** lasts 8 seasons with A_tgt = 0.
 | bp | int | 0 – ∞ | calculated | Balance of power: toward the strongest sect only, 1 per 10 % its strength exceeds the runner-up's (damper against one sect snowballing) |
 | k_a | float | 0.15 | data file | Speed toward the target |
 | war_odds | float | 1.0; traits 0.8–1.2 (F15: Cruel 0.8, Cautious 1.2) | data file, traits | Strength ratio a leader needs to declare war |
+| rivals | set | — | calculated | For a pull "to rivals" (F15, e.g. Cruel −10): the sects sharing at least one border region with a (user decision 2026-11-21) |
 
 **Output Range:** −100 to 100.
 **Example:** chính vs ma, 2 shared borders, a Cruel head (−10 to rivals): A_tgt = −50. From −20, attitude runs −25, −29, −32,
