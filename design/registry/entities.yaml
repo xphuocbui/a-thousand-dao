@@ -1524,6 +1524,7 @@ formulas:
     referenced_by:
       - design/gdd/travel-map.md
       - design/gdd/sects.md
+      - design/gdd/formations.md
     variables:
       - linh_thach_max
       - d
@@ -2414,6 +2415,144 @@ formulas:
     notes: "NPC Relationships Formula F, rule 15a (user decision 2026-11-20: one build hook per pinned kind). Rows are plain modifiers with source `tie`, added or removed by the hook pass at the end of S8b (user decision 2026-11-21). 2026-11-21 re-review: favour repaid by a deed (user decision), stones optional; errands at the higher realm, one per disciple, no outcomes outside B and no wealth/standing outcomes. Burns are not on the user's sink list (NR OQ 7). stip_r = Sects stipend anchors 3/20/50/325/2,500."
     added: 2026-11-20
     revised: 2026-11-21
+  - name: diagram_strength
+    status: active
+    source: design/gdd/formations.md
+    referenced_by:
+      - design/gdd/formations.md
+      - design/gdd/combat.md
+    variables:
+      - grade_mult
+      - level_growth
+      - L
+      - formation_power_pct
+      - S_min
+      - S_max
+      - share
+    output_range: ["0.25", "8"]
+    expression: "S = clamp(grade_mult[g] * level_growth^(L-1) * (1 + formation_power_pct/100), 0.25, 8); positive node/link magnitude v -> v * S * share; negative magnitudes x share only (unscaled by S)"
+    notes: "Formations F1. grade_mult 1.0/1.15/1.3/1.5/1.75, level_growth 1.25 (guesses); share = carried_ground_share. L <= min(max_level, Tran Phap skill + 1), +2 from the keystone."
+    added: 2026-11-21
+    revised: ""
+  - name: lay_fuel
+    status: active
+    source: design/gdd/formations.md
+    referenced_by:
+      - design/gdd/formations.md
+      - design/gdd/regional-economy-trade.md
+    variables:
+      - N
+      - fuel_frac
+      - fuel_growth
+      - L
+      - linh_thach_max
+    output_range: ["0.002 x linh_thach_max", "0.459 x linh_thach_max (N=7, grade 4, L5)"]
+    expression: "fuel = ceil(N * fuel_frac[g] * fuel_growth^(L-1) * linh_thach_max[realm]); paid when a foreseen fight begins and the diagram is laid; carried diagrams pay none"
+    notes: "Formations F2, rule 9. fuel_frac 0.002/0.003/0.0045/0.007/0.01, fuel_growth 1.6 (guesses). A sink in Regional Economy Formula H. Example: Core Formation N=5 grade 2 L3 = 288."
+    added: 2026-11-21
+    revised: ""
+  - name: diagram_reservation
+    status: active
+    source: design/gdd/formations.md
+    referenced_by:
+      - design/gdd/formations.md
+      - design/gdd/combat-defence.md
+    variables:
+      - reserve_share
+      - reservation_efficiency
+      - reserve_cap
+    output_range: ["0", "0.30 of qi_max (0.15 at 50 % efficiency)"]
+    expression: "reserved = reserve_share[d] * (1 - min(reservation_efficiency, 50)/100); usable max = qi_max * (1 - sum reserved); diagram + wards <= reserve_cap"
+    notes: "Formations F6, rule 9a (user decision 2026-11-21): authored per formation, held laid or carried, never scaled by S, level or share; default line 0. Held under Combat Defence & Healing rule 10."
+    added: 2026-11-21
+    revised: ""
+  - name: protective_array
+    status: active
+    source: design/gdd/formations.md
+    referenced_by:
+      - design/gdd/formations.md
+    variables:
+      - per_level
+      - L
+      - formation_power_pct
+      - trigger_frac
+      - linh_thach_max
+    output_range: ["defense_pct 10 x L x (1 + 0.5 x formation_power_pct/100)", "burn 0.004 x L x linh_thach_max"]
+    expression: "defense_pct = per_level * L * (1 + 0.5 * formation_power_pct/100) for one event; trigger_burn = trigger_frac * L * linh_thach_max[owner realm]; no trigger if unpaid"
+    notes: "Formations F5. per_level 10 (as Ho Son), trigger_frac 0.004 (guess). Once per event. Which Events trigger it is Formations OQ 7."
+    added: 2026-11-21
+    revised: ""
+  - name: diagram_fit_score
+    status: active
+    source: design/gdd/formations.md
+    referenced_by:
+      - design/gdd/formations.md
+    variables:
+      - node_score
+      - fit_min
+    output_range: ["signed sum of node_score", "below fit_min (0) -> default line"]
+    expression: "fit(d) = sum_n node_score[n] * m(art_n, n), m = 1 if the placed art fits the node's tag scope; greedy placement by |node_score|; best fit among allowed diagrams, ties fewer nodes then lower id"
+    notes: "Formations F4, rule 12. Read by NPC Builds (#24, no GDD)."
+    added: 2026-11-21
+    revised: ""
+  - name: abode_grade_cost
+    status: active
+    source: design/gdd/cave-abode.md
+    referenced_by:
+      - design/gdd/cave-abode.md
+      - design/gdd/regional-economy-trade.md
+    variables:
+      - grade_cost_frac
+      - linh_thach_max
+    output_range: ["20 stones (grade 2, Qi Refining)", "1,500,000 (grade 5 raised at Deity Transformation)"]
+    expression: "grade_cost(g) = round(linh_thach_max[realm] * grade_cost_frac[g]) + one season, g = 2..5; self-built and claimed abodes only; entry works stay flat"
+    notes: "Cave Abode F1. grade_cost_frac 0.25 / 0.75 / 2.0 / 5.0 (guesses). Grade 4 needs Core Formation, grade 5 Nascent Soul (grade_realm_min). A sink in Regional Economy Formula H."
+    added: 2026-11-21
+    revised: ""
+  - name: abode_upkeep
+    status: active
+    source: design/gdd/cave-abode.md
+    referenced_by:
+      - design/gdd/cave-abode.md
+      - design/gdd/regional-economy-trade.md
+    variables:
+      - upkeep_frac
+      - linh_thach_max
+      - tho_cut
+      - grade_fade_seasons
+    output_range: ["1 stone a season (grade 1, Qi Refining)", "3,000 a season (grade 5, Deity Transformation)"]
+    expression: "grade_upkeep(g) = max(1, ceil(linh_thach_max[realm] * upkeep_frac[g] * (1 - tho_cut))), tho_cut = clamp(Tho purity * 0.004, 0, 0.9) (0.4 at most in play); unpaid grade_fade_seasons (4) seasons -> grade - 1, at grade 1 the abode is Left"
+    notes: "Cave Abode F2. upkeep_frac 0.0005 / 0.001 / 0.0025 / 0.005 / 0.01 (guesses). The perpetual high-realm stone sink; residences pay rent (Travel & Map Formula M) instead."
+    added: 2026-11-21
+    revised: ""
+  - name: abode_slot_limit
+    status: active
+    source: design/gdd/cave-abode.md
+    referenced_by:
+      - design/gdd/cave-abode.md
+      - design/gdd/formations.md
+    variables:
+      - slots_by_grade
+      - level_margin
+    output_range: ["2 to 6 slots", "level ceiling 3 (grade 1) to 5"]
+    expression: "slots(g) = slots_by_grade[g] (2/3/4/5/6); a home work's level <= min(work.max, g + level_margin 2); sum of work.slots <= slots(g)"
+    notes: "Cave Abode F3, rules 3-5. Home works include Formations' standing arrays (one slot each) and fields (mechanics stay with Spirit Herbs #14). Guesses."
+    added: 2026-11-21
+    revised: ""
+  - name: abode_claim_fee
+    status: active
+    source: design/gdd/cave-abode.md
+    referenced_by:
+      - design/gdd/cave-abode.md
+    variables:
+      - abode_cost_frac
+      - claim_frac
+      - grade_before
+    output_range: ["2 stones (Qi Refining)", "7,500 (Deity Transformation)"]
+    expression: "claim_fee = round(linh_thach_max[realm] * abode_cost_frac * claim_frac), claim_frac 0.5; grade_after = max(1, grade_before - 1)"
+    notes: "Cave Abode F4, rule 11. A left or ruined abode keeps permanent works and loses faded upkept works."
+    added: 2026-11-21
+    revised: ""
 constants:
   - name: root_count_weights
     status: active
@@ -3728,6 +3867,7 @@ constants:
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
+      - design/gdd/formations.md
     value: 0.5
     unit: seconds
     notes: "Floor on cd_eff = round_ms(max(cooldown_min, cooldown / (1 + art_speed_pct/100))), rounded to the nearest millisecond, half up. +100 halves a cooldown; sources add."
@@ -3758,6 +3898,7 @@ constants:
     source: design/gdd/combat.md
     referenced_by:
       - design/gdd/combat.md
+      - design/gdd/formations.md
     value: "3 / 4 / 5 / 6 / 7"
     unit: art slots by realm
     notes: "Provisional. One pool: arts, talismans, escape and slotted wards all take a slot; the basic attack and wards in ward slots do not."
@@ -4760,6 +4901,7 @@ constants:
     source: design/gdd/combat-defence.md
     referenced_by:
       - design/gdd/combat-defence.md
+      - design/gdd/formations.md
     value: 0.9
     unit: fraction of max linh luc
     notes: "Total reservation, on effective shares after efficiency."
@@ -5043,6 +5185,7 @@ constants:
     source: design/gdd/travel-map.md
     referenced_by:
       - design/gdd/travel-map.md
+      - design/gdd/cave-abode.md
     value: 0.05
     unit: share of linh_thach_max
     notes: "Opening a cave abode costs this share of the realm budget and one season (rule 8; user decision 2026-11-10)."
@@ -5630,4 +5773,15 @@ constants:
     unit: strength; heirs; strength; share; mourners
     notes: "NPC Relationships Formula D, rule 13. Guesses. Inherited blood feuds pass on only as soft enmity; vendettas damped by the tick's violent-death budget (Living World Tick OQ 4)."
     added: 2026-11-20
+    revised: ""
+  - name: carried_ground_share
+    status: active
+    source: design/gdd/combat.md
+    referenced_by:
+      - design/gdd/combat.md
+      - design/gdd/formations.md
+    value: "1.0 foreseen / 0.7 ambush / 0.5 blind"
+    unit: share of a carried ground object's (or a carried formation diagram's) magnitudes
+    notes: "Combat rule 12 (Dao shared rule R9, 2026-11-11). Formations rule 9: a laid diagram is 1.0; a carried one uses 0.7 / 0.5, and a foreseen fight with too little fuel carries at 0.7."
+    added: 2026-11-21
     revised: ""
