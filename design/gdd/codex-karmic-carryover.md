@@ -5,7 +5,7 @@
 > **Last Updated**: 2026-11-21
 > **Last Verified**: 2026-11-21
 > **Implements Pillar**: Pillar 5 "A World That Remembers"; Pillar 3 "Power Is Built, Not Given"
-> **Creative Director Review (CD-GDD-ALIGN)**: CONCERNS (accepted) 2026-11-21 — Pillars 3 and 4: an heir successor can make death cheap (a groomed strong disciple as a spare life); tracked as Open Question 1. Player Fantasy not authored at the standard tier, so not checked.
+> **Creative Director Review (CD-GDD-ALIGN)**: REVISED 2026-11-21 — the concern (Pillars 3 and 4: a groomed strong heir as a cheap spare life) answered by `heir_cost` (rule 4). Player Fantasy not authored at the standard tier, so not checked.
 
 ## Summary
 
@@ -61,10 +61,17 @@ loss, and so the Achiever's urge to collect has a home.
    and purse to `Inheritance.heir_of`, else the sect treasury or the region). Then the player chooses one successor:
    - **An heir:** any living child or disciple of the dead player (NPC Relationships kin as parent, or sư đồ as
      master). Play moves to that person as they are: their realm, build, items, ties, sect and place. Whatever the
-     estate gave them, they hold (user decision 2026-11-21: normal estate rules).
+     estate gave them, they hold (user decision 2026-11-21: normal estate rules). **An heir costs karma by their
+     realm** (`heir_cost`, Formulas B; user decision 2026-11-21): a Luyện Khí heir is free, a strong heir must be paid
+     for by what the lives before did, so a groomed disciple is not a free spare life. An heir the karma cannot pay for
+     is shown greyed with the cost.
    - **A rebirth (chuyển thế):** a new person, created as at a new game (birth mode, origin, roll), enters the same
      world `rebirth_years` after the death. The world ticks through those years first (Living World Tick, as the
-     closed-door command does). The reborn is a stranger to the world: no ties, no estate.
+     closed-door command does). The reborn is a stranger to the world: no ties, no estate. **Recognition** (user
+     decision 2026-11-21): the people who held a tie with the dead player at the death (kept in the playthrough's save
+     as `past_ties`: ids and kinds) feed a past-life event pool. Authored events may let one of them sense the past
+     life (a recognition, a test, a renewed feud), at most `recognition_max` a life; no tie carries by itself, and an
+     event forms ties only by its own effects.
 
    Rebirth is always offered, so a Continue playthrough never ends for lack of an heir; the player may also choose to
    end it.
@@ -81,6 +88,7 @@ loss, and so the Achiever's urge to collect has a home.
    hand an heir (Pillar 3; the breakthrough targets 0.70 / 0.70 / 0.30 / 0.20 are measured per life with the edge).
 6. **Karma (nghiệp duyên) is per playthrough.** Each life that ends in Continue mode earns karma from what it did
    (Formulas). Karma is spent only at that playthrough's next succession, on starting options:
+   - an heir (`heir_cost` by the heir's realm, rule 4);
    - extra destiny perk options (`perk_extra`);
    - a **lineage rebirth**: a reborn may start as an outer disciple of the dead life's sect, or in its clan, if that
      sect or clan still exists (the three ordinary origins stay free).
@@ -117,8 +125,11 @@ loss, and so the Achiever's urge to collect has a home.
 
 **Achievements**
 
-11. Achievements stay as built (earned in Fated-birth, uncheated lives, kept across lives). A successor's deeds count
-    for achievements like any life's. Whether some achievements need One Life is Open Question 2.
+11. Achievements stay as built (earned in Fated-birth, uncheated lives, kept across lives) and count in both modes; a
+    successor's deeds count like any life's. **A small set of One Life achievements** (user decision 2026-11-21:
+    prestige, marked `one_life` in `meta_achievements.json`) is earned only in a One Life playthrough whose save has
+    not been reloaded past a death: loading a save of a playthrough whose death is already in the Codex marks that save
+    `death_reloaded`, and a marked save earns no One Life achievement.
 
 ### States and Transitions
 
@@ -179,7 +190,7 @@ lives earn it (rule 6); a writing gate applies as for the Codex (rule 9: a Self-
 
 The karma_spend formula is defined as:
 
-`options = 3 + perk_extra` ; `perk_extra ≤ min(perk_extra_max, karma)` ; `karma_left = karma − perk_extra − lineage_cost · lineage`
+`options = 3 + perk_extra` ; `perk_extra ≤ min(perk_extra_max, karma)` ; `karma_left = karma − heir_cost[r_heir] · heir − perk_extra − lineage_cost · lineage`
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
@@ -189,9 +200,13 @@ The karma_spend formula is defined as:
 | perk_extra_max | int | 3 | data file *(guess)* | At most 6 options, of the 8 perks |
 | lineage | bool | 0 or 1 | the player's choice | A rebirth into the dead life's sect (outer disciple) or clan, if it still exists (rule 6) |
 | lineage_cost | int | 3 | data file *(guess)* | Karma for a lineage rebirth |
+| heir, r_heir | bool; int | 0 or 1; 0–4 | the player's choice | An heir chosen, and their realm |
+| heir_cost | int | 0 / 1 / 3 / 6 / 10 by the heir's realm | data file *(guess)* | Karma for an heir; a Luyện Khí heir is free (rule 4; user decision 2026-11-21) |
 
 **Output Range:** `options` 3–6; `karma_left` ≥ 0 (a spend that would go below 0 is not offered).
-**Example:** with 4 karma, a rebirth into the old sect (3) plus 1 extra perk option: 4 options, 0 karma left.
+**Example:** with 4 karma, a rebirth into the old sect (3) plus 1 extra perk option: 4 options, 0 karma left. A life
+that dies at Nguyên Anh after 30 new discoveries earns 4 + 3 = 7: enough for a Nguyên Anh heir (6) and 1 extra perk
+option, or a Kết Đan heir (3) with 3 extra options and 1 left. A Hóa Thần heir (10) needs karma saved over lives.
 
 ### C. Rebirth gap
 
@@ -200,6 +215,8 @@ The karma_spend formula is defined as:
 The reborn is born in the season of the death and the game resumes when they reach the origin's start age, so the
 world ticks `4 × rebirth_years` seasons (64) first, as the closed-door command does (Living World Tick AC-LW-40: 400
 seasons within 60 s, so 64 seasons take about 10 s).
+
+`recognition_max` = 2 *(guess)*: past-life recognition events a reborn's life may draw (rule 4).
 
 **Feedback loop.** Karma buys more perk options, a better perk can make a stronger life, and a stronger life earns more
 karma. It is mild and capped: `perk_extra_max` 3, and a perk is one of the eight existing birth perks, so the loop
@@ -218,8 +235,9 @@ never adds stat power beyond what a lucky Fated roll gives.
   player chooses may or may not be that head.
 - **If the heir is in seclusion, imprisoned, injured or mid-errand:** play moves to them in that state; nothing is
   reset.
-- **If the heir carries NPC traits:** they keep them, with their stat rows (NPC Traits); event behaviour driven by
-  traits no longer applies, because the player now chooses their actions (Open Question 4).
+- **If the heir carries NPC traits:** they keep them with their stat rows, and their traits colour the player's events
+  the way NPC Traits gates options: a trait-gated option appears for them (a Ruthless heir is offered the ruthless
+  choice). Nothing is forced; the player still chooses (user decision 2026-11-21).
 - **If every destiny perk is already held by the successor:** fewer options are shown; with none left, the pick is
   skipped and any `perk_extra` karma is refunded.
 - **If a lineage rebirth's sect or clan is gone when the reborn enters** (destroyed during the `rebirth_years` of
@@ -240,12 +258,13 @@ never adds stat power beyond what a lucky Fated roll gives.
 
 **One Life**
 - **If the player dies in One Life and then loads an earlier save:** allowed (rule 2); the playthrough is Active
-  again in that save, and the earlier death stays in the Codex.
+  again in that save, the earlier death stays in the Codex, and the save is marked `death_reloaded`: it earns no One
+  Life achievement (rule 11).
 
 **Degenerate strategies**
-- **Grooming a strong disciple as a spare life:** allowed for now: the heir's power was built in the world (their own
-  cultivation, the player's teaching and gifts), they start without the dead player's realm, and the estate follows
-  the world's rules. Whether to limit heirs by realm is Open Question 1.
+- **Grooming a strong disciple as a spare life:** priced, not banned: an heir costs `heir_cost` karma by their realm
+  (rule 4), so a Nguyên Anh heir needs a life that reached about Nguyên Anh and discovered much, and a Hóa Thần heir
+  needs karma saved over lives. A weak heir and a rebirth stay free.
 - **Farming karma from the Codex:** `K_new` counts only entries known for the first time on the profile, a finite
   set, so karma from discovery runs out (Formulas A).
 - **Reloading to farm Codex entries:** the set of entries is finite and entries give knowledge only; accepted.
@@ -276,7 +295,9 @@ never adds stat power beyond what a lucky Fated roll gives.
 | Game UI (#37) | Soft | The mode choice, the succession screen, the Codex screens |
 | NPC Relationships (#46) | Soft | Its Open Question 5 (successor play) is answered by rule 4 |
 
-**Back-links owed:** NPC Relationships Open Question 5 (answered here); Living World Tick rule 9 (the player's estate
+**Back-links owed:** Achievements (the `one_life` flag and `death_reloaded`); Event Engine (the past-life pool and
+`recognition_max`); NPC Traits (an heir's trait-gated options for the player); NPC Relationships Open Question 5
+(answered here); Living World Tick rule 9 (the player's estate
 uses it unchanged; a rebirth runs ticks); Progression Edges (perk pick for every successor, talismans only for a
 reborn); Achievements (the shared gate); World Generation (stable ids and candidate sites read by the Codex).
 
@@ -360,6 +381,14 @@ screenshot in `production/qa/evidence/`. Tests use a Codex file in a temporary f
   keeps the old file as a backup, and shows one notice.
 - **AC-CK-17** [Logic] Edge Cases. **GIVEN** an heir successor who already holds 6 of the 8 perks, **WHEN** they
   have 1 `perk_extra`, **THEN** 2 options show and the unused karma is refunded.
+- **AC-CK-20** [Logic] Rule 4, Formulas B. **GIVEN** 5 karma and heirs at Luyện Khí, Kết Đan and Nguyên Anh,
+  **THEN** the Luyện Khí heir costs 0, the Kết Đan heir 3, and the Nguyên Anh heir (6) shows greyed with its cost.
+- **AC-CK-21** [Integration] Rule 11. **GIVEN** a One Life playthrough, **WHEN** the player dies and then loads an
+  earlier save, **THEN** that save is marked `death_reloaded` and a `one_life` achievement reached after it is not
+  earned; **GIVEN** a Continue playthrough, **THEN** no `one_life` achievement is ever earned.
+- **AC-CK-22** [Integration] Rule 4. **GIVEN** a rebirth after a death with 5 `past_ties`, **WHEN** the reborn's
+  life runs, **THEN** at most `recognition_max` (2) past-life events fire, each naming one of those 5, and no tie
+  exists between the reborn and them unless an event's effect made it.
 - **AC-CK-18** [UI] **GIVEN** a Continue death, **THEN** the succession screen shows the epitaph, the candidates,
   rebirth with its origins and costs, the karma and the perk options. Screenshot: `codex-succession.png`.
 - **AC-CK-19** [UI] **GIVEN** a Codex with seen and known entries in each book, **THEN** the Codex screen shows them
@@ -369,8 +398,8 @@ screenshot in `production/qa/evidence/`. Tests use a Codex file in a temporary f
 
 | # | Question | Owner | By |
 |---|---|---|---|
-| 1 | Spare-life heirs: should an heir successor be limited (for example to a realm no higher than the dead player's, or to a karma cost by realm), or is grooming a strong disciple a fair lineage fantasy? | user | Balance pass |
-| 2 | Should some achievements require One Life (prestige), or count in both modes alike? | user | Before building |
-| 3 | Values marked *(guess)*: `realm_karma`, `known_per_karma` 10, `perk_extra_max` 3, `lineage_cost` 3 | systems-designer | Balance pass |
-| 4 | An NPC heir's traits: keep their stat rows only (as written), or let some traits colour the player's events? | NPC Traits | Before building |
-| 5 | Should a reborn keep a faint link to the past life (old friends may recognise them, a past-life memory event), or stay a stranger? | user, narrative | Later |
+| 1 | ~~Spare-life heirs~~ **Answered 2026-11-21:** an heir costs karma by realm (`heir_cost` 0 / 1 / 3 / 6 / 10; rule 4, Formulas B) | user | Answered |
+| 2 | ~~One Life achievements~~ **Answered 2026-11-21:** all achievements count in both modes, plus a small `one_life` set, lost to a save reloaded past a death (rule 11) | user | Answered |
+| 3 | Values marked *(guess)*: `realm_karma`, `known_per_karma` 10, `perk_extra_max` 3, `lineage_cost` 3, `heir_cost`, `recognition_max` 2. Kept as first guesses (user 2026-11-21); tuned by autoplay runs of Continue playthroughs | systems-designer | Balance pass |
+| 4 | ~~An NPC heir's traits~~ **Answered 2026-11-21:** stat rows kept, and trait-gated event options appear for the player; nothing forced (Edge Cases) | user | Answered |
+| 5 | ~~A reborn's link to the past life~~ **Answered 2026-11-21:** a stranger, but a past-life event pool fed by `past_ties`, at most `recognition_max` a life; no tie carries by itself (rule 4) | user | Answered |

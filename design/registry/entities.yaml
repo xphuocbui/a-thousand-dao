@@ -2579,8 +2579,10 @@ formulas:
       - perk_extra_max
       - lineage
       - lineage_cost
+      - heir
+      - heir_cost
     output_range: "options 3-6; karma_left >= 0"
-    expression: "options = 3 + perk_extra; perk_extra <= min(perk_extra_max, karma); karma_left = karma - perk_extra - lineage_cost * lineage"
+    expression: "options = 3 + perk_extra; perk_extra <= min(perk_extra_max, karma); karma_left = karma - heir_cost[r_heir] * heir - perk_extra - lineage_cost * lineage"
     notes: "Codex & Karmic Carryover Formula B. Spent at a Continue succession; karma is per playthrough, never crosses playthroughs."
     added: 2026-11-21
     revised: ""
@@ -5821,8 +5823,8 @@ constants:
     source: design/gdd/codex-karmic-carryover.md
     referenced_by:
       - design/gdd/codex-karmic-carryover.md
-    value: "realm_karma 0 / 1 / 2 / 4 / 6 by realm / known_per_karma 10 / perk_extra_max 3 / lineage_cost 3"
-    unit: karma; new known Codex entries per karma; extra destiny perk options; karma
+    value: "realm_karma 0 / 1 / 2 / 4 / 6 by realm / known_per_karma 10 / perk_extra_max 3 / lineage_cost 3 / heir_cost 0 / 1 / 3 / 6 / 10 by the heir's realm / recognition_max 2"
+    unit: karma; new known Codex entries per karma; extra destiny perk options; karma; karma; past-life events a reborn's life
     notes: "Codex & Karmic Carryover Formulas A and B (2026-11-21). Guesses for the balance pass."
     added: 2026-11-21
     revised: ""
