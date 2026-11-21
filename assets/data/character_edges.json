@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "_doc": "Edges over the baseline progression. Spec: design/quick-specs/progression-and-edges.md. perks: thiên mệnh, stat modifiers on the sheet (effects), on/off flags (as stats with value 1), and one-time birth effects (birth.purity_all). player: what the main character's edge includes. npc: edge score sources and the per-breakthrough chance range (p = base_step + min(score, 1) x (max_step - base_step)).",
+  "_doc": "Edges over the baseline progression. Spec: design/quick-specs/progression-and-edges.md. perks: thiên mệnh, stat modifiers on the sheet (effects), on/off flags (as stats with value 1), and one-time birth effects (birth.purity_all). player: what the main character's edge includes. npc: edge score sources and the per-breakthrough chance range (p = base_step + min(score, 1) x (max_step - base_step)); fate_start_share: World Generation fate0, a person starting at a gate is fated with this chance by realm (a mature gate crowd's share, user decision 2026-11-21).",
   "perks": [
     {"id": "dao_cot", "name": "Đạo Cốt Thiên Sinh", "desc": "Born with Dao bones: every breakthrough comes easier.",
      "effects": [{"stat": "breakthrough_chance", "value": 12}]},
@@ -34,6 +34,7 @@
     "rich_family": {"chance": 0.15, "weight": 0.3},
     "blessing": {"chance": 0.05, "weight": 0.35},
     "fated_breakthrough_per_season": 0.08,
+    "fate_start_share": [0.005, 0.002, 0.0, 0.0],
     "gate_steps": [
       {"base": 0.123, "max": 0.70, "edge_power": 6},
       {"base": 0.078, "max": 0.70, "edge_power": 6},

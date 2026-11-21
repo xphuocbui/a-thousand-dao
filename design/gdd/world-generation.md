@@ -276,6 +276,8 @@ The join_year formula is defined as:
 |---|---|---|---|---|
 | Y0 | int | authored | data file (chronicle) | The starting year |
 | a | int | uniform(age_min_by_realm[r], lifespan[r]); age_min 16 / 30 / 80 / 200 / 500 | calculated (NPC Builds), `age_max_lifespan_frac` 1.0 | The person's age at the start: evenly to the full lifespan, the spread a mature world settles into (age_shape_probe.gd, 400 years; user decision 2026-11-21; was 0.85 of lifespan, which left almost no deaths of age in the first decades and overshot the census) |
+| fate0 | bool | per person | calculated | A person who starts at the last stage of their realm starts with that realm's breakthrough fate already rolled: fated with chance `q_start[r]`, else not (Realms Formulas C2's fate, rolled once per realm). Without it, everyone at a gate rolls fresh in the first season and the fated share all break through at once (a first-century wave; user decision 2026-11-21) |
+| q_start | float | 0.005 / 0.002 / 0 / 0 | data file (`character_edges.json` `npc.fate_start_share`) | A mature gate crowd's fated share, Luyện Khí to Nguyên Anh (entry_age_probe.gd, 200 years) |
 | f_s | int | ≤ Y0 | data file (authored sect) | The sect's founding year |
 | k | int | 0 to F_r − 1 | calculated | The person's index within its realm's random fill |
 | join_year | int | lo to Y0 | calculated | The year the person joined |

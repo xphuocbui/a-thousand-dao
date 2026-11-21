@@ -79,3 +79,21 @@ func test_starting_ages_spread_evenly_to_the_full_lifespan() -> void:
 			past += 1
 	assert_true(old_tenth >= 3, "about a tenth start in the last tenth of life (%d of 80)" % old_tenth)
 	assert_eq(past, 0, "none outside [age_min, lifespan]")
+
+
+func test_a_person_starting_at_a_gate_has_rolled_its_fate() -> void:
+	# World Generation fate0 (user decision 2026-11-21): someone created at the last stage of Qi Refining starts with
+	# that realm's fate rolled, fated with chance 0.005; someone below the gate has not rolled
+	var f := _gen()
+	var r := rng(9)
+	var rolled: int = 0
+	var fated: int = 0
+	for i in 60:
+		var p: Dictionary = f.db.get_record("people", f.gen.create_person(r, {"realm_index": 0, "stage": 3}))
+		if int(p.get("bt_fate", {}).get("realm", -1)) == 0:
+			rolled += 1
+			fated += 1 if bool(p.bt_fate.ok) else 0
+	assert_eq(rolled, 60, "every one at the gate has rolled")
+	assert_true(fated <= 2, "a mature gate's share is fated (%d of 60)" % fated)
+	var low: Dictionary = f.db.get_record("people", f.gen.create_person(r, {"realm_index": 0, "stage": 1}))
+	assert_true(Dictionary(low.get("bt_fate", {})).is_empty(), "below the gate: not rolled")

@@ -73,6 +73,10 @@ func create_person(rng: RandomNumberGenerator, opts: Dictionary = {}) -> String:
 
 	c.id = str(opts.get("id", ""))   # a person whose id was reserved earlier (WorldBuilder's cast)
 	c.master_id = str(opts.get("master_id", ""))   # Sects rule 20a: a master given at joining
+	var q0: Array = ProgressionEdges.config(_gd).npc.get("fate_start_share", [])
+	if not c.is_beast and c.stage == _gd.stage_count(c.realm_index) - 1 and c.realm_index < q0.size():
+		# World Generation fate0: a person starting at a gate has rolled its fate already, at a mature gate's share
+		c.bt_fate = {"realm": c.realm_index, "ok": rng.randf() < float(q0[c.realm_index])}
 	var record: Dictionary = c.to_dict()
 	record["created_by"] = str(opts.get("created_by", "worldgen"))
 	var pid: String = _db.add("people", record)
