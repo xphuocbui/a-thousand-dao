@@ -23,7 +23,7 @@ materials to make one magic treasure (pháp bảo) of the chosen base (Phi Kiế
 - *Materials*: `materials[tier]` units, each with rarity ≥ `min_rarity[tier]`. The
   session picks the cheapest qualifying materials the player owns. The artifact takes
   the element most common among them (none if they are elementless).
-- *Fuel*: `base.base_value × tier.value_scale × fuel_mult` spirit stones, paid up front.
+- *Fuel*: `base.base_value × tier.value_scale × fuel_mult` spirit stones, paid up front. It is craft fuel (2026-11-21): NPC workshops' refining fuel is booked as `burn_craft` (Regional Economy Formula H), and Trade Goods' margin lint counts it.
 - Fuel and materials are spent whether or not it succeeds.
 
 **Formulas** (values in crafting_refining.json):

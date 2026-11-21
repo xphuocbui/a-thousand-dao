@@ -266,7 +266,7 @@ All of these work in the debug terminal first, with numbered menus.
 | Rules 5, 9; F3, F5 | Item Database Formula B; rule 15 | Herb value, pill value, the catalogue (rework owed) |
 | Rule 7; F1 | Realms Formula D; Character Stats rule 14 | `p_brew`'s form, the failure divider |
 | Rules 11, 12; F4, F5 | Realms Formula D; Trade Goods Formula J; `pill_band_edges` | Calibrated recipes, the margin lint, price bands |
-| Rules 6, 13; F2 | Regional Economy Formula H | Fuel as a sink |
+| Rules 6, 13; F2 | Regional Economy Formula H (`burn_craft`, all three crafts' fuel) | Fuel as a sink |
 | Rule 9 | Character Stats (Khí vận crit) | Crit chance |
 | Rules 3, 8 | Đạo Đồ capabilities #10, #11 | Second brew, strange pill |
 | Rule 1 | Spirit Herbs & Fields | Herb supply |

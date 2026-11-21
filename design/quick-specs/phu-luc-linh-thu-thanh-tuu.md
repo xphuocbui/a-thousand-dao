@@ -21,6 +21,8 @@ card uses nothing.
 
 Example: level 0, soul strength (thần hồn) 60, Hỏa Cầu Phù: 100 − 45 + 0 + 10 × 0.2 = 57%.
 
+**Ink** (2026-11-21, crafting-fuel pass): `ink = ceil(ink_frac × base_value × yield)` linh thạch, `ink_frac` 0.625, so ink scales with what is drawn: Hỏa Cầu and Kim Cương 15, Thần Hành 25, Phá Cảnh Phù 188 (was 150). It is paid up front, lost on failure, and booked as craft fuel (`burn_craft`, Regional Economy Formula H) for NPC workshops. *Implementation: `crafting_talismans.json` still lists `ink_lt` per talisman; replace it with `ink_frac`.*
+
 **Edge cases.** Not enough ink or materials → refused, nothing spent. Thần Hành Phù needs
 talisman skill level 1. No talisman of a kind → that bonus is simply absent.
 
@@ -68,7 +70,7 @@ never write the player's record (`--achievements-file` overrides).
 | Knob | File | Safe range | Effect |
 |---|---|---|---|
 | value per talisman | crafting_talismans.json | 20–80 | strength of one use |
-| ink_lt, yield | crafting_talismans.json | 5–100, 1–4 | talisman economy |
+| ink_frac (was ink_lt), yield | crafting_talismans.json | 0.4–0.8, 1–4 | talisman economy; ink as a share of the batch's value (2026-11-21) |
 | tame.base, per_skill_level | creatures_linh_thu.json | 0.05–0.3, 0.02–0.1 | how often beasts join |
 | power_share | creatures_linh_thu.json | 0.2–1.0 | beast weight in combat |
 | feed_lt_by_realm | creatures_linh_thu.json | per realm | the beast sink |

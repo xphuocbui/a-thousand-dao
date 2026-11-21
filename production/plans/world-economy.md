@@ -289,7 +289,7 @@ So before the economy can price anything, the land must produce what it prices: 
 5. **The catalogue's 0.67 stands:** fix F2's example to 69 / 15 / 15 %.
 6. **The items_of refactor is approved:** every owner change goes through WorldDB and the owner index stays on;
    checked by the property test and a byte-identical world run.
-7. **Design the sinks next** (formation fuel, crafting fuel, the cave abode), moved up the queue.
+7. **Design the sinks next** (formation fuel, crafting fuel, the cave abode), moved up the queue. **Designed 2026-11-21:** formation fuel (Formations #17, `burn_formation`), crafting fuel (Alchemy #15 brew fuel; Artifact Refining and Talismans fuel and ink, `burn_craft`), the cave abode (#47, `burn_abode`); the harness checks the 1-4 million high-realm surplus against them.
 8. **Keep the proposed trigger ids;** the Event Engine renames them when designed.
 9. **A sect assigns a master on joining:** a higher-realm member with room may take the newcomer, weighted by realm and
    standing (a Sects rule; fills NPC Relationships rule 8's "sect life" source).
