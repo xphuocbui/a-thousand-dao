@@ -73,6 +73,10 @@ context (33 `linh_luc_on_hit_pct`, 5 `leech_linh_luc_pct`), and **257 match noth
 78 (ticks never read L1), `[light]` 110 (no Light arts), `[formation]` 47 (no formations in fights), `status_resist_pct
 [burn]` 2.
 
+**Decided 2026-11-21 (user accepted the recommendations):** the 257 lines stay as they are, waiting for their
+hosts (Light arts, formations in fights, and Combat's call on whether ticks read L1). The 38 broad lines stay broad.
+Metal's 6 of the 200 breakthrough notables are left for the one content review.
+
 ## Every Effect
 
 | Effect | Node kind | Nodes | Status | New vocabulary it uses | Engine choice (to review) |
