@@ -37,7 +37,7 @@ static func _value(gd: GameData, db: WorldDB, sect: Dictionary, place: Dictionar
 		var unit: float = float(gd.file(MapProduction.DATA_FILE).unit_value.get(str(place.site.get("resource", "")), 1))
 		return float(place.site.get("base_output", 0.0)) * unit * float(w.per_level)
 	if str(w.get("stat", "")) == "density":
-		var members: int = db.find("people", func(p): return bool(p.get("alive", false)) and str(p.get("sect_id", "")) == str(sect.id)).size()
+		var members: int = db.living().filter(func(p): return bool(p.get("alive", false)) and str(p.get("sect_id", "")) == str(sect.id)).size()
 		return float(w.per_level) * float(_cfg(gd).get("density_value_per_member", 2.0)) * members
 	return 0.0
 

@@ -48,7 +48,8 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 	if season == 0:   # Lost items left untouched long enough decay (item-database.md rule 14)
 		for item in ItemRarity.decay_lost(_gd, _db, year):
 			news.append(_log(year, season, "tick_item_decay", texts, {"item": str(item.get("name", item.id)), "place": str(item.owner_id)}))
-	for p in _db.all("people"):
+	_db.begin_owner_index()   # deaths look up their items many times a season; owners change only through the DB here
+	for p in _db.living():
 		if not p.alive or p.get("is_player", false):
 			continue
 		p["age"] = float(p.age) + season_years
@@ -85,7 +86,7 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 				news.append(_log(year, season, "tick_breakthrough", texts, {"a": p.id, "realm": _gd.realm(realm_index + 1).name}))
 	_intake(rng, cultivators)
 	if rng.randf() < float(cfg.event_chance_per_season):
-		var fighters: Array = _db.find("people", func(x): return x.alive and not x.get("is_player", false) and not x.get("is_beast", false))
+		var fighters: Array = _db.living().filter(func(x): return x.alive and not x.get("is_player", false) and not x.get("is_beast", false))
 		if fighters.size() >= 2:
 			var pair: Array = RngUtils.shuffled(rng, fighters).slice(0, 2)
 			var a: Dictionary = pair[0]
@@ -98,6 +99,7 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 			var winner: Dictionary = a if duel.win else b
 			var place: String = str(a.location_id) if str(a.location_id) != "" else str(RngUtils.pick(rng, _db.all("places")).id)
 			news.append(_log(year, season, "tick_duel", texts, {"a": a.id, "b": b.id, "winner": winner.id, "place": place}))
+	_db.end_owner_index()
 	return news
 
 
@@ -176,7 +178,7 @@ func _intake_sect(rng: RandomNumberGenerator, sects: Array) -> Dictionary:
 	if not sects.any(func(s): return s.has("invested")):
 		return RngUtils.pick(rng, sects)
 	var counts := {}
-	for p in _db.all("people"):
+	for p in _db.living():
 		if bool(p.get("alive", false)) and str(p.get("sect_id", "")) != "":
 			counts[str(p.sect_id)] = int(counts.get(str(p.sect_id), 0)) + 1
 	var w: Array = []

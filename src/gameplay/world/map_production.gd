@@ -309,7 +309,7 @@ static func season(gd: GameData, db: WorldDB, count_people: bool = true, advance
 			by_territory[t][str(p.site.resource)] = float(by_territory[t].get(str(p.site.resource), 0.0)) + out
 	var pop := {}
 	if count_people:
-		for person in db.all("people"):
+		for person in db.living():
 			if bool(person.get("alive", false)) and not bool(person.get("is_beast", false)):
 				var rid: String = str(db.get_record("places", str(person.get("location_id", ""))).get("region_id", ""))
 				pop[rid] = int(pop.get(rid, 0)) + 1

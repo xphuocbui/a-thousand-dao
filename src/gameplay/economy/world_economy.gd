@@ -220,7 +220,7 @@ static func _heads(db: WorldDB) -> Dictionary:
 	for pl in db.all("places"):
 		place_region[str(pl.id)] = str(pl.get("region_id", ""))
 	var out := {}
-	for p in db.all("people"):
+	for p in db.living():
 		if not bool(p.get("alive", false)) or bool(p.get("is_beast", false)):
 			continue
 		var rid: String = str(place_region.get(str(p.get("location_id", "")), ""))

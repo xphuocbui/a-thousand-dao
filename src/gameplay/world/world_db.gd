@@ -32,6 +32,17 @@ var _tables: Dictionary = {}
 var _next_id: Dictionary = {}
 ## Entity id -> Array of event ids that mention it.
 var _event_index: Dictionary = {}
+## The living people (id -> record) in the people table's insertion order; the dead drop out when [method living]
+## next reads them. Rebuilt from the table when an edit could break the order (a revived or re-added record, a load).
+var _living: Dictionary = {}
+var _living_ok: bool = true
+## The owner index, on only between [method begin_owner_index] and [method end_owner_index] (the world tick's people
+## step): owner id -> {item id: true}, with each item's place in the table so [method items_of] keeps table order.
+## While it is on, every owner change must go through this class (add, put, remove, give_item, items_on_death).
+var _owner_ix: Dictionary = {}
+var _ord: Dictionary = {}
+var _ord_next: int = 0
+var _ix_on: bool = false
 
 
 func _init() -> void:
@@ -48,6 +59,11 @@ func add(table: String, record: Dictionary) -> String:
 		rid = "%s%d" % [TABLES[table], _next_id[table]]
 		_next_id[table] = int(_next_id[table]) + 1
 		record["id"] = rid
+	if table == "people":
+		_note_person(rid, record)
+	elif table == "items" and _ix_on:
+		_ix_drop(rid)
+		_ix_set(rid, str(record.get("owner_id", "")))
 	_tables[table][rid] = record
 	record_added.emit(table, rid)
 	return rid
@@ -55,7 +71,48 @@ func add(table: String, record: Dictionary) -> String:
 
 ## Replaces a record (same id).
 func put(table: String, record: Dictionary) -> void:
+	if table == "people":
+		_note_person(str(record.id), record)
+	elif table == "items" and _ix_on:
+		_ix_drop(str(record.id))
+		_ix_set(str(record.id), str(record.get("owner_id", "")))
 	_tables[table][str(record.id)] = record
+
+
+# Keeps the living view in step with an add or put of person [param rid] (called before the table write).
+func _note_person(rid: String, record: Dictionary) -> void:
+	if not _living_ok:
+		return
+	var alive: bool = bool(record.get("alive", true))
+	if _living.has(rid):
+		_living[rid] = record   # same place in the order
+	elif _tables.people.has(rid):
+		if alive:   # a record that was dead (or never living) comes back: the order needs a rebuild
+			_living_ok = false
+	elif alive:
+		_living[rid] = record
+
+
+## The living people (records whose alive is not false), in the people table's insertion order: what a scan of
+## [method all] that skips the dead sees, without walking the dead. A fresh Array each call.
+func living() -> Array:
+	if not _living_ok:
+		_living = {}
+		for r in _tables.people.values():
+			if bool(r.get("alive", true)):
+				_living[str(r.id)] = r
+		_living_ok = true
+	var out: Array = []
+	var dead: Array = []
+	for rid in _living:
+		var r: Dictionary = _living[rid]
+		if bool(r.get("alive", true)):
+			out.append(r)
+		else:
+			dead.append(rid)
+	for rid in dead:
+		_living.erase(rid)
+	return out
 
 
 ## Record by id, or an empty Dictionary.
@@ -109,14 +166,64 @@ func search(table: String, text: String) -> Array:
 
 ## Removes a record (items consumed, etc.).
 func remove(table: String, record_id: String) -> void:
+	if table == "items" and _ix_on:
+		_ix_drop(record_id)
+		_ord.erase(record_id)
 	_tables.get(table, {}).erase(record_id)
+	if table == "people":
+		_living.erase(record_id)
 
 
 # --- Items ------------------------------------------------------------------------
 
 ## Items owned by an entity id.
 func items_of(owner_id: String) -> Array:
+	if _ix_on:
+		var ids: Array = Dictionary(_owner_ix.get(owner_id, {})).keys()
+		ids.sort_custom(func(a, b): return int(_ord[a]) < int(_ord[b]))
+		var out: Array = []
+		for iid in ids:
+			out.append(_tables.items[iid])
+		return out
 	return find("items", func(r): return str(r.get("owner_id", "")) == owner_id)
+
+
+## Turns the owner index on (one pass over the items): [method items_of] then reads it instead of scanning. Only for a
+## stretch of code where every owner change goes through this class (the world tick's people step).
+func begin_owner_index() -> void:
+	_owner_ix = {}
+	_ord = {}
+	_ord_next = 0
+	for r in _tables.items.values():
+		_ord[str(r.id)] = _ord_next
+		_ord_next += 1
+		_ix_set(str(r.id), str(r.get("owner_id", "")))
+	_ix_on = true
+
+
+## Turns the owner index off; [method items_of] scans again.
+func end_owner_index() -> void:
+	_ix_on = false
+	_owner_ix = {}
+	_ord = {}
+
+
+func _ix_set(item_id: String, owner: String) -> void:
+	if not _ord.has(item_id):
+		_ord[item_id] = _ord_next
+		_ord_next += 1
+	if not _owner_ix.has(owner):
+		_owner_ix[owner] = {}
+	_owner_ix[owner][item_id] = true
+
+
+func _ix_drop(item_id: String) -> void:
+	var old: Dictionary = _tables.items.get(item_id, {})
+	if old.is_empty():
+		return
+	var o: String = str(old.get("owner_id", ""))
+	if _owner_ix.has(o):
+		_owner_ix[o].erase(item_id)
 
 
 ## Sets an item's owner (transfer). Returns false if the item is missing.
@@ -124,6 +231,9 @@ func give_item(item_id: String, owner_id: String) -> bool:
 	var item: Dictionary = get_record("items", item_id)
 	if item.is_empty():
 		return false
+	if _ix_on:
+		_ix_drop(item_id)
+		_ix_set(item_id, owner_id)
 	item["owner_id"] = owner_id
 	if table_of(owner_id) != "places":   # a person or a market takes it: it is no longer Lost (rule 14 decay)
 		item.erase("lost")
@@ -140,6 +250,9 @@ func items_on_death(person_id: String, place_id: String, killer_id: String = "",
 	var taker: String = killer_id if killer_id != "" else heir_id
 	for item in items_of(person_id):
 		var to_taker: bool = taker != "" and not bool(item.get("bound", false))
+		if _ix_on:
+			_ix_drop(str(item.id))
+			_ix_set(str(item.id), taker if to_taker else place_id)
 		item["owner_id"] = taker if to_taker else place_id
 		item.erase("lost")
 		item.erase("lost_since")
@@ -198,6 +311,7 @@ static func from_dict(d: Dictionary) -> WorldDB:
 	var tables: Dictionary = d.get("tables", {})
 	for t in TABLES.keys():
 		db._tables[t] = tables.get(t, {})
+	db._living_ok = false   # rebuilt on first use
 	var nid: Dictionary = d.get("next_id", {})
 	for t in TABLES.keys():
 		db._next_id[t] = int(nid.get(t, 1))

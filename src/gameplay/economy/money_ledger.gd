@@ -219,7 +219,7 @@ func money_in_world() -> float:
 	var m: float = 0.0
 	for s in db.all("sects"):
 		m += float(s.get("treasury", 0.0))
-	for p in db.all("people"):
+	for p in db.living():
 		if bool(p.get("alive", true)) and not bool(p.get("is_player", false)):   # the player's own record is outside M
 			m += float(p.get("linh_thach", 0.0))
 	for r in db.all(TABLE):

@@ -115,7 +115,7 @@ static func strengths(gd: GameData, db: WorldDB) -> Dictionary:
 	var c: Dictionary = _cfg(gd)
 	var p_r: Array = c.p_r
 	var own := {}
-	for p in db.all("people"):
+	for p in db.living():
 		if not bool(p.get("alive", false)) or bool(p.get("is_beast", false)) or bool(p.get("is_player", false)):
 			continue
 		var sid: String = str(p.get("sect_id", ""))
@@ -274,7 +274,7 @@ static func _found_sects(gd: GameData, db: WorldDB, money: MoneyLedger, year: in
 		if best_place.is_empty():
 			continue
 		var founder: Dictionary = {}
-		for p in db.all("people"):
+		for p in db.living():
 			if not bool(p.get("alive", false)) or bool(p.get("is_player", false)) or bool(p.get("is_beast", false)) or str(p.get("sect_id", "")) != "":
 				continue
 			if int(p.get("realm_index", 0)) < int(c.found_realm_min) or not regions.has(str(place_region.get(str(p.get("location_id", "")), ""))):
@@ -642,7 +642,7 @@ static func _drop_fallen_items(db: WorldDB) -> void:
 # Each sect's living members (not the player, beasts or the cast), lowest realm first, for the season's war losses.
 static func _members_by_sect(db: WorldDB) -> Dictionary:
 	var out := {}
-	for p in db.all("people"):
+	for p in db.living():
 		if not bool(p.get("alive", false)) or bool(p.get("is_player", false)) or bool(p.get("is_beast", false)) or p.has("cast_key"):
 			continue
 		var sid: String = str(p.get("sect_id", ""))

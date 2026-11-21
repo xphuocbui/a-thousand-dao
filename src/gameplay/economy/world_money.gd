@@ -56,7 +56,7 @@ static func _index(db: WorldDB) -> Dictionary:
 	var by_market := {}
 	var by_sect := {}
 	var region_of := {}
-	for p in db.all("people"):
+	for p in db.living():
 		if not bool(p.get("alive", false)) or bool(p.get("is_player", false)) or bool(p.get("is_beast", false)):
 			continue
 		var rid: String = str(place_region.get(str(p.get("location_id", "")), ""))
