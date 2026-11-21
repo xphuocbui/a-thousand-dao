@@ -2582,7 +2582,7 @@ formulas:
       - heir
       - heir_cost
     output_range: "options 3-6; karma_left >= 0"
-    expression: "options = 3 + perk_extra; perk_extra <= min(perk_extra_max, karma); karma_left = karma - heir_cost[r_heir] * heir - perk_extra - lineage_cost * lineage"
+    expression: "options = 3 + perk_extra; perk_extra <= min(perk_extra_max, karma - heir_cost[r_heir] * heir - lineage_cost * lineage, max(0, unheld - 3)), 0 in Self-made birth; heir * lineage = 0; karma_left = karma - heir_cost[r_heir] * heir - perk_extra - lineage_cost * lineage"
     notes: "Codex & Karmic Carryover Formula B. Spent at a Continue succession; karma is per playthrough, never crosses playthroughs."
     added: 2026-11-21
     revised: ""

@@ -2,7 +2,7 @@
 
 > **Status**: In Design
 > **Author**: user + Claude
-> **Last Updated**: 2026-11-21
+> **Last Updated**: 2026-11-21 (design review round 1 revisions)
 > **Last Verified**: 2026-11-21
 > **Implements Pillar**: Pillar 5 "A World That Remembers"; Pillar 3 "Power Is Built, Not Given"
 > **Creative Director Review (CD-GDD-ALIGN)**: REVISED 2026-11-21 — the concern (Pillars 3 and 4: a groomed strong heir as a cheap spare life) answered by `heir_cost` (rule 4). Player Fantasy not authored at the standard tier, so not checked.
@@ -52,7 +52,8 @@ loss, and so the Achiever's urge to collect has a home.
    successor; a save made before the death can still be loaded. The Codex is not rolled back by loading (rule 7).
 3. **One Life's end.** On the death the game writes the epitaph and the chronicle (as built), adds the life to the
    Codex (rule 9), marks the playthrough **ended**, and offers a new game. An ended playthrough can be read (its
-   chronicle and world) but not played on.
+   chronicle and world) but not played on. Ended is a status of the save: an earlier save of the same playthrough is
+   still Active (rule 2). Each playthrough has a `playthrough_id` stored in its saves (rule 11).
 
 **Succession (Continue mode)**
 
@@ -77,7 +78,9 @@ loss, and so the Achiever's urge to collect has a home.
    end it.
 5. **What the successor brings.** Every successor, heir or reborn:
    - picks one **destiny perk** (thiên mệnh) from `3 + perk_extra` rolled options in Fated birth, or any one in
-     Self-made birth (Progression Edges part 1; Formulas). A perk the person already holds is not offered again;
+     Self-made birth (Progression Edges part 1; Formulas). A perk the person already holds is not offered again.
+     **An heir keeps the dead life's birth mode** (Fated or Self-made; `cheated` stays on the save); a reborn picks it
+     as at a new game. Rules 6 and 9 read that mode;
    - has the protagonist's edge from then on: fortuitous encounters and the breakthrough bonus (Progression Edges
      parts 3 and 4), as every player life does;
    - knows what the Codex knows (rules 7–8);
@@ -87,7 +90,7 @@ loss, and so the Achiever's urge to collect has a home.
    Nothing else carries: no stats, no purity, no cultivation base, no items beyond what the world's own estate rules
    hand an heir (Pillar 3; the breakthrough targets 0.70 / 0.70 / 0.30 / 0.20 are measured per life with the edge).
 6. **Karma (nghiệp duyên) is per playthrough.** Each life that ends in Continue mode earns karma from what it did
-   (Formulas). Karma is spent only at that playthrough's next succession, on starting options:
+   (Formulas), subject to the rule 9 gate (a Self-made, `cheated`, `debug` or `buildgen` life earns 0). Karma is spent only at that playthrough's next succession, on starting options:
    - an heir (`heir_cost` by the heir's realm, rule 4);
    - extra destiny perk options (`perk_extra`);
    - a **lineage rebirth**: a reborn may start as an outer disciple of the dead life's sect, or in its clan, if that
@@ -128,15 +131,17 @@ loss, and so the Achiever's urge to collect has a home.
 11. Achievements stay as built (earned in Fated-birth, uncheated lives, kept across lives) and count in both modes; a
     successor's deeds count like any life's. **A small set of One Life achievements** (user decision 2026-11-21:
     prestige, marked `one_life` in `meta_achievements.json`) is earned only in a One Life playthrough whose save has
-    not been reloaded past a death: loading a save of a playthrough whose death is already in the Codex marks that save
-    `death_reloaded`, and a marked save earns no One Life achievement.
+    not been reloaded past a death: loading a save whose `playthrough_id` already has a Lives entry in the Codex (each
+    Lives entry records its `playthrough_id`) marks that save `death_reloaded`, and a marked save earns no One Life
+    achievement.
 
 ### States and Transitions
 
 | Thing | From | To | Trigger | Rule |
 |---|---|---|---|---|
 | Playthrough | — | Active (life 1) | New game: mode, birth mode, origin chosen | 1 |
-| Playthrough | Active | Ended | Death in One Life; or the player ends a Continue playthrough at succession | 3, 4 |
+| Playthrough | Active | Ended | Death in One Life | 3 |
+| Playthrough | Succession | Ended | The player ends a Continue playthrough at succession | 4 |
 | Playthrough | Active | Succession | Death in Continue | 4 |
 | Playthrough | Succession | Active (life n + 1) | An heir chosen (play moves at once) or a rebirth chosen (after `rebirth_years` of world ticks) | 4 |
 | Codex entry | none | Seen | A seeing event in a writing life | 7–9 |
@@ -176,9 +181,9 @@ The karma_earned formula is defined as:
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| r_max | int | 0–4 | the life | Highest realm the life reached |
+| r_max | int | 0–4 | the life | Highest realm the life reached; an heir's life counts only realms gained after succession (an heir who gains none earns 0 from `realm_karma`, so paying for an heir who then dies is a strict loss) |
 | realm_karma | int | 0 / 1 / 2 / 4 / 6 by r_max | data file *(guess)* | Karma for how far the life got |
-| K_new | int | ≥ 0 | the Codex | Entries this life raised to **known** that no earlier life had known (first time on the profile) |
+| K_new | int | ≥ 0 | a counter in the save | Entries this life raised to **known** for the first time on the profile; the Lives book is not counted. The counter lives in the save and goes back with it on a reload (the Codex does not), so a replayed life finds the entries already known and counts 0 |
 | known_per_karma | int | 10 (safe ≥ 1) | data file *(guess)* | New known entries per point of karma |
 
 **Output Range:** 0 upward; in practice 0 to about 12 (a Hóa Thần life that learns 60 new things). Only Continue
@@ -190,7 +195,7 @@ lives earn it (rule 6); a writing gate applies as for the Codex (rule 9: a Self-
 
 The karma_spend formula is defined as:
 
-`options = 3 + perk_extra` ; `perk_extra ≤ min(perk_extra_max, karma)` ; `karma_left = karma − heir_cost[r_heir] · heir − perk_extra − lineage_cost · lineage`
+`options = 3 + perk_extra` ; `perk_extra ≤ min(perk_extra_max, karma − heir_cost[r_heir]·heir − lineage_cost·lineage, max(0, unheld − 3))`, and 0 in Self-made birth ; `heir · lineage = 0` (lineage is a rebirth option) ; `karma_left = karma − heir_cost[r_heir] · heir − perk_extra − lineage_cost · lineage`
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
@@ -200,7 +205,8 @@ The karma_spend formula is defined as:
 | perk_extra_max | int | 3 | data file *(guess)* | At most 6 options, of the 8 perks |
 | lineage | bool | 0 or 1 | the player's choice | A rebirth into the dead life's sect (outer disciple) or clan, if it still exists (rule 6) |
 | lineage_cost | int | 3 | data file *(guess)* | Karma for a lineage rebirth |
-| heir, r_heir | bool; int | 0 or 1; 0–4 | the player's choice | An heir chosen, and their realm |
+| heir, r_heir | bool; int | 0 or 1; 0–4 | the player's choice | An heir chosen, and their realm (a mortal or realm-less heir counts as 0) |
+| unheld | int | 0–8 | the successor | Destiny perks the successor does not yet hold |
 | heir_cost | int | 0 / 1 / 3 / 6 / 10 by the heir's realm | data file *(guess)* | Karma for an heir; a Luyện Khí heir is free (rule 4; user decision 2026-11-21) |
 
 **Output Range:** `options` 3–6; `karma_left` ≥ 0 (a spend that would go below 0 is not offered).
@@ -238,8 +244,9 @@ never adds stat power beyond what a lucky Fated roll gives.
 - **If the heir carries NPC traits:** they keep them with their stat rows, and their traits colour the player's events
   the way NPC Traits gates options: a trait-gated option appears for them (a Ruthless heir is offered the ruthless
   choice). Nothing is forced; the player still chooses (user decision 2026-11-21).
-- **If every destiny perk is already held by the successor:** fewer options are shown; with none left, the pick is
-  skipped and any `perk_extra` karma is refunded.
+- **If the successor already holds some destiny perks:** `perk_extra` is only offered up to `max(0, unheld − 3)`
+  (Formulas B), so no karma is ever charged for an option that cannot be shown; with `unheld` ≤ 3 all unheld perks
+  show. With none left, the pick is skipped.
 - **If a lineage rebirth's sect or clan is gone when the reborn enters** (destroyed during the `rebirth_years` of
   ticks): the reborn starts as a loose cultivator (tán tu) in that region and the `lineage_cost` is refunded.
 - **If a Continue life was Self-made or cheated:** a successor is still offered; that life earns no karma and writes
@@ -375,12 +382,14 @@ screenshot in `production/qa/evidence/`. Tests use a Codex file in a temporary f
   mode, **THEN** it is in the craft list marked remembered, and crafting it still needs its materials and level.
 - **AC-CK-14** [Integration] Rule 8. **GIVEN** a hidden place entered in an earlier game, **WHEN** a new game rolls
   it to another of its candidate sites, **THEN** the Codex shows all of its candidate sites and not which one holds it.
-- **AC-CK-15** [Logic] Rule 7. **GIVEN** a Codex with 10 entries, **WHEN** an older save is loaded, **THEN** the Codex
-  still holds 10 entries.
+- **AC-CK-15** [Logic] Rule 7. **GIVEN** a save made at 7 Codex entries and 3 entries written after it, **WHEN**
+  that save is loaded, **THEN** the Codex still holds 10 entries.
 - **AC-CK-16** [Logic] Edge Cases. **GIVEN** an unreadable Codex file, **THEN** the game starts with an empty Codex,
   keeps the old file as a backup, and shows one notice.
-- **AC-CK-17** [Logic] Edge Cases. **GIVEN** an heir successor who already holds 6 of the 8 perks, **WHEN** they
-  have 1 `perk_extra`, **THEN** 2 options show and the unused karma is refunded.
+- **AC-CK-17** [Logic] Edge Cases. **GIVEN** an heir successor who already holds 6 of the 8 perks and has 2 karma,
+  **THEN** `perk_extra` is capped at 0 (unheld 2 < 3), the 2 unheld perks show and karma stays 2; **GIVEN** 5 held and
+  3 karma, **THEN** `perk_extra` is capped at 0 and 3 options show; **GIVEN** a Self-made successor, **THEN**
+  `perk_extra` is not offered.
 - **AC-CK-20** [Logic] Rule 4, Formulas B. **GIVEN** 5 karma and heirs at Luyện Khí, Kết Đan and Nguyên Anh,
   **THEN** the Luyện Khí heir costs 0, the Kết Đan heir 3, and the Nguyên Anh heir (6) shows greyed with its cost.
 - **AC-CK-21** [Integration] Rule 11. **GIVEN** a One Life playthrough, **WHEN** the player dies and then loads an
