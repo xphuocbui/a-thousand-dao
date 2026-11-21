@@ -355,3 +355,6 @@ Kết Đan 22-45 % and Nguyên Anh 55-110 % over target throughout. Experiments 
   817 / 242 / 49 / 3); seed 23 3,920 / 803 / 232 / 38 / 7 (was 3,583 / 1,078 / 276 / 57 / 6). Luyện Khí and Trúc Cơ
   on target; Kết Đan 9-21 % and Nguyên Anh 33-40 % over and still falling; the first-century wave is smaller (Trúc Cơ
   about 1,166 at year 50, was about 1,280), and about half of it is still unexplained.
+- **ape6 checkpoint** (144 lives, 7fd9a354, seeds 1001-1048): **68 / 51 / 25 / 10 %** against ape5's 69 / 55 / 33 / 27
+  and targets 70 / 71 / 33 / 23. Within noise of ape5 at every gate; Trúc Cơ -> Kết Đan stays short (51), so the
+  day's price and supply changes did not reach it. That gate is the balance pass's first target (user call).
