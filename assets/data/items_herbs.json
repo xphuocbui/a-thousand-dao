@@ -184,9 +184,8 @@
     ]
   },
   "equivalent": {
-    "_doc": "Item Database Formula B (user decision 2026-11-20): a herb of age a counts as E(x) mature herbs of its type, x = a / mature_years: E = x to maturity, 1 + s (x - 1) to the knee x_k, then E_k 2^((x - x_k) / d). Herb value = base_value x E; recipes count equivalents.",
+    "_doc": "Item Database Formula B (user decision 2026-11-20): a herb of age a counts as E(x) mature herbs of its type, x = a / mature_years: E = x to maturity, 1 + s (x - 1) to the knee x_k, then E_k 2^((x - x_k) / d), with x_k,eff = max(x_k, K_y / mature_years) and d_eff = max(d, D_y / mature_years) (K_y 30, D_y 10 years; 2026-11-21). Herb value = base_value x E; recipes count equivalents.",
     "s": 0.1,
     "x_k": 3,
-    "d": 0.45
-  }
+    "d": 0.45, "K_y": 30, "D_y": 10}
 }

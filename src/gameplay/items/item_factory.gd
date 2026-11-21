@@ -43,17 +43,21 @@ func random_herb(rng: RandomNumberGenerator, rarity_max: int, age_range: Array, 
 
 
 ## Item Database Formula B: how many mature herbs of [param herb_id] a herb of [param age] counts as. E = x to maturity
-## (x = age / mature_years), 1 + s (x - 1) on the plateau to the knee x_k, then E_k 2^((x - x_k) / d).
+## (x = age / mature_years), 1 + s (x - 1) on the plateau to the knee, then E_k 2^((x - knee) / doubling). The knee and
+## the doubling are at least K_y and D_y years (x_k,eff = max(x_k, K_y / mature), d_eff = max(d, D_y / mature);
+## herb element rework 2026-11-21), so a short-lived herb cannot compound within a few years of planting.
 static func equivalents_at(gd: GameData, herb_id: String, age: float) -> float:
 	var cfg: Dictionary = gd.file("items_herbs").get("equivalent", {"s": 0.1, "x_k": 3, "d": 0.45})
-	var x: float = maxf(age, 0.0) / maxf(float(gd.herb(herb_id).get("mature_years", 1.0)), 1e-6)
+	var mature: float = maxf(float(gd.herb(herb_id).get("mature_years", 1.0)), 1e-6)
+	var x: float = maxf(age, 0.0) / mature
 	var s: float = float(cfg.s)
-	var xk: float = float(cfg.x_k)
+	var xk: float = maxf(float(cfg.x_k), float(cfg.get("K_y", 0.0)) / mature)
+	var d: float = maxf(float(cfg.d), float(cfg.get("D_y", 0.0)) / mature)
 	if x <= 1.0:
 		return x
 	if x <= xk:
 		return 1.0 + s * (x - 1.0)
-	return (1.0 + s * (xk - 1.0)) * pow(2.0, (x - xk) / float(cfg.d))
+	return (1.0 + s * (xk - 1.0)) * pow(2.0, (x - xk) / d)
 
 
 ## A herb's equivalents (Formula B), the number its value, recipes and pill quality read.
