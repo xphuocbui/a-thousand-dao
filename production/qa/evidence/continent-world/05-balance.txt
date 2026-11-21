@@ -32,3 +32,14 @@ several seeds in parallel.
 world economy (70b24c14 + found money, before the player-side holders), 144 lives on 12 processes, seeds 1001-1048 with the
 player on its own stream (a new baseline; not paired with the rounds above):          72 / 56 / 16 / 0 of 9
   raw goods now trade at the bulk spread 1.10 / 0.90 (cheaper herbs to buy, dearer to sell); NPCs speed up with money
+
+Checkpoints on the same seeds 1001-1024 (72 lives, 6 processes each; the first half of the rounds above):
+  ape1 70b24c14 world economy baseline                                     74 / 59 / 11 / 1 of 3
+  ape2 4fd1780d (Advisor planted before the market hint; its herb price bug)  73 / 50 / 22 / 1 of 4
+  ape3 4fd1780d (the same, another run)                                     71 / 48 / 22 / 1 of 4
+  ape4 530e7d1e (crafted classes, sects' works and intake, the Advisor's price fix, leader traits; 2026-11-21)
+                                                                          61 / 44 / 40 / 2 of 6
+  Luyện Khí -> Trúc Cơ falls 10 points from ape3. Since ape3, crafted pills became value classes whose prices sit at
+  1.6-1.8 x base (finding 2 in production/plans/world-economy.md: Military's lumpy demand, rare inputs missing), so a
+  player buying pills gets fewer. Balance pass item; the targets are 70 / 71 / 33 / 23. Wealth: median life peak
+  608 linh thach, p90 448,520 (Nguyên Anh and Hóa Thần lives that never spend: high-realm sinks are planned).

@@ -215,3 +215,16 @@ So before the economy can price anything, the land must produce what it prices: 
    proposal for World Generation (which owns the ages): start people at their steady-state age spread, so a new
    game's first century looks like its later ones. The same run: M grows 0.2-0.6 % a year (inside the band); crafted
    prices stay at 1.7-2.3 and ore at about 1.45 for the whole 400 years (finding 2); one war in 400 years (finding 1).
+
+**Later the same night:**
+
+- **9e576f0f** traits carry stat rows (rule 5) and Character keeps npc_traits through saves; F15 fixes (war and rebel
+  odds replace the default, Compassionate's truce, Callous's losses, F19 ties to the first track); AC-NTC checks.
+- **fedaf152** F3 opinion between people; a first talk starts the NPC's attitude to the player at att0.
+- **f5c0c117, f4a023cf** the world tick: about 12 % cheaper a season, and it no longer slows with age (deaths scanned
+  every item; now an owner index during the people step and a living view of the people). Results byte-identical.
+- **ape4 checkpoint** (72 lives, 530e7d1e): 61 / 44 / 40 / 2 of 6 against ape3's 71 / 48 / 22 / 1 of 4
+  (05-balance.txt). Luyện Khí -> Trúc Cơ fell 10 points, likely the crafted pill prices (finding 2).
+- **Still slow outside the tick:** `items_of` scans every item (5-9 ms a call at 18,000-30,000 items) and the player's
+  commands and the Advisor call it often. The owner index could stay on all the time once every owner change goes
+  through WorldDB (about 15 places assign `owner_id` directly today). A refactor to propose, not done unattended.
