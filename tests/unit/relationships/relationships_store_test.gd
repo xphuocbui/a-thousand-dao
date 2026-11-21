@@ -260,3 +260,10 @@ func test_an_older_save_with_masters_only_in_master_id_gets_its_su_do_records() 
 	assert_eq(Ties.now(db), 400, "the clock from the save's season")
 	assert_eq(Ties.migrate(gd, db, 400), 0, "once")
 
+
+func test_formula_f_help_chance_favour_and_errand_costs_ac_nr_34() -> void:
+	var gd := game_data()
+	assert_eq([Ties.p_help(gd, 30.0), Ties.p_help(gd, 10.0), Ties.p_help(gd, 65.0), Ties.p_help(gd, 100.0)], [0.0, 0.0, 0.5, 1.0], "0 at 30 and below, 0.5 at 65, 1 at 100")
+	assert_eq(Ties.p_help(gd, 90.0, true), 0.0, "0 while a favour is owed")
+	assert_eq(Ties.favour_cost(gd, 2), 50, "a Kết Đan sibling's favour: one season's stipend")
+	assert_eq(Ties.errand(gd, 3, 0), {"cost": 325, "budget": 325}, "a Nguyên Anh player sending a Luyện Khí disciple pays 325")

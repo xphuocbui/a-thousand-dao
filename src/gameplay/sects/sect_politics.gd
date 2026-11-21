@@ -661,6 +661,8 @@ static func _war_losses(gd: GameData, db: WorldDB, money: MoneyLedger, s: Dictio
 		p["alive"] = false
 		p["death_cause"] = "Tử trận"
 		p["death_year"] = year
+		TieTick.enqueue(db, {"kind": "death", "dead": str(p.id), "killer": "", "known": false, "cause": "war",
+			"place": str(p.get("location_id", ""))})   # NPC Relationships rule 13: no one killer is known
 		p["equipped"] = []
 		p["equip_slots"] = {}
 		_fallen[str(p.id)] = str(p.get("location_id", ""))

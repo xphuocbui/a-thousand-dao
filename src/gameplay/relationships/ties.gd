@@ -175,20 +175,41 @@ static func notable(gd: GameData, db: WorldDB, pid: String) -> bool:
 	return met_list(db).has(pid)
 
 
-## The player's met list (rule 6), most recent first ([] when there is no player record).
+static var _player_db: int = 0
+static var _player_id: String = ""
+static var _player_n: int = -1
+
+
+## The player's met list (rule 6), most recent first ([] when there is no player record). The player's id is cached
+## per World DB (a scan of the people only when the cache misses).
 static func met_list(db: WorldDB) -> Array:
-	for p in db.living():
-		if bool(p.get("is_player", false)):
-			return p.get("met_list", [])
-	return []
+	var rec: Dictionary = {}
+	var same: bool = _player_db == db.get_instance_id() and _player_n == db.count("people")
+	if same and _player_id == "":
+		return []   # no player in this world (a simulation), until someone is added
+	if same:
+		rec = db.get_record("people", _player_id)
+	if rec.is_empty() or not bool(rec.get("is_player", false)):
+		rec = {}
+		_player_db = db.get_instance_id()
+		_player_n = db.count("people")
+		_player_id = ""
+		for p in db.living():
+			if bool(p.get("is_player", false)):
+				rec = p
+				_player_id = str(p.id)
+				break
+	return rec.get("met_list", [])
 
 
-## Rule 6: notes that the player met [param pid] (front of the list, trimmed to met_notable_max).
-static func note_met(gd: GameData, player: Dictionary, pid: String) -> void:
-	var l: Array = player.get("met_list", [])
+## Rule 6: the met list [param met] after the player meets [param pid] (front of the list, trimmed to
+## met_notable_max). Someone pushed off the end is returned in "dropped" so S8b can test their notability.
+static func met_after(gd: GameData, met: Array, pid: String) -> Dictionary:
+	var l: Array = met.duplicate()
 	l.erase(pid)
 	l.push_front(pid)
-	player["met_list"] = l.slice(0, int(cfg(gd).met_notable_max))
+	var n: int = int(cfg(gd).met_notable_max)
+	return {"list": l.slice(0, n), "dropped": l.slice(n)}
 
 
 ## Rule 5: [param pid]'s cap.
@@ -289,7 +310,7 @@ static func _drop_if_empty(db: WorldDB, rec: Dictionary) -> void:
 ## Rules 2 and 6: adds pinned kind [param kind] between [param a] and [param b] (for su_do, a is the master). Refuses
 ## a second living master or đạo lữ, a companion that is not the player's, and kết nghĩa or đạo lữ between two
 ## ordinary people unless [param authored]. A new pinned tie always forms (overflow, rule 7). Returns {ok, reason}.
-static func add_pinned(gd: GameData, db: WorldDB, a: String, b: String, kind: String, season: int, authored: bool = false) -> Dictionary:
+static func add_pinned(gd: GameData, db: WorldDB, a: String, b: String, kind: String, _season: int, authored: bool = false) -> Dictionary:
 	if a == b or not kind in PINNED:
 		return {"ok": false, "reason": "bad tie"}
 	var pa: Dictionary = db.get_record("people", a)
@@ -533,3 +554,29 @@ static func end_record(gd: GameData, db: WorldDB, rec: Dictionary, reason: Strin
 	db.log_event(int(season / 4), season % 4, "tie_end", "", [str(rec.a), str(rec.b)], [], [],
 		{"reason": reason, "news": str(NEWS.get(reason, "")), "causes": causes, "death": death,
 			"pin": Dictionary(rec.get("pin", {})).keys()})
+
+
+# --- Formula F: hooks with no caller yet (help calls, favours, errands) -------------------------------------------
+
+## Formula F: a sworn sibling's chance to answer a help call, from their opinion [param op] of the caller; 0 while
+## they are owed a favour by the caller.
+static func p_help(gd: GameData, op: float, favour_owed: bool = false) -> float:
+	if favour_owed:
+		return 0.0
+	var m: float = float(cfg(gd).help_min)
+	return clampf((op - m) / (100.0 - m), 0.0, 1.0)
+
+
+## Formula F: linh thạch to clear a favour early, ceil(stipend of the sibling's realm × favour_cost_mult), burned.
+static func favour_cost(gd: GameData, sibling_realm: int) -> int:
+	var st: Array = gd.file("economy").money.stipend
+	return int(ceil(float(st[clampi(sibling_realm, 0, st.size() - 1)]) * float(cfg(gd).favour_cost_mult)))
+
+
+## Formula F: an errand's cost at the higher of the player's and the disciple's realm, and its reward budget
+## B_errand = floor(errand_margin × cost). {cost, budget}.
+static func errand(gd: GameData, player_realm: int, disciple_realm: int) -> Dictionary:
+	var st: Array = gd.file("economy").money.stipend
+	var r: int = clampi(maxi(player_realm, disciple_realm), 0, st.size() - 1)
+	var cost: int = int(ceil(float(st[r]) * float(cfg(gd).errand_cost_mult)))
+	return {"cost": cost, "budget": int(floor(float(cfg(gd).errand_margin) * float(cost)))}

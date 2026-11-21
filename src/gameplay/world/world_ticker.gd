@@ -94,7 +94,9 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 			var a: Dictionary = pair[0]
 			var b: Dictionary = pair[1]
 			var duel: Dictionary
+			var gap: float = INF
 			if ratings != null and ratings.enabled():
+				gap = absf(ratings.rating_of(str(a.id)) - ratings.rating_of(str(b.id)))
 				duel = ratings.world_fight(a, b, rng)   # one session draw, as the duel (rule 11)
 			else:
 				duel = CombatPower.duel(float(a.get("power", 1.0)), float(b.get("power", 1.0)), float(a.thien_phu.get("khi_van", 50)), float(b.thien_phu.get("khi_van", 50)), _gd, rng)
@@ -104,6 +106,11 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 				_grant(loser, "humbled", year, season)
 			var place: String = str(a.location_id) if str(a.location_id) != "" else str(RngUtils.pick(rng, _db.all("places")).id)
 			news.append(_log(year, season, "tick_duel", texts, {"a": a.id, "b": b.id, "winner": winner.id, "place": place}))
+			if Ties.enabled(_gd) and gap <= float(Ties.cfg(_gd).rival_gap):   # NPC Relationships rule 8: a close world fight
+				TieTick.enqueue(_db, {"kind": "soft", "holder": str(a.id), "other": str(b.id), "sk": "rival",
+					"delta": int(Ties.cfg(_gd).delta.close_fight_rival), "cause": {"kind": "fight", "event": str(news[-1])}})
+	# NPC Relationships rule 9: S8b, after the season's events
+	news.append_array(TieTick.run(_gd, _db, MapChange.abs_season(year, season)))
 	return news
 
 
@@ -121,6 +128,8 @@ func old_age_death(p: Dictionary, year: int, season: int) -> Array:
 	p["death_year"] = year
 	_bereave(p, year, season)
 	news.append(_log(year, season, "tick_death", texts, {"a": p.id, "realm": _gd.realm(int(p.realm_index)).name}))
+	TieTick.enqueue(_db, {"kind": "death", "dead": str(p.id), "killer": "", "known": false, "cause": "old_age",
+		"place": str(p.get("location_id", "")), "event": str(news[-1])})   # NPC Relationships rule 13 at S8b
 	_db.items_on_death(p.id, str(p.get("location_id", "")), "", heir)
 	var succ: String = _succeed_leader(p)
 	if succ != "":

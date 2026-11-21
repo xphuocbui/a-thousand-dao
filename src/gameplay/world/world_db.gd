@@ -303,13 +303,15 @@ func tie_between(a: String, b: String) -> Dictionary:
 	return {} if rid == "" else _tables.ties.get(rid, {})
 
 
-## The hook index (NPC Relationships rule 15a): the records holding sư đồ or đạo lữ, in record-id order.
+## The hook index (NPC Relationships rule 15a): the records holding sư đồ or đạo lữ, in the order they joined the
+## index (table order after a load); the hook pass writes per person, so the order changes no result.
 func hook_ties() -> Array:
 	if not _tie_on:
 		_build_tie_index()
-	var ids: Array = _tie_hook.keys()
-	ids.sort_custom(func(x, y): return int(str(x).substr(1)) < int(str(y).substr(1)))
-	return ids.map(func(rid): return _tables.ties[rid])
+	var out: Array = []
+	for rid in _tie_hook:
+		out.append(_tables.ties[rid])
+	return out
 
 
 ## The pair key of a tie record: the two ids, the lower first.

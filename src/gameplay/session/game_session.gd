@@ -370,6 +370,8 @@ func _pass_season(mode: String) -> Dictionary:
 		_yearly()
 	_finish_ratings()   # the season that just ended: its batch completes and applies (rule 13)
 	out.news = ticker.tick(rng, year, season)
+	# NPC Relationships rule 15a: the hook pass wrote the player's tie rows on the World DB record
+	player.tie_rows = Array(db.get_record("people", player.id).get("tie_rows", [])).duplicate(true)
 	if _bulk_left > 0:
 		_bulk_left -= 1
 	_start_ratings()
@@ -1554,6 +1556,12 @@ func sell(item_id: String) -> Dictionary:
 ## opinion of the player from traits, ties and sect, plus a quarter of the player's standing with its sect). Later
 ## meetings change nothing here (Quests' attitude rules take over).
 func meet(npc: Dictionary) -> void:
+	if Ties.enabled(gd):   # NPC Relationships rule 6: the met list; someone pushed off it is tested at the next S8b
+		var m: Dictionary = Ties.met_after(gd, player.met_list, str(npc.id))
+		player.met_list = m.list
+		for x in m.dropped:
+			TieTick.enqueue(db, {"kind": "notability", "pid": str(x)})
+		sync_player()
 	var st: float = 0.0
 	if str(npc.get("sect_id", "")) != "":
 		st = sect_members.standing(str(npc.sect_id), player.id)

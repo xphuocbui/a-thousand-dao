@@ -232,6 +232,29 @@ func _apply(c: Character, sheet: StatSheet, rng: RandomNumberGenerator, event: D
 			NpcTraits.first_meeting(_gd, _db, rec, c.to_dict(), st, int(cfg.hostile_threshold))
 			rec["attitude"] = clampi(int(rec.get("attitude", 0)) + int(fx.amount), int(cfg.relationship_min), int(cfg.relationship_max))
 			return "%s's attitude %+d (now %d)" % [rec.name, int(fx.amount), int(rec.attitude)]
+		"tie_add", "tie_strengthen", "tie_weaken", "tie_end":
+			# NPC Relationships rule 8: an event's tie effects, queued for this season's S8b. fx: kind (friend, rival,
+			# enmity, debt, or a pinned kind), holder ("npc" toward the player, the default, or "player"), delta.
+			var other: String = str(event.npc_id) if str(fx.get("npc", "event_npc")) == "event_npc" else str(fx.npc)
+			if other == "" or not Ties.enabled(_gd):
+				return ""
+			var kind: String = str(fx.get("kind", "friend"))
+			var holder: String = c.id if str(fx.get("holder", "npc")) == "player" else other
+			var to: String = other if holder == c.id else c.id
+			var d: int = int(fx.get("delta", 20))
+			if str(fx.type) == "tie_weaken":
+				d = -absi(d)
+			var cause := {"kind": "event", "event_id": str(event.get("id", ""))}
+			if str(fx.type) == "tie_end":
+				TieTick.enqueue(_db, {"kind": "end", "a": holder, "b": to, "reason": str(fx.get("reason", "parted"))})
+				return "a tie ends"
+			if kind == "debt":
+				TieTick.enqueue(_db, {"kind": "debt", "debtor": holder, "creditor": to, "delta": d, "cause": cause})
+			elif kind in Ties.PINNED:
+				TieTick.enqueue(_db, {"kind": "pinned", "a": holder, "b": to, "pk": kind, "authored": bool(fx.get("authored", false))})
+			else:
+				TieTick.enqueue(_db, {"kind": "soft", "holder": holder, "other": to, "sk": kind, "delta": d, "cause": cause})
+			return "%s %+d (at the season's end)" % [kind, d]
 		"insight":
 			# The Deity Transformation insight: any enlightenment in Nascent Soul (Realms rule 7).
 			if c.realm_index == _gd.realm_index("nguyen_anh") and not c.has_insight:
