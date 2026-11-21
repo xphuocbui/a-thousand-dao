@@ -71,7 +71,9 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 			continue
 		if stage < _gd.stage_count(realm_index) - 1:
 			# money speeds NPCs (user decision 2026-11-20): last season's provision bonus and stone boost (WorldMoney)
-			if rng.randf() < stage_chance * (1.0 + float(p.get("prov", 0.0))) * (1.0 + float(p.get("stone_boost", 0.0))):
+			# NPC Relationships rule 15a (user decision 2026-11-21): a master's and a đạo lữ's cultivation rows speed NPCs too
+			var tie_mult: float = 1.0 + tie_cult_pct(p) / 100.0
+			if rng.randf() < stage_chance * (1.0 + float(p.get("prov", 0.0))) * (1.0 + float(p.get("stone_boost", 0.0))) * tie_mult:
 				p["stage"] = stage + 1
 				p["level"] = Ladder.stage_first_level(_gd, realm_index, stage + 1)
 				_builds.refresh_power(p.id)
@@ -114,6 +116,15 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 	# NPC Relationships rule 9: S8b, after the season's events
 	news.append_array(TieTick.run(_gd, _db, MapChange.abs_season(year, season)))
 	return news
+
+
+## The cultivation_speed_pct an NPC record's tie rows give (TieTick.hook_pass writes them; 0 for most people).
+static func tie_cult_pct(p: Dictionary) -> float:
+	var v: float = 0.0
+	for r in p.get("tie_rows", []):
+		if str(r.get("stat", "")) == "cultivation_speed_pct":
+			v += float(r.get("value", 0.0))
+	return v
 
 
 ## An NPC dies of old age: the record is marked dead, and with no killer a close relationship or the sect successor

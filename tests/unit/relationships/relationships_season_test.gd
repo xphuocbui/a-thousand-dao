@@ -484,3 +484,34 @@ func test_the_master_row_carries_source_tie_and_goes_the_season_the_master_falls
 	db.get_record("people", "p2")["realm_index"] = 1   # the disciple breaks through to the master's realm
 	TieTick.run(gd, db, S + 3)
 	assert_false(db.get_record("people", "p2").has("tie_rows"), "removed the same season")
+
+
+func test_a_masters_tie_row_speeds_an_npcs_stage_chance_too_rule_15a() -> void:
+	var gd := game_data()
+	var llm := LlmService.new(gd)
+	llm.enabled = false
+	var s := GameSession.new(gd, llm, TestFixtures.tree())
+	s.new_game(4242, {"mode": "roll", "name": "Thầy", "gender": "male", "origin": "tan_tu"})
+	assert_near(WorldTicker.tie_cult_pct({"tie_rows": [{"stat": "cultivation_speed_pct", "value": 5.0}, {"stat": "x", "value": 9.0}]}), 5.0, 1e-9, "only the cultivation rows")
+	var pool: Array = s.db.living().filter(func(p): return not bool(p.get("is_player", false)) and not bool(p.get("is_beast", false)) and int(p.realm_index) == 0)
+	assert_true(pool.size() >= 40, "Qi Refining NPCs: %d" % pool.size())
+	var half: int = pool.size() / 2
+	var fast: Array = pool.slice(0, half)
+	var slow: Array = pool.slice(half, 2 * half)
+	for p in pool:
+		p["stage"] = 0
+		p.erase("tie_rows")
+		p["prov"] = 0.0
+		p["stone_boost"] = 0.0
+	for p in fast:
+		p["tie_rows"] = [{"stat": "cultivation_speed_pct", "value": 400.0, "source": "master", "with": "x"}]
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 7
+	for i in 4:
+		s.ticker.tick(rng, 1200 + i / 4, i % 4)
+	var gain := func(group: Array) -> int:
+		var n: int = 0
+		for p in group:
+			n += int(s.db.get_record("people", str(p.id)).get("stage", 0))
+		return n
+	assert_true(int(gain.call(fast)) > 2 * int(gain.call(slow)), "x5 stage chance: %d against %d" % [int(gain.call(fast)), int(gain.call(slow))])
