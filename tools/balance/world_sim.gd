@@ -110,6 +110,15 @@ func _snapshot(gd: GameData, db: WorldDB, year: int, m_now: float, m_prev: float
 	for p in db.all("people"):
 		if bool(p.get("alive", false)) and not bool(p.get("is_beast", false)) and not bool(p.get("is_player", false)):
 			census[clampi(int(p.get("realm_index", 0)), 0, 4)] += 1
+	var gained := {}   # NPC Traits: gained traits held now (F6's steady state: about 1,000 held, 18 % of people)
+	var holders: int = 0
+	for p in db.living():
+		var g: Array = p.get("npc_traits", {}).get("gained", [])
+		if not g.is_empty():
+			holders += 1
+		for e in g:
+			gained[str(e.id)] = int(gained.get(str(e.id), 0)) + 1
+	lines.append("- **Gained traits:** %d people hold one or more; %s" % [holders, str(gained)])
 	lines.append("- **Census** (Luyện Khí / Trúc Cơ / Kết Đan / Nguyên Anh / Hóa Thần; targets about 3,936 / 844 / 191 / 27 / 3): %s" % " / ".join(PackedStringArray(census.map(func(x): return str(x)))))
 	# great sects
 	lines.append("- **Great sects:**")

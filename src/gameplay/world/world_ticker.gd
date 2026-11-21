@@ -53,6 +53,8 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 		if not p.alive or p.get("is_player", false):
 			continue
 		p["age"] = float(p.age) + season_years
+		if not Array(p.get("npc_traits", {}).get("gained", [])).is_empty():   # NPC Traits rule 12: gained traits fade
+			NpcTraits.fade(p, MapChange.abs_season(year, season))
 		# Read the record directly: a full Character per NPC per season is too slow at world size.
 		var realm_index: int = int(p.realm_index)
 		var stage: int = int(p.get("stage", 0))
@@ -97,6 +99,9 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 			else:
 				duel = CombatPower.duel(float(a.get("power", 1.0)), float(b.get("power", 1.0)), float(a.thien_phu.get("khi_van", 50)), float(b.thien_phu.get("khi_van", 50)), _gd, rng)
 			var winner: Dictionary = a if duel.win else b
+			var loser: Dictionary = b if duel.win else a
+			if float(winner.get("power", 0.0)) < float(loser.get("power", 0.0)):   # NPC Traits: defeated_by_lesser
+				_grant(loser, "humbled", year, season)
 			var place: String = str(a.location_id) if str(a.location_id) != "" else str(RngUtils.pick(rng, _db.all("places")).id)
 			news.append(_log(year, season, "tick_duel", texts, {"a": a.id, "b": b.id, "winner": winner.id, "place": place}))
 	_db.end_owner_index()
@@ -115,12 +120,27 @@ func old_age_death(p: Dictionary, year: int, season: int) -> Array:
 	p["alive"] = false
 	p["death_cause"] = "Thọ nguyên cạn kiệt"
 	p["death_year"] = year
+	_bereave(p, year, season)
 	news.append(_log(year, season, "tick_death", texts, {"a": p.id, "realm": _gd.realm(int(p.realm_index)).name}))
 	_db.items_on_death(p.id, str(p.get("location_id", "")), "", heir)
 	var succ: String = _succeed_leader(p)
 	if succ != "":
 		news.append(_log(year, season, "tick_succession", texts, {"a": succ, "b": p.id}))
 	return news
+
+
+# NPC Traits rule 11 with the catalogue's trigger `bereaved`: a dead person's living disciples and living master
+# become Grieving (NPC Relationships adds the other close ties when it is built).
+func _bereave(dead: Dictionary, year: int, season: int) -> void:
+	for p in _db.living():
+		if str(p.get("master_id", "")) == str(dead.id) or str(dead.get("master_id", "")) == str(p.id):
+			_grant(p, "grieving", year, season)
+
+
+# Grants gained trait [param id] to [param p] (NPC Traits rule 11), when the catalogue is loaded.
+func _grant(p: Dictionary, id: String, year: int, season: int) -> void:
+	if _gd.registry.has_file(NpcTraits.FILE) and not bool(p.get("is_player", false)):
+		NpcTraits.grant(_gd, p, id, MapChange.abs_season(year, season))
 
 
 ## When [param dead] led a sect, its successor (Inheritance.sect_successor) becomes the leader. Returns the new

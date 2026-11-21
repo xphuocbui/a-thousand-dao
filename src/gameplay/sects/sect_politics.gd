@@ -815,4 +815,5 @@ static func _maybe_rebel(gd: GameData, db: WorldDB, v: Dictionary, lord: Diction
 	lord.wars.append(str(v.id))
 	v["loyalty_state"] = "rebelling"
 	_set_relation(v, lord, "war")
+	_grant_leader(gd, db, lord, "embittered", year, season_i)   # NPC Traits: the lord's head is betrayed
 	return [db.log_event(year, season_i, "vassal_rebellion", "%s nổi dậy chống %s." % [v.name, lord.name], [str(v.id), str(lord.id)], [], [], {"war": war.id})]
