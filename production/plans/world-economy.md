@@ -344,4 +344,14 @@ Kết Đan 22-45 % and Nguyên Anh 55-110 % over target throughout. Experiments 
   realm), against Realms' Y_climb 36 / 52 / 71 / 128 years. Realms' solved model is said to have predicted an earlier
   run under the same tick, so this is a lead, not a verdict.
 - gate_odds_probe.gd averaged the fate odds over the living population (1 in 8.0 / 12.3 / 16.1 / 27.9), which is
-  biased low (the fated leave the gate); the arrivals' odds (world_census.gd, AC-CG-69) are being measured.
+  biased low (the fated leave the gate). world_census.gd (AC-CG-69, 300 years, arrivals after a 100-year burn-in):
+  fated share among arrivals 1 in 7.8 / 11.1 / 19 (the last gate too few to read): **on target**. The excess is
+  residence time: the first-century wave's survivors stay for centuries in Kết Đan and Nguyên Anh, and the money
+  speed-up makes NPCs enter younger.
+- **fde20263** World Generation fate0 (user-approved): a person starting at a gate starts with its fate rolled,
+  fated with fate_start_share 0.005 / 0.002 / 0 / 0. **965c62f1** N_stage 12 → 14 (user-approved): the money
+  speed-up averages ×1.16 (stage_boost_probe.gd), so the boosted average is the old 12.
+- **After the three fixes** (ages, fate0, N_stage 14), year 1600: seed 11 3,911 / 840 / 208 / 36 / 5 (was 3,889 /
+  817 / 242 / 49 / 3); seed 23 3,920 / 803 / 232 / 38 / 7 (was 3,583 / 1,078 / 276 / 57 / 6). Luyện Khí and Trúc Cơ
+  on target; Kết Đan 9-21 % and Nguyên Anh 33-40 % over and still falling; the first-century wave is smaller (Trúc Cơ
+  about 1,166 at year 50, was about 1,280), and about half of it is still unexplained.
