@@ -558,10 +558,23 @@ static func _gear_goals(s: GameSession, c: Character, gd: GameData, sh: StatShee
 	return out
 
 
-## Linh thạch with nothing to do: suggest a formation level or a refine the player can afford.
+## Linh thạch with nothing to do: suggest a formation level or a refine the player can afford (Cave Abode: a fuller
+## home suggests a higher grade first).
 static func _investment_goals(s: GameSession, c: Character, gd: GameData, sh: StatSheet) -> Array:
 	var out: Array = []
 	var at_home: bool = c.location_id == c.home_id
+	var home_qi: Dictionary = s.db.get_record("places", c.home_id).get("qi", {})
+	var rec: Dictionary = CaveAbode.home_rec(home_qi, c.id)
+	if not rec.is_empty() and CaveAbode.used(home_qi, c) >= CaveAbode.slots(gd, CaveAbode.grade_of(rec)) and CaveAbode.grade_of(rec) < 5:
+		var g: int = CaveAbode.grade_of(rec) + 1
+		if CaveAbode.is_abode(rec) and g <= CaveAbode.top_grade(gd, c.realm_index):
+			var cost: int = CaveAbode.grade_cost(gd, g, c.realm_index)
+			if c.linh_thach >= cost * int(gd.file("session_advisor").invest_affordability_mult):
+				out.append(_g("abode_raise", "tip", "Your abode's %d slots are full: grade %d gives %d for %d LT." % [CaveAbode.slots(gd, g - 1), g, CaveAbode.slots(gd, g), cost],
+					"abode raise", "Raise the abode to grade %d (%d LT)" % [g, cost]))
+		elif not CaveAbode.is_abode(rec) and not bool(rec.get("sect", false)):
+			out.append(_g("residence_up", "tip", "Your residence's %d slots are full: a grade %d residence, or a cave abode of your own, holds more." % [CaveAbode.slots(gd, g - 1), g],
+				"residence buy %d" % g, "Buy a grade %d residence here" % g))
 	for f in s.formations.config().formations:
 		var ck: Dictionary = s.formations.can_build(c, f.id)
 		if ck.ok and c.linh_thach >= int(ck.cost.lt) * int(gd.file("session_advisor").invest_affordability_mult):

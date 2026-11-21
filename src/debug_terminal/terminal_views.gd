@@ -708,7 +708,7 @@ static func stat_block(s: GameSession, place: Dictionary) -> Array:
 		out.append("  Climate: %.1f C, %d mm a year" % [float(place.temp_c), int(place.rain_mm)])
 	for item in LandQi.active_layer3(qi):
 		out.append("  Layer 3: %s, density +%.2f%s" % [item.name, float(item.dD), (", pushes " + str(item.push)) if not item.push.is_empty() else ""])
-	var st: Dictionary = LandQi.stacked_density(s.gd, s.player, qi, float(place.density), s.sheet().total("density_bonus"))
+	var st: Dictionary = LandQi.stacked_density(s.gd, s.player, qi, float(place.density), s.sheet().total("density_bonus"), s.sheet().total("home_array_density"))
 	out.append("  Density for you: %.2f (place %.2f%s); land match for you: x%.3f" % [float(st.total), float(place.density), (", " + ", ".join(PackedStringArray(st.lines))) if not st.lines.is_empty() else "", LandQi.land_match(s.player, s.gd, qi).total])
 	var site: Dictionary = place.get("site", {})
 	if not site.is_empty():

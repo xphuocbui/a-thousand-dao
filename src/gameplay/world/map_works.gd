@@ -37,7 +37,7 @@ static func cost(gd: GameData, id: String, level: int) -> Dictionary:
 
 
 ## Formula B's density adds from layers 2 and 1 for [param c] at a place with [param qi]: {l2, l1, lines}.
-static func density(gd: GameData, qi: Dictionary, c: Character, residence_grade: int = 0) -> Dictionary:
+static func density(gd: GameData, qi: Dictionary, c: Character, residence_grade: int = 0, l1u_arrays: float = 0.0) -> Dictionary:
 	var caps: Dictionary = cfg(gd).get("caps", {})
 	var l2p: float = 0.0
 	var l2u: float = float(qi.get("prebuilt", 0.0))
@@ -60,17 +60,28 @@ static func density(gd: GameData, qi: Dictionary, c: Character, residence_grade:
 		var w: Dictionary = work(gd, str(id))
 		if str(w.get("stat", "")) != "density":
 			continue
-		var v: float = float(w.per_level) * float(mine[id].level)
+		# Cave Abode rule 9 and F3: a dormant work counts for nothing, a work above the ceiling at the ceiling
+		if bool(mine[id].get("left", false)):
+			continue   # Cave Abode rule 10: a left home's works count for nothing
+		var v: float = float(w.per_level) * float(CaveAbode.eff_level(gd, qi, c.id, "w:%s" % id, int(mine[id].level), int(w.max)))
 		if str(w.kind) == "permanent":
 			l1p += v
 		else:
 			l1u += v
+	l1u += l1u_arrays   # Travel & Map rule 32: the standing arrays (Tu Linh) are layer-1 upkept density
 	var furnish: float = 0.0
 	if residence_grade > 0:
 		furnish = float(cfg(gd).get("furnish_per_grade", 0.05)) * float(residence_grade)
 		lines.append("Layer 1: residence grade %d furnishing" % residence_grade)
 	var l2: float = minf(float(caps.get("c2p", 0.1)), l2p) + minf(float(caps.get("c2u", 0.5)), l2u)
-	var l1: float = minf(float(caps.get("c1p", 0.1)), l1p) + minf(float(caps.get("c1u", 0.75)), l1u) + furnish
+	var c1u: float = float(caps.get("c1u", 0.75))
+	if c != null and c.has_capability(15):   # Cave Abode: Capability #15's extra Tu Linh levels need cap room
+		c1u += float(gd.file(CaveAbode.FILE).get("c1u_capability_15", 0.0))
+	if l1p > float(caps.get("c1p", 0.1)) + 1e-9:
+		lines.append("Layer 1 permanent density +%.2f clamped at %.2f (Formula B)" % [l1p, float(caps.get("c1p", 0.1))])
+	if l1u > c1u + 1e-9:
+		lines.append("Layer 1 upkept density +%.2f clamped at %.2f (Formula B)" % [l1u, c1u])
+	var l1: float = minf(float(caps.get("c1p", 0.1)), l1p) + minf(c1u, l1u) + furnish
 	return {"l2": l2, "l1": l1, "lines": lines}
 
 
@@ -90,7 +101,10 @@ static func match_gain(gd: GameData, qi: Dictionary, c: Character) -> float:
 			if str(w.get("stat", "")) != "share":
 				continue
 			var e: String = str(works[id].get("element", ""))
-			pushes[e] = float(pushes.get(e, 0.0)) + float(w.per_level) * float(works[id].level)
+			if layer == 1 and bool(works[id].get("left", false)):
+				continue
+			var lv: int = int(works[id].level) if layer == 2 else CaveAbode.eff_level(gd, qi, c.id, "w:%s" % id, int(works[id].level), int(w.max))
+			pushes[e] = float(pushes.get(e, 0.0)) + float(w.per_level) * float(lv)
 		var cap_s: float = float(caps.get("share_l2" if layer == 2 else "share_l1", 30))
 		var sum: float = 0.0
 		for e in pushes:
@@ -156,6 +170,10 @@ static func build(gd: GameData, db: WorldDB, c: Character, place: Dictionary, id
 	if cur >= int(w.max):
 		return {"ok": false, "lines": ["%s is at its highest level (%d)." % [w.name, int(w.max)]]}
 	var lv: int = cur + 1
+	if layer == 1:   # Cave Abode rules 3 and 7: a free slot for a new work, and the level ceiling
+		var ok: Dictionary = CaveAbode.can_raise(gd, place.qi, c, "w:%s" % id, lv, int(w.max))
+		if not bool(ok.ok):
+			return {"ok": false, "lines": ["Cannot build %s: %s." % [w.name, ok.reason]]}
 	var price: Dictionary = cost(gd, id, lv)
 	if c.linh_thach < int(price.lt):
 		return {"ok": false, "lines": ["Level %d of %s costs %d linh thạch; you have %d." % [lv, w.name, int(price.lt), c.linh_thach]]}
@@ -175,7 +193,13 @@ static func build(gd: GameData, db: WorldDB, c: Character, place: Dictionary, id
 		if int(m.qty) <= 0:
 			db.remove("items", str(m.id))
 	c.linh_thach -= int(price.lt)
-	store[id] = {"level": lv, "unpaid": 0, "element": element}
+	var entry: Dictionary = store.get(id, {})   # merged, so a work's other fields survive a raise
+	entry["level"] = lv
+	entry["unpaid"] = 0
+	entry["element"] = element
+	store[id] = entry
+	if layer == 1:
+		CaveAbode.reconcile(gd, place.qi, c)
 	if place.has("site"):
 		place.site["works_prod"] = production_gain(gd, place.qi)
 	return {"ok": true, "seasons": int(price.seasons), "lines": ["You build %s to level %d at %s (%d linh thạch%s, %d season(s))." % [w.name, lv, place.name, int(price.lt), (", %d materials" % int(price.materials)) if int(price.materials) > 0 else "", int(price.seasons)]]}
@@ -203,11 +227,17 @@ static func upkeep(gd: GameData, db: WorldDB, c: Character) -> Array:
 				var w: Dictionary = work(gd, str(id))
 				if str(w.get("kind", "")) != "upkept":
 					continue
+				var lv_b: int = int(works[id].level)
+				if int(pair[0]) == 1:   # Cave Abode rule 9: a dormant work costs nothing and does not fade; one above
+					lv_b = CaveAbode.eff_level(gd, qi, c.id, "w:%s" % id, lv_b, int(w.max))   # the ceiling is upkept at it
+					if lv_b <= 0:
+						continue
 				var per: float = float(w.get("upkeep", 0))
 				if w.has("upkeep_site_frac") and p.has("site"):
 					per = float(w.upkeep_site_frac) * float(p.site.base_output)
-				var bill: int = int(ceil(per * float(works[id].level) * ((1.0 - cut) if int(pair[0]) == 1 else 1.0)))
-				if c.linh_thach >= bill:
+				var bill: int = int(ceil(per * float(lv_b) * ((1.0 - cut) if int(pair[0]) == 1 else 1.0)))
+				var left: bool = int(pair[0]) == 1 and bool(works[id].get("left", false))   # Cave Abode rule 10: a home
+				if not left and c.linh_thach >= bill:   # left behind is not billed: its upkept works fade
 					c.linh_thach -= bill
 					works[id]["unpaid"] = 0
 				else:

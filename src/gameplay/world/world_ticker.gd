@@ -45,6 +45,8 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 			WorldEconomy.season(_gd, _db, money)
 			last_money = WorldMoney.season(_gd, _db, money, year, season)
 			news.append_array(SectPolitics.season(_gd, _db, money, year, season, str(_db.get_record("world", "w_meta").get("seed", ""))))
+			# Cave Abode rule 12, F5: loose cultivators' abodes, one burn_abode aggregate
+			CaveAbode.npc_season(_gd, _db, money, str(_db.get_record("world", "w_meta").get("seed", "")), MapChange.abs_season(year, season))
 		news.append_array(MapChange.season(_db, year, season, str(_db.get_record("world", "w_meta").get("seed", ""))))
 	if season == 0:   # Lost items left untouched long enough decay (item-database.md rule 14)
 		for item in ItemRarity.decay_lost(_gd, _db, year):

@@ -34,9 +34,9 @@ static func rate_per_season(c: Character, gd: GameData, db: WorldDB, sheet: Stat
 	b.mul(cp_factor.label, cp_factor.mult)
 	b.mul("Ngộ tính %d" % int(sheet.effective("ngo_tinh", c)), 1.0 + sheet.effective("ngo_tinh", c) / float(rules.ngo_tinh_divisor))
 	if qi.is_empty():
-		b.mul("Linh khí density", maxf(density + sheet.total("density_bonus"), 0.1))
+		b.mul("Linh khí density", maxf(density + sheet.total("density_bonus") + sheet.total("home_array_density"), 0.1))
 	else:
-		var st: Dictionary = LandQi.stacked_density(gd, c, qi, density, sheet.total("density_bonus"))
+		var st: Dictionary = LandQi.stacked_density(gd, c, qi, density, sheet.total("density_bonus"), sheet.total("home_array_density"))
 		b.mul("Linh khí density" + ((" (" + ", ".join(PackedStringArray(st.lines)) + ")") if not st.lines.is_empty() else ""), maxf(float(st.total), 0.1))
 	if not qi.is_empty():
 		b.mul("Land match (elements of the ground)", LandQi.land_match(c, gd, qi).total)

@@ -49,6 +49,11 @@ func build_cost(formation_id: String, target_level: int) -> Dictionary:
 	return {"lt": int(roundf(lt)), "materials": int(f.materials_per_level) * target_level, "rarity": int(f.material_rarity)}
 
 
+## A standing array's own maximum as a home work (with Capability #15's extra levels).
+func _work_max(c: Character, formation_id: String) -> int:
+	return int(def(formation_id).max_level) + (int(_gd.capability(15).params.extra_levels) if c.has_capability(15) else 0)
+
+
 ## Highest level the character can build for this formation now.
 func max_level(c: Character, formation_id: String) -> int:
 	var extra: int = int(_gd.capability(15).params.extra_levels) if c.has_capability(15) else 0
@@ -67,6 +72,11 @@ func can_build(c: Character, formation_id: String) -> Dictionary:
 		return {"ok": false, "reason": "%s is at its highest level" % f.name}
 	if target > max_level(c, formation_id):
 		return {"ok": false, "reason": "level %d needs Trận pháp level %d (you have %d)" % [target, target - 1, c.skill_level(str(config().skill))]}
+	var home: Dictionary = _db.get_record("places", c.home_id) if _db != null else {}
+	if not home.is_empty():   # Cave Abode rules 3 and 4: a standing array takes a slot at the home, within the ceiling
+		var ab: Dictionary = CaveAbode.can_raise(_gd, home.get("qi", {}), c, "f:%s" % formation_id, target, _work_max(c, formation_id))
+		if not bool(ab.ok):
+			return {"ok": false, "reason": str(ab.reason)}
 	var cost: Dictionary = build_cost(formation_id, target)
 	if c.linh_thach < int(cost.lt):
 		return {"ok": false, "reason": "needs %d linh thạch (you have %d)" % [int(cost.lt), c.linh_thach]}
@@ -85,6 +95,9 @@ func build(c: Character, formation_id: String) -> Dictionary:
 	MaterialBag.spend(c, _gd, _db, int(ck.cost.rarity), int(ck.cost.materials))
 	var lv: int = level(c, formation_id) + 1
 	c.formations[formation_id] = lv
+	var home_p: Dictionary = _db.get_record("places", c.home_id)
+	if not home_p.is_empty():
+		CaveAbode.reconcile(_gd, home_p.get("qi", {}), c)
 	var cfg: Dictionary = config()
 	var gained: int = c.add_skill_xp(str(cfg.skill), float(cfg.xp_per_level_built) * float(lv), float(cfg.xp_per_level), int(cfg.max_skill_level))
 	var msg: String = "%s raised to level %d: %s. Upkeep now %d linh thạch a year." % [f.name, lv, _gd.format_mod(str(f.stat), float(f.per_level) * float(lv)), upkeep(c)]
@@ -148,14 +161,24 @@ func trigger_protective(c: Character, level: int, power_pct: float) -> Dictionar
 
 ## Adds formation modifiers to a stat sheet ("home" formations only while at home),
 ## scaled by formation_power_pct (e.g. the Trận biến dị) already on the sheet.
-static func add_mods(c: Character, gd: GameData, sheet: StatSheet) -> void:
+static func add_mods(c: Character, gd: GameData, sheet: StatSheet, db: WorldDB = null) -> void:
 	if c.formations.is_empty():
 		return
 	var power: float = 1.0 + sheet.total("formation_power_pct") / 100.0
+	var home_qi: Dictionary = db.get_record("places", c.home_id).get("qi", {}) if db != null else {}
+	var extra: int = int(gd.capability(15).params.extra_levels) if c.has_capability(15) else 0
 	for f in gd.file("crafting_formations").get("formations", []):
 		var lv: int = int(c.formations.get(f.id, 0))
 		if lv <= 0:
 			continue
 		if str(f.applies) == "home" and c.location_id != c.home_id and not c.has_capability(14):
 			continue
-		sheet.add_mod("Trận pháp: %s level %d" % [f.name, lv], str(f.stat), float(f.per_level) * float(lv) * power)
+		# Cave Abode rule 9 and F3: dormant arrays count for nothing; an array above the ceiling counts at it
+		lv = CaveAbode.eff_level(gd, home_qi, c.id, "f:%s" % str(f.id), lv, int(f.max_level) + extra)
+		# Cave Abode edge case and Formations F3: the Trận Pháp skill cap wins over a higher level ceiling
+		lv = mini(lv, c.skill_level(str(gd.file("crafting_formations").skill)) + 1 + extra)
+		if lv <= 0:
+			continue
+		# Travel & Map rule 32: Tu Linh's density is layer-1 upkept density, capped with the other layer-1 works
+		var stat: String = "home_array_density" if str(f.stat) == "density_bonus" else str(f.stat)
+		sheet.add_mod("Trận pháp: %s level %d" % [f.name, lv], stat, float(f.per_level) * float(lv) * power)

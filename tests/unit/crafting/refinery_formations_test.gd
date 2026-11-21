@@ -85,7 +85,7 @@ func test_build_formation_raises_level_and_shows_its_source() -> void:
 	assert_true(r.ok, "built: %s" % str(r.lines))
 	assert_eq(s.formations.level(c, "tu_linh"), 1, "level 1")
 	assert_eq(c.linh_thach, 1000 - int(cost.lt), "cost paid")
-	var src: Array = s.sheet().sources("density_bonus").map(func(m): return str(m.source))
+	var src: Array = s.sheet().sources("home_array_density").map(func(m): return str(m.source))   # layer-1 upkept density (Cave Abode)
 	assert_true(src.any(func(x): return x.contains("Tụ Linh")), "explain names the formation: %s" % str(src))
 
 
@@ -94,10 +94,10 @@ func test_tu_linh_raises_cultivation_only_at_home() -> void:
 	var c: Character = s.player
 	c.location_id = c.home_id
 	c.formations = {"tu_linh": 2}
-	var home: float = s.sheet().total("density_bonus")
+	var home: float = s.sheet().total("home_array_density")
 	var away_place: String = s.db.get_record("places", c.home_id).links[0].to
 	c.location_id = away_place
-	var away: float = s.sheet().total("density_bonus")
+	var away: float = s.sheet().total("home_array_density")
 	assert_true(home > 0.0, "bonus at home")
 	assert_near(away, 0.0, 0.0001, "no bonus away")
 

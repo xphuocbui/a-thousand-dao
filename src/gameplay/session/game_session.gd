@@ -232,6 +232,7 @@ func _place_player() -> void:
 		home = RngUtils.pick(rng, towns) if not towns.is_empty() else RngUtils.pick(rng, db.all("places"))
 	player.home_id = home.id
 	player.location_id = home.id
+	start_residence()
 	var cp: Dictionary = items.cong_phap(rng, gd.cong_phap_tier_rank(str(o.get("cong_phap_tier", "hoang"))), [_starting_element()])
 	cp["owner_id"] = player.id
 	db.add("items", cp)
@@ -354,6 +355,10 @@ func _pass_season(mode: String) -> Dictionary:
 		out.points = r8.tree_points
 	field.grow(player, sh, 1)
 	if knowledge != null:   # Formula J upkeep and Formula M rent, once a season
+		var home_p: Dictionary = db.get_record("places", player.home_id)
+		if not home_p.get("qi", {}).is_empty():   # Cave Abode rules 6, 8, 9: the grade upkeep is paid before the works'
+			out.news.append_array(CaveAbode.season(gd, db, player, home_p.qi))
+		out.news.append_array(CaveAbode.fade_left(gd, db, player.id))   # rule 10: arrays left behind fade
 		out.news.append_array(MapWorks.upkeep(gd, db, player))
 		out.news.append_array(_bill_residence())
 		_sect_residence()
@@ -983,9 +988,11 @@ func open_abode(x: int, y: int, part: int = -1) -> Dictionary:
 	var region: Array = db.find("regions", func(r): return int(r.get("continent_id", -1)) == region_cid)
 	var rec := {"name": "Động phủ của %s" % player.name, "type": "dong_phu", "kind": "abode", "region_id": str(region[0].id) if not region.is_empty() else "",
 		"density": float(q.density), "danger": int(q.danger), "market": false, "bounties": false, "links": [], "sect_id": "",
-		"tile": [x, y], "qi": {"shares": q.shares, "variants": q.variants, "land_density": float(q.density), "part": best},
+		"tile": [x, y], "qi": {"shares": q.shares, "variants": q.variants, "land_density": float(q.density), "part": best,
+			"abode": {"owner": player.id, "grade": 1, "unpaid": 0, "pending": 0, "state": "open", "order": [], "dormant": []}},
 		"owner_id": player.id, "opened_year": year}
 	WorldBuilder._climate(rec, grid)
+	CaveAbode.leave(gd, player, db.get_record("places", player.home_id))   # Cave Abode rule 10: the old home is left
 	var pid: String = db.add("places", rec)
 	if not region.is_empty():
 		region[0].places.append(pid)
@@ -997,6 +1004,75 @@ func open_abode(x: int, y: int, part: int = -1) -> Dictionary:
 	sync_player()
 	lines.append("Your new home: density %.2f, danger %d, land match x%.3f." % [float(q.density), int(q.danger), LandQi.land_match(player, gd, rec.qi).total])
 	return {"ok": true, "lines": lines}
+
+
+## Cave Abode (user decision 2026-11-21): a home that is neither an abode nor a residence (an origin's home town) is a
+## free grade-1 residence of that place: 2 slots, works up to level 3, its furnishing, no rent. Also for an older save.
+func start_residence() -> void:
+	var home: Dictionary = db.get_record("places", player.home_id)
+	if home.get("qi", {}).is_empty() or not CaveAbode.home_rec(home.qi, player.id).is_empty():
+		return
+	if str(home.qi.get("abode", {}).get("owner", "")) == player.id or str(home.get("owner_id", "")) == player.id:
+		return   # the player's own cave abode (an older save without a home record gets one in load_dict)
+	if not home.qi.has("residences"):
+		home.qi["residences"] = {}
+	home.qi.residences[player.id] = {"grade": 1, "own": true, "rent": 0, "origin": true}
+	CaveAbode.reconcile(gd, home.qi, player)
+
+
+## Rule 6 and F1: raises the player's cave abode a grade (one season). The residence's grade is fixed.
+func raise_abode() -> Dictionary:
+	var g: Dictionary = _guard(true)
+	if not g.ok:
+		return g
+	if player.location_id != player.home_id:
+		return {"ok": false, "lines": ["The abode is raised at your home."]}
+	var home: Dictionary = db.get_record("places", player.home_id)
+	var r: Dictionary = CaveAbode.raise(gd, db, player, home.get("qi", {}))
+	if not bool(r.ok):
+		return r
+	var lines: Array = r.lines
+	var t: Dictionary = _pass_season("")
+	lines.append_array(_news_lines(t.news))
+	if t.died:
+		return {"ok": true, "lines": lines + death_lines()}
+	return {"ok": true, "lines": lines}
+
+
+## Rule 11 and F4: claims the Left or ruined cave abode here (half the opening fee, one season); it becomes the home.
+func claim_abode() -> Dictionary:
+	var g: Dictionary = _guard(true)
+	if not g.ok:
+		return g
+	var place: Dictionary = db.get_record("places", player.location_id)
+	if not CaveAbode.claimable(place, player):
+		return {"ok": false, "lines": ["There is no left or ruined abode here to claim."]}
+	if player.linh_thach < CaveAbode.claim_fee(gd, player.realm_index):
+		return {"ok": false, "lines": ["Claiming this abode costs %d linh thạch; you have %d." % [CaveAbode.claim_fee(gd, player.realm_index), player.linh_thach]]}
+	if player.home_id != str(place.id):
+		CaveAbode.leave(gd, player, db.get_record("places", player.home_id))
+	var r: Dictionary = CaveAbode.claim(gd, db, player, place)
+	if not bool(r.ok):
+		return r
+	player.home_id = str(place.id)
+	db.log_event(year, season, "abode_claimed", "%s chiếm động phủ %s." % [player.name, place.name], [player.id], [place.id], [])
+	sync_player()
+	var lines: Array = r.lines
+	var t: Dictionary = _pass_season("")
+	lines.append_array(_news_lines(t.news))
+	if t.died:
+		return {"ok": true, "lines": lines + death_lines()}
+	if str(place.qi.abode.get("state", "")) == "claimed":
+		place.qi.abode["state"] = "open"   # the claim season has passed
+	return {"ok": true, "lines": lines}
+
+
+## Rule 13: the home's stat block (grade, slots, works and their state, upkeep, the next grade).
+func abode_lines() -> Array:
+	var home: Dictionary = db.get_record("places", player.home_id)
+	if home.get("qi", {}).is_empty():
+		return ["Your home has no land qi (an old generated world)."]
+	return CaveAbode.lines(gd, home.qi, player)
 
 
 ## Rents or buys a residence of [param grade] here (Travel & Map rule 34, Formula M): settled ground only, the grade
@@ -1024,10 +1100,18 @@ func take_residence(grade: int, buy: bool = false) -> Dictionary:
 	if buy:   # paid to the sect that holds the place (burned where none does)
 		var seller: String = str(place.get("holder", ""))
 		MoneyLedger.player_pay(db, player, "sect:%s" % seller if seller != "" else "", price, "residence")
+	if player.home_id != str(place.id):   # Cave Abode rule 10: the old home is left (a residence returns to its holder)
+		CaveAbode.leave(gd, player, db.get_record("places", player.home_id))
 	if not place.qi.has("residences"):
 		place.qi["residences"] = {}
-	place.qi.residences[player.id] = {"grade": grade, "own": buy, "rent": rent}
+	var res: Dictionary = place.qi.residences.get(player.id, {})   # merged: the works' order and dormancy survive
+	res["grade"] = grade
+	res["own"] = buy
+	res["rent"] = rent
+	res.erase("origin")
+	place.qi.residences[player.id] = res
 	player.home_id = str(place.id)
+	CaveAbode.reconcile(gd, place.qi, player)
 	sync_player()
 	return {"ok": true, "lines": ["You %s a grade %d residence at %s%s; it is your home now." % ["buy" if buy else "rent", grade, place.name, (" for %d linh thạch" % price) if buy else (" for %d linh thạch a season" % rent)]]}
 
@@ -1045,8 +1129,11 @@ func _sect_residence() -> void:
 	if not seat.qi.has("residences"):
 		seat.qi["residences"] = {}
 	var cur: Dictionary = seat.qi.residences.get(player.id, {})
-	if cur.is_empty() or (bool(cur.get("sect", false)) and int(cur.grade) != grade):
+	if cur.is_empty():
 		seat.qi.residences[player.id] = {"grade": grade, "own": true, "rent": 0, "sect": true}
+	elif bool(cur.get("sect", false)) and int(cur.grade) != grade:
+		cur["grade"] = grade   # Cave Abode rule 9: merged, so the works' order and dormancy survive
+		CaveAbode.reconcile(gd, seat.qi, player)
 
 
 ## Formula M: bills the season's rent of a rented residence; one unpaid season ends the lease.
@@ -1343,15 +1430,15 @@ func place_density(place_id: String) -> float:
 	var p: Dictionary = db.get_record("places", place_id)
 	var bonus: float = sheet().total("density_bonus")
 	if p.get("qi", {}).is_empty():
-		return float(p.get("density", 1.0)) + bonus
-	return float(LandQi.stacked_density(gd, player, p.qi, float(p.get("density", 1.0)), bonus).total)
+		return float(p.get("density", 1.0)) + bonus + sheet().total("home_array_density")
+	return float(LandQi.stacked_density(gd, player, p.qi, float(p.get("density", 1.0)), bonus, sheet().total("home_array_density")).total)
 
 
 func local_density(sh: StatSheet) -> float:
 	var here: Dictionary = db.get_record("places", player.location_id)
 	if here.get("qi", {}).is_empty():
-		return float(here.get("density", 1.0)) + sh.total("density_bonus")
-	return float(LandQi.stacked_density(gd, player, here.qi, float(here.get("density", 1.0)), sh.total("density_bonus")).total)
+		return float(here.get("density", 1.0)) + sh.total("density_bonus") + sh.total("home_array_density")
+	return float(LandQi.stacked_density(gd, player, here.qi, float(here.get("density", 1.0)), sh.total("density_bonus"), sh.total("home_array_density")).total)
 
 
 ## True if a talisman would go on this attempt: one held, and none used this realm step.
@@ -1644,6 +1731,9 @@ func _end_life(cause: String) -> void:
 	_finish_ratings(false)
 	player.alive = false
 	player.death_cause = cause
+	var home_d: Dictionary = db.get_record("places", player.home_id)   # Cave Abode rule 10: the dead owner's abode is a Ruin
+	if str(home_d.get("qi", {}).get("abode", {}).get("owner", "")) == player.id:
+		CaveAbode.ruin(home_d)
 	_log("player_death", {"a": player.id, "cause": cause})
 	var facts: String = "%s, %s, died at age %d in %s. Linh căn: %s. Cause: %s. Notable events: %s" % [
 		player.name, gd.realm_label(player.realm_index, player.stage), int(player.age), clock_label(),
@@ -1877,6 +1967,12 @@ func load_dict(d: Dictionary) -> Dictionary:
 	_wire()
 	_reallocate_migrated()
 	player = Character.from_dict(db.get_record("people", str(d.player_id)))
+	var home_l: Dictionary = db.get_record("places", player.home_id)   # Cave Abode: an older save's home gets its record
+	if not home_l.get("qi", {}).is_empty():
+		if str(home_l.get("owner_id", "")) == player.id and not home_l.qi.has("abode"):
+			home_l.qi["abode"] = {"owner": player.id, "grade": 1, "unpaid": 0, "pending": 0, "state": "open", "order": [], "dormant": []}
+		start_residence()
+		CaveAbode.reconcile(gd, home_l.qi, player)
 	var migrated: bool = _player_migrated
 	pending_event = d.get("pending_event", {})
 	pending_meta = d.get("pending_meta", {})

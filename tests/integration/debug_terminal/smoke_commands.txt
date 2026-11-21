@@ -115,6 +115,8 @@ refine
 formation
 formation build
 2
+abode
+abode raise
 explain upkeep
 achievements
 beasts

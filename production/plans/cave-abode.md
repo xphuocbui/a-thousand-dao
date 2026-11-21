@@ -34,8 +34,30 @@ Started 2026-11-21 evening at the user's request ("please implement also the cav
 
 ## Decisions for the user
 
-(filled in as the build meets them)
+1. **The GDD header says In Review, the systems index says Approved.** Which is right (the other session owns both).
+2. **Old saves.** A loaded save's self-built abode gets a grade-1 record and any other home becomes the free
+   grade-1 residence; works and arrays above its limits count at the ceiling or go dormant (Tụ Linh 5 counts at 3).
+   Alternative: grandfather an old save's abode at the grade its works need.
+3. **Dormancy picks the latest built** (rule 9's default); the player cannot yet choose which work sleeps.
+4. **NPC Ruins are not placed.** A dead hermit's abode is not made a claimable place (it would grow the places
+   table without bound); the player's own abode does become a Ruin on death.
+5. **Tụ Linh's power scaling.** `formation_power_pct` still multiplies Tụ Linh's density before the layer-1 cap
+   (c1u 0.75, +0.3 with Capability #15), so power past the cap is wasted. Intended, or should power raise the cap?
+6. **AC-CA-21 (screenshot of the abode block)** waits for Game UI (#37); the terminal `abode` command prints it.
+7. **Fields (#14)** are not built, so the field-slot rules have nothing to hold yet.
 
 ## Progress
 
-(filled in per phase)
+- Phase 1 (9cdb370a): F1-F5 and data.
+- Phase 2: `CaveAbode` home record (home_rec, eff_level, reconcile, can_raise, raise, season, lines); MapWorks
+  density, match, upkeep and build read it; Tụ Linh moved from `density_bonus` to layer-1 `home_array_density`
+  (each layer-1 cap separately, clamp lines printed); Formations.can_build checks slots and the ceiling, add_mods
+  counts dormancy, the ceiling and the skill cap; the starting home is a free grade-1 residence; residences keep
+  their order and dormancy when their grade changes; terminal `abode`, `abode raise`; the bot raises a full home and
+  the Advisor suggests it. Tests: cave_abode_home_test.gd (AC-CA-02/03/04/06/07/08/10/11/19).
+- Phase 3: leave (an abode Left at its grade, a residence returned, arrays left behind fade on the abode clock,
+  works stay and stop counting), claim (F4 fee as burn_abode, grade_after, works pass), Ruin on the player's death;
+  terminal `abode claim`. Tests: cave_abode_leave_test.gd (AC-CA-01/12/13/17).
+- Phase 4: `CaveAbode.npc_season` from WorldTicker after the sect politics step: loose cultivators' grade, raise
+  and upkeep from their own purses, the keyed roll, one `burn_many(..., "abode")`. Tests: cave_abode_npc_test.gd
+  (AC-CA-14).

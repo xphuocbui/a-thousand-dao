@@ -437,6 +437,9 @@ func _reserved(plan: Dictionary, r: Dictionary) -> bool:
 func _invest(s: GameSession, st: Dictionary, plan: Dictionary) -> bool:
 	var c: Character = s.player
 	var reserve: int = _money_needed(s, plan) + s.formations.upkeep(c) * 5 + int(st.get("tech_price", 0))
+	if c.location_id == c.home_id and _home_up(s, reserve):
+		st.builds += 1
+		return true
 	if c.location_id == c.home_id:
 		for fid in ["thanh_moc", "tu_linh", "ho_son"]:
 			var ck: Dictionary = s.formations.can_build(c, fid)
@@ -451,6 +454,33 @@ func _invest(s: GameSession, st: Dictionary, plan: Dictionary) -> bool:
 		s.refine(base, c.realm_index)
 		return true
 	return false
+
+
+## Cave Abode (rules 2, 6; Travel & Map rule 34): when the home's slots are full or its level ceiling holds an array
+## back, a cave abode is raised a grade and a settled home moves up to the next residence grade the place and the
+## realm allow, bought, when the stones are to spare.
+func _home_up(s: GameSession, reserve: int) -> bool:
+	var c: Character = s.player
+	var home: Dictionary = s.db.get_record("places", c.home_id)
+	var qi: Dictionary = home.get("qi", {})
+	var rec: Dictionary = CaveAbode.home_rec(qi, c.id)
+	if rec.is_empty() or bool(rec.get("sect", false)):
+		return false
+	var g: int = CaveAbode.grade_of(rec)
+	var blocked: bool = CaveAbode.used(qi, c) >= CaveAbode.slots(s.gd, g)
+	for fid in c.formations:
+		if int(c.formations[fid]) >= CaveAbode.ceiling(s.gd, g, 99):
+			blocked = true
+	if not blocked or g >= 5:
+		return false
+	if CaveAbode.is_abode(rec):
+		var cost: int = CaveAbode.grade_cost(s.gd, g + 1, c.realm_index)
+		if g + 1 <= CaveAbode.top_grade(s.gd, c.realm_index) and c.linh_thach - cost >= reserve * 2:
+			return bool(s.raise_abode().ok)
+		return false
+	if c.linh_thach < reserve * 2:
+		return false
+	return bool(s.take_residence(g + 1, true).ok)
 
 
 ## Equips owned pháp bảo while a slot is free (item-database.md rule 11).

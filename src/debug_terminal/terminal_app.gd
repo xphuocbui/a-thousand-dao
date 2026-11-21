@@ -241,10 +241,15 @@ func _game_command(cmd: String, args: Array, raw: String) -> void:
 			else:
 				io.out("\n".join(PackedStringArray(s.work_lines())))
 		"abode":
-			if args.size() >= 2:
+			if args.size() >= 1 and str(args[0]) == "raise":
+				_r(s.raise_abode())
+			elif args.size() >= 1 and str(args[0]) == "claim":
+				_r(s.claim_abode())
+			elif args.size() >= 2:
 				_r(s.open_abode(int(args[0]), int(args[1]), int(args[2]) if args.size() > 2 else -1))
 			else:
-				io.out("abode <x> <y> [part]: open a cave abode on a wilderness tile (it becomes your home).")
+				io.out("\n".join(PackedStringArray(s.abode_lines())))
+				io.out("abode <x> <y> [part]: open a cave abode on a wilderness tile (it becomes your home); abode raise: raise its grade; abode claim: claim a left or ruined abode here.")
 		"residence":
 			if args.size() >= 2:
 				_r(s.take_residence(int(args[1]), str(args[0]) == "buy"))

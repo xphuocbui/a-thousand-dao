@@ -59,7 +59,7 @@ static func build(c: Character, gd: GameData, db: WorldDB, tree: DaoDoTree) -> S
 			sheet.add_mod(m.source, m.stat, m.value, KIND_TREE, m.scope)
 		sheet._add_tree_effect_lines(c, tree)
 	ProgressionEdges.add_perk_mods(c, gd, sheet)
-	Formations.add_mods(c, gd, sheet)
+	Formations.add_mods(c, gd, sheet, db)
 	# Physique and comprehension may be raised by anything above, so techniques come after them.
 	for line in CongPhap.bonus_lines(c, gd, sheet.effective("can_cot", c), sheet.effective("ngo_tinh", c)):
 		sheet.add_mod(line.source, line.stat, line.value)
