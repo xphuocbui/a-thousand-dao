@@ -341,7 +341,9 @@ static func add_pinned(gd: GameData, db: WorldDB, a: String, b: String, kind: St
 static func set_master(gd: GameData, db: WorldDB, disciple_id: String, master_id: String, season: int) -> Dictionary:
 	if master_id == "" or disciple_id == "":
 		return {"ok": false, "reason": "no master"}
-	var r: Dictionary = add_pinned(gd, db, master_id, disciple_id, "su_do", season, true) if enabled(gd) else {"ok": true}
+	# a master already dead (the cast's history) is kept as master_id only: a tie never names the dead (rule 13)
+	var alive: bool = bool(db.get_record("people", master_id).get("alive", true))
+	var r: Dictionary = add_pinned(gd, db, master_id, disciple_id, "su_do", season, true) if enabled(gd) and alive else {"ok": true}
 	if bool(r.ok):
 		var d: Dictionary = db.get_record("people", disciple_id)
 		if not d.is_empty():
@@ -358,8 +360,11 @@ static func set_feud(gd: GameData, db: WorldDB, holder: String, target: String, 
 	var rec: Dictionary = _record(db, holder, target)
 	var soft: Dictionary = rec.get("soft", {})
 	if str(soft.get("kind", "")) == "enmity":
+		if Dictionary(soft.dir).has(holder):
+			end_part(db, rec, "enmity:%s" % holder, "replaced", season, soft.dir[holder].get("cause", {}))
 		_clear_soft(rec, holder)
 	elif not soft.is_empty():
+		end_part(db, rec, str(soft.kind), "replaced", season, soft.get("cause", {}))
 		rec["soft"] = {}
 	rec.feud[holder] = {"inherited": bool(opts.get("inherited", false)), "generation": int(opts.get("generation", 0)),
 		"cause": opts.get("cause", {}), "set": season}
@@ -377,7 +382,7 @@ static func migrate(gd: GameData, db: WorldDB, season: int) -> int:
 	var n: int = 0
 	for p in db.all("people"):
 		var m: String = str(p.get("master_id", ""))
-		if m != "" and db.has_record("people", m) and not has_pin(db, m, str(p.id), "su_do"):
+		if m != "" and bool(p.get("alive", true)) and bool(db.get_record("people", m).get("alive", false)) and not has_pin(db, m, str(p.id), "su_do"):
 			var rec: Dictionary = _record(db, m, str(p.id))
 			rec.pin["su_do"] = m
 			_store(db, rec)
@@ -408,6 +413,7 @@ static func write_soft(gd: GameData, db: WorldDB, holder: String, other: String,
 		# rule 10: another soft kind replaces the current one when stronger, or always when a deed
 		if not deed and 100 * delta <= level:
 			return {"ok": false, "reason": "a stronger soft kind holds", "evicted": []}
+		end_part(db, rec, cur_kind, "replaced", season, soft.get("cause", {}) if cur_kind != "enmity" else {})
 	var new_s: int
 	if cur_kind == kind and cur > 0:
 		new_s = maxi(cur, 100 * delta) if floor_w else clampi(cur + 100 * delta, 0, 10000)
@@ -477,6 +483,7 @@ static func write_debt(gd: GameData, db: WorldDB, debtor: String, creditor: Stri
 			if is_empty_record(rec):
 				end_record(gd, db, rec, "cancelled", season)
 			else:
+				end_part(db, rec, "debt", "cancelled", season, debt.get("cause", {}))
 				_store(db, rec)
 			return {"ok": true, "reason": "", "evicted": []}
 		new_s = absi(net)
@@ -512,25 +519,39 @@ static func sweep(gd: GameData, db: WorldDB, pid: String, season: int) -> int:
 	var n: int = 0
 	for rec in db.ties_of(pid):
 		var soft: Dictionary = rec.get("soft", {})
+		var faded: Array = []
 		if not soft.is_empty():
 			if str(soft.kind) == "enmity":
 				for h in Dictionary(soft.dir).keys():
 					if soft_s(c, rec, str(h), season) <= 0:
+						faded.append(["enmity:%s" % h, soft.dir[h].get("cause", {})])
 						soft.dir.erase(h)
-						n += 1
 				if Dictionary(soft.dir).is_empty():
 					rec["soft"] = {}
 			elif soft_s(c, rec, str(rec.a), season) <= 0:
+				faded.append([str(soft.kind), soft.get("cause", {})])
 				rec["soft"] = {}
-				n += 1
 		if not Dictionary(rec.get("debt", {})).is_empty() and debt_s(c, rec, season) <= 0:
+			faded.append(["debt", rec.debt.get("cause", {})])
 			rec["debt"] = {}
-			n += 1
+		n += faded.size()
 		if is_empty_record(rec):
 			end_record(gd, db, rec, "faded", season)
 		else:
+			for f in faded:   # rule 1b: a part that faded on a record that lives on
+				end_part(db, rec, str(f[0]), "faded", season, f[1])
 			db.put(TABLE, rec)
 	return n
+
+
+## Rule 1b: one part of record [param rec] ended for [param reason] while the record lives on ([param part]: a pinned
+## kind, a soft kind ("enmity:<holder>" for one direction), "debt" or "feud:<holder>"): a `tie_end` log entry with the
+## reason, its news kind and the part's old cause. Removes nothing (the caller has).
+static func end_part(db: WorldDB, rec: Dictionary, part: String, reason: String, season: int, cause: Dictionary = {}) -> void:
+	if str(rec.get("id", "")) == "":
+		return   # a record not yet stored has no history to end
+	db.log_event(int(season / 4), season % 4, "tie_end", "", [str(rec.a), str(rec.b)], [], [],
+		{"reason": reason, "news": str(NEWS.get(reason, "")), "part": part, "causes": [cause], "death": {}, "pin": []})
 
 
 ## Ends record [param rec] for [param reason] (rule 1b's table): removes it and writes a `tie_end` log entry with the

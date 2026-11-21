@@ -33,6 +33,8 @@ const KIND_TREE := "tree"
 const KIND_PERK := "perk"
 ## Modifiers worn pieces put on the sheet (the item-slot count leaves them out: Item Database rule 11).
 const KIND_ITEM := "item"
+## NPC Relationships rule 15a: a row the hook pass gives from a tie (source `tie`).
+const KIND_TIE := "tie"
 
 ## stat -> Array of {source, value, kind}
 var _mods: Dictionary = {}
@@ -85,7 +87,7 @@ static func build(c: Character, gd: GameData, db: WorldDB, tree: DaoDoTree) -> S
 func _add_tie_mods(c: Character) -> void:
 	var label := {"master": "sư phụ", "dao_lu": "đạo lữ"}
 	for row in c.tie_rows:
-		add_mod("Quan hệ: %s" % label.get(str(row.get("source", "")), str(row.get("source", ""))), str(row.stat), float(row.value))
+		add_mod("Quan hệ: %s" % label.get(str(row.get("source", "")), str(row.get("source", ""))), str(row.stat), float(row.value), KIND_TIE)
 
 
 func _add_trait_mods(c: Character) -> void:

@@ -267,3 +267,40 @@ func test_formula_f_help_chance_favour_and_errand_costs_ac_nr_34() -> void:
 	assert_eq(Ties.p_help(gd, 90.0, true), 0.0, "0 while a favour is owed")
 	assert_eq(Ties.favour_cost(gd, 2), 50, "a Kết Đan sibling's favour: one season's stipend")
 	assert_eq(Ties.errand(gd, 3, 0), {"cost": 325, "budget": 325}, "a Nguyên Anh player sending a Luyện Khí disciple pays 325")
+
+
+func test_enmity_is_held_per_direction_ac_nr_52() -> void:
+	var gd := game_data()
+	var c: Dictionary = Ties.cfg(gd)
+	var setup := func() -> WorldDB:
+		var d := _db()
+		Ties.write_soft(gd, d, "p1", "p2", "enmity", 70, S)
+		Ties.write_soft(gd, d, "p2", "p1", "enmity", 30, S)
+		return d
+	var db: WorldDB = setup.call()
+	assert_eq([Ties.tie_value(gd, db, "p1", "p2", S), Ties.tie_value(gd, db, "p2", "p1", S)], [-35.0, -15.0], "-50 x 0.7 and x 0.3")
+	Ties.sweep(gd, db, "p1", S + 60)
+	var rec: Dictionary = db.tie_between("p1", "p2")
+	assert_eq([Dictionary(rec.soft.dir).has("p2"), Ties.soft_s(c, rec, "p1", S + 60)], [false, 4000], "B to A gone on its own; A to B 40")
+	var db2: WorldDB = setup.call()
+	assert_false(bool(Ties.write_soft(gd, db2, "p1", "p2", "rival", 30, S).ok), "the larger direction (70) is compared")
+	var db3: WorldDB = setup.call()
+	Ties.write_soft(gd, db3, "p1", "p2", "enmity", 20, S)
+	TieTick.harden(gd, db3, "p1", S)
+	var r3: Dictionary = db3.tie_between("p1", "p2")
+	assert_eq([Dictionary(r3.feud).has("p1"), str(r3.soft.kind), Dictionary(r3.soft.dir).has("p2")], [true, "enmity", true], "A hardens, B to A stays soft")
+
+
+func test_a_betrayal_in_place_needs_no_room_and_the_next_add_evicts_to_one_below_ac_nr_53() -> void:
+	var gd := game_data()
+	var db := _db(20)
+	for i in range(2, 10):
+		Ties.set_master(gd, db, "p%d" % i, "p1", S)
+	Ties.write_soft(gd, db, "p1", "p10", "friend", 10, S)
+	Ties.write_soft(gd, db, "p1", "p11", "friend", 20, S)
+	TieTick.enqueue(db, {"kind": "betrayal", "betrayer": "p2", "betrayed": "p1"})
+	TieTick.run(gd, db, S)
+	assert_eq(Ties.soft_only(db, "p1").size(), 3, "3 soft-only (the betrayal's enmity in place), nothing evicted")
+	Ties.write_soft(gd, db, "p1", "p12", "friend", 30, S)
+	assert_true(db.tie_between("p1", "p10").is_empty() and db.tie_between("p1", "p11").is_empty(), "the 10 and 20 go")
+	assert_false(db.tie_between("p1", "p12").is_empty(), "the add forms")

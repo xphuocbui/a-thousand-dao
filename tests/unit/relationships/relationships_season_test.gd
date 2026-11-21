@@ -349,7 +349,7 @@ func test_the_met_list_makes_someone_notable_until_they_drop_off_it_ac_nr_43() -
 	assert_eq(Ties.met_after(gd, m.list, "p1").list[0], "p1", "meeting X again puts X at the front")
 
 
-func test_an_events_tie_effect_is_queued_and_applied_at_s8b_ac_nr_41() -> void:
+func test_an_events_tie_effect_is_queued_and_applied_at_s8b_rule_8() -> void:
 	var gd := game_data()
 	var db := WorldDB.new()
 	Ties.set_now(db, S)
@@ -363,3 +363,124 @@ func test_an_events_tie_effect_is_queued_and_applied_at_s8b_ac_nr_41() -> void:
 	assert_true(line.contains("friend"), "the outcome says so")
 	TieTick.run(gd, db, S)
 	assert_eq(str(db.tie_between("p1", "p2").get("soft", {}).get("kind", "")), "friend", "friend 20 at S8b")
+
+
+func test_feuds_the_dead_held_pass_on_ac_nr_54() -> void:
+	var gd := game_data()
+	var db := _fam()
+	_person(db, "p900")   # T
+	Ties.set_feud(gd, db, "p100", "p900", S)
+	Ties.write_soft(gd, db, _d(1), "p900", "enmity", 20, S)
+	db.get_record("people", "p100")["alive"] = false
+	TieTick.enqueue(db, {"kind": "death", "dead": "p100", "cause": "old_age"})
+	TieTick.run(gd, db, S)
+	for h in ["p101", "p102", _d(1)]:
+		assert_true(bool(_feud(db, h, "p900").get("inherited", false)), "%s inherits the feud toward T" % h)
+	assert_eq(_enm(gd, db, _d(1), "p900"), 0, "D1's enmity is removed")
+	for m in ["p103", _d(2), _d(3), _d(4), _d(5)]:
+		assert_eq(_enm(gd, db, m, "p900"), 50, "%s mourns toward T" % m)
+	var db2 := _fam()   # T is C2: struck, D2 takes the third slot
+	Ties.set_feud(gd, db2, "p100", "p102", S)
+	db2.get_record("people", "p100")["alive"] = false
+	TieTick.enqueue(db2, {"kind": "death", "dead": "p100", "cause": "old_age"})
+	TieTick.run(gd, db2, S)
+	assert_true(not _feud(db2, _d(1), "p102").is_empty() and not _feud(db2, _d(2), "p102").is_empty(), "D1 and D2 with C1")
+	var db3 := _fam()   # D5's enmity 85 toward T: a mourner, not an heir (no known kill)
+	_person(db3, "p900")
+	Ties.set_feud(gd, db3, "p100", "p900", S)
+	Ties.write_soft(gd, db3, _d(5), "p900", "enmity", 85, S)
+	db3.get_record("people", "p100")["alive"] = false
+	TieTick.enqueue(db3, {"kind": "death", "dead": "p100", "cause": "old_age"})
+	TieTick.run(gd, db3, S)
+	assert_true(_feud(db3, _d(5), "p900").is_empty(), "D5 is not an heir")
+	assert_eq(_enm(gd, db3, _d(5), "p900"), 85, "and keeps the stronger 85 as a mourner")
+
+
+func test_an_inherited_feud_is_renewed_by_a_new_kill_and_a_weaker_mourner_enmity_is_dropped_ac_nr_55() -> void:
+	var gd := game_data()
+	var db := _fam()
+	Ties.set_feud(gd, db, _d(1), "p200", S, {"inherited": true})
+	Ties.write_soft(gd, db, "p103", "p200", "friend", 60, S, {"force": true})
+	_kill(db, "p200", "p100")
+	TieTick.run(gd, db, S)
+	var f1: Dictionary = _feud(db, _d(1), "p200")
+	assert_eq([bool(f1.inherited), str(f1.cause.kind)], [false, "kill"], "D1's feud is its own now")
+	assert_true(not _feud(db, "p101", "p200").is_empty() and not _feud(db, "p102", "p200").is_empty(), "C1 and C2 inherit")
+	assert_eq(str(db.tie_between("p103", "p200").soft.kind), "friend", "S's friend 60 holds against enmity 50")
+	for m in [_d(2), _d(3), _d(4)]:
+		assert_eq(_enm(gd, db, m, "p200"), 50, "%s mourns" % m)
+	assert_eq(_enm(gd, db, _d(6), "p200"), 0, "S used a slot (with D2 to D5): D6 takes nothing")
+	assert_eq(str(db.tie_between(_d(2), "p200").outside_cap), "p200", "mourner enmity sits outside K's cap")
+
+
+func _news_of(db: WorldDB) -> Array:
+	return db.all("events").filter(func(e): return str(e.type) == "tie_end").map(func(e): return [str(e.data.reason), str(e.data.news)])
+
+
+func _mk3() -> WorldDB:
+	var d := WorldDB.new()
+	Ties.set_now(d, S)
+	for id in ["p1", "p2", "p3"]:
+		_person(d, id)
+	return d
+
+
+func test_every_end_writes_its_reason_and_news_kind_ac_nr_56() -> void:
+	var gd := game_data()
+	var db := _mk3()   # (h) betrayed, and the record lives on with the enmity
+	db.get_record("people", "p2")["sect_rank"] = "truong_lao"
+	Ties.add_pinned(gd, db, "p1", "p2", "ket_nghia", S)
+	TieTick.enqueue(db, {"kind": "betrayal", "betrayer": "p2", "betrayed": "p1"})
+	TieTick.run(gd, db, S)
+	assert_true(_news_of(db).has(["betrayed", "betrayal"]), "(h) betrayed")
+	db = _mk3()   # (i) repaid
+	Ties.write_debt(gd, db, "p2", "p1", 60, S)
+	TieTick.enqueue(db, {"kind": "repay", "debtor": "p2", "creditor": "p1"})
+	TieTick.run(gd, db, S)
+	assert_true(_news_of(db).has(["repaid", "debt_repaid"]), "(i) repaid")
+	db = _mk3()   # (k) replaced: a deed enmity replaces a friend, hardening removes soft enmity
+	Ties.write_soft(gd, db, "p1", "p2", "friend", 50, S)
+	Ties.write_soft(gd, db, "p1", "p2", "enmity", 95, S, {"deed": true})
+	TieTick.harden(gd, db, "p1", S)
+	assert_eq(_news_of(db).filter(func(x): return x[0] == "replaced").size(), 2, "(k) replaced twice")
+	db = _mk3()   # (f) faded on a record that lives on, (l) cancelled
+	Ties.add_pinned(gd, db, "p1", "p2", "kin", S, true)
+	Ties.write_soft(gd, db, "p1", "p2", "friend", 10, S)
+	Ties.sweep(gd, db, "p1", S + 20)
+	Ties.write_debt(gd, db, "p1", "p2", 30, S + 20)
+	Ties.write_debt(gd, db, "p2", "p1", 30, S + 20)
+	assert_true(_news_of(db).has(["faded", ""]) and _news_of(db).has(["cancelled", ""]), "(f) faded, (l) cancelled")
+	db = _mk3()   # (m) the holder and the target die the same season: the target's reason
+	Ties.set_feud(gd, db, "p1", "p2", S)
+	for d in ["p1", "p2"]:
+		db.get_record("people", d)["alive"] = false
+		TieTick.enqueue(db, {"kind": "death", "dead": d, "cause": "old_age"})
+	TieTick.run(gd, db, S)
+	assert_eq(_news_of(db), [["target_died", "feud_end_natural"]], "(m) not holder_died")
+	db = _mk3()   # (d) holder_died with no heir, (e) partner_died
+	Ties.set_feud(gd, db, "p1", "p2", S)
+	Ties.add_pinned(gd, db, "p1", "p3", "kin", S, true)
+	db.get_record("people", "p1")["alive"] = false
+	TieTick.enqueue(db, {"kind": "death", "dead": "p1", "cause": "old_age"})
+	TieTick.run(gd, db, S)
+	assert_true(_news_of(db).has(["holder_died", "feud_end_holder_died"]) and _news_of(db).has(["partner_died", ""]), "(d), (e)")
+
+
+func test_the_master_row_carries_source_tie_and_goes_the_season_the_master_falls_behind_ac_nr_32() -> void:
+	var gd := game_data()
+	var db := WorldDB.new()
+	Ties.set_now(db, S)
+	_person(db, "p1", 900, {"realm_index": 1})
+	_person(db, "p2")
+	Ties.set_master(gd, db, "p2", "p1", S)
+	for i in 3:
+		TieTick.run(gd, db, S + i)
+	var rows: Array = db.get_record("people", "p2").get("tie_rows", [])
+	assert_eq(rows.size(), 1, "one row after 3 seasons")
+	var c := Character.from_dict(db.get_record("people", "p2"))
+	var sheet := StatSheet.build(c, gd, null, null)
+	var tie_rows: Array = sheet.sources("cultivation_speed_pct").filter(func(m): return str(m.kind) == StatSheet.KIND_TIE)
+	assert_eq(tie_rows.map(func(m): return float(m.value)), [5.0], "+5 with source tie")
+	db.get_record("people", "p2")["realm_index"] = 1   # the disciple breaks through to the master's realm
+	TieTick.run(gd, db, S + 3)
+	assert_false(db.get_record("people", "p2").has("tie_rows"), "removed the same season")

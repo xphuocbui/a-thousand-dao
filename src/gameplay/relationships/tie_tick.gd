@@ -141,6 +141,8 @@ static func _betray(gd: GameData, db: WorldDB, it: Dictionary, season: int, touc
 	touched[b] = true
 	if not rec.is_empty():
 		for k in ["ket_nghia", "dao_lu", "su_do"]:
+			if Dictionary(rec.pin).has(k):
+				Ties.end_part(db, rec, k, "betrayed", season)
 			rec.pin.erase(k)
 		rec["favour"] = ""
 		db.put(Ties.TABLE, rec)
@@ -155,6 +157,7 @@ static func _repay(gd: GameData, db: WorldDB, it: Dictionary, season: int, touch
 	var rec: Dictionary = db.tie_between(str(it.debtor), str(it.creditor))
 	if rec.is_empty() or Dictionary(rec.get("debt", {})).is_empty():
 		return
+	Ties.end_part(db, rec, "debt", "repaid", season, rec.debt.get("cause", {}))
 	rec["debt"] = {}
 	var soft: Dictionary = rec.get("soft", {})
 	var c: Dictionary = Ties.cfg(gd)
@@ -386,6 +389,16 @@ static func _inherit(gd: GameData, db: WorldDB, death: Dictionary, dead_set: Dic
 			if known and (killer == o or _hates(gd, db, killer, did, season)):
 				reason = "avenged"
 			elif known:
+				reason = "slain"
+			else:
+				reason = "target_died"
+		elif Dictionary(rec.get("feud", {})).has(did) and dead_set.has(o):
+			# rule 1b precedence: the holder and the target both die this season: the target's reason wins
+			var od: Dictionary = dead_set[o]
+			var o_known: bool = str(od.get("killer", "")) != "" and bool(od.get("known", true)) and not dead_set.has(str(od.killer))
+			if o_known and str(od.killer) == did:
+				reason = "avenged"
+			elif o_known:
 				reason = "slain"
 			else:
 				reason = "target_died"

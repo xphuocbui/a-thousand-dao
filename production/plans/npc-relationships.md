@@ -37,12 +37,13 @@ Commit own paths only. Every new test is watched failing once; the full suite ru
 
 ## AC map (tests in tests/unit/relationships/, tests/integration/relationships/)
 
-Phase 1: AC-NR-01, 02, 03, 04, 05, 06, 08, 09, 10, 11, 12, 13, 15, 42, 44, 45, 52 (per direction), 29 (save).
-Phase 2: AC-NR-14, 16, 17, 18, 19, 20, 21, 22, 23, 25, 40, 43, 46, 47, 48 (property), 53, 54, 55, 56, 32, 33.
-Phase 3: AC-NR-26, 27 (stub), 41.
-Phase 4: AC-NR-34.
-Deferred (no caller): AC-NR-24 (blocked in the GDD), 28 and 31 (need FX-EV-T at scale), 30 (no kin or authored
-kết nghĩa / đạo lữ in the cast data yet), 35-37, 49, 50, 57 (verbs, Combat, Quests, Dialogue), 38, 39, 51 (UI).
+Tested: AC-NR-01-06, 08-23, 25, 29, 32, 33, 34, 40, 42-46, 48 (property), 52-56 (55 and 56 in part: the sub-cases
+whose sources exist), plus the migration and rule 8's event effects.
+Not built (no caller yet): AC-NR-24 (blocked in the GDD), 26 and 27 (FX-W5K and Power Rankings stubs), 28 and 31
+(FX-EV-T at scale; 31 also needs a release export), 30 (no kin or authored kết nghĩa / đạo lữ in the cast data),
+35-37, 49, 50, 57 (help calls, favours, errands, the verbs: Combat, Quests, Dialogue), 38 (a player kết nghĩa verb),
+41 (event conditions on ties: the Event Engine's condition vocabulary has no tie reads yet), 47 (cause links are
+written but not asserted), 39 and 51 (UI).
 
 ## Decisions for the user
 
@@ -59,7 +60,12 @@ kết nghĩa / đạo lữ in the cast data yet), 35-37, 49, 50, 57 (verbs, Comb
    deferred.
 5. **`_bereave` (Grieving) still reads `master_id`**, not the store's close ties; the same people today (only sư đồ
    exists). `master_id` stays on a disciple after the master dies, as history (Inheritance and Sects rule 20a read it).
-6. **Fixtures written past the caps:** `write_soft`'s `force` option, for the GDD's fixture note ("variants write
+6. **A master already dead is kept as `master_id` only** (the cast's history): `set_master` and `migrate` write no
+   tie with a dead person (rule 13 removes the dead's records). tie_world_probe.gd, 40 years on the continent: every
+   living disciple's master_id matches the store, no tie names the dead, the queue empties each season (1,028 ties).
+7. **AC-NR-31's timing is not assessed under its conditions** (it is for a release export); the headless debug
+   build measures the hook pass at 5.6 ms p50 against its 2 ms.
+8. **Fixtures written past the caps:** `write_soft`'s `force` option, for the GDD's fixture note ("variants write
    those records directly"); no game path uses it.
 
 ## Progress
@@ -86,3 +92,6 @@ kết nghĩa / đạo lữ in the cast data yet), 35-37, 49, 50, 57 (verbs, Comb
   on a release export: measured, not met yet (the AC is for the release export; logged). S8b with 30 deaths 12.7 ms.
 - **AC-NR-48** property test (tests/integration/relationships): 400 random seasons on 60 people; watched failing when
   set_feud kept the holder's soft enmity.
+- **Review fixes:** every part that ends while its record lives writes a `tie_end` (betrayed, repaid, replaced,
+  faded, cancelled), so those news kinds appear; the holder and the target dying the same season gives the target's
+  reason (watched failing); the hook rows carry Modifier kind `tie` (StatSheet.KIND_TIE).
