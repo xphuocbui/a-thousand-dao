@@ -2586,6 +2586,56 @@ formulas:
     notes: "Codex & Karmic Carryover Formula B. Spent at a Continue succession; karma is per playthrough, never crosses playthroughs."
     added: 2026-11-21
     revised: ""
+  - name: herb_growth_rate
+    status: active
+    source: design/gdd/spirit-herbs.md
+    referenced_by:
+      - design/gdd/spirit-herbs.md
+      - design/gdd/canh-gioi.md
+    variables:
+      - seasons_per_year
+      - wood_purity
+      - hgp
+      - fit_growth
+    output_range: ["h 1 (no Wood, no modifiers)", "about 2.8 herb-years a year (Wood 100, sum of positive herb_growth_pct about 150, fit growth 1.2)"]
+    expression: "delta_age_per_season = (1/seasons_per_year) * h * fit_growth; h = (1 + 0.008 * wood_purity) * max(0, 1 + hgp/100); hgp = 10 * ln(1 + sum_pos/10) + sum_neg (Character Stats Formula I); fit_growth = g_max * fit (Travel & Map Formula G)"
+    notes: "Spirit Herbs F1. h is Realms Formula D's h (one owner for the number); a planted herb ages only while Planted (Item Database rule 15; Trade Goods rule 10). No root term: herb_age_root_pct is deprecated."
+    added: 2026-11-21
+    revised: ""
+  - name: field_plot_count
+    status: active
+    source: design/gdd/spirit-herbs.md
+    referenced_by:
+      - design/gdd/spirit-herbs.md
+      - design/gdd/canh-gioi.md
+      - design/gdd/cave-abode.md
+    variables:
+      - base_plots
+      - tho_purity
+      - field_plots
+      - field_level
+      - plots_per_field_level
+      - max_plots
+    output_range: ["1", "12"]
+    expression: "plots = clamp(base_plots 3 + floor(tho_purity * 0.04) + floor(field_plots stat) + floor(field_level * plots_per_field_level 1), 1, max_plots 12); the first three terms are the free home garden, the last is the Linh Dien field work (Cave Abode slot)"
+    notes: "Spirit Herbs F2, rules 3-4. Realms Formula D's n_plots lacks the field-work term and the cap (back-link owed). plots_per_field_level is a guess."
+    added: 2026-11-21
+    revised: ""
+  - name: linh_dien_mastery
+    status: active
+    source: design/gdd/spirit-herbs.md
+    referenced_by:
+      - design/gdd/spirit-herbs.md
+      - design/gdd/character-stats.md
+    variables:
+      - xp_per_herb_year
+      - xp_per_level
+      - mastery_growth_per_level
+    output_range: ["level 0 to 9", "+36 raw herb_growth_pct at level 9 (hgp +15.3)"]
+    expression: "xp per season = xp_per_herb_year (2) * delta_age of each Planted growing herb (Frozen herbs earn none); level n+1 costs xp_per_level (100) * (n+1); level L adds mastery_growth_per_level (4) * L raw herb_growth_pct"
+    notes: "Spirit Herbs F4, rule 9. Guesses. Reaching level 9 costs 4,500 xp, about 2,250 herb-years."
+    added: 2026-11-21
+    revised: ""
 constants:
   - name: root_count_weights
     status: active
@@ -3344,6 +3394,7 @@ constants:
     source: design/gdd/canh-gioi.md
     referenced_by:
       - design/gdd/canh-gioi.md
+      - design/gdd/spirit-herbs.md
     value: "FE pill 90 (2 ginseng at min_age 40 + 10), CF pill 102 (2 Kim Tuy Qua at 42 + 18), NS pill 250 (4 at 60 + 10), DT pill 480 (4 at 100 + 80)"
     unit: plot-years per pill (Y)
     notes: "Changed 2026-11-04 (cross-GDD review 04g F2: shorter, more numerous CF/NS herbs). W p10/p50/p90 from the entry-age model: 104 / 94-116-144 / 310-342-382 / 540-645-767. Brew guarantee: a root-free life (3 plots, h 1) brews at least 2 at W p10 and 3 at W p50, so main-herb min_age <= 46 / 46 / 82 / 141 at qty 2 / 2 / 4 / 4. Idle years at a full bar remain about 54 % / 57 % of W at CF->NS / NS->DT (F2 partial, accepted; Time & Turn owes a retreat-until-ripe). Recipes are owned by Item DB."
