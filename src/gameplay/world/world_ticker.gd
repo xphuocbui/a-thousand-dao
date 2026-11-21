@@ -110,6 +110,15 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 				_grant(loser, "humbled", year, season)
 			var place: String = str(a.location_id) if str(a.location_id) != "" else str(RngUtils.pick(rng, _db.all("places")).id)
 			news.append(_log(year, season, "tick_duel", texts, {"a": a.id, "b": b.id, "winner": winner.id, "place": place}))
+			# NPC Relationships decision 2 (user, 2026-11-21): a duel can kill, naming the winner, so world feuds form
+			var kp: float = minf(float(cfg.get("duel_kill_p", 0.0)) * float(winner.get("power", 1.0)) / maxf(float(loser.get("power", 1.0)), 1.0),
+				float(cfg.get("duel_kill_p_max", 0.25)))
+			if kp > 0.0 and not bool(loser.get("is_player", false)) and rng.randf() < kp:
+				news.append_array(npc_death(loser, year, season, "Tử trận", "duel", str(winner.id), "tick_duel_kill", {"a": winner.id, "b": loser.id, "place": place}))
+			if gap == INF:   # Rankings off (the sims): close by power, the weaker at rival_power_ratio of the stronger (user, 2026-11-21)
+				var pa: float = float(a.get("power", 1.0))
+				var pb: float = float(b.get("power", 1.0))
+				gap = 0.0 if minf(pa, pb) >= float(Ties.cfg(_gd).get("rival_power_ratio", 2.0)) * maxf(pa, pb) else INF
 			if Ties.enabled(_gd) and gap <= float(Ties.cfg(_gd).rival_gap):   # NPC Relationships rule 8: a close world fight
 				TieTick.enqueue(_db, {"kind": "soft", "holder": str(a.id), "other": str(b.id), "sk": "rival",
 					"delta": int(Ties.cfg(_gd).delta.close_fight_rival), "cause": {"kind": "fight", "event": str(news[-1])}})
@@ -131,30 +140,39 @@ static func tie_cult_pct(p: Dictionary) -> float:
 ## inherits, else the items are Lost where the NPC died (item-database.md rule 14); a dead sect leader's successor
 ## takes the leadership. Returns the ids of the events logged.
 func old_age_death(p: Dictionary, year: int, season: int) -> Array:
+	return npc_death(p, year, season, "Thọ nguyên cạn kiệt", "old_age", "", "tick_death", {"a": p.id, "realm": _gd.realm(int(p.realm_index)).name})
+
+
+## An NPC dies of [param cause_key] (shown as [param cause]). With [param killer] "" a close relationship or the sect
+## successor inherits; with a killer (a world duel), the killer takes the purse and the unbound items and the death is a
+## known kill for NPC Relationships rule 13. Logs [param text_id] with [param args]. Returns the ids of the events.
+func npc_death(p: Dictionary, year: int, season: int, cause: String, cause_key: String, killer: String, text_id: String, args: Dictionary) -> Array:
 	var texts: Dictionary = _gd.world_gen().history.texts
 	var news: Array = []
-	var heir: String = Inheritance.heir_of(_db, _gd, p)
-	if _db.count(WorldEconomy.TABLE) > 0:   # the purse goes to the heir, the sect or the lost stash (Formula H)
+	var heir: String = killer if killer != "" else Inheritance.heir_of(_db, _gd, p)
+	if _db.count(WorldEconomy.TABLE) > 0:   # the purse goes to the killer, the heir, the sect or the lost stash (Formula H)
 		WorldMoney.settle_death(_gd, _db, MoneyLedger.new(_db), p, heir)
 	p["alive"] = false
-	p["death_cause"] = "Thọ nguyên cạn kiệt"
+	p["death_cause"] = cause
 	p["death_year"] = year
 	_bereave(p, year, season)
-	news.append(_log(year, season, "tick_death", texts, {"a": p.id, "realm": _gd.realm(int(p.realm_index)).name}))
-	TieTick.enqueue(_db, {"kind": "death", "dead": str(p.id), "killer": "", "known": false, "cause": "old_age",
+	news.append(_log(year, season, text_id, texts, args))
+	TieTick.enqueue(_db, {"kind": "death", "dead": str(p.id), "killer": killer, "known": killer != "", "cause": cause_key,
 		"place": str(p.get("location_id", "")), "event": str(news[-1])})   # NPC Relationships rule 13 at S8b
-	_db.items_on_death(p.id, str(p.get("location_id", "")), "", heir)
+	_db.items_on_death(p.id, str(p.get("location_id", "")), killer, heir)
 	var succ: String = _succeed_leader(p)
 	if succ != "":
 		news.append(_log(year, season, "tick_succession", texts, {"a": succ, "b": p.id}))
 	return news
 
 
-# NPC Traits rule 11 with the catalogue's trigger `bereaved`: a dead person's living disciples and living master
-# become Grieving (NPC Relationships adds the other close ties when it is built).
+# NPC Traits rule 11 with the catalogue's trigger `bereaved`: the dead person's living close ties (NPC Relationships
+# rule 13's set: master, disciples, kin, đạo lữ, kết nghĩa; user decision 2026-11-21) become Grieving. Read before S8b
+# removes the dead's records.
 func _bereave(dead: Dictionary, year: int, season: int) -> void:
-	for p in _db.living():
-		if str(p.get("master_id", "")) == str(dead.id) or str(dead.get("master_id", "")) == str(p.id):
+	for pid in TieTick.close_ties(_db, str(dead.id)).all:
+		var p: Dictionary = _db.get_record("people", str(pid))
+		if bool(p.get("alive", false)):
 			_grant(p, "grieving", year, season)
 
 
@@ -184,18 +202,30 @@ func _succeed_leader(dead: Dictionary) -> String:
 ## population, so it cannot drift. [param cultivators] counts those alive after the season's deaths.
 func _intake(rng: RandomNumberGenerator, cultivators: int) -> void:
 	var people: Dictionary = _gd.world_gen().people
-	for i in maxi(maxi(int(people.world_cultivators), int(people.world_cultivators_min)) - cultivators, 0):
-		new_cultivator(rng)
+	var n: int = maxi(maxi(int(people.world_cultivators), int(people.world_cultivators_min)) - cultivators, 0)
+	var share: float = float(Families.cfg(_gd).get("birth_share", 0.0))
+	var idx: Dictionary = Families.index(_db) if n > 0 and share > 0.0 else {}
+	for i in n:
+		var parent: Dictionary = {}
+		if not idx.is_empty() and rng.randf() < share:   # Living World Tick rule 5, Births (user, 2026-11-21)
+			parent = Families.pick_parent(_gd, idx, "*", 16.0, "birth:%d:%d" % [Ties.now(_db), i])
+		new_cultivator(rng, parent, idx)
 
 
-## One new Qi Refining cultivator, age 16, loose or in a sect at a rolled rank.
-func new_cultivator(rng: RandomNumberGenerator) -> void:
+## One new Qi Refining cultivator, age 16, loose or in a sect at a rolled rank. Born to [param parent] (Births): starts
+## where the parent is, in the parent's sect when it has an active one, with kin to the parent and siblings.
+func new_cultivator(rng: RandomNumberGenerator, parent: Dictionary = {}, idx: Dictionary = {}) -> void:
 	var npc: Dictionary = ProgressionEdges.config(_gd).npc
 	var opts := {"realm_index": 0, "stage": 0, "age": 16.0}
 	var sects: Array = _db.all("sects").filter(func(s): return str(s.get("status", "active")) == "active")
 	var sect: Dictionary = {}
-	if not sects.is_empty() and rng.randf() < float(npc.intake_sect_share):
-		sect = _intake_sect(rng, sects)
+	var psect: Dictionary = _db.get_record("sects", str(parent.get("sect_id", ""))) if not parent.is_empty() else {}
+	if not psect.is_empty() and str(psect.get("status", "active")) != "active":
+		psect = {}
+	if not parent.is_empty() and psect.is_empty():
+		opts["location_id"] = str(parent.get("location_id", ""))
+	elif not psect.is_empty() or (parent.is_empty() and not sects.is_empty() and rng.randf() < float(npc.intake_sect_share)):
+		sect = psect if not psect.is_empty() else _intake_sect(rng, sects)
 		opts["sect_id"] = sect.id
 		opts["location_id"] = sect.hq_place_id
 		var u: float = rng.randf()
@@ -207,11 +237,13 @@ func new_cultivator(rng: RandomNumberGenerator) -> void:
 				break
 		opts["sect_rank"] = rank
 		opts["master_id"] = SectEconomy.pick_master(_gd, _db, sect, 0, rng)   # Sects rule 20a
-	else:
+	elif parent.is_empty():
 		opts["location_id"] = str(RngUtils.pick(rng, _db.all("places")).id)
 	var pid: String = _builds.create_person(rng, opts)
 	if not sect.is_empty():
 		sect.members.append(pid)
+	if not parent.is_empty():
+		Families.link(_gd, _db, _db.get_record("people", pid), parent, Ties.now(_db), false, idx)
 
 
 # Sects F17: the sect a new cultivator joins, weighted by each sect's intake this season (a sect at or over its target

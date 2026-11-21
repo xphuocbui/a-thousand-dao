@@ -515,3 +515,50 @@ func test_a_masters_tie_row_speeds_an_npcs_stage_chance_too_rule_15a() -> void:
 			n += int(s.db.get_record("people", str(p.id)).get("stage", 0))
 		return n
 	assert_true(int(gain.call(fast)) > 2 * int(gain.call(slow)), "x5 stage chance: %d against %d" % [int(gain.call(fast)), int(gain.call(slow))])
+
+
+func test_a_world_duel_can_kill_and_names_the_winner_as_a_known_killer() -> void:
+	var gd := game_data()
+	var llm := LlmService.new(gd)
+	llm.enabled = false
+	var s := GameSession.new(gd, llm, TestFixtures.tree())
+	s.new_game(4242, {"mode": "roll", "name": "Kiếm", "gender": "male", "origin": "tan_tu"})
+	var tick: Dictionary = gd.world_gen().tick
+	var saved: Dictionary = tick.duplicate()
+	tick["event_chance_per_season"] = 1.0
+	tick["duel_kill_p"] = 100.0
+	tick["duel_kill_p_max"] = 1.0
+	var alive0: int = s.db.living().filter(func(p): return bool(p.get("alive", true))).size()
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 3
+	var news: Array = s.ticker.tick(rng, 1200, 0)
+	tick.merge(saved, true)
+	var slain: Array = s.db.all("people").filter(func(p): return str(p.get("death_cause", "")) == "Tử trận")
+	assert_eq(slain.size(), 1, "the duel's loser is slain")
+	var ev: Array = news.map(func(id): return str(s.db.get_record("events", str(id)).get("text", ""))).filter(func(t): return t.contains("chém chết"))
+	assert_eq(ev.size(), 1, "the kill is logged with its killer")
+	assert_true(s.db.living().filter(func(p): return bool(p.get("alive", true))).size() < alive0, "one fewer living")
+
+
+func test_with_rankings_off_a_close_world_fight_by_power_makes_rivals_rule_8() -> void:
+	var gd := game_data()
+	var llm := LlmService.new(gd)
+	llm.enabled = false
+	var s := GameSession.new(gd, llm, TestFixtures.tree())
+	s.new_game(4242, {"mode": "roll", "name": "Đấu", "gender": "male", "origin": "tan_tu"})
+	s.ticker.ratings = null
+	var tick: Dictionary = gd.world_gen().tick
+	var saved: Dictionary = tick.duplicate()
+	tick["event_chance_per_season"] = 1.0
+	tick["duel_kill_p"] = 0.0
+	for p in s.db.living():
+		p["power"] = 100.0   # every pair is close
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 5
+	var news: Array = s.ticker.tick(rng, 1200, 0)
+	tick.merge(saved, true)
+	var duel: Array = news.map(func(id): return s.db.get_record("events", str(id))).filter(func(e): return str(e.get("type", "")) == "tick_duel")
+	assert_eq(duel.size(), 1, "one world duel")
+	var pair: Array = duel[0].people
+	var t: Dictionary = s.db.tie_between(str(pair[0]), str(pair[1]))
+	assert_true(JSON.stringify(t).contains("rival"), "the two fighters are rivals: %s" % JSON.stringify(t))

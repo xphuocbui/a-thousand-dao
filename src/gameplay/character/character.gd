@@ -146,6 +146,8 @@ var location_id: String = ""
 ## Place id of the player's động phủ (herb field).
 var home_id: String = ""
 var master_id: String = ""
+## The World DB parent (Families; NPC Relationships kin), "" for none.
+var parent_id: String = ""
 ## Attitude toward the player, -100..100 (NPCs only).
 var attitude: int = 0
 ## Season index of the last conversation with the player (NPCs only).
@@ -206,7 +208,7 @@ func to_dict() -> Dictionary:
 		"beasts": beasts.duplicate(), "owner_id": owner_id, "loyalty": loyalty,
 		"perks": perks.duplicate(), "background": background, "bt_fate": bt_fate.duplicate(),
 		"sect_id": sect_id, "sect_rank": sect_rank, "location_id": location_id, "home_id": home_id,
-		"master_id": master_id, "attitude": attitude, "last_talk_season": last_talk_season,
+		"master_id": master_id, "parent_id": parent_id, "attitude": attitude, "last_talk_season": last_talk_season,
 	}
 
 
@@ -290,6 +292,7 @@ static func from_dict(d: Dictionary) -> Character:
 	c.location_id = str(d.get("location_id", ""))
 	c.home_id = str(d.get("home_id", ""))
 	c.master_id = str(d.get("master_id", ""))
+	c.parent_id = str(d.get("parent_id", ""))
 	c.attitude = int(d.get("attitude", 0))
 	c.last_talk_season = int(d.get("last_talk_season", -1))
 	return c

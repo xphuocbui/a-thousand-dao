@@ -233,6 +233,8 @@ func _place_player() -> void:
 	player.home_id = home.id
 	player.location_id = home.id
 	start_residence()
+	if player.origin == "gia_toc":
+		_clan_family(home)
 	var cp: Dictionary = items.cong_phap(rng, gd.cong_phap_tier_rank(str(o.get("cong_phap_tier", "hoang"))), [_starting_element()])
 	cp["owner_id"] = player.id
 	db.add("items", cp)
@@ -1068,6 +1070,40 @@ func claim_abode() -> Dictionary:
 	if str(place.qi.abode.get("state", "")) == "claimed":
 		place.qi.abode["state"] = "open"   # the claim season has passed
 	return {"ok": true, "lines": lines}
+
+
+## World Generation rule 8, Families: a gia_toc player has a living parent and 0 to player_siblings_max siblings in
+## the clan town (people already there, renamed to the player's surname; the player is made last, so no one has seen
+## them yet). Kin through NPC Relationships.
+func _clan_family(home: Dictionary) -> void:
+	var c: Dictionary = Families.cfg(gd)
+	var ordinary: Array = db.living().filter(func(p): return bool(p.get("alive", true)) and not bool(p.get("is_player", false)) and not bool(p.get("is_beast", false)) and not p.has("cast_key") and str(p.get("parent_id", "")) == "" and str(p.get("sect_id", "")) == "")
+	ordinary.sort_custom(func(a, b): return str(a.id) < str(b.id))
+	var region: String = str(home.get("region_id", ""))
+	var here: Array = ordinary.filter(func(p): return str(p.get("location_id", "")) == str(home.id))
+	var gap: float = float(c.get("parent_age_gap", 18))
+	var elders: Array = []
+	for pool in [here, ordinary.filter(func(p): return str(db.get_record("places", str(p.get("location_id", ""))).get("region_id", "")) == region), ordinary]:
+		elders = pool.filter(func(p): return float(p.get("age", 0.0)) >= player.age + gap)
+		if not elders.is_empty():
+			break   # the clan town first, then its region, then anywhere: the family lives in the clan town
+	var parent: Dictionary = {}
+	if elders.is_empty():   # no loose elder anywhere (a small world): the parent is made in the clan town
+		var pid: String = builds.create_person(rng, {"realm_index": 0, "stage": 0, "age": player.age + gap + float(rng.randi() % 20), "location_id": str(home.id)})
+		parent = db.get_record("people", pid)
+	else:
+		parent = elders[rng.randi() % elders.size()]
+	parent["location_id"] = str(home.id)
+	var surname: String = Families.surname_of(gd, player.name)
+	parent["name"] = Families.with_surname(gd, str(parent.name), surname)
+	sync_player()
+	var me: Dictionary = db.get_record("people", player.id)
+	Families.link(gd, db, me, parent, Ties.now(db), true)
+	player.parent_id = str(parent.id)
+	var peers: Array = ordinary.filter(func(p): return str(p.id) != str(parent.id) and absf(float(p.get("age", 0.0)) - player.age) <= gap and float(parent.get("age", 0.0)) >= float(p.get("age", 0.0)) + gap)
+	for i in mini(rng.randi() % (int(c.get("player_siblings_max", 2)) + 1), peers.size()):
+		peers[i]["location_id"] = str(home.id)
+		Families.link(gd, db, peers[i], parent, Ties.now(db))
 
 
 ## Rule 9: the owner picks which work sleeps while a lost slot forces one to (a swap; see CaveAbode.sleep).

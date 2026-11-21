@@ -393,7 +393,7 @@ static func migrate(gd: GameData, db: WorldDB, season: int) -> int:
 ## Formula C and rule 10: writes soft kind [param kind] held by [param holder] toward [param other] with change
 ## [param delta] (whole points). opts: deed (betrayal, crippling or killing, slight: replaces another soft kind),
 ## floor (inherited: s = max(s_now, 100 · delta)), cause (a Dictionary), outside_cap (mourner enmity held toward
-## other: no room needed on other's side), force (an authored or fixture record written directly, past the caps).
+## other: no room needed on other's side), force (test fixtures only, per the GDD's fixture note: a record written directly, past the caps; no game path may pass it, user decision 2026-11-21).
 ## Returns {ok, reason, evicted: [record ids]}.
 static func write_soft(gd: GameData, db: WorldDB, holder: String, other: String, kind: String, delta: int, season: int, opts: Dictionary = {}) -> Dictionary:
 	if holder == other or not kind in SOFT:

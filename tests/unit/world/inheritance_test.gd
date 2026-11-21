@@ -96,15 +96,21 @@ func test_a_leader_dying_of_old_age_hands_over_items_and_the_sect() -> void:
 
 
 func test_a_death_leaves_the_disciples_and_master_grieving() -> void:
-	# NPC Traits rule 11, trigger bereaved: the dead person's living disciples and master gain Grieving (40 seasons)
+	# NPC Traits rule 11, trigger bereaved: the dead person's living close ties from the relationship store (master,
+	# disciples, kin, đạo lữ, kết nghĩa; user decision 2026-11-21) gain Grieving (40 seasons)
 	var gd := game_data()
 	var db := WorldDB.new()
 	var master: String = _person(db, {"realm_index": 3})
-	var dead: String = _person(db, {"realm_index": 2, "master_id": master})
-	var pupil: String = _person(db, {"master_id": dead})
-	var other: String = _person(db, {})
+	var dead: String = _person(db, {"realm_index": 2})
+	var pupil: String = _person(db, {})
+	var child: String = _person(db, {"parent_id": dead})
+	var other: String = _person(db, {"master_id": dead})   # an old field with no tie: not a close tie
+	Ties.set_master(gd, db, dead, master, 0)
+	Ties.set_master(gd, db, pupil, dead, 0)
+	Ties.add_pinned(gd, db, dead, child, "kin", 0, true)
+	db.get_record("people", other)["master_id"] = dead
 	WorldTicker.new(gd, db, BuildGenerator.new(gd, TestFixtures.tree(), db)).old_age_death(db.get_record("people", dead), 1, 0)
-	for pid in [master, pupil]:
+	for pid in [master, pupil, child]:
 		var g: Array = db.get_record("people", pid).get("npc_traits", {}).get("gained", [])
 		assert_eq(g.map(func(e): return e.id), ["grieving"], "%s grieves" % pid)
 	assert_false(db.get_record("people", other).has("npc_traits"), "a stranger does not")

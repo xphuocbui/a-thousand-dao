@@ -39,6 +39,10 @@ func _ready() -> void:
 		# ADR-0003 step 3's measured run (tests/performance/combat/ratings_world_run.gd)
 		add_child(preload("res://tests/performance/combat/ratings_world_run.gd").new())
 		return
+	if OS.get_cmdline_user_args().has("--tie-cost"):
+		# AC-NR-31: NPC Relationships' S8b and hook pass in the release export (tests/performance/world/tie_cost_bench.gd)
+		add_child(preload("res://tests/performance/world/tie_cost_bench.gd").new())
+		return
 	if OS.get_cmdline_user_args().has("--rating-spike"):
 		# ADR-0003's WorkerThreadPool spike shares this export (tests/performance/combat/rating_spike.gd)
 		add_child(preload("res://tests/performance/combat/rating_spike.gd").new())

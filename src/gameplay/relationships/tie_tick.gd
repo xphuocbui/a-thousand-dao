@@ -210,6 +210,10 @@ static func harden(gd: GameData, db: WorldDB, pid: String, season: int) -> void:
 # --- Rule 13: death passes ties on --------------------------------------------------------------------------------
 
 ## The dead person's close ties (kin, master, disciples, kết nghĩa, đạo lữ) by kind, and their records.
+static func close_ties(db: WorldDB, did: String) -> Dictionary:
+	return _close(db, did)
+
+
 static func _close(db: WorldDB, did: String) -> Dictionary:
 	var out := {"dao_lu": [], "master": [], "kin": [], "ket_nghia": [], "disciples": [], "all": []}
 	for rec in db.ties_of(did):

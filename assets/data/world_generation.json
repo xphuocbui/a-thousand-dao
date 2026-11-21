@@ -535,6 +535,7 @@
       "tick_succession": "{a} kế nhiệm {b} làm tông chủ.",
       "tick_item_decay": "{item} thất lạc tại {place} đã mục nát theo năm tháng.",
       "tick_duel": "{a} và {b} đại chiến tại {place}; {winner} thắng.",
+      "tick_duel_kill": "{a} chém chết {b} trong trận đại chiến tại {place}.",
       "player_born": "{a} bước lên con đường tu tiên tại {place}.",
       "player_breakthrough": "{a} đột phá {realm} thành công.",
       "player_breakthrough_fail": "{a} đột phá {realm} thất bại.",
@@ -559,8 +560,18 @@
     "legend_held_chance": 0.6,
     "betrayal_rogue_chance": 0.5
   },
+  "families": {
+    "_doc": "Families (user decision 2026-11-21; World Generation rule 8, Living World Tick rule 5; Families): kin_share of the random cultivators get a parent at the start; birth_share of each season's intake are born to a living cultivator instead of a random newcomer. A parent is a living ordinary person of the child's region (births: of the parent's place), at least parent_age_gap years older, with fewer than children_max living children. Guesses.",
+    "kin_share": 0.15,
+    "parent_age_gap": 18,
+    "children_max": 3,
+    "birth_share": 0.3,
+    "player_siblings_max": 2
+  },
   "tick": {
     "event_chance_per_season": 0.6,
+    "duel_kill_p": 0.05,
+    "duel_kill_p_max": 0.25,
     "npc_cultivation_seasons_per_stage": 14,
     "npc_aging": true,
     "npc_breakthrough_pill_chance_factor": 0.5

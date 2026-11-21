@@ -92,6 +92,7 @@ func generate(rng: RandomNumberGenerator, game_seed: String = "") -> WorldDB:
 	_step_herb_grounds()
 	_step_settlement_output()
 	_step_random_fill(rng)
+	Families.at_start(_gd, _db, _seed, current_year * 4)   # World Generation rule 8, Families (user, 2026-11-21)
 	_step_named_items(rng)
 	_step_money()
 	SectEconomy.seed_investment(_gd, _db)   # Sects F1: the authored levels as investment, and the stance dials

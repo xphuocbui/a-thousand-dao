@@ -119,6 +119,12 @@ Without this system the other systems have a map but no past, no population and 
    person was born or old enough for their realm, none in a sect before its founding year (the join year is Formula
    D's), and a master only if that master was in the sect then and is of a higher realm (a member has one with
    master_share 0.3, a guess).
+
+   **Families** (user decision 2026-11-21). After the random cultivators are placed, a keyed `kin_share` (0.15, a
+   guess) of them is given a parent: a living ordinary person of the same region, at least `parent_age_gap` (18)
+   years older, with fewer than `children_max` (3) children. The child takes the parent's surname and `parent_id`;
+   parent and child hold kin (NPC Relationships rule 8), and so do children of the same parent (siblings). A gia_toc
+   player gets a living parent and 0-2 siblings in the clan town.
 9. **Hidden spots are rolled once per game, per slot.** For each hidden slot and each tile secret, the seed picks one
    of its candidate tiles (2–3 hand-picked candidates). Each pick uses a keyed stream (ADR-0002), keyed on the game
    seed and the slot's stable id, so the picks do not depend on the order the slots are processed or on one another's

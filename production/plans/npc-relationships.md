@@ -95,3 +95,29 @@ written but not asserted), 39 and 51 (UI).
 - **Review fixes:** every part that ends while its record lives writes a `tie_end` (betrayed, repaid, replaced,
   faded, cancelled), so those news kinds appear; the holder and the target dying the same season gives the target's
   reason (watched failing); the hook rows carry Modifier kind `tie` (StatSheet.KIND_TIE).
+
+## Decisions answered (user, 2026-11-21, one by one)
+
+1. **NPCs read their tie rows:** the tick multiplies an NPC's stage chance by (1 + tie cultivation_speed_pct / 100)
+   (245963f4). Census to year 1600: seed 11 3,945 / 808 / 202 / 40 / 5, seed 23 3,851 / 873 / 236 / 35 / 5, within
+   seed noise of the Cave Abode runs. Not retuned.
+2. **Duels can kill:** a world duel's winner kills the loser with chance `duel_kill_p` 0.05 × (winner power / loser
+   power), at most `duel_kill_p_max` 0.25 (world_generation.json tick). It's a known kill: the killer takes the purse
+   and the unbound items, and S8b runs feuds, avengers and mourners. Old-age deaths and kills share
+   `WorldTicker.npc_death`.
+3. **Rivals with Rankings off:** a fight is close when the weaker fighter has at least `rival_power_ratio` 0.85 of
+   the stronger's power.
+4. **Families and births** (GDD edits approved: World Generation rule 8 Families, Living World Tick rule 5 Births):
+   - At the start, `kin_share` 0.15 of the random cultivators get a parent from their region (at least 18 years
+     older, at most 3 children). The child takes the parent's surname, and a family line keeps one surname.
+   - Siblings hold kin.
+   - A gia_toc player gets a parent and 0-2 siblings in the clan town. When no loose elder exists, the parent is
+     made there.
+   - `birth_share` 0.3 of each season's intake are children of a living cultivator, so the count is unchanged.
+   - Code: `Families` (src/gameplay/relationships/families.gd); Character.parent_id.
+5. **Grief follows the close ties:** master, disciples, kin, đạo lữ and kết nghĩa, read from the store before S8b
+   (`TieTick.close_ties`).
+6. **Dead masters** stay as `master_id` history only (kept).
+7. **AC-NR-31** measured on a release export: `build/bench/combat_bench.exe --headless -- --tie-cost`
+   (tests/performance/world/tie_cost_bench.gd); results below.
+8. **`write_soft` force** kept, fixture-only.
