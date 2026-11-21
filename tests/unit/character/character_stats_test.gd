@@ -11,22 +11,24 @@ func _sheet(c: Character) -> StatSheet:
 	return StatSheet.build(c, game_data(), null, null)
 
 
-func test_ceiling_clamps_positive_modifiers_only() -> void:
+func test_herb_growth_follows_the_bonus_curve_on_positive_modifiers_only() -> void:
+	# Character Stats rule 14, Formulas I (curves replaced the caps 2026-11-10): total = k ln(1 + sum+ / k) + sum-, k 10
 	var c := _c()
 	var sheet := _sheet(c)
 	sheet.add_mod("a", "herb_growth_pct", 60.0)
-	assert_eq(sheet.total("herb_growth_pct"), 10.0, "min(60, 10)")
+	assert_near(sheet.total("herb_growth_pct"), 10.0 * log(7.0), 1e-6, "10 ln 7 = 19.46, not min(60, 10)")
 	sheet.add_mod("b", "herb_growth_pct", -20.0)
-	assert_eq(sheet.total("herb_growth_pct"), -10.0, "penalty after the cap")
-	assert_near(sheet.mult("herb_growth_pct"), 0.9, 1e-9, "x 0.9")
+	assert_near(sheet.total("herb_growth_pct"), 10.0 * log(7.0) - 20.0, 1e-6, "the penalty after the curve")
+	assert_near(sheet.mult("herb_growth_pct"), 1.0 + (10.0 * log(7.0) - 20.0) / 100.0, 1e-9, "x 0.995")
 
 
-func test_alchemy_success_ceiling_is_three() -> void:
+func test_alchemy_success_has_no_cap() -> void:
+	# Character Stats rule 14: alchemy_success is not capped; Alchemy divides the failure chance by it (F1)
 	var sheet := _sheet(_c())
 	sheet.add_mod("a", "alchemy_success", 2.0)
 	sheet.add_mod("b", "alchemy_success", 2.0)
 	sheet.add_mod("c", "alchemy_success", 3.0)
-	assert_eq(sheet.total("alchemy_success"), 3.0, "min(7, 3)")
+	assert_eq(sheet.total("alchemy_success"), 7.0, "2 + 2 + 3, no ceiling")
 
 
 func test_pct_multiplier_floors_at_zero() -> void:

@@ -14,8 +14,9 @@ extends RefCounted
 ##   other sources are not curved.
 ## - A scoped modifier (a Đạo Đồ line such as attack_pct [hoa]) is held apart from the totals, which stay the plain
 ##   lines; [method scoped_lines] hands them on with their scopes (to the fighter, ADR-0004 decision 4).
-## - herb_growth_pct and alchemy_success meet character-wide ceilings: the positive modifiers
-##   are capped, then the negative ones are added.
+## - herb_growth_pct follows the bonus curve k * ln(1 + sum+ / k) + sum- (k from bonus_curves; Character Stats rule 14,
+##   Formulas I: curves replaced the ceilings 2026-11-10). alchemy_success has no cap: Alchemy divides the failure chance
+##   by it (Alchemy F1). A key left in bonus_ceilings still caps its positive modifiers (lifespan_frac, read elsewhere).
 ##
 ## Usage:
 ## [codeblock]
@@ -155,6 +156,10 @@ func add_mod(source: String, stat: String, value: float, kind: String = "", scop
 func total(stat: String) -> float:
 	if stat == "breakthrough_chance":
 		return tree_breakthrough() + other_breakthrough() + perk_breakthrough()
+	var k: float = _curve(stat)
+	if k > 0.0:
+		var pos: float = positive(stat)
+		return (k * log(1.0 + pos / k) if pos > 0.0 else 0.0) + negative(stat)
 	var ceiling: float = _ceiling(stat)
 	if ceiling >= 0.0:
 		return minf(positive(stat), ceiling) + negative(stat)
@@ -247,12 +252,22 @@ func explain_thien_phu(thien_phu_id: String, c: Character, label: String) -> Bre
 	return b
 
 
-## The ceiling line for a key, or "" when nothing is clamped.
+## The curve or ceiling line for a key, or "" when nothing is curved or clamped.
 func clamp_note(stat: String) -> String:
+	var k: float = _curve(stat)
+	if k > 0.0 and positive(stat) > 0.0:
+		return "%s %.1f, curved to %.1f (k %.0f)" % [stat, positive(stat), k * log(1.0 + positive(stat) / k), k]
 	var ceiling: float = _ceiling(stat)
 	if ceiling >= 0.0 and positive(stat) > ceiling:
 		return "%s %.1f, ceiling %.1f" % [stat, positive(stat), ceiling]
 	return ""
+
+
+## The bonus-curve scale k of a key (bonus_curves), or 0 when the key is not curved.
+func _curve(stat: String) -> float:
+	if _gd == null:
+		return 0.0
+	return float(_gd.attributes().get("bonus_curves", {}).get(stat, 0.0))
 
 
 func _ceiling(stat: String) -> float:
