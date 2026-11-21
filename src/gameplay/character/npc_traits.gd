@@ -91,6 +91,46 @@ static func from_authored(gd: GameData, authored: Dictionary) -> Dictionary:
 		"fate": ids.call(authored.get("fate_given", [])), "gained": []}
 
 
+## F2: the weight of a choice tagged [param tags] for [param person]: [param base] times the product of every held
+## trait's weight on every tag (catalogue; unlisted pairs 1.0), clamped to [m_lo, m_hi]; 0 when any weight is the
+## catalogue's never (0).
+static func choice_weight(gd: GameData, person: Dictionary, tags: Array, base: float = 1.0) -> float:
+	var cat := catalogue(gd)
+	var c: Dictionary = gd.file(FILE).get("choice", {})
+	var m: float = 1.0
+	for id in held(person):
+		var tw: Dictionary = cat.by_id.get(str(id), {}).get("tags", {})
+		for g in tags:
+			if tw.has(str(g)):
+				if float(tw[str(g)]) <= 0.0:
+					return 0.0
+				m *= float(tw[str(g)])
+	return base * clampf(m, float(c.get("m_lo", 0.1)), float(c.get("m_hi", 5.0)))
+
+
+## F2's pick among [param choices] ([{base, tags}]) for [param person], keyed on ("choice", event id, person id,
+## season): the first choice whose running weight reaches u · Σ w; base weights when every weight is 0. Returns its index.
+static func pick_choice(gd: GameData, person: Dictionary, choices: Array, event_id: String, season: int) -> int:
+	var w: Array = choices.map(func(ch): return choice_weight(gd, person, Array(ch.get("tags", [])), float(ch.get("base", 1.0))))
+	var total: float = 0.0
+	for x in w:
+		total += float(x)
+	if total <= 0.0:
+		w = choices.map(func(ch): return float(ch.get("base", 1.0)))
+		total = 0.0
+		for x in w:
+			total += float(x)
+	var r := RandomNumberGenerator.new()
+	r.seed = RngUtils.stable_hash("choice:%s:%s:%d" % [event_id, str(person.get("id", "")), season])
+	var u: float = r.randf() * total
+	var run: float = 0.0
+	for i in w.size():
+		run += float(w[i])
+		if run >= u:
+			return i
+	return w.size() - 1
+
+
 ## F3: person [param a]'s opinion of person [param b] (records), −100 to 100: s per shared personality trait or calling,
 ## −o per opposed pair (one set's two sides, or a gained trait and its opposite, between the two people), b's bias_all,
 ## a's directed regard toward b (to rivals: b's sect is at feud or war with a's; to the opposite alignment, by sect),

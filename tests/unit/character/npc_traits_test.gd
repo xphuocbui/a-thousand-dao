@@ -195,3 +195,22 @@ func test_f3_example_master_and_disciple() -> void:
 	assert_eq(NpcTraits.opinion(gd, db, m, d), 40.0, "different sects")
 	d.sect_id = "s1"
 	assert_eq(NpcTraits.opinion(gd, db, m, d), 50.0, "same sect")
+
+
+func test_f2_choice_weights_and_the_pick() -> void:
+	# F2's example, a Wrathful, Vengeful NPC: retaliate (aggressive, vengeful) 1.5 x 2.0 = 3.0; endure (cautious) 0.67;
+	# reconcile (merciful) 0.67 by the catalogue (the GDD example reads 0.5, flagged for the user)
+	var gd := game_data()
+	var p := {"id": "p1", "npc_traits": {"personality": ["wrathful", "vengeful"], "calling": "", "fate": [], "gained": []}}
+	assert_near(NpcTraits.choice_weight(gd, p, ["aggressive", "vengeful"]), 3.0, 1e-9, "retaliate")
+	assert_near(NpcTraits.choice_weight(gd, p, ["cautious"]), 0.67, 1e-9, "endure")
+	assert_near(NpcTraits.choice_weight(gd, p, ["merciful"]), 0.67, 1e-9, "reconcile")
+	var honest := {"id": "p2", "npc_traits": {"personality": ["honest"], "calling": "", "fate": [], "gained": []}}
+	assert_eq(NpcTraits.choice_weight(gd, honest, ["deceitful"]), 0.0, "Honest never deceives")
+	var choices := [{"base": 1.0, "tags": ["aggressive", "vengeful"]}, {"base": 1.0, "tags": ["cautious"]}, {"base": 1.0, "tags": ["merciful"]}]
+	var counts := [0, 0, 0]
+	for s in 2000:
+		counts[NpcTraits.pick_choice(gd, p, choices, "insult", s)] += 1
+	assert_true(absf(counts[0] / 2000.0 - 3.0 / 4.34) < 0.03, "retaliate about 69 %% (got %d)" % counts[0])
+	assert_eq(NpcTraits.pick_choice(gd, p, choices, "insult", 5), NpcTraits.pick_choice(gd, p, choices, "insult", 5), "keyed")
+	assert_eq(NpcTraits.pick_choice(gd, honest, [{"base": 1.0, "tags": ["deceitful"]}], "lie", 1), 0, "all zero: base weights")

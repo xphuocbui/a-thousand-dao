@@ -2126,5 +2126,10 @@
   "sect_k": 0.2,
   "k_st": 0.25,
   "att0_max": 30
+ },
+ "choice": {
+  "_doc": "F2 choice weight (design/gdd/npc-traits.md F2): the product of the person's trait-by-tag weights is clamped to [m_lo, m_hi]; a 0 weight in the catalogue is F2's never.",
+  "m_lo": 0.1,
+  "m_hi": 5.0
  }
 }
