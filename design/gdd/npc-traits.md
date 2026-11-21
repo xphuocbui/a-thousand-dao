@@ -276,7 +276,7 @@ The opinion formula is defined as:
 | s, o | int | 10; 10 | data file | Equal, so the world's mean opinion stays near 0 |
 | bias_all | int | Humble +5; Arrogant −5; Renowned +5 | catalogue (same numbers as Sects F15) | Held by b; everyone's view |
 | bias_dir | int | Devout −10 to the opposite alignment; Cruel −10 to rivals: people whose sect is at feud or war with a's sect (Sects F7's lines; user decision 2026-11-21) | catalogue | Held by a, toward b |
-| tie | int | master or disciple +30; kin +30; Dao companion +50; own sect head +15 | data file | Authored and recorded ties. Since 2026-11-20 the recorded part is NPC Relationships Formula A (`tie_value`, −70 to 80: these values plus kết nghĩa, companion, blood feud and soft ties at their strength); own sect head +15 stays here, computed from the sect |
+| tie | int | master or disciple +30; kin +30; Dao companion +50; own sect head +15 | data file | Authored and recorded ties. Since 2026-11-20 the recorded part is NPC Relationships Formula A (`tie_value`, −70 to +105 before F3's clamp: these values plus kết nghĩa, companion, blood feud, soft ties and a debt of gratitude at their strength; a Grudge target and the tie's feud plus enmity form one term, the more negative, 2026-11-21); own sect head +15 stays here, computed from the sect |
 | sect | int | same sect +10; else 0.2 · A_sect (−20 – 20) between NPCs; toward the player only +10 for the same sect, else 0 (standing already counts through k_st) | Sects F7 | Sect colouring |
 | target | int | ±50 | catalogue | A targeted gained trait toward its target (Lovestruck +50, grudge −50) |
 | standing | float | −100 – 100 | Sects F10 | The player's standing with the NPC's sect |

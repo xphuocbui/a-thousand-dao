@@ -53,7 +53,7 @@ This GDD describes a system that is **partly built**. The people step, intake, t
     - A log event older than `news_keep_years` (50) that was never `news: true` is deleted.
     - **Never compacted or pruned:** the fixed cast, anyone the player knows or knew, anyone named by the chronicle, an open quest or story, or a held flag, and every chronicle and `news: true` event.
     *(To build.)*
-20. **NPC Relationships (S8b).** After NPC events and before traits, the tick calls NPC Relationships (#46), which applies the season's queued tie changes in its own order (deaths and inheritance, ends, hardening, new ties with eviction, strength changes) and touches only the people named in them; fading is computed when read, so nothing scans ties (`npc-relationships.md` rules 4, 9). Revenge and help among NPCs are this tick's choices, weighted by ties, inside the violent-death budget (Open Questions 4; NPC Relationships rule 14a).
+20. **NPC Relationships (S8b).** After NPC events and before traits, the tick calls NPC Relationships (#46), which applies the season's queued tie changes in its own seven sub-steps (deaths and inheritance, ends, lost-notability evictions, strength changes, new parts with eviction, hardening, then the hook pass that adds and removes the `tie` cultivation rows; `npc-relationships.md` rule 9) and touches only the people named in them; fading is computed when read, so nothing scans ties (`npc-relationships.md` rules 4, 9). Revenge and help among NPCs are this tick's choices, weighted by ties, inside the violent-death budget (Open Questions 4; NPC Relationships rule 14a); revenge may also target the player (#46 rule 15b). A kill by this tick or a Power Rankings world fight is known (it passes feuds) unless an event flags it `secret` (#46 rule 13), and S11's pruning of old events must not strip the cause payloads tie records carry (#46 rule 1b).
 
 ### The season order
 
@@ -69,7 +69,7 @@ This GDD describes a system that is **partly built**. The people step, intake, t
 | S6 | **Travel & Map season update**: reserves, secret-realm cycles, fading works, ownership, contract records, regional head counts | Travel & Map | sect holdings | places, regions | To build |
 | S7 | **Regional Economy tick** (with Trade Goods): flows, prices, stock, market restock | Regional Economy & Trade | contract, `W_dead`, sects | prices, sect income | To build |
 | S8 | **NPC events**: fixed cast, people the player knows, a keyed sample | Event Engine (rule 19) | everything above | people, events | To build |
-| S8b | **NPC Relationships**: queued ties form, change, harden, pass to heirs, end | NPC Relationships (#46) | events, deaths, people | ties | Designed (2026-11-20), to build |
+| S8b | **NPC Relationships**: queued ties form, change, harden, pass to heirs, end; then the hook pass (`tie` rows) | NPC Relationships (#46) | events, deaths, breakthroughs, travel, people | ties, `tie` modifier rows | Approved (2026-11-21), to build |
 | S9 | **NPC Traits season steps**: grants, expiries, modifier rows | NPC Traits | events' grants | traits, sheets | To build |
 | S10 | **Start the next rating batch**; check the player's lifespan; hand news (or the digest, rule 17) to the session | Power Rankings; Session | — | batch plan | Built (digest: To build) |
 | S11 | **Yearly upkeep** (Spring only): compact the dead, prune old non-news events | This GDD | log, people | stubs | To build |

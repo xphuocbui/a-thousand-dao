@@ -138,6 +138,10 @@ So before the economy can price anything, the land must produce what it prices: 
 - **Numbers set without sign-off** (for the economy review): kind_value_mult herb 0.17, beast 1.6, linh thạch 0.72;
   beast settle_w 1.0; the mine resource table (design/map/continent-11/mine_resources.json, DRAFT but live); Ice
   variant at 2.3 % of places; M_0 about 1.53M (pools 20,000 each); npc_rate_ref.
+- **From NPC Relationships (#46, approved 2026-11-21):** disciples' errands mint raw-commons items at Item Database
+  price (a goods faucet, at most `errands_max` in progress; `npc-relationships.md` rule 15a), and the `errand_cost`
+  and `favour_cost` burns are stone sinks not on the user's sink list: keep them as fees or route them into a listed
+  sink (#46 Open Question 7).
 - **Calibration:** d_scale ore 3.87 (outside 0.5-3) is left until S1 adds the sects' ore spending (then recalibrate).
 
 ### Progress, 2026-11-20 evening (continued)

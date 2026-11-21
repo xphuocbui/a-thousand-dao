@@ -493,6 +493,7 @@ then the hook event; the pulse event is dropped (rule 10).
 | Heavenly Tribulation (#22) | Soft | `on_tribulation_end` and the news record |
 | Quests (#31) | Hard | Stage events through the validator, budgets, check results |
 | Living World Tick (#28) | Soft | Calls the NPC event step (rule 19) |
+| NPC Relationships (#46) | Soft | `tie_add`, `tie_strengthen`, `tie_weaken`, `tie_end` effects and tie conditions; the favour call-in event (one per favour, outside the draw budgets, B = 0); the avenger and gratitude pools, at most `avenger_max` and `gratitude_max` a season, counted against `player_events_per_season_max` and the per-chain budget (`npc-relationships.md` rules 15a, 15b) |
 | NPC Interaction & Dialogue (#30) | Soft | Flags and the event log for what people remember (provisional; no GDD) |
 | LLM Game Master (#29), parked | Soft | A future source through the validator |
 | Debug Terminal, Game UI | Hard | The pending event, options, chances, outcome summaries, warnings, news |

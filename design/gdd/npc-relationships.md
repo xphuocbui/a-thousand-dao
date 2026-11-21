@@ -810,26 +810,22 @@ avenger and gratitude events, at most `avenger_max` and `gratitude_max` a season
 | Sects & Missions (#26) | Soft | Sư đồ for succession |
 | LLM Game Master (#29, parked) | Soft, optional | Tie kinds for narration; never required |
 
-**Back-links owed from the 2026-11-21 design-review revisions** (not yet written; sibling files are edited in
-another session):
-- **NPC Interaction & Dialogue:** the repay verb lists each open obligation on a pair (debt, favour, loan) as its own entry (round 9). Rule 11 still names `help_cost`. The favour is now repaid by a call-in event, or
-  optionally by the repay verb at `favour_cost`. Meeting writes the met list (rule 6). A bond verb names the tie it
-  would evict (rule 15c). The repay verb asks the creditor for a B = 0 deed (rule 14); declaring enmity writes +30 both
-  ways (rule 8).
-- **Quests:** the Dependencies row should cite the errand rules: `errands_max`, one per disciple, the cost at the
-  higher realm, `errand_margin`, and money and items only (no outcomes outside B, no `wealth` or `standing`).
-- **Living World Tick:** rule 20 and the S8b row should list the seven sub-steps (rule 9), the hook pass and revenge
-  on the player (rule 15b). The S2 row no longer adds `tie` rows.
-- **Character Stats:** the #46 row should drop "at season close" conditions in favour of rows added and removed by
-  the hook pass.
-- **Event Engine:** the favour call-in event, and the avenger and gratitude pools with `avenger_max` and
-  `gratitude_max`.
-- **NPC Traits:** F3's `tie` row gains the debt term (Formula A, range −70 to +105), and F3 takes `min(Grudge target, feud + enmity value)` as one term (Formula A).
-- **Living World Tick:** a kill by the tick or a Power Rankings fight is known unless an event flags it `secret` (rule 13); S8b's order is rule 9's; its upkeep must not strip the cause payloads (rule 1b).
-- **World DB:** the hook index, the met list and the cause links.
-- **Sects:** report a lost sect rank to the S8b queue (rule 6).
-- **World-economy plan:** errand items as a goods faucet; the errand and favour burns for the sink decision (Open
-  Question 7).
+**Back-links written 2026-11-21** (after approval):
+- **NPC Interaction & Dialogue** rule 11: favour and `favour_cost` replace `help_cost`; the repay verb's entries and
+  deed; declare enmity +30 both ways; meeting writes the met list; a bond verb names the tie it would evict.
+- **Quests** Dependencies row: the errand rules (`errands_max` in progress, one per disciple, cost at the higher
+  realm, `B_errand`, money and raw commons only, no outcomes outside B, no `wealth` or `standing`); the call-in's B = 0.
+- **Living World Tick** rule 20 and the S8b row: the seven sub-steps and the hook pass; revenge on the player;
+  known kills unless `secret`; S11 keeps the cause payloads.
+- **Character Stats** #46 row: rows added and removed by the hook pass.
+- **Event Engine** Downstream row (new): tie effects and conditions, the favour call-in, the avenger and gratitude
+  pools and their budgets.
+- **NPC Traits** F3 `tie` row: the debt term, range −70 to +105, Grudge and feud plus enmity as one term.
+- **Sects** #46 row: a lost rank is reported to the S8b queue; the errand cost at the higher realm.
+- **World-economy plan** (open items): errand items as a goods faucet; the burns for Open Question 7.
+
+**Still owed:** World DB (#3) has no GDD; its shape for the hook index, the met list and the cause links lands with
+`/reverse-document` of the World DB. The repay verb's menu and verb details stay Dialogue's to fill in.
 
 **Back-links written 2026-11-20** (user-approved):
 - **NPC Traits:** rule 16 amended (ties are the one stored exception); F3 `tie` row points to Formula A; upstream,

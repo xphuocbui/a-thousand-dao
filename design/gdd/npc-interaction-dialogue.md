@@ -112,8 +112,11 @@ voice, #46 owns bonds; talk is free and deeds take time; a layered line library;
     companionship (đạo lữ). Each has its acceptance score and requirements here; on accept, NPC Relationships (#46)
     creates the bond and owns what it does (`npc-relationships.md`: companion, sư đồ, kết nghĩa and đạo lữ records,
     rule 6's notability gate for kết nghĩa and đạo lữ, and each kind's hook, rule 15a). The verb list gains **repay a debt**
-    and **declare enmity** (#46 rule 8), and a fight event gains **call for help** to sworn siblings (#46 rule 15a,
-    `p_help`, `help_cost`). Scores and requirements stay here; #46 refuses a second living master or đạo lữ, which the
+    and **declare enmity** (#46 rule 8: +30 enmity both ways), and a fight event gains **call for help** to sworn siblings (#46 rule 15a,
+    `p_help`; a sibling who joins is owed a favour, repaid by a call-in event or optionally at `favour_cost`). The repay
+    verb lists each open obligation on a pair (debt, favour, loan) as its own entry; repaying a debt of gratitude asks
+    the creditor for a deed with no reward (#46 rule 14). Meeting a person writes the player's met list (#46 rule 6),
+    and a bond verb that would evict one of the player's ties names it first (#46 rule 15c). Scores and requirements stay here; #46 refuses a second living master or đạo lữ, which the
     verb shows greyed (rule 5).
 
 **Attitude and memory**
