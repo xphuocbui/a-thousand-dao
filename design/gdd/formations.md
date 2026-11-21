@@ -53,7 +53,7 @@ Formations (Trận Pháp) are arrangements of linh thạch-fuelled arrays, in tw
 **Part II: Home and world arrays**
 
 13. **An array record**: id, kind (**standing**, **teleport**, **protective**), grade, level, where it stands (cave abode, a place, or a sect's seat), fuel model. Level, build cost and the Trận Pháp skill cap follow the quick spec (`cost_lt × cost_growth^(L−1)` plus materials; max level `min(max_level, skill + 1)`).
-14. **Standing arrays** (Tụ Linh, Thanh Mộc, Hộ Sơn) keep the current yearly upkeep `Σ levels × upkeep_lt_per_level`, cut by Thổ purity; one that goes unpaid drops a level. Tụ Linh still counts once as a layer-1 work for Travel & Map.
+14. **Standing arrays** (Tụ Linh, Thanh Mộc, Hộ Sơn) keep the current yearly upkeep `Σ levels × upkeep_lt_per_level`, cut by Thổ purity; one that goes unpaid drops a level. Tụ Linh still counts once as a layer-1 work for Travel & Map. Standing arrays are **home works** at the abode: each takes one slot (`design/gdd/cave-abode.md` rule 4, F3), and its level cannot pass the abode's level ceiling; build cost, upkeep and the skill cap stay here.
 15. **Teleport arrays** link two sites. The jump fee, the travel time (0.05 of a season) and who may use the array are Travel & Map rule 11 and Formula K and Sects #26; Formations adds **no second burn**, and the share of the fee that #43 burns (`f_burn`) is the array's fuel. **Protective arrays** burn linh thạch each time they trigger (what triggers them is set in Interactions).
 16. **Sect-owned arrays** belong to the Sects GDD; Formations defines only the record shape they use.
 17. **Every stone burnt** by rules 9, 14 and 15 (laid diagrams, standing upkeep, protective triggers; teleport already via `f_burn`) is a sink booked in #43 Formula H. Linh thạch stays money only, so no stat is priced in stones.
@@ -250,6 +250,7 @@ The diagram_reservation formula is defined as:
 | Regional Economy (#43) | Hard (out) | Every stone burnt booked in Formula H as `burn_formation`; NPC fuel aggregate | GDD approved | Yes (added 2026-11-21) |
 | Travel & Map (#25) | Soft | Tụ Linh as a layer-1 work; teleport arrays, fee Formula K | GDD designed | Yes |
 | Sects (#26) | Soft | Sect-owned arrays use the record; sects teach diagrams | GDD approved | Yes (added 2026-11-21) |
+| Cave Abode & Home Works (#47) | Soft | The abode's slots and level ceiling for the standing arrays | Designed 2026-11-21, pending review | Yes |
 | Cultivation Techniques (công pháp) | Soft | Taught diagrams | GDD in review | Yes (added 2026-11-21) |
 | NPC Builds (#24) | Soft | Catalogue, fit score, diagram per NPC | Built, no GDD | n/a |
 | Event Engine (#23) | Soft | Raids trigger protective arrays; `linh_thach_max` budgets | Built, no GDD | n/a |

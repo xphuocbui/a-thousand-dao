@@ -491,7 +491,7 @@ after 2,000, slip 0.603 and **65**.
 
 The money_balance formula is defined as:
 
-`M' = M + F_mine − burn_works − burn_stone − burn_fees − burn_formation − burn_heirless − player_net` · `burn_works = (1 − goods_frac) · (Σ_T spend_T + Σ works_due)` (`spend_T` here is **this season's actual** spending, including the track share of Sects F3's `invest`, the treasury rule below; only Formula C's D reads the previous season's, rule 19) · `burn_fees = f_burn · Σ teleport_fees` · `burn_heirless = lost_frac · W_dead` · `burn_stone` from J · `burn_formation` = laid diagrams' fuel + standing-array upkeep + protective triggers (Formations F2, rule 14, F5; added 2026-11-21)
+`M' = M + F_mine − burn_works − burn_stone − burn_fees − burn_formation − burn_abode − burn_heirless − player_net` · `burn_works = (1 − goods_frac) · (Σ_T spend_T + Σ works_due)` (`spend_T` here is **this season's actual** spending, including the track share of Sects F3's `invest`, the treasury rule below; only Formula C's D reads the previous season's, rule 19) · `burn_fees = f_burn · Σ teleport_fees` · `burn_heirless = lost_frac · W_dead` · `burn_stone` from J · `burn_formation` = laid diagrams' fuel + standing-array upkeep + protective triggers (Formations F2, rule 14, F5; added 2026-11-21) · `burn_abode` = abode grade raises + abode upkeep + claims (Cave Abode F1, F2, F4; added 2026-11-21)
 
 **Holders** (each a stored ledger, Pillar 2): sect treasuries (Sects F3); NPC purses (per NPC, or per realm band per
 market if per-NPC is too heavy: an ADR); one **commons pool** per market (towns, merchants and mine labour: the clients
@@ -509,6 +509,7 @@ ledger**, which counts what was burned so the harness can check `ΔM = F_mine �
 | lost_frac | float | 0.3 | data file *(guess)* | Share of an heirless death's purse lost (it can seed a hidden place) |
 | W_dead | float | ≥ 0 | Living World Tick | Purses of NPCs who died this season with no heir or sect |
 | burn_formation | float | ≥ 0 | Formations (#17) F2, F5, rule 14 | Stones burnt this season laying combat diagrams (NPCs as an aggregate), on standing-array upkeep and on protective triggers; teleport arrays stay in `burn_fees` |
+| burn_abode | float | ≥ 0 | Cave Abode & Home Works (#47) F1, F2, F4 | Stones spent this season on abode grade raises, abode upkeep and claims; NPC abodes as one aggregate |
 | M_0 | float | ~1,200,000 | data file *(guess)* | Starting money, about 10 seasons of the faucet |
 | inv_miss | float | 0.5 | data file *(guess)*; user decision 2026-11-14, design-review 7 | Share of Sects F3's `invest` posted as missions from the treasury; the rest goes to the track F19 picks as `spend_T` |
 
@@ -519,6 +520,7 @@ ledger**, which counts what was burned so the harness can check `ΔM = F_mine �
 | Teleport fees, half burned | −1,500 |
 | Heirless deaths (~50 × ~460 × 0.3) | −7,000 |
 | Formation fuel, upkeep and triggers (Formations, 2026-11-21) | not derived |
+| Abode grades, upkeep and claims (Cave Abode, 2026-11-21) | not derived |
 | Sects F3 `invest`, track share, cash half burned (inside `burn_works`) | self-adjusting: grows with what sects hold above their reserve |
 | Stone cultivation (J), from mission and loot money above the basket only | about 5–10k without treasury missions; more as `inv_miss` missions reach cultivators |
 | **Net** | **not derived; target ΔM a year −2 % to +5 % (AC-RE-37)** |
@@ -816,6 +818,7 @@ report raised. Review manually before production.
 | Game UI (#37) | Soft | The market ledger and price breakdown | Not started | Index |
 | Balance Simulation Harness (#33) | Soft | Runs the economy tick for 400 seasons and checks the health metrics (Formula H) | Built | Index |
 | Formations (#17) | Soft | In: stones burnt: laid diagrams' fuel (Formations F2; NPC fuel as an aggregate), standing-array upkeep, protective triggers (F5), booked as `burn_formation` in Formula H; teleport arrays stay on `teleport_fees` | Designed 2026-11-21, pending review | Yes |
+| Cave Abode & Home Works (#47) | Soft | In: the stones above, booked as `burn_abode` in Formula H | Designed 2026-11-21, pending review | Yes |
 | Trade Goods (#45) | Hard (amends rules 4, 9, 19; Formulas C, E, G, H, I, L2) | In: named goods and compositions, scarcity factors, crafted classes, the craft plan, `craft_in`, crafted demand. Out: class prices, local prices, stock, flows, baskets | Approved 2026-11-15 (design-review 12); its Open Question 14 amendments applied here 2026-11-15 | Yes (Trade Goods Dependencies lists #43) |
 
 ## Tuning Knobs

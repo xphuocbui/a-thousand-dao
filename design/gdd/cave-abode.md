@@ -216,11 +216,11 @@ The npc_raise rule is defined as: each season an NPC at grade g below the top gr
 
 | System | Type | Interface | State | Lists Cave Abode? |
 |---|---|---|---|---|
-| Travel & Map (#25) | Hard | Layer-1 contribution to Formula B; abode opening, home states, residence grades and rent, the layer-1 caps | GDD designed, revised 2026-11-13 | **No: rule 32 pointer owed** |
-| Formations (#17) | Hard | The standing arrays as home works, each taking a slot | GDD designed 2026-11-21 | **No: back-link row owed** (Part II rule 14) |
-| Regional Economy (#43) | Hard (out) | Stones spent, booked in Formula H (grade raises, upkeep, claims, NPC aggregate) | GDD approved | **No: back-link owed** |
-| Sects (#26) | Soft | Founding needs an abode at `seat_density` (rule 29); sects' say over abodes on their land | GDD approved | **No: note owed** at rule 29 |
-| Realms & Bottlenecks (#8) | Soft | The owner's realm scales the costs and gates grades 4 and 5 | GDD in review | **No: back-link owed** |
+| Travel & Map (#25) | Hard | Layer-1 contribution to Formula B; abode opening, home states, residence grades and rent, the layer-1 caps | GDD designed, revised 2026-11-13 | Yes (added 2026-11-21) |
+| Formations (#17) | Hard | The standing arrays as home works, each taking a slot | GDD designed 2026-11-21 | Yes (added 2026-11-21) |
+| Regional Economy (#43) | Hard (out) | Stones spent, booked in Formula H (grade raises, upkeep, claims, NPC aggregate) | GDD approved | Yes (added 2026-11-21, `burn_abode`) |
+| Sects (#26) | Soft | Founding needs an abode at `seat_density` (rule 29); sects' say over abodes on their land | GDD approved | Yes (added 2026-11-21) |
+| Realms & Bottlenecks (#8) | Soft | The owner's realm scales the costs and gates grades 4 and 5 | GDD in review | Yes (added 2026-11-21) |
 | Item Database (#13) | Soft | Materials for works | GDD complete | n/a (reads only) |
 | Character Stats (#7) | Soft | Thổ purity, realm | GDD in review | n/a (reads only) |
 | Spirit Herbs & Fields (#14) | Soft | What a field grows; ageing; Thanh Mộc's bonus | Built, no GDD | n/a |
@@ -231,7 +231,7 @@ The npc_raise rule is defined as: each season an NPC at grade g below the top gr
 
 **Circularity:** none added. This GDD reads Travel & Map's caps and Formations' records, and supplies layer-1 values to Formula B, which never writes back.
 
-Five back-links are owed: Travel & Map, Formations, Regional Economy, Sects and Realms. They are listed in Cross-References and Open Questions; none has been edited.
+The five back-links (Travel & Map, Formations, Regional Economy with `burn_abode` in Formula H, Sects and Realms) were added on 2026-11-21.
 
 ## Visual/Audio Requirements
 
@@ -315,7 +315,7 @@ All of these work in the debug terminal first, with numbered menus.
 
 | # | Question | Owner | Resolve by |
 |---|---|---|---|
-| 1 | Back-links owed in Travel & Map (rule 32 pointer), Formations (Part II), Regional Economy (Formula H sink term), Sects (rule 29 note) and Realms | user | At the Phase 5 registry and index pass |
+| 1 | **Closed 2026-11-21:** back-links added in Travel & Map (rule 32 and Interactions), Formations (rule 14, Dependencies), Regional Economy (Formula H `burn_abode`), Sects (rule 29, Dependencies) and Realms (downstream row) | user | Done |
 | 2 | The home-work catalogue beyond the seven known works: how many, which stats, which take 2 slots. **Diversity requirement (CD-GDD-ALIGN, Pillar 1):** the first authored catalogue must give at least two different best-in-slot sets per root element at grade 3, so that not every character builds the same four works | user (hand-authored) | Before implementation |
 | 3 | Starting values (`slots_by_grade`, `grade_cost_frac`, `upkeep_frac`, `claim_frac`, `npc_raise_p`, `npc_reserve_mult`) and whether a grade-5 abode absorbs a meaningful share of the 1–4 million surplus | Balance Harness (#33) | Harness pass |
 | 4 | Whether the grade ladder should be open-ended later, if grades 1–5 do not absorb enough | user | After the harness pass |

@@ -368,7 +368,7 @@ names rather than a place.
     home: a personal gathering formation, a tended cave abode, a private field. They follow the same two kinds as layer 2,
     with their own caps. If the home is left, its home works stop counting for the character. An abandoned home's
     permanent works stay with the place, for whoever finds it. Today's home gathering formation (Tụ Linh Trận) becomes a
-    layer 1 upkept work. Formations (#17) owns the formations; the map owns what they change on the land.
+    layer 1 upkept work. Formations (#17) owns the formations; the map owns what they change on the land. Cave Abode & Home Works (#47) owns the abode's grade, its work slots and the layer-1 work catalogue; the map keeps Formula B and every layer-1 cap.
 
 **Developed ground and where people live**
 
@@ -452,6 +452,7 @@ place left by history, rule 15).
 | Regional Economy & Trade (#43), Market | out | Production by resource per region and territory, and population, once a season (rule 25) | This GDD (production); #43 (stock, prices, flow) |
 | Sects & Missions | in / out | In: who owns which regions, sites and teleport arrays; sect works on their land (layer 2). Out: the territory's production and towns; sect seats and famous blessed lands as places | Sects (ownership changes, taxes, array access); this GDD (the land and its layers) |
 | Formations (#17) | in / out | In: gathering formations and other works on layers 1 and 2. Out: the land's values the works start from | Formations (the formations); this GDD (the layer they change) |
+| Cave Abode & Home Works (#47) | in / out | In: layer-1 density, share and match from the active home works. Out: the layer-1 caps, abode opening (rule 8), home states, residence grades | Cave Abode (the works and slots); this GDD (Formula B and the caps) |
 | Event Engine | in / out | Out: tile danger, biome and mode, which filter travel encounters; clue and rumour items; secret realm openings. In: discoveries, scars and ownership changes from events | Event Engine (events); this GDD (what they read and change) |
 | World Generation & History (#27) | in | The authored history, which names ruins, dead cultivators' abodes, secret realms, blessed lands and tile secrets with their candidate spots; each game's roll among them (rules 15, 28, 29); the random NPCs and their homes (rule 33) | World Generation & History (history, rolls, NPCs); this GDD (terrain, candidate rules) |
 | World Database | out | Places, regions, discoveries, scars, ownership, homes, works on each place (layers 1 and 2), who knows each secret, each character's known map | World Database (storage) |

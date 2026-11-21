@@ -199,7 +199,7 @@ nothing in this paragraph fixes a number.
 29. **Founding a sect.** A player of at least a stated realm, with a developed seat (a cave abode of at least a stated
     density), a stated sum, and enough disciples, may found a **minor sect** inside one great sect's territory. It
     starts as that great sect's vassal, and may break away later by war (rule 6). A founded sect has its own record, dials
-    and development like any other minor sect.
+    and development like any other minor sect. The seat's stacked density counts only **active** home works; a work held dormant for lack of slots counts for nothing (`design/gdd/cave-abode.md` rules 3, 9).
 30. **NPCs found sects too.** Each season, in a great sect's territory that holds fewer minor sects than its authored
     count, one NPC who meets rule 29's terms may found a minor sect (chance 0.05 a season, a guess). This replaces fallen
     minor sects over time, so the world keeps 15–25 of them.
@@ -904,6 +904,7 @@ earns contribution faster than a sect's stock refills). Each needs the 400-seaso
 | Event Engine (#23) and LLM Game Master (#29) | Soft | Event outcomes that move attitude, loyalty and standing, within budgets | No | — |
 | Market (#20) | Soft | Item prices, `linh_thach_max` | No | — |
 | Formations (#17) | Soft | Sect-owned arrays (teleport, protective, standing at the seat) use Formations' array record; sects teach combat diagrams. The seat's `def` 1.2 "Formations bonus" stays Sects' number until Formations Open Question 7 settles whether seat arrays feed it | Yes (`design/gdd/formations.md`, designed 2026-11-21) | Yes |
+| Cave Abode & Home Works (#47) | Soft | The abode's active works and grade for the `seat_density` check (rule 29) | Yes (`design/gdd/cave-abode.md`, designed 2026-11-21) | Yes |
 
 **Downstream (they read this system)**
 
