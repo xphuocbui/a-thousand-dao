@@ -342,7 +342,7 @@ func buy(c: Character, sheet: StatSheet, place_id: String, item_id: String) -> D
 		copy["owner_id"] = c.id
 		bought_id = add_or_merge(c, copy)
 	else:
-		item["owner_id"] = c.id
+		_db.set_owner(item, c.id)
 		if item.kind in ["pill", "material", "talisman"]:
 			_db.remove("items", item_id)
 			item.erase("id")

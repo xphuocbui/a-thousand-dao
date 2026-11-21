@@ -629,10 +629,10 @@ func _step_named_items(rng: RandomNumberGenerator) -> void:
 			continue
 		var aid: String = _db.add("items", art)
 		if not holder.is_empty():
-			art["owner_id"] = holder.id
+			_db.set_owner(art, holder.id)
 			_equip_held(holder, aid)
 		else:
-			art["owner_id"] = str(RngUtils.pick(rng, wild).id)
+			_db.set_owner(art, str(RngUtils.pick(rng, wild).id))
 			art["lost"] = true
 
 

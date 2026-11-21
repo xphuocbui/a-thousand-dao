@@ -48,7 +48,6 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 	if season == 0:   # Lost items left untouched long enough decay (item-database.md rule 14)
 		for item in ItemRarity.decay_lost(_gd, _db, year):
 			news.append(_log(year, season, "tick_item_decay", texts, {"item": str(item.get("name", item.id)), "place": str(item.owner_id)}))
-	_db.begin_owner_index()   # deaths look up their items many times a season; owners change only through the DB here
 	for p in _db.living():
 		if not p.alive or p.get("is_player", false):
 			continue
@@ -104,7 +103,6 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 				_grant(loser, "humbled", year, season)
 			var place: String = str(a.location_id) if str(a.location_id) != "" else str(RngUtils.pick(rng, _db.all("places")).id)
 			news.append(_log(year, season, "tick_duel", texts, {"a": a.id, "b": b.id, "winner": winner.id, "place": place}))
-	_db.end_owner_index()
 	return news
 
 

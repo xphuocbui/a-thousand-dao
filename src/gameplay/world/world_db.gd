@@ -36,9 +36,10 @@ var _event_index: Dictionary = {}
 ## next reads them. Rebuilt from the table when an edit could break the order (a revived or re-added record, a load).
 var _living: Dictionary = {}
 var _living_ok: bool = true
-## The owner index, on only between [method begin_owner_index] and [method end_owner_index] (the world tick's people
-## step): owner id -> {item id: true}, with each item's place in the table so [method items_of] keeps table order.
-## While it is on, every owner change must go through this class (add, put, remove, give_item, items_on_death).
+## The owner index: owner id -> {item id: true}, with each item's place in the table so [method items_of] keeps table
+## order. Built on first use (and after a load), then kept in step by every owner change, which must go through this
+## class: add, put, remove, give_item, set_owner, items_on_death. Setting a stored item's "owner_id" by hand leaves the
+## index stale (a stale entry found by [method items_of] rebuilds it, but the new owner can miss the item until then).
 var _owner_ix: Dictionary = {}
 var _ord: Dictionary = {}
 var _ord_next: int = 0
@@ -176,21 +177,23 @@ func remove(table: String, record_id: String) -> void:
 
 # --- Items ------------------------------------------------------------------------
 
-## Items owned by an entity id.
+## Items owned by an entity id, in table order (read from the owner index).
 func items_of(owner_id: String) -> Array:
-	if _ix_on:
-		var ids: Array = Dictionary(_owner_ix.get(owner_id, {})).keys()
-		ids.sort_custom(func(a, b): return int(_ord[a]) < int(_ord[b]))
-		var out: Array = []
-		for iid in ids:
-			out.append(_tables.items[iid])
-		return out
-	return find("items", func(r): return str(r.get("owner_id", "")) == owner_id)
+	if not _ix_on:
+		_build_owner_index()
+	var ids: Array = Dictionary(_owner_ix.get(owner_id, {})).keys()
+	ids.sort_custom(func(a, b): return int(_ord[a]) < int(_ord[b]))
+	var out: Array = []
+	for iid in ids:
+		var r: Dictionary = _tables.items.get(iid, {})
+		if r.is_empty() or str(r.get("owner_id", "")) != owner_id:   # an owner set by hand: rebuild and answer again
+			_build_owner_index()
+			return items_of(owner_id)
+		out.append(r)
+	return out
 
 
-## Turns the owner index on (one pass over the items): [method items_of] then reads it instead of scanning. Only for a
-## stretch of code where every owner change goes through this class (the world tick's people step).
-func begin_owner_index() -> void:
+func _build_owner_index() -> void:
 	_owner_ix = {}
 	_ord = {}
 	_ord_next = 0
@@ -201,11 +204,14 @@ func begin_owner_index() -> void:
 	_ix_on = true
 
 
-## Turns the owner index off; [method items_of] scans again.
-func end_owner_index() -> void:
-	_ix_on = false
-	_owner_ix = {}
-	_ord = {}
+## Sets stored item [param item]'s owner to [param owner_id] and keeps the owner index in step (no other field changes;
+## [method give_item] also clears Lost).
+func set_owner(item: Dictionary, owner_id: String) -> void:
+	if _ix_on and item.has("id"):
+		_ix_drop(str(item.id))
+		if _tables.items.has(str(item.id)):
+			_ix_set(str(item.id), owner_id)
+	item["owner_id"] = owner_id
 
 
 func _ix_set(item_id: String, owner: String) -> void:
@@ -231,10 +237,7 @@ func give_item(item_id: String, owner_id: String) -> bool:
 	var item: Dictionary = get_record("items", item_id)
 	if item.is_empty():
 		return false
-	if _ix_on:
-		_ix_drop(item_id)
-		_ix_set(item_id, owner_id)
-	item["owner_id"] = owner_id
+	set_owner(item, owner_id)
 	if table_of(owner_id) != "places":   # a person or a market takes it: it is no longer Lost (rule 14 decay)
 		item.erase("lost")
 		item.erase("lost_since")
@@ -250,10 +253,7 @@ func items_on_death(person_id: String, place_id: String, killer_id: String = "",
 	var taker: String = killer_id if killer_id != "" else heir_id
 	for item in items_of(person_id):
 		var to_taker: bool = taker != "" and not bool(item.get("bound", false))
-		if _ix_on:
-			_ix_drop(str(item.id))
-			_ix_set(str(item.id), taker if to_taker else place_id)
-		item["owner_id"] = taker if to_taker else place_id
+		set_owner(item, taker if to_taker else place_id)
 		item.erase("lost")
 		item.erase("lost_since")
 		if not to_taker:
@@ -311,7 +311,7 @@ static func from_dict(d: Dictionary) -> WorldDB:
 	var tables: Dictionary = d.get("tables", {})
 	for t in TABLES.keys():
 		db._tables[t] = tables.get(t, {})
-	db._living_ok = false   # rebuilt on first use
+	db._living_ok = false   # rebuilt on first use, as is the owner index
 	var nid: Dictionary = d.get("next_id", {})
 	for t in TABLES.keys():
 		db._next_id[t] = int(nid.get(t, 1))

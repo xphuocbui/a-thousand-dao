@@ -14,10 +14,10 @@ func test_owner_index_matches_the_scan_under_random_edits() -> void:
 	var owners: Array = ["p1", "p2", "p3", "l1", "l2", ""]
 	for i in 40:
 		db.add("items", {"owner_id": owners[r.randi() % owners.size()], "bound": r.randf() < 0.2})
-	db.begin_owner_index()
-	for step in 400:
+	assert_eq(db.items_of("p1").map(func(x): return str(x.id)), _scan_items(db, "p1"), "the first read builds the index")
+	for step in 600:
 		var ids: Array = db.all("items").map(func(x): return str(x.id))
-		match r.randi() % 5:
+		match r.randi() % 7:
 			0:
 				db.add("items", {"owner_id": owners[r.randi() % owners.size()]})
 			1:
@@ -31,13 +31,26 @@ func test_owner_index_matches_the_scan_under_random_edits() -> void:
 					db.remove("items", ids[r.randi() % ids.size()])
 			4:
 				db.items_on_death(owners[r.randi() % 3], "l1", "", owners[r.randi() % 3] if r.randf() < 0.5 else "")
+			5:
+				db.set_owner(db.get_record("items", ids[r.randi() % ids.size()]), owners[r.randi() % owners.size()])
+			6:
+				if r.randf() < 0.1:   # a save and a load: the index is rebuilt on first use
+					db = WorldDB.from_dict(db.to_dict())
 		for o in owners:
 			var got: Array = db.items_of(o).map(func(x): return str(x.id))
 			if got != _scan_items(db, o):   # report the first mismatch only
 				assert_eq(got, _scan_items(db, o), "step %d owner %s" % [step, o])
 				return
-	db.end_owner_index()
-	assert_eq(db.items_of("p1").map(func(x): return str(x.id)), _scan_items(db, "p1"), "off again: the scan")
+
+
+func test_owner_set_by_hand_moving_an_item_away_rebuilds_the_index() -> void:
+	var db := WorldDB.new()
+	var a: String = db.add("items", {"owner_id": "p1"})
+	var b: String = db.add("items", {"owner_id": "p1"})
+	assert_eq(db.items_of("p1").size(), 2, "both read through the index")
+	db.get_record("items", a)["owner_id"] = "p2"   # bypasses the DB
+	assert_eq(db.items_of("p1").map(func(x): return str(x.id)), [b], "the stale entry is caught")
+	assert_eq(db.items_of("p2").map(func(x): return str(x.id)), [a], "and the rebuild finds the new owner")
 
 
 func test_living_matches_the_filtered_table_under_random_edits() -> void:

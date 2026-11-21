@@ -192,7 +192,7 @@ func _simulate_history(rng: RandomNumberGenerator) -> void:
 			_log(year, "treasure_found", {"a": holder.id, "item": aid, "place": holder.location_id})
 		else:
 			var place: Dictionary = RngUtils.pick(rng, _db.all("places"))
-			art["owner_id"] = place.id
+			_db.set_owner(art, place.id)
 			art["lost"] = true
 			var former: String = _db.add("people", _dead_person(_builds.person_name(rng, "male"), tier, "Mất tích", year, ""))
 			_log(year, "treasure_lost", {"a": former, "item": aid, "place": place.id})
@@ -343,12 +343,12 @@ func _place_unique_named(rng: RandomNumberGenerator) -> void:
 		var aid: String = _db.add("items", art)
 		var year: int = rng.randi_range(int(current_year / 3.0), current_year - 1)
 		if not holder.is_empty():
-			art["owner_id"] = holder.id
+			_db.set_owner(art, holder.id)
 			_equip_held(holder, aid)
 			_log(year, "treasure_found", {"a": holder.id, "item": aid, "place": holder.location_id})
 		else:
 			var place: Dictionary = RngUtils.pick(rng, _db.all("places"))
-			art["owner_id"] = place.id
+			_db.set_owner(art, place.id)
 			art["lost"] = true
 			var former: String = _db.add("people", _dead_person(_builds.person_name(rng, "male"), tier, "Mất tích", year, ""))
 			_log(year, "treasure_lost", {"a": former, "item": aid, "place": place.id})

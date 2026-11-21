@@ -638,7 +638,7 @@ static func _drop_fallen_items(db: WorldDB) -> void:
 	for item in db.all("items"):
 		var o: String = str(item.get("owner_id", ""))
 		if _fallen.has(o):
-			item["owner_id"] = _fallen[o]
+			db.set_owner(item, _fallen[o])
 			item["lost"] = true
 	_fallen = {}
 

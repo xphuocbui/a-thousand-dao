@@ -596,7 +596,7 @@ func explore() -> Dictionary:
 		var sh: StatSheet = sheet()
 		var chance: float = resolver.stat_check_chance(player, sh, str(cfg.lost_item_check.stat), float(cfg.lost_item_check.difficulty)).total
 		if rng.randf() < chance:
-			lost["owner_id"] = player.id
+			db.set_owner(lost, player.id)
 			lost.erase("lost")
 			lost.erase("lost_since")
 			_log("player_found_lost", {"a": player.id, "item": lost.id, "place": place.id})
