@@ -2553,6 +2553,37 @@ formulas:
     notes: "Cave Abode F4, rule 11. A left or ruined abode keeps permanent works and loses faded upkept works."
     added: 2026-11-21
     revised: ""
+  - name: karma_earned
+    status: active
+    source: design/gdd/codex-karmic-carryover.md
+    referenced_by:
+      - design/gdd/codex-karmic-carryover.md
+    variables:
+      - r_max
+      - realm_karma
+      - K_new
+      - known_per_karma
+    output_range: "0 upward; about 0-12 in practice"
+    expression: "karma_earned = realm_karma[r_max] + floor(K_new / known_per_karma)"
+    notes: "Codex & Karmic Carryover Formula A. Continue mode only; Fated-birth, uncheated lives only. K_new = entries made known for the first time on the profile. Guesses."
+    added: 2026-11-21
+    revised: ""
+  - name: karma_spend
+    status: active
+    source: design/gdd/codex-karmic-carryover.md
+    referenced_by:
+      - design/gdd/codex-karmic-carryover.md
+    variables:
+      - karma
+      - perk_extra
+      - perk_extra_max
+      - lineage
+      - lineage_cost
+    output_range: "options 3-6; karma_left >= 0"
+    expression: "options = 3 + perk_extra; perk_extra <= min(perk_extra_max, karma); karma_left = karma - perk_extra - lineage_cost * lineage"
+    notes: "Codex & Karmic Carryover Formula B. Spent at a Continue succession; karma is per playthrough, never crosses playthroughs."
+    added: 2026-11-21
+    revised: ""
 constants:
   - name: root_count_weights
     status: active
@@ -5783,5 +5814,25 @@ constants:
     value: "1.0 foreseen / 0.7 ambush / 0.5 blind"
     unit: share of a carried ground object's (or a carried formation diagram's) magnitudes
     notes: "Combat rule 12 (Dao shared rule R9, 2026-11-11). Formations rule 9: a laid diagram is 1.0; a carried one uses 0.7 / 0.5, and a foreseen fight with too little fuel carries at 0.7."
+    added: 2026-11-21
+    revised: ""
+  - name: karma_values
+    status: active
+    source: design/gdd/codex-karmic-carryover.md
+    referenced_by:
+      - design/gdd/codex-karmic-carryover.md
+    value: "realm_karma 0 / 1 / 2 / 4 / 6 by realm / known_per_karma 10 / perk_extra_max 3 / lineage_cost 3"
+    unit: karma; new known Codex entries per karma; extra destiny perk options; karma
+    notes: "Codex & Karmic Carryover Formulas A and B (2026-11-21). Guesses for the balance pass."
+    added: 2026-11-21
+    revised: ""
+  - name: rebirth_years
+    status: active
+    source: design/gdd/codex-karmic-carryover.md
+    referenced_by:
+      - design/gdd/codex-karmic-carryover.md
+    value: "start_age(origin), 16 for every origin today"
+    unit: years of world ticks before a reborn successor enters (4 x years seasons)
+    notes: "Codex & Karmic Carryover Formula C. The reborn is born in the season of the death; ticks run as the closed-door command does."
     added: 2026-11-21
     revised: ""
