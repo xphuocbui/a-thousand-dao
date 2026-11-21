@@ -63,6 +63,7 @@ static func build(c: Character, gd: GameData, db: WorldDB, tree: DaoDoTree) -> S
 		sheet.add_mod(line.source, line.stat, line.value)
 	sheet._add_capability_mods(c)
 	sheet._add_trait_mods(c)
+	sheet._add_tie_mods(c)
 	# Last, because control is limited by thần thức, which everything above can raise. No affix
 	# touches thần thức, so reading it here is not circular (item-database.md rule 11).
 	if db != null:
@@ -80,6 +81,13 @@ static func build(c: Character, gd: GameData, db: WorldDB, tree: DaoDoTree) -> S
 
 ## NPC Traits rule 5: each held trait's stat rows (a personality trait's or calling's boon and cost; a fate-given or
 ## gained trait's rows), under the source "<kind>: <name>" (tính tình, nghề nghiệp, bẩm sinh, hậu thiên).
+## NPC Relationships rule 15a: the hook pass's rows from ties (a master, a đạo lữ), under the source "Quan hệ: ...".
+func _add_tie_mods(c: Character) -> void:
+	var label := {"master": "sư phụ", "dao_lu": "đạo lữ"}
+	for row in c.tie_rows:
+		add_mod("Quan hệ: %s" % label.get(str(row.get("source", "")), str(row.get("source", ""))), str(row.stat), float(row.value))
+
+
 func _add_trait_mods(c: Character) -> void:
 	if c.npc_traits.is_empty() or not _gd.registry.has_file(NpcTraits.FILE):
 		return

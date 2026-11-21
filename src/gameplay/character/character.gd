@@ -37,6 +37,8 @@ var archetype: String = "tan_tu"
 var traits: Array = []
 ## NPC Traits (#42): {personality: [ids], calling: id, fate: [ids], gained: [{id, expires, target}]}; see NpcTraits.
 var npc_traits: Dictionary = {}
+## NPC Relationships rule 15a: the stat rows the hook pass gives from ties ({stat, value, source, with}).
+var tie_rows: Array = []
 ## True for demon beasts (no sect, no items, no tree).
 var is_beast: bool = false
 
@@ -185,7 +187,7 @@ func to_dict() -> Dictionary:
 	return {
 		"id": id, "name": name, "gender": gender, "age": age, "alive": alive,
 		"death_cause": death_cause, "is_player": is_player, "birth_mode": birth_mode,
-		"origin": origin, "archetype": archetype, "traits": traits.duplicate(), "npc_traits": npc_traits.duplicate(true), "is_beast": is_beast,
+		"origin": origin, "archetype": archetype, "traits": traits.duplicate(), "npc_traits": npc_traits.duplicate(true), "tie_rows": tie_rows.duplicate(true), "is_beast": is_beast,
 		"thien_phu": thien_phu.duplicate(), "linh_can": linh_can.to_dict(),
 		"realm_index": realm_index, "stage": stage, "level": level, "level_peak": level_peak, "tu_vi": tu_vi,
 		"bare_attempts": bare_attempts, "failed_pills": failed_pills, "talisman_used": talisman_used,
@@ -219,6 +221,7 @@ static func from_dict(d: Dictionary) -> Character:
 	c.archetype = str(d.get("archetype", "tan_tu"))
 	c.traits = Array(d.get("traits", [])).duplicate()
 	c.npc_traits = Dictionary(d.get("npc_traits", {})).duplicate(true)
+	c.tie_rows = Array(d.get("tie_rows", [])).duplicate(true)
 	c.is_beast = bool(d.get("is_beast", false))
 	var tp: Dictionary = d.get("thien_phu", {})
 	for k in tp.keys():

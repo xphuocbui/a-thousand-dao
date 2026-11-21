@@ -24,9 +24,10 @@ signal event_logged(event_id: String)
 ## the built world's own record "w_meta" (WorldBuilder: builder, data and map versions, seed, and the never-shown ledger
 ## of rolled hidden spots, World Generation Core Rules 10 and 13). "money" holds the commons and lost-stash pools and the
 ## season's money books (MoneyLedger, Regional Economy & Trade Formula H); "markets" one record per great sect's market
-## (WorldEconomy, rules 1-11).
+## (WorldEconomy, rules 1-11). "ties" holds NPC Relationships' records, one per pair (Ties; npc-relationships.md
+## rule 1), indexed from both people.
 const TABLES := {"people": "p", "sects": "s", "places": "l", "regions": "r", "items": "i", "events": "e", "ratings": "q",
-	"standing": "y", "world": "w", "money": "m", "markets": "k"}
+	"standing": "y", "world": "w", "money": "m", "markets": "k", "ties": "t"}
 
 var _tables: Dictionary = {}
 var _next_id: Dictionary = {}
@@ -44,6 +45,12 @@ var _owner_ix: Dictionary = {}
 var _ord: Dictionary = {}
 var _ord_next: int = 0
 var _ix_on: bool = false
+## The tie index (NPC Relationships rule 1): person id -> {tie record id: true}, and "<lower id>|<higher id>" -> the
+## pair's record id. Built on first use and after a load; kept in step by add, put and remove on the ties table.
+var _tie_ix: Dictionary = {}
+var _tie_pair: Dictionary = {}
+var _tie_hook: Dictionary = {}   # the hook index (rule 15a): records holding sư đồ or đạo lữ
+var _tie_on: bool = false
 
 
 func _init() -> void:
@@ -65,6 +72,9 @@ func add(table: String, record: Dictionary) -> String:
 	elif table == "items" and _ix_on:
 		_ix_drop(rid)
 		_ix_set(rid, str(record.get("owner_id", "")))
+	elif table == "ties" and _tie_on:
+		_tie_drop(rid)
+		_tie_set(rid, record)
 	_tables[table][rid] = record
 	record_added.emit(table, rid)
 	return rid
@@ -77,6 +87,9 @@ func put(table: String, record: Dictionary) -> void:
 	elif table == "items" and _ix_on:
 		_ix_drop(str(record.id))
 		_ix_set(str(record.id), str(record.get("owner_id", "")))
+	elif table == "ties" and _tie_on:
+		_tie_drop(str(record.id))
+		_tie_set(str(record.id), record)
 	_tables[table][str(record.id)] = record
 
 
@@ -170,6 +183,8 @@ func remove(table: String, record_id: String) -> void:
 	if table == "items" and _ix_on:
 		_ix_drop(record_id)
 		_ord.erase(record_id)
+	elif table == "ties" and _tie_on:
+		_tie_drop(record_id)
 	_tables.get(table, {}).erase(record_id)
 	if table == "people":
 		_living.erase(record_id)
@@ -264,6 +279,73 @@ func items_on_death(person_id: String, place_id: String, killer_id: String = "",
 		person["equipped"] = []
 		person["equip_slots"] = {}
 	return moved
+
+
+# --- Ties -------------------------------------------------------------------------
+
+## NPC Relationships: the tie records person [param person_id] is part of, in record-id order (a fresh Array).
+func ties_of(person_id: String) -> Array:
+	if not _tie_on:
+		_build_tie_index()
+	var ids: Array = Dictionary(_tie_ix.get(person_id, {})).keys()
+	ids.sort_custom(func(x, y): return int(str(x).substr(1)) < int(str(y).substr(1)))
+	var out: Array = []
+	for rid in ids:
+		out.append(_tables.ties[rid])
+	return out
+
+
+## The tie record between [param a] and [param b], or an empty Dictionary.
+func tie_between(a: String, b: String) -> Dictionary:
+	if not _tie_on:
+		_build_tie_index()
+	var rid: String = str(_tie_pair.get(tie_key(a, b), ""))
+	return {} if rid == "" else _tables.ties.get(rid, {})
+
+
+## The hook index (NPC Relationships rule 15a): the records holding sư đồ or đạo lữ, in record-id order.
+func hook_ties() -> Array:
+	if not _tie_on:
+		_build_tie_index()
+	var ids: Array = _tie_hook.keys()
+	ids.sort_custom(func(x, y): return int(str(x).substr(1)) < int(str(y).substr(1)))
+	return ids.map(func(rid): return _tables.ties[rid])
+
+
+## The pair key of a tie record: the two ids, the lower first.
+static func tie_key(a: String, b: String) -> String:
+	return "%s|%s" % ([a, b] if a < b else [b, a])
+
+
+func _build_tie_index() -> void:
+	_tie_ix = {}
+	_tie_pair = {}
+	_tie_hook = {}
+	for r in _tables.ties.values():
+		_tie_set(str(r.id), r)
+	_tie_on = true
+
+
+func _tie_set(rid: String, r: Dictionary) -> void:
+	for pid in [str(r.get("a", "")), str(r.get("b", ""))]:
+		if not _tie_ix.has(pid):
+			_tie_ix[pid] = {}
+		_tie_ix[pid][rid] = true
+	_tie_pair[tie_key(str(r.get("a", "")), str(r.get("b", "")))] = rid
+	var pin: Dictionary = r.get("pin", {})
+	if pin.has("su_do") or pin.has("dao_lu"):
+		_tie_hook[rid] = true
+
+
+func _tie_drop(rid: String) -> void:
+	var old: Dictionary = _tables.ties.get(rid, {})
+	if old.is_empty():
+		return
+	for pid in [str(old.get("a", "")), str(old.get("b", ""))]:
+		if _tie_ix.has(pid):
+			_tie_ix[pid].erase(rid)
+	_tie_pair.erase(tie_key(str(old.get("a", "")), str(old.get("b", ""))))
+	_tie_hook.erase(rid)
 
 
 # --- Events -----------------------------------------------------------------------

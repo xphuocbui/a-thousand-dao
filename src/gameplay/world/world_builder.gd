@@ -81,6 +81,7 @@ func generate(rng: RandomNumberGenerator, game_seed: String = "") -> WorldDB:
 	if not errors.is_empty():
 		return _db
 	current_year = int(_hist.start_year)
+	Ties.set_now(_db, current_year * 4)   # NPC Relationships: the clock tie fades read
 	_step_base()
 	_step_sects()
 	_step_history()
@@ -311,8 +312,8 @@ func _step_cast() -> void:
 				sect_rec.leader_id = pid
 	for p in _hist.people:
 		var rec: Dictionary = _db.get_record("people", person_ids[str(p.key)])
-		if p.has("master"):
-			rec["master_id"] = person_ids.get(str(p.master), "")
+		if p.has("master"):   # NPC Relationships rule 2: the one writer of sư đồ
+			Ties.set_master(_gd, _db, str(rec.id), str(person_ids.get(str(p.master), "")), current_year * 4)
 	for s in _db.find("sects", func(x): return x.status == "active" and str(x.leader_id) == ""):
 		errors.append("sect %s has no living leader" % s.name)
 
@@ -582,7 +583,7 @@ func _join(rec: Dictionary, sect: Dictionary, realm: int, k: int) -> void:
 			masters.append(m)
 	if not masters.is_empty():
 		var pick: Dictionary = masters[RngUtils.stable_hash("%s:master_pick:%s" % [_seed, rec.id]) % masters.size()]
-		rec["master_id"] = str(pick.id)
+		Ties.set_master(_gd, _db, str(rec.id), str(pick.id), current_year * 4)   # NPC Relationships rule 2
 		# NPC Traits F5: a master known at creation: the disciple's roll leans toward the master's personality
 		if rec.has("npc_traits") and not rec.has("cast_key") and _gd.registry.has_file(NpcTraits.FILE):
 			rec["npc_traits"] = NpcTraits.roll(_gd, _builds.trait_key(str(rec.id)), str(rec.get("archetype", "")), true,

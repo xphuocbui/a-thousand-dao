@@ -198,7 +198,22 @@ static func opinion(gd: GameData, db: WorldDB, a: Dictionary, b: Dictionary) -> 
 		if (tw.contains("rival") and rival) or (tw.contains("opposite") and opposite):
 			op += float(rg.bias_dir)
 	var tie: Dictionary = c.get("tie", {})
-	if str(a.get("master_id", "")) == str(b.get("id", "?")) or str(b.get("master_id", "")) == str(a.get("id", "?")):
+	var target: float = 0.0
+	for e in ta.get("gained", []):
+		if str(e.get("target", "")) != "" and str(e.target) == str(b.get("id", "?")):
+			target += float(cat.by_id.get(str(e.id), {}).get("regard", {}).get("target", 0.0))
+	if db != null and Ties.enabled(gd) and str(a.get("id", "")) != "" and str(b.get("id", "")) != "":
+		# NPC Relationships Formula A: the stored ties; a Grudge and enmity toward the same person are one term, the
+		# more negative of the two (Open Question 2)
+		var season: int = Ties.now(db)
+		var tv: float = Ties.tie_value(gd, db, str(a.id), str(b.id), season)
+		var en: float = Ties.enmity_value(gd, db, str(a.id), str(b.id), season)
+		if target < 0.0:
+			op += tv - en + minf(target, en)
+		else:
+			op += tv + target
+		target = 0.0
+	elif str(a.get("master_id", "")) == str(b.get("id", "?")) or str(b.get("master_id", "")) == str(a.get("id", "?")):
 		op += float(tie.get("master", 30))
 	if not sb.is_empty() and str(sb.get("leader_id", "")) == str(b.get("id", "?")) and str(a.get("sect_id", "")) == str(sb.id):
 		op += float(tie.get("own_head", 15))
@@ -206,9 +221,7 @@ static func opinion(gd: GameData, db: WorldDB, a: Dictionary, b: Dictionary) -> 
 		op += float(c.get("sect_same", 10))
 	elif not sa.is_empty() and not sb.is_empty() and not bool(a.get("is_player", false)) and not bool(b.get("is_player", false)):
 		op += float(c.get("sect_k", 0.2)) * float(sa.get("attitude", {}).get(str(sb.id), 0.0))
-	for e in ta.get("gained", []):
-		if str(e.get("target", "")) != "" and str(e.target) == str(b.get("id", "?")):
-			op += float(cat.by_id.get(str(e.id), {}).get("regard", {}).get("target", 0.0))
+	op += target
 	return clampf(op, -100.0, 100.0)
 
 

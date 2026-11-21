@@ -33,6 +33,7 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 	var season_years: float = 1.0 / float(_gd.cultivation_rules().seasons_per_year)
 	var news: Array = []
 	var stage_chance: float = 1.0 / maxf(float(cfg.npc_cultivation_seasons_per_stage), 1.0)
+	Ties.set_now(_db, MapChange.abs_season(year, season))   # NPC Relationships: the clock tie fades read
 	var cultivators: int = 0
 	var money: MoneyLedger = null
 	if _db.count(WorldEconomy.TABLE) > 0:   # the season's money books (Regional Economy & Trade Formula H, AC-RE-07)

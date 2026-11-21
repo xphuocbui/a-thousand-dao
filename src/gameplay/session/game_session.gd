@@ -1852,6 +1852,7 @@ func load_dict(d: Dictionary) -> Dictionary:
 		# World Generation Core Rule 13: the terrain is read from the data files, so a save made on another map is refused
 		return {"ok": false, "lines": ["This save was made on map version %s; this game has map version %s. It cannot be loaded." % [str(meta.get("map_version", "?")), map_now]]}
 	db = loaded_db
+	Ties.migrate(gd, db, year * int(gd.cultivation_rules().seasons_per_year) + season)   # NPC Relationships: masters kept only in master_id
 	for rec in db.all("people"):
 		if rec.has("linh_can"):
 			rec["linh_can"] = LinhCan.migrate_record(rec.linh_can, gd)

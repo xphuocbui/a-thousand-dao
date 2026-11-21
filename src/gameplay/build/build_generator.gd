@@ -94,6 +94,8 @@ func create_person(rng: RandomNumberGenerator, opts: Dictionary = {}) -> String:
 	fresh["created_by"] = record.created_by
 	fresh["power"] = power_of(c)
 	_db.put("people", fresh)
+	if c.master_id != "":   # NPC Relationships rule 2: the tie and master_id together
+		Ties.set_master(_gd, _db, pid, c.master_id, Ties.now(_db))
 	return pid
 
 

@@ -38,6 +38,7 @@ func generate(rng: RandomNumberGenerator) -> WorldDB:
 	_items = ItemFactory.new(_gd)
 	var wg: Dictionary = _gd.world_gen()
 	current_year = int(wg.history.years)
+	Ties.set_now(_db, current_year * 4)   # NPC Relationships: the clock tie fades read
 	_make_geography(rng)
 	_make_sects(rng)
 	_make_loose_cultivators(rng)
@@ -288,7 +289,7 @@ func _history_event(rng: RandomNumberGenerator, year: int, type: String) -> void
 			var s: Dictionary = RngUtils.pick(rng, students)
 			if float(s.age) - years_ago < 16.0:
 				return
-			s["master_id"] = m.id
+			Ties.set_master(_gd, _db, str(s.id), str(m.id), year * 4)   # NPC Relationships rule 2: the one writer
 			_log(year, "disciple", {"a": m.id, "b": s.id})
 		"betrayal":
 			var members: Array = living.filter(func(p): return p.sect_id != "" and p.sect_rank != "tong_chu")

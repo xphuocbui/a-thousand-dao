@@ -191,7 +191,10 @@ func test_f3_example_master_and_disciple() -> void:
 	db.put("sects", {"id": "s1", "alignment": "trung", "attitude": {"s2": 0.0}, "relation": {}, "leader_id": ""})
 	db.put("sects", {"id": "s2", "alignment": "trung", "attitude": {"s1": 0.0}, "relation": {}, "leader_id": ""})
 	var m := {"id": "p1", "sect_id": "s1", "npc_traits": {"personality": ["brave"], "calling": "", "fate": [], "gained": []}}
-	var d := {"id": "p2", "sect_id": "s2", "master_id": "p1", "npc_traits": {"personality": ["brave"], "calling": "", "fate": [], "gained": []}}
+	var d := {"id": "p2", "sect_id": "s2", "npc_traits": {"personality": ["brave"], "calling": "", "fate": [], "gained": []}}
+	db.put("people", m)
+	db.put("people", d)
+	Ties.set_master(gd, db, "p2", "p1", 0)   # NPC Relationships: the tie gives the +30 (Formula A)
 	assert_eq(NpcTraits.opinion(gd, db, m, d), 40.0, "different sects")
 	d.sect_id = "s1"
 	assert_eq(NpcTraits.opinion(gd, db, m, d), 50.0, "same sect")
