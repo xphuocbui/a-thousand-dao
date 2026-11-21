@@ -56,6 +56,13 @@ func success_chance(c: Character, sheet: StatSheet, talisman_id: String) -> Brea
 	return b
 
 
+## Ink for one batch: ceil(ink_frac x base_value x yield) linh thach, a share of what is drawn
+## (Talismans quick spec, 2026-11-21 crafting-fuel pass). Paid up front, lost on failure.
+func ink(talisman_id: String) -> int:
+	var d: Dictionary = def(talisman_id)
+	return int(ceil(float(config().get("ink_frac", 0.625)) * float(d.get("base_value", 0)) * float(d.get("yield", 1)) - 1e-6))
+
+
 ## Whether a batch can be drawn: {ok, reason}.
 func check(c: Character, talisman_id: String) -> Dictionary:
 	var d: Dictionary = def(talisman_id)
@@ -63,8 +70,8 @@ func check(c: Character, talisman_id: String) -> Dictionary:
 		return {"ok": false, "reason": "unknown talisman '%s' (%s)" % [talisman_id, ", ".join(config().talismans.map(func(t): return t.id))]}
 	if c.skill_level(str(config().skill)) < int(d.min_level):
 		return {"ok": false, "reason": "%s needs Phù lục level %d" % [d.name, int(d.min_level)]}
-	if c.linh_thach < int(d.ink_lt):
-		return {"ok": false, "reason": "needs %d linh thạch of ink" % int(d.ink_lt)}
+	if c.linh_thach < ink(talisman_id):
+		return {"ok": false, "reason": "needs %d linh thạch of ink" % ink(talisman_id)}
 	if MaterialBag.count(c, _gd, _db, int(d.material_rarity)) < int(d.materials):
 		return {"ok": false, "reason": "needs %d material(s) of rarity ≥ %d" % [int(d.materials), int(d.material_rarity)]}
 	return {"ok": true, "reason": ""}
@@ -78,7 +85,7 @@ func draw(c: Character, sheet: StatSheet, rng: RandomNumberGenerator, talisman_i
 		return {"ok": false, "message": "Cannot draw: %s." % ck.reason}
 	var cfg: Dictionary = config()
 	var d: Dictionary = def(talisman_id)
-	c.linh_thach -= int(d.ink_lt)
+	c.linh_thach -= ink(talisman_id)
 	MaterialBag.spend(c, _gd, _db, int(d.material_rarity), int(d.materials))
 	var chance: float = success_chance(c, sheet, talisman_id).total
 	var roll: float = rng.randf() * 100.0

@@ -864,7 +864,7 @@ func _pick_talisman() -> String:
 	for t in s.talismans.config().talismans:
 		var ck: Dictionary = s.talismans.check(s.player, t.id)
 		var state: String = io.paint("ready", "32") if ck.ok else io.paint(str(ck.reason), "2")
-		rows.append({"label": "%-14s %3.0f%% · ink %d LT · %d per batch · %s · %s" % [t.name, s.talismans.success_chance(s.player, s.sheet(), t.id).total, int(t.ink_lt), int(t.yield), t.desc, state], "value": t.id})
+		rows.append({"label": "%-14s %3.0f%% · ink %d LT · %d per batch · %s · %s" % [t.name, s.talismans.success_chance(s.player, s.sheet(), t.id).total, s.talismans.ink(t.id), int(t.yield), t.desc, state], "value": t.id})
 	return _pick("Draw which talisman? (one season)", rows)
 
 

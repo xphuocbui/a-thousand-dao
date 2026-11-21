@@ -45,7 +45,7 @@ func test_drawing_spends_ink_and_materials_and_passes_a_season() -> void:
 	var season_before: int = s.season_index()
 	var r: Dictionary = s.draw_talisman("hoa_cau")
 	assert_true(r.ok, "drew: %s" % str(r.lines))
-	assert_eq(s.player.linh_thach, 500 - int(d.ink_lt), "ink paid")
+	assert_eq(s.player.linh_thach, 500 - s.talismans.ink("hoa_cau"), "ink paid")
 	assert_eq(s.season_index(), season_before + 1, "one season")
 	assert_true(_count(s, "hoa_cau") >= int(d.yield) or str(r.lines).contains("Failed"), "talismans on success")
 

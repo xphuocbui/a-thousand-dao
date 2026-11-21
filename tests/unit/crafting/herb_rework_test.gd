@@ -26,3 +26,14 @@ func test_plots_floor_at_one() -> void:
 	var sh := _sheet(c)
 	sh.add_mod("test", "field_plots", -50.0)
 	assert_eq(CharacterRules.field_plots(c, game_data(), sh).total, 1.0, "never below 1")
+
+
+# --- Step 2: talisman ink is a share of the batch's value (Talismans quick spec, 2026-11-21) ---
+
+func test_ink_is_a_share_of_batch_value() -> void:
+	var gd := game_data()
+	var t := Talismans.new(gd, WorldDB.new(), ItemFactory.new(gd))
+	assert_eq(t.ink("hoa_cau"), 15, "ceil(0.625 x 12 x 2)")
+	assert_eq(t.ink("kim_cuong"), 15, "ceil(0.625 x 12 x 2)")
+	assert_eq(t.ink("than_hanh"), 25, "ceil(0.625 x 20 x 2)")
+	assert_eq(t.ink("pha_canh"), 188, "ceil(0.625 x 300 x 1); was 150")
