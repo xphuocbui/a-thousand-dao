@@ -38,7 +38,8 @@ static func catalogue(gd: GameData) -> Dictionary:
 ## F4: a person's traits from a stream keyed on [param key] (their id): 3 personality draws by weight (F5: times m_master
 ## on [param master_personality], the master's traits), each removing the drawn trait's whole set; 1 calling by the archetype's weights (sect members also weigh the leader callings); 0-2
 ## fate-given traits (P 0.90 / 0.09 / 0.01), the second never the first's pair.
-static func roll(gd: GameData, key: String, archetype: String, sect_member: bool, master_personality: Array = []) -> Dictionary:
+static func roll(gd: GameData, key: String, archetype: String, sect_member: bool, master_personality: Array = [],
+		talents: Dictionary = {}) -> Dictionary:
 	var cat := catalogue(gd)
 	var f: Dictionary = cat.file
 	var r := RandomNumberGenerator.new()
@@ -66,16 +67,33 @@ static func roll(gd: GameData, key: String, archetype: String, sect_member: bool
 			opts.append({"id": str(c), "weight": float(cw[c])})
 		calling = str(RngUtils.weighted_pick(r, opts).id)
 	var fate: Array = []
+	var rc: Dictionary = f.get("roll", {})
 	var u: float = r.randf()
-	var n_fate: int = 2 if u < 0.01 else (1 if u < 0.10 else 0)
+	var p2: float = float(rc.get("p_any", 0.10)) * float(rc.get("p_second", 0.10))
+	var n_fate: int = 2 if u < p2 else (1 if u < float(rc.get("p_any", 0.10)) else 0)
 	var fpool: Array = Array(f.get("fate", [])).duplicate()
 	for i in n_fate:
 		if fpool.is_empty():
 			break
-		var ft: Dictionary = RngUtils.pick(r, fpool)
+		# F4: w_f = b_f · g_f, a gift by clamp(talent / 45, 0.25, 3) on its talent, a flaw by the inverse (talents
+		# before trait rows); 1 when the talent is unknown
+		var ft: Dictionary = RngUtils.weighted_pick(r, fpool.map(func(x): return {"id": str(x.id), "pair": str(x.pair),
+			"weight": g_f(rc, str(x.get("reads", "")), talents)}))
 		fate.append(str(ft.id))
 		fpool = fpool.filter(func(x): return str(x.pair) != str(ft.pair))
 	return {"personality": pers, "calling": calling, "fate": fate, "gained": []}
+
+
+## F4's g_f of a fate-given trait whose catalogue "reads" is [param reads] ("khi_van" or "khi_van (inverse)") for a
+## person with talents [param talents] (thiên phú, before trait rows): clamp(t / g_ref, lo, hi), or its inverse.
+static func g_f(rc: Dictionary, reads: String, talents: Dictionary) -> float:
+	var key: String = reads.split(" ")[0]
+	if not talents.has(key):
+		return 1.0
+	var t: float = maxf(float(talents[key]), 1e-6)
+	var ref: float = float(rc.get("g_ref", 45.0))
+	var v: float = ref / t if reads.contains("inverse") else t / ref
+	return clampf(v, float(rc.get("g_lo", 0.25)), float(rc.get("g_hi", 3.0)))
 
 
 ## The cast's authored traits ({personality: [names], calling: name, fate_given: [names]}) as ids.
@@ -194,6 +212,17 @@ static func opinion(gd: GameData, db: WorldDB, a: Dictionary, b: Dictionary) -> 
 	return clampf(op, -100.0, 100.0)
 
 
+## F3: the first meeting of [param npc] with the player sets its attitude to att0, once ("met_player"). A record that
+## already carries an attitude or a past talk (an older save, an event before any talk) counts as met and keeps it.
+static func first_meeting(gd: GameData, db: WorldDB, npc: Dictionary, player: Dictionary, standing: float, hostile_threshold: int) -> void:
+	if bool(npc.get("met_player", false)) or not gd.registry.has_file(FILE):
+		return
+	npc["met_player"] = true
+	if int(npc.get("attitude", 0)) != 0 or int(npc.get("last_talk_season", -1)) >= 0:
+		return
+	npc["attitude"] = att0(gd, db, npc, player, standing, hostile_threshold)
+
+
 ## F3's att0: an NPC's starting attitude to the player at their first meeting, from the NPC's opinion of the player and
 ## the player's standing with the NPC's sect; clamped to [hostile_threshold + 1, att0_max].
 static func att0(gd: GameData, db: WorldDB, npc: Dictionary, player: Dictionary, standing: float, hostile_threshold: int) -> int:
@@ -263,12 +292,13 @@ static func held(person: Dictionary) -> Array:
 	return out
 
 
-## Sects F15: a person's summed pulls. dials {dial: Σ}, dial_when_thriving {dial: Σ}, war_odds and rebel_odds (the
+## Sects F15: a person's summed pulls (bias_from_all: the attitude-bias pulls; bias_dir: the directed regard toward rivals,
+## the opposite alignment, or from righteous people). dials {dial: Σ}, dial_when_thriving {dial: Σ}, war_odds and rebel_odds (the
 ## lowest of the traits' values, which replaces the default; absent when no trait gives one), weariness Σ (and
 ## weariness_truce Σ, the part that counts for accepting a truce only), half_loss_weariness, invest_share and draw_mult
 ## (the trait's value; absent when none), loyalty
-## Σ, pact_line (the lowest), alignment_factor (the product), attitude_speed {hostile, friendly}, bias_from_all Σ (regard
-## bias_all and the attitude-bias pull), bold, never_bold, needs_halved, fickle, first_track, abs_sum (the dial pulls'
+## Σ, pact_line (the lowest), alignment_factor (the product), attitude_speed {hostile, friendly}, bias_from_all Σ (the
+## attitude-bias pulls only), bold, never_bold, needs_halved, fickle, first_track, abs_sum (the dial pulls'
 ## absolute sum, F6's boldness test).
 static func pulls(gd: GameData, person: Dictionary) -> Dictionary:
 	var cat := catalogue(gd)
@@ -282,7 +312,8 @@ static func pulls(gd: GameData, person: Dictionary) -> Dictionary:
 		if t.is_empty():
 			continue
 		var rg: Dictionary = t.get("regard", {})
-		out.bias_from_all = float(out.bias_from_all) + float(rg.get("bias_all", 0.0))
+		# the bias from all others in Sects F7 is the F15 attitude-bias pull alone (F3's bias_all is the same number
+		# for people's opinions; counting both doubled Humble and Arrogant, and gave Renowned a sect-level bias)
 		if rg.has("bias_dir"):   # F3's directed regard: to rivals, to the opposite alignment, or from righteous people
 			var tw: String = str(rg.get("toward", ""))
 			var slot: String = "rivals" if tw.contains("rival") else ("opposite" if tw.contains("opposite") else ("from_righteous" if tw.contains("righteous") else ""))

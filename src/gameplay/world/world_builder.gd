@@ -69,6 +69,7 @@ func generate(rng: RandomNumberGenerator, game_seed: String = "") -> WorldDB:
 	_seed = game_seed if game_seed != "" else str(rng.seed)
 	_db = WorldDB.new()
 	_builds = BuildGenerator.new(_gd, _tree, _db)
+	_builds.trait_seed = _seed
 	_items = ItemFactory.new(_gd)
 	_cd = ContinentData.from_game_data(_gd)
 	_hist = _gd.file(HISTORY_FILE)
@@ -584,7 +585,8 @@ func _join(rec: Dictionary, sect: Dictionary, realm: int, k: int) -> void:
 		rec["master_id"] = str(pick.id)
 		# NPC Traits F5: a master known at creation: the disciple's roll leans toward the master's personality
 		if rec.has("npc_traits") and not rec.has("cast_key") and _gd.registry.has_file(NpcTraits.FILE):
-			rec["npc_traits"] = NpcTraits.roll(_gd, str(rec.id), str(rec.get("archetype", "")), true, pick.get("npc_traits", {}).get("personality", []))
+			rec["npc_traits"] = NpcTraits.roll(_gd, _builds.trait_key(str(rec.id)), str(rec.get("archetype", "")), true,
+				pick.get("npc_traits", {}).get("personality", []), rec.get("thien_phu", {}))
 			_builds.refresh_power(str(rec.id))
 
 

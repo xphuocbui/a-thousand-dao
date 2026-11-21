@@ -17,6 +17,8 @@ extends RefCounted
 var _gd: GameData
 var _tree: DaoDoTree
 var _db: WorldDB
+## The world's seed, salting each person's trait roll (NPC Traits F4); read from the world's w_meta when unset.
+var trait_seed: String = ""
 var _items: ItemFactory
 
 
@@ -30,6 +32,13 @@ func _init(gd: GameData, tree: DaoDoTree, db: WorldDB) -> void:
 ## Creates and registers a person. Options (all optional):
 ## realm_index, stage, archetype, sect_id, sect_rank, location_id, name, gender,
 ## is_beast, age, created_by. Returns the person id.
+## The key of person [param pid]'s trait roll: the world's seed and the id.
+func trait_key(pid: String) -> String:
+	if trait_seed == "" and _db != null:
+		trait_seed = str(_db.get_record("world", "w_meta").get("seed", ""))
+	return pid if trait_seed == "" else "%s:%s" % [trait_seed, pid]
+
+
 func create_person(rng: RandomNumberGenerator, opts: Dictionary = {}) -> String:
 	var wg: Dictionary = _gd.world_gen()
 	var people_cfg: Dictionary = wg.people
@@ -67,8 +76,8 @@ func create_person(rng: RandomNumberGenerator, opts: Dictionary = {}) -> String:
 	record["created_by"] = str(opts.get("created_by", "worldgen"))
 	var pid: String = _db.add("people", record)
 	c.id = pid
-	if not c.is_beast and _gd.registry.has_file(NpcTraits.FILE):   # NPC Traits F4, keyed on the id (a reload rolls the same)
-		c.npc_traits = NpcTraits.roll(_gd, pid, str(arch_id), c.sect_id != "")
+	if not c.is_beast and _gd.registry.has_file(NpcTraits.FILE):   # NPC Traits F4, keyed on the world and the id
+		c.npc_traits = NpcTraits.roll(_gd, trait_key(pid), str(arch_id), c.sect_id != "", [], c.thien_phu)
 	if not c.is_beast:
 		_equip_build(c, rng, arch_id)
 		_allocate_tree(c, rng, arch_id)

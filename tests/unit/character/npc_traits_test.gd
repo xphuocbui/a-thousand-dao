@@ -227,3 +227,52 @@ func test_f5_a_disciple_leans_toward_the_master() -> void:
 		random += NpcTraits.roll(gd, "d%d" % i, "kiem_tu", true).personality.filter(func(x): return master.has(x)).size()
 	assert_true(absf(shared / 600.0 - 0.60) < 0.12, "about 0.60 shared (got %.2f)" % (shared / 600.0))
 	assert_true(absf(random / 600.0 - 0.24) < 0.08, "about 0.24 at random (got %.2f)" % (random / 600.0))
+
+
+func test_humble_counts_once_toward_sect_attitudes() -> void:
+	# F7's bias from all is the F15 attitude-bias pull (Humble +5), not also F3's bias_all; Renowned has no sect pull
+	var gd := game_data()
+	var h := NpcTraits.pulls(gd, {"npc_traits": {"personality": ["humble"], "calling": "", "fate": [], "gained": []}})
+	assert_eq(float(h.bias_from_all), 5.0, "Humble +5 once")
+	var r := NpcTraits.pulls(gd, {"npc_traits": {"personality": [], "calling": "", "fate": [], "gained": [{"id": "renowned", "expires": 9, "target": ""}]}})
+	assert_eq(float(r.bias_from_all), 0.0, "Renowned: no sect-level bias")
+
+
+func test_f4_fate_weights_follow_the_talent() -> void:
+	# F4's example: fortune 72 gives Heaven-favoured g 1.6 and Ill-starred 0.63
+	var gd := game_data()
+	var rc: Dictionary = gd.file(NpcTraits.FILE).roll
+	assert_near(NpcTraits.g_f(rc, "khi_van", {"khi_van": 72}), 1.6, 1e-9, "the gift")
+	assert_near(NpcTraits.g_f(rc, "khi_van (inverse)", {"khi_van": 72}), 0.625, 1e-9, "the flaw")
+	assert_eq(NpcTraits.g_f(rc, "khi_van", {}), 1.0, "unknown talent")
+	assert_eq(NpcTraits.g_f(rc, "khi_van", {"khi_van": 500}), 3.0, "clamped")
+
+
+func test_the_same_id_is_a_different_person_in_another_world() -> void:
+	var gd := game_data()
+	var a := NpcTraits.roll(gd, "7:p900", "kiem_tu", false)
+	var same := 0
+	for i in 40:
+		if NpcTraits.roll(gd, "7:p%d" % (900 + i), "kiem_tu", false).personality == NpcTraits.roll(gd, "8:p%d" % (900 + i), "kiem_tu", false).personality:
+			same += 1
+	assert_true(same < 5, "two worlds' keys roll apart (%d of 40 alike)" % same)
+	var b := BuildGenerator.new(gd, TestFixtures.tree(), WorldDB.new())
+	b.trait_seed = "7"
+	assert_eq(b.trait_key("p900"), "7:p900", "the builder salts the key with the world seed")
+	assert_eq(a, NpcTraits.roll(gd, b.trait_key("p900"), "kiem_tu", false), "and rolls by it")
+
+
+func test_first_meeting_sets_att0_once_and_keeps_an_earlier_attitude() -> void:
+	var gd := game_data()
+	var db := WorldDB.new()
+	var pl := {"id": "pp", "is_player": true, "npc_traits": {"personality": ["brave"], "calling": "", "fate": [], "gained": []}}
+	var fresh := {"id": "n1", "attitude": 0, "npc_traits": {"personality": ["brave"], "calling": "", "fate": [], "gained": []}}
+	NpcTraits.first_meeting(gd, db, fresh, pl, 0.0, -30)
+	assert_eq(int(fresh.attitude), 10, "att0: Brave shared +10")
+	fresh.attitude = 3
+	NpcTraits.first_meeting(gd, db, fresh, pl, 0.0, -30)
+	assert_eq(int(fresh.attitude), 3, "once only")
+	var moved := {"id": "n2", "attitude": -8, "npc_traits": {"personality": ["brave"], "calling": "", "fate": [], "gained": []}}
+	NpcTraits.first_meeting(gd, db, moved, pl, 0.0, -30)   # an event moved it first (or an older save)
+	assert_eq(int(moved.attitude), -8, "an earlier attitude stays")
+	assert_true(bool(moved.met_player), "and counts as met")

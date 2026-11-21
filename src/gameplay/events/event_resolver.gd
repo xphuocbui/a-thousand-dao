@@ -227,6 +227,9 @@ func _apply(c: Character, sheet: StatSheet, rng: RandomNumberGenerator, event: D
 			if rec.is_empty():
 				return ""
 			var cfg: Dictionary = _gd.session().talk
+			# NPC Traits F3: an event can be the first meeting, which starts the attitude at att0 before the change
+			var st: float = SectMembers.new(_gd, _db).standing(str(rec.get("sect_id", "")), c.id) if str(rec.get("sect_id", "")) != "" else 0.0
+			NpcTraits.first_meeting(_gd, _db, rec, c.to_dict(), st, int(cfg.hostile_threshold))
 			rec["attitude"] = clampi(int(rec.get("attitude", 0)) + int(fx.amount), int(cfg.relationship_min), int(cfg.relationship_max))
 			return "%s's attitude %+d (now %d)" % [rec.name, int(fx.amount), int(rec.attitude)]
 		"insight":

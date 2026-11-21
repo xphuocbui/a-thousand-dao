@@ -210,7 +210,10 @@ So before the economy can price anything, the land must produce what it prices: 
    only 64 die of age against 591 breakthroughs, and 96 % of Luyện Khí reach the last stage. A transient: Kết Đan and
    above live 500-2,000 years. The 2026-11-05 run (2,000 years, random world) held Nguyên Anh at 29. A 400-year run on
    the continent settled it (sim-11-400y.md): by year 1600 the census is 3,949 / 818 / 196 / 34 / 3 against 3,936 /
-   844 / 191 / 27 / 3. **The steady state is on target; no gate retune.** The first century overshoots (Trúc Cơ
+   844 / 191 / 27 / 3. **One seed, an observation, not a verdict:** Luyện Khí and Trúc Cơ return to target, but Kết
+   Đan is still falling at year 1600 (300 -> 252 -> 196) and Nguyên Anh holds at 34 against 27; the earlier seed-202
+   run (05-balance.txt) had Hóa Thần at 8. Whether to retune (the user's money decision included it) waits on several
+   seeds and the user. The first century overshoots (Trúc Cơ
    about 1,250 at years 20-80, Kết Đan about 300) because world generation's ages leave too few early deaths. A
    proposal for World Generation (which owns the ages): start people at their steady-state age spread, so a new
    game's first century looks like its later ones. The same run: M grows 0.2-0.6 % a year (inside the band); crafted
@@ -218,6 +221,15 @@ So before the economy can price anything, the land must produce what it prices: 
 
 **Later the same night:**
 
+- **Review fixes (after the advisor's check):** the trait roll's key carries the world seed (the same id rolled the
+  same person in every world); F4's fate draws weigh by talent (g_f) with the odds in data; Humble and Arrogant
+  counted twice toward sect attitudes (F3's bias_all and the F15 pull are one number); a first meeting by event no
+  longer gets reset by the first talk; each sect's pact line is its own pull or the default. The owner index checked
+  on item owners too: after 60 years every item's owner and every person's state hash the same with and without it.
+- **Notes:** traits' fight-only rows (evade, status resist, healing) reach the sheet but no fight reads those keys yet;
+  the narrator and event context still read the legacy `traits` names (NPC Traits' migration table); "rival" means a
+  bordering sect in Sects F7 and a sect at feud or war in F3's directed regard (neither defined in the GDDs: decision
+  10 below); pick_choice's key has no world seed yet (no caller).
 - **9e576f0f** traits carry stat rows (rule 5) and Character keeps npc_traits through saves; F15 fixes (war and rebel
   odds replace the default, Compassionate's truce, Callous's losses, F19 ties to the first track); AC-NTC checks.
 - **fedaf152** F3 opinion between people; a first talk starts the NPC's attitude to the player at att0.
@@ -257,3 +269,7 @@ So before the economy can price anything, the land must produce what it prices: 
 9. **Masters after world generation**: new cultivators never get a master (only world generation assigns them), so
    master and disciple ties, and the grief and inheritance they carry, die out with the first generation
    (sim-11-200y-gained.md). Sects rule or NPC Relationships should say how a newcomer finds a master.
+10. **"Rival"** for directed regard (Cruel −10 to rivals): built as a bordering sect for sect attitudes (F7) and a sect
+    at feud or war for people's opinions (F3). Which does the design mean?
+11. **The census retune** (part of the money decision): one 400-year seed returns near target; Kết Đan and Nguyên Anh
+    were still above it. Measure several seeds, then decide.

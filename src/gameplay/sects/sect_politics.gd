@@ -30,6 +30,7 @@ static var _for_db: int = 0   # the world the cache was built for: another world
 static var _bp: Dictionary = {}   # this season's balance-of-power term toward the strongest great sect {sect id: bp}
 static var _pulls: Dictionary = {}   # this season's leader pulls by sect id (NPC Traits, Sects F15)
 static var _season_key: int = 0
+static var _seed_s: String = ""
 
 
 static func _cfg(gd: GameData) -> Dictionary:
@@ -225,6 +226,7 @@ static func season(gd: GameData, db: WorldDB, money: MoneyLedger, year: int, sea
 		return news
 	_begin(gd, db)
 	_season_key = MapChange.abs_season(year, season_i)
+	_seed_s = game_seed
 	for s in _active(db):   # NPC Traits rule 12: leaders' gained traits fade
 		var head: Dictionary = db.get_record("people", str(s.get("leader_id", "")))
 		if not head.is_empty():
@@ -365,7 +367,7 @@ static func _set_dials(gd: GameData, db: WorldDB, strength: Dictionary) -> void:
 		var fickle_v: int = 0
 		if bool(pl.get("fickle", false)):   # a seeded drift of one dial a season
 			var fr := RandomNumberGenerator.new()
-			fr.seed = RngUtils.stable_hash("fickle:%s:%d" % [str(s.id), _season_key])
+			fr.seed = RngUtils.stable_hash("fickle:%s:%s:%d" % [_seed_s, str(s.id), _season_key])
 			fickle_d = ["tax", "expansion", "openness", "war_readiness", "recruitment"][fr.randi() % 5]
 			fickle_v = fr.randi_range(-1, 1)
 		for d in need:
@@ -422,7 +424,9 @@ static func _attitudes(gd: GameData, db: WorldDB, strength: Dictionary, year: in
 				continue
 			if rel == "war":
 				continue
-			var line: float = minf(float(c.pact_line), minf(float(pulls_of(gd, db, a).get("pact_line", INF)), float(pulls_of(gd, db, b).get("pact_line", INF))))
+			var la: float = float(pulls_of(gd, db, a).get("pact_line", c.pact_line))
+			var lb: float = float(pulls_of(gd, db, b).get("pact_line", c.pact_line))
+			var line: float = minf(la if la != INF else float(c.pact_line), lb if lb != INF else float(c.pact_line))
 			if rel == "peace" and ab >= line and ba >= line:
 				_set_relation(a, b, "pact")
 				news.append(db.log_event(year, season_i, "sect_pact", "%s và %s kết minh ước." % [a.name, b.name], [aid, bid], [], []))

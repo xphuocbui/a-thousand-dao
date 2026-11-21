@@ -2136,5 +2136,13 @@
   "_doc": "F5 (design/gdd/npc-traits.md F5): h, the chance per known parent to pass a personality trait (no kin are recorded yet); m_master, the roll's lean toward a master known at creation.",
   "h": 0.5,
   "m_master": 3.0
+ },
+ "roll": {
+  "_doc": "F4 (design/gdd/npc-traits.md F4): p_any, the chance of a fate-given trait, and p_second, of a second one given the first (0.90 / 0.09 / 0.01); g_f = clamp(talent / g_ref, g_lo, g_hi) for a gift, the inverse for a flaw, on the talent before trait rows.",
+  "p_any": 0.1,
+  "p_second": 0.1,
+  "g_ref": 45.0,
+  "g_lo": 0.25,
+  "g_hi": 3.0
  }
 }

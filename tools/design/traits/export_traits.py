@@ -15,6 +15,8 @@ import unicodedata
 SRC = "design/gdd/npc-traits-catalogue.md"
 OUT = "assets/data/traits.json"
 MINUS = "−"
+# F4's fate-given odds and talent weights (npc-traits.md F4 Variables)
+ROLL = {"_doc": "F4 (design/gdd/npc-traits.md F4): p_any, the chance of a fate-given trait, and p_second, of a second one given the first (0.90 / 0.09 / 0.01); g_f = clamp(talent / g_ref, g_lo, g_hi) for a gift, the inverse for a flaw, on the talent before trait rows.", "p_any": 0.1, "p_second": 0.1, "g_ref": 45.0, "g_lo": 0.25, "g_hi": 3.0}
 # F5's constants (npc-traits.md F5 Variables)
 INHERIT = {"_doc": "F5 (design/gdd/npc-traits.md F5): h, the chance per known parent to pass a personality trait (no kin are recorded yet); m_master, the roll's lean toward a master known at creation.", "h": 0.5, "m_master": 3.0}
 # F2's clamp (npc-traits.md F2 Variables)
@@ -170,7 +172,7 @@ def main():
     codes = stat_codes(text)
     out = {"schema_version": 1, "_doc": "Built by tools/design/traits/export_traits.py from design/gdd/npc-traits-catalogue.md (NPC Traits #42); do not edit by hand. Stat values are in the stat's own units (percent, points or pp, as the key reads them). pulls: the Sects F15 pulls the engine reads; notes: pulls kept as text (event weights and such, read by later systems).",
            "personality": [], "callings": [], "calling_weights": {}, "fate": [], "gained": [], "fade_seasons": 40,
-           "opinion": OPINION, "choice": CHOICE, "inherit": INHERIT}
+           "opinion": OPINION, "choice": CHOICE, "inherit": INHERIT, "roll": ROLL}
     # personality
     sec = section(text, "## Personality")
     set_no = 0
