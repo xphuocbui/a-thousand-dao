@@ -323,3 +323,25 @@ So before the economy can price anything, the land must produce what it prices: 
   fit × ω^(rarity − 1), ω 0.5 (Trade Goods Formula A), so a rarity-6 herb gets 1/32 of a rarity-1 herb's weight, and
   pill5 needs 4 Hóa Thần Quả of age 100 (many mature equivalents) and a Vạn Niên Mộc Linh: its workshops' fill is 0
   where they plan. The gap is thin supply, not missing goods.
+- **7d710c28** decision 3 (user's pick after the correction): a blessed land's rarity 4+ herbs are not diluted.
+- **53a74f02** decision 4: starting ages uniform(age_min, lifespan) (age_shape_probe.gd: a mature world's ages spread
+  evenly to the lifespan). Deaths of age in the first 20 years rose from 64 to 621.
+
+**The census (decision 11), four seeds of 400 years after 53a74f02** (seeds 11 / 23 / 37 / 51, year 1600):
+3,889 / 817 / 242 / 49 / 3; 3,583 / 1,078 / 276 / 57 / 6; 3,826 / 869 / 253 / 42 / 10; 3,889 / 830 / 234 / 44 / 3,
+against 3,936 / 844 / 191 / 27 / 3. All agree: a Trúc Cơ wave in the first century (about 1,220-1,285 at year 50),
+Kết Đan 22-45 % and Nguyên Anh 55-110 % over target throughout. Experiments (worktrees, not committed):
+- **Starting stages** (85 % at the last stage): no change. Ruled out.
+- **Pre-rolled gate fate at world start** (a start-of-world person at a gate has rolled its fate already, ok 2 %):
+  the year-1250 Trúc Cơ peak falls 1,278 → 1,157 (seed 11) and 1,281 → 1,200 (seed 23): about half the wave. Cause:
+  at start nobody at a gate has rolled, so the fated share all break through in the first years. entry_age_probe.gd
+  measured a mature gate's fated share: 0.3-0.6 % at Luyện Khí, 0-0.3 % at Trúc Cơ, 0 above. Proposed for World
+  Generation, user approved the direction (2026-11-21); the text waits on the measured values.
+- **No money speed-up** (400 years, seed 11): Kết Đan 242 → 206, Nguyên Anh 49 → 50. Money explains most of the Kết
+  Đan excess, none of Nguyên Anh's.
+- entry_age_probe.gd: lifespan bonuses are 0 for every NPC; entry ages are young (median 28-32 into Trúc Cơ, 46-85
+  into Kết Đan, 128-147 into Nguyên Anh): NPCs climb every realm at a flat 12 seasons a stage (about 9 years a
+  realm), against Realms' Y_climb 36 / 52 / 71 / 128 years. Realms' solved model is said to have predicted an earlier
+  run under the same tick, so this is a lead, not a verdict.
+- gate_odds_probe.gd averaged the fate odds over the living population (1 in 8.0 / 12.3 / 16.1 / 27.9), which is
+  biased low (the fated leave the gate); the arrivals' odds (world_census.gd, AC-CG-69) are being measured.
