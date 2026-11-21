@@ -123,8 +123,9 @@ func test_a_defiant_vassal_with_a_backer_rebels_and_new_sects_fill_a_thinned_ter
 
 func test_site_friction_lowers_the_attitude_target_f7() -> void:
 	# F7's site friction (user decision 2026-11-21): two trung great sects holding neighbouring regions, border sites
-	# worth 59,425 a season: fr = round(30 x (1 - 2^(-59425 / 30000))) = 22, both ways; a site away from the border
-	# does not count; no shared border, no friction
+	# worth 87,414 a season (a spirit vein's 28,800 stones and a mine's 1,953.8 units of Xich Dong at 30 each): fr =
+	# round(30 x (1 - 2^(-87414 / 45000))) = 22, both ways; a site away from the border does not count; no shared
+	# border, no friction
 	var gd := game_data()
 	var regions: Array = gd.file(ContinentData.DATA_FILE).get("regions", [])
 	var r0: Dictionary = regions[0]
@@ -140,12 +141,12 @@ func test_site_friction_lowers_the_attitude_target_f7() -> void:
 	db.put("regions", {"id": "r_b", "continent_id": r1, "holder": "s2"})
 	db.put("regions", {"id": "r_far", "continent_id": far, "holder": "s1"})
 	db.put("places", {"id": "l_1", "region_id": "r_a", "site": {"base_output": 28800.0}})
-	db.put("places", {"id": "l_2", "region_id": "r_b", "site": {"base_output": 30625.0}})
+	db.put("places", {"id": "l_2", "region_id": "r_b", "site": {"base_output": 1953.8, "resource": "xich_dong"}})
 	db.put("places", {"id": "l_3", "region_id": "r_far", "site": {"base_output": 50000.0}})
 	var a: Dictionary = db.get_record("sects", "s1")
 	var b: Dictionary = db.get_record("sects", "s2")
 	SectPolitics._begin(gd, db)
-	assert_eq(SectPolitics.friction(gd, db, a, b), 22.0, "59,425 on the border")
+	assert_eq(SectPolitics.friction(gd, db, a, b), 22.0, "87,414 on the border, counted in value")
 	assert_eq(SectPolitics.friction(gd, db, b, a), 22.0, "the same both ways")
 	var bo: int = SectPolitics._borders(gd, db, a, b)
 	assert_eq(SectPolitics.attitude_target(gd, db, a, b, {}), 20.0 + float(gd.file("sects_members").politics.b_k) * bo - 22.0, "the target loses it")

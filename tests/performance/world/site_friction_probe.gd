@@ -19,10 +19,11 @@ func _init() -> void:
 	for r in db.all("regions"):
 		holder_of[int(r.get("continent_id", -1))] = str(r.get("holder", ""))
 		cid_of[str(r.id)] = int(r.get("continent_id", -1))
+	var unit: Dictionary = gd.file(MapProduction.DATA_FILE).get("unit_value", {})
 	var st := SectPolitics.strengths(gd, db)
 	var greats: Array = db.find("sects", func(x): return str(x.get("kind", "")) == "great" and str(x.get("status", "")) == "active")
 	var all_sites: Array = db.all("places").filter(func(p): return not Dictionary(p.get("site", {})).is_empty())
-	print("sites in all: %d; base output total %.0f" % [all_sites.size(), all_sites.reduce(func(acc, p): return acc + float(p.site.base_output), 0.0)])
+	print("sites in all: %d; base value a season %.0f" % [all_sites.size(), all_sites.reduce(func(acc, p): return acc + float(p.site.base_output) * float(unit.get(str(p.site.get("resource", "")), 1.0)), 0.0)])
 	for i in greats.size():
 		for j in range(i + 1, greats.size()):
 			var a: Dictionary = greats[i]
@@ -39,12 +40,12 @@ func _init() -> void:
 					continue
 				for nb in adj.get(cid, []):
 					if str(holder_of.get(int(nb), "")) == other:
-						cont.append("%s %s %.0f" % [str(p.get("kind", "")), str(p.get("name", "")), float(p.site.base_output)])
+						cont.append("%s %s %.0f" % [str(p.get("kind", "")), str(p.get("resource", p.site.get("resource", ""))), float(p.site.base_output) * float(unit.get(str(p.site.get("resource", "")), 1.0))])
 						break
 			var v: float = 0.0
 			for c in cont:
 				v += float(str(c).split(" ")[-1])
-			print("%s [%s] - %s [%s]: borders %d, A_tgt %.0f / %.0f, str %.0f / %.0f, border sites %d worth %.0f: %s" % [a.key, a.alignment, b.key, b.alignment, bo,
+			print("%s [%s] - %s [%s]: borders %d, fr %.0f, A_tgt %.0f / %.0f, str %.0f / %.0f, border sites %d worth %.0f: %s" % [a.key, a.alignment, b.key, b.alignment, bo, SectPolitics.friction(gd, db, a, b),
 				SectPolitics.attitude_target(gd, db, a, b, st), SectPolitics.attitude_target(gd, db, b, a, st),
 				float(st.get(str(a.id), 0.0)), float(st.get(str(b.id), 0.0)), cont.size(), v, ", ".join(cont)])
 	quit()

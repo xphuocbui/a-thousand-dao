@@ -55,13 +55,14 @@ static func _begin(gd: GameData, db: WorldDB) -> void:
 		_held[h][int(r.get("continent_id", -1))] = true
 		cid_of[str(r.id)] = int(r.get("continent_id", -1))
 	_fr = {}
-	_site_v = {}   # F7's site friction: each region's resource sites, their base output a season summed
+	_site_v = {}   # F7's site friction: each region's resource sites, their base output a season in base value, summed
+	var unit: Dictionary = gd.file(MapProduction.DATA_FILE).get("unit_value", {})
 	for p in db.all("places"):
 		var site: Dictionary = p.get("site", {})
 		if site.is_empty() or bool(p.get("hidden", false)):
 			continue
 		var cid: int = int(cid_of.get(str(p.get("region_id", "")), -1))
-		_site_v[cid] = float(_site_v.get(cid, 0.0)) + float(site.get("base_output", 0.0))
+		_site_v[cid] = float(_site_v.get(cid, 0.0)) + float(site.get("base_output", 0.0)) * float(unit.get(str(site.get("resource", "")), 1.0))
 
 
 static func _active(db: WorldDB) -> Array:
@@ -163,8 +164,8 @@ static func _borders(gd: GameData, db: WorldDB, a: Dictionary, b: Dictionary) ->
 
 
 ## F7's site friction between great sects [param a] and [param b] (user decision 2026-11-21): round(fr_max · (1 −
-## 2^(−V / V_half))), V the base output a season of the resource sites in a region either holds that borders a region
-## the other holds. The same both ways; 0 for a pair that shares no border or is not two great sects.
+## 2^(−V / V_half))), V the base value a season (base output × unit value) of the resource sites in a region either
+## holds that borders a region the other holds. The same both ways; 0 for a pair that shares no border or is not two great sects.
 static func friction(gd: GameData, db: WorldDB, a: Dictionary, b: Dictionary) -> float:
 	if str(a.get("kind", "")) != "great" or str(b.get("kind", "")) != "great":
 		return 0.0

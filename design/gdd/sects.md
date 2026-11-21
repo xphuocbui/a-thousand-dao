@@ -526,9 +526,9 @@ defence-pact partners. A **truce** lasts 8 seasons with A_tgt = 0.
 | b_k | int | −5 | data file | Per shared border region |
 | p_k | int | 15 | data file | For a standing pact |
 | g | int | −30 – 0 | World Generation rule 7 | Authored grudge from the history (user decision 2026-11-15); fades toward 0 by `grudge_fade` (guess 1) a year; 0 for pairs with none |
-| fr | int | 0 – fr_max | calculated | **Site friction** (user decision 2026-11-21): `round(fr_max · (1 − 2^(−V / V_half)))`, V the summed base output a season of the border sites: resource sites (Travel & Map rules 19–20: mines, spirit veins, beast lairs, special sites) in a region either sect holds that borders a region the other holds. Same both ways; great sects only |
+| fr | int | 0 – fr_max | calculated | **Site friction** (user decision 2026-11-21): `round(fr_max · (1 − 2^(−V / V_half)))`, V the summed base value a season (base output × unit value, Travel & Map Formula H) of the border sites: resource sites (Travel & Map rules 19–20: mines, spirit veins, beast lairs, special sites) in a region either sect holds that borders a region the other holds. Same both ways; great sects only |
 | fr_max | int | 30 | data file *(guess)* | The most a pair loses to friction |
-| V_half | float | 30,000 | data file *(guess)* | Border-site output (base value a season) that gives half of fr_max; one spirit vein makes 28,800 |
+| V_half | float | 45,000 | data file *(guess)* | Border-site value a season that gives half of fr_max; a large spirit vein makes 28,800, a large mine 15,000 (user decision 2026-11-21, after V was corrected from units to value) |
 | bp | int | 0 – ∞ | calculated | Balance of power: toward the strongest sect only, 1 per 10 % its strength exceeds the runner-up's (damper against one sect snowballing) |
 | k_a | float | 0.15 | data file | Speed toward the target |
 | war_odds | float | 1.0; traits 0.8–1.2 (F15: Cruel 0.8, Cautious 1.2) | data file, traits | Strength ratio a leader needs to declare war |
@@ -537,8 +537,8 @@ defence-pact partners. A **truce** lasts 8 seasons with A_tgt = 0.
 **Output Range:** −100 to 100.
 **Example:** chính vs ma, 2 shared borders, a Cruel head (−10 to rivals): A_tgt = −50. From −20, attitude runs −25, −29, −32,
 −35, −37, −39, −41: the feud starts in season 7. **Site friction:** Thiên Xu (trung) and Tùng Đào (chính), 4 shared
-borders, 9 border sites worth 59,425 a season: fr = round(30 · (1 − 2^−1.98)) = 22, A_tgt = 0 − 20 − 22 = **−42**, a feud
-with no trait; two chính sects with 1 border and 29,225: +20 − 5 − 15 = **0**.
+borders, 9 border sites worth 87,414 a season: fr = round(30 · (1 − 2^−1.94)) = 22, A_tgt = 0 − 20 − 22 = **−42**, a feud
+with no trait; two chính sects with 1 border and 34,800: fr = 12, +20 − 5 − 12 = **+3**.
 
 ### F8. War strength
 
