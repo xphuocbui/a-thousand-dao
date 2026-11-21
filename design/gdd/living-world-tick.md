@@ -120,7 +120,7 @@ A person's life state, owned by World DB, changes here only as **Alive → Dead*
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| N_stage | int | ≥ 1 | data file (`world_generation.json` tick.`npc_cultivation_seasons_per_stage`) | Seasons the average NPC takes per stage; 12 |
+| N_stage | int | ≥ 1 | data file (`world_generation.json` tick.`npc_cultivation_seasons_per_stage`) | Seasons the average unboosted NPC takes per stage; 14 (was 12: the money speed-up, ×1.16 on average, user decision 2026-11-20, brings the average back to 12; retune 2026-11-21, stage_boost_probe.gd) |
 | m_i | float | 0.5 – 2.0 before normalising | Formulas H | The person's talent and place multiplier; 1 for an owned beast |
 | p_stage_i | float | (0, 1] | calculated | The person's chance per season of one stage |
 

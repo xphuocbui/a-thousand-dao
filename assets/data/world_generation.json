@@ -561,7 +561,7 @@
   },
   "tick": {
     "event_chance_per_season": 0.6,
-    "npc_cultivation_seasons_per_stage": 12,
+    "npc_cultivation_seasons_per_stage": 14,
     "npc_aging": true,
     "npc_breakthrough_pill_chance_factor": 0.5
   },
