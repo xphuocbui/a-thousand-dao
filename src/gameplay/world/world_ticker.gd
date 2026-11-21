@@ -86,6 +86,7 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 				p["bt_fate"] = fate
 			if bool(fate.ok) and rng.randf() < float(ProgressionEdges.config(_gd).npc.fated_breakthrough_per_season):
 				p["realm_index"] = realm_index + 1
+				_db.mark_hook_dirty(str(p.id))   # rule 15a: a master's or disciple's realm changed
 				p["stage"] = 0
 				p["level"] = Ladder.stage_first_level(_gd, realm_index + 1, 0)
 				_builds.refresh_power(p.id)

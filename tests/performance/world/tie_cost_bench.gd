@@ -13,15 +13,15 @@ func _ready() -> void:
 	var year: int = builder.current_year
 	var ticker := WorldTicker.new(gd, db, BuildGenerator.new(gd, tree, db))
 	var hook_ms: Array = []
+	var s8b_ms: Array = []
 	var tick_ms: Array = []
 	for y in 20:
 		for s in 4:
 			var t0: int = Time.get_ticks_usec()
 			ticker.tick(rng, year, s)
 			tick_ms.append(float(Time.get_ticks_usec() - t0) / 1000.0)
-			var t1: int = Time.get_ticks_usec()
-			TieTick.hook_pass(gd, db, MapChange.abs_season(year, s))
-			hook_ms.append(float(Time.get_ticks_usec() - t1) / 1000.0)
+			hook_ms.append(float(TieTick.last_us[1]) / 1000.0)   # the pass inside this season's S8b
+			s8b_ms.append(float(TieTick.last_us[0]) / 1000.0)
 		year += 1
 	# S8b alone: a run on an empty queue after the tick (the hook pass inside it) and one with 30 queued old-age deaths
 	var dead: Array = db.living().filter(func(p): return not bool(p.get("is_player", false))).slice(0, 30)
@@ -33,6 +33,9 @@ func _ready() -> void:
 	var s8b: float = float(Time.get_ticks_usec() - t2) / 1000.0
 	hook_ms.sort()
 	tick_ms.sort()
+	s8b_ms.sort()
+	print("in-tick S8b p50 %.2f p95 %.2f ms; in-tick hook pass p50 %.2f p95 %.2f ms (%d seasons)" % [s8b_ms[s8b_ms.size() / 2], s8b_ms[int(s8b_ms.size() * 0.95)],
+		hook_ms[hook_ms.size() / 2], hook_ms[int(hook_ms.size() * 0.95)], hook_ms.size()])
 	print("ties %d, hook index %d; tick p50 %.0f ms; hook pass p50 %.2f p95 %.2f ms; S8b with 30 deaths %.2f ms" % [db.count("ties"), db.hook_ties().size(),
 		tick_ms[tick_ms.size() / 2], hook_ms[hook_ms.size() / 2], hook_ms[int(hook_ms.size() * 0.95)], s8b])
 	print("AC-NR-31 budgets: S8b <= 5 ms, hook pass <= 2 ms at p95 (release export)")

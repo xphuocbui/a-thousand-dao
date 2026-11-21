@@ -56,6 +56,7 @@ static func link(gd: GameData, db: WorldDB, child: Dictionary, parent: Dictionar
 			idx.kids[pid] = []
 		idx.kids[pid].append(cid)
 	child["parent_id"] = pid
+	db.note_child(pid, cid)
 	if not keep_name:
 		_rename_line(gd, db, child, surname_of(gd, str(parent.get("name", ""))), idx, 0)
 	Ties.add_pinned(gd, db, pid, cid, "kin", season, true)

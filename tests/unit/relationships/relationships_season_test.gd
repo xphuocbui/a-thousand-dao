@@ -311,11 +311,19 @@ func test_the_hook_pass_gives_master_and_dao_lu_rows_and_takes_them_away_ac_nr_3
 	Ties.add_pinned(gd, db, "p2", "p3", "dao_lu", S)
 	TieTick.run(gd, db, S)
 	var rows: Array = db.get_record("people", "p2").get("tie_rows", [])
-	assert_eq(rows.map(func(r): return [str(r.source), float(r.value)]), [["master", 5.0], ["dao_lu", 8.0]], "master +5 and đạo lữ +8")
-	db.get_record("people", "p3")["location_id"] = "l2"
+	assert_eq(rows.map(func(r): return [str(r.source), float(r.value)]), [["dao_lu", 8.0], ["master", 5.0]], "master +5 and đạo lữ +8 (sorted by source)")
+	db.get_record("people", "p3")["location_id"] = "l2"   # as the tick and events do: the change marks the person
+	db.mark_hook_dirty("p3")
 	db.get_record("people", "p1")["realm_index"] = 0
+	db.mark_hook_dirty("p1")
 	TieTick.run(gd, db, S + 1)
 	assert_false(db.get_record("people", "p2").has("tie_rows"), "apart, and the master no higher: no rows")
+	# the safety net: a change no write site marked is still caught within hook_slice_k seasons
+	db.get_record("people", "p1")["realm_index"] = 2
+	db.get_record("people", "p3")["location_id"] = db.get_record("people", "p2").location_id
+	for k in int(Ties.cfg(gd).hook_slice_k):
+		TieTick.run(gd, db, S + 2 + k)
+	assert_eq(db.get_record("people", "p2").get("tie_rows", []).size(), 2, "an unmarked change is caught by the rolling slice")
 	var c := Character.from_dict({"id": "p9", "tie_rows": [{"stat": "cultivation_speed_pct", "value": 5.0, "source": "master"}]})
 	var sheet := StatSheet.build(c, gd, null, null)
 	assert_true(JSON.stringify(sheet.sources("cultivation_speed_pct")).contains("Quan hệ: sư phụ"), "the sheet reads the row")
@@ -482,6 +490,7 @@ func test_the_master_row_carries_source_tie_and_goes_the_season_the_master_falls
 	var tie_rows: Array = sheet.sources("cultivation_speed_pct").filter(func(m): return str(m.kind) == StatSheet.KIND_TIE)
 	assert_eq(tie_rows.map(func(m): return float(m.value)), [5.0], "+5 with source tie")
 	db.get_record("people", "p2")["realm_index"] = 1   # the disciple breaks through to the master's realm
+	db.mark_hook_dirty("p2")   # as the tick's breakthrough does (incremental hook pass, AC-NR-31)
 	TieTick.run(gd, db, S + 3)
 	assert_false(db.get_record("people", "p2").has("tie_rows"), "removed the same season")
 
@@ -562,3 +571,36 @@ func test_with_rankings_off_a_close_world_fight_by_power_makes_rivals_rule_8() -
 	var pair: Array = duel[0].people
 	var t: Dictionary = s.db.tie_between(str(pair[0]), str(pair[1]))
 	assert_true(JSON.stringify(t).contains("rival"), "the two fighters are rivals: %s" % JSON.stringify(t))
+
+
+func test_the_incremental_hook_pass_matches_a_full_recompute_every_season_ac_nr_31() -> void:
+	var gd := game_data()
+	var llm := LlmService.new(gd)
+	llm.enabled = false
+	var s := GameSession.new(gd, llm, TestFixtures.tree())
+	s.new_game(4242, {"mode": "roll", "name": "Đối", "gender": "male", "origin": "tan_tu"})
+	var c: Dictionary = Ties.cfg(gd)
+	var people: Array = s.db.all("people")
+	for i in mini(12, people.size() - 1):   # some đạo lữ pairs in one place, so place moves matter
+		var a: Dictionary = people[i]
+		var b: Dictionary = people[people.size() - 1 - i]
+		if bool(a.get("alive", false)) and bool(b.get("alive", false)) and not bool(a.get("is_player", false)) and not bool(b.get("is_player", false)):
+			Ties.add_pinned(gd, s.db, str(a.id), str(b.id), "dao_lu", 0, true)
+			b["location_id"] = str(a.location_id)
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 21
+	var checked: int = 0
+	var places: Array = s.db.all("places")
+	for season in 16:
+		s.ticker.tick(rng, 1200 + season / 4, season % 4)
+		for rec in s.db.hook_ties():   # an event moves one partner of each đạo lữ pair and marks only that person
+			if Dictionary(rec.pin).has("dao_lu"):
+				var mover: Dictionary = s.db.get_record("people", str(rec.b))
+				mover["location_id"] = str(places[(season * 7 + int(str(rec.id).substr(1))) % places.size()].id) if season % 2 == 0 else str(s.db.get_record("people", str(rec.a)).location_id)
+				s.db.mark_hook_dirty(str(rec.b))
+		TieTick.hook_pass(gd, s.db, 1200 * 4 + season)
+		for p in s.db.all("people"):
+			var want: Array = TieTick.rows_for(c, s.db, p)
+			assert_eq(p.get("tie_rows", []), want, "season %d: %s's rows match a full recompute" % [season, str(p.id)])
+			checked += want.size()
+	assert_true(checked > 0, "some rows were checked: %d" % checked)

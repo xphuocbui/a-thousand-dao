@@ -121,3 +121,26 @@ written but not asserted), 39 and 51 (UI).
 7. **AC-NR-31** measured on a release export: `build/bench/combat_bench.exe --headless -- --tie-cost`
    (tests/performance/world/tie_cost_bench.gd); results below.
 8. **`write_soft` force** kept, fixture-only.
+
+## AC-NR-31 speed-up (2026-11-21, release export, `combat_bench.exe --headless -- --tie-cost`, seed 11, 80 seasons)
+
+| | hook pass p50 / p95 | S8b p50 / p95 | S8b with 30 deaths |
+|---|---|---|---|
+| Before (full pass each season) | 5.9 / 9.0 ms | 9.1 / 12.9 ms | 16.5-19.8 ms |
+| After | 1.6-1.8 / 2.5 ms | 2.9-3.2 / 6.1-6.2 ms | 8.5 ms |
+| AC-NR-31 budget | ≤ 2 ms p95 | ≤ 5 ms p95 | — |
+
+What changed:
+- **An incremental hook pass.** It recomputes only:
+  - the people WorldDB marks: a hook record written or dropped, a breakthrough, an event moving an NPC, the player
+    each season;
+  - their hook partners;
+  - a rolling 1 in `hook_slice_k` (32) records, as a safety net.
+  
+  Rows are sorted, and a test compares the result with a full recompute every season.
+- **`Ties.sweep` no longer rewrites records where nothing faded.** That was about 90 needless writes a season.
+- **The children index lives in WorldDB** (`children_of`, kept by `note_child`). Before, it was rebuilt from all
+  living people in any season with a death.
+
+Still over budget at p95, by about 25 %. The spikes are seasons with many deaths, now that duels kill. The probe is
+not the AC's exact fixture (FX-W5K with FX-EV-T, 400 seasons, 5 runs).

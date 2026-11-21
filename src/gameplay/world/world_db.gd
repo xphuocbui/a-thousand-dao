@@ -50,6 +50,9 @@ var _ix_on: bool = false
 var _tie_ix: Dictionary = {}
 var _tie_pair: Dictionary = {}
 var _tie_hook: Dictionary = {}   # the hook index (rule 15a): records holding sư đồ or đạo lữ
+var _hook_dirty: Dictionary = {}   # people whose hook rows may have changed (TieTick.hook_pass)
+var _kids_ix: Dictionary = {}   # parent id -> [child ids] (children_of)
+var _kids_on: bool = false
 var _tie_on: bool = false
 
 
@@ -95,6 +98,8 @@ func put(table: String, record: Dictionary) -> void:
 
 # Keeps the living view in step with an add or put of person [param rid] (called before the table write).
 func _note_person(rid: String, record: Dictionary) -> void:
+	if _kids_on and str(record.get("parent_id", "")) != "":
+		note_child(str(record.parent_id), rid)
 	if not _living_ok:
 		return
 	var alive: bool = bool(record.get("alive", true))
@@ -295,6 +300,41 @@ func ties_of(person_id: String) -> Array:
 	return out
 
 
+## [method ties_of] in no set order (faster; for passes whose result does not depend on the order).
+func ties_of_any(person_id: String) -> Array:
+	if not _tie_on:
+		_build_tie_index()
+	var out: Array = []
+	for rid in Dictionary(_tie_ix.get(person_id, {})):
+		out.append(_tables.ties[rid])
+	return out
+
+
+## The living people whose parent is [param parent_id] (Families; NPC Relationships rule 13's children). The index is
+## built once from the people table and kept by [method note_child] (parent_id is set only through Families.link).
+func children_of(parent_id: String) -> Array:
+	if not _kids_on:
+		_kids_ix = {}
+		for p in _tables.get("people", {}).values():
+			var par: String = str(p.get("parent_id", ""))
+			if par != "":
+				if not _kids_ix.has(par):
+					_kids_ix[par] = []
+				_kids_ix[par].append(str(p.id))
+		_kids_on = true
+	return Array(_kids_ix.get(parent_id, [])).filter(func(k): return bool(get_record("people", str(k)).get("alive", false)))
+
+
+## Families.link: [param child_id] is now [param parent_id]'s child.
+func note_child(parent_id: String, child_id: String) -> void:
+	if not _kids_on:
+		return
+	if not _kids_ix.has(parent_id):
+		_kids_ix[parent_id] = []
+	if not Array(_kids_ix[parent_id]).has(child_id):
+		_kids_ix[parent_id].append(child_id)
+
+
 ## The tie record between [param a] and [param b], or an empty Dictionary.
 func tie_between(a: String, b: String) -> Dictionary:
 	if not _tie_on:
@@ -319,6 +359,19 @@ static func tie_key(a: String, b: String) -> String:
 	return "%s|%s" % ([a, b] if a < b else [b, a])
 
 
+## NPC Relationships rule 15a, incremental hook pass: marks [param pid]'s master and đạo lữ rows for a recompute (a
+## realm or a place changed). Records with sư đồ or đạo lữ mark both people whenever they are written or dropped.
+func mark_hook_dirty(pid: String) -> void:
+	_hook_dirty[pid] = true
+
+
+## The people marked since the last call (and clears the marks).
+func take_hook_dirty() -> Array:
+	var out: Array = _hook_dirty.keys()
+	_hook_dirty = {}
+	return out
+
+
 func _build_tie_index() -> void:
 	_tie_ix = {}
 	_tie_pair = {}
@@ -337,6 +390,8 @@ func _tie_set(rid: String, r: Dictionary) -> void:
 	var pin: Dictionary = r.get("pin", {})
 	if pin.has("su_do") or pin.has("dao_lu"):
 		_tie_hook[rid] = true
+		_hook_dirty[str(r.get("a", ""))] = true
+		_hook_dirty[str(r.get("b", ""))] = true
 
 
 func _tie_drop(rid: String) -> void:
@@ -347,6 +402,9 @@ func _tie_drop(rid: String) -> void:
 		if _tie_ix.has(pid):
 			_tie_ix[pid].erase(rid)
 	_tie_pair.erase(tie_key(str(old.get("a", "")), str(old.get("b", ""))))
+	if _tie_hook.has(rid):
+		_hook_dirty[str(old.get("a", ""))] = true
+		_hook_dirty[str(old.get("b", ""))] = true
 	_tie_hook.erase(rid)
 
 

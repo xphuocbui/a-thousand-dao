@@ -535,6 +535,8 @@ static func sweep(gd: GameData, db: WorldDB, pid: String, season: int) -> int:
 			faded.append(["debt", rec.debt.get("cause", {})])
 			rec["debt"] = {}
 		n += faded.size()
+		if faded.is_empty():
+			continue   # nothing faded: no write (a write re-indexes the record and marks a hook record's people)
 		if is_empty_record(rec):
 			end_record(gd, db, rec, "faded", season)
 		else:

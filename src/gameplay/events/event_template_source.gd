@@ -87,6 +87,7 @@ func _bind_npc(spec: Dictionary, ctx: Dictionary, rng: RandomNumberGenerator) ->
 				return "!"
 			var pick: Dictionary = RngUtils.pick(rng, known)
 			pick["location_id"] = ctx.place.id
+			_db.mark_hook_dirty(str(pick.id))   # NPC Relationships rule 15a: a đạo lữ may have moved
 			return pick.id
 	return ""
 

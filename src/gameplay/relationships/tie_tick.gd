@@ -29,9 +29,16 @@ static func queued(db: WorldDB) -> Array:
 
 
 ## S8b for [param season] (an absolute season). Returns the ids of the events logged.
+## The last run's timings in microseconds (S8b whole, and its hook pass), for AC-NR-31's measurement.
+static var last_us: Array = [0, 0]
+## The last hook pass's counts: [people marked, people recomputed] (observation for AC-NR-31).
+static var last_counts: Array = [0, 0, 0]
+
+
 static func run(gd: GameData, db: WorldDB, season: int) -> Array:
 	if not Ties.enabled(gd):
 		return []
+	var t_run: int = Time.get_ticks_usec()
 	var items: Array = queued(db).duplicate()
 	var q: Dictionary = db.get_record("world", QUEUE)
 	if not q.is_empty():
@@ -46,7 +53,6 @@ static func run(gd: GameData, db: WorldDB, season: int) -> Array:
 	var dead_ids: Array = dead_set.keys()
 	dead_ids.sort_custom(func(x, y): return _id_lt(str(x), str(y)))
 	var passed := {}   # each dead person passes ties on once
-	_kids_ok = false
 	for did in dead_ids:
 		if passed.has(did):
 			continue
@@ -93,7 +99,9 @@ static func run(gd: GameData, db: WorldDB, season: int) -> Array:
 	for pid in ids:
 		harden(gd, db, str(pid), season)
 	# 7. the hook pass
+	var t_hook: int = Time.get_ticks_usec()
 	hook_pass(gd, db, season)
+	last_us = [Time.get_ticks_usec() - t_run, Time.get_ticks_usec() - t_hook]
 	return news
 
 
@@ -249,22 +257,11 @@ static func _eldest_first(db: WorldDB, ids: Array) -> Array:
 	return out
 
 
-static var _kids: Dictionary = {}   # parent id -> [child ids], built once per S8b run that has a death
-static var _kids_ok: bool = false
 
 
 ## Children of [param did] (people whose World DB parent is the dead), eldest first. No parents are generated yet.
 static func _children(db: WorldDB, did: String) -> Array:
-	if not _kids_ok:
-		_kids = {}
-		for p in db.living():
-			var par: String = str(p.get("parent_id", ""))
-			if par != "":
-				if not _kids.has(par):
-					_kids[par] = []
-				_kids[par].append(str(p.id))
-		_kids_ok = true
-	return _eldest_first(db, _kids.get(did, []))
+	return _eldest_first(db, db.children_of(did))
 
 
 static func _uniq_add(lst: Array, ids: Array, struck: Dictionary, n: int) -> void:
@@ -421,47 +418,77 @@ static func _hates(gd: GameData, db: WorldDB, who: String, target: String, seaso
 
 # --- Rule 15a: the hook pass --------------------------------------------------------------------------------------
 
-## Rule 15a: the master and đạo lữ cultivation rows (source `tie`), rebuilt from the records holding sư đồ or đạo lữ:
-## a disciple whose master lives and is of a higher realm gets master_cult_pct; each đạo lữ pair in the same place gets
-## daolu_cult_pct each. Rows no surviving record qualifies are removed. Writes each person's `tie_rows`.
-static func hook_pass(gd: GameData, db: WorldDB, _season: int) -> void:
+## Rule 15a: the master and đạo lữ cultivation rows (source `tie`): a disciple whose master lives and is of a higher
+## realm gets master_cult_pct; each đạo lữ pair in the same place gets daolu_cult_pct each. Written to each person's
+## `tie_rows` (sorted by source, then the other person). Incremental (AC-NR-31): only the people WorldDB marked (a hook
+## record written or dropped, a realm or place changed) and a rolling 1 / hook_slice_k of the hook records are
+## recomputed; a full pass (the first, or [param full]) recomputes everyone holding rows or a hook record.
+static func hook_pass(gd: GameData, db: WorldDB, season: int, full: bool = false) -> void:
 	var c: Dictionary = Ties.cfg(gd)
-	var want := {}
-	for rec in db.hook_ties():
-		var pin: Dictionary = rec.get("pin", {})
-		var pa: Dictionary = db.get_record("people", str(rec.a))
-		var pb: Dictionary = db.get_record("people", str(rec.b))
-		if not bool(pa.get("alive", false)) or not bool(pb.get("alive", false)):
-			continue
-		if pin.has("su_do"):
-			var m: Dictionary = pa if str(pin.su_do) == str(rec.a) else pb
-			var d: Dictionary = pb if str(pin.su_do) == str(rec.a) else pa
-			if int(m.get("realm_index", 0)) > int(d.get("realm_index", 0)):
-				_want(want, str(d.id), {"stat": "cultivation_speed_pct", "value": float(c.master_cult_pct), "source": "master", "with": str(m.id)})
-		if pin.has("dao_lu") and str(pa.get("location_id", "")) != "" and str(pa.get("location_id", "")) == str(pb.get("location_id", "")):
-			_want(want, str(pa.id), {"stat": "cultivation_speed_pct", "value": float(c.daolu_cult_pct), "source": "dao_lu", "with": str(pb.id)})
-			_want(want, str(pb.id), {"stat": "cultivation_speed_pct", "value": float(c.daolu_cult_pct), "source": "dao_lu", "with": str(pa.id)})
-	# reconcile by source: everyone holding rows now, and everyone who should
-	var holders: Dictionary = db.get_record("world", "w_tie_rows").get("holders", {})
-	for pid in want:
-		holders[pid] = true
-	var still := {}
-	for pid in holders:
+	var meta: Dictionary = db.get_record("world", "w_tie_rows")
+	if meta.is_empty():
+		meta = {"id": "w_tie_rows", "holders": {}}
+		db.add("world", meta)
+	var hooks: Array = db.hook_ties()
+	var todo := {}
+	var marked: Array = db.take_hook_dirty()
+	last_counts = [marked.size(), 0, 0]
+	for pid in marked:   # a marked person and their hook partners (whose rows read the person's realm/place)
+		todo[str(pid)] = true
+		for rec in db.ties_of_any(str(pid)):
+			var pin: Dictionary = rec.get("pin", {})
+			if pin.has("su_do") or pin.has("dao_lu"):
+				todo[Ties._other(rec, str(pid))] = true
+	if full or not bool(meta.get("inc", false)):
+		for pid in meta.get("holders", {}):
+			todo[str(pid)] = true
+		for rec in hooks:
+			todo[str(rec.a)] = true
+			todo[str(rec.b)] = true
+		meta["inc"] = true
+	else:   # the safety net: a rolling slice, so a place or realm change no write site marked is caught within k seasons
+		var k: int = maxi(1, int(c.get("hook_slice_k", 8)))
+		for i in range(posmod(season, k), hooks.size(), k):
+			todo[str(hooks[i].a)] = true
+			todo[str(hooks[i].b)] = true
+	last_counts[1] = todo.size()
+	var holders: Dictionary = meta.get("holders", {})
+	for pid in todo:
 		var p: Dictionary = db.get_record("people", str(pid))
 		if p.is_empty():
+			holders.erase(pid)
 			continue
-		var rows: Array = want.get(pid, [])
+		var rows: Array = rows_for(c, db, p)
 		if rows.is_empty():
 			p.erase("tie_rows")
+			holders.erase(pid)
 		else:
 			if p.get("tie_rows", []) != rows:   # unchanged rows are not rewritten
 				p["tie_rows"] = rows
-			still[pid] = true
-	var meta: Dictionary = db.get_record("world", "w_tie_rows")
-	if meta.is_empty():
-		db.add("world", {"id": "w_tie_rows", "holders": still})
-	else:
-		meta["holders"] = still
+			holders[pid] = true
+	meta["holders"] = holders
+
+
+## Rule 15a for one person [param p]: their rows from their own hook records, sorted by source then the other person.
+static func rows_for(c: Dictionary, db: WorldDB, p: Dictionary) -> Array:
+	var rows: Array = []
+	if not bool(p.get("alive", false)):
+		return rows
+	var pid: String = str(p.id)
+	for rec in db.ties_of_any(pid):
+		var pin: Dictionary = rec.get("pin", {})
+		if not (pin.has("su_do") or pin.has("dao_lu")):
+			continue
+		var o: Dictionary = db.get_record("people", Ties._other(rec, pid))
+		if not bool(o.get("alive", false)):
+			continue
+		if pin.has("su_do") and str(pin.su_do) == str(o.id) and int(o.get("realm_index", 0)) > int(p.get("realm_index", 0)):
+			rows.append({"stat": "cultivation_speed_pct", "value": float(c.master_cult_pct), "source": "master", "with": str(o.id)})
+		if pin.has("dao_lu") and str(p.get("location_id", "")) != "" and str(p.get("location_id", "")) == str(o.get("location_id", "")):
+			rows.append({"stat": "cultivation_speed_pct", "value": float(c.daolu_cult_pct), "source": "dao_lu", "with": str(o.id)})
+	if rows.size() > 1:
+		rows.sort_custom(func(x, y): return [str(x.source), str(x.with)] < [str(y.source), str(y.with)])
+	return rows
 
 
 static func _want(want: Dictionary, pid: String, row: Dictionary) -> void:
