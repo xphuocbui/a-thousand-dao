@@ -296,7 +296,7 @@
       200,
       500
     ],
-    "age_max_lifespan_frac": 0.85,
+    "age_max_lifespan_frac": 1.0,
     "traits_per_person": 2,
     "female_chance": 0.4,
     "loose_tan_tu_share": 0.4,

@@ -60,3 +60,22 @@ func test_npcs_slot_auxiliary_techniques_per_realm_ac_cp_42() -> void:
 			for key in aux:
 				var kind: String = str(c.techniques[key].def.tech_kind)
 				assert_eq(kind, "body" if c.archetype == "the_tu" else "secret", "realm %d: %s aux kind" % [realm, c.archetype])
+
+
+func test_starting_ages_spread_evenly_to_the_full_lifespan() -> void:
+	# World Generation's a (user decision 2026-11-21): uniform(age_min, lifespan), the spread a mature world settles
+	# into; with the old 0.85 of lifespan nobody started in the last tenth of life
+	var f := _gen()
+	var r := rng(5)
+	var lifespan: float = float(f.gd.realm(0).lifespan)
+	var lo: float = float(f.gd.world_gen().people.age_min_by_realm[0])
+	var old_tenth: int = 0
+	var past: int = 0
+	for i in 80:
+		var p: Dictionary = f.db.get_record("people", f.gen.create_person(r, {"realm_index": 0}))
+		if float(p.age) >= lo + 0.9 * (lifespan - lo):
+			old_tenth += 1
+		if float(p.age) > lifespan or float(p.age) < lo:
+			past += 1
+	assert_true(old_tenth >= 3, "about a tenth start in the last tenth of life (%d of 80)" % old_tenth)
+	assert_eq(past, 0, "none outside [age_min, lifespan]")

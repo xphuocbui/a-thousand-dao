@@ -275,7 +275,7 @@ The join_year formula is defined as:
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
 | Y0 | int | authored | data file (chronicle) | The starting year |
-| a | int | ≥ age_min_by_realm[r] (16 / 30 / 80 / 200 / 500) | calculated (NPC Builds) | The person's age at the start |
+| a | int | uniform(age_min_by_realm[r], lifespan[r]); age_min 16 / 30 / 80 / 200 / 500 | calculated (NPC Builds), `age_max_lifespan_frac` 1.0 | The person's age at the start: evenly to the full lifespan, the spread a mature world settles into (age_shape_probe.gd, 400 years; user decision 2026-11-21; was 0.85 of lifespan, which left almost no deaths of age in the first decades and overshot the census) |
 | f_s | int | ≤ Y0 | data file (authored sect) | The sect's founding year |
 | k | int | 0 to F_r − 1 | calculated | The person's index within its realm's random fill |
 | join_year | int | lo to Y0 | calculated | The year the person joined |
