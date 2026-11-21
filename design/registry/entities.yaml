@@ -2686,8 +2686,8 @@ formulas:
       - V_in
       - fuel_frac
     output_range: ["a price that sets the craft margin at m* 1.8"]
-    expression: "price = m* * bm_raw * V_in / (sr_fin * yield * ps_mean - m* * fuel_frac), m* 1.8, bm_raw 1.10, sr_fin 0.6, ps_mean 1; Ngung Nguyen Dan 1,140, Tay Tuy Dan 430, Dien Tho Dan 2,140 (provisional)"
-    notes: "Alchemy F4, rule 12 (user decision 2026-11-21: price follows the margin; replaces the 2026-11-14 'raise inputs, keep prices' for those three). Provisional until the Realms re-run checks M_market."
+    expression: "price = m* * bm_raw * V_in / (sr_fin * yield * ps_mean - m* * fuel_frac), m* 1.8, bm_raw 1.10, sr_fin 0.6, ps_mean 1; Tay Tuy Dan 430, Dien Tho Dan 2,140; breakthrough pills keep scarcity prices (400 / 3,000 / 12,000 / 40,000) and are skipped by the lint"
+    notes: "Alchemy F4, rule 12 (user decision 2026-11-21: price follows the margin; replaces the 2026-11-14 'raise inputs, keep prices' for those three). Breakthrough pills exempt (scarcity price, user decision 2026-11-21 after the M_market check)."
     added: 2026-11-21
     revised: ""
 constants:
@@ -5944,14 +5944,13 @@ constants:
     added: 2026-11-21
     revised: ""
   - name: breakthrough_values
-    # PROVISIONAL (Alchemy CD-GDD-ALIGN 2026-11-21): blocking implementation until the Formula B re-tune and the Realms re-run.
     status: active
     source: design/gdd/alchemy.md
     referenced_by:
       - design/gdd/alchemy.md
       - design/gdd/canh-gioi.md
-    value: "FE Earth 96 + Fire 11; CF Metal 252 + Fire 41; NS Water 3,600 + Fire 11; DT Fire 12,000 + Wood 320"
-    unit: element value (Item Database Formula B) per breakthrough recipe
-    notes: "Alchemy F5 (herb element rework 2026-11-21): translated from the calibrated herb recipes. Provisional, blocking implementation until Item Database re-tunes Formula B per basic herb and Realms Formula D is re-run."
+    value: "main herb (each at least) + companion value: FE 2 Hoang Tinh Sam >= 40 y + Fire 11; CF 2 Kim Tuy Qua >= 42 y + Fire 41; NS 4 Anh Tam Lien >= 60 y + Fire 11; DT 4 Hoa Than Qua >= 100 y + Wood 320"
+    unit: breakthrough recipe ingredients
+    notes: "Alchemy F5, rule 11 (user decision 2026-11-21 after the Realms re-run): the main herb stays exactly as Realms Formula D models it; the companion is by element value. Value-form main herbs would double pill supply. Pill prices stay provisional until the M_market check."
     added: 2026-11-21
-    revised: ""
+    revised: 2026-11-21

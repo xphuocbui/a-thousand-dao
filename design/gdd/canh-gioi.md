@@ -1145,7 +1145,7 @@ two generating pairs (+6 %): 31.25 × 1.06 = **33.125**, not 31.25 + 6.
   `per_realm_step` 1 (at most one talisman per realm step, rule 8; 04f).
 - Item DB and economy (all **change** 04f, cross-GDD review B2; the four recipes below are
   already in the data):
-  - *(2026-11-21: recipes are now by element value, Alchemy F5, translated from the herb recipes below, which stay the calibration's source; a re-run of Formula D for the value form, and a check of `M_market` now that Ngưng Nguyên Đan costs 1,140, are owed.)*
+  - *(2026-11-21: other recipes are now by element value (Alchemy), but the four breakthrough pills keep the main herbs below exactly as this formula models them, each at least `min_age`, no substitution, and their companion becomes an element value; the re-run of this formula for the value form (Alchemy F5) showed value-form main herbs would double supply, hence the rule. Breakthrough pills keep their scarcity prices (Alchemy rule 12), so `M_market ≈ 0` holds.)*
   - the FE pill (`truc_co_dan`) needs 2 ginseng at `min_age` 40 plus 1 `hoa_linh_chi` at
     10;
   - the CF pill (`ngung_nguyen_dan`) needs 2 Kim Tủy Quả at `min_age` 42 plus 1

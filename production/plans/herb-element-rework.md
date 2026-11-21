@@ -16,6 +16,13 @@ Regional Economy, Sects and Realms carry the rest.
 3. **Recipes ask for element value**: an ingredient is "element ≥ V". Any herbs of that element add up by value, so
    many young herbs replace an old one (full substitution).
 4. **A multi-element herb fills one ingredient of any one of its elements at its full value** (once per use).
+5. **Breakthrough pills keep a named main herb** (user decision 2026-11-21, after the Realms re-run in the
+   scratchpad `realms_rerun/rerun.py`): the four calibrated main herbs need `qty` herbs each at least `min_age`, no
+   substitution, exactly as Realms Formula D models them; their companion becomes an element value. Value-form main
+   herbs roughly doubled supply at every gate (CF → NS: 3–4 brews → 6+; NS → DT the same) and let a pill be bought as
+   hundreds of cheap basics.
+6. **Breakthrough pills keep scarcity prices** (user decision 2026-11-21, after the `M_market` check): Ngưng Nguyên Đan
+   stays 3,000 (at 1,140 it cost 4–6 years of missions, inside a Foundation Establishment life); the lint skips the four.
 
 ## Owed amendments
 
