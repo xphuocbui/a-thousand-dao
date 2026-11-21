@@ -49,6 +49,12 @@ func build_cost(formation_id: String, target_level: int) -> Dictionary:
 	return {"lt": int(roundf(lt)), "materials": int(f.materials_per_level) * target_level, "rarity": int(f.material_rarity)}
 
 
+## The level an array is billed at: 0 when dormant, at most the home's level ceiling (Cave Abode rule 9).
+func _billed_level(c: Character, formation_id: String) -> int:
+	var home: Dictionary = _db.get_record("places", c.home_id) if _db != null else {}
+	return CaveAbode.eff_level(_gd, home.get("qi", {}), c.id, "f:%s" % formation_id, int(c.formations[formation_id]), _work_max(c, formation_id))
+
+
 ## A standing array's own maximum as a home work (with Capability #15's extra levels).
 func _work_max(c: Character, formation_id: String) -> int:
 	return int(def(formation_id).max_level) + (int(_gd.capability(15).params.extra_levels) if c.has_capability(15) else 0)
@@ -111,8 +117,9 @@ func upkeep(c: Character) -> int:
 	var total: float = 0.0
 	for id in c.formations.keys():
 		var per: float = float(def(id).get("upkeep_lt_per_level", 0))
-		var over: int = maxi(int(c.formations[id]) - int(def(id).max_level), 0)
-		total += per * float(int(c.formations[id]) - over) + per * float(over) * (float(_gd.capability(15).params.upkeep_mult) if over > 0 else 1.0)
+		var lv: int = _billed_level(c, id)
+		var over: int = maxi(lv - int(def(id).max_level), 0)
+		total += per * float(lv - over) + per * float(over) * (float(_gd.capability(15).params.upkeep_mult) if over > 0 else 1.0)
 	var cut: float = clampf(c.linh_can.purity("tho") * float(config().tho_upkeep_cut_per_purity), 0.0, 0.9)
 	return int(roundf(total * (1.0 - cut)))
 
@@ -127,10 +134,14 @@ func pay_upkeep(c: Character) -> Array:
 		var worst: String = ""
 		var worst_cost: float = -1.0
 		for id in c.formations.keys():
+			if _billed_level(c, id) <= 0:
+				continue   # a dormant array never lapses (Formations rule 14, Cave Abode rule 9)
 			var per: float = float(def(id).upkeep_lt_per_level)
 			if per > worst_cost:
 				worst_cost = per
 				worst = id
+		if worst == "":
+			return lines
 		c.formations[worst] = int(c.formations[worst]) - 1
 		lines.append("Upkeep unpaid: %s weakens to level %d." % [def(worst).name, int(c.formations[worst])])
 		if int(c.formations[worst]) <= 0:

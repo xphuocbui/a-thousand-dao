@@ -468,8 +468,9 @@ func _home_up(s: GameSession, reserve: int) -> bool:
 		return false
 	var g: int = CaveAbode.grade_of(rec)
 	var blocked: bool = CaveAbode.used(qi, c) >= CaveAbode.slots(s.gd, g)
-	for fid in c.formations:
-		if int(c.formations[fid]) >= CaveAbode.ceiling(s.gd, g, 99):
+	for fid in c.formations:   # an array held back by the ceiling below its own maximum
+		var fmax: int = int(s.formations.def(fid).max_level)
+		if int(c.formations[fid]) >= CaveAbode.ceiling(s.gd, g, fmax) and CaveAbode.ceiling(s.gd, g, fmax) < fmax:
 			blocked = true
 	if not blocked or g >= 5:
 		return false

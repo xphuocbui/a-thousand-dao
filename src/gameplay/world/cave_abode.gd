@@ -230,7 +230,7 @@ static func season(gd: GameData, db: WorldDB, c: Character, qi: Dictionary) -> A
 
 ## Rule 13: the abode stat block for [param c] at the home with [param qi] (grade, slots, works with level and state,
 ## the grade upkeep, the next grade).
-static func lines(gd: GameData, qi: Dictionary, c: Character) -> Array:
+static func lines(gd: GameData, qi: Dictionary, c: Character, l1u_arrays: float = 0.0) -> Array:
 	var rec: Dictionary = home_rec(qi, c.id)
 	if rec.is_empty():
 		return ["This is not your home."]
@@ -240,12 +240,29 @@ static func lines(gd: GameData, qi: Dictionary, c: Character) -> Array:
 	var dormant: Array = rec.get("dormant", [])
 	for k in rec.get("order", []):
 		var id: String = str(k).substr(2)
-		var lv: int = int(qi.get("layer1", {}).get(c.id, {}).get(id, {}).get("level", 0)) if str(k).begins_with("w:") else int(c.formations.get(id, 0))
-		out.append("  %-14s level %d%s" % [id, lv, " (dormant)" if dormant.has(k) else ""])
+		var is_w: bool = str(k).begins_with("w:")
+		var lv: int = int(qi.get("layer1", {}).get(c.id, {}).get(id, {}).get("level", 0)) if is_w else int(c.formations.get(id, 0))
+		var d: Dictionary = MapWorks.work(gd, id) if is_w else _formation_def(gd, id)
+		var wmax: int = int(d.get("max", d.get("max_level", lv)))
+		var eff: int = eff_level(gd, qi, c.id, str(k), lv, wmax)
+		var stat: String = str(d.get("stat", ""))
+		var gain: String = gd.format_mod("density_bonus" if stat == "density" else stat, float(d.get("per_level", 0.0)) * eff) if eff > 0 and stat != "" else "nothing"
+		var state: String = " (dormant)" if dormant.has(k) else (" (counts at %d, the grade's ceiling)" % eff if eff < lv else "")
+		out.append("  %-16s level %d: %s%s" % [str(d.get("name", id)), lv, gain, state])
+	for l in MapWorks.density(gd, qi, c, 0, l1u_arrays).lines:   # rule 13: every clamp line
+		if str(l).contains("clamped"):
+			out.append("  " + str(l))
 	if is_abode(rec) and g < 5:
 		out.append("  next grade %d: %d linh thạch, %d slots%s" % [g + 1, grade_cost(gd, g + 1, c.realm_index), slots(gd, g + 1),
 			"" if g + 1 <= top_grade(gd, c.realm_index) else " (needs a higher realm)"])
 	return out
+
+
+static func _formation_def(gd: GameData, id: String) -> Dictionary:
+	for f in gd.file("crafting_formations").get("formations", []):
+		if str(f.id) == id:
+			return f
+	return {}
 
 
 # --- Leaving, claiming, ruin (rules 10, 11) -----------------------------------------------------------------------
@@ -299,7 +316,9 @@ static func fade_left(gd: GameData, db: WorldDB, pid: String) -> Array:
 ## Rule 11 and F4: whether the abode at [param place] can be claimed by [param c] (Left or a Ruin, not their own).
 static func claimable(place: Dictionary, c: Character) -> bool:
 	var ab: Dictionary = place.get("qi", {}).get("abode", {})
-	return not ab.is_empty() and str(ab.get("state", "")) in ["left", "ruin", "hidden"] and str(ab.get("owner", "")) != c.id
+	if ab.is_empty() or not str(ab.get("state", "")) in ["left", "ruin"]:
+		return false
+	return str(ab.get("state", "")) == "left" or str(ab.get("owner", "")) != c.id   # rule 11: anyone, its old owner too
 
 
 ## Rule 11 and F4: [param c] claims the Left or ruined abode at [param place]: pays the fee (burn_abode), the abode
@@ -320,8 +339,9 @@ static func claim(gd: GameData, db: WorldDB, c: Character, place: Dictionary) ->
 	var works: Dictionary = qi.get("layer1", {}).get(old, {})
 	if not qi.has("layer1"):
 		qi["layer1"] = {}
-	qi.layer1[c.id] = works.duplicate(true)
+	var kept: Dictionary = works.duplicate(true)
 	qi.layer1.erase(old)
+	qi.layer1[c.id] = kept
 	for id in qi.layer1[c.id]:
 		qi.layer1[c.id][id].erase("left")   # they count again for the claimant
 	if qi.has("arrays_left"):

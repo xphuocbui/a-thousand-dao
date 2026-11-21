@@ -45,6 +45,12 @@ Started 2026-11-21 evening at the user's request ("please implement also the cav
    (c1u 0.75, +0.3 with Capability #15), so power past the cap is wasted. Intended, or should power raise the cap?
 6. **AC-CA-21 (screenshot of the abode block)** waits for Game UI (#37); the terminal `abode` command prints it.
 7. **Fields (#14)** are not built, so the field-slot rules have nothing to hold yet.
+8. **A lost lease** (Formula M, one unpaid season) used to erase the residence and leave the home with no record,
+   which lifted every slot and ceiling limit. It now falls back to a free grade-1 room at the same place (the
+   starting-room terms; works over its 2 slots go dormant). Neither GDD says what a lost lease leaves; the
+   alternative is to make the player homeless until they rent, buy or open a home.
+9. **ACs still open:** AC-CA-05 (fields, #14 not built), AC-CA-18 (`seat_density`, player-founded sects not built),
+   AC-CA-21 (the abode screen, Game UI #37).
 
 ## Progress
 
@@ -61,3 +67,15 @@ Started 2026-11-21 evening at the user's request ("please implement also the cav
 - Phase 4: `CaveAbode.npc_season` from WorldTicker after the sect politics step: loose cultivators' grade, raise
   and upkeep from their own purses, the keyed roll, one `burn_many(..., "abode")`. Tests: cave_abode_npc_test.gd
   (AC-CA-14).
+- Review fixes (after an outside read): a sect member starting at the seat is housed by the sect, not a starting room
+  (an older save's starting room at the seat becomes the sect's); dormant arrays owe no Formations upkeep and never
+  lapse, and an array over the ceiling is billed at it (Formations rule 14); a former owner may reclaim their own
+  Left abode (rule 11, "anyone"); a lost lease keeps a grade-1 room (decision 8); the bot's ceiling check uses each
+  array's own maximum; the stat block shows each work's gain, the ceiling and the clamp lines (AC-CA-15); a debug
+  `debug material <id> [n]`. Tests: cave_abode_session_test.gd (the whole flow through GameSession with a save,
+  the sect seat, the lost lease, AC-CA-16's exact ledger entries, the NPC aggregate in real books). Evidence:
+  production/qa/evidence/cave-abode/.
+- Census with NPC abodes (0bf23209, which also carries Relationships and Formations; year 1600, 400 years):
+  seed 11 3,852 / 867 / 232 / 44 / 5 (post-fix baseline 3,911 / 840 / 208 / 36 / 5); seed 23 3,861 / 892 / 214 /
+  30 / 3 (baseline 3,920 / 803 / 232 / 38 / 7). Moves both ways by seed: no clear effect of the burn_abode
+  aggregate on the headcount. Not retuned.

@@ -938,6 +938,10 @@ func _debug(args: Array) -> void:
 			var h: Dictionary = s.items.herb(_arg(args, 1, "ngung_khi_thao"), float(_arg(args, 2, "1")))
 			h["owner_id"] = c.id
 			io.out("Gave %s [%s]." % [s.items.describe(h), s.db.add("items", h)])
+		"material":
+			var m: Dictionary = s.items.material(_arg(args, 1, "huyen_hoang_thach"), int(_arg(args, 2, "1")))
+			m["owner_id"] = c.id
+			io.out("Gave %s [%s]." % [s.items.describe(m), s.db.add("items", m)])
 		"tp":
 			c.tree_points += int(_arg(args, 1, "5"))
 			io.out("Đạo Đồ points: %d." % c.tree_points)
@@ -960,7 +964,7 @@ func _debug(args: Array) -> void:
 			it["owner_id"] = c.id
 			io.out("Gave %s [%s]." % [s.items.describe(it), s.db.add("items", it)])
 		_:
-			io.out("debug event [id] | templates | tuvi <n> | lt <n> | herb <id> <age> | tp <n> | heal | item artifact|cong_phap [grade] [base] | named <id>")
+			io.out("debug event [id] | templates | tuvi <n> | lt <n> | herb <id> <age> | material <id> [n] | tp <n> | heal | item artifact|cong_phap [grade] [base] | named <id>")
 	s.sync_player()
 
 

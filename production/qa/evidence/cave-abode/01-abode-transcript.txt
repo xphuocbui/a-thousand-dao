@@ -1,0 +1,327 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+data override (this run only): combat_rankings.season_fight_budget = 200.0
+data override (this run only): combat_rankings.worldgen_fight_budget = 200.0
+
+  ☯  TEN THOUSAND DAOS  — debug terminal
+  LLM off | https://api.deepseek.com/chat/completions | model deepseek-chat | NO KEY | language vi | calls 0, failures 0, avg 0 ms
+
+  1 New life (choose origin, roll or set your thiên phú and linh căn)
+  2 Quick start (random tán tu)
+  3 Help: every command
+ Type a number, or any command ('help'). Enter shows this menu again.
+> new quick AbodeTest 777
+Generating the world (seed 777)...
+A new world: 20 regions, 296 places, 41 sects, 5033 people, 517 recorded events (Thiên Nguyên lịch năm 1200).
+AbodeTest is born: Single root: Water [Thủy] 52
+Đạo Đồ start: Water start (#133).
+Power Rankings: the player's panel (40 fights) and 23 coarse panels (194 fights) rated at load.
+
+━━ AbodeTest — Luyện Khí Sơ kỳ L1 (tầng 1) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Tuổi 16 / 120 · Xuất thân Tán tu · Tông môn — · Thiên Định (achievements on)
+
+ ROOT [linh căn]  Single root — curve row 1, now x1.00 vs a single root
+   Mộc  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thảo age faster in your field
+   Hỏa  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          luyện đan success and quality
+   Thổ  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          more linh điền plots
+   Kim  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁   —          linh thạch from missions and bounties
+   Thủy ▆▆▆▆▆▆▆▆▆▆▁▁▁▁▁▁▁▁▁▁  52 Trung    đan độc fades faster
+
+ THIÊN PHÚ
+   Ngộ tính  ▆▆▆▁▁▁▁▁▁▁  32 Trung        Căn cốt   ▆▆▆▆▆▆▁▁▁▁  60 Trung
+   Thần hồn  ▆▆▆▆▆▆▆▁▁▁  66 Thượng       Khí vận   ▆▆▆▆▁▁▁▁▁▁  41 Trung
+   Đạo tâm   ▆▆▆▆▆▁▁▁▁▁  53 Trung        Mị lực    ▆▆▆▆▆▆▁▁▁▁  60 Trung
+
+ TRẠNG THÁI Linh lực 56 · Thần thức 66 · Khí huyết 600/600
+            Đan độc 0 (pills -0%) · Tâm ma 0 (backlash 0%) · Linh thạch 30
+ CÔNG PHÁP  Thương Lan Kinh (layer 1/6)
+            tu vi 15.6 per season here ('explain rate')
+ ĐẠO NGHỆ   none yet (practice raises them)
+ CHIẾN LỰC  124 = offense 62 + defense 62 · extra slots 0/2 ('explain power')
+ ĐẠO ĐỒ  1 đạo văn open, 2 point(s) unspent ('tree')
+ THIÊN MỆNH Tổ Truyền Linh Điền — An ancestral spirit field: one more plot, herbs age faster.
+ 'explain <stat>' breaks down any number: rate, power, life, breakthrough, ngo_tinh, attack_pct …
+
+Hạnh Hoa Thị (l54) — Phường Thị, Kinh Trập Sơn. Linh khí 1.24, danger 1, market
+  Your động phủ is here.
+  Land: steppe (tile 259,244), land density 1.27, shares Mộc 10, Hỏa 17, Thổ 30, Kim 27, Thủy 17
+  Climate: 22.0 C, 279 mm a year
+  Density for you: 1.54 (place 1.24, layer 2 +0.25, layer 1 +0.05); land match for you: x0.959
+People here (3):
+  p65    Giả Hồi Xuân         Kết Đan Trung kỳ       Đan sư | power 12,700? | attitude 0
+  p4155  Kỷ Thanh             Luyện Khí Trung kỳ     Tán tu | power 129? | attitude 0
+  p4801  Tư Mã Dật            Luyện Khí Đại viên mãn Đan sư | power 197? | attitude 0
+Roads:
+  -> l7    Thính Vũ Lâu (0.28 seasons, trunk)
+  -> l81   Thạch Kiều Thành (1.15 seasons, road)
+  -> l90   Lãng Hoa Thành (0.58 seasons, road)
+  -> l169  Xích Kim Khoáng (0.97 seasons, road)
+
+━━ AbodeTest · Thiên Nguyên lịch năm 1200, Xuân · Hạnh Hoa Thị ━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +15.6/season, next level in 3 seasons
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 30 · power 20 · 2 Đạo Đồ pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Đạo Đồ point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Đạo Đồ point(s)
+  3 Plant something (plot 2 is empty)
+  4 Cultivate 1 year                     5 Closed-door 5 years
+  6 Explore Hạnh Hoa Thị                 7 Travel…
+  8 Herb field                           9 Alchemy…
+ 10 Refine a pháp bảo…                  11 Draw talismans…
+ 12 Formations (trận pháp)              13 Market
+ 14 Talk to someone… (3 here)           15 Character sheet
+ 16 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> abode
+Residence, grade 1: 0 of 2 slots used.
+abode <x> <y> [part]: open a cave abode on a wilderness tile (it becomes your home); abode raise: raise its grade; abode claim: claim a left or ruined abode here.
+> debug lt 100000
+Linh thạch 100030.
+ Δ Linh thạch 30 → 100030 (+100000)
+
+━━ AbodeTest · Thiên Nguyên lịch năm 1200, Xuân · Hạnh Hoa Thị ━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +15.6/season, next level in 3 seasons
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 100030 · power 20 · 2 Đạo Đồ pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Đạo Đồ point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Đạo Đồ point(s)
+  3 Plant something (plot 2 is empty)
+  4 Cultivate 1 year                     5 Closed-door 5 years
+  6 Explore Hạnh Hoa Thị                 7 Travel…
+  8 Herb field                           9 Alchemy…
+ 10 Refine a pháp bảo…                  11 Draw talismans…
+ 12 Formations (trận pháp)              13 Market
+ 14 Talk to someone… (3 here)           15 Character sheet
+ 16 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> debug material huyen_hoang_thach 10
+Gave Huyền Hoàng Thạch x10 [i17321].
+ Δ + Huyền Hoàng Thạch ×10
+
+━━ AbodeTest · Thiên Nguyên lịch năm 1200, Xuân · Hạnh Hoa Thị ━━━━━━━━━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +15.6/season, next level in 3 seasons
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 100030 · power 20 · 2 Đạo Đồ pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Đạo Đồ point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Đạo Đồ point(s)
+  3 Plant something (plot 2 is empty)
+  4 Raise Tụ Linh Trận to level 1 (150 LT)
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Hạnh Hoa Thị                 8 Travel…
+  9 Herb field                          10 Alchemy…
+ 11 Refine a pháp bảo…                  12 Draw talismans…
+ 13 Formations (trận pháp)              14 Market
+ 15 Talk to someone… (3 here)           16 Character sheet
+ 17 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> abode 261 244
+You walk 0.10 season(s) to tile 261,244 and open a cave abode there (4 linh thạch, a season's work).
+  [tin đồn] Nhạc Vân (Luyện Khí) đã tọa hóa.
+  [tin đồn] Kỷ Cảnh (Luyện Khí) đã tọa hóa.
+  [tin đồn] Tiêu Nhược (Luyện Khí) đã tọa hóa.
+  [tin đồn] Nhạc Vân (Luyện Khí) đã tọa hóa.
+  [tin đồn] Lâm Huyền (Luyện Khí) đã tọa hóa.
+  [tin đồn] Lạc Thanh và Bạch Khinh Vũ đại chiến tại Thiên Xu Tông; Lạc Thanh thắng.
+Your new home: density 1.05, danger 1, land match x0.940.
+ Δ 2 seasons passed · Linh thạch 100030 → 100026 (-4)
+   Hạnh Hoa Thị → Động phủ của AbodeTest
+
+━━ AbodeTest · Thiên Nguyên lịch năm 1200, Thu · Động phủ của AbodeTest ━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +10.5/season, next level in 4 seasons
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 100026 · power 20 · 2 Đạo Đồ pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Đạo Đồ point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Đạo Đồ point(s)
+  3 Plant something (plot 2 is empty)
+  4 Raise Tụ Linh Trận to level 1 (150 LT)
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Động phủ của AbodeTest       8 Travel…
+  9 Herb field                          10 Alchemy…
+ 11 Refine a pháp bảo…                  12 Draw talismans…
+ 13 Formations (trận pháp)              14 Character sheet
+ 15 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> abode
+Cave abode, grade 1: 0 of 2 slots used, upkeep 1 linh thạch a season.
+  next grade 2: 20 linh thạch, 3 slots
+abode <x> <y> [part]: open a cave abode on a wilderness tile (it becomes your home); abode raise: raise its grade; abode claim: claim a left or ruined abode here.
+> formation build tu_linh
+Tụ Linh Trận raised to level 1: +0.15 linh khí density. Upkeep now 10 linh thạch a year.
+  [tin đồn] Triệu Lăng (Luyện Khí) đã tọa hóa.
+  [tin đồn] Chu Cảnh (Trúc Cơ) đã tọa hóa.
+  [tin đồn] Bạch Lăng và Tư Mã Dao đại chiến tại Thương Ưng Đài; Bạch Lăng thắng.
+ Δ 1 season passed · Linh thạch 100026 → 99875 (-151) · − Huyền Hoàng Thạch
+
+━━ AbodeTest · Thiên Nguyên lịch năm 1200, Đông · Động phủ của AbodeTest ━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +12.0/season, next level in 4 seasons
+ Tuổi  16/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 99875 · power 20 · 2 Đạo Đồ pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Đạo Đồ point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Đạo Đồ point(s)
+  3 Plant something (plot 2 is empty)
+  4 Raise Thanh Mộc Trận to level 1 (120 LT)
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Động phủ của AbodeTest       8 Travel…
+  9 Herb field                          10 Alchemy…
+ 11 Refine a pháp bảo…                  12 Draw talismans…
+ 13 Formations (trận pháp)              14 Character sheet
+ 15 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> formation build ho_son
+Hộ Sơn Trận raised to level 1: +10% defense. Upkeep now 16 linh thạch a year.
+  [tin đồn] Tin đồn: Trương Thiên vừa đột phá Trúc Cơ.
+  [tin đồn] Tạ Băng (Luyện Khí) đã tọa hóa.
+  [tin đồn] Đông Phương Linh (Trúc Cơ) đã tọa hóa.
+ Δ 1 season passed · Linh thạch 99875 → 99758 (-117) · − Huyền Hoàng Thạch
+
+━━ AbodeTest · Thiên Nguyên lịch năm 1201, Xuân · Động phủ của AbodeTest ━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +12.0/season, next level in 4 seasons
+ Tuổi  17/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 99758 · power 20 · 2 Đạo Đồ pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Đạo Đồ point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Đạo Đồ point(s)
+  3 Plant something (plot 2 is empty)
+  4 Raise the abode to grade 2 (20 LT)
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Động phủ của AbodeTest       8 Travel…
+  9 Herb field                          10 Alchemy…
+ 11 Refine a pháp bảo…                  12 Draw talismans…
+ 13 Formations (trận pháp)              14 Character sheet
+ 15 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> formation build thanh_moc
+Cannot build: no free slot (2 of 2 used at grade 1).
+> abode raise
+You raise the abode toward grade 2 (20 linh thạch, a season's work).
+  [tin đồn] Trương Nghiên (Kết Đan) đã tọa hóa.
+  [tin đồn] Đông Phương Linh (Luyện Khí) đã tọa hóa.
+  [tin đồn] Tô Quân và Kỷ Vân đại chiến tại Lạc Hà Tông; Kỷ Vân thắng.
+ Δ 1 season passed · Linh thạch 99758 → 99737 (-21)
+
+━━ AbodeTest · Thiên Nguyên lịch năm 1201, Hạ · Động phủ của AbodeTest ━━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +12.0/season, next level in 4 seasons
+ Tuổi  17/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 99737 · power 20 · 2 Đạo Đồ pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Đạo Đồ point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Đạo Đồ point(s)
+  3 Plant something (plot 2 is empty)
+  4 Raise Thanh Mộc Trận to level 1 (120 LT)
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Động phủ của AbodeTest       8 Travel…
+  9 Herb field                          10 Alchemy…
+ 11 Refine a pháp bảo…                  12 Draw talismans…
+ 13 Formations (trận pháp)              14 Character sheet
+ 15 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> abode
+Cave abode, grade 2: 2 of 3 slots used, upkeep 1 linh thạch a season.
+  Tụ Linh Trận     level 1: +0.15 linh khí density
+  Hộ Sơn Trận      level 1: +10% defense
+  next grade 3: 60 linh thạch, 4 slots
+abode <x> <y> [part]: open a cave abode on a wilderness tile (it becomes your home); abode raise: raise its grade; abode claim: claim a left or ruined abode here.
+> formation build thanh_moc
+Thanh Mộc Trận raised to level 1: +15% herb growth. Upkeep now 24 linh thạch a year. Trận pháp rises to level 1.
+  [tin đồn] Ôn Hằng (Luyện Khí) đã tọa hóa.
+  [tin đồn] Tin đồn: Hàn Thiếu Bạch vừa đột phá Trúc Cơ.
+  [tin đồn] Tin đồn: Lâm Tịch vừa đột phá Trúc Cơ.
+ Δ 1 season passed · Linh thạch 99737 → 99616 (-121) · tran_phap level 0 → 1
+   − Huyền Hoàng Thạch
+
+━━ AbodeTest · Thiên Nguyên lịch năm 1201, Thu · Động phủ của AbodeTest ━━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +12.0/season, next level in 4 seasons
+ Tuổi  17/120  ▆▁▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 99616 · power 20 · 2 Đạo Đồ pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Đạo Đồ point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Đạo Đồ point(s)
+  3 Plant something (plot 2 is empty)
+  4 Raise the abode to grade 3 (60 LT)
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Động phủ của AbodeTest       8 Travel…
+  9 Herb field                          10 Alchemy…
+ 11 Refine a pháp bảo…                  12 Draw talismans…
+ 13 Formations (trận pháp)              14 Character sheet
+ 15 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> abode
+Cave abode, grade 2: 3 of 3 slots used, upkeep 1 linh thạch a season.
+  Tụ Linh Trận     level 1: +0.15 linh khí density
+  Hộ Sơn Trận      level 1: +10% defense
+  Thanh Mộc Trận   level 1: +15% herb growth
+  next grade 3: 60 linh thạch, 4 slots
+abode <x> <y> [part]: open a cave abode on a wilderness tile (it becomes your home); abode raise: raise its grade; abode claim: claim a left or ruined abode here.
+> explain rate
+Tu vi / season = 12.00
+    Luyện Khí base rate                = 10
+    Root curve (row 1)                 x1  -> 10
+    Thương Lan Kinh (layer 1/6)        x0.92  -> 9.15
+    Ngộ tính 32                        x1.16  -> 10.62
+    Linh khí density (layer 1 +0.15)   x1.20  -> 12.77
+    Land match (elements of the ground) x0.94  -> 12.00
+> abode 263 244
+You walk 0.14 season(s) to tile 263,244 and open a cave abode there (4 linh thạch, a season's work).
+  [tin đồn] Chu Vũ (Luyện Khí) đã tọa hóa.
+  [tin đồn] Giang Dao (Luyện Khí) đã tọa hóa.
+  [tin đồn] Tần Nguyệt và Cố Viễn đại chiến tại Thối Tinh Môn; Tần Nguyệt thắng.
+  [tin đồn] Tần Bách (Luyện Khí) đã tọa hóa.
+  [tin đồn] Cố Khải (Luyện Khí) đã tọa hóa.
+  [tin đồn] Diệp Hiên và Nhạc Viễn đại chiến tại Thúy Vi Tông; Nhạc Viễn thắng.
+Your new home: density 1.25, danger 2, land match x0.934.
+ Δ 2 seasons passed · Linh thạch 99616 → 99586 (-30)
+   Động phủ của AbodeTest → Động phủ của AbodeTest
+
+━━ AbodeTest · Thiên Nguyên lịch năm 1202, Xuân · Động phủ của AbodeTest ━━━━━
+ Luyện Khí Sơ kỳ L1 (tầng 1)  ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ 0/40  +12.4/season, next level in 4 seasons
+ Tuổi  18/120  ▆▆▁▁▁▁▁▁▁▁  Khí huyết ▆▆▆▆▆▆▆▆▆▆ 100%  LT 99586 · power 20 · 2 Đạo Đồ pt
+ ➤ Toward Trúc Cơ: Trúc Cơ Đan needs: Đan Đạo 0/2 (craft lesser pills to
+   train); Hoàng Tinh Sâm ≥40y x2: plant a seed (15 LT); Hỏa Linh Chi ≥10y:
+   plant a seed (8 LT).  → plant hoang_tinh_sam
+ ➤ 2 Đạo Đồ point(s) to spend.  → tree
+  1 Plant Hoàng Tinh Sâm (15 LT) — for Trúc Cơ Đan
+  2 Spend 2 Đạo Đồ point(s)
+  3 Plant something (plot 2 is empty)
+  4 Raise Tụ Linh Trận to level 1 (150 LT)
+  5 Cultivate 1 year                     6 Closed-door 5 years
+  7 Explore Động phủ của AbodeTest       8 Travel…
+  9 Herb field                          10 Alchemy…
+ 11 Refine a pháp bảo…                  12 Draw talismans…
+ 13 Formations (trận pháp)              14 Character sheet
+ 15 Inventory
+ Type a number, or any command ('help'). Enter shows this menu again.
+> abode
+Cave abode, grade 1: 0 of 2 slots used, upkeep 1 linh thạch a season.
+  next grade 2: 20 linh thạch, 3 slots
+abode <x> <y> [part]: open a cave abode on a wilderness tile (it becomes your home); abode raise: raise its grade; abode claim: claim a left or ruined abode here.
+> formation
+Trận pháp at Động phủ của AbodeTest · Trận pháp level 1 · upkeep 0 LT/year (Thổ cuts 0%)
+  Tụ Linh Trận    ▁▁▁▁▁ 0/5  not built (at home) · next 150 LT + 1 material(s) ≥ rarity 2
+                  Gathers linh khí over the động phủ: cultivate faster at home.
+  Thanh Mộc Trận  ▁▁▁▁▁ 0/5  not built · next 120 LT + 1 material(s) ≥ rarity 1
+                  Wood-qi array over the linh điền: herbs age faster.
+  Hộ Sơn Trận     ▁▁▁▁▁ 0/5  not built (at home) · next 100 LT + 1 material(s) ≥ rarity 1
+                  Mountain-guarding array: stronger defense when fighting at home.
+ 'formation build <id>' at home, one season. Unpaid upkeep lowers a formation one level a year.
+> (end of input)

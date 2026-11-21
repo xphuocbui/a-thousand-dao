@@ -138,3 +138,35 @@ func test_an_array_counts_at_its_skill_cap_ac_ca_19() -> void:
 			per = float(f.per_level)
 	assert_near(sheet.total("home_array_density"), per * 3.0, 1e-6, "level 5 under ceiling 5 counts at the skill cap 3")
 	assert_near(sheet.total("density_bonus"), 0.0, 1e-9, "no longer on density_bonus")
+
+
+func test_a_dormant_array_owes_no_upkeep_and_one_over_the_ceiling_is_billed_at_it_rule_9() -> void:
+	var gd := game_data()
+	var db := WorldDB.new()
+	var qi := _abode(1)
+	qi.abode["order"] = ["f:tu_linh", "f:thanh_moc", "f:ho_son"]
+	qi.abode["dormant"] = ["f:ho_son"]
+	db.put("places", {"id": "l1", "name": "Home", "qi": qi})
+	var c := _char(2, 0)
+	c.home_id = "l1"
+	c.formations = {"tu_linh": 5, "thanh_moc": 1, "ho_son": 4}
+	var f := Formations.new(gd, db)
+	assert_eq(f.upkeep(c), 10 * 3 + 8 * 1, "Tu Linh 5 billed at the grade-1 ceiling 3, Ho Son dormant: 0")
+	f.pay_upkeep(c)
+	assert_eq(int(c.formations.ho_son), 4, "the dormant array never lapses")
+
+
+func test_the_stat_block_shows_grade_slots_levels_gains_dormancy_upkeep_and_clamps_ac_ca_15() -> void:
+	var gd := game_data()
+	var qi := _abode(1)
+	qi.layer1.p1["tended_abode"] = {"level": 1}
+	var c := _char(2, 0)
+	c.formations = {"tu_linh": 5, "ho_son": 1}
+	qi.abode["order"] = ["f:tu_linh", "w:tended_abode", "f:ho_son"]
+	qi.abode["dormant"] = ["f:ho_son"]
+	var out: String = "\n".join(PackedStringArray(CaveAbode.lines(gd, qi, c, 0.9)))
+	assert_true(out.contains("grade 1: ") and out.contains(" of 2 slots used"), "the grade and slots: %s" % out)
+	assert_true(out.contains("upkeep"), "the grade upkeep")
+	assert_true(out.contains("Tụ Linh Trận") and out.contains("level 5") and out.contains("counts at 3"), "the level and the ceiling: %s" % out)
+	assert_true(out.contains("(dormant)"), "the dormant work")
+	assert_true(out.contains("clamped"), "the clamp line")

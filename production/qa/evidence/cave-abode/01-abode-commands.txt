@@ -1,0 +1,17 @@
+new quick AbodeTest 777
+abode
+debug lt 100000
+debug material huyen_hoang_thach 10
+abode 261 244
+abode
+formation build tu_linh
+formation build ho_son
+formation build thanh_moc
+abode raise
+abode
+formation build thanh_moc
+abode
+explain rate
+abode 263 244
+abode
+formation

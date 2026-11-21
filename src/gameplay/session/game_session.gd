@@ -1014,6 +1014,9 @@ func start_residence() -> void:
 		return
 	if str(home.qi.get("abode", {}).get("owner", "")) == player.id or str(home.get("owner_id", "")) == player.id:
 		return   # the player's own cave abode (an older save without a home record gets one in load_dict)
+	if player.sect_id != "" and str(db.get_record("sects", player.sect_id).get("hq_place_id", "")) == str(home.id):
+		_sect_residence()   # the sect houses its member by realm (Travel & Map rule 34)
+		return
 	if not home.qi.has("residences"):
 		home.qi["residences"] = {}
 	home.qi.residences[player.id] = {"grade": 1, "own": true, "rent": 0, "origin": true}
@@ -1072,7 +1075,7 @@ func abode_lines() -> Array:
 	var home: Dictionary = db.get_record("places", player.home_id)
 	if home.get("qi", {}).is_empty():
 		return ["Your home has no land qi (an old generated world)."]
-	return CaveAbode.lines(gd, home.qi, player)
+	return CaveAbode.lines(gd, home.qi, player, sheet().total("home_array_density"))
 
 
 ## Rents or buys a residence of [param grade] here (Travel & Map rule 34, Formula M): settled ground only, the grade
@@ -1131,6 +1134,11 @@ func _sect_residence() -> void:
 	var cur: Dictionary = seat.qi.residences.get(player.id, {})
 	if cur.is_empty():
 		seat.qi.residences[player.id] = {"grade": grade, "own": true, "rent": 0, "sect": true}
+	elif bool(cur.get("origin", false)):   # a starting residence at the seat (an older save) becomes the sect's
+		cur.erase("origin")
+		cur["sect"] = true
+		cur["grade"] = grade
+		CaveAbode.reconcile(gd, seat.qi, player)
 	elif bool(cur.get("sect", false)) and int(cur.grade) != grade:
 		cur["grade"] = grade   # Cave Abode rule 9: merged, so the works' order and dormancy survive
 		CaveAbode.reconcile(gd, seat.qi, player)
@@ -1146,8 +1154,13 @@ func _bill_residence() -> Array:
 			var landlord: String = str(p.get("holder", ""))
 			MoneyLedger.player_pay(db, player, "sect:%s" % landlord if landlord != "" else "", int(res.rent), "rent")
 			return []
-		p.qi.residences.erase(player.id)
-		return ["  You could not pay the rent at %s; the residence is let to someone else." % p.name]
+		# Cave Abode: the home keeps a record, so its slots and ceiling hold: the rooms fall back to the free grade-1
+		# terms of a starting residence (works over the slots go dormant, rule 9)
+		p.qi.residences[player.id] = {"grade": 1, "own": true, "rent": 0, "origin": true,
+			"order": res.get("order", []), "dormant": res.get("dormant", [])}
+		var lines: Array = ["  You could not pay the rent at %s; you keep only a plain grade 1 room there." % p.name]
+		lines.append_array(CaveAbode.reconcile(gd, p.qi, player))
+		return lines
 	return []
 
 
