@@ -903,6 +903,7 @@ earns contribution faster than a sect's stock refills). Each needs the 400-seaso
 | Trade Goods (#45) | Soft | Sect workshops' output is in kind and meets the sect's kind pills and Military use first; `kind_stipend` (15 %) is 0.10 in pills and 0.05 in herbs; Military's goods mix is ore 0.42, beast 0.28, artifact 0.2, talisman 0.1 (Trade Goods Formula H; #43 Formulas C, I; amended 2026-11-14) | Yes (designed 2026-11-14, pending review) | Trade Goods lists Sects |
 | Event Engine (#23) and LLM Game Master (#29) | Soft | Event outcomes that move attitude, loyalty and standing, within budgets | No | — |
 | Market (#20) | Soft | Item prices, `linh_thach_max` | No | — |
+| Formations (#17) | Soft | Sect-owned arrays (teleport, protective, standing at the seat) use Formations' array record; sects teach combat diagrams. The seat's `def` 1.2 "Formations bonus" stays Sects' number until Formations Open Question 7 settles whether seat arrays feed it | Yes (`design/gdd/formations.md`, designed 2026-11-21) | Yes |
 
 **Downstream (they read this system)**
 

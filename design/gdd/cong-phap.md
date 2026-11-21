@@ -848,6 +848,7 @@ This section was drafted without `systems-designer` (lean mode). Several design 
 | 10 | Đạo Đồ | Capability #6 (second main slot); the seals are retired (rule 15) |
 | 21 | Combat | The unlocked divine abilities; `tech_power` through spiritual power |
 | 21a | Combat Defence & Healing | Body techniques' block, body shield and resistance (rule 2) |
+| 17 | Formations | Which technique or manual teaches which combat diagram (`design/gdd/formations.md` rule 8) |
 | 21b | Combat Damage Types | Typed damage parts on each ability's art |
 | 20 | Market | Manuals for sale; commons with root bias; prices from Formulas E; the rule 18 reserved copy and its fallback stock |
 | 23, 29 | Event Engine, LLM GM | The catalogue and the commons an event may grant; validation of technique effects |

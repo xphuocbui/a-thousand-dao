@@ -1,6 +1,6 @@
 # Plan: Formations (Trận Pháp, systems index #17), parked 2026-11-21
 
-Status: **parked by the user** ("put the plan there for now, we will come back to it"), at the start of
+Status: **resumed 2026-11-21; GDD written: design/gdd/formations.md (Designed, pending review).** Earlier: parked by the user ("put the plan there for now, we will come back to it"), at the start of
 `/design-system formations`, after Phase 2 (context gathered), before the skeleton. Resume with
 `/design-system formations`; no `design/gdd/formations.md` exists yet.
 

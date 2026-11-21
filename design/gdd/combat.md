@@ -295,6 +295,11 @@ author's reading and wait for confirmation (see Open Questions).
     **Formations on one ground** (build-run suggestion 5, 2026-11-11). Away from home each side counts one formation:
     its laid formation or its carried ground, whichever is stronger. At your own abode every standing home formation
     counts. When both sides lay one, both count unless an Effect says otherwise.
+    **Combat formation diagrams** (Formations #17, 2026-11-21). A side's combat diagram is its loadout
+    (`design/gdd/formations.md` rules 3, 9, 10): laid in a foreseen fight at 100 %, otherwise carried at
+    `carried_ground_share`; its node rules, links, fuel and reservation are Formations'. The diagram never competes
+    under "one formation per side": that rule now picks one **ground object** besides it (a laid ground array or a
+    carried ground such as a landscape scroll), whichever is stronger.
 13. **Arts, cooldown timers and slot order.** An **art** has an id, tags, damage parts with their types (Combat
     Damage Types rule 1), a linh lực cost, a cooldown in seconds, an effect and optionally a heal payload under the
     heal lint (Combat Defence & Healing Formulas E). The sources are: the divine abilities (thần thông) that the main and
@@ -328,6 +333,9 @@ author's reading and wait for confirmation (see Open Questions).
     example own health below 30 %), or they would fire as soon as their first cooldown ends. The **slot order**
     is the player's one ordering tool and the NPC generator's output: it settles the order inside an instant,
     so with little linh lực the earlier slot pays and the later one waits, and it sets the hit order (rule 10).
+    With a combat diagram (Formations #17), the slot order of the diagram's nodes is their node index, and the
+    player's order applies to the plain slots after them; node rules and links act on the slotted arts
+    (`design/gdd/formations.md` rules 3–6).
     A talisman is an art that is used up when it fires; with no stock left it is skipped. Escape is an art too:
     a fight ends by flight if the escape art succeeds (a seeded chance against the pursuer's tags and
     realm), with the result recorded as such.
@@ -467,7 +475,7 @@ this GDD expects, to be matched when those systems are designed.
 | The Way (#39) | in | Stat lines through Character Stats; Effects on notables; rare art nodes in rule 13's format (dao.md rules 3 and 10) | The Way; Combat (art format) |
 | Item Database (#13) | in | Equipped pieces with their role tags (weapon, ward_gear, body_gear, utility; D2), attack, defence and affixes; the equipped set limited by thần thức; consumable arts' items (item-database.md rules 6, 11) | Item Database (what an item is, its roles and whether it counts); Combat (what a piece adds) |
 | Artifact Refining (#16) | in | Equipped artifacts: attack; defence (ward gear feeds ws, we and block up to a = 1; body gear gives 12 block and 0.60 body shield per a_b, Combat Defence & Healing Formulas A0, A2, B); affixes, thần thức cost, an optional active effect (**provisional**) | Artifact Refining; Combat (how they act) |
-| Formations (#17) | in | A laid formation's modifiers, upkeep and ground tags (**provisional**) | Formations |
+| Formations (#17) | in | The combat diagram (node rules, links, strength-scaled magnitudes, share, `reserve_share`) and, at the abode, the standing arrays' modifiers (designed 2026-11-21, `design/gdd/formations.md`) | Formations |
 | Talismans (#18) | in | Consumable arts and their tags (**provisional**) | Talismans |
 | Spirit Beasts (#19) | in / out | In: the companion power share and fixed art. Out: a beaten creature offered for taming (the Event Engine hook) (**provisional**) | Spirit Beasts |
 | Alchemy (#15) | in | Pills with timed buff or cleanse effects taken in preparation | Alchemy |
@@ -1186,7 +1194,8 @@ last two for the rating clash only). `beast.power_mult` becomes `creature_mult`.
 | The Way (#39) | Soft | Stat lines, Effects and rare art nodes | GDD in review (2026-11-10). Arts need no W price: the Way's slot table bounds them (dao.md Open Question 3, closed) |
 | Item Database (#13) | Soft | Equipped pieces with role tags, attack, defence and affixes; consumable arts' items | GDD complete (item-database.md rules 6, 11); lists Combat |
 | Artifact Refining (#16) | Soft | Equipped artifacts, ward-gear and body-gear defence, active effects | Quick spec only; **provisional** |
-| Formations (#17), Talismans (#18), Alchemy (#15) | Soft | Prepared modifiers, consumable arts, timed pills | Quick spec or no GDD; **provisional** |
+| Formations (#17) | Soft | The combat diagram (the loadout's arrangement) and home arrays | GDD designed 2026-11-21 (`design/gdd/formations.md`), pending review; lists Combat |
+| Talismans (#18), Alchemy (#15) | Soft | Consumable arts, timed pills | Quick spec or no GDD; **provisional** |
 | Spirit Beasts (#19) | Soft | Power share, companion art | Quick spec only; **provisional** |
 
 **Downstream (these need Combat).**
