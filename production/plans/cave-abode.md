@@ -79,3 +79,8 @@ Started 2026-11-21 evening at the user's request ("please implement also the cav
   seed 11 3,852 / 867 / 232 / 44 / 5 (post-fix baseline 3,911 / 840 / 208 / 36 / 5); seed 23 3,861 / 892 / 214 /
   30 / 3 (baseline 3,920 / 803 / 232 / 38 / 7). Moves both ways by seed: no clear effect of the burn_abode
   aggregate on the headcount. Not retuned.
+- ape7 (144 lives, seeds 1001-1048, 0bf23209, which also carries Relationships and Formations since ape6's
+  7fd9a354): 66 / 54 / 21 / 22 % against ape6's 68 / 51 / 25 / 10 and targets 70 / 71 / 33 / 23. Within noise at
+  every gate (Hóa Thần: 9 lives). A 12-life check with the home now in autoplay's row: 7 lives buy a grade-3 town
+  residence (3 of 4 slots; its ceiling 5 is every array's maximum), 4 sect lives are housed at grades 2-5, 1 poor life
+  stays in the grade-1 room. The bot never opens a cave abode of its own, so ape7 does not exercise abode raises.

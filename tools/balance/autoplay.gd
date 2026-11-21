@@ -103,6 +103,10 @@ func _life(seed_v: int, origin: String, elements: int) -> Dictionary:
 	st["death_age"] = c.age
 	st["level"] = c.level
 	st["final"] = gd.realm_label(c.realm_index, c.stage)
+	var hq: Dictionary = s.db.get_record("places", c.home_id).get("qi", {})   # Cave Abode: the home at death
+	var hr: Dictionary = CaveAbode.home_rec(hq, c.id)
+	st["home"] = "none" if hr.is_empty() else "%s%d %d/%d" % ["abode g" if CaveAbode.is_abode(hr) else ("sect g" if bool(hr.get("sect", false)) else "res g"),
+		CaveAbode.grade_of(hr), CaveAbode.used(hq, c), CaveAbode.slots(gd, CaveAbode.grade_of(hr))]
 	st["final_realm"] = c.realm_index
 	st["lt"] = c.linh_thach
 	st["dan_dao"] = c.skill_level(Alchemy.SKILL)
@@ -658,8 +662,8 @@ func _row_text(r: Dictionary) -> String:
 	var ages: PackedStringArray = []
 	for ri in [1, 2, 3]:
 		ages.append("%-5s %5s" % [gd.realm(ri).name.substr(0, 5), ("%.0f" % r.reached[ri]) if r.reached.has(ri) else "—"])
-	return "use %s cause %s\nseed %4d %-8s %-36s %s | died %3.0f %-22s | LT now %6d max %7d | Đan Đạo %d | ev %3d bt %d crafts %3d trips %d trận %d khí %d %s" % [
-		str(r.use), str(r.cause), r.seed, r.origin, r.root.substr(0, 36), " · ".join(ages), r.death_age, r.final, r.lt, r.max_lt, r.dan_dao, r.events, r.bt_attempts, r.crafts, r.trips, r.builds, r.refines, ",".join(r.pill_sources)]
+	return "use %s cause %s\nseed %4d %-8s %-36s %s | died %3.0f %-22s | LT now %6d max %7d | Đan Đạo %d | ev %3d bt %d crafts %3d trips %d trận %d khí %d home %s %s" % [
+		str(r.use), str(r.cause), r.seed, r.origin, r.root.substr(0, 36), " · ".join(ages), r.death_age, r.final, r.lt, r.max_lt, r.dan_dao, r.events, r.bt_attempts, r.crafts, r.trips, r.builds, r.refines, str(r.get("home", "?")), ",".join(r.pill_sources)]
 
 
 func _summary(rows: Array, origins: Array) -> void:
