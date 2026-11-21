@@ -1,6 +1,6 @@
 # Cave Abode & Home Works (Động Phủ)
 
-> **Status**: In Review (revised 2026-11-21 after design-review round 4)
+> **Status**: Approved 2026-11-21 (lean design-review round 5, no blockers)
 > **Author**: user + Claude
 > **Last Updated**: 2026-11-21
 > **Last Verified**: 2026-11-21
@@ -172,7 +172,7 @@ The npc_raise rule is defined as: each season an NPC at grade g below the top gr
 - **Grade 1:** grade 1 has no raise cost; upkeep is clamped to at least 1; slots never fall below 2.
 - **Unaffordable upkeep:** a poor owner's abode falls one grade after each `grade_fade_seasons` consecutive unpaid seasons and stops at grade 1, which stays their home, so the sink cannot push anyone below grade 1, out of their home or into debt.
 - **Thổ at 100 purity:** the cut is 100 × 0.004 = 0.4 at most (the 0.9 clamp is only a guard), so upkeep never falls below 60 % of the base and never reaches 0.
-- **Positive loop:** richer → higher grade → more slots → more arrays and fields → richer. It is bounded: density and match are capped by Travel & Map Formula B (`c1p` 0.1 and `c1u` 0.75, about 0.85 density, plus 0.30 on `c1u` only where Capability #15 applies), so the late grades buy utility, not cultivation speed, and cannot break the Core Formation gate.
+- **Positive loop:** richer → higher grade → more slots → more arrays and fields → richer. It is bounded: density and match are capped by Travel & Map Formula B (`c1p` 0.1 and `c1u` 0.75, about 0.85 density, +0.30 on `c1u` with Capability #15, both times formation power for the upkept cap, user decision 2026-11-21), and the whole stack by `D_cap` 3.0 (1.8 settled). The late grades buy utility; only a formation-power build buys more cultivation speed from the home, and it stops at `D_cap`.
 - **Dominant purchase:** none for density at the base caps, since grade 3's four slots already hold the works that fill them. Grades 4–5 add Hộ Sơn, Thanh Mộc and fields, and (with Capability #15's two extra Tụ Linh levels) the level ceiling `grade + 2` is what lets levels 6 and 7 stand at grades 4 and 5.
 - **Early raises:** grades 2 and 3 cost little at a low realm, because the price follows the realm at the moment of paying. This is accepted: the upkeep still follows the current realm and grows with it.
 - **Faucet:** none in this GDD. Field output belongs to Spirit Herbs & Fields (#14).
@@ -203,10 +203,12 @@ The npc_raise rule is defined as: each season an NPC at grade g below the top gr
 - **If a claimant's realm is below the old grade's minimum**: the abode comes back at the highest grade the claimant's realm can hold (F4), and the works beyond its slots go dormant.
 - **If the owner dies**: the abode becomes a Ruin directly (the last owner is dead). An heir does **not** inherit it; an heir may claim it under rule 11 like anyone else, at grade − 1 and half the fee.
 - **If a work's level exceeds the ceiling after a grade fall**: it counts at the ceiling and keeps its stored level (rule 9).
+- **If a rented residence's lease ends for unpaid rent** (Travel & Map Formula M): the home stays at that place as a free grade-1 room on the starting residence's terms (2 slots, works up to level 3, no rent); works beyond its slots go dormant (rule 9), and the owner can rent, buy or open a better home from there (user decision 2026-11-21).
 - **If the ruin becomes a hidden place**: its works and grade freeze at the last recorded state and wait for a finder to claim it.
 
 **NPCs**
 
+- **If a hermit dies**: only an abode of at least `ruin_min_grade` (3) leaves a Ruin place, on open land within `ruin_search_radius` (6) tiles of where they were, at its grade and claimable by anyone (rule 11). At most `ruin_cap` (40) NPC Ruins stand; a new one reuses the oldest, so the places table stays bounded (user decision 2026-11-21).
 - **If an NPC cannot afford `grade_cost × npc_reserve_mult`**: no raise is attempted that season and no raise cost is booked (its grade upkeep is still paid).
 - **If an NPC's realm is too low for the next grade** (grade 4 needs Core Formation, grade 5 Nascent Soul): the raise is not attempted.
 - **If a sect leader or member lives at the seat**: they are not an abode owner; the seat's residences follow Travel & Map's rules 33–34.

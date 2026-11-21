@@ -151,3 +151,33 @@ func test_burn_abode_takes_the_raise_the_upkeep_and_the_claim_and_never_the_arra
 	CaveAbode.claim(s.gd, s.db, p, other)
 	CaveAbode.season(s.gd, s.db, p, other.qi)
 	assert_eq(float(MoneyLedger.new(s.db).books().burned.get("abode", 0.0)), 125.0, "the claim season: the fee 125, no upkeep")
+
+
+func test_a_dead_hermit_at_grade_3_leaves_a_capped_claimable_ruin_rule_12() -> void:
+	var s := _session()
+	var loose: Array = s.db.living().filter(func(p): return not bool(p.get("is_player", false)) and not bool(p.get("is_beast", false)) and str(p.get("sect_id", "")) == "" and s.db.get_record("places", str(p.get("location_id", ""))).has("tile"))
+	assert_true(loose.size() >= 3, "loose cultivators on the map")
+	var low: Dictionary = loose[2]
+	low["abode_grade"] = 2
+	for i in 2:
+		loose[i]["abode_grade"] = 3
+	CaveAbode.npc_ruins(s.gd, s.db, 10)
+	var tracked: Dictionary = s.db.get_record("world", "w_abode_npcs").tracked
+	assert_true(tracked.has(str(loose[0].id)) and not tracked.has(str(low.id)), "grade 3+ tracked, grade 2 not")
+	var places0: int = s.db.count("places")
+	loose[0]["alive"] = false
+	low["alive"] = false
+	var made: Array = CaveAbode.npc_ruins(s.gd, s.db, 11)
+	assert_eq(made.size(), 1, "one Ruin, for the grade-3 hermit only")
+	var ruin: Dictionary = s.db.get_record("places", str(made[0]))
+	assert_eq([str(ruin.qi.abode.state), CaveAbode.grade_of(ruin.qi.abode)], ["ruin", 3], "a Ruin at its grade")
+	assert_true(CaveAbode.claimable(ruin, s.player), "anyone may claim it")
+	var cfg: Dictionary = s.gd.file(CaveAbode.FILE)
+	var cap0 = cfg.get("ruin_cap", 40)
+	cfg["ruin_cap"] = 1
+	loose[1]["alive"] = false
+	var made2: Array = CaveAbode.npc_ruins(s.gd, s.db, 12)
+	cfg["ruin_cap"] = cap0
+	assert_eq(made2, made, "at the cap the oldest Ruin is reused")
+	assert_eq(s.db.count("places"), places0 + 1, "the places table stays bounded")
+	assert_true(str(s.db.get_record("places", str(made[0])).name).contains(str(loose[1].name)), "now the newer hermit's")

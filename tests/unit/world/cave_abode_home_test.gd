@@ -170,3 +170,47 @@ func test_the_stat_block_shows_grade_slots_levels_gains_dormancy_upkeep_and_clam
 	assert_true(out.contains("Tụ Linh Trận") and out.contains("level 5") and out.contains("counts at 3"), "the level and the ceiling: %s" % out)
 	assert_true(out.contains("(dormant)"), "the dormant work")
 	assert_true(out.contains("clamped"), "the clamp line")
+
+
+func test_an_old_saves_abode_gets_the_lowest_grade_that_holds_its_works() -> void:
+	var gd := game_data()
+	var qi := _abode(1)
+	qi.layer1.p1["tended_abode"] = {"level": 1}
+	var c := _char(2, 0)
+	c.formations = {"tu_linh": 5, "ho_son": 1}
+	assert_eq(CaveAbode.grade_to_hold(gd, qi, c), 3, "3 works and Tu Linh at 5: grade 3 (4 slots, ceiling 5)")
+	var lk := _char(0, 0)
+	lk.formations = {"tu_linh": 5, "ho_son": 5, "thanh_moc": 5}
+	qi.layer1.p1["private_spring"] = {"level": 1}
+	qi.layer1.p1["focus_array"] = {"level": 1}
+	assert_eq(CaveAbode.grade_to_hold(gd, qi, lk), 3, "Qi Refining: never above its realm's top grade 3")
+	assert_eq(CaveAbode.grade_to_hold(gd, _abode(1), _char(2, 0)), 1, "no works: grade 1")
+
+
+func test_the_owner_chooses_which_work_sleeps_as_a_swap_only_while_one_must_rule_9() -> void:
+	var gd := game_data()
+	var qi := _abode(1)
+	var c := _char(2, 0)
+	c.formations = {"tu_linh": 1}
+	assert_false(bool(CaveAbode.sleep(gd, qi, c, "tu_linh").ok), "no work is dormant: none may be put to sleep")
+	c.formations = {"tu_linh": 1, "ho_son": 1, "thanh_moc": 1}
+	qi.abode["order"] = ["f:tu_linh", "f:ho_son", "f:thanh_moc"]
+	CaveAbode.reconcile(gd, qi, c)
+	assert_eq(Array(qi.abode.dormant), ["f:thanh_moc"], "the default: the latest built")
+	var r: Dictionary = CaveAbode.sleep(gd, qi, c, "ho_son")
+	assert_true(bool(r.ok), "a swap: %s" % str(r.lines))
+	assert_eq(Array(qi.abode.dormant), ["f:ho_son"], "Ho Son sleeps, Thanh Moc wakes")
+	CaveAbode.reconcile(gd, qi, c)
+	assert_eq(Array(qi.abode.dormant), ["f:ho_son"], "the choice holds through a reconcile")
+	assert_eq(CaveAbode.used(qi, c), 2, "still 2 of 2 slots")
+
+
+func test_formation_power_lifts_the_upkept_layer_one_cap_by_the_arrays_factor() -> void:
+	var gd := game_data()
+	var c := _char(2, 0)
+	var base: Dictionary = MapWorks.density(gd, _abode(3), c, 0, 0.9)
+	assert_near(float(base.l1), 0.75, 1e-9, "no power: Tu Linh 0.9 clamped at 0.75")
+	var lifted: Dictionary = MapWorks.density(gd, _abode(3), c, 0, 0.9, 20.0)
+	assert_near(float(lifted.l1), 0.9, 1e-9, "power 20 %: the cap is 0.9, Tu Linh 0.9 fits")
+	var over: Dictionary = MapWorks.density(gd, _abode(3), c, 0, 1.2, 20.0)
+	assert_near(float(over.l1), 0.9, 1e-9, "still capped, at 0.75 x 1.2")

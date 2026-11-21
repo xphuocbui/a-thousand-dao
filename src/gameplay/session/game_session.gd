@@ -1070,12 +1070,22 @@ func claim_abode() -> Dictionary:
 	return {"ok": true, "lines": lines}
 
 
+## Rule 9: the owner picks which work sleeps while a lost slot forces one to (a swap; see CaveAbode.sleep).
+func abode_sleep(id: String, wake: String = "") -> Dictionary:
+	if player.location_id != player.home_id:
+		return {"ok": false, "lines": ["You choose at your home."]}
+	var home: Dictionary = db.get_record("places", player.home_id)
+	var r: Dictionary = CaveAbode.sleep(gd, home.get("qi", {}), player, id, wake)
+	sync_player()
+	return r
+
+
 ## Rule 13: the home's stat block (grade, slots, works and their state, upkeep, the next grade).
 func abode_lines() -> Array:
 	var home: Dictionary = db.get_record("places", player.home_id)
 	if home.get("qi", {}).is_empty():
 		return ["Your home has no land qi (an old generated world)."]
-	return CaveAbode.lines(gd, home.qi, player, sheet().total("home_array_density"))
+	return CaveAbode.lines(gd, home.qi, player, sheet().total("home_array_density"), sheet().total("formation_power_pct"))
 
 
 ## Rents or buys a residence of [param grade] here (Travel & Map rule 34, Formula M): settled ground only, the grade
@@ -1444,14 +1454,14 @@ func place_density(place_id: String) -> float:
 	var bonus: float = sheet().total("density_bonus")
 	if p.get("qi", {}).is_empty():
 		return float(p.get("density", 1.0)) + bonus + sheet().total("home_array_density")
-	return float(LandQi.stacked_density(gd, player, p.qi, float(p.get("density", 1.0)), bonus, sheet().total("home_array_density")).total)
+	return float(LandQi.stacked_density(gd, player, p.qi, float(p.get("density", 1.0)), bonus, sheet().total("home_array_density"), sheet().total("formation_power_pct")).total)
 
 
 func local_density(sh: StatSheet) -> float:
 	var here: Dictionary = db.get_record("places", player.location_id)
 	if here.get("qi", {}).is_empty():
 		return float(here.get("density", 1.0)) + sh.total("density_bonus") + sh.total("home_array_density")
-	return float(LandQi.stacked_density(gd, player, here.qi, float(here.get("density", 1.0)), sh.total("density_bonus"), sh.total("home_array_density")).total)
+	return float(LandQi.stacked_density(gd, player, here.qi, float(here.get("density", 1.0)), sh.total("density_bonus"), sh.total("home_array_density"), sh.total("formation_power_pct")).total)
 
 
 ## True if a talisman would go on this attempt: one held, and none used this realm step.
@@ -1984,6 +1994,7 @@ func load_dict(d: Dictionary) -> Dictionary:
 	if not home_l.get("qi", {}).is_empty():
 		if str(home_l.get("owner_id", "")) == player.id and not home_l.qi.has("abode"):
 			home_l.qi["abode"] = {"owner": player.id, "grade": 1, "unpaid": 0, "pending": 0, "state": "open", "order": [], "dormant": []}
+			home_l.qi.abode["grade"] = CaveAbode.grade_to_hold(gd, home_l.qi, player)   # grandfathered (user, 2026-11-21)
 		start_residence()
 		CaveAbode.reconcile(gd, home_l.qi, player)
 	var migrated: bool = _player_migrated

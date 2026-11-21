@@ -526,7 +526,9 @@ renormalised: the ground grows richer and other elements are not reduced). Herb 
 
 The stacked_density formula is defined as:
 
-`D = min(D_cap, D4 + min(c3, ΔD3) + min(c2p, ΔD2p) + min(c2u, ΔD2u) + min(c1p, ΔD1p) + min(c1u, ΔD1u) + density_bonus)`
+`D = min(D_cap, D4 + min(c3, ΔD3) + min(c2p, ΔD2p) + min(c2u, ΔD2u) + min(c1p, ΔD1p) + min(c1u_eff, ΔD1u) + density_bonus)`
+
+`c1u_eff = (c1u + 0.30 where Capability #15 applies) × (1 + formation_power_pct / 100)`
 
 The stacked_match formula is defined as:
 
@@ -538,7 +540,7 @@ The stacked_match formula is defined as:
 | D4 | float | 0.3–2.4 | calculated (C) | Land density, scars included |
 | ΔD3; c3 | float | 0+; 1.0 | calculated; data file (`density_cap_l3`) | Blessed land or secret. Targets: large 0.5–1.0, small 0.3–0.6, secret 0.1–0.3 *(guess)* |
 | ΔD2p, ΔD2u; c2p, c2u | float | 0+; 0.1, 0.5 | calculated; data file | Shared works, permanent and upkept |
-| ΔD1p, ΔD1u; c1p, c1u | float | 0+; 0.1, 0.75 | calculated; data file | Home works; Tụ Linh Trận is ΔD1u (0.15 per level). Capability #15 raises c1u by 0.30 (its two extra levels) |
+| ΔD1p, ΔD1u; c1p, c1u | float | 0+; 0.1, 0.75 | calculated; data file | Home works; Tụ Linh Trận is ΔD1u (0.15 per level, times formation power). Capability #15 raises c1u by 0.30 (its two extra levels); formation power lifts the cap by the same factor as the array (user decision 2026-11-21), so a formation build keeps scaling home density up to D_cap |
 | density_bonus | float | 0+ | calculated (stat sheet) | The personal stat from the tree and items only, shown on its own line. Tụ Linh Trận no longer writes it: it counts once, as ΔD1u (re-ruled 2026-11-10); Realms' "place density plus `density_bonus`" reads the stacked density |
 | D_cap | float | 3.0 | data file (`density_cap`) | Overall density cap |
 | Δs_{i,t}; cs_i | float | 0–100; 80 / 30 / 30 | calculated; data file | Share push on layer i; within 30 on layers 2 and 1, permanent 10 and upkept 20 |

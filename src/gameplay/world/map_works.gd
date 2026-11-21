@@ -37,7 +37,7 @@ static func cost(gd: GameData, id: String, level: int) -> Dictionary:
 
 
 ## Formula B's density adds from layers 2 and 1 for [param c] at a place with [param qi]: {l2, l1, lines}.
-static func density(gd: GameData, qi: Dictionary, c: Character, residence_grade: int = 0, l1u_arrays: float = 0.0) -> Dictionary:
+static func density(gd: GameData, qi: Dictionary, c: Character, residence_grade: int = 0, l1u_arrays: float = 0.0, power_pct: float = 0.0) -> Dictionary:
 	var caps: Dictionary = cfg(gd).get("caps", {})
 	var l2p: float = 0.0
 	var l2u: float = float(qi.get("prebuilt", 0.0))
@@ -77,6 +77,7 @@ static func density(gd: GameData, qi: Dictionary, c: Character, residence_grade:
 	var c1u: float = float(caps.get("c1u", 0.75))
 	if c != null and c.has_capability(15):   # Cave Abode: Capability #15's extra Tu Linh levels need cap room
 		c1u += float(gd.file(CaveAbode.FILE).get("c1u_capability_15", 0.0))
+	c1u *= 1.0 + maxf(power_pct, 0.0) / 100.0   # Formula B c1u_eff: formation power lifts the cap (user decision 2026-11-21)
 	if l1p > float(caps.get("c1p", 0.1)) + 1e-9:
 		lines.append("Layer 1 permanent density +%.2f clamped at %.2f (Formula B)" % [l1p, float(caps.get("c1p", 0.1))])
 	if l1u > c1u + 1e-9:

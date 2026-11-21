@@ -34,23 +34,21 @@ Started 2026-11-21 evening at the user's request ("please implement also the cav
 
 ## Decisions for the user
 
-1. **The GDD header says In Review, the systems index says Approved.** Which is right (the other session owns both).
-2. **Old saves.** A loaded save's self-built abode gets a grade-1 record and any other home becomes the free
-   grade-1 residence; works and arrays above its limits count at the ceiling or go dormant (Tụ Linh 5 counts at 3).
-   Alternative: grandfather an old save's abode at the grade its works need.
-3. **Dormancy picks the latest built** (rule 9's default); the player cannot yet choose which work sleeps.
-4. **NPC Ruins are not placed.** A dead hermit's abode is not made a claimable place (it would grow the places
-   table without bound); the player's own abode does become a Ruin on death.
-5. **Tụ Linh's power scaling.** `formation_power_pct` still multiplies Tụ Linh's density before the layer-1 cap
-   (c1u 0.75, +0.3 with Capability #15), so power past the cap is wasted. Intended, or should power raise the cap?
-6. **AC-CA-21 (screenshot of the abode block)** waits for Game UI (#37); the terminal `abode` command prints it.
-7. **Fields (#14)** are not built, so the field-slot rules have nothing to hold yet.
-8. **A lost lease** (Formula M, one unpaid season) used to erase the residence and leave the home with no record,
-   which lifted every slot and ceiling limit. It now falls back to a free grade-1 room at the same place (the
-   starting-room terms; works over its 2 slots go dormant). Neither GDD says what a lost lease leaves; the
-   alternative is to make the player homeless until they rent, buy or open a home.
-9. **ACs still open:** AC-CA-05 (fields, #14 not built), AC-CA-18 (`seat_density`, player-founded sects not built),
-   AC-CA-21 (the abode screen, Game UI #37).
+Answered by the user 2026-11-21 (one by one):
+
+1. **GDD status:** set to Approved (round 5, no blockers) to match the index.
+2. **Old saves:** grandfathered. An old abode loads at the lowest grade that holds all its works (`CaveAbode.grade_to_hold`, up to 5 and the realm's top grade); residences keep their grade, the starting room is grade 1.
+3. **Dormancy choice:** `abode sleep <work> [<dormant work>]`, a swap allowed only while a work is dormant (`CaveAbode.sleep`); the default stays the latest built.
+4. **NPC Ruins:** rare and capped. A dead loose cultivator at grade 3+ (`ruin_min_grade`) leaves a Ruin place within 6 tiles (`ruin_search_radius`); at most 40 (`ruin_cap`), and the oldest is reused (`CaveAbode.npc_ruins`, world record `w_abode_npcs`). GDD Edge Cases bullet added.
+5. **Tụ Linh power:** formation power lifts the cap. Travel & Map Formula B now has `c1u_eff = (c1u + 0.30 with Capability #15) × (1 + formation_power_pct / 100)`, and Cave Abode's loop check is reworded (GDD edits approved).
+6. **Lost lease:** keep the free grade-1 room; GDD Edge Cases bullet added.
+7. **Open ACs stay open and tracked here:**
+
+| AC | Waits on | Pick up when |
+|---|---|---|
+| AC-CA-05 (a field in a slot bills upkeep, stops when dormant) | Spirit Fields #14 as home works | fields are built as layer-1 works |
+| AC-CA-18 (a dormant Tụ Linh fails `seat_density` 1.5) | player-founded sects (Sects rule 29) | sect founding is built |
+| AC-CA-21 (the abode screen screenshot) | Game UI #37 | the abode screen is built; the terminal `abode` block stands in |
 
 ## Progress
 

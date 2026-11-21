@@ -160,6 +160,41 @@ static func reconcile(gd: GameData, qi: Dictionary, c: Character) -> Array:
 	return out
 
 
+## Rule 9, the owner's choice (user decision 2026-11-21): while works are dormant for lost slots, [param c] may send the
+## active work [param id] to dormancy in exchange for the dormant [param wake] (the earliest built when ""). A swap, so
+## the dormant count never changes: dormancy is never chosen to dodge upkeep. [param id] is a map work or formation id.
+## {ok, lines}.
+static func sleep(gd: GameData, qi: Dictionary, c: Character, id: String, wake: String = "") -> Dictionary:
+	var rec: Dictionary = home_rec(qi, c.id)
+	if rec.is_empty():
+		return {"ok": false, "lines": ["You are not at your home."]}
+	var dormant: Array = rec.get("dormant", [])
+	if dormant.is_empty():
+		return {"ok": false, "lines": ["No work is dormant: a work sleeps only when a lost slot forces it (rule 9)."]}
+	var key: String = _key_of(qi, c, id)
+	if key == "" or dormant.has(key):
+		return {"ok": false, "lines": ["%s is not an active work here." % id]}
+	var back: String = _key_of(qi, c, wake) if wake != "" else ""
+	if wake != "" and not dormant.has(back):
+		return {"ok": false, "lines": ["%s is not dormant." % wake]}
+	if back == "":
+		for k in rec.get("order", []):
+			if dormant.has(k):
+				back = str(k)
+				break
+	dormant.erase(back)
+	dormant.append(key)
+	rec["dormant"] = dormant
+	return {"ok": true, "lines": ["%s goes dormant; %s wakes in its slot." % [key.substr(2), back.substr(2)]]}
+
+
+static func _key_of(qi: Dictionary, c: Character, id: String) -> String:
+	for k in held(qi, c):
+		if str(k).substr(2) == id:
+			return str(k)
+	return ""
+
+
 ## Rules 3 and 7: whether [param c] may raise work [param key] to [param level] at the home with [param qi] (a free slot
 ## for a new work, and the level ceiling). {ok, reason}.
 static func can_raise(gd: GameData, qi: Dictionary, c: Character, key: String, level: int, work_max: int) -> Dictionary:
@@ -230,7 +265,7 @@ static func season(gd: GameData, db: WorldDB, c: Character, qi: Dictionary) -> A
 
 ## Rule 13: the abode stat block for [param c] at the home with [param qi] (grade, slots, works with level and state,
 ## the grade upkeep, the next grade).
-static func lines(gd: GameData, qi: Dictionary, c: Character, l1u_arrays: float = 0.0) -> Array:
+static func lines(gd: GameData, qi: Dictionary, c: Character, l1u_arrays: float = 0.0, power_pct: float = 0.0) -> Array:
 	var rec: Dictionary = home_rec(qi, c.id)
 	if rec.is_empty():
 		return ["This is not your home."]
@@ -248,14 +283,33 @@ static func lines(gd: GameData, qi: Dictionary, c: Character, l1u_arrays: float 
 		var stat: String = str(d.get("stat", ""))
 		var gain: String = gd.format_mod("density_bonus" if stat == "density" else stat, float(d.get("per_level", 0.0)) * eff) if eff > 0 and stat != "" else "nothing"
 		var state: String = " (dormant)" if dormant.has(k) else (" (counts at %d, the grade's ceiling)" % eff if eff < lv else "")
-		out.append("  %-16s level %d: %s%s" % [str(d.get("name", id)), lv, gain, state])
-	for l in MapWorks.density(gd, qi, c, 0, l1u_arrays).lines:   # rule 13: every clamp line
+		out.append("  %-16s [%s] level %d: %s%s" % [str(d.get("name", id)), id, lv, gain, state])
+	for l in MapWorks.density(gd, qi, c, 0, l1u_arrays, power_pct).lines:   # rule 13: every clamp line
 		if str(l).contains("clamped"):
 			out.append("  " + str(l))
 	if is_abode(rec) and g < 5:
 		out.append("  next grade %d: %d linh thạch, %d slots%s" % [g + 1, grade_cost(gd, g + 1, c.realm_index), slots(gd, g + 1),
 			"" if g + 1 <= top_grade(gd, c.realm_index) else " (needs a higher realm)"])
 	return out
+
+
+## Old saves (user decision 2026-11-21): the lowest grade, up to 5 and the realm's top grade, whose slots hold every
+## work [param c] has at the home with [param qi] and whose level ceiling holds each one's level. Nothing gets weaker on
+## the first load.
+static func grade_to_hold(gd: GameData, qi: Dictionary, c: Character) -> int:
+	var keys: Array = held(qi, c)
+	var top: int = mini(5, top_grade(gd, c.realm_index))
+	for g in range(1, top + 1):
+		var fits: bool = keys.size() <= slots(gd, g)
+		for k in keys:
+			var id: String = str(k).substr(2)
+			var lv: int = int(qi.get("layer1", {}).get(c.id, {}).get(id, {}).get("level", 0)) if str(k).begins_with("w:") else int(c.formations.get(id, 0))
+			var d: Dictionary = MapWorks.work(gd, id) if str(k).begins_with("w:") else _formation_def(gd, id)
+			if lv > ceiling(gd, g, int(d.get("max", d.get("max_level", lv)))):
+				fits = false
+		if fits:
+			return g
+	return top
 
 
 static func _formation_def(gd: GameData, id: String) -> Dictionary:
@@ -391,6 +445,7 @@ static func npc_season(gd: GameData, db: WorldDB, money: MoneyLedger, seed_s: St
 		if pay > 0.0:
 			takes.append(["npc:%s" % p.id, pay])
 			total += pay
+	npc_ruins(gd, db, abs_season)
 	if money != null:
 		money.burn_many(takes, "abode")
 	else:
@@ -398,6 +453,91 @@ static func npc_season(gd: GameData, db: WorldDB, money: MoneyLedger, seed_s: St
 			var p: Dictionary = db.get_record("people", str(e[0]).substr(4))
 			p["linh_thach"] = float(p.get("linh_thach", 0.0)) - float(e[1])
 	return total
+
+
+## Rule 12, the dead hermit's Ruin (user decision 2026-11-21: rare and capped). The loose cultivators whose abode is
+## at least ruin_min_grade are tracked in the world record w_abode_npcs; one found dead leaves a Ruin place on open
+## land near where they were, at their grade, claimable by anyone (rule 11). At ruin_cap NPC Ruins the oldest one is
+## reused for the new one (the places table stays bounded). Returns the ids of the Ruins made.
+static func npc_ruins(gd: GameData, db: WorldDB, abs_season: int) -> Array:
+	var made: Array = []
+	var min_g: int = int(cfg(gd).get("ruin_min_grade", 3))
+	if not db.has_record("world", "w_abode_npcs"):
+		db.put("world", {"id": "w_abode_npcs", "tracked": {}})
+	var tracked: Dictionary = db.get_record("world", "w_abode_npcs").tracked
+	for pid in tracked.keys():
+		var p: Dictionary = db.get_record("people", str(pid))
+		if p.is_empty() or not bool(p.get("alive", true)):
+			var id: String = _npc_ruin(gd, db, p, int(tracked[pid]), abs_season)
+			if id != "":
+				made.append(id)
+			tracked.erase(pid)
+	for p in db.living():
+		if int(p.get("abode_grade", 1)) >= min_g and str(p.get("sect_id", "")) == "" and bool(p.get("alive", true)):
+			tracked[str(p.id)] = int(p.abode_grade)
+		elif tracked.has(str(p.id)):
+			tracked.erase(str(p.id))
+	return made
+
+
+static var _grid: ContinentGrid = null
+
+
+static func _npc_ruin(gd: GameData, db: WorldDB, p: Dictionary, grade: int, abs_season: int) -> String:
+	var near: Dictionary = db.get_record("places", str(p.get("location_id", p.get("home_id", ""))))
+	if not near.has("tile"):
+		return ""
+	var tg: TravelGrid = TravelGrid.of(gd)
+	if not tg.errors.is_empty():
+		return ""
+	if _grid == null:
+		_grid = ContinentGrid.from_continent(gd)
+	var taken := {}
+	for q in db.all("places"):
+		if q.has("tile"):
+			taken[Vector2i(int(q.tile[0]), int(q.tile[1]))] = true
+	var at := Vector2i(-1, -1)
+	var r_max: int = int(cfg(gd).get("ruin_search_radius", 6))
+	for r in range(1, r_max + 1):
+		for dx in range(-r, r + 1):
+			for dy in [-r, r] if absi(dx) != r else range(-r, r + 1):
+				var t := Vector2i(int(near.tile[0]) + dx, int(near.tile[1]) + int(dy))
+				if at.x < 0 and tg.passable(t) and not taken.has(t):
+					at = t
+		if at.x >= 0:
+			break
+	if at.x < 0:
+		return ""
+	var part: int = -1
+	var q: Dictionary = {}
+	for k in 3:
+		var pq: Dictionary = _grid.part_qi(at.x, at.y, k)
+		if not pq.is_empty() and not int(_grid.value("BIO%d" % (k + 1), at.x, at.y)) in [ContinentGrid.SEA_ID, ContinentGrid.LAKE_ID]:
+			if part < 0 or float(pq.density) > float(q.density):
+				part = k
+				q = pq
+	if part < 0:
+		return ""
+	var ruins: Array = db.find("places", func(x): return str(x.get("kind", "")) == "abode" and bool(x.get("npc_ruin", false)) and str(x.get("qi", {}).get("abode", {}).get("state", "")) == "ruin")
+	var rec := {"name": "Phế động phủ của %s" % str(p.get("name", "?")), "type": "dong_phu", "kind": "abode", "region_id": str(near.get("region_id", "")),
+		"density": float(q.density), "danger": int(q.danger), "market": false, "bounties": false, "links": [], "sect_id": "",
+		"tile": [at.x, at.y], "qi": {"shares": q.shares, "variants": q.variants, "land_density": float(q.density), "part": part, "layer1": {},
+			"abode": {"owner": str(p.get("id", "")), "grade": grade, "unpaid": 0, "pending": 0, "state": "ruin", "order": [], "dormant": []}},
+		"owner_id": str(p.get("id", "")), "npc_ruin": true, "ruin_season": abs_season}
+	WorldBuilder._climate(rec, _grid)
+	if ruins.size() >= int(cfg(gd).get("ruin_cap", 40)):
+		ruins.sort_custom(func(a, b): return int(a.get("ruin_season", 0)) < int(b.get("ruin_season", 0)))
+		var old: Dictionary = ruins[0]   # reused: the oldest Ruin has decayed past finding
+		var keep_id: String = str(old.id)
+		old.clear()
+		old.merge(rec)
+		old["id"] = keep_id
+		return keep_id
+	var id: String = db.add("places", rec)
+	var region: Dictionary = db.get_record("regions", str(rec.region_id))
+	if not region.is_empty():
+		region.places.append(id)
+	return id
 
 
 ## One NPC's F5 season on its record [param p] with roll [param u]: sets abode_grade and abode_unpaid and returns the
