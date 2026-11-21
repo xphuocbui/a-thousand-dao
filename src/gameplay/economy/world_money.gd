@@ -195,13 +195,21 @@ static func mission_pay(gd: GameData, rl: int) -> float:
 static func _pay_missions(gd: GameData, money: MoneyLedger, payer: String, takers: Array, budget: float, cause: String) -> float:
 	if takers.is_empty() or budget <= 0.0:
 		return 0.0
+	var pay_rl: Array = []   # Sects F12's pay by realm, read once (the takers are thousands)
+	var n_rl: int = Array(_cfg(gd).money.mission_scale).size()
+	for rl in n_rl:
+		pay_rl.append(mission_pay(gd, rl))
 	var want: float = 0.0
-	for p in takers:
-		want += mission_pay(gd, int(p.get("realm_index", 0)))
+	var each := PackedFloat64Array()
+	each.resize(takers.size())
+	for i in takers.size():
+		each[i] = float(pay_rl[clampi(int(takers[i].get("realm_index", 0)), 0, n_rl - 1)])
+		want += each[i]
 	var f: float = minf(1.0, budget / maxf(want, 1e-9))
 	var pays: Array = []
-	for p in takers:
-		pays.append(["npc:%s" % p.id, mission_pay(gd, int(p.get("realm_index", 0))) * f])
+	pays.resize(takers.size())
+	for i in takers.size():
+		pays[i] = ["npc:%s" % takers[i].id, each[i] * f]
 	return money.pay_out(payer, pays, cause)
 
 
@@ -236,6 +244,7 @@ static func _baskets(gd: GameData, db: WorldDB, money: MoneyLedger, idx: Diction
 		var takes: Array = []
 		var stones: Array = []
 		for p in takers_by.get(str(m.id), []):
+			var holder: String = "npc:%s" % p.id
 			var rl: int = clampi(int(p.get("realm_index", 0)), 0, 4)
 			var rid: String = str(idx.region_of.get(str(p.id), ""))
 			var ck: String = "%s|%d" % [rid, rl]
@@ -244,21 +253,20 @@ static func _baskets(gd: GameData, db: WorldDB, money: MoneyLedger, idx: Diction
 			var cost: float = float(cost_of[ck])
 			var sp: Dictionary = EconomyRules.npc_spend(cfg, rl, float(p.get("linh_thach", 0.0)), cost)
 			var paid: float = minf(float(sp.basket_spend), float(p.get("linh_thach", 0.0)))
-			takes.append(["npc:%s" % p.id, paid])
+			takes.append([holder, paid])
 			var fill: float = 1.0 if cost <= 0.0 else minf(1.0, paid / cost)
 			p["prov"] = float(cfg.provision.prov_max) * fill
 			# Formula J: s_spend of what is left above reserve goes to stones, up to the absorb cap at the realm's rate
 			var rate: float = float(cfg.money.npc_rate_ref[rl])
 			var st: Dictionary = EconomyRules.stone_tu_vi(cfg, rl, float(sp.stones), rate)
 			var burned: float = minf(float(st.spent), maxf(0.0, float(p.get("linh_thach", 0.0)) - paid))
-			stones.append(["npc:%s" % p.id, burned])
+			stones.append([holder, burned])
 			p["stone_boost"] = 0.0 if rate <= 0.0 else burned / float(cfg.money.spt[rl]) / rate
 			sum_fill[rl] += fill
 			n[rl] += 1
 			turnover += paid
 		money.collect_in(takes, pool, "basket")
-		for e in stones:
-			money.burn(str(e[0]), float(e[1]), "stones")
+		money.burn_many(stones, "stones")   # each NPC's stones after its basket (the purse was read before both)
 		var fills: Array = []
 		for rl in 5:
 			fills.append(1.0 if n[rl] == 0 else float(sum_fill[rl]) / float(n[rl]))
@@ -362,7 +370,8 @@ static func _treasury_rule(gd: GameData, db: WorldDB, money: MoneyLedger, idx: D
 		var pl: Dictionary = SectPolitics.pulls_of(gd, db, s)
 		var cfg_s: Dictionary = cfg
 		if pl.has("invest_share"):   # Sects F15: a Diligent or Lazy head sets the invest share
-			cfg_s = cfg.duplicate(true)
+			cfg_s = cfg.duplicate()   # a shallow copy with its own money block (the rest is only read)
+			cfg_s["money"] = Dictionary(cfg.money).duplicate()
 			cfg_s.money.inv_frac = float(pl.invest_share)
 		var t: Dictionary = EconomyRules.treasury_invest(cfg_s, money.balance(treasury), 0.0, cost)
 		if float(t.invest) <= 0.0:

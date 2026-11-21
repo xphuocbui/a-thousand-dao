@@ -160,6 +160,27 @@ func burn(from: String, amount: float, cause: String) -> float:
 	return n
 
 
+## Burns many holders at once ([param takes]: [[holder, amount], ...], NPCs and sects, not the player), each capped at
+## its balance, booked once under [param cause]: the batched form of [method burn]. Returns the total burned.
+func burn_many(takes: Array, cause: String) -> float:
+	var total: float = 0.0
+	for e in takes:
+		assert(str(e[0]) != PLAYER, "burn_many: the player burns one by one (whole stones, player_net)")
+		var fr: Array = _slot(str(e[0]))
+		if fr.is_empty():
+			continue
+		var have: float = float(fr[0].get(fr[1], 0.0))
+		var n: float = minf(maxf(0.0, float(e[1])), have)
+		if n <= 0.0:
+			continue
+		fr[0][fr[1]] = have - n
+		total += n
+	if total > 0.0:
+		var b: Dictionary = _books()
+		b.burned[cause] = float(b.burned.get(cause, 0.0)) + total
+	return total
+
+
 ## The player is paid up to [param amount] by [param from] (whole stones; Formula H's payers: a treasury, a commons
 ## pool, a lost stash). Off the continent (a world with no markets) the money is made, as built. Returns what was paid.
 static func player_take(db: WorldDB, c: Character, from: String, amount: float, cause: String) -> int:

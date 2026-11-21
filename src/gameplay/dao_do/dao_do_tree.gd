@@ -43,6 +43,8 @@ var start_of: Dictionary = {}
 var baseline: String = ""
 
 static var _cache: Dictionary = {}
+## Node id -> its modifier lines before the land scale (collect_mods); nodes never change after loading.
+var _lines_cache: Dictionary = {}
 
 
 ## The map from game data. Built once per [GameData] and shared: the tree is read-only.
@@ -353,14 +355,31 @@ static func _rate(owned: bool, p: float, fx: Dictionary) -> float:
 ## for a plain line; a scoped line keeps its tags (the sheet holds it apart, ADR-0004 decision 4).
 func collect_mods(c: Character, gd: GameData) -> Array:
 	var out: Array = []
+	var scales := {}   # one scale per land area in this call (an NPC's ~280 nodes sit in a handful of areas)
 	for a in c.tree_nodes:
-		var nd: Dictionary = node(int(a))
-		if nd.is_empty() or not nd.has("mods"):
+		var lines: Array = _node_lines(int(a))
+		if lines.is_empty():
 			continue
-		var scale: float = node_scale(int(a), c.linh_can, gd)
+		var nd: Dictionary = node(int(a))
+		var ak: String = "%d|%s" % [int(nd.get("area_kind", AREA_EXACT)), str(nd.get("area_ids", []))]
+		if not scales.has(ak):
+			scales[ak] = node_scale(int(a), c.linh_can, gd)
+		var scale: float = float(scales[ak])
+		for m in lines:
+			out.append({"source": m.source, "stat": m.stat, "value": float(m.value) * scale, "scope": m.scope})
+	return out
+
+
+# A node's modifier lines before the land scale, built once: [{source, stat, value, scope}] (callers copy the scope).
+func _node_lines(node_id: int) -> Array:
+	if _lines_cache.has(node_id):
+		return _lines_cache[node_id]
+	var nd: Dictionary = node(node_id)
+	var out: Array = []
+	if not nd.is_empty() and nd.has("mods"):
 		for m in nd.mods:
-			out.append({"source": source_name(int(a)), "stat": str(m.stat), "value": float(m.value) * scale,
-				"scope": Array(m.get("scope", []))})
+			out.append({"source": source_name(node_id), "stat": str(m.stat), "value": float(m.value), "scope": Array(m.get("scope", []))})
+	_lines_cache[node_id] = out
 	return out
 
 
