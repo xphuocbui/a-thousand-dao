@@ -2615,10 +2615,9 @@ formulas:
       - field_plots
       - field_level
       - plots_per_field_level
-      - max_plots
-    output_range: ["1", "12"]
-    expression: "plots = clamp(base_plots 3 + floor(tho_purity * 0.04) + floor(field_plots stat) + floor(field_level * plots_per_field_level 1), 1, max_plots 12); the first three terms are the free home garden, the last is the Linh Dien field work (Cave Abode slot)"
-    notes: "Spirit Herbs F2, rules 3-4. Realms Formula D's n_plots lacks the field-work term and the cap (back-link owed). plots_per_field_level is a guess."
+    output_range: ["1", "no upper bound (Character Stats rule 14, max_plots removed 2026-11-10)"]
+    expression: "plots = max(1, base_plots 3 + floor(tho_purity * 0.04) + total(field_plots)) (Character Stats Formulas G, read by Realms Formula D); total(field_plots) = tree and edges + floor(field_level * plots_per_field_level 1) from the Linh Dien field work (Cave Abode slot, a modifier with source home work)"
+    notes: "Spirit Herbs F2, rules 3-4. No change owed in Realms D. The built max_plots 12 in session_actions.json is stale. plots_per_field_level is a guess."
     added: 2026-11-21
     revised: ""
   - name: linh_dien_mastery

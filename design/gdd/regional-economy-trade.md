@@ -819,6 +819,7 @@ report raised. Review manually before production.
 | Balance Simulation Harness (#33) | Soft | Runs the economy tick for 400 seasons and checks the health metrics (Formula H) | Built | Index |
 | Formations (#17) | Soft | In: stones burnt: laid diagrams' fuel (Formations F2; NPC fuel as an aggregate), standing-array upkeep, protective triggers (F5), booked as `burn_formation` in Formula H; teleport arrays stay on `teleport_fees` | Designed 2026-11-21, pending review | Yes |
 | Cave Abode & Home Works (#47) | Soft | In: the stones above, booked as `burn_abode` in Formula H | Designed 2026-11-21, pending review | Yes |
+| Spirit Herbs & Fields (#14) | Soft | In: seeds bought from the commons pool (a purchase, no burn); out: the harvested herb's `origin_market` tag | Designed 2026-11-21, pending review | Yes |
 | Trade Goods (#45) | Hard (amends rules 4, 9, 19; Formulas C, E, G, H, I, L2) | In: named goods and compositions, scarcity factors, crafted classes, the craft plan, `craft_in`, crafted demand. Out: class prices, local prices, stock, flows, baskets | Approved 2026-11-15 (design-review 12); its Open Question 14 amendments applied here 2026-11-15 | Yes (Trade Goods Dependencies lists #43) |
 
 ## Tuning Knobs

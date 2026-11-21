@@ -189,7 +189,7 @@ here but not built yet.
     - craft mastery (đạo nghệ): a craft's mastery level may add sheet modifiers on its
       own craft keys. Spirit Fields mastery adds `herb_growth_pct` (cross-GDD review 04f,
       C2); the curve belongs to the craft's system (Spirit Herbs & Spirit Fields, system
-      14, for this one), and the mastery level itself stays in this GDD;
+      14, for this one: Linh Điền mastery, xp from growth years in plots, `design/gdd/spirit-herbs.md` F4), and the mastery level itself stays in this GDD;
     - the Way (Đạo): stat lines and Effects on its notables (`dao.md` rules 3 and 4);
     - `tribulation_tempered`: the survivor's lasting buff (`thien-kiep.md`);
     - `quest_boon`: a quest's lasting gain (`quests.md` Formulas D).
@@ -582,7 +582,7 @@ The element_multipliers formulas are defined as:
 
 `mission_income = (1 + k_m · purity_metal) · max(0, 1 + mission_income_pct/100)`
 
-`plots = max(1, base_plots + ⌊k_f · purity_earth⌋ + total(field_plots))` (no upper bound since 2026-11-10)
+`plots = max(1, base_plots + ⌊k_f · purity_earth⌋ + total(field_plots))` (no upper bound since 2026-11-10; `total(field_plots)` includes the Linh Điền field work's plots, `design/gdd/spirit-herbs.md` rule 4)
 
 Toxicity decay is in D. `total(field_plots)` is the stat sheet's `field_plots` total.
 Herb growth and mission income multiply; field plots and toxicity decay add (rule 11).
@@ -897,7 +897,7 @@ below.
 | 11 | Progression Edges | Destiny perk modifiers and flags | No player edge |
 | 42 | NPC Traits | Trait stat rows (source `trait`); reads fortune for the fate-given roll and Dao heart for the personality swap; adds heart demon for acting against traits (`design/gdd/npc-traits.md` F1, F4, F7, F8; added 2026-11-14) | No trait rows |
 | 17 | Formations | Formation modifiers | No formation bonuses |
-| 14 | Spirit Herbs & Spirit Fields | Spirit Fields mastery `herb_growth_pct` (curve owned there) | No mastery growth bonus |
+| 14 | Spirit Herbs & Spirit Fields | Linh Điền mastery `herb_growth_pct` (per-level value owned there, `spirit-herbs.md` F4) and the field work's plots as a `field_plots` source (its rule 4) | No mastery growth bonus |
 | 22 | Heavenly Tribulation | The `tribulation_tempered` line: a lasting modifier source granted once, on surviving the Deity Transformation tribulation, using existing stat keys within `tempered_buff_w` (`design/gdd/thien-kiep.md` rule 9, Formulas E) | No tempered buff |
 | 31 | Quests | The `quest_boon` line: a lasting modifier source granted on a major quest, using existing stat keys within `quest_boon_w` and a lifetime `quest_gain_cap_w` (`design/gdd/quests.md` rule 11, Formulas D) | No quest gains |
 | 46 | NPC Relationships | `cultivation_speed_pct` rows with source `tie`: +5 for a disciple whose master lives at a higher realm, +8 for each đạo lữ in the same place at the end of the season; rows added and removed by #46's hook pass at the end of S8b (`npc-relationships.md` rule 15a, Formula F) | No tie rows |

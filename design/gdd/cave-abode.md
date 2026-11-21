@@ -34,7 +34,7 @@ All fractions and counts are **guesses** for the balance harness.
    - the **layer-1 works** of `map_works.json` (`tended_abode`, `private_spring`, `focus_array`, and later ones), whose records this GDD now owns;
    - the **standing arrays of Formations** (Tụ Linh, Thanh Mộc, Hộ Sơn): their records, build cost, upkeep and skill cap stay Formations' (Part II, F3), and each takes one slot here;
    - a **field** (rule 5).
-5. **Fields take a slot.** A private field is a home work that holds one slot and has an upkeep. What it grows, how herbs age and Thanh Mộc's growth bonus stay with Spirit Herbs & Fields (#14). This GDD defines no herb output.
+5. **Fields take a slot.** A private field is a home work that holds one slot and has an upkeep. What it grows, how herbs age and Thanh Mộc's growth bonus stay with Spirit Herbs & Fields (#14, `design/gdd/spirit-herbs.md`), which also makes the field work a source of the `field_plots` stat (its rules 3, 4); the home garden of plots stays free. This GDD defines no herb output.
 6. **Raising the grade** (self-built and claimed abodes; a rented or bought residence's grade is fixed by the residence, and getting a better one means renting a better one). A grade is raised at the home with seasons and linh thạch: `grade_cost = linh_thach_max[realm] × grade_cost_frac[grade]` (a realm-scaled share) and one season per grade. A raise to grade g also needs a realm that can hold g (rule 2), or it is refused and nothing is spent. **Timing:** the stones are paid when the raise starts; the new grade's slots, level ceiling and upkeep apply from the next season (the old grade holds in between). Opening an abode still costs Travel & Map's `abode_cost_frac`, paid at the start, and the abode is Open from that season. The **entry works keep their flat prices**; only the grade ladder and the abode's own upkeep (rule 8) scale with realm.
 7. **Building and raising works** is as today: at the home only, spending seasons, linh thạch and materials (`MapWorks.build`), within the level ceiling (rule 3) and the free slots. Layer 1's contribution to Formula B is still capped there (`c1p`, `c1u`, share and match caps); this GDD never changes those caps.
 8. **Abode upkeep** (self-built and claimed abodes; a residence pays rent under Travel & Map Formula M instead of the grade upkeep, and the upkeep and fade clocks of its upkept works still apply). Each season the home pays `grade_upkeep = linh_thach_max[realm] × upkeep_frac[grade]` (a realm-scaled share, cut by Thổ purity as upkept works are today) plus the upkeep of its upkept works, except Formations' standing arrays, whose upkeep stays on Formations' yearly tick (Formations rule 14). This is the perpetual sink. The fade clock counts **consecutive** unpaid seasons of the grade upkeep (Formulas F2). At `grade_fade_seasons` the grade drops by one and the clock resets to 0, so a further `grade_fade_seasons` unpaid seasons drop it again; any paid season resets the clock. **Grade 1 is a floor:** an unpaid grade-1 abode stays the owner's home (Neglected) and its grade never drops below 1; only its upkept works fade, on their own clocks. A home becomes Left only when the owner moves away (rule 10).
@@ -75,7 +75,7 @@ All fractions and counts are **guesses** for the balance harness.
 | Travel & Map #25 | out | `ΔD1p`, `ΔD1u`, layer-1 share and match from the active works, for Formula B; the home record | Travel & Map owns Formula B and every cap; this GDD owns layer 1's contents and the slot rules |
 | Travel & Map #25 | in | Abode opening (rule 8, Formula M), home states (rule 32), residence grade and rent (rules 33–34), the layer-1 caps, `grade_realm_min` | Travel & Map |
 | Formations #17 | in | The standing arrays' records, build cost, upkeep and skill cap; each takes one slot | Formations owns the arrays; this GDD owns the slot |
-| Spirit Herbs & Fields #14 | in | What a field grows, herb ageing, Thanh Mộc's growth bonus | #14 (built, no GDD) |
+| Spirit Herbs & Fields #14 | in | What a field grows, herb ageing, Thanh Mộc's growth bonus; the field work's plots (`field_plots` source) | #14 (`design/gdd/spirit-herbs.md`, designed 2026-11-21) |
 | Item Database #13 | in | Materials for works (`rarity_min`) | Item Database |
 | Character Stats #7 | in | Thổ purity (the upkeep cut), realm | Character Stats |
 | Time & Turn #4 | in | The season, the upkeep tick, building seasons | Time & Turn |
@@ -227,7 +227,7 @@ The npc_raise rule is defined as: each season an NPC at grade g below the top gr
 | Realms & Bottlenecks (#8) | Soft | The owner's realm scales the costs and gates grades 4 and 5 | GDD in review | Yes (added 2026-11-21) |
 | Item Database (#13) | Soft | Materials for works | GDD complete | n/a (reads only) |
 | Character Stats (#7) | Soft | Thổ purity, realm | GDD in review | n/a (reads only) |
-| Spirit Herbs & Fields (#14) | Soft | What a field grows; ageing; Thanh Mộc's bonus | Built, no GDD | n/a |
+| Spirit Herbs & Fields (#14) | Soft | What a field grows; ageing; Thanh Mộc's bonus; the field work's plots | Designed 2026-11-21, pending review | Yes |
 | Time & Turn (#4) | Soft | The season tick | Built, no GDD | n/a |
 | Living World Tick (#28) | Soft | The seasonal upkeep and NPC raises | GDD designed 2026-11-15 | Needs a note when reviewed |
 | World Database (#3) | Soft | Home records, grades, works | Built, no GDD | n/a |
@@ -274,7 +274,7 @@ All of these work in the debug terminal first, with numbered menus.
 | Rules 2, 6; F1 | Travel & Map rules 33–34; Formula M | Residence grades, `grade_realm_min`, rent |
 | Rule 7; F3 | Travel & Map Formula B | Layer-1 caps (`c1p`, `c1u`, share and match) |
 | Rule 4 | Formations Part II, F3 | Standing arrays as home works; the skill cap |
-| Rule 5 | Spirit Herbs & Fields (#14) | Field mechanics |
+| Rule 5 | Spirit Herbs & Fields (#14) `spirit-herbs.md` rules 3, 4 | Field mechanics; the field work as a `field_plots` source |
 | Rules 6, 8, 14; F1, F2 | Regional Economy Formula H | The sink ledger |
 | F1, F2, F4 | `events_budgets.json` (`linh_thach_max`) | The realm budget scaling |
 | Rule 8; F2 | `map_works.json` (`tho_upkeep_cut_per_purity`) | The Earth discount |
@@ -324,7 +324,7 @@ All of these work in the debug terminal first, with numbered menus.
 | 3 | Starting values (`slots_by_grade`, `grade_cost_frac`, `upkeep_frac`, `claim_frac`, `npc_raise_p`, `npc_reserve_mult`) and whether a grade-5 abode absorbs a meaningful share of the 1–4 million surplus | Balance Harness (#33) | Harness pass |
 | 4 | Whether the grade ladder should be open-ended later, if grades 1–5 do not absorb enough | user | After the harness pass |
 | 5 | Does the level ceiling `grade + 2` leave grades 4–5 with enough reason to exist for non-sink players? Check with the diversity requirement of question 2 (a harness count of how many characters hold each work set) | game-designer | With the first catalogue |
-| 6 | Spirit Herbs & Fields (#14) has no GDD: the field's herb output, ageing and Thanh Mộc's bonus need one | user | When #14 is designed |
+| 6 | **Closed 2026-11-21:** Spirit Herbs & Fields (#14) is designed (`design/gdd/spirit-herbs.md`): field mechanics, ageing and Thanh Mộc's bonus | user | Done |
 | 7 | Do heirs deserve a claim discount (a living heir of a dead owner), given NPC Relationships tracks heirs? | user | With NPC Relationships review |
 | 8 | Sect-owned abodes and members' residences: who pays upkeep when a sect houses its members (Sects #26)? | Sects | With the Sects follow-up |
 | 9 | **Back-links closed 2026-11-21:** Regional Economy AC-RE-07 now includes `burn_formation` and `burn_abode`; Living World Tick S6 names the abode upkeep and NPC raises. Game UI (#37) has no GDD yet, so the abode screen waits for it (UI Requirements). Harness watches: paying upkeep one season in four (3 unpaid + 1 paid never drops the grade; payment is automatic when the purse holds it), the claim fee ignoring the grade's stones, abandon-and-reclaim loops, the poverty spiral after a realm breakthrough | Regional Economy; Living World Tick; Balance Harness (#33) | With those reviews |

@@ -25,12 +25,12 @@ Beside the field are the other sources of herbs: buying them at a market, gather
 
 ### Core Rules
 
-Numbers are the built ones (3 base plots, cap 12, 0.04 and 0.8 per purity, the seed rarity ladder) or guesses for the balance harness.
+Numbers are the built ones (3 base plots, 0.04 and 0.8 per purity, the seed rarity ladder) or guesses for the balance harness. Plots have **no upper bound** (user decision 2026-11-10, no caps; Character Stats rule 14 and Formulas G removed `max_plots`).
 
 1. **Scope.** This GDD owns plots, planting, tending, harvesting, growth, seeds and the Linh Điền mastery. It does **not** own the herb catalogue and values (Item Database, Trade Goods), `mature_years` and the equivalents curve (Item Database Formula B), fit (Travel & Map Formula G), wild gathering ages (Trade Goods Formula K) or what a herb is used for (Alchemy #15).
 2. **A herb is an item** with `template`, `age` (years), and, while growing, a `plot` index (Item Database rule 15). It is **Planted** when `plot ≥ 0`. Only a Planted herb ages, and a harvested herb's age is fixed.
-3. **Plots at the home.** The home has `plots = clamp(base_plots + floor(Thổ purity × plots_per_purity) + floor(field_plots stat) + field-work plots, 1, max_plots)`, with `max_plots` the total cap (12, as built). The first three terms are the **home garden** and take no abode slot. The last is rule 4.
-4. **The field work.** The Linh Điền field is a **home work** (Cave Abode rule 4) that takes one slot, has levels up to the abode's level ceiling and its own `max`, and adds `plots_per_field_level` plots per level. Its build cost and upkeep follow Cave Abode's work rules. When it goes dormant or the home is left, its plots stop counting (rule 11).
+3. **Plots at the home.** The home has `plots = max(1, base_plots + floor(Thổ purity × plots_per_purity) + total(field_plots))`, with no upper bound (Character Stats Formulas G, which Realms Formula D reads). The base, Thổ and the tree's and edges' `field_plots` are the **home garden** and take no abode slot; the field work (rule 4) is one more source of `field_plots`.
+4. **The field work.** The Linh Điền field is a **home work** (Cave Abode rule 4) that takes one slot, has levels up to the abode's level ceiling and its own `max`, and adds `floor(level × plots_per_field_level)` to the `field_plots` stat as a modifier with source `home work`. Its build cost and upkeep follow Cave Abode's work rules. When it goes dormant or the home is left, its plots stop counting (rule 11).
 5. **Planting.** At the home, with a free plot, a character plants a herb: from a bought **seed** (the herb's `seed_price`, paid to the market commons; only herbs up to the realm's `seed_rarity_by_realm` are for sale), or by **transplanting** an owned herb, which keeps its age. A herb can be planted only where its fit is at least `plant_floor` (Travel & Map Formula G), and the screen says why a herb cannot grow here. Planting a seed creates a herb at age 0.
 6. **Growth.** Each season every Planted herb gains `(seasons / seasons_per_year) × growth_rate × fit_growth` years (Formulas F1). `growth_rate` is the Wood root and growth-stat factor; `fit_growth` is Travel & Map's `g_max × fit` for that herb at the home. A herb already planted keeps growing below the plant floor.
 7. **Tending is free of time.** Growth needs no action; the cost is the plot, the seed and the wait. A herb never withers or dies in a plot (Edge Cases). The decisions are what to plant, and when to harvest.
@@ -48,7 +48,7 @@ Numbers are the built ones (3 base plots, cap 12, 0.04 and 0.8 per purity, the s
 
 | State | Meaning | Becomes | When |
 |---|---|---|---|
-| Locked | The plot index is beyond `plots` (cap, or its field work dormant) | Free | `plots` rises (a field level, Thổ, the stat) |
+| Locked | The plot index is beyond `plots` (its field work dormant, or a plot source lowered) | Free | `plots` rises (a field level, Thổ, the stat) |
 | Free | Usable, empty | Growing | A seed is planted, or a herb is transplanted in |
 | Growing | A herb with age below `mature_years` | Mature; Free | The herb reaches `mature_years`; it is harvested or the home is left |
 | Mature | Age at or above `mature_years`; still ageing | Free | Harvested or the home is left |
@@ -103,19 +103,19 @@ The herb_growth formula is defined as:
 
 The plot_count formula is defined as:
 
-`plots = clamp(base_plots + floor(Thổ purity × 0.04) + floor(field_plots stat) + floor(field_level × plots_per_field_level), 1, max_plots)`
+`plots = max(1, base_plots + floor(Thổ purity × 0.04) + total(field_plots))` (Character Stats Formulas G), with `total(field_plots)` = the tree's and edges' plots + `floor(field_level × plots_per_field_level)` from the field work
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
-| base_plots, max_plots | int | 3, 12 | `session_actions.json` (as built) | Base and total cap |
-| field_plots stat | float | 0+ | Modifier System (tree, edges) | Plots from the build |
+| base_plots | int | 3 | `session_actions.json` (as built) | Base plots; `max_plots` 12 in that file is stale (removed 2026-11-10 by Character Stats) and is to be dropped |
+| total(field_plots) | float | 0+ | Modifier System; Character Stats | The stat's total: the tree, edges and the field work's modifier |
 | plots_per_field_level | float | 1 *(guess)* | data file | Plots per level of the Linh Điền field work (active only) |
 | field_level | int | 0 to the abode's ceiling (max 5) | Cave Abode | The field work's level, 0 if dormant |
 
-**Output Range:** 1–12.
+**Output Range:** 1 and up, with no upper bound (a deliberate build lever: Character Stats rule 14).
 **Example:** Thổ 50, stat 1, field level 3: 3 + 2 + 1 + 3 = **9**.
-**Back-link:** Realms Formula D's `n_plots` reads only the first three terms, with no cap; it needs the field-work term and the 12 cap.
+**Note:** Realms Formula D reads Character Stats Formulas G, which already totals `field_plots`, so no change is owed there; the field work needs Character Stats and Cave Abode to name it as a source (back-links).
 
 ### F3. Value a plot can earn (an upper bound for the economy check, not a mechanic)
 
@@ -152,7 +152,7 @@ The mastery_xp formula is defined as:
 
 - **No Wood, no modifiers:** `h = 1`. **Negative `hgp`:** `max(0, …)` floors the rate at 0, so a herb stops but never un-ages.
 - **Fit at the planting floor (0.2):** growth ×0.24; a herb already planted whose ground falls below it keeps growing at `g_max × fit`, and at fit 0 it stops.
-- **Plots at 0 and above the cap:** clamped to 1–12.
+- **Plots at 0:** floored at 1; there is no upper bound.
 - **Positive loop:** mastery → faster growth → more xp. Bounded by the log curve (Σ⁺ of 150 gives only +27.7) and by 9 levels.
 - **Dominant purchase:** none. Seed price rises with rarity faster than value per year at low rarity, so the best earner (Hóa Thần Quả) needs realm 3+ seeds.
 - **Faucet:** none from the field itself (F3).
@@ -183,7 +183,6 @@ The mastery_xp formula is defined as:
 - **If the owner moves home**: every herb in the old field is harvested at once (no travel needed) into the inventory at its current age, and the old field is left empty; this happens before the new home's plots open.
 - **If the field work goes dormant or the plots fall** (Thổ, stat or field level lowered): the herbs in plots beyond the new count become **Frozen**, keep their age and are never destroyed; they can be harvested or transplanted, and the plots cannot be refilled.
 - **If the owner dies**: planted herbs pass with the estate under Item Database and Living World Tick's rules as ordinary items; their `plot` is cleared and their age fixed. This GDD adds nothing.
-- **If plots would exceed 12**: the total is clamped and the field screen shows the clamp as its own line (the extra field levels buy nothing).
 
 **Mastery**
 
@@ -203,7 +202,7 @@ The mastery_xp formula is defined as:
 | Character Stats (#7) | Hard | Wood and Earth purity, `herb_growth_pct`, `field_plots`, mastery storage, the stacking curve | In review | Yes (soft sources row 14) |
 | Modifier System (#40) | Hard | `herb_growth_pct` and `field_plots` Stat List rows | Approved | Yes |
 | Travel & Map (#25) | Hard | Herb fit, `g_max × fit`, `plant_floor`, wild herb grounds | Designed | Yes |
-| Realms & Bottlenecks (#8) | Hard (out) | Pill supply reads plots and the growth rate (Formula D) | In review | Yes, but `n_plots` needs the field-work term and the cap (**back-link owed**) |
+| Realms & Bottlenecks (#8) | Hard (out) | Pill supply reads plots and the growth rate (Formula D) | In review | Yes; it reads plots from Character Stats Formulas G, so no change is owed (the pill-supply calibration is re-run, Open Question 3) |
 | Time & Turn (#4) | Soft | The season tick, `seasons_per_year` | Built, no GDD | n/a |
 | Cave Abode (#47) | Soft | The home; the Linh Điền field work (slot, level, plots per level, dormant) | Approved | Yes (rule 5); needs a pointer to this GDD's plots (**back-link owed**) |
 | Trade Goods (#45) | Hard | The herb catalogue, a harvested herb's fixed age (rule 10), wild ages (Formula K) | Approved | **No: note owed** |
@@ -215,7 +214,7 @@ The mastery_xp formula is defined as:
 
 **Circularity:** none added. This GDD reads Item Database, Trade Goods and Travel & Map and supplies a rate and a harvested herb; none of them writes back into the field.
 
-**Back-links owed (six):** Realms Formula D (`n_plots`), Cave Abode rule 5, Trade Goods, Regional Economy, Formations and Character Stats (names the mastery per-level value's owner). They are listed in Cross-References and Open Questions; none has been edited.
+**Back-links:** added 2026-11-21 in Cave Abode, Trade Goods, Regional Economy, Formations and Character Stats; Realms needs none.
 
 ## Visual/Audio Requirements
 
@@ -237,7 +236,7 @@ The moment that matters: **harvesting a herb you planted decades ago**, and seei
 
 | Screen or element | Must show | Must allow |
 |---|---|---|
-| Field screen | Every plot with herb, age, `E`, fit word, growth rate lines, seasons to maturity, Frozen and Locked marks, the plots total and any clamp | Plant, transplant, harvest; open a herb's detail |
+| Field screen | Every plot with herb, age, `E`, fit word, growth rate lines, seasons to maturity, Frozen and Locked marks, the plots total with each source's line | Plant, transplant, harvest; open a herb's detail |
 | Seed picker | Herbs sold at the realm's rarity ladder, each with its fit word at the home, years to maturity and net value per plot-year | Choose a herb and a plot |
 | Character sheet | Linh Điền mastery level and xp, its `herb_growth_pct` line | Open the breakdown |
 | Season summary | Herbs that matured or were Frozen | Open the field screen |
@@ -255,7 +254,7 @@ All of these work in the debug terminal first, with numbered menus.
 | Rule 8; Edge Cases | Trade Goods rule 10; Formulas A, K | Fixed harvested age, the catalogue, wild ages |
 | Rules 5, 6; F1 | Travel & Map rule 18; Formula G | Herb fit, `g_max × fit`, `plant_floor` |
 | F1, F4 | Character Stats Formula I; rule 12; Interactions | The `herb_growth_pct` curve, mastery storage |
-| Rule 3; F2 | Realms Formula D | `n_plots` (**back-link owed**) |
+| Rule 3; F2 | Character Stats Formulas G; Realms Formula D | The plot formula and where Realms reads it |
 | Rule 4 | Cave Abode rules 3–5 | The field work, slots, dormant (**back-link owed**) |
 | Rules 5, 8 | Regional Economy Formula G | Seeds paid to the commons; `origin_market` |
 | F1 | Formations Part II | Thanh Mộc's `herb_growth_pct` |
@@ -266,7 +265,7 @@ All of these work in the debug terminal first, with numbered menus.
 **Core rules**
 
 - **AC-SH-01** [Logic] Rules 2, 8. **GIVEN** a herb in plot 2, **WHEN** a season passes, **THEN** its age rises by F1's Δage; **WHEN** it is harvested, **THEN** its age stops changing and it carries an `origin_market` tag.
-- **AC-SH-02** [Logic] Rule 3, F2. **GIVEN** Thổ purity 50, `field_plots` 1 and field level 3, **THEN** plots are 3 + 2 + 1 + 3 = 9. **GIVEN** the sum 15, **THEN** 12. **GIVEN** every term 0 and no base, **THEN** at least 1.
+- **AC-SH-02** [Logic] Rule 3, F2. **GIVEN** Thổ purity 50, `field_plots` 1 and field level 3, **THEN** plots are 3 + 2 + 1 + 3 = 9. **GIVEN** Thổ purity 100, `field_plots` 7 and field level 5, **THEN** 3 + 4 + 7 + 5 = 19 (no upper bound). **GIVEN** every term 0 and no base, **THEN** at least 1.
 - **AC-SH-03** [Logic] Rule 4. **GIVEN** a field work at level 3 holding herbs in 9 plots, **WHEN** it goes dormant (plots fall to 6), **THEN** the 3 herbs in plots 6–8 are Frozen: they keep their age, do not grow, can be harvested or transplanted, and are not destroyed.
 - **AC-SH-04** [Logic] Rule 5. **GIVEN** a free plot, a seed price of 5 and 10 stones, **WHEN** planting, **THEN** the herb is at age 0 and 5 stones go to the commons. **GIVEN** fit 0.19, **THEN** refused with one line per factor; **GIVEN** fit exactly 0.2, **THEN** allowed. **GIVEN** a seed above `seed_rarity_by_realm`, **THEN** refused with "transplant a living plant". **GIVEN** 4 stones, **THEN** refused, nothing paid.
 - **AC-SH-05** [Logic] Rule 5, Edge. **GIVEN** the character is away from home, **THEN** planting, transplanting and harvesting are refused; **GIVEN** capability #14, **THEN** allowed. **GIVEN** a transplanted herb at age 7, **THEN** it keeps age 7.
@@ -282,14 +281,14 @@ All of these work in the debug terminal first, with numbered menus.
 
 **Cross-system**
 
-- **AC-SH-15** [Integration] Realms Formula D. **GIVEN** a character at F2's example, **THEN** Realms' `n_plots` equals 9 (this holds after the Formula D back-link).
+- **AC-SH-15** [Integration] Realms Formula D. **GIVEN** a character at F2's example, **THEN** Realms' `n_plots` (read from Character Stats Formulas G) equals 9.
 - **AC-SH-16** [Integration] Cave Abode rule 5. **GIVEN** an abode at grade 3 with a level-3 Linh Điền field in one of its slots, **THEN** it adds 3 plots; **WHEN** the abode falls a grade and the field goes dormant, **THEN** AC-SH-03 holds.
 - **AC-SH-17** [Integration] Item Database rule 15, Trade Goods rule 10. **GIVEN** a harvested herb, **THEN** its age never changes (capability #12 excepted: see Open Questions).
 - **AC-SH-18** [Integration] Alchemy. **GIVEN** a herb of age a harvested at any age, **THEN** Alchemy counts `E(a / mature_years)` equivalents for it.
 
 **Screens**
 
-- **AC-SH-19** [UI] **GIVEN** the field screen with a Frozen herb, a clamped plot count and a poor-fit herb, **THEN** a screenshot in `production/qa/evidence/` shows the plots, each herb's age and fit word, the frozen mark (not by colour alone), the clamp line and the growth rate lines.
+- **AC-SH-19** [UI] **GIVEN** the field screen with a Frozen herb, a long plots list and a poor-fit herb, **THEN** a screenshot in `production/qa/evidence/` shows the plots, each herb's age and fit word, the frozen mark (not by colour alone), each plot source's line and the growth rate lines.
 
 **Gaps noted (not criteria):** pill supply against the Realms calibration (does the field supply the breakthrough gifts) is a harness check; the herb catalogue contents are Trade Goods' and Item Database's; the capability #12 conflict has no criterion until it is resolved.
 
@@ -298,10 +297,10 @@ All of these work in the debug terminal first, with numbered menus.
 | # | Question | Owner | Resolve by |
 |---|---|---|---|
 | 1 | Capability #12 ages inventory herbs, against Item Database rule 15 and Trade Goods rule 10 (only a Planted herb ages). Keep #12, retire it, or amend the two rules | user | With the Đạo Đồ and Item Database reviews |
-| 2 | Back-links owed in Realms Formula D (`n_plots`: field-work term, cap 12), Cave Abode rule 5, Trade Goods, Regional Economy, Formations and Character Stats | user | At the Phase 5 registry and index pass |
+| 2 | **Closed 2026-11-21:** back-links added in Cave Abode (rule 5, rows), Trade Goods (rule 10, Dependencies), Regional Economy (Dependencies), Formations (rule 14, Dependencies) and Character Stats (rule 14, Dependencies, Formulas G); Realms needs none | user | Done |
 | 3 | Starting values (`plots_per_field_level`, `xp_per_herb_year`, `xp_per_level`, `mastery_growth_per_level`) and the pill-supply check against the Realms calibration | Balance Harness (#33) | Harness pass |
 | 4 | The herb catalogue: `items_herbs.json` has 10, Trade Goods lists 11 herb goods | Trade Goods; Item Database | With the Item Database revision |
-| 5 | Is the total plot cap 12 right now that a field work adds plots? | game-designer | With the harness pass |
+| 5 | Plots have no upper bound (Character Stats), and a field work adds more: does the harness show a runaway plot count for Earth-heavy builds? The built `max_plots` 12 in `session_actions.json` is stale and should be dropped | Balance Harness; implementer | Harness pass |
 | 6 | Held-old-herb value compounds without a ceiling (Item Database); watch how much the markets pay for held herbs (F3) | Balance Harness | Harness pass |
 | 7 | Build gap: no Linh Điền mastery skill or data file exists yet (`crafting_*.json` has the others) | implementer | Before implementation |
 | 8 | Should the field have a realm-scaled upkeep as a stone sink, like the abode grade? Today it has none | user | After the harness pass |
