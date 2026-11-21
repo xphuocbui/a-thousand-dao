@@ -226,6 +226,8 @@ So before the economy can price anything, the land must produce what it prices: 
 - **ape4 checkpoint** (72 lives, 530e7d1e): 61 / 44 / 40 / 2 of 6 against ape3's 71 / 48 / 22 / 1 of 4
   (05-balance.txt). Luyện Khí -> Trúc Cơ is 10 points lower, inside the noise of 72-life runs (about 8 points);
   attempts rose, odds fell slightly. A 144-life round is needed before calling it.
+- **ape5 checkpoint** (144 lives, 0ec31ba8, the same seeds as ape1): **69 / 55 / 33 / 27 %** against 70 / 71 / 33 / 23
+  (ape1 76 / 58 / 16 / 22). Only Trúc Cơ -> Kết Đan is short; that is the balance pass's first target.
 - **Still slow outside the tick:** `items_of` scans every item (5-9 ms a call at 18,000-30,000 items) and the player's
   commands and the Advisor call it often. The owner index could stay on all the time once every owner change goes
   through WorldDB (about 15 places assign `owner_id` directly today). A refactor to propose, not done unattended.

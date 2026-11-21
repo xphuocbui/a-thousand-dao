@@ -44,3 +44,10 @@ Checkpoints on the same seeds 1001-1024 (72 lives, 6 processes each; the first h
   (21.0 % against 22.9 %); crafted pill prices (1.6-1.8 x base, finding 2 in production/plans/world-economy.md) may
   explain the lower odds. The 144-life rounds are needed to tell. Targets 70 / 71 / 33 / 23. Wealth: median life peak
   608 linh thach, p90 448,520 (Nguyên Anh and Hóa Thần lives that never spend: high-realm sinks are planned).
+
+ape5 0ec31ba8 (+ trait stat rows, opinion, the tick's speed-ups), 144 lives on 12 processes, seeds 1001-1048, the same
+seeds as ape1 (2026-11-21):                                                    69 / 55 / 33 / 4 of 15 (27 %)
+  ape1 on the same 144 lives:                                                  76 / 58 / 16 / 2 of 9
+  Targets 70 / 71 / 33 / 23: only Trúc Cơ -> Kết Đan is short (55; attempts 2.6 a life at 19.9 % mean odds).
+  Kết Đan -> Nguyên Anh rose from 16 to 33. The first half (seeds 1001-1024) gives 66 / 43 / 29 / 1 of 5, so ape4's 61
+  at the first gate was noise. Wealth: median life peak 1,186 linh thạch, p90 524,002.
