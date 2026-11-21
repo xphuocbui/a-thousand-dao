@@ -31,13 +31,25 @@ fights yet: shown, adding nothing; the keystone's plain modifiers still apply).
   recursed through an unrelated key's sum; reads are pure, so no sum changed), and `stack_more` is read with a re-entry
   guard (Rising Tide's linh lực condition would read itself through the pool's own Water stacks).
 
-## Other choices made tonight (to review)
+## Review (user, 2026-11-21)
+
+The user accepted every recommendation:
+- A1: every "N % less" closing is a true multiplier (`dmg_more`). The Ten Thousand Poisons row in effects.md now
+  says so.
+- A2: Open Sky's defence is ward strength.
+- A3: Glass Meridians no longer adds the starter's +40 art speed. The node's own +41.6 is the content pass's
+  land-scaled +40, and the game's sheet had applied both.
+- A4: Burning Lifespan's lifespan cost waits for its host, as built.
+- A5 and A6: the count definitions and the loader's map rules stay.
+- Every per-Effect "Engine choice" below stays, Daybreak's Light definition included (it waits for Light arts).
+
+## Other choices made tonight (reviewed 2026-11-21, see above)
 
 - **"Deal N % less" closings** are a `dmg_more` multiplier (-0.5, -0.3, -0.25, -0.2). For Ten Thousand Poisons the GDD
   names `attack_pct [hit] -25` (L1 points); the multiplier was used instead, so ticks are not touched either way.
 - **Open Sky's** `defense_pct +5` per empty extra slot is run as live ward strength (`ward_pct`), counted at compile.
-- **Glass Meridians** adds the starter rule's `art_speed_pct +40` on top of the keystone's own plain +41.6 % art speed
-  (the content's positive side). If the content pass meant the 41.6 to replace the 40, remove the 40 line.
+- **Glass Meridians** added the starter rule's `art_speed_pct +40` on top of the keystone's own plain +41.6 % art
+  speed. Removed 2026-11-21: the 41.6 replaces the 40.
 - **Burning Lifespan** runs its fury without its closing (the lifespan the fight burns needs a host), while the four
   fully Pending Effects add nothing at all.
 - **Counts:** a sword artifact is a piece on the `phi_kiem` base (`dao_do_tree.json sword_bases`); "elements your root

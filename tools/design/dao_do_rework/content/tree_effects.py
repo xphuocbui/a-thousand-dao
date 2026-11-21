@@ -158,7 +158,8 @@ add("Sun That Never Sets", "Each season you cultivate, you also gain 1 point of 
 add("Glass Meridians", "Your arts run far faster (art speed +40), on a fragile body. Closes: maximum health -25 %; your "
     "body shields hold half.",
     records=[C("Glass Meridians", [mod(shield_hold=-0.5)])],
-    lines=[{"key": "art_speed_pct", "value": 40}, {"key": "khi_huyet_pct", "value": -25}])
+    # the node's own plain art_speed_pct 41.6 is the content pass's land-scaled +40: not added again (user, 2026-11-21)
+    lines=[{"key": "khi_huyet_pct", "value": -25}])
 add("Hidden Moon", "Your evade also counts as crit chance, point for point. Closes: your block and body shield count "
     "nothing; maximum health -20 %.",
     records=[R("Hidden Moon", "always", [mod(crit=1)], scale={"read": "own.evade", "per": 1, "floor": False}),

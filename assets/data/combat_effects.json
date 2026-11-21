@@ -255,7 +255,6 @@
       "source": "Đạo Đồ",
       "records": [{"id": "eff:Glass Meridians closes", "on": "always", "do": [{"mod": {"shield_hold": -0.5}}], "fixed": true}],
       "lines": [
-        {"key": "art_speed_pct", "value": 40},
         {"key": "khi_huyet_pct", "value": -25}
       ]
     },
