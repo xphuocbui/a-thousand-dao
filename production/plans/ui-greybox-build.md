@@ -94,8 +94,8 @@ settings (rebinding). Specs needed first for most: run `/ux-design <screen>`.
   "doesn't look anything like what I wanted, where are the art slots, the buff slots": rebuild toward the spec started.
 - 2026-11-22 (pass 2): fight screen rebuilt toward the spec (see Built). Demo 53/53 at 1280x720; tests/unit/ui 66,
   tests/unit/session 52, tests/integration/ui 2, all green. Not yet run at 1920x1080 after this pass; the full
-  parallel suite last ran before pass 2 (838 cases, the one frontend-rule failure since fixed). UNCOMMITTED: awaiting
-  the user's go. Own paths: assets/data/ui_hud.json, design/ux/{fight-screen,person,interaction-patterns}.md,
+  parallel suite last ran before pass 2 (838 cases, the one frontend-rule failure since fixed). COMMITTED in e7826bde (were awaiting
+  the user's go). Own paths: assets/data/ui_hud.json, design/ux/{fight-screen,person,interaction-patterns}.md,
   design/research/ui-patterns-paradox-poe-2026-11-22.md, production/plans/ui-greybox-build.md,
   src/gameplay/session/game_query.gd, src/ui/greybox/map_screen.gd, src/ui/tooltip/tooltip_layer.gd,
   src/ui/windows/{person_panel,places_panel}.gd(+uid), src/ui/fight/ (all), tests/unit/session/session_reads_test.gd,
