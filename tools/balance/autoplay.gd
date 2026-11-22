@@ -388,7 +388,12 @@ func _tend_field(s: GameSession, plan: Dictionary) -> bool:
 	# Harvest every ripe recipe herb, so its plot can take the next one in the plan.
 	var ages: Dictionary = {}
 	for ing in plan.get("recipe", {}).get("ingredients", []):
-		ages[ing.herb] = float(ing.min_age)
+		if Alchemy.is_herb_entry(ing):
+			ages[ing.herb] = float(ing.min_age)
+		else:   # an element value (Alchemy rule 5): its basic herb is harvested at maturity
+			var basic: String = Alchemy.basic_herb(gd, str(ing.element))
+			if basic != "":
+				ages[basic] = float(gd.herb(basic).get("mature_years", 1.0))
 	for p in s.field.planted(c).keys():
 		var h2: Dictionary = s.field.planted(c)[p]
 		if ages.has(h2.template) and float(h2.age) >= float(ages[h2.template]):
@@ -411,10 +416,10 @@ func _craft(s: GameSession, st: Dictionary, plan: Dictionary) -> bool:
 	var c: Character = s.player
 	var recipe: Dictionary = plan.get("recipe", {})
 	if not recipe.is_empty():
-		if s.alchemy.find_ingredients(c, recipe).ok and c.skill_level(Alchemy.SKILL) + 1 >= int(recipe.min_level):
-			st.crafts += 1
-			s.craft(recipe.id)
-			return true
+		if s.alchemy.find_ingredients(c, recipe).ok and c.skill_level(Alchemy.SKILL) + 1 >= int(recipe.min_level) 				and c.linh_thach >= s.alchemy.fuel(recipe):   # brew fuel (Alchemy rule 6): a refused brew is not an action
+			if s.craft(recipe.id).ok:
+				st.crafts += 1
+				return true
 	# Train Đan Đạo only up to one level above what the next pill needs.
 	var want: int = int(recipe.get("min_level", 1)) + 1
 	st.use["crafttry"] = int(st.use.get("crafttry", 0)) + 1
@@ -422,10 +427,10 @@ func _craft(s: GameSession, st: Dictionary, plan: Dictionary) -> bool:
 		return false
 	for rid in ["hoang_long_dan", "tu_khi_dan"]:
 		var r: Dictionary = gd.recipe(rid)
-		if c.skill_level(Alchemy.SKILL) + 1 >= int(r.min_level) and s.alchemy.find_ingredients(c, r).ok and not _reserved(plan, r):
-			st.crafts += 1
-			s.craft(rid)
-			return true
+		if c.skill_level(Alchemy.SKILL) + 1 >= int(r.min_level) and s.alchemy.find_ingredients(c, r).ok and not _reserved(plan, r) 				and c.linh_thach >= s.alchemy.fuel(r):
+			if s.craft(rid).ok:
+				st.crafts += 1
+				return true
 	return false
 
 
@@ -601,6 +606,8 @@ func _nearest_market(s: GameSession) -> String:
 
 func _money_needed(s: GameSession, plan: Dictionary) -> int:
 	var need: int = 20
+	if not plan.get("recipe", {}).is_empty():   # the breakthrough brew's fuel (Alchemy rule 6) is part of the plan's money
+		need = maxi(need, s.alchemy.fuel(plan.recipe) + 5)
 	for stt in plan.get("statuses", []):
 		if str(stt.command).begins_with("plant "):
 			need = maxi(need, int(gd.herb(stt.herb).seed_price) + 5)
