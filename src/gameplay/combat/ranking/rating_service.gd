@@ -38,6 +38,8 @@ const KD_KEY := "rankkd:%d:%d:%d"
 ## The realms of the every-season round robin and of the yearly one (rule 8).
 const TOP_REALMS := [3, 4]
 const KD_REALM := 2
+## The worker-process settings (ADR-0003 decision 13).
+const WORKERS_FILE := "combat_rating_workers"
 
 var ladder: RatingLadder
 ## Callable(c: Character) -> StatSheet used to compile NPCs; defaults to a sheet without the Đạo Đồ.
@@ -48,7 +50,9 @@ var _gd: GameData
 var _db: WorldDB
 var _k: CombatConstants
 var _knobs: Dictionary
-var _compiled: Dictionary = {}     # person id -> {sig, profile} (NPCs only)
+var _compiled: Dictionary = {}     # person id -> {sig, profile, build} (NPCs only)
+var _pool: RatingWorkerPool = null   # worker processes (ADR-0003 decision 13); null: threads
+var _pool_checked := false
 var _max_fights: Dictionary = {}   # "start_k:step:stop:fights" -> PanelSearch.max_fights
 var _prebuilt := false
 var _plan_sigs: Dictionary = {}    # person id -> build_sig while a plan runs (nothing changes during one)
@@ -315,13 +319,15 @@ func _plan(game_seed: int, season_key: int, year: int, season_in_year: int, play
 	b.budget = int(_knobs.season_fight_budget) if budget < 0 else budget
 	b.panel_budget = floori(float(b.budget) * float(_knobs.panel_budget_share))
 	var region: String = ""
+	var player_build: Dictionary = {}
 	if player != null:
 		region = str(_db.get_record("places", player.location_id).get("region_id", ""))
 	# the player's panel first
 	if player != null:
 		var prec: Dictionary = ensure(player)
 		if str(prec.state) == STALE or str(prec.state) == PROVISIONAL:
-			var pp: FighterProfile = FighterCompiler.compile(player, _gd, _db, player_sheet, [], [])
+			player_build = FighterCompiler.character_build_file(player, _gd, _db, player_sheet)
+			var pp: FighterProfile = FighterCompiler.from_build_file(player_build, _gd, [], [])
 			if pp != null:
 				b.panels.append(_queue_panel(prec, pp, false, build_sig(_db.get_record("people", player.id)), season_key))
 	var living: Array = _db.all("people").filter(func(x): return bool(x.get("alive", true)) and not bool(x.get("is_player", false)) and int(x.get("joined_season", -1)) != season_key)
@@ -370,6 +376,7 @@ func _plan(game_seed: int, season_key: int, year: int, season_in_year: int, play
 	for f in b.pairs:
 		b.profiles[f.a] = _compiled[f.a].profile
 		b.profiles[f.b] = _compiled[f.b].profile
+	_hand_to_workers(b, player_build, player.id if player != null else "")
 	return b
 
 
@@ -432,6 +439,7 @@ func worldgen(game_seed: int, player: Character, player_sheet: StatSheet, start_
 		if p != null:
 			b.panels.append(_queue_panel(_db.get_record(TABLE, str(x.id)), p, true, build_sig(x), 0))
 	_prebuild(b)
+	_hand_to_workers(b)
 	b.run(true)
 	apply_batch(b)
 	out.coarse_panels = b.panels.filter(func(p): return not p.result.is_empty()).size()
@@ -564,13 +572,41 @@ func _profile(person: Dictionary) -> FighterProfile:
 		return hit.profile
 	var c := Character.from_dict(person)
 	var errors: Array = []
-	var p: FighterProfile = FighterCompiler.compile(c, _gd, _db, sheet_fn.call(c), [], errors)
+	var build: Dictionary = FighterCompiler.character_build_file(c, _gd, _db, sheet_fn.call(c))
+	var p: FighterProfile = FighterCompiler.from_build_file(build, _gd, [], errors)
 	if p == null:
 		log_lines.append("cannot compile %s: %s" % [id, "; ".join(errors.map(func(e): return str(e)))])
 		_compiled.erase(id)
 		return null
-	_compiled[id] = {"sig": sig, "profile": p}
+	_compiled[id] = {"sig": sig, "profile": p, "build": build}
 	return p
+
+
+## The worker pool for batches (ADR-0003 decision 13), from combat_rating_workers.json; null runs on threads.
+func worker_pool() -> RatingWorkerPool:
+	if not _pool_checked:
+		_pool_checked = true
+		var w: Dictionary = _gd.file(WORKERS_FILE) if _gd.registry.has_file(WORKERS_FILE) else {}
+		var n: int = RatingWorkerPool.worker_count(int(w.get("rating_workers", 0)), int(w.get("rating_workers_max", 12)))
+		if n > 0 and RatingWorkerPool.supported():
+			_pool = RatingWorkerPool.new(_gd, n, float(w.get("rating_worker_timeout", 120.0)))
+	return _pool
+
+
+## Gives [param b] the worker pool and the build files of every fighter it fights with.
+func _hand_to_workers(b: SeasonBatch, player_build: Dictionary = {}, player_id: String = "") -> void:
+	var template: RatingWorkerPool = worker_pool()
+	if template == null:
+		return
+	b.pool = template.for_batch()   # its own pool: two batches can be in flight (rule 13, one season late)
+	for p in b.panels:
+		if p.id == player_id and not player_build.is_empty():
+			b.builds[p.id] = player_build
+		elif _compiled.has(p.id):
+			b.builds[p.id] = _compiled[p.id].build
+	for f in b.pairs:
+		b.builds[f.a] = _compiled[f.a].build
+		b.builds[f.b] = _compiled[f.b].build
 
 
 ## Prebuilds every realm's rungs (once a session): a batch may run in the background while the main thread runs the

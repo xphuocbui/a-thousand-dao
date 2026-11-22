@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "_doc": "Worker processes for Power Rankings' fights (docs/architecture/adr-0003-fight-based-power-ratings.md decision 13). Kept apart from combat_rankings.json because that file is rewritten by the calibration exporter and its data_version hashes the knobs there. rating_workers: worker processes per batch; -1 = the core count minus 2, capped at rating_workers_max; 0 = threads only. rating_workers_max: the cap for -1. rating_worker_timeout: seconds a wave of worker fights may take before its workers are killed and their share runs on threads.",
+  "rating_workers": -1,
+  "rating_workers_max": 12,
+  "rating_worker_timeout": 120
+}

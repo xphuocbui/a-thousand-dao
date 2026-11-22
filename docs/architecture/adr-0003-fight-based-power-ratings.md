@@ -2,12 +2,13 @@
 
 ## Status
 Accepted (2026-11-14, by the user). Drafted the same day by the assistant from the user's Power Rankings decisions.
+Amended 2026-11-22 (decision 13, worker processes; user decision).
 
 ## Date
 2026-11-14
 
 ## Last Verified
-2026-11-14
+2026-11-14 (decision 13 added 2026-11-22)
 
 ## Decision Makers
 The user (the design decisions, in `design/gdd/power-rankings.md`), with the assistant drafting.
@@ -116,6 +117,42 @@ fighter, panel 16 ms a fighter, a Nguyên Anh and Hóa Thần round robin 1.7 s.
       ×2.5 on 16 cores through `WorkerThreadPool`, about 200 fights a second
       (`production/qa/evidence/combat-port/rating-spike-2026-11-14.md`).
       Budgets are counted in fights, so the design holds; only wall time per season changes.
+
+13. **Amendment (2026-11-22, user decision): rating batches run in worker processes.** A season batch's fights
+    (panels and pair fights) run in N worker processes started from the game's own binary: headless copies that load
+    the game data, rebuild the fighters from build files and run their share. `WorkerThreadPool` threads stay the
+    fallback.
+    - **Why:** inside one process threads cap at about ×2.5 on 16 cores; processes scale almost linearly (×6.6 measured
+      end to end, `production/qa/evidence/combat-port/thread-vs-process-scaling-2026-11-15.md`). A 10,000-fight batch
+      drops from about 49 s to about 18 s, which lets Power Rankings rule 13 (one season late, 2026-11-22) hide the wait
+      at Civ-style turn speed (measured on threads 2026-11-22: back-to-back End turns waited 56-176 s).
+    - **Hand-over:** in Godot's binary Variant format only (`store_var` / `get_var` through files under `user://`),
+      never JSON: its float parse is not correctly rounded and broke 1,652 of 3,000 results in the spike.
+    - **Determinism:** results come back and apply in rule 13's fixed order, so ratings are identical to a threaded or
+      single-threaded run; a parity test proves it for a full season batch. Workers read the game data from disk, so
+      the coordinator sends a hash of the fight data it holds and a worker whose data differs refuses its share.
+    - **Failure:** a worker that crashes, times out (`rating_worker_timeout`) or returns bad data has its share run on
+      threads instead; the results are the same, only slower.
+    - **Knobs** (`combat_rating_workers.json`, not `combat_rankings.json`: that file is rewritten by the calibration
+      exporter and its `data_version` hashes its knobs, so a worker setting there would mark every fighter Stale):
+      `rating_workers` (worker count; -1 means the core count minus 2, capped at `rating_workers_max` 12; 0 means threads
+      only) and `rating_worker_timeout`.
+    - **Platforms:** desktop only; where child processes are not allowed (consoles, mobile) or the knob is 0, threads.
+    - **Not sourceable:** that `-s` script entry and `OS.create_process` behave the same in an exported release build is
+      NOT SOURCEABLE from `docs/engine-reference/godot/`; the 2026-11-15 spike observed it with the release preset, and
+      a release-export check is part of validation.
+    - **Validation:** (1) a full season batch gives results identical to threads; (2) a 10,000-fight batch within 20 s
+      on the development PC; (3) back-to-back End turns measured with ratings on; (4) a forced worker failure falls back
+      cleanly.
+    - **Validation results (2026-11-22, `production/qa/evidence/combat-port/worker-processes-2026-11-22.md`):**
+      (1) and (4) pass (`tests/unit/ranking/rating_workers_test.gd`). (2) **not met:** the first season's 10,000-fight
+      batch takes 49 s on 12 workers (116 s on threads); the rest is built into rule 14 (each panel wave lasts as long as
+      its longest panel, and the waves are sequential). (3) measured: with about 30 s spent on a season, End turn takes
+      about 3 s; pressing through seasons with no pause waits 30-48 s a season. Release export not yet checked.
+    - **As built:** workers start once per batch and serve all its waves (start-up was about 1.5 s a wave); tasks are
+      dealt round robin; each batch has its own pool sharing one data snapshot (the coordinator's data in memory,
+      `DataRegistry.files()`, so in-memory changes reach the workers and no data hash is needed); one batch at a time
+      uses workers.
 
 ### Fallback if `WorkerThreadPool` does not verify
 Run the batch time-sliced on the main thread: a fixed number of fights per frame (about 2 at 6 ms within a 16.7 ms

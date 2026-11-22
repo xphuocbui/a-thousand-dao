@@ -75,7 +75,12 @@ static func from_data(kind: String, realm: int, gd: GameData, errors: Array = []
 ## [param c]'s fighter, or null with the reasons in [param errors]. [param report] gets what the fight does not run
 ## (fight.py's "unmodelled" wording) and what the compile chose for the Character.
 static func compile(c: Character, gd: GameData, db: WorldDB, sheet: StatSheet, report: Array = [], errors: Array = []) -> FighterProfile:
-	var d: Dictionary = character_build_file(c, gd, db, sheet, report)
+	return from_build_file(character_build_file(c, gd, db, sheet, report), gd, report, errors)
+
+
+## The profile for build file [param d] (the second half of [method compile]): a rating worker process rebuilds a fighter
+## from its build file this way, so it fights exactly as the coordinator's compiled profile (ADR-0003 decision 13).
+static func from_build_file(d: Dictionary, gd: GameData, report: Array = [], errors: Array = []) -> FighterProfile:
 	var bfc := BuildFileCompiler.new(gd)
 	var rec: Dictionary = bfc.compile(d)
 	report.append_array(bfc.unmodelled)

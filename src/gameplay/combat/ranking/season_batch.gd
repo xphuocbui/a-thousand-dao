@@ -67,6 +67,15 @@ var profiles: Dictionary = {}
 var panel_fights: int = 0
 var pair_fights: int = 0
 var ran: bool = false
+## Each fighter's build file (id -> build file), kept by the planner beside its compiled profile, so worker processes
+## can rebuild the fighters exactly (ADR-0003 decision 13).
+var builds: Dictionary = {}
+## Worker processes for this batch's fights (ADR-0003 decision 13); null runs everything on threads. Set by the planner.
+var pool: RatingWorkerPool = null
+## Tasks that ran in worker processes, and those that fell back to threads (for measurements and tests).
+var worker_tasks: int = 0
+var _use_pool := false
+var fallback_tasks: int = 0
 
 var _service: RatingService
 var _admitted: Array[PanelJob] = []
@@ -83,6 +92,7 @@ func _init(service: RatingService) -> void:
 ## fit the panel share left, so the share is never exceeded), then as many pair fights as the budget leaves, in plan
 ## order. [param threaded] spreads each wave over WorkerThreadPool; results are identical either way.
 func run(threaded: bool) -> void:
+	_use_pool = pool != null and not _cancelled and pool.begin(builds)
 	var left: int = panel_budget
 	var next := 0
 	while next < panels.size() and not _cancelled:
@@ -94,17 +104,71 @@ func run(threaded: bool) -> void:
 			next += 1
 		if _admitted.is_empty():
 			break
-		_each(_admitted.size(), _panel_task, threaded)
+		_run_panels(threaded)
 		for p in _admitted:
 			left -= int(p.result.get("fights", 0))
 			panel_fights += int(p.result.get("fights", 0))
 	_admitted = []
 	var room: int = maxi(0, budget - panel_fights)
 	_todo = pairs.slice(0, mini(room, pairs.size()))
-	_each(_todo.size(), _pair_task, threaded)
+	_run_pairs(threaded)
 	pair_fights = _todo.size()
 	_todo = []
+	if _use_pool:
+		pool.end()
+	_use_pool = false
 	ran = true
+
+
+## The run's results only, for a save (power-rankings.md rule 13, one season late, 2026-11-22: a batch waits a season
+## before it applies, so a save keeps the previous season's finished batch to apply at the end of the next one). Call
+## it only on a batch that has run. Holds no profiles: everything [method RatingService.apply_batch] reads, nothing
+## more. Inverse: [method from_results].
+func results_to_dict() -> Dictionary:
+	var ps: Array = []
+	for p in panels:
+		if not p.result.is_empty():
+			ps.append({"id": p.id, "realm": p.realm, "coarse": p.coarse, "sig": p.sig, "panels_before": p.panels_before,
+				"counts": p.counts.duplicate(), "result": p.result.duplicate(true)})
+	var fs: Array = []
+	for f in pairs:
+		if f.score >= 0.0:
+			fs.append([f.a, f.b, f.index, f.kind, f.score])
+	return {"game_seed": game_seed, "season": season, "budget": budget, "panel_budget": panel_budget, "waiting": waiting,
+		"panel_fights": panel_fights, "pair_fights": pair_fights, "panels": ps, "pairs": fs}
+
+
+## A batch rebuilt from [method results_to_dict] for [param service]: it has run (so it is never run again) and can only
+## be applied.
+static func from_results(service: RatingService, d: Dictionary) -> SeasonBatch:
+	var b := SeasonBatch.new(service)
+	b.game_seed = int(d.get("game_seed", 0))
+	b.season = int(d.get("season", 0))
+	b.budget = int(d.get("budget", 0))
+	b.panel_budget = int(d.get("panel_budget", 0))
+	b.waiting = int(d.get("waiting", 0))
+	b.panel_fights = int(d.get("panel_fights", 0))
+	b.pair_fights = int(d.get("pair_fights", 0))
+	for pd in d.get("panels", []):
+		var p := PanelJob.new()
+		p.id = str(pd.id)
+		p.realm = int(pd.realm)
+		p.coarse = bool(pd.coarse)
+		p.sig = str(pd.sig)
+		p.panels_before = int(pd.panels_before)
+		p.counts = Dictionary(pd.counts).duplicate()
+		p.result = Dictionary(pd.result).duplicate(true)
+		b.panels.append(p)
+	for fd in d.get("pairs", []):
+		var f := PairFight.new()
+		f.a = str(fd[0])
+		f.b = str(fd[1])
+		f.index = int(fd[2])
+		f.kind = str(fd[3])
+		f.score = float(fd[4])
+		b.pairs.append(f)
+	b.ran = true
+	return b
 
 
 ## Starts [method run] on a background thread (threaded inside); [method finish] waits for it.
@@ -123,6 +187,57 @@ func finish() -> void:
 	if _thread != null:
 		_thread.wait_to_finish()
 		_thread = null
+
+
+## Runs the admitted panels: in worker processes when [member pool] is set, any that come back empty on threads.
+func _run_panels(threaded: bool) -> void:
+	if not _use_pool or _cancelled:
+		_each(_admitted.size(), _panel_task, threaded)
+		return
+	var tasks: Array = []
+	for p in _admitted:
+		tasks.append(["p", p.id, p.realm, p.warm, p.start_k, p.coarse, p.counts, game_seed, season])
+	var got: Array = pool.run(tasks)
+	var left: Array[PanelJob] = []
+	for i in _admitted.size():
+		var r: Variant = got[i]
+		if r is Array and (r as Array).size() == 2:
+			_admitted[i].result = r[0]
+			_admitted[i].counts = r[1]
+			worker_tasks += 1
+		else:
+			left.append(_admitted[i])
+	if not left.is_empty():
+		fallback_tasks += left.size()
+		var keep: Array[PanelJob] = _admitted   # the whole wave, which run() counts afterwards
+		_admitted = left
+		_each(_admitted.size(), _panel_task, threaded)
+		_admitted = keep
+
+
+## Runs the pair fights in [member _todo]: in worker processes when [member pool] is set, any that come back empty on
+## threads.
+func _run_pairs(threaded: bool) -> void:
+	if not _use_pool or _cancelled:
+		_each(_todo.size(), _pair_task, threaded)
+		return
+	var tasks: Array = []
+	for f in _todo:
+		tasks.append(["f", f.a, f.b, f.seed])
+	var got: Array = pool.run(tasks)
+	var left: Array[PairFight] = []
+	for i in _todo.size():
+		if got[i] != null:
+			_todo[i].score = float(got[i])
+			worker_tasks += 1
+		else:
+			left.append(_todo[i])
+	if not left.is_empty():
+		fallback_tasks += left.size()
+		var keep: Array[PairFight] = _todo
+		_todo = left
+		_each(_todo.size(), _pair_task, threaded)
+		_todo = keep
 
 
 func _each(n: int, task: Callable, threaded: bool) -> void:

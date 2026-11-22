@@ -46,6 +46,19 @@ func set_file(file_id: String, content: Dictionary) -> void:
 
 
 ## Returns true if a data file with this id (file name without extension) is loaded.
+## Every loaded file by id (the live dictionaries, not copies): a snapshot of the data as this process holds it, in-memory
+## changes included (ADR-0003 decision 13: rating workers load exactly the coordinator's data).
+func files() -> Dictionary:
+	return _files
+
+
+## A registry holding [param files] (file id -> content), as [method files] gave them.
+static func from_files(files_v: Dictionary) -> DataRegistry:
+	var reg := DataRegistry.new()
+	reg._files = files_v
+	return reg
+
+
 func has_file(file_id: String) -> bool:
 	return _files.has(file_id)
 

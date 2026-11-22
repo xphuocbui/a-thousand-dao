@@ -85,17 +85,40 @@ func test_the_batch_follows_rule_14s_order_and_never_pairs_the_player_or_beasts_
 	assert_eq(kinds.count("rr"), top * (top - 1) / 2, "every top-realm pair once (AC-PR-14)")
 
 
-func test_a_season_runs_its_budget_and_applies_ac_pr_25() -> void:
+func test_a_season_runs_its_budget_and_applies_one_season_late_ac_pr_25() -> void:
+	# Rule 13, one season late (user decision 2026-11-22): the batch planned at the start of season N applies at the end
+	# of season N+1.
 	var s := _session(33)
+	var first: int = s.season_index()
+	s.cultivate(1)
+	assert_true(s.last_rating_batch.is_empty(), "nothing applies at the end of the first season")
+	s.pending_event = {}
 	s.cultivate(1)
 	var lb: Dictionary = s.last_rating_batch
-	assert_false(lb.is_empty(), "a batch applied at the season's end")
+	assert_false(lb.is_empty(), "the first season's batch applied at the end of the second")
+	assert_eq(int(lb.season), first, "it is the batch planned at the start of the first season")
 	assert_true(int(lb.panel_fights) <= BUDGET / 2, "panels within their share")
 	assert_true(int(lb.panel_fights) + int(lb.pair_fights) <= BUDGET, "within the season budget")
 	var rated: int = s.db.all(RatingService.TABLE).filter(func(r): return str(r.get("state", "")) == RatingService.RATED).size()
 	assert_true(rated > 1, "NPCs became Rated (%d)" % rated)
 	var moved: int = s.db.all(RatingService.TABLE).filter(func(r): return int(r.get("n", 0)) > 0).size()
 	assert_true(moved > 0, "pair fights moved offsets")
+
+
+func test_two_batches_are_in_flight_and_pairing_reads_ratings_without_the_last_seasons_results() -> void:
+	# Rule 13, one season late: after one season the season-0 batch is still pending and the season-1 batch was planned
+	# on ratings that do not yet hold it.
+	var s := _session(37)
+	var before: Dictionary = _ratings(s)
+	var first: int = s.season_index()
+	s.cultivate(1)
+	assert_true(s._rating_prev != null and s._rating_prev.season == first, "the first season's batch waits a season")
+	assert_true(s._rating_batch != null and s._rating_batch.season == first + 1, "this season's batch is planned")
+	# Provisional ratings follow realm and stage (Formulas G), and the world tick advances stages, so bases may move; what
+	# must not happen yet is any fight result: no offset or pair count moves, and no panel makes anyone Rated.
+	var after: Dictionary = _ratings(s)
+	for id in before:
+		assert_eq([after[id][1], after[id][2], after[id][3]], [before[id][1], before[id][2], before[id][3]], "%s: no fight result applied yet" % id)
 
 
 func test_background_and_blocking_seasons_give_identical_ratings_ac_pr_52() -> void:
@@ -110,13 +133,16 @@ func test_background_and_blocking_seasons_give_identical_ratings_ac_pr_52() -> v
 
 
 func test_a_reloaded_game_rates_exactly_as_one_never_saved_ac_pr_48() -> void:
-	# Serialised as SaveStore writes saves (unsorted keys, full precision; src/core/save/save_store.gd). The pending
-	# batch is not saved: it is planned again from the saved state, so it must come out identical, and the next season
-	# must rate exactly as in a game never saved (stored ratings are re-snapped on load: JSON does not give back every
-	# double bit-exact).
+	# Serialised as SaveStore writes saves (unsorted keys, full precision; src/core/save/save_store.gd). Rule 13, one
+	# season late: the previous season's batch, still unapplied, is saved as its results and applies at the end of this
+	# season after the load; the current season's batch is not saved: it is planned again from the saved state, so it
+	# must come out identical, and the next season must rate exactly as in a game never saved (stored ratings are
+	# re-snapped on load: JSON does not give back every double bit-exact).
 	var a := _session(35)
 	a.cultivate(1)
-	var saved: Dictionary = JSON.parse_string(JSON.stringify(a.to_dict(), "", false, true))
+	var raw: Dictionary = a.to_dict()
+	assert_false(Dictionary(raw.get("rating_pending", {})).is_empty(), "the unapplied previous batch is in the save")
+	var saved: Dictionary = JSON.parse_string(JSON.stringify(raw, "", false, true))
 	var llm := LlmService.new(_gd_on())
 	llm.enabled = false
 	var b := GameSession.new(_gd_on(), llm, TestFixtures.tree())

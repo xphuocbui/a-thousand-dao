@@ -55,7 +55,11 @@ var ratings: RatingService
 var ratings_background: bool = true
 ## {season, panels, panel_fights, pair_fights} of the last applied season batch (the terminal's 'rankings').
 var last_rating_batch: Dictionary = {}
+## The batch planned at this season's start (running in the background through this season and the next).
 var _rating_batch: SeasonBatch
+## The batch planned at the previous season's start: it applies at the end of this season (power-rankings.md rule 13,
+## one season late, user decision 2026-11-22), so End turn waits only if it is still running a whole season later.
+var _rating_prev: SeasonBatch
 ## A multi-season command in progress (user decision 2026-11-14): the seasons that begin and end inside it share one
 ## season_fight_budget, split evenly in order, so a command waits for about one season's batch however many seasons
 ## it passes. _bulk_left counts the command's seasons still to pass; -1 outside such a command.
@@ -375,7 +379,7 @@ func _pass_season(mode: String) -> Dictionary:
 		season = 0
 		year += 1
 		_yearly()
-	_finish_ratings()   # the season that just ended: its batch completes and applies (rule 13)
+	_roll_ratings()   # rule 13, one season late: the previous season's batch applies; this season's waits a season
 	db.mark_hook_dirty(player.id)   # NPC Relationships rule 15a: the player's realm and place change often
 	out.news = ticker.tick(rng, year, season)
 	# NPC Relationships rule 15a: the hook pass wrote the player's tie rows on the World DB record
@@ -1922,25 +1926,44 @@ func _rating_clock() -> Array:
 	return [seed_value, season_index()]
 
 
-## Completes the pending batch and applies it ([param apply] false stops and drops it instead: quitting, or a life or
-## world being replaced).
-func _finish_ratings(apply: bool = true) -> void:
-	if _rating_batch == null:
-		return
-	var b: SeasonBatch = _rating_batch
+## The season-end step of rule 13 (one season late, 2026-11-22): the previous season's batch completes and applies, in
+## the fixed order, and this season's batch becomes the previous one, to apply at the end of the next season.
+func _roll_ratings() -> void:
+	var prev: SeasonBatch = _rating_prev
+	_rating_prev = _rating_batch
 	_rating_batch = null
-	if not apply:
-		b.cancel()   # its results are dropped: a running batch stops at its next fight
-		b.finish()
-		return
-	if ratings_background:
-		b.finish()
-	else:
-		b.run(true)
-	if apply and ratings != null:
+	if prev != null:
+		_apply_batch(prev)
+
+
+## Completes every pending batch and applies them, oldest first ([param apply] false stops and drops them instead:
+## quitting, or a life or world being replaced). Tools and tests use it to flush the lag.
+func _finish_ratings(apply: bool = true) -> void:
+	var pending: Array = [_rating_prev, _rating_batch].filter(func(b): return b != null)
+	_rating_prev = null
+	_rating_batch = null
+	for b in pending:
+		if not apply:
+			b.cancel()   # its results are dropped: a running batch stops at its next fight
+			b.finish()
+		else:
+			_apply_batch(b)
+
+
+## Completes [param b] (waits for its background run, or runs it now) and applies it.
+func _apply_batch(b: SeasonBatch) -> void:
+	_complete_batch(b)
+	if ratings != null:
 		ratings.apply_batch(b)
 		last_rating_batch = {"season": b.season, "budget": b.budget, "panels": b.panels.filter(func(p): return not p.result.is_empty()).size(),
 			"queued": b.waiting, "panel_fights": b.panel_fights, "pair_fights": b.pair_fights, "pairs": b.pairs.size()}
+
+
+## Waits for [param b]'s background run, or runs it now when it was not started (a restored batch has already run).
+func _complete_batch(b: SeasonBatch) -> void:
+	b.finish()
+	if not b.ran:
+		b.run(true)
 
 
 ## The player's shown power (Power Rankings rule 10): the power number when ratings run (opening it while Stale runs
@@ -1987,7 +2010,18 @@ func to_dict() -> Dictionary:
 		"pending_event": pending_event, "pending_meta": pending_meta, "life_over": life_over, "epitaph": epitaph_text, "cheated": cheated,
 		"edge": edge, "co_duyen_used": co_duyen_used,
 		"knowledge": knowledge.to_dict() if knowledge != null else {},
+		"rating_pending": _pending_rating_results(),
 	}
+
+
+## Rule 13, one season late: the previous season's batch has not applied yet, so a save waits for it to finish and keeps
+## its results, to apply at the end of this season after a load. The current season's batch is not saved: it is
+## planned again from the saved state on load (as before the lag).
+func _pending_rating_results() -> Dictionary:
+	if _rating_prev == null:
+		return {}
+	_complete_batch(_rating_prev)
+	return _rating_prev.results_to_dict()
 
 
 ## Restores a session saved by [method to_dict]. Returns {ok, lines}.
@@ -2048,6 +2082,9 @@ func load_dict(d: Dictionary) -> Dictionary:
 	var kd: Dictionary = d.get("knowledge", {})
 	knowledge = MapKnowledge.from_dict(kd) if not kd.is_empty() else null
 	ratings.normalise_loaded()
+	var pending: Dictionary = d.get("rating_pending", {})
+	if not pending.is_empty() and not life_over and ratings_on():
+		_rating_prev = SeasonBatch.from_results(ratings, pending)   # rule 13: applies at the end of this season
 	if not life_over:
 		_start_ratings()   # the season's batch is planned again from the saved state (rule 14's pending work)
 	var out: Array = ["Loaded %s — %s, %s." % [player.name, gd.realm_label(player.realm_index, player.stage), clock_label()]]
