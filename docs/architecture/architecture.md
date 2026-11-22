@@ -113,7 +113,9 @@ holds a back-pointer to it.
 | Game UI (not built) | Scenes and themes | The same API as the terminal, under the frontend rule |
 
 ## Data Flow
-This game has no frame loop. The equivalents are turn-based; none of them crosses a thread boundary today.
+This game has no frame loop. The equivalents are turn-based. A shipped frontend runs one session action or job at a
+time on a worker thread and reads nothing while it runs (ADR-0006 decision 6); the rating batch runs in the background
+on its own snapshot (ADR-0003 decision 13).
 
 **1. The turn path.**
 ```
@@ -128,7 +130,8 @@ Frontend ── command / button ─► GameSession.<action>(args)        synchr
                                    │         EventValidator clamps it to the budgets
 Frontend ◄── {ok, lines, ...} ◄────┘
 ```
-A *shipped* frontend never reads or writes `db` or `player` directly; it uses the facade's return values plus
+A *shipped* frontend never reads or writes `db` or `player` directly (ADR-0006); it uses the facade's return values,
+its read methods and `GameQuery`, plus
 `StateSnapshot` / `Advisor`.
 
 **2. Events and signals.** Systems communicate by return value and by one collected-notices array that the next
@@ -183,7 +186,9 @@ signal breakthrough_succeeded(realm_index: int)
 - Callers: one action at a time; a pending event blocks time-passing actions; `new_game` or `load_dict` first.
 - Guarantees: a failed action returns `ok: false` and leaves state unchanged; every time-passing action goes through
   `_pass_season`; the same seed and action sequence give the same life.
-- **Frontend rule.** A *shipped* frontend (the Game UI) uses only these methods plus `StateSnapshot` / `Advisor`
+- **Frontend rule** (formalised by ADR-0006: actions, jobs and read methods marked in `game_session.gd`, reads through
+  `GameQuery` / `StateSnapshot` / `Advisor`, checked by `tests/integration/ui/ui_frontend_rule_test.gd`). A *shipped*
+  frontend (the Game UI) uses only these methods plus `StateSnapshot` / `Advisor`
   reads. The **debug terminal is exempt**: it is a debug and cheat tool, and it reads `session.player` and
   `session.db` about 113 times today and writes `session.player.tree_visibility` directly
   (`terminal_app.gd:775`). The terminal does not set the standard for the Game UI. (User decision 2026-11-13: the

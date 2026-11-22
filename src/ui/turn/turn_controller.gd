@@ -104,23 +104,26 @@ func gate() -> Dictionary:
 	return {"ok": true, "reason": ""}
 
 
-## Runs the season for the chosen focus through the session's existing command. Call it only when [method gate]
-## is ok (on the worker thread from the screen). Returns the session's {ok, lines}.
+## Runs the season for the chosen focus through the session's existing command, by GameSession.run so the result
+## carries its events (ADR-0006 decision 7). Call it only when [method gate] is ok (on the worker thread from the
+## screen). Returns the session's {ok, lines, events}.
 func end_turn() -> Dictionary:
 	match focus:
 		FOCUS_TRAVEL:
-			return _session.travel(destination_id)
+			return _session.run(_session.travel.bind(destination_id))
 		FOCUS_EXPLORE:
-			return _session.explore()
+			return _session.run(_session.explore)
 		FOCUS_MISSION:
-			return _session.mission()
-	return _session.cultivate(1)
+			return _session.run(_session.mission)
+	return _session.run(_session.cultivate.bind(1))
 
 
 ## Applies the default-focus rule after a turn (The turn: Default focus): the focus carries over; a journey that has
 ## arrived (or could not start), and any other focus that could not be done, falls back to Cultivate, and
 ## [member fallback_note] names the old focus and why.
-func after_turn(result: Dictionary) -> void:
+## [param here_id] is the player's place after the turn (the screen reads it with GameQuery: the controller reads no
+## session state of its own, ADR-0006 decision 4).
+func after_turn(result: Dictionary, here_id: String) -> void:
 	fallback_note = ""   # a note is shown for the turn that made it, not carried into the next one
 	if focus == FOCUS_CULTIVATE:
 		return
@@ -130,7 +133,7 @@ func after_turn(result: Dictionary) -> void:
 			choose_cultivate()
 			fallback_note = label + ": " + tr_text("could not be done") + ". " + tr_text("Focus back to Cultivate.")
 		return
-	var arrived: bool = str(_session.player.location_id) == destination_id
+	var arrived: bool = here_id == destination_id
 	if arrived or not bool(result.get("ok", false)):
 		var why: String = tr_text("you arrived") if arrived else tr_text("the journey could not start")
 		var old: String = destination_name

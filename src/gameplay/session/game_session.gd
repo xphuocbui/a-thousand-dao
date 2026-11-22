@@ -85,6 +85,9 @@ var cheated: bool = false
 var edge: bool = true
 ## Realm index -> cơ duyên events offered in that realm.
 var co_duyen_used: Dictionary = {}
+## Events of the running action (a breakthrough, the end of the life), handed back by [method run] in its result
+## (ADR-0006 decision 7). Not saved.
+var _events: Array = []
 var epitaph_text: String = ""
 ## What the player knows of the map: known tiles and places, clues, finds (Travel & Map rule 14; null in an old world).
 var knowledge: MapKnowledge = null
@@ -105,6 +108,7 @@ func _init(game_data: GameData, llm_service: LlmService, dao_do_tree: DaoDoTree 
 ## Generates a new world and player. [param spec]: mode ("roll" | "custom"), name, gender,
 ## origin, start (an element or variant id the root holds; else the strongest, Đạo Đồ rule 3), and for custom:
 ## thien_phu {id: value}, purities {element: purity}, variants [ids].
+## Job. One at a time, off the main thread (ADR-0006).
 func new_game(seed_v: int, spec: Dictionary) -> Dictionary:
 	_finish_ratings(false)
 	seed_value = seed_v
@@ -181,6 +185,7 @@ func _grant_edge(perk_id: String) -> void:
 
 
 ## Event context with the session facts the rules need (edge, cơ duyên left this realm).
+## Internal: a frontend never calls it (ADR-0006 decision 2).
 func event_context() -> Dictionary:
 	var per: int = ProgressionEdges.co_duyen_limit(gd, player.realm_index)
 	var left: int = per - int(co_duyen_used.get(player.realm_index, 0)) if edge else 0
@@ -288,6 +293,7 @@ func _starting_element() -> String:
 
 
 ## Writes the live player object back to its people record.
+## Internal: a frontend never calls it (ADR-0006 decision 2).
 func sync_player() -> void:
 	if player == null or db == null:
 		return
@@ -302,6 +308,7 @@ func sync_player() -> void:
 
 
 ## Fresh stat sheet for the player.
+## Read-only. Never changes the world (ADR-0006 decision 1).
 func sheet() -> StatSheet:
 	var sh := StatSheet.build(player, gd, db, tree)
 	if edge:
@@ -310,17 +317,20 @@ func sheet() -> StatSheet:
 
 
 ## "Năm 312, Thu" style clock label.
+## Read-only. Never changes the world (ADR-0006 decision 1).
 func clock_label() -> String:
 	var names: Array = gd.world_gen().season_names
 	return "%s năm %d, %s" % [gd.world_gen().calendar_name, year, names[season]]
 
 
 ## Absolute season counter (used for once-per-season limits).
+## Read-only. Never changes the world (ADR-0006 decision 1).
 func season_index() -> int:
 	return year * int(gd.cultivation_rules().seasons_per_year) + season
 
 
 ## True while an event waits for a choice.
+## Read-only. Never changes the world (ADR-0006 decision 1).
 func has_pending_event() -> bool:
 	return not pending_event.is_empty()
 
@@ -450,6 +460,7 @@ func _maybe_event(bonus: float) -> Array:
 
 
 ## Generates an event now (LLM first, templates as fallback). [param template_id] forces a template.
+## Internal: a frontend never calls it (ADR-0006 decision 2).
 func start_event(template_id: String) -> Array:
 	var ctx: Dictionary = event_context()
 	var res: Dictionary = narrator.generate_event(ctx, rng, template_id)
@@ -466,6 +477,7 @@ func start_event(template_id: String) -> Array:
 # --- Actions ------------------------------------------------------------------------
 
 ## Tu luyện for [param seasons] seasons (stops early if an event interrupts).
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func cultivate(seasons: int) -> Dictionary:
 	var g: Dictionary = _guard(true)
 	if not g.ok:
@@ -504,6 +516,7 @@ func cultivate(seasons: int) -> Dictionary:
 
 
 ## Bế quan for whole years: more efficient, no events, the world moves on.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func closed_door(years: int) -> Dictionary:
 	var g: Dictionary = _guard(true)
 	if not g.ok:
@@ -537,6 +550,7 @@ func closed_door(years: int) -> Dictionary:
 
 
 ## Sect mission (at your sect's headquarters) or bounty work (in a town). One season.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func mission() -> Dictionary:
 	var g: Dictionary = _guard(true)
 	if not g.ok:
@@ -585,6 +599,7 @@ func mission() -> Dictionary:
 
 
 ## Explore the current place for a season: small finds, lost treasures, likely events.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func explore() -> Dictionary:
 	var g: Dictionary = _guard(true)
 	if not g.ok:
@@ -638,6 +653,7 @@ func explore() -> Dictionary:
 ## sea lanes and the wilderness, or flight when [param how] is "flight" (Foundation Establishment and up); in an old
 ## generated world it follows the links. A trip of T seasons spends ceil(T) seasons and the rest of the last season
 ## cultivates at the destination; each season of the trip may draw one encounter (Formula E).
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func travel(dest_id: String, how: String = "ground") -> Dictionary:
 	var g: Dictionary = _guard(true)
 	if not g.ok:
@@ -795,6 +811,7 @@ func _gather_herbs(place: Dictionary) -> Array:
 
 ## Searches the current region for a season with the clues held for it (Travel & Map rule 17, Formula F). The
 ## season is spent off-road, so it may draw an encounter at the region's danger (Formula E, mode "search").
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func search() -> Dictionary:
 	var g: Dictionary = _guard(true)
 	if not g.ok:
@@ -821,6 +838,7 @@ func search() -> Dictionary:
 
 
 ## The clues the player holds, as lines (never the truth: a false clue looks like a true one).
+## Read-only. Never changes the world (ADR-0006 decision 1).
 func clue_lines() -> Array:
 	if knowledge == null or knowledge.clues.is_empty():
 		return ["You hold no clues to hidden places. Explore settlements to hear rumours."]
@@ -844,6 +862,7 @@ func _map_clue_for(place_id: String) -> bool:
 ## distance d in tiles: round(linh_thach_max[realm] * min(fee_base_frac + fee_per_tile_frac * d, fee_frac_max) *
 ## owner_mult); the jump takes jump_seasons, and the rest of the season cultivates at the destination. {} fee when
 ## either end has no array.
+## Read-only. Never changes the world (ADR-0006 decision 1).
 func teleport_fee(dest_id: String) -> Dictionary:
 	var here: Dictionary = db.get_record("places", player.location_id)
 	var dest: Dictionary = db.get_record("places", dest_id)
@@ -857,6 +876,7 @@ func teleport_fee(dest_id: String) -> Dictionary:
 
 
 ## Jumps through the teleport array here to the one at [param dest_id] (a place id or name).
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func teleport(dest_id: String) -> Dictionary:
 	var g: Dictionary = _guard(true)
 	if not g.ok:
@@ -896,6 +916,7 @@ func teleport(dest_id: String) -> Dictionary:
 
 
 ## The teleport-array cities and the fee from here to each, as lines.
+## Read-only. Never changes the world (ADR-0006 decision 1).
 func array_lines() -> Array:
 	var out: Array = []
 	for p in db.find("places", func(x): return bool(x.get("array", false))):
@@ -908,6 +929,7 @@ func array_lines() -> Array:
 
 ## Builds or raises a work on the land here (Travel & Map rules 31-32, Formula J): a shared work at a place the
 ## player holds, a home work at home. Permanent works take their level's seasons; upkept ones one season.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func build_work(work_id: String, element: String = "") -> Dictionary:
 	var g: Dictionary = _guard(true)
 	if not g.ok:
@@ -926,6 +948,7 @@ func build_work(work_id: String, element: String = "") -> Dictionary:
 
 
 ## The works here and what each would cost next, as lines.
+## Read-only. Never changes the world (ADR-0006 decision 1).
 func work_lines() -> Array:
 	var place: Dictionary = db.get_record("places", player.location_id)
 	var qi: Dictionary = place.get("qi", {})
@@ -947,6 +970,7 @@ func work_lines() -> Array:
 ## Opens a cave abode on the wilderness tile ([param x], [param y]) (Travel & Map rule 8, Formulas M): travels there,
 ## pays round(linh_thach_max x abode_cost_frac) and a season, and the abode becomes the player's home, a new place
 ## with the tile part's terrain and qi ([param part] 0-2; -1 picks the part with the best density x land match).
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func open_abode(x: int, y: int, part: int = -1) -> Dictionary:
 	var g: Dictionary = _guard(true)
 	if not g.ok:
@@ -1015,6 +1039,7 @@ func open_abode(x: int, y: int, part: int = -1) -> Dictionary:
 
 ## Cave Abode (user decision 2026-11-21): a home that is neither an abode nor a residence (an origin's home town) is a
 ## free grade-1 residence of that place: 2 slots, works up to level 3, its furnishing, no rent. Also for an older save.
+## Internal: a frontend never calls it (ADR-0006 decision 2).
 func start_residence() -> void:
 	var home: Dictionary = db.get_record("places", player.home_id)
 	if home.get("qi", {}).is_empty() or not CaveAbode.home_rec(home.qi, player.id).is_empty():
@@ -1031,6 +1056,7 @@ func start_residence() -> void:
 
 
 ## Rule 6 and F1: raises the player's cave abode a grade (one season). The residence's grade is fixed.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func raise_abode() -> Dictionary:
 	var g: Dictionary = _guard(true)
 	if not g.ok:
@@ -1050,6 +1076,7 @@ func raise_abode() -> Dictionary:
 
 
 ## Rule 11 and F4: claims the Left or ruined cave abode here (half the opening fee, one season); it becomes the home.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func claim_abode() -> Dictionary:
 	var g: Dictionary = _guard(true)
 	if not g.ok:
@@ -1112,6 +1139,7 @@ func _clan_family(home: Dictionary) -> void:
 
 
 ## Rule 9: the owner picks which work sleeps while a lost slot forces one to (a swap; see CaveAbode.sleep).
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func abode_sleep(id: String, wake: String = "") -> Dictionary:
 	if player.location_id != player.home_id:
 		return {"ok": false, "lines": ["You choose at your home."]}
@@ -1122,6 +1150,7 @@ func abode_sleep(id: String, wake: String = "") -> Dictionary:
 
 
 ## Rule 13: the home's stat block (grade, slots, works and their state, upkeep, the next grade).
+## Read-only. Never changes the world (ADR-0006 decision 1).
 func abode_lines() -> Array:
 	var home: Dictionary = db.get_record("places", player.home_id)
 	if home.get("qi", {}).is_empty():
@@ -1131,6 +1160,7 @@ func abode_lines() -> Array:
 
 ## Rents or buys a residence of [param grade] here (Travel & Map rule 34, Formula M): settled ground only, the grade
 ## within the place's max_grade and the realm minimum. A sect member lives at their seat by realm for free.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func take_residence(grade: int, buy: bool = false) -> Dictionary:
 	var g: Dictionary = _guard(false)
 	if not g.ok:
@@ -1216,6 +1246,7 @@ func _bill_residence() -> Array:
 
 
 ## Capability #21: once a year, travel instantly to any visited place.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func blink(dest_id: String) -> Dictionary:
 	var g: Dictionary = _guard(true)
 	if not g.ok:
@@ -1233,6 +1264,7 @@ func blink(dest_id: String) -> Dictionary:
 
 
 ## Luyện đan one recipe (one season; with capability #10 two recipes share a season).
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func craft(recipe_id: String) -> Dictionary:
 	var g: Dictionary = _guard(true)
 	if not g.ok:
@@ -1253,6 +1285,7 @@ func craft(recipe_id: String) -> Dictionary:
 
 
 ## Luyện khí: refines a pháp bảo of [param base_id] at [param tier] (-1 = own realm). One season.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func refine(base_id: String, tier: int = -1) -> Dictionary:
 	var g: Dictionary = _guard(true)
 	if not g.ok:
@@ -1272,6 +1305,7 @@ func refine(base_id: String, tier: int = -1) -> Dictionary:
 
 
 ## Phù lục: draws one batch of talismans. One season.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func draw_talisman(talisman_id: String) -> Dictionary:
 	var g: Dictionary = _guard(true)
 	if not g.ok:
@@ -1288,6 +1322,7 @@ func draw_talisman(talisman_id: String) -> Dictionary:
 
 
 ## Trận pháp: raises a formation at the động phủ one level. One season.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func formation_build(formation_id: String) -> Dictionary:
 	var g: Dictionary = _guard(true)
 	if not g.ok:
@@ -1305,6 +1340,7 @@ func formation_build(formation_id: String) -> Dictionary:
 
 
 ## Lets an owned linh thú go.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func release_beast(beast_id: String) -> Dictionary:
 	var g: Dictionary = _guard(false)
 	if not g.ok:
@@ -1315,6 +1351,7 @@ func release_beast(beast_id: String) -> Dictionary:
 
 
 ## Plants a seed (herb template id or name) or transplants an owned herb item id.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func plant(what: String) -> Dictionary:
 	var g: Dictionary = _guard(false)
 	if not g.ok:
@@ -1330,6 +1367,7 @@ func plant(what: String) -> Dictionary:
 
 
 ## Harvests a plot, or every plot with [param plot] = -1.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func harvest(plot: int) -> Dictionary:
 	var g: Dictionary = _guard(false)
 	if not g.ok:
@@ -1355,6 +1393,7 @@ func harvest(plot: int) -> Dictionary:
 
 ## Eats a pill or uses a treasure. [param element] is the player's pick for a Linh Căn Quả;
 ## without a valid one the fruit is kept and the answer lists the choices.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func use_item(item_id: String, element: String = "") -> Dictionary:
 	var g: Dictionary = _guard(false)
 	if not g.ok:
@@ -1367,7 +1406,7 @@ func use_item(item_id: String, element: String = "") -> Dictionary:
 			return {"ok": false, "needs_element": true, "options": t.options, "lines": TreasureEffects.preview_lines(player, gd, t.options, item_id)}
 		if t.ok:
 			_log_root_changes("player_linh_can_changed", t.changes)
-		sync_player()
+		_sync_and_rate()
 		return {"ok": t.ok, "lines": [t.message]}
 	var r: Dictionary = PillEffects.consume(player, gd, db, sheet(), item_id)
 	var lines: Array = [r.message]
@@ -1379,12 +1418,13 @@ func use_item(item_id: String, element: String = "") -> Dictionary:
 			lines.append("  Stage up! Now %s (+%d Đạo Đồ points)." % [gd.realm_label(player.realm_index, player.stage), res.tree_points])
 		if res.bottleneck:
 			lines.append("  Bình cảnh reached.")
-	sync_player()
+	_sync_and_rate()
 	return {"ok": r.ok, "lines": lines}
 
 
 ## Equips a pháp bảo in [param slot] ("weapon", "armour", "ring", "necklace" or "extra"); with none, the first
 ## fitting free base slot, then an extra slot (item-database.md rule 11).
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func equip(item_id: String, slot: String = "") -> Dictionary:
 	var g: Dictionary = _guard(false)
 	if not g.ok:
@@ -1401,7 +1441,7 @@ func equip(item_id: String, slot: String = "") -> Dictionary:
 		return {"ok": false, "lines": ["No free slot fits %s." % item.name]}
 	player.equipped.append(item_id)
 	player.equip_slots[item_id] = to
-	sync_player()
+	_sync_and_rate()
 	var p: Dictionary = CombatPower.compute(player, gd, db, sheet())
 	var where: String = "an extra slot" if to == EquipSlots.EXTRA else "the %s slot" % to
 	var lines: Array = ["Equipped %s in %s. Chiến lực now %.0f." % [item.name, where, p.total]]
@@ -1411,6 +1451,7 @@ func equip(item_id: String, slot: String = "") -> Dictionary:
 
 
 ## Chooses the equipped pháp bảo to nurture (capability #3). Choosing another restarts the growth.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func nurture(item_id: String) -> Dictionary:
 	var g: Dictionary = _guard(false)
 	if not g.ok:
@@ -1424,12 +1465,13 @@ func nurture(item_id: String) -> Dictionary:
 	var restarted: bool = player.nurtured_id != ""
 	player.nurtured_id = item_id
 	player.nurture_years = 0
-	sync_player()
+	_sync_and_rate()
 	var label: String = str(db.get_record("items", item_id).get("name", item_id))
 	return {"ok": true, "lines": ["You begin nurturing %s within your body%s." % [label, "; the old growth is lost" if restarted else ""]]}
 
 
 ## Unequips a pháp bảo.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func unequip(item_id: String) -> Dictionary:
 	var g: Dictionary = _guard(false)
 	if not g.ok:
@@ -1441,11 +1483,12 @@ func unequip(item_id: String) -> Dictionary:
 	if player.nurtured_id == item_id:   # capability #3: the growth restarts with the next chosen treasure
 		player.nurtured_id = ""
 		player.nurture_years = 0
-	sync_player()
+	_sync_and_rate()
 	return {"ok": true, "lines": ["Unequipped %s." % db.get_record("items", item_id).get("name", item_id)]}
 
 
 ## Reads an owned manual: its technique joins the known list at layer 1 (cong-phap.md rule 4).
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func learn(item_id: String) -> Dictionary:
 	var g: Dictionary = _guard(false)
 	if not g.ok:
@@ -1455,7 +1498,7 @@ func learn(item_id: String) -> Dictionary:
 		return {"ok": false, "lines": ["You own no manual %s." % item_id]}
 	if not CongPhap.learn(player, item):
 		return {"ok": false, "lines": ["You already know %s." % item.name]}
-	sync_player()
+	_sync_and_rate()
 	var lines: Array = ["You learn %s at layer 1. Put it in a slot with 'slot'." % item.name]
 	if not CongPhap.usable(player, player.techniques[str(item.tech_id)].def):
 		lines.append("  Your root lacks what it names, so it cannot be slotted yet.")
@@ -1465,6 +1508,7 @@ func learn(item_id: String) -> Dictionary:
 ## Changes a technique slot at the season start. [param slot] is main, second or aux with
 ## [param index]; key "" empties it. A change that would end the life needs [param confirm]
 ## (Realms rule 14). Returns {ok, lines, needs_confirm}.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func set_slot(slot: String, index: int, key: String, confirm: bool = false) -> Dictionary:
 	var g: Dictionary = _guard(false)
 	if not g.ok:
@@ -1479,7 +1523,7 @@ func set_slot(slot: String, index: int, key: String, confirm: bool = false) -> D
 		player.second_tech = before.second
 		player.aux_tech = before.aux
 		return {"ok": false, "needs_confirm": true, "lines": ["Your lifespan falls to %d; you are %d: you will die of old age." % [int(cap), int(player.age)]]}
-	sync_player()
+	_sync_and_rate()
 	if cap <= player.age:
 		_end_life("Thọ nguyên cạn kiệt ở tuổi %d" % int(player.age))
 		return {"ok": true, "lines": death_lines()}
@@ -1490,6 +1534,7 @@ func set_slot(slot: String, index: int, key: String, confirm: bool = false) -> D
 ## Local spiritual qi: the place's density plus density_bonus, the same sum the rate uses.
 ## The density the player would cultivate at in [param place_id] (Formula B's stack for them there, density_bonus
 ## included; the place's density in an old generated world).
+## Read-only. Never changes the world (ADR-0006 decision 1).
 func place_density(place_id: String) -> float:
 	var p: Dictionary = db.get_record("places", place_id)
 	var bonus: float = sheet().total("density_bonus")
@@ -1498,6 +1543,7 @@ func place_density(place_id: String) -> float:
 	return float(LandQi.stacked_density(gd, player, p.qi, float(p.get("density", 1.0)), bonus, sheet().total("home_array_density"), sheet().total("formation_power_pct")).total)
 
 
+## Read-only. Never changes the world (ADR-0006 decision 1).
 func local_density(sh: StatSheet) -> float:
 	var here: Dictionary = db.get_record("places", player.location_id)
 	if here.get("qi", {}).is_empty():
@@ -1506,6 +1552,7 @@ func local_density(sh: StatSheet) -> float:
 
 
 ## True if a talisman would go on this attempt: one held, and none used this realm step.
+## Read-only. Never changes the world (ADR-0006 decision 1).
 func talisman_available() -> bool:
 	return not _breakthrough_talisman().is_empty() and not player.talisman_used
 
@@ -1521,6 +1568,7 @@ func _breakthrough_talisman() -> Dictionary:
 ## talisman burn on a pill attempt. With a pill held but the condition unmet the attempt
 ## would be bare: that needs [param confirm_bare]. [param use_talisman] is the preview toggle.
 ## [param burn_life] commits capability #23's extra roll if this pill attempt fails.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func breakthrough(confirm_bare: bool = false, use_talisman: bool = true, burn_life: bool = false) -> Dictionary:
 	var g: Dictionary = _guard(true)
 	if not g.ok:
@@ -1529,6 +1577,8 @@ func breakthrough(confirm_bare: bool = false, use_talisman: bool = true, burn_li
 		return {"ok": false, "lines": ["You are not at a bottleneck (%s, %.0f / %.0f tu vi)." % [gd.realm_label(player.realm_index, player.stage), player.tu_vi, CultivationRules.level_requirement(player, gd)]]}
 	var next: Dictionary = gd.realm(player.realm_index + 1)
 	var pill: Dictionary = Advisor.best_pill(self, str(next.entry_requirement.item_tag))
+	if not pill.is_empty():
+		pill = db.get_record("items", str(pill.id))   # the live record: the action burns it (Advisor returns copies)
 	var sh: StatSheet = sheet()
 	var cond: Dictionary = CultivationRules.breakthrough_condition(player, gd, local_density(sh))
 	var is_pill: bool = not pill.is_empty() and bool(cond.met)
@@ -1593,7 +1643,7 @@ func breakthrough(confirm_bare: bool = false, use_talisman: bool = true, burn_li
 		if res.died:
 			_end_life(player.death_cause)
 			lines.append_array(death_lines())
-	sync_player()
+	_sync_and_rate()
 	var t: Dictionary = {"died": false, "news": []}
 	if not life_over:
 		t = _pass_season("")
@@ -1605,6 +1655,7 @@ func breakthrough(confirm_bare: bool = false, use_talisman: bool = true, burn_li
 ## (linh-can.md rule 10). Only a formed variant is recorded.
 func _on_breakthrough_succeeded() -> Array:
 	breakthrough_succeeded.emit(player.realm_index)
+	_events.append({"kind": "breakthrough", "realm_index": player.realm_index})
 	if not player.has_capability(int(gd.attributes().linh_can.awakening_capability)):
 		return []
 	var formed: Array = player.linh_can.awakening_pass(gd, rng)
@@ -1616,6 +1667,7 @@ func _on_breakthrough_succeeded() -> Array:
 
 
 ## Opens a Đạo Đồ node; with [param walk_path] opens the whole shortest path.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func tree_allocate(node_id: int, walk_path: bool) -> Dictionary:
 	var g: Dictionary = _guard(false)
 	if not g.ok:
@@ -1639,11 +1691,12 @@ func tree_allocate(node_id: int, walk_path: bool) -> Dictionary:
 			lines.append("  %s purity +%s (now %s)." % [gd.element_label(str(id)), LinhCan.fmt(float(opened.road[id])), LinhCan.fmt(player.linh_can.purity(str(id)))])
 		if int(opened.cap) > 0:
 			lines.append("  Capability gained: %s. %s" % [gd.capability(int(opened.cap)).name, gd.capability(int(opened.cap)).desc])
-	sync_player()
+	_sync_and_rate()
 	return {"ok": true, "lines": lines}
 
 
 ## The starts the player's root may pick (Đạo Đồ rule 3), as {id, key, name, current}.
+## Read-only. Never changes the world (ADR-0006 decision 1).
 func tree_starts() -> Array:
 	var out: Array = []
 	var cur: int = tree.start_of_character(player)
@@ -1654,6 +1707,7 @@ func tree_starts() -> Array:
 
 ## Changes the player's start to the start of [param key] (an element or variant id the root holds), allowed while no
 ## Dao mark has been opened yet: at birth, and after a migrated save (rule 19). Returns {ok, lines}.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func tree_choose_start(key: String) -> Dictionary:
 	if player.tree_nodes.size() > 1:
 		return {"ok": false, "lines": ["The start is fixed once a Dao mark is open."]}
@@ -1661,7 +1715,7 @@ func tree_choose_start(key: String) -> Dictionary:
 	if sid < 0 or not tree.starts_for(player.linh_can, gd).has(sid):
 		return {"ok": false, "lines": ["Your root may start at: %s." % ", ".join(tree_starts().map(func(x): return x.key))]}
 	player.tree_nodes = [sid]
-	sync_player()
+	_sync_and_rate()
 	return {"ok": true, "lines": ["You start at the %s (#%d)." % [str(tree.node(sid).name), sid]]}
 
 
@@ -1684,6 +1738,7 @@ func _start_line() -> String:
 
 
 ## Buys an item from the market here.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func buy(item_id: String) -> Dictionary:
 	var g: Dictionary = _guard(false)
 	if not g.ok:
@@ -1694,6 +1749,7 @@ func buy(item_id: String) -> Dictionary:
 
 
 ## Sells one unit of an owned item at the market here.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func sell(item_id: String) -> Dictionary:
 	var g: Dictionary = _guard(false)
 	if not g.ok:
@@ -1706,6 +1762,7 @@ func sell(item_id: String) -> Dictionary:
 ## NPC Traits F3: at the player's first meeting with [param npc], its attitude to the player starts at att0 (its
 ## opinion of the player from traits, ties and sect, plus a quarter of the player's standing with its sect). Later
 ## meetings change nothing here (Quests' attitude rules take over).
+## Internal: a frontend never calls it (ADR-0006 decision 2).
 func meet(npc: Dictionary) -> void:
 	if Ties.enabled(gd):   # NPC Relationships rule 6: the met list; someone pushed off it is tested at the next S8b
 		var m: Dictionary = Ties.met_after(gd, player.met_list, str(npc.id))
@@ -1723,6 +1780,7 @@ func meet(npc: Dictionary) -> void:
 
 
 ## Talks to a person at the same place (once per season each).
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func talk(npc_id: String, player_line: String) -> Dictionary:
 	var g: Dictionary = _guard(false)
 	if not g.ok:
@@ -1752,6 +1810,7 @@ func talk(npc_id: String, player_line: String) -> Dictionary:
 
 
 ## Resolves the pending event with choice [param index] (0-based).
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func choose(index: int) -> Dictionary:
 	var g: Dictionary = _guard(false)
 	if not g.ok:
@@ -1782,7 +1841,7 @@ func choose(index: int) -> Dictionary:
 	if result.died:
 		_end_life(player.death_cause)
 		lines.append_array(death_lines())
-	sync_player()
+	_sync_and_rate()
 	return {"ok": true, "lines": lines}
 
 
@@ -1804,10 +1863,33 @@ func _end_life(cause: String) -> void:
 		player.linh_can.describe(gd), cause, "; ".join(db.events_of(player.id).slice(-8).map(func(e): return str(e.text)))]
 	epitaph_text = narrator.epitaph(facts).text
 	sync_player()
-	life_ended.emit({"name": player.name, "realm": gd.realm_label(player.realm_index, player.stage), "age": player.age, "cause": cause})
+	var summary := {"name": player.name, "realm": gd.realm_label(player.realm_index, player.stage), "age": player.age, "cause": cause}
+	life_ended.emit(summary)
+	_events.append({"kind": "life_ended", "summary": summary})
+
+
+## Job. Runs [param action] (a bound action method of this session, e.g. [code]session.cultivate.bind(1)[/code]) and
+## returns its result with [code]events[/code]: what happened during it that a frontend reacts to
+## ([code]{kind: "breakthrough", realm_index}[/code], [code]{kind: "life_ended", summary}[/code]). A shipped frontend
+## calls actions through this, off the main thread, one at a time (ADR-0006 decisions 6 and 7).
+func run(action: Callable) -> Dictionary:
+	_events = []
+	var r: Variant = action.call()
+	var out: Dictionary = r if r is Dictionary else {"ok": false, "lines": ["The action gave no result."]}
+	out["events"] = _events.duplicate(true)
+	_events = []
+	return out
+
+
+## Read-only. The sect status lines (the read half of [method sect_status], ADR-0006 decision 2).
+func sect_lines() -> Array:
+	if player == null:
+		return []
+	return Array(sect_status().get("lines", []))
 
 
 ## Lines shown when the life ends.
+## Read-only. Never changes the world (ADR-0006 decision 1).
 func death_lines() -> Array:
 	return ["", "======== %s ========" % "ĐẠO TIÊU THÂN VẪN", epitaph_text, "", "Your life is over. 'chronicle' shows your story; 'new' begins another life."]
 
@@ -1816,6 +1898,7 @@ func death_lines() -> Array:
 
 ## The player's sect, rank, standing and contribution, the next promotion's needs, and any other sect's standing
 ## with the player (Sects rules 19-22). Returns {ok, lines}.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func sect_status() -> Dictionary:
 	var g: Dictionary = _guard(false)
 	if not g.ok:
@@ -1844,6 +1927,7 @@ func sect_status() -> Dictionary:
 
 
 ## Joins the sect whose seat is here, or [param sect_id] (Sects rule 20). No time passes. Returns {ok, lines}.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func join_sect(sect_id: String = "") -> Dictionary:
 	var g: Dictionary = _guard(true)
 	if not g.ok:
@@ -1857,29 +1941,31 @@ func join_sect(sect_id: String = "") -> Dictionary:
 		return {"ok": false, "lines": ["You cannot join: %s." % "; ".join(cj.reasons)]}
 	sect_members.join(player, s)
 	_log("player_joined_sect", {"a": player.id, "s1": s.id})
-	sync_player()
+	_sync_and_rate()
 	return {"ok": true, "lines": ["You join %s as an %s." % [s.name, sect_members.rank_name(player.sect_rank)]]}
 
 
 ## Promotion to the next rank when its gate is met (Sects F13). No time passes. Returns {ok, lines}.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func promote() -> Dictionary:
 	var g: Dictionary = _guard(true)
 	if not g.ok:
 		return g
 	var r: Dictionary = sect_members.promote(player)
 	if r.ok:
-		sync_player()
+		_sync_and_rate()
 	return r
 
 
 ## Leaves the player's sect on good terms, or deserts it ([param desert]; Sects rule 22). Returns {ok, lines}.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
 func leave_sect(desert: bool) -> Dictionary:
 	var g: Dictionary = _guard(true)
 	if not g.ok:
 		return g
 	var r: Dictionary = sect_members.leave(player, desert)
 	if r.ok:
-		sync_player()
+		_sync_and_rate()
 	return r
 
 
@@ -1887,11 +1973,13 @@ func leave_sect(desert: bool) -> Dictionary:
 
 ## Call before the program exits or the session is dropped: waits for a season batch still running on its
 ## background thread (a process quitting under a running batch hangs) and drops it unapplied.
+## Job. One at a time, off the main thread (ADR-0006).
 func shutdown() -> void:
 	_finish_ratings(false)
 
 
 ## True when Power Rankings runs (combat_rankings.json "enabled").
+## Read-only. Never changes the world (ADR-0006 decision 1).
 func ratings_on() -> bool:
 	return ratings != null and ratings.enabled()
 
@@ -1968,23 +2056,35 @@ func _complete_batch(b: SeasonBatch) -> void:
 
 ## The player's shown power (Power Rankings rule 10): the power number when ratings run (opening it while Stale runs
 ## the player's panel now, once per build: Edge Cases), else chiến lực. Returns {value, text, provisional}.
+## Read-only. Never changes the world (ADR-0006 decision 1).
 func player_power() -> Dictionary:
 	if not ratings_on():
 		var cl: float = CombatPower.compute(player, gd, db, sheet()).total
 		return {"value": cl, "text": "Chiến lực %.0f" % cl, "provisional": false}
-	sync_player()
-	var rec: Dictionary = ratings.refresh_person(db.get_record("people", player.id))
-	if str(rec.state) == RatingService.STALE:
-		ratings.run_panel(player, sheet(), seed_value, season_index())
 	return power_of_person(player.id)
 
 
+## After an action that can change the player's build or realm (ADR-0006 decision 1; power-rankings.md Edge Cases):
+## syncs the player's record, refreshes its rating and, when it is Stale, runs the player's panel (once per build, on
+## the action's thread). The season pass does not call it: there the season batch plans the player's panel (rule 14).
+func _sync_and_rate() -> void:
+	sync_player()
+	if player == null or life_over or not ratings_on():
+		return
+	var rec: Dictionary = ratings.refresh_person(db.get_record("people", player.id))
+	if str(rec.state) == RatingService.STALE:
+		ratings.run_panel(player, sheet(), seed_value, season_index())
+
+
 ## A person's shown power: {value, text, provisional} (the power number when ratings run, else chiến lực).
+## Read-only. Never changes the world (ADR-0006 decision 1).
 func power_of_person(id: String) -> Dictionary:
 	var p: Dictionary = db.get_record("people", id)
 	if not ratings_on():
 		return {"value": float(p.get("power", 0.0)), "text": "chiến lực %.0f" % float(p.get("power", 0.0)), "provisional": false}
-	var rec: Dictionary = ratings.refresh_person(p)
+	if player != null and id == player.id:
+		p = player.to_dict()   # the player as it is now, which its record may not show until the next action syncs it
+	var rec: Dictionary = ratings.peek_person(p)
 	var n: int = ratings.ladder.power_number(float(rec.base) + float(rec.offset))
 	var prov: bool = str(rec.state) == RatingService.PROVISIONAL
 	return {"value": float(n), "text": "power %s%s" % [_thousands(n), "?" if prov else ""], "provisional": prov}
@@ -2002,6 +2102,7 @@ static func _thousands(n: int) -> String:
 # --- Save / load ------------------------------------------------------------------
 
 ## Whole session as a JSON-safe Dictionary.
+## Job. One at a time, off the main thread (ADR-0006).
 func to_dict() -> Dictionary:
 	sync_player()
 	return {
@@ -2025,6 +2126,7 @@ func _pending_rating_results() -> Dictionary:
 
 
 ## Restores a session saved by [method to_dict]. Returns {ok, lines}.
+## Job. One at a time, off the main thread (ADR-0006).
 func load_dict(d: Dictionary) -> Dictionary:
 	if int(d.get("version", 0)) == 2:
 		return {"ok": false, "lines": ["This save uses the old 300-level ladder and cannot be loaded."]}
@@ -2097,6 +2199,7 @@ func load_dict(d: Dictionary) -> Dictionary:
 ## root comes back as an unspent point, its hidden-cluster state is dropped, and it takes the start of its strongest
 ## element (the player may move it with [method tree_choose_start] before opening a Dao mark). A record on the
 ## current baseline is left alone. Returns true if it migrated.
+## Internal: a frontend never calls it (ADR-0006 decision 2).
 func migrate_tree_record(rec: Dictionary) -> bool:
 	if str(rec.get("tree_baseline", "")) == DaoDoTree.BASELINE:
 		return false
@@ -2123,6 +2226,7 @@ func migrate_tree_record(rec: Dictionary) -> bool:
 ## A layout edit on the v5 map (design/dao-do/layout/v5-layout-2026-11-20.json) may remove Dao marks; ids are never
 ## reused (rule 19). A saved record that has one open drops it and gets its point back, unspent; the marks around a
 ## removed one were re-linked, so the rest of the build stays connected. Returns how many it dropped.
+## Internal: a frontend never calls it (ADR-0006 decision 2).
 func prune_removed_tree_nodes(rec: Dictionary) -> int:
 	var kept: Array = []
 	var dropped := 0

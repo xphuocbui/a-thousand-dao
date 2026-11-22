@@ -55,6 +55,9 @@ bible names them.
 After the ADR-0005 review fixes (the layer's busy guard, focus returned on every close, the `tooltip_open` action) and
 the link styles, the demo was re-run at both sizes: still 42 and 44 PASS.
 
+After ADR-0006 (the greybox reads only through GameSession's allowlist, StateSnapshot, Advisor and GameQuery; actions
+through GameSession.run), the demo was re-run at both sizes: still 42 and 44 PASS.
+
 Rating fights on (the default path, `--turns=4`, shot `scaling/ratings-on-after-4-turns`): world ready in 37 s, End turn
 waits 2.7 / 49 / 49 / 32 s back to back (the one-season lag plus 12 worker processes; ADR-0003's 20 s target is not
 met). Quitting while a season resolves (`--turns=2 --quit-in-turn`): 12 rating workers alive at the quit, no Godot

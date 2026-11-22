@@ -40,7 +40,7 @@
 #   unsupported layout, with its number.
 
 version: 1
-last_updated: "2026-11-13"
+last_updated: "2026-11-22"
 
 # ─── STATE OWNERSHIP ─────────────────────────────────────────────────────────
 # Who is the authoritative owner of each piece of shared game state.
@@ -53,7 +53,16 @@ last_updated: "2026-11-13"
 # interface: how other systems access this state (read-only property, method call,
 #   signal, shared resource, etc.) — this is the contract other ADRs depend on.
 
-state_ownership: []
+state_ownership:
+  - state: session_core
+    owner_system: game-session
+    adr: docs/architecture/adr-0006-game-session-facade.md
+    interface: "GameSession actions and jobs change it; frontends read it only through GameSession read methods, StateSnapshot, Advisor and GameQuery (copies)"
+    description: "The clock (year, season), the player, the pending event and the session random stream"
+    referenced_by:
+      - docs/architecture/adr-0006-game-session-facade.md
+      - docs/architecture/adr-0002-random-streams.md
+    added: 2026-11-22
 
 # Example:
 #
@@ -120,6 +129,31 @@ interfaces:
     signal_signature: "TooltipLayer.set_tip(c: Control, tip: String | Dictionary | Callable(Vector2) -> Variant); content {id?, title, fact?, summary?, body?, lines?, wiki?}; Esc only via EscRouter.pick(state) -> String; season changes and windows call TooltipLayer.close_all(); tip Callables are read-only"
     referenced_by:
       - docs/architecture/adr-0005-tooltip-layer.md
+    added: 2026-11-22
+    revised: ""
+  - contract: game_session_facade
+    status: active
+    pattern: direct_call
+    producer: game-session
+    consumers:
+      - game-ui
+      - debug-terminal
+    adr: docs/architecture/adr-0006-game-session-facade.md
+    signal_signature: "Actions (## Action.) -> {ok, lines, events, ...}; jobs (## Job.: new_game, load_dict, to_dict, shutdown); read methods (## Read-only.) never change to_dict() or the RNG state; one action or job at a time, off the main thread; nothing read while one runs"
+    referenced_by:
+      - docs/architecture/adr-0006-game-session-facade.md
+    added: 2026-11-22
+    revised: ""
+  - contract: game_query
+    status: active
+    pattern: direct_call
+    producer: guidance
+    consumers:
+      - game-ui
+    adr: docs/architecture/adr-0006-game-session-facade.md
+    signal_signature: "GameQuery static functions (clock, player, here, place, known_places, people_met_at, route_seasons, has_clues, pending_event, market_lines, breakdown, level_requirement, travel_factor, place_lines, sheet_lines) take the session and return deep copies; never a WorldDB record"
+    referenced_by:
+      - docs/architecture/adr-0006-game-session-facade.md
     added: 2026-11-22
     revised: ""
 
@@ -192,6 +226,16 @@ api_decisions:
       - docs/architecture/adr-0001-combat-engine-in-godot.md
     added: 2026-11-13
     revised: ""
+  - purpose: session_action_threading
+    status: active
+    api: "One Thread per action or job through BackgroundCall (src/ui/turn/background_call.gd); events in the action's result"
+    not: "Actions on the main thread; WorkerThreadPool for session actions; frontends connecting to session signals"
+    adr: docs/architecture/adr-0006-game-session-facade.md
+    reason: "The screen keeps drawing while a season resolves (ui-code.md); one job at a time keeps single access to the session; results carry events in order"
+    referenced_by:
+      - docs/architecture/adr-0006-game-session-facade.md
+    added: 2026-11-22
+    revised: ""
 
 # Example:
 #
@@ -243,10 +287,46 @@ forbidden_patterns:
     adr: docs/architecture/adr-0005-tooltip-layer.md
     added: 2026-11-22
   - pattern: tooltip_reads_state_while_busy
-    status: active
+    status: "superseded_by: ADR-0006"
     description: "A tooltip Callable must not change state, and the layer must not call one while the session's background job runs (TooltipLayer.busy)."
     why: "Tips run on the main thread every frame while hovered; the season resolves on a worker thread, so a read during it races the simulation."
     adr: docs/architecture/adr-0005-tooltip-layer.md
+    added: 2026-11-22
+  - pattern: frontend_reads_while_job_runs
+    status: active
+    description: "While a session action or job runs, a frontend reads nothing from the session: no read method, Guidance read, tooltip Callable or StatSheet kept from before (the HUD is inert; TooltipLayer.busy is on)."
+    why: "The job runs on a worker thread; a main-thread read races the simulation."
+    adr: docs/architecture/adr-0006-game-session-facade.md
+    added: 2026-11-22
+  - pattern: frontend_reads_session_members
+    status: active
+    description: "A shipped frontend (src/ui) names no GameSession member outside the allowlist of actions, jobs and read methods, and no WorldDB or service object."
+    why: "Live records let the UI change the world by accident and couple it to the DB schema; tests/integration/ui/ui_frontend_rule_test.gd checks it."
+    adr: docs/architecture/adr-0006-game-session-facade.md
+    added: 2026-11-22
+  - pattern: frontend_uses_terminal_code
+    status: active
+    description: "A shipped frontend does not use the debug terminal's code (TerminalViews, TerminalIO)."
+    why: "The terminal is exempt from the frontend rule; borrowing its views imports that exemption into the Game UI."
+    adr: docs/architecture/adr-0006-game-session-facade.md
+    added: 2026-11-22
+  - pattern: read_mutates_state
+    status: active
+    description: "A read (GameSession read method, StateSnapshot, Advisor, GameQuery) never changes to_dict() or the session RNG state, and never runs a rating panel or fights on the session stream."
+    why: "A UI that reads more often than a headless run would drift from it (TR-sim-001); tests/unit/session/session_reads_test.gd checks every read."
+    adr: docs/architecture/adr-0006-game-session-facade.md
+    added: 2026-11-22
+  - pattern: query_returns_live_record
+    status: active
+    description: "GameQuery, StateSnapshot and Advisor return deep copies built for the purpose, never a WorldDB record or live service object."
+    why: "WorldDB.get_record returns the live Dictionary; a caller changing it changes the world."
+    adr: docs/architecture/adr-0006-game-session-facade.md
+    added: 2026-11-22
+  - pattern: frontend_connects_session_signals
+    status: active
+    description: "A shipped frontend does not connect to GameSession signals (life_ended, breakthrough_succeeded); it acts on the action result's events."
+    why: "The signals fire partway through an action on the job thread; a handler could run before the action finishes."
+    adr: docs/architecture/adr-0006-game-session-facade.md
     added: 2026-11-22
 
 # Example:

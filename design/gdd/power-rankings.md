@@ -435,8 +435,11 @@ half the planned pair fights drop each season, nearly all from the Kết Đan sl
   old rating would leave a new Trúc Cơ cultivator rated as a Luyện Khí one for a season.
 - **If a fighter's build changes several times in one season**: it gets one panel, for the build it has when the
   panel runs.
-- **If the player opens their power number while Stale**: the player's panel runs then (about 100 ms, outside the
-  season budget), at most once per build.
+- **If the player's build changes** (equip, learn, a Đạo Đồ point, a breakthrough …): the player's panel runs at the
+  end of the action that changed it (about 100 ms, on the action's thread, outside the season budget), at most once
+  per build. Opening the power number never runs a panel: while the player is Stale it shows the stored rating
+  marked `?`. (Changed 2026-11-22 by ADR-0006 decision 1: reads never change the world; it was "runs when the player
+  opens a Stale power number".)
 - **If a fighter runs off the end of its ladder** (wins at rung +`k_max` or loses at −`k_max`): the prior
   (Formulas B) gives a finite rating a few hundred points beyond the end rung, and the panel logs the fighter's id.
   It is ranked correctly against everyone inside the ladder; two fighters both beyond the same end are ordered by
@@ -626,7 +629,7 @@ Ratings compare within ±0.05 (the stored 0.1).
 - **AC-PR-36** [Logic] **GIVEN** an odd count in a realm and a forced case with every neighbour within 5 used, **WHEN** pairing runs, **THEN** the window widens once to 10, an NPC still unpaired sits out, and no pair repeats in the season.
 - **AC-PR-37** [Logic] **GIVEN** a Rated Luyện Khí stage-3 NPC with offset +40, **WHEN** it breaks through to Trúc Cơ stage 0, **THEN** it is Provisional at 5400 + 40 = 5,440 (test anchors), shown provisional; **WHEN** its Trúc Cơ panel then runs, it is a cold search, **THEN** its offset becomes +20.
 - **AC-PR-38** [Logic] **GIVEN** 3 build changes in one season, **WHEN** the batch runs, **THEN** exactly 1 panel runs, compiled from the final build.
-- **AC-PR-39** [Integration] **GIVEN** the player Stale, **WHEN** the power number is opened twice with no build change between, **THEN** 1 synchronous panel runs on the first open, none on the second, and the season budget count is unchanged.
+- **AC-PR-39** [Integration] **GIVEN** the player Rated, **WHEN** an action changes the player's build and the power number is then opened twice with no build change between, **THEN** 1 panel runs, at the end of that action; opening the number runs none and leaves `to_dict()` unchanged; and the season budget count is unchanged. (Revised 2026-11-22, ADR-0006 decision 1.)
 - **AC-PR-40** [Logic] **GIVEN** a panel fight and a rated fight that each end at the time limit, **WHEN** scored, **THEN** each is 0.5 for both sides.
 - **AC-PR-41** [Logic] **GIVEN** the compiler refuses fighter X, **WHEN** the batch runs, **THEN** it completes, X's state and rating are unchanged, the log names X's id, and X's panel is queued next season.
 - **AC-PR-42** [Logic] **GIVEN** a realm with 1 rated NPC, **WHEN** a season runs, **THEN** that realm has 0 matchmaking and round-robin fights and the NPC's rating is unchanged.

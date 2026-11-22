@@ -168,9 +168,9 @@ static func EscRouter.pick(state: Dictionary) -> String
   argument. `tests/integration/ui/ui_no_builtin_tooltips_test.gd` scans `src/` for them. Item lists **must** call
   `set_item_tooltip_enabled(i, false)` and give the list a Callable tip.
 - Tip Callables **must** be read-only. They **must** read game state through `StateSnapshot` / `Advisor` and
-  `GameSession` read methods, the shipped frontend rule. **Greybox exemption:** the tips in
-  `src/ui/greybox/map_screen.gd` read `session.player` and `session.db` directly; the exemption ends when Required
-  ADR #2 is written, and those tips move to the read API it defines.
+  `GameSession` read methods, the shipped frontend rule (ADR-0006). The greybox exemption recorded here ended on
+  2026-11-22: the greybox's tips now read through `StateSnapshot` and `GameQuery`, and
+  `tests/integration/ui/ui_frontend_rule_test.gd` checks it.
 - The screen **must** set `TooltipLayer.busy` to its "a session job is running" check, so no tip reads state while the
   session works on its thread. A tip **may** also check it itself (defence in depth).
 - A tip Callable **must** build its content within 1 ms; a tip that cannot **must** cache and rebuild only when what

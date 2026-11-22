@@ -7,7 +7,7 @@ extends RefCounted
 ## Usage:
 ## [codeblock]
 ## var job := BackgroundCall.new()
-## job.start(func(): return session.cultivate(1))
+## job.start(func(): return session.run(session.cultivate.bind(1)))
 ## # each frame: if job.is_done(): var result = job.finish()
 ## [/codeblock]
 

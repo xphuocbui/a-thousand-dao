@@ -210,6 +210,28 @@ func refresh_person(p: Dictionary) -> Dictionary:
 	return rec
 
 
+## What [method refresh_person] would say about [param p], without changing anything (ADR-0006 decision 1: reads
+## never change the world): {state, base, offset}, a new Dictionary. A person with no record yet reads as Provisional
+## at its realm and stage.
+func peek_person(p: Dictionary) -> Dictionary:
+	var rec: Dictionary = _db.get_record(TABLE, str(p.id))
+	var realm: int = clampi(int(p.get("realm_index", 0)), 0, 4)
+	var stage: int = int(p.get("stage", 0))
+	if rec.is_empty():
+		var state0: String = GONE if not bool(p.get("alive", true)) else PROVISIONAL
+		return {"state": state0, "base": _snap(ladder.provisional(realm, stage, _gd)), "offset": 0.0}
+	var out := {"state": str(rec.state), "base": float(rec.base), "offset": float(rec.offset)}
+	if not bool(p.get("alive", true)) or out.state == GONE:
+		out.state = GONE
+		return out
+	if int(rec.realm) != realm or out.state == PROVISIONAL:
+		out.state = PROVISIONAL
+		out.base = _snap(ladder.provisional(realm, stage, _gd))
+	elif out.state == RATED and (str(rec.get("sig", "")) != build_sig(p) or str(rec.get("version", "")) != str(_knobs.get("data_version", ""))):
+		out.state = STALE
+	return out
+
+
 ## Runs a panel for [param c] now (the player's synchronous panel, ADR-0003 decision 5): compiles it, searches its
 ## realm's ladder (warm from its rating when it already has a base at this realm, else cold; [param coarse] for a
 ## world-generation coarse search) and sets its base, applying offset_keep once. Returns {ok, base, fights, probes} or

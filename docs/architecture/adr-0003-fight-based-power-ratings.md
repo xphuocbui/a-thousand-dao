@@ -81,8 +81,9 @@ fighter, panel 16 ms a fighter, a Nguyên Anh and Hóa Thần round robin 1.7 s.
    fighter's panel fights against that rung in the season (across all its panels that season); world-generation panels
    use season 0. Only world fights draw from the
    session stream, one draw each.
-5. **The player's panel is synchronous** when the player opens a Stale power number (about 100 ms); everything else is
-   background work.
+5. **The player's panel is synchronous** at the end of the action that changed the player's build (about 100 ms, on
+   the action's thread, once per build); everything else is background work. Amended 2026-11-22 by ADR-0006 decision 1
+   (reads never change the world); it was "when the player opens a Stale power number".
 6. **Calibration is data.** Ladder rung ratings (Power Rankings Formulas C) are computed by a Godot
    tool script once per data version (a hash of the combat data files) and stored in `combat_rankings.json`, so a
    game never calibrates at load. A data version mismatch at load marks every fighter Stale.

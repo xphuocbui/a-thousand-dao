@@ -1,10 +1,10 @@
-Reviewed-Content-Hash: src/ui/greybox/map_screen.gd 491bb284d361ffb052dfb61e5452d41b00ed5fdb
+Reviewed-Content-Hash: src/ui/greybox/map_screen.gd 02f6c68bbd063361e0e0bb5a48c165d6ec936440
 Reviewed-Content-Hash: src/ui/greybox/map_screen.tscn 06158114d6c20932d80b8d8c2181a2215a3e94e7
 Reviewed-Content-Hash: src/ui/map/map_view.gd 22a32399d61f55417f861b75364f803fb18b98a3
 Reviewed-Content-Hash: src/ui/map/map_bubble.gd f8311d169bb5b20c2a404d37fe6fb698798b1c2b
 Reviewed-Content-Hash: src/ui/map/bubble_model.gd 644061c8772cad7a910e155663a68c781ee03da7
-Reviewed-Content-Hash: src/ui/turn/turn_controller.gd 418d286d45a65c5b1ad4d3e2c1f8937ec89ad680
-Reviewed-Content-Hash: src/ui/turn/background_call.gd b205c70ec202b6cf3bea4b1edc9419f6a5527cd6
+Reviewed-Content-Hash: src/ui/turn/turn_controller.gd bf5df329ac96213eb3cd937753f00d088266c079
+Reviewed-Content-Hash: src/ui/turn/background_call.gd 3c873ed40ca72153a41b4869470c60655acd8bf4
 Reviewed-Content-Hash: src/ui/hud/hud_readouts.gd 94c6f2e915e905a1d032cfb08fbe105f10849b97
 Reviewed-Content-Hash: src/ui/hud/ui_scale.gd e6870f81720147f4391c5966cf9240c0b99d1b3b
 Reviewed-Content-Hash: src/ui/hud/esc_router.gd 0c0203bd2e2dae6385a31a8a78a248ea2e682b32
@@ -15,5 +15,6 @@ Reviewed-Content-Hash: src/ui/windows/centre_window.gd d5a247857ae5880f45309fac1
 Reviewed-Content-Hash: src/ui/windows/text_panel.gd 02503335b5f2dd8827c04398e64b280fc1d7d4ce
 Reviewed-Content-Hash: src/ui/windows/focus_comparison.gd f984b5a44541b37931f16dcfa6407baf7657a0b2
 Reviewed-Content-Hash: src/ui/windows/places_panel.gd f9d1336cf3bb2aa6898abf4e6afdf41282f29a8a
+Reviewed-Content-Hash: src/gameplay/session/game_query.gd ca74e34a02dda36d4cdbb2b8dbdd5705eff05d77
 Reviewed-Content-Hash: assets/data/ui_hud.json 755282697cd39655b1ec7d103789cc44ce2a5edf
 Reviewed-Content-Hash: assets/data/ui_terms.json 3f1c7fdc36920b1ef8120ab9e8a994fa3eeb0e2b

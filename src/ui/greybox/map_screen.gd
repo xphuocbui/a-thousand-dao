@@ -57,6 +57,7 @@ var _shots: int = 0
 var _ui_scale_pct: int = 100
 var _scaling := false
 var _world_start_msec: int = 0
+var _known_cache: Array = []   # GameQuery.known_places of the last refresh
 
 
 func _ready() -> void:
@@ -179,6 +180,8 @@ func _process(_delta: float) -> void:
 	if not _job.is_done():
 		return
 	var out: Variant = _job.finish()
+	if not (out is Dictionary):
+		out = {"ok": false, "lines": [tr("The game hit an error working this out; nothing was changed by the screen.")], "events": []}
 	var kind: String = _job_kind
 	_job_kind = ""
 	match kind:
@@ -385,7 +388,7 @@ func _build_layout() -> void:
 	_places.place_selected.connect(_on_places_selected)
 	_places.travel_requested.connect(func(id: String): _open_comparison(TurnController.FOCUS_TRAVEL, id))
 	_places.details_requested.connect(_open_place_details)
-	_places.action_requested.connect(func(kind: String): _on_bubble_pressed(kind, str(session.player.location_id)))
+	_places.action_requested.connect(func(kind: String): _on_bubble_pressed(kind, _here_id()))
 	_places.closed.connect(func(): _refresh())
 
 	# Z7 centre windows, over a dim of the map (HUD States: Event card, the map dims by about 30 %)
@@ -446,14 +449,13 @@ func _show_loading(text: String) -> void:
 # --- State -> display ------------------------------------------------------------------------------------------------
 
 func _refresh() -> void:
-	if session == null or session.player == null:
+	if session == null or GameQuery.player(session).is_empty():
 		return
 	var snap: Dictionary = StateSnapshot.take(session)
-	var c: Character = session.player
 	_stones.text = HudReadouts.stones_text(float(snap.linh_thach))
 	_season.text = session.clock_label()
 	_realm.text = str(snap.realm_label)
-	var req: float = CultivationRules.level_requirement(c, gd)
+	var req: float = GameQuery.level_requirement(session)
 	_cult_bar.value = HudReadouts.cultivation_share(float(snap.tu_vi), req) * 100.0
 	_lifespan.text = HudReadouts.lifespan_numbers(float(snap.age), float(snap.lifespan))
 	var warn: bool = HudReadouts.lifespan_warning(float(snap.age), float(snap.lifespan), float(_cfg.get("lifespan_warn_share", 0.1)))
@@ -478,13 +480,10 @@ func _refresh_turn_button() -> void:
 
 func _refresh_map(location_id: String) -> void:
 	var places: Array = []
-	for p in session.db.all("places"):
-		if bool(p.get("hidden", false)) or not p.has("tile"):
-			continue
-		if session.knowledge != null and not session.knowledge.knows_place(str(p.id)):
-			continue
-		places.append({"id": str(p.id), "name": str(p.name), "tile": Vector2i(int(p.tile[0]), int(p.tile[1])), "kind": str(p.get("kind", ""))})
-	var here: Dictionary = session.db.get_record("places", location_id)
+	_known_cache = GameQuery.known_places(session)
+	for p in _known_cache:
+		places.append({"id": str(p.id), "name": str(p.name), "tile": Vector2i(int(p.tile[0]), int(p.tile[1])), "kind": str(p.get("kind", "")), "rec": p})
+	var here: Dictionary = GameQuery.here(session)
 	var tile := Vector2i(-1, -1)
 	if here.has("tile"):
 		tile = Vector2i(int(here.tile[0]), int(here.tile[1]))
@@ -504,12 +503,12 @@ func _refresh_map(location_id: String) -> void:
 ## over what the player knows.
 func _bubbles(places: Array, here_id: String, here_tile: Vector2i) -> Array:
 	var out: Array = []
-	var c: Character = session.player
+	var c: Dictionary = GameQuery.player(session)
 	if here_tile.x >= 0:
 		out.append({"kind": "player", "place_id": here_id, "tile": here_tile,
-			"tooltip": "%s — %s — %s (%s)" % [c.name, gd.realm_label(c.realm_index, c.stage), str(session.db.get_record("places", here_id).get("name", "")), tr("click: character sheet")]})
-	var home: Dictionary = session.db.get_record("places", str(c.home_id))
-	if str(c.home_id) != "" and home.has("tile"):
+			"tooltip": "%s — %s — %s (%s)" % [c.name, c.realm_label, str(GameQuery.here(session).get("name", "")), tr("click: character sheet")]})
+	var home: Dictionary = GameQuery.place(session, str(c.home_id)) if str(c.home_id) != "" else {}
+	if not home.is_empty() and home.has("tile"):
 		out.append({"kind": "abode", "place_id": str(c.home_id), "tile": Vector2i(int(home.tile[0]), int(home.tile[1])),
 			"tooltip": tr("Your abode at") + " " + str(home.name) + " (" + tr("click: open it") + ")"})
 	var known: Dictionary = {}
@@ -520,10 +519,10 @@ func _bubbles(places: Array, here_id: String, here_tile: Vector2i) -> Array:
 	var cfg: Dictionary = _bubble_cfg()
 	var links: Dictionary = {here_id: _trip_links(here_id, here_tile, places, float(cfg.get("trip_seasons", 1.0)))}
 	var dist: Dictionary = BubbleModel.distances(here_id, links, known, float(cfg.get("trip_seasons", 1.0)))
-	var met_here: int = session.db.find("people", func(x): return bool(x.get("alive", true)) and not bool(x.get("is_player", false)) and bool(x.get("met_player", false)) and str(x.get("location_id", "")) == here_id).size()
+	var met_here: int = GameQuery.people_met_at(session, here_id).size()
 	var kinds_by_place: Dictionary = {}
 	for id in dist:
-		var rec: Dictionary = session.db.get_record("places", id)
+		var rec: Dictionary = by_id.get(id, {}).get("rec", {})
 		var can_work: bool = Advisor.can_work_here(session) if id == here_id else bool(rec.get("bounties", false))
 		var k: Dictionary = BubbleModel.kinds_for(rec, id == here_id, met_here, can_work, Array(cfg.get("explore_kinds", [])))
 		if not k.is_empty():
@@ -551,21 +550,11 @@ func _trip_links(here_id: String, here_tile: Vector2i, places: Array, reach: flo
 	if key == _trip_key:
 		return _trip_cache
 	var out: Array = []
-	var tg: TravelGrid = TravelGrid.of(gd)
-	var f: float = Travel.speed_factor(gd, session.sheet().total("travel_speed_pct"))
 	var radius: float = float(_bubble_cfg().get("prefilter_tiles_per_season", 90.0)) * reach
 	for pl in places:
 		if pl.id == here_id or here_tile.x < 0 or Vector2(pl.tile - here_tile).length() > radius:
 			continue
-		var t: float = -1.0
-		if tg.errors.is_empty():
-			var trip: Dictionary = tg.trip(here_tile, pl.tile, "ground", f)
-			if not trip.is_empty():
-				t = float(trip.seasons)
-		if t < 0.0:
-			var route: Dictionary = Travel.quickest(session.db, here_id, str(pl.id), f)
-			if not route.is_empty():
-				t = float(route.seasons)
+		var t: float = GameQuery.route_seasons(session, str(pl.id))
 		if t >= 0.0 and t <= reach + 1e-9:
 			out.append({"to": str(pl.id), "seasons": t})
 	_trip_key = key
@@ -581,17 +570,13 @@ func _toggle_places(opener: Control) -> void:
 		_places.close_panel()
 		return
 	_panel.close_panel()
-	var here_id: String = str(session.player.location_id)
-	var here: Dictionary = session.db.get_record("places", here_id)
+	var here_id: String = _here_id()
+	var here: Dictionary = GameQuery.here(session)
 	var cfg: Dictionary = _bubble_cfg()
-	var met_here: int = session.db.find("people", func(x): return bool(x.get("alive", true)) and not bool(x.get("is_player", false)) and bool(x.get("met_player", false)) and str(x.get("location_id", "")) == here_id).size()
+	var met_here: int = GameQuery.people_met_at(session, here_id).size()
 	var rows: Array = []
 	var here_actions: Array = []
-	for p in session.db.all("places"):
-		if bool(p.get("hidden", false)) or not p.has("tile"):
-			continue
-		if session.knowledge != null and not session.knowledge.knows_place(str(p.id)):
-			continue
+	for p in GameQuery.known_places(session):
 		var is_here: bool = str(p.id) == here_id
 		var can_work: bool = Advisor.can_work_here(session) if is_here else bool(p.get("bounties", false))
 		var kinds: Dictionary = BubbleModel.kinds_for(p, is_here, met_here, can_work, Array(cfg.get("explore_kinds", [])))
@@ -602,15 +587,12 @@ func _toggle_places(opener: Control) -> void:
 		if is_here:
 			here_actions = acts.filter(func(k): return BubbleModel.is_free_here(k))
 		var fee: Dictionary = session.teleport_fee(str(p.id))
-		var qi: Dictionary = p.get("qi", {})
-		var holder: String = str(p.get("holder", ""))
-		rows.append({"id": str(p.id), "name": str(p.name), "region": str(session.db.get_record("regions", str(p.get("region_id", ""))).get("name", "")),
+		rows.append({"id": str(p.id), "name": str(p.name), "region": str(p.region_name),
 			"kind": str(p.get("kind", "")), "danger": int(p.get("danger", 0)),
-			"match": float(LandQi.land_match(session.player, gd, qi).total) if not qi.is_empty() else 0.0,
-			"holder": str(session.db.get_record("sects", holder).get("name", holder)) if holder != "" else "",
+			"match": float(p.land_match), "holder": str(p.holder_name),
 			"people": met_here if is_here else -1, "actions": acts, "here": is_here, "seasons": 0.0 if is_here else -1.0,
 			"seasons_known": is_here, "fee": int(fee.get("fee", -1)) if not fee.is_empty() else -1})
-	var clues: Array = session.clue_lines() if session.knowledge != null and not session.knowledge.clues.is_empty() else []
+	var clues: Array = session.clue_lines() if GameQuery.has_clues(session) else []
 	_places.open_panel(str(here.get("name", "")), here_actions, session.has_pending_event(), rows, clues, opener)
 	_refresh()
 
@@ -623,23 +605,8 @@ func _fill_place_routes() -> void:
 	var pending: Array = _places.pending_ids()
 	if pending.is_empty():
 		return
-	var here: Dictionary = session.db.get_record("places", str(session.player.location_id))
-	if not here.has("tile"):
-		return
-	var tg: TravelGrid = TravelGrid.of(gd)
-	var f: float = Travel.speed_factor(gd, session.sheet().total("travel_speed_pct"))
 	for id in pending.slice(0, int(_greybox().get("routes_per_frame", 3))):
-		var dest: Dictionary = session.db.get_record("places", id)
-		var t: float = -1.0
-		if tg.errors.is_empty() and dest.has("tile"):
-			var trip: Dictionary = tg.trip(Vector2i(int(here.tile[0]), int(here.tile[1])), Vector2i(int(dest.tile[0]), int(dest.tile[1])), "ground", f)
-			if not trip.is_empty():
-				t = float(trip.seasons)
-		if t < 0.0:
-			var route: Dictionary = Travel.quickest(session.db, str(here.id), id, f)
-			if not route.is_empty():
-				t = float(route.seasons)
-		_places.set_seasons(id, t)
+		_places.set_seasons(id, GameQuery.route_seasons(session, id))
 
 
 ## A season or an event can move the player, reveal places and change what can be done here, so an open Places panel
@@ -652,7 +619,7 @@ func _rebuild_places() -> void:
 
 
 func _on_places_selected(place_id: String) -> void:
-	var rec: Dictionary = session.db.get_record("places", place_id)
+	var rec: Dictionary = GameQuery.place(session, place_id)
 	if rec.has("tile"):
 		_map.centre_on(Vector2i(int(rec.tile[0]), int(rec.tile[1])))
 
@@ -660,9 +627,9 @@ func _on_places_selected(place_id: String) -> void:
 func _open_place_details(place_id: String) -> void:
 	if _busy():
 		return
-	var rec: Dictionary = session.db.get_record("places", place_id)
+	var rec: Dictionary = GameQuery.place(session, place_id)
 	var lines: Array = [str(rec.get("name", "")) + " — " + str(rec.get("kind", "")).replace("_", " "), ""]
-	lines.append_array(TerminalViews.stat_block(session, rec))
+	lines.append_array(GameQuery.place_lines(session, place_id))
 	_places.close_panel()
 	_panel.open_panel(tr("Place"), lines, _places_button)
 
@@ -688,7 +655,7 @@ func _busy() -> bool:
 func _on_place_clicked(place_id: String) -> void:
 	if _busy():
 		return
-	if place_id == str(session.player.location_id):
+	if place_id == _here_id():
 		_open_comparison(TurnController.FOCUS_CULTIVATE, "")
 	else:
 		_open_comparison(TurnController.FOCUS_TRAVEL, place_id)
@@ -697,7 +664,9 @@ func _on_place_clicked(place_id: String) -> void:
 func _toggle_zoom() -> void:
 	if session == null:
 		return
-	var here: Dictionary = session.db.get_record("places", str(session.player.location_id))
+	if _busy():
+		return
+	var here: Dictionary = GameQuery.here(session)
 	var at := Vector2(-1, -1)
 	if here.has("tile"):
 		at = Vector2(int(here.tile[0]), int(here.tile[1])) + Vector2(0.5, 0.5)
@@ -707,7 +676,7 @@ func _toggle_zoom() -> void:
 func _on_bubble_pressed(kind: String, place_id: String) -> void:
 	if _busy():
 		return
-	var here: String = str(session.player.location_id)
+	var here: String = _here_id()
 	match kind:
 		"player":
 			_open_sheet_from(_portrait)
@@ -722,7 +691,7 @@ func _on_bubble_pressed(kind: String, place_id: String) -> void:
 		"market":
 			_panel.open_panel(tr("Market"), _market_lines(here), _end_turn)
 		"sect":
-			_panel.open_panel(tr("Sect"), Array(session.sect_status().get("lines", [])), _end_turn)
+			_panel.open_panel(tr("Sect"), session.sect_lines(), _end_turn)
 		"people":
 			_panel.open_panel(tr("People you know here"), _people_lines(here), _end_turn)
 		"work":
@@ -735,18 +704,17 @@ func _on_bubble_pressed(kind: String, place_id: String) -> void:
 ## not do); the trade window is not in the greybox yet.
 func _market_lines(place_id: String) -> Array:
 	var lines: Array = [tr("The trade window is not in the greybox yet."), ""]
-	var stock: Array = session.market.stock(place_id)
+	var stock: Array = GameQuery.market_lines(session, place_id)
 	if stock.is_empty():
 		lines.append(tr("No stock seen yet: it appears when you trade here."))
-	for it in stock:
-		lines.append(session.items.describe(it))
+	lines.append_array(stock)
 	return lines
 
 
 func _people_lines(place_id: String) -> Array:
 	var lines: Array = [tr("Person cards are not in the greybox yet."), ""]
-	for x in session.db.find("people", func(q): return bool(q.get("alive", true)) and not bool(q.get("is_player", false)) and bool(q.get("met_player", false)) and str(q.get("location_id", "")) == place_id):
-		lines.append(TerminalViews.person_line(session, x))
+	for x in GameQuery.people_met_at(session, place_id):
+		lines.append(str(x.line))
 	return lines
 
 
@@ -761,7 +729,7 @@ func _open_comparison(preselect: String, travel_place: String) -> void:
 		"reason": tr("No work here: go to your sect's headquarters or a town or city with bounties.")})
 	var dest: String = travel_place if travel_place != "" else turn.destination_id
 	if dest != "":
-		var rec: Dictionary = session.db.get_record("places", dest)
+		var rec: Dictionary = GameQuery.place(session, dest)
 		var what: Array = []
 		if bool(rec.get("market", false)):
 			what.append(tr("market"))
@@ -782,7 +750,7 @@ func _open_comparison(preselect: String, travel_place: String) -> void:
 func _on_comparison_confirmed(option_id: String) -> void:
 	if option_id.begins_with(TurnController.FOCUS_TRAVEL + ":"):
 		var dest: String = option_id.substr(TurnController.FOCUS_TRAVEL.length() + 1)
-		turn.choose_travel(dest, str(session.db.get_record("places", dest).get("name", dest)))
+		turn.choose_travel(dest, str(GameQuery.place(session, dest).get("name", dest)))
 	else:
 		match option_id:
 			TurnController.FOCUS_EXPLORE:
@@ -822,7 +790,7 @@ func _try_end_turn() -> void:
 func _on_turn_done(result: Dictionary) -> void:
 	turn.resolving = false
 	_last_turn_msec = Time.get_ticks_msec()
-	turn.after_turn(result)
+	turn.after_turn(result, _here_id())
 	_rebuild_places()
 	_refresh()
 	var lines: Array = Array(result.get("lines", []))
@@ -854,10 +822,11 @@ func _show_event() -> void:
 	if not session.has_pending_event():
 		return
 	turn.window_open = true
+	var ev: Dictionary = GameQuery.pending_event(session)
 	var odds: Array = []
-	for i in Array(session.pending_event.get("choices", [])).size():
+	for i in Array(ev.get("choices", [])).size():
 		odds.append(Advisor.choice_odds(session, i))
-	_centre.show_event(session.pending_event, odds)
+	_centre.show_event(ev, odds)
 	_refresh_turn_button()
 
 
@@ -866,7 +835,7 @@ func _on_option_chosen(index: int) -> void:
 		return
 	_centre.hide_window()
 	_job_kind = "choose"
-	_job.start(session.choose.bind(index))
+	_job.start(session.run.bind(session.choose.bind(index)))
 
 
 func _on_choice_done(result: Dictionary) -> void:
@@ -884,7 +853,7 @@ func _open_sheet() -> void:
 func _open_sheet_from(opener: Control) -> void:
 	if _busy():
 		return
-	_panel.open_panel(tr("Character"), TerminalViews.sheet(session, TerminalIO.new()), opener)
+	_panel.open_panel(tr("Character"), GameQuery.sheet_lines(session), opener)
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
@@ -952,49 +921,48 @@ func _on_escape(owner_ctl: Control) -> void:
 # --- Tooltip content (design/ux/hud.md, Tooltips: name, key fact, one-line summary, then the Breakdown) -------------
 
 func _tip_stones(_at: Vector2) -> Variant:
-	if _busy() or session.player == null:
+	if _busy():
 		return ""   # never read the session while a job runs on it
-	return {"title": tr("Spirit stones (linh thạch)"), "fact": tr("Held:") + " " + HudReadouts.stones_text(float(session.player.linh_thach)),
+	return {"title": tr("Spirit stones (linh thạch)"), "fact": tr("Held:") + " " + HudReadouts.stones_text(float(StateSnapshot.take(session).linh_thach)),
 		"summary": tr("The only money."), "body": TooltipLayer.parse_body(tr("Markets, sect services and teleport arrays price in [[linh_thach|spirit stones]].")),
 		"wiki": "linh_thach"}
 
 
 func _tip_season(_at: Vector2) -> Variant:
-	if _busy() or session.player == null:
+	if _busy() or GameQuery.player(session).is_empty():
 		return ""   # never read the session while a job runs on it
 	return {"title": _season.text, "summary": tr("The calendar: one turn is one season."),
 		"body": TooltipLayer.parse_body(tr("End the turn to pass one [[mua|season]].")), "wiki": "mua"}
 
 
 func _tip_realm(_at: Vector2) -> Variant:
-	if _busy() or session.player == null:
+	if _busy() or GameQuery.player(session).is_empty():
 		return ""   # never read the session while a job runs on it
 	return {"title": _realm.text, "summary": tr("Your realm and stage."),
 		"body": TooltipLayer.parse_body(tr("Your [[canh_gioi|realm]]: [[luyen_khi|Qi Refining]] is the first.")), "wiki": "canh_gioi"}
 
 
 func _tip_cultivation(_at: Vector2) -> Variant:
-	if _busy() or session.player == null:
+	if _busy() or GameQuery.player(session).is_empty():
 		return ""   # never read the session while a job runs on it
-	var c: Character = session.player
-	var here: Dictionary = session.db.get_record("places", c.location_id)
-	var rate: Breakdown = CultivationRules.rate_per_season(c, gd, session.db, session.sheet(), float(here.get("density", 1.0)), false, here.get("qi", {}))
-	return {"title": tr("Cultivation progress"), "fact": HudReadouts.cultivation_text(float(c.tu_vi), CultivationRules.level_requirement(c, gd)),
-		"summary": tr("Cultivating here adds about %s a season.") % Breakdown._fmt(rate.total),
+	var snap: Dictionary = StateSnapshot.take(session)
+	var rate: Dictionary = GameQuery.breakdown(session, "rate")
+	return {"title": tr("Cultivation progress"), "fact": HudReadouts.cultivation_text(float(snap.tu_vi), GameQuery.level_requirement(session)),
+		"summary": tr("Cultivating here adds about %s a season.") % Breakdown._fmt(float(rate.total)),
 		"body": TooltipLayer.parse_body(tr("Your [[tu_vi|cultivation base]]; when it is full you attempt a [[dot_pha|breakthrough]].")),
-		"lines": Array(rate.lines()), "wiki": "tu_vi"}
+		"lines": Array(rate.lines), "wiki": "tu_vi"}
 
 
 func _tip_lifespan(_at: Vector2) -> Variant:
-	if _busy() or session.player == null:
+	if _busy() or GameQuery.player(session).is_empty():
 		return ""   # never read the session while a job runs on it
-	var c: Character = session.player
-	var life: Breakdown = CultivationRules.lifespan(c, gd, session.sheet())
-	var warn: bool = HudReadouts.lifespan_warning(float(c.age), life.total, float(_cfg.get("lifespan_warn_share", 0.1)))
-	return {"title": tr("Lifespan (thọ nguyên)"), "fact": HudReadouts.lifespan_text(float(c.age), life.total) + ((" · " + tr("little lifespan left") + " ⌛") if warn else ""),
+	var snap: Dictionary = StateSnapshot.take(session)
+	var life: Dictionary = GameQuery.breakdown(session, "lifespan")
+	var warn: bool = HudReadouts.lifespan_warning(float(snap.age), float(life.total), float(_cfg.get("lifespan_warn_share", 0.1)))
+	return {"title": tr("Lifespan (thọ nguyên)"), "fact": HudReadouts.lifespan_text(float(snap.age), float(life.total)) + ((" · " + tr("little lifespan left") + " ⌛") if warn else ""),
 		"summary": tr("When age reaches lifespan, this life ends."),
 		"body": TooltipLayer.parse_body(tr("Every [[mua|season]] costs a quarter year of [[tho_nguyen|lifespan]].")),
-		"lines": Array(life.lines()), "wiki": "tho_nguyen"}
+		"lines": Array(life.lines), "wiki": "tho_nguyen"}
 
 
 ## The wiki is not in the greybox: its entry text opens in the side panel instead.
@@ -1008,6 +976,11 @@ func _open_wiki(key: String) -> void:
 		body += str(seg.get("text", "")) if seg is Dictionary else str(seg)
 	_panel.open_panel(tr("Wiki") + ": " + str(t.get("title", key)), [str(t.get("summary", "")), "", body, "",
 		tr("(The in-game wiki is not in the greybox; this is its entry text.)")], _end_turn)
+
+
+## The player's place id (GameQuery; the screen reads no session member itself, ADR-0006 decision 4).
+func _here_id() -> String:
+	return str(GameQuery.player(session).get("location_id", ""))
 
 
 ## The value of launch argument [param name], given as "--name value" or "--name=value"; [param fallback] when absent.
@@ -1093,7 +1066,7 @@ func _demo_real_input(dir: String, tag: String) -> void:
 	await _key(KEY_ESCAPE)
 	var target: String = _clickable_known_place()
 	if target != "":
-		var rec: Dictionary = session.db.get_record("places", target)
+		var rec: Dictionary = GameQuery.place(session, target)
 		var at: Vector2 = _map.global_position + _map.tile_to_local(Vector2i(int(rec.tile[0]), int(rec.tile[1])))
 		await _click(at)
 		_check("clicking a place opens the focus comparison with Travel preselected", _comparison.visible and _comparison.selected_id() == TurnController.FOCUS_TRAVEL + ":" + target)
@@ -1106,11 +1079,11 @@ func _demo_real_input(dir: String, tag: String) -> void:
 			await _click(confirm_btn.get_global_rect().get_center())
 		_check("confirming in the comparison sets Travel to it", turn.focus == TurnController.FOCUS_TRAVEL and turn.destination_id == target and not _comparison.visible)
 	await _demo_wait_cooldown()
-	var year_before: int = session.year * 10 + session.season
+	var year_before: int = int(GameQuery.clock(session).index)
 	await _click(_end_turn.get_global_rect().get_center())
 	await _wait_job()
 	await _frames(5)
-	_check("clicking End turn passes a season", session.year * 10 + session.season != year_before)
+	_check("clicking End turn passes a season", int(GameQuery.clock(session).index) != year_before)
 	_check("the summary opens after the turn", _centre.visible)
 	await _shot(dir, "13-input-summary-by-click", tag)
 	await _key(KEY_ENTER)
@@ -1119,11 +1092,11 @@ func _demo_real_input(dir: String, tag: String) -> void:
 	await _demo_wait_cooldown()
 	_end_turn.grab_focus()
 	await _frames(2)
-	var before2: int = session.year * 10 + session.season
+	var before2: int = int(GameQuery.clock(session).index)
 	await _key(KEY_ENTER)
 	await _wait_job()
 	await _frames(5)
-	_check("Enter on a focused End turn passes a season", session.year * 10 + session.season != before2)
+	_check("Enter on a focused End turn passes a season", int(GameQuery.clock(session).index) != before2)
 	await _shot(dir, "14-input-enter-end-turn", tag)
 	await _key(KEY_ENTER)
 	await _demo_answer_events_by_click(dir, tag)
@@ -1273,7 +1246,7 @@ func _demo_places(dir: String, tag: String) -> void:
 			_try_end_turn()
 			await _wait_job()
 			await _frames(3)
-			var now_at: String = str(session.db.get_record("places", str(session.player.location_id)).get("name", ""))
+			var now_at: String = str(GameQuery.here(session).get("name", ""))
 			_check("after travelling with Places open it shows the new place (%s)" % now_at, _places.visible and _places.here_name() == now_at)
 			await _demo_close_centre()
 			await _demo_answer_events(dir, tag)
@@ -1311,7 +1284,7 @@ func _demo_bubbles(dir: String, tag: String) -> void:
 	var area: Array = shown.filter(func(b): return b.kind != "player" and b.kind != "abode")
 	_check("region zoom shows area bubbles (%d)" % area.size(), area.size() > 0)
 	_check("no more than bubbles_max area bubbles", area.size() <= int(_bubble_cfg().get("max", 12)))
-	var here: String = str(session.player.location_id)
+	var here: String = _here_id()
 	var away: Array = area.filter(func(b): return b.place_id != here)
 	if not away.is_empty():
 		await _click((away[0] as Control).get_global_rect().get_center())
@@ -1405,7 +1378,7 @@ func _demo_answer_events(dir: String, tag: String) -> void:
 		await _frames(5)
 		await _shot(dir, "04-event-card-%d-%d" % [_shots, k], tag)
 		var pick: int = -1
-		for i in Array(session.pending_event.get("choices", [])).size():
+		for i in Array(GameQuery.pending_event(session).get("choices", [])).size():
 			if bool(Advisor.choice_odds(session, i).get("ok", false)):
 				pick = i
 				break
@@ -1438,13 +1411,11 @@ func _demo_close_centre() -> void:
 ## The nearest known place whose dot no bubble covers (a bubble on a place wins the click, per the spec), so the
 ## demo's real click lands on the place itself.
 func _clickable_known_place() -> String:
-	var here: Dictionary = session.db.get_record("places", str(session.player.location_id))
+	var here: Dictionary = GameQuery.here(session)
 	var best: String = ""
 	var best_d: float = INF
-	for p in session.db.all("places"):
-		if str(p.id) == str(session.player.location_id) or not p.has("tile") or bool(p.get("hidden", false)):
-			continue
-		if session.knowledge != null and not session.knowledge.knows_place(str(p.id)):
+	for p in GameQuery.known_places(session):
+		if bool(p.here):
 			continue
 		var at: Vector2 = _map.global_position + _map.tile_to_local(Vector2i(int(p.tile[0]), int(p.tile[1])))
 		var covered: bool = false
@@ -1464,15 +1435,13 @@ func _clickable_known_place() -> String:
 
 
 func _nearest_known_place() -> String:
-	var here: Dictionary = session.db.get_record("places", str(session.player.location_id))
+	var here: Dictionary = GameQuery.here(session)
 	if not here.has("tile"):
 		return ""
 	var best: String = ""
 	var best_d: float = INF
-	for p in session.db.all("places"):
-		if str(p.id) == str(session.player.location_id) or not p.has("tile") or bool(p.get("hidden", false)):
-			continue
-		if session.knowledge != null and not session.knowledge.knows_place(str(p.id)):
+	for p in GameQuery.known_places(session):
+		if bool(p.here):
 			continue
 		var d: float = Vector2(int(p.tile[0]) - int(here.tile[0]), int(p.tile[1]) - int(here.tile[1])).length()
 		if d < best_d:

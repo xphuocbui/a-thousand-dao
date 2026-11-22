@@ -213,24 +213,21 @@ static func _is_main_herb_of(recipe: Dictionary, herb_id: String) -> bool:
 static func next_plant(s: GameSession, recipe: Dictionary, recipes: int) -> String:
 	var c: Character = s.player
 	var supply: Dictionary = {}
-	var by_element: Dictionary = {}   # element -> herbs of it held or growing, not yet given to a recipe
+	var by_element: Dictionary = {}   # element -> value of its herbs held or growing, not yet given to a recipe
 	for it in s.db.items_of(c.id):
 		if it.kind == "herb":
 			supply[it.template] = int(supply.get(it.template, 0)) + 1
 	for k in recipes:
 		for ing in recipe.ingredients:
 			if not Alchemy.is_herb_entry(ing):
-				# Alchemy rule 5: an element value; one owned herb of the element covers it (the plan ages it), else the
-				# plan grows the element's basic herb. Main herbs are counted first, so they are not taken here.
+				# Alchemy rule 5: an element value is covered by value, not by herb count: a held herb counts at its value
+				# now (it no longer ages), a planted one at its value when ripe. Short, the plan grows the element's basic
+				# herb. Main herbs are counted first, so they are not taken here.
 				var el: String = str(ing.element)
 				if not by_element.has(el):
-					var n: int = 0
-					for t in supply:
-						if ItemFactory.herb_elements(s.gd.herb(str(t))).has(el) and not _is_main_herb_of(recipe, str(t)):
-							n += int(supply[t])
-					by_element[el] = n
-				if int(by_element[el]) > 0:
-					by_element[el] = int(by_element[el]) - 1
+					by_element[el] = _element_value_owned(s, recipe, el)
+				if float(by_element[el]) >= float(ing.value) - 1e-9:
+					by_element[el] = float(by_element[el]) - float(ing.value)
 					continue
 				return Alchemy.basic_herb(s.gd, el)
 			for i in int(ing.qty):
@@ -240,6 +237,23 @@ static func next_plant(s: GameSession, recipe: Dictionary, recipes: int) -> Stri
 				else:
 					return str(ing.herb)
 	return ""
+
+
+## The value of [param element] in the player's herbs that are not a main herb of [param recipe]: held herbs at their
+## value now, planted herbs at their value when ripe (at least mature_years), by Item Database Formula B.
+static func _element_value_owned(s: GameSession, recipe: Dictionary, element: String) -> float:
+	var total: float = 0.0
+	for it in s.db.items_of(s.player.id):
+		if it.kind != "herb" or _is_main_herb_of(recipe, str(it.template)):
+			continue
+		var t: Dictionary = s.gd.herb(str(it.template))
+		if not ItemFactory.herb_elements(t).has(element):
+			continue
+		var age: float = float(it.age)
+		if int(it.get("plot", -1)) >= 0:
+			age = maxf(age, float(t.get("mature_years", 1.0)))
+		total += Alchemy.value_at(s.gd, str(it.template), age)
+	return total
 
 
 ## C_k: the smallest herb-years per plot that fit [param k] recipes' herbs in [param plots] plots.
@@ -543,8 +557,11 @@ static func _element_status(s: GameSession, c: Character, sh: StatSheet, ing: Di
 	if basic == "":
 		return {"text": "%s: %.0f of %.0f held" % [label, have, need], "command": "", "action": "", "ready": false}
 	var t: Dictionary = gd.herb(basic)
+	var mature: float = float(t.get("mature_years", 1.0))
 	var n: int = int(ceil((need - have) / maxf(float(t.get("base_value", 1)), 1e-9) - 1e-9))
-	var st: Dictionary = ingredient_status(s, c, sh, {"herb": basic, "min_age": float(t.get("mature_years", 1.0)), "qty": maxi(n, 1)})
+	# The ripe basic herbs already held are counted in [have]: the shortfall asks for n more on top of them.
+	var held_ripe: int = s.db.items_of(c.id).filter(func(i): return i.kind == "herb" and int(i.get("plot", -1)) < 0 and i.template == basic and float(i.age) >= mature - 1e-9).size()
+	var st: Dictionary = ingredient_status(s, c, sh, {"herb": basic, "min_age": mature, "qty": held_ripe + maxi(n, 1)})
 	st["text"] = "%s: %.0f of %.0f held; %s" % [label, have, need, str(st.text)]
 	return st
 
@@ -667,7 +684,7 @@ static func best_pill(s: GameSession, tag: String) -> Dictionary:
 		if it.kind == "pill" and str(s.gd.recipe(str(it.template)).effect.get("tag", "")) == tag:
 			if pill.is_empty() or int(it.quality) > int(pill.quality):
 				pill = it
-	return pill
+	return pill.duplicate(true)   # a copy, never the live record (ADR-0006 decision 3)
 
 
 ## The recipe whose effect carries [param tag], or {}.
