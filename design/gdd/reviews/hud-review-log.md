@@ -161,3 +161,46 @@ Findings:
 Reviewed-Content-Hash: design/ux/hud.md fa2bccbb275f3800193d1f47cc8a9bc9f98e2a3b
 Reviewed-Content-Hash: design/registry/entities.yaml 9c8ccd8d9f8519113bd176457bf89bd281314189
 Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md 4dcc8b81162613c757144532f1b72708ab3ba27f
+
+## Review — 2026-11-22 — Verdict: NEEDS REVISION (`/design-review --review lean`, round 7: the map bubbles added after approval)
+Review mode: lean · Workflow: standard
+Specialists: none (lean)
+Blocking items: 6 | Recommended: 10
+Summary: The bubble addition (elements 30–32, user request) is structurally sound and the counts are consistent, but it clashed with approved rules: a bubble set the focus around the comparison, Enter on a focused bubble would end the turn, Tab had two meanings on the map, free versus season actions were undefined, remote counts broke known-information-only, and the blocking-event lock contradicted itself. All fixes sentence-level; the user approved applying all 16 the same day.
+Prior verdict resolved: n/a (new addition)
+Findings:
+- [BLOCKING] Map bubbles / The turn: bubble click sets the focus around the comparison
+- [BLOCKING] Places panel / The turn: Enter rule not updated for focused bubbles
+- [BLOCKING] Places panel / Map bubbles: Tab on the map has two meanings; no gamepad route
+- [BLOCKING] Map bubbles: free versus season actions per kind undefined
+- [BLOCKING] Map bubbles: "people there now" and quest counts at remote places break known-information-only
+- [BLOCKING] Map bubbles / Acceptance Criteria: blocking-event lock contradicts itself
+- [RECOMMENDED] bubble tooltips; inert during multi-season commands; bubbles under zones; clutter determinism; Places panel actions; element 17/30 tidy; reduced motion and legend; clue-area anchor; hover priority; missing criteria
+Reviewed-Content-Hash: design/ux/hud.md de03997a2bbee9cbfd2907e0c3825de2aa05a781
+Reviewed-Content-Hash: design/registry/entities.yaml 9c8ccd8d9f8519113bd176457bf89bd281314189
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md 4dcc8b81162613c757144532f1b72708ab3ba27f
+
+## Review — 2026-11-22 — Verdict: NEEDS REVISION (`/design-review --review lean`, round 8: map bubbles re-check)
+Review mode: lean · Workflow: standard
+Specialists: none (lean)
+Blocking items: 2 | Recommended: 0
+Summary: All 16 round-7 fixes landed. Two new sentence-level contradictions, with exact replacements given and applied the same day: the Places panel travel criterion lacked the comparison confirm, and a season-action bubble during a blocking event would queue its comparison behind the event card.
+Prior verdict resolved: Yes (16 of 16)
+Findings:
+- [BLOCKING] Acceptance Criteria (Places travel): "Travel here, End turn" skips the comparison confirm
+- [BLOCKING] Map bubbles / Layout Zones (Z7): the comparison queues behind a blocking event card
+Reviewed-Content-Hash: design/ux/hud.md 106663bec97467321189ee6614c78dc73921ce46
+Reviewed-Content-Hash: design/registry/entities.yaml 9c8ccd8d9f8519113bd176457bf89bd281314189
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md 4dcc8b81162613c757144532f1b72708ab3ba27f
+
+## Review — 2026-11-22 — Verdict: APPROVED (`/design-review --review lean`, round 9: map bubbles)
+Review mode: lean · Workflow: standard
+Specialists: none (lean)
+Blocking items: 0 | Recommended: 0
+Summary: Both round-8 fixes landed (the Places travel criterion confirms in the comparison; a season-action bubble during a blocking event minimises the card and opens the comparison, restoring the card on close), cross-checked against rule 2, Esc, F6 and the window keys. The map bubbles addition is approved. The receipt stamps the approved text (only the status line changed after the review read it).
+Prior verdict resolved: Yes
+Findings:
+- none
+Reviewed-Content-Hash: design/ux/hud.md 300b53a883d742035e31ab83a0803df9e98be16e
+Reviewed-Content-Hash: design/registry/entities.yaml 9c8ccd8d9f8519113bd176457bf89bd281314189
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md 4dcc8b81162613c757144532f1b72708ab3ba27f

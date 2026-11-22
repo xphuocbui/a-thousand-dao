@@ -1,6 +1,6 @@
 # HUD Design
 
-> **Status**: **Approved 2026-11-22** (lean `/design-review` round 6, after full rounds 1–4 and lean round 5; history in `design/gdd/reviews/hud-review-log.md`)
+> **Status**: **Approved 2026-11-22** (lean `/design-review` round 6, after full rounds 1–4 and lean round 5; history in `design/gdd/reviews/hud-review-log.md`) **Changed after approval, 2026-11-22 (user request):** map bubbles, elements 30–32 (Map bubbles); lean round 7 NEEDS REVISION (16 fixes applied), lean round 8 NEEDS REVISION (2 fixes applied), **lean round 9 APPROVED**, all the same day.
 > **Author**: user + ux-designer
 > **Last Updated**: 2026-11-22
 > **Platform Targets**: PC (Steam / Epic); keyboard and mouse; gamepad partial (from `.claude/docs/technical-preferences.md`; `project.yaml` has no `platform` block)
@@ -99,7 +99,9 @@ relevant; **On Demand** = the player opens it; **Hidden** = never shown as text.
 
 | Item | Category | Source |
 |---|---|---|
-| The player's marker and the current place's name | Must Show | travel-map.md |
+| The player's bubble (element 30) and the current place's name | Must Show | travel-map.md |
+| The abode bubble (element 31) | Contextual: when the player has a home | cave-abode.md |
+| Area bubbles: what can be done at nearby known places (element 32) | Contextual: region zoom only | travel-map.md, regional-economy-trade.md, sects.md, quests.md, npc-relationships.md, spirit-herbs.md |
 | Places, sect seats, cities and borders at region and continent zoom, with a legend | Must Show (the map is the board) | travel-map.md |
 | Route preview when hovering or choosing a destination: seasons, danger, encounter chance, teleport fee | Contextual | travel-map.md (`route`) |
 | Map modes: terrain, sect territory, qi density by element, prices last seen, specialties, danger, known people | On Demand (buttons) | travel-map.md, regional-economy-trade.md, trade-goods.md, npc-relationships.md |
@@ -157,9 +159,10 @@ right-click to snooze until next season.
 | Debug-only views: the true map, the money ledger, event validator warnings | Testing tools, debug terminal only | travel-map.md, regional-economy-trade.md, event-engine.md |
 
 **Philosophy check:** 8 Must Show *information* items (realm and stage, cultivation bar, lifespan, linh thạch, season
-and year, focus and End turn, marker and place, the map). HUD Element Specifications adds 3 *controls* that are also
-always on screen (wiki and menu, window buttons, portrait), so **11 elements are Must Show** (elements 2, 3, 4, 5, 7,
-8, 9, 10, 14, 15, 17). This fits "information-dense
+and year, focus and End turn, marker and place (two elements, 17 and 30), the map). HUD Element Specifications adds 3 *controls* that are also
+always on screen (wiki and menu, window buttons, portrait), so with the marker-and-place item counting as two, **12
+elements are Must Show** (elements 2, 3, 4, 5, 7,
+8, 9, 10, 14, 15, 17, 30). This fits "information-dense
 on demand".
 
 **Terms:** *Must Show* means on screen at the base layout. *MUST KEEP* (Information Hierarchy) means it never drops,
@@ -206,7 +209,7 @@ Arrangement A, "CK3 classic" (user choice 2026-11-21, over a Civ-style and a por
 | **Z4 Map controls** | Bottom centre | Map mode buttons; the region and continent zoom toggle |
 | **Z5 Turn block** | Bottom right | The season focus selector, the End turn button (a blocked state names what's waiting), progress of a multi-season command |
 | **Z6 Panel area** | Left, about ⅓ of the width, over the map; from the bottom of Z1 to the top of Z3, so it never covers Z3's MUST KEEP readouts | One panel at a time: character, person, place, sect and so on. Back and forward arrows step through the window history (the last `history_max`, 20, windows, like a browser: opening a new window after going back drops the forward entries); opening a name inside a panel replaces the panel |
-| **Z7 Centre windows** | Centre of the map area; with a panel open, centred in the space right of Z6, so the two never overlap. A temporary overlay: its width is capped by `centre_width_max` and its height by the viewport minus Z1, minus the tallest bottom zone (Z3, Z4 or Z5) it overlaps horizontally, minus 2 × `edge_margin`, scrolling inside when the content is taller (option buttons stay pinned below the scroll); one Z7 window shows at a time, the rest wait in order; it does not count toward `panel_share_max` | Event cards, the season summary, quest offers, the multi-season confirm dialog. An event card can be minimised to its alert to look at the map first, but it still blocks End turn |
+| **Z7 Centre windows** | Centre of the map area; with a panel open, centred in the space right of Z6, so the two never overlap. A temporary overlay: its width is capped by `centre_width_max` and its height by the viewport minus Z1, minus the tallest bottom zone (Z3, Z4 or Z5) it overlaps horizontally, minus 2 × `edge_margin`, scrolling inside when the content is taller (option buttons stay pinned below the scroll); one Z7 window shows at a time, the rest wait in order (a comparison opened while a blocking event card is up replaces it for the moment: the card is minimised); it does not count toward `panel_share_max` | Event cards, the season summary, quest offers, the multi-season confirm dialog. An event card can be minimised to its alert to look at the map first, but it still blocks End turn |
 | **Tooltip layer** | Above everything | Nested, lockable tooltips (HUD Philosophy rule 4) |
 
 **Full screens** (Đạo Đồ, abode, brewing, formation editor, fight, tribulation, succession) replace the map and all
@@ -224,7 +227,7 @@ Philosophy rule 1.
 ## HUD Element Specifications
 
 What sits on the map screen. The contents of each window belong to that window's own UX spec. Approved by the user
-2026-11-21; elements 23–28 added 2026-11-22 (full design review item 6), 29 after the re-review.
+2026-11-21; elements 23–28 added 2026-11-22 (full design review item 6), 29 after the re-review, 30–32 after approval at the user's request.
 
 | # | Element (zone) | Category | Shows | Form | Updates | Animation |
 |---|---|---|---|---|---|---|
@@ -244,7 +247,7 @@ What sits on the map screen. The contents of each window belong to that window's
 | 14 | Season focus selector (Z5) | Must Show | The chosen focus; a click opens the focus comparison (element 29) | Button | Player-chosen | None |
 | 15 | End turn (Z5) | Must Show | "End turn: <focus>"; armed: "Confirm end turn"; blocked, in this order of precedence: "Event waiting: <title>", "Check focus: <reason>", "Checking focus…"; a click (or Enter) on a blocked button opens the blocker; label changes are announced; a non-blocking reminder pip when Đạo Đồ points are unspent or a matured herb waits, with the details in its tooltip | Large button | Event-driven | A gentle glow when ready; none when blocked |
 | 16 | Multi-season progress (Z5) | Contextual | "Closed door: year 2 of 5", and Stop (takes effect at the next season boundary) | Bar + text | Each simulated season | Steady fill |
-| 17 | Marker and place name (map) | Must Show | Where the player is; hover: the place tooltip | Map marker + label | On a move | The marker slides along the route |
+| 17 | Current place name (map) | Must Show | The name of the place the player is at, beside their bubble (element 30); hover: the place tooltip | Map label | On a move | Moves with element 30 |
 | 18 | Route preview (map) | Contextual | Hovering a place draws the route: seasons, danger, encounter chance, teleport fee | Line on the map + tooltip | On hover | Draws from the marker outwards |
 | 19 | Clue search area (map) | Contextual | The active clue's area; seasons spent | Shaded area | On End turn | None |
 | 20 | Panel frame (Z6) | On Demand | Title, back and forward arrows, close | Frame | — | Slides in from the left over about 0.15 s |
@@ -255,8 +258,11 @@ What sits on the map screen. The contents of each window belong to that window's
 | 25 | Breakthrough banner (centre) | Contextual | The stage or realm reached | Banner | On a breakthrough | Fades in and out over `banner_seconds` |
 | 26 | Back to map (full screens) | Contextual | Returns to the map screen | Button, top left under Z1 | Static | None |
 | 27 | Multi-season confirm dialog (Z7) | Contextual | Seasons, lifespan spent and age at the end, expected gain, what stops it (The turn) | Centre window | On choosing a multi-season command | Fades in |
-| 28 | Map legend (map, top left below Z1; right of Z6 when a panel is open) | Contextual | The active map mode's key: hues, patterns and icons; announced on a mode change | Small box | On a map mode change | None |
+| 28 | Map legend (map, top left below Z1; right of Z6 when a panel is open) | Contextual | The active map mode's key: hues, patterns and icons, plus the bubble kind icons in every mode; announced on a mode change | Small box | On a map mode change | None |
 | 29 | Focus comparison (Z7) | Contextual | Every focus the player can take, side by side, with its preview fields (The turn: Focus preview); unavailable focuses greyed with their reason; "Check focus" highlights the reason | Centre window; a table for screen readers; a list on gamepad | When opened, and at each season start | Fades in |
+| 30 | Your bubble (map) | Must Show | A round portrait badge at the player's location, replacing a plain marker; a status mark while travelling (an arrow) or in closed-door cultivation; hover: name, realm, place; click: the character sheet | Map badge | On a move | Slides along the route (as element 17's marker did) |
+| 31 | Abode bubble (map) | Contextual: when the player has a home, at every zoom | A house badge at the home's place; click: the cave abode full screen (changes that need the player present say so, and are locked while away) | Map badge | On a home change | None |
+| 32 | Area bubbles (map) | Contextual: region zoom only | What can be done at the current place and at known places within `bubble_trip_seasons`: market, sect and quests, people the player knows who are there, explore and search; each an icon and a count (Map bubbles); hover: the place's name and what is there, and for another place the route's seasons, danger and fee (drawing the route preview, element 18); a merged bubble lists its parts; Q or F2 opens the tooltip from the keyboard | Map badges | At each season start and on a move | Fade in |
 
 ### Tooltips
 
@@ -309,17 +315,73 @@ custom-drawn and exposes nothing to a screen reader.
 - **Top row:** "You are here: <place>".
 - **Below it:** every place the player knows, grouped by region and searchable. Each row shows its kind, the travel
   time in seasons, danger, the player's qi match there, the holder of its territory, how many known people are there,
-  market and sect marks, the age of the last price seen ("prices seen 3 seasons ago"), and an "in the clue's search
-  area" flag. Hidden places never appear: it reads the same map knowledge as the debug terminal's `map` view
+  market and sect marks, the age of the last price seen ("prices seen 3 seasons ago"), an "in the clue's search area"
+  flag, and **the actions available there, as in the Map bubbles table**; the current place's row offers its free
+  actions as buttons, under the same locks and through the same focus comparison as the bubbles. Hidden places never appear: it reads the same map knowledge as the debug terminal's `map` view
   (`MapKnowledge.knows_place`).
 - **Selecting a row** centres the map on the place and shows its route as text: seasons, danger, encounter chance,
   fee, and the travel modes available. **Enter** opens the place panel with its full details.
-- **"Travel here"** sets the season focus to Travel with that destination.
+- **"Travel here"** opens the focus comparison with Travel to that destination preselected; the focus is set when the
+  player confirms there.
 - The active clue's search area is listed in text at the top of the panel while a clue is active.
 - **The map in the focus order.** The map is a focus stop after Z4. With the map focused (or nothing focused), the
-  arrow keys pan it and the focused place stays in view; Tab moves between visible known places; Enter on a focused
-  place opens its panel, and Enter with no place focused ends the turn (The turn: End turn input). Map modes (M) and zoom (+ and −) also have keys, so the map itself is usable without a mouse. With the
+  arrow keys pan it and the focused place or bubble stays in view, clear of Z1–Z5 and an open panel. Tab visits the
+  visible known places nearest first, and at each place that place's bubbles (the abode bubble and your bubble are
+  visited at their place); Shift+Tab goes back. On a focused place, Enter opens its panel; on a focused bubble, Enter
+  acts like a click; Enter ends the turn only when no place or bubble is focused (The turn: End turn input). Map modes (M) and zoom (+ and −) also have keys, so the map itself is usable without a mouse. With the
   mouse, dragging with the left or middle button pans.
+
+### Map bubbles
+
+Added 2026-11-22 at the user's request, after CK3's map bubbles (user decisions the same day). The map is where the
+player acts from: bubbles show where they are, where their home is, and what can be done nearby.
+
+- **Your bubble** (element 30) sits at the player's location at every zoom. **The abode bubble** (element 31) sits at
+  the home's place at every zoom, when the player has a home.
+- **Area bubbles** (element 32) show **only at region zoom**, at the current place and at known places within
+  `bubble_trip_seasons` (1 season) of travel. At continent zoom only elements 30 and 31 show.
+- **Kinds**, each an icon and a count ("2 quests"): **market** (trade); **sect** (visit the sect); **quests** (open
+  quests on the board); **people you know**: at the current place, who is there now; elsewhere, who was last seen there,
+  with the age ("seen 3 seasons ago"); a person with no known last place gets no bubble; **explore and search**
+  (discovered herb grounds and secret domains, and the active clue's search area, anchored on the nearest known place
+  inside the area, or on the area's centre at region zoom). Quests at another place are those open on its board as last
+  seen, with the same age.
+- **What a click does:**
+
+  | Bubble | At the current place | At another place |
+  |---|---|---|
+  | Market | The trade window (a free action) | The focus comparison with Travel to the place preselected |
+  | Sect | The sect panel (free) | As above |
+  | Quests | The quest board in the journal (free); a mission or quest stage opens the focus comparison with it preselected (a season action) | As above |
+  | People you know | One person: their person card; several: the relationships list filtered to that place (free) | As above |
+  | Explore and search | The focus comparison with Explore (or Search) preselected (a season action) | As above |
+
+  The focus is set only when the player confirms in the comparison (The turn); no click ends a turn. The comparison's
+  Travel label names what is at the destination ("market, 2 quests").
+- **Clutter.** At most `bubbles_max` (12) area bubbles show, counted after merging. "Nearest" means route seasons from
+  the player's place, ties broken by place id; the current place's bubbles are never dropped; places beyond the cap stay
+  reachable through the Places panel. Bubbles merge only within one place's cluster; hovering a merged bubble lists its
+  parts and clicking it opens that place's panel. A bubble under Z1–Z5 or an open Z6 panel is not drawn and not
+  clickable. Every bubble is a click target of at least 24×24 screen pixels at the 75 % UI scale. When a bubble sits on
+  a route line or a place marker, the bubble's tooltip wins.
+- **Only what the player knows.** Only known places (`MapKnowledge.knows_place`) and people the player knows get
+  bubbles; a hidden place, secret or person never does. A remote bubble's count reads the player's last-seen data, never
+  the world's true state.
+- **While a blocking event waits**, bubbles whose window changes something (trade, gifts and verbs, abode changes) show
+  the lock mark and still open their window for looking, with its changing controls locked (HUD Philosophy rule 2).
+  Season-action and Travel bubbles stay active, since choosing next season's focus is allowed; the click minimises the
+  blocking event card (it stays an alert and still blocks End turn) and opens the comparison, and closing the comparison
+  restores the card. A locked bubble's tooltip
+  and accessible name give the reason.
+- **During a multi-season command**, area bubbles and the abode bubble are inert: hovering works, clicks open nothing,
+  and Stop stays in Z5. Mid-journey, area bubbles are measured from the next place on the route.
+- **Keyboard, gamepad and screen reader.** Tab and Enter on the map follow the map focus rules (Places panel: The map in
+  the focus order). On the gamepad, the map cursor snaps to bubbles as well as places, and A acts like a click. Each
+  bubble has an accessible name ("Market at Lạc Hà Thành, 1 season away"), including the lock reason when locked. The
+  Places panel lists the same actions in each row, as the text equivalent.
+- **Colour is never the only cue:** each kind has its own icon shape, and the count is a number.
+- **Dependency:** the game code must say what can be done at a place (market, sect, open quests, known people present,
+  explore sites), from what the player knows.
 
 ### The turn
 
@@ -330,7 +392,8 @@ Q2–Q4).
 - **One End turn gate.** The End turn button's press and the `end_turn` action both go through one gate that owns the
   input mode, the cooldown and every inhibitor below, so a click, Enter and the action always behave the same.
 - **Enter ends the turn when focus is on End turn, on nothing (a read-only label counts as nothing), or on the map
-  with no place focused.** On a focused place, Enter opens that place's panel. On any other focused control (a row, a
+  with no place or bubble focused.** On a focused place, Enter opens that place's panel; on a focused bubble, Enter acts
+  like a click. On any other focused control (a row, a
   list, a slider, a dropdown, a button, a text field), that control uses Enter. Key repeat is ignored: one press ends
   at most one turn. Enter (or a click) on a blocked End turn opens the blocker.
 - **The gate refuses End turn** while any of these holds: a full screen is open; a fight or tribulation runs; the game
@@ -468,7 +531,7 @@ Approved by the user 2026-11-21. The order in which elements drop when space run
 
 | Tier | Elements | What carries it when hidden |
 |---|---|---|
-| **MUST KEEP** | End turn and focus; realm, stage and level; cultivation bar; lifespan; season and year; linh thạch; the player's marker; blocking alerts | — (never hidden on the map) |
+| **MUST KEEP** | End turn and focus; realm, stage and level; cultivation bar; lifespan; season and year; linh thạch; the player's bubble and place name (elements 30 and 17); blocking alerts | — (never hidden on the map) |
 | **SHOULD KEEP** | Window buttons; portrait; wiki and menu; map mode buttons; non-blocking alerts | Keyboard shortcuts open every window; map modes fold into one dropdown |
 | **CAN HIDE** | Outliner (collapses); health and linh lực bars; band icons; route preview; clue area | The window buttons and the portrait tooltip; band states also raise an alert |
 | **ALWAYS HIDE** | Information Architecture, Group 7 | Nothing (debug only) |
@@ -477,7 +540,7 @@ Approved by the user 2026-11-21. The order in which elements drop when space run
 
 ## Visual Budget
 
-Approved by the user 2026-11-21; every number is a tuning knob. **Screen share is the budget.** The 29 elements in HUD
+Approved by the user 2026-11-21; every number is a tuning knob. **Screen share is the budget.** The 32 elements in HUD
 Element Specifications, with their sub-indicators (the autosave indicator, "The world turns…", lock marks, the hold
 ring, tooltip title strips), are the complete list for the map screen; adding one is a change to this spec, not a
 build decision.
@@ -605,7 +668,7 @@ Approved by the user 2026-11-21. PC (Steam / Epic); keyboard and mouse first; ga
   - A radial menu holds the map modes, the season focus list and the window buttons; it toggles on a press (not a
     hold) and has a plain list form.
   - One button switches focus between the map and the open panel.
-  - The map cursor snaps to places.
+  - The map cursor snaps to places and to map bubbles; A on a bubble acts like a click.
   - Y opens the focused thing's tooltip, locked, with focus in it; A on a highlighted word opens its nested tooltip
     (Tooltips).
   - End turn on Start defaults to "press, then confirm"; "hold" is an optional setting (The turn). B means Stop while
@@ -641,7 +704,7 @@ Approved by the user 2026-11-21. **Tier: Standard**, plus reduced motion and men
 - **Compact labels:** when the compact layout drops the window buttons' labels, each label stays in the button's
   tooltip and accessible name.
 - **Reduced motion:** a setting turns off slides, glows, cross-fades, the filling bars (cultivation and multi-season
-  progress and the End turn hold ring), the toast fade, the tooltip appearance fade and the breakthrough banner's fade (the banner still shows
+  progress and the End turn hold ring), the bubble slide and the area bubbles' fade-in, the toast fade, the tooltip appearance fade and the breakthrough banner's fade (the banner still shows
   for `banner_seconds`); the End turn glow becomes a static highlight; changes become instant. One central motion helper owns every UI animation, so the setting reaches them all.
   Flashes and glows are limited to one per element per second.
 - **Tooltips:** settings for the hover delay (0–2 s), the lock mode (any of timer, middle-click and click) and the
@@ -696,6 +759,8 @@ Approved by the user 2026-11-21.
 | `end_turn_cooldown` | 0.5 s | The turn (End turn input) |
 | `tooltip_depth_max` | 5 | Tooltips |
 | `history_max` | 20 | Layout Zones (Z6 window history) |
+| `bubble_trip_seasons` | 1 | Map bubbles (how far area bubbles reach) |
+| `bubbles_max` | 12 | Map bubbles (area bubbles on screen at once) |
 | `motion_fast` | 0.15 s | Panel slide, fades |
 | `motion_slow` | 0.5 s | Cultivation bar fill |
 | `refusal_seconds` | 2 s | Feedback (refusal) |
@@ -712,8 +777,8 @@ up beside the screenshots. Timings are counted in simulated frames at a fixed 1/
 exact boundary; "appears" means `visible` becomes true. Rows marked `[GdUnit]` drive input through simulated events and an injected clock.
 
 **Layout and scaling**
-- [ ] `[Screenshot]` At 1920×1080 on the bare map, all 11 Must Show elements are visible (elements 2, 3, 4, 5, 7, 8,
-      9, 10, 14, 15, 17).
+- [ ] `[Screenshot]` At 1920×1080 on the bare map, all 12 Must Show elements are visible (elements 2, 3, 4, 5, 7, 8,
+      9, 10, 14, 15, 17, 30).
 - [ ] `[GdUnit]` At 1920×1080 on the bare map, the union of the Z1–Z5 rectangles covers at most `chrome_share_max`
       (15 %) of the viewport.
 - [ ] `[GdUnit]` At 1280×720 and at 2560×1080 (21:9), every HUD control's rectangle lies inside the layout area
@@ -744,8 +809,9 @@ exact boundary; "appears" means `visible` becomes true. Rows marked `[GdUnit]` d
 - [ ] `[GdUnit]` With an event pending, End turn reads "Event waiting: <title>", a click opens the card, and Enter
       does not end the turn.
 - [ ] `[GdUnit]` With another button, a Places row, a list, a slider or a text field focused, Enter is used there and
-      does not end the turn. With a place focused on the map, Enter opens its panel. With nothing, a read-only label,
-      the map with no place focused, or End turn focused, a held Enter ends exactly one turn.
+      does not end the turn. With a place focused on the map, Enter opens its panel; with a bubble focused, Enter acts
+      like a click on it. With nothing, a read-only label, the map with no place or bubble focused, or End turn focused,
+      a held Enter ends exactly one turn.
 - [ ] `[GdUnit]` A click on End turn, Enter and the `end_turn` action give the same result in every input mode, and
       each is refused while any gate inhibitor holds (full screen, fight, game menu, Z7 window including the summary,
       resolving, post-turn sequence, cooldown, multi-season command, blocking event, Check focus, preview computing).
@@ -861,10 +927,10 @@ exact boundary; "appears" means `visible` becomes true. Rows marked `[GdUnit]` d
 
 **Keyboard, screen reader and accessibility**
 - [ ] `[Manual]` With the keyboard only, the player travels to a known place through the Places panel (P, select a
-      row, Travel here, End turn).
+      row, Travel here, confirm in the focus comparison, End turn).
 - [ ] `[GdUnit]` A place the player does not know (`knows_place` false) never appears in the Places panel.
 - [ ] `[GdUnit]` Each Places row shows kind, seasons, danger, qi match, holder, known people, market and sect marks,
-      price age and the clue flag.
+      price age, the clue flag and its bubble actions; the current place's row offers its free actions as buttons.
 - [ ] `[GdUnit]` With a text control as the focus owner, every letter key, Q, V, + and − included, types and opens
       no window; F2 and Shift+F10 still work.
 - [ ] `[Manual]` Typing Vietnamese with real Telex (Windows keyboard), Unikey and EVKey into the Places search opens
@@ -882,9 +948,39 @@ exact boundary; "appears" means `visible` becomes true. Rows marked `[GdUnit]` d
       final value in the same frame (the alert slide-in, the linh thạch tick and flash, the badge pop, the
       breakthrough glow and banner fade, the cultivation bar fill, the multi-season progress fill, the hold ring, the
       health and linh lực fades, the band icon fade, the toast fade, the tooltip fade, the map mode cross-fade, the End
-      turn glow, the marker slide, the route draw, the panel slide, the centre window fade).
+      turn glow, the bubble slide and the area bubbles' fade-in, the route draw, the panel slide, the centre window fade).
 - [ ] `[Screenshot]` With the red-green colourblind mode on, a Coblis simulation of the map modes and the alert row
       still shows every backup listed in the accessibility doc's colour audit.
+
+**Map bubbles**
+- [ ] `[GdUnit]` At continent zoom only the player's bubble and the abode bubble show; at region zoom area bubbles show
+      at the current place and at known places within `bubble_trip_seasons` (1 season), and at no place farther.
+- [ ] `[GdUnit]` With the `crowded_region` fixture (20 qualifying bubbles at region zoom, 1280×720), at most
+      `bubbles_max` (12) show after merging, nearest by route seasons with ties by place id; the current place's
+      bubbles are always among them; two at one place that would overlap merge into one with a count.
+- [ ] `[GdUnit]` At the current place, clicking a market bubble opens the trade window; clicking an explore bubble opens
+      the focus comparison with Explore preselected; the focus is set only on confirm, and no turn ends.
+- [ ] `[GdUnit]` Clicking a bubble at another place opens the focus comparison with Travel to <place> preselected, its
+      label naming what is there; the focus is set only on confirm, and no turn ends.
+- [ ] `[GdUnit]` A people bubble with one person opens their person card; with several, the relationships list
+      filtered to that place.
+- [ ] `[GdUnit]` A place the player does not know, and a person they do not know, never gets a bubble.
+- [ ] `[GdUnit]` A remote bubble's count reads the player's last-seen data and shows its age; changing the world's true
+      state at that place without the player seeing it does not change the bubble.
+- [ ] `[GdUnit]` While a blocking event waits, a market bubble shows the lock mark and opens the trade window with its
+      buy and sell controls locked; an explore bubble minimises the event card and opens the comparison, and closing the
+      comparison restores the card; the locked bubble's accessible name
+      gives the reason.
+- [ ] `[GdUnit]` With the map focused, Tab visits places nearest first and each place's bubbles after it; Enter on a
+      focused bubble acts like a click and does not end the turn.
+- [ ] `[GdUnit]` Without a home, there is no abode bubble; with one, it shows at continent and region zoom.
+- [ ] `[GdUnit]` During a multi-season command, clicking an area bubble or the abode bubble opens nothing.
+- [ ] `[GdUnit]` A bubble under Z1–Z5 or the open Z6 panel is not drawn and does not take a click; every bubble's click
+      target is at least 24×24 screen pixels at 75 % UI scale.
+- [ ] `[GdUnit]` With reduced motion on, the bubble slide and the area bubbles' fade-in do not animate.
+- [ ] `[Manual]` On the gamepad, the map cursor snaps to bubbles and A acts like a click.
+- [ ] `[GdUnit]` Clicking the player's bubble opens the character sheet; clicking the abode bubble opens the abode screen.
+- [ ] `[Screenshot]` Region zoom with area bubbles, at 1280×720 and 1920×1080.
 
 **HUD states**
 - [ ] `[Screenshot]` One windowed screenshot per row of HUD States by Gameplay Context (17 rows), named
@@ -961,6 +1057,7 @@ exact boundary; "appears" means `visible` becomes true. Rows marked `[GdUnit]` d
   changed the dynamic-font hinting default, so small-text sharpness must be re-checked on the first build
   (godot-specialist).
 - **Dependencies on other work** (named here, owned elsewhere; full design review item 14):
+  - what can be done at a place, from what the player knows (Map bubbles);
   - a shared Breakdown format that every tooltip and panel reads;
   - an alerts model: who raises and clears each alert, and the snooze state saved with the game;
   - outliner pins saved with the game; an NPC whose last-seen place is not in the data shows "unknown";
