@@ -1,4 +1,4 @@
-Reviewed-Content-Hash: src/ui/greybox/map_screen.gd 548720936608d9ed01811a5bbbd5df939b0cb091
+Reviewed-Content-Hash: src/ui/greybox/map_screen.gd ec95cb077920fc2affa3eb940e0f88566650316f
 Reviewed-Content-Hash: src/ui/greybox/map_screen.tscn 06158114d6c20932d80b8d8c2181a2215a3e94e7
 Reviewed-Content-Hash: src/ui/map/map_view.gd 21a18c6a8176ec6a746268a0c0809ee5717a6082
 Reviewed-Content-Hash: src/ui/turn/turn_controller.gd 65955c00310a06f341776cca94095d49757d5500

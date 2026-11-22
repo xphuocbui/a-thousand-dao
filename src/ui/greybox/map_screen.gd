@@ -38,6 +38,7 @@ var _focus := OptionButton.new()
 var _end_turn := Button.new()
 var _turn_note := Label.new()
 var _sheet_button := Button.new()
+var _portrait := Button.new()
 var _panel := TextPanel.new()
 var _centre := CentreWindow.new()
 var _dim := ColorRect.new()
@@ -171,11 +172,18 @@ func _build_layout() -> void:
 	add_child(z3)
 	var row := HBoxContainer.new()
 	z3.add_child(row)
-	var portrait := ColorRect.new()
-	portrait.color = Color(0.3, 0.3, 0.35)
-	portrait.custom_minimum_size = Vector2(80, 80)
-	portrait.tooltip_text = tr("Your portrait (art comes later)")
-	row.add_child(portrait)
+	# Element 7: the portrait is a button; a click (or Enter / gamepad A on it) opens the character sheet.
+	_portrait.custom_minimum_size = Vector2(80, 80)
+	_portrait.tooltip_text = tr("Your character: click to open the sheet (C)")
+	var face := StyleBoxFlat.new()
+	face.bg_color = Color(0.3, 0.3, 0.35)
+	_portrait.add_theme_stylebox_override(&"normal", face)
+	var face_hover := face.duplicate() as StyleBoxFlat
+	face_hover.bg_color = Color(0.38, 0.38, 0.45)
+	_portrait.add_theme_stylebox_override(&"hover", face_hover)
+	_portrait.add_theme_stylebox_override(&"pressed", face_hover)
+	_portrait.pressed.connect(_open_sheet_from.bind(_portrait))
+	row.add_child(_portrait)
 	var col := VBoxContainer.new()
 	col.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	row.add_child(col)
@@ -429,9 +437,14 @@ func _on_choice_done(result: Dictionary) -> void:
 
 
 func _open_sheet() -> void:
+	_open_sheet_from(_sheet_button)
+
+
+## Opens the character sheet in Z6; [param opener] gets focus back when it closes.
+func _open_sheet_from(opener: Control) -> void:
 	if _busy():
 		return
-	_panel.open_panel(tr("Character"), TerminalViews.sheet(session, TerminalIO.new()), _sheet_button)
+	_panel.open_panel(tr("Character"), TerminalViews.sheet(session, TerminalIO.new()), opener)
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
@@ -522,6 +535,10 @@ func _demo_real_input(dir: String, tag: String) -> void:
 	await _shot(dir, "11-input-sheet-by-key", tag)
 	await _key(KEY_ESCAPE)
 	_check("Esc closes the panel", not _panel.visible)
+	await _click(_portrait.get_global_rect().get_center())
+	_check("clicking the portrait opens the character panel", _panel.visible)
+	await _shot(dir, "11b-input-sheet-by-portrait", tag)
+	await _key(KEY_ESCAPE)
 	var target: String = _nearest_known_place()
 	if target != "":
 		var rec: Dictionary = session.db.get_record("places", target)

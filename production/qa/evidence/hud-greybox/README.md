@@ -23,14 +23,14 @@ Godot_v4.7.1-stable_win64_console.exe --path . --windowed --resolution 1280x720 
 | `08-travel-focus` | A place clicked: the focus becomes "Travel to …", a ring marks the destination |
 | `09-journey-summary` | The journey resolved: arrival, places discovered on the way, the fallback note |
 | `10-after-journey` | Back on the map: marker moved, more places known, focus back to Cultivate with its note |
-| `11-input-sheet-by-key` … `14-input-enter-end-turn` | The same screen driven by **real input events** through the viewport (key presses and mouse clicks, not handler calls) |
+| `11-input-sheet-by-key`, `11b-input-sheet-by-portrait` … `14-input-enter-end-turn` | The same screen driven by **real input events** through the viewport (key presses and mouse clicks, not handler calls) |
 
 **Run result:** the screen launches at both sizes and plays the slice end to end: a new life, the sheet, seasons of
 Cultivate, events answered, a journey to a known place with the fallback to Cultivate. No script errors in the run
 output.
 
-**Real-input checks** (printed by the run, both sizes, all PASS): C opens the character panel; Esc closes it; clicking
-a place sets Travel to it; clicking End turn passes a season; the summary opens after the turn; Enter on the summary
+**Real-input checks** (printed by the run, both sizes, all PASS): C opens the character panel; Esc closes it; clicking the portrait opens it (element 7, added 2026-11-22
+at the user's request); clicking a place sets Travel to it; clicking End turn passes a season; the summary opens after the turn; Enter on the summary
 closes it; Enter on a focused End turn passes a season. **Not exercised by real input in this run:** clicking an event
 option (no event came up during the input segment; the option buttons were exercised through their handler in shots
 04–05).
