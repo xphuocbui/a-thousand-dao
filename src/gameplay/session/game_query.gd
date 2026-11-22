@@ -281,12 +281,34 @@ static func practice_fight(s: GameSession, person_id: String) -> Dictionary:
 		var shields: Array = []
 		for sh in prof.shields:
 			shields.append({"size": sh.size, "body": sh.body, "standing": sh.standing, "pieces": sh.pieces})
+		var effect_info := {}
+		for e in prof.effects:
+			effect_info[str(e.id)] = effect_of(s.gd, str(e.id))
 		return {"name": c.name, "realm": s.gd.realm_label(c.realm_index, c.stage), "roots": c.linh_can.describe(s.gd),
 			"arts": arts, "wards": wards, "shields": shields, "body_shield": prof.body_shield, "block": prof.block,
 			"evade": prof.evade, "crit": prof.crit, "reserved": prof.reserved, "feeds": prof.feeds.duplicate(true),
-			"effects": prof.effects.map(func(e): return e.id), "items": []}
+			"effects": prof.effects.map(func(e): return e.id), "effect_info": effect_info, "items": [],
+			"sheet": {"ward_pts": prof.ward_pts, "ward_layer": prof.ward_layer, "drain": prof.drain, "resist": prof.resist.duplicate(),
+				"soul_res": prof.soul_res, "divine_sense": prof.divine_sense, "crit_mult": prof.crit_mult, "hregen": prof.hregen,
+				"healing": prof.healing, "power": str(s.power_of_person(c.id).get("text", ""))}}
 	return {"ok": true, "rows": rows, "a": side_info.call(s.player, a), "b": side_info.call(foe, b),
 		"winner": r.win_code(), "ending": FightResult.Ending.keys()[r.ending].to_lower(), "seconds": r.seconds}
+
+
+## The Effect a fight record id belongs to (combat_effects.json): a record id is "eff:<Effect name>" with an optional
+## suffix (" phase 2", " (closes)", " closes"), so the longest Effect name it starts with is its Effect. Returns {name,
+## rule}; an unknown id comes back as its own name with no rule.
+static func effect_of(gd: GameData, record_id: String) -> Dictionary:
+	var body: String = record_id.trim_prefix("eff:")
+	var lib: Dictionary = gd.file("combat_effects").get("effects", {})
+	var best: String = ""
+	for name in lib:
+		var n: String = str(name)
+		if n.length() > best.length() and (body == n or body.begins_with(n + " ")):
+			best = n
+	if best == "":
+		return {"name": body, "rule": ""}
+	return {"name": best, "rule": str(lib[best].get("rule", ""))}
 
 
 static func _shown(s: GameSession, p: Dictionary) -> bool:

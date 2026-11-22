@@ -19,6 +19,56 @@
 > through GameSession read methods, GameQuery, StateSnapshot and Advisor; `tests/integration/ui/ui_frontend_rule_test.gd`
 > enforces it; even demo code may not touch `session.db`).
 
+## Pass 3 checklist (2026-11-22)
+User asked "how much further until we decide on the mood". Claude's recommendation (not yet confirmed by the user):
+make this the last greybox pass, trimmed to work that survives a reskin; then the user picks the mood (`/art-bible`
+sections 1-4 and 7; the mood work does not wait on this pass), then one Godot theme is applied to the built screens
+(style slice: this also means removing the per-node colour and font-size overrides the greybox uses, since they beat a
+Theme), and later screens are built in the final style.
+- [x] Fight log: Summary / Full modes, folded repeats, filter chips by side and kind, result-and-reasons line first,
+      Up / Down between lines, Enter or click pauses (`FightLog` model + `FightLogView`; tests `ui_fight_log_test.gd`)
+- [x] 1920×1080 and 150 % UI scale screenshots; nothing clips (the roots line now wraps instead of "…")
+- [x] Status / counter / stance id → icon table (findings below)
+- [x] Portrait tooltip: the full sheet (health, linh lực, ward points / layer / drain, body shield, block, crit, evade,
+      resistances by type, thần thức, soul resistance, power number). **Built, not yet observed**: added after the last
+      windowed run; needs one short windowed run (with the user's OK) and a screenshot
+- Moved to the styled build: F6 focus zones, reduced-motion helper, pad Inspect mode, screen-reader announcements
+
+### Pass 3 results (2026-11-22)
+- **Fight log** (`src/ui/fight/fight_log.gd`, `fight_log_view.gd`): Summary joins an art's firing with its same-instant
+  hits and folds repeats of tick, qi_tick, hit, stacks, status, effect, bank and feed rows within `log.fold_gap_ms`
+  (the folded line sits at its latest repeat; its total is the sum of its rows, tested). Full is one line per pulse:
+  arts fired, damage dealt by type, health and linh lực after. Filter chips: You / Foe and Damage, Arts, Stacks,
+  Status, Feeds, Linh lực (off chips are dimmed as well as unpressed). Once the fight has ended the first line is the
+  result and up to three recorded facts (time below the cheapest art's cost, the largest damage-type share taken, the
+  top source when it is not the whole of that share, dealt vs taken). Lines wrap, come from tr() templates with named
+  slots, Up / Down move the selection, Enter or a click pauses and opens a line. Opening a hit shows the amounts the
+  record has (before defence, dealt, the target's health after) with "the defence steps are not recorded yet": that is
+  not the Breakdown.
+- **Fixed, pre-existing**: the map screen configured the fight screen before `ui_hud.json` loaded, so no
+  `fight_screen` setting (side colours, sizes, timings) ever applied; it ran on built-in defaults. Now configured in
+  `_ready` after the load; a demo check guards it.
+- **Floating numbers**: one per side per pulse (AC 22, `float_group_ms`), the sum of the hits and ticks it took.
+- **Icons**: the 12 statuses the arts apply all match `status/status_<id>.png` (`status_icons` table empty, for
+  exceptions). Effects: the record logs Effect *record* ids ("eff:Layered Earth block"); `GameQuery.effect_of` maps
+  them to the Effect's name and rule (now in `practice_fight` as `effect_info`). None of the 109 Effects had an icon by
+  file name; `effect_icons` (ui_hud.json) maps 21 whose subject clearly matches a painted counter or stance icon
+  (provisional); the other 88 show their name. **The record has no counter or stance rows**, so counter chips (Twin
+  flames, Tide ...) cannot show their counts yet: needs a COUNTER row kind in the engine.
+- **Demo**: 60/60 at 1280×720, at 1920×1080 and at 1920×1080 with `--ui-scale=150` (shots 31-33, and the scaled set
+  in `scaling/` tagged `-scale150`). The two 100 % runs came before the `push_input` change, the portrait tooltip and
+  the reflect / return / qi-tick fix (all three checked headless only since). Two fixes to the demo itself: mouse events are pushed in layout coordinates
+  (`push_input(ev, true)`; scaled runs missed every click before), and when nobody is at the place the Travel step
+  lands on (it differs by window size) the person opens directly and the people-bubble check is skipped. Hover checks
+  ("hovering a Places row", "a second tooltip") failed once and passed on rerun: they follow the real cursor.
+- **User, 2026-11-22**: windowed demo runs take over the mouse and block the PC. Run only headless tests unless the user
+  agrees to a windowed run; a `--no-cursor` mode (skipping hover checks) was offered.
+- **Row attribution fix** (also in `FightPlayback`, from before this pass): RETURN is dealt by the row's side to its
+  foe and carries the foe's readings (it was read as the side's own); QI_TICK's reading (the drained foe's linh lực)
+  is now applied; Soul hits are labelled Soul. Regression test seen failing on the old file, passing on the new.
+- Still not built here: Full mode lacks resistance, block, shield soaks and heals (not in the record); the Breakdown, ward / shield state over time, exact stack counts, counter counts (all need new
+  record rows); toggle chips' pressed look is the default theme's (the theme pass); the 88 unmapped Effect icons.
+
 ## Done
 
 | Screen | Files | State |
@@ -66,12 +116,9 @@ Blocked on game data or engine work:
 - **Escape channel chip, gate state, record version** (spec Data Requirements: new fight-record events).
 
 Buildable now, not yet done:
-- Summary / Full log modes, folded repeats ("Burn ×12"), filter chips by actor and kind, the result-and-reasons line
-  first (pattern library v2: Log list).
-- Hit lines clickable for a Breakdown once the engine records one.
-- Status / counter / stance icon mapping is by file name guess (`status_<id>`, `counter_<id>`, `stance_<id>`): check
-  the engine's status and Effect ids against `assets/icons/status/` and add an id-to-icon table where they differ.
-- Portrait tooltip should show the full sheet (spec: health, linh lực, ward strength, resistances by type, power).
+- ~~Summary / Full log modes, folded repeats, filters, result line~~ (pass 3). ~~Icon table~~ (pass 3). ~~Portrait
+  sheet~~ (pass 3).
+- Hit lines open a Breakdown once the engine records one (today they open the recorded amounts only).
 - Header situation is always "Practice fight"; real fights (sect duel, ambush, tribulation) need their entry points.
 - Pad Inspect mode (spec: Inspect mode).
 - Reduced motion for floating numbers and flashes (there is no motion helper in `src/` yet: write one, then route
@@ -101,3 +148,15 @@ settings (rebinding). Specs needed first for most: run `/ux-design <screen>`.
   src/ui/windows/{person_panel,places_panel}.gd(+uid), src/ui/fight/ (all), tests/unit/session/session_reads_test.gd,
   tests/unit/ui/ui_fight_playback_test.gd(+uid), production/qa/evidence/hud-greybox/25-30 PNGs, .godot class cache.
   Next suggested step: the fight log's Summary / Full modes and folded repeats, then the 1920x1080 run.
+- 2026-11-22 (pass 3): see "Pass 3 results" above. Full parallel suite (JOBS=4, headless): 856 cases in 24 groups,
+  all green. Not committed (awaiting the user's go). Own paths added:
+  src/ui/fight/fight_log.gd, src/ui/fight/fight_log_view.gd (+uid), tests/unit/ui/ui_fight_log_test.gd (+uid),
+  tests/unit/session/session_reads_test.gd, src/gameplay/session/game_query.gd, assets/data/ui_hud.json,
+  src/ui/fight/fight_screen.gd, src/ui/fight/fight_playback.gd, src/ui/greybox/map_screen.gd, .godot/global_script_class_cache.cfg,
+  production/qa/evidence/hud-greybox/ (re-shot 16, 18, 20, 28-30; new 25-33 at 1920x1080, 31-33 at 1280x720, 04/05
+  event shots of this run) and scaling/*-scale150 (skip 04-event-card-6-0 and 05-outcome-7-0: from the failed scaled
+  run). Not ours, untracked before the session: production/todo.md, tests/performance/world/*.uid,
+  tests/unit/crafting/herb_rework_test.gd.uid.
+  User also asked (2026-11-22) about replacing tiles with Paradox-style provinces; Claude's estimate is in the
+  conversation (province layer over the kept grid ~1-2 sessions; provinces as the rules' unit = several sessions +
+  balance). Awaiting the user's goal and province count; do it before restyling the map screen.

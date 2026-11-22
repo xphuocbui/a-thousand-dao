@@ -4,8 +4,10 @@ extends ColorRect
 ## in the approved layout: a header (situation, clock, pulse, the foe's realm); two mirrored columns, each with a
 ## portrait, name, realm and roots, the stat bars (health, body shield, ward shield, linh lực with its reserved share),
 ## the FORMATION row of art slots (painted icons, cooldown fill, fire flash, step and ⚡ badges, a dim veil when it
-## cannot be paid), WARDS, ITEMS, BUFFS, DEBUFFS and STATUS; the fight log in the middle, newest at the top, coloured by
-## side; floating numbers over the struck side's health bar and a link line along each feed; and the playback bar.
+## cannot be paid), WARDS, ITEMS, BUFFS, DEBUFFS and STATUS; the fight log in the middle ([FightLog], [FightLogView]):
+## newest at the top, coloured by side, Summary (folded repeats) or Full (one line per pulse), filter chips by side and
+## kind, and the result-and-reasons line first once the fight has ended; one floating number per side per pulse over
+## the struck side's health bar and a link line along each feed; and the playback bar.
 ## Every slot, chip and bar has a tooltip. The outcome is fixed before playback; the screen computes no combat
 ## ([FightPlayback] only adds up recorded events).
 ##
@@ -25,7 +27,13 @@ var _state: Dictionary = {}
 var _t: float = 0.0
 var _playing: bool = false
 var _speed: float = 1.0
-var _log_count: int = -1
+var _log_key: String = ""
+## The log's mode ("summary" or "full"), its filters ([method FightLog.default_options]) and the expanded entries.
+var _log_mode: String = "summary"
+var _log_opts: Dictionary = {}
+var _expanded: Dictionary = {}
+## Shown line id -> the entry it stands for (expand and detail on activation).
+var _line_entries: Dictionary = {}
 var _icon_cache: Dictionary = {}
 
 var _situation := Label.new()
@@ -33,7 +41,8 @@ var _clock := Label.new()
 var _pulse := Label.new()
 var _foe_realm := Label.new()
 var _cols := {}
-var _log := ItemList.new()
+var _log := FightLogView.new()
+var _filter_buttons: Dictionary = {}
 var _overlay := Control.new()
 var _play := Button.new()
 var _time := Label.new()
@@ -86,9 +95,9 @@ func _init() -> void:
 	lt.add_theme_font_size_override("font_size", 14)
 	lt.modulate = Color(0.95, 0.8, 0.45)
 	centre.add_child(lt)
+	_build_log_filters(centre)
 	_log.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	_log.focus_mode = Control.FOCUS_ALL
-	_log.add_theme_font_size_override("font_size", 14)
+	_log.line_activated.connect(_on_line_activated)
 	centre.add_child(_log)
 	_cols["B"] = _column_shell(mid)
 	_result.add_theme_font_size_override("font_size", 20)
@@ -128,6 +137,8 @@ func _init() -> void:
 ## Sets the screen's knobs (ui_hud.json "fight_screen").
 func configure(cfg: Dictionary) -> void:
 	_cfg = cfg
+	_log.configure(cfg.get("log", {}))
+	_log_opts = FightLog.default_options(cfg.get("log", {}))
 
 
 ## Shows [param fight] (a [method GameQuery.practice_fight] result) from the start, paused.
@@ -142,7 +153,10 @@ func open_fight(fight: Dictionary, situation: String) -> void:
 		_build_column(side, fight.a if side == "A" else fight.b)
 	_t = 0.0
 	_playing = false
-	_log_count = -1
+	_log_key = ""
+	_expanded = {}
+	if _log_opts.is_empty():
+		_log_opts = FightLog.default_options({})
 	_render()
 	visible = true
 	_play.grab_focus.call_deferred()
@@ -245,18 +259,7 @@ func _step(dir: int) -> void:
 
 func _render() -> void:
 	_state = _pb.state_at(_t, float(_cfg.get("recent_ms", 900)))
-	var log_rows: Array = _state.log
-	if log_rows.size() != _log_count:
-		_log_count = log_rows.size()
-		_log.clear()
-		for i in range(log_rows.size() - 1, -1, -1):   # newest at the top
-			var line: String = _line(log_rows[i])
-			if line != "":
-				var idx: int = _log.add_item(line)
-				_log.set_item_custom_fg_color(idx, _side_colour(str(log_rows[i].side)))
-		if _log.item_count > 0:
-			_log.select(0)
-			_log.ensure_current_is_visible()
+	_render_log()
 	for side in ["A", "B"]:
 		_render_column(side)
 	_clock.text = "⏱ %.1f s" % (_t / 1000.0)
@@ -307,7 +310,7 @@ func _render_column(side: String) -> void:
 	for sid in st.statuses:
 		status.append(_status_chip(sid, st.statuses[sid]))
 	for eid in st.effects:
-		status.append(_effect_chip(eid, int(st.effects[eid]), st.bank.get(eid, null)))
+		status.append(_effect_chip(side, eid, int(st.effects[eid]), st.bank.get(eid, null)))
 	_set_chips(col.status, status)
 	col.down.text = tr("DOWN") if bool(st.down) else ""
 
@@ -338,19 +341,37 @@ func _stack_chip(side: String, el: String, tot: Dictionary, buff: bool) -> Dicti
 
 func _status_chip(sid: String, st: Dictionary) -> Dictionary:
 	var left: String = tr("no time limit") if float(st.until) < 0.0 else tr("%.1f s left") % ((float(st.until) - _t) / 1000.0)
-	return {"key": "s:" + sid, "icon": _first_icon(["status/status_%s.png" % sid, "status/counter_%s.png" % sid, "status/stance_%s.png" % sid]),
+	return {"key": "s:" + sid, "icon": _status_icon(sid),
 		"count": str(int(round(float(st.stacks)))), "polarity": "debuff", "short": _pretty(sid),
 		"tip": {"title": _pretty(sid), "fact": "%s ×%d · %s" % [tr("Status"), int(round(float(st.stacks))), left],
 			"summary": tr("A status on this side (Status Catalogue).")}}
 
 
-func _effect_chip(eid: String, n: int, bank: Variant) -> Dictionary:
+func _effect_chip(side: String, eid: String, n: int, bank: Variant) -> Dictionary:
+	var info: Dictionary = _effect_info(side, eid)
 	var lines: Array = [tr("Fired %d times so far") % n]
 	if bank != null:
 		lines.append(tr("Banked scale %s") % HudReadouts.stones_text(float(bank)))
-	return {"key": "e:" + eid, "icon": _first_icon(["status/counter_%s.png" % eid, "status/stance_%s.png" % eid]),
-		"count": str(n), "polarity": "neutral", "short": _pretty(eid),
-		"tip": {"title": _pretty(eid), "fact": tr("Effect"), "summary": tr("An Effect of this side's build that has fired."), "lines": lines}}
+	var rel: String = str(_cfg.get("effect_icons", {}).get(str(info.name), ""))
+	return {"key": "e:" + eid, "icon": _icon(rel) if rel != "" else null,
+		"count": str(n), "polarity": "neutral", "short": str(info.name),
+		"tip": {"title": str(info.name), "fact": tr("Effect"), "summary": str(info.rule) if str(info.rule) != "" else tr("An Effect of this side's build that has fired."),
+			"lines": lines}}
+
+
+## The Effect a fight record id belongs to ({name, rule}, from the fight's effect_info), else the id made readable.
+func _effect_info(side: String, eid: String) -> Dictionary:
+	var info: Dictionary = (_fight.a if side == "A" else _fight.b).get("effect_info", {}).get(eid, {})
+	if info.is_empty():
+		return {"name": _pretty(eid.trim_prefix("eff:")), "rule": ""}
+	return info
+
+
+## A status's icon: the status_icons table (ui_hud.json) where an engine id and its icon file differ, else
+## status/status_<id>.png.
+func _status_icon(sid: String) -> Texture2D:
+	var rel: String = str(_cfg.get("status_icons", {}).get(sid, "status/status_%s.png" % _file_id(sid)))
+	return _icon(rel)
 
 
 ## Shows [param items] in [param flow]; rebuilds the chips only when the set changes, else updates them in place.
@@ -379,35 +400,324 @@ func _set_chips(flow: Control, items: Array) -> void:
 		chip.queue_redraw()
 
 
+## One recorded row as a log line, built from a tr() template with named slots (Log list pattern).
 func _line(r: Dictionary) -> String:
-	var who: String = str(_fight.a.name) if str(r.side) == "A" else str(_fight.b.name)
-	var t: String = "%5.1f" % (float(r.t_ms) / 1000.0)
 	var v: Array = Array(r.values)
-	var target_name: String = str(_fight.a.name) if str(r.other) == "A" else str(_fight.b.name)
+	var target: String = str(r.other) if str(r.get("other", "")) in ["A", "B"] else FightPlayback.foe_of(str(r.side))
+	var slots := {"t": "%5.1f" % (float(r.t_ms) / 1000.0), "who": _who(str(r.side)), "target": _who(target),
+		"art": _art_name(str(r.side), str(r.art)), "id": _pretty(str(r.art)), "dealt": _amount(FightLog.dealt(r)),
+		"n": str(int(v[0])) if v.size() > 0 else "0"}
 	match str(r.kind):
 		"art":
-			return "%s  %s ◈ %s" % [t, who, _art_name(str(r.side), str(r.art))]
+			return tr("{t}  {who} ◈ {art}").format(slots)
 		"hit":
-			var label: String = _art_name(str(r.side), str(r.art)) if str(r.art) != "" else tr("Basic")
-			return "%s  %s hits with %s: %s" % [t, who, label, HudReadouts.stones_text(float(v[1])) if v.size() > 1 else "?"]
+			slots.art = slots.art if str(r.art) != "" else _hit_kind_name(str(r.get("hit_kind", "")))
+			return tr("{t}  {who} hits with {art}: {dealt}").format(slots)
+		"tick":
+			return tr("{t}  {id} ticks on {target}: {dealt}").format(slots)
+		"qi_tick":
+			slots.n = _amount(float(v[0]) if v.size() > 0 else 0.0)
+			return tr("{t}  {who}: {id} drains {n} linh lực from {target}").format(slots)
+		"soul":
+			slots.qi = _amount(float(v[1]) if v.size() > 1 else 0.0)
+			return tr("{t}  Soul hit on {target}: −{dealt} health, −{qi} linh lực").format(slots)
+		"reflect":
+			return tr("{t}  {who} reflects {dealt} back at {target}").format(slots)
+		"return":
+			return tr("{t}  {who} strikes back at {target}: {dealt}").format(slots)
 		"step":
-			return "%s  %s: %s reaches step %d" % [t, who, _art_name(str(r.side), str(r.art)), int(v[0]) if v.size() > 0 else 0]
+			return tr("{t}  {who}: {art} reaches step {n}").format(slots)
 		"empower":
-			return "%s  %s: %s ⚡ empowered" % [t, who, _art_name(str(r.side), str(r.art))]
+			return tr("{t}  {who}: {art} ⚡ empowered").format(slots)
 		"feed":
-			return "%s  %s: feed → %s  −%.1f s" % [t, who, _art_name(str(r.side), str(r.art)), (float(v[2]) if v.size() > 2 else 0.0) / 1000.0]
+			slots.to = _slot_art(str(r.side), int(v[1]) if v.size() > 1 else -1)
+			slots.s = "%.1f" % ((float(v[2]) if v.size() > 2 else 0.0) / 1000.0)
+			slots.art = _slot_art(str(r.side), int(v[0]) if v.size() > 0 else -1)
+			return tr("{t}  {who}: {art} feeds {to}  −{s} s").format(slots)
 		"stacks":
-			var buff: bool = v.size() > 2 and float(v[2]) > 0.5
-			return "%s  %s: %s +%d %s on %s" % [t, who, _pretty(str(r.art)), int(v[0]), tr("buff") if buff else tr("debuff"), target_name]
+			slots.kind = tr("buff") if v.size() > 2 and float(v[2]) > 0.5 else tr("debuff")
+			return tr("{t}  {who}: +{n} {id} {kind} on {target}").format(slots)
 		"status":
-			return "%s  %s: %s ×%d on %s" % [t, who, _pretty(str(r.art)), int(v[0]) if v.size() > 0 else 1, target_name]
+			return tr("{t}  {who}: {id} ×{n} on {target}").format(slots)
 		"cleanse":
-			return "%s  %s cleanses %d stacks" % [t, who, int(v[0]) if v.size() > 0 else 0]
+			return tr("{t}  {who} cleanses {n} stacks").format(slots)
 		"effect":
-			return "%s  %s: %s" % [t, who, _pretty(str(r.art))]
+			slots.id = str(_effect_info(str(r.side), str(r.art)).name)
+			return tr("{t}  {who}: {id} fires").format(slots)
+		"bank":
+			slots.id = str(_effect_info(str(r.side), str(r.art)).name)
+			slots.n = HudReadouts.stones_text(float(v[0]) if v.size() > 0 else 0.0)
+			return tr("{t}  {who}: {id} banks scale {n}").format(slots)
+		"cull":
+			return tr("{t}  {who} culls").format(slots)
 		"down":
-			return "%s  %s is down" % [t, who]
-	return ""
+			return tr("{t}  {who} is down").format(slots)
+		"pulse":
+			return tr("{t}  {who}: pulse").format(slots)
+	slots.kind = str(r.kind)
+	return tr("{t}  {who}: {kind}").format(slots)
+
+
+## A Summary entry's line: a fired art with what its hits dealt; a folded entry with its count and total.
+func _entry_text(e: Dictionary) -> String:
+	var rows: Array = _state.log
+	var slots := {"t": "%5.1f" % (float(e.t_last) / 1000.0), "who": _who(str(e.side)), "art": _art_name(str(e.side), str(e.art)),
+		"dealt": _amount(float(e.total)), "n": str(int(e.count)), "hits": str(int(e.hits))}
+	if str(e.kind) == "art":
+		if int(e.hits) > 1:
+			return tr("{t}  {who} ◈ {art}: {dealt} in {hits} hits").format(slots)
+		if int(e.hits) == 1:
+			return tr("{t}  {who} ◈ {art}: {dealt}").format(slots)
+		return tr("{t}  {who} ◈ {art}").format(slots)
+	if int(e.count) > 1:
+		if FightLog.DEALT_AT.has(str(e.kind)):
+			if str(e.kind) == "hit":
+				slots.name = _hit_kind_name(str(e.hit_kind)) if str(e.art) == "" else slots.art
+			else:
+				slots.name = _pretty(str(e.art))
+			return tr("{t}  {who}: {name} ×{n}, {dealt} total").format(slots)
+		slots.line = _line(rows[int(e.rows[0])]).substr(7)   # the first repeat's line without its time
+		return tr("{t}  {line}  ×{n}").format(slots)
+	return _line(rows[int(e.rows[0])])
+
+
+## A Full entry's line: per shown side, the arts fired, damage dealt by type and health / linh lực after the pulse.
+func _pulse_text(e: Dictionary) -> String:
+	var parts: PackedStringArray = []
+	for side in ["A", "B"]:
+		if not bool(_log_opts.sides.get(side, true)):
+			continue
+		var s: Dictionary = e.sides[side]
+		var arts: PackedStringArray = []
+		for id in s.arts:
+			arts.append(_art_name(side, str(id)) + (" ×%d" % int(s.arts[id]) if int(s.arts[id]) > 1 else ""))
+		var by_type: PackedStringArray = []
+		for label in s.dealt:
+			by_type.append("%s %s" % [_type_name(str(label)), _amount(float(s.dealt[label]))])
+		var slots := {"who": _who(side), "arts": ", ".join(arts) if not arts.is_empty() else tr("no art fired"),
+			"dealt": _amount(float(s.total)), "types": ", ".join(by_type),
+			"hp": _amount(maxf(0.0, float(s.hp))) if bool(s.seen) else "?", "qi": _amount(maxf(0.0, float(s.qi))) if bool(s.seen) else "?"}
+		var tpl: String = tr("{who}: {arts} · after {hp} health, {qi} linh lực")
+		if not by_type.is_empty():
+			tpl = tr("{who}: {arts} · dealt {dealt} ({types}) · after {hp} health, {qi} linh lực")
+		parts.append(tpl.format(slots))
+	return "%5.1f  %s" % [float(e.t_ms) / 1000.0, "  │  ".join(parts)]
+
+
+## The result-and-reasons line (only once playback has ended): the ending and who won, then up to three recorded facts.
+func _result_line() -> String:
+	var res: Dictionary = FightLog.result(_fight, _type_of(), 3, float(_cfg.get("log", {}).get("qi_low_share", 0.5)))
+	var w: String = str(res.winner)
+	var who: String = tr("you won") if w == "A" else (tr("you lost") if w == "B" else tr("no winner"))
+	var head: String = tr("{ending} at {s} s: {result}").format({"ending": tr(str(res.ending).capitalize()),
+		"s": "%.1f" % float(res.seconds), "result": who})
+	var subj: String = str(res.subject)
+	var whose: String = tr("your") if subj == "A" else tr("{name}'s").format({"name": str(_fight.b.name)})
+	var said: PackedStringArray = []
+	for r in res.reasons:
+		match str(r.key):
+			"qi_low":
+				said.append(tr("{whose} linh lực was below the cheapest art's cost for {share} % of the fight").format(
+					{"whose": whose, "share": "%d" % roundi(float(r.share) * 100.0)}))
+			"taken_share":
+				said.append(tr("{share} % of the damage {who} took was {label}").format(
+					{"share": "%d" % roundi(float(r.share) * 100.0), "who": _who(subj), "label": _type_name(str(r.label))}))
+			"top_source":
+				var src: String = str(r.art)
+				var src_name: String = _art_name(str(r.side), src)
+				if src == "" or src == "basic":
+					src_name = tr("Basic attacks")
+				elif src.contains(":"):
+					src_name = _pretty(src.get_slice(":", 1))
+				said.append(tr("{art} dealt {share} % of it").format({"art": src_name, "share": "%d" % roundi(float(r.share) * 100.0)}))
+			"dealt_taken":
+				said.append(tr("{who} dealt {dealt} and took {taken}").format(
+					{"who": _who(subj), "dealt": _amount(float(r.dealt)), "taken": _amount(float(r.taken))}))
+	if said.is_empty():
+		return head + "."
+	var body: String = "; ".join(said)
+	return "%s. %s." % [head, body.left(1).to_upper() + body.substr(1)]
+
+
+## Rebuilds the log's lines when the rows shown, the mode, a filter, an expansion or the ending changed.
+func _render_log() -> void:
+	var rows: Array = _state.log
+	var key: String = "%d|%s|%s|%s|%s|%s" % [rows.size(), _log_mode, str(_log_opts.sides), str(_log_opts.groups),
+		str(_expanded.keys()), str(ended())]
+	if key == _log_key:
+		return
+	_log_key = key
+	var lines: Array = []
+	_line_entries = {}
+	var result_colour: Color = Color.from_string(str(_cfg.get("log", {}).get("result_color", "#F2CC73")), Color(0.95, 0.8, 0.45))
+	var full_colour: Color = Color.from_string(str(_cfg.get("log", {}).get("full_color", "#DCDEE6")), Color(0.86, 0.87, 0.9))
+	if ended():
+		lines.append({"id": "result", "text": _result_line(), "color": result_colour})
+	var entries: Array = FightLog.summary(rows, _log_opts) if _log_mode == "summary" else FightLog.full(rows, _log_opts, _type_of())
+	var prefix: String = "s:" if _log_mode == "summary" else "f:"
+	for k in range(entries.size() - 1, -1, -1):   # newest at the top
+		var e: Dictionary = entries[k]
+		var id: String = prefix + str(e.id)
+		_line_entries[id] = e
+		var open: bool = _expanded.has(id)
+		var mark: String = "  "
+		if _expandable(e):
+			mark = "▾ " if open else "▸ "
+		var text: String = _pulse_text(e) if _log_mode == "full" else _entry_text(e)
+		var colour: Color = _side_colour(str(e.side)) if _log_mode == "summary" else full_colour
+		lines.append({"id": id, "text": mark + text, "color": colour})
+		if open:
+			for child in _expansion(e):
+				lines.append({"id": "%s>%d" % [id, int(child.row)], "text": "      " + str(child.text),
+					"color": _side_colour(str(child.side)).darkened(0.15)})
+	_log.set_lines(lines)
+
+
+## True when activating the entry shows more: a folded entry's rows, a pulse's rows, or a hit's recorded amounts.
+func _expandable(e: Dictionary) -> bool:
+	return str(e.kind) in ["pulse", "hit"] or int(e.get("count", 1)) > 1 or int(e.get("hits", 0)) > 0
+
+
+## The lines an expanded entry opens: its rows newest first, and for a single hit (or a fired art's hits) the amounts
+## the record holds. The defence steps are not recorded yet, so this is not the Breakdown.
+func _expansion(e: Dictionary) -> Array:
+	var rows: Array = _state.log
+	var out: Array = []
+	var idx: Array = Array(e.rows)
+	var single_hit: bool = str(e.kind) == "hit" and int(e.get("count", 1)) == 1
+	if single_hit or (str(e.kind) == "art" and int(e.get("hits", 0)) > 0):
+		for i in idx:
+			var r: Dictionary = rows[int(i)]
+			if str(r.kind) != "hit":
+				continue
+			var v: Array = Array(r.values)
+			var tpl: String = tr("{before} before defence, {dealt} dealt; {target} at {hp} health. The defence steps are not recorded yet.")
+			out.append({"row": int(i), "side": str(r.side), "text": tpl.format({"before": _amount(float(v[0]) if v.size() > 0 else 0.0),
+				"dealt": _amount(FightLog.dealt(r)), "target": _who(FightPlayback.foe_of(str(r.side))),
+				"hp": _amount(float(v[2]) if v.size() > 2 else 0.0)})})
+		return out
+	for k in range(idx.size() - 1, -1, -1):
+		var r2: Dictionary = rows[int(idx[k])]
+		out.append({"row": int(idx[k]), "side": str(r2.side), "text": _line(r2)})
+	return out
+
+
+## Clicking or pressing Enter on a line pauses playback and opens or closes what the line holds.
+func _on_line_activated(id: String) -> void:
+	_playing = false
+	var base: String = id.get_slice(">", 0)
+	if _line_entries.has(base) and _expandable(_line_entries[base]):
+		if _expanded.has(base):
+			_expanded.erase(base)
+		else:
+			_expanded[base] = true
+	_render()
+	_log.select_id(base)
+
+
+## Switches the log to [param mode] ("summary" or "full").
+func set_log_mode(mode: String) -> void:
+	_log_mode = mode
+	_expanded = {}
+	for m in ["summary", "full"]:
+		(_filter_buttons[m] as Button).set_pressed_no_signal(m == mode)
+	if _pb != null:
+		_render()
+
+
+## Shows or hides [param key] in the log: a side ("A", "B") or a group (FightLog.FILTER_GROUPS).
+func set_log_filter(key: String, on: bool) -> void:
+	if key in ["A", "B"]:
+		_log_opts.sides[key] = on
+	else:
+		_log_opts.groups[key] = on
+	(_filter_buttons[key] as Button).set_pressed_no_signal(on)
+	_dim_off(_filter_buttons[key])
+	if _pb != null:
+		_render()
+
+
+## The log's list (for the demo checks).
+func log_view() -> FightLogView:
+	return _log
+
+
+## The side ("A" or "B") whose entry the shown log line [param id] stands for, "" for the result line and expansions.
+func log_line_side(id: String) -> String:
+	return str(_line_entries[id].get("side", "")) if _line_entries.has(id) else ""
+
+
+## The log's filter button for [param key] (a mode, a side or a group; for the demo checks).
+func log_button(key: String) -> Button:
+	return _filter_buttons.get(key)
+
+
+func _build_log_filters(parent: Control) -> void:
+	var flow := HFlowContainer.new()
+	flow.add_theme_constant_override("h_separation", 4)
+	flow.add_theme_constant_override("v_separation", 4)
+	parent.add_child(flow)
+	var group := ButtonGroup.new()
+	_filter_button(flow, "summary", tr("Summary"), tr("One line per event; repeats fold (click a line to open it)"), group)
+	_filter_button(flow, "full", tr("Full"), tr("One line per pulse: arts, damage by type, health and linh lực after"), group)
+	_filter_button(flow, "A", tr("You"), tr("Show your lines"), null)
+	_filter_button(flow, "B", tr("Foe"), tr("Show the foe's lines"), null)
+	var names := {"damage": tr("Damage"), "arts": tr("Arts"), "stacks": tr("Stacks"), "status": tr("Status"),
+		"feeds": tr("Feeds"), "qi": tr("Linh lực")}
+	for g in FightLog.FILTER_GROUPS:
+		_filter_button(flow, g, str(names[g]), tr("Show or hide {kind} lines").format({"kind": str(names[g]).to_lower()}), null)
+
+
+func _filter_button(flow: Control, key: String, text: String, tip: String, grp: ButtonGroup) -> void:
+	var b := Button.new()
+	b.text = text
+	b.toggle_mode = true
+	b.button_group = grp
+	b.button_pressed = key != "full"
+	b.add_theme_font_size_override("font_size", int(_cfg.get("log", {}).get("font_px", 14)))
+	TooltipLayer.set_tip(b, tip)
+	if grp != null:
+		b.pressed.connect(func(): set_log_mode(key))
+	else:
+		b.toggled.connect(func(on: bool): set_log_filter(key, on))
+	_filter_buttons[key] = b
+	flow.add_child(b)
+	_dim_off(b)
+
+
+## An off filter is drawn dimmed as well as unpressed, so its state does not rest on the button shade alone.
+func _dim_off(b: Button) -> void:
+	if b.button_group == null:
+		b.modulate.a = 1.0 if b.button_pressed else 0.45
+
+
+func _type_of() -> Callable:
+	var arts_of := {"A": Array(_fight.a.get("arts", [])), "B": Array(_fight.b.get("arts", []))}
+	return func(r: Dictionary) -> String: return FightLog.type_label(r, arts_of)
+
+
+func _who(side: String) -> String:
+	if side == "A":
+		return str(_fight.a.name)
+	if side == "B":
+		return str(_fight.b.name)
+	return "?"
+
+
+func _amount(x: float) -> String:
+	return HudReadouts.stones_text(x)
+
+
+func _hit_kind_name(kind: String) -> String:
+	return tr("a companion") if kind == "companion" else tr("a basic attack")
+
+
+## The art in [param side]'s slot [param i] (feeds name slots).
+func _slot_art(side: String, i: int) -> String:
+	var arts: Array = Array((_fight.a if side == "A" else _fight.b).get("arts", []))
+	if i >= 0 and i < arts.size():
+		return _art_name(side, str(arts[i].id))
+	return tr("slot {n}").format({"n": i + 1})
 
 
 # --- Overlay: floating numbers and link lines -------------------------------------------------------------------------
@@ -418,26 +728,43 @@ func _draw_overlay() -> void:
 	var recent_ms: float = float(_cfg.get("recent_ms", 900))
 	var link_ms: float = float(_cfg.get("link_ms", 700))
 	var font: Font = get_theme_default_font()
-	var n: int = 0
+	# One floating number per side per pulse (AC 22): the hits and ticks a side took in a pulse add up into one number,
+	# coloured by the largest part, rising from that pulse's latest hit.
+	var group_ms: float = float(_cfg.get("float_group_ms", 1000))
+	var groups := {}
+	for r in _state.recent:
+		var kind0: String = str(r.kind)
+		if kind0 != "hit" and kind0 != "tick":
+			continue
+		var target: String = FightPlayback.foe_of(str(r.side))
+		if kind0 == "tick" and str(r.other) in ["A", "B"]:
+			target = str(r.other)
+		var gk: String = "%s|%d" % [target, int(float(r.t_ms) / group_ms)]
+		var g: Dictionary = groups.get(gk, {"target": target, "sum": 0.0, "t": 0.0, "big": -1.0, "row": r, "hit": false})
+		var d: float = FightLog.dealt(r)
+		g.sum = float(g.sum) + d
+		g.t = maxf(float(g.t), float(r.t_ms))
+		g.hit = bool(g.hit) or kind0 == "hit"
+		if d > float(g.big):
+			g.big = d
+			g.row = r
+		groups[gk] = g
+	for gk in groups:
+		var g: Dictionary = groups[gk]
+		var bar: Control = _cols[str(g.target)].hp
+		var rect: Rect2 = Rect2(bar.global_position - _overlay.global_position, bar.size)
+		var share: float = clampf((_t - float(g.t)) / recent_ms, 0.0, 1.0)
+		var text: String = HudReadouts.stones_text(float(g.sum)) if float(g.sum) > 0.0 else tr("stopped")
+		var c: Color = _hit_colour(g.row)
+		c.a = 1.0 - share
+		var fs: int = 22 if bool(g.hit) else 16
+		var at := Vector2(rect.get_center().x, rect.end.y + 26.0 - share * 34.0)   # rises over the bar
+		draw_string_outline_on(font, at, text, fs, c)
 	for r in _state.recent:
 		var age: float = _t - float(r.t_ms)
 		var kind: String = str(r.kind)
 		var v: Array = Array(r.values)
-		if kind == "hit" or kind == "tick":
-			var target: String = FightPlayback.foe_of(str(r.side)) if kind == "hit" else (str(r.other) if str(r.other) in ["A", "B"] else FightPlayback.foe_of(str(r.side)))
-			var bar: Control = _cols[target].hp
-			var rect: Rect2 = Rect2(bar.global_position - _overlay.global_position, bar.size)
-			var share: float = age / recent_ms
-			var jitter: float = float((n * 53) % 120) - 60.0
-			n += 1
-			var dealt: float = float(v[1]) if v.size() > 1 else 0.0
-			var text: String = HudReadouts.stones_text(dealt) if dealt > 0.0 else tr("stopped")
-			var c: Color = _hit_colour(r)
-			c.a = 1.0 - share
-			var fs: int = 22 if kind == "hit" else 16
-			var at := Vector2(rect.get_center().x + jitter, rect.end.y + 26.0 - share * 34.0)   # rises over the bar
-			draw_string_outline_on(font, at, text, fs, c)
-		elif kind == "feed" and age <= link_ms:
+		if kind == "feed" and age <= link_ms:
 			var slots: Array = _cols[str(r.side)].slots
 			var i: int = int(v[0]) if v.size() > 0 else -1
 			var j: int = int(v[1]) if v.size() > 1 else -1
@@ -502,10 +829,7 @@ func _build_column(side: String, info: Dictionary) -> void:
 	initial.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	initial.add_theme_font_size_override("font_size", 26)
 	portrait.add_child(initial)
-	TooltipLayer.set_tip(portrait, {"title": str(info.name), "fact": "%s · %s" % [str(info.realm), str(info.get("roots", ""))],
-		"lines": ["%s %.0f %%" % [tr("Crit chance"), float(info.get("crit", 0.0)) * 100.0],
-			"%s %.0f %%" % [tr("Evade"), float(info.get("evade", 0.0)) * 100.0],
-			"%s %s" % [tr("Block points"), HudReadouts.stones_text(float(info.get("block", 0.0)))]]})
+	TooltipLayer.set_tip(portrait, _sheet_tip(side, info))
 	var names := VBoxContainer.new()
 	var nm := Label.new()
 	nm.text = str(info.name) + ("  " + tr("(You)") if side == "A" else "")
@@ -514,7 +838,7 @@ func _build_column(side: String, info: Dictionary) -> void:
 	var rl := Label.new()
 	rl.text = "%s · %s" % [str(info.realm), str(info.get("roots", ""))]
 	rl.add_theme_font_size_override("font_size", 14)
-	rl.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	rl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART   # never truncated (Localization)
 	names.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	for l in [nm, rl]:
 		l.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT if mirror else HORIZONTAL_ALIGNMENT_LEFT
@@ -605,6 +929,33 @@ func _build_column(side: String, info: Dictionary) -> void:
 	box.add_child(col.down)
 
 
+## The portrait's tooltip: the side's fight sheet (spec Component Inventory, Portrait) as the fight record has it.
+func _sheet_tip(side: String, info: Dictionary) -> Dictionary:
+	var sh: Dictionary = info.get("sheet", {})
+	var lines: Array = [
+		tr("Health {hp} · linh lực {qi}").format({"hp": _amount(float(_pb.max_hp[side])), "qi": _amount(float(_pb.max_qi[side]))}),
+		tr("Ward {pts} points, layer {layer}, drain {drain}").format({"pts": _amount(float(sh.get("ward_pts", 0.0))),
+			"layer": "%.2f" % float(sh.get("ward_layer", 1.0)), "drain": _amount(float(sh.get("drain", 0.0)))}),
+		tr("Body shield {share} % of health · block {block} points").format({"share": "%.0f" % (float(info.get("body_shield", 0.0)) * 100.0),
+			"block": _amount(float(info.get("block", 0.0)))}),
+		tr("Crit {crit} % (×{mult}) · evade {evade} %").format({"crit": "%.0f" % (float(info.get("crit", 0.0)) * 100.0),
+			"mult": "%.2f" % float(sh.get("crit_mult", 1.7)), "evade": "%.0f" % (float(info.get("evade", 0.0)) * 100.0)})]
+	var res: Dictionary = sh.get("resist", {})
+	if not res.is_empty():
+		var parts: PackedStringArray = []
+		for k in res:
+			parts.append("%s %s" % [_type_name(str(k)), _amount(float(res[k]))])
+		lines.append(tr("Resistance: {list}").format({"list": ", ".join(parts)}))
+	else:
+		lines.append(tr("Resistance: none by type"))
+	lines.append(tr("Thần thức {ds} · soul resistance {soul}").format({"ds": "%.2f" % float(sh.get("divine_sense", 1.0)),
+		"soul": _amount(float(sh.get("soul_res", 0.0)))}))
+	var fact: String = "%s · %s" % [str(info.realm), str(info.get("roots", ""))]
+	if str(sh.get("power", "")) != "":
+		fact += " · " + str(sh.power)
+	return {"title": str(info.name), "fact": fact, "lines": lines}
+
+
 func _art_tip(side: String, i: int) -> Dictionary:
 	var info: Dictionary = _fight.a if side == "A" else _fight.b
 	var art: Dictionary = info.arts[i]
@@ -683,8 +1034,19 @@ static func _file_id(id: String) -> String:
 	return id.replace("-", "_").to_lower()
 
 
-## An art's shown name: its library name, else the id made readable.
+## A damage label's shown name: a damage type's name (art bible 7.5), else the element or status id made readable.
+func _type_name(label: String) -> String:
+	var names: Dictionary = {"phys": tr("Physical"), "fire": tr("Fire"), "cold": tr("Cold"), "lightning": tr("Lightning"),
+		"force": tr("Force"), "chaos": tr("Chaos"), "soul": tr("Soul")}
+	return str(names.get(label, _pretty(label)))
+
+
+## An art's shown name: its library name, else the id made readable; a basic attack's or companion's hit kind by name.
 func _art_name(side: String, id: String) -> String:
+	if id == "basic":
+		return tr("basic attack")
+	if id == "companion":
+		return tr("companion")
 	var info: Dictionary = _fight.a if side == "A" else _fight.b
 	for art in info.get("arts", []):
 		if str(art.id) == id and str(art.get("name", "")) != "":

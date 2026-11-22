@@ -5,7 +5,10 @@ extends RefCounted
 ## recorded events, never computes combat, so scrubbing anywhere gives the same picture.
 ##
 ## Row layouts are FightLogRow's: PULSE [hp, qi]; ART [cost, hp, qi]; HIT [D, dealt, def_hp, def_qi, att_hp, att_qi];
-## TICK [amount, dealt, hp, qi] on [code]other[/code]; STACKS [n, until_ms, buff 1/0] from side onto other; STATUS
+## TICK [amount, dealt, hp, qi] on [code]other[/code]; QI_TICK [amount, hp, qi] of the foe (side is the status's
+## source); SOUL [health removed, linh lực removed, hp, qi] of the foe; REFLECT [amount, dealt, hp, qi] (side reflects
+## onto its attacker, the readings are the attacker's); RETURN [amount, dealt, hp, qi] (side's Effect strikes the foe,
+## the readings are the foe's); STACKS [n, until_ms, buff 1/0] from side onto other; STATUS
 ## [stacks, until_ms] onto other; CLEANSE [removed]; STEP [next step]; EMPOWER []; FEED [from slot, to slot, ms];
 ## EFFECT []; BANK [scale]; DOWN [].
 ##
@@ -64,7 +67,10 @@ static func hp_qi(r: Dictionary) -> Array:
 			var target: String = str(r.other) if str(r.other) != "" else foe_of(side)
 			return [[target, v[v.size() - 2], v[v.size() - 1]]] if v.size() >= 2 else []
 		"reflect", "return":
-			return [[foe_of(side) if str(r.kind) == "reflect" else side, v[2], v[3]]] if v.size() >= 4 else []
+			return [[foe_of(side), v[2], v[3]]] if v.size() >= 4 else []
+		"qi_tick":
+			var drained: String = str(r.other) if str(r.other) in ["A", "B"] else foe_of(side)
+			return [[drained, v[1], v[2]]] if v.size() >= 3 else []
 	return []
 
 

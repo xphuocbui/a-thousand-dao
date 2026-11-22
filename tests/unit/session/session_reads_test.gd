@@ -150,3 +150,30 @@ func test_game_query_returns_deep_copies_so_changing_one_leaves_the_world_alone(
 	assert_eq(_state(s), before, "a copy reached the world")
 	assert_true(str(GameQuery.here(s).name) != "changed", "the place's name is untouched")
 	s.shutdown()
+
+
+func test_an_effect_record_id_resolves_to_its_effect_name_and_rule() -> void:
+	var gd := _gd_on()
+	var lib: Dictionary = gd.file("combat_effects").get("effects", {})
+	assert_true(lib.has("Layered Earth"), "precondition: the Effect is in combat_effects.json")
+	var e: Dictionary = GameQuery.effect_of(gd, "eff:Layered Earth block")
+	assert_eq(e.name, "Layered Earth", "a suffixed record id belongs to the longest Effect name it starts with")
+	assert_eq(e.rule, str(lib["Layered Earth"].rule), "and carries that Effect's rule for the tooltip")
+	assert_eq(GameQuery.effect_of(gd, "eff:Not An Effect").name, "Not An Effect", "an unknown id comes back as its own name")
+	assert_eq(GameQuery.effect_of(gd, "eff:Not An Effect").rule, "", "with no rule")
+
+
+func test_the_practice_fight_carries_each_side_s_sheet_for_the_portrait() -> void:
+	var s := _session()
+	var npc: String = ""
+	for p in s.db.all("people"):
+		if not bool(p.get("is_player", false)) and bool(p.get("alive", true)) and not bool(p.get("is_beast", false)):
+			npc = str(p.id)
+			break
+	var f: Dictionary = GameQuery.practice_fight(s, npc)
+	assert_true(bool(f.get("ok", false)), "the practice fight runs")
+	for side in ["a", "b"]:
+		var sh: Dictionary = f[side].get("sheet", {})
+		for key in ["ward_pts", "ward_layer", "drain", "resist", "soul_res", "divine_sense", "crit_mult", "power"]:
+			assert_true(sh.has(key), "side %s's sheet has %s" % [side, key])
+		assert_true(f[side].has("effect_info"), "side %s names its Effects" % side)

@@ -56,10 +56,11 @@
     }
   },
   "fight_screen": {
-    "_doc": "Fight screen (design/ux/fight-screen.md): timings in ms, sizes in px. Colours from the art bible 7.4/7.5 (hue table; damage types). recent_ms: how long a floating number rises and fades; flash_ms: an art's fire flash; link_ms: a feed's link line.",
+    "_doc": "Fight screen (design/ux/fight-screen.md): timings in ms, sizes in px. Colours from the art bible 7.4/7.5 (hue table; damage types). recent_ms: how long a floating number rises and fades; flash_ms: an art's fire flash; link_ms: a feed's link line; float_group_ms: hits and ticks a side takes within this window share one floating number (one per side per pulse, AC 22).",
     "recent_ms": 900,
     "flash_ms": 350,
     "link_ms": 700,
+    "float_group_ms": 1000,
     "slot_px": 48,
     "ward_px": 40,
     "chip_px": 32,
@@ -87,6 +88,44 @@
       "wind": "#B5F5E0",
       "lightning": "#B060FF"
     },
-    "item_slots": 2
+    "item_slots": 2,
+    "status_icons": {
+      "_doc": "Engine status id -> icon file under assets/icons/, only where the file is not status/status_<id>.png (all 12 statuses the arts apply match today)."
+    },
+    "effect_icons": {
+      "_doc": "Effect name (combat_effects.json) -> icon file under assets/icons/. Provisional (2026-11-22): only Effects whose subject clearly matches a painted counter or stance icon; the rest show their name until icons are painted.",
+      "Tide": "status/counter_tide.png",
+      "Rising Tide": "status/counter_tide.png",
+      "Ebb Tide": "status/counter_backwash.png",
+      "Returning Wave": "status/counter_backwash.png",
+      "Sword Chorus": "status/counter_chorus.png",
+      "Echo": "status/counter_echo.png",
+      "Drumbeat": "status/counter_tempo.png",
+      "Layered Earth": "status/counter_strata.png",
+      "Lingering Afterimage": "status/counter_afterimage.png",
+      "Embers": "status/counter_ash.png",
+      "Feed the Hearth": "status/counter_heat.png",
+      "Ever-Burning Furnace": "status/stance_brazier.png",
+      "Immovable Mountain": "status/stance_mountain.png",
+      "Iron Skin Renewed": "status/stance_iron_hide.png",
+      "Gripping Root": "status/stance_rooted.png",
+      "Wind at Your Back": "status/counter_stride.png",
+      "Whetstone Vow": "status/counter_temper.png",
+      "Toll Taker": "status/counter_toll.png",
+      "Seal of Full Payment": "status/counter_seal.png",
+      "Sap Rises": "status/counter_spring.png",
+      "Spirit Garden": "status/counter_seed.png"
+    },
+    "log": {
+      "_doc": "Fight log (Log list pattern): fold_gap_ms: a repeat folds into the entry before it when it comes within this long of its last repeat; fold_kinds: the row kinds that fold; font_px the line size; qi_low_share: the result line names a side short of linh lực when it sat below its cheapest art's cost for at least this share of the fight; colours for the selection, the focus ring, the result line and Full lines.",
+      "fold_gap_ms": 2500,
+      "qi_low_share": 0.5,
+      "fold_kinds": ["tick", "qi_tick", "hit", "stacks", "status", "effect", "bank", "feed"],
+      "font_px": 14,
+      "sel_color": "#FFFFFF1F",
+      "ring_color": "#F2CC73",
+      "result_color": "#F2CC73",
+      "full_color": "#DCDEE6"
+    }
   }
 }

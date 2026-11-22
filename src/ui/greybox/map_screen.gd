@@ -75,6 +75,7 @@ func _ready() -> void:
 	gd = GameData.load_from("res://assets/data")
 	_cfg = gd.file(UI_FILE)
 	_tips.configure(_cfg.get("tooltips", {}))
+	_fight.configure(_cfg.get("fight_screen", {}))
 	LinkStyle.configure(_cfg.get("link_styles", {}))
 	# The readouts with a tooltip, styled once the table is loaded (hud.md Tooltips: Link styles).
 	LinkStyle.apply(_stones, "number")
@@ -436,8 +437,7 @@ func _build_layout() -> void:
 	_loading_label.add_theme_font_size_override("font_size", 24)
 	_loading.add_child(_loading_label)
 
-	add_child(_fight)
-	_fight.configure(_cfg.get("fight_screen", {}))
+	add_child(_fight)   # configured in _ready once ui_hud.json is loaded
 	_fight.closed.connect(func():
 		if _person.person_id() == "" and _person_after_fight:
 			_person.visible = true
@@ -1120,6 +1120,8 @@ func _run_demo() -> void:
 	var dir: String = _arg_value("--shot-dir", "user://hud-greybox")
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(dir))
 	var tag: String = "%dx%d" % [get_viewport_rect().size.x, get_viewport_rect().size.y]
+	if get_window().content_scale_factor != 1.0:   # a scaled run is named by its window and scale, not its layout size
+		tag = "%dx%d-scale%d" % [get_window().size.x, get_window().size.y, roundi(get_window().content_scale_factor * 100.0)]
 	await _shot(dir, "00-loading", tag)
 	while session == null:
 		await get_tree().process_frame
@@ -1295,6 +1297,12 @@ func _demo_person_and_fight(dir: String, tag: String) -> void:
 	_tips.close_all()
 	var here: String = _here_id()
 	var people: Array = GameQuery.people_at(session, here)
+	var at_home: bool = not people.is_empty()
+	if not at_home:   # the Travel step lands where its row sits on screen, so at some sizes the place is empty
+		for pl in GameQuery.known_places(session):
+			people = GameQuery.people_at(session, str(pl.id))
+			if not people.is_empty():
+				break
 	var pick: String = ""
 	var my_realm: int = int(StateSnapshot.take(session).get("realm_index", 0))
 	var best: int = -1
@@ -1312,9 +1320,12 @@ func _demo_person_and_fight(dir: String, tag: String) -> void:
 	await _frames(3)
 	var bubble: Control = null
 	for c in _map.find_children("*", "MapBubble", true, false):
-		if str(c.kind) == "people" and (c as Control).is_visible_in_tree():
+		if str(c.kind) == "people" and (c as Control).is_visible_in_tree() and at_home:
 			bubble = c
-	_check("your place shows a people bubble in a new game", bubble != null)
+	if at_home:
+		_check("your place shows a people bubble in a new game", bubble != null)
+	else:
+		print("INPUT CHECK SKIP: nobody at your place after the Travel step at this size; the person opens directly")
 	if bubble != null:
 		await _click(bubble.get_global_rect().get_center())
 		await _frames(5)
@@ -1365,11 +1376,59 @@ func _demo_person_and_fight(dir: String, tag: String) -> void:
 	await _frames(3)
 	_check("S skips to the end and the ending is labelled", _fight.ended())
 	await _shot(dir, "30-fight-end", tag)
+	await _demo_fight_log(dir, tag)
 	await _key(KEY_ESCAPE)
 	await _frames(3)
 	_check("Esc closes the fight screen once it has ended", not _fight.visible)
 	await _key(KEY_ESCAPE)
 	_check("Esc closes the person window", not _person.visible)
+
+
+## The fight log through real input, on an ended fight: the result line comes first; a folded line opens on a click;
+## Up / Down move the selection; the foe filter hides the foe's lines; Full shows one line per pulse.
+func _demo_fight_log(dir: String, tag: String) -> void:
+	if not _fight.visible or not _fight.ended():
+		_check("the fight log checks need an ended fight on screen", false)
+		return
+	var view: FightLogView = _fight.log_view()
+	var table: Dictionary = _cfg.get("fight_screen", {}).get("effect_icons", {})
+	var chips: Array = _fight.chips("A", "status") + _fight.chips("B", "status")
+	_check("the fight screen has its ui_hud.json settings (it was configured before they loaded)", _fight.log_button("summary") != null
+		and table.size() > 1 and chips.all(func(c): return c.icon != null or not table.has(str(c.short))))
+	var ids: PackedStringArray = view.line_ids()
+	_check("the ended fight's log starts with the result and its reasons", ids.size() > 1 and ids[0] == "result"
+		and view.line_text(0).contains(";"))
+	var folded: int = -1
+	for i in ids.size():
+		if ids[i].begins_with("s:") and view.line_text(i).contains("×"):
+			folded = i
+			break
+	_check("repeats fold into one line with a count", folded >= 0)
+	if folded >= 0:
+		var before: int = ids.size()
+		await _click(view.get_child(0).get_child(folded).get_global_rect().get_center())
+		await _frames(3)
+		_check("clicking a folded line opens its repeats", view.line_ids().size() > before and view.selected_id() == ids[folded])
+		await _shot(dir, "31-fight-log-open", tag)
+	view.grab_focus()
+	var sel: String = view.selected_id()
+	await _key(KEY_DOWN)
+	await _frames(2)
+	_check("Down moves the log's selection", view.selected_id() != sel and view.selected_id() != "")
+	await _click(_fight.log_button("B").get_global_rect().get_center())
+	await _frames(3)
+	var foe_lines: int = Array(view.line_ids()).filter(func(id): return _fight.log_line_side(str(id)) == "B").size()
+	_check("the Foe filter hides the foe's lines", not _fight.log_button("B").button_pressed and foe_lines == 0)
+	await _shot(dir, "32-fight-log-you-only", tag)
+	await _click(_fight.log_button("B").get_global_rect().get_center())
+	await _click(_fight.log_button("full").get_global_rect().get_center())
+	await _frames(3)
+	var full_ids: PackedStringArray = view.line_ids()
+	_check("Full shows one line per pulse with health and linh lực after", full_ids.size() > 1 and full_ids[1].begins_with("f:")
+		and view.line_text(1).contains(tr("linh lực")))
+	await _shot(dir, "33-fight-log-full", tag)
+	await _click(_fight.log_button("summary").get_global_rect().get_center())
+	await _frames(2)
 
 
 ## Moves the pointer to [param at] (layout coordinates). Since Godot 4.3 hover follows the real cursor, not pushed
@@ -1379,7 +1438,7 @@ func _move(at: Vector2) -> void:
 	var motion := InputEventMouseMotion.new()
 	motion.position = at
 	motion.global_position = at
-	get_viewport().push_input(motion)
+	get_viewport().push_input(motion, true)   # layout coordinates (the UI scale stretches the window)
 	await _frames(2)
 
 
@@ -1390,7 +1449,7 @@ func _mouse_button(at: Vector2, button: MouseButton) -> void:
 		ev.global_position = at
 		ev.button_index = button
 		ev.pressed = pressed
-		get_viewport().push_input(ev)
+		get_viewport().push_input(ev, true)
 		await _frames(2)
 
 
@@ -1551,7 +1610,7 @@ func _click(at: Vector2) -> void:
 	var motion := InputEventMouseMotion.new()
 	motion.position = at
 	motion.global_position = at
-	get_viewport().push_input(motion)
+	get_viewport().push_input(motion, true)
 	await _frames(2)
 	for pressed in [true, false]:
 		var ev := InputEventMouseButton.new()
@@ -1559,7 +1618,7 @@ func _click(at: Vector2) -> void:
 		ev.global_position = at
 		ev.button_index = MOUSE_BUTTON_LEFT
 		ev.pressed = pressed
-		get_viewport().push_input(ev)
+		get_viewport().push_input(ev, true)
 		await _frames(2)
 	await _frames(3)
 
