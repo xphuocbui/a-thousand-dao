@@ -46,7 +46,7 @@ static func from_game_data(gd: GameData) -> ContinentData:
 
 
 ## The continent from the parsed file (ids come back from JSON as floats; they are made ints here). It reads a copy:
-## [param d] is the loaded game data, shared by every game in the process, and stays as it was.
+## [param src] is the loaded game data, shared by every game in the process, and stays as it was.
 static func from_dict(src: Dictionary) -> ContinentData:
 	var cd := ContinentData.new()
 	var d: Dictionary = src.duplicate(true)
