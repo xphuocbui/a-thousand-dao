@@ -250,6 +250,7 @@ Approved by the user 2026-11-22.
 | High contrast mode | Comprehensive | Not in the Standard commitment | Low-vision players get the default contrast only | A 4.5:1 minimum; text always on plates; UI scale |
 | UI scale above 150 % (WCAG 2.1 SC 1.4.4's 200 %) | Standard (adjustable text size is met) | The layout area must stay at least 1280×720, which caps the scale at 150 % (user decision 2026-11-22) | Players who need text larger than 150 % of the floor | Text floors of 16 px and 14 px at 100 %; the automatic factor grows text on larger windows; screen-reader support for menus and panels |
 | Mono audio | Comprehensive | Not in the commitment yet (cheap; may be added) | Players with single-sided deafness | No information is carried by sound alone |
+| Portrait descriptions (person window) | Comprehensive | Portraits are composed or authored art with no text description (`design/ux/person.md`, added 2026-11-22) | Screen-reader users get a person's name but not their appearance | Everything else about the person is text: realm, sect, traits, stats, ties |
 
 ---
 

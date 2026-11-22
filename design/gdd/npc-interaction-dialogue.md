@@ -2,7 +2,8 @@
 
 > **Status**: In Design
 > **Author**: user + Claude
-> **Last Updated**: 2026-11-20 (NPC Relationships #46 designed: rule 11, loans, Dependencies, OQ 2 answered)
+> **Last Updated**: 2026-11-22 (person window spec: rule 4 timed verbs tax the season's focus; the person card shows all traits)
+> **Earlier**: 2026-11-20 (NPC Relationships #46 designed: rule 11, loans, Dependencies, OQ 2 answered)
 > **Last Verified**: 2026-11-15
 > **Implements Pillar**: Pillar 5, A World That Remembers; Pillar 2, Every Number Is Bounded and Visible
 
@@ -53,7 +54,11 @@ voice, #46 owns bonds; talk is free and deeds take time; a layered line library;
    still counts. The limit stops pestering, not exploring: there is no limit across people.
 4. **Talk is free; deeds take time.** Verbs marked `time` take that share of a season (Time & Turn): teaching 0.25,
    a spar 0.1, a guide's help the travel it covers. Every other verb takes no time. A pending event blocks verbs that
-   take time, as it blocks other time-consuming actions (Event Engine rule 9).
+   take time, as it blocks other time-consuming actions (Event Engine rule 9). **How the time is spent** (user decision
+   2026-11-22, `design/ux/person.md`): a timed verb is a free action done at once, and its time is taken from the
+   season's focus, which then yields (1 − time used) of its normal result (teaching then Cultivate gives 75 % of the
+   cultivation; a spar then Travel covers 90 % of the distance). The focus comparison shows the reduced yield; a timed
+   verb is refused when less of the season is left than it takes.
 
 **The verb**
 
@@ -408,7 +413,9 @@ World Database do not name #30; their rows are small and listed in Open Question
 `art-director` not consulted (Lean mode; no art bible yet). Review before production.
 
 - **The person card:** a portrait (fixed cast authored; others by archetype, realm and sect colours), name, realm,
-  sect and rank, attitude band as a word and a colour, and the traits the player knows.
+  sect and rank, attitude band as a word and a colour, and **all** of the person's traits (changed 2026-11-22, user
+  decision in `design/ux/person.md`: the player always sees everything about everyone; was "the traits the player
+  knows"), with their stats, power rating, linh căn and công pháp.
 - **Tone is in the words, not effects:** no animation per line. An authored scene uses the Event Engine card.
 - **Audio:** a soft cue on a meeting, a warm one on a gift accepted, a cold one on a refusal; a spar uses Combat's audio.
 

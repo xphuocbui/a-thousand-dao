@@ -236,7 +236,7 @@ What sits on the map screen. The contents of each window belong to that window's
 | 3 | Season and year (Z1) | Must Show | "Xuân, year 3"; hover: the date and seasons per year | Text | On End turn | Changes in step with End turn |
 | 4 | Wiki and menu (Z1) | Must Show | The wiki opens the wiki panel; ≡ opens save, settings and quit | Two icon buttons | Static | None |
 | 5 | Window buttons (Z2) | Must Show | Character, inventory, relationships, sect, quests, rankings, news, places, Đạo Đồ, abode; badges such as unspent Đạo Đồ points or unread news | Icon buttons with number badges | Event-driven | A badge pops once when it appears |
-| 6 | Outliner (Z2) | On Demand (collapsible) | Pinned people (where last seen), places, quests (seasons left) | List; a click centres the map or opens the window | On End turn | None |
+| 6 | Outliner (Z2) | On Demand (collapsible) | Pinned people (where they are now; changed 2026-11-22, `design/ux/person.md`), places, quests (seasons left) | List; a click centres the map or opens the window | On End turn | None |
 | 7 | Portrait (Z3) | Must Show | The player; hover: power number and realm rank, root line; click: character sheet | Portrait frame | On a realm change | None |
 | 8 | Realm, stage, level (Z3) | Must Show | "Trúc Cơ · stage 3"; "tầng 7" in Luyện Khí | Text | On a breakthrough | Short glow on a breakthrough |
 | 9 | Cultivation bar (Z3) | Must Show | Progress to the next level; hover: the rate-per-season Breakdown, seasons to the next level and to the bottleneck | Horizontal bar + % | On End turn | Fills over about 0.5 s after End turn |
@@ -347,8 +347,9 @@ player acts from: bubbles show where they are, where their home is, and what can
 - **Area bubbles** (element 32) show **only at region zoom**, at the current place and at known places within
   `bubble_trip_seasons` (1 season) of travel. At continent zoom only elements 30 and 31 show.
 - **Kinds**, each an icon and a count ("2 quests"): **market** (trade); **sect** (visit the sect); **quests** (open
-  quests on the board); **people you know**: at the current place, who is there now; elsewhere, who was last seen there,
-  with the age ("seen 3 seasons ago"); a person with no known last place gets no bubble; **explore and search**
+  quests on the board); **people you know**: who is there now, at the current place and elsewhere (changed after
+  approval, 2026-11-22, user decision in `design/ux/person.md`: the player always sees everything about everyone, so
+  bubbles show where people are now, not where they were last seen); **explore and search**
   (discovered herb grounds and secret domains, and the active clue's search area, anchored on the nearest known place
   inside the area, or on the area's centre at region zoom). Quests at another place are those open on its board as last
   seen, with the same age.
@@ -371,8 +372,8 @@ player acts from: bubbles show where they are, where their home is, and what can
   clickable. Every bubble is a click target of at least 24×24 screen pixels at the 75 % UI scale. When a bubble sits on
   a route line or a place marker, the bubble's tooltip wins.
 - **Only what the player knows.** Only known places (`MapKnowledge.knows_place`) and people the player knows get
-  bubbles; a hidden place, secret or person never does. A remote bubble's count reads the player's last-seen data, never
-  the world's true state.
+  bubbles; a hidden place, secret or person never does. A remote bubble's count of quests reads the player's
+  last-seen data; its count of people is the true current count (2026-11-22, see People you know above).
 - **While a blocking event waits**, bubbles whose window changes something (trade, gifts and verbs, abode changes) show
   the lock mark and still open their window for looking, with its changing controls locked (HUD Philosophy rule 2).
   Season-action and Travel bubbles stay active, since choosing next season's focus is allowed; the click minimises the
@@ -458,6 +459,8 @@ Q2–Q4).
 - expected gain as a range; for Explore, Travel and Mission, the **possible outcomes** instead;
 - seasons it takes;
 - lifespan used, in years;
+- **the share of the season left** when free actions took time this season (a lesson 0.25, a spar 0.1): the expected
+  gain and distance are scaled by it (changed 2026-11-22, `design/ux/person.md` and the dialogue GDD rule 4);
 - the risk band, with its danger, encounter chance and fight odds; "can kill" when it can;
 - the bottleneck state after it;
 - cost in linh thạch and fuel.
@@ -680,6 +683,8 @@ Approved by the user 2026-11-21. PC (Steam / Epic); keyboard and mouse first; ga
   - End turn on Start defaults to "press, then confirm"; "hold" is an optional setting (The turn). B means Stop while
     a multi-season command runs.
   - **The game menu is on Select/View**, because Start is held for End turn. X on a focused alert snoozes it.
+  - **X on a focused person opens their verbs** (their window scrolled to the verb list; the twin of V and
+    right-click; added 2026-11-22, `design/ux/person.md`).
   - "Partial" means every map-screen action is reachable. Dense full screens such as Đạo Đồ may stay mouse-first **on
     the gamepad only**: the keyboard reaches everything everywhere (`design/accessibility-requirements.md`).
 
@@ -717,7 +722,9 @@ Approved by the user 2026-11-21. **Tier: Standard**, plus reduced motion and men
   close grace (0.3–2 s). "Click to lock" helps players who can't hold the mouse still, and a locked tooltip never
   closes on a timer.
 - **Localisation:** every player-facing string goes through translation keys (Vietnamese and English); layouts leave
-  room for text 30 % longer than the English.
+  room for text 30 % longer than the English. **Numbers follow the language** (user decision 2026-11-22,
+  `design/ux/person.md`): one locale-aware formatter everywhere, so the Vietnamese UI shows 1.240 and 1,5 and the
+  English UI 1,240 and 1.5.
 - **Screen readers:** Godot 4.5+ Control nodes work with AccessKit (`docs/engine-reference/godot/modules/ui.md`). Every
   icon button gets an accessible name, and alerts and toasts are announced.
 
@@ -1068,7 +1075,7 @@ exact boundary; "appears" means `visible` becomes true. Rows marked `[GdUnit]` d
   - what can be done at a place, from what the player knows (Map bubbles);
   - a shared Breakdown format that every tooltip and panel reads;
   - an alerts model: who raises and clears each alert, and the snooze state saved with the game;
-  - outliner pins saved with the game; an NPC whose last-seen place is not in the data shows "unknown";
+  - outliner pins saved with the game; an NPC whose current place is not in the data shows "unknown";
   - the season running off the main thread or one step at a time, so "The world turns…" and multi-season progress
     can draw (today the tick is synchronous); the one-season-late rating rule (`power-rankings.md` rule 13,
     2026-11-22) removes the largest wait;
