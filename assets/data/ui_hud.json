@@ -1,12 +1,18 @@
 {
   "schema_version": 1,
-  "_doc": "Designer knobs of the map screen HUD (design/ux/hud.md, Tuning Knobs; only the ones the greybox uses so far). lifespan_warn_share: the share of the lifespan left at or below which the lifespan readout warns (0..1). end_turn_cooldown: seconds after a turn during which End turn is refused. greybox: settings of the slice-1 greybox only (src/ui/greybox/map_screen.gd), to be replaced by the art bible's look. greybox.seed: the world seed the greybox starts with when no --seed is given. greybox.biome_colours: a flat placeholder colour per biome name of world_continent.json legend.biome_ids (hex RGB). greybox.unknown_colour: the colour of a biome missing from that list. greybox.place_radius_px / player_radius_px: marker sizes in layout pixels.",
+  "_doc": "Designer knobs of the map screen HUD (design/ux/hud.md, Tuning Knobs; only the ones the greybox uses so far). lifespan_warn_share: the share of the lifespan left at or below which the lifespan readout warns (0..1). end_turn_cooldown: seconds after a turn during which End turn is refused. bubbles: the map bubbles (design/ux/hud.md, Map bubbles): trip_seasons = bubble_trip_seasons, how many seasons of travel area bubbles reach; max = bubbles_max, area bubbles on screen at once; region_zoom = how many times the region zoom magnifies the continent view; prefilter_tiles_per_season = a straight-line radius (tiles per season of reach, about the fastest ground speed) inside which route times are worked out; explore_kinds = the place kinds (world_continent.json places[].kind) that get an explore bubble. greybox: settings of the slice-1 greybox only (src/ui/greybox/map_screen.gd), to be replaced by the art bible's look. greybox.seed: the world seed the greybox starts with when no --seed is given. greybox.biome_colours: a flat placeholder colour per biome name of world_continent.json legend.biome_ids (hex RGB). greybox.unknown_colour: the colour of a biome missing from that list. greybox.place_radius_px: the place dot radius in layout pixels at continent zoom.",
   "lifespan_warn_share": 0.10,
   "end_turn_cooldown": 0.5,
+  "bubbles": {
+    "trip_seasons": 1.0,
+    "max": 12,
+    "region_zoom": 4.0,
+    "prefilter_tiles_per_season": 90,
+    "explore_kinds": ["ruin", "mine", "beast_lair", "peak", "spirit_vein", "lake", "island", "hot_spring", "lava_vent", "forest", "volcano", "gorge", "lightning_wood"]
+  },
   "greybox": {
     "seed": 7,
     "place_radius_px": 3.0,
-    "player_radius_px": 6.0,
     "unknown_colour": "#808080",
     "biome_colours": {
       "temperate_forest": "#5b7f4a",

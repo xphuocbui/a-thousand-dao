@@ -1,13 +1,14 @@
 extends Control
-## Greybox slice 1 of the map screen (design/ux/hud.md, approved 2026-11-22): the continent map with the HUD zones in
-## Godot's default look. Z1 top bar, Z2 window buttons, Z3 portrait cluster, Z4 map modes, Z5 the season turn, Z6 one
-## panel, Z7 the summary and the event card. It plays the real game through the session's existing commands; it
+## Greybox of the map screen (design/ux/hud.md, approved 2026-11-22; slice 2 adds the map bubbles): the continent map
+## with the HUD zones in Godot's default look. Z1 top bar, Z2 window buttons, Z3 portrait cluster, Z4 map modes and
+## zoom, Z5 the season turn, Z6 one panel, Z7 the summary, the event card and the focus comparison; on the map, your
+## bubble, the abode bubble and, at region zoom, the area bubbles. It plays the real game through the session's existing commands; it
 ## never changes game state itself.
 ##
 ## Launch (windowed, by scene path; run/main_scene stays unset):
 ##   Godot_v4.7.1-stable_win64.exe --path . --windowed --resolution 1280x720 res://src/ui/greybox/map_screen.tscn
 ##       [-- --seed N] [--demo --shot-dir res://production/qa/evidence/hud-greybox]
-## --demo plays a fixed script (sheet, two seasons, an event, a journey) and saves a screenshot at each step to
+## --demo plays a fixed script (sheet, seasons, events, a journey, region zoom and bubbles) and saves a screenshot at each step to
 ## --shot-dir, then quits: the run-and-observe evidence (.claude/docs/run-and-observe.md).
 ##
 ## Greybox limits (stated on screen): the LLM is off, and Power Rankings' rating fights are switched off in memory for
@@ -34,7 +35,12 @@ var _season := Label.new()
 var _realm := Label.new()
 var _cult_bar := ProgressBar.new()
 var _lifespan := Label.new()
-var _focus := OptionButton.new()
+var _focus := Button.new()
+var _zoom_button := Button.new()
+var _comparison := FocusComparison.new()
+var _zones: Array = []   # Z1-Z5 controls: bubbles are hidden under them
+var _trip_key: String = ""
+var _trip_cache: Array = []
 var _end_turn := Button.new()
 var _turn_note := Label.new()
 var _sheet_button := Button.new()
@@ -67,6 +73,10 @@ func _greybox() -> Dictionary:
 	return _cfg.get("greybox", {})
 
 
+func _bubble_cfg() -> Dictionary:
+	return _cfg.get("bubbles", {})
+
+
 func _new_game(seed_v: int) -> Dictionary:
 	var llm := LlmService.new(gd)
 	llm.enabled = false
@@ -97,7 +107,7 @@ func _on_world_ready(out: Dictionary) -> void:
 	turn = TurnController.new(session)
 	var grid: ContinentGrid = out.grid
 	if grid.errors.is_empty():
-		_map.setup(grid, _greybox())
+		_map.setup(grid, _greybox(), float(_bubble_cfg().get("region_zoom", 4.0)))
 	_loading.visible = false
 	_refresh()
 	_end_turn.grab_focus()
@@ -111,6 +121,8 @@ func _build_layout() -> void:
 	theme = _greybox_theme()
 	_map.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_map.place_clicked.connect(_on_place_clicked)
+	_map.bubble_pressed.connect(_on_bubble_pressed)
+	_map.zoom_changed.connect(func(_r: bool): _refresh())
 	add_child(_map)
 
 	# Z1 top bar
@@ -120,6 +132,7 @@ func _build_layout() -> void:
 	z1.offset_right = -16
 	z1.offset_top = 8
 	add_child(z1)
+	_zones.append(z1)
 	var bar := HBoxContainer.new()
 	bar.add_theme_constant_override("separation", 16)
 	z1.add_child(bar)
@@ -152,6 +165,7 @@ func _build_layout() -> void:
 	z2.offset_right = -16
 	z2.offset_top = 56
 	add_child(z2)
+	_zones.append(z2)
 	_sheet_button.text = tr("Character") + " (C)"
 	_sheet_button.pressed.connect(_open_sheet)
 	z2.add_child(_sheet_button)
@@ -170,6 +184,7 @@ func _build_layout() -> void:
 	z3.offset_top = -112
 	z3.offset_right = 380
 	add_child(z3)
+	_zones.append(z3)
 	var row := HBoxContainer.new()
 	z3.add_child(row)
 	# Element 7: the portrait is a button; a click (or Enter / gamepad A on it) opens the character sheet.
@@ -198,9 +213,10 @@ func _build_layout() -> void:
 	z4.set_anchors_and_offsets_preset(Control.PRESET_CENTER_BOTTOM)
 	z4.offset_bottom = -16
 	z4.offset_top = -52
-	z4.offset_left = -170
-	z4.offset_right = 170
+	z4.offset_left = -230
+	z4.offset_right = 230
 	add_child(z4)
+	_zones.append(z4)
 	for m in [["Terrain", true], ["Sect", false], ["Qi", false], ["Prices", false]]:
 		var b := Button.new()
 		b.text = tr(m[0])
@@ -209,6 +225,10 @@ func _build_layout() -> void:
 		b.disabled = not m[1]
 		b.tooltip_text = tr("Map mode") if m[1] else tr("Not in the greybox yet")
 		z4.add_child(b)
+	_zoom_button.text = tr("Region view")
+	_zoom_button.tooltip_text = tr("Zoom in around you to see what you can do nearby (+ / −, or the mouse wheel)")
+	_zoom_button.pressed.connect(_toggle_zoom)
+	z4.add_child(_zoom_button)
 
 	# Z5 the season turn
 	var z5 := PanelContainer.new()
@@ -220,10 +240,12 @@ func _build_layout() -> void:
 	z5.grow_horizontal = Control.GROW_DIRECTION_BEGIN
 	z5.grow_vertical = Control.GROW_DIRECTION_BEGIN
 	add_child(z5)
+	_zones.append(z5)
 	var turn_box := VBoxContainer.new()
 	z5.add_child(turn_box)
-	_focus.tooltip_text = tr("Season focus: click a place on the map to travel there")
-	_focus.item_selected.connect(_on_focus_selected)
+	_focus.tooltip_text = tr("Season focus: opens the focus comparison")
+	_focus.alignment = HORIZONTAL_ALIGNMENT_LEFT
+	_focus.pressed.connect(func(): _open_comparison(turn.focus, turn.destination_id))
 	turn_box.add_child(_focus)
 	_end_turn.custom_minimum_size = Vector2(300, 52)
 	_end_turn.pressed.connect(_try_end_turn)
@@ -251,6 +273,9 @@ func _build_layout() -> void:
 	centre_box.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(centre_box)
 	centre_box.add_child(_centre)
+	centre_box.add_child(_comparison)
+	_comparison.confirmed.connect(_on_comparison_confirmed)
+	_comparison.cancelled.connect(_on_comparison_closed)
 	_centre.closed.connect(_on_centre_closed)
 	_centre.option_chosen.connect(_on_option_chosen)
 
@@ -278,7 +303,7 @@ func _greybox_theme() -> Theme:
 
 
 func _process_dim() -> void:
-	_dim.visible = _centre.visible or _job_kind == "choose"
+	_dim.visible = _centre.visible or _comparison.visible or _job_kind == "choose"
 
 
 func _show_loading(text: String) -> void:
@@ -309,11 +334,8 @@ func _refresh() -> void:
 
 
 func _refresh_focus() -> void:
-	_focus.clear()
-	_focus.add_item(tr("Cultivate"))
-	if turn.destination_id != "":
-		_focus.add_item(turn.focus_label())
-	_focus.select(1 if turn.focus == TurnController.FOCUS_TRAVEL else 0)
+	_focus.text = tr("Focus:") + " " + turn.focus_label() + "  ▾"
+	_zoom_button.text = tr("Continent view") if _map.is_region_zoom() else tr("Region view")
 
 
 func _refresh_turn_button() -> void:
@@ -335,7 +357,97 @@ func _refresh_map(location_id: String) -> void:
 	var tile := Vector2i(-1, -1)
 	if here.has("tile"):
 		tile = Vector2i(int(here.tile[0]), int(here.tile[1]))
-	_map.set_state(places, tile, turn.destination_id)
+	_map.set_state(places, tile, location_id, turn.destination_id)
+	_map.set_bubbles(_bubbles(places, location_id, tile))
+	var rects: Array = []
+	for z in _zones:
+		rects.append((z as Control).get_global_rect())
+	if _panel.visible:
+		rects.append(_panel.get_global_rect())
+	_map.set_blocked_rects(rects)
+
+
+## The bubbles for the map (design/ux/hud.md, Map bubbles): yours, the abode's, and the area bubbles from BubbleModel
+## over what the player knows.
+func _bubbles(places: Array, here_id: String, here_tile: Vector2i) -> Array:
+	var out: Array = []
+	var c: Character = session.player
+	if here_tile.x >= 0:
+		out.append({"kind": "player", "place_id": here_id, "tile": here_tile,
+			"tooltip": "%s — %s — %s (%s)" % [c.name, gd.realm_label(c.realm_index, c.stage), str(session.db.get_record("places", here_id).get("name", "")), tr("click: character sheet")]})
+	var home: Dictionary = session.db.get_record("places", str(c.home_id))
+	if str(c.home_id) != "" and home.has("tile"):
+		out.append({"kind": "abode", "place_id": str(c.home_id), "tile": Vector2i(int(home.tile[0]), int(home.tile[1])),
+			"tooltip": tr("Your abode at") + " " + str(home.name) + " (" + tr("click: open it") + ")"})
+	var known: Dictionary = {}
+	var by_id: Dictionary = {}
+	for pl in places:
+		known[pl.id] = true
+		by_id[pl.id] = pl
+	var cfg: Dictionary = _bubble_cfg()
+	var links: Dictionary = {here_id: _trip_links(here_id, here_tile, places, float(cfg.get("trip_seasons", 1.0)))}
+	var dist: Dictionary = BubbleModel.distances(here_id, links, known, float(cfg.get("trip_seasons", 1.0)))
+	var met_here: int = session.db.find("people", func(x): return bool(x.get("alive", true)) and not bool(x.get("is_player", false)) and bool(x.get("met_player", false)) and str(x.get("location_id", "")) == here_id).size()
+	var kinds_by_place: Dictionary = {}
+	for id in dist:
+		var rec: Dictionary = session.db.get_record("places", id)
+		var can_work: bool = Advisor.can_work_here(session) if id == here_id else bool(rec.get("bounties", false))
+		var k: Dictionary = BubbleModel.kinds_for(rec, id == here_id, met_here, can_work, Array(cfg.get("explore_kinds", [])))
+		if not k.is_empty():
+			kinds_by_place[id] = k
+	var locked: bool = session.has_pending_event()
+	for b in BubbleModel.build(kinds_by_place, dist, here_id, int(cfg.get("max", 12))):
+		var pl: Dictionary = by_id.get(b.place_id, {})
+		if pl.is_empty():
+			continue
+		var name: String = str(pl.name)
+		var away: String = tr("here") if b.place_id == here_id else (tr("%.1f season(s) away") % float(b.seasons))
+		var tip: String = "%s — %s, %s" % [_kind_name(b.kind, int(b.count)), name, away]
+		var lock: bool = locked and b.place_id == here_id and BubbleModel.is_free_here(b.kind) and b.kind == "market"
+		if lock:
+			tip += " — " + tr("locked while an event waits (look only)")
+		out.append({"kind": b.kind, "place_id": b.place_id, "count": b.count, "tile": pl.tile, "tooltip": tip, "locked": lock})
+	return out
+
+
+## Route seasons from the player's place to each known place near enough to matter, by the same terrain route the
+## game's Travel uses (TravelGrid.trip; the road network when there is no grid route), as direct links for
+## BubbleModel. Cached until the player moves or the season changes.
+func _trip_links(here_id: String, here_tile: Vector2i, places: Array, reach: float) -> Array:
+	var key: String = "%s|%d" % [here_id, session.season_index()]
+	if key == _trip_key:
+		return _trip_cache
+	var out: Array = []
+	var tg: TravelGrid = TravelGrid.of(gd)
+	var f: float = Travel.speed_factor(gd, session.sheet().total("travel_speed_pct"))
+	var radius: float = float(_bubble_cfg().get("prefilter_tiles_per_season", 90.0)) * reach
+	for pl in places:
+		if pl.id == here_id or here_tile.x < 0 or Vector2(pl.tile - here_tile).length() > radius:
+			continue
+		var t: float = -1.0
+		if tg.errors.is_empty():
+			var trip: Dictionary = tg.trip(here_tile, pl.tile, "ground", f)
+			if not trip.is_empty():
+				t = float(trip.seasons)
+		if t < 0.0:
+			var route: Dictionary = Travel.quickest(session.db, here_id, str(pl.id), f)
+			if not route.is_empty():
+				t = float(route.seasons)
+		if t >= 0.0 and t <= reach + 1e-9:
+			out.append({"to": str(pl.id), "seasons": t})
+	_trip_key = key
+	_trip_cache = out
+	return out
+
+
+func _kind_name(kind: String, count: int) -> String:
+	match kind:
+		"market": return tr("Market")
+		"sect": return tr("Sect")
+		"work": return tr("Missions and bounties")
+		"people": return tr("People you know") + " (%d)" % count
+		"explore": return tr("Explore")
+	return kind
 
 
 # --- Actions ---------------------------------------------------------------------------------------------------------
@@ -350,18 +462,115 @@ func _on_place_clicked(place_id: String) -> void:
 	if _busy():
 		return
 	if place_id == str(session.player.location_id):
-		turn.choose_cultivate()
+		_open_comparison(TurnController.FOCUS_CULTIVATE, "")
 	else:
-		turn.choose_travel(place_id, str(session.db.get_record("places", place_id).get("name", place_id)))
-	_refresh()
+		_open_comparison(TurnController.FOCUS_TRAVEL, place_id)
 
 
-func _on_focus_selected(index: int) -> void:
+func _toggle_zoom() -> void:
+	if session == null:
+		return
+	var here: Dictionary = session.db.get_record("places", str(session.player.location_id))
+	var at := Vector2(-1, -1)
+	if here.has("tile"):
+		at = Vector2(int(here.tile[0]), int(here.tile[1])) + Vector2(0.5, 0.5)
+	_map.set_region_zoom(not _map.is_region_zoom(), at)
+
+
+func _on_bubble_pressed(kind: String, place_id: String) -> void:
 	if _busy():
 		return
-	if index == 0:
-		turn.choose_cultivate()
+	var here: String = str(session.player.location_id)
+	match kind:
+		"player":
+			_open_sheet_from(_portrait)
+			return
+		"abode":
+			_panel.open_panel(tr("Abode") + " (" + tr("the abode screen is not in the greybox yet") + ")", session.abode_lines(), _end_turn)
+			return
+	if place_id != here:
+		_open_comparison(TurnController.FOCUS_TRAVEL, place_id)
+		return
+	match kind:
+		"market":
+			_panel.open_panel(tr("Market"), _market_lines(here), _end_turn)
+		"sect":
+			_panel.open_panel(tr("Sect"), Array(session.sect_status().get("lines", [])), _end_turn)
+		"people":
+			_panel.open_panel(tr("People you know here"), _people_lines(here), _end_turn)
+		"work":
+			_open_comparison(TurnController.FOCUS_MISSION, "")
+		"explore":
+			_open_comparison(TurnController.FOCUS_EXPLORE, "")
+
+
+## The market's current stock, read only (stocking it would draw from the game's random streams, which the UI must
+## not do); the trade window is not in the greybox yet.
+func _market_lines(place_id: String) -> Array:
+	var lines: Array = [tr("The trade window is not in the greybox yet."), ""]
+	var stock: Array = session.market.stock(place_id)
+	if stock.is_empty():
+		lines.append(tr("No stock seen yet: it appears when you trade here."))
+	for it in stock:
+		lines.append(session.items.describe(it))
+	return lines
+
+
+func _people_lines(place_id: String) -> Array:
+	var lines: Array = [tr("Person cards are not in the greybox yet."), ""]
+	for x in session.db.find("people", func(q): return bool(q.get("alive", true)) and not bool(q.get("is_player", false)) and bool(q.get("met_player", false)) and str(q.get("location_id", "")) == place_id):
+		lines.append(TerminalViews.person_line(session, x))
+	return lines
+
+
+## Opens the focus comparison (element 29) with [param preselect] chosen; [param travel_place] names a Travel option.
+func _open_comparison(preselect: String, travel_place: String) -> void:
+	if _busy() or session.has_pending_event():
+		return
+	var opts: Array = [{"id": TurnController.FOCUS_CULTIVATE, "label": tr("Cultivate"), "note": tr("one season here"), "enabled": true}]
+	opts.append({"id": TurnController.FOCUS_EXPLORE, "label": tr("Explore"), "note": tr("search this place for a season"), "enabled": true})
+	var work: bool = Advisor.can_work_here(session)
+	opts.append({"id": TurnController.FOCUS_MISSION, "label": tr("Mission"), "note": tr("a mission or bounty here"), "enabled": work,
+		"reason": tr("No work here: go to your sect's headquarters or a town or city with bounties.")})
+	var dest: String = travel_place if travel_place != "" else turn.destination_id
+	if dest != "":
+		var rec: Dictionary = session.db.get_record("places", dest)
+		var what: Array = []
+		if bool(rec.get("market", false)):
+			what.append(tr("market"))
+		if str(rec.get("sect_id", "")) != "":
+			what.append(tr("sect"))
+		if bool(rec.get("bounties", false)):
+			what.append(tr("bounties"))
+		opts.append({"id": TurnController.FOCUS_TRAVEL + ":" + dest, "label": tr("Travel to") + " " + str(rec.get("name", dest)),
+			"note": ", ".join(what), "enabled": true})
+	var pre: String = preselect
+	if preselect == TurnController.FOCUS_TRAVEL and dest != "":
+		pre = TurnController.FOCUS_TRAVEL + ":" + dest
+	turn.window_open = true
+	_comparison.open(opts, pre)
+	_refresh_turn_button()
+
+
+func _on_comparison_confirmed(option_id: String) -> void:
+	if option_id.begins_with(TurnController.FOCUS_TRAVEL + ":"):
+		var dest: String = option_id.substr(TurnController.FOCUS_TRAVEL.length() + 1)
+		turn.choose_travel(dest, str(session.db.get_record("places", dest).get("name", dest)))
+	else:
+		match option_id:
+			TurnController.FOCUS_EXPLORE:
+				turn.choose_explore()
+			TurnController.FOCUS_MISSION:
+				turn.choose_mission()
+			_:
+				turn.choose_cultivate()
+	_on_comparison_closed()
+
+
+func _on_comparison_closed() -> void:
+	turn.window_open = false
 	_refresh()
+	_end_turn.grab_focus()
 
 
 func _try_end_turn() -> void:
@@ -456,8 +665,17 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		if owner_ctl == null or owner_ctl == _end_turn or owner_ctl == _map:
 			_try_end_turn()
 			get_viewport().set_input_as_handled()
+	elif key == KEY_EQUAL or key == KEY_KP_ADD or key == KEY_MINUS or key == KEY_KP_SUBTRACT:
+		if not (owner_ctl is LineEdit or owner_ctl is TextEdit):
+			var want_region: bool = key == KEY_EQUAL or key == KEY_KP_ADD
+			if want_region != _map.is_region_zoom():
+				_toggle_zoom()
+			get_viewport().set_input_as_handled()
 	elif key == KEY_ESCAPE:
-		if _panel.visible:
+		if _comparison.visible:
+			_comparison.cancel()
+			get_viewport().set_input_as_handled()
+		elif _panel.visible:
 			_panel.close_panel()
 			get_viewport().set_input_as_handled()
 	elif key == KEY_C and not (owner_ctl is LineEdit or owner_ctl is TextEdit):
@@ -513,7 +731,10 @@ func _run_demo() -> void:
 	if target != "":
 		_on_place_clicked(target)
 		await _frames(5)
-		await _shot(dir, "08-travel-focus", tag)
+		await _shot(dir, "08-comparison-travel", tag)
+		_comparison.confirm()
+		await _frames(5)
+		await _shot(dir, "08b-travel-focus", tag)
 		await _demo_wait_cooldown()
 		_try_end_turn()
 		await _wait_job()
@@ -539,13 +760,20 @@ func _demo_real_input(dir: String, tag: String) -> void:
 	_check("clicking the portrait opens the character panel", _panel.visible)
 	await _shot(dir, "11b-input-sheet-by-portrait", tag)
 	await _key(KEY_ESCAPE)
-	var target: String = _nearest_known_place()
+	var target: String = _clickable_known_place()
 	if target != "":
 		var rec: Dictionary = session.db.get_record("places", target)
 		var at: Vector2 = _map.global_position + _map.tile_to_local(Vector2i(int(rec.tile[0]), int(rec.tile[1])))
 		await _click(at)
-		_check("clicking a place sets Travel to it", turn.focus == TurnController.FOCUS_TRAVEL and turn.destination_id == target)
+		_check("clicking a place opens the focus comparison with Travel preselected", _comparison.visible and _comparison.selected_id() == TurnController.FOCUS_TRAVEL + ":" + target)
 		await _shot(dir, "12-input-place-clicked", tag)
+		var confirm_btn: Button = null
+		for b in _comparison.find_children("*", "Button", true, false):
+			if b.text == tr("Confirm"):
+				confirm_btn = b
+		if confirm_btn != null:
+			await _click(confirm_btn.get_global_rect().get_center())
+		_check("confirming in the comparison sets Travel to it", turn.focus == TurnController.FOCUS_TRAVEL and turn.destination_id == target and not _comparison.visible)
 	await _demo_wait_cooldown()
 	var year_before: int = session.year * 10 + session.season
 	await _click(_end_turn.get_global_rect().get_center())
@@ -567,6 +795,54 @@ func _demo_real_input(dir: String, tag: String) -> void:
 	_check("Enter on a focused End turn passes a season", session.year * 10 + session.season != before2)
 	await _shot(dir, "14-input-enter-end-turn", tag)
 	await _key(KEY_ENTER)
+	await _demo_answer_events_by_click(dir, tag)
+	await _demo_bubbles(dir, tag)
+
+
+## Region zoom and the map bubbles through real input (keys and clicks).
+func _demo_bubbles(dir: String, tag: String) -> void:
+	_end_turn.grab_focus()
+	await _frames(2)
+	var area_before: int = _map.visible_bubbles().filter(func(b): return b.kind != "player" and b.kind != "abode").size()
+	_check("continent zoom shows no area bubbles", area_before == 0)
+	await _key(KEY_EQUAL)
+	_check("+ switches to region zoom", _map.is_region_zoom())
+	await _frames(5)
+	await _shot(dir, "16-region-bubbles", tag)
+
+	var shown: Array = _map.visible_bubbles()
+	var area: Array = shown.filter(func(b): return b.kind != "player" and b.kind != "abode")
+	_check("region zoom shows area bubbles (%d)" % area.size(), area.size() > 0)
+	_check("no more than bubbles_max area bubbles", area.size() <= int(_bubble_cfg().get("max", 12)))
+	var here: String = str(session.player.location_id)
+	var away: Array = area.filter(func(b): return b.place_id != here)
+	if not away.is_empty():
+		await _click((away[0] as Control).get_global_rect().get_center())
+		_check("a bubble at another place opens the comparison with Travel preselected", _comparison.visible and _comparison.selected_id() == TurnController.FOCUS_TRAVEL + ":" + str(away[0].place_id))
+		await _shot(dir, "17-bubble-elsewhere-comparison", tag)
+		await _key(KEY_ESCAPE)
+		_check("Esc closes the comparison without changing the focus", not _comparison.visible)
+	# bubbles are rebuilt on every refresh: look them up again after each action
+	var mine: Array = _map.visible_bubbles().filter(func(b): return b.kind != "player" and b.kind != "abode" and b.place_id == here)
+	if not mine.is_empty():
+		var mine_kind: String = mine[0].kind
+		(mine[0] as Control).grab_focus()
+		await _frames(2)
+		await _key(KEY_ENTER)
+		_check("Enter on a focused bubble here acts like a click (%s)" % mine_kind, _panel.visible or _comparison.visible)
+		await _shot(dir, "18-bubble-here", tag)
+		await _key(KEY_ESCAPE)
+	var me: Array = _map.visible_bubbles().filter(func(b): return b.kind == "player")
+	if not me.is_empty():
+		await _click((me[0] as Control).get_global_rect().get_center())
+		_check("clicking your bubble opens the character sheet", _panel.visible)
+		await _key(KEY_ESCAPE)
+	_end_turn.grab_focus()
+	await _frames(2)
+	await _key(KEY_MINUS)
+	_check("- returns to continent zoom", not _map.is_region_zoom())
+	await _frames(5)
+	await _shot(dir, "19-back-to-continent", tag)
 
 
 ## Answers waiting events by clicking the first enabled option button on the card.
@@ -660,6 +936,34 @@ func _demo_close_centre() -> void:
 			_centre.hide_window()
 			turn.window_open = false
 	await _frames(5)
+
+
+## The nearest known place whose dot no bubble covers (a bubble on a place wins the click, per the spec), so the
+## demo's real click lands on the place itself.
+func _clickable_known_place() -> String:
+	var here: Dictionary = session.db.get_record("places", str(session.player.location_id))
+	var best: String = ""
+	var best_d: float = INF
+	for p in session.db.all("places"):
+		if str(p.id) == str(session.player.location_id) or not p.has("tile") or bool(p.get("hidden", false)):
+			continue
+		if session.knowledge != null and not session.knowledge.knows_place(str(p.id)):
+			continue
+		var at: Vector2 = _map.global_position + _map.tile_to_local(Vector2i(int(p.tile[0]), int(p.tile[1])))
+		var covered: bool = false
+		for b in _map.visible_bubbles():
+			if (b as Control).get_global_rect().grow(4).has_point(at):
+				covered = true
+		for z in _zones:
+			if (z as Control).get_global_rect().has_point(at):
+				covered = true
+		if covered or not _map.get_global_rect().has_point(at):
+			continue
+		var d: float = Vector2(int(p.tile[0]) - int(here.tile[0]), int(p.tile[1]) - int(here.tile[1])).length()
+		if d < best_d:
+			best_d = d
+			best = str(p.id)
+	return best
 
 
 func _nearest_known_place() -> String:

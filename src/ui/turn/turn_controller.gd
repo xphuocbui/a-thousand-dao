@@ -1,11 +1,13 @@
 class_name TurnController
 extends RefCounted
 ## The Civ-style season turn on the UI side (design/ux/hud.md, HUD Philosophy rule 1 and The turn): the player picks
-## one season focus, then End turn resolves it. Greybox slice 1: Cultivate, and Travel to a known place.
+## one season focus, then End turn resolves it. Greybox: Cultivate, Explore here, a Mission here, and Travel to a
+## known place.
 ##
 ## It does not change the session code: End turn calls the session's existing timed command for the focus
-## (`cultivate(1)` or `travel(dest)`), which passes the season itself. The session is injected and only needs
-## `has_pending_event()`, `cultivate(int)`, `travel(String)` and a `player` with `location_id`, so tests use a fake.
+## (`cultivate(1)`, `explore()`, `mission()` or `travel(dest)`), which passes the season itself. The session is
+## injected and only needs `has_pending_event()`, those four commands and a `player` with `location_id`, so tests use
+## a fake.
 ##
 ## Usage:
 ## [codeblock]
@@ -16,6 +18,8 @@ extends RefCounted
 
 const FOCUS_CULTIVATE := "cultivate"
 const FOCUS_TRAVEL := "travel"
+const FOCUS_EXPLORE := "explore"
+const FOCUS_MISSION := "mission"
 
 var _session: Object
 ## The chosen focus (FOCUS_*).
@@ -44,6 +48,18 @@ func choose_cultivate() -> void:
 	fallback_note = ""
 
 
+## Sets the focus to exploring the current place.
+func choose_explore() -> void:
+	choose_cultivate()
+	focus = FOCUS_EXPLORE
+
+
+## Sets the focus to a mission at the current place (a sect headquarters or a place with bounties).
+func choose_mission() -> void:
+	choose_cultivate()
+	focus = FOCUS_MISSION
+
+
 ## Sets the focus to Travel towards [param place_id] (named [param place_name]).
 func choose_travel(place_id: String, place_name: String) -> void:
 	focus = FOCUS_TRAVEL
@@ -64,8 +80,13 @@ func button_label() -> String:
 
 ## The focus as the selector shows it.
 func focus_label() -> String:
-	if focus == FOCUS_TRAVEL:
-		return tr_text("Travel to") + " " + destination_name
+	match focus:
+		FOCUS_TRAVEL:
+			return tr_text("Travel to") + " " + destination_name
+		FOCUS_EXPLORE:
+			return tr_text("Explore")
+		FOCUS_MISSION:
+			return tr_text("Mission")
 	return tr_text("Cultivate")
 
 
@@ -86,16 +107,28 @@ func gate() -> Dictionary:
 ## Runs the season for the chosen focus through the session's existing command. Call it only when [method gate]
 ## is ok (on the worker thread from the screen). Returns the session's {ok, lines}.
 func end_turn() -> Dictionary:
-	if focus == FOCUS_TRAVEL:
-		return _session.travel(destination_id)
+	match focus:
+		FOCUS_TRAVEL:
+			return _session.travel(destination_id)
+		FOCUS_EXPLORE:
+			return _session.explore()
+		FOCUS_MISSION:
+			return _session.mission()
 	return _session.cultivate(1)
 
 
 ## Applies the default-focus rule after a turn (The turn: Default focus): the focus carries over; a journey that has
-## arrived (or could not start) falls back to Cultivate, and [member fallback_note] names the old focus and why.
+## arrived (or could not start), and any other focus that could not be done, falls back to Cultivate, and
+## [member fallback_note] names the old focus and why.
 func after_turn(result: Dictionary) -> void:
 	fallback_note = ""   # a note is shown for the turn that made it, not carried into the next one
+	if focus == FOCUS_CULTIVATE:
+		return
 	if focus != FOCUS_TRAVEL:
+		if not bool(result.get("ok", false)):
+			var label: String = focus_label()
+			choose_cultivate()
+			fallback_note = label + ": " + tr_text("could not be done") + ". " + tr_text("Focus back to Cultivate.")
 		return
 	var arrived: bool = str(_session.player.location_id) == destination_id
 	if arrived or not bool(result.get("ok", false)):
