@@ -1,0 +1,281 @@
+<!-- PROTOTYPE - NOT FOR PRODUCTION -->
+<title>UI Mood Round 1</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Be+Vietnam+Pro:wght@400;500;600&display=swap">
+<style>
+/* Layout: a lacquer-black viewing room; each direction is a mounted plate (picture, name, a short read), the map pair
+   sits side by side like the two zoom layers they are. Single dark look by choice: the pictures are dark game UI. */
+:root {
+  --lacquer: #0f0d0c;
+  --panel: #1a1614;
+  --rim: #b8924f;
+  --rim-dim: #6e5733;
+  --paper: #efe6d4;
+  --ink: #d9d0c0;
+  --muted: #a39a8b;
+  --cinnabar: #c0392b;
+  --display: "Cormorant Garamond", "Noto Serif", Georgia, serif;
+  --body: "Be Vietnam Pro", "Segoe UI", system-ui, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--lacquer);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 15px;
+  line-height: 1.55;
+}
+.wrap {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding-block: 40px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid;
+  gap: 44px;
+}
+header { display: grid; gap: 12px; max-width: 72ch; }
+.eyebrow { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--rim); }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; color: var(--paper); text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(34px, 5vw, 52px); line-height: 1.05; }
+h2 { font-size: 30px; }
+h3 { font-size: 23px; }
+p { margin: 0; }
+.lede { color: var(--muted); }
+.lede strong { color: var(--paper); font-weight: 600; }
+section { display: grid; gap: 18px; }
+.section-head { display: grid; gap: 6px; border-bottom: 1px solid var(--rim-dim); padding-bottom: 10px; }
+.section-head p { color: var(--muted); max-width: 80ch; }
+.grid { display: grid; gap: 22px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 400px), 1fr)); }
+.pair { display: grid; gap: 22px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr)); }
+.plate {
+  background: var(--panel);
+  border: 1px solid var(--rim-dim);
+  outline: 1px solid #000;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-width: 0;
+  position: relative;
+}
+.plate.pick { border-color: var(--rim); box-shadow: 0 0 0 1px var(--rim) inset; }
+.plate button.shot {
+  all: unset;
+  cursor: zoom-in;
+  display: block;
+  aspect-ratio: 16 / 9;
+  max-width: 100%;
+  background: #000;
+}
+.plate button.shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.plate button.shot:focus-visible { outline: 2px solid var(--rim); outline-offset: -2px; }
+.cap { padding: 14px 16px 16px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.cap .row { display: flex; gap: 10px; align-items: baseline; justify-content: space-between; flex-wrap: wrap; }
+.tag { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.badge {
+  font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--paper); background: var(--cinnabar); padding: 2px 8px;
+}
+.cap p { color: var(--ink); font-size: 14px; }
+.cap .file { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; word-break: break-all; }
+.befores { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; color: var(--muted); font-size: 13px; }
+.befores button.thumb { all: unset; cursor: zoom-in; width: 160px; max-width: 100%; border: 1px solid var(--rim-dim); }
+.befores button.thumb img { display: block; width: 100%; }
+.befores button.thumb:focus-visible { outline: 2px solid var(--rim); }
+.reply {
+  background: var(--panel); border: 1px solid var(--rim-dim); padding: 20px 22px; display: grid; gap: 10px; max-width: 80ch;
+}
+.reply ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+.reply code { color: var(--paper); font-size: 13px; }
+dialog {
+  border: 1px solid var(--rim); background: #000; padding: 0; max-width: min(96vw, 1600px); width: 100%;
+  color: var(--ink);
+}
+dialog::backdrop { background: rgba(0, 0, 0, .85); }
+dialog img { display: block; width: 100%; height: auto; }
+dialog .bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 8px 12px; background: var(--panel); }
+dialog .bar span { font-family: var(--display); font-size: 20px; color: var(--paper); }
+dialog .bar button {
+  font: inherit; color: var(--paper); background: transparent; border: 1px solid var(--rim-dim); padding: 4px 12px; cursor: pointer;
+}
+dialog .bar button:focus-visible { outline: 2px solid var(--rim); }
+@media (prefers-reduced-motion: no-preference) {
+  .plate button.shot img { transition: transform .4s ease; }
+  .plate button.shot:hover img { transform: scale(1.015); }
+}
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">UI mood · round 1 · 22 Nov 2026</span>
+    <h1>Six skins for the fight screen, two layers for the map</h1>
+    <p class="lede">Each picture repaints a real greybox screenshot with OpenAI's image model (gpt-image-2, medium), keeping our layout, text and painted icons, so only the look changes. Text in the pictures is the model's, not the game's. <strong>My recommendation: Lacquer &amp; gold for the panels, with the paper map and the painted terrain as the two zoom layers.</strong></p>
+    <div class="befores">
+      <span>Greybox inputs:</span>
+      <button class="thumb" data-src="img/before-fight.jpg" data-title="Greybox input · fight screen"><img src="img/before-fight.jpg" alt="Greybox fight screen used as input"></button>
+      <button class="thumb" data-src="img/before-map-far.jpg" data-title="Greybox input · continent map"><img src="img/before-map-far.jpg" alt="Greybox continent map used as input"></button>
+      <button class="thumb" data-src="img/before-map-near.jpg" data-title="Greybox input · region zoom"><img src="img/before-map-near.jpg" alt="Greybox region zoom used as input"></button>
+    </div>
+  </header>
+
+  <section aria-labelledby="r2-h">
+    <div class="section-head">
+      <h2 id="r2-h">Round 2 · your pick, carved hardwood &amp; brass, across the game</h2>
+      <p>Picked: B for the panels, and both map layers. Round 2 puts B around the zoomed-out map, a person window and two nested tooltips over the zoomed-in terrain. Three medium images.</p>
+    </div>
+    <div class="grid">
+      <article class="plate pick">
+        <button class="shot" data-src="img/r2-map-far-m.jpg" data-title="Round 2 · zoomed-out map with hardwood panels"><img src="img/r2-map-far-m.jpg" alt="The continent paper map framed by carved hardwood and brass panels"></button>
+        <div class="cap">
+          <div class="row"><h3>Zoomed-out map</h3><span class="tag">Continent</span></div>
+          <p>The hardwood frame turns the map into a war-council table. Region names came out Hán-Việt this time (invented ones); the compass uses Chinese characters, which we would swap.</p>
+          <span class="file">out/r2-map-far-m.png</span>
+        </div>
+      </article>
+      <article class="plate pick">
+        <button class="shot" data-src="img/r2-person-m.jpg" data-title="Round 2 · person window over the painted terrain"><img src="img/r2-person-m.jpg" alt="A person window with a parchment body in a hardwood frame over painted terrain"></button>
+        <div class="cap">
+          <div class="row"><h3>Person window</h3><span class="tag">Window</span></div>
+          <p>Parchment body in a hardwood frame, brass section caps, aligned label and value columns; the painted terrain behind it.</p>
+          <span class="file">out/r2-person-m.png</span>
+        </div>
+      </article>
+      <article class="plate pick">
+        <button class="shot" data-src="img/r2-tooltip-m.jpg" data-title="Round 2 · nested tooltips over the painted terrain"><img src="img/r2-tooltip-m.jpg" alt="Two parchment tooltip cards with brass corners and red links over painted terrain"></button>
+        <div class="cap">
+          <div class="row"><h3>Nested tooltips</h3><span class="tag">Tooltip</span></div>
+          <p>Parchment cards with brass corners, cinnabar links and a pin for "locked"; tiny towns and pagodas under the place labels.</p>
+          <span class="file">out/r2-tooltip-m.png</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="fight-h">
+    <div class="section-head">
+      <h2 id="fight-h">Round 1 · fight screen</h2>
+      <p>The densest screen we have: if a direction reads well here, it reads well anywhere. Click a picture for full size.</p>
+    </div>
+    <div class="grid">
+      <article class="plate pick">
+        <button class="shot" data-src="img/fight-a-lacquer-m.jpg" data-title="A · Lacquer &amp; gold leaf"><img src="img/fight-a-lacquer-m.jpg" alt="Fight screen in black lacquer with gold rims and a paper log"></button>
+        <div class="cap">
+          <div class="row"><h3>A · Lacquer &amp; gold leaf</h3><span class="badge">Recommended</span></div>
+          <p>Black lacquer columns, a cream paper log, cinnabar for pressed tabs. Elegant and the easiest to read; closest to a premium historical strategy game.</p>
+          <span class="file">out/fight-a-lacquer-m.png</span>
+        </div>
+      </article>
+      <article class="plate">
+        <button class="shot" data-src="img/fight-a-lacquer-h.jpg" data-title="A · Lacquer &amp; gold leaf, high quality"><img src="img/fight-a-lacquer-h.jpg" alt="The same lacquer direction at high quality"></button>
+        <div class="cap">
+          <div class="row"><h3>A · same prompt, high quality</h3><span class="tag">Reference</span></div>
+          <p>Same direction at high quality: finer texture and a fuller landscape behind the panels, nothing a direction choice needs. Medium is enough for later rounds.</p>
+          <span class="file">out/fight-a-lacquer-h.png</span>
+        </div>
+      </article>
+      <article class="plate">
+        <button class="shot" data-src="img/fight-b-hardwood-m.jpg" data-title="B · Carved hardwood &amp; brass"><img src="img/fight-b-hardwood-m.jpg" alt="Fight screen in carved rosewood with brass corners and parchment insets"></button>
+        <div class="cap">
+          <div class="row"><h3>B · Carved hardwood &amp; brass</h3><span class="tag">Runner-up</span></div>
+          <p>The war-council table: carved rosewood, brass fittings, parchment insets. The most ornate; the parchment slot rows get heavy.</p>
+          <span class="file">out/fight-b-hardwood-m.png</span>
+        </div>
+      </article>
+      <article class="plate">
+        <button class="shot" data-src="img/fight-c-ink-m.jpg" data-title="C · Ink and Ledger"><img src="img/fight-c-ink-m.jpg" alt="Fight screen on rice paper with ink-wash mountains and red seals"></button>
+        <div class="cap">
+          <div class="row"><h3>C · Ink and Ledger</h3><span class="tag">Concept anchor</span></div>
+          <p>Rice paper, ink mountains, red seal marks. Beautiful and airy, but the dark painted icons sit on the light ground like stickers.</p>
+          <span class="file">out/fight-c-ink-m.png</span>
+        </div>
+      </article>
+      <article class="plate">
+        <button class="shot" data-src="img/fight-d-bronze-m.jpg" data-title="D · Bronze &amp; jade"><img src="img/fight-d-bronze-m.jpg" alt="Fight screen in dark teal with bronze meanders and jade tabs"></button>
+        <div class="cap">
+          <div class="row"><h3>D · Bronze &amp; jade</h3></div>
+          <p>Dark teal, bronze meander borders, jade tabs. Moody and ancient, but the flattest of the six.</p>
+          <span class="file">out/fight-d-bronze-m.png</span>
+        </div>
+      </article>
+      <article class="plate">
+        <button class="shot" data-src="img/fight-e-silk-m.jpg" data-title="E · Silk scroll"><img src="img/fight-e-silk-m.jpg" alt="Fight screen mounted like silk scrolls with blue and red brocade"></button>
+        <div class="cap">
+          <div class="row"><h3>E · Silk scroll</h3></div>
+          <p>Brocade borders, scroll rollers on the bars, and blue and red frames that tell the two sides apart. Rich but busy.</p>
+          <span class="file">out/fight-e-silk-m.png</span>
+        </div>
+      </article>
+      <article class="plate">
+        <button class="shot" data-src="img/fight-f-ember-m.jpg" data-title="F · Dark stone &amp; ember"><img src="img/fight-f-ember-m.jpg" alt="Fight screen in dark slate with ember-lit edges"></button>
+        <div class="cap">
+          <div class="row"><h3>F · Dark stone &amp; ember</h3></div>
+          <p>Slate with ember-lit edges: the closest match to the icons' own look, though it reads more like a dark-fantasy dungeon game than a strategy game.</p>
+          <span class="file">out/fight-f-ember-m.png</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="map-h">
+    <div class="section-head">
+      <h2 id="map-h">Round 1 · map, two zoom layers</h2>
+      <p>Like the grand-strategy maps you named: zoomed out, a stylised strategic map; zoomed in, painted terrain. Both use the lacquer panels so they read as one game.</p>
+    </div>
+    <div class="pair">
+      <article class="plate">
+        <button class="shot" data-src="img/map-far-m.jpg" data-title="Zoomed out · strategic paper map"><img src="img/map-far-m.jpg" alt="The continent as an illustrated paper map with tinted regions and calligraphic names"></button>
+        <div class="cap">
+          <div class="row"><h3>Zoomed out · strategic paper map</h3><span class="tag">Continent</span></div>
+          <p>Painted trees and peaks, tinted regions with dashed borders, calligraphic names, a compass rose; our coastlines kept. The region names are invented in pinyin; ours would be Hán-Việt.</p>
+          <span class="file">out/map-far-m.png</span>
+        </div>
+      </article>
+      <article class="plate pick">
+        <button class="shot" data-src="img/map-near-m.jpg" data-title="Zoomed in · painted terrain"><img src="img/map-near-m.jpg" alt="A region as golden-hour painted relief with tiny towns under the place labels"></button>
+        <div class="cap">
+          <div class="row"><h3>Zoomed in · painted terrain</h3><span class="badge">Standout</span></div>
+          <p>Golden-hour relief, mist, roads, tiny pagodas and walled towns under each label; every place name and map icon kept in place.</p>
+          <span class="file">out/map-near-m.png</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="reply" aria-labelledby="reply-h">
+    <h3 id="reply-h">What I need from you</h3>
+    <ul>
+      <li>Your pick, or a mix: "A's panels with E's blue and red side frames".</li>
+      <li>Anything to change in it: more or less ornament, warmer or colder, lighter log, other accents.</li>
+      <li>Round 2 then puts the pick on the map HUD, the person window and a tooltip.</li>
+    </ul>
+    <p class="file">Files: <code>prototypes/ui-mood/out/</code> · prompts in <code>prototypes/ui-mood/prompts/</code></p>
+  </section>
+</div>
+
+<dialog id="viewer" aria-label="Full-size picture">
+  <div class="bar"><span id="viewer-title"></span><button id="viewer-close" type="button">Close (Esc)</button></div>
+  <img id="viewer-img" alt="">
+</dialog>
+
+<script>
+(function () {
+  var dlg = document.getElementById("viewer");
+  var img = document.getElementById("viewer-img");
+  var title = document.getElementById("viewer-title");
+  var opener = null;
+  document.querySelectorAll("button[data-src]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      opener = b;
+      img.src = b.getAttribute("data-src");
+      img.alt = b.querySelector("img").alt;
+      title.innerHTML = b.getAttribute("data-title");
+      dlg.showModal();
+    });
+  });
+  document.getElementById("viewer-close").addEventListener("click", function () { dlg.close(); });
+  dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener("close", function () { if (opener) opener.focus(); });
+})();
+</script>

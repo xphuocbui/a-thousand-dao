@@ -1,0 +1,3 @@
+# PROTOTYPE - NOT FOR PRODUCTION
+# full-size originals stay local (about 25 MB); gallery/img holds JPEG copies of each
+out/*.png
