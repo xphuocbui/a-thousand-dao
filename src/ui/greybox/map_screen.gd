@@ -69,6 +69,12 @@ func _ready() -> void:
 	gd = GameData.load_from("res://assets/data")
 	_cfg = gd.file(UI_FILE)
 	_tips.configure(_cfg.get("tooltips", {}))
+	LinkStyle.configure(_cfg.get("link_styles", {}))
+	# The readouts with a tooltip, styled once the table is loaded (hud.md Tooltips: Link styles).
+	LinkStyle.apply(_stones, "number")
+	LinkStyle.apply(_season, "term")
+	LinkStyle.apply(_realm, "term")
+	LinkStyle.apply(_lifespan, "number")
 	_tips.chain.resolve = func(key: String) -> Dictionary: return TooltipLayer.term_content(gd.file("ui_terms").get("terms", {}), key)
 	# Power Rankings runs (rule 13 one season late and worker processes, 2026-11-22); --ratings-off switches its fights
 	# off for this run (the demo presses through seasons with no pause, which would wait for every batch).
@@ -228,7 +234,13 @@ func _build_layout() -> void:
 	TooltipLayer.set_tip(_stones, _tip_stones)
 	_stones.focus_mode = Control.FOCUS_ALL
 	_stones.mouse_filter = Control.MOUSE_FILTER_STOP
-	bar.add_child(_stones)
+	var stones_word := Label.new()
+	stones_word.text = tr("Linh thạch")
+	var stones_box := HBoxContainer.new()
+	stones_box.add_theme_constant_override("separation", 6)
+	stones_box.add_child(stones_word)
+	stones_box.add_child(_stones)
+	bar.add_child(stones_box)
 	TooltipLayer.set_tip(_season, _tip_season)
 	bar.add_child(_season)
 	for t in [["W", tr("Wiki (not in the greybox yet)")], ["≡", tr("Game menu (not in the greybox yet)")]]:
@@ -302,7 +314,13 @@ func _build_layout() -> void:
 	TooltipLayer.set_tip(_realm, _tip_realm)
 	TooltipLayer.set_tip(_lifespan, _tip_lifespan)
 	col.add_child(_cult_bar)
-	col.add_child(_lifespan)
+	var life_row := HBoxContainer.new()
+	life_row.add_theme_constant_override("separation", 6)
+	var age_word := Label.new()
+	age_word.text = tr("age")
+	life_row.add_child(age_word)
+	life_row.add_child(_lifespan)
+	col.add_child(life_row)
 
 	# Z4 map modes
 	var z4 := HBoxContainer.new()
@@ -398,6 +416,7 @@ func _build_layout() -> void:
 	# The tooltip layer, above everything (Layout Zones: Tooltip layer)
 	add_child(_tips)
 	_tips.fallback_focus = func() -> Control: return _end_turn
+	_tips.busy = _busy   # no tip reads the session while its job runs (ADR-0005)
 	_tips.wiki_requested.connect(_open_wiki)
 
 
@@ -431,12 +450,12 @@ func _refresh() -> void:
 		return
 	var snap: Dictionary = StateSnapshot.take(session)
 	var c: Character = session.player
-	_stones.text = tr("Linh thạch") + " " + HudReadouts.stones_text(float(snap.linh_thach))
+	_stones.text = HudReadouts.stones_text(float(snap.linh_thach))
 	_season.text = session.clock_label()
 	_realm.text = str(snap.realm_label)
 	var req: float = CultivationRules.level_requirement(c, gd)
 	_cult_bar.value = HudReadouts.cultivation_share(float(snap.tu_vi), req) * 100.0
-	_lifespan.text = HudReadouts.lifespan_text(float(snap.age), float(snap.lifespan))
+	_lifespan.text = HudReadouts.lifespan_numbers(float(snap.age), float(snap.lifespan))
 	var warn: bool = HudReadouts.lifespan_warning(float(snap.age), float(snap.lifespan), float(_cfg.get("lifespan_warn_share", 0.1)))
 	_lifespan.add_theme_color_override("font_color", Color(1, 0.7, 0.2) if warn else Color(0.9, 0.9, 0.9))
 	_alerts.text = tr("Alerts:") + " " + (tr("an event is waiting") if session.has_pending_event() else tr("none"))
@@ -972,7 +991,7 @@ func _tip_lifespan(_at: Vector2) -> Variant:
 	var c: Character = session.player
 	var life: Breakdown = CultivationRules.lifespan(c, gd, session.sheet())
 	var warn: bool = HudReadouts.lifespan_warning(float(c.age), life.total, float(_cfg.get("lifespan_warn_share", 0.1)))
-	return {"title": tr("Lifespan (thọ nguyên)"), "fact": _lifespan.text + ((" · " + tr("little lifespan left") + " ⌛") if warn else ""),
+	return {"title": tr("Lifespan (thọ nguyên)"), "fact": HudReadouts.lifespan_text(float(c.age), life.total) + ((" · " + tr("little lifespan left") + " ⌛") if warn else ""),
 		"summary": tr("When age reaches lifespan, this life ends."),
 		"body": TooltipLayer.parse_body(tr("Every [[mua|season]] costs a quarter year of [[tho_nguyen|lifespan]].")),
 		"lines": Array(life.lines()), "wiki": "tho_nguyen"}

@@ -47,6 +47,14 @@ screen sets the base size to the window size and drives only the factor. Live re
 `resized-1280x720-to-1920x1080-scale150` (factor 1.5 after growing) and `resized-1920x1080-to-1280x720-scale150`
 (factor 1.0 after shrinking: the cap; the 150 % setting is kept).
 
+Link styles (`scaling/link-styles-1280x720`, user decision 2026-11-22, hud.md Tooltips: Link styles): every
+tooltipable readout is underlined and styled by kind: "Linh thạch **30**" and "age **16 / 120**" (numbers, bold), the
+date and the realm (terms, gold); tooltip words in the term gold. Item rarity colours are placeholders until the art
+bible names them.
+
+After the ADR-0005 review fixes (the layer's busy guard, focus returned on every close, the `tooltip_open` action) and
+the link styles, the demo was re-run at both sizes: still 42 and 44 PASS.
+
 Rating fights on (the default path, `--turns=4`, shot `scaling/ratings-on-after-4-turns`): world ready in 37 s, End turn
 waits 2.7 / 49 / 49 / 32 s back to back (the one-season lag plus 12 worker processes; ADR-0003's 20 s target is not
 met). Quitting while a season resolves (`--turns=2 --quit-in-turn`): 12 rating workers alive at the quit, no Godot

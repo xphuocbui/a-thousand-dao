@@ -2,7 +2,8 @@
 
 ## Status
 Accepted (2026-11-14, by the user). Drafted the same day by the assistant from the user's Power Rankings decisions.
-Amended 2026-11-22 (decision 13, worker processes; user decision).
+Amended 2026-11-22 (decision 13, worker processes; user decision). Amended 2026-11-22 again: decision 13's batch-time
+target accepted as measured (user decision).
 
 ## Date
 2026-11-14
@@ -149,6 +150,10 @@ fighter, panel 16 ms a fighter, a Nguyên Anh and Hóa Thần round robin 1.7 s.
       batch takes 49 s on 12 workers (116 s on threads); the rest is built into rule 14 (each panel wave lasts as long as
       its longest panel, and the waves are sequential). (3) measured: with about 30 s spent on a season, End turn takes
       about 3 s; pressing through seasons with no pause waits 30-48 s a season. Release export not yet checked.
+    - **Target accepted as measured (user decision 2026-11-22):** validation (2) now reads "about 50 s for a
+      10,000-fight batch on 12 workers on the development PC". The wait shows only when ending turns back to back;
+      after a normal pause End turn takes about 3 s (greybox 2026-11-22: 2.7 / 49 / 49 / 32 s back to back). Revisit
+      with the release-export check, or if playtests show players pressing through seasons.
     - **As built:** workers start once per batch and serve all its waves (start-up was about 1.5 s a wave); tasks are
       dealt round robin; each batch has its own pool sharing one data snapshot (the coordinator's data in memory,
       `DataRegistry.files()`, so in-memory changes reach the workers and no data hash is needed); one batch at a time

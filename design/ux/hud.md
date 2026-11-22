@@ -292,8 +292,14 @@ tooltip follows the Esc rules in Platform Adaptation.
   Each child opens beside its parent, on alternating sides. When there is no room (a high UI scale), older levels
   shrink to a title strip at the text floor size; clicking or focusing a strip brings that level back.
 - **Content.** The first tooltip always holds the name, the key fact (cost, penalty or risk) and a one-line summary,
-  with the Breakdown below. Highlighted words are **underlined** as well as coloured, so they never rely on colour
-  alone. A control that has a tooltip says so to screen readers ("has details: Q").
+  with the Breakdown below. A control that has a tooltip says so to screen readers ("has details: Q").
+- **Link styles** (user decision 2026-11-22). Every piece of **text or number that has a tooltip is underlined**, in
+  readouts, tooltips, panels and windows, then styled by what it is: terms and concepts in the term colour; numbers
+  with a Breakdown bold; people bold, in their relation colour (friend, neutral, hostile); places italic; items in
+  their rarity colour; sects bold italic, in the sect's colour. Buttons, map bubbles and icons keep their own look.
+  The underline is the constant cue, so a style never relies on colour alone; the colours are data (`link_styles`,
+  rarity colours to come from the art bible). In a readout only the part with the tooltip is styled ("Linh thạch
+  **30**", "age **17 / 120**").
 - **Keyboard.** **Q** (or **F2**) opens the focused element's tooltip, already locked, **and moves focus into it**.
   Inside a tooltip, Tab and Shift+Tab move between its highlighted words and wrap around (zone Tab is suspended while a
   tooltip has focus; Shift+Tab from the first word reaches any title strips); Enter or Q on a word opens its tooltip;
@@ -1044,8 +1050,10 @@ exact boundary; "appears" means `visible` becomes true. Rows marked `[GdUnit]` d
     one-season-late power number.
 - **Build notes from the engine review** (godot-specialist, re-review 3; NOT SOURCEABLE from
   `docs/engine-reference/godot/`, so each is checked in the greybox, not decided here):
-  - scaling: leave the content scale size unset and drive the root window's content scale factor from code on each
-    resize, with the `canvas_items` stretch mode, fractional scaling and a 1280×720 minimum size;
+  - scaling: drive the root window's content scale factor from code on each resize, with the `canvas_items` stretch
+    mode, fractional scaling and a 1280×720 minimum size. Corrected 2026-11-22 after the greybox measurement (user
+    approved): the content scale size is set to the window's own size on each resize, not left unset, because unset
+    makes Godot stretch from the project's default 1152×648 (`production/qa/evidence/hud-greybox/README.md`);
   - tooltip bodies as a flowing container of labels and flat underlined link buttons (a `RichTextLabel` cannot hold
     focusable controls); sources leave Godot's own `tooltip_text` empty; the pointer grace uses rectangle tests;
   - one Esc router node that marks the input handled; `focus_next` / `focus_previous` on zone-edge controls for F6;

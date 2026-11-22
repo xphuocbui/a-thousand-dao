@@ -110,6 +110,18 @@ interfaces:
       - docs/architecture/adr-0001-combat-engine-in-godot.md
     added: 2026-11-13
     revised: ""
+  - contract: ui_tooltips
+    status: active
+    pattern: direct_call
+    producer: game-ui
+    consumers:
+      - game-ui
+    adr: docs/architecture/adr-0005-tooltip-layer.md
+    signal_signature: "TooltipLayer.set_tip(c: Control, tip: String | Dictionary | Callable(Vector2) -> Variant); content {id?, title, fact?, summary?, body?, lines?, wiki?}; Esc only via EscRouter.pick(state) -> String; season changes and windows call TooltipLayer.close_all(); tip Callables are read-only"
+    referenced_by:
+      - docs/architecture/adr-0005-tooltip-layer.md
+    added: 2026-11-22
+    revised: ""
 
 # Example:
 #
@@ -224,6 +236,18 @@ forbidden_patterns:
     why: "Profiles are cached and shared; GDScript has no immutable objects, so a mutation silently corrupts every later fight."
     adr: docs/architecture/adr-0001-combat-engine-in-godot.md
     added: 2026-11-13
+  - pattern: builtin_tooltip_api
+    status: active
+    description: "Game code must not use a built-in tooltip API: a non-empty Control.tooltip_text, set_item_tooltip, set_tab_tooltip, TreeItem.set_tooltip_text or RichTextLabel.push_meta's tooltip argument. Tooltips go through TooltipLayer.set_tip."
+    why: "Godot's popup would show beside the game's tooltip layer and cannot lock, nest or be reached by keyboard; tests/integration/ui/ui_no_builtin_tooltips_test.gd scans src/."
+    adr: docs/architecture/adr-0005-tooltip-layer.md
+    added: 2026-11-22
+  - pattern: tooltip_reads_state_while_busy
+    status: active
+    description: "A tooltip Callable must not change state, and the layer must not call one while the session's background job runs (TooltipLayer.busy)."
+    why: "Tips run on the main thread every frame while hovered; the season resolves on a worker thread, so a read during it races the simulation."
+    adr: docs/architecture/adr-0005-tooltip-layer.md
+    added: 2026-11-22
 
 # Example:
 #

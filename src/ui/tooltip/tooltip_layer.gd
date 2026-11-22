@@ -22,8 +22,14 @@ const WORD_META := &"tip_word"
 
 ## The rules; configure it from ui_hud.json's "tooltips" block.
 var chain := TooltipChain.new()
-## Returns the Control that gets focus when a keyboard-opened chain closes and its source is gone (End turn).
+## Returns the Control that gets focus when a closing tooltip held focus and where it came from is gone (End turn).
 var fallback_focus: Callable = func() -> Control: return null
+## Returns true while the game state must not be read (the session's background job runs). While it does, the layer
+## calls no tip Callable: hovering and Q open nothing new (ADR-0005).
+var busy: Callable = func() -> bool: return false
+
+## The input action that opens the focused element's tooltip (Q and F2 by default; rebindable through the InputMap).
+const ACTION := &"tooltip_open"
 
 var _width: float = 340.0
 var _margin: float = 16.0
@@ -35,7 +41,9 @@ var _return_focus: Array = []   # per level: the control focus goes back to when
 var _last_input_mouse: bool = true
 
 
-## Puts [param tip] on [param c] and clears its built-in tooltip (see the class doc for the forms of a tip).
+## Puts [param tip] on [param c] and clears its built-in tooltip (see the class doc for the forms of a tip). A control
+## whose mouse filter is IGNORE is set to PASS, so the engine can report it as hovered; PASS still lets the click
+## through to its parent.
 static func set_tip(c: Control, tip: Variant) -> void:
 	c.tooltip_text = ""
 	c.set_meta(META, tip)
@@ -77,6 +85,18 @@ static func term_content(terms: Dictionary, key: String) -> Dictionary:
 func _init() -> void:
 	set_anchors_preset(Control.PRESET_FULL_RECT)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	ensure_action()
+
+
+## Adds the tooltip action with its default keys (Q, F2) unless the project or a rebinding already defined it.
+static func ensure_action() -> void:
+	if InputMap.has_action(ACTION):
+		return
+	InputMap.add_action(ACTION)
+	for k in [KEY_Q, KEY_F2]:
+		var ev := InputEventKey.new()
+		ev.physical_keycode = k
+		InputMap.action_add_event(ACTION, ev)
 
 
 ## Applies the "tooltips" knobs (player settings and designer knobs); takes effect at once.
@@ -110,18 +130,9 @@ func close_all() -> void:
 ## Esc on a tooltip: closes the top level and returns focus to where it came from (the parent's word, the source, or
 ## the fallback when the source is gone).
 func close_top() -> void:
-	var n: int = chain.levels.size()
-	if n == 0:
-		return
-	var back: Control = _return_focus[n - 1] if n - 1 < _return_focus.size() else null
-	var had_focus: bool = owns(get_viewport().gui_get_focus_owner())
-	chain.close_top()
-	_sync()
-	if had_focus:
-		if back == null or not is_instance_valid(back) or not back.is_visible_in_tree():
-			back = fallback_focus.call()
-		if back != null:
-			back.grab_focus()
+	if chain.is_open():
+		chain.close_top()
+		_sync()
 
 
 ## The view of level [param i] (tests and the demo), or null.
@@ -150,26 +161,24 @@ func _input(event: InputEvent) -> void:
 			if chain.click(mb.button_index, hit, clickable):
 				get_viewport().set_input_as_handled()
 			_sync()
-	elif event is InputEventKey and event.pressed and not event.echo:
-		var key: Key = (event as InputEventKey).physical_keycode
-		if key == KEY_Q or key == KEY_F2:
-			var owner_ctl: Control = get_viewport().gui_get_focus_owner()
-			if owner_ctl is LineEdit or owner_ctl is TextEdit:
-				return
-			if owner_ctl is LinkButton and owns(owner_ctl):
-				_press_word(owner_ctl, true)
+	elif event.is_action_pressed(ACTION, false, true) and not busy.call():
+		var owner_ctl: Control = get_viewport().gui_get_focus_owner()
+		if owner_ctl is LineEdit or owner_ctl is TextEdit:
+			return
+		if owner_ctl is LinkButton and owns(owner_ctl):
+			_press_word(owner_ctl, true)
+			get_viewport().set_input_as_handled()
+			return
+		var src: Control = _source_of(owner_ctl)
+		if src != null:
+			var content: Dictionary = _content_of(src, Vector2.INF)
+			if not content.is_empty():
+				chain.open_keyboard(_source_id(src, content), content)
+				_root_source = src
+				_sync()
+				_return_focus = [owner_ctl]
+				_focus_into(0)
 				get_viewport().set_input_as_handled()
-				return
-			var src: Control = _source_of(owner_ctl)
-			if src != null:
-				var content: Dictionary = _content_of(src, Vector2.INF)
-				if not content.is_empty():
-					chain.open_keyboard(_source_id(src, content), content)
-					_root_source = src
-					_sync()
-					_return_focus = [owner_ctl]
-					_focus_into(0)
-					get_viewport().set_input_as_handled()
 
 
 func _process(delta: float) -> void:
@@ -196,6 +205,8 @@ func _hit(p: Vector2) -> Dictionary:
 				if (w as Control).get_global_rect().has_point(p):
 					word = str(w.get_meta(WORD_META, ""))
 			return {"level": i, "word": word}
+	if busy.call():
+		return {"level": -1}   # never read game state while the session's job runs
 	var hovered: Control = get_viewport().gui_get_hovered_control()
 	var src: Control = _source_of(hovered)
 	if src == null:
@@ -241,6 +252,21 @@ func _sync() -> void:
 	var keep: int = 0
 	while keep < mini(n, _views.size()) and _view_keys[keep] == _identity(keep):
 		keep += 1
+	# If keyboard focus is inside a level about to close, it goes back to where the lowest closing level came from (its
+	# parent's word or its source), else to the fallback: on every close, not only Esc (4.6 dual focus: a freed control
+	# would leave keyboard focus nowhere).
+	var focus_back: Control = null
+	var focus_lost: bool = false
+	var owner_ctl: Control = get_viewport().gui_get_focus_owner() if is_inside_tree() else null
+	for i in range(keep, _views.size()):
+		if owner_ctl != null and (_views[i] == owner_ctl or (_views[i] as Node).is_ancestor_of(owner_ctl)):
+			focus_lost = true
+			for j in range(keep, _views.size()):
+				if j < _return_focus.size() and _return_focus[j] != null and is_instance_valid(_return_focus[j]) \
+						and (_return_focus[j] as Control).is_visible_in_tree() and not _in_views_from(_return_focus[j], keep):
+					focus_back = _return_focus[j]
+					break
+			break
 	for i in range(_views.size() - 1, keep - 1, -1):
 		var v: Control = _views[i]
 		remove_child(v)
@@ -253,10 +279,22 @@ func _sync() -> void:
 	if not chain.is_open():
 		_root_source = null
 	_return_focus.resize(n)
+	if focus_lost:
+		if focus_back == null:
+			focus_back = fallback_focus.call()
+		if focus_back != null:
+			focus_back.grab_focus()
 	for i in n:
 		var mark: Label = _views[i].get_meta(&"lock_mark")
 		mark.visible = bool(chain.levels[i].locked)
 	_place_all()
+
+
+func _in_views_from(c: Control, from: int) -> bool:
+	for i in range(from, _views.size()):
+		if _views[i] == c or (_views[i] as Node).is_ancestor_of(c):
+			return true
+	return false
 
 
 func _identity(i: int) -> String:
@@ -309,7 +347,7 @@ func _build_view(i: int) -> Control:
 			if seg is Dictionary:
 				var w := LinkButton.new()
 				w.text = str(seg.get("text", "")) + (" ↗" if wiki_level else "")
-				w.underline = LinkButton.UNDERLINE_MODE_ALWAYS
+				LinkStyle.apply(w, str(seg.get("kind", LinkStyle.kind_of_key(str(seg.get("key", ""))))), str(seg.get("variant", "")))
 				w.focus_mode = Control.FOCUS_ALL
 				w.set_meta(WORD_META, str(seg.get("key", "")))
 				w.accessibility_description = tr("opens in the wiki") if wiki_level else tr("has details: Q")

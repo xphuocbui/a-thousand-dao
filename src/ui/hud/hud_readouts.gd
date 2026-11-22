@@ -18,7 +18,12 @@ static func cultivation_text(tu_vi: float, requirement: float) -> String:
 
 ## Element 10: "age 84 / 220" (whole years, rounded down).
 static func lifespan_text(age: float, lifespan: float) -> String:
-	return "%s %d / %d" % [TranslationServer.translate("age"), int(floor(age)), int(floor(lifespan))]
+	return "%s %s" % [TranslationServer.translate("age"), lifespan_numbers(age, lifespan)]
+
+
+## Element 10's numbers alone, "84 / 220": the tooltipable part of the readout (styled as a number).
+static func lifespan_numbers(age: float, lifespan: float) -> String:
+	return "%d / %d" % [int(floor(age)), int(floor(lifespan))]
 
 
 ## Element 10's warning: true when [param warn_share] (lifespan_warn_share) or less of the lifespan is left.
