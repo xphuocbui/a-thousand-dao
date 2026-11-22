@@ -45,9 +45,11 @@ static func from_game_data(gd: GameData) -> ContinentData:
 	return from_dict(gd.file(DATA_FILE))
 
 
-## The continent from the parsed file (ids come back from JSON as floats; they are made ints here).
-static func from_dict(d: Dictionary) -> ContinentData:
+## The continent from the parsed file (ids come back from JSON as floats; they are made ints here). It reads a copy:
+## [param d] is the loaded game data, shared by every game in the process, and stays as it was.
+static func from_dict(src: Dictionary) -> ContinentData:
 	var cd := ContinentData.new()
+	var d: Dictionary = src.duplicate(true)
 	if d.is_empty():
 		cd.errors.append("world_continent.json is not in the game data (run tools/design/map/export_continent.py)")
 		return cd

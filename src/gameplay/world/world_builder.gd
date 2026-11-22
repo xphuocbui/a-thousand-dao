@@ -199,8 +199,9 @@ func _step_sects() -> void:
 		var rec := {"name": str(s.name), "key": str(s.key), "kind": str(s.kind), "name_han": str(s.get("name_han", "")),
 			"gloss": str(s.get("gloss", "")), "alignment": str(s.alignment), "alignment_name": str(align_names.get(str(s.alignment), "")),
 			"specialty": str(s.specialty), "hq_place_id": seat, "region_id": str(hq.get("region_id", "")), "leader_id": "",
-			"members": [], "status": "active", "founded_year": int(s.founded), "levels": s.levels, "treasury": int(s.treasury),
-			"leans": s.get("leans", []), "tier": int(s.get("tier", 0)), "loyalty": s.get("loyalty", null)}
+			"members": [], "status": "active", "founded_year": int(s.founded), "levels": Dictionary(s.levels).duplicate(true),
+			"treasury": int(s.treasury), "leans": Array(s.get("leans", [])).duplicate(true), "tier": int(s.get("tier", 0)),
+			"loyalty": s.get("loyalty", null)}   # copies: the game's sects grow (Sects F1), the loaded history stays as authored
 		var id: String = _db.add("sects", rec)
 		sect_ids[str(s.key)] = id
 		if not hq.is_empty():

@@ -143,3 +143,15 @@ func test_land_tiles_have_shares_summing_to_100_and_values_in_range() -> void:
 	assert_eq(odd, [], "every sampled tile's mix sums to 100")
 	var seat: Dictionary = _cd().places[int(_cd().great_sects["thien_xu"].seat)]
 	assert_eq(g.elevation_m(int(seat.tile[0]), int(seat.tile[1])), 2070, "Thiên Xu Tông's seat at 2,070 m (politics: 2.07 km)")
+
+
+func test_reading_the_continent_leaves_the_loaded_data_as_it_was() -> void:
+	# a regression: from_dict turned the loaded file's ids into ints in place, and the world build stamped its record
+	# ids ("_db") into those same region dictionaries
+	var d: Dictionary = (game_data().file(ContinentData.DATA_FILE) as Dictionary).duplicate(true)
+	(d.regions as Array)[0]["id"] = float((d.regions as Array)[0].id)
+	var before: String = JSON.stringify(d)
+	var cd := ContinentData.from_dict(d)
+	cd.regions[cd.regions.keys()[0]]["_db"] = "probe"
+	assert_eq(JSON.stringify(d), before, "the continent data is read, never written")
+	assert_eq(typeof((d.regions as Array)[0].id), TYPE_FLOAT, "the source keeps its own id types")

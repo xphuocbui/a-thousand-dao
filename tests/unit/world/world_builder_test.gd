@@ -172,3 +172,17 @@ func test_a_game_never_writes_into_the_shared_continent_data() -> void:
 	var src: Array = game_data().file("world_continent").places.filter(func(x): return int(x.id) == int(p.continent_id))
 	assert_false(src[0].qi.has("residences"), "the game's place qi is its own copy")
 	p.qi.erase("residences")
+
+
+func test_a_game_never_writes_into_the_shared_sect_history() -> void:
+	# a regression: sect levels were the loaded world_history.json dictionary, so a sect's growth in one game
+	# (Sects F1's level refresh) became the next game's authored start (seen as balance lives depending on the lives
+	# run before them in one process)
+	var rec: Dictionary = _db.find("sects", func(x): return str(x.get("status", "")) == "active")[0]
+	var src: Dictionary = _hist().sects.filter(func(x): return str(x.key) == str(rec.key))[0]
+	var authored: int = int(src.levels.military)
+	rec.levels["military"] = authored + 5
+	assert_eq(int(src.levels.military), authored, "the game's sect levels are its own copy")
+	rec.levels["military"] = authored
+	if rec.leans is Array:
+		assert_false(is_same(rec.leans, src.get("leans")), "the game's sect leans are its own copy")
