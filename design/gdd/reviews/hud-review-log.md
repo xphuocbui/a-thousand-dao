@@ -204,3 +204,33 @@ Findings:
 Reviewed-Content-Hash: design/ux/hud.md 300b53a883d742035e31ab83a0803df9e98be16e
 Reviewed-Content-Hash: design/registry/entities.yaml 9c8ccd8d9f8519113bd176457bf89bd281314189
 Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md 4dcc8b81162613c757144532f1b72708ab3ba27f
+
+## Review — 2026-11-22 — Verdict: NEEDS REVISION (`/design-review --review lean`, round 10: person-window changes)
+Review mode: lean · Workflow: standard · Run headless (`claude -p`, Sonnet), read-only
+Specialists: none (lean)
+Blocking items: 2 | Recommended: 5
+Summary: Scoped to the post-approval changes for the person window (people bubbles and outliner pins at current places,
+the Focus preview's share-of-season line, the number-format sentence, gamepad X on a person). Two stale sentences
+contradicted them; five gaps (missing criteria, preview seed, Travel with a shortened season, people in transit and dead
+pins, X details). All applied the same day with the user's defaults.
+Prior verdict resolved: Yes (round 9)
+Findings:
+- [BLOCKING] Acceptance Criteria (Map bubbles): a remote bubble's count read last-seen data, contradicting the true people count
+- [BLOCKING] person.md Entry points: the outliner pin still said "where they were last seen"
+- [RECOMMENDED] criteria for the share line, the number formatter, gamepad X and pins; the preview seed and the selector stop include the season share; Travel at 75 % arrives a season later; transit and dead pins; X on a dead person and inside a tooltip
+Reviewed-Content-Hash: design/ux/hud.md 0f3c080c74796f2d3793ee2f1e6d7efed6838e6a
+
+## Review — 2026-11-22 — Verdict: APPROVED (`/design-review --review lean`, round 11: person-window changes)
+Review mode: lean · Workflow: standard · Run headless (`claude -p`, Sonnet), read-only
+Specialists: none (lean)
+Blocking items: 0 | Recommended: 5
+Summary: All round-10 fixes confirmed. Five small recommendations applied the same day: the share-of-season criterion
+also covers Travel never refused, the lifespan count, the seed and the selector stop; the X criterion covers the tooltip
+case; a dead person is not counted in a people bubble; the status line names the person-window changes; bubbles measure
+reach from a full season.
+Prior verdict resolved: Yes (2 of 2 blocking, 5 of 5 recommended)
+Findings:
+- none blocking
+Reviewed-Content-Hash: design/ux/hud.md 9e0d12361c8936123f722b5db435dd76cbf72f56
+Reviewed-Content-Hash: design/registry/entities.yaml acf70ca4dfedbd7b57e9b1a67c96cc254154dcad
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md 4dcc8b81162613c757144532f1b72708ab3ba27f

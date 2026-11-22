@@ -37,7 +37,7 @@ an injected clock) and a thin view (`TooltipLayer`), with every source carrying 
 
 | Field | Value |
 |-------|-------|
-| **Depends On** | None Accepted. Every state-reading tip builds on Required ADR #2 (the `GameSession` facade and frontend rule, `docs/architecture/architecture.md`), which is in the "must decide before the next work that builds on it" tier and is not written; the greybox's tips run under a named exemption until it is (Implementation Guidelines). |
+| **Depends On** | ADR-0006 (GameSession facade and frontend rule; Proposed). The two depend on each other and are accepted together (architecture review 2026-11-22). Earlier wording: every state-reading tip builds on Required ADR #2 (the `GameSession` facade and frontend rule, `docs/architecture/architecture.md`), which is in the "must decide before the next work that builds on it" tier and is not written; the greybox's tips run under a named exemption until it is (Implementation Guidelines). |
 | **Enables** | Every later screen's tooltips (person, sect, trade, abode windows; the Đạo Đồ screen; the in-game wiki's links) |
 | **Blocks** | None (the layer is built; screens that add tooltips use it) |
 | **Ordering Note** | Required ADR #9 (Game UI framework, after the art bible) references this ADR rather than absorbing it. Fonts and the art bible's look come later; the layer takes its look from the theme. |

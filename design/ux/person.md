@@ -88,7 +88,7 @@ window history; States & Variants below).
 | People bubble with one person | Click, or Enter on the focused bubble | Which person; the place they're at |
 | People bubble with several | Opens the relationships list filtered to that place (hud.md, Map bubbles); picking a row opens this window | The place filter; the person picked |
 | A highlighted name anywhere (summary, news line, tooltip, another window, a sect roster, a quest giver) | Click, or Enter or Q on the focused word | The person's id; the window they came from (for the history and focus return) |
-| Outliner pin | Click, or Enter | The pinned person; where they were last seen |
+| Outliner pin | Click, or Enter | The pinned person; where they are now |
 | Right-click a person (map or any window) | Right-click, V or Shift+F10 on a focused person, or X on a gamepad (user decision 2026-11-22) | The person, and a request to show their verbs (see Open Questions: verbs on the card or in a menu) |
 | History | Alt+←/→, mouse buttons 4/5, the panel's arrows | Returns to the person as it was, refreshed to the current state |
 | Returning from a fight or an event | Closing the fight screen or the summary | The person; the result as a reply line |
@@ -297,7 +297,7 @@ HUD's focused-window-first rule.
 |---|---|---|---|---|---|
 | Use a free, safe verb (Greet, Ask for news, Ask about someone) | Click | Enter | A | Row presses; a soft audio cue | Runs now; the reply appears in the reply strip with its effect lines (attitude change and why) |
 | Use a costed or irreversible verb (Give a gift, Ask for help, Threaten, Provoke, bond verbs, Declare enmity, Repay) | Click | Enter | A | The row turns into "Confirm: *cost*? [Confirm] [Cancel]" | A second press confirms, Esc or Cancel backs out; then as above. A verb with a parameter expands **inline** first (user decision 2026-11-22): a short list (the items to give, the lessons on offer) or a stepper (the loan size), then Confirm |
-| Use a verb that takes time (Ask for teaching 0.25, Spar 0.1) | Click | Enter | A | The row states its time ("0.25 season: this season's focus gives 75 %") | Runs now as a free action; its time is taken from this season's focus, which then yields (1 − time used) of its result, shown in the focus comparison (dialogue GDD rule 4, user decision 2026-11-22). A spar opens the fight screen now. Refused, with the reason, when less of the season is left than it takes |
+| Use a verb that takes time (Ask for teaching 0.25, Spar 0.1) | Click | Enter | A | The row states its time ("0.25 season: this season's focus gives 75 %") | Runs now as a free action; its time is taken from this season's focus, which then yields (1 − time used) of its result, shown in the focus comparison (dialogue GDD rule 4, user decision 2026-11-22). A spar opens the fight screen now. Refused, with the reason, when less of the season is left than it takes. A Travel focus is never refused for it: it covers the share left (hud.md, Focus preview) |
 | Trade | Click | Enter | A | Opens the trade view | *Dependency: trade window spec* |
 | Verb tooltip (score breakdown) | Hover | Q or F2 | Y | Tooltip layer | The acceptance score's parts, in words |
 | Greyed or locked verb | Hover or focus | Q | Y | Reason shown in the row and the tooltip | Nothing runs |
@@ -428,7 +428,7 @@ dropped.
 
 **Gamepad**
 - [x] All interactive elements are reachable with D-pad and left stick (a focus ring through the rows, States & Variants)
-- [x] Face-button mapping documented and consistent with the HUD: A uses, B closes (Stop during a multi-season command), Y opens a tooltip
+- [x] Face-button mapping documented and consistent with the HUD: A uses, B closes (Stop during a multi-season command), Y opens a tooltip, X on a focused person opens their verbs
 - [x] No action needs analog precision (the right stick scrolls; moving the focus ring scrolls too)
 - [x] Trigger shortcuts documented: LT / RT jump section headings; the shoulder buttons stay with the HUD (they cycle the window buttons); history is the frame's arrows
 - [x] Controller disconnection changes nothing (the game is turn-based); a toast says keyboard and mouse still work, and focus stays where it was
@@ -500,10 +500,11 @@ Tags follow the HUD spec: `[GdUnit]` automated, `[Screenshot]` retained evidence
 - [ ] `[GdUnit]` The power number shows `?` while the rating is provisional or stale, and its tooltip says it is an estimate. Every stat and the power number open a tooltip with a Breakdown.
 
 **Performance**
-- [ ] `[GdUnit]` The window opens and is fully populated within 6 frames (0.1 s at 60 fps) of the trigger for the test fixture with the most traits, ties and verbs, and starts no background job.
+- [ ] `[GdUnit]` The window opens and is fully populated within 6 frames (0.1 s at 60 fps) of the trigger for the `person_heaviest` fixture (12 traits, 3 ties to the player plus 3 notable ties, 4 favours or loans, all 21 verbs shown, 12 history lines), and starts no background job.
 - [ ] `[GdUnit]` Opening the same person twice in one season builds their stat sheet once (it is cached).
 
-**Verbs**
+**Verbs** (these and the Events criteria can be QA'd only once the verb system exists, Open Question 5; until then
+the window is built and checked against placeholder verbs for layout, states and input only)
 - [ ] `[GdUnit]` A verb whose requirements fail is not shown, except bond verbs, which show greyed with their missing requirement. A verb that opposes the player's own trait is shown with its cost, never hidden or greyed.
 - [ ] `[GdUnit]` Every shown verb displays will or won't accept **before** it is chosen; a "won't accept" shows the score's parts in words; the same state gives the same answer.
 - [ ] `[GdUnit]` A free social verb runs on the first press. A costed or irreversible verb needs a second press; Esc or Cancel runs nothing and changes nothing.
@@ -524,7 +525,8 @@ Tags follow the HUD spec: `[GdUnit]` automated, `[Screenshot]` retained evidence
 **Accessibility, motion and localization**
 - [ ] `[Screenshot]` In greyscale, attitude, will / won't accept and element chips are still distinguishable (word, mark or shape, never colour alone).
 - [ ] `[Screenshot]` At the 150 % UI scale cap and at 1280 × 720, text keeps its 16 px / 14 px floors and nothing is clipped.
-- [ ] `[Manual]` With a screen reader, the reading order is the header, then the four sections, then the action bar; verb rows read their accept answer and reason; the reply strip is announced when it appears.
+- [ ] `[Screenshot]` In the compact layout (below 1600 × 900: a 48 px portrait) and at 2560 × 1440, the window shows the same sections with nothing clipped.
+- [ ] `[Manual]` With a screen reader, the reading order is the header, then the four sections, then the action bar; verb rows read their accept answer and reason; the reply strip is announced when it appears. (Gated on the HUD spec's open AccessKit question.)
 - [ ] `[GdUnit]` With reduced motion on, every transition in the table is instant and the "+3" chip is not shown.
 - [ ] `[GdUnit]` With strings 30 % longer than English, the header standing line wraps to two lines and no verb reason, trait effect or reply line truncates.
 

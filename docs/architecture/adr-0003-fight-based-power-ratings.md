@@ -26,10 +26,10 @@ Migration Plan step 5, which planned a closed-form rating profile for the world 
 |-------|-------|
 | **Engine** | Godot 4.7 (4.7.1 installed) |
 | **Domain** | Core (scripting, threading) |
-| **Knowledge Risk** | MEDIUM: background work uses Godot's `WorkerThreadPool`, which is NOT SOURCEABLE: `docs/engine-reference/godot/` does not cover threading |
+| **Knowledge Risk** | MEDIUM: background work uses Godot's `WorkerThreadPool`, which is NOT SOURCEABLE: `docs/engine-reference/godot/` does not cover threading. **Since decision 13 (2026-11-22) the season batch runs in worker processes** (`OS.create_process` with `-s`, also NOT SOURCEABLE); `WorkerThreadPool` remains the fallback when a worker fails |
 | **References Consulted** | `docs/engine-reference/godot/VERSION.md`; ADR-0001 (engine, timing); ADR-0002 (streams) |
-| **Post-Cutoff APIs Used** | None knowingly; `WorkerThreadPool` exists since Godot 4.0 but its 4.7 behaviour is unverified here |
-| **Verification Required** | (1) A spike: 1,000 fights on `WorkerThreadPool` tasks in a release export, results identical to a single-threaded run, no main-thread frame over 33 ms. (2) If (1) fails, the time-sliced fallback below |
+| **Post-Cutoff APIs Used** | None knowingly; `WorkerThreadPool` exists since Godot 4.0 but its 4.7 behaviour is unverified here; `OS.create_process` and the `-s` script entry (decision 13) are pre-cutoff APIs whose release-export behaviour is unverified |
+| **Verification Required** | (1) A spike: 1,000 fights on `WorkerThreadPool` tasks in a release export, results identical to a single-threaded run, no main-thread frame over 33 ms. (2) If (1) fails, the time-sliced fallback below (3) Decision 13: the worker-process path in a release export (not yet checked; ADR-0005 shares this check). |
 
 ## ADR Dependencies
 
@@ -161,6 +161,8 @@ fighter, panel 16 ms a fighter, a Nguyên Anh and Hóa Thần round robin 1.7 s.
       uses workers.
 
 ### Fallback if `WorkerThreadPool` does not verify
+*(Context, 2026-11-22: decision 13 moved the season batch to worker processes; a failed worker falls back to the
+`WorkerThreadPool` threads, and this section is the fallback below both.)*
 Run the batch time-sliced on the main thread: a fixed number of fights per frame (about 2 at 6 ms within a 16.7 ms
 frame) spread across the season. The result is identical (same order of application, same seeds); only wall time
 grows.

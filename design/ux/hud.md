@@ -1,6 +1,6 @@
 # HUD Design
 
-> **Status**: **Approved 2026-11-22** (lean `/design-review` round 6, after full rounds 1–4 and lean round 5; history in `design/gdd/reviews/hud-review-log.md`) **Changed after approval, 2026-11-22 (user request):** map bubbles, elements 30–32 (Map bubbles); lean round 7 NEEDS REVISION (16 fixes applied), lean round 8 NEEDS REVISION (2 fixes applied), **lean round 9 APPROVED**, all the same day.
+> **Status**: **Approved 2026-11-22** (lean `/design-review` round 6, after full rounds 1–4 and lean round 5; history in `design/gdd/reviews/hud-review-log.md`) **Changed after approval, 2026-11-22 (user request):** map bubbles, elements 30–32 (Map bubbles); lean round 7 NEEDS REVISION (16 fixes applied), lean round 8 NEEDS REVISION (2 fixes applied), **lean round 9 APPROVED**, all the same day. **Changed after approval, 2026-11-22 (person window, `design/ux/person.md`):** current places for people bubbles and pins, the share of the season left in the Focus preview, numbers follow the language, gamepad X on a person; lean round 10 NEEDS REVISION (fixes applied), **lean round 11 APPROVED**.
 > **Author**: user + ux-designer
 > **Last Updated**: 2026-11-22
 > **Platform Targets**: PC (Steam / Epic); keyboard and mouse; gamepad partial (from `.claude/docs/technical-preferences.md`; `project.yaml` has no `platform` block)
@@ -200,6 +200,7 @@ Arrangement A, "CK3 classic" (user choice 2026-11-21, over a Civ-style and a por
 |    +--------+ age 84 / 220             |    [   END TURN    ]  |
 +--------------------------------------------------------------+
 ```
+(Numbers in the wireframe use the English format; the Vietnamese UI shows 1.240, Localisation.)
 
 | Zone | Where | Holds |
 |---|---|---|
@@ -227,7 +228,8 @@ Philosophy rule 1.
 ## HUD Element Specifications
 
 What sits on the map screen. The contents of each window belong to that window's own UX spec. Approved by the user
-2026-11-21; elements 23–28 added 2026-11-22 (full design review item 6), 29 after the re-review, 30–32 after approval at the user's request.
+2026-11-21; elements 23–28 added 2026-11-22 (full design review item 6), 29 after the re-review, 30–32 after approval at the user's request; elements 6 and 32 and the Focus preview changed
+after approval for the person window (2026-11-22, lean rounds 10–11).
 
 | # | Element (zone) | Category | Shows | Form | Updates | Animation |
 |---|---|---|---|---|---|---|
@@ -345,7 +347,8 @@ player acts from: bubbles show where they are, where their home is, and what can
 - **Your bubble** (element 30) sits at the player's location at every zoom. **The abode bubble** (element 31) sits at
   the home's place at every zoom, when the player has a home.
 - **Area bubbles** (element 32) show **only at region zoom**, at the current place and at known places within
-  `bubble_trip_seasons` (1 season) of travel. At continent zoom only elements 30 and 31 show.
+  `bubble_trip_seasons` (1 season) of travel, measured from a full season (a season shortened by timed free actions
+  does not shrink the reach; the focus comparison shows the real time). At continent zoom only elements 30 and 31 show.
 - **Kinds**, each an icon and a count ("2 quests"): **market** (trade); **sect** (visit the sect); **quests** (open
   quests on the board); **people you know**: who is there now, at the current place and elsewhere (changed after
   approval, 2026-11-22, user decision in `design/ux/person.md`: the player always sees everything about everyone, so
@@ -373,7 +376,9 @@ player acts from: bubbles show where they are, where their home is, and what can
   a route line or a place marker, the bubble's tooltip wins.
 - **Only what the player knows.** Only known places (`MapKnowledge.knows_place`) and people the player knows get
   bubbles; a hidden place, secret or person never does. A remote bubble's count of quests reads the player's
-  last-seen data; its count of people is the true current count (2026-11-22, see People you know above).
+  last-seen data; its count of people is the true current count (2026-11-22, see People you know above). A person
+  travelling between places counts at the place they left, and the tooltip names them "travelling to <place>"; a
+  pinned person who dies stays in the outliner as "died" until the player unpins them.
 - **While a blocking event waits**, bubbles whose window changes something (trade, gifts and verbs, abode changes) show
   the lock mark and still open their window for looking, with its changing controls locked (HUD Philosophy rule 2).
   Season-action and Travel bubbles stay active, since choosing next season's focus is allowed; the click minimises the
@@ -443,8 +448,8 @@ Q2–Q4).
   risk only up to the band confirmed. **The risk band and every stop read only what the player knows**, as the preview
   does.
 - The selector **stops and asks** when:
-  - at a season's start, or when End turn is pressed (free actions may have changed the fight odds), the focus's band
-    is higher than its baseline;
+  - at a season's start, or when End turn is pressed (free actions may have changed the fight odds, or a timed free
+    action shortened the season), the focus's band is higher than its baseline;
   - the player has just reached the bottleneck (asked once per bottleneck);
   - the lifespan warning has just started (asked once).
   The once-per-bottleneck and lifespan flags are saved with the game.
@@ -460,7 +465,9 @@ Q2–Q4).
 - seasons it takes;
 - lifespan used, in years;
 - **the share of the season left** when free actions took time this season (a lesson 0.25, a spar 0.1): the expected
-  gain and distance are scaled by it (changed 2026-11-22, `design/ux/person.md` and the dialogue GDD rule 4);
+  gain and distance are scaled by it (changed 2026-11-22, `design/ux/person.md` and the dialogue GDD rule 4). A Travel
+  focus covers that share of a season's distance and is never refused for it: a 1-season trip with 75 % left arrives a
+  season later, and "seasons it takes" and "lifespan used" count the extra season;
 - the risk band, with its danger, encounter chance and fight odds; "can kill" when it can;
 - the bottleneck state after it;
 - cost in linh thạch and fuel.
@@ -472,7 +479,8 @@ bottleneck, lifespan warning, death, health below half, player stop, done). `par
 the recipe (Brew) or the mission.
 - **Deterministic.** `preview` never draws from the game's random streams. Its trial fights use their own generator
   seeded from the game seed, the season, the focus, its params and a hash of the known inputs the preview reads (the
-  player's sheet, the route, the opponent values the player knows), so the same known state always gives the same
+  player's sheet, the route, the opponent values the player knows, and the share of the season left after timed free
+  actions), so the same known state always gives the same
   preview, and equipping then unequipping an item gives the preview back unchanged. Its seeds never collide with the
   rating fights' seeds (`power-rankings.md` rule 13). The state revision number is only the cache key.
 - **Only what the player knows.** The preview reads only what the player knows: an opponent's strength as the player
@@ -684,7 +692,9 @@ Approved by the user 2026-11-21. PC (Steam / Epic); keyboard and mouse first; ga
     a multi-season command runs.
   - **The game menu is on Select/View**, because Start is held for End turn. X on a focused alert snoozes it.
   - **X on a focused person opens their verbs** (their window scrolled to the verb list; the twin of V and
-    right-click; added 2026-11-22, `design/ux/person.md`).
+    right-click; added 2026-11-22, `design/ux/person.md`). On a dead person, who has no verbs, it opens their window
+    at the death banner; on a person's name inside a tooltip it opens their verbs too (A there still opens the nested
+    tooltip).
   - "Partial" means every map-screen action is reachable. Dense full screens such as Đạo Đồ may stay mouse-first **on
     the gamepad only**: the keyboard reaches everything everywhere (`design/accessibility-requirements.md`).
 
@@ -922,6 +932,19 @@ exact boundary; "appears" means `visible` becomes true. Rows marked `[GdUnit]` d
       shows it again; it is the control's accessible description.
 - [ ] `[GdUnit]` A blocking alert cannot be snoozed.
 
+**Changes after approval, 2026-11-22 (person window)**
+- [ ] `[GdUnit]` The focus comparison shows the share-of-season-left line only after a timed free action this season,
+      and the expected gain and distance scale by it; a 1-season Travel with 75 % left is not refused, previews arriving
+      a season later, and its lifespan used counts the extra season.
+- [ ] `[GdUnit]` The same known state gives the same preview seed; the same state with a different share of the season
+      left gives a different seed. A timed free action that pushes a focus's band above its baseline makes the selector
+      stop and ask.
+- [ ] `[GdUnit]` One number formatter: the Vietnamese UI shows 1.240 and 1,5, the English UI 1,240 and 1.5, checked on
+      the Places panel, a HUD readout and a tooltip Breakdown.
+- [ ] `[GdUnit]` On a gamepad, X on a focused person opens their window scrolled to the verbs; on a dead person it
+      opens at the banner; on a person's name inside a tooltip it opens their verbs while A opens the nested tooltip; X on
+      a focused alert still snoozes it.
+
 **Tooltips**
 - [ ] `[GdUnit]` A tooltip never appears before `tooltip_delay` (18 frames), and appears within 2 frames after it.
 - [ ] `[GdUnit]` Moving the pointer from a source into its unlocked tooltip within `tooltip_close_grace` keeps it
@@ -978,8 +1001,13 @@ exact boundary; "appears" means `visible` becomes true. Rows marked `[GdUnit]` d
 - [ ] `[GdUnit]` A people bubble with one person opens their person card; with several, the relationships list
       filtered to that place.
 - [ ] `[GdUnit]` A place the player does not know, and a person they do not know, never gets a bubble.
-- [ ] `[GdUnit]` A remote bubble's count reads the player's last-seen data and shows its age; changing the world's true
-      state at that place without the player seeing it does not change the bubble.
+- [ ] `[GdUnit]` A remote **quest** bubble's count reads the player's last-seen data and shows its age; changing the
+      world's true state at that place without the player seeing it does not change the bubble. A **people** bubble's
+      count equals the number of known living people actually at that place now, and shows no age (2026-11-22).
+- [ ] `[GdUnit]` A known person travelling between places counts at the place they left, and their bubble's tooltip
+      names them "travelling to <place>"; a pinned person who dies stays in the outliner as "died" until unpinned.
+- [ ] `[GdUnit]` An outliner pin shows the person's current place; it changes when they move, with no visit by the
+      player.
 - [ ] `[GdUnit]` While a blocking event waits, a market bubble shows the lock mark and opens the trade window with its
       buy and sell controls locked; an explore bubble minimises the event card and opens the comparison, and closing the
       comparison restores the card; the locked bubble's accessible name

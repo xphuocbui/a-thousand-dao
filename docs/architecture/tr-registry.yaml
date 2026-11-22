@@ -37,33 +37,217 @@
 #   its fields sit two columns past the dash. Quote a value that holds ": ". A
 #   line in any other shape is reported as unsupported layout, with its number.
 
-version: 1
-last_updated: ""
+version: 2
+last_updated: "2026-11-22"
 
-requirements: []
-
-# --- EXAMPLE ENTRIES (remove when first real entries are added) ---
-#
-# - id: TR-combat-001
-#   system: combat
-#   gdd: design/gdd/combat-system.md
-#   requirement: "Player takes damage from enemies based on attack power minus defence"
-#   created: 2026-03-10
-#   revised: ""
-#   status: active
-#
-# - id: TR-combat-002
-#   system: combat
-#   gdd: design/gdd/combat-system.md
-#   requirement: "Combo window timing is 0.4 seconds between hits"
-#   created: 2026-03-10
-#   revised: "2026-04-01"
-#   status: active
-#
-# - id: TR-combat-003
-#   system: combat
-#   gdd: design/gdd/combat-system.md
-#   requirement: "Old damage formula using raw stats"
-#   created: 2026-03-10
-#   revised: ""
-#   status: "superseded-by: TR-combat-001"
+requirements:
+- id: TR-sim-001
+  system: sim
+  gdd: design/gdd/combat.md
+  requirement: "Everything is deterministic from the seed: the same seed and actions give the same life"
+  created: 2026-11-22
+  revised: ""
+  status: active
+- id: TR-sim-002
+  system: sim
+  gdd: design/gdd/effects.md
+  requirement: "A counted chance consumes no random draw; sampling tests use fixed seed lists"
+  created: 2026-11-22
+  revised: ""
+  status: active
+- id: TR-save-001
+  system: save
+  gdd: design/gdd/canh-gioi.md
+  requirement: "A save/load round trip is deep-equal for every record kind"
+  created: 2026-11-22
+  revised: ""
+  status: active
+- id: TR-save-002
+  system: save
+  gdd: design/gdd/item-database.md
+  requirement: "Save versions: 1 migrates, 2 is refused, 3 loads; version above 3 required"
+  created: 2026-11-22
+  revised: ""
+  status: active
+- id: TR-save-003
+  system: save
+  gdd: design/gdd/travel-map.md
+  requirement: "Saving stores the seed and the changes; the map and authored history come from data"
+  created: 2026-11-22
+  revised: ""
+  status: active
+- id: TR-combat-001
+  system: combat
+  gdd: design/gdd/combat.md
+  requirement: "Combat uses no clock, no engine nodes and no global state; it runs headless"
+  created: 2026-11-22
+  revised: ""
+  status: active
+- id: TR-combat-002
+  system: combat
+  gdd: design/gdd/combat.md
+  requirement: "One full fight resolves under 50 ms in a headless export build"
+  created: 2026-11-22
+  revised: ""
+  status: active
+- id: TR-combat-003
+  system: combat
+  gdd: design/gdd/combat.md
+  requirement: "NPC-against-NPC world fights are decided from fight-based ratings (the power number); the closed-form rating profile stays only for rating_clash in wars"
+  created: 2026-11-22
+  revised: "2026-11-22"
+  status: active
+- id: TR-effects-001
+  system: effects
+  gdd: design/gdd/effects.md
+  requirement: "Effects are validated JSON records"
+  created: 2026-11-22
+  revised: ""
+  status: active
+- id: TR-modifiers-001
+  system: modifiers
+  gdd: design/gdd/modifiers.md
+  requirement: "Every stat total comes from one provider interface that returns a Breakdown"
+  created: 2026-11-22
+  revised: ""
+  status: active
+- id: TR-items-001
+  system: items
+  gdd: design/gdd/item-database.md
+  requirement: "About 200,000 items at 5,000 cultivators"
+  created: 2026-11-22
+  revised: ""
+  status: active
+- id: TR-world-001
+  system: world
+  gdd: design/gdd/canh-gioi.md
+  requirement: "5,000 cultivators (never under 3,000); per-region work once a season"
+  created: 2026-11-22
+  revised: ""
+  status: active
+- id: TR-meridian-001
+  system: meridian
+  gdd: design/gdd/dao-do.md
+  requirement: "NPC allocation takes at most 50 ms at 566 points and 5 ms at 120"
+  created: 2026-11-22
+  revised: ""
+  status: active
+- id: TR-dao-001
+  system: dao
+  gdd: design/gdd/dao.md
+  requirement: "94 Ways, each a graph of about 150 nodes"
+  created: 2026-11-22
+  revised: ""
+  status: active
+- id: TR-travel-001
+  system: travel
+  gdd: design/gdd/travel-map.md
+  requirement: "One authored tile continent built from index images and stored by a build tool"
+  created: 2026-11-22
+  revised: ""
+  status: active
+- id: TR-quests-001
+  system: quests
+  gdd: design/gdd/quests.md
+  requirement: "A quest is an authored template with slots; once made, its brief is stored in the save and not regenerated"
+  created: 2026-11-22
+  revised: "2026-11-22"
+  status: active
+- id: TR-llm-001
+  system: llm
+  gdd: design/gdd/game-concept.md
+  requirement: "The LLM acts inside engine budgets; the template fallback always works"
+  created: 2026-11-22
+  revised: ""
+  status: deprecated
+- id: TR-llm-002
+  system: llm
+  gdd: design/gdd/game-concept.md
+  requirement: "Structured-output reliability; no UI blocking during an LLM call"
+  created: 2026-11-22
+  revised: ""
+  status: deprecated
+- id: TR-ui-001
+  system: ui
+  gdd: design/gdd/game-concept.md
+  requirement: "2D ink-wash UI in Vietnamese, Chinese and English, with accessibility"
+  created: 2026-11-22
+  revised: ""
+  status: active
+- id: TR-realms-001
+  system: realms
+  gdd: design/gdd/canh-gioi.md
+  requirement: "The realm ladder is a data contract owned by Realms"
+  created: 2026-11-22
+  revised: ""
+  status: active
+- id: TR-stats-001
+  system: stats
+  gdd: design/gdd/character-stats.md
+  requirement: "Character Stats' provider interface is the single stability point (about 20 dependents)"
+  created: 2026-11-22
+  revised: ""
+  status: active
+- id: TR-session-001
+  system: session
+  gdd: design/ux/hud.md
+  requirement: "Frontends reach the world only through GameSession; reads are copies that never write; a frontend runs at most one action or job at a time, off the main thread"
+  created: 2026-11-22
+  revised: ""
+  status: active
+- id: TR-ui-002
+  system: ui
+  gdd: design/ux/hud.md
+  requirement: "One tooltip chain with delay, lock, close grace and depth 5; keyboard open, Tab wrap and Esc routing; accessibility timing settings"
+  created: 2026-11-22
+  revised: ""
+  status: active
+- id: TR-power-001
+  system: power
+  gdd: design/gdd/power-rankings.md
+  requirement: "A season batch runs at most 10,000 fights off the main thread with no main-thread frame over 33 ms; the player's synchronous panel completes within 200 ms (AC-PR-51)"
+  created: 2026-11-22
+  revised: ""
+  status: active
+- id: TR-power-002
+  system: power
+  gdd: design/gdd/power-rankings.md
+  requirement: "World fights are deterministic: keyed seeds and one session draw per world fight (rule 13)"
+  created: 2026-11-22
+  revised: ""
+  status: active
+- id: TR-dao-002
+  system: dao
+  gdd: design/gdd/dao-do.md
+  requirement: "The 8,057-node Dao Do tree loads from the drawn map file, with its tree Effects run in both engines"
+  created: 2026-11-22
+  revised: ""
+  status: active
+- id: TR-world-002
+  system: world
+  gdd: design/gdd/living-world-tick.md
+  requirement: "World tick mean at most 150 ms and p99 at most 250 ms at 5,000 cultivators (AC-LW-26, provisional)"
+  created: 2026-11-22
+  revised: ""
+  status: active
+- id: TR-world-003
+  system: world
+  gdd: design/gdd/living-world-tick.md
+  requirement: "The season runs in one fixed order, steps S1 to S10, with every callee named"
+  created: 2026-11-22
+  revised: ""
+  status: active
+- id: TR-world-004
+  system: world
+  gdd: design/gdd/living-world-tick.md
+  requirement: "Callee budgets inside the tick: sects at most 8 ms mean and 15 ms p99; ties S8b at most 7 ms p95; map at most 20 ms mean and 50 ms p95"
+  created: 2026-11-22
+  revised: ""
+  status: active
+- id: TR-codex-001
+  system: codex
+  gdd: design/gdd/codex-karmic-carryover.md
+  requirement: "The Codex lives on a player profile outside any save; only a counter of new entries lives in the save"
+  created: 2026-11-22
+  revised: ""
+  status: active

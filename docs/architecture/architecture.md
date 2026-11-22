@@ -52,7 +52,9 @@ Three judgement calls:
 3. The Balance Harness is **Tooling**: it calls `GameSession` headlessly like any frontend.
 
 ## Module Ownership
-Dependencies point down only. Gameplay code is plain `RefCounted` logic: no `Node`, scene, autoload or thread (the
+Dependencies point down only. Gameplay code is plain `RefCounted` logic: no `Node`, scene or autoload, and no thread
+of its own; the rating batch's threads and worker processes (ADR-0003 decision 13) and the frontend's one background
+job (ADR-0006 decision 6) are the only concurrency (the
 terminal entry point is a `SceneTree` script).
 
 ```
@@ -219,6 +221,13 @@ never interprets it.
 
 ## ADR Audit
 
+Full review 2026-11-22: `docs/architecture/architecture-review-2026-11-22.md` (verdict FAIL: no save-format,
+stat-sheet or world-scale ADR yet). ADRs written since this audit: ADR-0002 random streams (Accepted), ADR-0003
+fight-based power ratings (Accepted; decision 13 worker processes 2026-11-22), ADR-0004 Đạo Đồ from the drawn map
+(Accepted), ADR-0005 tooltip layer (Proposed), ADR-0006 GameSession facade and frontend rule (Proposed). This
+document's layer map and GDD list still cover 15 of 34 GDDs; the traceability now lives in
+`docs/architecture/requirements-traceability.md` and `tr-registry.yaml`.
+
 | ADR | Engine compat | Version | GDD linkage | Conflicts | Valid |
 |---|---|---|---|---|---|
 | ADR-0001 Combat engine in Godot | ✅ | ✅ (4.7, 4.7.1 installed) | ✅ (nine GDD rows) | ⚠️ one wording point, resolved: the pure engine must not touch World DB, while `FighterCompiler` may read it read-only (the ADR already says this) | ✅ |
@@ -259,7 +268,8 @@ Coverage: 6 of 20 covered (all by ADR-0001; shared rows counted only for their c
 ## Required ADRs
 **Must decide before the next work that builds on it**
 1. Save format and migration policy (`SAVE_VERSION` 4): TR-save-001, 002, 003, TR-quests-001
-2. `GameSession` facade as the API boundary, including the frontend rule and the terminal exemption
+2. `GameSession` facade as the API boundary, including the frontend rule and the terminal exemption. **Written:
+   ADR-0006, Proposed 2026-11-22** (accept together with ADR-0005).
 3. Random-stream policy: one session stream, derived streams for fights, world generation and NPC allocation, no
    global random: TR-sim-001, 002. **Written: ADR-0002, Accepted 2026-11-14.**
 4. Stat sheet and provider interface: TR-modifiers-001, TR-stats-001, TR-realms-001
