@@ -1,0 +1,23 @@
+{
+ "created": 1795384328,
+ "background": "opaque",
+ "output_format": "png",
+ "quality": "medium",
+ "safety_identifier": null,
+ "size": "1536x1024",
+ "usage": {
+  "input_tokens": 1609,
+  "input_tokens_details": {
+   "image_tokens": 1296,
+   "text_tokens": 313
+  },
+  "output_tokens": 1372,
+  "output_tokens_details": {
+   "image_tokens": 1372,
+   "text_tokens": 0
+  },
+  "total_tokens": 2981
+ },
+ "model": "gpt-image-2",
+ "prompt": "Using the exact art style, materials, lighting and colours of the attached game UI mockup (carved dark rosewood frames, geometric window-lattice carving, brass corner fittings with small rivets, aged parchment insets), paint game UI ASSETS for that interface, not a screen.\n\nRules for every asset: seen perfectly flat and straight-on, no perspective, perfectly straight edges and right angles, mirror-symmetric left to right; evenly lit from the top left; no text, no letters, no numbers, no icons, no symbols, no logo, no watermark; no drop shadow cast onto the background. The background is one flat, pure chroma-key green (#00FF00) everywhere around the assets, with clear empty space between assets and around the canvas edge.\n\nThe assets:\n\nONE empty window panel, centred, filling about 80 % of the canvas width and 75 % of its height. A rectangular frame of dark polished rosewood: a slim, even border on the left, right and bottom (thin, about 2 % of the panel width); a taller title bar along the whole top edge carrying a carved geometric lattice band (one repeating pattern, identical along its whole length, so it can be tiled), with the middle of the title bar left plain wood for a title. Identical brass corner fittings with small rivets at all four corners, mirror images of each other. The interior is plain aged parchment, evenly lit and softly mottled, with no stains, no vignette and no marks."
+}

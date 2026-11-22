@@ -1,0 +1,23 @@
+{
+ "created": 1795384328,
+ "background": "opaque",
+ "output_format": "png",
+ "quality": "medium",
+ "safety_identifier": null,
+ "size": "1536x1024",
+ "usage": {
+  "input_tokens": 1605,
+  "input_tokens_details": {
+   "image_tokens": 1296,
+   "text_tokens": 309
+  },
+  "output_tokens": 1372,
+  "output_tokens_details": {
+   "image_tokens": 1372,
+   "text_tokens": 0
+  },
+  "total_tokens": 2977
+ },
+ "model": "gpt-image-2",
+ "prompt": "Using the exact art style, materials, lighting and colours of the attached game UI mockup (carved dark rosewood frames, geometric window-lattice carving, brass corner fittings with small rivets, aged parchment insets), paint game UI ASSETS for that interface, not a screen.\n\nRules for every asset: seen perfectly flat and straight-on, no perspective, perfectly straight edges and right angles, mirror-symmetric left to right; evenly lit from the top left; no text, no letters, no numbers, no icons, no symbols, no logo, no watermark; no drop shadow cast onto the background. The background is one flat, pure chroma-key green (#00FF00) everywhere around the assets, with clear empty space between assets and around the canvas edge.\n\nThe assets:\n\nThree assets. Top row, side by side, the same size (wide rectangles, width twice the height, each about 38 % of the canvas width): (1) a dark rosewood button plaque with a thin raised brass rim and a tiny brass rivet in each corner, its centre plain wood for a label; (2) the same plaque with its centre lacquered in deep cinnabar red (#84191B), the same brass rim and rivets. Bottom row, centred: (3) one long, empty horizontal bar trough: a recessed channel with a thin polished brass lip all round and a dark, plain inside, about 80 % of the canvas width and 7 % of its height."
+}

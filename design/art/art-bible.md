@@ -1,9 +1,15 @@
 # Art Bible
 
-> **Status**: Draft (Sections 7–8, icons only, 2026-11-12)
+> **Status**: Draft. Sections 1–4 and 7.10–7.16 approved 2026-11-22 (Rosewood Campaign Table); 7.1–7.9 and 8 (icons)
+> 2026-11-12; Sections 5, 6 and 9 not yet written. The game concept's "Ink and Ledger" anchor
+> (`design/gdd/game-concept.md`, Visual Identity Anchor) is superseded by Section 1; that file is not edited here.
 > **Owned By**: art-director
-> **Last Updated**: 2026-11-12
-> **Art Director Sign-Off (AD-ART-BIBLE)**: SKIPPED 2026-11-12 — lean mode
+> **Last Updated**: 2026-11-22
+> **Art Director Sign-Off (AD-ART-BIBLE)**: CONCERNS (accepted) 2026-11-22 — Section 8 covered icons only (UI
+> furniture and fonts added the same day as 8.7; map texture and place art standards still owed); Sections 5, 6 and 9
+> not yet written (portraits and unique place art cannot be briefed until they are). Fixed the same day: 7.6's badge
+> minimum (11 px, exempt from the 14 px floor) and typeface; the zoomed-out place marker (7.14). Earlier: SKIPPED
+> 2026-11-12, lean mode.
 
 `/art-bible` writes these nine sections in this order and replaces each
 section's `[To be designed]` line as that section is approved. A section still
@@ -11,29 +17,213 @@ holding its placeholder is incomplete; a later run fills only those.
 
 ## 1. Visual Identity Statement
 
-[To be designed] — a one-line visual rule that resolves any visual ambiguity,
-plus 2–3 supporting principles, each with a design test ("when X is ambiguous,
-choose Y") and the pillar it serves.
+> Approved 2026-11-22. Drafted by art-director from the user's mood pick (`prototypes/ui-mood/`: panels
+> `fight-b-hardwood-m.png`, map `r2-map-far-m.png` and `map-near-m.png`, windows `r2-person-m.png` and
+> `r2-tooltip-m.png`). It replaces the concept's "Ink and Ledger" anchor (`design/gdd/game-concept.md`), keeping that
+> anchor's rule that every mechanical number is printed.
+
+**Direction: Rosewood Campaign Table**
+
+**Visual rule:** *The world is painted, the furniture is carved, the numbers are printed.* Art may frame and depict,
+but the UI draws every mechanical number and state crisply; none is ever baked into an image.
+
+This keeps the old anchor's strongest idea and drops its ink-wash half. "Carved" separates the pick from the
+lacquer, silk, bronze and ink boards the user turned down. "Printed" protects the inspectability the game rests on.
+Painted region and place names on the map are art, not mechanics, so they are allowed.
+
+**1. Print over paint** (Pillar 2: Every Number Is Bounded and Visible)
+Parchment is the surface you read; wood and brass are the frame. Carved lattice, rivets and corner fittings stay at
+the edges, so text never sits on ornament. The painted art and treasure tiles carry no digits; the engine draws
+numbers around them.
+*Test:* when it is unclear whether a value, count or slot state belongs in the art or the UI, choose engine-drawn type
+on plain parchment.
+
+**2. One map, two distances, no generic places** (Pillar 5: A World That Remembers)
+Zoomed out, the continent is a paper campaign map: painted peaks and trees, tinted regions, dashed ink borders and
+calligraphic names. Zoomed in, it is a golden-hour painted relief with miniature towns and pagodas. The world is the
+same every life, so every named place has its own look and its own art, drawn from a written description and lore:
+each town, sect seat (tông môn), ruin and blessed land (user, 2026-11-22). A place's art may later step up through
+authored stages as it completes great projects or raises its production level, while its level stays a printed
+number.
+*Test:* when a place could reuse a generic look, it gets its own. When the world changes, borders and control arrive
+as UI overlays; the land is never repainted, and only a place's own art advances by stage.
+
+**3. Quiet table, loud build** (Pillar 1: Your Dao, Your Name)
+Frames and panels stay brown, brass and parchment, so they never compete for attention. Strong colour is kept for what
+belongs to a cultivator: the element-hued art and treasure tiles, the health and spiritual power (linh lực) bars, and
+names. A grown build should be the most colourful thing on screen.
+*Test:* when deciding whether something earns saturated colour, give it only if it is part of a cultivator's build or
+state. Frames, tabs and buttons stay wood and brass; the one exception is a commit button (End turn, an event choice),
+which takes the cinnabar seal (Section 4, user 2026-11-22).
+
+*Where the rest lives:* how a place's look is described and how its art changes by stage go in Sections 6 and 8; each
+place's description and lore go in a place catalogue (world data), not here. Sizing: 254 named places at two zoom
+levels, times any stages, is a large asset count; Section 8 sets the stage count once it is sized.
 
 ## 2. Mood & Atmosphere
 
-[To be designed] — for each major game state (exploration, combat, victory,
-defeat, menus — whichever this game has): the emotional target, lighting
-character (time of day, colour temperature, contrast), 3–5 atmospheric
-descriptors, and energy level. Each state must look distinct from the others.
+> Approved 2026-11-22 (drafted by art-director; the season grade adopted by the user as a proposal).
+
+**What never changes.** The rosewood frame, brass fittings, parchment panels, printed type and HUD positions are the
+same in every state. Parchment and numbers are never tinted, dimmed or graded, so Section 4's contrast holds everywhere
+(Principle 1, Pillar 2), and the land is never repainted (Principle 2). Mood uses four dials only:
+- the **grade** (colour and light) of the painted layer;
+- the **vignette** (darkened screen edges);
+- one **frame accent**: the title-bar corner fittings, lit, plain or dulled;
+- **motion** in the art.
+
+| State | Emotional target | Lighting of the painted layer | Descriptors | Energy | Carries the mood |
+|---|---|---|---|---|---|
+| Map, far (paper) | Calm command: the whole board to plan | No grade; flat even daylight, low contrast | cartographic, unhurried, legible | Low | Dashed ink borders, calligraphic names |
+| Map, near (painted) | Standing somewhere real | Golden hour, warm raking light, long shadows; **season grade** (proposal, user 2026-11-22): Xuân fresh, Hạ bright, Thu amber, Đông cool grey | lived-in, misty, specific | Low–medium | Drifting mist, the season's light |
+| Event card / outcome | Weighing a choice, then the consequence | Dims about 30 % and desaturates; a warm pool of light on the card; one lift as the outcome lands | hushed, deliberate, decisive | Medium-low, one beat | The cinnabar seal on the chosen line |
+| Season summary | Taking stock of time spent | Dusk: cooler, lower, longer shadows | reflective, ledger-like, weighty | Low | Age advancing; the season stamp |
+| Fight replay | Scrutiny: why it went this way | No painted layer. Dark wood board, lamp-warm parchment columns, highest UI contrast | taut, forensic, lamp-lit | High, controlled | Only art tiles, bars and damage numbers are saturated; brass playhead; accent lit |
+| Breakthrough (đột phá) | Held breath, then release | Pre-dawn lifting to dawn; the player's root (linh căn) hues bloom at the vignette edge | rising, luminous, inward | Builds to one peak | Root-hue bloom; accent lit |
+| Heavenly tribulation (Thiên Kiếp) | Dread and defiance | Storm grade: cold, near-black sky, very high contrast; Thunder-violet strikes, at most 3 flashes per second | ominous, violent, sublime | Maximum | Each strike lights the land; strikes left printed |
+| Travel | Passage; time has a cost | Clear morning, mild warmth | open, patient | Medium-low | Ink route drawn dash by dash; seasons spent printed |
+| Cave abode (động phủ) | Safety, ownership | Lamplight, warm, enclosed, heavy vignette (its own view, or a lamp vignette over the map if it stays a window) | sheltered, private, earthy | Low | Gathering-qi array (Tụ Linh) glow in the player's root hues |
+| Death, end of a life | Grief, then the world goes on | Drains to ink-wash grey; vignette closes | still, solemn, final | Stillness | Build tiles lose colour last; cinnabar seal on the life record; accent dulled |
+| Main menu / new life | Invitation | Pre-dawn, unlit; warms as an origin is chosen | expectant, familiar | Low | The same continent, rolled out again |
+
+**Distinctness.** States split on two axes. Temperature: warm for the near map, event, abode and travel; cool for the
+summary, tribulation and death. Energy: from the low planning states up to the tribulation. No two neighbouring states
+share both their grade and their vignette.
+
+**Proposals to check.** The season grade, the breakthrough bloom and the tribulation strikes need a technical-artist
+feasibility check and the flash test (`design/accessibility-requirements.md`: at most 3 flashes per second). With
+reduced motion on, mist and bloom are still images and strikes become one slow brightening.
 
 ## 3. Shape Language
 
-[To be designed] — character silhouette philosophy (readable at thumbnail
-size, one distinguishing trait per archetype), environment geometry, UI shape
-grammar, and hero versus supporting shapes.
+> Approved 2026-11-22 (drafted by art-director).
+
+**Shape names the kind; colour names the element.** Anything that can be slotted, cast or opened has one fixed outline,
+so the player knows its kind before reading a word. That leaves colour free for the build (Principle 3, Pillar 1).
+Shapes still work for colourblind players, so shape carries the meaning and colour only reinforces it.
+
+| Shape | Means | Second feature (when the shape is shared) |
+|---|---|---|
+| Square, sharp corners, dark frame | An art; a technique manual | Element colour field (7.2) |
+| Chamfered square, double line | A ward | Symmetric subject (7.3) |
+| Square, rounded corners | An item or treasure | Rim in its rarity colour (Section 4) |
+| Small circle with a halo | Buff, counter, stance (soft halo); debuff, status (jagged or dashed halo) | Halo outline and ↑↓ pip (7.4) |
+| Circle in a bronze ring | A Dao mark (đạo văn) node | Đạo Đồ screen only (7.9) |
+| Dark disc with a glyph | Something you can act on at a place: a person, a sect hall, a market | Map only; badge for a count |
+| Diamond | A fixed named place | Map only (replaces the greybox's dots) |
+| Parchment rectangle | Something to read: window, tooltip, log | Corner brackets |
+| Wood rectangle, brass rim | Something to press: tab, button | Selected = lit brass rim |
+
+**Frames and lattice.** Carved meander lattice (hồi văn) and brass corner fittings sit only at corners and title bars,
+never under text (Principle 1). Ornament steps down by rank: windows get full fittings, tooltips small brackets, and
+each nested tooltip has less ornament than its parent, so a stack reads as depth. A locked tooltip shows its pin.
+
+**Characters.** Portraits are bust-length, three-quarter view, in the square portrait frame. Each archetype has **one**
+trait that reads at thumbnail size:
+- sect disciple: robe cut and collar;
+- loose cultivator (tán tu): travel cloak and hat;
+- mortal: work clothes and no implement;
+- demonic beast: a non-human outline.
+
+Realm is **never** drawn as size, glow or ornament. A strong cultivator does not look grander; the realm is printed
+(Pillar 3, Principle 1). On the map, people are discs, not painted figures, because they move each season and changes
+arrive as overlays (Principle 2).
+
+**Environment geometry.** Terrain follows real geography: irregular coasts, branching ridges and rivers that drain,
+with no symmetric or themed shapes.
+- **Villages and towns:** low horizontal clusters of grey-tile roofs, towns inside rectangular walls. Footprint shows
+  size.
+- **Sect seats (tông môn):** vertical. Stacked pagoda roofs and terraces climb a slope, and each is the tallest outline
+  in its land.
+- **Ruins:** broken verticals.
+- **Blessed lands:** a natural feature leads (a spring, peak or grove), with no roofline on top.
+
+Each place keeps its own outline (Principle 2, Pillar 5).
+
+**Hero and support.** Heroes are the cultivator's tiles, bars and name, and the sect seats on the map: hard edges, the
+most value contrast, saturated colour. Support is frames, lattice, terrain and villages: repeated, soft-edged, low
+contrast. Each panel has one hero.
 
 ## 4. Color System
 
-[To be designed] — a primary palette of 5–7 colours with their meaning in this
-world, semantic colour usage, per-area colour temperature rules, the UI palette
-and where it diverges, and colourblind safety: which semantic colours need a
-shape, icon or sound backup.
+> Approved 2026-11-22 (drafted by art-director). User decisions the same day: cinnabar for commit buttons only; the
+> rarity ladder as proposed; the ward shield keeps its blue and is told apart by hatching. Wood, brass and parchment
+> hex values are picked by eye from the mock-ups, and every contrast ratio below is worked out by hand: measure them on
+> real screenshots before the theme ships (`design/accessibility-requirements.md`).
+
+**Primary palette**
+
+| Name | Hex | Meaning |
+|---|---|---|
+| Rosewood | #2A1A12 | The table: every frame and the fight board |
+| Brass | #C9A25A | Fittings, rims, headings on wood; lines only, never a bar fill |
+| Parchment | #E3D4AE | The surface you read |
+| Iron-gall ink | #2B2118 | All printed text and numbers on parchment |
+| Cinnabar | #84191B | The seal: committing (End turn, an event choice) and terms (always underlined) |
+| Map sea | #5E86A6 | The paper map's water: world, never UI |
+| Golden hour | #E2A24A | The light of the painted relief: light, never a UI fill |
+
+**Semantic colours** (on wood / on parchment)
+
+| Use | Colour | Why |
+|---|---|---|
+| Player, friend | #A8D0FF / #284177 | Cool = you; blue against orange is the safest pair for colourblind players |
+| Foe, hostile | #FFB890 / #7A300C | Warm = the other side |
+| Health / linh lực (spiritual power) | #C04040 / #4A8CE6 (kept) | Blood and qi |
+| Body shield | #B08A5A (kept) | Hardened flesh; brass is never a bar fill, so the two cannot be confused |
+| Ward shield | #7AB8D8, hatched, chamfered end cap (kept) | Close to linh lực blue, so shape tells them apart (user decision) |
+| Good / bad for you (buff, heal, gain / debuff, danger, loss) | #5BD66B / #E5384F (kept, 7.4) | One polarity pair. On parchment these are halos and ▲▼ marks only; the numbers stay in ink |
+| Time running out | Amber #E0A040 / #6E4600 | Lifespan warning, as `design/ux/hud.md` requires; always with the hourglass |
+| Elements, damage types | 7.5 (kept) | One colour means one thing everywhere |
+| Rarity | Phàm ink #2B2118, Hạ jade #14523B, Trung lapis #1F4580, Thượng amethyst #5E2A84, Cực gilt #5E4316, Thánh wine #7A1030 | Item names and item rims only (`design/gdd/item-database.md` ranks); the rarity word always shows, item names regular weight (people's names are bold) |
+| Sect and region fills | Low chroma, below every element colour | Quiet table (Principle 3) |
+
+**Commit buttons.** End turn and the chosen line of an event card are cinnabar buttons with bone text (#E8D9B5, 7.0:1);
+every other tab and button is wood with a brass rim, the selected one with a lit rim (user, 2026-11-22; amends
+Principle 3's test).
+
+**Colour temperature by layer.**
+- **Paper map:** neutral-warm and low chroma.
+- **Painted terrain:** warm golden hour; it is the only layer that takes state and season grades (Section 2).
+- **Panels:** fixed and never graded.
+- **Fight board:** warmth comes only from the lamp-lit parchment; cool comes only from the player's side and the
+  elements.
+
+**UI palette.** The UI uses wood, brass, parchment, ink and cinnabar. The world never uses brass or cinnabar, and the UI
+never uses greens or sea blues (apart from the semantic colours above).
+
+**Contrast** (base colour / texture limit; text sits on parchment no darker than #D8C7A0, or on wood no lighter than
+#40291B). Body text needs 4.5:1, non-text 3:1.
+
+| Pair | Ratio |
+|---|---|
+| Ink on parchment | 10.0 / 9.4 |
+| Player, foe, cinnabar and gilt text on parchment | 5.8–6.3 / 5.5–6.0 |
+| Bone #E8D9B5 on wood | 12.0 / 9.7 |
+| Brass on wood | 7.0 / 5.7 |
+| Player and foe on wood | 10.0–10.5 / 8.0 |
+| Terms on wood: light cinnabar #E88A78 | 6.7 / 5.4 |
+| Bone on a cinnabar button | 7.0 |
+| Brass on parchment | 1.5: **banned**; use gilt #5E4316 |
+| Cinnabar on wood | 1.9: **banned**; use #E88A78 |
+
+**Colourblind pairs that fail, and their backups**
+
+| Pair | Backup |
+|---|---|
+| Health red / buff-heal green | Heals are "+" and rise; buffs sit in their own row with a round halo |
+| Buff / debuff | Rows, halo outline, pip, tooltip word (7.4) |
+| Gain / loss, danger | ▲▼ marks and +/− signs; danger adds a triangle glyph |
+| Ward / linh lực | Hatching and end cap; linh lực has its own labelled bar |
+| Thunder / Chaos / Darkness; Ice / Wind / Soul / Metal / Light; Fire / Earth / physical | Element and damage-type glyph beside every number and tile |
+| Amber lifespan / brass | Hourglass icon |
+| Rarity, relation colours | The rarity word; bold for people, regular for items |
+| Player / foe | Passes, but also left/right side and "(You)" |
+
+**To settle when the theme is built.** Body shield #B08A5A almost equals the Đạo Đồ bronze #B08D57 (different
+screens); parchment amber #6E4600 sits near gilt #5E4316 (the hourglass separates them); the red-green swap palette
+(accessibility requirements) must avoid the player and foe values above. Cinnabar moves to #84191B from earlier
+drafts, and the darker on-parchment player and foe colours are new.
 
 ## 5. Character Design Direction
 
@@ -49,20 +239,24 @@ area type, and environmental storytelling guidelines.
 
 ## 7. UI/HUD Visual Direction
 
-> Scope of this pass (2026-11-12): **iconography** for the fight screen (`design/ux/fight-screen.md`). Drafted by
-> art-director with a ux-designer alignment check; conflicts decided by the user. Typography and the rest of the HUD
-> stay open.
+> Scope: 7.1–7.9 are the **iconography** pass (2026-11-12, art-director with a ux-designer check; conflicts decided by
+> the user). 7.10–7.16 are the **UI furniture** pass (approved 2026-11-22: panels, type, controls, top bar, map labels,
+> motion, and the UX view), following Section 1's Rosewood Campaign Table.
 
 **Direction (user, 2026-11-12).** Art and ward icons follow the *style* of Path of Exile 2 skill icons (dark square
 tile, one dominant hue as a radial glow, one bright subject, rim light, sparks and motion arcs), never any of its icons.
 Buff and debuff icons are very simple element glyphs: green for buffs, red for debuffs.
 
-### 7.1 Dark tiles on ink-wash paper
+### 7.1 Dark tiles on parchment
 
-The UI is rice paper with printed numbers; icons are the one place the player sees *a thing* rather than a number, so
-they are glowing painted tiles set into the paper, like lacquered ink-stones inlaid in a page: a square filled with one
-element hue (7.2), a thin dark frame, a 1 px warm-ink contact shadow and no outer glow. The glow never leaves the tile. This keeps the
-anchor. *The world is brushed, the math is printed*: subjects are brush-weight silhouettes, while every number
+(Renamed 2026-11-22 from "Dark tiles on ink-wash paper": Section 1 replaced the ink-wash UI with parchment in a
+rosewood frame; the tile rules below are unchanged.)
+
+The UI is parchment in a rosewood frame with printed numbers; icons are the one place the player sees *a thing* rather
+than a number, so they are glowing painted tiles set into the parchment, like lacquered ink-stones inlaid in a page: a
+square filled with one element hue (7.2), a thin dark frame, a 1 px warm-ink contact shadow and no outer glow. The glow
+never leaves the tile. This keeps Section 1's rule (*the numbers are printed*): subjects are brush-weight silhouettes,
+while every number
 (cooldown, stack count, charges) is printed in-engine around the tile or on a flat badge, never baked into the art.
 *Glyphs, not paintings* is **revised for icons** (user decision 2026-11-12, after the first vector set was judged too
 weak): art, technique, ward and status icons are **painted images made with an image-generation model** and picked by
@@ -158,7 +352,9 @@ the same table, so one colour means one thing everywhere.
 
 ### 7.6 Badge typography and placement
 
-Badges use the ledger typeface, tabular numerals, regular weight, 9 px minimum at 1x, on a flat near-black plate
+Badges use Literata (7.11), tabular numerals, regular weight, **11 px minimum at 1x** (raised from 9 px, user
+2026-11-22: badges are glyph-like and every value is repeated in the tooltip, so they are exempt from 7.11's 14 px
+floor), on a flat near-black plate
 (#0B0D10 at 85 %, 1 px #1E2227 border, text #F4F1E8), drawn in-engine. **Fixed corners on both sides** (user decision;
 the foe column mirrors tile order, not badge positions): top-right ⚡ empowered, bottom-right charges, bottom-left step
 (pips when three badges show), top-left reserved for state (low linh lực, "?" for an ambush unknown). Badges cover at
@@ -273,6 +469,101 @@ tree. The test batch (12 icons, 6 frames) is the look check before the full run.
 - Open: frame finish (the test frames are flat vector placeholders; a painted or ornate set may replace them),
   backgrounds per land, connector line and arc art.
 
+### 7.10 Panels and frames (UI furniture, 2026-11-22)
+
+The HUD is screen-space, not diegetic, styled as campaign-table furniture (Section 1). **One furniture family on every
+screen**: hardwood frames and parchment bodies, over the map as well (user, 2026-11-22; `map-near-m.png`'s dark
+gold-trim panels are a terrain reference only).
+- **Window:** a rosewood frame; carved lattice (hồi văn) in the title bar and the corners only; brass corner fittings
+  with rivets; a parchment body.
+- **Tooltip:** a parchment card with a thin dark-wood edge and small brass corner brackets. Each nested level has one
+  step less ornament than its parent (Section 3); a locked tooltip shows its brass pin.
+- **Frame budget:** side edges **8 px** at 1280×720 (12 px at 150 % UI scale; raised from 6 px by the user on
+  2026-11-22 after the theme sheet, `production/qa/evidence/theme/`); lattice only in title bars and corners, so the
+  fight screen keeps its room.
+- **Titles:** the title bar is decorative; a window's title is the first heading on its parchment body (user,
+  2026-11-22), as in the picked mock-up's log panel.
+- **Depth:** one soft drop shadow under floating cards; nothing glows outside its frame.
+- **Texture:** parchment never darker than #D8C7A0 under text, wood never lighter than #40291B (Section 4).
+- **Build:** frames and textures are nine-slice pieces (stretchable centre and edges, fixed corners) so they scale with
+  the UI without blurring the corners.
+
+### 7.11 Typography
+
+Checked in Godot 4.7.1 on 2026-11-22 (`tools/asset-pipeline/ui/font_check.gd`): all three files (Literata upright and
+italic, Cormorant Garamond; variable fonts from Google Fonts, OFL, in `assets/fonts/`) have all 146 Vietnamese letters
+(every vowel with every tone, upper and lower case, đ Đ), and with the `tnum` OpenType feature on (a `FontVariation`)
+all ten digits have one width. Default digits are proportional, so numbers must use the `tnum` variation. Still to
+check on screen: hinting and legibility at 14 and 16 px.
+
+| Role | Face | Rule |
+|---|---|---|
+| Headings, names, window titles | Cormorant Garamond SemiBold | 20 px and above only (its hairlines break up smaller) |
+| Labels, body text, log, tooltips | Literata | A serif drawn for screens; the default face |
+| Numbers | Literata, tabular lining figures | Columns and resource boxes line up; numbers never shift a layout |
+| Region names (zoomed-out map) | A calligraphy-style display face, engine-drawn | See 7.14 |
+
+Size steps 14 / 16 / 18 / 22 / 28 px; floors 16 px for body and 14 px for small text (`design/ux/fight-screen.md`
+AC 15). Exempt: icon badges, 11 px minimum (7.6). Ink on parchment, bone (#E8D9B5) on wood, brass for headings on wood only (never brass on parchment,
+Section 4).
+
+### 7.12 Controls and states
+
+| Control | Look | States |
+|---|---|---|
+| Tab, button | Wood plaque, brass rim | Hover: rim brightens. Pressed: 1 px lower, darker. Selected: lit rim and a small brass notch. Disabled: dimmed, no rim, and its hover always says why |
+| Commit button (End turn, an event choice) | Cinnabar with bone text (Section 4) | As above |
+| Focus ring | Double ring: bone outside, ink inside | The same on wood and parchment; keyboard and gamepad |
+| Bar | Recessed brass trough, flat colour fill, numbers printed inside | Ward shields and the reserved share of linh lực hatched |
+| Slot | Dark recessed square | Empty: dashed brass line |
+| Log line | Ink on parchment; side colours in their on-parchment values | Selected: a darker band and a small cinnabar seal at its start, plus the focus ring when focused |
+
+### 7.13 Top bar and resource boxes
+
+Taken from grand-strategy top bars (user, 2026-11-22): each resource has its own box.
+- A small wood plaque: the resource's painted icon, its printed tabular number, and a ▲ / ▼ mark with a sign for this
+  season's change (never colour alone).
+- Fixed width per box, so a changing number never shifts the bar.
+- Hover opens the breakdown tooltip (income and costs); a click opens the window the resource belongs to.
+- Contextual boxes appear only when they apply (sect contribution only in a sect).
+- *Which* resources get a box is a `design/ux/hud.md` change (Z1 Top bar, Group 2), queued in
+  `production/plans/ui-greybox-build.md`; candidates: linh thạch, lifespan left (thọ nguyên), sect contribution (cống
+  hiến), reputation, unspent Đạo Đồ points.
+
+### 7.14 Map labels and markers
+
+- **Zoomed in:** place names in Literata on a dark, see-through label backing, beside the diamond place marker
+  (Section 3). Things to do at a place are dark discs with a brass rim and a glyph; counts are a small badge.
+- **Zoomed out:** region names in a calligraphy-style display face, **drawn by the engine, not painted into the map**
+  (user, 2026-11-22): sharp at every zoom and UI scale, translatable, and readable by screen readers. Place marks are
+  small cinnabar diamonds (Section 3's place shape, in the seal colour).
+- Borders, control and other world-state changes are overlays (Principle 2).
+
+### 7.15 UI motion
+
+The furniture is heavy: nothing bounces, springs or slides across the map.
+- Panels fade in over about 120 ms and settle 2 px; they close faster than they open.
+- The brass hover light takes about 80 ms; tooltips fade in within 60 ms (their lock timer is ADR-0005's).
+- Numbers tick to their new value; a loss gives one brief flash.
+- Every animation goes through the reduced-motion setting (instant changes, no tick, no flash), and flashes stay
+  within `design/accessibility-requirements.md` (at most 3 per second).
+
+### 7.16 UX view (checked against `design/accessibility-requirements.md` and the UX specs)
+
+- **Interaction fit:** the furniture suits long reading (parchment windows, nested tooltips) and the fight replay (a
+  dark board where only tiles, bars and numbers are saturated). The frame budget (7.10) protects the fight screen at
+  1280×720.
+- **Readability:** the most important things (bars, tiles, numbers) have the strongest contrast; ornament never sits
+  under text; a grown build stays the loudest element (Principle 3).
+- **Accessibility floor:** the size floors hold (7.11); every colour pair has its backup cue (Section 4); the double
+  focus ring passes 3:1 on both surfaces; disabled states never rely on dimming alone; nine-slice frames keep the
+  corners sharp at 150 %.
+- **Conflict decided by the user (2026-11-22):** the art view wanted the zoomed-out region names painted into the map
+  (closest to the mock-up); the UX view wanted them engine-drawn (sharp, translatable, accessible). **Engine-drawn.**
+- **To verify on the built theme:** measured contrast on real screenshots (Section 4's ratios are hand-worked);
+  Vietnamese coverage and tabular figures of both faces (7.11); no clipping at 1280×720 and 150 % with the frame
+  budget.
+
 ## 8. Asset Standards
 
 > Scope of this pass (2026-11-12): **icons** (arts, wards, buff and debuff chips). Drafted by art-director and
@@ -348,6 +639,46 @@ silhouettes overlap too closely. It writes a contact sheet at 50 px and 40 px, i
    as a style reference or input (the style reference is our own approved icons only).
 10. **Technical**: the validation script passes and no banding shows on the near-black ground.
 11. **Evidence**: a screenshot of the icons in fight-screen slots at 1× and 2× is kept in `production/qa/evidence/`.
+
+### 8.7 UI furniture assets (approved 2026-11-22)
+
+**Art view.** A small kit of textures; every state (hover, pressed, selected, disabled, focus) is drawn in the engine,
+never baked (7.7, 7.12).
+
+| Piece | Made as | Export (2× UI scale) |
+|---|---|---|
+| Window frame: rosewood corner with the lattice title-bar end, plus edge strips | Image model, one frame texture with nine-slice margins (`assets/ui/kit.json`) | 655 × 452 at 2× (8 px side border at 1×); a `_1x` copy for the theme |
+| Title-bar lattice band | Image model, horizontally tileable | 64 px tall |
+| Brass corner fitting (one, mirrored in the engine) | Image model | 48 × 48 |
+| Parchment texture, rosewood texture | Seamless, procedural (loom), inside Section 4's limits (parchment #D8C7A0–#E3D4AE, wood #2A1A12–#40291B) | 512 × 512 each |
+| Tab / button plaque (wood, brass rim); cinnabar commit plaque | Image model, nine-slice, 12 px margins | 96 × 48 |
+| Tooltip corner bracket | Image model | 24 × 24 |
+| Bar trough (recessed brass) | Image model, nine-slice | 128 × 32 |
+| Slots, focus ring, hover, pressed and disabled states | Drawn in the engine | — |
+| Resource icons (top bar, 7.13) | The status-icon pipeline (8.1) | 48 × 48, shown at 24 px |
+| Fonts: Cormorant Garamond SemiBold; Literata regular, semibold, italic | OFL font files, licence text beside them | — |
+
+- **Masters:** the image-model output is the master, kept with its prompt, model and seed in
+  `tools/asset-pipeline/ui/`; a script cuts and exports the pieces, so the kit can be regenerated.
+- **Naming:** `assets/ui/frames/frame_window_corner.png`, `assets/ui/textures/tex_parchment.png`,
+  `assets/ui/plaques/plaque_wood.png`, `plaque_cinnabar.png`, `assets/ui/brass/brass_corner.png`,
+  `assets/ui/bars/bar_trough.png`, `assets/fonts/<family>/`.
+- **No baked text or state glow.** Map textures and place art get their standards with the map test (Section 1,
+  Principle 2; Sections 5 and 6 owed).
+
+**Technical view.**
+- **Engine:** one Godot `Theme`; `StyleBoxTexture` panels with nine-slice margins, tiled edge and lattice strips,
+  `NinePatchRect` for decorative frames. **Unverified**: `docs/engine-reference/godot/` does not cover these or font
+  import; one test import confirms them before the full kit is cut.
+- **Import:** the icon preset (8.2: lossless, mipmaps off, linear); tiling textures need texture repeat on
+  (unverified).
+- **Memory:** about 1 MiB per 512² RGBA texture; the kit stays under **8 MiB** (proposed: `project.yaml` has no
+  texture-memory budget).
+- **Draw calls:** about one per panel plus tiled edges; no draw-call budget is set, and the fight screen's ~60 controls
+  are far from threatening 60 fps (16.6 ms).
+- **Fonts:** dynamic TTF/OTF; the dynamic-font importer's hinting default changed in 4.x (`breaking-changes.md`), so
+  import settings are checked on screen at 14 and 16 px.
+- **Conflicts between the views:** none found.
 
 ## 9. Reference Direction
 

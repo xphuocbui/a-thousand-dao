@@ -131,6 +131,18 @@ Character sheet (a text panel today), inventory, sect screen, Đạo Đồ in-ga
 diagram editor, season summary polish, notification settings, outliner, map modes beyond terrain, game menu and
 settings (rebinding). Specs needed first for most: run `/ux-design <screen>`.
 
+## Style decided (2026-11-22): build in the art bible's Rosewood Campaign Table
+Greybox stopped (user, 2026-11-22). `design/art/art-bible.md` Sections 1-4 and 7.10-7.16 define the look; mock-ups in
+`prototypes/ui-mood/`. Next: theme assets (nine-slice frames, textures, tab and button states, fonts), one Godot theme,
+the fight screen as the style slice (remove per-node colour and font-size overrides), then the other screens; map art
+after a one-region test (engine-built vs AI-painted tiles) with a province drawing layer.
+
+**Queued HUD spec change** (`design/ux/hud.md` Z1 Top bar, Group 2; user idea 2026-11-22, Paradox-style resource
+boxes; art in art bible 7.13): one box per resource with icon, tabular number and a signed ▲/▼ season change; hover a
+breakdown, click the resource's window; contextual boxes only when they apply. Candidates: linh thạch, lifespan left
+(moves up from the character box), sect contribution (in a sect), reputation, unspent Đạo Đồ points. Needs the user's
+pick of boxes, then a `/ux-design` revision of hud.md and its review.
+
 ## Pattern-library v2 follow-ups owed to existing screens
 - Person window verbs: levers that would flip a refusal, decline consequences (when the verb epic exists).
 - HUD alert row: warning / opportunity groups, "mute this kind".

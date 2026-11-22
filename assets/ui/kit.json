@@ -1,0 +1,84 @@
+{
+ "_doc": "Theme kit (art bible 8.7), cut by tools/asset-pipeline/ui/cut_kit.py. Sizes and margins in export pixels (2x UI scale); margins are the nine-slice texture margins (left, top, right, bottom).",
+ "pieces": {
+  "frame_window": {
+   "file": "frames/frame_window.png",
+   "border_1x": 8.0,
+   "size": [
+    655,
+    452
+   ],
+   "margins": [
+    188,
+    55,
+    189,
+    14
+   ],
+   "source_margins": [
+    364,
+    106,
+    367,
+    28
+   ],
+   "scale": 0.5161
+  },
+  "plaque_wood": {
+   "file": "plaques/plaque_wood.png",
+   "size": [
+    96,
+    49
+   ],
+   "margins": [
+    12,
+    12,
+    12,
+    12
+   ]
+  },
+  "plaque_cinnabar": {
+   "file": "plaques/plaque_cinnabar.png",
+   "size": [
+    96,
+    49
+   ],
+   "margins": [
+    12,
+    12,
+    12,
+    12
+   ]
+  },
+  "bar_trough": {
+   "file": "bars/bar_trough.png",
+   "size": [
+    256,
+    27
+   ],
+   "margins": [
+    8,
+    8,
+    8,
+    8
+   ]
+  },
+  "card_tooltip": {
+   "file": "frames/card_tooltip.png",
+   "size": [
+    212,
+    123
+   ],
+   "margins": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "edge": [
+    8,
+    9,
+    10,
+    8
+   ]
+  }
+ }
+}

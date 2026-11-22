@@ -1,0 +1,23 @@
+{
+ "created": 1795384326,
+ "background": "opaque",
+ "output_format": "png",
+ "quality": "medium",
+ "safety_identifier": null,
+ "size": "1536x1024",
+ "usage": {
+  "input_tokens": 1580,
+  "input_tokens_details": {
+   "image_tokens": 1296,
+   "text_tokens": 284
+  },
+  "output_tokens": 1372,
+  "output_tokens_details": {
+   "image_tokens": 1372,
+   "text_tokens": 0
+  },
+  "total_tokens": 2952
+ },
+ "model": "gpt-image-2",
+ "prompt": "Using the exact art style, materials, lighting and colours of the attached game UI mockup (carved dark rosewood frames, geometric window-lattice carving, brass corner fittings with small rivets, aged parchment insets), paint game UI ASSETS for that interface, not a screen.\n\nRules for every asset: seen perfectly flat and straight-on, no perspective, perfectly straight edges and right angles, mirror-symmetric left to right; evenly lit from the top left; no text, no letters, no numbers, no icons, no symbols, no logo, no watermark; no drop shadow cast onto the background. The background is one flat, pure chroma-key green (#00FF00) everywhere around the assets, with clear empty space between assets and around the canvas edge.\n\nThe assets:\n\nTwo assets side by side. Left: (1) one empty tooltip card, about 45 % of the canvas width, three units wide by two high: a plain aged-parchment centre, a thin dark-wood edge all round, and four small identical L-shaped brass corner brackets, mirror images of each other. Right: (2) one single large brass corner fitting shown alone, about 25 % of the canvas width: an L-shaped brass bracket with a small cloud-scroll flourish at its outer corner and two rivets, as fitted to the top-left corner of a window."
+}
