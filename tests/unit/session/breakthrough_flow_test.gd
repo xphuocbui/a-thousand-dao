@@ -199,9 +199,49 @@ func test_the_plant_plan_fills_recipes_in_order_ac66() -> void:
 	assert_eq(Advisor.next_plant(s, recipe, 1), "hoa_linh_chi", "then its companion")
 	var c: Dictionary = s.items.herb("hoa_linh_chi", 0.0)
 	c["owner_id"] = s.player.id
+	c["plot"] = 0   # a planted seedling counts at its value when ripe (10 >= Fire 11? no: see below)
 	s.db.add("items", c)
-	assert_eq(Advisor.next_plant(s, recipe, 1), "", "one recipe covered")
+	var c2: Dictionary = s.items.herb("hoa_linh_chi", 0.0)
+	c2["owner_id"] = s.player.id
+	c2["plot"] = 1
+	s.db.add("items", c2)
+	assert_eq(Advisor.next_plant(s, recipe, 1), "", "one recipe covered: two seedlings ripen to 20 >= Fire 11")
 	assert_eq(Advisor.next_plant(s, recipe, 2), "hoang_tinh_sam", "the next brew starts")
+
+
+func _give_herb(s: GameSession, herb_id: String, age: float) -> void:
+	var h: Dictionary = s.items.herb(herb_id, age)
+	h["owner_id"] = s.player.id
+	s.db.add("items", h)
+
+
+func test_a_harvested_herb_covers_an_element_value_only_by_its_value() -> void:
+	# Arrange: Ngưng Nguyên Đan needs 2 Kim Tủy Quả and Fire >= 41; the main herbs are held.
+	var s := _session()
+	var recipe: Dictionary = s.gd.recipe("ngung_nguyen_dan")
+	for i in 2:
+		_give_herb(s, "kim_tuy_qua", 0.0)
+	# Act / Assert: one mature Hỏa Linh Chi in the bag is worth 10 and does not age there.
+	_give_herb(s, "hoa_linh_chi", 5.0)
+	assert_eq(Advisor.next_plant(s, recipe, 1), "hoa_linh_chi", "10 of Fire 41: plant more")
+	for i in 3:
+		_give_herb(s, "hoa_linh_chi", 5.0)
+	assert_eq(Advisor.next_plant(s, recipe, 1), "hoa_linh_chi", "40 of 41: one more")
+	_give_herb(s, "hoa_linh_chi", 5.0)
+	assert_eq(Advisor.next_plant(s, recipe, 1), "", "50 >= 41: covered")
+
+
+func test_the_element_status_is_not_ready_while_its_value_is_short() -> void:
+	# Arrange: four mature Hỏa Linh Chi held (40) against Fire >= 41.
+	var s := _session()
+	for i in 4:
+		_give_herb(s, "hoa_linh_chi", 5.0)
+	var ing := {"element": "hoa", "value": 41}
+	# Act
+	var st: Dictionary = Advisor.ingredient_status(s, s.player, s.sheet(), ing)
+	# Assert
+	assert_false(bool(st.ready), "40 of 41 is not ready: %s" % str(st.text))
+	assert_false(str(st.text).contains("✓"), "no tick while short: %s" % str(st.text))
 
 
 func test_a_300_level_save_is_refused_ac57() -> void:
