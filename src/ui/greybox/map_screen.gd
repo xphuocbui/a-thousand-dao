@@ -8,12 +8,11 @@ extends Control
 ## Launch (windowed, by scene path; run/main_scene stays unset):
 ##   Godot_v4.7.1-stable_win64.exe --path . --windowed --resolution 1280x720 res://src/ui/greybox/map_screen.tscn
 ##       [-- --seed N] [--demo --shot-dir res://production/qa/evidence/hud-greybox]
+## [--ratings-off] switches Power Rankings' fights off for the run (the demo uses it).
 ## --demo plays a fixed script (sheet, seasons, events, a journey, region zoom and bubbles) and saves a screenshot at each step to
 ## --shot-dir, then quits: the run-and-observe evidence (.claude/docs/run-and-observe.md).
 ##
-## Greybox limits (stated on screen): the LLM is off, and Power Rankings' rating fights are switched off in memory for
-## this run, because End turn would otherwise wait for the season's rating batch until the one-season-late rule
-## (power-rankings.md rule 13, 2026-11-22) is coded.
+## Greybox limits (stated on screen): the LLM is off.
 
 const UI_FILE := "ui_hud"
 
@@ -46,27 +45,109 @@ var _turn_note := Label.new()
 var _sheet_button := Button.new()
 var _portrait := Button.new()
 var _panel := TextPanel.new()
+var _places := PlacesPanel.new()
+var _places_button: Button = null
+var _tips := TooltipLayer.new()
 var _centre := CentreWindow.new()
 var _dim := ColorRect.new()
 var _summary_pending_event: bool = false
 var _shots: int = 0
+## The UI scale setting in percent (design/ux/hud.md Scaling rule; 75-150 %). The settings menu is not in the greybox, so
+## --ui-scale=N sets it for the run.
+var _ui_scale_pct: int = 100
+var _scaling := false
+var _world_start_msec: int = 0
 
 
 func _ready() -> void:
 	_args = OS.get_cmdline_user_args()
+	_ui_scale_pct = int(_arg_value("--ui-scale", "100"))
+	_apply_scale()
+	get_window().size_changed.connect(_apply_scale)
 	_build_layout()
 	_show_loading(tr("Generating the world…"))
 	gd = GameData.load_from("res://assets/data")
 	_cfg = gd.file(UI_FILE)
-	# Greybox only: no rating batch to wait for until power-rankings.md rule 13 (one season late) is coded.
-	var rankings: Dictionary = gd.file("combat_rankings")
-	if rankings.has("enabled"):
-		rankings["enabled"] = false
+	_tips.configure(_cfg.get("tooltips", {}))
+	_tips.chain.resolve = func(key: String) -> Dictionary: return TooltipLayer.term_content(gd.file("ui_terms").get("terms", {}), key)
+	# Power Rankings runs (rule 13 one season late and worker processes, 2026-11-22); --ratings-off switches its fights
+	# off for this run (the demo presses through seasons with no pause, which would wait for every batch).
+	if _args.has("--ratings-off"):
+		var rankings: Dictionary = gd.file("combat_rankings")
+		if rankings.has("enabled"):
+			rankings["enabled"] = false
 	var seed_v: int = int(_arg_value("--seed", str(_greybox().get("seed", 7))))
 	_job_kind = "new_game"
+	_world_start_msec = Time.get_ticks_msec()
 	_job.start(_new_game.bind(seed_v))
 	if _args.has("--demo"):
 		_run_demo.call_deferred()
+
+
+## Applies the scaling rule (UiScale) to the window: a smaller window gives less room, never smaller text, and the
+## layout area never drops below 1280×720. Runs at start and on every resize; the saved setting is kept.
+func _apply_scale() -> void:
+	if _scaling:
+		return   # setting the content scale raises size_changed again
+	_scaling = true
+	var win: Window = get_window()
+	if win.min_size != Vector2i(UiScale.MIN_W, UiScale.MIN_H):
+		win.min_size = Vector2i(UiScale.MIN_W, UiScale.MIN_H)
+	if win.content_scale_mode != Window.CONTENT_SCALE_MODE_CANVAS_ITEMS:
+		win.content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
+	if win.content_scale_aspect != Window.CONTENT_SCALE_ASPECT_EXPAND:
+		win.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_EXPAND
+	# Measured 2026-11-22: a zero base size makes Godot stretch from the project's default 1152x648, so the base is the
+	# window's own size (no stretch) and only the content scale factor applies: layout area = window / factor.
+	if win.content_scale_size != win.size:
+		win.content_scale_size = win.size
+	var f: float = UiScale.factor(_ui_scale_pct, win.size.x, win.size.y)
+	if not is_equal_approx(win.content_scale_factor, f):
+		win.content_scale_factor = f
+	_scaling = false
+
+
+## --shot-and-quit=<path>: closes the first summary, saves one frame of the map screen and quits, printing the window
+## size, the layout size and the content scale (the scaling rule's on-screen check).
+func _shot_and_quit(path: String) -> void:
+	_centre.hide_window()
+	_on_centre_closed()
+	if _arg_value("--zoom", "") == "region":
+		_toggle_zoom()
+	# --turns=N: ends N seasons first (answering events with the first affordable option), printing each End turn wait,
+	# so the default path (rating fights on) can be timed; --quit-in-turn quits while the last season is resolving.
+	var turns: int = int(_arg_value("--turns", "0"))
+	for t in turns:
+		await _demo_answer_events(ProjectSettings.globalize_path("user://"), "turns")
+		await _demo_wait_cooldown()
+		var t0: int = Time.get_ticks_msec()
+		_try_end_turn()
+		if t == turns - 1 and _args.has("--quit-in-turn"):
+			await _frames(30)
+			print("TURN %d quitting while it resolves" % (t + 1))
+			get_tree().quit()
+			return
+		await _wait_job()
+		print("TURN %d End turn wait %d ms" % [t + 1, Time.get_ticks_msec() - t0])
+		await _frames(3)
+		await _demo_close_centre()
+	var resize: String = _arg_value("--resize-to", "")
+	if resize != "":
+		var wh: PackedStringArray = resize.split("x")
+		get_window().size = Vector2i(int(wh[0]), int(wh[1]))
+		for i in 10:
+			await get_tree().process_frame
+	if _args.has("--tip"):
+		_stones.grab_focus()
+		await _frames(2)
+		await _key(KEY_Q)
+		await _key(KEY_ENTER)
+	for i in 20:
+		await get_tree().process_frame
+	await RenderingServer.frame_post_draw
+	print("SCALE window=%s factor=%.3f layout=%s end_turn_font=%d" % [str(get_window().size), get_window().content_scale_factor, str(size), _end_turn.get_theme_font_size("font_size")])
+	get_viewport().get_texture().get_image().save_png(ProjectSettings.globalize_path(path))
+	get_tree().quit()
 
 
 func _greybox() -> Dictionary:
@@ -88,6 +169,7 @@ func _new_game(seed_v: int) -> Dictionary:
 
 func _process(_delta: float) -> void:
 	_process_dim()
+	_fill_place_routes()
 	if not _job.is_done():
 		return
 	var out: Variant = _job.finish()
@@ -103,6 +185,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_world_ready(out: Dictionary) -> void:
+	print("World ready in %d ms" % (Time.get_ticks_msec() - _world_start_msec))
 	session = out.session
 	turn = TurnController.new(session)
 	var grid: ContinentGrid = out.grid
@@ -112,6 +195,9 @@ func _on_world_ready(out: Dictionary) -> void:
 	_refresh()
 	_end_turn.grab_focus()
 	_centre_summary(tr("A new life"), Array(out.result.get("lines", [])))
+	var shot: String = _arg_value("--shot-and-quit", "")
+	if shot != "":
+		_shot_and_quit.call_deferred(shot)
 
 
 # --- Layout ----------------------------------------------------------------------------------------------------------
@@ -139,19 +225,21 @@ func _build_layout() -> void:
 	_alerts.text = tr("Alerts: none")
 	_alerts.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	bar.add_child(_alerts)
-	_stones.tooltip_text = tr("Linh thạch held")
+	TooltipLayer.set_tip(_stones, _tip_stones)
+	_stones.focus_mode = Control.FOCUS_ALL
 	_stones.mouse_filter = Control.MOUSE_FILTER_STOP
 	bar.add_child(_stones)
+	TooltipLayer.set_tip(_season, _tip_season)
 	bar.add_child(_season)
 	for t in [["W", tr("Wiki (not in the greybox yet)")], ["≡", tr("Game menu (not in the greybox yet)")]]:
 		var b := Button.new()
 		b.text = t[0]
-		b.tooltip_text = t[1]
+		TooltipLayer.set_tip(b, t[1])
 		b.disabled = true
 		bar.add_child(b)
 
 	var note := Label.new()
-	note.text = tr("Greybox: LLM off; rating fights off for this run (Power Rankings rule 13 not yet coded).")
+	note.text = tr("Greybox: LLM off.") + ((" " + tr("Rating fights off for this run (--ratings-off).")) if _args.has("--ratings-off") else "")
 	note.add_theme_color_override("font_color", Color(1, 0.85, 0.4))
 	note.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
 	note.offset_left = 24
@@ -172,8 +260,13 @@ func _build_layout() -> void:
 	for name in ["Inventory", "Relationships", "Sect", "Quests", "Rankings", "News", "Places", "Đạo Đồ", "Abode"]:
 		var b := Button.new()
 		b.text = tr(name)
-		b.disabled = true
-		b.tooltip_text = tr("Not in the greybox yet")
+		if name == "Places":
+			b.text = tr("Places") + " (P)"
+			b.pressed.connect(func(): _toggle_places(b))
+			_places_button = b
+		else:
+			b.disabled = true
+			TooltipLayer.set_tip(b, tr("Not in the greybox yet"))
 		z2.add_child(b)
 
 	# Z3 portrait cluster
@@ -189,7 +282,7 @@ func _build_layout() -> void:
 	z3.add_child(row)
 	# Element 7: the portrait is a button; a click (or Enter / gamepad A on it) opens the character sheet.
 	_portrait.custom_minimum_size = Vector2(80, 80)
-	_portrait.tooltip_text = tr("Your character: click to open the sheet (C)")
+	TooltipLayer.set_tip(_portrait, tr("Your character: click to open the sheet (C)"))
 	var face := StyleBoxFlat.new()
 	face.bg_color = Color(0.3, 0.3, 0.35)
 	_portrait.add_theme_stylebox_override(&"normal", face)
@@ -204,7 +297,10 @@ func _build_layout() -> void:
 	row.add_child(col)
 	col.add_child(_realm)
 	_cult_bar.custom_minimum_size = Vector2(220, 20)
-	_cult_bar.tooltip_text = tr("Cultivation progress to the next level")
+	TooltipLayer.set_tip(_cult_bar, _tip_cultivation)
+	_cult_bar.focus_mode = Control.FOCUS_ALL
+	TooltipLayer.set_tip(_realm, _tip_realm)
+	TooltipLayer.set_tip(_lifespan, _tip_lifespan)
 	col.add_child(_cult_bar)
 	col.add_child(_lifespan)
 
@@ -223,10 +319,10 @@ func _build_layout() -> void:
 		b.toggle_mode = true
 		b.button_pressed = m[1]
 		b.disabled = not m[1]
-		b.tooltip_text = tr("Map mode") if m[1] else tr("Not in the greybox yet")
+		TooltipLayer.set_tip(b, tr("Map mode") if m[1] else tr("Not in the greybox yet"))
 		z4.add_child(b)
 	_zoom_button.text = tr("Region view")
-	_zoom_button.tooltip_text = tr("Zoom in around you to see what you can do nearby (+ / −, or the mouse wheel)")
+	TooltipLayer.set_tip(_zoom_button, tr("Zoom in around you to see what you can do nearby (+ / −, or the mouse wheel)"))
 	_zoom_button.pressed.connect(_toggle_zoom)
 	z4.add_child(_zoom_button)
 
@@ -243,7 +339,7 @@ func _build_layout() -> void:
 	_zones.append(z5)
 	var turn_box := VBoxContainer.new()
 	z5.add_child(turn_box)
-	_focus.tooltip_text = tr("Season focus: opens the focus comparison")
+	TooltipLayer.set_tip(_focus, tr("Season focus: opens the focus comparison"))
 	_focus.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	_focus.pressed.connect(func(): _open_comparison(turn.focus, turn.destination_id))
 	turn_box.add_child(_focus)
@@ -261,6 +357,18 @@ func _build_layout() -> void:
 	_panel.offset_top = 80
 	_panel.offset_bottom = -132
 	add_child(_panel)
+	_panel.visibility_changed.connect(_on_panel_visibility)
+	_places.set_anchors_preset(Control.PRESET_LEFT_WIDE)
+	_places.anchor_right = 0.33
+	_places.offset_left = 16
+	_places.offset_top = 80
+	_places.offset_bottom = -132
+	add_child(_places)
+	_places.place_selected.connect(_on_places_selected)
+	_places.travel_requested.connect(func(id: String): _open_comparison(TurnController.FOCUS_TRAVEL, id))
+	_places.details_requested.connect(_open_place_details)
+	_places.action_requested.connect(func(kind: String): _on_bubble_pressed(kind, str(session.player.location_id)))
+	_places.closed.connect(func(): _refresh())
 
 	# Z7 centre windows, over a dim of the map (HUD States: Event card, the map dims by about 30 %)
 	_dim.color = Color(0, 0, 0, 0.3)
@@ -286,6 +394,11 @@ func _build_layout() -> void:
 	_loading_label.set_anchors_preset(Control.PRESET_CENTER)
 	_loading_label.add_theme_font_size_override("font_size", 24)
 	_loading.add_child(_loading_label)
+
+	# The tooltip layer, above everything (Layout Zones: Tooltip layer)
+	add_child(_tips)
+	_tips.fallback_focus = func() -> Control: return _end_turn
+	_tips.wiki_requested.connect(_open_wiki)
 
 
 ## The greybox look: Godot's defaults with opaque panels, so text always sits on a plate, never on the map
@@ -326,7 +439,6 @@ func _refresh() -> void:
 	_lifespan.text = HudReadouts.lifespan_text(float(snap.age), float(snap.lifespan))
 	var warn: bool = HudReadouts.lifespan_warning(float(snap.age), float(snap.lifespan), float(_cfg.get("lifespan_warn_share", 0.1)))
 	_lifespan.add_theme_color_override("font_color", Color(1, 0.7, 0.2) if warn else Color(0.9, 0.9, 0.9))
-	_lifespan.tooltip_text = (tr("Little lifespan left") + " ⌛") if warn else tr("Age / lifespan")
 	_alerts.text = tr("Alerts:") + " " + (tr("an event is waiting") if session.has_pending_event() else tr("none"))
 	_refresh_focus()
 	_refresh_map(str(snap.location_id))
@@ -341,7 +453,7 @@ func _refresh_focus() -> void:
 func _refresh_turn_button() -> void:
 	_end_turn.text = turn.button_label()
 	var g: Dictionary = turn.gate()
-	_end_turn.tooltip_text = g.reason if not g.ok else tr("End the season (Enter)")
+	TooltipLayer.set_tip(_end_turn, g.reason if not g.ok else tr("End the season (Enter)"))
 	_turn_note.text = turn.fallback_note
 
 
@@ -364,6 +476,8 @@ func _refresh_map(location_id: String) -> void:
 		rects.append((z as Control).get_global_rect())
 	if _panel.visible:
 		rects.append(_panel.get_global_rect())
+	if _places.visible:
+		rects.append(_places.get_global_rect())
 	_map.set_blocked_rects(rects)
 
 
@@ -438,6 +552,100 @@ func _trip_links(here_id: String, here_tile: Vector2i, places: Array, reach: flo
 	_trip_key = key
 	_trip_cache = out
 	return out
+
+
+## Opens or closes the Places panel (P, or its Z2 button).
+func _toggle_places(opener: Control) -> void:
+	if _busy():
+		return
+	if _places.visible:
+		_places.close_panel()
+		return
+	_panel.close_panel()
+	var here_id: String = str(session.player.location_id)
+	var here: Dictionary = session.db.get_record("places", here_id)
+	var cfg: Dictionary = _bubble_cfg()
+	var met_here: int = session.db.find("people", func(x): return bool(x.get("alive", true)) and not bool(x.get("is_player", false)) and bool(x.get("met_player", false)) and str(x.get("location_id", "")) == here_id).size()
+	var rows: Array = []
+	var here_actions: Array = []
+	for p in session.db.all("places"):
+		if bool(p.get("hidden", false)) or not p.has("tile"):
+			continue
+		if session.knowledge != null and not session.knowledge.knows_place(str(p.id)):
+			continue
+		var is_here: bool = str(p.id) == here_id
+		var can_work: bool = Advisor.can_work_here(session) if is_here else bool(p.get("bounties", false))
+		var kinds: Dictionary = BubbleModel.kinds_for(p, is_here, met_here, can_work, Array(cfg.get("explore_kinds", [])))
+		var acts: Array = []
+		for k in BubbleModel.KINDS:
+			if kinds.has(k):
+				acts.append(k)
+		if is_here:
+			here_actions = acts.filter(func(k): return BubbleModel.is_free_here(k))
+		var fee: Dictionary = session.teleport_fee(str(p.id))
+		var qi: Dictionary = p.get("qi", {})
+		var holder: String = str(p.get("holder", ""))
+		rows.append({"id": str(p.id), "name": str(p.name), "region": str(session.db.get_record("regions", str(p.get("region_id", ""))).get("name", "")),
+			"kind": str(p.get("kind", "")), "danger": int(p.get("danger", 0)),
+			"match": float(LandQi.land_match(session.player, gd, qi).total) if not qi.is_empty() else 0.0,
+			"holder": str(session.db.get_record("sects", holder).get("name", holder)) if holder != "" else "",
+			"people": met_here if is_here else -1, "actions": acts, "here": is_here, "seasons": 0.0 if is_here else -1.0,
+			"seasons_known": is_here, "fee": int(fee.get("fee", -1)) if not fee.is_empty() else -1})
+	var clues: Array = session.clue_lines() if session.knowledge != null and not session.knowledge.clues.is_empty() else []
+	_places.open_panel(str(here.get("name", "")), here_actions, session.has_pending_event(), rows, clues, opener)
+	_refresh()
+
+
+## Works out a few of the Places panel's route times each frame (the game's own terrain route, as Travel uses), so the
+## panel never stalls the screen.
+func _fill_place_routes() -> void:
+	if not _places.visible or _busy():
+		return
+	var pending: Array = _places.pending_ids()
+	if pending.is_empty():
+		return
+	var here: Dictionary = session.db.get_record("places", str(session.player.location_id))
+	if not here.has("tile"):
+		return
+	var tg: TravelGrid = TravelGrid.of(gd)
+	var f: float = Travel.speed_factor(gd, session.sheet().total("travel_speed_pct"))
+	for id in pending.slice(0, int(_greybox().get("routes_per_frame", 3))):
+		var dest: Dictionary = session.db.get_record("places", id)
+		var t: float = -1.0
+		if tg.errors.is_empty() and dest.has("tile"):
+			var trip: Dictionary = tg.trip(Vector2i(int(here.tile[0]), int(here.tile[1])), Vector2i(int(dest.tile[0]), int(dest.tile[1])), "ground", f)
+			if not trip.is_empty():
+				t = float(trip.seasons)
+		if t < 0.0:
+			var route: Dictionary = Travel.quickest(session.db, str(here.id), id, f)
+			if not route.is_empty():
+				t = float(route.seasons)
+		_places.set_seasons(id, t)
+
+
+## A season or an event can move the player, reveal places and change what can be done here, so an open Places panel
+## is rebuilt from the new state (its route times are worked out again from the new place).
+func _rebuild_places() -> void:
+	if not _places.visible:
+		return
+	_places.close_panel()
+	_toggle_places(_places_button)
+
+
+func _on_places_selected(place_id: String) -> void:
+	var rec: Dictionary = session.db.get_record("places", place_id)
+	if rec.has("tile"):
+		_map.centre_on(Vector2i(int(rec.tile[0]), int(rec.tile[1])))
+
+
+func _open_place_details(place_id: String) -> void:
+	if _busy():
+		return
+	var rec: Dictionary = session.db.get_record("places", place_id)
+	var lines: Array = [str(rec.get("name", "")) + " — " + str(rec.get("kind", "")).replace("_", " "), ""]
+	lines.append_array(TerminalViews.stat_block(session, rec))
+	_places.close_panel()
+	_panel.open_panel(tr("Place"), lines, _places_button)
 
 
 func _kind_name(kind: String, count: int) -> String:
@@ -586,6 +794,7 @@ func _try_end_turn() -> void:
 		_turn_note.text = g.reason
 		return
 	turn.resolving = true
+	_tips.close_all()   # a season change closes every tooltip, locked or not
 	_refresh_turn_button()
 	_job_kind = "end_turn"
 	_job.start(turn.end_turn)
@@ -595,6 +804,7 @@ func _on_turn_done(result: Dictionary) -> void:
 	turn.resolving = false
 	_last_turn_msec = Time.get_ticks_msec()
 	turn.after_turn(result)
+	_rebuild_places()
 	_refresh()
 	var lines: Array = Array(result.get("lines", []))
 	if turn.fallback_note != "":
@@ -604,6 +814,7 @@ func _on_turn_done(result: Dictionary) -> void:
 
 
 func _centre_summary(title: String, lines: Array) -> void:
+	_tips.close_all()   # a window opening over the chain closes it
 	turn.window_open = true
 	_summary_pending_event = session.has_pending_event()
 	_centre.show_summary(title, lines)
@@ -641,6 +852,7 @@ func _on_option_chosen(index: int) -> void:
 
 func _on_choice_done(result: Dictionary) -> void:
 	turn.window_open = false
+	_rebuild_places()
 	_refresh()
 	_centre_summary(tr("Outcome"), Array(result.get("lines", [])))
 
@@ -672,18 +884,118 @@ func _unhandled_key_input(event: InputEvent) -> void:
 				_toggle_zoom()
 			get_viewport().set_input_as_handled()
 	elif key == KEY_ESCAPE:
-		if _comparison.visible:
-			_comparison.cancel()
-			get_viewport().set_input_as_handled()
-		elif _panel.visible:
-			_panel.close_panel()
-			get_viewport().set_input_as_handled()
+		_on_escape(owner_ctl)
+		get_viewport().set_input_as_handled()
 	elif key == KEY_C and not (owner_ctl is LineEdit or owner_ctl is TextEdit):
 		_open_sheet()
 		get_viewport().set_input_as_handled()
+	elif key == KEY_P and not (owner_ctl is LineEdit or owner_ctl is TextEdit):
+		_toggle_places(_places_button)
+		get_viewport().set_input_as_handled()
 
 
+func _on_panel_visibility() -> void:
+	if _panel.visible:
+		_places.close_panel()
+		_tips.close_all()
+
+
+## Esc does one thing (EscRouter): the focused window first, then the ranked list. The greybox has no banner, confirm
+## mode, multi-season run or game menu yet, so those answers do nothing.
+func _on_escape(owner_ctl: Control) -> void:
+	var focus: String = ""
+	if _tips.owns(owner_ctl):
+		focus = "tooltip"
+	elif owner_ctl != null and (_panel == owner_ctl or _panel.is_ancestor_of(owner_ctl)):
+		focus = "panel"
+	elif owner_ctl != null and (_places == owner_ctl or _places.is_ancestor_of(owner_ctl)):
+		focus = "places"
+	elif owner_ctl != null and _centre.is_ancestor_of(owner_ctl):
+		focus = "z7"
+	var card: bool = _centre.visible and _centre.showing_event
+	match EscRouter.pick({"modal_open": _comparison.visible, "focus": focus, "tooltip_open": _tips.is_open(),
+			"z7_open": _centre.visible, "card_blocking": card, "panel_open": _panel.visible, "places_open": _places.visible}):
+		"modal":
+			_comparison.cancel()
+		"tooltip":
+			_tips.close_top()
+		"panel":
+			_panel.close_panel()
+		"places":
+			_places.close_panel()
+		"z7":
+			_centre.hide_window()
+			_on_centre_closed()
+		_:
+			pass   # "card" (minimise: not in the greybox), "menu" (no game menu yet)
+
+
+# --- Tooltip content (design/ux/hud.md, Tooltips: name, key fact, one-line summary, then the Breakdown) -------------
+
+func _tip_stones(_at: Vector2) -> Variant:
+	if _busy() or session.player == null:
+		return ""   # never read the session while a job runs on it
+	return {"title": tr("Spirit stones (linh thạch)"), "fact": tr("Held:") + " " + HudReadouts.stones_text(float(session.player.linh_thach)),
+		"summary": tr("The only money."), "body": TooltipLayer.parse_body(tr("Markets, sect services and teleport arrays price in [[linh_thach|spirit stones]].")),
+		"wiki": "linh_thach"}
+
+
+func _tip_season(_at: Vector2) -> Variant:
+	if _busy() or session.player == null:
+		return ""   # never read the session while a job runs on it
+	return {"title": _season.text, "summary": tr("The calendar: one turn is one season."),
+		"body": TooltipLayer.parse_body(tr("End the turn to pass one [[mua|season]].")), "wiki": "mua"}
+
+
+func _tip_realm(_at: Vector2) -> Variant:
+	if _busy() or session.player == null:
+		return ""   # never read the session while a job runs on it
+	return {"title": _realm.text, "summary": tr("Your realm and stage."),
+		"body": TooltipLayer.parse_body(tr("Your [[canh_gioi|realm]]: [[luyen_khi|Qi Refining]] is the first.")), "wiki": "canh_gioi"}
+
+
+func _tip_cultivation(_at: Vector2) -> Variant:
+	if _busy() or session.player == null:
+		return ""   # never read the session while a job runs on it
+	var c: Character = session.player
+	var here: Dictionary = session.db.get_record("places", c.location_id)
+	var rate: Breakdown = CultivationRules.rate_per_season(c, gd, session.db, session.sheet(), float(here.get("density", 1.0)), false, here.get("qi", {}))
+	return {"title": tr("Cultivation progress"), "fact": HudReadouts.cultivation_text(float(c.tu_vi), CultivationRules.level_requirement(c, gd)),
+		"summary": tr("Cultivating here adds about %s a season.") % Breakdown._fmt(rate.total),
+		"body": TooltipLayer.parse_body(tr("Your [[tu_vi|cultivation base]]; when it is full you attempt a [[dot_pha|breakthrough]].")),
+		"lines": Array(rate.lines()), "wiki": "tu_vi"}
+
+
+func _tip_lifespan(_at: Vector2) -> Variant:
+	if _busy() or session.player == null:
+		return ""   # never read the session while a job runs on it
+	var c: Character = session.player
+	var life: Breakdown = CultivationRules.lifespan(c, gd, session.sheet())
+	var warn: bool = HudReadouts.lifespan_warning(float(c.age), life.total, float(_cfg.get("lifespan_warn_share", 0.1)))
+	return {"title": tr("Lifespan (thọ nguyên)"), "fact": _lifespan.text + ((" · " + tr("little lifespan left") + " ⌛") if warn else ""),
+		"summary": tr("When age reaches lifespan, this life ends."),
+		"body": TooltipLayer.parse_body(tr("Every [[mua|season]] costs a quarter year of [[tho_nguyen|lifespan]].")),
+		"lines": Array(life.lines()), "wiki": "tho_nguyen"}
+
+
+## The wiki is not in the greybox: its entry text opens in the side panel instead.
+func _open_wiki(key: String) -> void:
+	var t: Dictionary = gd.file("ui_terms").get("terms", {}).get(key, {})
+	_tips.close_all()
+	if t.is_empty():
+		return
+	var body: String = ""
+	for seg in TooltipLayer.parse_body(str(t.get("body", ""))):
+		body += str(seg.get("text", "")) if seg is Dictionary else str(seg)
+	_panel.open_panel(tr("Wiki") + ": " + str(t.get("title", key)), [str(t.get("summary", "")), "", body, "",
+		tr("(The in-game wiki is not in the greybox; this is its entry text.)")], _end_turn)
+
+
+## The value of launch argument [param name], given as "--name value" or "--name=value"; [param fallback] when absent.
 func _arg_value(name: String, fallback: String) -> String:
+	for a in _args:
+		if a.begins_with(name + "="):
+			return a.substr(name.length() + 1)
 	var i: int = _args.find(name)
 	return _args[i + 1] if i != -1 and i + 1 < _args.size() else fallback
 
@@ -797,6 +1109,172 @@ func _demo_real_input(dir: String, tag: String) -> void:
 	await _key(KEY_ENTER)
 	await _demo_answer_events_by_click(dir, tag)
 	await _demo_bubbles(dir, tag)
+	await _demo_places(dir, tag)
+	await _demo_tooltips(dir, tag)
+
+
+## The tooltip layer through real input: hover, a nested word, a middle-click lock, a consumed click outside; then the
+## keyboard: Q, Enter on a word, Tab wrapping, Esc one level at a time with focus going back; then the 5th level's
+## word opening the wiki.
+func _demo_tooltips(dir: String, tag: String) -> void:
+	_tips.close_all()
+	await _frames(10)
+	await _move(_stones.get_global_rect().get_center())
+	await _seconds(0.6)   # the delay is in seconds (0.3 s); frames run faster than 60 a second here
+	_check("hovering the spirit stones opens their tooltip (opened: %s; hovered: %s)" % [str(_tips.chain.levels[0].content.get("title", "")) if _tips.is_open() else "none", str(get_viewport().gui_get_hovered_control())],
+		_tips.is_open() and str(_tips.chain.levels[0].content.get("title", "")).contains("Spirit stones"))
+	var ws: Array = _tips.words(0)
+	if not ws.is_empty():
+		await _move((ws[0] as Control).get_global_rect().get_center())
+		await _seconds(0.6)   # the delay is in seconds (0.3 s); frames run faster than 60 a second here
+		_check("hovering a highlighted word opens a second tooltip", _tips.chain.levels.size() == 2)
+		if _tips.view(1) != null:
+			await _move(_tips.view(1).get_global_rect().get_center())
+			await _frames(3)
+			await _mouse_button(_tips.view(1).get_global_rect().get_center(), MOUSE_BUTTON_MIDDLE)
+			_check("a middle click locks the chain", _tips.chain.is_locked())
+			await _shot(dir, "22-tooltip-nested", tag)
+			var away: Vector2 = _map.get_global_rect().get_center() + Vector2(0, 120)
+			await _move(away)
+			await _seconds(1.0)   # longer than the 0.3 s grace
+			_check("a locked chain stays open with the pointer away", _tips.chain.levels.size() == 2)
+			await _click(away)
+			_check("a click outside closes it and does not reach the map", not _tips.is_open() and not _comparison.visible and not _panel.visible)
+	# Keyboard
+	_stones.grab_focus()
+	await _frames(2)
+	await _key(KEY_Q)
+	_check("Q opens the focused readout's tooltip, locked, with focus inside", _tips.chain.is_locked() and _tips.owns(get_viewport().gui_get_focus_owner()))
+	await _key(KEY_ENTER)
+	_check("Enter on a highlighted word opens its tooltip with focus in it", _tips.chain.levels.size() == 2 and _tips.owns(get_viewport().gui_get_focus_owner()))
+	for i in 6:
+		await _key(KEY_TAB)
+	_check("Tab wraps inside the tooltip", _tips.view(1) != null and _tips.view(1).is_ancestor_of(get_viewport().gui_get_focus_owner()))
+	var back_to: Control = _tips.words(0)[0] if not _tips.words(0).is_empty() else null
+	await _key(KEY_ESCAPE)
+	_check("Esc closes only the top tooltip and focus goes back to its word", _tips.chain.levels.size() == 1 and get_viewport().gui_get_focus_owner() == back_to)
+	await _key(KEY_ESCAPE)
+	_check("Esc again closes the root and focus goes back to the source", not _tips.is_open() and get_viewport().gui_get_focus_owner() == _stones)
+	# Depth: Enter down the first words to the 5th level, whose word opens the wiki.
+	await _key(KEY_Q)
+	for lvl in 4:
+		await _key(KEY_ENTER)
+	_check("five levels open", _tips.chain.levels.size() == 5)
+	await _shot(dir, "23-tooltip-depth-5", tag)
+	await _key(KEY_ENTER)
+	_check("a word at the 5th level opens the wiki (stub) instead of a 6th level", _panel.visible and not _tips.is_open())
+	await _shot(dir, "24-wiki-stub", tag)
+	await _key(KEY_ESCAPE)
+	_check("Esc closes the wiki panel", not _panel.visible)
+	await _demo_answer_events(dir, tag)
+	await _demo_wait_cooldown()
+	_end_turn.grab_focus()
+	_try_end_turn()
+	await _wait_job()
+	await _frames(5)
+	await _key(KEY_ESCAPE)
+	_check("Esc closes the season summary (a waiting event's card shows instead)", not _centre.visible or _centre.showing_event)
+	await _demo_close_centre()
+	await _demo_answer_events(dir, tag)
+
+
+func _seconds(t: float) -> void:
+	await get_tree().create_timer(t).timeout
+
+
+## Moves the pointer to [param at] (layout coordinates). Since Godot 4.3 hover follows the real cursor, not pushed
+## motion events, so the demo warps the cursor itself (measured 2026-11-22) and also sends the motion event.
+func _move(at: Vector2) -> void:
+	Input.warp_mouse(at * get_window().content_scale_factor)
+	var motion := InputEventMouseMotion.new()
+	motion.position = at
+	motion.global_position = at
+	get_viewport().push_input(motion)
+	await _frames(2)
+
+
+func _mouse_button(at: Vector2, button: MouseButton) -> void:
+	for pressed in [true, false]:
+		var ev := InputEventMouseButton.new()
+		ev.position = at
+		ev.global_position = at
+		ev.button_index = button
+		ev.pressed = pressed
+		get_viewport().push_input(ev)
+		await _frames(2)
+
+
+## The Places panel through real input: P, route times filling in, a row selected, Enter for details, Esc, and
+## "Travel here" into the comparison.
+func _demo_places(dir: String, tag: String) -> void:
+	_end_turn.grab_focus()
+	await _frames(2)
+	await _key(KEY_P)
+	_check("P opens the Places panel", _places.visible)
+	var guard: int = 0
+	while not _places.pending_ids().is_empty() and guard < 600:
+		await get_tree().process_frame
+		guard += 1
+	_check("every route time is worked out", _places.pending_ids().is_empty())
+	var plist: ItemList = _places.find_children("*", "ItemList", true, false)[0]
+	var row_i: int = -1
+	for i in plist.item_count:
+		if plist.is_item_selectable(i):
+			row_i = i
+			break
+	if row_i >= 0:
+		await _move(plist.get_global_transform() * plist.get_item_rect(row_i).get_center())
+		await _seconds(0.6)
+		_check("hovering a Places row shows the whole row", _tips.is_open() and str(_tips.chain.levels[0].content.get("title", "")) == plist.get_item_text(row_i))
+		await _move(_map.get_global_rect().get_center() + Vector2(0, 160))
+		await _seconds(0.6)
+		plist.select(row_i)
+		plist.grab_focus()
+		await _frames(2)
+		await _key(KEY_Q)
+		_check("Q on the list opens the selected row's tooltip", _tips.chain.is_locked() and str(_tips.chain.levels[0].content.get("title", "")) == plist.get_item_text(row_i))
+		await _key(KEY_ESCAPE)
+		_check("Esc closes that tooltip and focus goes back to the list", not _tips.is_open() and get_viewport().gui_get_focus_owner() == plist)
+	var target: String = _nearest_known_place()
+	if target != "":
+		_places.select_place(target)
+		await _frames(5)
+		_check("selecting a row centres the map at region zoom", _map.is_region_zoom())
+		await _shot(dir, "20-places-panel", tag)
+		var travel_btn: Button = null
+		for b in _places.find_children("*", "Button", true, false):
+			if b.text == tr("Travel here"):
+				travel_btn = b
+		if travel_btn != null:
+			await _click(travel_btn.get_global_rect().get_center())
+			_check("Travel here opens the comparison with Travel preselected", _comparison.visible and _comparison.selected_id() == TurnController.FOCUS_TRAVEL + ":" + target)
+			# Travel with the panel open: after the season it must describe the new place, not the old one.
+			_comparison.confirm()
+			await _demo_wait_cooldown()
+			_try_end_turn()
+			await _wait_job()
+			await _frames(3)
+			var now_at: String = str(session.db.get_record("places", str(session.player.location_id)).get("name", ""))
+			_check("after travelling with Places open it shows the new place (%s)" % now_at, _places.visible and _places.here_name() == now_at)
+			await _demo_close_centre()
+			await _demo_answer_events(dir, tag)
+			if not _places.visible:
+				await _key(KEY_P)
+	if _places.visible:
+		var list: ItemList = _places.find_children("*", "ItemList", true, false)[0]
+		var row: String = _nearest_known_place()
+		if row != "":
+			_places.select_place(row)   # the rebuild after the journey leaves no row selected
+		list.grab_focus()
+		await _frames(2)
+		await _key(KEY_ENTER)
+		_check("Enter on a row opens the place's details", _panel.visible and not _places.visible)
+		await _shot(dir, "21-place-details", tag)
+		await _key(KEY_ESCAPE)
+	await _key(KEY_P)
+	await _key(KEY_P)
+	await _key(KEY_ESCAPE)
+	_check("Esc closes the Places panel", not _places.visible)
 
 
 ## Region zoom and the map bubbles through real input (keys and clicks).

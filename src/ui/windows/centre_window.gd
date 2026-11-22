@@ -8,6 +8,8 @@ signal closed
 ## The player picked event option [param index] (0-based).
 signal option_chosen(index: int)
 
+## True while the window shows an event card (blocking), false for a summary (non-blocking).
+var showing_event: bool = false
 var _title := Label.new()
 var _body := RichTextLabel.new()
 var _buttons := VBoxContainer.new()
@@ -31,6 +33,7 @@ func _init() -> void:
 
 ## Shows the season summary [param lines] under [param title], with a Continue button.
 func show_summary(title: String, lines: Array) -> void:
+	showing_event = false
 	_title.text = title
 	_body.text = "\n".join(lines.map(func(l): return str(l)))
 	_clear_buttons()
@@ -44,6 +47,7 @@ func show_summary(title: String, lines: Array) -> void:
 ## Shows the session's pending event as a card: [param ev] is GameSession.pending_event; [param odds] gives per
 ## option {ok, chance, text, reason} (Advisor.choice_odds).
 func show_event(ev: Dictionary, odds: Array) -> void:
+	showing_event = true
 	_title.text = str(ev.get("title", ""))
 	_body.text = str(ev.get("text", ""))
 	_clear_buttons()
@@ -59,9 +63,9 @@ func show_event(ev: Dictionary, odds: Array) -> void:
 		b.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		if not bool(o.get("ok", true)):
 			b.disabled = true
-			b.tooltip_text = str(o.get("reason", ""))
+			TooltipLayer.set_tip(b, str(o.get("reason", "")))
 		else:
-			b.tooltip_text = str(o.get("text", ""))
+			TooltipLayer.set_tip(b, str(o.get("text", "")))
 			b.pressed.connect(func(): option_chosen.emit(i))
 			if first == null:
 				first = b

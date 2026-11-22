@@ -127,6 +127,15 @@ func set_region_zoom(on: bool, at_tile: Vector2 = Vector2(-1, -1)) -> void:
 	zoom_changed.emit(_region)
 
 
+## Centres the view on [param tile] at region zoom (the Places panel's selected row).
+func centre_on(tile: Vector2i) -> void:
+	_center = Vector2(tile) + Vector2(0.5, 0.5)
+	if not _region:
+		set_region_zoom(true, _center)
+	else:
+		_relayout()
+
+
 ## The visible bubbles in order (for tests and the demo).
 func visible_bubbles() -> Array:
 	return _layer.get_children().filter(func(b): return b.visible)
@@ -234,7 +243,7 @@ func _gui_input(event: InputEvent) -> void:
 		var id: String = str(p.get("id", ""))
 		if id != _hover_id:
 			_hover_id = id
-			tooltip_text = str(p.get("name", ""))
+			TooltipLayer.set_tip(self, str(p.get("name", "")))
 			queue_redraw()
 	elif event is InputEventKey and event.pressed and _region:
 		var step := Vector2.ZERO

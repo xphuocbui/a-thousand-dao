@@ -58,7 +58,7 @@ func open(options: Array, preselect_id: String) -> void:
 		var id: String = str(o.id)
 		if not bool(o.get("enabled", true)):
 			b.disabled = true
-			b.tooltip_text = str(o.get("reason", ""))
+			TooltipLayer.set_tip(b, str(o.get("reason", "")))
 		else:
 			b.toggled.connect(func(on: bool): if on: _selected = id)
 			if id == preselect_id or focus_target == null:

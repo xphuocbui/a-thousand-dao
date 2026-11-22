@@ -30,7 +30,7 @@ func setup(kind_v: String, place_id_v: String, count_v: int, tooltip: String) ->
 	kind = kind_v
 	place_id = place_id_v
 	count = count_v
-	tooltip_text = tooltip
+	TooltipLayer.set_tip(self, tooltip)
 	if kind == "player":
 		custom_minimum_size = Vector2(32, 32)
 		size = Vector2(32, 32)

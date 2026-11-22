@@ -23,7 +23,7 @@ func _init() -> void:
 	_title.add_theme_font_size_override("font_size", 20)
 	head.add_child(_title)
 	_close_button.text = "×"
-	_close_button.tooltip_text = tr("Close (Esc)")
+	TooltipLayer.set_tip(_close_button, tr("Close (Esc)"))
 	_close_button.pressed.connect(close_panel)
 	head.add_child(_close_button)
 	_body.size_flags_vertical = Control.SIZE_EXPAND_FILL

@@ -1,0 +1,60 @@
+{
+  "_doc": "Authored concept entries for the HUD's nested tooltips and the in-game wiki stub (design/ux/hud.md, Tooltips; terms per design/glossary.md). Each entry: title, fact (the key fact line, optional), summary (one line), body (text where [[key|shown words]] is a highlighted word that opens that entry's tooltip). Greybox content: the wiki and its full entries come later.",
+  "terms": {
+    "linh_thach": {
+      "title": "Spirit stones (linh thạch)",
+      "summary": "The only money of the cultivation world.",
+      "body": "Stones holding condensed [[linh_khi|spiritual qi]]. Markets, sect services and teleport arrays price in them; they also fuel formations and an [[dong_phu|cave abode]]."
+    },
+    "linh_khi": {
+      "title": "Spiritual qi (linh khí)",
+      "summary": "The world's energy that cultivators draw in.",
+      "body": "Its density differs from place to place and decides how fast your [[tu_vi|cultivation base]] grows there. Your [[linh_can|spiritual root]] decides which elements you draw best."
+    },
+    "dong_phu": {
+      "title": "Cave abode (động phủ)",
+      "summary": "Your home: a room where you cultivate and keep things.",
+      "body": "A spirit-gathering array there raises the [[linh_khi|spiritual qi]] density of your room. It is paid for in [[linh_thach|spirit stones]]."
+    },
+    "tu_vi": {
+      "title": "Cultivation base (tu vi)",
+      "summary": "How far you have cultivated in your current level.",
+      "body": "It grows each season you cultivate. When it is full, you attempt a [[dot_pha|breakthrough]] to the next level of your [[canh_gioi|realm]]."
+    },
+    "dot_pha": {
+      "title": "Breakthrough (đột phá)",
+      "summary": "The attempt to rise to the next level or realm.",
+      "body": "A failed attempt costs time and can hurt you. A [[binh_canh|bottleneck]] holds you at a realm's last level until a breakthrough succeeds."
+    },
+    "binh_canh": {
+      "title": "Bottleneck (bình cảnh)",
+      "summary": "The wall at the end of a realm.",
+      "body": "Only a successful [[dot_pha|breakthrough]] passes it; until then your [[tu_vi|cultivation base]] stops growing."
+    },
+    "canh_gioi": {
+      "title": "Realm (cảnh giới)",
+      "summary": "The great stages of cultivation.",
+      "body": "From [[luyen_khi|Qi Refining (Luyện Khí)]] through Foundation Establishment (Trúc Cơ), Core Formation (Kết Đan) and Nascent Soul (Nguyên Anh) to Deity Transformation (Hóa Thần). Each realm adds [[tho_nguyen|lifespan]]."
+    },
+    "luyen_khi": {
+      "title": "Qi Refining (Luyện Khí)",
+      "summary": "The first realm: ten layers (tầng).",
+      "body": "You start here, far weaker than most cultivators of the same realm. Each layer needs a fuller [[tu_vi|cultivation base]]; the stages are early, middle and late (sơ kỳ, trung kỳ, hậu kỳ)."
+    },
+    "tho_nguyen": {
+      "title": "Lifespan (thọ nguyên)",
+      "summary": "How long you can live; when age reaches it, your life ends.",
+      "body": "Each [[canh_gioi|realm]] you reach adds lifespan. Every [[mua|season]] you spend uses a quarter of a year."
+    },
+    "mua": {
+      "title": "Season (mùa)",
+      "summary": "One turn: a quarter of a year.",
+      "body": "You choose one season focus, do any free actions, then end the turn. Each season costs [[tho_nguyen|lifespan]]."
+    },
+    "linh_can": {
+      "title": "Spiritual root (linh căn)",
+      "summary": "Your affinity for the five elements, set at birth.",
+      "body": "Its purity per element decides how well you draw each element's [[linh_khi|spiritual qi]] and which arts suit you."
+    }
+  }
+}
