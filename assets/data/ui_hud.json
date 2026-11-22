@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "_doc": "Designer knobs of the map screen HUD (design/ux/hud.md, Tuning Knobs; only the ones the greybox uses so far). lifespan_warn_share: the share of the lifespan left at or below which the lifespan readout warns (0..1). end_turn_cooldown: seconds after a turn during which End turn is refused. greybox: settings of the slice-1 greybox only (src/ui/greybox/map_screen.gd), to be replaced by the art bible's look. greybox.seed: the world seed the greybox starts with when no --seed is given. greybox.biome_colours: a flat placeholder colour per biome name of world_continent.json legend.biome_ids (hex RGB). greybox.unknown_colour: the colour of a biome missing from that list. greybox.place_radius_px / player_radius_px: marker sizes in layout pixels.",
+  "lifespan_warn_share": 0.10,
+  "end_turn_cooldown": 0.5,
+  "greybox": {
+    "seed": 7,
+    "place_radius_px": 3.0,
+    "player_radius_px": 6.0,
+    "unknown_colour": "#808080",
+    "biome_colours": {
+      "temperate_forest": "#5b7f4a",
+      "bamboo_forest": "#7a9a4c",
+      "jungle": "#3f6b3a",
+      "grassland": "#9aae6a",
+      "steppe": "#b8b277",
+      "desert": "#d8c48a",
+      "salt_flats": "#e4ded0",
+      "badlands": "#b07c58",
+      "swamp": "#5d6f55",
+      "mangrove": "#4c6a5a",
+      "highland": "#8c8a6c",
+      "high_mountain": "#a39e95",
+      "karst": "#8f9a7c",
+      "volcano": "#6a4a42",
+      "tundra": "#b9c0b2",
+      "glacier": "#e8eef2",
+      "miasma": "#6d5a72",
+      "lake": "#5a83a6",
+      "sea": "#3b5f86"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+Reviewed-Content-Hash: src/ui/greybox/map_screen.gd 548720936608d9ed01811a5bbbd5df939b0cb091
+Reviewed-Content-Hash: src/ui/greybox/map_screen.tscn 06158114d6c20932d80b8d8c2181a2215a3e94e7
+Reviewed-Content-Hash: src/ui/map/map_view.gd 21a18c6a8176ec6a746268a0c0809ee5717a6082
+Reviewed-Content-Hash: src/ui/turn/turn_controller.gd 65955c00310a06f341776cca94095d49757d5500
+Reviewed-Content-Hash: src/ui/turn/background_call.gd b205c70ec202b6cf3bea4b1edc9419f6a5527cd6
+Reviewed-Content-Hash: src/ui/hud/hud_readouts.gd 3e441084b97a4e91d3660afbf54888e366727f87
+Reviewed-Content-Hash: src/ui/windows/centre_window.gd c562564040c5b64b5576bace52c8a4bf58303400
+Reviewed-Content-Hash: src/ui/windows/text_panel.gd 5bc78c220d5c22e3e4c1618db7cf459ddacdc054
+Reviewed-Content-Hash: assets/data/ui_hud.json bfe55f55a5b02521cdb2ad16dcfd2e0d1dc324dc
+Reviewed-Content-Hash: tests/unit/ui/ui_turn_controller_test.gd fe2056568eba9a2c2fd93c3feb93c10f95f9b1f0
+Reviewed-Content-Hash: tests/unit/ui/ui_hud_readouts_test.gd e7229d8673a8c20b22fbf151c402509e863a416e
