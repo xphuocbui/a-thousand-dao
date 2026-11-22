@@ -45,6 +45,9 @@ var _turn_note := Label.new()
 var _sheet_button := Button.new()
 var _portrait := Button.new()
 var _panel := TextPanel.new()
+var _person := PersonPanel.new()
+var _fight := FightScreen.new()
+var _people_list := VBoxContainer.new()
 var _places := PlacesPanel.new()
 var _places_button: Button = null
 var _tips := TooltipLayer.new()
@@ -57,7 +60,9 @@ var _shots: int = 0
 var _ui_scale_pct: int = 100
 var _scaling := false
 var _world_start_msec: int = 0
-var _known_cache: Array = []   # GameQuery.known_places of the last refresh
+var _known_cache: Array = []
+var _talk_target: String = ""
+var _person_after_fight: bool = true   # GameQuery.known_places of the last refresh
 
 
 func _ready() -> void:
@@ -191,6 +196,8 @@ func _process(_delta: float) -> void:
 			_on_turn_done(out)
 		"choose":
 			_on_choice_done(out)
+		"talk":
+			_on_talk_done(out)
 
 
 func _on_world_ready(out: Dictionary) -> void:
@@ -378,7 +385,20 @@ func _build_layout() -> void:
 	_panel.offset_top = 80
 	_panel.offset_bottom = -132
 	add_child(_panel)
+	for p in [_person]:
+		p.set_anchors_preset(Control.PRESET_LEFT_WIDE)
+		p.anchor_right = 0.33
+		p.offset_left = 16
+		p.offset_top = 80
+		p.offset_bottom = -132
+		add_child(p)
+	_person.person_requested.connect(func(id: String): _open_person(id, _person))
+	_person.fight_requested.connect(_open_practice_fight)
+	_person.travel_requested.connect(func(place_id: String): _person.close_panel(); _open_comparison(TurnController.FOCUS_TRAVEL, place_id))
+	_person.verb_requested.connect(_on_verb)
+	_person.closed.connect(func(): _refresh())
 	_panel.visibility_changed.connect(_on_panel_visibility)
+	_panel.closed.connect(func(): if not _person.visible: _people_list.visible = false)
 	_places.set_anchors_preset(Control.PRESET_LEFT_WIDE)
 	_places.anchor_right = 0.33
 	_places.offset_left = 16
@@ -416,6 +436,12 @@ func _build_layout() -> void:
 	_loading_label.add_theme_font_size_override("font_size", 24)
 	_loading.add_child(_loading_label)
 
+	add_child(_fight)
+	_fight.configure(_cfg.get("fight_screen", {}))
+	_fight.closed.connect(func():
+		if _person.person_id() == "" and _person_after_fight:
+			_person.visible = true
+		_refresh())
 	# The tooltip layer, above everything (Layout Zones: Tooltip layer)
 	add_child(_tips)
 	_tips.fallback_focus = func() -> Control: return _end_turn
@@ -519,7 +545,7 @@ func _bubbles(places: Array, here_id: String, here_tile: Vector2i) -> Array:
 	var cfg: Dictionary = _bubble_cfg()
 	var links: Dictionary = {here_id: _trip_links(here_id, here_tile, places, float(cfg.get("trip_seasons", 1.0)))}
 	var dist: Dictionary = BubbleModel.distances(here_id, links, known, float(cfg.get("trip_seasons", 1.0)))
-	var met_here: int = GameQuery.people_met_at(session, here_id).size()
+	var met_here: int = GameQuery.people_at(session, here_id).size()   # everyone here, met or not (design/ux/person.md)
 	var kinds_by_place: Dictionary = {}
 	for id in dist:
 		var rec: Dictionary = by_id.get(id, {}).get("rec", {})
@@ -573,7 +599,7 @@ func _toggle_places(opener: Control) -> void:
 	var here_id: String = _here_id()
 	var here: Dictionary = GameQuery.here(session)
 	var cfg: Dictionary = _bubble_cfg()
-	var met_here: int = GameQuery.people_met_at(session, here_id).size()
+	var met_here: int = GameQuery.people_at(session, here_id).size()   # everyone here, met or not (design/ux/person.md)
 	var rows: Array = []
 	var here_actions: Array = []
 	for p in GameQuery.known_places(session):
@@ -639,7 +665,7 @@ func _kind_name(kind: String, count: int) -> String:
 		"market": return tr("Market")
 		"sect": return tr("Sect")
 		"work": return tr("Missions and bounties")
-		"people": return tr("People you know") + " (%d)" % count
+		"people": return tr("People here") + " (%d)" % count
 		"explore": return tr("Explore")
 	return kind
 
@@ -693,7 +719,7 @@ func _on_bubble_pressed(kind: String, place_id: String) -> void:
 		"sect":
 			_panel.open_panel(tr("Sect"), session.sect_lines(), _end_turn)
 		"people":
-			_panel.open_panel(tr("People you know here"), _people_lines(here), _end_turn)
+			_open_people_here(here)
 		"work":
 			_open_comparison(TurnController.FOCUS_MISSION, "")
 		"explore":
@@ -709,6 +735,84 @@ func _market_lines(place_id: String) -> Array:
 		lines.append(tr("No stock seen yet: it appears when you trade here."))
 	lines.append_array(stock)
 	return lines
+
+
+## The people at a place as a list of names; one opens their person window (design/ux/person.md). With one person
+## it opens their window at once, as the HUD's people bubble does.
+func _open_people_here(place_id: String) -> void:
+	var people: Array = GameQuery.people_at(session, place_id)
+	if people.size() == 1:
+		_open_person(str(people[0].id), _end_turn)
+		return
+	var lines: Array = [tr("Click a name in the list on the left to open their window.")]
+	_panel.open_panel(tr("People here"), lines, _end_turn)
+	_show_people_buttons(people)
+
+
+func _show_people_buttons(people: Array) -> void:
+	for c in _people_list.get_children():
+		_people_list.remove_child(c)
+		c.queue_free()
+	if _people_list.get_parent() == null:
+		_people_list.set_anchors_preset(Control.PRESET_TOP_LEFT)
+		_people_list.position = Vector2(32, 150)
+		add_child(_people_list)
+	_people_list.visible = true
+	for x in people.slice(0, 14):
+		var b := Button.new()
+		b.text = "%s · %s%s" % [str(x.name), str(x.realm_label), "" if bool(x.met) else "  (not met)"]
+		b.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		var pid: String = str(x.id)
+		b.pressed.connect(func(): _open_person(pid, b))
+		_people_list.add_child(b)
+	if _people_list.get_child_count() > 0:
+		(_people_list.get_child(0) as Control).grab_focus.call_deferred()
+
+
+## Opens the person window for [param person_id]; the player's own name opens the character sheet instead.
+func _open_person(person_id: String, opener: Control) -> void:
+	if _busy():
+		return
+	var v: Dictionary = GameQuery.person(session, person_id)
+	if v.is_empty():
+		_panel.open_panel(tr("Person"), [tr("No record of this person.")], opener)
+		return
+	if bool(v.get("is_player", false)):
+		_open_sheet_from(opener)
+		return
+	_panel.close_panel()
+	_places.close_panel()
+	_people_list.visible = false
+	_person.open_person(v, session.has_pending_event(), opener)
+
+
+## Plays a practice fight with [param person_id] on the fight screen (a read: nothing changes).
+func _open_practice_fight(person_id: String) -> void:
+	if _busy():
+		return
+	var f: Dictionary = GameQuery.practice_fight(session, person_id)
+	if not bool(f.get("ok", false)):
+		_person.show_reply([str(f.get("reason", tr("The fight could not run.")))])
+		return
+	_tips.close_all()
+	_person.visible = false   # steps aside while the fight plays; it comes back when the fight screen closes
+	_fight.open_fight(f, tr("Practice fight (a preview: nothing changes)"))
+
+
+## A verb from the person window: only Greet exists in the greybox (the session's talk action).
+func _on_verb(person_id: String, verb_id: String) -> void:
+	if _busy() or verb_id != "greet":
+		return
+	_job_kind = "talk"
+	_talk_target = person_id
+	_job.start(session.run.bind(session.talk.bind(person_id, tr("Greetings."))))
+
+
+func _on_talk_done(result: Dictionary) -> void:
+	var v: Dictionary = GameQuery.person(session, _talk_target)
+	_person.open_person(v, session.has_pending_event(), _end_turn)
+	_person.show_reply(Array(result.get("lines", [])))
+	_refresh()
 
 
 func _people_lines(place_id: String) -> Array:
@@ -859,8 +963,14 @@ func _open_sheet_from(opener: Control) -> void:
 func _unhandled_key_input(event: InputEvent) -> void:
 	if not (event is InputEventKey) or not event.pressed or event.echo:
 		return
+	if _fight.visible:
+		return   # the fight screen owns the keys while it is up
 	var key: Key = (event as InputEventKey).physical_keycode
 	var owner_ctl: Control = get_viewport().gui_get_focus_owner()
+	if key == KEY_V and _person.visible and not (owner_ctl is LineEdit or owner_ctl is TextEdit):
+		_person.jump_to_verbs()
+		get_viewport().set_input_as_handled()
+		return
 	if key == KEY_ENTER or key == KEY_KP_ENTER:
 		if owner_ctl == null or owner_ctl == _end_turn or owner_ctl == _map:
 			_try_end_turn()
@@ -894,7 +1004,7 @@ func _on_escape(owner_ctl: Control) -> void:
 	var focus: String = ""
 	if _tips.owns(owner_ctl):
 		focus = "tooltip"
-	elif owner_ctl != null and (_panel == owner_ctl or _panel.is_ancestor_of(owner_ctl)):
+	elif owner_ctl != null and (_panel == owner_ctl or _panel.is_ancestor_of(owner_ctl) or _person == owner_ctl or _person.is_ancestor_of(owner_ctl) or _people_list.is_ancestor_of(owner_ctl)):
 		focus = "panel"
 	elif owner_ctl != null and (_places == owner_ctl or _places.is_ancestor_of(owner_ctl)):
 		focus = "places"
@@ -902,13 +1012,17 @@ func _on_escape(owner_ctl: Control) -> void:
 		focus = "z7"
 	var card: bool = _centre.visible and _centre.showing_event
 	match EscRouter.pick({"modal_open": _comparison.visible, "focus": focus, "tooltip_open": _tips.is_open(),
-			"z7_open": _centre.visible, "card_blocking": card, "panel_open": _panel.visible, "places_open": _places.visible}):
+			"z7_open": _centre.visible, "card_blocking": card, "panel_open": _panel.visible or _person.visible or _people_list.visible, "places_open": _places.visible}):
 		"modal":
 			_comparison.cancel()
 		"tooltip":
 			_tips.close_top()
 		"panel":
-			_panel.close_panel()
+			if _person.visible:
+				_person.close_panel()
+			else:
+				_panel.close_panel()
+			_people_list.visible = false
 		"places":
 			_places.close_panel()
 		"z7":
@@ -1103,6 +1217,7 @@ func _demo_real_input(dir: String, tag: String) -> void:
 	await _demo_bubbles(dir, tag)
 	await _demo_places(dir, tag)
 	await _demo_tooltips(dir, tag)
+	await _demo_person_and_fight(dir, tag)
 
 
 ## The tooltip layer through real input: hover, a nested word, a middle-click lock, a consumed click outside; then the
@@ -1172,6 +1287,89 @@ func _demo_tooltips(dir: String, tag: String) -> void:
 
 func _seconds(t: float) -> void:
 	await get_tree().create_timer(t).timeout
+
+
+## The person window and the fight screen through real input: open a person, V to the verbs, Greet, then a practice
+## fight played at 4×, skipped to the end and closed with Esc.
+func _demo_person_and_fight(dir: String, tag: String) -> void:
+	_tips.close_all()
+	var here: String = _here_id()
+	var people: Array = GameQuery.people_at(session, here)
+	var pick: String = ""
+	var my_realm: int = int(StateSnapshot.take(session).get("realm_index", 0))
+	var best: int = -1
+	for x in people.slice(0, 20):   # the opponent whose practice fight shows the most stacks, statuses and steps
+		var f: Dictionary = GameQuery.practice_fight(session, str(x.id))
+		var score: int = Array(f.get("rows", [])).filter(func(r): return str(r.kind) in ["stacks", "status", "step", "feed", "effect"]).size()
+		if score > best or (score == best and int(x.realm_index) == my_realm):
+			best = score
+			pick = str(x.id)
+	_check("there is someone to open", pick != "")
+	if pick == "":
+		return
+	# Through the map: the people bubble at your place counts everyone there, met or not, and opens them.
+	_refresh()
+	await _frames(3)
+	var bubble: Control = null
+	for c in _map.find_children("*", "MapBubble", true, false):
+		if str(c.kind) == "people" and (c as Control).is_visible_in_tree():
+			bubble = c
+	_check("your place shows a people bubble in a new game", bubble != null)
+	if bubble != null:
+		await _click(bubble.get_global_rect().get_center())
+		await _frames(5)
+		if not _person.visible and _people_list.visible:
+			var want: String = str(GameQuery.person(session, pick).get("name", ""))
+			for b in _people_list.get_children():
+				if str(b.text).begins_with(want + " ·"):
+					await _click(b.get_global_rect().get_center())
+					break
+			await _frames(5)
+	if not _person.visible:
+		_open_person(pick, _end_turn)
+		await _frames(5)
+	_check("the person window opens with the person's sheet", _person.visible and _person.person_id() != "")
+	await _shot(dir, "25-person-window", tag)
+	await _key(KEY_V)
+	await _frames(3)
+	await _shot(dir, "26-person-verbs", tag)
+	var greet: Button = null
+	for b in _person.find_children("*", "Button", true, false):
+		if str(b.text).contains("Greet") and not (b as Button).disabled:
+			greet = b
+	if greet != null:
+		await _click(greet.get_global_rect().get_center())
+		await _wait_job()
+		await _frames(5)
+		_check("Greet runs and its reply shows in the reply strip", _person.visible and _person.find_children("*", "Label", true, false).any(func(l): return l.visible and str(l.text) != "" and l.modulate == Color(1.0, 0.92, 0.7)))
+		await _shot(dir, "27-person-greet", tag)
+	var fight_btn: Button = null
+	for b in _person.find_children("*", "Button", true, false):
+		if str(b.text) == tr("Practice fight"):
+			fight_btn = b
+	_check("the window offers a practice fight", fight_btn != null)
+	if fight_btn == null:
+		return
+	await _click(fight_btn.get_global_rect().get_center())
+	await _frames(5)
+	_check("the practice fight opens the fight screen", _fight.visible)
+	_check("each side shows its arts as painted slots", _fight.art_slots("A").size() > 0 and _fight.art_slots("B").size() > 0
+		and _fight.art_slots("A").all(func(sl): return sl.icon != null))
+	await _shot(dir, "28-fight-start", tag)
+	await _key(KEY_3)
+	await _key(KEY_SPACE)
+	await _seconds(0.8)
+	await _shot(dir, "29-fight-playing", tag)
+	_check("art slots charge and fire during playback", _fight.art_slots("A").any(func(sl): return sl.charge < 1.0 or sl.flash > 0.0))
+	await _key(KEY_S)
+	await _frames(3)
+	_check("S skips to the end and the ending is labelled", _fight.ended())
+	await _shot(dir, "30-fight-end", tag)
+	await _key(KEY_ESCAPE)
+	await _frames(3)
+	_check("Esc closes the fight screen once it has ended", not _fight.visible)
+	await _key(KEY_ESCAPE)
+	_check("Esc closes the person window", not _person.visible)
 
 
 ## Moves the pointer to [param at] (layout coordinates). Since Godot 4.3 hover follows the real cursor, not pushed

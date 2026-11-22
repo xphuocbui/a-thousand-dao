@@ -96,6 +96,9 @@ func test_every_read_method_and_guidance_read_leaves_the_world_unchanged() -> vo
 		"GameQuery.travel_factor": func(): return GameQuery.travel_factor(s),
 		"GameQuery.place_lines": func(): return GameQuery.place_lines(s, here),
 		"GameQuery.sheet_lines": func(): return GameQuery.sheet_lines(s),
+		"GameQuery.person": func(): return GameQuery.person(s, npc),
+		"GameQuery.people_at": func(): return GameQuery.people_at(s, here),
+		"GameQuery.practice_fight": func(): return GameQuery.practice_fight(s, npc),
 	}
 	for name in reads:
 		var before: String = _state(s)

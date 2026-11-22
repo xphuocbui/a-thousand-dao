@@ -55,6 +55,18 @@ static func people_met_at(s: GameSession, place_id: String) -> Array:
 	return out
 
 
+## Everyone alive at [param place_id] except the player, met or not (the player sees everyone, design/ux/person.md):
+## [{id, name, realm_label, met}], strongest realm first.
+static func people_at(s: GameSession, place_id: String) -> Array:
+	var out: Array = []
+	for x in s.db.find("people", func(q): return bool(q.get("alive", true)) and not bool(q.get("is_player", false)) \
+			and not bool(q.get("is_beast", false)) and str(q.get("location_id", "")) == place_id):
+		out.append({"id": str(x.id), "name": str(x.get("name", "")), "realm_index": int(x.get("realm_index", 0)),
+			"realm_label": s.gd.realm_label(int(x.get("realm_index", 0)), int(x.get("stage", 0))), "met": bool(x.get("met_player", false))})
+	out.sort_custom(func(a, b): return int(a.realm_index) > int(b.realm_index))
+	return out
+
+
 ## The travel time in seasons from the player's place to [param dest_id] by the game's own route (TravelGrid.trip on
 ## the terrain, the road network when there is none), at the player's travel speed; -1 when there is no route.
 static func route_seasons(s: GameSession, dest_id: String) -> float:
@@ -127,6 +139,154 @@ static func place_lines(s: GameSession, place_id: String) -> Array:
 ## Display lines for the stand-in character sheet (until the character window is designed).
 static func sheet_lines(s: GameSession) -> Array:
 	return TerminalViews.sheet(s, TerminalIO.new())
+
+
+## Everything the person window shows about [param person_id] (design/ux/person.md: the player always sees everything),
+## as a copy: identity, standing, attitude and band, power number, linh căn, stats, công pháp, traits, ties, where they
+## are and their recent history. {} when there is no such person; {"gone": true, ...} for a dead one.
+static func person(s: GameSession, person_id: String) -> Dictionary:
+	var p: Dictionary = s.db.get_record("people", person_id)
+	if p.is_empty():
+		return {}
+	var gd: GameData = s.gd
+	var c := Character.from_dict(p.duplicate(true))
+	var sh: StatSheet = s.builds.sheet_of(c) if s.builds != null else null
+	var sect: Dictionary = s.db.get_record("sects", str(p.get("sect_id", "")))
+	var here_id: String = str(s.player.location_id)
+	var at: Dictionary = s.db.get_record("places", str(p.get("location_id", "")))
+	var att: int = int(p.get("attitude", 0))
+	var out := {
+		"id": person_id, "name": str(p.get("name", "")), "gender": str(p.get("gender", "")), "age": float(p.get("age", 0.0)),
+		"alive": bool(p.get("alive", true)), "death_cause": str(p.get("death_cause", "")), "is_beast": bool(p.get("is_beast", false)),
+		"is_player": bool(p.get("is_player", false)), "met": bool(p.get("met_player", false)),
+		"realm_label": gd.realm_label(int(p.get("realm_index", 0)), int(p.get("stage", 0))), "level": int(p.get("level", 1)),
+		"archetype": str(gd.archetype(str(p.get("archetype", ""))).get("name", p.get("archetype", ""))),
+		"sect": str(sect.get("name", "")), "sect_id": str(p.get("sect_id", "")),
+		"rank": s.sect_members.rank_name(str(p.get("sect_rank", ""))) if s.sect_members != null and str(p.get("sect_rank", "")) != "" else "",
+		"attitude": att, "band": attitude_band(gd, att),
+		"power": str(s.power_of_person(person_id).get("text", "")),
+		"linh_can": c.linh_can.describe(gd),
+		"place_id": str(p.get("location_id", "")), "place": str(at.get("name", "")), "here": str(p.get("location_id", "")) == here_id,
+		"home": str(s.db.get_record("places", str(p.get("home_id", ""))).get("name", "")),
+		"stats": [], "techniques": [], "traits": [], "ties": [], "history": [], "talents": [],
+	}
+	if sh != null:
+		out.stats = [
+			{"label": "Health (khí huyết)", "value": CharacterRules.khi_huyet_max(c, gd, sh).total},
+			{"label": "Linh lực", "value": CharacterRules.linh_luc(c, gd, sh).total},
+			{"label": "Thần thức", "value": CharacterRules.than_thuc(c, gd, sh).total},
+			{"label": "Vitality", "value": float(p.get("vitality", 1.0))},
+		]
+	for t in Array(gd.attributes().get("thien_phu", [])):
+		if (p.get("thien_phu", {}) as Dictionary).has(str(t.id)):
+			out.talents.append({"label": str(t.name), "value": float(p.thien_phu[str(t.id)])})
+	var techs: Dictionary = p.get("techniques", {})
+	for key in techs:
+		var e: Dictionary = techs[key]
+		var slot: String = ""
+		if str(key) == str(p.get("main_tech", "")):
+			slot = "main"
+		elif str(key) == str(p.get("second_tech", "")):
+			slot = "second"
+		elif Array(p.get("aux_tech", [])).has(key):
+			slot = "art"
+		out.techniques.append({"name": str((e.get("def", {}) as Dictionary).get("name", key)), "slot": slot,
+			"layer": int(e.get("layer", 0)), "layers": int((e.get("def", {}) as Dictionary).get("layers", 0))})
+	out.techniques.sort_custom(func(a, b): return ["main", "second", "art", ""].find(a.slot) < ["main", "second", "art", ""].find(b.slot))
+	var tr_data: Dictionary = gd.file("traits")
+	var nt: Dictionary = p.get("npc_traits", {})
+	for group in ["personality", "calling", "fate", "gained"]:
+		var ids: Array = Array(nt.get(group, [])) if nt.get(group) is Array else ([nt.get(group)] if str(nt.get(group, "")) != "" else [])
+		var table: Array = Array(tr_data.get("callings" if group == "calling" else group, []))
+		for tid in ids:
+			var rec: Dictionary = {}
+			for r in table:
+				if str(r.get("id", "")) == str(tid):
+					rec = r
+			out.traits.append({"group": group, "id": str(tid), "name": str(rec.get("name", tid)), "name_vi": str(rec.get("name_vi", ""))})
+	var mine: Array = []
+	var other: Array = []
+	for t in s.db.all(Ties.TABLE):
+		if str(t.a) != person_id and str(t.b) != person_id:
+			continue
+		var partner: String = str(t.b) if str(t.a) == person_id else str(t.a)
+		var kinds: Array = []
+		for k in (t.get("pin", {}) as Dictionary):
+			kinds.append("master" if k == "su_do" and str(t.pin.su_do) == partner else ("disciple" if k == "su_do" else str(k)))
+		if not (t.get("feud", {}) as Dictionary).is_empty():
+			kinds.append("feud")
+		if not (t.get("soft", {}) as Dictionary).is_empty():
+			kinds.append(str(t.soft.get("kind", "")))
+		if not (t.get("debt", {}) as Dictionary).is_empty():
+			kinds.append("debt")
+		if kinds.is_empty():
+			continue
+		var row := {"partner_id": partner, "partner": str(s.db.get_record("people", partner).get("name", partner)), "kinds": kinds}
+		(mine if partner == str(s.player.id) else other).append(row)
+	out.ties = mine + other.slice(0, 3)
+	for e in s.db.events_of(person_id).slice(-5):
+		out.history.append(str(e.get("text", "")))
+	return out
+
+
+## The attitude band word for [param attitude] (npc-interaction-dialogue.md rule 13; thresholds in ui_hud.json).
+static func attitude_band(gd: GameData, attitude: int) -> String:
+	var bands: Array = Array(gd.file("ui_hud").get("attitude_bands", []))
+	var word: String = "neutral"
+	for b in bands:
+		if attitude >= int(b[0]):
+			word = str(b[1])
+	return word
+
+
+## A practice fight between the player and [param person_id] for the fight screen: keyed on the two ids and the season,
+## so it is the same every time and draws nothing from the session stream; it changes nothing (a read, ADR-0006). Returns
+## {ok, rows: [{kind, t_ms, side, art, values}], a/b: {name, realm, arts}, winner, ending, seconds} or {ok: false, reason}.
+static func practice_fight(s: GameSession, person_id: String) -> Dictionary:
+	var fe: Dictionary = s.gd.combat().get("fight_engine", {})
+	if not bool(fe.get("enabled", false)):
+		return {"ok": false, "reason": "The fight engine is switched off in this build."}
+	var p: Dictionary = s.db.get_record("people", person_id)
+	if p.is_empty() or not bool(p.get("alive", true)):
+		return {"ok": false, "reason": "No living person to fight."}
+	var foe := Character.from_dict(p.duplicate(true))
+	var a: FighterProfile = FighterCompiler.compile(s.player, s.gd, s.db, s.sheet())
+	var b: FighterProfile = FighterCompiler.compile(foe, s.gd, s.db, s.builds.sheet_of(foe))
+	if a == null or b == null:
+		return {"ok": false, "reason": "A fighter could not be compiled."}
+	var req := FightRequest.new()
+	req.a = a
+	req.b = b
+	req.fight_seed = RngUtils.stable_hash("practice:%s:%s:%d" % [s.player.id, person_id, s.season_index()])
+	req.log_enabled = true
+	var r: FightResult = CombatService.new(CombatConstants.from_game_data(s.gd)).resolve(req)
+	if r == null:
+		return {"ok": false, "reason": "The fight did not run."}
+	var rows: Array = []
+	for row in r.log_rows:
+		rows.append({"kind": FightLogRow.Kind.keys()[row.kind].to_lower(), "t_ms": row.t_ms, "side": row.side,
+			"other": row.other, "art": str(row.art_id), "hit_kind": str(row.hit_kind), "values": Array(row.values)})
+	var side_info := func(c: Character, prof: FighterProfile) -> Dictionary:
+		var arts: Array = []
+		var lib: Dictionary = s.gd.file("combat_library").get("arts", {})
+		for x in prof.arts:
+			var rec: Dictionary = lib.get(str(x.id), {})
+			arts.append({"id": str(x.id), "name": str(rec.get("name", "")), "rule": str(rec.get("rule", "")), "cd": x.cd, "cost": x.cost, "element": str(x.element), "dtype": str(x.dtype),
+				"charges": x.charges, "steps": x.steps.size(), "empower": x.empower.size(), "heal": x.heal,
+				"pool": str(x.pool), "statuses": x.statuses.map(func(st): return st.id)})
+		var wards: Array = []
+		for w in prof.wards:
+			wards.append({"id": w.id, "model": ExtraWardDef.Model.keys()[w.model].to_lower(), "cost": w.cost, "drain": w.drain,
+				"cooldown": w.cooldown, "up": w.up, "shield": w.shield, "block": w.block, "evade": w.evade})
+		var shields: Array = []
+		for sh in prof.shields:
+			shields.append({"size": sh.size, "body": sh.body, "standing": sh.standing, "pieces": sh.pieces})
+		return {"name": c.name, "realm": s.gd.realm_label(c.realm_index, c.stage), "roots": c.linh_can.describe(s.gd),
+			"arts": arts, "wards": wards, "shields": shields, "body_shield": prof.body_shield, "block": prof.block,
+			"evade": prof.evade, "crit": prof.crit, "reserved": prof.reserved, "feeds": prof.feeds.duplicate(true),
+			"effects": prof.effects.map(func(e): return e.id), "items": []}
+	return {"ok": true, "rows": rows, "a": side_info.call(s.player, a), "b": side_info.call(foe, b),
+		"winner": r.win_code(), "ending": FightResult.Ending.keys()[r.ending].to_lower(), "seconds": r.seconds}
 
 
 static func _shown(s: GameSession, p: Dictionary) -> bool:

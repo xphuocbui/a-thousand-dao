@@ -211,7 +211,7 @@ func _kind_word(kind: String) -> String:
 		"market": return tr("Market")
 		"sect": return tr("Sect")
 		"work": return tr("Missions")
-		"people": return tr("People you know")
+		"people": return tr("People here")
 		"explore": return tr("Explore")
 	return kind
 

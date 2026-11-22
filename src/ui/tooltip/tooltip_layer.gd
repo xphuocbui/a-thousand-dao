@@ -209,8 +209,8 @@ func _hit(p: Vector2) -> Dictionary:
 		return {"level": -1}   # never read game state while the session's job runs
 	var hovered: Control = get_viewport().gui_get_hovered_control()
 	var src: Control = _source_of(hovered)
-	if src == null:
-		return {"level": -1}
+	if src == null or not src.is_visible_in_tree():
+		return {"level": -1}   # Godot updates its hover only on mouse motion: a hidden control can still read as hovered
 	var content: Dictionary = _content_of(src, src.get_global_transform().affine_inverse() * p)
 	if content.is_empty():
 		return {"level": -1}

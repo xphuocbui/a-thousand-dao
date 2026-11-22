@@ -395,7 +395,7 @@ committed 2026-11-22; that document wins where the two differ).
 8. ~~Large diagrams.~~ **Decided 2026-11-22:** the diagram area holds up to 8 nodes at 1280 × 720 with 32 px targets;
    a larger diagram scales its nodes down to a 32 px floor and then scrolls (Layout). Check the 8-node figure once real
    diagrams exist.
-9. **Pattern library gap:** there is no `design/ux/interaction-patterns.md`. This spec's patterns for it: the formation
+9. ~~**Pattern library gap.**~~ **Done 2026-11-22:** `design/ux/interaction-patterns.md` holds this spec's patterns (Formation diagram, Playback bar, Stat bar, Loadout icon, Status chip, Log list, Breakdown, Toast, Inspect mode). Earlier note: there was no `design/ux/interaction-patterns.md`. This spec's patterns for it: the formation
    diagram, the feed pulse, the playback bar, the stat bar, the loadout icon, the status chip, the log list, the
    Breakdown and the disconnect toast. Tooltips use the HUD's tooltip layer (ADR-0005), not a pattern of their own.
 10. ~~**Gamepad tooltip access.**~~ **Decided 2026-11-22:** a pad Inspect mode (right stick click), Interaction Map.

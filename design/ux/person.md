@@ -564,7 +564,7 @@ the window is built and checked against placeholder verbs for layout, states and
     and wiki entries for traits and công pháp.
 
 **Smaller items**
-13. **Pattern library gap** (user: flag and continue, 2026-11-22): there is no `design/ux/interaction-patterns.md`.
+13. ~~**Pattern library gap**~~ **Done 2026-11-22:** `design/ux/interaction-patterns.md` now holds this spec's patterns (Sticky header and pinned action bar, Section jumps, Will / won't badge, Reply strip, Confirm in place, Inline chooser). Earlier note: there was no `design/ux/interaction-patterns.md`.
     This spec invents four patterns for it: the sticky header with pinned action bar and section jumps, the
     will / won't badge (a word plus a mark), the reply strip, and the confirm-in-place verb row. The HUD spec flags the
     same gap for its own; run `/ux-design patterns` when the library is started.
