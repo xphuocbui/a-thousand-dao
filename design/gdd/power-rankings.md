@@ -1,6 +1,7 @@
 # Power Rankings
 
 > **Status**: Approved 2026-11-14 (lean re-review of the ladder revision; the earlier reviews' blockers resolved). **Changed after approval, 2026-11-14 (user decision after the ADR-0003 threading spike):** rule 16 coarse-panels only Kết Đan and above and the player's starting place at load, capped by `worldgen_fight_budget`; the rest start Provisional; Open Questions 7 (resolved) and 9 (new). Calibration (ADR-0003 step 3) raised `rung_div` to 32 by the saturation guard's own remedy and rescaled the rung-counted knobs (Tuning Knobs). A re-review of these changes is recommended. The ladder revision (user decisions from measured fights: ladder panel, measured anchors, coarse panels at load; `design/research/power-rankings-measurements.md`) was re-reviewed and approved the same day. Decisions by the user in-session; specialists consulted in lean mode: `systems-designer` (Formulas), `qa-lead` (Acceptance Criteria). CD-GDD-ALIGN skipped (lean mode)
+> **Changed 2026-11-22 (user decision, HUD design):** rule 13 applies each season's batch one season late, so End turn does not wait for the rating fights. **Not yet built:** `game_session.gd` `_start_ratings` / `_finish_ratings` still apply the same season, and acceptance criteria that assume same-season application are not yet updated; both follow in a later story.
 > **Author**: the user + Claude
 > **Last Updated**: 2026-11-14 (ladder revision: Formulas A-C, E-G, Season budget; rules 3, 4, 16; Player Fantasy; Vấn Đỉnh Bảng)
 > **Last Verified**: 2026-11-14
@@ -106,7 +107,15 @@ a won fight); curiosity about who is above them and why; never confusion about w
     fighter, so it is keyed on the game seed, the season, the fighter's id, the ladder's realm, the rung k and the
     fight's index among that fighter's panel fights against that rung in the season, counted across every panel the
     fighter runs that season (a coarse then a full panel, or a second build's panel). World-generation panels use
-    season 0. So no two fights of a season share a seed. Pairing reads the ratings at the start of the season; the fights do not read ratings. A season's results
+    season 0. So no two fights of a season share a seed. Pairing reads the ratings at the start of the season; the fights do not read ratings.
+    **One season late (user decision 2026-11-22).** The batch planned at the start of season N runs in the background
+    through seasons N and N+1 and is applied at the end of season N+1, in the fixed order below, before season N+2's
+    pairing reads the ratings; pairing in season N+1 therefore reads ratings without season N's results. At most two
+    batches are in flight. End turn waits only when a batch is still running at the end of the season after it, so
+    the wait is hidden unless two turns pass faster than one batch (measured 2026-11-22: a first season waited 105 s
+    under same-season application). A multi-season command applies each batch at the end of the season after it,
+    the same as single turns. The power number shown is up to one season old; its Stale and Provisional states
+    (States table) are unchanged. A season's results
     are applied after the batch in one fixed order: first every panel result, by fighter id (each sets `base`, then applies `offset_keep` to `offset` and `n` once); then every pair fight, by the sorted pair ids and the fight index. Each pair update reads both fighters' rating and `n` as they stand at that point in the order (Formulas D), so the outcome never depends on which fight finished first and a fighter's panel and same-season fights always combine the same way.
 14. **Scheduling.** Rating work runs in the background through the season, in this order: the player's panel;
     panels of Stale and Provisional fighters (higher realm first, then those in the player's current region, then by
