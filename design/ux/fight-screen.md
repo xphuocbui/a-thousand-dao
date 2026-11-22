@@ -118,7 +118,8 @@ see the column detail below.
 ```
 
 `+`, `−` and `?` are the node polarity marks (positive, negative, conditioned); arrows are feed links, plain lines
-adjacency links; the sample names are placeholders.
+adjacency links; the sample names are placeholders. **Size rule:** the diagram area holds up to 8 nodes at 1280 × 720
+with 32 × 32 px targets; a larger diagram scales its nodes down to the 32 px floor, then scrolls within the area.
 
 ### Layout Zones
 
@@ -136,7 +137,7 @@ The two columns mirror each other so the eye compares like with like across the 
 
 | Component | Zone | Shows | Interactive | Pattern |
 |---|---|---|---|---|
-| Portrait | Columns | Small portrait, name, realm, root elements | Hover: character summary (sheet numbers: health, linh lực, ward strength and efficiency, resistances by type, block, body shield, thần thức, power rating) | Tooltip layer (ADR-0005) |
+| Portrait | Columns | Small portrait, name, realm, root elements | Hover: character summary (sheet numbers: health, linh lực, ward strength and efficiency, resistances by type, block, body shield, thần thức, power number (Power Rankings)) | Tooltip layer (ADR-0005) |
 | Health bar | Columns | Health, with floating numbers on change | Hover: exact numbers | Stat bar (new) |
 | Body shield bar | Columns | The body shield as its own bar over health (Combat Defence UI) | Hover | Stat bar |
 | Ward shield bar | Columns | One bar per ward shield in slot order, or one segmented bar | Hover: each shield | Stat bar |
@@ -182,6 +183,7 @@ The two columns mirror each other so the eye compares like with like across the 
 | Replay error | The fight record is missing, corrupt or from an older version | "This fight can't be replayed (*reason*)" with "Back to result"; never a crash |
 | Empty rows | A side has no laid or carried formation (the default line), or no wards, items or statuses | Each row stays with "none"; the default line shows only the plain-slot row, so the layout is the same for every fight |
 | Replay | From the Result screen or fight history | Same screen, starting paused at 0 s, with a "Back to result" exit |
+| Loading | None | The fight record is in memory when the screen opens (a live fight hands it over; a replay reads it from the history first), so there is no loading state |
 
 | Variant | Difference |
 |---|---|
@@ -210,9 +212,9 @@ lines**. Every focusable element shows the focus ring and a hover highlight, and
 | Click or **Enter** on a log line | Pause and open that hit's Breakdown (or a feed or gate line's node line) |
 | Click or **Enter** on a node, icon or chip | Pin its tooltip and filter the log to its events; again to clear |
 | Click or Enter on the formation heading | The diagram Breakdown |
-| Drag the timeline; with it focused, ← / → step, PageUp / PageDown ±10 s, Home / End | Scrub |
+| Drag the timeline; with it focused, ← / → step **by event** (Shift by pulse), PageUp / PageDown ±10 s, Home / End | Scrub |
 | Esc | Close the Breakdown or the pinned tooltip; otherwise settings only (no leaving mid-fight, `design/ux/hud.md`) |
-| **Gamepad (basic, user 2026-11-22)** | **A** play / pause, **LB / RB** slower / faster, **Y** skip to the result, **D-pad ← / →** step by event, **D-pad ↑ / ↓** move through the log, **X** open the selected line's Breakdown, **B** close it. Tooltips on nodes and chips stay keyboard and mouse only, as the HUD's Partial rule allows for dense full screens; the keyboard reaches everything |
+| **Gamepad (basic, user 2026-11-22)** | **A** play / pause, **LB / RB** slower / faster, **Y** skip to the result, **D-pad ← / →** step by event, **D-pad ↑ / ↓** move through the log, **X** open the selected line's Breakdown, **B** close it. **Right stick click toggles Inspect** (user 2026-11-22): playback pauses, the D-pad moves a focus ring across nodes, links, chips, bars and the portrait, and each one's tooltip shows (A pins it and filters the log, as a click does); the same button returns to playback. So every number is reachable on a pad |
 
 ---
 
@@ -230,7 +232,7 @@ The screen only **reads** a recorded fight; it never computes combat.
 | Character summary | Character sheet (Combat UI: Character sheet) | When the portrait tooltip opens | The portrait tooltip shows name and realm only | For the portrait tooltip |
 | Each side's diagram | Formations (the Set diagram, compiled into the loadout) | Read once when the screen opens | The default line (plain slots only) | Nodes (polarity, rule, the art in each), links (kind, feed seconds), the shape for drawing, laid or carried, share, lay fuel burnt, `reserve_share` |
 | New fight-record events | Combat engine | With each event | Events the record lacks (an older record version) are simply not shown; the version is checked first | `feed_fired` (source, target, seconds), `gate_opened` and `gate_closed`, the escape channel (start, end, interrupted), heal parts, each damage part's type history, the ending (knockout, draw, flight), and a **record version** |
-| Per-node tally | Summed by the screen from the event list | At the playback clock (scrubbing recomputes it from the events) | 0 for a node with no events | Reading and adding up recorded events, never computing combat |
+| Per-node tally | The fight record (Combat engine): a derived view summed from its events | At the playback clock (scrubbing recomputes it from the events) | 0 for a node with no events | Reading and adding up recorded events, never computing combat; the record reaches the screen through the GameSession rules (ADR-0006: a copy, read while no job runs) |
 ---
 
 ## Events Fired
@@ -280,7 +282,7 @@ An item is ticked only where the Interaction Map specifies it. Touch is not targ
 - [x] Esc closes or cancels (the Breakdown, a pinned tooltip) and never leaves the fight (settings only)
 
 **Gamepad (Partial)**
-- [ ] Not every interactive element is reachable: node and chip tooltips are keyboard and mouse only, the HUD's documented exemption for dense full screens (`design/ux/hud.md`, Platform Adaptation)
+- [x] All interactive elements are reachable: the log and playback directly, nodes, links, chips, bars and the portrait through Inspect (right stick click)
 - [x] Button mapping documented: A play / pause, LB / RB speed, Y skip, D-pad steps and the log, X Breakdown, B close
 - [x] No action needs analog precision (the timeline is stepped by event)
 - [x] Shoulder shortcuts documented (LB / RB speed; the HUD's bar is hidden on this screen)
@@ -311,11 +313,14 @@ committed 2026-11-22; that document wins where the two differ).
 - **Screen reader:** playback itself is not readable (a Known Intentional Limitation in the accessibility doc); the
   route is the **fight log and the Breakdown**, built from standard controls with names and roles. Log lines are read
   on focus with their time; nothing is announced live during playback; the ending is announced once ("Knockout: you
-  won at 41.2 s"). Every control, node and icon has an accessible name ("Node 1, positive, Twin Flame Echo, ready"),
+  won at 41.2 s"). Nodes, chips and icons are **real `Control` nodes** (not drawn into one canvas), so every control, node and icon has
+  an accessible name ("Node 1, positive, Twin Flame Echo, ready"); only the link lines and pulses are drawn,
   and the diagram Breakdown reads the diagram as a list.
 - **Photosensitivity:** the flash cap (at most 3 flashes a second, Transitions & Animations) and the first-launch
   notice from the accessibility doc.
 - **Motor:** no timed input; pause is always available; any speed; every key is rebindable (the HUD's key bindings).
+- **Sound:** every sound cue (hits, a ward breaking, the ending) has an on-screen equivalent (a floating number, a
+  state change, a log line), so nothing is carried by sound alone.
 - **Reduced motion:** as in Transitions & Animations.
 
 ---
@@ -344,7 +349,8 @@ committed 2026-11-22; that document wins where the two differ).
 1. Playback at any speed ends with the same health, linh lực and result as the fight record says.
 2. Skipping shows the same Result screen as playing to the end.
 3. Scrubbing to 20.0 s shows the same bars as playing to 20.0 s.
-4. Every node, link, ward, item, chip, bar and the portrait has a tooltip.
+4. Every node, link, ward, item, chip, bar and the portrait has a tooltip, reachable by mouse, keyboard (Q) and the
+   pad's Inspect mode.
 5. A hit's Breakdown steps add up to the damage shown, and each part shows its type history ("Lightning ← Fire ←
    Physical"); a heal shows its heal Breakdown (amount, healing, healing taken, linh lực refunded).
 6. Each diagram is drawn with its nodes' polarity marks, feed arrows and adjacency lines; a carried diagram is dimmed
@@ -365,6 +371,11 @@ committed 2026-11-22; that document wins where the two differ).
 20. On a gamepad, play, speed, step, skip, the log and the Breakdown all work.
 21. `[Manual]` With a screen reader, log lines and the Breakdown are read, and the ending is announced.
 22. At 4×, no more than one floating number per side per pulse.
+23. Past `fatigue_start` the header shows "Fatigue" and each pulse's fatigue loss is labelled as such.
+24. In an ambush the foe's diagram shows its shape with "?" nodes until each fires.
+25. An escape channel shows its chip and bar; a successful escape ends the fight labelled Flight.
+26. `[Screenshot]` With the longest Vietnamese strings (formation name, log line, header label), nothing truncates and
+    every element stays within its max length (Localization).
 
 ---
 
@@ -381,10 +392,10 @@ committed 2026-11-22; that document wins where the two differ).
    (feeds, gates, escape channel, heal parts, type history, the ending, a record version).
 7. **The diagram editor (Preparation) needs its own UX spec** (the Formations GDD's UX flag), and the Result screen has
    none yet.
-8. A large diagram (many nodes) at 1280 × 720 may need smaller nodes or a scroll; check once real diagrams exist.
+8. ~~Large diagrams.~~ **Decided 2026-11-22:** the diagram area holds up to 8 nodes at 1280 × 720 with 32 px targets;
+   a larger diagram scales its nodes down to a 32 px floor and then scrolls (Layout). Check the 8-node figure once real
+   diagrams exist.
 9. **Pattern library gap:** there is no `design/ux/interaction-patterns.md`. This spec's patterns for it: the formation
    diagram, the feed pulse, the playback bar, the stat bar, the loadout icon, the status chip, the log list, the
    Breakdown and the disconnect toast. Tooltips use the HUD's tooltip layer (ADR-0005), not a pattern of their own.
-10. **Gamepad tooltip access:** node and chip tooltips are keyboard and mouse only (the Input checklist's unticked
-    item). Decide whether a pad focus-and-pin mode is needed so a pad-only player can inspect every number, which the
-    pillar "every number explains itself" asks for.
+10. ~~**Gamepad tooltip access.**~~ **Decided 2026-11-22:** a pad Inspect mode (right stick click), Interaction Map.
