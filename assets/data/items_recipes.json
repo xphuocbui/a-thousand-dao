@@ -19,7 +19,7 @@
     "mutated_pill": "tu_khi_dan",
     "_doc_quality": "Item Database Formula B (2026-11-20): pill quality reads rho = equivalents put in / equivalents the recipe needs; rank q at rho >= thresholds[q] (rank 0 at the bare minimum).",
     "fuel_frac": 0.05,
-    "_doc_fuel": "Alchemy F2 (2026-11-21): fuel = ceil(fuel_frac x price) linh thach per brew, burned on success or failure.",
+    "_doc_fuel": "Alchemy F2 (2026-11-21): fuel = ceil(fuel_frac x price) linh thach per brew, burned on success or failure; breakthrough recipes (with a main herb) burn none (user decision 2026-11-22).",
     "_doc_ingredients": "Alchemy rule 5 (herb element rework 2026-11-21): an ingredient is either a strict main herb {herb, min_age, qty} (breakthrough recipes only: qty herbs of that herb, each at least min_age) or an element value {element, value} that any herbs listing the element fill by value (Item Database Formula B); `usual` names the herb NPC workshops source it from (Trade Goods)."
   },
   "recipes": [

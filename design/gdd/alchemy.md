@@ -30,7 +30,7 @@ Alchemy is where seasons of herb growing become power. It is the last step of th
 3. **Brewing takes the season**, anywhere. The character picks a recipe; capability #10 allows one more brew in the same season.
 4. **Level gate.** A recipe can be attempted at Đan Đạo level `min_level − 1` or above (level 0 can attempt level-1 recipes).
 5. **Ingredients by value.** Each ingredient needs herbs of its element whose values (Item Database Formula B, `base_value × E(age / mature_years)`) add up to at least its `value`, so many young herbs or one old herb both serve. A multi-element herb fills one ingredient of any one of its elements at its full value. The default picks the youngest herbs first until the value is met, so an old treasure is never burned by accident; the player may choose others. Herbs are never split, and planted herbs are never used. A breakthrough recipe's **main herb** is the exception: it needs `qty` herbs of that named herb, **each at least `min_age`**, with no substitution by value or by other herbs, which is exactly how Realms Formula D's pill supply models it (rule 11). The brew is refused, with what is missing, if the herbs fall short.
-6. **Fuel.** Lighting the cauldron costs `fuel = ceil(fuel_frac × price)` linh thạch (Formulas F2). It is paid when the brew starts and burned whatever the result: a sink in Regional Economy Formula H. The brew is refused if the character cannot pay.
+6. **Fuel.** Lighting the cauldron costs `fuel = ceil(fuel_frac × price)` linh thạch (Formulas F2). It is paid when the brew starts and burned whatever the result: a sink in Regional Economy Formula H. The brew is refused if the character cannot pay. **A breakthrough pill (a recipe with a main herb, rule 2) burns no fuel** (user decision 2026-11-22, after the harness A/B: at 20 a brew, Trúc Cơ Đan's fuel cost a poor Qi Refining life its attempts, and the share of lives reaching Foundation Establishment fell from 65 % to 44 %).
 7. **Success.** The chance is `p_brew` (Formulas F1), the designed form shared with Realms Formula D and Character Stats rule 14: a base from difficulty, Đan Đạo level and comprehension, plus 0.25 points per Fire purity, with `alchemy_success` dividing the failure chance, clamped to 5–95 %. *(The built code adds `alchemy_success` linearly; it changes to this form.)*
 8. **Failure.** The herbs and the fuel are lost ("the cauldron cracks"). The alchemist gains half the recipe's xp. With capability #11 there is a chance of one strange pill (`mutated_pill`).
 9. **Success.** The brew makes `yield + alchemy_yield` pills, plus `crit_extra_yield` on a Khí vận crit (chance `eff(khi_van) × 0.0015`, Character Stats). Quality is the rank of ρ (value put in over value needed, summed over the ingredients) against `quality_grade_thresholds`. Pills of the same recipe and quality stack. The alchemist gains the recipe's xp.
@@ -97,7 +97,7 @@ The brew_success formula is defined as:
 
 The brew_fuel formula is defined as:
 
-`fuel = ceil(fuel_frac × price)`
+`fuel = ceil(fuel_frac × price)`, or 0 for a breakthrough pill (rule 6)
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
@@ -105,8 +105,8 @@ The brew_fuel formula is defined as:
 | fuel_frac | float | 0.05 | data file *(guess)* | Share of the recipe's price burned per brew |
 | price | int | 12–40,000 | recipe | The recipe's price |
 
-**Output Range:** 1 stone (Tụ Khí Đan) to 2,000 (Hóa Thần Đan).
-**Example:** Ngưng Nguyên Đan (3,000, a scarcity price) burns 150 a brew; the repriced Diên Thọ Đan (2,140) burns 107.
+**Output Range:** 0 (the four breakthrough pills) or 1 stone (Tụ Khí Đan) to 107 (Diên Thọ Đan).
+**Example:** the repriced Diên Thọ Đan (2,140) burns 107 a brew; Ngưng Nguyên Đan, a breakthrough pill, burns none.
 
 ### F3. Quality and value
 
@@ -177,7 +177,7 @@ The dan_dao_xp formula is defined as: a success gives the recipe's `xp`, a failu
 - **ρ below 1:** cannot happen; the brew is refused if the value falls short.
 - **Fuel for a price-1 recipe:** at least 1, by the ceil.
 - **Positive loop:** brews → xp → higher odds → more brews. Bounded by level 9 and the 95 % clamp.
-- **Sink size:** fuel is modest (2,000 for a Hóa Thần brew; a life makes a few). Crafting fuel is a real but small sink; most of its volume comes through NPC workshops.
+- **Sink size:** fuel is modest (at most 107 a brew; breakthrough pills burn none). Crafting fuel is a real but small sink; most of its volume comes through NPC workshops.
 
 ## Edge Cases
 
@@ -297,6 +297,7 @@ All of these work in the debug terminal first, with numbered menus.
 - **AC-AL-14** [Integration] Realms Formula D. **GIVEN** a brew of a breakthrough pill, **THEN** its success chance equals Realms' `p_brew` for the same inputs.
 - **AC-AL-15** [Integration] Regional Economy Formula H. **GIVEN** a season with player brews and NPC workshop brews, **THEN** the player's fuel and the workshops' aggregate fuel are separate sink entries, and `ΔM = F_mine − sinks` holds.
 - **AC-AL-16** [Integration] Character Stats. **GIVEN** a pill with toxicity 10 taken, **THEN** toxicity rises by Character Stats' rule (10 × the resistance factor).
+- **AC-AL-18** [Logic] Rule 6. **GIVEN** the four breakthrough recipes, **THEN** `fuel` is 0; **GIVEN** Hoàng Long Đan (90), **THEN** `fuel` is `ceil(0.05 × 90)` = 5.
 
 **Screens**
 
@@ -312,5 +313,5 @@ All of these work in the debug terminal first, with numbered menus.
 | 2 | **Closed 2026-11-21:** the Realms re-run found value-form main herbs doubled supply, so breakthrough pills keep named main herbs (rule 11); breakthrough pills keep scarcity prices so `M_market ≈ 0` holds (rule 12). A harness pass with real lives still confirms the edge | Realms; Balance Harness | Done (harness confirmation pending) |
 | 3 | Back-links owed: Trade Goods (prices, value-form lint, NPC fuel, band moves), Regional Economy (`burn_craft`), Sects (kind pills), Realms | user | After this GDD |
 | 4 | **Closed 2026-11-21:** six multi-element herbs (Xích Huyết Đằng Fire+Wood, Băng Tâm Thảo Water+Metal, Kim Tủy Quả Metal+Earth, Vạn Niên Mộc Linh Wood+Earth, Anh Tâm Liên Water+Wood, Hóa Thần Quả Fire+Metal); new recipes for them are content work | user | Done |
-| 5 | `fuel_frac` (0.05) and the sink size: is crafting fuel worth keeping as a sink, or only as a cost? | Balance Harness | Harness pass |
+| 5 | `fuel_frac` (0.05) and the sink size: is crafting fuel worth keeping as a sink, or only as a cost? **Partly closed 2026-11-22:** the harness A/B found fuel on breakthrough pills cut the Foundation gate, so they burn none (rule 6); fuel stays on market pills | Balance Harness | Sink size still open |
 | 6 | **Implemented 2026-11-21:** recipes by element value with a strict main herb, fuel, the designed `p_brew` form. Still lagging, in Character Stats' code: the stat sheet caps `alchemy_success` at 3 (rule 14 replaced the cap with the failure divider on 2026-11-10) | implementer (Character Stats) | Next Character Stats build pass |

@@ -159,8 +159,16 @@ func find_ingredients(c: Character, recipe: Dictionary) -> Dictionary:
 	return {"ok": missing.is_empty(), "items": chosen, "missing": missing, "need": need_tot, "put": put_tot}
 
 
-## Brew fuel (Alchemy F2): ceil(fuel_frac x price) linh thạch, burned on success or failure.
+## Whether [param recipe] is a breakthrough pill: it names a main herb (Alchemy rule 2).
+static func is_breakthrough(recipe: Dictionary) -> bool:
+	return Array(recipe.get("ingredients", [])).any(func(ing): return is_herb_entry(ing))
+
+
+## Brew fuel (Alchemy F2): ceil(fuel_frac x price) linh thạch, burned on success or failure; a breakthrough pill burns
+## none (rule 6, user decision 2026-11-22: fuel cost a poor Qi Refining life its Foundation pill).
 func fuel(recipe: Dictionary) -> int:
+	if is_breakthrough(recipe):
+		return 0
 	var cfg: Dictionary = _gd.file("items_recipes").alchemy
 	return int(ceil(float(cfg.get("fuel_frac", 0.0)) * float(recipe.get("price", 0)) - 1e-6))
 

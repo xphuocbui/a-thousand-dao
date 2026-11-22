@@ -176,6 +176,19 @@ func test_brew_burns_fuel_win_or_lose_and_is_refused_without_it() -> void:
 	assert_eq(broke.db.items_of(broke.c.id).filter(func(i): return i.kind == "herb").size(), 2, "herbs untouched")
 
 
+func test_breakthrough_pills_burn_no_fuel_market_pills_do() -> void:
+	# Arrange: Alchemy rule 6 (user decision 2026-11-22, after the A/B): a breakthrough recipe (one with a main herb)
+	# burns no fuel; a market pill burns ceil(fuel_frac x price).
+	var gd := game_data()
+	var w := _alch_with([])
+	# Act / Assert
+	for rid in ["truc_co_dan", "ngung_nguyen_dan", "hoa_anh_dan", "hoa_than_dan"]:
+		assert_eq(w.alchemy.fuel(gd.recipe(rid)), 0, "%s is a breakthrough pill: no fuel" % rid)
+	var r: Dictionary = gd.recipe("hoang_long_dan")
+	assert_eq(w.alchemy.fuel(r), int(ceil(float(gd.file("items_recipes").alchemy.fuel_frac) * float(r.price) - 1e-6)), "a market pill still burns fuel")
+	assert_true(w.alchemy.fuel(r) > 0, "fuel_frac x 90 rounds up above 0")
+
+
 func test_alchemy_success_divides_the_failure_chance() -> void:
 	var gd := game_data()
 	var w := _alch_with([])

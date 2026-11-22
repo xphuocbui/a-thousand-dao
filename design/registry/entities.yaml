@@ -2669,8 +2669,8 @@ formulas:
       - fuel_frac
       - price
     output_range: ["1 stone", "2,000 (Hoa Than Dan)"]
-    expression: "fuel = ceil(fuel_frac 0.05 * recipe price), paid when the brew starts, burned on success or failure; NPC workshops pay it as one aggregate burn"
-    notes: "Alchemy F2, rule 6. The crafting-fuel sink of World Economy decision 7. fuel_frac is a guess."
+    expression: "fuel = ceil(fuel_frac 0.05 * recipe price), 0 for breakthrough pills (recipes with a main herb); paid when the brew starts, burned on success or failure; NPC workshops pay it as one aggregate burn"
+    notes: "Alchemy F2, rule 6. The crafting-fuel sink of World Economy decision 7. fuel_frac is a guess. Breakthrough pills exempt: user decision 2026-11-22 after the harness A/B."
     added: 2026-11-21
     revised: ""
   - name: recipe_price
