@@ -117,6 +117,16 @@ Regional Economy & Trade (#43) stay as approved, and this file lists the changes
 - **Travel & Map:** the new place kinds and counts, once merged.
 - **Regional Economy & Trade:** re-measure F6's access figures, `measure_access.py`, with the new shapes.
 
+## Before pushing this branch
+
+- **About 87 MB of screenshots in `production/qa/evidence/province-panel/` went into the branch history as plain PNG
+  files, not LFS.** The LFS rule for that folder was only added at the end, so new ones go to LFS. Two tries with `git
+  lfs migrate import` (`--include-ref=refs/heads/provinces-v2 --exclude-ref=refs/heads/main`) exited 0 but rewrote
+  nothing, while `git lfs migrate info` with the same refs and `--include="production/qa/evidence/province-panel/**"`
+  does list the 23 files. Convert them, or drop or shrink the screenshots, before the first push.
+- **Untracked trial folders** `design/map/continent-11/provinces-v2-up*` and `-sym*` (the ridge trials) are not
+  committed; delete them or keep them for comparison.
+
 ## Still owed
 
 - Gamepad and keyboard opening of the province panel.
