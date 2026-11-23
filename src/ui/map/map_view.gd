@@ -511,34 +511,89 @@ func _draw() -> void:
 			draw_string(font, box.position + Vector2(4, font.get_ascent(fs) + 1), name, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, Color(0.96, 0.92, 0.82, w))
 
 
-## Region borders: the thin line between a great sect's own regions (the Borders toggle) and the bold ink line where
-## the holder changes (part of the political overlay, so it fades with [param pol]).
+## Border lines, one width and one ink, told apart by pattern (user 2026-11-23: "double border for country borders,
+## dash for regions, dash + dot for provinces, one thickness"): a double line where the holder changes (part of the
+## political overlay, so it fades with [param pol]), a dashed line between a great sect's own regions and a dash-dot
+## line between provinces of one region (both with the Borders toggle; provinces fade in as the map closes in).
 func _draw_borders(pol: float) -> void:
 	var sc: float = tile_scale()
 	var o: Vector2 = _origin()
 	var view := Rect2(Vector2(-8, -8), size + Vector2(16, 16))
-	var draw_set := func(lines: Array, col: Color, width: float) -> void:
-		for ln in lines:
-			var pts: PackedVector2Array = ln
-			var tr2 := PackedVector2Array()
-			tr2.resize(pts.size())
-			var any_in: bool = false
-			for i in pts.size():
-				tr2[i] = o + pts[i] * sc
-				if not any_in and view.has_point(tr2[i]):
-					any_in = true
-			if any_in:
-				draw_polyline(tr2, col, width, true)
+	var width: float = float(_zcfg.get("border_px", 1.4))
+	var ink := Color(0.15, 0.1, 0.07, float(_zcfg.get("border_alpha", 0.8)))
+	var to_screen := func(pts: PackedVector2Array) -> PackedVector2Array:
+		var tr2 := PackedVector2Array()
+		tr2.resize(pts.size())
+		var any_in: bool = false
+		for i in pts.size():
+			tr2[i] = o + pts[i] * sc
+			if not any_in and view.has_point(tr2[i]):
+				any_in = true
+		return tr2 if any_in else PackedVector2Array()
 	# provinces: invisible at the fit, fading in up to the band (Paradox shows provinces as you close in)
 	# keyed to the fit, so they are hidden zoomed out on any screen (hud.md: province_from_fit, province_full_fit)
 	var fit: float = _fit_px()
 	var pa: float = smoothstep(fit * float(_zcfg.get("province_from_fit", 1.15)), fit * float(_zcfg.get("province_full_fit", 1.7)), tile_scale())
 	if pa > 0.0 and _borders_on:
-		draw_set.call(_lines_prov, Color(0.17, 0.12, 0.08, float(_zcfg.get("province_alpha", 0.3)) * pa), float(_zcfg.get("border_province_px", 1.0)))
+		var segs := PackedVector2Array()
+		for ln in _lines_prov:
+			_pattern_segments(to_screen.call(ln), _zcfg.get("border_dash_dot", [9.0, 4.0, 1.6, 4.0]), segs)
+		if not segs.is_empty():
+			draw_multiline(segs, Color(ink, ink.a * pa), width, true)
 	if _borders_on:
-		draw_set.call(_lines_thin, Color(0.17, 0.12, 0.08, float(_zcfg.get("region_alpha", 0.42))), float(_zcfg.get("border_thin_px", 1.0)))
+		var segs := PackedVector2Array()
+		for ln in _lines_thin:
+			_pattern_segments(to_screen.call(ln), _zcfg.get("border_dash", [9.0, 5.0]), segs)
+		if not segs.is_empty():
+			draw_multiline(segs, ink, width, true)
 	if pol > 0.0:
-		draw_set.call(_lines_bold, Color(0.15, 0.1, 0.07, 0.85 * pol), float(_zcfg.get("border_bold_px", 2.6)))
+		var gap: float = float(_zcfg.get("border_double_gap", 3.0)) * 0.5
+		for ln in _lines_bold:
+			var s: PackedVector2Array = to_screen.call(ln)
+			if s.size() < 2:
+				continue
+			draw_polyline(_offset_line(s, gap), Color(ink, ink.a * pol), width, true)
+			draw_polyline(_offset_line(s, -gap), Color(ink, ink.a * pol), width, true)
+
+
+## The dash pattern [param pattern] (on, off, on, off ... lengths in screen px) along the screen polyline [param pts],
+## appended to [param out] as segment pairs for draw_multiline.
+static func _pattern_segments(pts: PackedVector2Array, pattern: Array, out: PackedVector2Array) -> void:
+	if pts.size() < 2 or pattern.is_empty():
+		return
+	var k: int = 0
+	var left: float = float(pattern[0])
+	for i in pts.size() - 1:
+		var a: Vector2 = pts[i]
+		var b: Vector2 = pts[i + 1]
+		var seg: float = a.distance_to(b)
+		var t: float = 0.0
+		while seg - t > 1e-4:
+			var step: float = minf(left, seg - t)
+			if k % 2 == 0:
+				out.append(a.lerp(b, t / seg))
+				out.append(a.lerp(b, (t + step) / seg))
+			t += step
+			left -= step
+			if left <= 1e-4:
+				k = (k + 1) % pattern.size()
+				left = float(pattern[k])
+
+
+## [param pts] moved [param d] px to its left (a negative d to its right), each point along the average of its two
+## segments' normals, for the double country border.
+static func _offset_line(pts: PackedVector2Array, d: float) -> PackedVector2Array:
+	var out := PackedVector2Array()
+	out.resize(pts.size())
+	for i in pts.size():
+		var t := Vector2.ZERO
+		if i > 0:
+			t += (pts[i] - pts[i - 1]).normalized()
+		if i < pts.size() - 1:
+			t += (pts[i + 1] - pts[i]).normalized()
+		var n := Vector2(-t.y, t.x).normalized() if t.length() > 1e-5 else Vector2.ZERO
+		out[i] = pts[i] + n * d
+	return out
 
 
 ## The great sects' names large across their territory, region names smaller beneath (art bible 7.14), ink with a

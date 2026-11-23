@@ -479,11 +479,12 @@ is automatic when zoomed out, great sects' names are drawn large.
 - **How it draws.** Each region is tinted in its holding great sect's colour (`sect_colours`: muted, never a
   saturated element hue, art bible Section 6; `political_alpha` 0.35 over the paper). Every region belongs to one
   great sect (`sects.md` rule 3: territory belongs to great sects, a region at a time), so there are no split or
-  contested regions to draw. Where the holder changes the border is a **bold ink line**; between two regions of the
-  same sect it is the thin region border (element 13's Borders toggle). This is the one border grammar for sect
+  contested regions to draw. **One thickness, three patterns** (user, 2026-11-23: "double border for country borders,
+  dash for regions, dash + dot for provinces, one thickness"): where the holder changes the border is a **double ink
+  line**; between two regions of the same sect it is a **dashed** line (element 13's Borders toggle). This is the one border grammar for sect
   territory, at every zoom. **Provinces** (2026-11-23, user: "provinces like real borders"; 273 provinces in
   `assets/map/continent_11_provinces.json`, made by `tools/design/map/provinces.py`) add a third, faintest line
-  between two provinces of one region (`province_alpha` 0.3, under the region line's `region_alpha` 0.42): hidden at
+  between two provinces of one region, **dash-dot**, in the same ink and width as the others: hidden at
   the fit on any screen, it fades in from `province_from_fit` (1.15 × the fit) to `province_full_fit` (1.7 × the fit)
   and stays at region zoom. The Borders toggle hides it with the region line; the hover tooltip and the legend do not
   name provinces until the economy revision. All three lines come from that one file, so a holder line, a region line and a province
@@ -493,9 +494,10 @@ is automatic when zoomed out, great sects' names are drawn large.
   grid's tile-edge steps are chained into lines, each step's corner is replaced by the midpoints of its edges (a
   staircase becomes a straight diagonal), two passes of corner cutting round it, and a gentle sideways wobble is added;
   ends stay where three provinces meet. If the file is missing, the map chains the region and holder lines from the
-  grid at load in the same way (without the wobble) and draws no province lines. Widths: `border_bold_px` 2.6,
-  `border_thin_px` 1.0. The bold line is part of the overlay: it shows and fades with the tint (so not at region
-  zoom in the Terrain mode); the Borders toggle hides only the thin region line. Over the relief (region zoom in the
+  grid at load in the same way (without the wobble) and draws no province lines. Every line is `border_px` (1.4) wide
+  at `border_alpha` (0.8); the double line's two strokes are `border_double_gap` (3 px) apart; `border_dash` and
+  `border_dash_dot` are the patterns' on/off lengths in screen px. The double line is part of the overlay: it shows and fades with the tint (so not at region
+  zoom in the Terrain mode); the Borders toggle hides only the dashed region and dash-dot province lines. Over the relief (region zoom in the
   Sect territory mode) the tint uses the same `political_alpha`. Holders are live for the great sects (`travel-map.md` rule 14: the overview map is common
   knowledge). Minor sects hold places, not regions, inside a great sect's territory: their seats show as diamonds,
   as the player last heard of them (rule 14), with no tint or border of their own.
@@ -911,8 +913,9 @@ Approved by the user 2026-11-21.
 | `sect_colours`, `sect_colours_cb` | one colour per great sect, keyed by the sect's authored key (ui_hud.json; each approved from a screenshot, the second in the red-green mode) | The political map |
 | `realm_name_px` | 18–40 | Great sects' names at continent zoom |
 | `province_from_fit` / `province_full_fit` | 1.15 / 1.7 (× the fit) | Province lines: where they start and finish fading in |
-| `province_alpha` / `region_alpha` | 0.3 / 0.42 | Province and region lines' opacity (provinces always fainter) |
-| `border_province_px` | 1 px | Province lines' width |
+| `border_px` / `border_alpha` | 1.4 px / 0.8 | Every border line's width and ink (one thickness for all three kinds) |
+| `border_double_gap` | 3 px | Country (holder) border: the gap between its two strokes |
+| `border_dash` / `border_dash_dot` | [9, 5] / [9, 4, 1.6, 4] px | Region and province line patterns (on, off ...) |
 | `boxes_icon_below` | 0 = off (step 5 never applies); a layout width in px turns it on | Visual Budget drop order step 5 |
 | `resource_box_icon_width` | 48 px | Visual Budget drop order step 5 (icon-only boxes) |
 | `alerts_shown_max_compact` | 4 | Visual Budget drop order (compact layout) |
