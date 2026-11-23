@@ -38,6 +38,9 @@ var _hi_tex: Dictionary = {}
 var _hi_pending: Dictionary = {}
 ## Place symbols (ui_hud.json greybox.place_symbols; user 2026-11-23, style G): kind -> Texture2D for built places
 ## (seats, cities, towns, markets, villages, mines); natural landmarks have none, they are painted into the terrain.
+## The data-driven terrain (TerrainView, ui_hud.json greybox.terrain_shader; user 2026-11-23): when it loads, it is
+## the near layer (the painted relief and its streamed tiles are not drawn).
+var _terrain: TerrainView = null
 var _symbols: Dictionary = {}
 var _symbol_px: Dictionary = {}     # kind -> screen px of the symbol's longest side at the relief's start
 var _symbol_grow: float = 1.3       # how much bigger at the deepest zoom
@@ -133,6 +136,7 @@ func setup(grid: ContinentGrid, cfg: Dictionary, region_factor: float) -> void:
 	_place_art_on_map = bool(cfg.get("place_art_on_map", false))
 	_load_hi(str(cfg.get("near_hi", "")))
 	_load_symbols(cfg.get("place_symbols", {}))
+	_load_terrain(cfg.get("terrain_shader", {}))
 	_load_provinces(str(cfg.get("provinces_file", "")))
 	_backdrop_far = Color.from_string(str(cfg.get("backdrop_far", "#141A24")), Color(0.08, 0.1, 0.14))
 	_backdrop_near = Color.from_string(str(cfg.get("backdrop_near", "#141A24")), Color(0.08, 0.1, 0.14))
@@ -422,18 +426,30 @@ func _draw() -> void:
 	var w: float = near_weight()
 	var sc: float = tile_scale()
 	var map_rect := Rect2(_origin(), Vector2(_grid_size) * sc)
-	draw_rect(Rect2(Vector2.ZERO, size), _backdrop_far.lerp(_backdrop_near, w))
+	var terrain: bool = _terrain != null and _terrain.is_ready()
+	if terrain:   # the terrain shader draws behind this node; the paper map fades out over it
+		_terrain.set_view(_origin(), sc, Vector2(_grid_size))
+		if _terrain.is_painted():   # the painted land (overview, then the streamed tiles in view) under the game's water
+			var layers: Array = []
+			if _near != null and w > 0.0:
+				layers.append([_near, map_rect, null])
+			if w > 0.0:
+				layers.append_array(_hi_layers())
+			_terrain.set_layers(layers)
+		draw_rect(Rect2(Vector2.ZERO, size), Color(_backdrop_far, 1.0 - w))
+	else:
+		draw_rect(Rect2(Vector2.ZERO, size), _backdrop_far.lerp(_backdrop_near, w))
 	var far: Texture2D = _far if _far != null else (_near if _near != null else _texture)
 	var near: Texture2D = _near if _near != null else far
 	if w < 1.0 and far != null:   # every layer is registered to the grid: its full size covers the whole continent
-		draw_texture_rect(far, map_rect, false)
-	if w > 0.0 and near != null:   # the relief cross-fades in over the paper map
+		draw_texture_rect(far, map_rect, false, Color(1, 1, 1, 1.0 - w) if terrain else Color.WHITE)
+	if w > 0.0 and near != null and not terrain:   # the relief cross-fades in over the paper map
 		draw_texture_rect(near, map_rect, false, Color(1, 1, 1, w))
 	var pol: float = 1.0 - w   # the political map (Terrain mode) fades out with the paper map
 	if pol > 0.0 and _tint != null:
 		draw_texture_rect(_tint, map_rect, false, Color(1, 1, 1, float(_zcfg.get("political_alpha", 0.35)) * pol))
 	_draw_borders(pol)
-	if w > 0.0 and not _hi.is_empty():
+	if w > 0.0 and not _hi.is_empty() and not terrain:
 		_draw_hi(w)
 	if w > 0.0 and _near != null and _place_art_on_map:
 		var by_rank: Array = _places.duplicate()   # small places first, so seats and cities sit on top where patches meet
@@ -627,7 +643,7 @@ func _load_hi(path: String) -> void:
 
 ## Whether the streamed tiles are drawn at the zoom now (from hi_from_px, map_zoom, up; and only with a near layer).
 func hi_active() -> bool:
-	return not _hi.is_empty() and near_weight() > 0.0 and tile_scale() >= float(_zcfg.get("hi_from_px", 14.0))
+	return not _hi.is_empty() and (not terrain_active() or _terrain.is_painted()) and near_weight() > 0.0 and tile_scale() >= float(_zcfg.get("hi_from_px", 14.0))
 
 
 ## The streamed tiles that cover [param view] (a rect in game tiles), tiles of [param chunk] game tiles in a
@@ -687,6 +703,27 @@ func _stream_hi() -> void:
 			_hi_tex.erase(keys[i])
 
 
+## The loaded streamed tiles in view as [texture, dst, src] for the terrain view (painted-land mode).
+func _hi_layers() -> Array:
+	var out: Array = []
+	if not hi_active():
+		return out
+	var chunk: int = int(_hi.get("chunk_tiles", 40))
+	var px: float = float(_hi.get("px_per_tile", 48))
+	var pad: float = float(_hi.get("pad", 0))
+	var sc: float = tile_scale()
+	var now: int = Time.get_ticks_msec()
+	for c in chunks_in_view(_view_tiles(), chunk, int(_hi.get("cols", 0)), int(_hi.get("rows", 0))):
+		var e: Variant = _hi_tex.get("%d_%d" % [c.x, c.y])
+		if e == null or e.tex == null:
+			continue
+		e.used = now
+		var t0 := Vector2(c.x * chunk, c.y * chunk)
+		var tw := Vector2(minf(chunk, _grid_size.x - t0.x), minf(chunk, _grid_size.y - t0.y))
+		out.append([e.tex, Rect2(_origin() + t0 * sc, tw * sc), Rect2(Vector2(pad, pad), tw * px)])
+	return out
+
+
 ## Draws the loaded streamed tiles in view over the overview layer at [param w] opacity (only their inner region, so
 ## the padding that hides filter seams never shows).
 func _draw_hi(w: float) -> void:
@@ -711,6 +748,29 @@ func _draw_hi(w: float) -> void:
 ## Streamed tiles loaded and requested now (for tests and the demo).
 func hi_probe() -> Dictionary:
 	return {"loaded": _hi_tex.size(), "pending": _hi_pending.size(), "active": hi_active()}
+
+
+## Builds the terrain shader view from [param cfg] (ui_hud.json greybox.terrain_shader: enabled, dir, and any shader
+## uniform by name); missing data leaves the painted layers in charge.
+func _load_terrain(cfg: Variant) -> void:
+	if _terrain != null:
+		_terrain.queue_free()
+		_terrain = null
+	if not (cfg is Dictionary) or not bool(cfg.get("enabled", false)):
+		return
+	var tv := TerrainView.new()
+	if not tv.load_data(str(cfg.get("dir", "")), cfg):
+		tv.free()
+		return
+	tv.set_anchors_preset(Control.PRESET_FULL_RECT)
+	add_child(tv)
+	move_child(tv, 0)
+	_terrain = tv
+
+
+## Whether the data-driven terrain is drawing (for tests and the demo).
+func terrain_active() -> bool:
+	return _terrain != null and _terrain.is_ready()
 
 
 ## Reads the place symbols from [param cfg] (ui_hud.json greybox.place_symbols: dir, px per kind, grow); a kind

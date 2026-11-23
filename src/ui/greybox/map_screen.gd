@@ -212,7 +212,9 @@ func _shot_and_quit(path: String) -> void:
 			_map.zoom_fit()
 			if px > 0.0:
 				var here: Dictionary = GameQuery.here(session)
-				if here.has("tile"):
+				if kv.size() > 3:   # tag:px:x:y aims the shot at tile (x, y) instead of the player
+					_map.set_region_zoom(true, Vector2(float(kv[2]), float(kv[3])) + Vector2(0.5, 0.5))
+				elif here.has("tile"):
 					_map.set_region_zoom(true, Vector2(int(here.tile[0]), int(here.tile[1])) + Vector2(0.5, 0.5))
 				_map.zoom_by(px / _map.tile_scale())
 			_refresh()

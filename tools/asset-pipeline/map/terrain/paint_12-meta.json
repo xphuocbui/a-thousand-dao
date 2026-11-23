@@ -1,0 +1,23 @@
+{
+ "created": 1795444420,
+ "background": "opaque",
+ "output_format": "png",
+ "quality": "medium",
+ "safety_identifier": null,
+ "size": "1024x1024",
+ "usage": {
+  "input_tokens": 1170,
+  "input_tokens_details": {
+   "image_tokens": 1024,
+   "text_tokens": 146
+  },
+  "output_tokens": 1756,
+  "output_tokens_details": {
+   "image_tokens": 1756,
+   "text_tokens": 0
+  },
+  "total_tokens": 2926
+ },
+ "model": "gpt-image-2",
+ "prompt": "A seamless, tileable, top-down texture for a grand-strategy game's terrain map: karst: closely packed rounded green limestone tower hills with dark narrow gaps between them. Seen straight down from high above, covering about four kilometres across, spread evenly over the whole image with no single focal point, no large landmark, no path or river or road, no buildings, no text, no border, no vignette and no fade at the edges. Paint it in exactly the same rich, realistic painted style, colour richness and scale of detail as the reference image (the reference shows forest; tree crowns there are the size of the detail wanted), with the same soft warm light from the top left."
+}

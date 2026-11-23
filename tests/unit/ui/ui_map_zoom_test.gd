@@ -13,6 +13,7 @@ func _view(reduced: bool = false) -> MapView:
 	cfg["near_layer"] = ""
 	cfg["place_sprites"] = ""
 	cfg["near_hi"] = ""
+	cfg["terrain_shader"] = {}   # the zoom and political rules do not need the terrain shader either
 	var v := MapView.new()
 	v.size = Vector2(1920, 1080)
 	v.setup(ContinentGrid.from_continent(gd), cfg, 4.0)

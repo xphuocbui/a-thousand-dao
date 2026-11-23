@@ -31,7 +31,7 @@ GRID = (540, 360)
 
 
 def d(repo):
-    return os.path.join(NU.root(repo, ""), "landmarks")
+    return os.path.join(repo, "design/map/continent-11/art/near/hybrid/landmarks")
 
 
 def places(repo):
@@ -52,7 +52,7 @@ def plan(repo):
         x0 = int(round(min(max(tx - HALF[0], 0), GRID[0] - 2 * HALF[0]) * SRC_PX))
         y0 = int(round(min(max(ty - HALF[1], 0), GRID[1] - 2 * HALF[1]) * SRC_PX))
         box = (x0, y0, x0 + 2 * HALF[0] * SRC_PX, y0 + 2 * HALF[1] * SRC_PX)
-        NU.stitch(repo, "p2", box).save(os.path.join(d(repo), "in_%d.png" % p["id"]))
+        NU.stitch(repo, os.environ.get("P2_DIR", "../hybrid/p2"), box).save(os.path.join(d(repo), "in_%d.png" % p["id"]))
         # where the place sits inside the crop, as a share of width and height (it is off-centre near the map's edge)
         fx, fy = (tx * SRC_PX - x0) / (box[2] - box[0]), (ty * SRC_PX - y0) / (box[3] - box[1])
         inner, outer = NATURAL[p["kind"]]
@@ -112,7 +112,7 @@ def paint(repo, ids):
         q, c = byid[int(e["id"])]
         pr = os.path.join(d(repo), "prompt2_%d.md" % e["id"])
         open(pr, "w", encoding="utf-8").write(prompt_v2(repo, e, c, q))
-        procs.append(subprocess.Popen([sys.executable, "-I", tool, "gpt-image-2", "medium", "1536x864", pr, "--", out,
+        procs.append(subprocess.Popen([sys.executable, "-I", tool, "gpt-image-2", os.environ.get("LANDMARK_QUALITY", "medium"), "1536x864", pr, "--", out,
                                        os.path.join(d(repo), "in_%d.png" % e["id"])]))
         if len(procs) >= 6:
             procs.pop(0).wait()

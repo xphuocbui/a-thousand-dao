@@ -23,6 +23,10 @@ for k, v in fields.items():
 for p in imgs:
     body += (f'--{b}\r\nContent-Disposition: form-data; name="image[]"; filename="{os.path.basename(p)}"\r\n'
              f"Content-Type: image/png\r\n\r\n").encode() + open(p, "rb").read() + b"\r\n"
+if os.environ.get("IMG_MASK"):   # optional edit mask (PNG, transparent where the model may paint), 2026-11-23
+    mp = os.environ["IMG_MASK"]
+    body += (f'--{b}\r\nContent-Disposition: form-data; name="mask"; filename="{os.path.basename(mp)}"\r\n'
+             f"Content-Type: image/png\r\n\r\n").encode() + open(mp, "rb").read() + b"\r\n"
 body += f"--{b}--\r\n".encode()
 req = urllib.request.Request("https://api.openai.com/v1/images/edits", data=body, headers={
     "Authorization": "Bearer " + os.environ["OPENAI_API_KEY"], "Content-Type": f"multipart/form-data; boundary={b}"})

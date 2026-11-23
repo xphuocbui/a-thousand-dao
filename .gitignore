@@ -194,3 +194,8 @@ design/dao-do/reference/poe2/
 # near-layer repaint work files (tools/asset-pipeline/map/near_upres.py), several GB
 design/map/continent-11/art/near/upres/
 design/map/continent-11/art/near/upres4/
+
+# hybrid near-map work files (tools/asset-pipeline/map/terrain/), several GB
+design/map/continent-11/art/near/hybrid/
+design/map/continent-11/art/near/hybrid_test/
+design/map/continent-11/art/near/hybrid_test2/

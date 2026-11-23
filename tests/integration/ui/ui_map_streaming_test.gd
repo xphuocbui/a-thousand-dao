@@ -7,6 +7,7 @@ func test_zoomed_in_close_the_tiles_in_view_load() -> void:
 	# Arrange: the shipped map config and files
 	var gd := game_data()
 	var cfg: Dictionary = gd.file("ui_hud").get("greybox", {}).duplicate(true)
+	cfg["terrain_shader"] = {}   # the painted-tile path (the terrain shader does not stream tiles)
 	var v := MapView.new()
 	v.size = Vector2(1920, 1080)
 	add_child(v)
@@ -30,6 +31,7 @@ func test_an_instant_zoom_on_an_idle_map_still_loads_the_tiles() -> void:
 	# Arrange: reduced motion (zooms land at once) and the map idle, its processing off, as in the game after a while
 	var gd := game_data()
 	var cfg: Dictionary = gd.file("ui_hud").get("greybox", {}).duplicate(true)
+	cfg["terrain_shader"] = {}   # the painted-tile path (the terrain shader does not stream tiles)
 	var v := MapView.new()
 	v.size = Vector2(1920, 1080)
 	add_child(v)
@@ -47,5 +49,23 @@ func test_an_instant_zoom_on_an_idle_map_still_loads_the_tiles() -> void:
 		frames += 1
 	# Assert
 	assert_true(int(v.hi_probe().loaded) > 0, "an instant zoom wakes the stream (%s)" % str(v.hi_probe()))
+	v.queue_free()
+
+
+func test_the_terrain_shader_draws_the_game_water_over_the_streamed_painted_land() -> void:
+	# Arrange: the shipped config (terrain_shader enabled with painted_land, user 2026-11-23)
+	var gd := game_data()
+	var cfg: Dictionary = gd.file("ui_hud").get("greybox", {}).duplicate(true)
+	var v := MapView.new()
+	v.size = Vector2(1920, 1080)
+	add_child(v)
+	# Act
+	v.setup(ContinentGrid.from_continent(gd), cfg, 4.0)
+	v.set_accessibility(true, false)
+	v.zoom_by(40.0 / v.tile_scale(), v.size * 0.5)
+	# Assert
+	assert_true(v.terrain_active(), "the baked terrain data and texture array load")
+	assert_true(v._terrain.is_painted(), "painted_land: the land is the painting, the water is the game's (user 2026-11-23)")
+	assert_true(v.hi_active(), "zoomed in, the painted tiles stream under the game's water")
 	v.queue_free()
 

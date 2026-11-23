@@ -34,7 +34,7 @@ from paint_tiles import match_colour  # noqa: E402  (the near layer's colour tra
 SCALE = 2
 CROP = (768, 432)      # source px per crop; x 2 = the model's 1536 x 864
 STEP = (640, 360)      # overlap 128 x 72 source px
-LAND_MIN = 0.0         # paint every crop, sea too, so the sea colour stays even (user, 2026-11-23)
+LAND_MIN = float(os.environ.get("LAND_MIN", "0.0"))   # crops with less land keep the plain enlargement
 RAMP = 200             # feather width in output px (inside the 256 x 144 output px overlap)
 GRID_W = 540           # game tiles across
 PROMPT = os.path.join(HERE, "prompts", "near-upres.md")

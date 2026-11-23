@@ -23,6 +23,11 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import near_upres as NU  # noqa: E402
 import landmarks  # noqa: E402
+sys.path.insert(0, os.path.join(HERE, "terrain"))
+import hybrid_full as HF  # noqa: E402
+
+P2 = os.environ.get("P2_DIR", "../hybrid/p2")      # pass 2 of the hybrid (near_upres.py on hybrid/near_24px.png)
+GUIDE = os.path.join(os.path.dirname(HERE), "..", "..", "design/map/continent-11/art/near/hybrid/guide_24px.png")
 
 GRID = (540, 360)
 PX = 48           # output px per game tile
@@ -58,15 +63,18 @@ detect_3d/compress_to=0
 
 def tile(repo, cx, cy):
     """The tile's pixels (with PAD on every side, edge-repeated at the map's border) as an image."""
-    p = json.load(open(os.path.join(NU.root(repo, "p2"), "plan.json")))
+    p = json.load(open(os.path.join(NU.root(repo, P2), "plan.json")))
     sw, sh = p["size"]
     pad_s = PAD // 2   # PAD output px = PAD / 2 source px
     x0, y0 = cx * CHUNK * SRC_PX - pad_s, cy * CHUNK * SRC_PX - pad_s
     x1 = min(GRID[0], (cx + 1) * CHUNK) * SRC_PX + pad_s
     y1 = min(GRID[1], (cy + 1) * CHUNK) * SRC_PX + pad_s
     bx = (max(0, x0), max(0, y0), min(sw, x1), min(sh, y1))
-    img = np.asarray(NU.stitch(repo, "p2", bx)).astype(np.float32)
+    img = np.asarray(NU.stitch(repo, P2, bx)).astype(np.float32)
     landmarks.overlay(repo, img, bx)   # the natural landmarks painted into the land (landmarks.py)
+    # the coast lock and clean open sea at 48 px (hybrid_full.lock_image), against the guide enlarged 2x
+    guide = Image.open(GUIDE).crop(bx).resize((img.shape[1], img.shape[0]), Image.BICUBIC)
+    img = HF.lock_image(repo, img, np.asarray(guide, np.float32), (bx[0] / SRC_PX, bx[1] / SRC_PX), PX, retone=False)
     img = img.clip(0, 255).astype(np.uint8)
     # repeat the map's own edge where the padded box runs off it
     l, t = (bx[0] - x0) * 2, (bx[1] - y0) * 2

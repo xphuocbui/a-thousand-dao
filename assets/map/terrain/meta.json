@@ -1,0 +1,13 @@
+{
+ "_doc": "Terrain shader data (tools/asset-pipeline/map/terrain/bake_data.py): raw little-endian arrays, row-major, fine_px_per_tile per game tile.",
+ "width": 2160,
+ "height": 1440,
+ "fine_px_per_tile": 4,
+ "biome": "biome.bin (u8)",
+ "coast": "coast.bin (f32, tiles, + water)",
+ "elev": "elev.bin (f32, m)",
+ "river": "river.bin (u8 at 2x: traced, connected river lines, width by the water they carry)",
+ "relief": "relief.bin (rg8 at 2x: shade x 127.5, slope x 4 x 255)",
+ "textures": "biomes_array.png (Texture2DArray, slice = biome id)",
+ "slices": 19
+}
