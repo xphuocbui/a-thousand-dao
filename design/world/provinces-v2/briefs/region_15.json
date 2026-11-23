@@ -1,0 +1,2665 @@
+{
+ "region": 15,
+ "region_name": "Ngọc Hành Sơn",
+ "provinces": [
+  {
+   "key": "prov_p142",
+   "id": 57,
+   "kind": "settlement",
+   "seat": "Thủy Đối Thôn",
+   "tiles": 72,
+   "centre": [
+    370,
+    186
+   ],
+   "land": {
+    "grassland": 0.94,
+    "high_mountain": 0.03,
+    "steppe": 0.01,
+    "temperate_forest": 0.01
+   },
+   "elevation_m": [
+    11,
+    420
+   ],
+   "river": true,
+   "coast": true,
+   "existing_places": [
+    {
+     "id": 142,
+     "name": "Thủy Đối Thôn",
+     "kind": "village"
+    }
+   ],
+   "new_slots": [
+    "prov_p142_spirit_vein_1"
+   ]
+  },
+  {
+   "key": "prov_p143",
+   "id": 58,
+   "kind": "settlement",
+   "seat": "Thanh Mạch Thôn",
+   "tiles": 149,
+   "centre": [
+    350,
+    191
+   ],
+   "land": {
+    "steppe": 0.66,
+    "grassland": 0.26,
+    "badlands": 0.03,
+    "high_mountain": 0.03
+   },
+   "elevation_m": [
+    506,
+    956
+   ],
+   "river": true,
+   "coast": false,
+   "existing_places": [
+    {
+     "id": 143,
+     "name": "Thanh Mạch Thôn",
+     "kind": "village"
+    }
+   ],
+   "new_slots": [
+    "prov_p143_spirit_vein_1"
+   ]
+  },
+  {
+   "key": "prov_p144",
+   "id": 59,
+   "kind": "settlement",
+   "seat": "Châu Bạng Thôn",
+   "tiles": 15,
+   "centre": [
+    371,
+    192
+   ],
+   "land": {
+    "high_mountain": 0.6,
+    "steppe": 0.2,
+    "grassland": 0.2
+   },
+   "elevation_m": [
+    4,
+    402
+   ],
+   "river": false,
+   "coast": true,
+   "existing_places": [
+    {
+     "id": 144,
+     "name": "Châu Bạng Thôn",
+     "kind": "village"
+    }
+   ],
+   "new_slots": [
+    "prov_p144_peak_1",
+    "prov_p144_mine_2"
+   ]
+  },
+  {
+   "key": "prov_p40",
+   "id": 90,
+   "kind": "settlement",
+   "seat": "Tinh Hán Thành",
+   "tiles": 44,
+   "centre": [
+    375,
+    182
+   ],
+   "land": {
+    "steppe": 0.5,
+    "grassland": 0.41,
+    "temperate_forest": 0.07,
+    "high_mountain": 0.02
+   },
+   "elevation_m": [
+    4,
+    486
+   ],
+   "river": true,
+   "coast": true,
+   "existing_places": [
+    {
+     "id": 40,
+     "name": "Tinh Hán Thành",
+     "kind": "city"
+    }
+   ],
+   "new_slots": [
+    "prov_p40_spirit_vein_1"
+   ]
+  },
+  {
+   "key": "prov_p82",
+   "id": 132,
+   "kind": "settlement",
+   "seat": "Song Kiều Trấn",
+   "tiles": 252,
+   "centre": [
+    362,
+    180
+   ],
+   "land": {
+    "grassland": 0.65,
+    "temperate_forest": 0.16,
+    "high_mountain": 0.15,
+    "steppe": 0.04
+   },
+   "elevation_m": [
+    152,
+    1140
+   ],
+   "river": true,
+   "coast": false,
+   "existing_places": [
+    {
+     "id": 82,
+     "name": "Song Kiều Trấn",
+     "kind": "town"
+    }
+   ],
+   "new_slots": [
+    "prov_p82_hot_spring_1",
+    "prov_p82_minor_seat_p"
+   ]
+  },
+  {
+   "key": "prov_phat_y",
+   "id": 151,
+   "kind": "settlement",
+   "seat": "Phất Y Cốc",
+   "tiles": 95,
+   "centre": [
+    333,
+    225
+   ],
+   "land": {
+    "steppe": 0.39,
+    "high_mountain": 0.37,
+    "desert": 0.09,
+    "badlands": 0.09
+   },
+   "elevation_m": [
+    647,
+    1710
+   ],
+   "river": true,
+   "coast": false,
+   "existing_places": [
+    {
+     "id": 24,
+     "name": "Phất Y Cốc",
+     "kind": "minor_seat"
+    },
+    {
+     "id": 204,
+     "name": "Vạn Trùng Hạp",
+     "kind": "gorge"
+    }
+   ],
+   "new_slots": [
+    "prov_phat_y_mine_1"
+   ]
+  },
+  {
+   "key": "prov_thoi_tinh",
+   "id": 157,
+   "kind": "settlement",
+   "seat": "Thối Tinh Môn",
+   "tiles": 106,
+   "centre": [
+    392,
+    163
+   ],
+   "land": {
+    "high_mountain": 0.88,
+    "badlands": 0.08,
+    "steppe": 0.04
+   },
+   "elevation_m": [
+    260,
+    3072
+   ],
+   "river": true,
+   "coast": false,
+   "existing_places": [
+    {
+     "id": 23,
+     "name": "Thối Tinh Môn",
+     "kind": "minor_seat"
+    }
+   ],
+   "new_slots": [
+    "prov_thoi_tinh_peak_1",
+    "prov_thoi_tinh_mine_2"
+   ]
+  },
+  {
+   "key": "prov_r15_1",
+   "id": 259,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 61,
+   "centre": [
+    380,
+    166
+   ],
+   "land": {
+    "high_mountain": 1.0
+   },
+   "elevation_m": [
+    86,
+    4602
+   ],
+   "river": false,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_1_peak_1",
+    "prov_r15_1_mine_2"
+   ]
+  },
+  {
+   "key": "prov_r15_10",
+   "id": 260,
+   "kind": "settlement",
+   "seat": null,
+   "tiles": 177,
+   "centre": [
+    326,
+    201
+   ],
+   "land": {
+    "steppe": 0.71,
+    "desert": 0.18,
+    "highland": 0.09,
+    "badlands": 0.03
+   },
+   "elevation_m": [
+    621,
+    1272
+   ],
+   "river": true,
+   "coast": false,
+   "existing_places": [
+    {
+     "id": 238,
+     "name": "Thiết Bối Cốc",
+     "kind": "beast_lair"
+    }
+   ],
+   "new_slots": [
+    "prov_r15_10_village_1"
+   ]
+  },
+  {
+   "key": "prov_r15_11",
+   "id": 261,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 110,
+   "centre": [
+    344,
+    201
+   ],
+   "land": {
+    "steppe": 0.47,
+    "desert": 0.19,
+    "badlands": 0.15,
+    "high_mountain": 0.15
+   },
+   "elevation_m": [
+    576,
+    1393
+   ],
+   "river": true,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_11_beast_lair_1"
+   ]
+  },
+  {
+   "key": "prov_r15_12",
+   "id": 262,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 125,
+   "centre": [
+    354,
+    199
+   ],
+   "land": {
+    "high_mountain": 0.53,
+    "steppe": 0.38,
+    "grassland": 0.09
+   },
+   "elevation_m": [
+    547,
+    2020
+   ],
+   "river": false,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_12_peak_1",
+    "prov_r15_12_mine_2"
+   ]
+  },
+  {
+   "key": "prov_r15_13",
+   "id": 263,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 51,
+   "centre": [
+    362,
+    198
+   ],
+   "land": {
+    "high_mountain": 0.92,
+    "volcano": 0.08
+   },
+   "elevation_m": [
+    471,
+    2555
+   ],
+   "river": false,
+   "coast": false,
+   "existing_places": [
+    {
+     "id": 250,
+     "name": "Xích Viêm Khẩu",
+     "kind": "lava_vent"
+    }
+   ],
+   "new_slots": [
+    "prov_r15_13_ruin_1"
+   ]
+  },
+  {
+   "key": "prov_r15_14",
+   "id": 264,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 45,
+   "centre": [
+    313,
+    206
+   ],
+   "land": {
+    "desert": 0.67,
+    "steppe": 0.2,
+    "highland": 0.13
+   },
+   "elevation_m": [
+    654,
+    1107
+   ],
+   "river": true,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_14_hot_spring_1"
+   ]
+  },
+  {
+   "key": "prov_r15_15",
+   "id": 265,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 90,
+   "centre": [
+    320,
+    210
+   ],
+   "land": {
+    "desert": 0.49,
+    "steppe": 0.36,
+    "highland": 0.11,
+    "high_mountain": 0.04
+   },
+   "elevation_m": [
+    637,
+    1253
+   ],
+   "river": true,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_15_spirit_vein_1",
+    "prov_r15_15_ruin_2"
+   ]
+  },
+  {
+   "key": "prov_r15_16",
+   "id": 266,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 100,
+   "centre": [
+    336,
+    210
+   ],
+   "land": {
+    "desert": 0.54,
+    "steppe": 0.24,
+    "high_mountain": 0.17,
+    "highland": 0.04
+   },
+   "elevation_m": [
+    618,
+    1426
+   ],
+   "river": true,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_16_beast_lair_1",
+    "prov_r15_16_ruin_2"
+   ]
+  },
+  {
+   "key": "prov_r15_17",
+   "id": 267,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 81,
+   "centre": [
+    343,
+    212
+   ],
+   "land": {
+    "high_mountain": 0.83,
+    "desert": 0.09,
+    "steppe": 0.07,
+    "temperate_forest": 0.01
+   },
+   "elevation_m": [
+    656,
+    2118
+   ],
+   "river": false,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_17_peak_1",
+    "prov_r15_17_mine_2"
+   ]
+  },
+  {
+   "key": "prov_r15_18",
+   "id": 268,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 58,
+   "centre": [
+    351,
+    209
+   ],
+   "land": {
+    "high_mountain": 0.95,
+    "steppe": 0.05
+   },
+   "elevation_m": [
+    784,
+    2766
+   ],
+   "river": false,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_18_peak_1",
+    "prov_r15_18_mine_2",
+    "prov_r15_18_ruin_3"
+   ]
+  },
+  {
+   "key": "prov_r15_19",
+   "id": 269,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 44,
+   "centre": [
+    359,
+    211
+   ],
+   "land": {
+    "high_mountain": 1.0
+   },
+   "elevation_m": [
+    459,
+    2594
+   ],
+   "river": false,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_19_peak_1",
+    "prov_r15_19_mine_2"
+   ]
+  },
+  {
+   "key": "prov_r15_2",
+   "id": 270,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 40,
+   "centre": [
+    384,
+    170
+   ],
+   "land": {
+    "high_mountain": 1.0
+   },
+   "elevation_m": [
+    749,
+    4522
+   ],
+   "river": false,
+   "coast": true,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_2_peak_1"
+   ]
+  },
+  {
+   "key": "prov_r15_20",
+   "id": 271,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 93,
+   "centre": [
+    365,
+    205
+   ],
+   "land": {
+    "high_mountain": 0.94,
+    "volcano": 0.05,
+    "grassland": 0.01
+   },
+   "elevation_m": [
+    4,
+    2928
+   ],
+   "river": false,
+   "coast": true,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_20_peak_1",
+    "prov_r15_20_ruin_2"
+   ]
+  },
+  {
+   "key": "prov_r15_21",
+   "id": 272,
+   "kind": "settlement",
+   "seat": null,
+   "tiles": 82,
+   "centre": [
+    311,
+    219
+   ],
+   "land": {
+    "steppe": 0.63,
+    "high_mountain": 0.27,
+    "desert": 0.07,
+    "highland": 0.02
+   },
+   "elevation_m": [
+    697,
+    1743
+   ],
+   "river": false,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_21_village_1",
+    "prov_r15_21_beast_lair_2"
+   ]
+  },
+  {
+   "key": "prov_r15_22",
+   "id": 273,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 43,
+   "centre": [
+    317,
+    217
+   ],
+   "land": {
+    "high_mountain": 0.49,
+    "desert": 0.26,
+    "steppe": 0.23,
+    "highland": 0.02
+   },
+   "elevation_m": [
+    756,
+    1670
+   ],
+   "river": false,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_22_peak_1",
+    "prov_r15_22_mine_2",
+    "prov_r15_22_ruin_3"
+   ]
+  },
+  {
+   "key": "prov_r15_23",
+   "id": 274,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 93,
+   "centre": [
+    328,
+    213
+   ],
+   "land": {
+    "desert": 0.57,
+    "steppe": 0.32,
+    "highland": 0.06,
+    "high_mountain": 0.04
+   },
+   "elevation_m": [
+    635,
+    1314
+   ],
+   "river": true,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_23_hot_spring_1"
+   ]
+  },
+  {
+   "key": "prov_r15_24",
+   "id": 275,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 104,
+   "centre": [
+    348,
+    219
+   ],
+   "land": {
+    "high_mountain": 0.98,
+    "temperate_forest": 0.02
+   },
+   "elevation_m": [
+    597,
+    3067
+   ],
+   "river": false,
+   "coast": true,
+   "existing_places": [
+    {
+     "id": 185,
+     "name": "Thanh Ải Phong",
+     "kind": "peak"
+    }
+   ],
+   "new_slots": [
+    "prov_r15_24_mine_1"
+   ]
+  },
+  {
+   "key": "prov_r15_25",
+   "id": 276,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 43,
+   "centre": [
+    355,
+    217
+   ],
+   "land": {
+    "high_mountain": 1.0
+   },
+   "elevation_m": [
+    378,
+    2288
+   ],
+   "river": false,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_25_peak_1"
+   ]
+  },
+  {
+   "key": "prov_r15_26",
+   "id": 277,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 117,
+   "centre": [
+    370,
+    213
+   ],
+   "land": {
+    "high_mountain": 0.85,
+    "temperate_forest": 0.14,
+    "grassland": 0.01
+   },
+   "elevation_m": [
+    4,
+    1793
+   ],
+   "river": false,
+   "coast": true,
+   "existing_places": [
+    {
+     "id": 175,
+     "name": "Can Tương Khoáng",
+     "kind": "mine"
+    },
+    {
+     "id": 176,
+     "name": "Bạch Ngân Khoáng",
+     "kind": "mine"
+    }
+   ],
+   "new_slots": [
+    "prov_r15_26_peak_1",
+    "prov_r15_26_ruin_2"
+   ]
+  },
+  {
+   "key": "prov_r15_27",
+   "id": 278,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 57,
+   "centre": [
+    315,
+    225
+   ],
+   "land": {
+    "high_mountain": 0.58,
+    "steppe": 0.23,
+    "grassland": 0.19
+   },
+   "elevation_m": [
+    982,
+    1826
+   ],
+   "river": false,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_27_peak_1"
+   ]
+  },
+  {
+   "key": "prov_r15_28",
+   "id": 279,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 125,
+   "centre": [
+    325,
+    223
+   ],
+   "land": {
+    "high_mountain": 0.42,
+    "steppe": 0.35,
+    "grassland": 0.12,
+    "desert": 0.06
+   },
+   "elevation_m": [
+    912,
+    1961
+   ],
+   "river": false,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_28_peak_1"
+   ]
+  },
+  {
+   "key": "prov_r15_29",
+   "id": 280,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 52,
+   "centre": [
+    340,
+    222
+   ],
+   "land": {
+    "high_mountain": 0.94,
+    "temperate_forest": 0.04,
+    "grassland": 0.02
+   },
+   "elevation_m": [
+    717,
+    2210
+   ],
+   "river": true,
+   "coast": true,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_29_peak_1"
+   ]
+  },
+  {
+   "key": "prov_r15_3",
+   "id": 281,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 72,
+   "centre": [
+    395,
+    169
+   ],
+   "land": {
+    "high_mountain": 0.97,
+    "temperate_forest": 0.01,
+    "grassland": 0.01
+   },
+   "elevation_m": [
+    8,
+    2423
+   ],
+   "river": false,
+   "coast": true,
+   "existing_places": [
+    {
+     "id": 173,
+     "name": "Thiên Ngoại Khoáng",
+     "kind": "mine"
+    }
+   ],
+   "new_slots": [
+    "prov_r15_3_peak_1"
+   ]
+  },
+  {
+   "key": "prov_r15_30",
+   "id": 282,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 70,
+   "centre": [
+    355,
+    226
+   ],
+   "land": {
+    "high_mountain": 0.81,
+    "temperate_forest": 0.16,
+    "bamboo_forest": 0.03
+   },
+   "elevation_m": [
+    316,
+    1672
+   ],
+   "river": false,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_30_peak_1",
+    "prov_r15_30_mine_2"
+   ]
+  },
+  {
+   "key": "prov_r15_31",
+   "id": 283,
+   "kind": "settlement",
+   "seat": null,
+   "tiles": 94,
+   "centre": [
+    363,
+    220
+   ],
+   "land": {
+    "grassland": 0.54,
+    "high_mountain": 0.29,
+    "temperate_forest": 0.06,
+    "steppe": 0.06
+   },
+   "elevation_m": [
+    114,
+    913
+   ],
+   "river": false,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_31_village_1",
+    "prov_r15_31_spirit_vein_2"
+   ]
+  },
+  {
+   "key": "prov_r15_32",
+   "id": 284,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 44,
+   "centre": [
+    312,
+    232
+   ],
+   "land": {
+    "high_mountain": 0.41,
+    "grassland": 0.39,
+    "badlands": 0.18,
+    "highland": 0.02
+   },
+   "elevation_m": [
+    992,
+    1763
+   ],
+   "river": false,
+   "coast": true,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_32_peak_1"
+   ]
+  },
+  {
+   "key": "prov_r15_33",
+   "id": 285,
+   "kind": "settlement",
+   "seat": null,
+   "tiles": 96,
+   "centre": [
+    320,
+    233
+   ],
+   "land": {
+    "grassland": 0.3,
+    "steppe": 0.25,
+    "badlands": 0.21,
+    "high_mountain": 0.15
+   },
+   "elevation_m": [
+    983,
+    1868
+   ],
+   "river": false,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_33_village_1",
+    "prov_r15_33_spirit_vein_2",
+    "prov_r15_33_mine_3"
+   ]
+  },
+  {
+   "key": "prov_r15_34",
+   "id": 286,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 70,
+   "centre": [
+    341,
+    231
+   ],
+   "land": {
+    "high_mountain": 0.89,
+    "bamboo_forest": 0.06,
+    "temperate_forest": 0.04,
+    "grassland": 0.01
+   },
+   "elevation_m": [
+    717,
+    2522
+   ],
+   "river": true,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_34_peak_1",
+    "prov_r15_34_mine_2"
+   ]
+  },
+  {
+   "key": "prov_r15_35",
+   "id": 287,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 77,
+   "centre": [
+    349,
+    230
+   ],
+   "land": {
+    "high_mountain": 0.88,
+    "temperate_forest": 0.06,
+    "bamboo_forest": 0.05
+   },
+   "elevation_m": [
+    380,
+    2840
+   ],
+   "river": false,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_35_peak_1",
+    "prov_r15_35_mine_2"
+   ]
+  },
+  {
+   "key": "prov_r15_36",
+   "id": 288,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 122,
+   "centre": [
+    327,
+    241
+   ],
+   "land": {
+    "high_mountain": 0.43,
+    "grassland": 0.25,
+    "steppe": 0.14,
+    "badlands": 0.07
+   },
+   "elevation_m": [
+    854,
+    2108
+   ],
+   "river": true,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_36_peak_1",
+    "prov_r15_36_mine_2"
+   ]
+  },
+  {
+   "key": "prov_r15_37",
+   "id": 289,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 88,
+   "centre": [
+    334,
+    237
+   ],
+   "land": {
+    "high_mountain": 0.43,
+    "grassland": 0.25,
+    "badlands": 0.18,
+    "steppe": 0.12
+   },
+   "elevation_m": [
+    765,
+    1459
+   ],
+   "river": true,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_37_peak_1",
+    "prov_r15_37_mine_2"
+   ]
+  },
+  {
+   "key": "prov_r15_38",
+   "id": 290,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 47,
+   "centre": [
+    340,
+    239
+   ],
+   "land": {
+    "high_mountain": 0.85,
+    "temperate_forest": 0.06,
+    "bamboo_forest": 0.04,
+    "grassland": 0.02
+   },
+   "elevation_m": [
+    918,
+    2607
+   ],
+   "river": false,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_38_peak_1",
+    "prov_r15_38_ruin_2"
+   ]
+  },
+  {
+   "key": "prov_r15_39",
+   "id": 291,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 88,
+   "centre": [
+    351,
+    240
+   ],
+   "land": {
+    "high_mountain": 0.78,
+    "grassland": 0.11,
+    "temperate_forest": 0.06,
+    "bamboo_forest": 0.05
+   },
+   "elevation_m": [
+    290,
+    2044
+   ],
+   "river": true,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_39_peak_1",
+    "prov_r15_39_mine_2"
+   ]
+  },
+  {
+   "key": "prov_r15_4",
+   "id": 292,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 96,
+   "centre": [
+    375,
+    173
+   ],
+   "land": {
+    "high_mountain": 0.73,
+    "temperate_forest": 0.27
+   },
+   "elevation_m": [
+    6,
+    1406
+   ],
+   "river": false,
+   "coast": true,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_4_peak_1"
+   ]
+  },
+  {
+   "key": "prov_r15_40",
+   "id": 293,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 44,
+   "centre": [
+    332,
+    252
+   ],
+   "land": {
+    "high_mountain": 0.91,
+    "temperate_forest": 0.09
+   },
+   "elevation_m": [
+    1267,
+    2806
+   ],
+   "river": false,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_40_peak_1",
+    "prov_r15_40_mine_2",
+    "prov_r15_40_ruin_3"
+   ]
+  },
+  {
+   "key": "prov_r15_41",
+   "id": 294,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 40,
+   "centre": [
+    335,
+    245
+   ],
+   "land": {
+    "high_mountain": 0.75,
+    "temperate_forest": 0.17,
+    "grassland": 0.07
+   },
+   "elevation_m": [
+    972,
+    1915
+   ],
+   "river": true,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_41_peak_1",
+    "prov_r15_41_mine_2",
+    "prov_r15_41_ruin_3"
+   ]
+  },
+  {
+   "key": "prov_r15_42",
+   "id": 295,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 54,
+   "centre": [
+    340,
+    250
+   ],
+   "land": {
+    "high_mountain": 0.94,
+    "temperate_forest": 0.06
+   },
+   "elevation_m": [
+    1411,
+    3117
+   ],
+   "river": false,
+   "coast": false,
+   "existing_places": [
+    {
+     "id": 186,
+     "name": "Cùng Mục Phong",
+     "kind": "peak"
+    }
+   ],
+   "new_slots": [
+    "prov_r15_42_ruin_1"
+   ]
+  },
+  {
+   "key": "prov_r15_43",
+   "id": 296,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 127,
+   "centre": [
+    347,
+    249
+   ],
+   "land": {
+    "high_mountain": 0.93,
+    "bamboo_forest": 0.04,
+    "temperate_forest": 0.03
+   },
+   "elevation_m": [
+    429,
+    2525
+   ],
+   "river": true,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_43_peak_1",
+    "prov_r15_43_mine_2"
+   ]
+  },
+  {
+   "key": "prov_r15_5",
+   "id": 297,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 48,
+   "centre": [
+    396,
+    177
+   ],
+   "land": {
+    "high_mountain": 0.96,
+    "temperate_forest": 0.04
+   },
+   "elevation_m": [
+    8,
+    2059
+   ],
+   "river": false,
+   "coast": true,
+   "existing_places": [
+    {
+     "id": 174,
+     "name": "Huyền Thiết Khoáng",
+     "kind": "mine"
+    }
+   ],
+   "new_slots": [
+    "prov_r15_5_peak_1"
+   ]
+  },
+  {
+   "key": "prov_r15_6",
+   "id": 298,
+   "kind": "settlement",
+   "seat": null,
+   "tiles": 107,
+   "centre": [
+    345,
+    183
+   ],
+   "land": {
+    "grassland": 0.52,
+    "temperate_forest": 0.21,
+    "steppe": 0.2,
+    "badlands": 0.06
+   },
+   "elevation_m": [
+    583,
+    1134
+   ],
+   "river": false,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_6_village_1",
+    "prov_r15_6_spirit_vein_2"
+   ]
+  },
+  {
+   "key": "prov_r15_7",
+   "id": 299,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 110,
+   "centre": [
+    324,
+    190
+   ],
+   "land": {
+    "grassland": 0.41,
+    "badlands": 0.35,
+    "steppe": 0.18,
+    "high_mountain": 0.05
+   },
+   "elevation_m": [
+    628,
+    1301
+   ],
+   "river": false,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_7_spirit_vein_1",
+    "prov_r15_7_mine_2"
+   ]
+  },
+  {
+   "key": "prov_r15_8",
+   "id": 300,
+   "kind": "settlement",
+   "seat": null,
+   "tiles": 204,
+   "centre": [
+    334,
+    189
+   ],
+   "land": {
+    "steppe": 0.68,
+    "badlands": 0.14,
+    "grassland": 0.1,
+    "desert": 0.08
+   },
+   "elevation_m": [
+    581,
+    1005
+   ],
+   "river": true,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_8_village_1",
+    "prov_r15_8_beast_lair_2",
+    "prov_r15_8_ruin_3"
+   ]
+  },
+  {
+   "key": "prov_r15_9",
+   "id": 301,
+   "kind": "wilderness",
+   "seat": null,
+   "tiles": 46,
+   "centre": [
+    366,
+    193
+   ],
+   "land": {
+    "high_mountain": 0.83,
+    "temperate_forest": 0.09,
+    "grassland": 0.09
+   },
+   "elevation_m": [
+    76,
+    1639
+   ],
+   "river": false,
+   "coast": true,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r15_9_peak_1",
+    "prov_r15_9_mine_2"
+   ]
+  }
+ ],
+ "slots": [
+  {
+   "slot": "prov_p142_spirit_vein_1",
+   "province": "prov_p142",
+   "kind": "spirit_vein",
+   "tile": [
+    370,
+    188
+   ],
+   "biome": "grassland",
+   "elevation_km": 0.3,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_p143_spirit_vein_1",
+   "province": "prov_p143",
+   "kind": "spirit_vein",
+   "tile": [
+    350,
+    191
+   ],
+   "biome": "steppe",
+   "elevation_km": 0.56,
+   "river": true,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_p144_peak_1",
+   "province": "prov_p144",
+   "kind": "peak",
+   "tile": [
+    369,
+    191
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 0.27,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_p144_mine_2",
+   "province": "prov_p144",
+   "kind": "mine",
+   "tile": [
+    369,
+    194
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 0.12,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_p40_spirit_vein_1",
+   "province": "prov_p40",
+   "kind": "spirit_vein",
+   "tile": [
+    375,
+    181
+   ],
+   "biome": "steppe",
+   "elevation_km": 0.12,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_p82_hot_spring_1",
+   "province": "prov_p82",
+   "kind": "hot_spring",
+   "tile": [
+    362,
+    180
+   ],
+   "biome": "grassland",
+   "elevation_km": 0.51,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_p82_minor_seat_p",
+   "province": "prov_p82",
+   "kind": "minor_seat",
+   "proposal": true,
+   "tile": [
+    360,
+    190
+   ],
+   "biome": "temperate_forest",
+   "elevation_km": 0.43,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_phat_y_mine_1",
+   "province": "prov_phat_y",
+   "kind": "mine",
+   "tile": [
+    331,
+    222
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 0.86,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_thoi_tinh_peak_1",
+   "province": "prov_thoi_tinh",
+   "kind": "peak",
+   "tile": [
+    387,
+    166
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 3.07,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_thoi_tinh_mine_2",
+   "province": "prov_thoi_tinh",
+   "kind": "mine",
+   "tile": [
+    387,
+    169
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 0.77,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_1_peak_1",
+   "province": "prov_r15_1",
+   "kind": "peak",
+   "tile": [
+    383,
+    166
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 4.6,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_1_mine_2",
+   "province": "prov_r15_1",
+   "kind": "mine",
+   "tile": [
+    378,
+    168
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 0.52,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_10_village_1",
+   "province": "prov_r15_10",
+   "kind": "village",
+   "tile": [
+    325,
+    204
+   ],
+   "biome": "steppe",
+   "elevation_km": 0.75,
+   "river": true,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_11_beast_lair_1",
+   "province": "prov_r15_11",
+   "kind": "beast_lair",
+   "tile": [
+    344,
+    201
+   ],
+   "biome": "steppe",
+   "elevation_km": 0.75,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_12_peak_1",
+   "province": "prov_r15_12",
+   "kind": "peak",
+   "tile": [
+    355,
+    206
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 2.02,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_12_mine_2",
+   "province": "prov_r15_12",
+   "kind": "mine",
+   "tile": [
+    358,
+    204
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 0.99,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_13_ruin_1",
+   "province": "prov_r15_13",
+   "kind": "ruin",
+   "tile": [
+    366,
+    199
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 0.55,
+   "river": false,
+   "coast": false,
+   "lake_shore": false,
+   "former": "fort"
+  },
+  {
+   "slot": "prov_r15_14_hot_spring_1",
+   "province": "prov_r15_14",
+   "kind": "hot_spring",
+   "tile": [
+    313,
+    206
+   ],
+   "biome": "highland",
+   "elevation_km": 0.99,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_15_spirit_vein_1",
+   "province": "prov_r15_15",
+   "kind": "spirit_vein",
+   "tile": [
+    320,
+    210
+   ],
+   "biome": "steppe",
+   "elevation_km": 1.02,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_15_ruin_2",
+   "province": "prov_r15_15",
+   "kind": "ruin",
+   "tile": [
+    322,
+    217
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 0.88,
+   "river": false,
+   "coast": false,
+   "lake_shore": false,
+   "former": "sect"
+  },
+  {
+   "slot": "prov_r15_16_beast_lair_1",
+   "province": "prov_r15_16",
+   "kind": "beast_lair",
+   "tile": [
+    336,
+    210
+   ],
+   "biome": "desert",
+   "elevation_km": 0.95,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_16_ruin_2",
+   "province": "prov_r15_16",
+   "kind": "ruin",
+   "tile": [
+    336,
+    217
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 1.08,
+   "river": false,
+   "coast": false,
+   "lake_shore": false,
+   "former": "sect"
+  },
+  {
+   "slot": "prov_r15_17_peak_1",
+   "province": "prov_r15_17",
+   "kind": "peak",
+   "tile": [
+    343,
+    218
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 2.12,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_17_mine_2",
+   "province": "prov_r15_17",
+   "kind": "mine",
+   "tile": [
+    347,
+    213
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 1.69,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_18_peak_1",
+   "province": "prov_r15_18",
+   "kind": "peak",
+   "tile": [
+    354,
+    211
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 2.74,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_18_mine_2",
+   "province": "prov_r15_18",
+   "kind": "mine",
+   "tile": [
+    351,
+    210
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 1.81,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_18_ruin_3",
+   "province": "prov_r15_18",
+   "kind": "ruin",
+   "tile": [
+    348,
+    210
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 1.99,
+   "river": false,
+   "coast": false,
+   "lake_shore": false,
+   "former": "fort"
+  },
+  {
+   "slot": "prov_r15_19_peak_1",
+   "province": "prov_r15_19",
+   "kind": "peak",
+   "tile": [
+    358,
+    208
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 2.54,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_19_mine_2",
+   "province": "prov_r15_19",
+   "kind": "mine",
+   "tile": [
+    357,
+    213
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 1.78,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_2_peak_1",
+   "province": "prov_r15_2",
+   "kind": "peak",
+   "tile": [
+    384,
+    170
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 4.52,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_20_peak_1",
+   "province": "prov_r15_20",
+   "kind": "peak",
+   "tile": [
+    362,
+    206
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 2.93,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_20_ruin_2",
+   "province": "prov_r15_20",
+   "kind": "ruin",
+   "tile": [
+    367,
+    203
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 0.45,
+   "river": false,
+   "coast": false,
+   "lake_shore": false,
+   "former": "fort"
+  },
+  {
+   "slot": "prov_r15_21_village_1",
+   "province": "prov_r15_21",
+   "kind": "village",
+   "tile": [
+    313,
+    218
+   ],
+   "biome": "steppe",
+   "elevation_km": 0.84,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_21_beast_lair_2",
+   "province": "prov_r15_21",
+   "kind": "beast_lair",
+   "tile": [
+    310,
+    219
+   ],
+   "biome": "steppe",
+   "elevation_km": 1.44,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_22_peak_1",
+   "province": "prov_r15_22",
+   "kind": "peak",
+   "tile": [
+    319,
+    220
+   ],
+   "biome": "steppe",
+   "elevation_km": 1.67,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_22_mine_2",
+   "province": "prov_r15_22",
+   "kind": "mine",
+   "tile": [
+    316,
+    220
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 0.95,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_22_ruin_3",
+   "province": "prov_r15_22",
+   "kind": "ruin",
+   "tile": [
+    314,
+    215
+   ],
+   "biome": "highland",
+   "elevation_km": 1.01,
+   "river": false,
+   "coast": false,
+   "lake_shore": false,
+   "former": "fort"
+  },
+  {
+   "slot": "prov_r15_23_hot_spring_1",
+   "province": "prov_r15_23",
+   "kind": "hot_spring",
+   "tile": [
+    328,
+    213
+   ],
+   "biome": "highland",
+   "elevation_km": 1.11,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_24_mine_1",
+   "province": "prov_r15_24",
+   "kind": "mine",
+   "tile": [
+    351,
+    217
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 1.82,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_25_peak_1",
+   "province": "prov_r15_25",
+   "kind": "peak",
+   "tile": [
+    354,
+    214
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 1.87,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_26_peak_1",
+   "province": "prov_r15_26",
+   "kind": "peak",
+   "tile": [
+    366,
+    209
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 1.79,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_26_ruin_2",
+   "province": "prov_r15_26",
+   "kind": "ruin",
+   "tile": [
+    371,
+    206
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 0.79,
+   "river": false,
+   "coast": true,
+   "lake_shore": false,
+   "former": "fort"
+  },
+  {
+   "slot": "prov_r15_27_peak_1",
+   "province": "prov_r15_27",
+   "kind": "peak",
+   "tile": [
+    315,
+    229
+   ],
+   "biome": "grassland",
+   "elevation_km": 1.83,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_28_peak_1",
+   "province": "prov_r15_28",
+   "kind": "peak",
+   "tile": [
+    321,
+    227
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 1.96,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_29_peak_1",
+   "province": "prov_r15_29",
+   "kind": "peak",
+   "tile": [
+    343,
+    223
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 2.21,
+   "river": false,
+   "coast": true,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_3_peak_1",
+   "province": "prov_r15_3",
+   "kind": "peak",
+   "tile": [
+    396,
+    167
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 2.42,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_30_peak_1",
+   "province": "prov_r15_30",
+   "kind": "peak",
+   "tile": [
+    353,
+    223
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 1.67,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_30_mine_2",
+   "province": "prov_r15_30",
+   "kind": "mine",
+   "tile": [
+    352,
+    227
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 1.04,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_31_village_1",
+   "province": "prov_r15_31",
+   "kind": "village",
+   "tile": [
+    367,
+    221
+   ],
+   "biome": "grassland",
+   "elevation_km": 0.12,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_31_spirit_vein_2",
+   "province": "prov_r15_31",
+   "kind": "spirit_vein",
+   "tile": [
+    363,
+    220
+   ],
+   "biome": "grassland",
+   "elevation_km": 0.55,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_32_peak_1",
+   "province": "prov_r15_32",
+   "kind": "peak",
+   "tile": [
+    315,
+    233
+   ],
+   "biome": "grassland",
+   "elevation_km": 1.73,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_33_village_1",
+   "province": "prov_r15_33",
+   "kind": "village",
+   "tile": [
+    323,
+    233
+   ],
+   "biome": "steppe",
+   "elevation_km": 1.06,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_33_spirit_vein_2",
+   "province": "prov_r15_33",
+   "kind": "spirit_vein",
+   "tile": [
+    320,
+    233
+   ],
+   "biome": "highland",
+   "elevation_km": 1.51,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_33_mine_3",
+   "province": "prov_r15_33",
+   "kind": "mine",
+   "tile": [
+    318,
+    228
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 1.87,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_34_peak_1",
+   "province": "prov_r15_34",
+   "kind": "peak",
+   "tile": [
+    343,
+    228
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 2.52,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_34_mine_2",
+   "province": "prov_r15_34",
+   "kind": "mine",
+   "tile": [
+    346,
+    232
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 1.71,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_35_peak_1",
+   "province": "prov_r15_35",
+   "kind": "peak",
+   "tile": [
+    346,
+    226
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 2.61,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_35_mine_2",
+   "province": "prov_r15_35",
+   "kind": "mine",
+   "tile": [
+    349,
+    228
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 1.18,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_36_peak_1",
+   "province": "prov_r15_36",
+   "kind": "peak",
+   "tile": [
+    328,
+    249
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 2.11,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_36_mine_2",
+   "province": "prov_r15_36",
+   "kind": "mine",
+   "tile": [
+    331,
+    250
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 1.21,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_37_peak_1",
+   "province": "prov_r15_37",
+   "kind": "peak",
+   "tile": [
+    335,
+    238
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 1.46,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_37_mine_2",
+   "province": "prov_r15_37",
+   "kind": "mine",
+   "tile": [
+    335,
+    233
+   ],
+   "biome": "badlands",
+   "elevation_km": 1.01,
+   "river": true,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_38_peak_1",
+   "province": "prov_r15_38",
+   "kind": "peak",
+   "tile": [
+    341,
+    241
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 2.61,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_38_ruin_2",
+   "province": "prov_r15_38",
+   "kind": "ruin",
+   "tile": [
+    340,
+    238
+   ],
+   "biome": "temperate_forest",
+   "elevation_km": 1.65,
+   "river": false,
+   "coast": false,
+   "lake_shore": false,
+   "former": "fort"
+  },
+  {
+   "slot": "prov_r15_39_peak_1",
+   "province": "prov_r15_39",
+   "kind": "peak",
+   "tile": [
+    346,
+    240
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 2.04,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_39_mine_2",
+   "province": "prov_r15_39",
+   "kind": "mine",
+   "tile": [
+    347,
+    237
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 1.21,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_4_peak_1",
+   "province": "prov_r15_4",
+   "kind": "peak",
+   "tile": [
+    371,
+    169
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 1.41,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_40_peak_1",
+   "province": "prov_r15_40",
+   "kind": "peak",
+   "tile": [
+    331,
+    254
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 2.81,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_40_mine_2",
+   "province": "prov_r15_40",
+   "kind": "mine",
+   "tile": [
+    328,
+    253
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 1.9,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_40_ruin_3",
+   "province": "prov_r15_40",
+   "kind": "ruin",
+   "tile": [
+    334,
+    254
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 2.06,
+   "river": false,
+   "coast": false,
+   "lake_shore": false,
+   "former": "fort"
+  },
+  {
+   "slot": "prov_r15_41_peak_1",
+   "province": "prov_r15_41",
+   "kind": "peak",
+   "tile": [
+    336,
+    248
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 1.92,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_41_mine_2",
+   "province": "prov_r15_41",
+   "kind": "mine",
+   "tile": [
+    338,
+    244
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 1.48,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_41_ruin_3",
+   "province": "prov_r15_41",
+   "kind": "ruin",
+   "tile": [
+    335,
+    243
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 1.5,
+   "river": false,
+   "coast": false,
+   "lake_shore": false,
+   "former": "fort"
+  },
+  {
+   "slot": "prov_r15_42_ruin_1",
+   "province": "prov_r15_42",
+   "kind": "ruin",
+   "tile": [
+    342,
+    254
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 2.27,
+   "river": false,
+   "coast": false,
+   "lake_shore": false,
+   "former": "fort"
+  },
+  {
+   "slot": "prov_r15_43_peak_1",
+   "province": "prov_r15_43",
+   "kind": "peak",
+   "tile": [
+    342,
+    244
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 2.52,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_43_mine_2",
+   "province": "prov_r15_43",
+   "kind": "mine",
+   "tile": [
+    345,
+    254
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 1.17,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_5_peak_1",
+   "province": "prov_r15_5",
+   "kind": "peak",
+   "tile": [
+    398,
+    174
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 2.06,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_6_village_1",
+   "province": "prov_r15_6",
+   "kind": "village",
+   "tile": [
+    347,
+    185
+   ],
+   "biome": "grassland",
+   "elevation_km": 0.61,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_6_spirit_vein_2",
+   "province": "prov_r15_6",
+   "kind": "spirit_vein",
+   "tile": [
+    345,
+    182
+   ],
+   "biome": "temperate_forest",
+   "elevation_km": 0.9,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_7_spirit_vein_1",
+   "province": "prov_r15_7",
+   "kind": "spirit_vein",
+   "tile": [
+    324,
+    190
+   ],
+   "biome": "badlands",
+   "elevation_km": 0.79,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_7_mine_2",
+   "province": "prov_r15_7",
+   "kind": "mine",
+   "tile": [
+    322,
+    187
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 0.91,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_8_village_1",
+   "province": "prov_r15_8",
+   "kind": "village",
+   "tile": [
+    338,
+    200
+   ],
+   "biome": "steppe",
+   "elevation_km": 0.62,
+   "river": true,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_8_beast_lair_2",
+   "province": "prov_r15_8",
+   "kind": "beast_lair",
+   "tile": [
+    334,
+    189
+   ],
+   "biome": "steppe",
+   "elevation_km": 0.66,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_8_ruin_3",
+   "province": "prov_r15_8",
+   "kind": "ruin",
+   "tile": [
+    338,
+    181
+   ],
+   "biome": "grassland",
+   "elevation_km": 0.77,
+   "river": false,
+   "coast": false,
+   "lake_shore": false,
+   "former": "sect"
+  },
+  {
+   "slot": "prov_r15_9_peak_1",
+   "province": "prov_r15_9",
+   "kind": "peak",
+   "tile": [
+    366,
+    195
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 1.64,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r15_9_mine_2",
+   "province": "prov_r15_9",
+   "kind": "mine",
+   "tile": [
+    363,
+    194
+   ],
+   "biome": "high_mountain",
+   "elevation_km": 1.07,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  }
+ ]
+}

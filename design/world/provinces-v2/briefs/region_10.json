@@ -1,0 +1,1398 @@
+{
+ "region": 10,
+ "region_name": "Cô Vụ Đảo",
+ "provinces": [
+  {
+   "key": "prov_binh_thuy",
+   "id": 2,
+   "kind": "settlement",
+   "seat": "Bình Thủy Môn",
+   "tiles": 118,
+   "centre": [
+    123,
+    250
+   ],
+   "land": {
+    "grassland": 0.86,
+    "bamboo_forest": 0.14
+   },
+   "elevation_m": [
+    3,
+    104
+   ],
+   "river": false,
+   "coast": true,
+   "existing_places": [
+    {
+     "id": 18,
+     "name": "Bình Thủy Môn",
+     "kind": "minor_seat"
+    }
+   ],
+   "new_slots": [
+    "prov_binh_thuy_hot_spring_1"
+   ]
+  },
+  {
+   "key": "prov_p122",
+   "id": 37,
+   "kind": "settlement",
+   "seat": "Bối Sa Thôn",
+   "tiles": 67,
+   "centre": [
+    113,
+    238
+   ],
+   "land": {
+    "grassland": 0.73,
+    "steppe": 0.25,
+    "jungle": 0.01
+   },
+   "elevation_m": [
+    0,
+    106
+   ],
+   "river": false,
+   "coast": true,
+   "existing_places": [
+    {
+     "id": 122,
+     "name": "Bối Sa Thôn",
+     "kind": "village"
+    }
+   ],
+   "new_slots": [
+    "prov_p122_hot_spring_1"
+   ]
+  },
+  {
+   "key": "prov_p123",
+   "id": 38,
+   "kind": "settlement",
+   "seat": "Lãng Thạch Thôn",
+   "tiles": 101,
+   "centre": [
+    133,
+    254
+   ],
+   "land": {
+    "grassland": 0.79,
+    "bamboo_forest": 0.21
+   },
+   "elevation_m": [
+    -5,
+    77
+   ],
+   "river": false,
+   "coast": true,
+   "existing_places": [
+    {
+     "id": 123,
+     "name": "Lãng Thạch Thôn",
+     "kind": "village"
+    }
+   ],
+   "new_slots": [
+    "prov_p123_beast_lair_1"
+   ]
+  },
+  {
+   "key": "prov_p124",
+   "id": 39,
+   "kind": "settlement",
+   "seat": "Dương Liễu Thôn",
+   "tiles": 164,
+   "centre": [
+    50,
+    259
+   ],
+   "land": {
+    "grassland": 0.87,
+    "temperate_forest": 0.13
+   },
+   "elevation_m": [
+    -1,
+    501
+   ],
+   "river": false,
+   "coast": true,
+   "existing_places": [
+    {
+     "id": 124,
+     "name": "Dương Liễu Thôn",
+     "kind": "village"
+    }
+   ],
+   "new_slots": [
+    "prov_p124_beast_lair_1"
+   ]
+  },
+  {
+   "key": "prov_p125",
+   "id": 40,
+   "kind": "settlement",
+   "seat": "Tình Sa Thôn",
+   "tiles": 152,
+   "centre": [
+    98,
+    261
+   ],
+   "land": {
+    "grassland": 0.69,
+    "bamboo_forest": 0.28,
+    "steppe": 0.03,
+    "temperate_forest": 0.01
+   },
+   "elevation_m": [
+    0,
+    92
+   ],
+   "river": true,
+   "coast": true,
+   "existing_places": [
+    {
+     "id": 125,
+     "name": "Tình Sa Thôn",
+     "kind": "village"
+    },
+    {
+     "id": 226,
+     "name": "Bích Không Cảng",
+     "kind": "ruin"
+    }
+   ],
+   "new_slots": [
+    "prov_p125_hot_spring_1"
+   ]
+  },
+  {
+   "key": "prov_p126",
+   "id": 41,
+   "kind": "settlement",
+   "seat": "Nguyệt Loan Thôn",
+   "tiles": 222,
+   "centre": [
+    62,
+    275
+   ],
+   "land": {
+    "grassland": 0.6,
+    "temperate_forest": 0.23,
+    "bamboo_forest": 0.17
+   },
+   "elevation_m": [
+    -41,
+    336
+   ],
+   "river": false,
+   "coast": true,
+   "existing_places": [
+    {
+     "id": 126,
+     "name": "Nguyệt Loan Thôn",
+     "kind": "village"
+    }
+   ],
+   "new_slots": [
+    "prov_p126_spirit_vein_1"
+   ]
+  },
+  {
+   "key": "prov_p37",
+   "id": 87,
+   "kind": "settlement",
+   "seat": "Đàm Ảnh Thành",
+   "tiles": 416,
+   "centre": [
+    80,
+    258
+   ],
+   "land": {
+    "grassland": 0.6,
+    "bamboo_forest": 0.25,
+    "steppe": 0.14,
+    "jungle": 0.01
+   },
+   "elevation_m": [
+    -25,
+    217
+   ],
+   "river": true,
+   "coast": true,
+   "existing_places": [
+    {
+     "id": 37,
+     "name": "Đàm Ảnh Thành",
+     "kind": "city"
+    }
+   ],
+   "new_slots": [
+    "prov_p37_spirit_vein_1",
+    "prov_p37_minor_seat_p"
+   ]
+  },
+  {
+   "key": "prov_p49",
+   "id": 99,
+   "kind": "settlement",
+   "seat": "Tương Phùng Thị",
+   "tiles": 83,
+   "centre": [
+    119,
+    239
+   ],
+   "land": {
+    "grassland": 0.66,
+    "steppe": 0.34
+   },
+   "elevation_m": [
+    -13,
+    125
+   ],
+   "river": false,
+   "coast": true,
+   "existing_places": [
+    {
+     "id": 49,
+     "name": "Tương Phùng Thị",
+     "kind": "market"
+    }
+   ],
+   "new_slots": [
+    "prov_p49_spirit_vein_1",
+    "prov_p49_ruin_2"
+   ]
+  },
+  {
+   "key": "prov_p70",
+   "id": 120,
+   "kind": "settlement",
+   "seat": "Xích Ngạn Trấn",
+   "tiles": 137,
+   "centre": [
+    59,
+    240
+   ],
+   "land": {
+    "grassland": 0.77,
+    "steppe": 0.18,
+    "jungle": 0.04,
+    "temperate_forest": 0.02
+   },
+   "elevation_m": [
+    -48,
+    491
+   ],
+   "river": false,
+   "coast": true,
+   "existing_places": [
+    {
+     "id": 70,
+     "name": "Xích Ngạn Trấn",
+     "kind": "town"
+    }
+   ],
+   "new_slots": [
+    "prov_p70_beast_lair_1",
+    "prov_p70_ruin_2"
+   ]
+  },
+  {
+   "key": "prov_p71",
+   "id": 121,
+   "kind": "settlement",
+   "seat": "Hải Yến Trấn",
+   "tiles": 177,
+   "centre": [
+    109,
+    250
+   ],
+   "land": {
+    "grassland": 0.82,
+    "bamboo_forest": 0.08,
+    "jungle": 0.06,
+    "steppe": 0.03
+   },
+   "elevation_m": [
+    -28,
+    116
+   ],
+   "river": false,
+   "coast": true,
+   "existing_places": [
+    {
+     "id": 71,
+     "name": "Hải Yến Trấn",
+     "kind": "town"
+    }
+   ],
+   "new_slots": [
+    "prov_p71_spirit_vein_1"
+   ]
+  },
+  {
+   "key": "prov_p72",
+   "id": 122,
+   "kind": "settlement",
+   "seat": "Triều Âm Thành",
+   "tiles": 84,
+   "centre": [
+    64,
+    290
+   ],
+   "land": {
+    "jungle": 0.64,
+    "grassland": 0.3,
+    "bamboo_forest": 0.04,
+    "temperate_forest": 0.02
+   },
+   "elevation_m": [
+    -5,
+    144
+   ],
+   "river": true,
+   "coast": true,
+   "existing_places": [
+    {
+     "id": 72,
+     "name": "Triều Âm Thành",
+     "kind": "city"
+    }
+   ],
+   "new_slots": [
+    "prov_p72_beast_lair_1"
+   ]
+  },
+  {
+   "key": "prov_r10_1",
+   "id": 166,
+   "kind": "settlement",
+   "seat": null,
+   "tiles": 141,
+   "centre": [
+    48,
+    248
+   ],
+   "land": {
+    "grassland": 0.62,
+    "temperate_forest": 0.32,
+    "steppe": 0.04,
+    "bamboo_forest": 0.01
+   },
+   "elevation_m": [
+    4,
+    619
+   ],
+   "river": false,
+   "coast": true,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r10_1_village_1",
+    "prov_r10_1_spirit_vein_2",
+    "prov_r10_1_ruin_3"
+   ]
+  },
+  {
+   "key": "prov_r10_10",
+   "id": 167,
+   "kind": "settlement",
+   "seat": null,
+   "tiles": 120,
+   "centre": [
+    76,
+    295
+   ],
+   "land": {
+    "jungle": 0.97,
+    "bamboo_forest": 0.03
+   },
+   "elevation_m": [
+    6,
+    335
+   ],
+   "river": false,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r10_10_village_1",
+    "prov_r10_10_forest_2"
+   ]
+  },
+  {
+   "key": "prov_r10_11",
+   "id": 168,
+   "kind": "settlement",
+   "seat": null,
+   "tiles": 80,
+   "centre": [
+    84,
+    297
+   ],
+   "land": {
+    "jungle": 0.84,
+    "grassland": 0.14,
+    "temperate_forest": 0.03
+   },
+   "elevation_m": [
+    5,
+    230
+   ],
+   "river": false,
+   "coast": true,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r10_11_town_1",
+    "prov_r10_11_forest_2"
+   ]
+  },
+  {
+   "key": "prov_r10_12",
+   "id": 169,
+   "kind": "settlement",
+   "seat": null,
+   "tiles": 115,
+   "centre": [
+    58,
+    304
+   ],
+   "land": {
+    "jungle": 0.7,
+    "grassland": 0.25,
+    "temperate_forest": 0.05
+   },
+   "elevation_m": [
+    -37,
+    184
+   ],
+   "river": false,
+   "coast": true,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r10_12_village_1",
+    "prov_r10_12_forest_2"
+   ]
+  },
+  {
+   "key": "prov_r10_13",
+   "id": 170,
+   "kind": "settlement",
+   "seat": null,
+   "tiles": 82,
+   "centre": [
+    85,
+    306
+   ],
+   "land": {
+    "jungle": 0.88,
+    "grassland": 0.09,
+    "mangrove": 0.02,
+    "temperate_forest": 0.01
+   },
+   "elevation_m": [
+    -3,
+    149
+   ],
+   "river": false,
+   "coast": true,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r10_13_village_1",
+    "prov_r10_13_beast_lair_2"
+   ]
+  },
+  {
+   "key": "prov_r10_14",
+   "id": 171,
+   "kind": "settlement",
+   "seat": null,
+   "tiles": 78,
+   "centre": [
+    68,
+    309
+   ],
+   "land": {
+    "jungle": 0.94,
+    "mangrove": 0.05,
+    "temperate_forest": 0.01
+   },
+   "elevation_m": [
+    -47,
+    164
+   ],
+   "river": false,
+   "coast": true,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r10_14_village_1",
+    "prov_r10_14_forest_2"
+   ]
+  },
+  {
+   "key": "prov_r10_15",
+   "id": 172,
+   "kind": "settlement",
+   "seat": null,
+   "tiles": 143,
+   "centre": [
+    76,
+    311
+   ],
+   "land": {
+    "jungle": 0.95,
+    "temperate_forest": 0.02,
+    "grassland": 0.01,
+    "mangrove": 0.01
+   },
+   "elevation_m": [
+    -27,
+    259
+   ],
+   "river": false,
+   "coast": true,
+   "existing_places": [
+    {
+     "id": 241,
+     "name": "Vụ Báo Lâm",
+     "kind": "beast_lair"
+    }
+   ],
+   "new_slots": [
+    "prov_r10_15_village_1"
+   ]
+  },
+  {
+   "key": "prov_r10_2",
+   "id": 173,
+   "kind": "settlement",
+   "seat": null,
+   "tiles": 189,
+   "centre": [
+    61,
+    250
+   ],
+   "land": {
+    "grassland": 0.88,
+    "temperate_forest": 0.08,
+    "jungle": 0.02,
+    "steppe": 0.02
+   },
+   "elevation_m": [
+    63,
+    563
+   ],
+   "river": false,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r10_2_village_1",
+    "prov_r10_2_beast_lair_2"
+   ]
+  },
+  {
+   "key": "prov_r10_3",
+   "id": 174,
+   "kind": "settlement",
+   "seat": null,
+   "tiles": 249,
+   "centre": [
+    68,
+    262
+   ],
+   "land": {
+    "grassland": 0.8,
+    "bamboo_forest": 0.11,
+    "temperate_forest": 0.1
+   },
+   "elevation_m": [
+    15,
+    396
+   ],
+   "river": false,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r10_3_village_1",
+    "prov_r10_3_hot_spring_2"
+   ]
+  },
+  {
+   "key": "prov_r10_4",
+   "id": 175,
+   "kind": "settlement",
+   "seat": null,
+   "tiles": 314,
+   "centre": [
+    119,
+    262
+   ],
+   "land": {
+    "grassland": 0.65,
+    "bamboo_forest": 0.35
+   },
+   "elevation_m": [
+    -16,
+    153
+   ],
+   "river": false,
+   "coast": true,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r10_4_village_1",
+    "prov_r10_4_hot_spring_2"
+   ]
+  },
+  {
+   "key": "prov_r10_5",
+   "id": 176,
+   "kind": "settlement",
+   "seat": null,
+   "tiles": 155,
+   "centre": [
+    101,
+    270
+   ],
+   "land": {
+    "bamboo_forest": 0.66,
+    "grassland": 0.34
+   },
+   "elevation_m": [
+    2,
+    138
+   ],
+   "river": false,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r10_5_village_1",
+    "prov_r10_5_beast_lair_2"
+   ]
+  },
+  {
+   "key": "prov_r10_6",
+   "id": 177,
+   "kind": "settlement",
+   "seat": null,
+   "tiles": 213,
+   "centre": [
+    77,
+    283
+   ],
+   "land": {
+    "bamboo_forest": 0.75,
+    "grassland": 0.18,
+    "jungle": 0.08
+   },
+   "elevation_m": [
+    -18,
+    294
+   ],
+   "river": false,
+   "coast": true,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r10_6_village_1",
+    "prov_r10_6_forest_2"
+   ]
+  },
+  {
+   "key": "prov_r10_7",
+   "id": 178,
+   "kind": "settlement",
+   "seat": null,
+   "tiles": 188,
+   "centre": [
+    89,
+    277
+   ],
+   "land": {
+    "bamboo_forest": 0.57,
+    "grassland": 0.43,
+    "temperate_forest": 0.01
+   },
+   "elevation_m": [
+    -18,
+    114
+   ],
+   "river": false,
+   "coast": true,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r10_7_town_1",
+    "prov_r10_7_beast_lair_2"
+   ]
+  },
+  {
+   "key": "prov_r10_8",
+   "id": 179,
+   "kind": "settlement",
+   "seat": null,
+   "tiles": 199,
+   "centre": [
+    110,
+    276
+   ],
+   "land": {
+    "grassland": 0.56,
+    "bamboo_forest": 0.44
+   },
+   "elevation_m": [
+    -27,
+    118
+   ],
+   "river": false,
+   "coast": true,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r10_8_village_1",
+    "prov_r10_8_beast_lair_2"
+   ]
+  },
+  {
+   "key": "prov_r10_9",
+   "id": 180,
+   "kind": "settlement",
+   "seat": null,
+   "tiles": 112,
+   "centre": [
+    67,
+    299
+   ],
+   "land": {
+    "jungle": 1.0
+   },
+   "elevation_m": [
+    -4,
+    297
+   ],
+   "river": false,
+   "coast": false,
+   "existing_places": [],
+   "new_slots": [
+    "prov_r10_9_village_1",
+    "prov_r10_9_spirit_vein_2"
+   ]
+  }
+ ],
+ "slots": [
+  {
+   "slot": "prov_binh_thuy_hot_spring_1",
+   "province": "prov_binh_thuy",
+   "kind": "hot_spring",
+   "tile": [
+    123,
+    250
+   ],
+   "biome": "grassland",
+   "elevation_km": 0.02,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_p122_hot_spring_1",
+   "province": "prov_p122",
+   "kind": "hot_spring",
+   "tile": [
+    114,
+    238
+   ],
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_p123_beast_lair_1",
+   "province": "prov_p123",
+   "kind": "beast_lair",
+   "tile": [
+    133,
+    254
+   ],
+   "biome": "grassland",
+   "elevation_km": 0.0,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_p124_beast_lair_1",
+   "province": "prov_p124",
+   "kind": "beast_lair",
+   "tile": [
+    51,
+    259
+   ],
+   "biome": "grassland",
+   "elevation_km": 0.0,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_p125_hot_spring_1",
+   "province": "prov_p125",
+   "kind": "hot_spring",
+   "tile": [
+    98,
+    261
+   ],
+   "biome": "grassland",
+   "elevation_km": 0.03,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_p126_spirit_vein_1",
+   "province": "prov_p126",
+   "kind": "spirit_vein",
+   "tile": [
+    62,
+    275
+   ],
+   "biome": "temperate_forest",
+   "elevation_km": 0.13,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_p37_spirit_vein_1",
+   "province": "prov_p37",
+   "kind": "spirit_vein",
+   "tile": [
+    80,
+    258
+   ],
+   "biome": "grassland",
+   "elevation_km": 0.09,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_p37_minor_seat_p",
+   "province": "prov_p37",
+   "kind": "minor_seat",
+   "proposal": true,
+   "tile": [
+    72,
+    242
+   ],
+   "biome": "steppe",
+   "elevation_km": 0.04,
+   "river": false,
+   "coast": true,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_p49_spirit_vein_1",
+   "province": "prov_p49",
+   "kind": "spirit_vein",
+   "tile": [
+    119,
+    239
+   ],
+   "biome": "grassland",
+   "elevation_km": 0.05,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_p49_ruin_2",
+   "province": "prov_p49",
+   "kind": "ruin",
+   "tile": [
+    122,
+    235
+   ],
+   "biome": "steppe",
+   "elevation_km": 0.06,
+   "river": false,
+   "coast": true,
+   "lake_shore": false,
+   "former": "sect"
+  },
+  {
+   "slot": "prov_p70_beast_lair_1",
+   "province": "prov_p70",
+   "kind": "beast_lair",
+   "tile": [
+    59,
+    240
+   ],
+   "biome": "grassland",
+   "elevation_km": 0.2,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_p70_ruin_2",
+   "province": "prov_p70",
+   "kind": "ruin",
+   "tile": [
+    50,
+    236
+   ],
+   "biome": "steppe",
+   "elevation_km": 0.23,
+   "river": false,
+   "coast": true,
+   "lake_shore": false,
+   "former": "sect"
+  },
+  {
+   "slot": "prov_p71_spirit_vein_1",
+   "province": "prov_p71",
+   "kind": "spirit_vein",
+   "tile": [
+    109,
+    250
+   ],
+   "biome": "jungle",
+   "elevation_km": 0.03,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_p72_beast_lair_1",
+   "province": "prov_p72",
+   "kind": "beast_lair",
+   "tile": [
+    65,
+    290
+   ],
+   "biome": "jungle",
+   "elevation_km": 0.03,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_1_village_1",
+   "province": "prov_r10_1",
+   "kind": "village",
+   "tile": [
+    45,
+    245
+   ],
+   "biome": "steppe",
+   "elevation_km": 0.0,
+   "river": false,
+   "coast": true,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_1_spirit_vein_2",
+   "province": "prov_r10_1",
+   "kind": "spirit_vein",
+   "tile": [
+    48,
+    248
+   ],
+   "biome": "grassland",
+   "elevation_km": 0.09,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_1_ruin_3",
+   "province": "prov_r10_1",
+   "kind": "ruin",
+   "tile": [
+    42,
+    249
+   ],
+   "biome": "grassland",
+   "elevation_km": 0.29,
+   "river": false,
+   "coast": true,
+   "lake_shore": false,
+   "former": "town"
+  },
+  {
+   "slot": "prov_r10_10_village_1",
+   "province": "prov_r10_10",
+   "kind": "village",
+   "tile": [
+    78,
+    294
+   ],
+   "biome": "jungle",
+   "elevation_km": 0.07,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_10_forest_2",
+   "province": "prov_r10_10",
+   "kind": "forest",
+   "tile": [
+    75,
+    295
+   ],
+   "biome": "jungle",
+   "elevation_km": 0.27,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_11_town_1",
+   "province": "prov_r10_11",
+   "kind": "town",
+   "tile": [
+    88,
+    297
+   ],
+   "biome": "jungle",
+   "elevation_km": 0.01,
+   "river": false,
+   "coast": true,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_11_forest_2",
+   "province": "prov_r10_11",
+   "kind": "forest",
+   "tile": [
+    84,
+    297
+   ],
+   "biome": "jungle",
+   "elevation_km": 0.12,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_12_village_1",
+   "province": "prov_r10_12",
+   "kind": "village",
+   "tile": [
+    55,
+    301
+   ],
+   "biome": "grassland",
+   "elevation_km": 0.01,
+   "river": false,
+   "coast": true,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_12_forest_2",
+   "province": "prov_r10_12",
+   "kind": "forest",
+   "tile": [
+    58,
+    304
+   ],
+   "biome": "grassland",
+   "elevation_km": 0.09,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_13_village_1",
+   "province": "prov_r10_13",
+   "kind": "village",
+   "tile": [
+    86,
+    309
+   ],
+   "biome": "jungle",
+   "elevation_km": 0.01,
+   "river": false,
+   "coast": true,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_13_beast_lair_2",
+   "province": "prov_r10_13",
+   "kind": "beast_lair",
+   "tile": [
+    85,
+    306
+   ],
+   "biome": "jungle",
+   "elevation_km": 0.02,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_14_village_1",
+   "province": "prov_r10_14",
+   "kind": "village",
+   "tile": [
+    65,
+    311
+   ],
+   "biome": "jungle",
+   "elevation_km": 0.01,
+   "river": false,
+   "coast": true,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_14_forest_2",
+   "province": "prov_r10_14",
+   "kind": "forest",
+   "tile": [
+    68,
+    309
+   ],
+   "biome": "jungle",
+   "elevation_km": -0.03,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_15_village_1",
+   "province": "prov_r10_15",
+   "kind": "village",
+   "tile": [
+    81,
+    314
+   ],
+   "biome": "jungle",
+   "elevation_km": 0.0,
+   "river": false,
+   "coast": true,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_2_village_1",
+   "province": "prov_r10_2",
+   "kind": "village",
+   "tile": [
+    62,
+    252
+   ],
+   "biome": "grassland",
+   "elevation_km": 0.16,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_2_beast_lair_2",
+   "province": "prov_r10_2",
+   "kind": "beast_lair",
+   "tile": [
+    61,
+    249
+   ],
+   "biome": "temperate_forest",
+   "elevation_km": 0.32,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_3_village_1",
+   "province": "prov_r10_3",
+   "kind": "village",
+   "tile": [
+    67,
+    260
+   ],
+   "biome": "grassland",
+   "elevation_km": 0.11,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_3_hot_spring_2",
+   "province": "prov_r10_3",
+   "kind": "hot_spring",
+   "tile": [
+    68,
+    263
+   ],
+   "biome": "grassland",
+   "elevation_km": 0.29,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_4_village_1",
+   "province": "prov_r10_4",
+   "kind": "village",
+   "tile": [
+    123,
+    268
+   ],
+   "biome": "grassland",
+   "elevation_km": 0.0,
+   "river": false,
+   "coast": true,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_4_hot_spring_2",
+   "province": "prov_r10_4",
+   "kind": "hot_spring",
+   "tile": [
+    119,
+    262
+   ],
+   "biome": "grassland",
+   "elevation_km": 0.06,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_5_village_1",
+   "province": "prov_r10_5",
+   "kind": "village",
+   "tile": [
+    101,
+    269
+   ],
+   "biome": "bamboo_forest",
+   "elevation_km": 0.01,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_5_beast_lair_2",
+   "province": "prov_r10_5",
+   "kind": "beast_lair",
+   "tile": [
+    101,
+    272
+   ],
+   "biome": "bamboo_forest",
+   "elevation_km": 0.09,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_6_village_1",
+   "province": "prov_r10_6",
+   "kind": "village",
+   "tile": [
+    85,
+    285
+   ],
+   "biome": "bamboo_forest",
+   "elevation_km": 0.01,
+   "river": false,
+   "coast": true,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_6_forest_2",
+   "province": "prov_r10_6",
+   "kind": "forest",
+   "tile": [
+    77,
+    283
+   ],
+   "biome": "bamboo_forest",
+   "elevation_km": 0.11,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_7_town_1",
+   "province": "prov_r10_7",
+   "kind": "town",
+   "tile": [
+    90,
+    283
+   ],
+   "biome": "bamboo_forest",
+   "elevation_km": 0.01,
+   "river": false,
+   "coast": true,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_7_beast_lair_2",
+   "province": "prov_r10_7",
+   "kind": "beast_lair",
+   "tile": [
+    89,
+    277
+   ],
+   "biome": "grassland",
+   "elevation_km": 0.07,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_8_village_1",
+   "province": "prov_r10_8",
+   "kind": "village",
+   "tile": [
+    116,
+    278
+   ],
+   "biome": "grassland",
+   "elevation_km": -0.03,
+   "river": false,
+   "coast": true,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_8_beast_lair_2",
+   "province": "prov_r10_8",
+   "kind": "beast_lair",
+   "tile": [
+    110,
+    276
+   ],
+   "biome": "grassland",
+   "elevation_km": 0.08,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_9_village_1",
+   "province": "prov_r10_9",
+   "kind": "village",
+   "tile": [
+    67,
+    298
+   ],
+   "biome": "jungle",
+   "elevation_km": 0.04,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  },
+  {
+   "slot": "prov_r10_9_spirit_vein_2",
+   "province": "prov_r10_9",
+   "kind": "spirit_vein",
+   "tile": [
+    67,
+    301
+   ],
+   "biome": "jungle",
+   "elevation_km": 0.22,
+   "river": false,
+   "coast": false,
+   "lake_shore": false
+  }
+ ]
+}
