@@ -45,25 +45,38 @@ Regional Economy & Trade (#43) stay as approved, and this file lists the changes
   - several new disasters (1012, 1019, 1033, 1102, 1148, 1151);
   - ruins tied to the Desert Road War, the Frost Coast war and Cửu Thiều's fall.
 
-  Each writer's list sits in its report. Ask, and I'll gather them into one file.
+  The full list is gathered in `design/world/provinces-v2/new_history_facts.md`.
 
 ## Decisions for the user (most important first)
 
 1. **The economy cannot take the new sites as they are.** At the same output as existing sites of their kind, the
-   new places add about **3.9 times** the world's current place output (existing 267,517 a season; new 1,054,462). Nearly
+   new places add about **3.9 times** the world's current place output (existing 267,517 a season; new 1,053,919), so the
+   world would make 4.9 times what it makes now. Nearly
    all of it is the 440 new economic sites: 119 mines, 150 spirit veins, 126 beast lairs and 45 hot springs, each near
    2,000 a season. The economy is calibrated to the current world. Options:
    - (a) **Most new specials are flavour places with no site:** peaks, forests, lakes, gorges and ruins, plus only one
      in four provinces getting an economic site. This is the recommended option.
    - (b) New sites start small and grow (a new "minor" site grade, about a tenth of today's small).
    - (c) Keep them all and re-balance demand, prices and the census around a richer world.
-   Until decided, the stats compute them at full output. That is why about half the settlement provinces start at the
-   0.5 access floor.
-2. **705 provinces instead of 273.** This changes the Provinces GDD rule 1 (count; 141/132 split → 473 settlement after the new villages, 232 wilderness) and the
+
+   Measured with each kind's median output from the seed-7 dump:
+
+   | Option | New output a season | World place output |
+   |---|---|---|
+   | As planned (all sites at full) | +1,053,919 | ×4.94 |
+   | (a) one in four sites kept | +323,200 | ×2.21 |
+   | (b) all sites at a tenth | +194,878 | ×1.73 |
+   | (a) and (b) together | +121,806 | ×1.46 |
+   | No new sites at all (villages, peaks, ruins, forests only) | +99,428 | ×1.37 |
+
+   So even the smallest merge raises the world's output by about a third, mostly from the new villages; any merge
+   needs a demand and price pass. Until decided, the stats compute the sites at full output, which is why about half
+   the settlement provinces start at the 0.5 access floor.
+2. **705 provinces instead of 273.** This changes the Provinces GDD rule 1 (count; 141/132 split → 468 settlement after the new villages, 237 wilderness) and the
    prototype measurements in F6. The economy reads provinces only on paper so far, so no code breaks (survey: no system in
    `src/gameplay` reads provinces).
 3. **New places are a proposal file, not yet world data.** `world_continent.json` still has 254 places. Merging the
-   1,245 into it would change world generation, travel, discovery and tests (`continent_data_test.gd` asserts 254 places,
+   1,240 into it would change world generation, travel, discovery and tests (`continent_data_test.gd` asserts 254 places,
    23 minor sects, 181 settled). Recommended: merge after decision 1, in one pass with the census and the parallel suite.
 4. **20 proposed minor sects** (one per region), each with key, alignment, leans, craft and founding year in its
    region's lore file. Sects rule and world generation count sects (30 active today), so they stay proposals.
