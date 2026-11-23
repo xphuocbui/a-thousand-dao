@@ -1,0 +1,10535 @@
+{
+ "_doc": "Province proposal (tools/design/map/provinces.py, 2026-11-23): each the catchment of one settlement by travel cost inside its region, wilderness where land is far from any settlement; not game data yet.",
+ "params": {
+  "wild_cost": 40.0,
+  "min_tiles": 90,
+  "seed_kinds": [
+   "city",
+   "great_seat",
+   "market",
+   "minor_seat",
+   "town",
+   "village"
+  ]
+ },
+ "provinces": [
+  {
+   "id": 1,
+   "region": 3,
+   "seed_place": 1,
+   "seed_kind": "great_seat",
+   "name": "Thúy Vi Tông",
+   "tiles": 348,
+   "centre": [
+    152,
+    95
+   ],
+   "places": [
+    1,
+    165
+   ],
+   "neighbours": [
+    {
+     "province": 42,
+     "border_tiles": 34
+    },
+    {
+     "province": 54,
+     "border_tiles": 26
+    },
+    {
+     "province": 92,
+     "border_tiles": 23
+    },
+    {
+     "province": 240,
+     "border_tiles": 21
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.514,
+    "high_mountain": 0.483,
+    "highland": 0.003
+   }
+  },
+  {
+   "id": 2,
+   "region": 4,
+   "seed_place": 2,
+   "seed_kind": "great_seat",
+   "name": "Tùng Đào Cung",
+   "tiles": 244,
+   "centre": [
+    234,
+    129
+   ],
+   "places": [
+    2
+   ],
+   "neighbours": [
+    {
+     "province": 11,
+     "border_tiles": 10
+    },
+    {
+     "province": 30,
+     "border_tiles": 14
+    },
+    {
+     "province": 43,
+     "border_tiles": 33
+    },
+    {
+     "province": 96,
+     "border_tiles": 10
+    },
+    {
+     "province": 242,
+     "border_tiles": 21
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.959,
+    "high_mountain": 0.041
+   }
+  },
+  {
+   "id": 3,
+   "region": 8,
+   "seed_place": 3,
+   "seed_kind": "great_seat",
+   "name": "Băng Tâm Các",
+   "tiles": 698,
+   "centre": [
+    454,
+    144
+   ],
+   "places": [
+    3
+   ],
+   "neighbours": [
+    {
+     "province": 16,
+     "border_tiles": 16
+    },
+    {
+     "province": 32,
+     "border_tiles": 41
+    },
+    {
+     "province": 45,
+     "border_tiles": 42
+    },
+    {
+     "province": 63,
+     "border_tiles": 14
+    },
+    {
+     "province": 65,
+     "border_tiles": 5
+    },
+    {
+     "province": 103,
+     "border_tiles": 12
+    },
+    {
+     "province": 261,
+     "border_tiles": 28
+    }
+   ],
+   "land": {
+    "steppe": 0.415,
+    "desert": 0.216,
+    "badlands": 0.143,
+    "high_mountain": 0.123
+   }
+  },
+  {
+   "id": 4,
+   "region": 13,
+   "seed_place": 4,
+   "seed_kind": "great_seat",
+   "name": "Lạc Hà Tông",
+   "tiles": 294,
+   "centre": [
+    207,
+    201
+   ],
+   "places": [
+    4
+   ],
+   "neighbours": [
+    {
+     "province": 47,
+     "border_tiles": 38
+    },
+    {
+     "province": 48,
+     "border_tiles": 42
+    },
+    {
+     "province": 117,
+     "border_tiles": 3
+    },
+    {
+     "province": 214,
+     "border_tiles": 19
+    }
+   ],
+   "land": {
+    "steppe": 0.531,
+    "badlands": 0.361,
+    "grassland": 0.092,
+    "temperate_forest": 0.01
+   }
+  },
+  {
+   "id": 5,
+   "region": 14,
+   "seed_place": 5,
+   "seed_kind": "great_seat",
+   "name": "Thiên Xu Tông",
+   "tiles": 329,
+   "centre": [
+    278,
+    185
+   ],
+   "places": [
+    5
+   ],
+   "neighbours": [
+    {
+     "province": 21,
+     "border_tiles": 42
+    },
+    {
+     "province": 49,
+     "border_tiles": 28
+    },
+    {
+     "province": 74,
+     "border_tiles": 27
+    },
+    {
+     "province": 119,
+     "border_tiles": 15
+    }
+   ],
+   "land": {
+    "high_mountain": 0.404,
+    "temperate_forest": 0.277,
+    "highland": 0.277,
+    "steppe": 0.04
+   }
+  },
+  {
+   "id": 6,
+   "region": 16,
+   "seed_place": 6,
+   "seed_kind": "great_seat",
+   "name": "Phượng Minh Cung",
+   "tiles": 319,
+   "centre": [
+    365,
+    247
+   ],
+   "places": [
+    6
+   ],
+   "neighbours": [
+    {
+     "province": 50,
+     "border_tiles": 38
+    },
+    {
+     "province": 77,
+     "border_tiles": 2
+    },
+    {
+     "province": 123,
+     "border_tiles": 51
+    },
+    {
+     "province": 124,
+     "border_tiles": 7
+    },
+    {
+     "province": 197,
+     "border_tiles": 22
+    }
+   ],
+   "land": {
+    "high_mountain": 0.699,
+    "temperate_forest": 0.176,
+    "bamboo_forest": 0.082,
+    "grassland": 0.044
+   }
+  },
+  {
+   "id": 7,
+   "region": 18,
+   "seed_place": 7,
+   "seed_kind": "great_seat",
+   "name": "Thính Vũ Lâu",
+   "tiles": 376,
+   "centre": [
+    246,
+    254
+   ],
+   "places": [
+    7
+   ],
+   "neighbours": [
+    {
+     "province": 51,
+     "border_tiles": 20
+    },
+    {
+     "province": 82,
+     "border_tiles": 5
+    },
+    {
+     "province": 131,
+     "border_tiles": 20
+    },
+    {
+     "province": 132,
+     "border_tiles": 1
+    },
+    {
+     "province": 135,
+     "border_tiles": 9
+    },
+    {
+     "province": 198,
+     "border_tiles": 23
+    },
+    {
+     "province": 265,
+     "border_tiles": 18
+    }
+   ],
+   "land": {
+    "steppe": 0.399,
+    "high_mountain": 0.293,
+    "grassland": 0.223,
+    "temperate_forest": 0.043
+   }
+  },
+  {
+   "id": 8,
+   "region": 1,
+   "seed_place": 8,
+   "seed_kind": "minor_seat",
+   "name": "Hàm Nguyệt Trang",
+   "tiles": 1032,
+   "centre": [
+    312,
+    77
+   ],
+   "places": [
+    8
+   ],
+   "neighbours": [
+    {
+     "province": 52,
+     "border_tiles": 19
+    },
+    {
+     "province": 185,
+     "border_tiles": 2
+    },
+    {
+     "province": 210,
+     "border_tiles": 25
+    },
+    {
+     "province": 225,
+     "border_tiles": 33
+    },
+    {
+     "province": 231,
+     "border_tiles": 29
+    },
+    {
+     "province": 259,
+     "border_tiles": 22
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.922,
+    "swamp": 0.044,
+    "tundra": 0.035
+   }
+  },
+  {
+   "id": 9,
+   "region": 2,
+   "seed_place": 9,
+   "seed_kind": "minor_seat",
+   "name": "Hồng Lô Cốc",
+   "tiles": 41,
+   "centre": [
+    108,
+    81
+   ],
+   "places": [
+    9,
+    247
+   ],
+   "neighbours": [],
+   "land": {
+    "high_mountain": 0.659,
+    "volcano": 0.244,
+    "tundra": 0.098
+   }
+  },
+  {
+   "id": 10,
+   "region": 3,
+   "seed_place": 10,
+   "seed_kind": "minor_seat",
+   "name": "Vân Khởi Quán",
+   "tiles": 291,
+   "centre": [
+    138,
+    127
+   ],
+   "places": [
+    10,
+    104,
+    166
+   ],
+   "neighbours": [
+    {
+     "province": 28,
+     "border_tiles": 34
+    },
+    {
+     "province": 54,
+     "border_tiles": 22
+    },
+    {
+     "province": 250,
+     "border_tiles": 10
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.46,
+    "high_mountain": 0.457,
+    "karst": 0.082
+   }
+  },
+  {
+   "id": 11,
+   "region": 4,
+   "seed_place": 11,
+   "seed_kind": "minor_seat",
+   "name": "Vạn Hác Viện",
+   "tiles": 479,
+   "centre": [
+    216,
+    146
+   ],
+   "places": [
+    11,
+    167
+   ],
+   "neighbours": [
+    {
+     "province": 2,
+     "border_tiles": 10
+    },
+    {
+     "province": 43,
+     "border_tiles": 4
+    },
+    {
+     "province": 57,
+     "border_tiles": 28
+    },
+    {
+     "province": 93,
+     "border_tiles": 2
+    },
+    {
+     "province": 94,
+     "border_tiles": 33
+    },
+    {
+     "province": 95,
+     "border_tiles": 20
+    },
+    {
+     "province": 242,
+     "border_tiles": 13
+    },
+    {
+     "province": 243,
+     "border_tiles": 6
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.841,
+    "high_mountain": 0.15,
+    "highland": 0.006,
+    "bamboo_forest": 0.002
+   }
+  },
+  {
+   "id": 12,
+   "region": 5,
+   "seed_place": 12,
+   "seed_kind": "minor_seat",
+   "name": "Thải Chi Cốc",
+   "tiles": 163,
+   "centre": [
+    260,
+    75
+   ],
+   "places": [
+    12
+   ],
+   "neighbours": [
+    {
+     "province": 44,
+     "border_tiles": 31
+    },
+    {
+     "province": 209,
+     "border_tiles": 10
+    },
+    {
+     "province": 245,
+     "border_tiles": 5
+    },
+    {
+     "province": 260,
+     "border_tiles": 12
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.718,
+    "swamp": 0.215,
+    "tundra": 0.067
+   }
+  },
+  {
+   "id": 13,
+   "region": 5,
+   "seed_place": 13,
+   "seed_kind": "minor_seat",
+   "name": "Lãng Đào Môn",
+   "tiles": 724,
+   "centre": [
+    236,
+    80
+   ],
+   "places": [
+    13
+   ],
+   "neighbours": [
+    {
+     "province": 43,
+     "border_tiles": 36
+    },
+    {
+     "province": 44,
+     "border_tiles": 24
+    },
+    {
+     "province": 58,
+     "border_tiles": 10
+    },
+    {
+     "province": 96,
+     "border_tiles": 1
+    },
+    {
+     "province": 194,
+     "border_tiles": 31
+    },
+    {
+     "province": 213,
+     "border_tiles": 41
+    },
+    {
+     "province": 245,
+     "border_tiles": 22
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.891,
+    "swamp": 0.106,
+    "tundra": 0.003
+   }
+  },
+  {
+   "id": 14,
+   "region": 6,
+   "seed_place": 14,
+   "seed_kind": "minor_seat",
+   "name": "Cửu Cao Phái",
+   "tiles": 457,
+   "centre": [
+    356,
+    147
+   ],
+   "places": [
+    14
+   ],
+   "neighbours": [
+    {
+     "province": 31,
+     "border_tiles": 49
+    },
+    {
+     "province": 184,
+     "border_tiles": 13
+    },
+    {
+     "province": 228,
+     "border_tiles": 13
+    },
+    {
+     "province": 246,
+     "border_tiles": 20
+    },
+    {
+     "province": 252,
+     "border_tiles": 27
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.508,
+    "high_mountain": 0.429,
+    "steppe": 0.063
+   }
+  },
+  {
+   "id": 15,
+   "region": 7,
+   "seed_place": 15,
+   "seed_kind": "minor_seat",
+   "name": "Lê Hoa Am",
+   "tiles": 167,
+   "centre": [
+    408,
+    138
+   ],
+   "places": [
+    15
+   ],
+   "neighbours": [
+    {
+     "province": 62,
+     "border_tiles": 27
+    },
+    {
+     "province": 205,
+     "border_tiles": 6
+    },
+    {
+     "province": 206,
+     "border_tiles": 5
+    },
+    {
+     "province": 251,
+     "border_tiles": 9
+    },
+    {
+     "province": 256,
+     "border_tiles": 21
+    }
+   ],
+   "land": {
+    "high_mountain": 0.862,
+    "temperate_forest": 0.138
+   }
+  },
+  {
+   "id": 16,
+   "region": 8,
+   "seed_place": 16,
+   "seed_kind": "minor_seat",
+   "name": "Dạ Quang Môn",
+   "tiles": 605,
+   "centre": [
+    428,
+    162
+   ],
+   "places": [
+    16,
+    227
+   ],
+   "neighbours": [
+    {
+     "province": 3,
+     "border_tiles": 16
+    },
+    {
+     "province": 32,
+     "border_tiles": 36
+    },
+    {
+     "province": 104,
+     "border_tiles": 43
+    },
+    {
+     "province": 206,
+     "border_tiles": 7
+    },
+    {
+     "province": 251,
+     "border_tiles": 33
+    },
+    {
+     "province": 261,
+     "border_tiles": 1
+    }
+   ],
+   "land": {
+    "desert": 0.519,
+    "steppe": 0.385,
+    "grassland": 0.04,
+    "badlands": 0.028
+   }
+  },
+  {
+   "id": 17,
+   "region": 9,
+   "seed_place": 17,
+   "seed_kind": "minor_seat",
+   "name": "Trạc Anh Đài",
+   "tiles": 490,
+   "centre": [
+    460,
+    88
+   ],
+   "places": [
+    17,
+    201
+   ],
+   "neighbours": [
+    {
+     "province": 105,
+     "border_tiles": 26
+    },
+    {
+     "province": 199,
+     "border_tiles": 18
+    },
+    {
+     "province": 207,
+     "border_tiles": 13
+    },
+    {
+     "province": 224,
+     "border_tiles": 25
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.945,
+    "swamp": 0.043,
+    "tundra": 0.012
+   }
+  },
+  {
+   "id": 18,
+   "region": 10,
+   "seed_place": 18,
+   "seed_kind": "minor_seat",
+   "name": "Bình Thủy Môn",
+   "tiles": 314,
+   "centre": [
+    121,
+    258
+   ],
+   "places": [
+    18
+   ],
+   "neighbours": [
+    {
+     "province": 46,
+     "border_tiles": 14
+    },
+    {
+     "province": 67,
+     "border_tiles": 18
+    },
+    {
+     "province": 107,
+     "border_tiles": 22
+    },
+    {
+     "province": 109,
+     "border_tiles": 16
+    }
+   ],
+   "land": {
+    "grassland": 0.71,
+    "bamboo_forest": 0.29
+   }
+  },
+  {
+   "id": 19,
+   "region": 12,
+   "seed_place": 20,
+   "seed_kind": "minor_seat",
+   "name": "Thiên Bảo Trai",
+   "tiles": 311,
+   "centre": [
+    231,
+    211
+   ],
+   "places": [
+    20,
+    223
+   ],
+   "neighbours": [
+    {
+     "province": 47,
+     "border_tiles": 32
+    },
+    {
+     "province": 214,
+     "border_tiles": 17
+    },
+    {
+     "province": 270,
+     "border_tiles": 23
+    },
+    {
+     "province": 272,
+     "border_tiles": 20
+    }
+   ],
+   "land": {
+    "badlands": 0.678,
+    "high_mountain": 0.177,
+    "steppe": 0.141,
+    "grassland": 0.003
+   }
+  },
+  {
+   "id": 20,
+   "region": 13,
+   "seed_place": 21,
+   "seed_kind": "minor_seat",
+   "name": "Nam Phố Đường",
+   "tiles": 220,
+   "centre": [
+    182,
+    155
+   ],
+   "places": [
+    21,
+    249
+   ],
+   "neighbours": [
+    {
+     "province": 55,
+     "border_tiles": 12
+    },
+    {
+     "province": 92,
+     "border_tiles": 3
+    },
+    {
+     "province": 116,
+     "border_tiles": 24
+    },
+    {
+     "province": 243,
+     "border_tiles": 18
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.568,
+    "karst": 0.368,
+    "grassland": 0.055,
+    "volcano": 0.005
+   }
+  },
+  {
+   "id": 21,
+   "region": 14,
+   "seed_place": 22,
+   "seed_kind": "minor_seat",
+   "name": "Củng Tinh Quán",
+   "tiles": 931,
+   "centre": [
+    259,
+    183
+   ],
+   "places": [
+    22,
+    172
+   ],
+   "neighbours": [
+    {
+     "province": 5,
+     "border_tiles": 42
+    },
+    {
+     "province": 74,
+     "border_tiles": 9
+    },
+    {
+     "province": 119,
+     "border_tiles": 10
+    },
+    {
+     "province": 195,
+     "border_tiles": 11
+    },
+    {
+     "province": 208,
+     "border_tiles": 23
+    },
+    {
+     "province": 216,
+     "border_tiles": 19
+    },
+    {
+     "province": 234,
+     "border_tiles": 3
+    },
+    {
+     "province": 237,
+     "border_tiles": 17
+    },
+    {
+     "province": 270,
+     "border_tiles": 20
+    }
+   ],
+   "land": {
+    "highland": 0.643,
+    "temperate_forest": 0.207,
+    "high_mountain": 0.105,
+    "steppe": 0.043
+   }
+  },
+  {
+   "id": 22,
+   "region": 6,
+   "seed_place": 23,
+   "seed_kind": "minor_seat",
+   "name": "Thối Tinh Môn",
+   "tiles": 144,
+   "centre": [
+    388,
+    162
+   ],
+   "places": [
+    23
+   ],
+   "neighbours": [
+    {
+     "province": 37,
+     "border_tiles": 2
+    },
+    {
+     "province": 189,
+     "border_tiles": 18
+    },
+    {
+     "province": 228,
+     "border_tiles": 8
+    },
+    {
+     "province": 254,
+     "border_tiles": 22
+    },
+    {
+     "province": 256,
+     "border_tiles": 14
+    },
+    {
+     "province": 257,
+     "border_tiles": 8
+    }
+   ],
+   "land": {
+    "high_mountain": 0.931,
+    "badlands": 0.056,
+    "temperate_forest": 0.007,
+    "steppe": 0.007
+   }
+  },
+  {
+   "id": 23,
+   "region": 15,
+   "seed_place": 24,
+   "seed_kind": "minor_seat",
+   "name": "Phất Y Cốc",
+   "tiles": 716,
+   "centre": [
+    329,
+    226
+   ],
+   "places": [
+    24,
+    204
+   ],
+   "neighbours": [
+    {
+     "province": 122,
+     "border_tiles": 36
+    },
+    {
+     "province": 190,
+     "border_tiles": 12
+    },
+    {
+     "province": 191,
+     "border_tiles": 7
+    },
+    {
+     "province": 201,
+     "border_tiles": 12
+    },
+    {
+     "province": 215,
+     "border_tiles": 26
+    },
+    {
+     "province": 217,
+     "border_tiles": 18
+    },
+    {
+     "province": 218,
+     "border_tiles": 23
+    },
+    {
+     "province": 249,
+     "border_tiles": 18
+    }
+   ],
+   "land": {
+    "high_mountain": 0.376,
+    "steppe": 0.279,
+    "grassland": 0.13,
+    "desert": 0.089
+   }
+  },
+  {
+   "id": 24,
+   "region": 16,
+   "seed_place": 25,
+   "seed_kind": "minor_seat",
+   "name": "Trúc Thực Viên",
+   "tiles": 131,
+   "centre": [
+    369,
+    275
+   ],
+   "places": [
+    25
+   ],
+   "neighbours": [
+    {
+     "province": 50,
+     "border_tiles": 3
+    },
+    {
+     "province": 125,
+     "border_tiles": 22
+    },
+    {
+     "province": 233,
+     "border_tiles": 10
+    }
+   ],
+   "land": {
+    "bamboo_forest": 0.649,
+    "grassland": 0.237,
+    "high_mountain": 0.084,
+    "mangrove": 0.015
+   }
+  },
+  {
+   "id": 25,
+   "region": 18,
+   "seed_place": 27,
+   "seed_kind": "minor_seat",
+   "name": "Hồng Đậu Trang",
+   "tiles": 109,
+   "centre": [
+    186,
+    303
+   ],
+   "places": [
+    27
+   ],
+   "neighbours": [
+    {
+     "province": 115,
+     "border_tiles": 15
+    },
+    {
+     "province": 133,
+     "border_tiles": 18
+    }
+   ],
+   "land": {
+    "grassland": 0.532,
+    "jungle": 0.45,
+    "mangrove": 0.009,
+    "temperate_forest": 0.009
+   }
+  },
+  {
+   "id": 26,
+   "region": 19,
+   "seed_place": 28,
+   "seed_kind": "minor_seat",
+   "name": "Xuyên Lâm Môn",
+   "tiles": 218,
+   "centre": [
+    343,
+    268
+   ],
+   "places": [
+    28
+   ],
+   "neighbours": [
+    {
+     "province": 83,
+     "border_tiles": 16
+    },
+    {
+     "province": 84,
+     "border_tiles": 8
+    },
+    {
+     "province": 125,
+     "border_tiles": 24
+    },
+    {
+     "province": 134,
+     "border_tiles": 4
+    },
+    {
+     "province": 197,
+     "border_tiles": 4
+    },
+    {
+     "province": 255,
+     "border_tiles": 20
+    }
+   ],
+   "land": {
+    "high_mountain": 0.651,
+    "bamboo_forest": 0.312,
+    "grassland": 0.023,
+    "temperate_forest": 0.014
+   }
+  },
+  {
+   "id": 27,
+   "region": 20,
+   "seed_place": 29,
+   "seed_kind": "minor_seat",
+   "name": "Phần Vũ Đường",
+   "tiles": 179,
+   "centre": [
+    493,
+    239
+   ],
+   "places": [
+    29
+   ],
+   "neighbours": [
+    {
+     "province": 86,
+     "border_tiles": 14
+    },
+    {
+     "province": 138,
+     "border_tiles": 9
+    },
+    {
+     "province": 139,
+     "border_tiles": 16
+    }
+   ],
+   "land": {
+    "grassland": 0.603,
+    "jungle": 0.268,
+    "high_mountain": 0.067,
+    "steppe": 0.061
+   }
+  },
+  {
+   "id": 28,
+   "region": 2,
+   "seed_place": 30,
+   "seed_kind": "city",
+   "name": "Yên Ba Thành",
+   "tiles": 590,
+   "centre": [
+    121,
+    120
+   ],
+   "places": [
+    30
+   ],
+   "neighbours": [
+    {
+     "province": 10,
+     "border_tiles": 34
+    },
+    {
+     "province": 247,
+     "border_tiles": 27
+    },
+    {
+     "province": 250,
+     "border_tiles": 7
+    },
+    {
+     "province": 268,
+     "border_tiles": 50
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.898,
+    "karst": 0.047,
+    "swamp": 0.032,
+    "high_mountain": 0.019
+   }
+  },
+  {
+   "id": 29,
+   "region": 3,
+   "seed_place": 31,
+   "seed_kind": "city",
+   "name": "Hàn Tân Thành",
+   "tiles": 448,
+   "centre": [
+    133,
+    71
+   ],
+   "places": [
+    31
+   ],
+   "neighbours": [
+    {
+     "province": 42,
+     "border_tiles": 40
+    },
+    {
+     "province": 170,
+     "border_tiles": 5
+    },
+    {
+     "province": 193,
+     "border_tiles": 11
+    },
+    {
+     "province": 219,
+     "border_tiles": 28
+    },
+    {
+     "province": 247,
+     "border_tiles": 13
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.701,
+    "tundra": 0.185,
+    "swamp": 0.103,
+    "high_mountain": 0.011
+   }
+  },
+  {
+   "id": 30,
+   "region": 5,
+   "seed_place": 33,
+   "seed_kind": "city",
+   "name": "Đào Thanh Thành",
+   "tiles": 182,
+   "centre": [
+    248,
+    134
+   ],
+   "places": [
+    33
+   ],
+   "neighbours": [
+    {
+     "province": 2,
+     "border_tiles": 14
+    },
+    {
+     "province": 96,
+     "border_tiles": 33
+    },
+    {
+     "province": 97,
+     "border_tiles": 2
+    },
+    {
+     "province": 242,
+     "border_tiles": 18
+    },
+    {
+     "province": 262,
+     "border_tiles": 9
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.918,
+    "high_mountain": 0.082
+   }
+  },
+  {
+   "id": 31,
+   "region": 6,
+   "seed_place": 34,
+   "seed_kind": "city",
+   "name": "Khai Dương Thành",
+   "tiles": 1006,
+   "centre": [
+    337,
+    131
+   ],
+   "places": [
+    34,
+    111
+   ],
+   "neighbours": [
+    {
+     "province": 14,
+     "border_tiles": 49
+    },
+    {
+     "province": 52,
+     "border_tiles": 15
+    },
+    {
+     "province": 100,
+     "border_tiles": 7
+    },
+    {
+     "province": 184,
+     "border_tiles": 1
+    },
+    {
+     "province": 221,
+     "border_tiles": 31
+    },
+    {
+     "province": 222,
+     "border_tiles": 13
+    },
+    {
+     "province": 246,
+     "border_tiles": 33
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.955,
+    "steppe": 0.023,
+    "high_mountain": 0.021,
+    "grassland": 0.001
+   }
+  },
+  {
+   "id": 32,
+   "region": 8,
+   "seed_place": 35,
+   "seed_kind": "city",
+   "name": "Trường Vân Thành",
+   "tiles": 470,
+   "centre": [
+    449,
+    164
+   ],
+   "places": [
+    35
+   ],
+   "neighbours": [
+    {
+     "province": 3,
+     "border_tiles": 41
+    },
+    {
+     "province": 16,
+     "border_tiles": 36
+    },
+    {
+     "province": 79,
+     "border_tiles": 3
+    },
+    {
+     "province": 103,
+     "border_tiles": 31
+    },
+    {
+     "province": 104,
+     "border_tiles": 8
+    }
+   ],
+   "land": {
+    "steppe": 0.672,
+    "desert": 0.187,
+    "grassland": 0.136,
+    "high_mountain": 0.004
+   }
+  },
+  {
+   "id": 33,
+   "region": 9,
+   "seed_place": 36,
+   "seed_kind": "city",
+   "name": "Liên Giang Thành",
+   "tiles": 464,
+   "centre": [
+    477,
+    118
+   ],
+   "places": [
+    36
+   ],
+   "neighbours": [
+    {
+     "province": 45,
+     "border_tiles": 22
+    },
+    {
+     "province": 65,
+     "border_tiles": 2
+    },
+    {
+     "province": 105,
+     "border_tiles": 27
+    },
+    {
+     "province": 106,
+     "border_tiles": 26
+    },
+    {
+     "province": 199,
+     "border_tiles": 13
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.916,
+    "high_mountain": 0.047,
+    "swamp": 0.019,
+    "steppe": 0.011
+   }
+  },
+  {
+   "id": 34,
+   "region": 10,
+   "seed_place": 37,
+   "seed_kind": "city",
+   "name": "Đàm Ảnh Thành",
+   "tiles": 675,
+   "centre": [
+    78,
+    260
+   ],
+   "places": [
+    37
+   ],
+   "neighbours": [
+    {
+     "province": 66,
+     "border_tiles": 18
+    },
+    {
+     "province": 68,
+     "border_tiles": 29
+    },
+    {
+     "province": 108,
+     "border_tiles": 14
+    },
+    {
+     "province": 109,
+     "border_tiles": 23
+    },
+    {
+     "province": 110,
+     "border_tiles": 7
+    }
+   ],
+   "land": {
+    "grassland": 0.588,
+    "bamboo_forest": 0.302,
+    "steppe": 0.086,
+    "temperate_forest": 0.015
+   }
+  },
+  {
+   "id": 35,
+   "region": 11,
+   "seed_place": 38,
+   "seed_kind": "city",
+   "name": "Nhạn Thanh Thành",
+   "tiles": 1134,
+   "centre": [
+    154,
+    211
+   ],
+   "places": [
+    38
+   ],
+   "neighbours": [
+    {
+     "province": 48,
+     "border_tiles": 23
+    },
+    {
+     "province": 69,
+     "border_tiles": 24
+    },
+    {
+     "province": 71,
+     "border_tiles": 24
+    },
+    {
+     "province": 111,
+     "border_tiles": 1
+    },
+    {
+     "province": 112,
+     "border_tiles": 32
+    },
+    {
+     "province": 114,
+     "border_tiles": 14
+    },
+    {
+     "province": 223,
+     "border_tiles": 26
+    }
+   ],
+   "land": {
+    "steppe": 0.542,
+    "grassland": 0.456,
+    "salt_flats": 0.001,
+    "badlands": 0.001
+   }
+  },
+  {
+   "id": 36,
+   "region": 12,
+   "seed_place": 39,
+   "seed_kind": "city",
+   "name": "Tử Điện Thành",
+   "tiles": 275,
+   "centre": [
+    190,
+    282
+   ],
+   "places": [
+    39,
+    219
+   ],
+   "neighbours": [
+    {
+     "province": 113,
+     "border_tiles": 4
+    },
+    {
+     "province": 114,
+     "border_tiles": 28
+    },
+    {
+     "province": 115,
+     "border_tiles": 24
+    },
+    {
+     "province": 130,
+     "border_tiles": 9
+    },
+    {
+     "province": 133,
+     "border_tiles": 25
+    }
+   ],
+   "land": {
+    "grassland": 0.684,
+    "bamboo_forest": 0.215,
+    "temperate_forest": 0.08,
+    "jungle": 0.015
+   }
+  },
+  {
+   "id": 37,
+   "region": 15,
+   "seed_place": 40,
+   "seed_kind": "city",
+   "name": "Tinh Hán Thành",
+   "tiles": 109,
+   "centre": [
+    377,
+    176
+   ],
+   "places": [
+    40
+   ],
+   "neighbours": [
+    {
+     "province": 22,
+     "border_tiles": 2
+    },
+    {
+     "province": 121,
+     "border_tiles": 23
+    },
+    {
+     "province": 189,
+     "border_tiles": 16
+    },
+    {
+     "province": 254,
+     "border_tiles": 1
+    }
+   ],
+   "land": {
+    "high_mountain": 0.55,
+    "temperate_forest": 0.174,
+    "steppe": 0.156,
+    "grassland": 0.119
+   }
+  },
+  {
+   "id": 38,
+   "region": 17,
+   "seed_place": 41,
+   "seed_kind": "city",
+   "name": "Lai Nghi Thành",
+   "tiles": 933,
+   "centre": [
+    414,
+    221
+   ],
+   "places": [
+    26,
+    41,
+    152,
+    220
+   ],
+   "neighbours": [
+    {
+     "province": 76,
+     "border_tiles": 36
+    },
+    {
+     "province": 79,
+     "border_tiles": 30
+    },
+    {
+     "province": 80,
+     "border_tiles": 30
+    },
+    {
+     "province": 124,
+     "border_tiles": 8
+    },
+    {
+     "province": 129,
+     "border_tiles": 7
+    }
+   ],
+   "land": {
+    "steppe": 0.503,
+    "grassland": 0.453,
+    "temperate_forest": 0.018,
+    "high_mountain": 0.018
+   }
+  },
+  {
+   "id": 39,
+   "region": 18,
+   "seed_place": 42,
+   "seed_kind": "city",
+   "name": "Thu Trì Thành",
+   "tiles": 590,
+   "centre": [
+    226,
+    300
+   ],
+   "places": [
+    42
+   ],
+   "neighbours": [
+    {
+     "province": 81,
+     "border_tiles": 6
+    },
+    {
+     "province": 130,
+     "border_tiles": 24
+    },
+    {
+     "province": 131,
+     "border_tiles": 30
+    },
+    {
+     "province": 132,
+     "border_tiles": 17
+    },
+    {
+     "province": 133,
+     "border_tiles": 27
+    }
+   ],
+   "land": {
+    "grassland": 0.519,
+    "jungle": 0.461,
+    "bamboo_forest": 0.01,
+    "mangrove": 0.007
+   }
+  },
+  {
+   "id": 40,
+   "region": 19,
+   "seed_place": 43,
+   "seed_kind": "city",
+   "name": "Không Mông Thành",
+   "tiles": 755,
+   "centre": [
+    300,
+    283
+   ],
+   "places": [
+    43,
+    178
+   ],
+   "neighbours": [
+    {
+     "province": 134,
+     "border_tiles": 20
+    },
+    {
+     "province": 135,
+     "border_tiles": 16
+    },
+    {
+     "province": 137,
+     "border_tiles": 32
+    },
+    {
+     "province": 217,
+     "border_tiles": 12
+    },
+    {
+     "province": 235,
+     "border_tiles": 25
+    },
+    {
+     "province": 236,
+     "border_tiles": 14
+    },
+    {
+     "province": 239,
+     "border_tiles": 16
+    }
+   ],
+   "land": {
+    "grassland": 0.356,
+    "high_mountain": 0.209,
+    "jungle": 0.204,
+    "bamboo_forest": 0.099
+   }
+  },
+  {
+   "id": 41,
+   "region": 20,
+   "seed_place": 44,
+   "seed_kind": "city",
+   "name": "Ngũ Thải Thành",
+   "tiles": 438,
+   "centre": [
+    423,
+    300
+   ],
+   "places": [
+    44,
+    180
+   ],
+   "neighbours": [
+    {
+     "province": 141,
+     "border_tiles": 33
+    },
+    {
+     "province": 159,
+     "border_tiles": 6
+    },
+    {
+     "province": 196,
+     "border_tiles": 6
+    },
+    {
+     "province": 212,
+     "border_tiles": 2
+    },
+    {
+     "province": 273,
+     "border_tiles": 22
+    }
+   ],
+   "land": {
+    "grassland": 0.47,
+    "jungle": 0.432,
+    "high_mountain": 0.064,
+    "bamboo_forest": 0.023
+   }
+  },
+  {
+   "id": 42,
+   "region": 3,
+   "seed_place": 45,
+   "seed_kind": "market",
+   "name": "Lam Yên Thị",
+   "tiles": 387,
+   "centre": [
+    143,
+    84
+   ],
+   "places": [
+    45
+   ],
+   "neighbours": [
+    {
+     "province": 1,
+     "border_tiles": 34
+    },
+    {
+     "province": 29,
+     "border_tiles": 40
+    },
+    {
+     "province": 54,
+     "border_tiles": 1
+    },
+    {
+     "province": 193,
+     "border_tiles": 9
+    },
+    {
+     "province": 240,
+     "border_tiles": 11
+    },
+    {
+     "province": 247,
+     "border_tiles": 3
+    },
+    {
+     "province": 250,
+     "border_tiles": 14
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.848,
+    "high_mountain": 0.142,
+    "swamp": 0.005,
+    "tundra": 0.005
+   }
+  },
+  {
+   "id": 43,
+   "region": 4,
+   "seed_place": 46,
+   "seed_kind": "market",
+   "name": "Tùng Hạ Thị",
+   "tiles": 699,
+   "centre": [
+    227,
+    111
+   ],
+   "places": [
+    46
+   ],
+   "neighbours": [
+    {
+     "province": 2,
+     "border_tiles": 33
+    },
+    {
+     "province": 11,
+     "border_tiles": 4
+    },
+    {
+     "province": 13,
+     "border_tiles": 36
+    },
+    {
+     "province": 56,
+     "border_tiles": 25
+    },
+    {
+     "province": 93,
+     "border_tiles": 30
+    },
+    {
+     "province": 96,
+     "border_tiles": 9
+    },
+    {
+     "province": 213,
+     "border_tiles": 17
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.977,
+    "high_mountain": 0.023
+   }
+  },
+  {
+   "id": 44,
+   "region": 5,
+   "seed_place": 47,
+   "seed_kind": "market",
+   "name": "Đào Sa Thị",
+   "tiles": 225,
+   "centre": [
+    250,
+    77
+   ],
+   "places": [
+    47
+   ],
+   "neighbours": [
+    {
+     "province": 12,
+     "border_tiles": 31
+    },
+    {
+     "province": 13,
+     "border_tiles": 24
+    },
+    {
+     "province": 245,
+     "border_tiles": 20
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.653,
+    "swamp": 0.218,
+    "tundra": 0.129
+   }
+  },
+  {
+   "id": 45,
+   "region": 9,
+   "seed_place": 48,
+   "seed_kind": "market",
+   "name": "Tống Khách Thị",
+   "tiles": 447,
+   "centre": [
+    458,
+    127
+   ],
+   "places": [
+    48
+   ],
+   "neighbours": [
+    {
+     "province": 3,
+     "border_tiles": 42
+    },
+    {
+     "province": 33,
+     "border_tiles": 22
+    },
+    {
+     "province": 64,
+     "border_tiles": 42
+    },
+    {
+     "province": 65,
+     "border_tiles": 12
+    },
+    {
+     "province": 105,
+     "border_tiles": 6
+    },
+    {
+     "province": 261,
+     "border_tiles": 1
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.765,
+    "high_mountain": 0.145,
+    "badlands": 0.04,
+    "steppe": 0.034
+   }
+  },
+  {
+   "id": 46,
+   "region": 10,
+   "seed_place": 49,
+   "seed_kind": "market",
+   "name": "Tương Phùng Thị",
+   "tiles": 164,
+   "centre": [
+    116,
+    239
+   ],
+   "places": [
+    49,
+    122
+   ],
+   "neighbours": [
+    {
+     "province": 18,
+     "border_tiles": 14
+    },
+    {
+     "province": 67,
+     "border_tiles": 14
+    }
+   ],
+   "land": {
+    "grassland": 0.72,
+    "steppe": 0.274,
+    "jungle": 0.006
+   }
+  },
+  {
+   "id": 47,
+   "region": 12,
+   "seed_place": 50,
+   "seed_kind": "market",
+   "name": "Vật Hoa Thị",
+   "tiles": 941,
+   "centre": [
+    209,
+    220
+   ],
+   "places": [
+    50,
+    169
+   ],
+   "neighbours": [
+    {
+     "province": 4,
+     "border_tiles": 38
+    },
+    {
+     "province": 19,
+     "border_tiles": 32
+    },
+    {
+     "province": 48,
+     "border_tiles": 14
+    },
+    {
+     "province": 114,
+     "border_tiles": 47
+    },
+    {
+     "province": 198,
+     "border_tiles": 5
+    },
+    {
+     "province": 214,
+     "border_tiles": 5
+    },
+    {
+     "province": 244,
+     "border_tiles": 14
+    },
+    {
+     "province": 272,
+     "border_tiles": 15
+    }
+   ],
+   "land": {
+    "steppe": 0.746,
+    "badlands": 0.146,
+    "grassland": 0.07,
+    "desert": 0.021
+   }
+  },
+  {
+   "id": 48,
+   "region": 13,
+   "seed_place": 51,
+   "seed_kind": "market",
+   "name": "Hạc Đinh Thị",
+   "tiles": 530,
+   "centre": [
+    187,
+    200
+   ],
+   "places": [
+    51
+   ],
+   "neighbours": [
+    {
+     "province": 4,
+     "border_tiles": 42
+    },
+    {
+     "province": 35,
+     "border_tiles": 23
+    },
+    {
+     "province": 47,
+     "border_tiles": 14
+    },
+    {
+     "province": 71,
+     "border_tiles": 4
+    },
+    {
+     "province": 73,
+     "border_tiles": 7
+    },
+    {
+     "province": 114,
+     "border_tiles": 5
+    },
+    {
+     "province": 117,
+     "border_tiles": 1
+    },
+    {
+     "province": 118,
+     "border_tiles": 56
+    }
+   ],
+   "land": {
+    "steppe": 0.585,
+    "grassland": 0.383,
+    "badlands": 0.019,
+    "temperate_forest": 0.013
+   }
+  },
+  {
+   "id": 49,
+   "region": 14,
+   "seed_place": 52,
+   "seed_kind": "market",
+   "name": "Thiên Quyền Thị",
+   "tiles": 384,
+   "centre": [
+    293,
+    184
+   ],
+   "places": [
+    52,
+    171
+   ],
+   "neighbours": [
+    {
+     "province": 5,
+     "border_tiles": 28
+    },
+    {
+     "province": 74,
+     "border_tiles": 17
+    },
+    {
+     "province": 119,
+     "border_tiles": 8
+    },
+    {
+     "province": 120,
+     "border_tiles": 31
+    },
+    {
+     "province": 248,
+     "border_tiles": 16
+    }
+   ],
+   "land": {
+    "high_mountain": 0.469,
+    "steppe": 0.328,
+    "badlands": 0.109,
+    "grassland": 0.057
+   }
+  },
+  {
+   "id": 50,
+   "region": 16,
+   "seed_place": 53,
+   "seed_kind": "market",
+   "name": "Thiều Âm Thị",
+   "tiles": 258,
+   "centre": [
+    368,
+    259
+   ],
+   "places": [
+    53
+   ],
+   "neighbours": [
+    {
+     "province": 6,
+     "border_tiles": 38
+    },
+    {
+     "province": 24,
+     "border_tiles": 3
+    },
+    {
+     "province": 77,
+     "border_tiles": 6
+    },
+    {
+     "province": 125,
+     "border_tiles": 28
+    },
+    {
+     "province": 197,
+     "border_tiles": 3
+    },
+    {
+     "province": 233,
+     "border_tiles": 16
+    }
+   ],
+   "land": {
+    "high_mountain": 0.678,
+    "bamboo_forest": 0.194,
+    "temperate_forest": 0.078,
+    "grassland": 0.047
+   }
+  },
+  {
+   "id": 51,
+   "region": 19,
+   "seed_place": 54,
+   "seed_kind": "market",
+   "name": "Hạnh Hoa Thị",
+   "tiles": 474,
+   "centre": [
+    265,
+    240
+   ],
+   "places": [
+    54
+   ],
+   "neighbours": [
+    {
+     "province": 7,
+     "border_tiles": 20
+    },
+    {
+     "province": 74,
+     "border_tiles": 7
+    },
+    {
+     "province": 82,
+     "border_tiles": 36
+    },
+    {
+     "province": 227,
+     "border_tiles": 14
+    },
+    {
+     "province": 237,
+     "border_tiles": 10
+    },
+    {
+     "province": 265,
+     "border_tiles": 23
+    },
+    {
+     "province": 269,
+     "border_tiles": 14
+    }
+   ],
+   "land": {
+    "high_mountain": 0.57,
+    "steppe": 0.274,
+    "badlands": 0.076,
+    "desert": 0.04
+   }
+  },
+  {
+   "id": 52,
+   "region": 1,
+   "seed_place": 55,
+   "seed_kind": "town",
+   "name": "Quy Điểu Trấn",
+   "tiles": 569,
+   "centre": [
+    341,
+    98
+   ],
+   "places": [
+    55
+   ],
+   "neighbours": [
+    {
+     "province": 8,
+     "border_tiles": 19
+    },
+    {
+     "province": 31,
+     "border_tiles": 15
+    },
+    {
+     "province": 88,
+     "border_tiles": 17
+    },
+    {
+     "province": 222,
+     "border_tiles": 19
+    },
+    {
+     "province": 259,
+     "border_tiles": 4
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.988,
+    "swamp": 0.012
+   }
+  },
+  {
+   "id": 53,
+   "region": 2,
+   "seed_place": 56,
+   "seed_kind": "city",
+   "name": "Mục Ca Thành",
+   "tiles": 56,
+   "centre": [
+    75,
+    157
+   ],
+   "places": [
+    56,
+    99
+   ],
+   "neighbours": [],
+   "land": {
+    "temperate_forest": 0.714,
+    "grassland": 0.286
+   }
+  },
+  {
+   "id": 54,
+   "region": 3,
+   "seed_place": 58,
+   "seed_kind": "town",
+   "name": "Bách Diệp Trấn",
+   "tiles": 337,
+   "centre": [
+    148,
+    113
+   ],
+   "places": [
+    58,
+    213
+   ],
+   "neighbours": [
+    {
+     "province": 1,
+     "border_tiles": 26
+    },
+    {
+     "province": 10,
+     "border_tiles": 22
+    },
+    {
+     "province": 42,
+     "border_tiles": 1
+    },
+    {
+     "province": 92,
+     "border_tiles": 13
+    },
+    {
+     "province": 250,
+     "border_tiles": 20
+    }
+   ],
+   "land": {
+    "high_mountain": 0.528,
+    "temperate_forest": 0.472
+   }
+  },
+  {
+   "id": 55,
+   "region": 3,
+   "seed_place": 59,
+   "seed_kind": "town",
+   "name": "Tiều Ca Trấn",
+   "tiles": 107,
+   "centre": [
+    173,
+    143
+   ],
+   "places": [
+    59
+   ],
+   "neighbours": [
+    {
+     "province": 20,
+     "border_tiles": 12
+    },
+    {
+     "province": 92,
+     "border_tiles": 30
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.411,
+    "karst": 0.393,
+    "volcano": 0.103,
+    "high_mountain": 0.093
+   }
+  },
+  {
+   "id": 56,
+   "region": 4,
+   "seed_place": 60,
+   "seed_kind": "town",
+   "name": "Lộc Minh Trấn",
+   "tiles": 494,
+   "centre": [
+    208,
+    98
+   ],
+   "places": [
+    60,
+    225
+   ],
+   "neighbours": [
+    {
+     "province": 43,
+     "border_tiles": 25
+    },
+    {
+     "province": 92,
+     "border_tiles": 1
+    },
+    {
+     "province": 93,
+     "border_tiles": 18
+    },
+    {
+     "province": 203,
+     "border_tiles": 4
+    },
+    {
+     "province": 213,
+     "border_tiles": 25
+    },
+    {
+     "province": 230,
+     "border_tiles": 28
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.988,
+    "swamp": 0.012
+   }
+  },
+  {
+   "id": 57,
+   "region": 4,
+   "seed_place": 61,
+   "seed_kind": "city",
+   "name": "Cổ Độ Thành",
+   "tiles": 191,
+   "centre": [
+    213,
+    162
+   ],
+   "places": [
+    61
+   ],
+   "neighbours": [
+    {
+     "province": 11,
+     "border_tiles": 28
+    },
+    {
+     "province": 95,
+     "border_tiles": 25
+    },
+    {
+     "province": 117,
+     "border_tiles": 35
+    },
+    {
+     "province": 234,
+     "border_tiles": 9
+    },
+    {
+     "province": 243,
+     "border_tiles": 11
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.953,
+    "bamboo_forest": 0.031,
+    "high_mountain": 0.01,
+    "grassland": 0.005
+   }
+  },
+  {
+   "id": 58,
+   "region": 5,
+   "seed_place": 62,
+   "seed_kind": "town",
+   "name": "Hà Bạn Trấn",
+   "tiles": 340,
+   "centre": [
+    255,
+    113
+   ],
+   "places": [
+    62,
+    224
+   ],
+   "neighbours": [
+    {
+     "province": 13,
+     "border_tiles": 10
+    },
+    {
+     "province": 96,
+     "border_tiles": 36
+    },
+    {
+     "province": 97,
+     "border_tiles": 26
+    },
+    {
+     "province": 245,
+     "border_tiles": 28
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.994,
+    "swamp": 0.006
+   }
+  },
+  {
+   "id": 59,
+   "region": 5,
+   "seed_place": 63,
+   "seed_kind": "town",
+   "name": "Lâm Hạ Trấn",
+   "tiles": 132,
+   "centre": [
+    285,
+    134
+   ],
+   "places": [
+    63
+   ],
+   "neighbours": [
+    {
+     "province": 97,
+     "border_tiles": 6
+    },
+    {
+     "province": 98,
+     "border_tiles": 31
+    },
+    {
+     "province": 99,
+     "border_tiles": 33
+    },
+    {
+     "province": 177,
+     "border_tiles": 5
+    },
+    {
+     "province": 221,
+     "border_tiles": 1
+    }
+   ],
+   "land": {
+    "temperate_forest": 1.0
+   }
+  },
+  {
+   "id": 60,
+   "region": 6,
+   "seed_place": 64,
+   "seed_kind": "town",
+   "name": "Bích Khê Trấn",
+   "tiles": 123,
+   "centre": [
+    290,
+    144
+   ],
+   "places": [
+    64
+   ],
+   "neighbours": [
+    {
+     "province": 99,
+     "border_tiles": 37
+    },
+    {
+     "province": 100,
+     "border_tiles": 28
+    },
+    {
+     "province": 119,
+     "border_tiles": 17
+    },
+    {
+     "province": 221,
+     "border_tiles": 6
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.992,
+    "steppe": 0.008
+   }
+  },
+  {
+   "id": 61,
+   "region": 6,
+   "seed_place": 65,
+   "seed_kind": "city",
+   "name": "Thanh Bách Thành",
+   "tiles": 233,
+   "centre": [
+    307,
+    158
+   ],
+   "places": [
+    65
+   ],
+   "neighbours": [
+    {
+     "province": 100,
+     "border_tiles": 33
+    },
+    {
+     "province": 119,
+     "border_tiles": 7
+    },
+    {
+     "province": 120,
+     "border_tiles": 29
+    },
+    {
+     "province": 246,
+     "border_tiles": 29
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.554,
+    "steppe": 0.408,
+    "badlands": 0.034,
+    "high_mountain": 0.004
+   }
+  },
+  {
+   "id": 62,
+   "region": 7,
+   "seed_place": 66,
+   "seed_kind": "town",
+   "name": "Hòe Âm Trấn",
+   "tiles": 445,
+   "centre": [
+    402,
+    124
+   ],
+   "places": [
+    66
+   ],
+   "neighbours": [
+    {
+     "province": 15,
+     "border_tiles": 27
+    },
+    {
+     "province": 101,
+     "border_tiles": 5
+    },
+    {
+     "province": 102,
+     "border_tiles": 13
+    },
+    {
+     "province": 204,
+     "border_tiles": 12
+    },
+    {
+     "province": 205,
+     "border_tiles": 10
+    },
+    {
+     "province": 232,
+     "border_tiles": 23
+    },
+    {
+     "province": 256,
+     "border_tiles": 6
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.631,
+    "high_mountain": 0.369
+   }
+  },
+  {
+   "id": 63,
+   "region": 8,
+   "seed_place": 67,
+   "seed_kind": "city",
+   "name": "Hồi Lan Thành",
+   "tiles": 374,
+   "centre": [
+    485,
+    156
+   ],
+   "places": [
+    67
+   ],
+   "neighbours": [
+    {
+     "province": 3,
+     "border_tiles": 14
+    },
+    {
+     "province": 65,
+     "border_tiles": 25
+    },
+    {
+     "province": 103,
+     "border_tiles": 29
+    }
+   ],
+   "land": {
+    "steppe": 0.754,
+    "desert": 0.078,
+    "temperate_forest": 0.064,
+    "grassland": 0.064
+   }
+  },
+  {
+   "id": 64,
+   "region": 9,
+   "seed_place": 68,
+   "seed_kind": "city",
+   "name": "Mộc Lan Thành",
+   "tiles": 419,
+   "centre": [
+    442,
+    118
+   ],
+   "places": [
+    68,
+    120,
+    168,
+    216
+   ],
+   "neighbours": [
+    {
+     "province": 45,
+     "border_tiles": 42
+    },
+    {
+     "province": 105,
+     "border_tiles": 27
+    },
+    {
+     "province": 205,
+     "border_tiles": 6
+    },
+    {
+     "province": 232,
+     "border_tiles": 7
+    },
+    {
+     "province": 261,
+     "border_tiles": 16
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.802,
+    "high_mountain": 0.189,
+    "swamp": 0.007,
+    "tundra": 0.002
+   }
+  },
+  {
+   "id": 65,
+   "region": 9,
+   "seed_place": 69,
+   "seed_kind": "town",
+   "name": "Kê Minh Trấn",
+   "tiles": 232,
+   "centre": [
+    483,
+    140
+   ],
+   "places": [
+    69
+   ],
+   "neighbours": [
+    {
+     "province": 3,
+     "border_tiles": 5
+    },
+    {
+     "province": 33,
+     "border_tiles": 2
+    },
+    {
+     "province": 45,
+     "border_tiles": 12
+    },
+    {
+     "province": 63,
+     "border_tiles": 25
+    },
+    {
+     "province": 106,
+     "border_tiles": 24
+    }
+   ],
+   "land": {
+    "steppe": 0.534,
+    "temperate_forest": 0.341,
+    "badlands": 0.086,
+    "high_mountain": 0.026
+   }
+  },
+  {
+   "id": 66,
+   "region": 10,
+   "seed_place": 70,
+   "seed_kind": "town",
+   "name": "Xích Ngạn Trấn",
+   "tiles": 285,
+   "centre": [
+    57,
+    243
+   ],
+   "places": [
+    70
+   ],
+   "neighbours": [
+    {
+     "province": 34,
+     "border_tiles": 18
+    },
+    {
+     "province": 108,
+     "border_tiles": 27
+    }
+   ],
+   "land": {
+    "grassland": 0.761,
+    "steppe": 0.112,
+    "temperate_forest": 0.088,
+    "jungle": 0.032
+   }
+  },
+  {
+   "id": 67,
+   "region": 10,
+   "seed_place": 71,
+   "seed_kind": "town",
+   "name": "Hải Yến Trấn",
+   "tiles": 188,
+   "centre": [
+    110,
+    251
+   ],
+   "places": [
+    71
+   ],
+   "neighbours": [
+    {
+     "province": 18,
+     "border_tiles": 18
+    },
+    {
+     "province": 46,
+     "border_tiles": 14
+    },
+    {
+     "province": 109,
+     "border_tiles": 25
+    }
+   ],
+   "land": {
+    "grassland": 0.83,
+    "bamboo_forest": 0.09,
+    "jungle": 0.059,
+    "steppe": 0.021
+   }
+  },
+  {
+   "id": 68,
+   "region": 10,
+   "seed_place": 72,
+   "seed_kind": "city",
+   "name": "Triều Âm Thành",
+   "tiles": 580,
+   "centre": [
+    72,
+    287
+   ],
+   "places": [
+    72
+   ],
+   "neighbours": [
+    {
+     "province": 34,
+     "border_tiles": 29
+    },
+    {
+     "province": 109,
+     "border_tiles": 8
+    },
+    {
+     "province": 110,
+     "border_tiles": 19
+    },
+    {
+     "province": 192,
+     "border_tiles": 14
+    },
+    {
+     "province": 258,
+     "border_tiles": 25
+    }
+   ],
+   "land": {
+    "jungle": 0.409,
+    "bamboo_forest": 0.283,
+    "grassland": 0.276,
+    "temperate_forest": 0.033
+   }
+  },
+  {
+   "id": 69,
+   "region": 11,
+   "seed_place": 73,
+   "seed_kind": "town",
+   "name": "Thanh Điền Trấn",
+   "tiles": 362,
+   "centre": [
+    138,
+    183
+   ],
+   "places": [
+    19,
+    73,
+    127,
+    129
+   ],
+   "neighbours": [
+    {
+     "province": 35,
+     "border_tiles": 24
+    },
+    {
+     "province": 70,
+     "border_tiles": 35
+    },
+    {
+     "province": 111,
+     "border_tiles": 4
+    },
+    {
+     "province": 112,
+     "border_tiles": 38
+    }
+   ],
+   "land": {
+    "grassland": 0.613,
+    "temperate_forest": 0.334,
+    "steppe": 0.052
+   }
+  },
+  {
+   "id": 70,
+   "region": 11,
+   "seed_place": 74,
+   "seed_kind": "city",
+   "name": "Thảo Đường Thành",
+   "tiles": 196,
+   "centre": [
+    147,
+    178
+   ],
+   "places": [
+    74,
+    128
+   ],
+   "neighbours": [
+    {
+     "province": 69,
+     "border_tiles": 35
+    },
+    {
+     "province": 111,
+     "border_tiles": 22
+    }
+   ],
+   "land": {
+    "grassland": 0.531,
+    "temperate_forest": 0.464,
+    "steppe": 0.005
+   }
+  },
+  {
+   "id": 71,
+   "region": 11,
+   "seed_place": 75,
+   "seed_kind": "town",
+   "name": "Ngư Lương Trấn",
+   "tiles": 203,
+   "centre": [
+    164,
+    188
+   ],
+   "places": [
+    75
+   ],
+   "neighbours": [
+    {
+     "province": 35,
+     "border_tiles": 24
+    },
+    {
+     "province": 48,
+     "border_tiles": 4
+    },
+    {
+     "province": 73,
+     "border_tiles": 20
+    },
+    {
+     "province": 111,
+     "border_tiles": 22
+    }
+   ],
+   "land": {
+    "grassland": 0.542,
+    "temperate_forest": 0.443,
+    "steppe": 0.015
+   }
+  },
+  {
+   "id": 72,
+   "region": 12,
+   "seed_place": 78,
+   "seed_kind": "city",
+   "name": "Ngũ Cốc Thành",
+   "tiles": 370,
+   "centre": [
+    150,
+    296
+   ],
+   "places": [
+    78
+   ],
+   "neighbours": [
+    {
+     "province": 115,
+     "border_tiles": 36
+    },
+    {
+     "province": 267,
+     "border_tiles": 18
+    }
+   ],
+   "land": {
+    "grassland": 0.854,
+    "bamboo_forest": 0.076,
+    "jungle": 0.062,
+    "temperate_forest": 0.005
+   }
+  },
+  {
+   "id": 73,
+   "region": 13,
+   "seed_place": 80,
+   "seed_kind": "city",
+   "name": "Tang Ma Thành",
+   "tiles": 242,
+   "centre": [
+    177,
+    183
+   ],
+   "places": [
+    80
+   ],
+   "neighbours": [
+    {
+     "province": 48,
+     "border_tiles": 7
+    },
+    {
+     "province": 71,
+     "border_tiles": 20
+    },
+    {
+     "province": 116,
+     "border_tiles": 25
+    },
+    {
+     "province": 118,
+     "border_tiles": 32
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.508,
+    "grassland": 0.479,
+    "steppe": 0.012
+   }
+  },
+  {
+   "id": 74,
+   "region": 14,
+   "seed_place": 81,
+   "seed_kind": "city",
+   "name": "Thạch Kiều Thành",
+   "tiles": 1186,
+   "centre": [
+    288,
+    212
+   ],
+   "places": [
+    81
+   ],
+   "neighbours": [
+    {
+     "province": 5,
+     "border_tiles": 27
+    },
+    {
+     "province": 21,
+     "border_tiles": 9
+    },
+    {
+     "province": 49,
+     "border_tiles": 17
+    },
+    {
+     "province": 51,
+     "border_tiles": 7
+    },
+    {
+     "province": 190,
+     "border_tiles": 2
+    },
+    {
+     "province": 215,
+     "border_tiles": 20
+    },
+    {
+     "province": 237,
+     "border_tiles": 30
+    },
+    {
+     "province": 241,
+     "border_tiles": 21
+    },
+    {
+     "province": 248,
+     "border_tiles": 22
+    },
+    {
+     "province": 269,
+     "border_tiles": 21
+    }
+   ],
+   "land": {
+    "steppe": 0.449,
+    "high_mountain": 0.198,
+    "highland": 0.159,
+    "desert": 0.086
+   }
+  },
+  {
+   "id": 75,
+   "region": 15,
+   "seed_place": 82,
+   "seed_kind": "town",
+   "name": "Song Kiều Trấn",
+   "tiles": 214,
+   "centre": [
+    360,
+    181
+   ],
+   "places": [
+    82
+   ],
+   "neighbours": [
+    {
+     "province": 121,
+     "border_tiles": 32
+    },
+    {
+     "province": 122,
+     "border_tiles": 31
+    },
+    {
+     "province": 183,
+     "border_tiles": 2
+    },
+    {
+     "province": 252,
+     "border_tiles": 25
+    }
+   ],
+   "land": {
+    "grassland": 0.664,
+    "high_mountain": 0.154,
+    "temperate_forest": 0.15,
+    "steppe": 0.033
+   }
+  },
+  {
+   "id": 76,
+   "region": 16,
+   "seed_place": 83,
+   "seed_kind": "town",
+   "name": "Mạch Điền Trấn",
+   "tiles": 244,
+   "centre": [
+    397,
+    239
+   ],
+   "places": [
+    83
+   ],
+   "neighbours": [
+    {
+     "province": 38,
+     "border_tiles": 36
+    },
+    {
+     "province": 77,
+     "border_tiles": 16
+    },
+    {
+     "province": 124,
+     "border_tiles": 39
+    }
+   ],
+   "land": {
+    "grassland": 0.648,
+    "steppe": 0.242,
+    "jungle": 0.082,
+    "bamboo_forest": 0.012
+   }
+  },
+  {
+   "id": 77,
+   "region": 16,
+   "seed_place": 84,
+   "seed_kind": "city",
+   "name": "Thanh Khê Thành",
+   "tiles": 231,
+   "centre": [
+    389,
+    257
+   ],
+   "places": [
+    84
+   ],
+   "neighbours": [
+    {
+     "province": 6,
+     "border_tiles": 2
+    },
+    {
+     "province": 50,
+     "border_tiles": 6
+    },
+    {
+     "province": 76,
+     "border_tiles": 16
+    },
+    {
+     "province": 124,
+     "border_tiles": 3
+    },
+    {
+     "province": 233,
+     "border_tiles": 19
+    }
+   ],
+   "land": {
+    "bamboo_forest": 0.459,
+    "high_mountain": 0.372,
+    "grassland": 0.121,
+    "jungle": 0.043
+   }
+  },
+  {
+   "id": 78,
+   "region": 17,
+   "seed_place": 85,
+   "seed_kind": "city",
+   "name": "Hoàng Vân Thành",
+   "tiles": 133,
+   "centre": [
+    410,
+    183
+   ],
+   "places": [
+    85
+   ],
+   "neighbours": [
+    {
+     "province": 79,
+     "border_tiles": 8
+    },
+    {
+     "province": 104,
+     "border_tiles": 7
+    },
+    {
+     "province": 126,
+     "border_tiles": 32
+    },
+    {
+     "province": 128,
+     "border_tiles": 20
+    }
+   ],
+   "land": {
+    "grassland": 0.429,
+    "temperate_forest": 0.308,
+    "high_mountain": 0.218,
+    "bamboo_forest": 0.023
+   }
+  },
+  {
+   "id": 79,
+   "region": 17,
+   "seed_place": 86,
+   "seed_kind": "town",
+   "name": "Đạo Hương Trấn",
+   "tiles": 465,
+   "centre": [
+    424,
+    194
+   ],
+   "places": [
+    86
+   ],
+   "neighbours": [
+    {
+     "province": 32,
+     "border_tiles": 3
+    },
+    {
+     "province": 38,
+     "border_tiles": 30
+    },
+    {
+     "province": 78,
+     "border_tiles": 8
+    },
+    {
+     "province": 80,
+     "border_tiles": 10
+    },
+    {
+     "province": 104,
+     "border_tiles": 19
+    },
+    {
+     "province": 128,
+     "border_tiles": 20
+    },
+    {
+     "province": 129,
+     "border_tiles": 34
+    }
+   ],
+   "land": {
+    "grassland": 0.725,
+    "temperate_forest": 0.101,
+    "steppe": 0.099,
+    "high_mountain": 0.075
+   }
+  },
+  {
+   "id": 80,
+   "region": 17,
+   "seed_place": 87,
+   "seed_kind": "town",
+   "name": "Lục Dã Trấn",
+   "tiles": 372,
+   "centre": [
+    398,
+    208
+   ],
+   "places": [
+    87
+   ],
+   "neighbours": [
+    {
+     "province": 38,
+     "border_tiles": 30
+    },
+    {
+     "province": 79,
+     "border_tiles": 10
+    },
+    {
+     "province": 123,
+     "border_tiles": 11
+    },
+    {
+     "province": 128,
+     "border_tiles": 4
+    }
+   ],
+   "land": {
+    "high_mountain": 0.559,
+    "grassland": 0.228,
+    "steppe": 0.116,
+    "temperate_forest": 0.086
+   }
+  },
+  {
+   "id": 81,
+   "region": 18,
+   "seed_place": 88,
+   "seed_kind": "town",
+   "name": "Bình Dã Trấn",
+   "tiles": 542,
+   "centre": [
+    218,
+    270
+   ],
+   "places": [
+    88
+   ],
+   "neighbours": [
+    {
+     "province": 39,
+     "border_tiles": 6
+    },
+    {
+     "province": 113,
+     "border_tiles": 26
+    },
+    {
+     "province": 130,
+     "border_tiles": 33
+    },
+    {
+     "province": 131,
+     "border_tiles": 25
+    },
+    {
+     "province": 198,
+     "border_tiles": 23
+    },
+    {
+     "province": 244,
+     "border_tiles": 1
+    }
+   ],
+   "land": {
+    "grassland": 0.448,
+    "temperate_forest": 0.24,
+    "bamboo_forest": 0.203,
+    "badlands": 0.072
+   }
+  },
+  {
+   "id": 82,
+   "region": 19,
+   "seed_place": 90,
+   "seed_kind": "city",
+   "name": "Lãng Hoa Thành",
+   "tiles": 378,
+   "centre": [
+    274,
+    257
+   ],
+   "places": [
+    90
+   ],
+   "neighbours": [
+    {
+     "province": 7,
+     "border_tiles": 5
+    },
+    {
+     "province": 51,
+     "border_tiles": 36
+    },
+    {
+     "province": 135,
+     "border_tiles": 35
+    },
+    {
+     "province": 227,
+     "border_tiles": 22
+    },
+    {
+     "province": 236,
+     "border_tiles": 9
+    }
+   ],
+   "land": {
+    "steppe": 0.378,
+    "grassland": 0.315,
+    "high_mountain": 0.288,
+    "desert": 0.019
+   }
+  },
+  {
+   "id": 83,
+   "region": 19,
+   "seed_place": 91,
+   "seed_kind": "town",
+   "name": "Vọng Hải Trấn",
+   "tiles": 362,
+   "centre": [
+    352,
+    293
+   ],
+   "places": [
+    91,
+    202
+   ],
+   "neighbours": [
+    {
+     "province": 26,
+     "border_tiles": 16
+    },
+    {
+     "province": 84,
+     "border_tiles": 48
+    },
+    {
+     "province": 125,
+     "border_tiles": 11
+    },
+    {
+     "province": 202,
+     "border_tiles": 7
+    },
+    {
+     "province": 263,
+     "border_tiles": 7
+    }
+   ],
+   "land": {
+    "bamboo_forest": 0.472,
+    "grassland": 0.423,
+    "jungle": 0.097,
+    "mangrove": 0.006
+   }
+  },
+  {
+   "id": 84,
+   "region": 19,
+   "seed_place": 92,
+   "seed_kind": "town",
+   "name": "Phong Đăng Trấn",
+   "tiles": 570,
+   "centre": [
+    337,
+    295
+   ],
+   "places": [
+    92
+   ],
+   "neighbours": [
+    {
+     "province": 26,
+     "border_tiles": 8
+    },
+    {
+     "province": 83,
+     "border_tiles": 48
+    },
+    {
+     "province": 134,
+     "border_tiles": 15
+    },
+    {
+     "province": 136,
+     "border_tiles": 26
+    },
+    {
+     "province": 137,
+     "border_tiles": 26
+    }
+   ],
+   "land": {
+    "bamboo_forest": 0.44,
+    "grassland": 0.379,
+    "jungle": 0.154,
+    "temperate_forest": 0.016
+   }
+  },
+  {
+   "id": 85,
+   "region": 20,
+   "seed_place": 93,
+   "seed_kind": "city",
+   "name": "Thạch Cơ Thành",
+   "tiles": 110,
+   "centre": [
+    470,
+    228
+   ],
+   "places": [
+    93
+   ],
+   "neighbours": [
+    {
+     "province": 86,
+     "border_tiles": 13
+    },
+    {
+     "province": 129,
+     "border_tiles": 19
+    },
+    {
+     "province": 138,
+     "border_tiles": 12
+    }
+   ],
+   "land": {
+    "grassland": 0.7,
+    "steppe": 0.3
+   }
+  },
+  {
+   "id": 86,
+   "region": 20,
+   "seed_place": 94,
+   "seed_kind": "town",
+   "name": "Tang Điền Trấn",
+   "tiles": 179,
+   "centre": [
+    478,
+    237
+   ],
+   "places": [
+    94
+   ],
+   "neighbours": [
+    {
+     "province": 27,
+     "border_tiles": 14
+    },
+    {
+     "province": 85,
+     "border_tiles": 13
+    },
+    {
+     "province": 138,
+     "border_tiles": 15
+    },
+    {
+     "province": 139,
+     "border_tiles": 7
+    }
+   ],
+   "land": {
+    "grassland": 0.497,
+    "steppe": 0.419,
+    "high_mountain": 0.034,
+    "volcano": 0.034
+   }
+  },
+  {
+   "id": 87,
+   "region": 1,
+   "seed_place": 95,
+   "seed_kind": "village",
+   "name": "Tuyết Lộc Thôn",
+   "tiles": 257,
+   "centre": [
+    359,
+    67
+   ],
+   "places": [
+    95
+   ],
+   "neighbours": [
+    {
+     "province": 101,
+     "border_tiles": 5
+    },
+    {
+     "province": 220,
+     "border_tiles": 23
+    },
+    {
+     "province": 225,
+     "border_tiles": 11
+    },
+    {
+     "province": 238,
+     "border_tiles": 19
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.545,
+    "tundra": 0.276,
+    "swamp": 0.179
+   }
+  },
+  {
+   "id": 88,
+   "region": 1,
+   "seed_place": 96,
+   "seed_kind": "village",
+   "name": "Hàn Yên Thôn",
+   "tiles": 146,
+   "centre": [
+    359,
+    102
+   ],
+   "places": [
+    96,
+    97
+   ],
+   "neighbours": [
+    {
+     "province": 52,
+     "border_tiles": 17
+    },
+    {
+     "province": 101,
+     "border_tiles": 9
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.938,
+    "swamp": 0.062
+   }
+  },
+  {
+   "id": 89,
+   "region": 2,
+   "seed_place": 98,
+   "seed_kind": "village",
+   "name": "Mạch Lãng Thôn",
+   "tiles": 44,
+   "centre": [
+    91,
+    160
+   ],
+   "places": [
+    98
+   ],
+   "neighbours": [],
+   "land": {
+    "temperate_forest": 0.614,
+    "grassland": 0.386
+   }
+  },
+  {
+   "id": 90,
+   "region": 2,
+   "seed_place": 100,
+   "seed_kind": "village",
+   "name": "Hòa Thử Thôn",
+   "tiles": 53,
+   "centre": [
+    62,
+    170
+   ],
+   "places": [
+    57,
+    100
+   ],
+   "neighbours": [],
+   "land": {
+    "temperate_forest": 0.642,
+    "grassland": 0.208,
+    "high_mountain": 0.151
+   }
+  },
+  {
+   "id": 91,
+   "region": 2,
+   "seed_place": 101,
+   "seed_kind": "village",
+   "name": "Ẩn Loan Thôn",
+   "tiles": 28,
+   "centre": [
+    54,
+    175
+   ],
+   "places": [
+    101
+   ],
+   "neighbours": [],
+   "land": {
+    "grassland": 0.643,
+    "temperate_forest": 0.321,
+    "steppe": 0.036
+   }
+  },
+  {
+   "id": 92,
+   "region": 3,
+   "seed_place": 102,
+   "seed_kind": "village",
+   "name": "Ô Đề Thôn",
+   "tiles": 1017,
+   "centre": [
+    175,
+    119
+   ],
+   "places": [
+    102,
+    103
+   ],
+   "neighbours": [
+    {
+     "province": 1,
+     "border_tiles": 23
+    },
+    {
+     "province": 20,
+     "border_tiles": 3
+    },
+    {
+     "province": 54,
+     "border_tiles": 13
+    },
+    {
+     "province": 55,
+     "border_tiles": 30
+    },
+    {
+     "province": 56,
+     "border_tiles": 1
+    },
+    {
+     "province": 94,
+     "border_tiles": 24
+    },
+    {
+     "province": 203,
+     "border_tiles": 14
+    },
+    {
+     "province": 240,
+     "border_tiles": 17
+    },
+    {
+     "province": 243,
+     "border_tiles": 10
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.905,
+    "high_mountain": 0.072,
+    "karst": 0.018,
+    "swamp": 0.006
+   }
+  },
+  {
+   "id": 93,
+   "region": 4,
+   "seed_place": 105,
+   "seed_kind": "village",
+   "name": "Bạch Hoa Thôn",
+   "tiles": 265,
+   "centre": [
+    208,
+    120
+   ],
+   "places": [
+    105
+   ],
+   "neighbours": [
+    {
+     "province": 11,
+     "border_tiles": 2
+    },
+    {
+     "province": 43,
+     "border_tiles": 30
+    },
+    {
+     "province": 56,
+     "border_tiles": 18
+    },
+    {
+     "province": 94,
+     "border_tiles": 37
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.977,
+    "high_mountain": 0.023
+   }
+  },
+  {
+   "id": 94,
+   "region": 4,
+   "seed_place": 106,
+   "seed_kind": "village",
+   "name": "Thanh Tùng Thôn",
+   "tiles": 401,
+   "centre": [
+    202,
+    133
+   ],
+   "places": [
+    32,
+    106
+   ],
+   "neighbours": [
+    {
+     "province": 11,
+     "border_tiles": 33
+    },
+    {
+     "province": 92,
+     "border_tiles": 24
+    },
+    {
+     "province": 93,
+     "border_tiles": 37
+    },
+    {
+     "province": 243,
+     "border_tiles": 7
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.928,
+    "high_mountain": 0.072
+   }
+  },
+  {
+   "id": 95,
+   "region": 4,
+   "seed_place": 107,
+   "seed_kind": "village",
+   "name": "Tùng Phong Thôn",
+   "tiles": 335,
+   "centre": [
+    229,
+    160
+   ],
+   "places": [
+    107
+   ],
+   "neighbours": [
+    {
+     "province": 11,
+     "border_tiles": 20
+    },
+    {
+     "province": 57,
+     "border_tiles": 25
+    },
+    {
+     "province": 195,
+     "border_tiles": 8
+    },
+    {
+     "province": 234,
+     "border_tiles": 19
+    },
+    {
+     "province": 242,
+     "border_tiles": 22
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.937,
+    "high_mountain": 0.048,
+    "grassland": 0.015
+   }
+  },
+  {
+   "id": 96,
+   "region": 5,
+   "seed_place": 108,
+   "seed_kind": "village",
+   "name": "Tuyết Ốc Thôn",
+   "tiles": 227,
+   "centre": [
+    250,
+    124
+   ],
+   "places": [
+    108
+   ],
+   "neighbours": [
+    {
+     "province": 2,
+     "border_tiles": 10
+    },
+    {
+     "province": 13,
+     "border_tiles": 1
+    },
+    {
+     "province": 30,
+     "border_tiles": 33
+    },
+    {
+     "province": 43,
+     "border_tiles": 9
+    },
+    {
+     "province": 58,
+     "border_tiles": 36
+    },
+    {
+     "province": 97,
+     "border_tiles": 25
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.969,
+    "high_mountain": 0.031
+   }
+  },
+  {
+   "id": 97,
+   "region": 5,
+   "seed_place": 109,
+   "seed_kind": "village",
+   "name": "Hàn Mai Thôn",
+   "tiles": 646,
+   "centre": [
+    271,
+    124
+   ],
+   "places": [
+    109
+   ],
+   "neighbours": [
+    {
+     "province": 30,
+     "border_tiles": 2
+    },
+    {
+     "province": 58,
+     "border_tiles": 26
+    },
+    {
+     "province": 59,
+     "border_tiles": 6
+    },
+    {
+     "province": 96,
+     "border_tiles": 25
+    },
+    {
+     "province": 98,
+     "border_tiles": 41
+    },
+    {
+     "province": 99,
+     "border_tiles": 9
+    },
+    {
+     "province": 177,
+     "border_tiles": 1
+    },
+    {
+     "province": 209,
+     "border_tiles": 16
+    },
+    {
+     "province": 210,
+     "border_tiles": 10
+    },
+    {
+     "province": 245,
+     "border_tiles": 2
+    },
+    {
+     "province": 262,
+     "border_tiles": 22
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.991,
+    "high_mountain": 0.008,
+    "swamp": 0.002
+   }
+  },
+  {
+   "id": 98,
+   "region": 5,
+   "seed_place": 110,
+   "seed_kind": "village",
+   "name": "Bạch Lang Thôn",
+   "tiles": 210,
+   "centre": [
+    284,
+    126
+   ],
+   "places": [
+    110
+   ],
+   "neighbours": [
+    {
+     "province": 59,
+     "border_tiles": 31
+    },
+    {
+     "province": 97,
+     "border_tiles": 41
+    },
+    {
+     "province": 177,
+     "border_tiles": 18
+    }
+   ],
+   "land": {
+    "temperate_forest": 1.0
+   }
+  },
+  {
+   "id": 99,
+   "region": 6,
+   "seed_place": 112,
+   "seed_kind": "village",
+   "name": "Hạc Quy Thôn",
+   "tiles": 182,
+   "centre": [
+    282,
+    142
+   ],
+   "places": [
+    112
+   ],
+   "neighbours": [
+    {
+     "province": 59,
+     "border_tiles": 33
+    },
+    {
+     "province": 60,
+     "border_tiles": 37
+    },
+    {
+     "province": 97,
+     "border_tiles": 9
+    },
+    {
+     "province": 119,
+     "border_tiles": 9
+    },
+    {
+     "province": 221,
+     "border_tiles": 5
+    },
+    {
+     "province": 262,
+     "border_tiles": 7
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.841,
+    "steppe": 0.088,
+    "high_mountain": 0.071
+   }
+  },
+  {
+   "id": 100,
+   "region": 6,
+   "seed_place": 113,
+   "seed_kind": "village",
+   "name": "Lộc Uyển Thôn",
+   "tiles": 337,
+   "centre": [
+    303,
+    146
+   ],
+   "places": [
+    113
+   ],
+   "neighbours": [
+    {
+     "province": 31,
+     "border_tiles": 7
+    },
+    {
+     "province": 60,
+     "border_tiles": 28
+    },
+    {
+     "province": 61,
+     "border_tiles": 33
+    },
+    {
+     "province": 119,
+     "border_tiles": 8
+    },
+    {
+     "province": 221,
+     "border_tiles": 18
+    },
+    {
+     "province": 246,
+     "border_tiles": 6
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.875,
+    "steppe": 0.113,
+    "badlands": 0.012
+   }
+  },
+  {
+   "id": 101,
+   "region": 7,
+   "seed_place": 114,
+   "seed_kind": "village",
+   "name": "Đỗ Quyên Thôn",
+   "tiles": 630,
+   "centre": [
+    378,
+    98
+   ],
+   "places": [
+    114
+   ],
+   "neighbours": [
+    {
+     "province": 62,
+     "border_tiles": 5
+    },
+    {
+     "province": 87,
+     "border_tiles": 5
+    },
+    {
+     "province": 88,
+     "border_tiles": 9
+    },
+    {
+     "province": 102,
+     "border_tiles": 13
+    },
+    {
+     "province": 211,
+     "border_tiles": 26
+    },
+    {
+     "province": 238,
+     "border_tiles": 11
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.802,
+    "swamp": 0.165,
+    "tundra": 0.033
+   }
+  },
+  {
+   "id": 102,
+   "region": 7,
+   "seed_place": 115,
+   "seed_kind": "village",
+   "name": "Hoàng Oanh Thôn",
+   "tiles": 101,
+   "centre": [
+    384,
+    121
+   ],
+   "places": [
+    115
+   ],
+   "neighbours": [
+    {
+     "province": 62,
+     "border_tiles": 13
+    },
+    {
+     "province": 101,
+     "border_tiles": 13
+    },
+    {
+     "province": 204,
+     "border_tiles": 3
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.713,
+    "high_mountain": 0.287
+   }
+  },
+  {
+   "id": 103,
+   "region": 8,
+   "seed_place": 116,
+   "seed_kind": "village",
+   "name": "Ngư Đàm Thôn",
+   "tiles": 425,
+   "centre": [
+    469,
+    167
+   ],
+   "places": [
+    116
+   ],
+   "neighbours": [
+    {
+     "province": 3,
+     "border_tiles": 12
+    },
+    {
+     "province": 32,
+     "border_tiles": 31
+    },
+    {
+     "province": 63,
+     "border_tiles": 29
+    }
+   ],
+   "land": {
+    "steppe": 0.831,
+    "desert": 0.094,
+    "grassland": 0.042,
+    "badlands": 0.033
+   }
+  },
+  {
+   "id": 104,
+   "region": 8,
+   "seed_place": 118,
+   "seed_kind": "village",
+   "name": "Mã Minh Thôn",
+   "tiles": 279,
+   "centre": [
+    418,
+    173
+   ],
+   "places": [
+    117,
+    118,
+    203
+   ],
+   "neighbours": [
+    {
+     "province": 16,
+     "border_tiles": 43
+    },
+    {
+     "province": 32,
+     "border_tiles": 8
+    },
+    {
+     "province": 78,
+     "border_tiles": 7
+    },
+    {
+     "province": 79,
+     "border_tiles": 19
+    },
+    {
+     "province": 126,
+     "border_tiles": 31
+    },
+    {
+     "province": 251,
+     "border_tiles": 10
+    },
+    {
+     "province": 254,
+     "border_tiles": 8
+    },
+    {
+     "province": 256,
+     "border_tiles": 2
+    }
+   ],
+   "land": {
+    "grassland": 0.509,
+    "high_mountain": 0.211,
+    "desert": 0.111,
+    "steppe": 0.086
+   }
+  },
+  {
+   "id": 105,
+   "region": 9,
+   "seed_place": 119,
+   "seed_kind": "village",
+   "name": "Tiều Lộ Thôn",
+   "tiles": 326,
+   "centre": [
+    465,
+    104
+   ],
+   "places": [
+    119
+   ],
+   "neighbours": [
+    {
+     "province": 17,
+     "border_tiles": 26
+    },
+    {
+     "province": 33,
+     "border_tiles": 27
+    },
+    {
+     "province": 45,
+     "border_tiles": 6
+    },
+    {
+     "province": 64,
+     "border_tiles": 27
+    },
+    {
+     "province": 199,
+     "border_tiles": 7
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.975,
+    "swamp": 0.021,
+    "tundra": 0.003
+   }
+  },
+  {
+   "id": 106,
+   "region": 9,
+   "seed_place": 121,
+   "seed_kind": "village",
+   "name": "Lô Hoa Thôn",
+   "tiles": 109,
+   "centre": [
+    488,
+    132
+   ],
+   "places": [
+    121
+   ],
+   "neighbours": [
+    {
+     "province": 33,
+     "border_tiles": 26
+    },
+    {
+     "province": 65,
+     "border_tiles": 24
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.844,
+    "steppe": 0.119,
+    "grassland": 0.037
+   }
+  },
+  {
+   "id": 107,
+   "region": 10,
+   "seed_place": 123,
+   "seed_kind": "village",
+   "name": "Lãng Thạch Thôn",
+   "tiles": 141,
+   "centre": [
+    132,
+    256
+   ],
+   "places": [
+    123
+   ],
+   "neighbours": [
+    {
+     "province": 18,
+     "border_tiles": 22
+    }
+   ],
+   "land": {
+    "grassland": 0.759,
+    "bamboo_forest": 0.241
+   }
+  },
+  {
+   "id": 108,
+   "region": 10,
+   "seed_place": 124,
+   "seed_kind": "village",
+   "name": "Dương Liễu Thôn",
+   "tiles": 360,
+   "centre": [
+    53,
+    257
+   ],
+   "places": [
+    124
+   ],
+   "neighbours": [
+    {
+     "province": 34,
+     "border_tiles": 14
+    },
+    {
+     "province": 66,
+     "border_tiles": 27
+    },
+    {
+     "province": 110,
+     "border_tiles": 22
+    }
+   ],
+   "land": {
+    "grassland": 0.839,
+    "temperate_forest": 0.158,
+    "bamboo_forest": 0.003
+   }
+  },
+  {
+   "id": 109,
+   "region": 10,
+   "seed_place": 125,
+   "seed_kind": "village",
+   "name": "Tình Sa Thôn",
+   "tiles": 674,
+   "centre": [
+    102,
+    270
+   ],
+   "places": [
+    125,
+    226
+   ],
+   "neighbours": [
+    {
+     "province": 18,
+     "border_tiles": 16
+    },
+    {
+     "province": 34,
+     "border_tiles": 23
+    },
+    {
+     "province": 67,
+     "border_tiles": 25
+    },
+    {
+     "province": 68,
+     "border_tiles": 8
+    }
+   ],
+   "land": {
+    "grassland": 0.547,
+    "bamboo_forest": 0.442,
+    "steppe": 0.009,
+    "temperate_forest": 0.001
+   }
+  },
+  {
+   "id": 110,
+   "region": 10,
+   "seed_place": 126,
+   "seed_kind": "village",
+   "name": "Nguyệt Loan Thôn",
+   "tiles": 165,
+   "centre": [
+    60,
+    270
+   ],
+   "places": [
+    126
+   ],
+   "neighbours": [
+    {
+     "province": 34,
+     "border_tiles": 7
+    },
+    {
+     "province": 68,
+     "border_tiles": 19
+    },
+    {
+     "province": 108,
+     "border_tiles": 22
+    }
+   ],
+   "land": {
+    "grassland": 0.521,
+    "temperate_forest": 0.345,
+    "bamboo_forest": 0.133
+   }
+  },
+  {
+   "id": 111,
+   "region": 11,
+   "seed_place": 130,
+   "seed_kind": "village",
+   "name": "Lô Cảng Thôn",
+   "tiles": 121,
+   "centre": [
+    156,
+    182
+   ],
+   "places": [
+    130
+   ],
+   "neighbours": [
+    {
+     "province": 35,
+     "border_tiles": 1
+    },
+    {
+     "province": 69,
+     "border_tiles": 4
+    },
+    {
+     "province": 70,
+     "border_tiles": 22
+    },
+    {
+     "province": 71,
+     "border_tiles": 22
+    }
+   ],
+   "land": {
+    "grassland": 0.645,
+    "temperate_forest": 0.347,
+    "steppe": 0.008
+   }
+  },
+  {
+   "id": 112,
+   "region": 11,
+   "seed_place": 131,
+   "seed_kind": "village",
+   "name": "Diêm Điền Thôn",
+   "tiles": 960,
+   "centre": [
+    119,
+    196
+   ],
+   "places": [
+    131
+   ],
+   "neighbours": [
+    {
+     "province": 35,
+     "border_tiles": 32
+    },
+    {
+     "province": 69,
+     "border_tiles": 38
+    },
+    {
+     "province": 187,
+     "border_tiles": 34
+    }
+   ],
+   "land": {
+    "grassland": 0.752,
+    "temperate_forest": 0.132,
+    "steppe": 0.113,
+    "bamboo_forest": 0.003
+   }
+  },
+  {
+   "id": 113,
+   "region": 12,
+   "seed_place": 132,
+   "seed_kind": "village",
+   "name": "Khê Thanh Thôn",
+   "tiles": 290,
+   "centre": [
+    203,
+    262
+   ],
+   "places": [
+    76,
+    132
+   ],
+   "neighbours": [
+    {
+     "province": 36,
+     "border_tiles": 4
+    },
+    {
+     "province": 81,
+     "border_tiles": 26
+    },
+    {
+     "province": 114,
+     "border_tiles": 47
+    },
+    {
+     "province": 130,
+     "border_tiles": 13
+    },
+    {
+     "province": 244,
+     "border_tiles": 8
+    }
+   ],
+   "land": {
+    "grassland": 0.459,
+    "temperate_forest": 0.169,
+    "steppe": 0.155,
+    "badlands": 0.107
+   }
+  },
+  {
+   "id": 114,
+   "region": 12,
+   "seed_place": 133,
+   "seed_kind": "village",
+   "name": "Khê Đầu Thôn",
+   "tiles": 870,
+   "centre": [
+    191,
+    241
+   ],
+   "places": [
+    133,
+    222
+   ],
+   "neighbours": [
+    {
+     "province": 35,
+     "border_tiles": 14
+    },
+    {
+     "province": 36,
+     "border_tiles": 28
+    },
+    {
+     "province": 47,
+     "border_tiles": 47
+    },
+    {
+     "province": 48,
+     "border_tiles": 5
+    },
+    {
+     "province": 113,
+     "border_tiles": 47
+    },
+    {
+     "province": 223,
+     "border_tiles": 26
+    },
+    {
+     "province": 244,
+     "border_tiles": 16
+    }
+   ],
+   "land": {
+    "steppe": 0.7,
+    "grassland": 0.274,
+    "desert": 0.017,
+    "temperate_forest": 0.005
+   }
+  },
+  {
+   "id": 115,
+   "region": 12,
+   "seed_place": 134,
+   "seed_kind": "village",
+   "name": "Hải Môn Thôn",
+   "tiles": 566,
+   "centre": [
+    172,
+    292
+   ],
+   "places": [
+    77,
+    134,
+    135
+   ],
+   "neighbours": [
+    {
+     "province": 25,
+     "border_tiles": 15
+    },
+    {
+     "province": 36,
+     "border_tiles": 24
+    },
+    {
+     "province": 72,
+     "border_tiles": 36
+    },
+    {
+     "province": 133,
+     "border_tiles": 1
+    }
+   ],
+   "land": {
+    "grassland": 0.686,
+    "bamboo_forest": 0.178,
+    "jungle": 0.136
+   }
+  },
+  {
+   "id": 116,
+   "region": 13,
+   "seed_place": 136,
+   "seed_kind": "village",
+   "name": "Hoa Khê Thôn",
+   "tiles": 352,
+   "centre": [
+    185,
+    169
+   ],
+   "places": [
+    79,
+    136,
+    138
+   ],
+   "neighbours": [
+    {
+     "province": 20,
+     "border_tiles": 24
+    },
+    {
+     "province": 73,
+     "border_tiles": 25
+    },
+    {
+     "province": 117,
+     "border_tiles": 14
+    },
+    {
+     "province": 118,
+     "border_tiles": 15
+    },
+    {
+     "province": 243,
+     "border_tiles": 6
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.724,
+    "grassland": 0.205,
+    "bamboo_forest": 0.045,
+    "karst": 0.017
+   }
+  },
+  {
+   "id": 117,
+   "region": 13,
+   "seed_place": 137,
+   "seed_kind": "village",
+   "name": "Ngân Than Thôn",
+   "tiles": 403,
+   "centre": [
+    209,
+    173
+   ],
+   "places": [
+    137
+   ],
+   "neighbours": [
+    {
+     "province": 4,
+     "border_tiles": 3
+    },
+    {
+     "province": 48,
+     "border_tiles": 1
+    },
+    {
+     "province": 57,
+     "border_tiles": 35
+    },
+    {
+     "province": 116,
+     "border_tiles": 14
+    },
+    {
+     "province": 118,
+     "border_tiles": 33
+    },
+    {
+     "province": 214,
+     "border_tiles": 19
+    },
+    {
+     "province": 234,
+     "border_tiles": 7
+    },
+    {
+     "province": 243,
+     "border_tiles": 10
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.73,
+    "grassland": 0.119,
+    "high_mountain": 0.052,
+    "bamboo_forest": 0.05
+   }
+  },
+  {
+   "id": 118,
+   "region": 13,
+   "seed_place": 139,
+   "seed_kind": "village",
+   "name": "Thủy Khẩu Thôn",
+   "tiles": 383,
+   "centre": [
+    194,
+    184
+   ],
+   "places": [
+    139
+   ],
+   "neighbours": [
+    {
+     "province": 48,
+     "border_tiles": 56
+    },
+    {
+     "province": 73,
+     "border_tiles": 32
+    },
+    {
+     "province": 116,
+     "border_tiles": 15
+    },
+    {
+     "province": 117,
+     "border_tiles": 33
+    }
+   ],
+   "land": {
+    "grassland": 0.561,
+    "temperate_forest": 0.258,
+    "steppe": 0.144,
+    "badlands": 0.031
+   }
+  },
+  {
+   "id": 119,
+   "region": 14,
+   "seed_place": 140,
+   "seed_kind": "village",
+   "name": "Mộc Hương Thôn",
+   "tiles": 485,
+   "centre": [
+    281,
+    160
+   ],
+   "places": [
+    140
+   ],
+   "neighbours": [
+    {
+     "province": 5,
+     "border_tiles": 15
+    },
+    {
+     "province": 21,
+     "border_tiles": 10
+    },
+    {
+     "province": 49,
+     "border_tiles": 8
+    },
+    {
+     "province": 60,
+     "border_tiles": 17
+    },
+    {
+     "province": 61,
+     "border_tiles": 7
+    },
+    {
+     "province": 99,
+     "border_tiles": 9
+    },
+    {
+     "province": 100,
+     "border_tiles": 8
+    },
+    {
+     "province": 120,
+     "border_tiles": 16
+    },
+    {
+     "province": 208,
+     "border_tiles": 14
+    },
+    {
+     "province": 262,
+     "border_tiles": 2
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.458,
+    "steppe": 0.326,
+    "high_mountain": 0.202,
+    "badlands": 0.014
+   }
+  },
+  {
+   "id": 120,
+   "region": 14,
+   "seed_place": 141,
+   "seed_kind": "village",
+   "name": "Thụ Âm Thôn",
+   "tiles": 419,
+   "centre": [
+    306,
+    173
+   ],
+   "places": [
+    141,
+    170
+   ],
+   "neighbours": [
+    {
+     "province": 49,
+     "border_tiles": 31
+    },
+    {
+     "province": 61,
+     "border_tiles": 29
+    },
+    {
+     "province": 119,
+     "border_tiles": 16
+    },
+    {
+     "province": 183,
+     "border_tiles": 8
+    },
+    {
+     "province": 246,
+     "border_tiles": 15
+    },
+    {
+     "province": 248,
+     "border_tiles": 21
+    }
+   ],
+   "land": {
+    "steppe": 0.671,
+    "badlands": 0.134,
+    "high_mountain": 0.081,
+    "grassland": 0.079
+   }
+  },
+  {
+   "id": 121,
+   "region": 15,
+   "seed_place": 142,
+   "seed_kind": "village",
+   "name": "Thủy Đối Thôn",
+   "tiles": 230,
+   "centre": [
+    369,
+    184
+   ],
+   "places": [
+    142,
+    144
+   ],
+   "neighbours": [
+    {
+     "province": 37,
+     "border_tiles": 23
+    },
+    {
+     "province": 75,
+     "border_tiles": 32
+    },
+    {
+     "province": 122,
+     "border_tiles": 5
+    },
+    {
+     "province": 189,
+     "border_tiles": 3
+    },
+    {
+     "province": 226,
+     "border_tiles": 6
+    },
+    {
+     "province": 252,
+     "border_tiles": 6
+    }
+   ],
+   "land": {
+    "grassland": 0.457,
+    "high_mountain": 0.4,
+    "temperate_forest": 0.1,
+    "steppe": 0.043
+   }
+  },
+  {
+   "id": 122,
+   "region": 15,
+   "seed_place": 143,
+   "seed_kind": "village",
+   "name": "Thanh Mạch Thôn",
+   "tiles": 1115,
+   "centre": [
+    339,
+    195
+   ],
+   "places": [
+    143
+   ],
+   "neighbours": [
+    {
+     "province": 23,
+     "border_tiles": 36
+    },
+    {
+     "province": 75,
+     "border_tiles": 31
+    },
+    {
+     "province": 121,
+     "border_tiles": 5
+    },
+    {
+     "province": 183,
+     "border_tiles": 36
+    },
+    {
+     "province": 201,
+     "border_tiles": 15
+    },
+    {
+     "province": 215,
+     "border_tiles": 17
+    },
+    {
+     "province": 226,
+     "border_tiles": 21
+    },
+    {
+     "province": 248,
+     "border_tiles": 21
+    }
+   ],
+   "land": {
+    "steppe": 0.468,
+    "grassland": 0.152,
+    "high_mountain": 0.133,
+    "desert": 0.128
+   }
+  },
+  {
+   "id": 123,
+   "region": 17,
+   "seed_place": 145,
+   "seed_kind": "village",
+   "name": "Đào Khê Thôn",
+   "tiles": 643,
+   "centre": [
+    372,
+    230
+   ],
+   "places": [
+    145,
+    211
+   ],
+   "neighbours": [
+    {
+     "province": 6,
+     "border_tiles": 51
+    },
+    {
+     "province": 80,
+     "border_tiles": 11
+    },
+    {
+     "province": 124,
+     "border_tiles": 43
+    },
+    {
+     "province": 175,
+     "border_tiles": 34
+    },
+    {
+     "province": 191,
+     "border_tiles": 18
+    },
+    {
+     "province": 197,
+     "border_tiles": 2
+    }
+   ],
+   "land": {
+    "grassland": 0.359,
+    "high_mountain": 0.317,
+    "steppe": 0.14,
+    "temperate_forest": 0.078
+   }
+  },
+  {
+   "id": 124,
+   "region": 16,
+   "seed_place": 146,
+   "seed_kind": "village",
+   "name": "Hà Loan Thôn",
+   "tiles": 241,
+   "centre": [
+    387,
+    234
+   ],
+   "places": [
+    146
+   ],
+   "neighbours": [
+    {
+     "province": 6,
+     "border_tiles": 7
+    },
+    {
+     "province": 38,
+     "border_tiles": 8
+    },
+    {
+     "province": 76,
+     "border_tiles": 39
+    },
+    {
+     "province": 77,
+     "border_tiles": 3
+    },
+    {
+     "province": 123,
+     "border_tiles": 43
+    }
+   ],
+   "land": {
+    "grassland": 0.502,
+    "high_mountain": 0.174,
+    "jungle": 0.129,
+    "bamboo_forest": 0.079
+   }
+  },
+  {
+   "id": 125,
+   "region": 16,
+   "seed_place": 147,
+   "seed_kind": "village",
+   "name": "Bích Lãng Thôn",
+   "tiles": 317,
+   "centre": [
+    357,
+    269
+   ],
+   "places": [
+    147
+   ],
+   "neighbours": [
+    {
+     "province": 24,
+     "border_tiles": 22
+    },
+    {
+     "province": 26,
+     "border_tiles": 24
+    },
+    {
+     "province": 50,
+     "border_tiles": 28
+    },
+    {
+     "province": 83,
+     "border_tiles": 11
+    },
+    {
+     "province": 197,
+     "border_tiles": 11
+    }
+   ],
+   "land": {
+    "bamboo_forest": 0.558,
+    "high_mountain": 0.221,
+    "grassland": 0.183,
+    "temperate_forest": 0.035
+   }
+  },
+  {
+   "id": 126,
+   "region": 17,
+   "seed_place": 148,
+   "seed_kind": "village",
+   "name": "Thủy Điền Thôn",
+   "tiles": 230,
+   "centre": [
+    405,
+    175
+   ],
+   "places": [
+    148
+   ],
+   "neighbours": [
+    {
+     "province": 78,
+     "border_tiles": 32
+    },
+    {
+     "province": 104,
+     "border_tiles": 31
+    },
+    {
+     "province": 254,
+     "border_tiles": 17
+    }
+   ],
+   "land": {
+    "high_mountain": 0.491,
+    "grassland": 0.183,
+    "steppe": 0.178,
+    "temperate_forest": 0.074
+   }
+  },
+  {
+   "id": 127,
+   "region": 17,
+   "seed_place": 149,
+   "seed_kind": "village",
+   "name": "Âu Lộ Thôn",
+   "tiles": 384,
+   "centre": [
+    480,
+    196
+   ],
+   "places": [
+    149
+   ],
+   "neighbours": [
+    {
+     "province": 129,
+     "border_tiles": 42
+    },
+    {
+     "province": 138,
+     "border_tiles": 10
+    }
+   ],
+   "land": {
+    "grassland": 0.729,
+    "steppe": 0.195,
+    "temperate_forest": 0.076
+   }
+  },
+  {
+   "id": 128,
+   "region": 17,
+   "seed_place": 150,
+   "seed_kind": "village",
+   "name": "Ngân Hạnh Thôn",
+   "tiles": 93,
+   "centre": [
+    406,
+    188
+   ],
+   "places": [
+    150
+   ],
+   "neighbours": [
+    {
+     "province": 78,
+     "border_tiles": 20
+    },
+    {
+     "province": 79,
+     "border_tiles": 20
+    },
+    {
+     "province": 80,
+     "border_tiles": 4
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.548,
+    "high_mountain": 0.323,
+    "grassland": 0.065,
+    "bamboo_forest": 0.065
+   }
+  },
+  {
+   "id": 129,
+   "region": 17,
+   "seed_place": 151,
+   "seed_kind": "village",
+   "name": "Lý Hoa Thôn",
+   "tiles": 1291,
+   "centre": [
+    456,
+    211
+   ],
+   "places": [
+    151,
+    228
+   ],
+   "neighbours": [
+    {
+     "province": 38,
+     "border_tiles": 7
+    },
+    {
+     "province": 79,
+     "border_tiles": 34
+    },
+    {
+     "province": 85,
+     "border_tiles": 19
+    },
+    {
+     "province": 127,
+     "border_tiles": 42
+    },
+    {
+     "province": 138,
+     "border_tiles": 19
+    }
+   ],
+   "land": {
+    "grassland": 0.508,
+    "steppe": 0.482,
+    "temperate_forest": 0.01
+   }
+  },
+  {
+   "id": 130,
+   "region": 18,
+   "seed_place": 153,
+   "seed_kind": "village",
+   "name": "Kiều Bạn Thôn",
+   "tiles": 235,
+   "centre": [
+    210,
+    285
+   ],
+   "places": [
+    153
+   ],
+   "neighbours": [
+    {
+     "province": 36,
+     "border_tiles": 9
+    },
+    {
+     "province": 39,
+     "border_tiles": 24
+    },
+    {
+     "province": 81,
+     "border_tiles": 33
+    },
+    {
+     "province": 113,
+     "border_tiles": 13
+    },
+    {
+     "province": 133,
+     "border_tiles": 23
+    }
+   ],
+   "land": {
+    "grassland": 0.668,
+    "bamboo_forest": 0.174,
+    "jungle": 0.106,
+    "temperate_forest": 0.047
+   }
+  },
+  {
+   "id": 131,
+   "region": 18,
+   "seed_place": 154,
+   "seed_kind": "village",
+   "name": "Bình Độ Thôn",
+   "tiles": 552,
+   "centre": [
+    237,
+    278
+   ],
+   "places": [
+    154
+   ],
+   "neighbours": [
+    {
+     "province": 7,
+     "border_tiles": 20
+    },
+    {
+     "province": 39,
+     "border_tiles": 30
+    },
+    {
+     "province": 81,
+     "border_tiles": 25
+    },
+    {
+     "province": 132,
+     "border_tiles": 40
+    },
+    {
+     "province": 198,
+     "border_tiles": 7
+    }
+   ],
+   "land": {
+    "grassland": 0.471,
+    "bamboo_forest": 0.197,
+    "jungle": 0.185,
+    "temperate_forest": 0.147
+   }
+  },
+  {
+   "id": 132,
+   "region": 18,
+   "seed_place": 155,
+   "seed_kind": "village",
+   "name": "Hoa Điền Thôn",
+   "tiles": 358,
+   "centre": [
+    251,
+    288
+   ],
+   "places": [
+    89,
+    155
+   ],
+   "neighbours": [
+    {
+     "province": 7,
+     "border_tiles": 1
+    },
+    {
+     "province": 39,
+     "border_tiles": 17
+    },
+    {
+     "province": 131,
+     "border_tiles": 40
+    },
+    {
+     "province": 135,
+     "border_tiles": 57
+    }
+   ],
+   "land": {
+    "grassland": 0.581,
+    "bamboo_forest": 0.243,
+    "jungle": 0.176
+   }
+  },
+  {
+   "id": 133,
+   "region": 18,
+   "seed_place": 156,
+   "seed_kind": "village",
+   "name": "Yên Kiều Thôn",
+   "tiles": 492,
+   "centre": [
+    202,
+    301
+   ],
+   "places": [
+    156
+   ],
+   "neighbours": [
+    {
+     "province": 25,
+     "border_tiles": 18
+    },
+    {
+     "province": 36,
+     "border_tiles": 25
+    },
+    {
+     "province": 39,
+     "border_tiles": 27
+    },
+    {
+     "province": 115,
+     "border_tiles": 1
+    },
+    {
+     "province": 130,
+     "border_tiles": 23
+    }
+   ],
+   "land": {
+    "jungle": 0.6,
+    "grassland": 0.299,
+    "temperate_forest": 0.051,
+    "karst": 0.037
+   }
+  },
+  {
+   "id": 134,
+   "region": 19,
+   "seed_place": 157,
+   "seed_kind": "village",
+   "name": "Ương Ca Thôn",
+   "tiles": 328,
+   "centre": [
+    322,
+    275
+   ],
+   "places": [
+    157
+   ],
+   "neighbours": [
+    {
+     "province": 26,
+     "border_tiles": 4
+    },
+    {
+     "province": 40,
+     "border_tiles": 20
+    },
+    {
+     "province": 84,
+     "border_tiles": 15
+    },
+    {
+     "province": 136,
+     "border_tiles": 18
+    },
+    {
+     "province": 137,
+     "border_tiles": 9
+    },
+    {
+     "province": 235,
+     "border_tiles": 12
+    },
+    {
+     "province": 255,
+     "border_tiles": 14
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.39,
+    "grassland": 0.229,
+    "bamboo_forest": 0.198,
+    "high_mountain": 0.183
+   }
+  },
+  {
+   "id": 135,
+   "region": 19,
+   "seed_place": 158,
+   "seed_kind": "village",
+   "name": "Song Khê Thôn",
+   "tiles": 811,
+   "centre": [
+    264,
+    284
+   ],
+   "places": [
+    158,
+    221,
+    230
+   ],
+   "neighbours": [
+    {
+     "province": 7,
+     "border_tiles": 9
+    },
+    {
+     "province": 40,
+     "border_tiles": 16
+    },
+    {
+     "province": 82,
+     "border_tiles": 35
+    },
+    {
+     "province": 132,
+     "border_tiles": 57
+    },
+    {
+     "province": 239,
+     "border_tiles": 34
+    }
+   ],
+   "land": {
+    "grassland": 0.48,
+    "bamboo_forest": 0.392,
+    "jungle": 0.118,
+    "temperate_forest": 0.005
+   }
+  },
+  {
+   "id": 136,
+   "region": 19,
+   "seed_place": 159,
+   "seed_kind": "village",
+   "name": "Thượng Độ Thôn",
+   "tiles": 170,
+   "centre": [
+    324,
+    288
+   ],
+   "places": [
+    159
+   ],
+   "neighbours": [
+    {
+     "province": 84,
+     "border_tiles": 26
+    },
+    {
+     "province": 134,
+     "border_tiles": 18
+    },
+    {
+     "province": 137,
+     "border_tiles": 28
+    }
+   ],
+   "land": {
+    "bamboo_forest": 0.618,
+    "grassland": 0.206,
+    "jungle": 0.176
+   }
+  },
+  {
+   "id": 137,
+   "region": 19,
+   "seed_place": 160,
+   "seed_kind": "village",
+   "name": "Hà Châu Thôn",
+   "tiles": 361,
+   "centre": [
+    312,
+    297
+   ],
+   "places": [
+    160
+   ],
+   "neighbours": [
+    {
+     "province": 40,
+     "border_tiles": 32
+    },
+    {
+     "province": 84,
+     "border_tiles": 26
+    },
+    {
+     "province": 134,
+     "border_tiles": 9
+    },
+    {
+     "province": 136,
+     "border_tiles": 28
+    }
+   ],
+   "land": {
+    "jungle": 0.54,
+    "grassland": 0.283,
+    "bamboo_forest": 0.175,
+    "mangrove": 0.003
+   }
+  },
+  {
+   "id": 138,
+   "region": 20,
+   "seed_place": 161,
+   "seed_kind": "village",
+   "name": "Cúc Viên Thôn",
+   "tiles": 282,
+   "centre": [
+    483,
+    222
+   ],
+   "places": [
+    161,
+    215
+   ],
+   "neighbours": [
+    {
+     "province": 27,
+     "border_tiles": 9
+    },
+    {
+     "province": 85,
+     "border_tiles": 12
+    },
+    {
+     "province": 86,
+     "border_tiles": 15
+    },
+    {
+     "province": 127,
+     "border_tiles": 10
+    },
+    {
+     "province": 129,
+     "border_tiles": 19
+    }
+   ],
+   "land": {
+    "steppe": 0.564,
+    "grassland": 0.436
+   }
+  },
+  {
+   "id": 139,
+   "region": 20,
+   "seed_place": 162,
+   "seed_kind": "village",
+   "name": "Tang Âm Thôn",
+   "tiles": 238,
+   "centre": [
+    487,
+    252
+   ],
+   "places": [
+    162,
+    253
+   ],
+   "neighbours": [
+    {
+     "province": 27,
+     "border_tiles": 16
+    },
+    {
+     "province": 86,
+     "border_tiles": 7
+    },
+    {
+     "province": 140,
+     "border_tiles": 17
+    }
+   ],
+   "land": {
+    "grassland": 0.609,
+    "jungle": 0.16,
+    "bamboo_forest": 0.092,
+    "high_mountain": 0.071
+   }
+  },
+  {
+   "id": 140,
+   "region": 20,
+   "seed_place": 163,
+   "seed_kind": "village",
+   "name": "Hồ Tâm Thôn",
+   "tiles": 415,
+   "centre": [
+    476,
+    271
+   ],
+   "places": [
+    163
+   ],
+   "neighbours": [
+    {
+     "province": 139,
+     "border_tiles": 17
+    },
+    {
+     "province": 253,
+     "border_tiles": 15
+    },
+    {
+     "province": 273,
+     "border_tiles": 10
+    }
+   ],
+   "land": {
+    "grassland": 0.74,
+    "bamboo_forest": 0.248,
+    "steppe": 0.012
+   }
+  },
+  {
+   "id": 141,
+   "region": 20,
+   "seed_place": 164,
+   "seed_kind": "village",
+   "name": "Lô Châu Thôn",
+   "tiles": 121,
+   "centre": [
+    410,
+    297
+   ],
+   "places": [
+    164
+   ],
+   "neighbours": [
+    {
+     "province": 41,
+     "border_tiles": 33
+    },
+    {
+     "province": 159,
+     "border_tiles": 14
+    },
+    {
+     "province": 212,
+     "border_tiles": 9
+    }
+   ],
+   "land": {
+    "jungle": 0.479,
+    "high_mountain": 0.438,
+    "grassland": 0.083
+   }
+  },
+  {
+   "id": 142,
+   "region": 7,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 18,
+   "centre": [
+    395,
+    3
+   ],
+   "places": [],
+   "neighbours": [],
+   "land": {
+    "glacier": 1.0
+   }
+  },
+  {
+   "id": 143,
+   "region": 7,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 9,
+   "centre": [
+    391,
+    9
+   ],
+   "places": [],
+   "neighbours": [],
+   "land": {
+    "glacier": 1.0
+   }
+  },
+  {
+   "id": 144,
+   "region": 7,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 46,
+   "centre": [
+    420,
+    19
+   ],
+   "places": [],
+   "neighbours": [],
+   "land": {
+    "glacier": 1.0
+   }
+  },
+  {
+   "id": 145,
+   "region": 7,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 60,
+   "centre": [
+    400,
+    27
+   ],
+   "places": [
+    188,
+    214,
+    239
+   ],
+   "neighbours": [],
+   "land": {
+    "glacier": 0.667,
+    "volcano": 0.217,
+    "tundra": 0.083,
+    "high_mountain": 0.033
+   }
+  },
+  {
+   "id": 146,
+   "region": 7,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 16,
+   "centre": [
+    414,
+    30
+   ],
+   "places": [],
+   "neighbours": [],
+   "land": {
+    "glacier": 0.75,
+    "tundra": 0.25
+   }
+  },
+  {
+   "id": 147,
+   "region": 2,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 32,
+   "centre": [
+    114,
+    72
+   ],
+   "places": [],
+   "neighbours": [],
+   "land": {
+    "high_mountain": 0.906,
+    "tundra": 0.094
+   }
+  },
+  {
+   "id": 148,
+   "region": 2,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 30,
+   "centre": [
+    83,
+    133
+   ],
+   "places": [],
+   "neighbours": [],
+   "land": {
+    "temperate_forest": 0.933,
+    "high_mountain": 0.067
+   }
+  },
+  {
+   "id": 149,
+   "region": 2,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 36,
+   "centre": [
+    75,
+    139
+   ],
+   "places": [
+    245
+   ],
+   "neighbours": [],
+   "land": {
+    "high_mountain": 0.694,
+    "volcano": 0.278,
+    "temperate_forest": 0.028
+   }
+  },
+  {
+   "id": 150,
+   "region": 2,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 41,
+   "centre": [
+    103,
+    144
+   ],
+   "places": [],
+   "neighbours": [],
+   "land": {
+    "high_mountain": 0.439,
+    "temperate_forest": 0.317,
+    "volcano": 0.244
+   }
+  },
+  {
+   "id": 151,
+   "region": 2,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 16,
+   "centre": [
+    114,
+    150
+   ],
+   "places": [],
+   "neighbours": [],
+   "land": {
+    "temperate_forest": 1.0
+   }
+  },
+  {
+   "id": 152,
+   "region": 11,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 59,
+   "centre": [
+    124,
+    154
+   ],
+   "places": [
+    195
+   ],
+   "neighbours": [],
+   "land": {
+    "temperate_forest": 1.0
+   }
+  },
+  {
+   "id": 153,
+   "region": 2,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 33,
+   "centre": [
+    6,
+    182
+   ],
+   "places": [],
+   "neighbours": [],
+   "land": {
+    "grassland": 0.455,
+    "temperate_forest": 0.424,
+    "high_mountain": 0.121
+   }
+  },
+  {
+   "id": 154,
+   "region": 2,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 10,
+   "centre": [
+    47,
+    180
+   ],
+   "places": [],
+   "neighbours": [],
+   "land": {
+    "grassland": 0.8,
+    "steppe": 0.2
+   }
+  },
+  {
+   "id": 155,
+   "region": 2,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 7,
+   "centre": [
+    14,
+    180
+   ],
+   "places": [],
+   "neighbours": [],
+   "land": {
+    "steppe": 1.0
+   }
+  },
+  {
+   "id": 156,
+   "region": 11,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 78,
+   "centre": [
+    28,
+    191
+   ],
+   "places": [
+    196,
+    210
+   ],
+   "neighbours": [],
+   "land": {
+    "temperate_forest": 0.551,
+    "high_mountain": 0.269,
+    "grassland": 0.103,
+    "volcano": 0.077
+   }
+  },
+  {
+   "id": 157,
+   "region": 11,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 10,
+   "centre": [
+    44,
+    189
+   ],
+   "places": [],
+   "neighbours": [],
+   "land": {
+    "steppe": 0.7,
+    "grassland": 0.3
+   }
+  },
+  {
+   "id": 158,
+   "region": 16,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 51,
+   "centre": [
+    392,
+    282
+   ],
+   "places": [
+    197
+   ],
+   "neighbours": [],
+   "land": {
+    "high_mountain": 0.451,
+    "bamboo_forest": 0.353,
+    "karst": 0.157,
+    "temperate_forest": 0.039
+   }
+  },
+  {
+   "id": 159,
+   "region": 16,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 119,
+   "centre": [
+    403,
+    291
+   ],
+   "places": [
+    212,
+    254
+   ],
+   "neighbours": [
+    {
+     "province": 41,
+     "border_tiles": 6
+    },
+    {
+     "province": 141,
+     "border_tiles": 14
+    },
+    {
+     "province": 212,
+     "border_tiles": 8
+    },
+    {
+     "province": 263,
+     "border_tiles": 4
+    }
+   ],
+   "land": {
+    "high_mountain": 0.605,
+    "bamboo_forest": 0.235,
+    "jungle": 0.101,
+    "grassland": 0.05
+   }
+  },
+  {
+   "id": 160,
+   "region": 20,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 22,
+   "centre": [
+    425,
+    327
+   ],
+   "places": [],
+   "neighbours": [],
+   "land": {
+    "jungle": 0.909,
+    "temperate_forest": 0.091
+   }
+  },
+  {
+   "id": 161,
+   "region": 16,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 11,
+   "centre": [
+    397,
+    326
+   ],
+   "places": [],
+   "neighbours": [],
+   "land": {
+    "grassland": 1.0
+   }
+  },
+  {
+   "id": 162,
+   "region": 20,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 41,
+   "centre": [
+    462,
+    329
+   ],
+   "places": [],
+   "neighbours": [],
+   "land": {
+    "jungle": 0.878,
+    "mangrove": 0.098,
+    "temperate_forest": 0.024
+   }
+  },
+  {
+   "id": 163,
+   "region": 20,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 36,
+   "centre": [
+    413,
+    333
+   ],
+   "places": [],
+   "neighbours": [],
+   "land": {
+    "jungle": 0.944,
+    "mangrove": 0.028,
+    "temperate_forest": 0.028
+   }
+  },
+  {
+   "id": 164,
+   "region": 20,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 39,
+   "centre": [
+    395,
+    337
+   ],
+   "places": [],
+   "neighbours": [],
+   "land": {
+    "jungle": 0.923,
+    "temperate_forest": 0.051,
+    "high_mountain": 0.026
+   }
+  },
+  {
+   "id": 165,
+   "region": 20,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 11,
+   "centre": [
+    435,
+    337
+   ],
+   "places": [],
+   "neighbours": [],
+   "land": {
+    "grassland": 1.0
+   }
+  },
+  {
+   "id": 166,
+   "region": 20,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 50,
+   "centre": [
+    468,
+    340
+   ],
+   "places": [
+    198,
+    232
+   ],
+   "neighbours": [],
+   "land": {
+    "jungle": 0.8,
+    "volcano": 0.14,
+    "temperate_forest": 0.02,
+    "mangrove": 0.02
+   }
+  },
+  {
+   "id": 167,
+   "region": 20,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 117,
+   "centre": [
+    442,
+    345
+   ],
+   "places": [
+    199,
+    248
+   ],
+   "neighbours": [],
+   "land": {
+    "jungle": 0.812,
+    "volcano": 0.103,
+    "grassland": 0.043,
+    "temperate_forest": 0.034
+   }
+  },
+  {
+   "id": 168,
+   "region": 20,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 7,
+   "centre": [
+    405,
+    346
+   ],
+   "places": [],
+   "neighbours": [],
+   "land": {
+    "grassland": 1.0
+   }
+  },
+  {
+   "id": 169,
+   "region": 20,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 31,
+   "centre": [
+    469,
+    354
+   ],
+   "places": [
+    217
+   ],
+   "neighbours": [],
+   "land": {
+    "jungle": 0.935,
+    "mangrove": 0.032,
+    "temperate_forest": 0.032
+   }
+  },
+  {
+   "id": 170,
+   "region": 2,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 160,
+   "centre": [
+    110,
+    59
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 29,
+     "border_tiles": 5
+    },
+    {
+     "province": 219,
+     "border_tiles": 3
+    },
+    {
+     "province": 229,
+     "border_tiles": 21
+    }
+   ],
+   "land": {
+    "tundra": 0.906,
+    "high_mountain": 0.056,
+    "temperate_forest": 0.025,
+    "swamp": 0.013
+   }
+  },
+  {
+   "id": 171,
+   "region": 2,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 378,
+   "centre": [
+    61,
+    88
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 200,
+     "border_tiles": 18
+    },
+    {
+     "province": 229,
+     "border_tiles": 6
+    },
+    {
+     "province": 266,
+     "border_tiles": 10
+    },
+    {
+     "province": 271,
+     "border_tiles": 31
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.886,
+    "tundra": 0.103,
+    "swamp": 0.011
+   }
+  },
+  {
+   "id": 172,
+   "region": 3,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 102,
+   "centre": [
+    191,
+    54
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 174,
+     "border_tiles": 16
+    },
+    {
+     "province": 264,
+     "border_tiles": 19
+    }
+   ],
+   "land": {
+    "tundra": 0.657,
+    "temperate_forest": 0.333,
+    "swamp": 0.01
+   }
+  },
+  {
+   "id": 173,
+   "region": 9,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 122,
+   "centre": [
+    447,
+    52
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 207,
+     "border_tiles": 10
+    },
+    {
+     "province": 224,
+     "border_tiles": 5
+    }
+   ],
+   "land": {
+    "tundra": 0.566,
+    "high_mountain": 0.27,
+    "glacier": 0.164
+   }
+  },
+  {
+   "id": 174,
+   "region": 4,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 197,
+   "centre": [
+    203,
+    55
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 172,
+     "border_tiles": 16
+    },
+    {
+     "province": 194,
+     "border_tiles": 10
+    },
+    {
+     "province": 213,
+     "border_tiles": 23
+    },
+    {
+     "province": 230,
+     "border_tiles": 7
+    },
+    {
+     "province": 264,
+     "border_tiles": 1
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.513,
+    "tundra": 0.33,
+    "swamp": 0.157
+   }
+  },
+  {
+   "id": 175,
+   "region": 15,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 209,
+   "centre": [
+    366,
+    217
+   ],
+   "places": [
+    176
+   ],
+   "neighbours": [
+    {
+     "province": 123,
+     "border_tiles": 34
+    },
+    {
+     "province": 191,
+     "border_tiles": 2
+    },
+    {
+     "province": 201,
+     "border_tiles": 16
+    },
+    {
+     "province": 226,
+     "border_tiles": 21
+    },
+    {
+     "province": 249,
+     "border_tiles": 2
+    }
+   ],
+   "land": {
+    "high_mountain": 0.565,
+    "grassland": 0.254,
+    "temperate_forest": 0.134,
+    "steppe": 0.029
+   }
+  },
+  {
+   "id": 176,
+   "region": 7,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 195,
+   "centre": [
+    383,
+    51
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 211,
+     "border_tiles": 18
+    },
+    {
+     "province": 220,
+     "border_tiles": 1
+    },
+    {
+     "province": 238,
+     "border_tiles": 22
+    }
+   ],
+   "land": {
+    "tundra": 0.795,
+    "swamp": 0.138,
+    "temperate_forest": 0.067
+   }
+  },
+  {
+   "id": 177,
+   "region": 1,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 176,
+   "centre": [
+    298,
+    119
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 59,
+     "border_tiles": 5
+    },
+    {
+     "province": 97,
+     "border_tiles": 1
+    },
+    {
+     "province": 98,
+     "border_tiles": 18
+    },
+    {
+     "province": 210,
+     "border_tiles": 11
+    },
+    {
+     "province": 221,
+     "border_tiles": 20
+    },
+    {
+     "province": 222,
+     "border_tiles": 19
+    }
+   ],
+   "land": {
+    "temperate_forest": 1.0
+   }
+  },
+  {
+   "id": 178,
+   "region": 19,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 112,
+   "centre": [
+    324,
+    251
+   ],
+   "places": [
+    187
+   ],
+   "neighbours": [
+    {
+     "province": 217,
+     "border_tiles": 13
+    },
+    {
+     "province": 218,
+     "border_tiles": 17
+    },
+    {
+     "province": 235,
+     "border_tiles": 16
+    },
+    {
+     "province": 255,
+     "border_tiles": 12
+    }
+   ],
+   "land": {
+    "high_mountain": 0.982,
+    "temperate_forest": 0.018
+   }
+  },
+  {
+   "id": 179,
+   "region": 20,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 103,
+   "centre": [
+    470,
+    306
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 253,
+     "border_tiles": 18
+    }
+   ],
+   "land": {
+    "jungle": 0.718,
+    "grassland": 0.175,
+    "mangrove": 0.058,
+    "temperate_forest": 0.049
+   }
+  },
+  {
+   "id": 180,
+   "region": 9,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 240,
+   "centre": [
+    424,
+    91
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 207,
+     "border_tiles": 16
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.542,
+    "tundra": 0.267,
+    "high_mountain": 0.192
+   }
+  },
+  {
+   "id": 181,
+   "region": 19,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 188,
+   "centre": [
+    296,
+    241
+   ],
+   "places": [
+    231
+   ],
+   "neighbours": [
+    {
+     "province": 190,
+     "border_tiles": 1
+    },
+    {
+     "province": 217,
+     "border_tiles": 16
+    },
+    {
+     "province": 227,
+     "border_tiles": 12
+    },
+    {
+     "province": 236,
+     "border_tiles": 19
+    },
+    {
+     "province": 241,
+     "border_tiles": 6
+    },
+    {
+     "province": 269,
+     "border_tiles": 14
+    }
+   ],
+   "land": {
+    "high_mountain": 0.867,
+    "grassland": 0.09,
+    "temperate_forest": 0.016,
+    "steppe": 0.016
+   }
+  },
+  {
+   "id": 182,
+   "region": 18,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 114,
+   "centre": [
+    251,
+    219
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 237,
+     "border_tiles": 22
+    },
+    {
+     "province": 265,
+     "border_tiles": 17
+    },
+    {
+     "province": 270,
+     "border_tiles": 5
+    },
+    {
+     "province": 272,
+     "border_tiles": 16
+    }
+   ],
+   "land": {
+    "high_mountain": 0.57,
+    "temperate_forest": 0.202,
+    "badlands": 0.132,
+    "grassland": 0.096
+   }
+  },
+  {
+   "id": 183,
+   "region": 6,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 255,
+   "centre": [
+    336,
+    176
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 75,
+     "border_tiles": 2
+    },
+    {
+     "province": 120,
+     "border_tiles": 8
+    },
+    {
+     "province": 122,
+     "border_tiles": 36
+    },
+    {
+     "province": 246,
+     "border_tiles": 33
+    },
+    {
+     "province": 248,
+     "border_tiles": 1
+    },
+    {
+     "province": 252,
+     "border_tiles": 12
+    }
+   ],
+   "land": {
+    "high_mountain": 0.424,
+    "temperate_forest": 0.235,
+    "badlands": 0.208,
+    "grassland": 0.075
+   }
+  },
+  {
+   "id": 184,
+   "region": 6,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 136,
+   "centre": [
+    374,
+    142
+   ],
+   "places": [
+    181
+   ],
+   "neighbours": [
+    {
+     "province": 14,
+     "border_tiles": 13
+    },
+    {
+     "province": 31,
+     "border_tiles": 1
+    },
+    {
+     "province": 204,
+     "border_tiles": 8
+    },
+    {
+     "province": 228,
+     "border_tiles": 14
+    },
+    {
+     "province": 257,
+     "border_tiles": 10
+    }
+   ],
+   "land": {
+    "high_mountain": 0.971,
+    "glacier": 0.029
+   }
+  },
+  {
+   "id": 185,
+   "region": 1,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 146,
+   "centre": [
+    278,
+    70
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 8,
+     "border_tiles": 2
+    },
+    {
+     "province": 209,
+     "border_tiles": 6
+    },
+    {
+     "province": 210,
+     "border_tiles": 10
+    },
+    {
+     "province": 260,
+     "border_tiles": 21
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.678,
+    "tundra": 0.308,
+    "swamp": 0.014
+   }
+  },
+  {
+   "id": 186,
+   "region": 2,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 216,
+   "centre": [
+    89,
+    90
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 229,
+     "border_tiles": 12
+    },
+    {
+     "province": 268,
+     "border_tiles": 16
+    },
+    {
+     "province": 271,
+     "border_tiles": 29
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.981,
+    "swamp": 0.019
+   }
+  },
+  {
+   "id": 187,
+   "region": 11,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 717,
+   "centre": [
+    88,
+    203
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 112,
+     "border_tiles": 34
+    }
+   ],
+   "land": {
+    "grassland": 0.715,
+    "steppe": 0.16,
+    "temperate_forest": 0.124
+   }
+  },
+  {
+   "id": 188,
+   "region": 2,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 323,
+   "centre": [
+    80,
+    120
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 266,
+     "border_tiles": 16
+    },
+    {
+     "province": 268,
+     "border_tiles": 22
+    },
+    {
+     "province": 271,
+     "border_tiles": 22
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.963,
+    "high_mountain": 0.025,
+    "swamp": 0.012
+   }
+  },
+  {
+   "id": 189,
+   "region": 6,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 129,
+   "centre": [
+    377,
+    165
+   ],
+   "places": [
+    182,
+    218
+   ],
+   "neighbours": [
+    {
+     "province": 22,
+     "border_tiles": 18
+    },
+    {
+     "province": 37,
+     "border_tiles": 16
+    },
+    {
+     "province": 121,
+     "border_tiles": 3
+    },
+    {
+     "province": 228,
+     "border_tiles": 11
+    },
+    {
+     "province": 252,
+     "border_tiles": 10
+    }
+   ],
+   "land": {
+    "high_mountain": 1.0
+   }
+  },
+  {
+   "id": 190,
+   "region": 15,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 99,
+   "centre": [
+    310,
+    230
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 23,
+     "border_tiles": 12
+    },
+    {
+     "province": 74,
+     "border_tiles": 2
+    },
+    {
+     "province": 181,
+     "border_tiles": 1
+    },
+    {
+     "province": 215,
+     "border_tiles": 12
+    },
+    {
+     "province": 217,
+     "border_tiles": 14
+    },
+    {
+     "province": 241,
+     "border_tiles": 15
+    }
+   ],
+   "land": {
+    "high_mountain": 0.626,
+    "grassland": 0.212,
+    "badlands": 0.081,
+    "steppe": 0.04
+   }
+  },
+  {
+   "id": 191,
+   "region": 15,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 125,
+   "centre": [
+    346,
+    238
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 23,
+     "border_tiles": 7
+    },
+    {
+     "province": 123,
+     "border_tiles": 18
+    },
+    {
+     "province": 175,
+     "border_tiles": 2
+    },
+    {
+     "province": 197,
+     "border_tiles": 13
+    },
+    {
+     "province": 218,
+     "border_tiles": 14
+    },
+    {
+     "province": 249,
+     "border_tiles": 24
+    }
+   ],
+   "land": {
+    "high_mountain": 0.88,
+    "temperate_forest": 0.072,
+    "bamboo_forest": 0.048
+   }
+  },
+  {
+   "id": 192,
+   "region": 10,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 236,
+   "centre": [
+    82,
+    304
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 68,
+     "border_tiles": 14
+    },
+    {
+     "province": 258,
+     "border_tiles": 26
+    }
+   ],
+   "land": {
+    "jungle": 0.898,
+    "grassland": 0.064,
+    "temperate_forest": 0.025,
+    "mangrove": 0.013
+   }
+  },
+  {
+   "id": 193,
+   "region": 3,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 473,
+   "centre": [
+    159,
+    59
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 29,
+     "border_tiles": 11
+    },
+    {
+     "province": 42,
+     "border_tiles": 9
+    },
+    {
+     "province": 219,
+     "border_tiles": 10
+    },
+    {
+     "province": 240,
+     "border_tiles": 20
+    },
+    {
+     "province": 264,
+     "border_tiles": 25
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.59,
+    "tundra": 0.374,
+    "swamp": 0.036
+   }
+  },
+  {
+   "id": 194,
+   "region": 5,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 306,
+   "centre": [
+    221,
+    52
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 13,
+     "border_tiles": 31
+    },
+    {
+     "province": 174,
+     "border_tiles": 10
+    },
+    {
+     "province": 213,
+     "border_tiles": 19
+    }
+   ],
+   "land": {
+    "tundra": 0.539,
+    "temperate_forest": 0.379,
+    "swamp": 0.082
+   }
+  },
+  {
+   "id": 195,
+   "region": 4,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 165,
+   "centre": [
+    246,
+    162
+   ],
+   "places": [
+    206
+   ],
+   "neighbours": [
+    {
+     "province": 21,
+     "border_tiles": 11
+    },
+    {
+     "province": 95,
+     "border_tiles": 8
+    },
+    {
+     "province": 208,
+     "border_tiles": 17
+    },
+    {
+     "province": 234,
+     "border_tiles": 10
+    },
+    {
+     "province": 242,
+     "border_tiles": 20
+    },
+    {
+     "province": 262,
+     "border_tiles": 6
+    }
+   ],
+   "land": {
+    "high_mountain": 0.715,
+    "temperate_forest": 0.242,
+    "highland": 0.042
+   }
+  },
+  {
+   "id": 196,
+   "region": 20,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 207,
+   "centre": [
+    448,
+    310
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 41,
+     "border_tiles": 6
+    },
+    {
+     "province": 273,
+     "border_tiles": 26
+    }
+   ],
+   "land": {
+    "jungle": 0.928,
+    "grassland": 0.034,
+    "mangrove": 0.029,
+    "temperate_forest": 0.01
+   }
+  },
+  {
+   "id": 197,
+   "region": 16,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 178,
+   "centre": [
+    349,
+    250
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 6,
+     "border_tiles": 22
+    },
+    {
+     "province": 26,
+     "border_tiles": 4
+    },
+    {
+     "province": 50,
+     "border_tiles": 3
+    },
+    {
+     "province": 123,
+     "border_tiles": 2
+    },
+    {
+     "province": 125,
+     "border_tiles": 11
+    },
+    {
+     "province": 191,
+     "border_tiles": 13
+    },
+    {
+     "province": 218,
+     "border_tiles": 11
+    },
+    {
+     "province": 255,
+     "border_tiles": 4
+    }
+   ],
+   "land": {
+    "high_mountain": 0.888,
+    "bamboo_forest": 0.079,
+    "temperate_forest": 0.034
+   }
+  },
+  {
+   "id": 198,
+   "region": 18,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 428,
+   "centre": [
+    229,
+    248
+   ],
+   "places": [
+    237
+   ],
+   "neighbours": [
+    {
+     "province": 7,
+     "border_tiles": 23
+    },
+    {
+     "province": 47,
+     "border_tiles": 5
+    },
+    {
+     "province": 81,
+     "border_tiles": 23
+    },
+    {
+     "province": 131,
+     "border_tiles": 7
+    },
+    {
+     "province": 244,
+     "border_tiles": 25
+    },
+    {
+     "province": 265,
+     "border_tiles": 4
+    },
+    {
+     "province": 272,
+     "border_tiles": 23
+    }
+   ],
+   "land": {
+    "steppe": 0.435,
+    "high_mountain": 0.283,
+    "badlands": 0.138,
+    "grassland": 0.091
+   }
+  },
+  {
+   "id": 199,
+   "region": 9,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 384,
+   "centre": [
+    483,
+    90
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 17,
+     "border_tiles": 18
+    },
+    {
+     "province": 33,
+     "border_tiles": 13
+    },
+    {
+     "province": 105,
+     "border_tiles": 7
+    },
+    {
+     "province": 224,
+     "border_tiles": 12
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.969,
+    "swamp": 0.031
+   }
+  },
+  {
+   "id": 200,
+   "region": 2,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 500,
+   "centre": [
+    62,
+    62
+   ],
+   "places": [
+    244
+   ],
+   "neighbours": [
+    {
+     "province": 171,
+     "border_tiles": 18
+    },
+    {
+     "province": 229,
+     "border_tiles": 17
+    }
+   ],
+   "land": {
+    "tundra": 0.768,
+    "temperate_forest": 0.232
+   }
+  },
+  {
+   "id": 201,
+   "region": 15,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 230,
+   "centre": [
+    351,
+    217
+   ],
+   "places": [
+    185
+   ],
+   "neighbours": [
+    {
+     "province": 23,
+     "border_tiles": 12
+    },
+    {
+     "province": 122,
+     "border_tiles": 15
+    },
+    {
+     "province": 175,
+     "border_tiles": 16
+    },
+    {
+     "province": 226,
+     "border_tiles": 11
+    },
+    {
+     "province": 249,
+     "border_tiles": 20
+    }
+   ],
+   "land": {
+    "high_mountain": 0.996,
+    "temperate_forest": 0.004
+   }
+  },
+  {
+   "id": 202,
+   "region": 16,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 203,
+   "centre": [
+    374,
+    309
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 83,
+     "border_tiles": 7
+    },
+    {
+     "province": 263,
+     "border_tiles": 37
+    }
+   ],
+   "land": {
+    "jungle": 0.734,
+    "grassland": 0.241,
+    "mangrove": 0.025
+   }
+  },
+  {
+   "id": 203,
+   "region": 3,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 236,
+   "centre": [
+    186,
+    84
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 56,
+     "border_tiles": 4
+    },
+    {
+     "province": 92,
+     "border_tiles": 14
+    },
+    {
+     "province": 230,
+     "border_tiles": 30
+    },
+    {
+     "province": 240,
+     "border_tiles": 17
+    },
+    {
+     "province": 264,
+     "border_tiles": 17
+    }
+   ],
+   "land": {
+    "temperate_forest": 1.0
+   }
+  },
+  {
+   "id": 204,
+   "region": 7,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 154,
+   "centre": [
+    387,
+    138
+   ],
+   "places": [
+    252
+   ],
+   "neighbours": [
+    {
+     "province": 62,
+     "border_tiles": 12
+    },
+    {
+     "province": 102,
+     "border_tiles": 3
+    },
+    {
+     "province": 184,
+     "border_tiles": 8
+    },
+    {
+     "province": 256,
+     "border_tiles": 14
+    },
+    {
+     "province": 257,
+     "border_tiles": 17
+    }
+   ],
+   "land": {
+    "high_mountain": 0.942,
+    "volcano": 0.058
+   }
+  },
+  {
+   "id": 205,
+   "region": 7,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 92,
+   "centre": [
+    420,
+    129
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 15,
+     "border_tiles": 6
+    },
+    {
+     "province": 62,
+     "border_tiles": 10
+    },
+    {
+     "province": 64,
+     "border_tiles": 6
+    },
+    {
+     "province": 206,
+     "border_tiles": 12
+    },
+    {
+     "province": 232,
+     "border_tiles": 9
+    },
+    {
+     "province": 261,
+     "border_tiles": 9
+    }
+   ],
+   "land": {
+    "high_mountain": 0.989,
+    "temperate_forest": 0.011
+   }
+  },
+  {
+   "id": 206,
+   "region": 8,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 132,
+   "centre": [
+    422,
+    140
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 15,
+     "border_tiles": 5
+    },
+    {
+     "province": 16,
+     "border_tiles": 7
+    },
+    {
+     "province": 205,
+     "border_tiles": 12
+    },
+    {
+     "province": 251,
+     "border_tiles": 17
+    },
+    {
+     "province": 261,
+     "border_tiles": 21
+    }
+   ],
+   "land": {
+    "high_mountain": 0.659,
+    "steppe": 0.189,
+    "temperate_forest": 0.076,
+    "desert": 0.061
+   }
+  },
+  {
+   "id": 207,
+   "region": 9,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 448,
+   "centre": [
+    440,
+    74
+   ],
+   "places": [
+    189,
+    233,
+    246
+   ],
+   "neighbours": [
+    {
+     "province": 17,
+     "border_tiles": 13
+    },
+    {
+     "province": 173,
+     "border_tiles": 10
+    },
+    {
+     "province": 180,
+     "border_tiles": 16
+    },
+    {
+     "province": 224,
+     "border_tiles": 26
+    }
+   ],
+   "land": {
+    "high_mountain": 0.406,
+    "tundra": 0.292,
+    "temperate_forest": 0.261,
+    "volcano": 0.029
+   }
+  },
+  {
+   "id": 208,
+   "region": 14,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 195,
+   "centre": [
+    260,
+    161
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 21,
+     "border_tiles": 23
+    },
+    {
+     "province": 119,
+     "border_tiles": 14
+    },
+    {
+     "province": 195,
+     "border_tiles": 17
+    },
+    {
+     "province": 262,
+     "border_tiles": 18
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.513,
+    "high_mountain": 0.467,
+    "highland": 0.015,
+    "steppe": 0.005
+   }
+  },
+  {
+   "id": 209,
+   "region": 5,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 387,
+   "centre": [
+    275,
+    93
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 12,
+     "border_tiles": 10
+    },
+    {
+     "province": 97,
+     "border_tiles": 16
+    },
+    {
+     "province": 185,
+     "border_tiles": 6
+    },
+    {
+     "province": 210,
+     "border_tiles": 39
+    },
+    {
+     "province": 245,
+     "border_tiles": 31
+    },
+    {
+     "province": 260,
+     "border_tiles": 6
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.995,
+    "swamp": 0.005
+   }
+  },
+  {
+   "id": 210,
+   "region": 1,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 449,
+   "centre": [
+    289,
+    95
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 8,
+     "border_tiles": 25
+    },
+    {
+     "province": 97,
+     "border_tiles": 10
+    },
+    {
+     "province": 177,
+     "border_tiles": 11
+    },
+    {
+     "province": 185,
+     "border_tiles": 10
+    },
+    {
+     "province": 209,
+     "border_tiles": 39
+    },
+    {
+     "province": 222,
+     "border_tiles": 5
+    },
+    {
+     "province": 259,
+     "border_tiles": 16
+    }
+   ],
+   "land": {
+    "temperate_forest": 1.0
+   }
+  },
+  {
+   "id": 211,
+   "region": 7,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 557,
+   "centre": [
+    390,
+    68
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 101,
+     "border_tiles": 26
+    },
+    {
+     "province": 176,
+     "border_tiles": 18
+    },
+    {
+     "province": 238,
+     "border_tiles": 29
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.75,
+    "swamp": 0.129,
+    "tundra": 0.12
+   }
+  },
+  {
+   "id": 212,
+   "region": 16,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 91,
+   "centre": [
+    399,
+    303
+   ],
+   "places": [
+    251
+   ],
+   "neighbours": [
+    {
+     "province": 41,
+     "border_tiles": 2
+    },
+    {
+     "province": 141,
+     "border_tiles": 9
+    },
+    {
+     "province": 159,
+     "border_tiles": 8
+    },
+    {
+     "province": 263,
+     "border_tiles": 20
+    }
+   ],
+   "land": {
+    "high_mountain": 0.857,
+    "volcano": 0.11,
+    "jungle": 0.022,
+    "temperate_forest": 0.011
+   }
+  },
+  {
+   "id": 213,
+   "region": 4,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 620,
+   "centre": [
+    216,
+    76
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 13,
+     "border_tiles": 41
+    },
+    {
+     "province": 43,
+     "border_tiles": 17
+    },
+    {
+     "province": 56,
+     "border_tiles": 25
+    },
+    {
+     "province": 174,
+     "border_tiles": 23
+    },
+    {
+     "province": 194,
+     "border_tiles": 19
+    },
+    {
+     "province": 230,
+     "border_tiles": 25
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.998,
+    "swamp": 0.002
+   }
+  },
+  {
+   "id": 214,
+   "region": 13,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 343,
+   "centre": [
+    224,
+    191
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 4,
+     "border_tiles": 19
+    },
+    {
+     "province": 19,
+     "border_tiles": 17
+    },
+    {
+     "province": 47,
+     "border_tiles": 5
+    },
+    {
+     "province": 117,
+     "border_tiles": 19
+    },
+    {
+     "province": 216,
+     "border_tiles": 16
+    },
+    {
+     "province": 234,
+     "border_tiles": 13
+    },
+    {
+     "province": 270,
+     "border_tiles": 3
+    }
+   ],
+   "land": {
+    "badlands": 0.347,
+    "temperate_forest": 0.219,
+    "high_mountain": 0.21,
+    "grassland": 0.122
+   }
+  },
+  {
+   "id": 215,
+   "region": 15,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 242,
+   "centre": [
+    315,
+    213
+   ],
+   "places": [
+    238
+   ],
+   "neighbours": [
+    {
+     "province": 23,
+     "border_tiles": 26
+    },
+    {
+     "province": 74,
+     "border_tiles": 20
+    },
+    {
+     "province": 122,
+     "border_tiles": 17
+    },
+    {
+     "province": 190,
+     "border_tiles": 12
+    },
+    {
+     "province": 248,
+     "border_tiles": 21
+    }
+   ],
+   "land": {
+    "steppe": 0.372,
+    "desert": 0.347,
+    "high_mountain": 0.161,
+    "highland": 0.12
+   }
+  },
+  {
+   "id": 216,
+   "region": 14,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 134,
+   "centre": [
+    238,
+    185
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 21,
+     "border_tiles": 19
+    },
+    {
+     "province": 214,
+     "border_tiles": 16
+    },
+    {
+     "province": 234,
+     "border_tiles": 17
+    },
+    {
+     "province": 270,
+     "border_tiles": 14
+    }
+   ],
+   "land": {
+    "high_mountain": 0.799,
+    "temperate_forest": 0.187,
+    "steppe": 0.007,
+    "badlands": 0.007
+   }
+  },
+  {
+   "id": 217,
+   "region": 19,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 219,
+   "centre": [
+    311,
+    242
+   ],
+   "places": [
+    177
+   ],
+   "neighbours": [
+    {
+     "province": 23,
+     "border_tiles": 18
+    },
+    {
+     "province": 40,
+     "border_tiles": 12
+    },
+    {
+     "province": 178,
+     "border_tiles": 13
+    },
+    {
+     "province": 181,
+     "border_tiles": 16
+    },
+    {
+     "province": 190,
+     "border_tiles": 14
+    },
+    {
+     "province": 218,
+     "border_tiles": 1
+    },
+    {
+     "province": 235,
+     "border_tiles": 1
+    },
+    {
+     "province": 236,
+     "border_tiles": 3
+    }
+   ],
+   "land": {
+    "high_mountain": 0.644,
+    "badlands": 0.297,
+    "grassland": 0.05,
+    "steppe": 0.005
+   }
+  },
+  {
+   "id": 218,
+   "region": 15,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 213,
+   "centre": [
+    335,
+    246
+   ],
+   "places": [
+    186
+   ],
+   "neighbours": [
+    {
+     "province": 23,
+     "border_tiles": 23
+    },
+    {
+     "province": 178,
+     "border_tiles": 17
+    },
+    {
+     "province": 191,
+     "border_tiles": 14
+    },
+    {
+     "province": 197,
+     "border_tiles": 11
+    },
+    {
+     "province": 217,
+     "border_tiles": 1
+    },
+    {
+     "province": 255,
+     "border_tiles": 12
+    }
+   ],
+   "land": {
+    "high_mountain": 0.765,
+    "grassland": 0.113,
+    "temperate_forest": 0.103,
+    "highland": 0.014
+   }
+  },
+  {
+   "id": 219,
+   "region": 3,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 293,
+   "centre": [
+    132,
+    54
+   ],
+   "places": [
+    240
+   ],
+   "neighbours": [
+    {
+     "province": 29,
+     "border_tiles": 28
+    },
+    {
+     "province": 170,
+     "border_tiles": 3
+    },
+    {
+     "province": 193,
+     "border_tiles": 10
+    }
+   ],
+   "land": {
+    "tundra": 0.942,
+    "high_mountain": 0.048,
+    "temperate_forest": 0.01
+   }
+  },
+  {
+   "id": 220,
+   "region": 1,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 229,
+   "centre": [
+    361,
+    54
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 87,
+     "border_tiles": 23
+    },
+    {
+     "province": 176,
+     "border_tiles": 1
+    },
+    {
+     "province": 225,
+     "border_tiles": 5
+    },
+    {
+     "province": 238,
+     "border_tiles": 19
+    }
+   ],
+   "land": {
+    "tundra": 0.738,
+    "temperate_forest": 0.245,
+    "swamp": 0.017
+   }
+  },
+  {
+   "id": 221,
+   "region": 6,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 428,
+   "centre": [
+    311,
+    127
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 31,
+     "border_tiles": 31
+    },
+    {
+     "province": 59,
+     "border_tiles": 1
+    },
+    {
+     "province": 60,
+     "border_tiles": 6
+    },
+    {
+     "province": 99,
+     "border_tiles": 5
+    },
+    {
+     "province": 100,
+     "border_tiles": 18
+    },
+    {
+     "province": 177,
+     "border_tiles": 20
+    },
+    {
+     "province": 222,
+     "border_tiles": 27
+    }
+   ],
+   "land": {
+    "temperate_forest": 1.0
+   }
+  },
+  {
+   "id": 222,
+   "region": 1,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 419,
+   "centre": [
+    316,
+    110
+   ],
+   "places": [
+    200
+   ],
+   "neighbours": [
+    {
+     "province": 31,
+     "border_tiles": 13
+    },
+    {
+     "province": 52,
+     "border_tiles": 19
+    },
+    {
+     "province": 177,
+     "border_tiles": 19
+    },
+    {
+     "province": 210,
+     "border_tiles": 5
+    },
+    {
+     "province": 221,
+     "border_tiles": 27
+    },
+    {
+     "province": 259,
+     "border_tiles": 35
+    }
+   ],
+   "land": {
+    "temperate_forest": 1.0
+   }
+  },
+  {
+   "id": 223,
+   "region": 12,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 253,
+   "centre": [
+    168,
+    232
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 35,
+     "border_tiles": 26
+    },
+    {
+     "province": 114,
+     "border_tiles": 26
+    }
+   ],
+   "land": {
+    "steppe": 0.798,
+    "grassland": 0.182,
+    "desert": 0.02
+   }
+  },
+  {
+   "id": 224,
+   "region": 9,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 682,
+   "centre": [
+    468,
+    66
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 17,
+     "border_tiles": 25
+    },
+    {
+     "province": 173,
+     "border_tiles": 5
+    },
+    {
+     "province": 199,
+     "border_tiles": 12
+    },
+    {
+     "province": 207,
+     "border_tiles": 26
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.551,
+    "tundra": 0.326,
+    "swamp": 0.119,
+    "high_mountain": 0.004
+   }
+  },
+  {
+   "id": 225,
+   "region": 1,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 424,
+   "centre": [
+    334,
+    64
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 8,
+     "border_tiles": 33
+    },
+    {
+     "province": 87,
+     "border_tiles": 11
+    },
+    {
+     "province": 220,
+     "border_tiles": 5
+    },
+    {
+     "province": 231,
+     "border_tiles": 10
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.592,
+    "swamp": 0.255,
+    "tundra": 0.153
+   }
+  },
+  {
+   "id": 226,
+   "region": 15,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 162,
+   "centre": [
+    362,
+    206
+   ],
+   "places": [
+    175,
+    250
+   ],
+   "neighbours": [
+    {
+     "province": 121,
+     "border_tiles": 6
+    },
+    {
+     "province": 122,
+     "border_tiles": 21
+    },
+    {
+     "province": 175,
+     "border_tiles": 21
+    },
+    {
+     "province": 201,
+     "border_tiles": 11
+    }
+   ],
+   "land": {
+    "high_mountain": 0.938,
+    "volcano": 0.056,
+    "temperate_forest": 0.006
+   }
+  },
+  {
+   "id": 227,
+   "region": 19,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 190,
+   "centre": [
+    281,
+    243
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 51,
+     "border_tiles": 14
+    },
+    {
+     "province": 82,
+     "border_tiles": 22
+    },
+    {
+     "province": 181,
+     "border_tiles": 12
+    },
+    {
+     "province": 236,
+     "border_tiles": 3
+    },
+    {
+     "province": 269,
+     "border_tiles": 15
+    }
+   ],
+   "land": {
+    "high_mountain": 0.942,
+    "temperate_forest": 0.037,
+    "grassland": 0.021
+   }
+  },
+  {
+   "id": 228,
+   "region": 6,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 165,
+   "centre": [
+    374,
+    154
+   ],
+   "places": [
+    205
+   ],
+   "neighbours": [
+    {
+     "province": 14,
+     "border_tiles": 13
+    },
+    {
+     "province": 22,
+     "border_tiles": 8
+    },
+    {
+     "province": 184,
+     "border_tiles": 14
+    },
+    {
+     "province": 189,
+     "border_tiles": 11
+    },
+    {
+     "province": 252,
+     "border_tiles": 14
+    },
+    {
+     "province": 257,
+     "border_tiles": 4
+    }
+   ],
+   "land": {
+    "high_mountain": 0.939,
+    "temperate_forest": 0.042,
+    "glacier": 0.018
+   }
+  },
+  {
+   "id": 229,
+   "region": 2,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 437,
+   "centre": [
+    89,
+    69
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 170,
+     "border_tiles": 21
+    },
+    {
+     "province": 171,
+     "border_tiles": 6
+    },
+    {
+     "province": 186,
+     "border_tiles": 12
+    },
+    {
+     "province": 200,
+     "border_tiles": 17
+    },
+    {
+     "province": 271,
+     "border_tiles": 10
+    }
+   ],
+   "land": {
+    "tundra": 0.49,
+    "temperate_forest": 0.323,
+    "swamp": 0.188
+   }
+  },
+  {
+   "id": 230,
+   "region": 4,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 351,
+   "centre": [
+    197,
+    78
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 56,
+     "border_tiles": 28
+    },
+    {
+     "province": 174,
+     "border_tiles": 7
+    },
+    {
+     "province": 203,
+     "border_tiles": 30
+    },
+    {
+     "province": 213,
+     "border_tiles": 25
+    },
+    {
+     "province": 264,
+     "border_tiles": 10
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.997,
+    "swamp": 0.003
+   }
+  },
+  {
+   "id": 231,
+   "region": 1,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 323,
+   "centre": [
+    307,
+    55
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 8,
+     "border_tiles": 29
+    },
+    {
+     "province": 225,
+     "border_tiles": 10
+    }
+   ],
+   "land": {
+    "tundra": 0.848,
+    "temperate_forest": 0.146,
+    "swamp": 0.006
+   }
+  },
+  {
+   "id": 232,
+   "region": 7,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 154,
+   "centre": [
+    417,
+    117
+   ],
+   "places": [
+    209
+   ],
+   "neighbours": [
+    {
+     "province": 62,
+     "border_tiles": 23
+    },
+    {
+     "province": 64,
+     "border_tiles": 7
+    },
+    {
+     "province": 205,
+     "border_tiles": 9
+    }
+   ],
+   "land": {
+    "high_mountain": 0.981,
+    "temperate_forest": 0.019
+   }
+  },
+  {
+   "id": 233,
+   "region": 16,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 135,
+   "centre": [
+    381,
+    266
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 24,
+     "border_tiles": 10
+    },
+    {
+     "province": 50,
+     "border_tiles": 16
+    },
+    {
+     "province": 77,
+     "border_tiles": 19
+    }
+   ],
+   "land": {
+    "high_mountain": 0.874,
+    "bamboo_forest": 0.096,
+    "temperate_forest": 0.022,
+    "mangrove": 0.007
+   }
+  },
+  {
+   "id": 234,
+   "region": 4,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 209,
+   "centre": [
+    232,
+    175
+   ],
+   "places": [
+    229
+   ],
+   "neighbours": [
+    {
+     "province": 21,
+     "border_tiles": 3
+    },
+    {
+     "province": 57,
+     "border_tiles": 9
+    },
+    {
+     "province": 95,
+     "border_tiles": 19
+    },
+    {
+     "province": 117,
+     "border_tiles": 7
+    },
+    {
+     "province": 195,
+     "border_tiles": 10
+    },
+    {
+     "province": 214,
+     "border_tiles": 13
+    },
+    {
+     "province": 216,
+     "border_tiles": 17
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.617,
+    "high_mountain": 0.325,
+    "grassland": 0.053,
+    "steppe": 0.005
+   }
+  },
+  {
+   "id": 235,
+   "region": 19,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 166,
+   "centre": [
+    317,
+    259
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 40,
+     "border_tiles": 25
+    },
+    {
+     "province": 134,
+     "border_tiles": 12
+    },
+    {
+     "province": 178,
+     "border_tiles": 16
+    },
+    {
+     "province": 217,
+     "border_tiles": 1
+    },
+    {
+     "province": 255,
+     "border_tiles": 10
+    }
+   ],
+   "land": {
+    "high_mountain": 0.988,
+    "badlands": 0.012
+   }
+  },
+  {
+   "id": 236,
+   "region": 19,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 146,
+   "centre": [
+    297,
+    252
+   ],
+   "places": [
+    179
+   ],
+   "neighbours": [
+    {
+     "province": 40,
+     "border_tiles": 14
+    },
+    {
+     "province": 82,
+     "border_tiles": 9
+    },
+    {
+     "province": 181,
+     "border_tiles": 19
+    },
+    {
+     "province": 217,
+     "border_tiles": 3
+    },
+    {
+     "province": 227,
+     "border_tiles": 3
+    }
+   ],
+   "land": {
+    "high_mountain": 0.993,
+    "steppe": 0.007
+   }
+  },
+  {
+   "id": 237,
+   "region": 14,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 359,
+   "centre": [
+    259,
+    211
+   ],
+   "places": [
+    236
+   ],
+   "neighbours": [
+    {
+     "province": 21,
+     "border_tiles": 17
+    },
+    {
+     "province": 51,
+     "border_tiles": 10
+    },
+    {
+     "province": 74,
+     "border_tiles": 30
+    },
+    {
+     "province": 182,
+     "border_tiles": 22
+    },
+    {
+     "province": 265,
+     "border_tiles": 3
+    },
+    {
+     "province": 270,
+     "border_tiles": 22
+    }
+   ],
+   "land": {
+    "highland": 0.331,
+    "temperate_forest": 0.223,
+    "badlands": 0.181,
+    "high_mountain": 0.181
+   }
+  },
+  {
+   "id": 238,
+   "region": 7,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 269,
+   "centre": [
+    374,
+    63
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 87,
+     "border_tiles": 19
+    },
+    {
+     "province": 101,
+     "border_tiles": 11
+    },
+    {
+     "province": 176,
+     "border_tiles": 22
+    },
+    {
+     "province": 211,
+     "border_tiles": 29
+    },
+    {
+     "province": 220,
+     "border_tiles": 19
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.862,
+    "tundra": 0.1,
+    "swamp": 0.037
+   }
+  },
+  {
+   "id": 239,
+   "region": 19,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 300,
+   "centre": [
+    271,
+    309
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 40,
+     "border_tiles": 16
+    },
+    {
+     "province": 135,
+     "border_tiles": 34
+    }
+   ],
+   "land": {
+    "jungle": 0.783,
+    "grassland": 0.21,
+    "mangrove": 0.003,
+    "temperate_forest": 0.003
+   }
+  },
+  {
+   "id": 240,
+   "region": 3,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 540,
+   "centre": [
+    168,
+    81
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 1,
+     "border_tiles": 21
+    },
+    {
+     "province": 42,
+     "border_tiles": 11
+    },
+    {
+     "province": 92,
+     "border_tiles": 17
+    },
+    {
+     "province": 193,
+     "border_tiles": 20
+    },
+    {
+     "province": 203,
+     "border_tiles": 17
+    },
+    {
+     "province": 264,
+     "border_tiles": 22
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.991,
+    "swamp": 0.009
+   }
+  },
+  {
+   "id": 241,
+   "region": 14,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 117,
+   "centre": [
+    299,
+    229
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 74,
+     "border_tiles": 21
+    },
+    {
+     "province": 181,
+     "border_tiles": 6
+    },
+    {
+     "province": 190,
+     "border_tiles": 15
+    },
+    {
+     "province": 269,
+     "border_tiles": 12
+    }
+   ],
+   "land": {
+    "high_mountain": 0.718,
+    "steppe": 0.145,
+    "grassland": 0.094,
+    "temperate_forest": 0.026
+   }
+  },
+  {
+   "id": 242,
+   "region": 4,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 347,
+   "centre": [
+    241,
+    147
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 2,
+     "border_tiles": 21
+    },
+    {
+     "province": 11,
+     "border_tiles": 13
+    },
+    {
+     "province": 30,
+     "border_tiles": 18
+    },
+    {
+     "province": 95,
+     "border_tiles": 22
+    },
+    {
+     "province": 195,
+     "border_tiles": 20
+    },
+    {
+     "province": 262,
+     "border_tiles": 14
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.807,
+    "high_mountain": 0.193
+   }
+  },
+  {
+   "id": 243,
+   "region": 13,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 161,
+   "centre": [
+    194,
+    152
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 11,
+     "border_tiles": 6
+    },
+    {
+     "province": 20,
+     "border_tiles": 18
+    },
+    {
+     "province": 57,
+     "border_tiles": 11
+    },
+    {
+     "province": 92,
+     "border_tiles": 10
+    },
+    {
+     "province": 94,
+     "border_tiles": 7
+    },
+    {
+     "province": 116,
+     "border_tiles": 6
+    },
+    {
+     "province": 117,
+     "border_tiles": 10
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.739,
+    "karst": 0.261
+   }
+  },
+  {
+   "id": 244,
+   "region": 12,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 176,
+   "centre": [
+    216,
+    242
+   ],
+   "places": [
+    207
+   ],
+   "neighbours": [
+    {
+     "province": 47,
+     "border_tiles": 14
+    },
+    {
+     "province": 81,
+     "border_tiles": 1
+    },
+    {
+     "province": 113,
+     "border_tiles": 8
+    },
+    {
+     "province": 114,
+     "border_tiles": 16
+    },
+    {
+     "province": 198,
+     "border_tiles": 25
+    }
+   ],
+   "land": {
+    "steppe": 0.5,
+    "high_mountain": 0.352,
+    "desert": 0.102,
+    "badlands": 0.034
+   }
+  },
+  {
+   "id": 245,
+   "region": 5,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 446,
+   "centre": [
+    259,
+    96
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 12,
+     "border_tiles": 5
+    },
+    {
+     "province": 13,
+     "border_tiles": 22
+    },
+    {
+     "province": 44,
+     "border_tiles": 20
+    },
+    {
+     "province": 58,
+     "border_tiles": 28
+    },
+    {
+     "province": 97,
+     "border_tiles": 2
+    },
+    {
+     "province": 209,
+     "border_tiles": 31
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.991,
+    "swamp": 0.009
+   }
+  },
+  {
+   "id": 246,
+   "region": 6,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 828,
+   "centre": [
+    330,
+    160
+   ],
+   "places": [
+    234
+   ],
+   "neighbours": [
+    {
+     "province": 14,
+     "border_tiles": 20
+    },
+    {
+     "province": 31,
+     "border_tiles": 33
+    },
+    {
+     "province": 61,
+     "border_tiles": 29
+    },
+    {
+     "province": 100,
+     "border_tiles": 6
+    },
+    {
+     "province": 120,
+     "border_tiles": 15
+    },
+    {
+     "province": 183,
+     "border_tiles": 33
+    },
+    {
+     "province": 252,
+     "border_tiles": 12
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.338,
+    "high_mountain": 0.243,
+    "steppe": 0.209,
+    "badlands": 0.209
+   }
+  },
+  {
+   "id": 247,
+   "region": 2,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 229,
+   "centre": [
+    124,
+    95
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 28,
+     "border_tiles": 27
+    },
+    {
+     "province": 29,
+     "border_tiles": 13
+    },
+    {
+     "province": 42,
+     "border_tiles": 3
+    },
+    {
+     "province": 250,
+     "border_tiles": 21
+    },
+    {
+     "province": 268,
+     "border_tiles": 5
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.843,
+    "high_mountain": 0.153,
+    "highland": 0.004
+   }
+  },
+  {
+   "id": 248,
+   "region": 14,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 308,
+   "centre": [
+    311,
+    193
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 49,
+     "border_tiles": 16
+    },
+    {
+     "province": 74,
+     "border_tiles": 22
+    },
+    {
+     "province": 120,
+     "border_tiles": 21
+    },
+    {
+     "province": 122,
+     "border_tiles": 21
+    },
+    {
+     "province": 183,
+     "border_tiles": 1
+    },
+    {
+     "province": 215,
+     "border_tiles": 21
+    }
+   ],
+   "land": {
+    "steppe": 0.344,
+    "high_mountain": 0.341,
+    "grassland": 0.13,
+    "desert": 0.084
+   }
+  },
+  {
+   "id": 249,
+   "region": 15,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 143,
+   "centre": [
+    347,
+    228
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 23,
+     "border_tiles": 18
+    },
+    {
+     "province": 175,
+     "border_tiles": 2
+    },
+    {
+     "province": 191,
+     "border_tiles": 24
+    },
+    {
+     "province": 201,
+     "border_tiles": 20
+    }
+   ],
+   "land": {
+    "high_mountain": 0.93,
+    "temperate_forest": 0.056,
+    "bamboo_forest": 0.014
+   }
+  },
+  {
+   "id": 250,
+   "region": 3,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 167,
+   "centre": [
+    133,
+    106
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 10,
+     "border_tiles": 10
+    },
+    {
+     "province": 28,
+     "border_tiles": 7
+    },
+    {
+     "province": 42,
+     "border_tiles": 14
+    },
+    {
+     "province": 54,
+     "border_tiles": 20
+    },
+    {
+     "province": 247,
+     "border_tiles": 21
+    }
+   ],
+   "land": {
+    "high_mountain": 0.557,
+    "temperate_forest": 0.431,
+    "highland": 0.012
+   }
+  },
+  {
+   "id": 251,
+   "region": 8,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 285,
+   "centre": [
+    412,
+    153
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 15,
+     "border_tiles": 9
+    },
+    {
+     "province": 16,
+     "border_tiles": 33
+    },
+    {
+     "province": 104,
+     "border_tiles": 10
+    },
+    {
+     "province": 206,
+     "border_tiles": 17
+    },
+    {
+     "province": 256,
+     "border_tiles": 27
+    }
+   ],
+   "land": {
+    "high_mountain": 0.867,
+    "badlands": 0.077,
+    "steppe": 0.025,
+    "glacier": 0.018
+   }
+  },
+  {
+   "id": 252,
+   "region": 6,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 342,
+   "centre": [
+    359,
+    165
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 14,
+     "border_tiles": 27
+    },
+    {
+     "province": 75,
+     "border_tiles": 25
+    },
+    {
+     "province": 121,
+     "border_tiles": 6
+    },
+    {
+     "province": 183,
+     "border_tiles": 12
+    },
+    {
+     "province": 189,
+     "border_tiles": 10
+    },
+    {
+     "province": 228,
+     "border_tiles": 14
+    },
+    {
+     "province": 246,
+     "border_tiles": 12
+    }
+   ],
+   "land": {
+    "high_mountain": 0.444,
+    "temperate_forest": 0.363,
+    "badlands": 0.094,
+    "steppe": 0.076
+   }
+  },
+  {
+   "id": 253,
+   "region": 20,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 385,
+   "centre": [
+    477,
+    294
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 140,
+     "border_tiles": 15
+    },
+    {
+     "province": 179,
+     "border_tiles": 18
+    },
+    {
+     "province": 273,
+     "border_tiles": 12
+    }
+   ],
+   "land": {
+    "jungle": 0.652,
+    "grassland": 0.247,
+    "bamboo_forest": 0.078,
+    "temperate_forest": 0.013
+   }
+  },
+  {
+   "id": 254,
+   "region": 15,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 105,
+   "centre": [
+    395,
+    169
+   ],
+   "places": [
+    173,
+    174
+   ],
+   "neighbours": [
+    {
+     "province": 22,
+     "border_tiles": 22
+    },
+    {
+     "province": 37,
+     "border_tiles": 1
+    },
+    {
+     "province": 104,
+     "border_tiles": 8
+    },
+    {
+     "province": 126,
+     "border_tiles": 17
+    },
+    {
+     "province": 256,
+     "border_tiles": 1
+    }
+   ],
+   "land": {
+    "high_mountain": 0.981,
+    "temperate_forest": 0.01,
+    "grassland": 0.01
+   }
+  },
+  {
+   "id": 255,
+   "region": 19,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 186,
+   "centre": [
+    332,
+    260
+   ],
+   "places": [
+    208
+   ],
+   "neighbours": [
+    {
+     "province": 26,
+     "border_tiles": 20
+    },
+    {
+     "province": 134,
+     "border_tiles": 14
+    },
+    {
+     "province": 178,
+     "border_tiles": 12
+    },
+    {
+     "province": 197,
+     "border_tiles": 4
+    },
+    {
+     "province": 218,
+     "border_tiles": 12
+    },
+    {
+     "province": 235,
+     "border_tiles": 10
+    }
+   ],
+   "land": {
+    "high_mountain": 1.0
+   }
+  },
+  {
+   "id": 256,
+   "region": 7,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 280,
+   "centre": [
+    398,
+    148
+   ],
+   "places": [
+    183,
+    184
+   ],
+   "neighbours": [
+    {
+     "province": 15,
+     "border_tiles": 21
+    },
+    {
+     "province": 22,
+     "border_tiles": 14
+    },
+    {
+     "province": 62,
+     "border_tiles": 6
+    },
+    {
+     "province": 104,
+     "border_tiles": 2
+    },
+    {
+     "province": 204,
+     "border_tiles": 14
+    },
+    {
+     "province": 251,
+     "border_tiles": 27
+    },
+    {
+     "province": 254,
+     "border_tiles": 1
+    },
+    {
+     "province": 257,
+     "border_tiles": 19
+    }
+   ],
+   "land": {
+    "high_mountain": 0.893,
+    "glacier": 0.046,
+    "temperate_forest": 0.032,
+    "badlands": 0.014
+   }
+  },
+  {
+   "id": 257,
+   "region": 7,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 98,
+   "centre": [
+    386,
+    149
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 22,
+     "border_tiles": 8
+    },
+    {
+     "province": 184,
+     "border_tiles": 10
+    },
+    {
+     "province": 204,
+     "border_tiles": 17
+    },
+    {
+     "province": 228,
+     "border_tiles": 4
+    },
+    {
+     "province": 256,
+     "border_tiles": 19
+    }
+   ],
+   "land": {
+    "high_mountain": 0.888,
+    "temperate_forest": 0.112
+   }
+  },
+  {
+   "id": 258,
+   "region": 10,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 317,
+   "centre": [
+    67,
+    307
+   ],
+   "places": [
+    241
+   ],
+   "neighbours": [
+    {
+     "province": 68,
+     "border_tiles": 25
+    },
+    {
+     "province": 192,
+     "border_tiles": 26
+    }
+   ],
+   "land": {
+    "jungle": 0.877,
+    "grassland": 0.098,
+    "mangrove": 0.016,
+    "temperate_forest": 0.009
+   }
+  },
+  {
+   "id": 259,
+   "region": 1,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 332,
+   "centre": [
+    308,
+    97
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 8,
+     "border_tiles": 22
+    },
+    {
+     "province": 52,
+     "border_tiles": 4
+    },
+    {
+     "province": 210,
+     "border_tiles": 16
+    },
+    {
+     "province": 222,
+     "border_tiles": 35
+    }
+   ],
+   "land": {
+    "temperate_forest": 1.0
+   }
+  },
+  {
+   "id": 260,
+   "region": 5,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 154,
+   "centre": [
+    267,
+    66
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 12,
+     "border_tiles": 12
+    },
+    {
+     "province": 185,
+     "border_tiles": 21
+    },
+    {
+     "province": 209,
+     "border_tiles": 6
+    }
+   ],
+   "land": {
+    "tundra": 0.695,
+    "temperate_forest": 0.305
+   }
+  },
+  {
+   "id": 261,
+   "region": 8,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 180,
+   "centre": [
+    431,
+    135
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 3,
+     "border_tiles": 28
+    },
+    {
+     "province": 16,
+     "border_tiles": 1
+    },
+    {
+     "province": 45,
+     "border_tiles": 1
+    },
+    {
+     "province": 64,
+     "border_tiles": 16
+    },
+    {
+     "province": 205,
+     "border_tiles": 9
+    },
+    {
+     "province": 206,
+     "border_tiles": 21
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.694,
+    "steppe": 0.139,
+    "high_mountain": 0.122,
+    "desert": 0.044
+   }
+  },
+  {
+   "id": 262,
+   "region": 5,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 204,
+   "centre": [
+    259,
+    148
+   ],
+   "places": [
+    242
+   ],
+   "neighbours": [
+    {
+     "province": 30,
+     "border_tiles": 9
+    },
+    {
+     "province": 97,
+     "border_tiles": 22
+    },
+    {
+     "province": 99,
+     "border_tiles": 7
+    },
+    {
+     "province": 119,
+     "border_tiles": 2
+    },
+    {
+     "province": 195,
+     "border_tiles": 6
+    },
+    {
+     "province": 208,
+     "border_tiles": 18
+    },
+    {
+     "province": 242,
+     "border_tiles": 14
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.647,
+    "high_mountain": 0.343,
+    "highland": 0.01
+   }
+  },
+  {
+   "id": 263,
+   "region": 16,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 414,
+   "centre": [
+    385,
+    304
+   ],
+   "places": [
+    235
+   ],
+   "neighbours": [
+    {
+     "province": 83,
+     "border_tiles": 7
+    },
+    {
+     "province": 159,
+     "border_tiles": 4
+    },
+    {
+     "province": 202,
+     "border_tiles": 37
+    },
+    {
+     "province": 212,
+     "border_tiles": 20
+    }
+   ],
+   "land": {
+    "jungle": 0.391,
+    "high_mountain": 0.314,
+    "grassland": 0.287,
+    "temperate_forest": 0.007
+   }
+  },
+  {
+   "id": 264,
+   "region": 3,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 423,
+   "centre": [
+    180,
+    63
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 172,
+     "border_tiles": 19
+    },
+    {
+     "province": 174,
+     "border_tiles": 1
+    },
+    {
+     "province": 193,
+     "border_tiles": 25
+    },
+    {
+     "province": 203,
+     "border_tiles": 17
+    },
+    {
+     "province": 230,
+     "border_tiles": 10
+    },
+    {
+     "province": 240,
+     "border_tiles": 22
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.754,
+    "tundra": 0.128,
+    "swamp": 0.118
+   }
+  },
+  {
+   "id": 265,
+   "region": 18,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 275,
+   "centre": [
+    250,
+    234
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 7,
+     "border_tiles": 18
+    },
+    {
+     "province": 51,
+     "border_tiles": 23
+    },
+    {
+     "province": 182,
+     "border_tiles": 17
+    },
+    {
+     "province": 198,
+     "border_tiles": 4
+    },
+    {
+     "province": 237,
+     "border_tiles": 3
+    },
+    {
+     "province": 272,
+     "border_tiles": 23
+    }
+   ],
+   "land": {
+    "high_mountain": 0.418,
+    "badlands": 0.389,
+    "steppe": 0.08,
+    "desert": 0.058
+   }
+  },
+  {
+   "id": 266,
+   "region": 2,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 212,
+   "centre": [
+    61,
+    112
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 171,
+     "border_tiles": 10
+    },
+    {
+     "province": 188,
+     "border_tiles": 16
+    },
+    {
+     "province": 271,
+     "border_tiles": 17
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.995,
+    "swamp": 0.005
+   }
+  },
+  {
+   "id": 267,
+   "region": 12,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 254,
+   "centre": [
+    127,
+    299
+   ],
+   "places": [
+    243
+   ],
+   "neighbours": [
+    {
+     "province": 72,
+     "border_tiles": 18
+    }
+   ],
+   "land": {
+    "grassland": 0.921,
+    "jungle": 0.071,
+    "steppe": 0.004,
+    "bamboo_forest": 0.004
+   }
+  },
+  {
+   "id": 268,
+   "region": 2,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 634,
+   "centre": [
+    103,
+    108
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 28,
+     "border_tiles": 50
+    },
+    {
+     "province": 186,
+     "border_tiles": 16
+    },
+    {
+     "province": 188,
+     "border_tiles": 22
+    },
+    {
+     "province": 247,
+     "border_tiles": 5
+    },
+    {
+     "province": 271,
+     "border_tiles": 15
+    }
+   ],
+   "land": {
+    "temperate_forest": 0.91,
+    "swamp": 0.088,
+    "high_mountain": 0.002
+   }
+  },
+  {
+   "id": 269,
+   "region": 19,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 178,
+   "centre": [
+    283,
+    232
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 51,
+     "border_tiles": 14
+    },
+    {
+     "province": 74,
+     "border_tiles": 21
+    },
+    {
+     "province": 181,
+     "border_tiles": 14
+    },
+    {
+     "province": 227,
+     "border_tiles": 15
+    },
+    {
+     "province": 241,
+     "border_tiles": 12
+    }
+   ],
+   "land": {
+    "high_mountain": 0.624,
+    "grassland": 0.247,
+    "steppe": 0.118,
+    "temperate_forest": 0.011
+   }
+  },
+  {
+   "id": 270,
+   "region": 14,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 272,
+   "centre": [
+    243,
+    201
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 19,
+     "border_tiles": 23
+    },
+    {
+     "province": 21,
+     "border_tiles": 20
+    },
+    {
+     "province": 182,
+     "border_tiles": 5
+    },
+    {
+     "province": 214,
+     "border_tiles": 3
+    },
+    {
+     "province": 216,
+     "border_tiles": 14
+    },
+    {
+     "province": 237,
+     "border_tiles": 22
+    },
+    {
+     "province": 272,
+     "border_tiles": 3
+    }
+   ],
+   "land": {
+    "high_mountain": 0.636,
+    "steppe": 0.121,
+    "badlands": 0.114,
+    "highland": 0.11
+   }
+  },
+  {
+   "id": 271,
+   "region": 2,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 620,
+   "centre": [
+    76,
+    99
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 171,
+     "border_tiles": 31
+    },
+    {
+     "province": 186,
+     "border_tiles": 29
+    },
+    {
+     "province": 188,
+     "border_tiles": 22
+    },
+    {
+     "province": 229,
+     "border_tiles": 10
+    },
+    {
+     "province": 266,
+     "border_tiles": 17
+    },
+    {
+     "province": 268,
+     "border_tiles": 15
+    }
+   ],
+   "land": {
+    "temperate_forest": 1.0
+   }
+  },
+  {
+   "id": 272,
+   "region": 18,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 313,
+   "centre": [
+    238,
+    228
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 19,
+     "border_tiles": 20
+    },
+    {
+     "province": 47,
+     "border_tiles": 15
+    },
+    {
+     "province": 182,
+     "border_tiles": 16
+    },
+    {
+     "province": 198,
+     "border_tiles": 23
+    },
+    {
+     "province": 265,
+     "border_tiles": 23
+    },
+    {
+     "province": 270,
+     "border_tiles": 3
+    }
+   ],
+   "land": {
+    "badlands": 0.383,
+    "high_mountain": 0.3,
+    "steppe": 0.259,
+    "highland": 0.032
+   }
+  },
+  {
+   "id": 273,
+   "region": 20,
+   "seed_place": null,
+   "seed_kind": "wilderness",
+   "name": "",
+   "tiles": 401,
+   "centre": [
+    450,
+    295
+   ],
+   "places": [],
+   "neighbours": [
+    {
+     "province": 41,
+     "border_tiles": 22
+    },
+    {
+     "province": 140,
+     "border_tiles": 10
+    },
+    {
+     "province": 196,
+     "border_tiles": 26
+    },
+    {
+     "province": 253,
+     "border_tiles": 12
+    }
+   ],
+   "land": {
+    "grassland": 0.539,
+    "jungle": 0.359,
+    "bamboo_forest": 0.087,
+    "temperate_forest": 0.007
+   }
+  }
+ ]
+}

@@ -113,3 +113,31 @@ func test_the_political_map_tints_each_region_by_its_holder_and_draws_bold_borde
 	var again: Dictionary = v.politics_probe(1)
 	v.set_regions(regions, null)
 	assert_eq(v.politics_probe(1).bold, again.bold, "the same holders rebake nothing new")
+
+
+func test_province_lines_are_hidden_at_the_fit_on_any_screen_and_full_by_1_7_times_it() -> void:
+	for sz in [Vector2(1280, 720), Vector2(1920, 1080), Vector2(3840, 2160)]:
+		var v := _view(true)
+		v.size = sz
+		v.zoom_fit()
+		assert_near(v.province_line_weight(), 0.0, 0.001, "hidden at the fit at %s" % str(sz))
+		v.zoom_by(1.7, v.size * 0.5)
+		assert_near(v.province_line_weight(), 1.0, 0.001, "full at 1.7 x the fit at %s" % str(sz))
+
+
+func test_province_lines_lie_only_between_provinces_of_one_region() -> void:
+	var v := _view(true)
+	var regions: Array = [{"name": "A", "centre": [100, 100], "grid_id": 1, "holder_key": "tung_dao", "holder_name": "T"}]
+	v.set_regions(regions, null)
+	var probe: Dictionary = v.politics_probe(1)
+	assert_true(int(probe.provinces) > 0, "the provinces file gives province lines (%d)" % int(probe.provinces))
+	for ln in v._prov_lines:
+		var same: bool = int(v._prov_region[int(ln.a)]) == int(v._prov_region[int(ln.b)])
+		assert_eq(v._lines_prov.has(ln.pts), same, "a line is a province line exactly when both sides share a region")
+
+
+func test_every_file_line_lands_in_exactly_one_set() -> void:
+	var v := _view(true)
+	v.set_regions([{"name": "A", "centre": [100, 100], "grid_id": 1, "holder_key": "tung_dao", "holder_name": "T"}], null)
+	var p: Dictionary = v.politics_probe(1)
+	assert_eq(int(p.bold) + int(p.thin) + int(p.provinces), v._prov_lines.size(), "holder + region + province = the file's lines")

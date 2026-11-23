@@ -481,9 +481,19 @@ is automatic when zoomed out, great sects' names are drawn large.
   great sect (`sects.md` rule 3: territory belongs to great sects, a region at a time), so there are no split or
   contested regions to draw. Where the holder changes the border is a **bold ink line**; between two regions of the
   same sect it is the thin region border (element 13's Borders toggle). This is the one border grammar for sect
-  territory, at every zoom. Both lines are drawn **smooth**: the grid's tile-edge steps are chained into lines,
-  each step's corner is replaced by the midpoints of its edges (a staircase becomes a straight diagonal), then two
-  passes of corner cutting round it; ends stay where three regions meet. Widths: `border_bold_px` 2.6,
+  territory, at every zoom. **Provinces** (2026-11-23, user: "provinces like real borders"; 273 provinces in
+  `assets/map/continent_11_provinces.json`, made by `tools/design/map/provinces.py`) add a third, faintest line
+  between two provinces of one region (`province_alpha` 0.3, under the region line's `region_alpha` 0.42): hidden at
+  the fit on any screen, it fades in from `province_from_fit` (1.15 × the fit) to `province_full_fit` (1.7 × the fit)
+  and stays at region zoom. The Borders toggle hides it with the region line; the hover tooltip and the legend do not
+  name provinces until the economy revision. All three lines come from that one file, so a holder line, a region line and a province
+  line never double up. Provinces are becoming the economy's units (user, 2026-11-23); until
+  `regional-economy-trade.md` is revised they are drawn only.
+- **Smoothing.** All three lines are drawn **smooth**. The provinces file's lines are smoothed by its generator: the
+  grid's tile-edge steps are chained into lines, each step's corner is replaced by the midpoints of its edges (a
+  staircase becomes a straight diagonal), two passes of corner cutting round it, and a gentle sideways wobble is added;
+  ends stay where three provinces meet. If the file is missing, the map chains the region and holder lines from the
+  grid at load in the same way (without the wobble) and draws no province lines. Widths: `border_bold_px` 2.6,
   `border_thin_px` 1.0. The bold line is part of the overlay: it shows and fades with the tint (so not at region
   zoom in the Terrain mode); the Borders toggle hides only the thin region line. Over the relief (region zoom in the
   Sect territory mode) the tint uses the same `political_alpha`. Holders are live for the great sects (`travel-map.md` rule 14: the overview map is common
@@ -900,6 +910,9 @@ Approved by the user 2026-11-21.
 | `political_alpha` | 0.35 | The political map's tint |
 | `sect_colours`, `sect_colours_cb` | one colour per great sect, keyed by the sect's authored key (ui_hud.json; each approved from a screenshot, the second in the red-green mode) | The political map |
 | `realm_name_px` | 18–40 | Great sects' names at continent zoom |
+| `province_from_fit` / `province_full_fit` | 1.15 / 1.7 (× the fit) | Province lines: where they start and finish fading in |
+| `province_alpha` / `region_alpha` | 0.3 / 0.42 | Province and region lines' opacity (provinces always fainter) |
+| `border_province_px` | 1 px | Province lines' width |
 | `boxes_icon_below` | 0 = off (step 5 never applies); a layout width in px turns it on | Visual Budget drop order step 5 |
 | `resource_box_icon_width` | 48 px | Visual Budget drop order step 5 (icon-only boxes) |
 | `alerts_shown_max_compact` | 4 | Visual Budget drop order (compact layout) |
@@ -1204,6 +1217,15 @@ exact boundary; "appears" means `visible` becomes true. Rows marked `[GdUnit]` d
       (weight 1, tint at `political_alpha`); at or above `near_to_px` the relief with place art and no tint (weight 1);
       inside the band both draw, their weights summing to 1 and moving monotonically with the zoom; each row of the
       political map's state table holds (tint, legend, lit button) for Terrain, Sect territory and Qi.
+- [ ] `[GdUnit]` Province lines have weight 0 at the fit and at or below `province_from_fit` × the fit, at 1280×720,
+      1920×1080 and 3840×2160.
+- [ ] `[GdUnit]` Province lines have weight 1 at or above `province_full_fit` × the fit at those sizes.
+- [ ] `[GdUnit]` A file line is a province line exactly when both its provinces share a region.
+- [ ] `[GdUnit]` Every file line lands in exactly one of the three sets: holder + region + province line counts equal
+      the file's line count.
+- [ ] `[GdUnit]` The Borders toggle hides region and province lines and never the holder lines.
+- [ ] `[GdUnit]` With the provinces file missing, the map loads and draws region and holder lines and no province lines.
+- [ ] `[Screenshot]` Provinces at the fit, mid-zoom, the band and region zoom at 1920×1080 (`14-provinces-*`).
 - [ ] `[GdUnit]` Inside the band an area bubble or place name with weight below 0.5 takes no click and is not counted
       toward `bubbles_max`; at 0.5 or more it does and is.
 - [ ] `[GdUnit]` A Places panel click pans to the place at `region_zoom_px` (12), and keeps a deeper zoom.

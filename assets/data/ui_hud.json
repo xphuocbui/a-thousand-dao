@@ -140,13 +140,14 @@
       "_doc": "design/ux/hud.md Map zoom and the political map (2026-11-23): zoom in screen px per tile; the transition band cross-fades the paper map into the relief; the political tint at continent zoom. Sect colours keyed by the sect's authored key, muted map colours (art bible 7.14, Section 6); both palettes approved by the user from screenshots, 2026-11-23.",
       "zoom_max_px": 18.0, "zoom_step": 1.25, "near_from_px": 6.6, "near_to_px": 9.6, "region_zoom_px": 12.0,
       "zoom_friction": 8.0, "zoom_speed_max": 6.0, "glide_seconds": 0.45, "pan_speed": 900.0, "pan_accel": 6.0, "pan_friction": 6.0, "fling_max": 2400.0, "political_alpha": 0.35, "realm_name_px": [18, 40], "region_name_px": [13, 20],
-      "border_bold_px": 2.6, "border_thin_px": 1.0,
+      "border_bold_px": 2.6, "border_thin_px": 1.0, "border_province_px": 1.0, "province_from_fit": 1.15, "province_full_fit": 1.7, "province_alpha": 0.3, "region_alpha": 0.42,
       "sect_colours": {"thien_xu": "#B8923A", "tung_dao": "#2F7F86", "lac_ha": "#C8845A", "thinh_vu": "#6B4A8C",
         "bang_tam": "#3F5FA8", "thuy_vi": "#5FA041", "phuong_minh": "#A82E3A"},
       "sect_colours_cb": {"thien_xu": "#E6C229", "tung_dao": "#1B9E9E", "lac_ha": "#D9822B", "thinh_vu": "#7B5CC4",
         "bang_tam": "#2E5FD0", "thuy_vi": "#8C8C3A", "phuong_minh": "#6E2A3E"}
     },
     "place_radius_px": 3.0,
+    "provinces_file": "res://assets/map/continent_11_provinces.json",
     "routes_per_frame": 3,
     "unknown_colour": "#808080",
     "biome_colours": {

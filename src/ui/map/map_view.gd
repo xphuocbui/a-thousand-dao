@@ -74,6 +74,12 @@ var _politics_sig: String = ""
 var _tint: ImageTexture = null
 var _lines_bold: Array = []   # smoothed border polylines in tile coordinates (PackedVector2Array each)
 var _lines_thin: Array = []
+var _lines_prov: Array = []   # between two provinces of one region: the faintest, fading in as the zoom closes
+## The provinces' border lines (assets/map/continent_11_provinces.json): [{a, b, pts}], a and b the provinces they
+## separate; with them the region and holder borders come from the same smoothed lines, so nothing doubles up.
+var _prov_lines: Array = []
+var _prov_region: Dictionary = {}   # province id -> grid region id
+var _borders_on: bool = true        # element 13's Borders toggle: region and province lines (never the holder lines)
 var _realms: Array = []                 # [{name, centre: Vector2 tile, width_tiles}]
 var _region_info: Dictionary = {}       # grid region id -> {name, holder_name}
 
@@ -111,6 +117,7 @@ func setup(grid: ContinentGrid, cfg: Dictionary, region_factor: float) -> void:
 	_far = _layer_texture(str(cfg.get("far_layer", "")))
 	_near = _layer_texture(str(cfg.get("near_layer", "")))
 	_load_sprites(str(cfg.get("place_sprites", "")))
+	_load_provinces(str(cfg.get("provinces_file", "")))
 	_backdrop_far = Color.from_string(str(cfg.get("backdrop_far", "#141A24")), Color(0.08, 0.1, 0.14))
 	_backdrop_near = Color.from_string(str(cfg.get("backdrop_near", "#141A24")), Color(0.08, 0.1, 0.14))
 	mouse_filter = Control.MOUSE_FILTER_STOP
@@ -466,7 +473,14 @@ func _draw_borders(pol: float) -> void:
 					any_in = true
 			if any_in:
 				draw_polyline(tr2, col, width, true)
-	draw_set.call(_lines_thin, Color(0.17, 0.12, 0.08, 0.42), float(_zcfg.get("border_thin_px", 1.0)))
+	# provinces: invisible at the fit, fading in up to the band (Paradox shows provinces as you close in)
+	# keyed to the fit, so they are hidden zoomed out on any screen (hud.md: province_from_fit, province_full_fit)
+	var fit: float = _fit_px()
+	var pa: float = smoothstep(fit * float(_zcfg.get("province_from_fit", 1.15)), fit * float(_zcfg.get("province_full_fit", 1.7)), tile_scale())
+	if pa > 0.0 and _borders_on:
+		draw_set.call(_lines_prov, Color(0.17, 0.12, 0.08, float(_zcfg.get("province_alpha", 0.3)) * pa), float(_zcfg.get("border_province_px", 1.0)))
+	if _borders_on:
+		draw_set.call(_lines_thin, Color(0.17, 0.12, 0.08, float(_zcfg.get("region_alpha", 0.42))), float(_zcfg.get("border_thin_px", 1.0)))
 	if pol > 0.0:
 		draw_set.call(_lines_bold, Color(0.15, 0.1, 0.07, 0.85 * pol), float(_zcfg.get("border_bold_px", 2.6)))
 
@@ -533,6 +547,38 @@ static func _label_rank(p: Dictionary) -> int:
 
 func _diamond(at: Vector2, r: float, c: Color) -> void:
 	draw_colored_polygon(PackedVector2Array([at + Vector2(0, -r), at + Vector2(r, 0), at + Vector2(0, r), at + Vector2(-r, 0)]), c)
+
+
+## Element 13's Borders toggle: shows or hides the region and province lines (the bold holder lines stay with the tint).
+func set_borders(on: bool) -> void:
+	_borders_on = on
+	queue_redraw()
+
+
+## Province lines' drawn opacity now, 0..1 of province_alpha (for tests and the demo).
+func province_line_weight() -> float:
+	var fit: float = _fit_px()
+	return smoothstep(fit * float(_zcfg.get("province_from_fit", 1.15)), fit * float(_zcfg.get("province_full_fit", 1.7)), tile_scale())
+
+
+## Reads the provinces file at [param path] (missing: region borders are chained from the grid instead).
+func _load_provinces(path: String) -> void:
+	_prov_lines = []
+	_prov_region = {}
+	if path == "" or not FileAccess.file_exists(path):
+		return
+	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+	if not (parsed is Dictionary):
+		return
+	for p in (parsed as Dictionary).get("provinces", []):
+		_prov_region[int(p.id)] = int(p.region)
+	for ln in (parsed as Dictionary).get("lines", []):
+		var flat: Array = ln.points
+		var pts := PackedVector2Array()
+		pts.resize(flat.size() / 2)
+		for i in pts.size():
+			pts[i] = Vector2(float(flat[2 * i]), float(flat[2 * i + 1]))
+		_prov_lines.append({"a": int(ln.a), "b": int(ln.b), "pts": pts})
 
 
 ## Reads the place-art manifest at [param path] (missing: no place art, the markers still show).
@@ -636,9 +682,21 @@ func _bake_politics(regions: Array) -> void:
 					ea.append(Vector2(x, y + 1))
 					eb.append(Vector2(x + 1, y + 1))
 					ebold.append(1 if str(holder.get(a, "")) != str(holder.get(b2, "")) else 0)
-	var lines: Array = _chain_edges(ea, eb, ebold)
 	_lines_bold = []
 	_lines_thin = []
+	_lines_prov = []
+	if not _prov_lines.is_empty():   # the provinces' shared lines: a province, region or holder border by its two sides
+		for ln in _prov_lines:
+			var ra: int = int(_prov_region.get(int(ln.a), 0))
+			var rb: int = int(_prov_region.get(int(ln.b), 0))
+			if ra == rb:
+				_lines_prov.append(ln.pts)
+			elif str(holder.get(ra, "")) != str(holder.get(rb, "")):
+				_lines_bold.append(ln.pts)
+			else:
+				_lines_thin.append(ln.pts)
+		ea = PackedVector2Array()
+	var lines: Array = _chain_edges(ea, eb, ebold) if not ea.is_empty() else []
 	for ln in lines:
 		var pts: PackedVector2Array = _chaikin(_chaikin(_midpoints(ln.points)))
 		if ln.bold:
@@ -736,7 +794,7 @@ func politics_probe(grid_id: int) -> Dictionary:
 			if _regn[i] == grid_id:
 				c = img.get_pixel(i % _grid_size.x, i / _grid_size.x)
 				break
-	return {"colour": c, "bold": _lines_bold.size(), "thin": _lines_thin.size(), "realms": _realms.size()}
+	return {"colour": c, "bold": _lines_bold.size(), "thin": _lines_thin.size(), "provinces": _lines_prov.size(), "realms": _realms.size()}
 
 
 ## The place art of the authored place [param continent_id] (its patch of the near map), or null.
