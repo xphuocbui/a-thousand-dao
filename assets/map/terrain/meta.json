@@ -9,5 +9,6 @@
  "river": "river.bin (u8 at 2x: traced, connected river lines, width by the water they carry)",
  "relief": "relief.bin (rg8 at 2x: shade x 127.5, slope x 4 x 255)",
  "textures": "biomes_array.png (Texture2DArray, slice = biome id)",
- "slices": 19
+ "slices": 19,
+ "temp": "temp.bin (u8 per game tile, 540 x 360: mean temperature, C = value / 2 - 50; the alive layer's seasonal snow)"
 }

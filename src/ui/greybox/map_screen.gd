@@ -47,6 +47,7 @@ var _box_power := ResourceBox.new("Rating", "⚔")
 var _box_renown := ResourceBox.new("Renown", "★")
 var _box_sect := ResourceBox.new("Sect contribution", "宗")
 var _seen_index: int = -1        # the season the last refresh saw
+var _season_shot: int = -1       # --season=N in shots: the season whose snow the map shows (-1 = the clock's)
 var _seen_player: String = ""    # a new life (succession) clears the baseline
 var _seen_values: Dictionary = {}
 var _baseline: Dictionary = {}   # each box's change from the last resolution (hud.md Resource box: the change)
@@ -206,6 +207,14 @@ func _shot_and_quit(path: String) -> void:
 	var shots: String = _arg_value("--shots", "")
 	if shots != "":
 		_map.set_accessibility(true, _args.has("--cb"))
+		# --alive-at=S: the alive layer runs in the shots, its clock at S seconds (smoke and clouds show; zooms stay
+		# instant); --season=N shows season N's snow (0 Xuan .. 3 Dong)
+		if _arg_value("--alive-at", "") != "" and _map.alive_layer() != null:
+			_map.alive_layer().set_reduced_motion(false)
+			_map.alive_layer().set_clock(float(_arg_value("--alive-at", "0")))
+		if _arg_value("--season", "") != "":
+			_season_shot = int(_arg_value("--season", "0"))
+			_map.set_season(_season_shot)
 		for item in shots.split(","):
 			var kv: PackedStringArray = item.split(":")
 			var px: float = float(kv[1]) if kv.size() > 1 else 0.0
@@ -225,7 +234,9 @@ func _shot_and_quit(path: String) -> void:
 				await get_tree().process_frame
 				waited += 1
 			await _frames(2)
-			print("SHOT %s px %.1f weight %.2f streamed %s" % [kv[0], _map.tile_scale(), _map.near_weight(), str(_map.hi_probe())])
+			var al: AliveLayer = _map.alive_layer()
+			print("SHOT %s px %.1f weight %.2f streamed %s alive %s" % [kv[0], _map.tile_scale(), _map.near_weight(), str(_map.hi_probe()),
+				"off" if al == null else ("running %s smoke %d t %.1f" % [str(al.is_running()), al.smoke_count(), al.clock()])])
 			await RenderingServer.frame_post_draw
 			get_viewport().get_texture().get_image().save_png(ProjectSettings.globalize_path(path.get_basename() + "-" + kv[0] + ".png"))
 		get_tree().quit()
@@ -795,6 +806,7 @@ func _refresh_map(location_id: String) -> void:
 	if here.has("tile"):
 		tile = Vector2i(int(here.tile[0]), int(here.tile[1]))
 	_map.set_state(places, tile, location_id, turn.destination_id)
+	_map.set_season(_season_shot if _season_shot >= 0 else int(GameQuery.clock(session).season))   # the alive layer's snow line
 	_map.set_bubbles(_bubbles(places, location_id, tile))
 	var rects: Array = []
 	for z in _zones:
