@@ -152,3 +152,9 @@ func test_v_opens_the_province_at_the_view_centre() -> void:
 	# Assert
 	assert_eq(got[0], v.province_at(v.size * 0.5), "V asks for the province under the view's centre")
 	assert_true(got[0] > 0, "there is land there")
+
+
+func test_good_classes_are_named_by_kind_and_rarity_band() -> void:
+	assert_eq(ProvincePanel.good_name("herb2"), "Herbs, rarity 3–4", "band 2 = rarity 3-4 (TradeGoods.class_of)")
+	assert_eq(ProvincePanel.good_name("special1"), "Specialties, rarity 1–2", "specialties too")
+	assert_eq(ProvincePanel.good_name("odd"), "odd", "an unknown class shows as it is")

@@ -13,8 +13,9 @@ signal closed
 signal place_pressed(continent_id: int)
 
 const TABS := ["Overview", "Places", "Economy", "Works", "Modifiers"]
-const GOOD_NAMES := {"herb1": "Common herbs", "herb2": "Fine herbs", "herb3": "Rare herbs", "ore1": "Common ore",
-	"ore2": "Fine ore", "beast1": "Beast parts", "special1": "Spirit waters", "special2": "Rare specialties"}
+## A raw good class is its kind and rarity band (TradeGoods.class_of: band = ceil(rarity / 2)), so "herb2" is herbs of
+## rarity 3-4; the panel names it that way.
+const GOOD_KINDS := {"herb": "Herbs", "ore": "Ore", "beast": "Beast parts", "special": "Specialties"}
 const KIND_NAMES := {"great_seat": "Great sect seat", "minor_seat": "Minor sect seat", "city": "City", "town": "Town",
 	"market": "Market", "village": "Village", "mine": "Mine", "ruin": "Ruin", "peak": "Peak", "spirit_vein": "Spirit vein",
 	"hot_spring": "Hot spring", "lake": "Lake", "forest": "Forest", "beast_lair": "Beast lair", "gorge": "Gorge",
@@ -132,6 +133,15 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 
+## The display name of raw good class [param c] ("herb2" -> "Herbs, rarity 3–4"; an unknown class as it is).
+static func good_name(c: String) -> String:
+	for k in GOOD_KINDS:
+		if c.begins_with(k) and c.substr(k.length()).is_valid_int():
+			var band: int = int(c.substr(k.length()))
+			return "%s, %s" % [TranslationServer.translate(GOOD_KINDS[k]), TranslationServer.translate("rarity %d–%d") % [band * 2 - 1, band * 2]]
+	return c
+
+
 func _build_stats() -> void:
 	for c in _stats.get_children():
 		_stats.remove_child(c)
@@ -146,7 +156,7 @@ func _build_stats() -> void:
 		[tr("Development"), str(int(st.get("development", 0))), tr("Built levels plus population units (a display index)")],
 		[tr("Access"), "—" if acc == null else "%d %%" % int(round(float(acc) * 100.0)),
 			tr("Market access: infrastructure / usage, at most 100 % (Provinces F6)")],
-		[tr("Main good"), tr(GOOD_NAMES.get(good, "none")) if good != "" else tr("none"), tr("The class with the largest potential (Provinces F1)")],
+		[tr("Main good"), good_name(good) if good != "" else tr("none"), tr("The class with the largest potential (Provinces F1)")],
 	]
 	for it in items:
 		var cell := VBoxContainer.new()
@@ -220,7 +230,7 @@ func _fill() -> void:
 			if str(_rec.get("kind", "")) == "wilderness":
 				lines.append("[b]%s[/b]" % tr("Output, gathered by its neighbours"))
 				for k in own:
-					lines.append("  %s  %.0f" % [tr(GOOD_NAMES.get(str(k), str(k))), float(own[k])])
+					lines.append("  %s  %.0f" % [good_name(str(k)), float(own[k])])
 				var to: Array = _rec.get("passes_to", [])
 				if not to.is_empty():
 					lines.append("")
@@ -233,11 +243,11 @@ func _fill() -> void:
 				for k in prod:
 					var from_wild: float = float(prod[k]) - float(own.get(k, 0.0))
 					var extra: String = ("  (" + tr("%.0f from the wilds") % from_wild + ")") if from_wild > 0.5 else ""
-					lines.append("  %s  %.0f%s" % [tr(GOOD_NAMES.get(str(k), str(k))), float(prod[k]), extra])
+					lines.append("  %s  %.0f%s" % [good_name(str(k)), float(prod[k]), extra])
 				var sec: Array = st.get("secondary_goods", [])
 				if not sec.is_empty():
 					lines.append("")
-					lines.append(tr("Also known for: %s") % ", ".join(sec.map(func(g): return tr(GOOD_NAMES.get(str(g), str(g))))))
+					lines.append(tr("Also known for: %s") % ", ".join(sec.map(func(g): return good_name(str(g)))))
 				lines.append("")
 				lines.append("[b]%s[/b]" % tr("Market access"))
 				lines.append("  " + tr("Infrastructure %d against usage %d") % [int(st.get("infrastructure", 0)), int(st.get("usage", 0))])

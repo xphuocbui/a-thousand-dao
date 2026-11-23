@@ -1053,8 +1053,8 @@ func _set_province_mode(mode: String) -> void:
 
 ## Opens the place panel of the place with continent id [param cid] (from the province panel's Places tab).
 func _open_place_by_continent_id(cid: int) -> void:
-	for p in _known_cache:
-		if int(p.get("id", -1)) == cid or int(p.get("continent_id", -1)) == cid:
+	for p in _known_cache:   # session ids are strings ("l1"); match the authored continent id only
+		if int(p.get("continent_id", -1)) == cid:
 			_province.close_panel()
 			_open_place_details(str(p.id))
 			return
