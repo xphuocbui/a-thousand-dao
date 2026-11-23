@@ -34,7 +34,12 @@ func _draw() -> void:
 	var r := Rect2(Vector2.ZERO, size)
 	if frame == "empty" or icon == null:   # an empty slot: a dark recess with a dashed brass line (art bible 7.12)
 		draw_rect(r, _col(&"recess", Color(0.1, 0.11, 0.13)))
-		_dashed(r.grow(-1), _col(&"dash", Color(0.4, 0.4, 0.46)))
+		# pressed in: a shadow along the top and left inner edges, a light along the bottom and right
+		draw_line(r.position + Vector2(0, 1), Vector2(r.end.x, r.position.y + 1), Color(0, 0, 0, 0.28), 2.0)
+		draw_line(r.position + Vector2(1, 0), Vector2(r.position.x + 1, r.end.y), Color(0, 0, 0, 0.28), 2.0)
+		draw_line(Vector2(r.position.x, r.end.y - 0.5), r.end - Vector2(0, 0.5), Color(1, 1, 1, 0.22), 1.0)
+		draw_line(Vector2(r.end.x - 0.5, r.position.y), r.end - Vector2(0.5, 0), Color(1, 1, 1, 0.22), 1.0)
+		_dashed(r.grow(-3), _col(&"dash", Color(0.4, 0.4, 0.46)))
 		if has_focus():
 			_ring(r)
 		return

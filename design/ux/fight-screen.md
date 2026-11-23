@@ -125,7 +125,7 @@ with 32 × 32 px targets; a larger diagram scales its nodes down to the 32 px fl
 
 | Zone | Position | Holds |
 |---|---|---|
-| Header | Top strip | Realm and situation (sect duel, ambush, tribulation), fight clock and pulse count, the foe's realm |
+| Header | Top strip | Realm and situation (sect duel, ambush, tribulation), fight clock and pulse count, the foe's realm; once the fight ends, its ending in the middle ("Knockout: you lost (12.0 s)"; 2026-11-23, so the ending costs no height at 1280 × 720) |
 | Your column | Left third | Your portrait and name, bars, then the formation diagram and its plain slots, then the rows WARDS, ITEMS, BUFFS, DEBUFFS, STATUS |
 | Fight log | Centre third | The event log, newest at the top, Summary or Full |
 | Foe column | Right third | The mirror of yours: portrait on the right, bars filling from the right |

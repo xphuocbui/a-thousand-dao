@@ -51,6 +51,9 @@ var _scrub := HSlider.new()
 var _result := Label.new()
 var _back := Button.new()
 var _syncing: bool = false
+var _strips: Array[TextureRect] = []   # the carved strips behind the header and the playback bar (the top bar's)
+var _vignette := TextureRect.new()     # a soft darkening at the board's edges (depth, as in the picked mock-up)
+var _plate := StyleBoxFlat.new()       # the floating numbers' plate (fight-screen.md Accessibility)
 
 
 func _init() -> void:
@@ -62,6 +65,24 @@ func _init() -> void:
 	_board.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_board.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(_board)
+	var grad := Gradient.new()
+	grad.set_color(0, Color(0, 0, 0, 0.0))
+	grad.set_color(1, Color(0, 0, 0, 0.5))
+	grad.add_point(0.6, Color(0, 0, 0, 0.08))
+	var vt := GradientTexture2D.new()
+	vt.gradient = grad
+	vt.fill = GradientTexture2D.FILL_RADIAL
+	vt.fill_from = Vector2(0.5, 0.5)
+	vt.fill_to = Vector2(1.15, 1.15)
+	_vignette.texture = vt
+	_vignette.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_vignette.stretch_mode = TextureRect.STRETCH_SCALE
+	_vignette.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_vignette.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(_vignette)
+	_plate.bg_color = Color(0.08, 0.05, 0.03, 0.78)
+	_plate.set_corner_radius_all(4)
+	_plate.set_border_width_all(1)
 	var root := VBoxContainer.new()
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	root.offset_left = 12
@@ -70,9 +91,8 @@ func _init() -> void:
 	root.offset_bottom = -10
 	root.add_theme_constant_override("separation", 6)
 	add_child(root)
-	var head := HBoxContainer.new()
+	var head: HBoxContainer = _strip_row(root)   # the header on the top bar's carved strip
 	head.add_theme_constant_override("separation", 24)
-	root.add_child(head)
 	_situation.theme_type_variation = &"WoodHeading"
 	head.add_child(_situation)
 	for l in [_clock, _pulse]:
@@ -84,10 +104,17 @@ func _init() -> void:
 	var spacer := Control.new()
 	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	head.add_child(spacer)
+	# the result sits in the header strip, centred, so the ending costs no height (the playback bar stays on screen)
+	_result.theme_type_variation = &"WoodHeading"
+	_result.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_result.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	head.add_child(_result)
+	var spacer2 := Control.new()
+	spacer2.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	head.add_child(spacer2)
 	_foe_realm.theme_type_variation = &"WoodLabel"
 	_foe_realm.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	head.add_child(_foe_realm)
-	root.add_child(HSeparator.new())
 	var mid := HBoxContainer.new()
 	mid.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	mid.add_theme_constant_override("separation", 12)
@@ -101,21 +128,20 @@ func _init() -> void:
 	var centre := VBoxContainer.new()
 	centre.add_theme_constant_override("separation", 6)
 	log_window.add_child(centre)
+	var title_row := HBoxContainer.new()   # "FIGHT LOG" with the Summary / Full mode beside it (fight-screen.md)
+	centre.add_child(title_row)
 	var lt := Label.new()
-	lt.text = tr("Fight log")
+	lt.text = tr("Fight log").to_upper()
 	lt.theme_type_variation = &"HeadingLabel"
-	centre.add_child(lt)
-	_build_log_filters(centre)
+	lt.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	title_row.add_child(lt)
+	_build_log_filters(centre, title_row)
 	_log.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	_log.line_activated.connect(_on_line_activated)
 	centre.add_child(_log)
 	_cols["B"] = _column_shell(mid)
-	_result.theme_type_variation = &"WoodHeading"
-	_result.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	root.add_child(_result)
-	var bar := HBoxContainer.new()
+	var bar: HBoxContainer = _strip_row(root)   # the playback controls on the same carved strip
 	bar.add_theme_constant_override("separation", 8)
-	root.add_child(bar)
 	_button(bar, "◀◀", tr("Previous event (,)"), func(): _step(-1))
 	_play.text = tr("Play")
 	TooltipLayer.set_tip(_play, tr("Play / pause (Space)"))
@@ -133,7 +159,20 @@ func _init() -> void:
 	TooltipLayer.set_tip(_scrub, tr("The timeline: drag to any moment of the fight"))
 	bar.add_child(_scrub)
 	_time.theme_type_variation = &"WoodLabel"
-	bar.add_child(_time)
+	var time_box := PanelContainer.new()   # the time in a small dark frame
+	var tb := StyleBoxFlat.new()
+	tb.bg_color = Color(0.1, 0.06, 0.04, 0.9)
+	tb.border_color = Color(0.79, 0.64, 0.35, 0.8)
+	tb.set_border_width_all(1)
+	tb.set_corner_radius_all(3)
+	tb.content_margin_left = 10
+	tb.content_margin_right = 10
+	tb.content_margin_top = 2
+	tb.content_margin_bottom = 2
+	time_box.add_theme_stylebox_override(&"panel", tb)
+	time_box.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	time_box.add_child(_time)
+	bar.add_child(time_box)
 	_back.text = tr("Back to the map (Esc)")
 	_back.visible = false
 	_back.pressed.connect(close_screen)
@@ -147,10 +186,62 @@ func _init() -> void:
 
 ## Applies the Rosewood theme ([method RosewoodTheme.build]) and the board's wood texture ([param wood], a tiled
 ## texture path from ui_hud.json "theme").
-func apply_theme(t: Theme, wood: String) -> void:
+func apply_theme(t: Theme, wood: String, strip: String = "") -> void:
 	theme = t
 	if wood != "" and ResourceLoader.exists(wood):
 		_board.texture = load(wood)
+	if strip != "" and ResourceLoader.exists(strip):   # the top bar's carved strip (art bible 7.13)
+		var tex: Texture2D = load(strip)
+		for r in _strips:
+			r.texture = tex
+	# the timeline: a brass line with a brass diamond to drag (the picked mock-up)
+	var line := StyleBoxFlat.new()
+	line.bg_color = Color(0.79, 0.64, 0.35, 0.85)
+	line.content_margin_top = 2
+	line.content_margin_bottom = 2
+	var area := line.duplicate() as StyleBoxFlat
+	area.bg_color = Color(0.93, 0.78, 0.45)
+	_scrub.add_theme_stylebox_override(&"slider", line)
+	_scrub.add_theme_stylebox_override(&"grabber_area", area)
+	_scrub.add_theme_stylebox_override(&"grabber_area_highlight", area)
+	var d: ImageTexture = _diamond_texture(20, Color(0.85, 0.68, 0.36), Color(0.16, 0.1, 0.06))
+	_scrub.add_theme_icon_override(&"grabber", d)
+	_scrub.add_theme_icon_override(&"grabber_highlight", _diamond_texture(20, Color(0.98, 0.84, 0.5), Color(0.16, 0.1, 0.06)))
+
+
+## A row on a carved strip (the header and the playback bar): the strip behind, the row's controls on it.
+func _strip_row(parent: Control) -> HBoxContainer:
+	var holder := Control.new()
+	holder.custom_minimum_size = Vector2(0, 52)
+	parent.add_child(holder)
+	var bg := TextureRect.new()
+	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
+	bg.stretch_mode = TextureRect.STRETCH_TILE
+	bg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	holder.add_child(bg)
+	_strips.append(bg)
+	var row := HBoxContainer.new()
+	row.set_anchors_preset(Control.PRESET_FULL_RECT)
+	row.offset_left = 14
+	row.offset_right = -14
+	row.alignment = BoxContainer.ALIGNMENT_BEGIN
+	holder.add_child(row)
+	return row
+
+
+## A small diamond of [param px] in [param fill] with a [param edge] outline (the timeline's handle).
+static func _diamond_texture(px: int, fill: Color, edge: Color) -> ImageTexture:
+	var img := Image.create(px, px, false, Image.FORMAT_RGBA8)
+	var c: float = (px - 1) * 0.5
+	for y in px:
+		for x in px:
+			var d: float = absf(x - c) + absf(y - c)
+			if d <= c - 1.5:
+				img.set_pixel(x, y, fill if d < c - 4.0 else fill.darkened(0.25))
+			elif d <= c:
+				img.set_pixel(x, y, edge)
+	return ImageTexture.create_from_image(img)
 
 
 ## Sets the screen's knobs (ui_hud.json "fight_screen").
@@ -671,14 +762,21 @@ func log_button(key: String) -> Button:
 	return _filter_buttons.get(key)
 
 
-func _build_log_filters(parent: Control) -> void:
-	var flow := HFlowContainer.new()
+func _build_log_filters(parent: Control, title_row: Control) -> void:
+	var group := ButtonGroup.new()   # the mode: a small two-part switch beside the title
+	var seg := HBoxContainer.new()
+	seg.add_theme_constant_override("separation", 0)
+	title_row.add_child(seg)
+	_filter_button(seg, "summary", tr("Summary"), tr("One line per event; repeats fold (click a line to open it)"), group)
+	_filter_button(seg, "full", tr("Full"), tr("One line per pulse: arts, damage by type, health and linh lực after"), group)
+	var flow := HFlowContainer.new()   # the filters: light chips by side and by kind (interaction-patterns.md)
 	flow.add_theme_constant_override("h_separation", 4)
 	flow.add_theme_constant_override("v_separation", 4)
 	parent.add_child(flow)
-	var group := ButtonGroup.new()
-	_filter_button(flow, "summary", tr("Summary"), tr("One line per event; repeats fold (click a line to open it)"), group)
-	_filter_button(flow, "full", tr("Full"), tr("One line per pulse: arts, damage by type, health and linh lực after"), group)
+	var show := Label.new()
+	show.text = tr("Show:")
+	show.theme_type_variation = &"RowLabel"
+	flow.add_child(show)
 	_filter_button(flow, "A", tr("You"), tr("Show your lines"), null)
 	_filter_button(flow, "B", tr("Foe"), tr("Show the foe's lines"), null)
 	var names := {"damage": tr("Damage"), "arts": tr("Arts"), "stacks": tr("Stacks"), "status": tr("Status"),
@@ -694,6 +792,7 @@ func _filter_button(flow: Control, key: String, text: String, tip: String, grp: 
 	b.button_group = grp
 	b.button_pressed = key != "full"
 	b.add_theme_font_size_override("font_size", int(_cfg.get("log", {}).get("chip_font_px", 14)))
+	_chip_style(b, grp != null)
 	TooltipLayer.set_tip(b, tip)
 	if grp != null:
 		b.pressed.connect(func(): set_log_mode(key))
@@ -702,6 +801,34 @@ func _filter_button(flow: Control, key: String, text: String, tip: String, grp: 
 	_filter_buttons[key] = b
 	flow.add_child(b)
 	_dim_off(b)
+
+
+## A light parchment chip (a filter) or a part of the mode switch ([param mode]: pressed is ink-dark with bone text);
+## the text stays ink or bone in every state, so it never turns into the wood theme's colours.
+func _chip_style(b: Button, mode: bool) -> void:
+	var ink := Color("#2B2118")
+	var bone := Color("#E8D9B5")
+	var mk := func(bg: Color, border: Color) -> StyleBoxFlat:
+		var sb := StyleBoxFlat.new()
+		sb.bg_color = bg
+		sb.border_color = border
+		sb.set_border_width_all(1)
+		sb.set_corner_radius_all(0 if mode else 3)
+		sb.content_margin_left = 8
+		sb.content_margin_right = 8
+		sb.content_margin_top = 2
+		sb.content_margin_bottom = 2
+		return sb
+	var off: Color = Color("#D8C7A0")
+	var on: Color = Color("#5E4316") if mode else Color("#C9B183")
+	b.add_theme_stylebox_override(&"normal", mk.call(off, Color(0.37, 0.26, 0.09, 0.55)))
+	b.add_theme_stylebox_override(&"hover", mk.call(off.lightened(0.08), Color(0.37, 0.26, 0.09, 0.8)))
+	b.add_theme_stylebox_override(&"pressed", mk.call(on, Color(0.37, 0.26, 0.09, 0.9)))
+	b.add_theme_stylebox_override(&"hover_pressed", mk.call(on.lightened(0.06), Color(0.37, 0.26, 0.09, 0.9)))
+	for k: StringName in [&"font_color", &"font_hover_color", &"font_focus_color"]:
+		b.add_theme_color_override(k, ink)
+	for k: StringName in [&"font_pressed_color", &"font_hover_pressed_color"]:
+		b.add_theme_color_override(k, bone if mode else ink)
 
 
 ## An off filter is drawn dimmed as well as unpressed, so its state does not rest on the button shade alone.
@@ -777,7 +904,15 @@ func _draw_overlay() -> void:
 		var c: Color = _hit_colour(g.row)
 		c.a = 1.0 - share
 		var fs: int = 22 if bool(g.hit) else 16
-		var at := Vector2(rect.get_center().x, rect.end.y + 26.0 - share * 34.0)   # rises over the bar
+		var tw: float = font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, fs).x
+		# on the struck bar's far end (the foe's bar is mirrored), rising a little as it fades
+		var mirrored: bool = str(g.target) == "B"
+		var x: float = rect.position.x + 14.0 if mirrored else rect.end.x - tw - 14.0
+		var at := Vector2(x, rect.get_center().y + font.get_ascent(fs) * 0.4 - share * 16.0)
+		var plate := Rect2(at + Vector2(-8, -font.get_ascent(fs) - 2), Vector2(tw + 16, font.get_height(fs) + 4))
+		_plate.bg_color.a = 0.8 * c.a   # on a plate, so it reads over any bar (fight-screen.md Accessibility)
+		_plate.border_color = Color(c.r, c.g, c.b, 0.7 * c.a)
+		_overlay.draw_style_box(_plate, plate)
 		draw_string_outline_on(font, at, text, fs, c)
 	for r in _state.recent:
 		var age: float = _t - float(r.t_ms)
@@ -843,14 +978,21 @@ func _build_column(side: String, info: Dictionary) -> void:
 	top.alignment = BoxContainer.ALIGNMENT_END if mirror else BoxContainer.ALIGNMENT_BEGIN
 	box.add_child(top)
 	var px: int = int(_cfg.get("portrait_px", 56))
-	var portrait := PanelContainer.new()
-	portrait.theme_type_variation = &"PaperPanel"
+	var portrait := PanelContainer.new()   # a dark tile in a brass rim (the picked mock-up), until portraits exist
+	var tile := StyleBoxFlat.new()
+	tile.bg_color = Color(0.12, 0.08, 0.05)
+	tile.border_color = Color(0.79, 0.64, 0.35)
+	tile.set_border_width_all(2)
+	tile.set_corner_radius_all(2)
+	tile.shadow_color = Color(0, 0, 0, 0.45)
+	tile.shadow_size = 3
+	portrait.add_theme_stylebox_override(&"panel", tile)
 	portrait.custom_minimum_size = Vector2(px, px)
 	var initial := Label.new()
 	initial.text = str(info.name).substr(0, 1)
 	initial.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	initial.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	initial.theme_type_variation = &"HeadingLabel"
+	initial.theme_type_variation = &"WoodHeading"
 	portrait.add_child(initial)
 	TooltipLayer.set_tip(portrait, _sheet_tip(side, info))
 	var names := VBoxContainer.new()
@@ -911,13 +1053,10 @@ func _build_column(side: String, info: Dictionary) -> void:
 		arts_flow.add_child(slot)
 		col.slots.append(slot)
 	# wards, items
-	var paper := PanelContainer.new()   # the slot rows sit on a parchment inset (the picked mock-up)
-	paper.theme_type_variation = &"PaperPanel"
-	paper.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	box.add_child(paper)
-	var rows := VBoxContainer.new()
-	rows.add_theme_constant_override("separation", 3)
-	paper.add_child(rows)
+	var rows := VBoxContainer.new()   # one parchment band per row, together filling the column (the picked mock-up)
+	rows.add_theme_constant_override("separation", 4)
+	rows.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	box.add_child(rows)
 	box = rows
 	var wflow := _slot_row(box, tr("WARDS"), mirror, tr("Ward slots: up, down and broken states are not in the record yet."))
 	var wpx: int = int(_cfg.get("ward_px", 40))
@@ -1024,19 +1163,38 @@ func _row_title(box: Control, text: String, mirror: bool, variation: StringName,
 	return l
 
 
-## One slot row on the parchment inset: its title beside its slots (the title on the outer side, mirrored for the
-## foe), so five rows fit at 1280x720 (fight-screen.md AC 15).
+## One slot row as its own parchment band in a thin gilt line (the picked mock-up): the title above its slots, on the
+## outer side (mirrored for the foe); the bands share the column's height, so five rows fit at 1280x720 and no empty
+## parchment is left at 1920x1080 (fight-screen.md AC 15).
 func _slot_row(box: Control, text: String, mirror: bool, tip: String) -> HFlowContainer:
-	var row := HBoxContainer.new()
-	row.add_theme_constant_override("separation", 8)
-	box.add_child(row)
-	var l := _row_title(row, text, mirror, &"RowLabel", tip)
-	l.custom_minimum_size.x = float(_cfg.get("row_label_px", 76))
-	l.size_flags_vertical = Control.SIZE_SHRINK_CENTER
-	var f := _flow(row, mirror)
+	var rim := PanelContainer.new()
+	var line := StyleBoxFlat.new()
+	line.draw_center = false
+	line.border_color = Color(0.37, 0.26, 0.09, 0.6)
+	line.set_border_width_all(1)
+	line.content_margin_left = 1
+	line.content_margin_right = 1
+	line.content_margin_top = 1
+	line.content_margin_bottom = 1
+	rim.add_theme_stylebox_override(&"panel", line)
+	rim.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	box.add_child(rim)
+	var band := PanelContainer.new()
+	band.theme_type_variation = &"PaperPanel"
+	rim.add_child(band)
+	# tall screens: the title above the slots; below 900 px the title sits beside them, so five bands still fit
+	var compact: bool = get_viewport_rect().size.y < float(_cfg.get("band_stack_min_h", 900))
+	var inner: BoxContainer = HBoxContainer.new() if compact else VBoxContainer.new()
+	inner.add_theme_constant_override("separation", 8 if compact else 2)
+	band.add_child(inner)
+	var l := _row_title(inner, text, mirror, &"RowLabel", tip)
+	if compact:
+		l.custom_minimum_size.x = float(_cfg.get("row_label_px", 76))
+		l.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	var f := _flow(inner, mirror)
 	f.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	if mirror:
-		row.move_child(f, 0)
+	if compact and mirror:
+		inner.move_child(f, 0)
 	return f
 
 

@@ -188,8 +188,9 @@ static func build(cfg: Dictionary, kit: Dictionary = {}, surface: String = "pape
 	t.set_color(&"selection_color", &"LineEdit", Color(brass, 0.35))
 	# custom-drawn fight controls read these colours (art bible 7.1, 7.12)
 	t.set_color(&"edge", &"FightSlot", c.call("tile_edge", "#1A100B"))
-	t.set_color(&"dash", &"FightSlot", Color(brass, 0.75))
-	t.set_color(&"recess", &"FightSlot", c.call("recess", "#150D09"))
+	# an empty slot is a recess in its surface: pressed-in parchment with a gilt dash on paper, a dark hole on wood
+	t.set_color(&"dash", &"FightSlot", Color(gilt, 0.7) if surface != "wood" else Color(brass, 0.75))
+	t.set_color(&"recess", &"FightSlot", c.call("parchment_recess", "#CDBA8E") if surface != "wood" else c.call("recess", "#150D09"))
 	t.set_color(&"ring_outer", &"FightSlot", bone)
 	t.set_color(&"ring_inner", &"FightSlot", ink)
 	t.set_color(&"text", &"FightStatBar", bone)

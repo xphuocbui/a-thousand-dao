@@ -179,6 +179,31 @@ renown (no game stat yet; shows "—"), the wiki and menu buttons' art.
 **Provinces (user, 2026-11-23):** borders only: soft region/control borders drawn over the painted map as a toggleable
 overlay; tiles stay the rule unit, no rule change.
 
+## Done 2026-11-23 (afternoon, user requests)
+- **Map zoom and the political map** (`design/ux/hud.md` section of that name; lean rounds 18 NEEDS REVISION, 19 and
+  20 APPROVED, all findings applied): one continuous zoom in px per tile with momentum (acceleration and friction),
+  gliding jumps and pan inertia; the paper map cross-fades into the relief over a transition band; at continent zoom
+  the political map (great sects' colours, smoothed bold borders where the holder changes, the sects' names large).
+  `src/ui/map/map_view.gd`; tests `tests/unit/ui/ui_map_zoom_test.gd` (7). Sect colours and the red-green palette
+  (`ui_hud.json` greybox.map_zoom) approved by the user from `13-zoom-1920x1080-fit(cb).png`.
+- **Sharper map:** the paper map repainted at 3x (`tools/asset-pipeline/map/far_upres.py`, 16 crops, ~$0.85), BPTC
+  import for both layers, a light unsharp mask on the relief's game copy (`sea_fix.py`).
+- **Fight screen** restyled toward mock-up B: one parchment band per slot row, recessed empty slots, numbers on a
+  plate at the bar's end, the log's Summary/Full switch and light filter chips, the carved strip behind the header and
+  the playback bar, a diamond on the timeline, a framed portrait, a vignette; the ending moved into the header.
+- **Test runs:** a cached world per seed and data (`user://world_cache_*`, ~35 s saved a launch), `--shots=` for
+  several zoom states in one launch, and ratings off by default in test runs (`--ratings-on` keeps them; the 40-50 s
+  End turn wait is recorded in `production/qa/bugs/2026-11-23-season-end-waits-for-ratings.md`).
+
+**Next (user, 2026-11-23): provinces.**
+
+## Queued (user, 2026-11-23)
+- **Map name font looks a bit bad** (region names, and now the great sects' names on the political map): find a
+  better way. Options to try: a real calligraphic display face (7.14 asks for one; today the heading face is
+  used), drawing names as SDF/MSDF text so they stay crisp at every zoom, a softer paper halo than the 4 px outline,
+  kerning and letter-spacing tuned per size, and names following the territory's long axis (curved, CK3-style).
+  Judge by screenshot beside a Paradox reference shot.
+
 ## Pattern-library v2 follow-ups owed to existing screens
 - Person window verbs: levers that would flip a refusal, decline consequences (when the verb epic exists).
 - HUD alert row: warning / opportunity groups, "mute this kind".
