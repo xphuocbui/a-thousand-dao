@@ -429,26 +429,32 @@ func _draw() -> void:
 	var terrain: bool = _terrain != null and _terrain.is_ready()
 	if terrain:   # the terrain shader draws behind this node; the paper map fades out over it
 		_terrain.set_view(_origin(), sc, Vector2(_grid_size))
-		if _terrain.is_painted():   # the painted land (overview, then the streamed tiles in view) under the game's water
+		if _terrain.is_painted():
+			# the painted land at every zoom (user 2026-11-23: "use what we have for the zoomed in, then use it for the
+			# zoomed out"): the overview cut from the streamed tiles, then the tiles in view, all under the game's water
 			var layers: Array = []
-			if _near != null and w > 0.0:
+			if _near != null:
 				layers.append([_near, map_rect, null])
-			if w > 0.0:
-				layers.append_array(_hi_layers())
+			layers.append_array(_hi_layers())
 			_terrain.set_layers(layers)
-		draw_rect(Rect2(Vector2.ZERO, size), Color(_backdrop_far, 1.0 - w))
+		if not _terrain.is_painted():
+			draw_rect(Rect2(Vector2.ZERO, size), Color(_backdrop_far, 1.0 - w))
 	else:
 		draw_rect(Rect2(Vector2.ZERO, size), _backdrop_far.lerp(_backdrop_near, w))
 	var far: Texture2D = _far if _far != null else (_near if _near != null else _texture)
 	var near: Texture2D = _near if _near != null else far
-	if w < 1.0 and far != null:   # every layer is registered to the grid: its full size covers the whole continent
+	var painted: bool = terrain and _terrain.is_painted()   # painted land: the same map at every zoom, no separate paper
+	if w < 1.0 and far != null and not painted:   # every layer is registered to the grid: it covers the whole continent
 		draw_texture_rect(far, map_rect, false, Color(1, 1, 1, 1.0 - w) if terrain else Color.WHITE)
 	if w > 0.0 and near != null and not terrain:   # the relief cross-fades in over the paper map
 		draw_texture_rect(near, map_rect, false, Color(1, 1, 1, w))
-	var pol: float = 1.0 - w   # the political map (Terrain mode) fades out with the paper map
-	if pol > 0.0 and _tint != null:
-		draw_texture_rect(_tint, map_rect, false, Color(1, 1, 1, float(_zcfg.get("political_alpha", 0.35)) * pol))
-	_draw_borders(pol)
+	var pol: float = 1.0 - w   # the sect names (and the paper map) fade out as the map closes in
+	# the political tint and the sect borders stay when zoomed in, lighter (user 2026-11-23: "keep the political overlay
+	# when zoomed in, especially showing provinces"): political_near / border_bold_near of their full strength
+	var pol_tint: float = lerpf(1.0, float(_zcfg.get("political_near", 0.45)), w)
+	if pol_tint > 0.0 and _tint != null:
+		draw_texture_rect(_tint, map_rect, false, Color(1, 1, 1, float(_zcfg.get("political_alpha", 0.35)) * pol_tint))
+	_draw_borders(lerpf(1.0, float(_zcfg.get("border_bold_near", 0.8)), w))
 	if w > 0.0 and not _hi.is_empty() and not terrain:
 		_draw_hi(w)
 	if w > 0.0 and _near != null and _place_art_on_map:

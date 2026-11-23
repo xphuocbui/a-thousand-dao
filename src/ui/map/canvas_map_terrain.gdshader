@@ -36,6 +36,13 @@ uniform float blend_sharpness = 1.6;    // bilinear weights raised to this: narr
 uniform float foam_strength = 0.7;      // surf along the shore
 uniform float shore_tint = 0.5;         // lighter shallow water near the shore
 uniform float shore_width = 0.8;        // tiles of that fringe
+uniform float river_strength = 1.0;     // how strongly the game draws the rivers over the land
+uniform float river_cut = 0.3;          // where the blurred river line is cut: higher = thinner
+uniform float ripple_strength = 0.5;    // how much the sea texture's ripples show (paper style: low)
+uniform float paper_grain = 0.0;        // parchment grain in the water (paper style)
+uniform float ink_strength = 0.0;       // the inked coastline (paper style)
+uniform float ink_width = 0.05;         // its half-width, tiles
+uniform vec3 ink_col : source_color = vec3(0.22, 0.16, 0.10);
 uniform float depth_from = 30.0;        // metres where the water starts to deepen in colour
 uniform float depth_full = 3000.0;      // and is fully deep
 uniform float relief = 1.0;             // baked hillshade strength
@@ -111,7 +118,8 @@ void fragment() {
 	}
 	// rivers
 	float rv = texture(river_map, fu).r;   // traced lines: no noise offset, so a river never breaks
-	land = mix(land, river_col, smoothstep(0.25, 0.55, rv) * (painted_land ? 0.0 : 1.0));
+	// rivers from the traced lines (connected exactly as the data): drawn by the game over painted land too
+	land = mix(land, river_col, smoothstep(river_cut, river_cut + 0.18, rv) * river_strength);
 	// water: depth colour, the sea texture's ripples, shallows and surf along the true coast
 	float d = texture(coast_map, fu).r + nz.x * 0.08;  // + water, tiles
 	float depth = max(0.0, -min(e, 0.0));
@@ -119,7 +127,9 @@ void fragment() {
 	// distance from the shore (shore_tint, shore_width), like the painting's shallows
 	vec3 water = mix(mid_col, deep_col, smoothstep(depth_from, depth_full, depth));
 	vec3 rip = tex_at(uv * 1.7, 18.0);
-	water *= 0.75 + 0.5 * dot(rip, vec3(0.33)) / max(0.05, dot(texture(biome_tex, vec3(0.5, 0.5, 18.0), 8.0).rgb, vec3(0.33)));
+	float rip_l = dot(rip, vec3(0.33)) / max(0.05, dot(texture(biome_tex, vec3(0.5, 0.5, 18.0), 8.0).rgb, vec3(0.33)));
+	water *= 1.0 + (rip_l - 1.0) * ripple_strength;
+	water *= 1.0 + (nz2.x * 0.5) * paper_grain;   // a faint parchment grain under a paper-style sea
 	water = mix(water, shallow_col, (1.0 - smoothstep(0.0, shore_width, d)) * shore_tint);
 	float foam = (1.0 - smoothstep(0.0, 0.12, d)) * smoothstep(-0.02, 0.02, d) * (0.55 + 0.45 * nz2.y);
 	water = mix(water, foam_col, clamp(foam, 0.0, 1.0) * foam_strength);
@@ -130,6 +140,8 @@ void fragment() {
 	float wet = smoothstep(-0.06, 0.0, d);
 	land *= 1.0 - 0.15 * wet;
 	vec3 col = mix(land, water, smoothstep(-0.02, 0.02, d));
+	// an ink line on the true coast (paper style): darkest at d = 0, about ink_width tiles wide
+	col = mix(col, ink_col, ink_strength * (1.0 - smoothstep(0.0, ink_width, abs(d))));
 	bool inside = t.x >= 0.0 && t.y >= 0.0 && t.x < grid.x && t.y < grid.y;
 	COLOR = vec4(inside ? col : deep_col, 1.0);
 }

@@ -199,3 +199,6 @@ design/map/continent-11/art/near/upres4/
 design/map/continent-11/art/near/hybrid/
 design/map/continent-11/art/near/hybrid_test/
 design/map/continent-11/art/near/hybrid_test2/
+
+# paper-map repaint work files (tools/asset-pipeline/map/terrain/paper_hybrid.py)
+design/map/continent-11/art/paper/

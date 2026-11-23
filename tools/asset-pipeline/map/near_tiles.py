@@ -27,13 +27,14 @@ sys.path.insert(0, os.path.join(HERE, "terrain"))
 import hybrid_full as HF  # noqa: E402
 
 P2 = os.environ.get("P2_DIR", "../hybrid/p2")      # pass 2 of the hybrid (near_upres.py on hybrid/near_24px.png)
-GUIDE = os.path.join(os.path.dirname(HERE), "..", "..", "design/map/continent-11/art/near/hybrid/guide_24px.png")
+GUIDE = os.environ.get("TILES_GUIDE", os.path.join(os.path.dirname(HERE), "..", "..", "design/map/continent-11/art/near/hybrid/guide_24px.png"))
 
 GRID = (540, 360)
 PX = 48           # output px per game tile
-SRC_PX = 24       # pass 2's source px per tile
+SRC_PX = int(os.environ.get("TILES_SRC_PX", "24"))   # the detail pass's source px per tile (paper map: 16)
 CHUNK = 40        # game tiles per tile side
-PAD = 16          # output px of overlap on every side
+RATIO = PX // SRC_PX                            # output px per source px (2 for the photo hybrid, 3 for the paper map)
+PAD = 8 * RATIO   # output px of overlap on every side (8 source px)
 OVERVIEW_PX = 12
 IMPORT = """[remap]
 
@@ -65,27 +66,29 @@ def tile(repo, cx, cy):
     """The tile's pixels (with PAD on every side, edge-repeated at the map's border) as an image."""
     p = json.load(open(os.path.join(NU.root(repo, P2), "plan.json")))
     sw, sh = p["size"]
-    pad_s = PAD // 2   # PAD output px = PAD / 2 source px
+    pad_s = PAD // RATIO   # PAD output px = PAD / RATIO source px
     x0, y0 = cx * CHUNK * SRC_PX - pad_s, cy * CHUNK * SRC_PX - pad_s
     x1 = min(GRID[0], (cx + 1) * CHUNK) * SRC_PX + pad_s
     y1 = min(GRID[1], (cy + 1) * CHUNK) * SRC_PX + pad_s
     bx = (max(0, x0), max(0, y0), min(sw, x1), min(sh, y1))
     img = np.asarray(NU.stitch(repo, P2, bx)).astype(np.float32)
-    landmarks.overlay(repo, img, bx)   # the natural landmarks painted into the land (landmarks.py)
+    if not os.environ.get("TILES_NO_LANDMARKS"):   # the paper map draws its landmarks itself
+        landmarks.overlay(repo, img, bx)   # the natural landmarks painted into the land (landmarks.py)
     # the coast lock and clean open sea at 48 px (hybrid_full.lock_image), against the guide enlarged 2x
     guide = Image.open(GUIDE).crop(bx).resize((img.shape[1], img.shape[0]), Image.BICUBIC)
-    img = HF.lock_image(repo, img, np.asarray(guide, np.float32), (bx[0] / SRC_PX, bx[1] / SRC_PX), PX, retone=False)
+    img = HF.lock_image(repo, img, np.asarray(guide, np.float32), (bx[0] / SRC_PX, bx[1] / SRC_PX), PX, retone=False,
+                        deep=not os.environ.get("TILES_NO_DEEP"))
     img = img.clip(0, 255).astype(np.uint8)
     # repeat the map's own edge where the padded box runs off it
-    l, t = (bx[0] - x0) * 2, (bx[1] - y0) * 2
-    r, b = (x1 - bx[2]) * 2, (y1 - bx[3]) * 2
+    l, t = (bx[0] - x0) * RATIO, (bx[1] - y0) * RATIO
+    r, b = (x1 - bx[2]) * RATIO, (y1 - bx[3]) * RATIO
     if l or t or r or b:
         img = np.pad(img, ((t, b), (l, r), (0, 0)), mode="edge")
     return Image.fromarray(img).filter(ImageFilter.UnsharpMask(radius=1.0, percent=45, threshold=2))
 
 
 def main(repo, only):
-    out = os.path.join(repo, "assets/map/near_hi")
+    out = os.path.join(repo, os.environ.get("TILES_OUT", "assets/map/near_hi"))
     os.makedirs(out, exist_ok=True)
     cols, rows = math.ceil(GRID[0] / CHUNK), math.ceil(GRID[1] / CHUNK)
     overview = None if only else Image.new("RGB", (GRID[0] * OVERVIEW_PX, GRID[1] * OVERVIEW_PX))
@@ -108,11 +111,11 @@ def main(repo, only):
     json.dump({"_doc": "Streamed near-map tiles (tools/asset-pipeline/map/near_tiles.py): tile (cx, cy) covers game tiles "
                        "[cx*chunk_tiles, cy*chunk_tiles] onward, chunk_tiles across (less at the map's right and bottom "
                        "edge), at px_per_tile, with pad px of overlap on every side; draw only the inner region.",
-               "dir": "res://assets/map/near_hi", "chunk_tiles": CHUNK, "px_per_tile": PX, "pad": PAD,
+               "dir": "res://" + os.environ.get("TILES_OUT", "assets/map/near_hi"), "chunk_tiles": CHUNK, "px_per_tile": PX, "pad": PAD,
                "cols": cols, "rows": rows, "grid": list(GRID)},
               open(os.path.join(out, "manifest.json"), "w", encoding="utf-8"), indent=1)
     if overview is not None:
-        overview.save(os.path.join(repo, "assets/map/map_near_relief.jpg"), quality=92, subsampling=0)
+        overview.save(os.path.join(repo, os.environ.get("TILES_OVERVIEW", "assets/map/map_near_relief.jpg")), quality=92, subsampling=0)
         print("overview", overview.size)
 
 

@@ -22,7 +22,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.dirname(HERE))
 from water_lock import field  # noqa: E402
 
-OUT = (4608, 3072)
+OUT = tuple(int(v) for v in os.environ.get("PAPER_OUT", "4608,3072").split(","))   # PAPER_OUT=w,h for a guide at another scale
 PAPER_TINT = {   # biome id -> wash colour on parchment (0..1)
     0: (0.62, 0.70, 0.50), 1: (0.70, 0.76, 0.52), 2: (0.52, 0.64, 0.45), 3: (0.80, 0.82, 0.60), 4: (0.85, 0.79, 0.58),
     5: (0.92, 0.84, 0.62), 6: (0.93, 0.91, 0.85), 7: (0.82, 0.62, 0.46), 8: (0.62, 0.68, 0.55), 9: (0.55, 0.64, 0.50),
@@ -61,6 +61,13 @@ def main(repo, near_path):
     shade = lum / np.maximum(1e-3, np.asarray(Image.fromarray((lum * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(px * 2.5)), np.float32) / 255.0)
     shade = np.clip(1.0 + (shade - 1.0) * 0.75, 0.6, 1.35)          # local light and shade (ridges, tree crowns)
     land = np.clip(tint * shade[..., None], 0, 1)
+    if os.environ.get("PAPER_FLAT"):
+        # a flat plan for the illustrated repaint: plain biome washes, a faint relief hint, rivers as blue ink lines,
+        # so the model draws mountains and trees as symbols instead of copying the painting's light (user 2026-11-23)
+        land = np.clip(tint * np.clip(1.0 + (shade - 1.0) * 0.25, 0.85, 1.15)[..., None], 0, 1)
+        riv = np.fromfile(os.path.join(repo, "assets/map/terrain/river.bin"), np.uint8).reshape(2880, 4320)
+        rv = np.asarray(Image.fromarray(riv).resize(OUT, Image.BILINEAR), np.float32)[..., None] / 255.0
+        land = land * (1 - 0.85 * rv) + np.array([0.30, 0.48, 0.62], np.float32) * 0.85 * rv
     # sea: pale wash, a touch deeper offshore, faint wave marks
     rng = np.random.default_rng(5)
     deep = np.clip(sd / 4.0, 0, 1)[..., None]
@@ -84,7 +91,9 @@ def main(repo, near_path):
     col = col * (1 - 0.85 * ink[..., None]) + np.array([0.20, 0.14, 0.09], np.float32) * 0.85 * ink[..., None]
     col *= parchment(w, h)[..., None]
     out = Image.fromarray((col.clip(0, 1) * 255).astype(np.uint8))
-    if not os.environ.get("PAPER_PREVIEW_ONLY"):
+    if os.environ.get("PAPER_DEST"):      # a guide for the paper repaint (paper_hybrid.py), not the game copy
+        out.save(os.environ["PAPER_DEST"])
+    elif not os.environ.get("PAPER_PREVIEW_ONLY"):
         out.save(os.path.join(repo, "assets/map/map_far_paper.jpg"), quality=92)
     out.resize((1536, 1024), Image.LANCZOS).save(os.path.join(repo, "design/map/continent-11/art/near/hybrid/paper_preview.jpg"), quality=88)
     print("paper map", out.size)

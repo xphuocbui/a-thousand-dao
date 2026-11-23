@@ -96,7 +96,30 @@ def rivers(fw, el, W, H, scale=2):
             acc[n] += acc[c]
     img = Image.new("L", (W * scale, H * scale), 0)
     dr = ImageDraw.Draw(img)
-    heads = [c for c in cells if c not in set(v for v in nxt.values() if v is not None)]
+    # every pair of neighbouring river cells is joined, and every river cell next to the sea or a lake is joined to
+    # it, so the drawn rivers connect exactly as the data does (user 2026-11-23: "some parts of the rivers and lakes
+    # are still disconnected"; following strictly downhill cells broke rivers on flat ground into 130 pieces)
+    def wpx(c):
+        return max(2.2, min(4.8, 1.6 + 0.45 * np.sqrt(acc.get(c, 1)))) * scale / 2
+    for (y, x) in cells:
+        for dy, dx in ((0, 1), (1, 0), (1, 1), (1, -1)):
+            n2 = (y + dy, x + dx)
+            if n2 in cells:
+                # skip a diagonal when the two cells already meet through an orthogonal neighbour (no thick knots)
+                if dy and dx and ((y + dy, x) in cells or (y, x + dx) in cells):
+                    continue
+                dr.line([((x + 0.5) * scale, (y + 0.5) * scale), ((n2[1] + 0.5) * scale, (n2[0] + 0.5) * scale)],
+                        fill=255, width=int(round(max(wpx((y, x)), wpx(n2)))))
+        for dy in (-1, 0, 1):
+            for dx in (-1, 0, 1):
+                yy, xx = y + dy, x + dx
+                if (dy or dx) and 0 <= yy < H and 0 <= xx < W and water[yy, xx]:
+                    dr.line([((x + 0.5) * scale, (y + 0.5) * scale), ((xx + 0.5) * scale, (yy + 0.5) * scale)],
+                            fill=255, width=int(round(wpx((y, x)))))
+    for (y, x) in cells:   # round joints
+        r0 = wpx((y, x)) / 2
+        dr.ellipse([((x + 0.5) * scale - r0, (y + 0.5) * scale - r0), ((x + 0.5) * scale + r0, (y + 0.5) * scale + r0)], fill=255)
+    heads = []
     done = set()
     for h in heads:
         path, c = [h], h
@@ -119,7 +142,7 @@ def rivers(fw, el, W, H, scale=2):
             cell = path[min(len(path) - 1, i * len(path) // max(1, len(pts) - 1))]
             wpx = max(2.6, min(6.0, 2.0 + 0.6 * np.sqrt(acc.get(cell, 1)))) * scale / 2   # never under ~2.6 px: thinner lines break up when blurred
             dr.line([pts[i], pts[i + 1]], fill=255, width=int(round(wpx)))
-    return np.asarray(img.filter(ImageFilter.GaussianBlur(0.6 * scale)), np.uint8)
+    return np.asarray(img.filter(ImageFilter.GaussianBlur(1.1 * scale)), np.uint8)
 
 
 def majority(ids):

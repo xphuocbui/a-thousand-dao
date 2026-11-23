@@ -179,7 +179,7 @@ def paint_and_retry(repo, quality="medium"):
     print("final: %d of %d pieces still over a limit (kept the best attempt); report.txt" % (fails, len(rows)))
 
 
-def lock_image(repo, pa, guide, origin, px, retone=True):
+def lock_image(repo, pa, guide, origin, px, retone=True, deep=True):
     """Locks painted image [param pa] (H x W x 3 float) to the true coast at [param px] px per tile, top-left tile
     [param origin]: land past the coast and water past it are refilled from the guide (re-toned to the painting), open
     sea beyond DEEP_FROM is the guide's clean water at the one OFFSHORE colour. Returns float."""
@@ -195,7 +195,7 @@ def lock_image(repo, pa, guide, origin, px, retone=True):
     deep_water = np.clip(guide * (OFFSHORE / GUIDE_DEEP), 0, 255)
     deep_water = OFFSHORE + (deep_water - OFFSHORE) * SHELF_CONTRAST
     k = np.clip((sd - DEEP_FROM) / (DEEP_FULL - DEEP_FROM), 0, 1)[..., None]
-    k = k * k * (3 - 2 * k)
+    k = k * k * (3 - 2 * k) * (1.0 if deep else 0.0)   # deep=False: the game draws the water (paper map)
     wf = wf * (1 - k) + deep_water * k
     a = np.clip(0.5 - sd / (1.5 / px), 0, 1)[..., None]
     out = lf * a + wf * (1 - a)

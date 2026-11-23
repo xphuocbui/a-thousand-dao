@@ -31,13 +31,13 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from paint_tiles import match_colour  # noqa: E402  (the near layer's colour transfer)
 
-SCALE = 2
-CROP = (768, 432)      # source px per crop; x 2 = the model's 1536 x 864
-STEP = (640, 360)      # overlap 128 x 72 source px
+SCALE = int(os.environ.get("UPRES_SCALE", "2"))       # 3 for the paper map's 3x pass (user 2026-11-23)
+CROP = (1536 // SCALE, 864 // SCALE)                   # source px per crop; x SCALE = the model's 1536 x 864
+STEP = (CROP[0] * 5 // 6, CROP[1] * 5 // 6)            # about a sixth of overlap
 LAND_MIN = float(os.environ.get("LAND_MIN", "0.0"))   # crops with less land keep the plain enlargement
 RAMP = 200             # feather width in output px (inside the 256 x 144 output px overlap)
 GRID_W = 540           # game tiles across
-PROMPT = os.path.join(HERE, "prompts", "near-upres.md")
+PROMPT = os.environ.get("UPRES_PROMPT", os.path.join(HERE, "prompts", "near-upres.md"))
 
 
 def root(repo, pass_dir):
