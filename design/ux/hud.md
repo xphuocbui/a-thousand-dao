@@ -1,6 +1,6 @@
 # HUD Design
 
-> **Status**: **Approved 2026-11-22** (lean `/design-review` round 6, after full rounds 1–4 and lean round 5; history in `design/gdd/reviews/hud-review-log.md`) **Changed after approval, 2026-11-22 (user request):** map bubbles, elements 30–32 (Map bubbles); lean round 7 NEEDS REVISION (16 fixes applied), lean round 8 NEEDS REVISION (2 fixes applied), **lean round 9 APPROVED**, all the same day. **Changed after approval, 2026-11-22 (person window, `design/ux/person.md`):** current places for people bubbles and pins, the share of the season left in the Focus preview, numbers follow the language, gamepad X on a person; lean round 10 NEEDS REVISION (fixes applied), **lean round 11 APPROVED**. **Changed after approval, 2026-11-23 (user request):** grand-strategy resource boxes in the top bar (linh thạch, lifespan, cultivation, rating, renown, sect contribution; elements 2, 8, 10, 33–35); realm, cultivation and lifespan move up from Z3, which keeps the portrait; a Borders toggle on the map (element 13; provinces as a drawing layer only); lean round 12 NEEDS REVISION (3 blocking, 7 recommended, all applied); lean round 13 NEEDS REVISION (1 blocking: the alert row's width; 6 recommended; all applied); **lean round 14 APPROVED** (0 blocking; 5 recommended, applied). **Changed again 2026-11-23 (user request: "similar to Paradox games", CK3/EU4 layout picked):** one carved strip with the resources from the left in brass icon sockets, a date cartouche with season icons on the right, the alert row below the bar; lean round 15 NEEDS REVISION (1 blocking: the alert row's zone; 4 recommended; all applied); lean round 16 NEEDS REVISION (1 blocking: a stale order note; 4 recommended; all applied); **lean round 17 APPROVED** (0 blocking; 3 recommended, applied).
+> **Status**: **Approved 2026-11-22** (lean `/design-review` round 6, after full rounds 1–4 and lean round 5; history in `design/gdd/reviews/hud-review-log.md`) **Changed after approval, 2026-11-22 (user request):** map bubbles, elements 30–32 (Map bubbles); lean round 7 NEEDS REVISION (16 fixes applied), lean round 8 NEEDS REVISION (2 fixes applied), **lean round 9 APPROVED**, all the same day. **Changed after approval, 2026-11-22 (person window, `design/ux/person.md`):** current places for people bubbles and pins, the share of the season left in the Focus preview, numbers follow the language, gamepad X on a person; lean round 10 NEEDS REVISION (fixes applied), **lean round 11 APPROVED**. **Changed after approval, 2026-11-23 (user request):** grand-strategy resource boxes in the top bar (linh thạch, lifespan, cultivation, rating, renown, sect contribution; elements 2, 8, 10, 33–35); realm, cultivation and lifespan move up from Z3, which keeps the portrait; a Borders toggle on the map (element 13; provinces as a drawing layer only); lean round 12 NEEDS REVISION (3 blocking, 7 recommended, all applied); lean round 13 NEEDS REVISION (1 blocking: the alert row's width; 6 recommended; all applied); **lean round 14 APPROVED** (0 blocking; 5 recommended, applied). **Changed again 2026-11-23 (user request: "similar to Paradox games", CK3/EU4 layout picked):** one carved strip with the resources from the left in brass icon sockets, a date cartouche with season icons on the right, the alert row below the bar; lean round 15 NEEDS REVISION (1 blocking: the alert row's zone; 4 recommended; all applied); lean round 16 NEEDS REVISION (1 blocking: a stale order note; 4 recommended; all applied); **lean round 17 APPROVED** (0 blocking; 3 recommended, applied). **Changed again 2026-11-23 (user request):** one continuous map zoom with a transition band between the paper map and the relief, and the political map (sect territory, great sects' names) automatic at continent zoom (Map zoom and the political map); lean round 18 NEEDS REVISION (2 blocking: the mode rule and the border grammar; 6 recommended; all applied); lean round 19 **APPROVED** (0 blocking; 6 recommended, applied). Then (user): momentum zoom, gliding jumps and pan inertia; borders drawn as smoothed lines; lean round 20 **APPROVED** (0 blocking; 8 recommended, applied).
 > **Author**: user + ux-designer
 > **Last Updated**: 2026-11-23
 > **Platform Targets**: PC (Steam / Epic); keyboard and mouse; gamepad partial (from `.claude/docs/technical-preferences.md`; `project.yaml` has no `platform` block)
@@ -210,7 +210,7 @@ Arrangement A, "CK3 classic" (user choice 2026-11-21, over a Civ-style and a por
 | **Z1 Top bar** | Full width, top: one continuous carved strip (art bible 7.13), `top_bar_height` high | Grand-strategy layout (CK3/EU4; user pick 2026-11-23). Left: the resource boxes as one **left-anchored** group (elements 2, 10, 8, 33, 34, 35, left to right; the contextual sect contribution box is last, so its appearing or leaving never moves the others), separated by brass dividers. Right: the date cartouche (element 3), then the wiki (W) and the game menu (≡) (CK3 keeps these bottom-right; here Z5 is reserved for the turn). The date cartouche may hang below the strip by at most `cartouche_overhang` (12 px); Z2 starts below that (its top is `edge_margin` + `top_bar_height` + 20), and Z1a, centred and sized to its icons, never reaches past the smaller of Z2's left edge and the cartouche's left edge (it shifts left, then folds alerts, before it would). **Z1a, below the bar** (part of Z1: it counts in Z1's area for `chrome_share_max` while shown, and stays with Z1 on full screens): the alert row (element 1), centred in the space between Z6's width and Z2, `alert_row_height` high and `alert_row_gap` below the strip, only while alerts are open |
 | **Z2 Right column** | Right edge | Window buttons: character, inventory, relationships, sect, quests and journal, rankings, news, places, Đạo Đồ, abode. Below them, the **outliner**: pinned people, places and quests, collapsible |
 | **Z3 Portrait cluster** | Bottom left | The player's portrait (click: character sheet). Contextual: health and linh lực bars, band icons. (Realm, cultivation and lifespan moved to Z1's boxes, 2026-11-23) |
-| **Z4 Map controls** | Bottom centre | Map mode buttons; the region and continent zoom toggle; the Borders toggle (it stays its own button when the compact layout folds the map modes into a dropdown) |
+| **Z4 Map controls** | Bottom centre | Map mode buttons; **Region view** (a glide to `region_zoom_px` around the player; on the region side it reads Continent view and glides back to the fit); the zoom buttons (+ and −, and a fit button that returns to the whole continent); the Borders toggle (it stays its own button when the compact layout folds the map modes into a dropdown) |
 | **Z5 Turn block** | Bottom right | The season focus selector, the End turn button (a blocked state names what's waiting), progress of a multi-season command |
 | **Z6 Panel area** | Left, about ⅓ of the width, over the map; from the bottom of Z1 to the top of Z3, so it never covers the portrait cluster | One panel at a time: character, person, place, sect and so on. Back and forward arrows step through the window history (the last `history_max`, 20, windows, like a browser: opening a new window after going back drops the forward entries); opening a name inside a panel replaces the panel |
 | **Z7 Centre windows** | Centre of the map area; with a panel open, centred in the space right of Z6, so the two never overlap. A temporary overlay: its width is capped by `centre_width_max` and its height by the viewport minus Z1 and a fixed reservation for Z1a (`alert_row_gap` + `alert_row_height`, reserved whether or not alerts are open, so a window never resizes when the first alert appears), minus the tallest bottom zone (Z3, Z4 or Z5) it overlaps horizontally, minus 2 × `edge_margin`, scrolling inside when the content is taller (option buttons stay pinned below the scroll); one Z7 window shows at a time, the rest wait in order (a comparison opened while a blocking event card is up replaces it for the moment: the card is minimised); it does not count toward `panel_share_max` | Event cards, the season summary, quest offers, the multi-season confirm dialog. An event card can be minimised to its alert to look at the map first, but it still blocks End turn |
@@ -250,7 +250,7 @@ after approval for the person window (2026-11-22, lean rounds 10–11).
 | 10 | Lifespan box (Z1) | Must Show | Years left ("136 y"); change: shown only when lifespan was gained or lost by something other than time (▲ 50 y after a breakthrough), never the season's own passing; hover: age / lifespan and the lifespan Breakdown; click: character sheet | Resource box | On End turn | Turns amber with an hourglass mark when `lifespan_warn_share` (10 %) or less of the lifespan is left |
 | 11 | Health and linh lực (Z3) | Contextual | Only when below full | Thin bars under the portrait | Event-driven | Fade in and out |
 | 12 | Band icons (Z3) | Contextual | Heart demon, toxicity or vitality once past a band; hover: the band and its effect | Small icons on the portrait | On End turn | Fade in |
-| 13 | Map modes and zoom (Z4) | On Demand | Terrain, sect territory, qi by element, prices last seen, specialties, danger, known people; region or continent zoom (+ and −, the wheel); a **Borders** toggle: **region borders**, a thin plain ink line along the 20 regions over the painted map, in every mode, on by default, a player setting (one for all saves) (the user's "provinces" are this drawing layer only; tiles stay the rule unit, user 2026-11-23). In sect territory mode the sect's own control border (patterned, with the sect's name) is drawn above it, so the two never read alike | Toggle buttons; the active one lit | Player-chosen | The map cross-fades between modes |
+| 13 | Map modes and zoom (Z4) | On Demand | Terrain, sect territory, qi by element, prices last seen, specialties, danger, known people; one continuous zoom with a transition band between continent and region zoom (+ and −, the wheel, the fit button and 0, R3 on the gamepad, and Region view; Map zoom and the political map); a **Borders** toggle: **region borders**, a thin plain ink line along the 20 regions over the painted map, in every mode, on by default, a player setting (one for all saves) (the user's "provinces" are this drawing layer only; tiles stay the rule unit, user 2026-11-23). Where the holding great sect changes, the border is a bold ink line instead (Map zoom and the political map: one border grammar for sect territory) | Toggle buttons; the active one lit | Player-chosen | The map cross-fades between modes |
 | 14 | Season focus selector (Z5) | Must Show | The chosen focus; a click opens the focus comparison (element 29) | Button | Player-chosen | None |
 | 15 | End turn (Z5) | Must Show | "End turn: <focus>"; armed: "Confirm end turn"; blocked, in this order of precedence: "Event waiting: <title>", "Check focus: <reason>", "Checking focus…"; a click (or Enter) on a blocked button opens the blocker; label changes are announced; a non-blocking reminder pip when Đạo Đồ points are unspent or a matured herb waits, with the details in its tooltip | Large button | Event-driven | A gentle glow when ready; none when blocked |
 | 16 | Multi-season progress (Z5) | Contextual | "Closed door: year 2 of 5", and Stop (takes effect at the next season boundary) | Bar + text | Each simulated season | Steady fill |
@@ -353,7 +353,7 @@ custom-drawn and exposes nothing to a screen reader.
   arrow keys pan it and the focused place or bubble stays in view, clear of Z1–Z5 and an open panel. Tab visits the
   visible known places nearest first, and at each place that place's bubbles (the abode bubble and your bubble are
   visited at their place); Shift+Tab goes back. On a focused place, Enter opens its panel; on a focused bubble, Enter
-  acts like a click; Enter ends the turn only when no place or bubble is focused (The turn: End turn input). Map modes (M) and zoom (+ and −) also have keys, so the map itself is usable without a mouse. With the
+  acts like a click; Enter ends the turn only when no place or bubble is focused (The turn: End turn input). Map modes (M) and zoom (+ and −, 0 for the fit) also have keys, so the map itself is usable without a mouse. With the
   mouse, dragging with the left or middle button pans.
 
 ### Map bubbles
@@ -411,6 +411,94 @@ player acts from: bubbles show where they are, where their home is, and what can
 - **Colour is never the only cue:** each kind has its own icon shape, and the count is a number.
 - **Dependency:** the game code must say what can be done at a place (market, sect, open quests, known people present,
   explore sites), from what the player knows.
+
+### Map zoom and the political map
+
+User request 2026-11-23 (Paradox style: "a zoom in and out system for the map, at one point a transition from the 2
+modes; the outer map shows the border and colouring of the country as an overlay"); answers: the political colouring
+is automatic when zoomed out, great sects' names are drawn large.
+
+- **One continuous zoom**, measured in **screen px per tile** so it means the same at every resolution. The **fit** is
+  the zoom at which the whole continent fills the map view (the full screen behind the HUD; an open panel does not
+  change it), and the view never zooms out past it; the deepest zoom is `zoom_max_px` (18 px per tile: the relief at
+  1.5× its painted 12, accepted by the user 2026-11-23, with a light sharpening pass on that layer). At 1920×1080 the
+  fit is 3 px per tile, so the range there is 1× to 6× the fit. The wheel zooms by `zoom_step` (×1.25 a notch) about
+  the point under the cursor; + and − step about the view's centre and 0 returns to the fit (keyboard); on the
+  gamepad the right and left triggers zoom in and out and R3 returns to the fit; Z4's + , − and fit buttons do the
+  same. Pan stops at the continent's edges at every zoom; at the fit the continent is centred.
+- **The motion feels like Paradox's** (user, 2026-11-23: "smooth, with acceleration and deceleration"). The zoom has
+  **momentum**: each wheel notch or key press adds to the zoom's speed (in log scale, so every step is the same
+  ratio), and friction (`zoom_friction`) brings it smoothly to rest: one notch travels about `zoom_step`, a quick
+  burst of notches builds speed (up to `zoom_speed_max`), and the zoom stops softly at the fit and at the deepest
+  zoom. **Jumps** (the fit button or 0, a Places panel click, Region view) **glide**: zoom and pan move together with
+  an ease-in-out over `glide_seconds`. **Panning** has inertia too: a drag released while moving carries on and
+  slows to a stop (`pan_friction`, at most `fling_max`); held arrow keys speed up to `pan_speed` (`pan_accel`) and
+  glide to a stop when released. A new input takes over from any motion under way (a wheel notch or a drag ends a
+  glide; a glide ends the zoom's momentum and a fling). With reduced motion on, steps, jumps and arrow keys land at
+  once (an arrow key moves one `PAN_STEP`, 40 px, per press or key repeat) and nothing carries on.
+  - **The model** (every update uses the frame's real `dt`, so it is the same at any frame rate): the zoom is held as
+    `ln(px per tile)`; a notch adds `ln(zoom_step) × zoom_friction` to its speed `v` (capped at ±`zoom_speed_max`);
+    each frame `ln px += v·dt`, then `v ×= exp(−zoom_friction·dt)`, so one notch travels `ln(zoom_step)` in total.
+    The anchor is the point under the cursor **at the last notch** (it stays under that screen point while the zoom
+    moves); + and − anchor on the view's centre. Held arrows: `v += (target − v)(1 − exp(−pan_accel·dt))` with the
+    target `pan_speed` in the held direction (`pan_accel` per second), and `v ×= exp(−1.5·pan_friction·dt)` after
+    release; a fling starts at the drag's speed over its last 100 ms and decays by `exp(−pan_friction·dt)`. A glide
+    interpolates `ln px` and the centre together with `e = 3t² − 2t³` over `glide_seconds`, ending with the target at
+    the centre of the full map view (an open panel does not shift it). Every motion stops at the fit, at the deepest
+    zoom and at the continent's edges, losing its speed there.
+  - Holding + or − repeats a notch at the system's key repeat; a gamepad trigger is one notch per press past 0.6.
+- **Two named ranges.** **Continent zoom** is any zoom below `near_from_px` (6.6 px per tile); **region zoom** is any
+  zoom at or above `near_to_px` (9.6). Every rule in this spec written for "continent zoom" or "region zoom" means
+  these ranges (area bubbles, place names, place art, the legend, the Places panel). Between them is the
+  **transition band**. On a 4K screen the fit (6 px per tile) is still continent zoom.
+- **Small screens.** At 1280×720 the fit is about 2 px per tile, so the paper map (8.5) is shown at about a quarter of
+  its painted size: both layers are imported with mipmaps, so it never shimmers (the 1280×720 screenshot checks it).
+- **The transition** (art bible Section 1, Principle 2: one map, two distances). Below the band the paper map (far
+  layer, painted at 8.5 px per tile on 2026-11-23, so it is never shown much larger than painted) shows; above it the
+  painted relief (near layer) with the place art. Inside the band the two cross-fade by the zoom's position in the
+  band (a smooth step), so there is no jump; the political tint, the sect and region names fade out with the paper
+  map, and place names, place art and area bubbles fade in with the relief. A faded-in thing is **drawn, hit-tested
+  and counted** (toward `bubbles_max`) only once its weight is at least 0.5; below that it is decoration only.
+- **Clicking a place in the Places panel** pans to it and zooms to `region_zoom_px` (12 px per tile), or keeps the
+  zoom when it is already deeper.
+- **The political map** is the Sect territory overlay. Zooming out turns it on in the Terrain mode, Paradox-style;
+  it never replaces another mode the player chose:
+
+  | Zoom | Chosen map mode | Sect tint | Legend (element 28) | Lit Z4 button |
+  |---|---|---|---|---|
+  | Continent zoom | Terrain (the default) | On (the political map) | The great sects, each with its swatch and border | Terrain |
+  | Continent zoom | Sect territory | On, with minor sects' seats emphasised | The great sects | Sect territory |
+  | Continent zoom | Any other (qi, prices, specialties, danger, known people) | Off: that mode's overlay | That mode's key | That mode |
+  | Transition band | Terrain | Fades out with the paper map | The great sects until the band's middle, then the bubble kinds | Terrain |
+  | Transition band | Sect territory | On throughout (it is the chosen mode) | The great sects | Sect territory |
+  | Transition band | Any other | That mode's overlay throughout | That mode's key | That mode |
+  | Region zoom | Terrain | Off | The bubble kinds | Terrain |
+  | Region zoom | Sect territory | On, over the relief | The great sects | Sect territory |
+  | Region zoom | Any other | That mode's overlay | That mode's key | That mode |
+
+- **How it draws.** Each region is tinted in its holding great sect's colour (`sect_colours`: muted, never a
+  saturated element hue, art bible Section 6; `political_alpha` 0.35 over the paper). Every region belongs to one
+  great sect (`sects.md` rule 3: territory belongs to great sects, a region at a time), so there are no split or
+  contested regions to draw. Where the holder changes the border is a **bold ink line**; between two regions of the
+  same sect it is the thin region border (element 13's Borders toggle). This is the one border grammar for sect
+  territory, at every zoom. Both lines are drawn **smooth**: the grid's tile-edge steps are chained into lines,
+  each step's corner is replaced by the midpoints of its edges (a staircase becomes a straight diagonal), then two
+  passes of corner cutting round it; ends stay where three regions meet. Widths: `border_bold_px` 2.6,
+  `border_thin_px` 1.0. The bold line is part of the overlay: it shows and fades with the tint (so not at region
+  zoom in the Terrain mode); the Borders toggle hides only the thin region line. Over the relief (region zoom in the
+  Sect territory mode) the tint uses the same `political_alpha`. Holders are live for the great sects (`travel-map.md` rule 14: the overview map is common
+  knowledge). Minor sects hold places, not regions, inside a great sect's territory: their seats show as diamonds,
+  as the player last heard of them (rule 14), with no tint or border of their own.
+- **Names.** At continent zoom each great sect's name is drawn large and letter-spaced across its territory (its size
+  from the territory's width, `realm_name_px` 18–40), in the calligraphy-style display face of art bible 7.14, ink
+  with a paper halo; region names are smaller (13–20) beneath. Both are engine-drawn and fade with the band. A
+  territory's name is not drawn when it would not fit inside the territory; it is then still in the hover tooltip and
+  the legend.
+- **Hover.** Whenever the tint is on, at any zoom, hovering the map (outside a place's marker or a bubble) shows the
+  region's tooltip: its name, its holder great sect and that sect's standing with the player.
+- **Accessibility.** The tint never stands alone: the bold border, the sect's name (or, where it does not fit, the
+  hover tooltip and the legend) carry who holds what; with the red-green colourblind mode the tint uses
+  `sect_colours_cb` (approved from a screenshot in that mode).
 
 ### The turn
 
@@ -666,7 +754,7 @@ Approved by the user 2026-11-21. PC (Steam / Epic); keyboard and mouse first; ga
 - **Every binding below is a default and can be rebound** (keys, mouse buttons and gamepad buttons; `design/accessibility-requirements.md` Motor Accessibility). A rebind that clashes with another shows a warning.
 - **Keyboard:**
   - Every window has a key: C character, I inventory, R relationships, S sect, J journal, K rankings, N news,
-    P places, D Đạo Đồ, A abode, F1 wiki; Q opens the focused element's tooltip (Tooltips); + and − zoom the map.
+    P places, D Đạo Đồ, A abode, F1 wiki; Q opens the focused element's tooltip (Tooltips); + and − zoom the map, 0 returns to the fit.
   - Enter ends the turn from End turn, from nothing, or from the map with no place focused (The turn: End turn
     input).
   - **Esc first acts on the window that holds focus** (user decision 2026-11-22): a modal (rebind capture, the keep /
@@ -704,7 +792,8 @@ Approved by the user 2026-11-21. PC (Steam / Epic); keyboard and mouse first; ga
 - **Mouse:** hover for tooltips; middle-click (or a click) locks a tooltip; right-click a person for verbs or an alert
   to snooze it; the wheel zooms.
 - **Gamepad (partial):** follows CK3's console approach, without a virtual mouse.
-  - Shoulder buttons cycle the window buttons.
+  - Shoulder buttons cycle the window buttons; the right and left triggers zoom the map in and out, R3 returns to the
+    fit (Map zoom and the political map).
   - A radial menu holds the map modes, the season focus list and the window buttons; it toggles on a press (not a
     hold) and has a plain list form.
   - One button switches focus between the map and the open panel.
@@ -742,7 +831,7 @@ Approved by the user 2026-11-21. **Tier: Standard**, plus reduced motion and men
   scale. Vietnamese diacritics must be legible at the smallest size.
 - **Never colour alone:** each alert has its own glyph shape, and blocking alerts also have a distinct frame and sort
   first; the amber lifespan box also shows an hourglass mark and its accessible name adds "little lifespan left" (announced once when it starts); each box's change is a ▲ / ▼ mark with a sign; the cultivation box reads "Cultivation: Trúc Cơ 3, 62 percent, up 4 percent a season here"; band icons carry their band number; health and linh lực bars
-  carry their own icons; sect territory has a border pattern and the sect's name; price changes show arrows and
+  carry their own icons; sect territory has a bold ink border where the holder changes and the sect's name (or its hover tooltip and the legend); price changes show arrows and
   numbers; map modes have a legend with patterns, not only hues. With reduced motion on, the linh thạch loss flash is
   replaced by a "−12" change shown beside the number, and the boxes' number ticks, the cultivation fill and the sect
   box's fade happen at once.
@@ -750,7 +839,7 @@ Approved by the user 2026-11-21. **Tier: Standard**, plus reduced motion and men
   tooltip and accessible name.
 - **Reduced motion:** a setting turns off slides, glows, cross-fades, the filling bars (cultivation and multi-season
   progress and the End turn hold ring), the bubble slide and the area bubbles' fade-in, the toast fade, the tooltip appearance fade and the breakthrough banner's fade (the banner still shows
-  for `banner_seconds`); the End turn glow becomes a static highlight; changes become instant. One central motion helper owns every UI animation, so the setting reaches them all.
+  for `banner_seconds`), and the map's camera (zoom momentum, glides, the fling and the held-arrow ramp: Map zoom); the End turn glow becomes a static highlight; changes become instant. One central motion helper owns every UI animation, so the setting reaches them all.
   Flashes and glows are limited to one per element per second.
 - **Tooltips:** settings for the hover delay (0–2 s), the lock mode (any of timer, middle-click and click) and the
   close grace (0.3–2 s). "Click to lock" helps players who can't hold the mouse still, and a locked tooltip never
@@ -801,6 +890,16 @@ Approved by the user 2026-11-21.
 | `alert_row_height` | 40 px | Z1a (element 1) |
 | `alert_row_gap` | 6 px | Z1a's gap below the strip |
 | `cartouche_overhang` | 12 px | Element 3's frame below the strip (Z2 starts below it) |
+| `zoom_max_px` | 18 (screen px per tile) | Map zoom: the deepest zoom |
+| `zoom_step` | 1.25 (× a wheel notch or key press) | Map zoom |
+| `zoom_friction` / `zoom_speed_max` | 8 per s / 6 (log per s) | Map zoom: momentum |
+| `glide_seconds` | 0.45 s | Map zoom: jumps (ease-in-out) |
+| `pan_speed` / `pan_accel` / `pan_friction` / `fling_max` | 900 px per s / 6 per s / 6 per s / 2400 px per s | Map zoom: pan inertia and held arrows (the model in Map zoom) |
+| `near_from_px` / `near_to_px` | 6.6 / 9.6 (screen px per tile) | Map zoom: the transition band |
+| `region_zoom_px` | 12 (screen px per tile) | Map zoom: a Places panel click |
+| `political_alpha` | 0.35 | The political map's tint |
+| `sect_colours`, `sect_colours_cb` | one colour per great sect, keyed by the sect's authored key (ui_hud.json; each approved from a screenshot, the second in the red-green mode) | The political map |
+| `realm_name_px` | 18–40 | Great sects' names at continent zoom |
 | `boxes_icon_below` | 0 = off (step 5 never applies); a layout width in px turns it on | Visual Budget drop order step 5 |
 | `resource_box_icon_width` | 48 px | Visual Budget drop order step 5 (icon-only boxes) |
 | `alerts_shown_max_compact` | 4 | Visual Budget drop order (compact layout) |
@@ -1091,6 +1190,29 @@ exact boundary; "appears" means `visible` becomes true. Rows marked `[GdUnit]` d
 - [ ] `[Manual]` On the gamepad, the map cursor snaps to bubbles and A acts like a click.
 - [ ] `[GdUnit]` Clicking the player's bubble opens the character sheet; clicking the abode bubble opens the abode screen.
 - [ ] `[Screenshot]` Region zoom with area bubbles, at 1280×720 and 1920×1080.
+- [ ] `[GdUnit]` The wheel zooms by `zoom_step` about the cursor (the tile under the cursor stays under it within 1 px);
+      the zoom stays within the fit and `zoom_max_px`; at the fit the continent is centred; + and − step about the
+      centre and 0 (and the fit button, and R3) returns to the fit; one notch travels `zoom_step` (±3 %) within 0.6 s and
+      three notches 0.1 s apart reach a higher speed than one (stepped at a fixed 1/60 s); a glide's speed is near 0 at
+      its first and last frames, peaks once in the middle, and the glide ends within `glide_seconds` ±1 frame; a
+      wheel notch during a glide ends it; held arrows reach 95 % of `pan_speed` within 0.6 s and stop within 1 s of
+      release; a fling stops within 1.5 s, or at once at a continent edge; the zoom stops at the fit and at the
+      deepest zoom with no overshoot; with reduced motion on a step, a glide and a fling land at once and an arrow
+      press moves 40 px; at
+      1920×1080, 2560×1440 and 3840×2160 the deepest zoom draws 18 px per tile (±0.5).
+- [ ] `[GdUnit]` In the Terrain mode, below `near_from_px` the drawn layer is the paper map with the political tint
+      (weight 1, tint at `political_alpha`); at or above `near_to_px` the relief with place art and no tint (weight 1);
+      inside the band both draw, their weights summing to 1 and moving monotonically with the zoom; each row of the
+      political map's state table holds (tint, legend, lit button) for Terrain, Sect territory and Qi.
+- [ ] `[GdUnit]` Inside the band an area bubble or place name with weight below 0.5 takes no click and is not counted
+      toward `bubbles_max`; at 0.5 or more it does and is.
+- [ ] `[GdUnit]` A Places panel click pans to the place at `region_zoom_px` (12), and keeps a deeper zoom.
+- [ ] `[GdUnit]` A great sect's name is not drawn when it does not fit inside its territory; the legend lists every
+      great sect with its swatch, and hovering a region at continent zoom shows its name, holder and standing.
+- [ ] `[GdUnit]` At continent zoom every region is tinted in its holding great sect's colour (`sects.md` rule 3: every
+      region has one), and a holder change (a region changing hands) recolours it at the next refresh without rebuilding the map.
+- [ ] `[Screenshot]` Continent zoom with the political map and the great sects' names, the middle of the transition
+      band, and region zoom, at 1280×720 and 1920×1080; and the continent zoom again in the red-green mode.
 
 **HUD states**
 - [ ] `[Screenshot]` One windowed screenshot per row of HUD States by Gameplay Context (17 rows), named
@@ -1144,7 +1266,7 @@ exact boundary; "appears" means `visible` becomes true. Rows marked `[GdUnit]` d
     click versus middle-drag pan, a first click swallowed by a locked tooltip); the preview compute model (snapshot,
     worker or sliced; cancelling a stale run); panel-opener focus after mouse opens (restore focus only after a
     keyboard or gamepad open); announcements for discarded input, the latched Stop, the cooldown refusal, "…" and the
-    armed state; lock marks for screen readers; camera pan and zoom under reduced motion; Z7 scroll keys; hit-target
+    armed state; lock marks for screen readers; Z7 scroll keys; hit-target
     checks for inline link buttons; more colour-only cues (the lit mode button, greyed foci, the clue area, the End turn
     glow); rebind capture rules; toast and banner timing against WCAG 2.2.1; the F6 ring on full screens; screen-reader
     criteria for the event card, summary, confirm dialog and comparison; one injected clock for timed criteria;

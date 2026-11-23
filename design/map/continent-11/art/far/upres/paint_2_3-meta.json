@@ -1,0 +1,23 @@
+{
+ "created": 1795426333,
+ "background": "opaque",
+ "output_format": "png",
+ "quality": "medium",
+ "safety_identifier": null,
+ "size": "1536x864",
+ "usage": {
+  "input_tokens": 1548,
+  "input_tokens_details": {
+   "image_tokens": 1296,
+   "text_tokens": 252
+  },
+  "output_tokens": 1078,
+  "output_tokens_details": {
+   "image_tokens": 1078,
+   "text_tokens": 0
+  },
+  "total_tokens": 2626
+ },
+ "model": "gpt-image-2",
+ "prompt": "This image is an enlarged, soft crop of a hand-painted strategic campaign map on aged warm paper, seen straight down. Repaint it as THE SAME PAINTING at full, crisp detail, as if it had been painted at this size.\n\nKEEP EVERYTHING EXACTLY WHERE IT IS: every coastline, island, lake, river, mountain symbol, tree cluster and colour wash keeps its position, shape, size and colour; the image fills the canvas edge to edge exactly as the input does, so neighbouring crops line up.\n\nAdd only detail and sharpness: fine brown-black ink coastlines with a soft coloured wash along the shore; small hand-painted mountain peaks with crisp ink outlines and a little snow on the highest; small round painted tree symbols in the forests; sparse, gently brushed wave marks on the pale grey-blue sea; fine blue ink rivers; a softly mottled parchment grain with subtle fibres. Light, airy and readable, colours muted and harmonious, the same palette as the input.\n\nNever: text, letters, names, labels, numbers, a compass, a legend, borders, region colours, frames, buildings, roads, ships, people, new islands or features, or any fade or vignette at the edges."
+}

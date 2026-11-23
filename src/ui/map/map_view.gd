@@ -1,29 +1,31 @@
 class_name MapView
 extends Control
-## The continent map of the greybox map screen (design/ux/hud.md, Information Architecture Group 3 and Map bubbles):
-## the authored grid drawn one flat colour per main biome, a dot for each place the player knows, the player's bubble
-## (element 30), the abode bubble (31) and, at region zoom, the area bubbles (32). Continent zoom fits the whole
-## continent; region zoom magnifies around a point. Drag with the left or middle button, or the arrow keys while the
-## map has focus, to pan; the wheel or [method set_region_zoom] switches zoom. Display only: it never changes game
-## state; clicks are reported through signals.
+## The continent map of the map screen (design/ux/hud.md, Information Architecture Group 3, Map bubbles, and Map zoom
+## and the political map): one continuous zoom measured in screen px per tile, from the fit (the whole continent) to
+## zoom_max_px. Below the transition band the paper map (far layer) shows with the political map (each region tinted in
+## its great sect's colour, bold ink where the holder changes, the great sects' names large across their territory);
+## above it the painted relief (near layer) with the place art; inside the band the two cross-fade. Known places are
+## diamonds; the player's bubble (element 30), the abode bubble (31) and, on the region side of the band, the area
+## bubbles (32). Drag with the left or middle button, or the arrow keys, to pan; the wheel zooms about the cursor, + and
+## - about the centre, 0 back to the fit. Display only: it never changes game state; clicks are reported through
+## signals.
 
 ## The player clicked the known place [param place_id] (not a bubble).
 signal place_clicked(place_id: String)
 ## The player pressed a bubble of [param kind] at [param place_id] ("player", "abode" or an area kind).
 signal bubble_pressed(kind: String, place_id: String)
-## The zoom changed ([param region] true for region zoom).
+## The zoom crossed the middle of the transition band ([param region] true on the region side).
 signal zoom_changed(region: bool)
 
 const DRAG_THRESHOLD := 5.0
 const PAN_STEP := 40.0
 
 var _texture: ImageTexture = null
-## The painted layers (art bible Section 1, Principle 2: one map, two distances): the far layer (paper campaign map)
-## at continent zoom, the near layer (painted relief) at region zoom; null falls back to the biome colours.
+## The painted layers (art bible Section 1, Principle 2: one map, two distances); null falls back to the biome colours.
 var _far: Texture2D = null
 var _near: Texture2D = null
 ## Place art on the near layer (assets/map/places/manifest.json): place id -> {texture (loaded on first draw), tile,
-## size_tiles}. Drawn at region zoom for known places only, so the art never reveals a place the player has not found.
+## size_tiles}. Drawn for known places only, so the art never reveals a place the player has not found.
 var _sprites: Dictionary = {}
 var _sprite_dir: String = ""
 ## Region names at continent zoom: [{name, centre: Vector2 (tile)}] (art bible 7.14: engine-drawn, never painted).
@@ -33,6 +35,7 @@ var _region_font: Font = null
 var _backdrop_far := Color(0.08, 0.1, 0.14)
 var _backdrop_near := Color(0.08, 0.1, 0.14)
 var _grid_size := Vector2i.ZERO
+var _regn := PackedInt32Array()   # the grid's region id per tile (0 = sea)
 ## Known places: [{id, name, tile: Vector2i, kind}].
 var _places: Array = []
 var _player_tile := Vector2i(-1, -1)
@@ -40,15 +43,39 @@ var _player_place: String = ""
 var _destination_id: String = ""
 var _place_radius: float = 3.0
 var _hover_id: String = ""
-var _region: bool = false
+var _hover_region: int = -1
 var _region_factor: float = 4.0
-var _center := Vector2.ZERO   # the tile point at the middle of the view in region zoom
+var _zcfg: Dictionary = {}        # ui_hud.json greybox.map_zoom
+var _px: float = 0.0              # screen px per tile now (0 until the first layout: the fit)
+var _px_target: float = 0.0
+var _anchor_tile := Vector2(-1, -1)   # the tile kept under _anchor_pos while the zoom moves
+var _anchor_pos := Vector2.ZERO
+var _zvel: float = 0.0                # the zoom's speed, in log px per tile per second (momentum)
+var _glide_t: float = -1.0            # a glide's progress 0..1 (-1: none)
+var _glide_from_px: float = 0.0
+var _glide_to_px: float = 0.0
+var _glide_from_c := Vector2.ZERO
+var _glide_to_c := Vector2.ZERO
+var _pan_vel := Vector2.ZERO          # a released drag's fling, screen px per second
+var _key_vel := Vector2.ZERO          # held arrow keys' pan, screen px per second
+var _drag_samples: Array = []         # recent [time, position] while dragging (the fling's speed)
+var _reduced_motion: bool = false
+var _colourblind: bool = false
+var _was_region: bool = false
+var _center := Vector2.ZERO       # the tile point at the middle of the view
 var _drag_from := Vector2.ZERO
 var _dragging: bool = false
 var _press_pos := Vector2.ZERO
 var _pressed: bool = false
 var _layer := Control.new()
-var _blocked: Array = []   # global Rect2s where bubbles are not drawn or clickable (the HUD zones)
+var _blocked: Array = []          # global Rect2s where bubbles are not drawn or clickable (the HUD zones)
+## The political map, baked from the region grid and the holders (hud.md: recoloured only when a holder changes).
+var _politics_sig: String = ""
+var _tint: ImageTexture = null
+var _lines_bold: Array = []   # smoothed border polylines in tile coordinates (PackedVector2Array each)
+var _lines_thin: Array = []
+var _realms: Array = []                 # [{name, centre: Vector2 tile, width_tiles}]
+var _region_info: Dictionary = {}       # grid region id -> {name, holder_name}
 
 
 func _init() -> void:
@@ -59,16 +86,19 @@ func _init() -> void:
 	add_child(_layer)
 
 
-## Builds the map image from [param grid] with [param cfg] (ui_hud.json "greybox") and [param region_factor].
+## Builds the map image from [param grid] with [param cfg] (ui_hud.json "greybox", its "map_zoom" block for the zoom
+## and the political map) and [param region_factor] (kept for callers; the zoom is in px per tile now).
 func setup(grid: ContinentGrid, cfg: Dictionary, region_factor: float) -> void:
 	_place_radius = float(cfg.get("place_radius_px", 3.0))
 	_region_factor = region_factor
+	_zcfg = cfg.get("map_zoom", {})
 	_grid_size = Vector2i(grid.width, grid.height)
 	_center = Vector2(_grid_size) * 0.5
 	var colours: Dictionary = cfg.get("biome_colours", {})
 	var unknown := Color(str(cfg.get("unknown_colour", "#808080")))
 	var by_id: Dictionary = {}
 	var img := Image.create(grid.width, grid.height, false, Image.FORMAT_RGB8)
+	_regn.resize(grid.width * grid.height)
 	for y in grid.height:
 		for x in grid.width:
 			var b: int = grid.main_biome(x, y)
@@ -76,6 +106,7 @@ func setup(grid: ContinentGrid, cfg: Dictionary, region_factor: float) -> void:
 				var name: String = grid.biome_name(b)
 				by_id[b] = Color(str(colours[name])) if colours.has(name) else unknown
 			img.set_pixel(x, y, by_id[b])
+			_regn[y * grid.width + x] = grid.region(x, y)
 	_texture = ImageTexture.create_from_image(img)
 	_far = _layer_texture(str(cfg.get("far_layer", "")))
 	_near = _layer_texture(str(cfg.get("near_layer", "")))
@@ -83,6 +114,7 @@ func setup(grid: ContinentGrid, cfg: Dictionary, region_factor: float) -> void:
 	_backdrop_far = Color.from_string(str(cfg.get("backdrop_far", "#141A24")), Color(0.08, 0.1, 0.14))
 	_backdrop_near = Color.from_string(str(cfg.get("backdrop_near", "#141A24")), Color(0.08, 0.1, 0.14))
 	mouse_filter = Control.MOUSE_FILTER_STOP
+	_px = 0.0
 	_relayout()
 
 
@@ -96,7 +128,7 @@ func set_state(places: Array, player_tile: Vector2i, player_place: String, desti
 
 
 ## Replaces the bubbles with [param bubbles]: [{kind, place_id, count, tile: Vector2i, tooltip, locked}]. The player and
-## abode bubbles show at every zoom; area bubbles only at region zoom (the caller passes them always).
+## abode bubbles show at every zoom; area bubbles only on the region side of the band (the caller passes them always).
 func set_bubbles(bubbles: Array) -> void:
 	# keep keyboard focus across the rebuild: the bubble of the same kind at the same place gets it back
 	var focused_key: String = ""
@@ -132,27 +164,63 @@ func set_blocked_rects(rects: Array) -> void:
 	_relayout()
 
 
-## True at region zoom.
+## Reduced motion (hud.md: a zoom step lands at once) and the red-green colourblind palette (sect_colours_cb).
+func set_accessibility(reduced_motion: bool, colourblind: bool) -> void:
+	_reduced_motion = reduced_motion
+	if colourblind != _colourblind:
+		_colourblind = colourblind
+		_politics_sig = ""
+
+
+## True on the region side of the transition band (the relief's weight is at least 0.5).
 func is_region_zoom() -> bool:
-	return _region
+	return near_weight() >= 0.5
 
 
-## Switches to region zoom centred on [param at_tile] (or back to continent zoom when [param on] is false).
+## The relief's weight now: 0 below near_from_px, 1 at or above near_to_px, a smooth step between.
+func near_weight() -> float:
+	var a: float = float(_zcfg.get("near_from_px", 6.6))
+	var b: float = float(_zcfg.get("near_to_px", 9.6))
+	return smoothstep(a, b, tile_scale())
+
+
+## Zooms to region zoom (region_zoom_px, or keeps a deeper zoom) centred on [param at_tile], or back to the fit when
+## [param on] is false; both glide (an ease-in-out on zoom and pan together).
 func set_region_zoom(on: bool, at_tile: Vector2 = Vector2(-1, -1)) -> void:
-	_region = on
-	if on and at_tile.x >= 0:
-		_center = at_tile
-	_relayout()
-	zoom_changed.emit(_region)
+	if on:
+		_glide_to(maxf(tile_scale(), float(_zcfg.get("region_zoom_px", 12.0))), at_tile if at_tile.x >= 0 else _center)
+	else:
+		zoom_fit()
 
 
 ## Centres the view on [param tile] at region zoom (the Places panel's selected row).
 func centre_on(tile: Vector2i) -> void:
-	_center = Vector2(tile) + Vector2(0.5, 0.5)
-	if not _region:
-		set_region_zoom(true, _center)
-	else:
-		_relayout()
+	set_region_zoom(true, Vector2(tile) + Vector2(0.5, 0.5))
+
+
+## One zoom step by [param factor] about [param at] (local; outside the view: the centre). With motion it is an
+## impulse on the zoom's speed (hud.md Map zoom: momentum), so quick steps accelerate and friction brings the zoom to
+## rest; a single step travels by about [param factor]. With reduced motion it lands at once.
+func zoom_by(factor: float, at: Vector2 = Vector2(-1, -1)) -> void:
+	var pos: Vector2 = at if at.x >= 0 else size * 0.5
+	_glide_t = -1.0
+	_anchor_tile = local_to_tile(pos)
+	_anchor_pos = pos
+	if _px <= 0.0:
+		_px = _fit_px()
+	if _reduced_motion:
+		_zvel = 0.0
+		_set_px(clampf(tile_scale() * factor, _fit_px(), _max_px()))
+		return
+	var k: float = float(_zcfg.get("zoom_friction", 8.0))
+	var vmax: float = float(_zcfg.get("zoom_speed_max", 6.0))
+	_zvel = clampf(_zvel + log(factor) * k, -vmax, vmax)
+	set_process(true)
+
+
+## Back to the fit: the whole continent, centred (a glide).
+func zoom_fit() -> void:
+	_glide_to(_fit_px(), Vector2(_grid_size) * 0.5)
 
 
 ## The visible bubbles in order (for tests and the demo).
@@ -160,20 +228,135 @@ func visible_bubbles() -> Array:
 	return _layer.get_children().filter(func(b): return b.visible)
 
 
-## Pixels per tile at the current zoom.
+## Screen pixels per tile now.
 func tile_scale() -> float:
 	if _grid_size == Vector2i.ZERO:
 		return 1.0
-	var fit: float = minf(size.x / float(_grid_size.x), size.y / float(_grid_size.y))
-	return fit * (_region_factor if _region else 1.0)
+	if _px <= 0.0:
+		return _fit_px()
+	return _px
+
+
+## True while the view is moving (a glide, the zoom's momentum or a pan), for the demo checks.
+func is_moving() -> bool:
+	return is_processing()
+
+
+## The fit: the zoom at which the whole continent fills the view.
+func _fit_px() -> float:
+	if _grid_size == Vector2i.ZERO or size.x <= 0.0:
+		return 1.0
+	return minf(size.x / float(_grid_size.x), size.y / float(_grid_size.y))
+
+
+func _max_px() -> float:
+	return maxf(_fit_px(), float(_zcfg.get("zoom_max_px", 18.0)))
+
+
+## A glide: zoom (in log space) and centre move together from where they are to [param px] and [param centre] with an
+## ease-in-out over glide_seconds, so a jump speeds up and slows down instead of snapping.
+func _glide_to(px: float, centre: Vector2) -> void:
+	if _px <= 0.0:
+		_px = _fit_px()
+	_zvel = 0.0
+	_pan_vel = Vector2.ZERO
+	_anchor_tile = Vector2(-1, -1)
+	_glide_from_px = tile_scale()
+	_glide_to_px = clampf(px, _fit_px(), _max_px())
+	_glide_from_c = _center
+	_glide_to_c = centre
+	if _reduced_motion or float(_zcfg.get("glide_seconds", 0.45)) <= 0.0:
+		_glide_t = -1.0
+		_center = centre
+		_set_px(_glide_to_px)
+		return
+	_glide_t = 0.0
+	set_process(true)
+
+
+func _set_px(v: float) -> void:
+	_px = v
+	_px_target = v
+	if _anchor_tile.x >= 0:
+		_center = _anchor_tile - (_anchor_pos - size * 0.5) / _px
+	_clamp_center()
+	_relayout()
+	var region: bool = is_region_zoom()
+	if region != _was_region:
+		_was_region = region
+		zoom_changed.emit(region)
+
+
+## The motion each frame: a glide, the zoom's momentum, the pan's fling and held arrow keys; processing stops when
+## everything is at rest.
+func _process(delta: float) -> void:
+	var busy: bool = false
+	if _glide_t >= 0.0:
+		_glide_t = minf(1.0, _glide_t + delta / maxf(0.01, float(_zcfg.get("glide_seconds", 0.45))))
+		var e: float = _glide_t * _glide_t * (3.0 - 2.0 * _glide_t)   # ease in, ease out
+		_center = _glide_from_c.lerp(_glide_to_c, e)
+		_set_px(exp(lerpf(log(_glide_from_px), log(_glide_to_px), e)))
+		busy = _glide_t < 1.0
+		if not busy:
+			_glide_t = -1.0
+	if absf(_zvel) > 0.0005:
+		var lp: float = log(tile_scale()) + _zvel * delta
+		var lo: float = log(_fit_px())
+		var hi: float = log(_max_px())
+		if lp <= lo or lp >= hi:   # the ends stop the zoom softly
+			lp = clampf(lp, lo, hi)
+			_zvel = 0.0
+		_zvel *= exp(-float(_zcfg.get("zoom_friction", 8.0)) * delta)
+		_set_px(exp(lp))
+		busy = true
+	else:
+		_zvel = 0.0
+	# held arrow keys: the pan speeds up to pan_speed and slows when released (while the map has focus)
+	var dir := Vector2.ZERO
+	if has_focus():
+		dir = Vector2(float(Input.is_physical_key_pressed(KEY_RIGHT)) - float(Input.is_physical_key_pressed(KEY_LEFT)),
+			float(Input.is_physical_key_pressed(KEY_DOWN)) - float(Input.is_physical_key_pressed(KEY_UP)))
+	if dir != Vector2.ZERO:
+		var target: Vector2 = dir.normalized() * float(_zcfg.get("pan_speed", 900.0))
+		_key_vel = _key_vel.lerp(target, 1.0 - exp(-delta * float(_zcfg.get("pan_accel", 6.0))))
+	else:
+		_key_vel *= exp(-delta * float(_zcfg.get("pan_friction", 6.0)) * 1.5)
+	var vel: Vector2 = _key_vel + (_pan_vel if not _dragging else Vector2.ZERO)
+	if vel.length() > 2.0:
+		var want: Vector2 = _center + vel * delta / tile_scale()
+		_center = want
+		_clamp_center()
+		for k in 2:   # an edge stops the pan on that axis, losing its speed (hud.md Map zoom)
+			if absf(_center[k] - want[k]) > 0.0001:
+				_pan_vel[k] = 0.0
+				_key_vel[k] = 0.0
+		_relayout()
+		busy = true
+	if not _dragging:
+		_pan_vel *= exp(-delta * float(_zcfg.get("pan_friction", 6.0)))
+		if _pan_vel.length() < 2.0:
+			_pan_vel = Vector2.ZERO
+	if _key_vel.length() < 2.0 and dir == Vector2.ZERO:
+		_key_vel = Vector2.ZERO
+	if not busy and dir == Vector2.ZERO and _pan_vel == Vector2.ZERO and _key_vel == Vector2.ZERO:
+		set_process(false)
+
+
+## Pan stops at the continent's edges; an axis that fits in the view is centred.
+func _clamp_center() -> void:
+	var sc: float = tile_scale()
+	var half: Vector2 = size * 0.5 / sc
+	for k in 2:
+		var g: float = float(_grid_size[k])
+		if g <= half[k] * 2.0:
+			_center[k] = g * 0.5
+		else:
+			_center[k] = clampf(_center[k], half[k], g - half[k])
 
 
 ## The screen position (local) of the top-left corner of the map image.
 func _origin() -> Vector2:
-	var sc: float = tile_scale()
-	if not _region:
-		return (size - Vector2(_grid_size) * sc) * 0.5
-	return size * 0.5 - _center * sc
+	return size * 0.5 - _center * tile_scale()
 
 
 ## The local position of the centre of tile [param tile].
@@ -187,28 +370,43 @@ func local_to_tile(pos: Vector2) -> Vector2:
 
 
 func _relayout() -> void:
+	if _px <= 0.0 and size.x > 0.0 and _grid_size != Vector2i.ZERO:
+		_px = _fit_px()
+		_px_target = _px
+		_clamp_center()
+	var w: float = near_weight()
 	for b in _layer.get_children():
 		var mb: MapBubble = b
 		var area: bool = mb.kind != "player" and mb.kind != "abode"
 		var at: Vector2 = tile_to_local(mb.tile) + mb.cluster_offset - mb.size * 0.5
 		mb.position = at
 		var r := Rect2(global_position + at, mb.size)
-		var shown: bool = (not area or _region) and Rect2(Vector2.ZERO, size).encloses(Rect2(at, mb.size))
+		# a faded-in bubble is drawn, clickable and counted only once its weight reaches 0.5 (hud.md Map zoom)
+		var shown: bool = (not area or w >= 0.5) and Rect2(Vector2.ZERO, size).encloses(Rect2(at, mb.size))
 		for z in _blocked:
 			if (z as Rect2).intersects(r):
 				shown = false
 		mb.visible = shown
+		mb.modulate.a = 1.0 if not area else clampf(w, 0.0, 1.0)
 	queue_redraw()
 
 
 func _draw() -> void:
-	draw_rect(Rect2(Vector2.ZERO, size), _backdrop_near if _region else _backdrop_far)
-	var art: Texture2D = (_near if _near != null else _far) if _region else (_far if _far != null else _near)
-	if art == null:
-		art = _texture
-	if art != null:   # every layer is registered to the grid: its full size covers the whole continent
-		draw_texture_rect(art, Rect2(_origin(), Vector2(_grid_size) * tile_scale()), false)
-	if _region and art == _near and _near != null:
+	var w: float = near_weight()
+	var sc: float = tile_scale()
+	var map_rect := Rect2(_origin(), Vector2(_grid_size) * sc)
+	draw_rect(Rect2(Vector2.ZERO, size), _backdrop_far.lerp(_backdrop_near, w))
+	var far: Texture2D = _far if _far != null else (_near if _near != null else _texture)
+	var near: Texture2D = _near if _near != null else far
+	if w < 1.0 and far != null:   # every layer is registered to the grid: its full size covers the whole continent
+		draw_texture_rect(far, map_rect, false)
+	if w > 0.0 and near != null:   # the relief cross-fades in over the paper map
+		draw_texture_rect(near, map_rect, false, Color(1, 1, 1, w))
+	var pol: float = 1.0 - w   # the political map (Terrain mode) fades out with the paper map
+	if pol > 0.0 and _tint != null:
+		draw_texture_rect(_tint, map_rect, false, Color(1, 1, 1, float(_zcfg.get("political_alpha", 0.35)) * pol))
+	_draw_borders(pol)
+	if w > 0.0 and _near != null:
 		var by_rank: Array = _places.duplicate()   # small places first, so seats and cities sit on top where patches meet
 		by_rank.sort_custom(func(a, b): return _label_rank(a) > _label_rank(b))
 		for p in by_rank:   # each known place's own art, painted into its patch of the near layer
@@ -218,17 +416,11 @@ func _draw() -> void:
 				continue
 			var tex: Texture2D = _sprite_texture(spr)
 			if tex != null:
-				var side: float = float(spr.size_tiles) * tile_scale()
-				draw_texture_rect(tex, Rect2(tile_to_local(p.tile) - Vector2(side, side) * 0.5, Vector2(side, side)), false)
-	if not _region and _region_font != null:   # region names: letter-spaced heading face, ink with a paper halo
-		for r in _regions:
-			var label: String = " ".join(Array(str(r.name).to_upper().split("")))
-			var fs: int = int(clampf(tile_scale() * 6.0, 13.0, 26.0))
-			var w: float = _region_font.get_string_size(label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs).x
-			var at: Vector2 = tile_to_local(Vector2i(r.centre)) - Vector2(w * 0.5, -fs * 0.35)
-			draw_string_outline(_region_font, at, label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, 4, Color(0.89, 0.83, 0.68, 0.75))
-			draw_string(_region_font, at, label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, Color(0.24, 0.16, 0.1, 0.85))
-	var dot: float = _place_radius * (1.6 if _region else 1.0)
+				var side: float = float(spr.size_tiles) * sc
+				draw_texture_rect(tex, Rect2(tile_to_local(p.tile) - Vector2(side, side) * 0.5, Vector2(side, side)), false, Color(1, 1, 1, w))
+	if pol > 0.0 and _region_font != null:
+		_draw_names(pol)
+	var dot: float = _place_radius * lerpf(1.0, 1.6, w)
 	var font: Font = get_theme_default_font()
 	var taken: Array = []   # label boxes already drawn: a name that would overlap one is skipped (hover always shows)
 	var order: Array = _places.duplicate()
@@ -236,15 +428,15 @@ func _draw() -> void:
 	for p in order:
 		var at: Vector2 = _marker_at(p)
 		var hover: bool = p.id == _hover_id
-		# a diamond marks a fixed named place (art bible Section 3): bone on the painted relief, cinnabar on the paper map
-		var fill := Color(0.91, 0.85, 0.71) if _region else Color(0.52, 0.1, 0.11)
+		# a diamond marks a fixed named place (art bible Section 3): cinnabar on the paper map, bone on the relief
+		var fill := Color(0.52, 0.1, 0.11).lerp(Color(0.91, 0.85, 0.71), w)
 		if hover:
 			fill = Color(1, 0.86, 0.4)
 		_diamond(at, dot + 1.5, Color(0.1, 0.07, 0.05))
 		_diamond(at, dot, fill)
 		if p.id == _destination_id:
 			draw_arc(at, dot + 6.0, 0.0, TAU, 24, Color(1, 0.85, 0.2), 2.0)
-		if _region:   # the name on a dark, see-through backing (7.14)
+		if w >= 0.5:   # the name on a dark, see-through backing (7.14), fading in with the relief
 			var name: String = str(p.name)
 			var fs: int = 13
 			var sz: Vector2 = font.get_string_size(name, HORIZONTAL_ALIGNMENT_LEFT, -1, fs)
@@ -252,20 +444,82 @@ func _draw() -> void:
 			if not hover and taken.any(func(r): return (r as Rect2).intersects(box)):
 				continue
 			taken.append(box)
-			draw_rect(box, Color(0.08, 0.05, 0.03, 0.62))
-			draw_string(font, box.position + Vector2(4, font.get_ascent(fs) + 1), name, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, Color(0.96, 0.92, 0.82))
+			draw_rect(box, Color(0.08, 0.05, 0.03, 0.62 * w))
+			draw_string(font, box.position + Vector2(4, font.get_ascent(fs) + 1), name, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, Color(0.96, 0.92, 0.82, w))
 
 
-## Where a place's diamond and name sit: on its tile, or, at region zoom when the place has its own art, just below
+## Region borders: the thin line between a great sect's own regions (the Borders toggle) and the bold ink line where
+## the holder changes (part of the political overlay, so it fades with [param pol]).
+func _draw_borders(pol: float) -> void:
+	var sc: float = tile_scale()
+	var o: Vector2 = _origin()
+	var view := Rect2(Vector2(-8, -8), size + Vector2(16, 16))
+	var draw_set := func(lines: Array, col: Color, width: float) -> void:
+		for ln in lines:
+			var pts: PackedVector2Array = ln
+			var tr2 := PackedVector2Array()
+			tr2.resize(pts.size())
+			var any_in: bool = false
+			for i in pts.size():
+				tr2[i] = o + pts[i] * sc
+				if not any_in and view.has_point(tr2[i]):
+					any_in = true
+			if any_in:
+				draw_polyline(tr2, col, width, true)
+	draw_set.call(_lines_thin, Color(0.17, 0.12, 0.08, 0.42), float(_zcfg.get("border_thin_px", 1.0)))
+	if pol > 0.0:
+		draw_set.call(_lines_bold, Color(0.15, 0.1, 0.07, 0.85 * pol), float(_zcfg.get("border_bold_px", 2.6)))
+
+
+## The great sects' names large across their territory, region names smaller beneath (art bible 7.14), ink with a
+## paper halo; a sect's name that would not fit inside its territory is not drawn (the legend and hover carry it).
+func _draw_names(alpha: float) -> void:
+	var sc: float = tile_scale()
+	var halo := Color(0.89, 0.83, 0.68, 0.75 * alpha)
+	var ink := Color(0.24, 0.16, 0.1, 0.85 * alpha)
+	var taken: Array = []   # name boxes drawn: a region name that would overlap one is skipped
+	var rp: Array = _zcfg.get("realm_name_px", [18, 40])
+	for realm in _realms:
+		var label: String = " ".join(Array(str(realm.name).to_upper().split("")))
+		var room: float = float(realm.width_tiles) * sc * 0.8
+		var w20: float = _region_font.get_string_size(label, HORIZONTAL_ALIGNMENT_LEFT, -1, 20).x
+		var fs: float = minf(20.0 * room / maxf(1.0, w20), float(rp[1]))
+		if fs < float(rp[0]):
+			continue
+		var tw: float = _region_font.get_string_size(label, HORIZONTAL_ALIGNMENT_LEFT, -1, int(fs)).x
+		var at: Vector2 = _origin() + Vector2(realm.centre) * sc - Vector2(tw * 0.5, -fs * 0.35)
+		taken.append(Rect2(at + Vector2(0, -fs), Vector2(tw, fs * 1.25)).grow(4))
+		draw_string_outline(_region_font, at, label, HORIZONTAL_ALIGNMENT_LEFT, -1, int(fs), 6, halo)
+		draw_string(_region_font, at, label, HORIZONTAL_ALIGNMENT_LEFT, -1, int(fs), Color(ink.r, ink.g, ink.b, 0.78 * alpha))
+	var rn: Array = _zcfg.get("region_name_px", [13, 20])
+	for r in _regions:
+		var label: String = " ".join(Array(str(r.name).to_upper().split("")))
+		var fs: int = int(clampf(sc * 4.5, float(rn[0]), float(rn[1])))
+		var tw: float = _region_font.get_string_size(label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs).x
+		var base: Vector2 = tile_to_local(Vector2i(r.centre)) - Vector2(tw * 0.5, -fs * 0.35)
+		var drawn: bool = false
+		for dy in [0.0, fs * 1.6, -fs * 1.6, fs * 3.2]:   # its centre first, then just below or above a sect's name
+			var at: Vector2 = base + Vector2(0, dy)
+			var box := Rect2(at + Vector2(0, -fs), Vector2(tw, fs * 1.25)).grow(2)
+			if taken.any(func(t): return (t as Rect2).intersects(box)):
+				continue
+			taken.append(box)
+			draw_string_outline(_region_font, at, label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, 4, halo)
+			draw_string(_region_font, at, label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, ink)
+			drawn = true
+			break
+
+
+## Where a place's diamond and name sit: on its tile, or, on the region side when the place has its own art, just below
 ## the art so the marker never covers the place's signature (the place art is centred on the tile).
 func _marker_at(p: Dictionary) -> Vector2:
 	var at: Vector2 = tile_to_local(p.tile)
-	if not _region or _near == null:
+	if _near == null:
 		return at
 	var spr: Dictionary = _sprites.get(str(int(p.get("rec", {}).get("continent_id", -1))), {})
 	if spr.is_empty():
 		return at
-	return at + Vector2(0, float(spr.size_tiles) * tile_scale() * 0.3)
+	return at + Vector2(0, float(spr.size_tiles) * tile_scale() * 0.3 * near_weight())
 
 
 ## Label priority: sect seats and cities first, then towns and markets, then everything else (lower draws first).
@@ -309,11 +563,180 @@ static func _layer_texture(path: String) -> Texture2D:
 	return load(path) as Texture2D
 
 
-## Sets the region names drawn at continent zoom ([param regions] from GameQuery.regions) in [param font].
+## Sets the regions ([param regions] from GameQuery.regions: names, centres, grid ids and holders) drawn in
+## [param font]. The political map is rebaked only when a holder (or the palette) changed, so this can be called on
+## every refresh.
 func set_regions(regions: Array, font: Font) -> void:
 	_regions = regions.map(func(r): return {"name": str(r.name), "centre": Vector2(float(r.centre[0]), float(r.centre[1])) + Vector2(0.5, 0.5)})
 	_region_font = font
+	var sig: String = ("cb|" if _colourblind else "") + "|".join(regions.map(func(r): return "%s=%s" % [r.get("grid_id", 0), r.get("holder_key", "")]))
+	if sig != _politics_sig and _grid_size != Vector2i.ZERO:
+		_politics_sig = sig
+		_bake_politics(regions)
 	queue_redraw()
+
+
+func _bake_politics(regions: Array) -> void:
+	var W: int = _grid_size.x
+	var H: int = _grid_size.y
+	var palette: Dictionary = _zcfg.get("sect_colours_cb" if _colourblind else "sect_colours", {})
+	var holder: Dictionary = {}   # grid id -> holder key
+	var col: Dictionary = {}      # grid id -> Color
+	_region_info = {}
+	for r in regions:
+		var gid: int = int(r.get("grid_id", 0))
+		var key: String = str(r.get("holder_key", ""))
+		holder[gid] = key
+		_region_info[gid] = {"name": str(r.name), "holder_name": str(r.get("holder_name", ""))}
+		if key != "" and palette.has(key):
+			col[gid] = Color.from_string(str(palette[key]), Color(0, 0, 0, 0))
+	var data := PackedByteArray()
+	data.resize(W * H * 4)
+	var stats: Dictionary = {}    # holder key -> {n, sx, sy, minx, maxx, name}
+	for y in H:
+		for x in W:
+			var gid: int = _regn[y * W + x]
+			var i: int = (y * W + x) * 4
+			if col.has(gid):
+				var c: Color = col[gid]
+				data[i] = c.r8
+				data[i + 1] = c.g8
+				data[i + 2] = c.b8
+				data[i + 3] = 255
+			var key: String = str(holder.get(gid, ""))
+			if gid > 0 and key != "":
+				if not stats.has(key):
+					stats[key] = {"n": 0, "sx": 0.0, "sy": 0.0, "minx": x, "maxx": x, "name": ""}
+				var st: Dictionary = stats[key]
+				st.n += 1
+				st.sx += x
+				st.sy += y
+				st.minx = mini(st.minx, x)
+				st.maxx = maxi(st.maxx, x)
+	_tint = ImageTexture.create_from_image(Image.create_from_data(W, H, false, Image.FORMAT_RGBA8, data))
+	# borders between two land regions: bold where the holder changes, thin between a sect's own regions; the tile-edge
+	# steps are chained into lines and rounded (hud.md Map zoom: no staircase at region zoom)
+	var ea := PackedVector2Array()   # unit edges: ends a, b and whether bold
+	var eb := PackedVector2Array()
+	var ebold := PackedByteArray()
+	for y in H:
+		for x in W:
+			var a: int = _regn[y * W + x]
+			if a <= 0:
+				continue
+			if x + 1 < W:
+				var b: int = _regn[y * W + x + 1]
+				if b > 0 and b != a:
+					ea.append(Vector2(x + 1, y))
+					eb.append(Vector2(x + 1, y + 1))
+					ebold.append(1 if str(holder.get(a, "")) != str(holder.get(b, "")) else 0)
+			if y + 1 < H:
+				var b2: int = _regn[(y + 1) * W + x]
+				if b2 > 0 and b2 != a:
+					ea.append(Vector2(x, y + 1))
+					eb.append(Vector2(x + 1, y + 1))
+					ebold.append(1 if str(holder.get(a, "")) != str(holder.get(b2, "")) else 0)
+	var lines: Array = _chain_edges(ea, eb, ebold)
+	_lines_bold = []
+	_lines_thin = []
+	for ln in lines:
+		var pts: PackedVector2Array = _chaikin(_chaikin(_midpoints(ln.points)))
+		if ln.bold:
+			_lines_bold.append(pts)
+		else:
+			_lines_thin.append(pts)
+	_realms = []
+	var names: Dictionary = {}
+	for r in regions:
+		if str(r.get("holder_key", "")) != "":
+			names[str(r.holder_key)] = str(r.get("holder_name", ""))
+	for key in stats:
+		var st: Dictionary = stats[key]
+		_realms.append({"name": str(names.get(key, key)), "centre": Vector2(st.sx / st.n, st.sy / st.n) + Vector2(0.5, 0.5),
+			"width_tiles": float(st.maxx - st.minx + 1)})
+
+
+## Chains unit edges ([param ea], [param eb], [param bold] per edge) into lines that break where three regions meet,
+## where the border kind changes, or at a loop's start: [{points: PackedVector2Array, bold}].
+static func _chain_edges(ea: PackedVector2Array, eb: PackedVector2Array, bold: PackedByteArray) -> Array:
+	var at: Dictionary = {}   # point -> edge indices
+	for i in ea.size():
+		for q in [ea[i], eb[i]]:
+			if not at.has(q):
+				at[q] = []
+			at[q].append(i)
+	var used := PackedByteArray()
+	used.resize(ea.size())
+	var out: Array = []
+	var walk := func(start: Vector2, first: int) -> PackedVector2Array:
+		var pts := PackedVector2Array([start])
+		var e: int = first
+		var cur: Vector2 = start
+		while e >= 0:
+			used[e] = 1
+			cur = eb[e] if ea[e] == cur else ea[e]
+			pts.append(cur)
+			var nxt: int = -1
+			var here: Array = at[cur]
+			if here.size() == 2:   # continue only through a plain bend of the same kind
+				for k in here:
+					if used[k] == 0 and bold[k] == bold[e]:
+						nxt = k
+			e = nxt
+		return pts
+	# open lines first, from points that are not plain bends (junctions, ends, kind changes)
+	for q in at:
+		var here: Array = at[q]
+		var plain: bool = here.size() == 2 and bold[here[0]] == bold[here[1]]
+		if plain:
+			continue
+		for k in here:
+			if used[k] == 0:
+				out.append({"points": walk.call(q, k), "bold": bold[k] == 1})
+	for k in ea.size():   # closed loops
+		if used[k] == 0:
+			out.append({"points": walk.call(ea[k], k), "bold": bold[k] == 1})
+	return out
+
+
+## The midpoints of a line's steps, its ends kept: a tile staircase becomes a straight diagonal.
+static func _midpoints(pts: PackedVector2Array) -> PackedVector2Array:
+	if pts.size() < 3:
+		return pts
+	var out := PackedVector2Array([pts[0]])
+	for i in pts.size() - 1:
+		out.append((pts[i] + pts[i + 1]) * 0.5)
+	out.append(pts[pts.size() - 1])
+	return out
+
+
+## One pass of Chaikin corner cutting: each corner becomes two points a quarter in, the ends stay put.
+static func _chaikin(pts: PackedVector2Array) -> PackedVector2Array:
+	if pts.size() < 3:
+		return pts
+	var out := PackedVector2Array([pts[0]])
+	for i in pts.size() - 1:
+		var a: Vector2 = pts[i]
+		var b: Vector2 = pts[i + 1]
+		if i > 0:
+			out.append(a.lerp(b, 0.25))
+		if i < pts.size() - 2:
+			out.append(a.lerp(b, 0.75))
+	out.append(pts[pts.size() - 1])
+	return out
+
+
+## The political map's tint colour of grid region [param grid_id] in the current palette (transparent when none), and
+## the number of bold and thin border segments (for tests and the demo).
+func politics_probe(grid_id: int) -> Dictionary:
+	var c := Color(0, 0, 0, 0)
+	if _tint != null:
+		var img: Image = _tint.get_image()
+		for i in _regn.size():
+			if _regn[i] == grid_id:
+				c = img.get_pixel(i % _grid_size.x, i / _grid_size.x)
+				break
+	return {"colour": c, "bold": _lines_bold.size(), "thin": _lines_thin.size(), "realms": _realms.size()}
 
 
 ## The place art of the authored place [param continent_id] (its patch of the near map), or null.
@@ -322,11 +745,13 @@ func place_art(continent_id: int) -> Texture2D:
 	return _sprite_texture(spr) if not spr.is_empty() else null
 
 
-## Which layer is drawn now: "near", "far" or "biome" (for the demo checks).
+## Which layer leads now: "near" on the region side of the band, else "far" ("biome" with no painted layers).
 func drawn_layer() -> String:
-	if _region:
-		return "near" if _near != null else ("far" if _far != null else "biome")
-	return "far" if _far != null else ("near" if _near != null else "biome")
+	if _far == null and _near == null:
+		return "biome"
+	if is_region_zoom():
+		return "near" if _near != null else "far"
+	return "far" if _far != null else "near"
 
 
 func _place_at(pos: Vector2) -> Dictionary:
@@ -340,14 +765,25 @@ func _place_at(pos: Vector2) -> Dictionary:
 	return best
 
 
+## The grid region under local [param pos] (0 for sea or off the map).
+func _region_under(pos: Vector2) -> int:
+	var t: Vector2 = local_to_tile(pos)
+	var x: int = int(floor(t.x))
+	var y: int = int(floor(t.y))
+	if x < 0 or y < 0 or x >= _grid_size.x or y >= _grid_size.y:
+		return 0
+	return _regn[y * _grid_size.x + x]
+
+
 func _gui_input(event: InputEvent) -> void:
+	var step: float = float(_zcfg.get("zoom_step", 1.25))
 	if event is InputEventMouseButton:
 		var mb := event as InputEventMouseButton
 		if mb.button_index == MOUSE_BUTTON_WHEEL_UP and mb.pressed:
-			set_region_zoom(true, local_to_tile(mb.position))
+			zoom_by(step, mb.position)
 			accept_event()
 		elif mb.button_index == MOUSE_BUTTON_WHEEL_DOWN and mb.pressed:
-			set_region_zoom(false)
+			zoom_by(1.0 / step, mb.position)
 			accept_event()
 		elif mb.button_index == MOUSE_BUTTON_LEFT or mb.button_index == MOUSE_BUTTON_MIDDLE:
 			if mb.pressed:
@@ -355,7 +791,18 @@ func _gui_input(event: InputEvent) -> void:
 				_dragging = false
 				_press_pos = mb.position
 				_drag_from = mb.position
+				_pan_vel = Vector2.ZERO
+				_glide_t = -1.0
+				_drag_samples = []
 			else:
+				if _dragging and not _reduced_motion and _drag_samples.size() >= 2:   # fling: keep the drag's speed
+					var a0: Array = _drag_samples[0]
+					var a1: Array = _drag_samples[-1]
+					var dt: float = maxf(0.016, float(int(a1[0]) - int(a0[0])) / 1000.0)
+					if Time.get_ticks_msec() - int(a1[0]) < 80:
+						_pan_vel = -((a1[1] as Vector2) - (a0[1] as Vector2)) / dt
+						_pan_vel = _pan_vel.limit_length(float(_zcfg.get("fling_max", 2400.0)))
+						set_process(true)
 				if _pressed and not _dragging and mb.button_index == MOUSE_BUTTON_LEFT:
 					var p: Dictionary = _place_at(mb.position)
 					if not p.is_empty():
@@ -365,30 +812,69 @@ func _gui_input(event: InputEvent) -> void:
 			accept_event()
 	elif event is InputEventMouseMotion:
 		var mm := event as InputEventMouseMotion
-		if _pressed and _region and (_dragging or mm.position.distance_to(_press_pos) > DRAG_THRESHOLD):
+		if _pressed and (_dragging or mm.position.distance_to(_press_pos) > DRAG_THRESHOLD):
 			_dragging = true
 			_center -= (mm.position - _drag_from) / tile_scale()
 			_drag_from = mm.position
+			_drag_samples.append([Time.get_ticks_msec(), mm.position])
+			while _drag_samples.size() > 2 and Time.get_ticks_msec() - int(_drag_samples[0][0]) > 100:
+				_drag_samples.pop_front()
+			_clamp_center()
 			_relayout()
 		var p: Dictionary = _place_at(mm.position)
 		var id: String = str(p.get("id", ""))
-		if id != _hover_id:
+		var reg: int = 0 if id != "" or near_weight() >= 0.5 else _region_under(mm.position)
+		if id != _hover_id or reg != _hover_region:
 			_hover_id = id
-			TooltipLayer.set_tip(self, str(p.get("name", "")))
+			_hover_region = reg
+			if id != "":
+				TooltipLayer.set_tip(self, str(p.get("name", "")))
+			elif reg > 0 and _region_info.has(reg):   # hover a region while the tint is on: its name and holder
+				var info: Dictionary = _region_info[reg]
+				var held: String = str(info.holder_name)
+				TooltipLayer.set_tip(self, str(info.name) + ((" · " + tr("held by %s") % held) if held != "" else ""))
+			else:
+				TooltipLayer.set_tip(self, "")
 			queue_redraw()
-	elif event is InputEventKey and event.pressed and _region:
-		var step := Vector2.ZERO
-		match (event as InputEventKey).physical_keycode:
-			KEY_LEFT: step = Vector2(-1, 0)
-			KEY_RIGHT: step = Vector2(1, 0)
-			KEY_UP: step = Vector2(0, -1)
-			KEY_DOWN: step = Vector2(0, 1)
-		if step != Vector2.ZERO:
-			_center += step * PAN_STEP / tile_scale()
-			_relayout()
+	elif event is InputEventKey and event.pressed:
+		var k := event as InputEventKey
+		var pan := Vector2.ZERO
+		match k.physical_keycode:
+			KEY_LEFT: pan = Vector2(-1, 0)
+			KEY_RIGHT: pan = Vector2(1, 0)
+			KEY_UP: pan = Vector2(0, -1)
+			KEY_DOWN: pan = Vector2(0, 1)
+			KEY_EQUAL, KEY_KP_ADD:
+				zoom_by(step)
+				accept_event()
+			KEY_MINUS, KEY_KP_SUBTRACT:
+				zoom_by(1.0 / step)
+				accept_event()
+			KEY_0, KEY_KP_0:
+				zoom_fit()
+				accept_event()
+		if pan != Vector2.ZERO:   # held arrow keys pan with acceleration in _process; reduced motion steps at once
+			if _reduced_motion:
+				_center += pan * PAN_STEP / tile_scale()
+				_clamp_center()
+				_relayout()
+			else:
+				set_process(true)
 			accept_event()
+	elif event is InputEventJoypadMotion:   # the triggers zoom in and out (hud.md Gamepad)
+		var jm := event as InputEventJoypadMotion
+		if jm.axis_value > 0.6 and jm.axis == JOY_AXIS_TRIGGER_RIGHT:
+			zoom_by(step)
+			accept_event()
+		elif jm.axis_value > 0.6 and jm.axis == JOY_AXIS_TRIGGER_LEFT:
+			zoom_by(1.0 / step)
+			accept_event()
+	elif event is InputEventJoypadButton and event.pressed and (event as InputEventJoypadButton).button_index == JOY_BUTTON_RIGHT_STICK:
+		zoom_fit()
+		accept_event()
 
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_RESIZED:
+		_px = 0.0   # re-fit on a resize (the fit changes); the next layout clamps
 		_relayout()

@@ -158,14 +158,30 @@ static func place_lines(s: GameSession, place_id: String) -> Array:
 	return TerminalViews.stat_block(s, p.duplicate(true))
 
 
-## The regions for the map's region names (art bible 7.14): [{id, name, name_han, centre: [x, y] tile}], every region
-## (their names are common knowledge, like the continent's outline).
+## The regions for the map's names and the political map (art bible 7.14; hud.md Map zoom and the political map):
+## [{id, name, name_han, centre: [x, y] tile, grid_id (the grid's REGN value), holder_key and holder_name (the holding
+## great sect, "" when none)}], every region: names and great sects' holdings are common knowledge (travel-map.md
+## rule 14).
 static func regions(s: GameSession) -> Array:
 	var out: Array = []
 	for r in s.db.all("regions"):
+		var h: Dictionary = _holder_sect(s, str(r.get("holder", "")))
+		var great: bool = str(h.get("kind", "")) == "great"
 		out.append({"id": str(r.id), "name": str(r.get("name", "")), "name_han": str(r.get("name_han", "")),
-			"centre": Array(r.get("centre_tile", [0, 0]))})
+			"centre": Array(r.get("centre_tile", [0, 0])), "grid_id": int(r.get("continent_id", 0)),
+			"holder_key": str(h.get("key", "")) if great else "", "holder_name": str(h.get("name", "")) if great else ""})
 	return out
+
+
+## The sect a region's holder names: the holder is the sect's record id once politics runs, its authored key before.
+static func _holder_sect(s: GameSession, holder: String) -> Dictionary:
+	if holder == "":
+		return {}
+	var rec: Dictionary = s.db.get_record("sects", holder)
+	if not rec.is_empty():
+		return rec
+	var by_key: Array = s.db.find("sects", func(x): return str(x.get("key", "")) == holder)
+	return by_key[0] if not by_key.is_empty() else {}
 
 
 ## A place's authored look, lore and history (assets/data/world_place_lore.json, keyed by the continent place id the

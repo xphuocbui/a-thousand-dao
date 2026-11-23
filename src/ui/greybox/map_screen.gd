@@ -107,7 +107,7 @@ func _ready() -> void:
 		(w as Control).theme_type_variation = &"WindowPanel"
 	_tips.theme = paper.theme
 	_region_font = paper.fonts.heading
-	_fight.apply_theme(paper.theme, str(tcfg.get("wood_texture", "")))
+	_fight.apply_theme(paper.theme, str(tcfg.get("wood_texture", "")), str(_cfg.get("topbar", {}).get("strip", "")))
 	LinkStyle.set_fonts(paper.fonts.strong, RosewoodTheme.variation(load(str(tcfg.get("fonts", {}).get("italic", ""))) if ResourceLoader.exists(str(tcfg.get("fonts", {}).get("italic", ""))) else null, 400, true))
 	LinkStyle.configure(_cfg.get("link_styles", {}))
 	_apply_topbar(paper.fonts.strong)
@@ -115,8 +115,9 @@ func _ready() -> void:
 	LinkStyle.apply(_season, "term")
 	_tips.chain.resolve = func(key: String) -> Dictionary: return TooltipLayer.term_content(gd.file("ui_terms").get("terms", {}), key)
 	# Power Rankings runs (rule 13 one season late and worker processes, 2026-11-22); --ratings-off switches its fights
-	# off for this run (the demo presses through seasons with no pause, which would wait for every batch).
-	if _args.has("--ratings-off"):
+	# off for this run. Test runs (--demo, --shot-and-quit) default to off, since they press through seasons with no
+	# pause and would wait 40-50 s for every batch (measured 2026-11-23); --ratings-on keeps them on.
+	if _ratings_off():
 		var rankings: Dictionary = gd.file("combat_rankings")
 		if rankings.has("enabled"):
 			rankings["enabled"] = false
@@ -158,6 +159,17 @@ func _shot_and_quit(path: String) -> void:
 	_on_centre_closed()
 	if _arg_value("--zoom", "") == "region":
 		_toggle_zoom()
+	# --zoom-px=N: N screen px per tile, centred on the player (hud.md Map zoom); --cb: the red-green palette
+	var zpx: float = float(_arg_value("--zoom-px", "0"))
+	if zpx > 0.0 or _args.has("--cb"):
+		_map.set_accessibility(true, _args.has("--cb"))
+		_refresh()
+	if zpx > 0.0:
+		var here: Dictionary = GameQuery.here(session)
+		if here.has("tile"):
+			_map.set_region_zoom(true, Vector2(int(here.tile[0]), int(here.tile[1])) + Vector2(0.5, 0.5))
+		_map.zoom_by(zpx / _map.tile_scale())
+		await _frames(3)
 	# --turns=N: ends N seasons first (answering events with the first affordable option), printing each End turn wait,
 	# so the default path (rating fights on) can be timed; --quit-in-turn quits while the last season is resolving.
 	var turns: int = int(_arg_value("--turns", "0"))
@@ -190,6 +202,25 @@ func _shot_and_quit(path: String) -> void:
 		await get_tree().process_frame
 	await RenderingServer.frame_post_draw
 	print("SCALE window=%s factor=%.3f layout=%s end_turn_font=%d" % [str(get_window().size), get_window().content_scale_factor, str(size), _end_turn.get_theme_font_size("font_size")])
+	# --shots=tag:px,tag:px: several zoom states from one launch, saved as <path without .png>-<tag>.png (px 0 = the fit)
+	var shots: String = _arg_value("--shots", "")
+	if shots != "":
+		_map.set_accessibility(true, _args.has("--cb"))
+		for item in shots.split(","):
+			var kv: PackedStringArray = item.split(":")
+			var px: float = float(kv[1]) if kv.size() > 1 else 0.0
+			_map.zoom_fit()
+			if px > 0.0:
+				var here: Dictionary = GameQuery.here(session)
+				if here.has("tile"):
+					_map.set_region_zoom(true, Vector2(int(here.tile[0]), int(here.tile[1])) + Vector2(0.5, 0.5))
+				_map.zoom_by(px / _map.tile_scale())
+			_refresh()
+			await _frames(4)
+			await RenderingServer.frame_post_draw
+			get_viewport().get_texture().get_image().save_png(ProjectSettings.globalize_path(path.get_basename() + "-" + kv[0] + ".png"))
+		get_tree().quit()
+		return
 	get_viewport().get_texture().get_image().save_png(ProjectSettings.globalize_path(path))
 	get_tree().quit()
 
@@ -206,9 +237,48 @@ func _new_game(seed_v: int) -> Dictionary:
 	var llm := LlmService.new(gd)
 	llm.enabled = false
 	var s := GameSession.new(gd, llm)
-	var r: Dictionary = s.new_game(seed_v, {"mode": "roll", "name": "Vô Danh", "gender": "male", "origin": "tan_tu"})
 	var grid := ContinentGrid.from_continent(gd)
+	# Test runs (--demo, --shot-and-quit, or --world-cache) reuse the world generated for this seed and these data
+	# files: generated once, saved to user://, loaded after (about 35 s saved a launch). --fresh-world regenerates.
+	var cache: String = _world_cache_path(seed_v)
+	if cache != "" and not _args.has("--fresh-world") and FileAccess.file_exists(cache):
+		var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(cache))
+		if parsed is Dictionary and (parsed as Dictionary).has("save"):
+			var loaded: Dictionary = s.load_dict((parsed as Dictionary).save)
+			if bool(loaded.get("ok", false)):
+				print("World loaded from the test cache %s" % cache)
+				return {"session": s, "result": {"ok": true, "lines": Array((parsed as Dictionary).get("lines", []))}, "grid": grid}
+	var r: Dictionary = s.new_game(seed_v, {"mode": "roll", "name": "Vô Danh", "gender": "male", "origin": "tan_tu"})
+	if cache != "" and bool(r.get("ok", true)):
+		var f := FileAccess.open(cache, FileAccess.WRITE)
+		if f != null:
+			f.store_string(JSON.stringify({"save": s.to_dict(), "lines": r.get("lines", [])}))
+			f.close()
+			print("World saved to the test cache %s" % cache)
 	return {"session": s, "result": r, "grid": grid}
+
+
+## True when this run plays without Power Rankings' fights: --ratings-off, or a test run without --ratings-on.
+func _ratings_off() -> bool:
+	if _args.has("--ratings-off"):
+		return true
+	var test_run: bool = _args.has("--demo") or _arg_value("--shot-and-quit", "") != ""
+	return test_run and not _args.has("--ratings-on")
+
+
+## The test world cache for [param seed_v]: user://world_cache_<seed>_<data signature>.json, where the signature changes
+## whenever a data file under res://assets/data changes; "" outside test runs (a real game always generates).
+func _world_cache_path(seed_v: int) -> String:
+	if not (_args.has("--demo") or _args.has("--world-cache") or _arg_value("--shot-and-quit", "") != ""):
+		return ""
+	var sig: int = 0
+	var dir := DirAccess.open("res://assets/data")
+	if dir == null:
+		return ""
+	for f in dir.get_files():
+		if f.ends_with(".json"):
+			sig = hash(str(sig) + f + str(FileAccess.get_modified_time("res://assets/data/" + f)))
+	return "user://world_cache_%d_%x_r%d.json" % [seed_v, sig & 0xFFFFFFFF, 0 if _ratings_off() else 1]
 
 
 func _process(_delta: float) -> void:
@@ -343,7 +413,7 @@ func _build_layout() -> void:
 	_alert_row.add_child(_alerts)
 
 	var note := Label.new()
-	note.text = tr("Greybox: LLM off.") + ((" " + tr("Rating fights off for this run (--ratings-off).")) if _args.has("--ratings-off") else "")
+	note.text = tr("Greybox: LLM off.") + ((" " + tr("Rating fights off for this run.")) if _ratings_off() else "")
 	note.add_theme_color_override("font_color", Color(1, 0.85, 0.4))
 	note.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
 	note.offset_left = 24
@@ -402,8 +472,8 @@ func _build_layout() -> void:
 	z4.set_anchors_and_offsets_preset(Control.PRESET_CENTER_BOTTOM)
 	z4.offset_bottom = -16
 	z4.offset_top = -52
-	z4.offset_left = -230
-	z4.offset_right = 230
+	z4.offset_left = -300
+	z4.offset_right = 300
 	add_child(z4)
 	_zones.append(z4)
 	for m in [["Terrain", true], ["Sect", false], ["Qi", false], ["Prices", false]]:
@@ -418,6 +488,15 @@ func _build_layout() -> void:
 	TooltipLayer.set_tip(_zoom_button, tr("Zoom in around you to see what you can do nearby (+ / −, or the mouse wheel)"))
 	_zoom_button.pressed.connect(_toggle_zoom)
 	z4.add_child(_zoom_button)
+	# the zoom buttons (hud.md Z4; Map zoom and the political map): +, − about the centre, and the fit
+	for zb in [["−", tr("Zoom out (−, or the wheel)"), func(): _map.zoom_by(1.0 / float(_greybox().get("map_zoom", {}).get("zoom_step", 1.25)))],
+			["+", tr("Zoom in (+, or the wheel)"), func(): _map.zoom_by(float(_greybox().get("map_zoom", {}).get("zoom_step", 1.25)))],
+			["⤢", tr("The whole continent (0)"), func(): _map.zoom_fit()]]:
+		var b := Button.new()
+		b.text = zb[0]
+		TooltipLayer.set_tip(b, zb[1])
+		b.pressed.connect(zb[2])
+		z4.add_child(b)
 
 	# Z5 the season turn
 	var z5 := PanelContainer.new()
@@ -695,7 +774,7 @@ func _refresh_turn_button() -> void:
 
 
 func _refresh_map(location_id: String) -> void:
-	if not _regions_set and _region_font != null:   # region names are common knowledge: set once per game
+	if _region_font != null:   # names and great sects' holdings are common knowledge; rebaked only on a holder change
 		_map.set_regions(GameQuery.regions(session), _region_font)
 		_regions_set = true
 	var places: Array = []
@@ -1173,11 +1252,13 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		if owner_ctl == null or owner_ctl == _end_turn or owner_ctl == _map:
 			_try_end_turn()
 			get_viewport().set_input_as_handled()
-	elif key == KEY_EQUAL or key == KEY_KP_ADD or key == KEY_MINUS or key == KEY_KP_SUBTRACT:
-		if not (owner_ctl is LineEdit or owner_ctl is TextEdit):
-			var want_region: bool = key == KEY_EQUAL or key == KEY_KP_ADD
-			if want_region != _map.is_region_zoom():
-				_toggle_zoom()
+	elif key in [KEY_EQUAL, KEY_KP_ADD, KEY_MINUS, KEY_KP_SUBTRACT, KEY_0, KEY_KP_0]:
+		if not (owner_ctl is LineEdit or owner_ctl is TextEdit):   # + and − step about the centre, 0 the fit (hud.md)
+			var zstep: float = float(_greybox().get("map_zoom", {}).get("zoom_step", 1.25))
+			if key == KEY_0 or key == KEY_KP_0:
+				_map.zoom_fit()
+			else:
+				_map.zoom_by(zstep if key == KEY_EQUAL or key == KEY_KP_ADD else 1.0 / zstep)
 			get_viewport().set_input_as_handled()
 	elif key == KEY_ESCAPE:
 		_on_escape(owner_ctl)
@@ -1702,8 +1783,8 @@ func _demo_places(dir: String, tag: String) -> void:
 	var target: String = _nearest_known_place()
 	if target != "":
 		_places.select_place(target)
-		await _frames(5)
-		_check("selecting a row centres the map at region zoom", _map.is_region_zoom())
+		await _wait_map()   # the glide runs on real time: wait until the map is at rest
+		_check("selecting a row centres the map at region zoom (%.1f px per tile)" % _map.tile_scale(), _map.is_region_zoom() and _map.tile_scale() >= 11.9)
 		await _shot(dir, "20-places-panel", tag)
 		var travel_btn: Button = null
 		for b in _places.find_children("*", "Button", true, false):
@@ -1747,8 +1828,21 @@ func _demo_bubbles(dir: String, tag: String) -> void:
 	await _frames(2)
 	var area_before: int = _map.visible_bubbles().filter(func(b): return b.kind != "player" and b.kind != "abode").size()
 	_check("continent zoom shows no area bubbles", area_before == 0)
+	var z0: float = _map.tile_scale()
 	await _key(KEY_EQUAL)
-	_check("+ switches to region zoom", _map.is_region_zoom())
+	await _wait_map()
+	_check("+ zooms in one step (%.2f -> %.2f px per tile)" % [z0, _map.tile_scale()], _map.tile_scale() > z0 * 1.2 and not _map.is_region_zoom())
+	for i in 8:   # step in until the relief leads (Map zoom: the transition band)
+		if _map.is_region_zoom():
+			break
+		await _key(KEY_EQUAL)
+		await _wait_map()
+	_check("stepping in crosses the band to region zoom (%.2f px per tile, relief %.2f)" % [_map.tile_scale(), _map.near_weight()], _map.is_region_zoom() and _map.drawn_layer() == "near")
+	_toggle_zoom()   # back to the fit, then Region view: a glide to region zoom around the player (+ and - zoom about the centre)
+	await _wait_map()
+	_toggle_zoom()
+	await _wait_map()
+	_check("Region view glides to region zoom around you (%.1f px per tile)" % _map.tile_scale(), _map.is_region_zoom() and _map.tile_scale() >= 11.9)
 	await _frames(5)
 	await _shot(dir, "16-region-bubbles", tag)
 
@@ -1781,10 +1875,24 @@ func _demo_bubbles(dir: String, tag: String) -> void:
 		await _key(KEY_ESCAPE)
 	_end_turn.grab_focus()
 	await _frames(2)
+	var zr: float = _map.tile_scale()
 	await _key(KEY_MINUS)
-	_check("- returns to continent zoom", not _map.is_region_zoom())
+	await _wait_map()
+	_check("- zooms out one step", _map.tile_scale() < zr * 0.85)
+	await _key(KEY_0)
+	await _wait_map()
+	_check("0 returns to the fit: continent zoom with the political map", not _map.is_region_zoom() and _map.drawn_layer() == "far" and _map.politics_probe(1).bold > 0)
 	await _frames(5)
 	await _shot(dir, "19-back-to-continent", tag)
+
+
+## Waits until the map's zoom and pan are at rest (at most 3 s): the motion runs on real time, frames on the machine.
+func _wait_map() -> void:
+	var t0: int = Time.get_ticks_msec()
+	await _frames(2)
+	while _map.is_moving() and Time.get_ticks_msec() - t0 < 3000:
+		await get_tree().process_frame
+	await _frames(2)
 
 
 ## Answers waiting events by clicking the first enabled option button on the card.

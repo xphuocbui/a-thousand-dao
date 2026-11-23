@@ -39,8 +39,8 @@ numbers around them.
 on plain parchment.
 
 **2. One map, two distances, no generic places** (Pillar 5: A World That Remembers)
-Zoomed out, the continent is a paper campaign map: painted peaks and trees, tinted regions, dashed ink borders and
-calligraphic names. Zoomed in, it is a golden-hour painted relief with miniature towns and pagodas. The world is the
+Zoomed out, the continent is a paper campaign map: painted peaks and trees, tinted regions, ink borders (bold where the
+holder changes, 7.14) and calligraphic names. Zoomed in, it is a golden-hour painted relief with miniature towns and pagodas. The world is the
 same every life, so every named place has its own look and its own art, drawn from a written description and lore:
 each town, sect seat (tông môn), ruin and blessed land (user, 2026-11-22). A place's art may later step up through
 authored stages as it completes great projects or raises its production level, while its level stays a printed
@@ -74,7 +74,7 @@ same in every state. Parchment and numbers are never tinted, dimmed or graded, s
 
 | State | Emotional target | Lighting of the painted layer | Descriptors | Energy | Carries the mood |
 |---|---|---|---|---|---|
-| Map, far (paper) | Calm command: the whole board to plan | No grade; flat even daylight, low contrast | cartographic, unhurried, legible | Low | Dashed ink borders, calligraphic names |
+| Map, far (paper) | Calm command: the whole board to plan | No grade; flat even daylight, low contrast | cartographic, unhurried, legible | Low | Ink borders (bold where the holder changes, 7.14), calligraphic names |
 | Map, near (painted) | Standing somewhere real | Golden hour, warm raking light, long shadows; **season grade** (proposal, user 2026-11-22): Xuân fresh, Hạ bright, Thu amber, Đông cool grey | lived-in, misty, specific | Low–medium | Drifting mist, the season's light |
 | Event card / outcome | Weighing a choice, then the consequence | Dims about 30 % and desaturates; a warm pool of light on the card; one lift as the outcome lands | hushed, deliberate, decisive | Medium-low, one beat | The cinnabar seal on the chosen line |
 | Season summary | Taking stock of time spent | Dusk: cooler, lower, longer shadows | reflective, ledger-like, weighty | Low | Age advancing; the season stamp |
@@ -581,6 +581,12 @@ Taken from grand-strategy top bars (user, 2026-11-22; CK3/EU4 layout picked 2026
   (user, 2026-11-22): sharp at every zoom and UI scale, translatable, and readable by screen readers. Place marks are
   small cinnabar diamonds (Section 3's place shape, in the seal colour).
 - Borders, control and other world-state changes are overlays (Principle 2).
+- **The political map** (zoomed out, 2026-11-23; `design/ux/hud.md` Map zoom and the political map): regions tinted
+  in their great sect's colour at 35 % (over the paper, and over the relief when the Sect territory mode is chosen), muted map colours, never a saturated element hue (Section 6);
+  a bold ink line where the holder changes, the thin region line between a sect's own regions, both drawn
+  smooth (the grid's steps straightened and rounded, never a staircase); each great sect's
+  name large and letter-spaced across its territory in the same display face as the region names, which sit smaller
+  beneath. All drawn by the engine.
 
 ### 7.15 UI motion
 

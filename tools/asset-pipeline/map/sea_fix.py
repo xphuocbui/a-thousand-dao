@@ -68,7 +68,10 @@ def main():
     img = Image.fromarray(np.clip(out, 0, 255).astype(np.uint8))
     img.save(os.path.join(d, "near_12px_sea.png"), optimize=True)
     os.makedirs(os.path.join(repo, "assets/map"), exist_ok=True)
-    img.save(os.path.join(repo, "assets/map/map_near_relief.jpg"), quality=90, optimize=True)
+    # the game copy gets a light unsharp mask: the deepest zoom shows it at 1.5x its painted size (design/ux/hud.md Map
+    # zoom, user 2026-11-23); the master above stays unsharpened
+    game = img.filter(ImageFilter.UnsharpMask(radius=1.4, percent=60, threshold=2))
+    game.save(os.path.join(repo, "assets/map/map_near_relief.jpg"), quality=92, optimize=True)
     print("sea calmed; open-water share %.2f" % float(w.mean()))
 
 
