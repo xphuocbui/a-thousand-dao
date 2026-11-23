@@ -51,6 +51,18 @@ def main(regions):
     for s in cont["great_sects"] + cont["minor_sects"]:
         used.setdefault(s["name"], "sect " + s["key"])
     files = sorted(glob.glob(os.path.join(BASE, "lore", "region_*.json")))
+    prov_used = {}   # province name -> its key: provinces must not repeat among themselves
+    sect_keys = {s["key"] for s in cont["great_sects"] + cont["minor_sects"]}
+    holder = {r["id"]: r["holder"] for r in cont["regions"]}
+    # every place name of every file first, so a province is checked against places in later files too
+    for f in files:
+        try:
+            d0 = json.load(open(f, encoding="utf-8"))
+        except Exception:
+            continue
+        for k0, e0 in d0.get("places", {}).items():
+            if e0.get("name"):
+                used.setdefault(str(e0["name"]), k0)
     errs = warns = 0
     out = []
     for f in files:
@@ -89,10 +101,11 @@ def main(regions):
             nm = str(e.get("name", ""))
             if nm and han_len(e.get("name_han", "")) != syllables(nm):
                 err("province %s: name_han %r is not one character per syllable of %r" % (p["key"], e.get("name_han"), nm))
-            key = "province " + nm
-            if nm in used and not used[nm].startswith("existing place") and used[nm] != "province-of-seat":
-                err("province name %r used twice (%s)" % (nm, used[nm]))
-            used.setdefault(key, p["key"])
+            if nm in prov_used:
+                err("province name %r used twice (%s)" % (nm, prov_used[nm]))
+            elif nm and nm in used and not used[nm].startswith("existing place") and not used[nm].startswith("sect "):
+                err("province name %r is also a place's name (%s)" % (nm, used[nm]))
+            prov_used.setdefault(nm, p["key"])
             ln = len(str(e.get("lore", "")))
             if ln and not (LORE_MIN <= ln <= LORE_MAX):
                 warn("province %s: lore %d characters" % (p["key"], ln))
@@ -105,7 +118,7 @@ def main(regions):
                 if not str(e.get(k, "")).strip():
                     err("slot %s: no %s" % (s["slot"], k))
             nm = str(e.get("name", ""))
-            if nm in used:
+            if nm in used and used[nm] != s["slot"]:
                 err("place name %r used twice (%s)" % (nm, used[nm]))
             used[nm] = s["slot"]
             if nm and han_len(e.get("name_han", "")) != syllables(nm):
@@ -113,10 +126,30 @@ def main(regions):
             ends = ENDINGS.get(s["kind"])
             if ends and nm and nm.split()[-1] not in ends:
                 warn("slot %s (%s): name %r ends unusually for its kind" % (s["slot"], s["kind"], nm))
-            if s["kind"] == "ruin" and (not e.get("former") or not e.get("lived")):
-                err("slot %s: a ruin needs former and lived [from, to]" % s["slot"])
-            if s["kind"] == "minor_seat" and not isinstance(e.get("sect"), dict):
-                err("slot %s: a proposed minor sect needs its sect block" % s["slot"])
+            if s["kind"] == "ruin":
+                lv = e.get("lived")
+                if not e.get("former") or not lv:
+                    err("slot %s: a ruin needs former and lived [from, to]" % s["slot"])
+                elif e["former"] not in ("city", "town", "sect", "fort", "village"):
+                    err("slot %s: former %r is not one of city, town, sect, fort, village" % (s["slot"], e["former"]))
+                elif not (isinstance(lv, list) and len(lv) == 2 and int(lv[0]) < int(lv[1]) <= START_YEAR):
+                    err("slot %s: lived %r must be [from, to] with from < to <= %d" % (s["slot"], lv, START_YEAR))
+            if s["kind"] == "minor_seat":
+                sb = e.get("sect")
+                if not isinstance(sb, dict):
+                    err("slot %s: a proposed minor sect needs its sect block" % s["slot"])
+                else:
+                    if sb.get("key") in sect_keys:
+                        err("slot %s: sect key %r is already a sect's" % (s["slot"], sb.get("key")))
+                    sect_keys.add(sb.get("key"))
+                    if sb.get("alignment") not in ("chính đạo", "trung lập", "ma đạo"):
+                        err("slot %s: alignment %r" % (s["slot"], sb.get("alignment")))
+                    if not sb.get("leans") or any(x not in ("Metal", "Wood", "Water", "Fire", "Earth") for x in sb.get("leans", [])):
+                        err("slot %s: leans %r" % (s["slot"], sb.get("leans")))
+                    if sb.get("lord") != holder.get(r):
+                        err("slot %s: lord %r is not the region's holder %r" % (s["slot"], sb.get("lord"), holder.get(r)))
+                    if int(sb.get("founded", 9999)) > START_YEAR:
+                        err("slot %s: founded %r after the start year" % (s["slot"], sb.get("founded")))
             for txt in (e.get("lore", ""), e.get("look", "")):
                 for y in re.findall(r"\b(1[2-9]\d\d|[2-9]\d\d\d)\b", str(txt)):
                     if int(y) > START_YEAR:

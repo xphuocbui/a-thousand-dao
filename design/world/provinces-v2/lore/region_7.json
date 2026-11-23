@@ -56,9 +56,9 @@
    "lore": "A small spur of ice and moss tundra on the north coast. Reindeer cross it in summer, and a few hunters follow them. In winter it is left to the wind."
   },
   "prov_r7_6": {
-   "name": "Sóc Phong Nguyên",
-   "name_han": "朔風原",
-   "gloss": "Plain of the North Wind",
+   "name": "Hàn Phong Nguyên",
+   "name_han": "寒風原",
+   "gloss": "Plain of the Cold Wind",
    "lore": "Flat moss tundra along the northern shore, swept by the north wind for most of the year. The only people are hunters who come for fur and walrus ivory in summer. A broken city of Hồ Thiên's age lies on its coast, and a frozen Water vein lies inland."
   },
   "prov_r7_7": {
@@ -74,9 +74,9 @@
    "lore": "Fir forest broken by wide peat bogs on the edge of the tundra. Its people cut peat for fuel, pick cranberries and trap fur, and they sell all three to the coast. It is the northernmost village that pays Băng Tâm's tax in coin rather than fish."
   },
   "prov_r7_9": {
-   "name": "Lạc Tuyết Nguyên",
-   "name_han": "落雪原",
-   "gloss": "Plain of Falling Snow",
+   "name": "Tích Tuyết Nguyên",
+   "name_han": "積雪原",
+   "gloss": "Plain of Deep Snow",
    "lore": "Half fir forest and half open tundra, where snow falls on more days than not. No one lives here, but a Wood vein in the forest draws Băng Tâm's herb gatherers in summer. The coast is low and drowned in ice for half the year."
   },
   "prov_r7_10": {
@@ -206,9 +206,9 @@
    "lore": "High mountains around Hồi Lộ Phong and its winding ice stair. No one lives here. Băng Tâm disciples climb the stair roped together, and the ridge is named for its turns."
   },
   "prov_r7_31": {
-   "name": "Tuyệt Bích Lĩnh",
-   "name_han": "絕壁嶺",
-   "gloss": "Ridge of Sheer Walls",
+   "name": "Băng Bích Lĩnh",
+   "name_han": "冰壁嶺",
+   "gloss": "Ridge of the Ice Walls",
    "lore": "Sheer high mountains above the desert side of the range. A gold vein is worked high on the rock, and a pass fort lies buried by snow. No one lives here."
   },
   "prov_r7_32": {
@@ -224,9 +224,9 @@
    "lore": "Mountains cut by an icy river that runs down toward the desert, with red rock at their southern foot. Copper is mined in the gully. A beacon fort broken in the Desert Road War still stands on a spur."
   },
   "prov_r7_34": {
-   "name": "Vạn Nhận Lĩnh",
-   "name_han": "萬仞嶺",
-   "gloss": "Ridge of Ten Thousand Fathoms",
+   "name": "Bách Nhận Lĩnh",
+   "name_han": "百仞嶺",
+   "gloss": "Ridge of a Hundred Fathoms",
    "lore": "High mountains falling to the southern sea in great cliffs. No one lives here and no road crosses it. Seabirds nest on its walls in their thousands."
   }
  },
