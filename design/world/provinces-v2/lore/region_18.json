@@ -1,90 +1,596 @@
 {
  "region": 18,
  "provinces": {
-  "prov_hong_dau": {"name": "Hồng Đậu", "name_han": "紅豆", "gloss": "Red Beans", "lore": "Coastal rain forest and open grass at the western edge of Tiêu Vũ Lâm, where the forest road comes down to the sea at Hồng Đậu Trang. Its people gather rattan, honey and resin and fish the shallows, and many serve the manor as gardeners and porters without asking what grows in its back courts. Vines of red beans run wild along every path, and children are taught early not to put them in their mouths."},
-  "prov_p153": {"name": "Kiều Bạn", "name_han": "橋畔", "gloss": "Bridgeside", "lore": "Grassy river country with stands of bamboo, crossed by the forest road at the roofed bridge of Kiều Bạn. Farmers grow rice and sugar cane on the bottoms and cut bamboo on the low hills, and the inns at the bridge buy whatever they bring. It is the first stop on the road from the west, and the Tower keeps a toll clerk at the bridge's southern end."},
-  "prov_p154": {"name": "Bình Độ", "name_han": "平渡", "gloss": "Calm Ferry", "lore": "Rolling grass and rain forest along a slow, wide river, with bamboo on the higher ground. Villagers farm rice and longans and run the calm ferry at Bình Độ, which carries most of the traffic between Thu Trì and the inland towns. Drums are forbidden on the riverbank for a day's walk either side of the ferry."},
-  "prov_p155": {"name": "Hoa Điền", "name_han": "花田", "gloss": "Flower Fields", "lore": "Low flower meadows and forest between the river and the sea, kept in long strips of colour for the bees. Its honey, wax and flower oils go down to Thu Trì Thành, and buyers for the Night Rain Market pay well for the honey of the poison flowers at the forest edge. A warm spring in the jungle behind the fields is the province's other wealth."},
-  "prov_p156": {"name": "Yên Kiều", "name_han": "煙橋", "gloss": "Misty Bridge", "lore": "Damp jungle and meadow along a misty river, held by Hồng Đậu Trang as the approach to its manor. Its villagers fish, grow taro and chew the areca nut of the groves around them, and they work for the manor as boatmen and guides. Guests of the manor cross the misty bridge here, and the villagers say not all of them are counted coming back."},
-  "prov_p42": {"name": "Thu Trì", "name_han": "秋池", "gloss": "Autumn Pools", "lore": "The rich coastal lowland around Thu Trì Thành, where the river meets the sea below wooded hills: rice paddies, fish ponds and jungle on the slopes. Night rain on the hills fills the city's pools and the fields together, and the province lives on the port and the Night Rain Market. It is the Tower's richest holding, and its most watched."},
-  "prov_p88": {"name": "Bình Dã", "name_han": "平野", "gloss": "Open Plain", "lore": "An open plain cleared from the forest, ringed by bamboo and broadleaf woods, where rain comes less often than anywhere else in the south. Forest folk bring their wet harvests to dry on the great yard of Bình Dã Trấn, and the plain grows sesame and millet that would rot elsewhere. In the bamboo south of the town stand the empty halls of a school that left when the Tower opened its doors to the ma đạo."},
-  "prov_p89": {"name": "Xuân Thảo", "name_han": "春草", "gloss": "Spring Grass", "lore": "A small, rich stretch of river meadow, bamboo and jungle around Xuân Thảo Thành, on the forest half of the Petal Shore that the Pivot gave the Tower. The burned orchards are long grown over, and peaches still fruit here and there among the banana trees. Farmers plant a peach stone at the corner of every new field for luck."},
-  "prov_thinh_vu": {"name": "Thính Vũ", "name_han": "聽雨", "gloss": "Listening to the Rain", "lore": "The Tower's own ground: a dormant volcanic cone and the bare high mountains around it, falling through dry steppe to the coast. Banana groves terrace the cone's flanks and the grey lake Tàn Hà Hồ lies at its foot; no village stands within sight of the Tower, and its only people are disciples, servants and the masters who came by night. Rain clouds break on the cone almost every night, so the Tower sits in rain while the steppe below stays dry."},
-  "prov_r18_1": {"name": "Tận Vũ Lĩnh", "name_han": "盡雨嶺", "gloss": "Ridge Where the Rain Ends", "lore": "Bare red ridges and badlands at the northern rim of Tiêu Vũ Lâm, where the rain clouds off the sea tear apart on the crests and drop their water before they cross. No one lives here; iron prospectors come up in the dry months and leave before the storms. Herders call it the place where the rain ends."},
-  "prov_r18_10": {"name": "Vũ Ảnh Nguyên", "name_han": "雨影原", "gloss": "Plain of the Rain Shadow", "lore": "High dry steppe in the rain shadow of the mountains west of the Tower, grass on the flats and grey rock on the ridges. Herders drive goats through it in spring, but it has no village and no water that lasts the summer. An old watch fort of Khải Lôi Môn still stands on a spur over the western pass, and a silver mine works the ridge below it."},
-  "prov_r18_11": {"name": "Hạn Thạch Hoang", "name_han": "旱石荒", "gloss": "Waste of the Dry Stones", "lore": "Red badlands, stony steppe and patches of desert between the mountains, crossed by one thin river that runs only after storms on the peaks. Nothing is farmed here, and travellers go round it. A lone stone pillar on its ridge is the only landmark."},
-  "prov_r18_12": {"name": "Phong Sa Nguyên", "name_han": "風沙原", "gloss": "Plain of Wind and Sand", "lore": "Dry steppe and sand at the foot of the western mountains, swept by a hot wind for most of the year. Herders from Hạn Tỉnh graze it in the short wet season and leave before the dust storms. The yellow summit above it is the only landmark for a day's walk."},
-  "prov_r18_13": {"name": "Xích Nham Hoang", "name_han": "赤巖荒", "gloss": "Waste of the Red Crags", "lore": "Red crags and badlands with patches of grass, rising to the forested ridge where the black bears of Hắc Hùng Lĩnh den. Woodcutters and honey hunters come up from the forest in autumn, when the bears go down, and never stay the night. It has no village and no road."},
-  "prov_r18_14": {"name": "Thảo Lư", "name_han": "草廬", "gloss": "Grass Huts", "lore": "Dry steppe and grassland sloping from the Tower's mountains toward the coast, beside the grey lake Tàn Hà Hồ. Its herders keep goats and hill horses and sell felt, milk and dung fuel to the Tower and to Hạnh Hoa Thị. They live close enough to hear the Tower's rain-chains ring in storms."},
-  "prov_r18_15": {"name": "Chương Thụ", "name_han": "樟樹", "gloss": "Camphor Trees", "lore": "Mixed country of badlands, grass and broadleaf forest below the western ridges. Its people fell camphor trees and boil the wood in copper stills, and its camphor is sold to every sect that keeps books or robes against insects. A quiet spirit vein in the grass above the village draws a few loose cultivators who rent rooms from the distillers."},
-  "prov_r18_16": {"name": "Trúc Chỉ", "name_han": "竹紙", "gloss": "Bamboo Paper", "lore": "Broadleaf forest, grass and bamboo on low hills inland, wet nearly every night of the year. Its village makes paper from bamboo pulp, and the oiled-paper awnings of Thu Trì's Night Rain Market come from here. Wild boars raid the pulp pits, and a ruined abbey in the woods is all that is left of a school that lasted eight years."},
-  "prov_r18_17": {"name": "Mộc Miên", "name_han": "木棉", "gloss": "Kapok", "lore": "Grassland and broadleaf forest on rolling hills in the middle of Tiêu Vũ Lâm. Its people grow rice on the bottoms and gather kapok floss from the tall red-flowering trees for quilts and padded jackets. A spring of spirit water above the village brims in the plum-rain season and is nearly dry by autumn."},
-  "prov_r18_18": {"name": "Vũ Tiền", "name_han": "雨前", "gloss": "Before the Rain", "lore": "Open grassland and bamboo on low hills, with dry steppe at its northern edge toward the Tower. Its tea gardens are picked in the days before the spring rains, and Vũ Tiền tea is drunk in the Tower itself. On the steppe at its edge stand the ruins of the lamp-makers' town that lost its trade when the Tower went dark."},
-  "prov_r18_19": {"name": "Tượng Lộ", "name_han": "象路", "gloss": "Elephant Road", "lore": "Grass and bamboo hills with patches of jungle in the heart of the forest, crossed by a timber road. Its villagers keep working elephants that haul logs to the rivers, and the elephants are worth more than the houses. A spirit vein in the bamboo above the village is a resting place for the Tower's outer disciples on the road south."},
-  "prov_r18_2": {"name": "Lãnh Vụ Lĩnh", "name_han": "冷霧嶺", "gloss": "Ridge of the Cold Mist", "lore": "High mountains and cold broadleaf forest in the far north-east of Tiêu Vũ Lâm, nearly always in cloud. No one lives here; the forest is too steep to cut and the summits too cold to graze. The Tower's disciples climb its highest peak to train in the mist."},
-  "prov_r18_20": {"name": "Lạc Triều", "name_han": "落潮", "gloss": "Ebb Tide", "lore": "Low jungle, grass and mangrove at a river mouth on the south coast. Its villagers net fish and crabs in the tidal channels and dry them on racks above the mud. A wood of great banyans stands just inland, and the village carries its dead there."},
-  "prov_r18_21": {"name": "Da Âm", "name_han": "椰陰", "gloss": "Coconut Shade", "lore": "Jungle and grass along the south coast, with a few limestone knolls. Its people grow coconuts and twist coir rope for the ships at Thu Trì. An agarwood forest inland is the province's real treasure, and Hồng Đậu Trang buys its resin by weight in silver."},
-  "prov_r18_22": {"name": "Lăng Đường", "name_han": "菱塘", "gloss": "Water Chestnut Ponds", "lore": "Dense coastal jungle edged with mangrove in the south-west of Tiêu Vũ Lâm. Its village farms water chestnuts and fish in the brackish ponds behind the shore. Great poison toads breed in the jungle pools, and Hồng Đậu Trang pays the villagers for their skins."},
-  "prov_r18_3": {"name": "Liệt Địa Hoang", "name_han": "裂地荒", "gloss": "Waste of the Cracked Earth", "lore": "Cracked red badlands and steppe below the northern mountains, without a tree or a running stream. A hot pool stained red with iron and a malachite mine are the only reasons to come. The miners walk in from Hạn Tỉnh and carry their own water."},
-  "prov_r18_4": {"name": "Lôi Kích Nhai", "name_han": "雷擊崖", "gloss": "Lightning-Struck Cliffs", "lore": "A short range of bare mountains and badland cliffs north of the Tower, where the storms off the sea break first and lightning strikes the same crests night after night. The rock is scarred black along the ridgelines. No one lives here, and herders keep their flocks off the high ground in the storm months."},
-  "prov_r18_5": {"name": "Đồng Nham Câu", "name_han": "銅巖溝", "gloss": "Ravines of the Copper Crags", "lore": "Ravines cut through green-stained and red rock in the mountains north-east of the Tower, with a little grass in the bottoms. Prospectors have dug test pits all over it and found the copper too thin to mine. One grey peak stands over the ravines and throws the thunder back."},
-  "prov_r18_6": {"name": "Mã Lan", "name_han": "馬欄", "gloss": "Horse Pens", "lore": "High, dry steppe under the northern mountains, nearly treeless. Its people breed the small, hardy hill horses that carry the Tower's messengers, and winter the herds in stone pens. Grey wolves den in the rocks above and take a foal or two each spring."},
-  "prov_r18_7": {"name": "Khô Vân Lĩnh", "name_han": "枯雲嶺", "gloss": "Ridge of the Spent Clouds", "lore": "Bare mountains and badlands just north of the Tower, where clouds that have already rained on the cone drift over thin and white. It is dry, windy and empty. A twin-horned peak marks its centre."},
-  "prov_r18_8": {"name": "Lạc Lôi Lĩnh", "name_han": "落雷嶺", "gloss": "Ridge of the Falling Thunder", "lore": "Mountains and red badlands east of the Tower's cone, with grass in the hollows. Lightning falls here nearly as often as on the thunder peaks to the east, and a copper mine works the red rock. The Tower's smiths come down to the mine in storms to quench their castings in the rain."},
-  "prov_r18_9": {"name": "Hạn Tỉnh", "name_han": "旱井", "gloss": "Drought Well", "lore": "Dry steppe and high mountains in the north-west of Tiêu Vũ Lâm, in the rain shadow behind the ridges. Its village lives around one very deep well, keeps goats and a little millet, and sends its young men to the mines in the hills. Jade from the black jade mine above it is carved in Thu Trì."}
+  "prov_hong_dau": {
+   "name": "Hồng Đậu",
+   "name_han": "紅豆",
+   "gloss": "Red Beans",
+   "lore": "Coastal rain forest and open grass at the western edge of Tiêu Vũ Lâm, where the forest road comes down to the sea at Hồng Đậu Trang. Its people gather rattan, honey and resin and fish the shallows, and many serve the manor as gardeners and porters without asking what grows in its back courts. Vines of red beans run wild along every path, and children are taught early not to put them in their mouths."
+  },
+  "prov_p153": {
+   "name": "Kiều Bạn",
+   "name_han": "橋畔",
+   "gloss": "Bridgeside",
+   "lore": "Grassy river country with stands of bamboo, crossed by the forest road at the roofed bridge of Kiều Bạn. Farmers grow rice and sugar cane on the bottoms and cut bamboo on the low hills, and the inns at the bridge buy whatever they bring. It is the first stop on the road from the west, and the Tower keeps a toll clerk at the bridge's southern end."
+  },
+  "prov_p154": {
+   "name": "Bình Độ",
+   "name_han": "平渡",
+   "gloss": "Calm Ferry",
+   "lore": "Rolling grass and rain forest along a slow, wide river, with bamboo on the higher ground. Villagers farm rice and longans and run the calm ferry at Bình Độ, which carries most of the traffic between Thu Trì and the inland towns. Drums are forbidden on the riverbank for a day's walk either side of the ferry."
+  },
+  "prov_p155": {
+   "name": "Hoa Điền",
+   "name_han": "花田",
+   "gloss": "Flower Fields",
+   "lore": "Low flower meadows and forest between the river and the sea, kept in long strips of colour for the bees. Its honey, wax and flower oils go down to Thu Trì Thành, and buyers for the Night Rain Market pay well for the honey of the poison flowers at the forest edge. A warm spring in the jungle behind the fields is the province's other wealth."
+  },
+  "prov_p156": {
+   "name": "Yên Kiều",
+   "name_han": "煙橋",
+   "gloss": "Misty Bridge",
+   "lore": "Damp jungle and meadow along a misty river, held by Hồng Đậu Trang as the approach to its manor. Its villagers fish, grow taro and chew the areca nut of the groves around them, and they work for the manor as boatmen and guides. Guests of the manor cross the misty bridge here, and the villagers say not all of them are counted coming back."
+  },
+  "prov_p42": {
+   "name": "Thu Trì",
+   "name_han": "秋池",
+   "gloss": "Autumn Pools",
+   "lore": "The rich coastal lowland around Thu Trì Thành, where the river meets the sea below wooded hills: rice paddies, fish ponds and jungle on the slopes. Night rain on the hills fills the city's pools and the fields together, and the province lives on the port and the Night Rain Market. It is the Tower's richest holding, and its most watched."
+  },
+  "prov_p88": {
+   "name": "Bình Dã",
+   "name_han": "平野",
+   "gloss": "Open Plain",
+   "lore": "An open plain cleared from the forest, ringed by bamboo and broadleaf woods, where rain comes less often than anywhere else in the south. Forest folk bring their wet harvests to dry on the great yard of Bình Dã Trấn, and the plain grows sesame and millet that would rot elsewhere. In the bamboo south of the town stand the empty halls of a school that left when the Tower opened its doors to the ma đạo."
+  },
+  "prov_p89": {
+   "name": "Xuân Thảo",
+   "name_han": "春草",
+   "gloss": "Spring Grass",
+   "lore": "A small, rich stretch of river meadow, bamboo and jungle around Xuân Thảo Thành, on the forest half of the Petal Shore that the Pivot gave the Tower. The burned orchards are long grown over, and peaches still fruit here and there among the banana trees. Farmers plant a peach stone at the corner of every new field for luck."
+  },
+  "prov_thinh_vu": {
+   "name": "Thính Vũ",
+   "name_han": "聽雨",
+   "gloss": "Listening to the Rain",
+   "lore": "The Tower's own ground: a dormant volcanic cone and the bare high mountains around it, falling through dry steppe to the coast. Banana groves terrace the cone's flanks and the grey lake Tàn Hà Hồ lies at its foot; no village stands within sight of the Tower, and its only people are disciples, servants and the masters who came by night. Rain clouds break on the cone almost every night, so the Tower sits in rain while the steppe below stays dry."
+  },
+  "prov_r18_1": {
+   "name": "Tận Vũ Lĩnh",
+   "name_han": "盡雨嶺",
+   "gloss": "Ridge Where the Rain Ends",
+   "lore": "Bare red ridges and badlands at the northern rim of Tiêu Vũ Lâm, where the rain clouds off the sea tear apart on the crests and drop their water before they cross. No one lives here; iron prospectors come up in the dry months and leave before the storms. Herders call it the place where the rain ends."
+  },
+  "prov_r18_10": {
+   "name": "Vũ Ảnh Nguyên",
+   "name_han": "雨影原",
+   "gloss": "Plain of the Rain Shadow",
+   "lore": "High dry steppe in the rain shadow of the mountains west of the Tower, grass on the flats and grey rock on the ridges. Herders drive goats through it in spring, but it has no village and no water that lasts the summer. An old watch fort of Khải Lôi Môn still stands on a spur over the western pass, and a silver mine works the ridge below it."
+  },
+  "prov_r18_11": {
+   "name": "Hạn Thạch Hoang",
+   "name_han": "旱石荒",
+   "gloss": "Waste of the Dry Stones",
+   "lore": "Red badlands, stony steppe and patches of desert between the mountains, crossed by one thin river that runs only after storms on the peaks. Nothing is farmed here, and travellers go round it. A lone stone pillar on its ridge is the only landmark."
+  },
+  "prov_r18_12": {
+   "name": "Phong Sa Nguyên",
+   "name_han": "風沙原",
+   "gloss": "Plain of Wind and Sand",
+   "lore": "Dry steppe and sand at the foot of the western mountains, swept by a hot wind for most of the year. Herders from Hạn Tỉnh graze it in the short wet season and leave before the dust storms. The yellow summit above it is the only landmark for a day's walk."
+  },
+  "prov_r18_13": {
+   "name": "Xích Nham Hoang",
+   "name_han": "赤巖荒",
+   "gloss": "Waste of the Red Crags",
+   "lore": "Red crags and badlands with patches of grass, rising to the forested ridge where the black bears of Hắc Hùng Lĩnh den. Woodcutters and honey hunters come up from the forest in autumn, when the bears go down, and never stay the night. It has no village and no road."
+  },
+  "prov_r18_14": {
+   "name": "Thảo Lư",
+   "name_han": "草廬",
+   "gloss": "Grass Huts",
+   "lore": "Dry steppe and grassland sloping from the Tower's mountains toward the coast, beside the grey lake Tàn Hà Hồ. Its herders keep goats and hill horses and sell felt, milk and dung fuel to the Tower and to Hạnh Hoa Thị. They live close enough to hear the Tower's rain-chains ring in storms."
+  },
+  "prov_r18_15": {
+   "name": "Chương Thụ",
+   "name_han": "樟樹",
+   "gloss": "Camphor Trees",
+   "lore": "Mixed country of badlands, grass and broadleaf forest below the western ridges. Its people fell camphor trees and boil the wood in copper stills, and its camphor is sold to every sect that keeps books or robes against insects. A quiet spirit vein in the grass above the village draws a few loose cultivators who rent rooms from the distillers."
+  },
+  "prov_r18_16": {
+   "name": "Trúc Chỉ",
+   "name_han": "竹紙",
+   "gloss": "Bamboo Paper",
+   "lore": "Broadleaf forest, grass and bamboo on low hills inland, wet nearly every night of the year. Its village makes paper from bamboo pulp, and the oiled-paper awnings of Thu Trì's Night Rain Market come from here. Wild boars raid the pulp pits, and a ruined abbey in the woods is all that is left of a school that lasted eight years."
+  },
+  "prov_r18_17": {
+   "name": "Mộc Miên",
+   "name_han": "木棉",
+   "gloss": "Kapok",
+   "lore": "Grassland and broadleaf forest on rolling hills in the middle of Tiêu Vũ Lâm. Its people grow rice on the bottoms and gather kapok floss from the tall red-flowering trees for quilts and padded jackets. A spring of spirit water above the village brims in the plum-rain season and is nearly dry by autumn."
+  },
+  "prov_r18_18": {
+   "name": "Vũ Tiền",
+   "name_han": "雨前",
+   "gloss": "Before the Rain",
+   "lore": "Open grassland and bamboo on low hills, with dry steppe at its northern edge toward the Tower. Its tea gardens are picked in the days before the spring rains, and Vũ Tiền tea is drunk in the Tower itself. On the steppe at its edge stand the ruins of the lamp-makers' town that lost its trade when the Tower went dark."
+  },
+  "prov_r18_19": {
+   "name": "Tượng Lộ",
+   "name_han": "象路",
+   "gloss": "Elephant Road",
+   "lore": "Grass and bamboo hills with patches of jungle in the heart of the forest, crossed by a timber road. Its villagers keep working elephants that haul logs to the rivers, and the elephants are worth more than the houses. A spirit vein in the bamboo above the village is a resting place for the Tower's outer disciples on the road south."
+  },
+  "prov_r18_2": {
+   "name": "Lãnh Vụ Lĩnh",
+   "name_han": "冷霧嶺",
+   "gloss": "Ridge of the Cold Mist",
+   "lore": "High mountains and cold broadleaf forest in the far north-east of Tiêu Vũ Lâm, nearly always in cloud. No one lives here; the forest is too steep to cut and the summits too cold to graze. The Tower's disciples climb its highest peak to train in the mist."
+  },
+  "prov_r18_20": {
+   "name": "Lạc Triều",
+   "name_han": "落潮",
+   "gloss": "Ebb Tide",
+   "lore": "Low jungle, grass and mangrove at a river mouth on the south coast. Its villagers net fish and crabs in the tidal channels and dry them on racks above the mud. A wood of great banyans stands just inland, and the village carries its dead there."
+  },
+  "prov_r18_21": {
+   "name": "Da Âm",
+   "name_han": "椰陰",
+   "gloss": "Coconut Shade",
+   "lore": "Jungle and grass along the south coast, with a few limestone knolls. Its people grow coconuts and twist coir rope for the ships at Thu Trì. An agarwood forest inland is the province's real treasure, and Hồng Đậu Trang buys its resin by weight in silver."
+  },
+  "prov_r18_22": {
+   "name": "Lăng Đường",
+   "name_han": "菱塘",
+   "gloss": "Water Chestnut Ponds",
+   "lore": "Dense coastal jungle edged with mangrove in the south-west of Tiêu Vũ Lâm. Its village farms water chestnuts and fish in the brackish ponds behind the shore. Great poison toads breed in the jungle pools, and Hồng Đậu Trang pays the villagers for their skins."
+  },
+  "prov_r18_3": {
+   "name": "Liệt Địa Hoang",
+   "name_han": "裂地荒",
+   "gloss": "Waste of the Cracked Earth",
+   "lore": "Cracked red badlands and steppe below the northern mountains, without a tree or a running stream. A hot pool stained red with iron and a malachite mine are the only reasons to come. The miners walk in from Hạn Tỉnh and carry their own water."
+  },
+  "prov_r18_4": {
+   "name": "Lôi Kích Nhai",
+   "name_han": "雷擊崖",
+   "gloss": "Lightning-Struck Cliffs",
+   "lore": "A short range of bare mountains and badland cliffs north of the Tower, where the storms off the sea break first and lightning strikes the same crests night after night. The rock is scarred black along the ridgelines. No one lives here, and herders keep their flocks off the high ground in the storm months."
+  },
+  "prov_r18_5": {
+   "name": "Đồng Nham Câu",
+   "name_han": "銅巖溝",
+   "gloss": "Ravines of the Copper Crags",
+   "lore": "Ravines cut through green-stained and red rock in the mountains north-east of the Tower, with a little grass in the bottoms. Prospectors have dug test pits all over it and found the copper too thin to mine. One grey peak stands over the ravines and throws the thunder back."
+  },
+  "prov_r18_6": {
+   "name": "Mã Lan",
+   "name_han": "馬欄",
+   "gloss": "Horse Pens",
+   "lore": "High, dry steppe under the northern mountains, nearly treeless. Its people breed the small, hardy hill horses that carry the Tower's messengers, and winter the herds in stone pens. Grey wolves den in the rocks above and take a foal or two each spring."
+  },
+  "prov_r18_7": {
+   "name": "Khô Vân Lĩnh",
+   "name_han": "枯雲嶺",
+   "gloss": "Ridge of the Spent Clouds",
+   "lore": "Bare mountains and badlands just north of the Tower, where clouds that have already rained on the cone drift over thin and white. It is dry, windy and empty. A twin-horned peak marks its centre."
+  },
+  "prov_r18_8": {
+   "name": "Lạc Lôi Lĩnh",
+   "name_han": "落雷嶺",
+   "gloss": "Ridge of the Falling Thunder",
+   "lore": "Mountains and red badlands east of the Tower's cone, with grass in the hollows. Lightning falls here nearly as often as on the thunder peaks to the east, and a copper mine works the red rock. The Tower's smiths come down to the mine in storms to quench their castings in the rain."
+  },
+  "prov_r18_9": {
+   "name": "Hạn Tỉnh",
+   "name_han": "旱井",
+   "gloss": "Drought Well",
+   "lore": "Dry steppe and high mountains in the north-west of Tiêu Vũ Lâm, in the rain shadow behind the ridges. Its village lives around one very deep well, keeps goats and a little millet, and sends its young men to the mines in the hills. Jade from the black jade mine above it is carved in Thu Trì."
+  }
  },
  "places": {
-  "prov_hong_dau_spirit_vein_1": {"name": "Tiêu Âm Mạch", "name_han": "蕉陰脈", "gloss": "Vein in the Banana Shade", "look": "Under a ring of old wild banana plants whose leaves the wind never tears, the ground breathes a faint green warmth and the rain falls softer.", "lore": "A spirit vein (linh mạch) of Wood (Mộc) qi in the jungle behind Hồng Đậu Trang, where the manor grows its charm-herbs. Visitors who sit too long in the shade wake with a headache and no memory of the hour."},
-  "prov_hong_dau_ruin_2": {"name": "Lan Tân Trấn", "name_han": "蘭津鎮", "gloss": "Orchid Ford Town", "former": "town", "lived": [430, 779], "look": "On a wooded stretch of shore, house footings and a fallen harbour wall lie under creepers, with orchids rooted in the cracks of the old landing steps.", "lore": "Lan Tân was a small port that shipped orchids and resin from the forest until Thôn Hải's raiders burned it in 779. No one came back after the Pirate Purge, and Hồng Đậu Trang later carried off the dressed stone of its walls for its own terraces."},
-  "prov_p153_spirit_vein_1": {"name": "Thảo Tâm Nhãn", "name_han": "草心眼", "gloss": "Eye in the Heart of the Grass", "look": "In an open meadow a round patch of grass stays bright green through the dry months, and at its centre a small clear spring wells up without a sound.", "lore": "A minor spirit eye of Wood (Mộc) qi a short walk from the bridge at Kiều Bạn. Travellers resting at the bridge come to sit by it, and the village charges a copper for the privilege."},
-  "prov_p154_forest_1": {"name": "Long Nhãn Lâm", "name_han": "龍眼林", "gloss": "Longan Grove", "look": "Tall old longan trees, their trunks split and hollow with age, stand widely spaced across the grassland like an orchard gone wild.", "lore": "The ferry village says the first ferryman of Bình Độ planted it, and no one owns it now. In summer the whole village picks the fruit together and dries it for the markets of Thu Trì."},
-  "prov_p155_hot_spring_1": {"name": "Ôn Vũ Thang", "name_han": "溫雨湯", "gloss": "Warm Rain Spring", "look": "In the jungle above the flower fields a steaming pool lies among ferns, and when rain falls on it the drops hiss and raise a thin warm mist.", "lore": "The beekeepers of Hoa Điền bathe here to ease the stings of the season, and the water is said to draw out venom. Hồng Đậu Trang has offered twice to buy the spring, and the village has refused twice."},
-  "prov_p156_forest_1": {"name": "Tân Lang Lâm", "name_han": "檳榔林", "gloss": "Areca Grove", "look": "Ranks of tall, slender areca palms rise out of the meadow grass, their crowns so high that the rain reaches the ground long after it starts.", "lore": "The villagers of Yên Kiều cut areca nuts here to chew with betel leaf, and Hồng Đậu Trang, which owns the grove, sends each guest a lacquered box of them on arrival. Those who chew the manor's nuts say they taste faintly of beans."},
-  "prov_p42_hot_spring_1": {"name": "Quế Hương Thang", "name_han": "桂香湯", "gloss": "Cinnamon-Scented Spring", "look": "A cluster of hot pools steams in the jungle under cassia trees, whose fallen bark floats on the water and scents the whole hollow.", "lore": "Buyers for the Night Rain Market come up from Thu Trì to bathe here by day, before the market opens at dark. The bathhouse keeper, like the innkeepers below, never asks a name."},
-  "prov_p42_minor_seat_p": {"name": "Vũ Linh Đường", "name_han": "雨鈴堂", "gloss": "Hall of the Rain Bells", "look": "On a grassy hill above Thu Trì a long, low hall stands under deep eaves hung with hundreds of small bronze bells on chains, each ringing its own note as the rain strikes it.", "lore": "Vũ Linh Đường is a small school of array-makers (trận pháp sư) who build bell-and-chain warning arrays for the Tower's walls and roads; its founder was a smith who cast rain-chains for the Tower. It keeps the warding bells on the walls of Thu Trì Thành, and its disciples can tell from the bells alone where the rain, or a stranger, is falling.", "sect": {"key": "vu_linh", "name": "Vũ Linh Đường", "name_han": "雨鈴堂", "gloss": "Hall of the Rain Bells", "alignment": "trung lập", "leans": ["Metal", "Water"], "craft": "rain-bell warning arrays and bronze casting", "lord": "thinh_vu", "founded": 930}},
-  "prov_p88_beast_lair_1": {"name": "Mãng Đằng Lâm", "name_han": "蟒藤林", "gloss": "Python Vine Wood", "look": "A dark patch of broadleaf forest north of the drying yards, so thick with hanging vines that it is hard to tell which of them are moving.", "lore": "Spirit-touched rock pythons as long as a ferry raft lair here and slide out onto Bình Dã's warm yard on the rare dry nights. The yard-keepers sweep it with long poles before dawn."},
-  "prov_p88_ruin_2": {"name": "Trúc Ẩn Viện", "name_han": "竹隱院", "gloss": "Academy Hidden in the Bamboo", "former": "sect", "lived": [560, 906], "look": "Deep in a bamboo grove, a walled compound of grey-tile halls stands roofless, its courtyards grown solid with bamboo that has split the paving.", "lore": "Trúc Ẩn Viện was a small righteous (chính đạo) school of scholars and zither players under the Tower's lordship. When the Night Rain Edict opened the Tower to the ma đạo arts, its masters packed their books and walked north in 906, and the bamboo took the halls they left."},
-  "prov_p89_forest_1": {"name": "Thanh Hoàng Lâm", "name_han": "青篁林", "gloss": "Green Bamboo Grove", "look": "Along the river near Xuân Thảo Thành, giant bamboo grows so straight and close that from the water it looks like a green wall.", "lore": "The city cuts its scaffolding and water pipes here, and every pole taken must be replaced with a planted shoot. Charred stumps from the Petal Shore fighting still stand among the bamboo."},
-  "prov_thinh_vu_peak_1": {"name": "Lâm Linh Đỉnh", "name_han": "霖鈴頂", "gloss": "Summit of the Long-Rain Bell", "look": "A bare dark summit just north of the Tower's cone, crowned by a single bronze bell hung from a stone frame, its rim worn bright by the rain.", "lore": "Metal (Kim) qi gathers on this crag, and Thính Vũ's sword disciples come here in long rains to listen to the bell ring under the drops until they strike in time with it. The bell was cast for Phó Tiêu Tương and is never struck by hand."},
-  "prov_r18_1_peak_1": {"name": "Chu Nham Đỉnh", "name_han": "朱巖頂", "gloss": "Vermilion Crag Summit", "look": "A blunt summit of vermilion rock rises over the northern badlands, banded red and ochre and bare of any plant.", "lore": "Earth (Thổ) qi lies heavy on this crest. Herders say the rain stops at its foot, and prospectors use its red crown to find the iron workings below."},
-  "prov_r18_1_mine_2": {"name": "Thiết Vũ Khoáng", "name_han": "鐵雨礦", "gloss": "Iron Rain Mine", "look": "Shallow pits and spoil heaps scar a steep mountain flank, where the rain has washed loose iron ore down the rock in dark streaks.", "lore": "Seasonal miners dig red iron ore here in the dry months and carry it down to the Tower's smiths. The pits close when the storms come, and the ore each season's rain washes down is gathered first the next year."},
-  "prov_r18_10_peak_1": {"name": "Vọng Vũ Phong", "name_han": "望雨峰", "gloss": "Peak Watching for Rain", "look": "A tall, lone grey peak stands up out of the dry steppe, its summit wrapped in cloud while the grass below it is brown.", "lore": "Herders of the rain-shadow steppe watch this peak to know when rain will reach them, and drive their flocks toward it when its cloud darkens. Its rock holds Earth (Thổ) qi."},
-  "prov_r18_10_mine_2": {"name": "Ngân Lộ Khoáng", "name_han": "銀露礦", "gloss": "Silver Dew Mine", "look": "Narrow adits enter a grey mountain wall above the steppe, the rock around their mouths beaded with grey drops of weathered silver ore.", "lore": "Silver has been dug here since 520. The miners say the seam sweats fresh silver like dew each night, so they work only before sunrise."},
-  "prov_r18_10_ruin_3": {"name": "Hưởng Lôi Bảo", "name_han": "響雷堡", "gloss": "Fort of the Answering Thunder", "former": "fort", "lived": [230, 481], "look": "On a mountain spur above the western pass, a square fort of dark stone stands broken open, a round drum platform still raised over its gate.", "lore": "Khải Lôi Môn built this watch fort over its western approach, and its drum answered the thunder of the peaks. When the Gate fell in 480 the garrison went home, and the Tower never manned it again."},
-  "prov_r18_11_peak_1": {"name": "Thạch Nhân Phong", "name_han": "石人峰", "gloss": "Stone Man Peak", "look": "A tall pillar of weathered rock on a steppe ridge, shaped from the west like a man standing with his head bowed against the wind.", "lore": "Travellers crossing the dry waste steer by it and leave a mouthful of water at its foot for luck. Its rock holds Earth (Thổ) qi."},
-  "prov_r18_12_peak_1": {"name": "Hoàng Sa Đỉnh", "name_han": "黃沙頂", "gloss": "Yellow Sand Summit", "look": "A broad summit over the steppe, its upper slopes heaped with wind-blown yellow sand that drifts like snow against the rocks.", "lore": "The hot wind of the plain carries sand all the way up and piles it on the crest. Loose cultivators of Earth (Thổ) qi climb it to sit out the sandstorms."},
-  "prov_r18_14_village_1": {"name": "Thảo Lư Thôn", "name_han": "草廬村", "gloss": "Grass Hut Village", "look": "A scatter of low thatched huts and stone goat pens on the steppe slope below the Tower's cone, with felt rugs drying on every roof.", "lore": "Herders settled here in 620 to sell milk and felt to the Tower. Since 906 they keep the lamp shutters closed on the side that faces the cone, though no one has ever told them to."},
-  "prov_r18_14_lake_2": {"name": "Kính Thủy Đàm", "name_han": "鏡水潭", "gloss": "Mirror Water Pool", "look": "A small clear pool in the steppe grass, fed by a channel from the larger grey lake nearby, so still that it holds the Tower's cone upside down.", "lore": "Unlike Tàn Hà Hồ beside it, no lotus has ever grown in this pool. The herders of Thảo Lư water their goats here, and the Tower's disciples come to look at the reflection rather than the Tower."},
-  "prov_r18_15_village_1": {"name": "Chương Thụ Thôn", "name_han": "樟樹村", "gloss": "Camphor Tree Village", "look": "A forest village of steep-roofed houses around a smoking row of copper stills, the air so sharp with camphor that insects will not cross the fence.", "lore": "The camphor distillers of Chương Thụ have worked here since 590. Sect libraries across the south keep their books in camphor chests, and the village sells to the Tower first."},
-  "prov_r18_15_spirit_vein_2": {"name": "Bích Thảo Mạch", "name_han": "碧草脈", "gloss": "Vein of the Blue-Green Grass", "look": "A long fold of hillside stays a deep blue-green all year, with a faint shimmer over the grass on still mornings.", "lore": "A modest Wood (Mộc) vein above the camphor village. Loose cultivators (tán tu) rent rooms from the distillers to sit here and pay in labour at the stills."},
-  "prov_r18_16_village_1": {"name": "Trúc Chỉ Thôn", "name_han": "竹紙村", "gloss": "Bamboo Paper Village", "look": "Stone pulp pits and drying frames hung with sheets of pale paper fill the clearing around a village of bamboo houses.", "lore": "Paper has been made here from bamboo pulp since 650, and since the Night Rain Market opened its oiled awnings have come from Trúc Chỉ. The papermakers oil each sheet twice, for the market's rain must never touch the goods."},
-  "prov_r18_16_beast_lair_2": {"name": "Dã Trư Cương", "name_han": "野豬岡", "gloss": "Wild Boar Ridge", "look": "A low forested ridge whose earth is turned over everywhere as if ploughed, with mud wallows in every hollow.", "lore": "A herd of spirit-touched wild boars led by a great tusker roots across this ridge and raids the pulp pits of Trúc Chỉ in the wet season. Hunters prize the tusker's bristles for brushes and have never taken him."},
-  "prov_r18_16_ruin_3": {"name": "Phi Anh Quán", "name_han": "飛英觀", "gloss": "Abbey of the Flying Petals", "former": "sect", "lived": [611, 619], "look": "In the broadleaf forest the low walls of a small abbey stand among wild peach trees, its stone courtyard carpeted with petals each spring.", "lore": "When Lạc Anh Phái broke apart in 610, a handful of its disciples came inland and founded this abbey in its name. It lasted eight years: Lạc Hà and Thính Vũ disciples passed through in the Petal Shore fighting, and when they had gone the abbey was empty. Its peach trees still flower."},
-  "prov_r18_17_village_1": {"name": "Mộc Miên Thôn", "name_han": "木棉村", "gloss": "Kapok Village", "look": "A hill village of grey-tile houses under huge kapok trees, whose red flowers fall on the roofs in spring and whose white floss blows through the lanes in summer.", "lore": "The village gathers kapok floss for quilts and padded jackets, and the Tower's servants winter in jackets stuffed here. A bride of Mộc Miên brings a quilt as her dowry, and its weight is talked about for years."},
-  "prov_r18_17_spirit_vein_2": {"name": "Mai Vũ Tuyền", "name_han": "梅雨泉", "gloss": "Spring of the Plum Rains", "look": "On a grassy hilltop a ring of stones holds a shallow spring that overflows in the plum-rain season and shrinks to a damp hollow by autumn.", "lore": "A Water (Thủy) vein that waxes and wanes with the rains. Cultivators time their retreats to the early summer rains, when its qi runs strongest."},
-  "prov_r18_18_village_1": {"name": "Vũ Tiền Thôn", "name_han": "雨前村", "gloss": "Before-the-Rain Village", "look": "Neat tea gardens climb the grassy hills in green steps around a village of whitewashed houses and charcoal roasting sheds.", "lore": "Since 700 the village has picked its first tea in the days before the spring rains, and Vũ Tiền tea is drunk in the Tower itself. A picker who lets rain touch the first leaves gives up her share of the season."},
-  "prov_r18_18_spirit_vein_2": {"name": "Xuân Nha Nhãn", "name_han": "春芽眼", "gloss": "Eye of the Spring Buds", "look": "On a hillside above the tea gardens a single wild tea bush grows taller than a house, and the ground around it puts out new buds even in winter.", "lore": "A small spirit eye of Wood (Mộc) qi. Its leaves are picked once a year and sent to the Tower, and the pickers of Vũ Tiền may not drink them."},
-  "prov_r18_18_ruin_3": {"name": "Thanh Đăng Trấn", "name_han": "青燈鎮", "gloss": "Town of the Blue Lamps", "former": "town", "lived": [420, 930], "look": "On the steppe below the Tower's mountains lie the walls and empty lanes of a small town, its doorways still fitted with rusted iron lamp hooks.", "lore": "Thanh Đăng was the lamp-makers' town that lit the Tower's windows with blue-glazed lamps for five centuries. When the lamps went dark in 906 its trade died with them, and by 930 the last families had moved to Hạnh Hoa Thị."},
-  "prov_r18_19_village_1": {"name": "Tượng Lộ Thôn", "name_han": "象路村", "gloss": "Elephant Road Village", "look": "A village of tall stilted houses along a broad, deeply rutted road, with elephant stalls of heavy timber larger than the houses.", "lore": "The village has kept working elephants since 730, hauling logs from the forest to the rivers. Each child is given a calf to grow up with, and the two work together all their lives."},
-  "prov_r18_19_spirit_vein_2": {"name": "Trúc Căn Huyệt", "name_han": "竹根穴", "gloss": "Bamboo Root Hollow", "look": "In a bamboo grove on a hill a hollow opens among the roots, and the stems around it lean inward as if toward a fire.", "lore": "A Wood (Mộc) vein that runs through the root mat of the whole grove. The Tower's outer disciples stop here on the road south, and each leaves a cut bamboo tally with a name on it."},
-  "prov_r18_2_peak_1": {"name": "Ủng Vân Phong", "name_han": "擁雲峰", "gloss": "Cloud-Hugging Peak", "look": "A forested summit in the far north-east, its moss-hung upper slopes buried in a slow cloud that clings even on clear days.", "lore": "Water (Thủy) qi gathers in the mist on its crown. Thính Vũ's disciples climb it to train their hearing blind, learning to fight by the drip of the mist from the leaves."},
-  "prov_r18_20_village_1": {"name": "Lạc Triều Thôn", "name_han": "落潮村", "gloss": "Ebb Tide Village", "look": "Stilt houses of bamboo and thatch stand over the mud at a river mouth, with fish-drying racks and crab traps stacked along the walkways.", "lore": "The villagers go out at every ebb to work the channels and come back before the flood. They mark the tides on a carved post, and anyone who moves it must feast the whole village."},
-  "prov_r18_20_forest_2": {"name": "Dung Thụ Lâm", "name_han": "榕樹林", "gloss": "Banyan Wood", "look": "Just inland from the river mouth a handful of enormous banyans have spread into a whole wood, their hanging roots grown into a maze of grey pillars.", "lore": "Lạc Triều carries its dead here and ties their names to the hanging roots. When a new root reaches the ground, the villagers say an ancestor has come home."},
-  "prov_r18_21_village_1": {"name": "Da Âm Thôn", "name_han": "椰陰村", "gloss": "Coconut Shade Village", "look": "A shore village of palm-thatched houses under tall coconut palms, with long coils of brown coir rope drying on frames along the beach.", "lore": "The village has twisted coir rope since 680 and sells it to the ships at Thu Trì. Its children climb palms before they can swim, and its boats are sewn together with its own rope."},
-  "prov_r18_21_forest_2": {"name": "Hương Lệ Lâm", "name_han": "香淚林", "gloss": "Forest of the Fragrant Tears", "look": "Inland from the coast, old agarwood trees stand in the grass, many scarred with cuts that weep dark, fragrant resin.", "lore": "Agarwood forms only in wounded trees, and the cutters of Da Âm wound them carefully and wait decades. Hồng Đậu Trang buys the resin by weight in silver, and the village does not ask what it is burned for."},
-  "prov_r18_22_village_1": {"name": "Lăng Đường Thôn", "name_han": "菱塘村", "gloss": "Water Chestnut Pond Village", "look": "A coastal village of low houses on banks between brackish ponds, the water dark green with floating water-chestnut leaves.", "lore": "Villagers harvest water chestnuts from tubs pushed across the ponds and fish the channels to the sea. They also bring in poison-toad skins from the jungle for Hồng Đậu Trang, wearing gloves of oiled leather."},
-  "prov_r18_22_beast_lair_2": {"name": "Độc Thiềm Lâm", "name_han": "毒蟾林", "gloss": "Poison Toad Wood", "look": "A wet jungle hollow full of black pools, loud at night with a deep croaking, the leaves around the water spotted with yellow slime.", "lore": "Toads the size of dogs breed in these pools, and the largest, a spirit beast the villagers call the Old Mother, has not been seen in years but still sings. Their venom is a staple of Hồng Đậu Trang's poisons."},
-  "prov_r18_3_hot_spring_1": {"name": "Thiết Tú Trì", "name_han": "鐵銹池", "gloss": "Rust Pool", "look": "In the cracked badlands a steaming pool of rust-red water lies in a basin of iron-stained rock, crusted orange at its edges.", "lore": "The water tastes of iron and is said to harden the bones of those who bathe in it. Miners from the malachite workings soak here after each shift."},
-  "prov_r18_3_mine_2": {"name": "Lục Vũ Khoáng", "name_han": "綠羽礦", "gloss": "Green Feather Mine", "look": "Open trenches in the red badlands expose seams of banded green malachite, bright as peacock feathers against the rock.", "lore": "The mine yields copper and malachite, which is ground into the green paint of the south's temple roofs. Its miners walk in from Hạn Tỉnh and carry their water."},
-  "prov_r18_4_peak_1": {"name": "Lôi Cốt Phong", "name_han": "雷骨峰", "gloss": "Thunder Bone Peak", "look": "A narrow, jagged peak of dark rock above the badland cliffs, its crest scored with black lightning tracks like veins.", "lore": "Metal (Kim) qi runs in the dark rock, and the lightning finds it every storm. The Tower's sword disciples leave their blades on the crest overnight in thunderstorms."},
-  "prov_r18_5_peak_1": {"name": "Hồi Lôi Phong", "name_han": "回雷峰", "gloss": "Peak of the Echoing Thunder", "look": "A grey peak over a ring of ravines, its walls curved so that each thunderclap rolls back from it two and three times.", "lore": "Metal (Kim) qi lies in its grey rock. The Tower's disciples test their hearing here by counting the echoes, and say a master can hear five."},
-  "prov_r18_6_village_1": {"name": "Mã Lan Thôn", "name_han": "馬欄村", "gloss": "Horse Pen Village", "look": "A high steppe village of stone houses and long dry-stone horse pens, with herds of small shaggy horses grazing the slope below.", "lore": "Mã Lan has bred hill horses since 560, and the Tower's messengers ride them on the mountain roads. Each spring the best foal is led up to the Tower."},
-  "prov_r18_6_beast_lair_2": {"name": "Hôi Lang Cương", "name_han": "灰狼岡", "gloss": "Grey Wolf Ridge", "look": "A rocky spur above the steppe, its boulders worn smooth where wolves have lain, with bones scattered in the grass below.", "lore": "A pack of grey wolves under a spirit-touched leader dens here and takes foals from Mã Lan each spring. The herders leave the leader alone and hunt only the young wolves."},
-  "prov_r18_7_peak_1": {"name": "Vũ Giác Phong", "name_han": "雨角峰", "gloss": "Rain Horn Peak", "look": "Two bare horns of rock rise side by side from one mountain shoulder north of the Tower, the gap between them just wide enough to walk through.", "lore": "Earth (Thổ) qi gathers between the horns. Herders say whoever walks through the gap in a storm comes out a year older."},
-  "prov_r18_8_peak_1": {"name": "Thụ Lôi Đỉnh", "name_han": "受雷頂", "gloss": "Summit That Takes the Thunder", "look": "A rounded summit east of the Tower's cone, its crown fused into black, glassy rock by countless strikes.", "lore": "The Metal (Kim) qi in its rock draws lightning more often than any other summit in Tiêu Vũ Lâm. The Tower's disciples sit just below the crown in storms to feel the strikes through the stone."},
-  "prov_r18_8_mine_2": {"name": "Vũ Đồng Khoáng", "name_han": "雨銅礦", "gloss": "Rain Copper Mine", "look": "Terraced cuts in a red badland slope expose dull red copper ore, with a small smelting floor of blackened stone below.", "lore": "The Tower's smiths take copper from here for their bronze rain-chains and bells. They quench the castings in storm rain, and say bronze quenched dry will not sing."},
-  "prov_r18_9_village_1": {"name": "Hạn Tỉnh Thôn", "name_han": "旱井村", "gloss": "Drought Well Village", "look": "A steppe village of flat-roofed stone houses around a single wide well, its rope so long that a mule turns the windlass.", "lore": "The well was dug in 610, and it takes a mule half the morning to raise a day's water. The village keeps goats and millet and sends its young men to the mines in the ridges."},
-  "prov_r18_9_peak_2": {"name": "Thụy Ngưu Sơn", "name_han": "睡牛山", "gloss": "Sleeping Ox Mountain", "look": "A long, humped mountain over the steppe, shaped like a resting ox, with grass on its back and bare rock on its flanks.", "lore": "Earth (Thổ) qi lies deep in it. The herders of Hạn Tỉnh say that if the ox ever stands up, the well will run dry."},
-  "prov_r18_9_mine_3": {"name": "Dạ Ngọc Khoáng", "name_han": "夜玉礦", "gloss": "Night Jade Mine", "look": "A cramped tunnel mouth in a grey mountain wall, its spoil heap glittering with chips of black, glossy stone.", "lore": "Black jade (mặc ngọc) has been cut here since 820 and carved in Thu Trì into seals and sword fittings. Since the lamps went dark the Tower's masters favour it, because it holds no gleam of lamp or moon."}
+  "prov_hong_dau_spirit_vein_1": {
+   "name": "Tiêu Âm Mạch",
+   "name_han": "蕉陰脈",
+   "gloss": "Vein in the Banana Shade",
+   "look": "Under a ring of old wild banana plants whose leaves the wind never tears, the ground breathes a faint green warmth and the rain falls softer.",
+   "lore": "A spirit vein (linh mạch) of Wood (Mộc) qi in the jungle behind Hồng Đậu Trang, where the manor grows its charm-herbs. Visitors who sit too long in the shade wake with a headache and no memory of the hour."
+  },
+  "prov_hong_dau_ruin_2": {
+   "name": "Lan Tân Trấn",
+   "name_han": "蘭津鎮",
+   "gloss": "Orchid Ford Town",
+   "former": "town",
+   "lived": [
+    430,
+    779
+   ],
+   "look": "On a wooded stretch of shore, house footings and a fallen harbour wall lie under creepers, with orchids rooted in the cracks of the old landing steps.",
+   "lore": "Lan Tân was a small port that shipped orchids and resin from the forest until Thôn Hải's raiders burned it in 779. No one came back after the Pirate Purge, and Hồng Đậu Trang later carried off the dressed stone of its walls for its own terraces."
+  },
+  "prov_p153_spirit_vein_1": {
+   "name": "Thảo Tâm Nhãn",
+   "name_han": "草心眼",
+   "gloss": "Eye in the Heart of the Grass",
+   "look": "In an open meadow a round patch of grass stays bright green through the dry months, and at its centre a small clear spring wells up without a sound.",
+   "lore": "A minor spirit eye of Wood (Mộc) qi a short walk from the bridge at Kiều Bạn. Travellers resting at the bridge come to sit by it, and the village charges a copper for the privilege."
+  },
+  "prov_p154_forest_1": {
+   "name": "Long Nhãn Lâm",
+   "name_han": "龍眼林",
+   "gloss": "Longan Grove",
+   "look": "Tall old longan trees, their trunks split and hollow with age, stand widely spaced across the grassland like an orchard gone wild.",
+   "lore": "The ferry village says the first ferryman of Bình Độ planted it, and no one owns it now. In summer the whole village picks the fruit together and dries it for the markets of Thu Trì."
+  },
+  "prov_p155_hot_spring_1": {
+   "name": "Ôn Vũ Thang",
+   "name_han": "溫雨湯",
+   "gloss": "Warm Rain Spring",
+   "look": "In the jungle above the flower fields a steaming pool lies among ferns, and when rain falls on it the drops hiss and raise a thin warm mist.",
+   "lore": "The beekeepers of Hoa Điền bathe here to ease the stings of the season, and the water is said to draw out venom. Hồng Đậu Trang has offered twice to buy the spring, and the village has refused twice."
+  },
+  "prov_p156_forest_1": {
+   "name": "Tân Lang Lâm",
+   "name_han": "檳榔林",
+   "gloss": "Areca Grove",
+   "look": "Ranks of tall, slender areca palms rise out of the meadow grass, their crowns so high that the rain reaches the ground long after it starts.",
+   "lore": "The villagers of Yên Kiều cut areca nuts here to chew with betel leaf, and Hồng Đậu Trang, which owns the grove, sends each guest a lacquered box of them on arrival. Those who chew the manor's nuts say they taste faintly of beans."
+  },
+  "prov_p42_hot_spring_1": {
+   "name": "Quế Hương Thang",
+   "name_han": "桂香湯",
+   "gloss": "Cinnamon-Scented Spring",
+   "look": "A cluster of hot pools steams in the jungle under cassia trees, whose fallen bark floats on the water and scents the whole hollow.",
+   "lore": "Buyers for the Night Rain Market come up from Thu Trì to bathe here by day, before the market opens at dark. The bathhouse keeper, like the innkeepers below, never asks a name."
+  },
+  "prov_p42_minor_seat_p": {
+   "name": "Vũ Linh Đường",
+   "name_han": "雨鈴堂",
+   "gloss": "Hall of the Rain Bells",
+   "look": "On a grassy hill above Thu Trì a long, low hall stands under deep eaves hung with hundreds of small bronze bells on chains, each ringing its own note as the rain strikes it.",
+   "lore": "Vũ Linh Đường is a small school of array-makers (trận pháp sư) who build bell-and-chain warning arrays for the Tower's walls and roads; its founder was a smith who cast rain-chains for the Tower. It keeps the warding bells on the walls of Thu Trì Thành, and its disciples can tell from the bells alone where the rain, or a stranger, is falling.",
+   "sect": {
+    "key": "vu_linh",
+    "name": "Vũ Linh Đường",
+    "name_han": "雨鈴堂",
+    "gloss": "Hall of the Rain Bells",
+    "alignment": "trung lập",
+    "leans": [
+     "Metal",
+     "Water"
+    ],
+    "craft": "rain-bell warning arrays and bronze casting",
+    "lord": "thinh_vu",
+    "founded": 930
+   }
+  },
+  "prov_p88_beast_lair_1": {
+   "name": "Mãng Đằng Lâm",
+   "name_han": "蟒藤林",
+   "gloss": "Python Vine Wood",
+   "look": "A dark patch of broadleaf forest north of the drying yards, so thick with hanging vines that it is hard to tell which of them are moving.",
+   "lore": "Spirit-touched rock pythons as long as a ferry raft lair here and slide out onto Bình Dã's warm yard on the rare dry nights. The yard-keepers sweep it with long poles before dawn."
+  },
+  "prov_p88_ruin_2": {
+   "name": "Trúc Ẩn Viện",
+   "name_han": "竹隱院",
+   "gloss": "Academy Hidden in the Bamboo",
+   "former": "sect",
+   "lived": [
+    560,
+    906
+   ],
+   "look": "Deep in a bamboo grove, a walled compound of grey-tile halls stands roofless, its courtyards grown solid with bamboo that has split the paving.",
+   "lore": "Trúc Ẩn Viện was a small righteous (chính đạo) school of scholars and zither players under the Tower's lordship. When the Night Rain Edict opened the Tower to the ma đạo arts, its masters packed their books and walked north in 906, and the bamboo took the halls they left."
+  },
+  "prov_p89_forest_1": {
+   "name": "Thanh Hoàng Lâm",
+   "name_han": "青篁林",
+   "gloss": "Green Bamboo Grove",
+   "look": "Along the river near Xuân Thảo Thành, giant bamboo grows so straight and close that from the water it looks like a green wall.",
+   "lore": "The city cuts its scaffolding and water pipes here, and every pole taken must be replaced with a planted shoot. Charred stumps from the Petal Shore fighting still stand among the bamboo."
+  },
+  "prov_thinh_vu_peak_1": {
+   "name": "Lâm Linh Đỉnh",
+   "name_han": "霖鈴頂",
+   "gloss": "Summit of the Long-Rain Bell",
+   "look": "A bare dark summit just north of the Tower's cone, crowned by a single bronze bell hung from a stone frame, its rim worn bright by the rain.",
+   "lore": "Metal (Kim) qi gathers on this crag, and Thính Vũ's sword disciples come here in long rains to listen to the bell ring under the drops until they strike in time with it. The bell was cast for Phó Tiêu Tương and is never struck by hand."
+  },
+  "prov_r18_1_peak_1": {
+   "name": "Chu Nham Đỉnh",
+   "name_han": "朱巖頂",
+   "gloss": "Vermilion Crag Summit",
+   "look": "A blunt summit of vermilion rock rises over the northern badlands, banded red and ochre and bare of any plant.",
+   "lore": "Earth (Thổ) qi lies heavy on this crest. Herders say the rain stops at its foot, and prospectors use its red crown to find the iron workings below."
+  },
+  "prov_r18_1_mine_2": {
+   "name": "Thiết Vũ Khoáng",
+   "name_han": "鐵雨礦",
+   "gloss": "Iron Rain Mine",
+   "look": "Shallow pits and spoil heaps scar a steep mountain flank, where the rain has washed loose iron ore down the rock in dark streaks.",
+   "lore": "Seasonal miners dig red iron ore here in the dry months and carry it down to the Tower's smiths. The pits close when the storms come, and the ore each season's rain washes down is gathered first the next year."
+  },
+  "prov_r18_10_peak_1": {
+   "name": "Vọng Vũ Phong",
+   "name_han": "望雨峰",
+   "gloss": "Peak Watching for Rain",
+   "look": "A tall, lone grey peak stands up out of the dry steppe, its summit wrapped in cloud while the grass below it is brown.",
+   "lore": "Herders of the rain-shadow steppe watch this peak to know when rain will reach them, and drive their flocks toward it when its cloud darkens. Its rock holds Earth (Thổ) qi."
+  },
+  "prov_r18_10_mine_2": {
+   "name": "Ngân Lộ Khoáng",
+   "name_han": "銀露礦",
+   "gloss": "Silver Dew Mine",
+   "look": "Narrow adits enter a grey mountain wall above the steppe, the rock around their mouths beaded with grey drops of weathered silver ore.",
+   "lore": "Silver has been dug here since 520. The miners say the seam sweats fresh silver like dew each night, so they work only before sunrise."
+  },
+  "prov_r18_10_ruin_3": {
+   "name": "Hưởng Lôi Bảo",
+   "name_han": "響雷堡",
+   "gloss": "Fort of the Answering Thunder",
+   "former": "fort",
+   "lived": [
+    230,
+    380
+   ],
+   "look": "On a mountain spur above the western pass, a square fort of dark stone stands broken open, a round drum platform still raised over its gate.",
+   "lore": "Khải Lôi Môn built this watch fort over its western approach, and its drum answered the thunder of the peaks. When the Tower was raised on this ground in 380 the garrison went home to the Gate, and the Tower never manned it again."
+  },
+  "prov_r18_11_peak_1": {
+   "name": "Thạch Nhân Phong",
+   "name_han": "石人峰",
+   "gloss": "Stone Man Peak",
+   "look": "A tall pillar of weathered rock on a steppe ridge, shaped from the west like a man standing with his head bowed against the wind.",
+   "lore": "Travellers crossing the dry waste steer by it and leave a mouthful of water at its foot for luck. Its rock holds Earth (Thổ) qi."
+  },
+  "prov_r18_12_peak_1": {
+   "name": "Hoàng Sa Đỉnh",
+   "name_han": "黃沙頂",
+   "gloss": "Yellow Sand Summit",
+   "look": "A broad summit over the steppe, its upper slopes heaped with wind-blown yellow sand that drifts like snow against the rocks.",
+   "lore": "The hot wind of the plain carries sand all the way up and piles it on the crest. Loose cultivators of Earth (Thổ) qi climb it to sit out the sandstorms."
+  },
+  "prov_r18_14_village_1": {
+   "name": "Thảo Lư Thôn",
+   "name_han": "草廬村",
+   "gloss": "Grass Hut Village",
+   "look": "A scatter of low thatched huts and stone goat pens on the steppe slope below the Tower's cone, with felt rugs drying on every roof.",
+   "lore": "Herders settled here in 620 to sell milk and felt to the Tower. Since 906 they keep the lamp shutters closed on the side that faces the cone, though no one has ever told them to."
+  },
+  "prov_r18_14_lake_2": {
+   "name": "Kính Thủy Đàm",
+   "name_han": "鏡水潭",
+   "gloss": "Mirror Water Pool",
+   "look": "A small clear pool in the steppe grass, fed by a channel from the larger grey lake nearby, so still that it holds the Tower's cone upside down.",
+   "lore": "Unlike Tàn Hà Hồ beside it, no lotus has ever grown in this pool. The herders of Thảo Lư water their goats here, and the Tower's disciples come to look at the reflection rather than the Tower."
+  },
+  "prov_r18_15_village_1": {
+   "name": "Chương Thụ Thôn",
+   "name_han": "樟樹村",
+   "gloss": "Camphor Tree Village",
+   "look": "A forest village of steep-roofed houses around a smoking row of copper stills, the air so sharp with camphor that insects will not cross the fence.",
+   "lore": "The camphor distillers of Chương Thụ have worked here since 590. Sect libraries across the south keep their books in camphor chests, and the village sells to the Tower first."
+  },
+  "prov_r18_15_spirit_vein_2": {
+   "name": "Bích Thảo Mạch",
+   "name_han": "碧草脈",
+   "gloss": "Vein of the Blue-Green Grass",
+   "look": "A long fold of hillside stays a deep blue-green all year, with a faint shimmer over the grass on still mornings.",
+   "lore": "A modest Wood (Mộc) vein above the camphor village. Loose cultivators (tán tu) rent rooms from the distillers to sit here and pay in labour at the stills."
+  },
+  "prov_r18_16_village_1": {
+   "name": "Trúc Chỉ Thôn",
+   "name_han": "竹紙村",
+   "gloss": "Bamboo Paper Village",
+   "look": "Stone pulp pits and drying frames hung with sheets of pale paper fill the clearing around a village of bamboo houses.",
+   "lore": "Paper has been made here from bamboo pulp since 650, and since the Night Rain Market opened its oiled awnings have come from Trúc Chỉ. The papermakers oil each sheet twice, for the market's rain must never touch the goods."
+  },
+  "prov_r18_16_beast_lair_2": {
+   "name": "Dã Trư Cương",
+   "name_han": "野豬岡",
+   "gloss": "Wild Boar Ridge",
+   "look": "A low forested ridge whose earth is turned over everywhere as if ploughed, with mud wallows in every hollow.",
+   "lore": "A herd of spirit-touched wild boars led by a great tusker roots across this ridge and raids the pulp pits of Trúc Chỉ in the wet season. Hunters prize the tusker's bristles for brushes and have never taken him."
+  },
+  "prov_r18_16_ruin_3": {
+   "name": "Phi Anh Quán",
+   "name_han": "飛英觀",
+   "gloss": "Abbey of the Flying Petals",
+   "former": "sect",
+   "lived": [
+    611,
+    619
+   ],
+   "look": "In the broadleaf forest the low walls of a small abbey stand among wild peach trees, its stone courtyard carpeted with petals each spring.",
+   "lore": "When Lạc Anh Phái broke apart in 610, a handful of its disciples came inland and founded this abbey in its name. It lasted eight years: Lạc Hà and Thính Vũ disciples passed through in the Petal Shore fighting, and when they had gone the abbey was empty. Its peach trees still flower."
+  },
+  "prov_r18_17_village_1": {
+   "name": "Mộc Miên Thôn",
+   "name_han": "木棉村",
+   "gloss": "Kapok Village",
+   "look": "A hill village of grey-tile houses under huge kapok trees, whose red flowers fall on the roofs in spring and whose white floss blows through the lanes in summer.",
+   "lore": "The village gathers kapok floss for quilts and padded jackets, and the Tower's servants winter in jackets stuffed here. A bride of Mộc Miên brings a quilt as her dowry, and its weight is talked about for years."
+  },
+  "prov_r18_17_spirit_vein_2": {
+   "name": "Mai Vũ Tuyền",
+   "name_han": "梅雨泉",
+   "gloss": "Spring of the Plum Rains",
+   "look": "On a grassy hilltop a ring of stones holds a shallow spring that overflows in the plum-rain season and shrinks to a damp hollow by autumn.",
+   "lore": "A Water (Thủy) vein that waxes and wanes with the rains. Cultivators time their retreats to the early summer rains, when its qi runs strongest."
+  },
+  "prov_r18_18_village_1": {
+   "name": "Vũ Tiền Thôn",
+   "name_han": "雨前村",
+   "gloss": "Before-the-Rain Village",
+   "look": "Neat tea gardens climb the grassy hills in green steps around a village of whitewashed houses and charcoal roasting sheds.",
+   "lore": "Since 700 the village has picked its first tea in the days before the spring rains, and Vũ Tiền tea is drunk in the Tower itself. A picker who lets rain touch the first leaves gives up her share of the season."
+  },
+  "prov_r18_18_spirit_vein_2": {
+   "name": "Xuân Nha Nhãn",
+   "name_han": "春芽眼",
+   "gloss": "Eye of the Spring Buds",
+   "look": "On a hillside above the tea gardens a single wild tea bush grows taller than a house, and the ground around it puts out new buds even in winter.",
+   "lore": "A small spirit eye of Wood (Mộc) qi. Its leaves are picked once a year and sent to the Tower, and the pickers of Vũ Tiền may not drink them."
+  },
+  "prov_r18_18_ruin_3": {
+   "name": "Thanh Đăng Trấn",
+   "name_han": "青燈鎮",
+   "gloss": "Town of the Blue Lamps",
+   "former": "town",
+   "lived": [
+    420,
+    930
+   ],
+   "look": "On the steppe below the Tower's mountains lie the walls and empty lanes of a small town, its doorways still fitted with rusted iron lamp hooks.",
+   "lore": "Thanh Đăng was the lamp-makers' town that lit the Tower's windows with blue-glazed lamps for five centuries. When the lamps went dark in 906 its trade died with them, and by 930 the last families had moved to Hạnh Hoa Thị."
+  },
+  "prov_r18_19_village_1": {
+   "name": "Tượng Lộ Thôn",
+   "name_han": "象路村",
+   "gloss": "Elephant Road Village",
+   "look": "A village of tall stilted houses along a broad, deeply rutted road, with elephant stalls of heavy timber larger than the houses.",
+   "lore": "The village has kept working elephants since 730, hauling logs from the forest to the rivers. Each child is given a calf to grow up with, and the two work together all their lives."
+  },
+  "prov_r18_19_spirit_vein_2": {
+   "name": "Trúc Căn Huyệt",
+   "name_han": "竹根穴",
+   "gloss": "Bamboo Root Hollow",
+   "look": "In a bamboo grove on a hill a hollow opens among the roots, and the stems around it lean inward as if toward a fire.",
+   "lore": "A Wood (Mộc) vein that runs through the root mat of the whole grove. The Tower's outer disciples stop here on the road south, and each leaves a cut bamboo tally with a name on it."
+  },
+  "prov_r18_2_peak_1": {
+   "name": "Ủng Vân Phong",
+   "name_han": "擁雲峰",
+   "gloss": "Cloud-Hugging Peak",
+   "look": "A forested summit in the far north-east, its moss-hung upper slopes buried in a slow cloud that clings even on clear days.",
+   "lore": "Water (Thủy) qi gathers in the mist on its crown. Thính Vũ's disciples climb it to train their hearing blind, learning to fight by the drip of the mist from the leaves."
+  },
+  "prov_r18_20_village_1": {
+   "name": "Lạc Triều Thôn",
+   "name_han": "落潮村",
+   "gloss": "Ebb Tide Village",
+   "look": "Stilt houses of bamboo and thatch stand over the mud at a river mouth, with fish-drying racks and crab traps stacked along the walkways.",
+   "lore": "The villagers go out at every ebb to work the channels and come back before the flood. They mark the tides on a carved post, and anyone who moves it must feast the whole village."
+  },
+  "prov_r18_20_forest_2": {
+   "name": "Dung Thụ Lâm",
+   "name_han": "榕樹林",
+   "gloss": "Banyan Wood",
+   "look": "Just inland from the river mouth a handful of enormous banyans have spread into a whole wood, their hanging roots grown into a maze of grey pillars.",
+   "lore": "Lạc Triều carries its dead here and ties their names to the hanging roots. When a new root reaches the ground, the villagers say an ancestor has come home."
+  },
+  "prov_r18_21_village_1": {
+   "name": "Da Âm Thôn",
+   "name_han": "椰陰村",
+   "gloss": "Coconut Shade Village",
+   "look": "A shore village of palm-thatched houses under tall coconut palms, with long coils of brown coir rope drying on frames along the beach.",
+   "lore": "The village has twisted coir rope since 680 and sells it to the ships at Thu Trì. Its children climb palms before they can swim, and its boats are sewn together with its own rope."
+  },
+  "prov_r18_21_forest_2": {
+   "name": "Hương Lệ Lâm",
+   "name_han": "香淚林",
+   "gloss": "Forest of the Fragrant Tears",
+   "look": "Inland from the coast, old agarwood trees stand in the grass, many scarred with cuts that weep dark, fragrant resin.",
+   "lore": "Agarwood forms only in wounded trees, and the cutters of Da Âm wound them carefully and wait decades. Hồng Đậu Trang buys the resin by weight in silver, and the village does not ask what it is burned for."
+  },
+  "prov_r18_22_village_1": {
+   "name": "Lăng Đường Thôn",
+   "name_han": "菱塘村",
+   "gloss": "Water Chestnut Pond Village",
+   "look": "A coastal village of low houses on banks between brackish ponds, the water dark green with floating water-chestnut leaves.",
+   "lore": "Villagers harvest water chestnuts from tubs pushed across the ponds and fish the channels to the sea. They also bring in poison-toad skins from the jungle for Hồng Đậu Trang, wearing gloves of oiled leather."
+  },
+  "prov_r18_22_beast_lair_2": {
+   "name": "Độc Thiềm Lâm",
+   "name_han": "毒蟾林",
+   "gloss": "Poison Toad Wood",
+   "look": "A wet jungle hollow full of black pools, loud at night with a deep croaking, the leaves around the water spotted with yellow slime.",
+   "lore": "Toads the size of dogs breed in these pools, and the largest, a spirit beast the villagers call the Old Mother, has not been seen in years but still sings. Their venom is a staple of Hồng Đậu Trang's poisons."
+  },
+  "prov_r18_3_hot_spring_1": {
+   "name": "Thiết Tú Trì",
+   "name_han": "鐵銹池",
+   "gloss": "Rust Pool",
+   "look": "In the cracked badlands a steaming pool of rust-red water lies in a basin of iron-stained rock, crusted orange at its edges.",
+   "lore": "The water tastes of iron and is said to harden the bones of those who bathe in it. Miners from the malachite workings soak here after each shift."
+  },
+  "prov_r18_3_mine_2": {
+   "name": "Lục Vũ Khoáng",
+   "name_han": "綠羽礦",
+   "gloss": "Green Feather Mine",
+   "look": "Open trenches in the red badlands expose seams of banded green malachite, bright as peacock feathers against the rock.",
+   "lore": "The mine yields copper and malachite, which is ground into the green paint of the south's temple roofs. Its miners walk in from Hạn Tỉnh and carry their water."
+  },
+  "prov_r18_4_peak_1": {
+   "name": "Lôi Cốt Phong",
+   "name_han": "雷骨峰",
+   "gloss": "Thunder Bone Peak",
+   "look": "A narrow, jagged peak of dark rock above the badland cliffs, its crest scored with black lightning tracks like veins.",
+   "lore": "Metal (Kim) qi runs in the dark rock, and the lightning finds it every storm. The Tower's sword disciples leave their blades on the crest overnight in thunderstorms."
+  },
+  "prov_r18_5_peak_1": {
+   "name": "Hồi Lôi Phong",
+   "name_han": "回雷峰",
+   "gloss": "Peak of the Echoing Thunder",
+   "look": "A grey peak over a ring of ravines, its walls curved so that each thunderclap rolls back from it two and three times.",
+   "lore": "Metal (Kim) qi lies in its grey rock. The Tower's disciples test their hearing here by counting the echoes, and say a master can hear five."
+  },
+  "prov_r18_6_village_1": {
+   "name": "Mã Lan Thôn",
+   "name_han": "馬欄村",
+   "gloss": "Horse Pen Village",
+   "look": "A high steppe village of stone houses and long dry-stone horse pens, with herds of small shaggy horses grazing the slope below.",
+   "lore": "Mã Lan has bred hill horses since 560, and the Tower's messengers ride them on the mountain roads. Each spring the best foal is led up to the Tower."
+  },
+  "prov_r18_6_beast_lair_2": {
+   "name": "Hôi Lang Cương",
+   "name_han": "灰狼岡",
+   "gloss": "Grey Wolf Ridge",
+   "look": "A rocky spur above the steppe, its boulders worn smooth where wolves have lain, with bones scattered in the grass below.",
+   "lore": "A pack of grey wolves under a spirit-touched leader dens here and takes foals from Mã Lan each spring. The herders leave the leader alone and hunt only the young wolves."
+  },
+  "prov_r18_7_peak_1": {
+   "name": "Vũ Giác Phong",
+   "name_han": "雨角峰",
+   "gloss": "Rain Horn Peak",
+   "look": "Two bare horns of rock rise side by side from one mountain shoulder north of the Tower, the gap between them just wide enough to walk through.",
+   "lore": "Earth (Thổ) qi gathers between the horns. Herders say whoever walks through the gap in a storm comes out a year older."
+  },
+  "prov_r18_8_peak_1": {
+   "name": "Thụ Lôi Đỉnh",
+   "name_han": "受雷頂",
+   "gloss": "Summit That Takes the Thunder",
+   "look": "A rounded summit east of the Tower's cone, its crown fused into black, glassy rock by countless strikes.",
+   "lore": "The Metal (Kim) qi in its rock draws lightning more often than any other summit in Tiêu Vũ Lâm. The Tower's disciples sit just below the crown in storms to feel the strikes through the stone."
+  },
+  "prov_r18_8_mine_2": {
+   "name": "Vũ Đồng Khoáng",
+   "name_han": "雨銅礦",
+   "gloss": "Rain Copper Mine",
+   "look": "Terraced cuts in a red badland slope expose dull red copper ore, with a small smelting floor of blackened stone below.",
+   "lore": "The Tower's smiths take copper from here for their bronze rain-chains and bells. They quench the castings in storm rain, and say bronze quenched dry will not sing."
+  },
+  "prov_r18_9_village_1": {
+   "name": "Hạn Tỉnh Thôn",
+   "name_han": "旱井村",
+   "gloss": "Drought Well Village",
+   "look": "A steppe village of flat-roofed stone houses around a single wide well, its rope so long that a mule turns the windlass.",
+   "lore": "The well was dug in 610, and it takes a mule half the morning to raise a day's water. The village keeps goats and millet and sends its young men to the mines in the ridges."
+  },
+  "prov_r18_9_peak_2": {
+   "name": "Thụy Ngưu Sơn",
+   "name_han": "睡牛山",
+   "gloss": "Sleeping Ox Mountain",
+   "look": "A long, humped mountain over the steppe, shaped like a resting ox, with grass on its back and bare rock on its flanks.",
+   "lore": "Earth (Thổ) qi lies deep in it. The herders of Hạn Tỉnh say that if the ox ever stands up, the well will run dry."
+  },
+  "prov_r18_9_mine_3": {
+   "name": "Dạ Ngọc Khoáng",
+   "name_han": "夜玉礦",
+   "gloss": "Night Jade Mine",
+   "look": "A cramped tunnel mouth in a grey mountain wall, its spoil heap glittering with chips of black, glossy stone.",
+   "lore": "Black jade (mặc ngọc) has been cut here since 820 and carved in Thu Trì into seals and sword fittings. Since the lamps went dark the Tower's masters favour it, because it holds no gleam of lamp or moon."
+  }
  }
 }

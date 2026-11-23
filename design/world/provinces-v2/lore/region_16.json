@@ -1,110 +1,741 @@
-{"region": 16,
+{
+ "region": 16,
  "provinces": {
-  "prov_p145": {"name": "Đào Khê", "name_han": "桃溪", "gloss": "Peach Brook", "lore": "Rolling grass and wild peach below the northern ridges, watered by the brook that runs past the old palace platform of Cửu Thiều Cung. Its farmers grow peaches, millet and a little rice, and make peach wine they will not sing over. Phượng Minh sends a disciple each spring to sweep the platform, and nobody asks why the palace bothers."},
-  "prov_p146": {"name": "Hà Loan", "name_han": "河灣", "gloss": "River Bend", "lore": "A wide floodplain of grass and reeds where the river loops to the gulf, flooded every autumn. Its stilt villages grow rice in the drained season and trade from boats in the wet one. Phượng Minh's bird keepers have lately settled in the jungle edge above the floods."},
-  "prov_p147": {"name": "Bích Lãng", "name_han": "碧浪", "gloss": "Jade Waves", "lore": "A low coast of bamboo groves sinking below the level of the gulf, held back by basket walls of stone. Its people fish and cut bamboo for Trúc Thực Viên, which keeps the coast. Up the river, the empty halls of a Cửu Thiều flute school still stand in the bamboo."},
-  "prov_p53": {"name": "Thiều Âm", "name_han": "韶音", "gloss": "Shao Music", "lore": "A narrow river valley of bamboo at the foot of Phượng Minh's ridges, with bare rock rising steeply behind it. Its people make and sell instruments at Thiều Âm Thị and hire out as players for rites across the south. Since 1195 the palace has watched the market's musicians more closely than its traders."},
-  "prov_p83": {"name": "Mạch Điền", "name_han": "麥田", "gloss": "Wheat Fields", "lore": "Flat wheat and pasture where a river meets the gulf, with dry steppe inland and a fringe of jungle on the shore. Its wheat has fed Phượng Minh's palace since 530. Farmers soak their aching backs in a warm spring by the sea after harvest."},
-  "prov_p84": {"name": "Thanh Khê", "name_han": "清溪", "gloss": "Clear Brook", "lore": "Bamboo hills falling to the gulf around Phượng Minh's port city, with a clear brook running through them to the harbour. Its people build boats, cut bamboo and work the ships of the coast. Above the city lies an empty town the fever took in 812, and the harbour of healing still remembers it."},
-  "prov_phuong_minh": {"name": "Phượng Minh", "name_han": "鳳鳴", "gloss": "The Phoenix's Call", "lore": "The high ridges of Thê Ngô Lĩnh, planted with wutong on every terrace, where Phượng Minh Cung stands around its great tree. No farmers live here; the slopes belong to the palace's disciples, gardeners and musicians. Its head Hoa Triêu Dương and first elder Vu Ngô Đồng rule from here, and on a shoulder below the palace the broken fort that held the ridge for Cửu Thiều is left as it fell."},
-  "prov_truc_thuc": {"name": "Trúc Thực", "name_han": "竹實", "gloss": "Bamboo Seed", "lore": "A low coastal plain of grass and seed bamboo where Trúc Thực Viên grows the phoenix's grain. Its people are spirit farmers and their hired hands, and its seed and beast feed go to keepers across the south. Bamboo rats the size of dogs raid the beds every seeding year."},
-  "prov_r16_1": {"name": "Kiều Mạch", "name_han": "蕎麥", "gloss": "Buckwheat", "lore": "Dry hill grass rising to bare rock in the north of the ridges, with no river to water it. Its few farmers grow buckwheat and graze goats on the high slopes. Phượng Minh's disciples cross it on their way to the northern border."},
-  "prov_r16_10": {"name": "Thiết Bích Lĩnh", "name_han": "鐵壁嶺", "gloss": "Iron Wall Ridge", "lore": "A wall of high bare mountain on the western edge of the ridges, too steep for fields or villages. Only miners live here, in season, at the black iron workings below the summit. Phượng Minh calls it the western wall of its home and keeps a beacon on it."},
-  "prov_r16_11": {"name": "Thúy Đồng Câu", "name_han": "翠桐溝", "gloss": "Ravine of Green Wutong", "lore": "Steep ravines of rock and bamboo east of the palace, planted with wutong by Phượng Minh's gardeners. No one farms here; the palace keeps the slopes for its trees and its fire disciples' training climbs. Its highest peak is said to look like a phoenix's raised wing."},
-  "prov_r16_12": {"name": "Trúc Ly", "name_han": "竹籬", "gloss": "Bamboo Fence", "lore": "Bamboo hills and a river valley on the south-western slopes of the ridges. Its people weave bamboo fences, baskets and screens and grow vegetables in the valley floor. Their basket weavers make the walls that hold back the sea at Bích Lãng."},
-  "prov_r16_13": {"name": "Bạch Nham Lĩnh", "name_han": "白巖嶺", "gloss": "White Crag Ridge", "lore": "High pale crags and pockets of forest in the heart of the ridges, without water or villages. Silver miners come and go from a working on its eastern side. The roosting peak above it is a place of trial for Phượng Minh's wood cultivators."},
-  "prov_r16_14": {"name": "Cầm Huyền", "name_han": "琴弦", "gloss": "Zither Strings", "lore": "Bamboo, grass and forest along a river on the southern slopes, rising to the crags under the palace. Its people raise silkworms and twist zither and pipa strings for the instrument makers of Thiều Âm. High above the village stands the empty hall where Cửu Thiều's chime makers worked."},
-  "prov_r16_15": {"name": "Trúc Phiệt", "name_han": "竹筏", "gloss": "Bamboo Raft", "lore": "Dense bamboo on a river that runs south from the ridges toward the coast. Its people cut cane and float it downriver in great rafts to Trúc Thực Viên and the coast. A rocky ridge east of the village holds the bamboo ode carved by Phượng Minh's founder."},
-  "prov_r16_16": {"name": "Thạch Lũy Lĩnh", "name_han": "石壘嶺", "gloss": "Ridge of Stacked Stone", "lore": "Almost all bare high mountain, dropping straight into the gulf on the south-east. No one lives here but copper miners at the sea's edge. Phượng Minh's fire disciples climb its tallest peak to meet the sunrise."},
-  "prov_r16_17": {"name": "Thanh Trúc Câu", "name_han": "青竹溝", "gloss": "Green Bamboo Ravine", "lore": "Rock ridges and bamboo ravines south-east of the palace, wet and steep. It has no village; bamboo cutters and herb gatherers pass through it. Cinnabar streaks the rock of its main peak."},
-  "prov_r16_18": {"name": "Vân Đào Lĩnh", "name_han": "雲濤嶺", "gloss": "Ridge of Cloud Waves", "lore": "Bamboo-clad mountains falling to a mangrove shore on the gulf, often lost in sea cloud. No village stands here; azurite miners work a pit by the shore. Fishers of the gulf steer by the cliff above it."},
-  "prov_r16_19": {"name": "Sa Trúc", "name_han": "沙竹", "gloss": "Sand Bamboo", "lore": "Bamboo and rock running down to a sandy shore south of the ridges. Its people fish with bamboo traps and cut cane on the slopes. On clear evenings the ridge above glows red long after sunset."},
-  "prov_r16_2": {"name": "Trà Pha", "name_han": "茶坡", "gloss": "Tea Slope", "lore": "Grass hills and patches of forest in the north-east, rising to bare rock, without a river. Its people grow tea on the slopes and send it down to Mạch Điền and the plain. A warm pool in the woods above the village is carpeted with fallen wutong leaves every autumn."},
-  "prov_r16_20": {"name": "Thạch Duẩn Lĩnh", "name_han": "石筍嶺", "gloss": "Ridge of Stone Shoots", "lore": "Karst towers, bamboo and rock along the gulf, facing the spotted-bamboo isle of Tương Phi Đảo. No one lives here; alchemists' miners take stalactite from the caves. Boatmen fall silent passing the cliffs, as they do passing the isle."},
-  "prov_r16_21": {"name": "Lôi Hậu", "name_han": "雷後", "gloss": "After the Thunder", "lore": "A storm coast of bamboo, jungle and rock below the thunder peaks, where Lôi Ngô Lâm takes the lightning. Its people gather the struck wutong for Phượng Minh's workshops, and fish when the sky is clear. The palace has guarded the wood closely since the Thunder Vein War."},
-  "prov_r16_22": {"name": "Hi Quang Lĩnh", "name_han": "曦光嶺", "gloss": "Ridge of Dawn Light", "lore": "The highest mountains of the south, rising to Cao Cương Phong above the coast, with a little volcanic ground. No one lives here; pilgrims and Phượng Minh's disciples climb to the crest at dawn. Realgar is dug on the flank of the old volcanic cone."},
-  "prov_r16_23": {"name": "Tiêu Giang", "name_han": "蕉江", "gloss": "Banana River", "lore": "A warm river plain of grass and jungle opening on the southern sea. Its people grow bananas and rice and fish the river mouth. A spirit vein lies in its open fields, and the farmers plant rice around it first."},
-  "prov_r16_24": {"name": "Bạch Lộ", "name_han": "白鷺", "gloss": "White Egret", "lore": "Grass shore, jungle and rocky hills along the southern coast. Its people fish the shallows and keep buffalo. Wild elephants come down from the hills to its grass in the dry season."},
-  "prov_r16_25": {"name": "Hôi Tẫn Lĩnh", "name_han": "灰燼嶺", "gloss": "Ridge of Ash and Embers", "lore": "High volcanic mountains on the south coast, grey with ash around Niết Hỏa Khẩu. No one lives here; the burned wutong sprout again after every outburst. Phượng Minh's fire disciples come to the vent for trial and leave before dark."},
-  "prov_r16_26": {"name": "Đằng Khê", "name_han": "藤溪", "gloss": "Rattan Brook", "lore": "Low jungle and mangrove on a river near the southern sea, some of it below the tide line. Its people cut rattan and camphor and fish the brook. Camphor from its forest goes to Thanh Khê's healers."},
-  "prov_r16_27": {"name": "Ô Mộc", "name_han": "烏木", "gloss": "Ebony", "lore": "Deep jungle on the southern coast, much of it at or below the sea. Its people cut ebony and fish from the mangrove edge. In the jungle stand the burned stockades of a Thôn Hải shore camp, destroyed in the Pirate Purge."},
-  "prov_r16_28": {"name": "Khổng Tước", "name_han": "孔雀", "gloss": "Peacock", "lore": "Jungle and rock on a small stretch of southern coast. Its people trap fish and gather the feathers shed by wild peacocks, which they sell to fan makers and talisman makers. Black crocodiles hold the mud shore beyond the village."},
-  "prov_r16_29": {"name": "Hoang Đằng Lĩnh", "name_han": "荒藤嶺", "gloss": "Ridge of Wild Vines", "lore": "Mountains and jungle held by the dark apes of Huyền Viên Lâm, too wild for villages. Only miners of red stone come here, and only in the morning. Phượng Minh's disciples hunt the jungle edge for practice, and the apes remember them."},
-  "prov_r16_3": {"name": "Thạch Lựu", "name_han": "石榴", "gloss": "Pomegranate", "lore": "Upland grass and forest on a river in the north-west of the ridges. Its people grow pomegranates and millet on river terraces. Red sandstone outcrops on the hill above hold a fire vein."},
-  "prov_r16_30": {"name": "Hải Giác", "name_han": "海角", "gloss": "Cape at the Sea's Corner", "lore": "A tiny grassy cape at the southern tip of the ridges' coast. Its people fish and gather salt. A spirit vein on the shore rises and falls with the tide."},
-  "prov_r16_4": {"name": "Đan Kiều", "name_han": "丹橋", "gloss": "Vermilion Bridge", "lore": "Dry steppe, red badlands and grass along a river in the north of the ridges, the one dry country of Thê Ngô Lĩnh. Its people graze horses and goats and trade hides at the town by the red bridge. A hot spring in the badlands stains bathers' skin rust-red."},
-  "prov_r16_5": {"name": "Mục Dương", "name_han": "牧羊", "gloss": "Shepherds", "lore": "Upland grass and forest on a river in the north-western hills. Its people herd sheep and goats and sell wool down the river. Red wolves den in the forest below, and the shepherds keep big dogs."},
-  "prov_r16_6": {"name": "Ngô Miêu", "name_han": "梧苗", "gloss": "Wutong Seedlings", "lore": "Grass, bamboo and forest climbing from a river to the ridges just north of the palace. Its people raise wutong seedlings for the palace terraces, as they have since the founding. A peak above the village is where Phượng Minh's disciples practise their first sword cries."},
-  "prov_r16_7": {"name": "Minh Tuyền Câu", "name_han": "鳴泉溝", "gloss": "Ravine of the Singing Springs", "lore": "A high ravine of rock and forest on the western ridges, cut by a cold mountain stream. No one lives here; the springs whistle through the rocks in the wind. Phượng Minh's elders discourage disciples from lingering to listen."},
-  "prov_r16_8": {"name": "Thê Vân Lĩnh", "name_han": "棲雲嶺", "gloss": "Ridge Where Clouds Roost", "lore": "High mountains west of the palace, nearly always in cloud, with forest in the hollows. No villages stand here; miners dig red jade below the summit. The palace gathers fallen feathers on its peak as a rite."},
-  "prov_r16_9": {"name": "Nhục Quế", "name_han": "肉桂", "gloss": "Cinnamon", "lore": "Jungle, bamboo and rock on the eastern slopes of the ridges, wet and without a river. Its people strip cinnamon bark and sell it to the ports. Above them stand the walls of a mountain market town that emptied when Cửu Thiều fell."}
+  "prov_p145": {
+   "name": "Đào Khê",
+   "name_han": "桃溪",
+   "gloss": "Peach Brook",
+   "lore": "Rolling grass and wild peach below the northern ridges, watered by the brook that runs past the old palace platform of Cửu Thiều Cung. Its farmers grow peaches, millet and a little rice, and make peach wine they will not sing over. Phượng Minh sends a disciple each spring to sweep the platform, and nobody asks why the palace bothers."
+  },
+  "prov_p146": {
+   "name": "Hà Loan",
+   "name_han": "河灣",
+   "gloss": "River Bend",
+   "lore": "A wide floodplain of grass and reeds where the river loops to the gulf, flooded every autumn. Its stilt villages grow rice in the drained season and trade from boats in the wet one. Phượng Minh's bird keepers have lately settled in the jungle edge above the floods."
+  },
+  "prov_p147": {
+   "name": "Bích Lãng",
+   "name_han": "碧浪",
+   "gloss": "Jade Waves",
+   "lore": "A low coast of bamboo groves sinking below the level of the gulf, held back by basket walls of stone. Its people fish and cut bamboo for Trúc Thực Viên, which keeps the coast. Up the river, the empty halls of a Cửu Thiều flute school still stand in the bamboo."
+  },
+  "prov_p53": {
+   "name": "Thiều Âm",
+   "name_han": "韶音",
+   "gloss": "Shao Music",
+   "lore": "A narrow river valley of bamboo at the foot of Phượng Minh's ridges, with bare rock rising steeply behind it. Its people make and sell instruments at Thiều Âm Thị and hire out as players for rites across the south. Since 1195 the palace has watched the market's musicians more closely than its traders."
+  },
+  "prov_p83": {
+   "name": "Mạch Điền",
+   "name_han": "麥田",
+   "gloss": "Wheat Fields",
+   "lore": "Flat wheat and pasture where a river meets the gulf, with dry steppe inland and a fringe of jungle on the shore. Its wheat has fed Phượng Minh's palace since 530. Farmers soak their aching backs in a warm spring by the sea after harvest."
+  },
+  "prov_p84": {
+   "name": "Thanh Khê",
+   "name_han": "清溪",
+   "gloss": "Clear Brook",
+   "lore": "Bamboo hills falling to the gulf around Phượng Minh's port city, with a clear brook running through them to the harbour. Its people build boats, cut bamboo and work the ships of the coast. Above the city lies an empty town the fever took in 812, and the harbour of healing still remembers it."
+  },
+  "prov_phuong_minh": {
+   "name": "Phượng Minh",
+   "name_han": "鳳鳴",
+   "gloss": "The Phoenix's Call",
+   "lore": "The high ridges of Thê Ngô Lĩnh, planted with wutong on every terrace, where Phượng Minh Cung stands around its great tree. No farmers live here; the slopes belong to the palace's disciples, gardeners and musicians. Its head Hoa Triêu Dương and first elder Vu Ngô Đồng rule from here, and on a shoulder below the palace the broken fort that held the ridge for Cửu Thiều is left as it fell."
+  },
+  "prov_truc_thuc": {
+   "name": "Trúc Thực",
+   "name_han": "竹實",
+   "gloss": "Bamboo Seed",
+   "lore": "A low coastal plain of grass and seed bamboo where Trúc Thực Viên grows the phoenix's grain. Its people are spirit farmers and their hired hands, and its seed and beast feed go to keepers across the south. Bamboo rats the size of dogs raid the beds every seeding year."
+  },
+  "prov_r16_1": {
+   "name": "Kiều Mạch",
+   "name_han": "蕎麥",
+   "gloss": "Buckwheat",
+   "lore": "Dry hill grass rising to bare rock in the north of the ridges, with no river to water it. Its few farmers grow buckwheat and graze goats on the high slopes. Phượng Minh's disciples cross it on their way to the northern border."
+  },
+  "prov_r16_10": {
+   "name": "Thiết Bích Lĩnh",
+   "name_han": "鐵壁嶺",
+   "gloss": "Iron Wall Ridge",
+   "lore": "A wall of high bare mountain on the western edge of the ridges, too steep for fields or villages. Only miners live here, in season, at the black iron workings below the summit. Phượng Minh calls it the western wall of its home and keeps a beacon on it."
+  },
+  "prov_r16_11": {
+   "name": "Thúy Đồng Câu",
+   "name_han": "翠桐溝",
+   "gloss": "Ravine of Green Wutong",
+   "lore": "Steep ravines of rock and bamboo east of the palace, planted with wutong by Phượng Minh's gardeners. No one farms here; the palace keeps the slopes for its trees and its fire disciples' training climbs. Its highest peak is said to look like a phoenix's raised wing."
+  },
+  "prov_r16_12": {
+   "name": "Trúc Ly",
+   "name_han": "竹籬",
+   "gloss": "Bamboo Fence",
+   "lore": "Bamboo hills and a river valley on the south-western slopes of the ridges. Its people weave bamboo fences, baskets and screens and grow vegetables in the valley floor. Their basket weavers make the walls that hold back the sea at Bích Lãng."
+  },
+  "prov_r16_13": {
+   "name": "Bạch Nham Lĩnh",
+   "name_han": "白巖嶺",
+   "gloss": "White Crag Ridge",
+   "lore": "High pale crags and pockets of forest in the heart of the ridges, without water or villages. Silver miners come and go from a working on its eastern side. The roosting peak above it is a place of trial for Phượng Minh's wood cultivators."
+  },
+  "prov_r16_14": {
+   "name": "Cầm Huyền",
+   "name_han": "琴弦",
+   "gloss": "Zither Strings",
+   "lore": "Bamboo, grass and forest along a river on the southern slopes, rising to the crags under the palace. Its people raise silkworms and twist zither and pipa strings for the instrument makers of Thiều Âm. High above the village stands the empty hall where Cửu Thiều's chime makers worked."
+  },
+  "prov_r16_15": {
+   "name": "Trúc Phiệt",
+   "name_han": "竹筏",
+   "gloss": "Bamboo Raft",
+   "lore": "Dense bamboo on a river that runs south from the ridges toward the coast. Its people cut cane and float it downriver in great rafts to Trúc Thực Viên and the coast. A rocky ridge east of the village holds the bamboo ode carved by Phượng Minh's founder."
+  },
+  "prov_r16_16": {
+   "name": "Thạch Lũy Lĩnh",
+   "name_han": "石壘嶺",
+   "gloss": "Ridge of Stacked Stone",
+   "lore": "Almost all bare high mountain, dropping straight into the gulf on the south-east. No one lives here but copper miners at the sea's edge. Phượng Minh's fire disciples climb its tallest peak to meet the sunrise."
+  },
+  "prov_r16_17": {
+   "name": "Thanh Trúc Câu",
+   "name_han": "青竹溝",
+   "gloss": "Green Bamboo Ravine",
+   "lore": "Rock ridges and bamboo ravines south-east of the palace, wet and steep. It has no village; bamboo cutters and herb gatherers pass through it. Cinnabar streaks the rock of its main peak."
+  },
+  "prov_r16_18": {
+   "name": "Vân Đào Lĩnh",
+   "name_han": "雲濤嶺",
+   "gloss": "Ridge of Cloud Waves",
+   "lore": "Bamboo-clad mountains falling to a mangrove shore on the gulf, often lost in sea cloud. No village stands here; azurite miners work a pit by the shore. Fishers of the gulf steer by the cliff above it."
+  },
+  "prov_r16_19": {
+   "name": "Sa Trúc",
+   "name_han": "沙竹",
+   "gloss": "Sand Bamboo",
+   "lore": "Bamboo and rock running down to a sandy shore south of the ridges. Its people fish with bamboo traps and cut cane on the slopes. On clear evenings the ridge above glows red long after sunset."
+  },
+  "prov_r16_2": {
+   "name": "Trà Pha",
+   "name_han": "茶坡",
+   "gloss": "Tea Slope",
+   "lore": "Grass hills and patches of forest in the north-east, rising to bare rock, without a river. Its people grow tea on the slopes and send it down to Mạch Điền and the plain. A warm pool in the woods above the village is carpeted with fallen wutong leaves every autumn."
+  },
+  "prov_r16_20": {
+   "name": "Thạch Duẩn Lĩnh",
+   "name_han": "石筍嶺",
+   "gloss": "Ridge of Stone Shoots",
+   "lore": "Karst towers, bamboo and rock along the gulf, facing the spotted-bamboo isle of Tương Phi Đảo. No one lives here; alchemists' miners take stalactite from the caves. Boatmen fall silent passing the cliffs, as they do passing the isle."
+  },
+  "prov_r16_21": {
+   "name": "Lôi Hậu",
+   "name_han": "雷後",
+   "gloss": "After the Thunder",
+   "lore": "A storm coast of bamboo, jungle and rock below the thunder peaks, where Lôi Ngô Lâm takes the lightning. Its people gather the struck wutong for Phượng Minh's workshops, and fish when the sky is clear. The palace has guarded the wood closely since the Thunder Vein War."
+  },
+  "prov_r16_22": {
+   "name": "Hi Quang Lĩnh",
+   "name_han": "曦光嶺",
+   "gloss": "Ridge of Dawn Light",
+   "lore": "The highest mountains of the south, rising to Cao Cương Phong above the coast, with a little volcanic ground. No one lives here; pilgrims and Phượng Minh's disciples climb to the crest at dawn. Realgar is dug on the flank of the old volcanic cone."
+  },
+  "prov_r16_23": {
+   "name": "Tiêu Giang",
+   "name_han": "蕉江",
+   "gloss": "Banana River",
+   "lore": "A warm river plain of grass and jungle opening on the southern sea. Its people grow bananas and rice and fish the river mouth. A spirit vein lies in its open fields, and the farmers plant rice around it first."
+  },
+  "prov_r16_24": {
+   "name": "Bạch Lộ",
+   "name_han": "白鷺",
+   "gloss": "White Egret",
+   "lore": "Grass shore, jungle and rocky hills along the southern coast. Its people fish the shallows and keep buffalo. Wild elephants come down from the hills to its grass in the dry season."
+  },
+  "prov_r16_25": {
+   "name": "Hôi Tẫn Lĩnh",
+   "name_han": "灰燼嶺",
+   "gloss": "Ridge of Ash and Embers",
+   "lore": "High volcanic mountains on the south coast, grey with ash around Niết Hỏa Khẩu. No one lives here; the burned wutong sprout again after every outburst. Phượng Minh's fire disciples come to the vent for trial and leave before dark."
+  },
+  "prov_r16_26": {
+   "name": "Đằng Khê",
+   "name_han": "藤溪",
+   "gloss": "Rattan Brook",
+   "lore": "Low jungle and mangrove on a river near the southern sea, some of it below the tide line. Its people cut rattan and camphor and fish the brook. Camphor from its forest goes to Thanh Khê's healers."
+  },
+  "prov_r16_27": {
+   "name": "Ô Mộc",
+   "name_han": "烏木",
+   "gloss": "Ebony",
+   "lore": "Deep jungle on the southern coast, much of it at or below the sea. Its people cut ebony and fish from the mangrove edge. In the jungle stand the burned stockades of a Thôn Hải shore camp, destroyed in the Pirate Purge."
+  },
+  "prov_r16_28": {
+   "name": "Khổng Tước",
+   "name_han": "孔雀",
+   "gloss": "Peacock",
+   "lore": "Jungle and rock on a small stretch of southern coast. Its people trap fish and gather the feathers shed by wild peacocks, which they sell to fan makers and talisman makers. Black crocodiles hold the mud shore beyond the village."
+  },
+  "prov_r16_29": {
+   "name": "Hoang Đằng Lĩnh",
+   "name_han": "荒藤嶺",
+   "gloss": "Ridge of Wild Vines",
+   "lore": "Mountains and jungle held by the dark apes of Huyền Viên Lâm, too wild for villages. Only miners of red stone come here, and only in the morning. Phượng Minh's disciples hunt the jungle edge for practice, and the apes remember them."
+  },
+  "prov_r16_3": {
+   "name": "Thạch Lựu",
+   "name_han": "石榴",
+   "gloss": "Pomegranate",
+   "lore": "Upland grass and forest on a river in the north-west of the ridges. Its people grow pomegranates and millet on river terraces. Red sandstone outcrops on the hill above hold a fire vein."
+  },
+  "prov_r16_30": {
+   "name": "Hải Giác",
+   "name_han": "海角",
+   "gloss": "Cape at the Sea's Corner",
+   "lore": "A tiny grassy cape at the southern tip of the ridges' coast. Its people fish and gather salt. A spirit vein on the shore rises and falls with the tide."
+  },
+  "prov_r16_4": {
+   "name": "Đan Kiều",
+   "name_han": "丹橋",
+   "gloss": "Vermilion Bridge",
+   "lore": "Dry steppe, red badlands and grass along a river in the north of the ridges, the one dry country of Thê Ngô Lĩnh. Its people graze horses and goats and trade hides at the town by the red bridge. A hot spring in the badlands stains bathers' skin rust-red."
+  },
+  "prov_r16_5": {
+   "name": "Mục Dương",
+   "name_han": "牧羊",
+   "gloss": "Shepherds",
+   "lore": "Upland grass and forest on a river in the north-western hills. Its people herd sheep and goats and sell wool down the river. Red wolves den in the forest below, and the shepherds keep big dogs."
+  },
+  "prov_r16_6": {
+   "name": "Ngô Miêu",
+   "name_han": "梧苗",
+   "gloss": "Wutong Seedlings",
+   "lore": "Grass, bamboo and forest climbing from a river to the ridges just north of the palace. Its people raise wutong seedlings for the palace terraces, as they have since the founding. A peak above the village is where Phượng Minh's disciples practise their first sword cries."
+  },
+  "prov_r16_7": {
+   "name": "Minh Tuyền Câu",
+   "name_han": "鳴泉溝",
+   "gloss": "Ravine of the Singing Springs",
+   "lore": "A high ravine of rock and forest on the western ridges, cut by a cold mountain stream. No one lives here; the springs whistle through the rocks in the wind. Phượng Minh's elders discourage disciples from lingering to listen."
+  },
+  "prov_r16_8": {
+   "name": "Thê Vân Lĩnh",
+   "name_han": "棲雲嶺",
+   "gloss": "Ridge Where Clouds Roost",
+   "lore": "High mountains west of the palace, nearly always in cloud, with forest in the hollows. No villages stand here; miners dig red jade below the summit. The palace gathers fallen feathers on its peak as a rite."
+  },
+  "prov_r16_9": {
+   "name": "Nhục Quế",
+   "name_han": "肉桂",
+   "gloss": "Cinnamon",
+   "lore": "Jungle, bamboo and rock on the eastern slopes of the ridges, wet and without a river. Its people strip cinnamon bark and sell it to the ports. Above them stand the walls of a mountain market town that emptied when Cửu Thiều fell."
+  }
  },
  "places": {
-  "prov_p145_hot_spring_1": {"name": "Đào Hoa Thang", "name_han": "桃花湯", "gloss": "Peach Blossom Bath", "look": "A warm pool in the grass below the peach orchard, its surface covered with pink petals every spring.", "lore": "The villagers of Đào Khê bathe here after the peach harvest. Like the orchard above it, no one sings at the pool."},
-  "prov_p146_hot_spring_1": {"name": "Noãn Ba Tuyền", "name_han": "暖波泉", "gloss": "Warm Ripple Spring", "look": "A shallow warm spring on the floodplain, ringed by a low mud wall that the autumn flood tops every year.", "lore": "When the flood comes, the warm water spreads over the plain and the fish crowd to it, and Hà Loan's boat traders call it their best season."},
-  "prov_p146_minor_seat_p": {"name": "Bách Vũ Các", "name_han": "百羽閣", "gloss": "Pavilion of the Hundred Feathers", "look": "On the jungle edge above the floodplain, a tall pavilion of red timber stands among great netted aviaries, loud with peacocks, pheasants and messenger birds.", "lore": "A minor sect of spirit bird keepers sworn to Phượng Minh Cung, founded in 1110 by bird catchers who said that all birds bow to the phoenix and so should serve its palace. It raises messenger birds for the palace and sells feather fans and talisman feathers; it is the newest vassal of the south and still eager to prove itself.", "sect": {"key": "bach_vu", "name": "Bách Vũ Các", "name_han": "百羽閣", "gloss": "Pavilion of the Hundred Feathers", "alignment": "chính đạo", "leans": ["Fire", "Wood"], "craft": "spirit birds: messenger birds and feather fans", "lord": "phuong_minh", "founded": 1110}},
-  "prov_p147_forest_1": {"name": "Tử Trúc Lâm", "name_han": "紫竹林", "gloss": "Purple Bamboo Forest", "look": "A grove of dark purple-stemmed bamboo, so dense that it is dim at noon and rustles without wind.", "lore": "Trúc Thực Viên cuts the purple cane for the basket walls of Bích Lãng, since it rots slower than any other in salt water."},
-  "prov_p147_ruin_2": {"name": "Trúc Địch Viện", "name_han": "竹笛院", "gloss": "Academy of the Bamboo Flute", "look": "Roofless halls by the river among the bamboo, their walls pierced with rows of small round holes like the stops of a flute.", "lore": "A flute school of Cửu Thiều Cung where its disciples learned the bamboo pipes. When Thiên Xu marched south in 340 the students went up to the palace's last stand and did not come back, and the school was never reopened.", "former": "sect", "lived": [160, 340]},
-  "prov_p53_peak_1": {"name": "Minh Cầm Phong", "name_han": "鳴琴峰", "gloss": "Peak of the Sounding Zither", "look": "A sharp grey peak above the market, its face cut by long straight cracks like the strings of a zither.", "lore": "In a high wind the cracks hum, and Thiều Âm's makers climb it to tune by the sound. Its qi runs Kim (metal), hard and ringing."},
-  "prov_p83_hot_spring_1": {"name": "Hải Ôn Tuyền", "name_han": "海溫泉", "gloss": "Warm Sea Spring", "look": "A warm spring bubbling up among rocks at the edge of the wheat, where its water runs out into the gulf.", "lore": "The wheat farmers of Mạch Điền soak here after harvest, and the water tastes faintly of salt."},
-  "prov_p84_forest_1": {"name": "Kim Trúc Lâm", "name_han": "金竹林", "gloss": "Golden Bamboo Forest", "look": "A hill forest of golden-yellow bamboo above the port, the canes glowing in the evening light.", "lore": "Thanh Khê's shipwrights cut its canes for masts and lantern poles; every lantern on the harbour wall hangs from golden bamboo."},
-  "prov_p84_ruin_2": {"name": "Cựu Khê Trấn", "name_han": "舊溪鎮", "gloss": "Old Brook Town", "look": "Grass-grown walls in the bamboo above the port, with a row of small grave mounds outside the gate.", "lore": "A town of bamboo cutters built ten years after the port, emptied by a fever in 812 that killed half its people before Lễ Tuyền's healers came. The survivors moved down to Thanh Khê and never went back up.", "former": "town", "lived": [570, 812]},
-  "prov_phuong_minh_peak_1": {"name": "Triều Phượng Đỉnh", "name_han": "朝鳳頂", "gloss": "Summit Where the Birds Pay Homage to the Phoenix", "look": "The highest summit of the palace ridges, a bare red crest above the wutong where flocks of birds circle at dawn.", "lore": "The saying is that a hundred birds come to pay homage to the phoenix, and here they do circle every morning. Its qi runs strong Hỏa (fire), and Phượng Minh's elders keep its crest for themselves."},
-  "prov_phuong_minh_ruin_2": {"name": "Minh Cổ Bảo", "name_han": "鳴鼓堡", "gloss": "Fort of the Sounding Drum", "look": "A broken stone fort on a shoulder of the ridge, its drum tower split and its gate choked with fallen wutong leaves.", "lore": "Cửu Thiều Cung's guard fort on the ridge road, whose drums warned the palace when Thiên Xu came south. It fell in 340 in the War of the Nine Shao, and Phượng Minh has left it as it fell.", "former": "fort", "lived": [190, 340]},
-  "prov_truc_thuc_beast_lair_1": {"name": "Trúc Thử Nguyên", "name_han": "竹鼠原", "gloss": "Plain of the Bamboo Rats", "look": "A stretch of grassland pocked with burrow mounds, the bamboo around it gnawed to stumps.", "lore": "Spirit bamboo rats the size of dogs breed here and raid Trúc Thực Viên's beds whenever the seed is heavy. The garden's disciples hunt them each seeding year, and the rats come back each year."},
-  "prov_r16_1_village_1": {"name": "Kiều Mạch Thôn", "name_han": "蕎麥村", "gloss": "Buckwheat Village", "look": "A handful of stone houses on a dry hillside, ringed by fields of white-flowered buckwheat.", "lore": "Buckwheat grows where the rain is short and there is no river, and the village has lived on it and on goats for generations. Its noodles are sold in Thiều Âm Thị."},
-  "prov_r16_1_peak_2": {"name": "Quy Vũ Lĩnh", "name_han": "歸羽嶺", "gloss": "Ridge of the Returning Feathers", "look": "A long brown ridge where migrating birds rest in thousands every autumn and spring.", "lore": "The villagers say the birds come back each year to the phoenix's land. Its qi runs Thổ (earth), steady and slow."},
-  "prov_r16_10_peak_1": {"name": "Xích Tiêu Phong", "name_han": "赤霄峰", "gloss": "Peak of the Crimson Sky", "look": "A tall bare peak of reddish rock on the western wall, often lit red at sunset while the valleys are dark.", "lore": "Phượng Minh keeps a beacon on its top, lit only in war. Its qi runs Kim (metal) through the iron in the rock."},
-  "prov_r16_10_mine_2": {"name": "Ô Thiết Khoáng", "name_han": "烏鐵礦", "gloss": "Black Iron Mine", "look": "Adits in a black rock face high on the mountain, with a stone smelting hearth on a ledge below.", "lore": "Phượng Minh's smiths take its black iron for blades and the bronze-and-iron frames of the palace bells."},
-  "prov_r16_11_peak_1": {"name": "Phượng Dực Phong", "name_han": "鳳翼峰", "gloss": "Phoenix Wing Peak", "look": "A peak with one long sloping arm of rock and bamboo, like a raised wing, above ravines of wutong.", "lore": "Fire disciples run up its arm at dawn as a training climb. Its qi runs Mộc (wood), carried up from the bamboo."},
-  "prov_r16_12_village_1": {"name": "Trúc Ly Thôn", "name_han": "竹籬村", "gloss": "Bamboo Fence Village", "look": "A valley village where every yard is fenced in woven bamboo and half-finished baskets stand stacked by the doors.", "lore": "Its weavers make baskets, screens and the great stone-filled baskets of Bích Lãng's sea wall."},
-  "prov_r16_12_forest_2": {"name": "Vân Trúc Lâm", "name_han": "雲竹林", "gloss": "Cloud Bamboo Forest", "look": "Tall pale bamboo on a steep rocky slope, its tops often hidden in low cloud.", "lore": "Its canes grow thin and strong in the thin soil, and Trúc Ly's weavers prize them for fine work."},
-  "prov_r16_13_peak_1": {"name": "Thê Hoàng Phong", "name_han": "棲凰峰", "gloss": "Peak Where the Hen-Phoenix Roosts", "look": "A white crag crowned by a single old wutong growing from a crack in the summit rock.", "lore": "Phượng Minh's wood cultivators sit under the tree for trial. Its qi runs Mộc (wood), unusually for so bare a rock."},
-  "prov_r16_13_mine_2": {"name": "Nguyệt Ngân Khoáng", "name_han": "月銀礦", "gloss": "Moon Silver Mine", "look": "A narrow silver working in pale rock, its spoil heaps glinting white in moonlight.", "lore": "Its silver goes to the palace's inlay makers. Miners say the best seams show themselves on full-moon nights."},
-  "prov_r16_14_village_1": {"name": "Cầm Huyền Hương", "name_han": "琴弦鄉", "gloss": "Zither String Hamlet", "look": "A river hamlet of silkworm sheds, with skeins of twisted silk string hung to dry on long racks by the water.", "lore": "Its people twist silk into strings for zithers and pipas and sell them to Thiều Âm Thị. They boil the cocoons in river water and say it makes the strings sing true."},
-  "prov_r16_14_beast_lair_2": {"name": "Thực Thiết Cốc", "name_han": "食鐵谷", "gloss": "Valley of the Iron-Eaters", "look": "A bamboo valley stripped bare in patches, its stream banks littered with chewed cane and gnawed iron pots.", "lore": "Black-and-white spirit bears, the iron-eaters of the old books, live here on bamboo and steal any iron they can find. Villagers leave old pots at the valley mouth to keep them away from the forge."},
-  "prov_r16_14_ruin_3": {"name": "Kích Khánh Đường", "name_han": "擊磬堂", "gloss": "Hall of the Struck Chime", "look": "A roofless stone hall high on the crags, its floor scattered with broken L-shaped slabs of chime stone.", "lore": "Cửu Thiều Cung's chime makers cut and tuned their stone chimes here. The hall was smashed in the War of the Nine Shao in 340, and the broken chimes still ring faintly when stepped on.", "former": "sect", "lived": [120, 340]},
-  "prov_r16_15_village_1": {"name": "Trúc Phiệt Thôn", "name_han": "竹筏村", "gloss": "Bamboo Raft Village", "look": "A riverside village among dense bamboo, its bank lined with great half-lashed rafts of cut cane.", "lore": "Its cutters float bamboo downriver to the coast every spring flood and walk home along the bank."},
-  "prov_r16_15_peak_2": {"name": "Vịnh Trúc Lĩnh", "name_han": "詠竹嶺", "gloss": "Ridge of the Bamboo Ode", "look": "A rocky ridge above the bamboo where a short poem is cut into a flat rock face.", "lore": "Phượng Minh's founder Ngô Thê Đồng is said to have cut the bamboo ode here in the palace's first years. Its qi runs Mộc (wood)."},
-  "prov_r16_16_peak_1": {"name": "Vọng Dương Phong", "name_han": "望陽峰", "gloss": "Peak Watching the Sun", "look": "A tall bare peak above the gulf, its eastern face scorched dark by the morning sun.", "lore": "Phượng Minh's fire disciples climb it to take in the first sun. Its qi runs Hỏa (fire)."},
-  "prov_r16_16_mine_2": {"name": "Xích Đồng Khoáng", "name_han": "赤銅礦", "gloss": "Red Copper Mine", "look": "Copper workings cut into the foot of the sea cliffs, the rock stained green and red where the waves wash it, with a timber landing for the ore boats.", "lore": "Miners from Thanh Khê work the seams at low tide and pull back when the sea turns. Its copper goes by boat to the port for the bronze bells of the palace and the frames of the harbour lanterns."},
-  "prov_r16_17_peak_1": {"name": "Hàm Đan Phong", "name_han": "含丹峰", "gloss": "Peak That Holds the Cinnabar", "look": "A bamboo-clad peak whose rock shows through in streaks of bright red.", "lore": "Cinnabar runs in thin streaks through the rock, too thin to mine. Its qi runs Hỏa (fire)."},
-  "prov_r16_18_peak_1": {"name": "Lâm Hải Nhai", "name_han": "臨海崖", "gloss": "Cliff Above the Sea", "look": "A sheer bamboo-topped cliff dropping straight into the gulf, white with sea birds.", "lore": "Gulf fishers steer by it in fog. Its qi runs Thủy (water), drawn up from the sea."},
-  "prov_r16_18_mine_2": {"name": "Thạch Thanh Khoáng", "name_han": "石青礦", "gloss": "Stone-Blue Mine", "look": "Shallow pits by the shore where the rock is veined bright blue.", "lore": "Its azurite is ground for blue pigment and sold to painters and to the palace's lacquer workers."},
-  "prov_r16_19_village_1": {"name": "Sa Trúc Thôn", "name_han": "沙竹村", "gloss": "Sand Bamboo Village", "look": "A fishing village of thatched bamboo houses on a sandy cove, with rows of cone-shaped fish traps of split cane drying on the beach.", "lore": "Its people set their traps in the shallows at dusk and lift them at dawn, and cut cane on the slopes behind to sell to passing boats. When the ridge above glows red after sunset, they say the next day's catch will be good."},
-  "prov_r16_19_peak_2": {"name": "Ngưng Hà Lĩnh", "name_han": "凝霞嶺", "gloss": "Ridge of the Gathered Clouds", "look": "A rocky ridge above the bamboo that glows red on clear evenings long after the sun has set.", "lore": "The villagers say the sunset clouds gather here to sleep. Its qi runs Hỏa (fire)."},
-  "prov_r16_2_village_1": {"name": "Trà Pha Thôn", "name_han": "茶坡村", "gloss": "Tea Slope Village", "look": "A hill village of grey roofs above rows of dark green tea bushes clipped into waist-high hedges.", "lore": "Its tea is carried down to Mạch Điền and the plain; the first picking of spring goes to the palace's dawn rites."},
-  "prov_r16_2_hot_spring_2": {"name": "Ngô Diệp Trì", "name_han": "梧葉池", "gloss": "Pool of Wutong Leaves", "look": "A warm pool in a wood above the tea slopes, its surface carpeted every autumn with broad yellow wutong leaves.", "lore": "Tea pickers bathe here at the end of the season. The leaves are never cleared; the villagers say the phoenix likes the pool as it is."},
-  "prov_r16_20_mine_1": {"name": "Chung Nhũ Động", "name_han": "鍾乳洞", "gloss": "Stalactite Cave", "look": "A sea-facing karst cave hung with pale dripping stalactites, many broken off at the tips.", "lore": "Alchemists' miners take the stalactite milk-stone for pills of the bones and lungs. Phượng Minh allows only fallen and broken pieces to be taken from the inner hall."},
-  "prov_r16_21_village_1": {"name": "Lôi Hậu Thôn", "name_han": "雷後村", "gloss": "Village After the Thunder", "look": "A bamboo-walled fishing village on the storm shore, its sheds stacked with scarred wutong logs under palace seals.", "lore": "After each storm clears, its gatherers go into Lôi Ngô Lâm for fallen struck wood and carry it out for Phượng Minh's workshops; on cloudy days they fish instead."},
-  "prov_r16_22_mine_1": {"name": "Đan Hoàng Quật", "name_han": "丹黃窟", "gloss": "Grotto of Red and Yellow", "look": "Orange-red workings on the flank of an old volcanic cone high above the sea, the spoil bright as rust.", "lore": "Its realgar is used in alchemy and in charms against snakes and poison. Miners work with cloth over their faces and never stay past noon."},
-  "prov_r16_23_village_1": {"name": "Tiêu Giang Thôn", "name_han": "蕉江村", "gloss": "Banana River Village", "look": "A river-mouth village on stilts among banana groves, fish weirs set across the brown water below.", "lore": "Its people grow bananas and rice and fish the river mouth, and send dried fish up to Trúc Thực Viên for its beasts."},
-  "prov_r16_23_spirit_vein_2": {"name": "Thanh Hòa Mạch", "name_han": "青禾脈", "gloss": "Vein of the Green Rice", "look": "A low rise in the open fields where the rice grows taller and greener than anywhere around it.", "lore": "A Mộc (wood) vein close under the soil. The farmers of Tiêu Giang plant the rise first each year, and the palace takes a share of its grain for seed."},
-  "prov_r16_24_village_1": {"name": "Bạch Lộ Thôn", "name_han": "白鷺村", "gloss": "White Egret Village", "look": "A shore village of thatched houses where white egrets stand in the shallows among the moored boats.", "lore": "Its people fish the shallows and keep water buffalo on the shore grass, and bar their gates in the dry season when the elephants come down."},
-  "prov_r16_24_beast_lair_2": {"name": "Cuồng Tượng Nguyên", "name_han": "狂象原", "gloss": "Plain of the Mad Elephants", "look": "Tall grass under the hills trampled into broad paths, with broken trees along its edge.", "lore": "Wild spirit elephants come down from the jungle hills to graze here in the dry season, and a bull in musth will charge anything that moves. Hunters come for tusks; few come twice."},
-  "prov_r16_26_village_1": {"name": "Đằng Khê Thôn", "name_han": "藤溪村", "gloss": "Rattan Brook Village", "look": "A jungle village on a slow brook, coils of cut rattan soaking in the water beside the houses.", "lore": "Its people cut rattan and camphor and weave rattan mats and chairs for the ports."},
-  "prov_r16_26_forest_2": {"name": "Long Não Lâm", "name_han": "龍腦林", "gloss": "Camphor Forest", "look": "A lowland forest of tall smooth-trunked trees whose air smells sharp and cool even at noon.", "lore": "Its trees give borneol camphor, which Thanh Khê's healers use for wounds and fevers."},
-  "prov_r16_27_village_1": {"name": "Ô Mộc Thôn", "name_han": "烏木村", "gloss": "Ebony Village", "look": "A village on low mangrove ground behind an earth bank, with black ebony logs stacked under its eaves.", "lore": "Its people cut ebony in the jungle and fish from the mangrove edge; the wood goes to Thiều Âm for flutes and zither pegs."},
-  "prov_r16_27_spirit_vein_2": {"name": "Ngô Căn Mạch", "name_han": "梧根脈", "gloss": "Vein of the Wutong Roots", "look": "A wild wutong in the jungle with roots spread over a slab of mossy rock, the ground around it springy and warm.", "lore": "A Mộc (wood) vein runs under the tree. No one knows who planted a wutong so far into the jungle."},
-  "prov_r16_27_ruin_3": {"name": "Ẩn Phàm Trại", "name_han": "隱帆寨", "gloss": "Stockade of the Hidden Sails", "look": "Charred stockade posts in the jungle above a hidden creek, where a boat slip has rotted into the mud.", "lore": "Thôn Hải Môn's shore camp, where its pirates hid boats and stores within reach of the southern coast. Phượng Minh's fleet burned it in 780, a year before the Purge ended at Thôn Hải's own islet.", "former": "sect", "lived": [700, 780]},
-  "prov_r16_28_village_1": {"name": "Khổng Tước Thôn", "name_han": "孔雀村", "gloss": "Peacock Village", "look": "A small jungle-edge village by the sea, bundles of long green-and-gold feathers hanging in its doorways.", "lore": "Its people fish and gather the feathers wild peacocks shed in the jungle, and sell them to fan makers and to Bách Vũ Các."},
-  "prov_r16_28_beast_lair_2": {"name": "Hắc Ngạc Chử", "name_han": "黑鱷渚", "gloss": "Black Crocodile Shore", "look": "A mud shore between jungle and sea, scored with long drag marks and the dark backs of basking crocodiles.", "lore": "Black spirit crocodiles hold the shore and take anything that comes to drink. The village's fishers launch their boats well beyond it."},
-  "prov_r16_29_mine_1": {"name": "Kê Huyết Khoáng", "name_han": "雞血礦", "gloss": "Chicken-Blood Stone Mine", "look": "A small quarry at the jungle's foot where the pale stone is splashed with blood-red cinnabar.", "lore": "Its chicken-blood stone is carved into seals for Phượng Minh's elders. The miners come only in the morning and leave fruit at the jungle edge for the apes."},
-  "prov_r16_3_village_1": {"name": "Thạch Lựu Thôn", "name_han": "石榴村", "gloss": "Pomegranate Village", "look": "A river village of grey roofs above terraced pomegranate orchards, red with flowers in early summer.", "lore": "Its pomegranates go down to the palace and the markets, and a bride of the village carries one on her wedding day for many children."},
-  "prov_r16_3_spirit_vein_2": {"name": "Đan Hà Huyệt", "name_han": "丹霞穴", "gloss": "Node of the Cinnabar Clouds", "look": "A cleft in a red sandstone outcrop on the hill, its rock warm to the touch even in the rain.", "lore": "A Hỏa (fire) vein comes close to the surface here. Phượng Minh's young fire disciples are sent to sit in the cleft for their first winter."},
-  "prov_r16_30_village_1": {"name": "Hải Giác Thôn", "name_han": "海角村", "gloss": "Cape Village", "look": "A handful of fishing huts on a grassy cape at the end of the coast, with shallow salt pans cut into the flat rock below and boats pulled up in a cleft.", "lore": "Its people fish the currents off the point and boil sea salt in the dry season, and say they live at the corner of the sea. They read the tide by the rock pool on the shore, which fills and empties a little before the sea does."},
-  "prov_r16_30_spirit_vein_2": {"name": "Triều Tịch Nhãn", "name_han": "潮汐眼", "gloss": "Eye of the Tides", "look": "A round rock pool on the shore that fills and empties with the tide, ringed by smooth white stones.", "lore": "A Thủy (water) vein that swells at high tide and fades at low. The fishers say it breathes with the sea, as the lake at Hồ Tâm does."},
-  "prov_r16_4_town_1": {"name": "Đan Kiều Trấn", "name_han": "丹橋鎮", "gloss": "Vermilion Bridge Town", "look": "A walled river town on the edge of the steppe, its two halves joined by a humped bridge lacquered bright red.", "lore": "Herders bring horses, goats and hides to its market, and Phượng Minh's disciples cross the bridge on the road north. The palace relacquers the bridge every ten years."},
-  "prov_r16_4_hot_spring_2": {"name": "Xích Thổ Thang", "name_han": "赤土湯", "gloss": "Red Earth Bath", "look": "A hot spring in a hollow of red badland clay, its water opaque and rust-coloured, with gullies of bare red earth running down to it.", "lore": "Herders from Đan Kiều soak their stiff joints here after the horse fairs, and its water stains skin red for days. Phượng Minh's fire disciples say the iron in the clay warms the blood, and come in winter."},
-  "prov_r16_5_village_1": {"name": "Mục Dương Thôn", "name_han": "牧羊村", "gloss": "Shepherd Village", "look": "Stone sheepfolds and low houses by a river on the upland grass, big dogs lying at every gate.", "lore": "Its shepherds sell wool down the river and keep their dogs against the red wolves."},
-  "prov_r16_5_beast_lair_2": {"name": "Hồng Lang Cương", "name_han": "紅狼岡", "gloss": "Red Wolf Ridge", "look": "A forested ridge where rust-red wolves can be seen at dusk slipping between the trees.", "lore": "Packs of red spirit wolves hunt the forest and the sheep. They whistle to each other instead of howling, and the shepherds listen for it."},
-  "prov_r16_6_village_1": {"name": "Ngô Miêu Thôn", "name_han": "梧苗村", "gloss": "Wutong Seedling Village", "look": "A village by the palace road ringed by beds of young wutong in neat rows, each tagged with a strip of red cloth.", "lore": "Since Phượng Minh's founding its people have raised the wutong for the palace terraces. Every sapling that leaves the village has a red tag tied by the child who watered it."},
-  "prov_r16_6_peak_2": {"name": "Thanh Minh Lĩnh", "name_han": "清鳴嶺", "gloss": "Ridge of the Clear Cry", "look": "A bare ridge above the bamboo where any shout comes back clearly three times.", "lore": "Young disciples of Phượng Minh practise their first sword cries here. Its qi runs Kim (metal)."},
-  "prov_r16_7_peak_1": {"name": "Huyền Tiêu Phong", "name_han": "懸簫峰", "gloss": "Peak of the Hanging Flute", "look": "A thin spire of rock above the singing ravine, pierced near its top by a hole the wind whistles through.", "lore": "Its whistle carries far on stormy nights, and the palace's elders tell disciples not to follow it. Its qi runs Kim (metal)."},
-  "prov_r16_8_peak_1": {"name": "Lạc Vũ Phong", "name_han": "落羽峰", "gloss": "Peak of the Fallen Feather", "look": "A high cloud-wrapped summit where a flat ledge is strewn with feathers blown up from the valleys.", "lore": "Once a year Phượng Minh's disciples climb to gather the feathers for the palace's rites. Its qi runs Thổ (earth)."},
-  "prov_r16_8_mine_2": {"name": "Xích Ngọc Khoáng", "name_han": "赤玉礦", "gloss": "Red Jade Mine", "look": "A narrow cut in grey rock high under the clouds, its floor scattered with chips of red-veined jade.", "lore": "Its red jade is carved into the palace's rite vessels and the pendants of its elders."},
-  "prov_r16_9_village_1": {"name": "Nhục Quế Thôn", "name_han": "肉桂村", "gloss": "Cinnamon Village", "look": "A jungle village where rolled strips of bark dry on racks in every yard and the air smells sweet and hot.", "lore": "Its people strip cinnamon from the hill trees and sell it in Thanh Khê to the ships."},
-  "prov_r16_9_peak_2": {"name": "Hồng Bích Nhai", "name_han": "紅壁崖", "gloss": "Red Wall Cliff", "look": "A long cliff of red rock above the jungle, streaked black where the rain runs down, with a ledge near its top where the old mountain road once ran.", "lore": "The cinnamon cutters of Nhục Quế steer home by it when the jungle closes in, and the road along its ledge once led to the empty market town of Tiêu Sơn. Its qi runs Hỏa (fire), warm in the red rock."},
-  "prov_r16_9_ruin_3": {"name": "Tiêu Sơn Thị", "name_han": "簫山市", "gloss": "Flute Mountain Market", "look": "Grass-grown walls on a high shoulder of rock, with rows of stone stall bases lining a single street.", "lore": "A mountain market town of Cửu Thiều Cung where pipes and flutes were sold to the palace and the plain. After the palace fell in 340 its people left within a year, like those of Vân Môn, and the town was never resettled.", "former": "town", "lived": [150, 341]}
+  "prov_p145_hot_spring_1": {
+   "name": "Đào Hoa Thang",
+   "name_han": "桃花湯",
+   "gloss": "Peach Blossom Bath",
+   "look": "A warm pool in the grass below the peach orchard, its surface covered with pink petals every spring.",
+   "lore": "The villagers of Đào Khê bathe here after the peach harvest. Like the orchard above it, no one sings at the pool."
+  },
+  "prov_p146_hot_spring_1": {
+   "name": "Noãn Ba Tuyền",
+   "name_han": "暖波泉",
+   "gloss": "Warm Ripple Spring",
+   "look": "A shallow warm spring on the floodplain, ringed by a low mud wall that the autumn flood tops every year.",
+   "lore": "When the flood comes, the warm water spreads over the plain and the fish crowd to it, and Hà Loan's boat traders call it their best season."
+  },
+  "prov_p146_minor_seat_p": {
+   "name": "Bách Vũ Các",
+   "name_han": "百羽閣",
+   "gloss": "Pavilion of the Hundred Feathers",
+   "look": "On the jungle edge above the floodplain, a tall pavilion of red timber stands among great netted aviaries, loud with peacocks, pheasants and messenger birds.",
+   "lore": "A minor sect of spirit bird keepers sworn to Phượng Minh Cung, founded in 1110 by bird catchers who said that all birds bow to the phoenix and so should serve its palace. It raises messenger birds for the palace and sells feather fans and talisman feathers; it is one of the younger vassals of the south and still eager to prove itself.",
+   "sect": {
+    "key": "bach_vu",
+    "name": "Bách Vũ Các",
+    "name_han": "百羽閣",
+    "gloss": "Pavilion of the Hundred Feathers",
+    "alignment": "chính đạo",
+    "leans": [
+     "Fire",
+     "Wood"
+    ],
+    "craft": "spirit birds: messenger birds and feather fans",
+    "lord": "phuong_minh",
+    "founded": 1110
+   }
+  },
+  "prov_p147_forest_1": {
+   "name": "Tử Trúc Lâm",
+   "name_han": "紫竹林",
+   "gloss": "Purple Bamboo Forest",
+   "look": "A grove of dark purple-stemmed bamboo, so dense that it is dim at noon and rustles without wind.",
+   "lore": "Trúc Thực Viên cuts the purple cane for the basket walls of Bích Lãng, since it rots slower than any other in salt water."
+  },
+  "prov_p147_ruin_2": {
+   "name": "Trúc Địch Viện",
+   "name_han": "竹笛院",
+   "gloss": "Academy of the Bamboo Flute",
+   "look": "Roofless halls by the river among the bamboo, their walls pierced with rows of small round holes like the stops of a flute.",
+   "lore": "A flute school of Cửu Thiều Cung where its disciples learned the bamboo pipes. When the palace made its last stand in 340 the students went up to the palace's last stand and did not come back, and the school was never reopened.",
+   "former": "sect",
+   "lived": [
+    160,
+    340
+   ]
+  },
+  "prov_p53_peak_1": {
+   "name": "Minh Cầm Phong",
+   "name_han": "鳴琴峰",
+   "gloss": "Peak of the Sounding Zither",
+   "look": "A sharp grey peak above the market, its face cut by long straight cracks like the strings of a zither.",
+   "lore": "In a high wind the cracks hum, and Thiều Âm's makers climb it to tune by the sound. Its qi runs Kim (metal), hard and ringing."
+  },
+  "prov_p83_hot_spring_1": {
+   "name": "Hải Ôn Tuyền",
+   "name_han": "海溫泉",
+   "gloss": "Warm Sea Spring",
+   "look": "A warm spring bubbling up among rocks at the edge of the wheat, where its water runs out into the gulf.",
+   "lore": "The wheat farmers of Mạch Điền soak here after harvest, and the water tastes faintly of salt."
+  },
+  "prov_p84_forest_1": {
+   "name": "Kim Trúc Lâm",
+   "name_han": "金竹林",
+   "gloss": "Golden Bamboo Forest",
+   "look": "A hill forest of golden-yellow bamboo above the port, the canes glowing in the evening light.",
+   "lore": "Thanh Khê's shipwrights cut its canes for masts and lantern poles; every lantern on the harbour wall hangs from golden bamboo."
+  },
+  "prov_p84_ruin_2": {
+   "name": "Cựu Khê Trấn",
+   "name_han": "舊溪鎮",
+   "gloss": "Old Brook Town",
+   "look": "Grass-grown walls in the bamboo above the port, with a row of small grave mounds outside the gate.",
+   "lore": "A town of bamboo cutters built ten years after the port, emptied by a fever in 812 that killed half its people before Lễ Tuyền's healers came. The survivors moved down to Thanh Khê and never went back up.",
+   "former": "town",
+   "lived": [
+    570,
+    812
+   ]
+  },
+  "prov_phuong_minh_peak_1": {
+   "name": "Triều Phượng Đỉnh",
+   "name_han": "朝鳳頂",
+   "gloss": "Summit Where the Birds Pay Homage to the Phoenix",
+   "look": "The highest summit of the palace ridges, a bare red crest above the wutong where flocks of birds circle at dawn.",
+   "lore": "The saying is that a hundred birds come to pay homage to the phoenix, and here they do circle every morning. Its qi runs strong Hỏa (fire), and Phượng Minh's elders keep its crest for themselves."
+  },
+  "prov_phuong_minh_ruin_2": {
+   "name": "Minh Cổ Bảo",
+   "name_han": "鳴鼓堡",
+   "gloss": "Fort of the Sounding Drum",
+   "look": "A broken stone fort on a shoulder of the ridge, its drum tower split and its gate choked with fallen wutong leaves.",
+   "lore": "Cửu Thiều Cung's guard fort on the ridge road, whose drums warned the palace when Thiên Xu came south. It fell in 340 in the War of the Nine Shao, and Phượng Minh has left it as it fell.",
+   "former": "fort",
+   "lived": [
+    190,
+    340
+   ]
+  },
+  "prov_truc_thuc_beast_lair_1": {
+   "name": "Trúc Thử Nguyên",
+   "name_han": "竹鼠原",
+   "gloss": "Plain of the Bamboo Rats",
+   "look": "A stretch of grassland pocked with burrow mounds, the bamboo around it gnawed to stumps.",
+   "lore": "Spirit bamboo rats the size of dogs breed here and raid Trúc Thực Viên's beds whenever the seed is heavy. The garden's disciples hunt them each seeding year, and the rats come back each year."
+  },
+  "prov_r16_1_village_1": {
+   "name": "Kiều Mạch Thôn",
+   "name_han": "蕎麥村",
+   "gloss": "Buckwheat Village",
+   "look": "A handful of stone houses on a dry hillside, ringed by fields of white-flowered buckwheat.",
+   "lore": "Buckwheat grows where the rain is short and there is no river, and the village has lived on it and on goats for generations. Its noodles are sold in Thiều Âm Thị."
+  },
+  "prov_r16_1_peak_2": {
+   "name": "Quy Vũ Lĩnh",
+   "name_han": "歸羽嶺",
+   "gloss": "Ridge of the Returning Feathers",
+   "look": "A long brown ridge where migrating birds rest in thousands every autumn and spring.",
+   "lore": "The villagers say the birds come back each year to the phoenix's land. Its qi runs Thổ (earth), steady and slow."
+  },
+  "prov_r16_10_peak_1": {
+   "name": "Xích Tiêu Phong",
+   "name_han": "赤霄峰",
+   "gloss": "Peak of the Crimson Sky",
+   "look": "A tall bare peak of reddish rock on the western wall, often lit red at sunset while the valleys are dark.",
+   "lore": "Phượng Minh keeps a beacon on its top, lit only in war. Its qi runs Kim (metal) through the iron in the rock."
+  },
+  "prov_r16_10_mine_2": {
+   "name": "Ô Thiết Khoáng",
+   "name_han": "烏鐵礦",
+   "gloss": "Black Iron Mine",
+   "look": "Adits in a black rock face high on the mountain, with a stone smelting hearth on a ledge below.",
+   "lore": "Phượng Minh's smiths take its black iron for blades and the bronze-and-iron frames of the palace bells."
+  },
+  "prov_r16_11_peak_1": {
+   "name": "Phượng Dực Phong",
+   "name_han": "鳳翼峰",
+   "gloss": "Phoenix Wing Peak",
+   "look": "A peak with one long sloping arm of rock and bamboo, like a raised wing, above ravines of wutong.",
+   "lore": "Fire disciples run up its arm at dawn as a training climb. Its qi runs Mộc (wood), carried up from the bamboo."
+  },
+  "prov_r16_12_village_1": {
+   "name": "Trúc Ly Thôn",
+   "name_han": "竹籬村",
+   "gloss": "Bamboo Fence Village",
+   "look": "A valley village where every yard is fenced in woven bamboo and half-finished baskets stand stacked by the doors.",
+   "lore": "Its weavers make baskets, screens and the great stone-filled baskets of Bích Lãng's sea wall."
+  },
+  "prov_r16_12_forest_2": {
+   "name": "Vân Trúc Lâm",
+   "name_han": "雲竹林",
+   "gloss": "Cloud Bamboo Forest",
+   "look": "Tall pale bamboo on a steep rocky slope, its tops often hidden in low cloud.",
+   "lore": "Its canes grow thin and strong in the thin soil, and Trúc Ly's weavers prize them for fine work."
+  },
+  "prov_r16_13_peak_1": {
+   "name": "Thê Hoàng Phong",
+   "name_han": "棲凰峰",
+   "gloss": "Peak Where the Hen-Phoenix Roosts",
+   "look": "A white crag crowned by a single old wutong growing from a crack in the summit rock.",
+   "lore": "Phượng Minh's wood cultivators sit under the tree for trial. Its qi runs Mộc (wood), unusually for so bare a rock."
+  },
+  "prov_r16_13_mine_2": {
+   "name": "Nguyệt Ngân Khoáng",
+   "name_han": "月銀礦",
+   "gloss": "Moon Silver Mine",
+   "look": "A narrow silver working in pale rock, its spoil heaps glinting white in moonlight.",
+   "lore": "Its silver goes to the palace's inlay makers. Miners say the best seams show themselves on full-moon nights."
+  },
+  "prov_r16_14_village_1": {
+   "name": "Cầm Huyền Hương",
+   "name_han": "琴弦鄉",
+   "gloss": "Zither String Hamlet",
+   "look": "A river hamlet of silkworm sheds, with skeins of twisted silk string hung to dry on long racks by the water.",
+   "lore": "Its people twist silk into strings for zithers and pipas and sell them to Thiều Âm Thị. They boil the cocoons in river water and say it makes the strings sing true."
+  },
+  "prov_r16_14_beast_lair_2": {
+   "name": "Thực Thiết Cốc",
+   "name_han": "食鐵谷",
+   "gloss": "Valley of the Iron-Eaters",
+   "look": "A bamboo valley stripped bare in patches, its stream banks littered with chewed cane and gnawed iron pots.",
+   "lore": "Black-and-white spirit bears, the iron-eaters of the old books, live here on bamboo and steal any iron they can find. Villagers leave old pots at the valley mouth to keep them away from the forge."
+  },
+  "prov_r16_14_ruin_3": {
+   "name": "Kích Khánh Đường",
+   "name_han": "擊磬堂",
+   "gloss": "Hall of the Struck Chime",
+   "look": "A roofless stone hall high on the crags, its floor scattered with broken L-shaped slabs of chime stone.",
+   "lore": "Cửu Thiều Cung's chime makers cut and tuned their stone chimes here. The hall was smashed in the War of the Nine Shao in 340, and the broken chimes still ring faintly when stepped on.",
+   "former": "sect",
+   "lived": [
+    120,
+    340
+   ]
+  },
+  "prov_r16_15_village_1": {
+   "name": "Trúc Phiệt Thôn",
+   "name_han": "竹筏村",
+   "gloss": "Bamboo Raft Village",
+   "look": "A riverside village among dense bamboo, its bank lined with great half-lashed rafts of cut cane.",
+   "lore": "Its cutters float bamboo downriver to the coast every spring flood and walk home along the bank."
+  },
+  "prov_r16_15_peak_2": {
+   "name": "Vịnh Trúc Lĩnh",
+   "name_han": "詠竹嶺",
+   "gloss": "Ridge of the Bamboo Ode",
+   "look": "A rocky ridge above the bamboo where a short poem is cut into a flat rock face.",
+   "lore": "Phượng Minh's founder Ngô Thê Đồng is said to have cut the bamboo ode here in the palace's first years. Its qi runs Mộc (wood)."
+  },
+  "prov_r16_16_peak_1": {
+   "name": "Vọng Dương Phong",
+   "name_han": "望陽峰",
+   "gloss": "Peak Watching the Sun",
+   "look": "A tall bare peak above the gulf, its eastern face scorched dark by the morning sun.",
+   "lore": "Phượng Minh's fire disciples climb it to take in the first sun. Its qi runs Hỏa (fire)."
+  },
+  "prov_r16_16_mine_2": {
+   "name": "Xích Đồng Khoáng",
+   "name_han": "赤銅礦",
+   "gloss": "Red Copper Mine",
+   "look": "Copper workings cut into the foot of the sea cliffs, the rock stained green and red where the waves wash it, with a timber landing for the ore boats.",
+   "lore": "Miners from Thanh Khê work the seams at low tide and pull back when the sea turns. Its copper goes by boat to the port for the bronze bells of the palace and the frames of the harbour lanterns."
+  },
+  "prov_r16_17_peak_1": {
+   "name": "Hàm Đan Phong",
+   "name_han": "含丹峰",
+   "gloss": "Peak That Holds the Cinnabar",
+   "look": "A bamboo-clad peak whose rock shows through in streaks of bright red.",
+   "lore": "Cinnabar runs in thin streaks through the rock, too thin to mine. Its qi runs Hỏa (fire)."
+  },
+  "prov_r16_18_peak_1": {
+   "name": "Lâm Hải Nhai",
+   "name_han": "臨海崖",
+   "gloss": "Cliff Above the Sea",
+   "look": "A sheer bamboo-topped cliff dropping straight into the gulf, white with sea birds.",
+   "lore": "Gulf fishers steer by it in fog. Its qi runs Thủy (water), drawn up from the sea."
+  },
+  "prov_r16_18_mine_2": {
+   "name": "Thạch Thanh Khoáng",
+   "name_han": "石青礦",
+   "gloss": "Stone-Blue Mine",
+   "look": "Shallow pits by the shore where the rock is veined bright blue.",
+   "lore": "Its azurite is ground for blue pigment and sold to painters and to the palace's lacquer workers."
+  },
+  "prov_r16_19_village_1": {
+   "name": "Sa Trúc Thôn",
+   "name_han": "沙竹村",
+   "gloss": "Sand Bamboo Village",
+   "look": "A fishing village of thatched bamboo houses on a sandy cove, with rows of cone-shaped fish traps of split cane drying on the beach.",
+   "lore": "Its people set their traps in the shallows at dusk and lift them at dawn, and cut cane on the slopes behind to sell to passing boats. When the ridge above glows red after sunset, they say the next day's catch will be good."
+  },
+  "prov_r16_19_peak_2": {
+   "name": "Ngưng Hà Lĩnh",
+   "name_han": "凝霞嶺",
+   "gloss": "Ridge of the Gathered Clouds",
+   "look": "A rocky ridge above the bamboo that glows red on clear evenings long after the sun has set.",
+   "lore": "The villagers say the sunset clouds gather here to sleep. Its qi runs Hỏa (fire)."
+  },
+  "prov_r16_2_village_1": {
+   "name": "Trà Pha Thôn",
+   "name_han": "茶坡村",
+   "gloss": "Tea Slope Village",
+   "look": "A hill village of grey roofs above rows of dark green tea bushes clipped into waist-high hedges.",
+   "lore": "Its tea is carried down to Mạch Điền and the plain; the first picking of spring goes to the palace's dawn rites."
+  },
+  "prov_r16_2_hot_spring_2": {
+   "name": "Ngô Diệp Trì",
+   "name_han": "梧葉池",
+   "gloss": "Pool of Wutong Leaves",
+   "look": "A warm pool in a wood above the tea slopes, its surface carpeted every autumn with broad yellow wutong leaves.",
+   "lore": "Tea pickers bathe here at the end of the season. The leaves are never cleared; the villagers say the phoenix likes the pool as it is."
+  },
+  "prov_r16_20_mine_1": {
+   "name": "Chung Nhũ Động",
+   "name_han": "鍾乳洞",
+   "gloss": "Stalactite Cave",
+   "look": "A sea-facing karst cave hung with pale dripping stalactites, many broken off at the tips.",
+   "lore": "Alchemists' miners take the stalactite milk-stone for pills of the bones and lungs. Phượng Minh allows only fallen and broken pieces to be taken from the inner hall."
+  },
+  "prov_r16_21_village_1": {
+   "name": "Lôi Hậu Thôn",
+   "name_han": "雷後村",
+   "gloss": "Village After the Thunder",
+   "look": "A bamboo-walled fishing village on the storm shore, its sheds stacked with scarred wutong logs under palace seals.",
+   "lore": "After each storm clears, its gatherers go into Lôi Ngô Lâm for fallen struck wood and carry it out for Phượng Minh's workshops; on cloudy days they fish instead."
+  },
+  "prov_r16_22_mine_1": {
+   "name": "Đan Hoàng Quật",
+   "name_han": "丹黃窟",
+   "gloss": "Grotto of Red and Yellow",
+   "look": "Orange-red workings on the flank of an old volcanic cone high above the sea, the spoil bright as rust.",
+   "lore": "Its realgar is used in alchemy and in charms against snakes and poison. Miners work with cloth over their faces and never stay past noon."
+  },
+  "prov_r16_23_village_1": {
+   "name": "Tiêu Giang Thôn",
+   "name_han": "蕉江村",
+   "gloss": "Banana River Village",
+   "look": "A river-mouth village on stilts among banana groves, fish weirs set across the brown water below.",
+   "lore": "Its people grow bananas and rice and fish the river mouth, and send dried fish up to Trúc Thực Viên for its beasts."
+  },
+  "prov_r16_23_spirit_vein_2": {
+   "name": "Thanh Hòa Mạch",
+   "name_han": "青禾脈",
+   "gloss": "Vein of the Green Rice",
+   "look": "A low rise in the open fields where the rice grows taller and greener than anywhere around it.",
+   "lore": "A Mộc (wood) vein close under the soil. The farmers of Tiêu Giang plant the rise first each year, and the palace takes a share of its grain for seed."
+  },
+  "prov_r16_24_village_1": {
+   "name": "Bạch Lộ Thôn",
+   "name_han": "白鷺村",
+   "gloss": "White Egret Village",
+   "look": "A shore village of thatched houses where white egrets stand in the shallows among the moored boats.",
+   "lore": "Its people fish the shallows and keep water buffalo on the shore grass, and bar their gates in the dry season when the elephants come down."
+  },
+  "prov_r16_24_beast_lair_2": {
+   "name": "Cuồng Tượng Nguyên",
+   "name_han": "狂象原",
+   "gloss": "Plain of the Mad Elephants",
+   "look": "Tall grass under the hills trampled into broad paths, with broken trees along its edge.",
+   "lore": "Wild spirit elephants come down from the jungle hills to graze here in the dry season, and a bull in musth will charge anything that moves. Hunters come for tusks; few come twice."
+  },
+  "prov_r16_26_village_1": {
+   "name": "Đằng Khê Thôn",
+   "name_han": "藤溪村",
+   "gloss": "Rattan Brook Village",
+   "look": "A jungle village on a slow brook, coils of cut rattan soaking in the water beside the houses.",
+   "lore": "Its people cut rattan and camphor and weave rattan mats and chairs for the ports."
+  },
+  "prov_r16_26_forest_2": {
+   "name": "Long Não Lâm",
+   "name_han": "龍腦林",
+   "gloss": "Camphor Forest",
+   "look": "A lowland forest of tall smooth-trunked trees whose air smells sharp and cool even at noon.",
+   "lore": "Its trees give borneol camphor, which Thanh Khê's healers use for wounds and fevers."
+  },
+  "prov_r16_27_village_1": {
+   "name": "Ô Mộc Thôn",
+   "name_han": "烏木村",
+   "gloss": "Ebony Village",
+   "look": "A village on low mangrove ground behind an earth bank, with black ebony logs stacked under its eaves.",
+   "lore": "Its people cut ebony in the jungle and fish from the mangrove edge; the wood goes to Thiều Âm for flutes and zither pegs."
+  },
+  "prov_r16_27_spirit_vein_2": {
+   "name": "Ngô Căn Mạch",
+   "name_han": "梧根脈",
+   "gloss": "Vein of the Wutong Roots",
+   "look": "A wild wutong in the jungle with roots spread over a slab of mossy rock, the ground around it springy and warm.",
+   "lore": "A Mộc (wood) vein runs under the tree. No one knows who planted a wutong so far into the jungle."
+  },
+  "prov_r16_27_ruin_3": {
+   "name": "Ẩn Phàm Trại",
+   "name_han": "隱帆寨",
+   "gloss": "Stockade of the Hidden Sails",
+   "look": "Charred stockade posts in the jungle above a hidden creek, where a boat slip has rotted into the mud.",
+   "lore": "Thôn Hải Môn's shore camp, where its pirates hid boats and stores within reach of the southern coast. Phượng Minh's fleet burned it in 780, a year before the Purge ended at Thôn Hải's own islet.",
+   "former": "sect",
+   "lived": [
+    700,
+    780
+   ]
+  },
+  "prov_r16_28_village_1": {
+   "name": "Khổng Tước Thôn",
+   "name_han": "孔雀村",
+   "gloss": "Peacock Village",
+   "look": "A small jungle-edge village by the sea, bundles of long green-and-gold feathers hanging in its doorways.",
+   "lore": "Its people fish and gather the feathers wild peacocks shed in the jungle, and sell them to fan makers and to Bách Vũ Các."
+  },
+  "prov_r16_28_beast_lair_2": {
+   "name": "Hắc Ngạc Chử",
+   "name_han": "黑鱷渚",
+   "gloss": "Black Crocodile Shore",
+   "look": "A mud shore between jungle and sea, scored with long drag marks and the dark backs of basking crocodiles.",
+   "lore": "Black spirit crocodiles hold the shore and take anything that comes to drink. The village's fishers launch their boats well beyond it."
+  },
+  "prov_r16_29_mine_1": {
+   "name": "Kê Huyết Khoáng",
+   "name_han": "雞血礦",
+   "gloss": "Chicken-Blood Stone Mine",
+   "look": "A small quarry at the jungle's foot where the pale stone is splashed with blood-red cinnabar.",
+   "lore": "Its chicken-blood stone is carved into seals for Phượng Minh's elders. The miners come only in the morning and leave fruit at the jungle edge for the apes."
+  },
+  "prov_r16_3_village_1": {
+   "name": "Thạch Lựu Thôn",
+   "name_han": "石榴村",
+   "gloss": "Pomegranate Village",
+   "look": "A river village of grey roofs above terraced pomegranate orchards, red with flowers in early summer.",
+   "lore": "Its pomegranates go down to the palace and the markets, and a bride of the village carries one on her wedding day for many children."
+  },
+  "prov_r16_3_spirit_vein_2": {
+   "name": "Đan Hà Huyệt",
+   "name_han": "丹霞穴",
+   "gloss": "Node of the Cinnabar Clouds",
+   "look": "A cleft in a red sandstone outcrop on the hill, its rock warm to the touch even in the rain.",
+   "lore": "A Hỏa (fire) vein comes close to the surface here. Phượng Minh's young fire disciples are sent to sit in the cleft for their first winter."
+  },
+  "prov_r16_30_village_1": {
+   "name": "Hải Giác Thôn",
+   "name_han": "海角村",
+   "gloss": "Cape Village",
+   "look": "A handful of fishing huts on a grassy cape at the end of the coast, with shallow salt pans cut into the flat rock below and boats pulled up in a cleft.",
+   "lore": "Its people fish the currents off the point and boil sea salt in the dry season, and say they live at the corner of the sea. They read the tide by the rock pool on the shore, which fills and empties a little before the sea does."
+  },
+  "prov_r16_30_spirit_vein_2": {
+   "name": "Triều Tịch Nhãn",
+   "name_han": "潮汐眼",
+   "gloss": "Eye of the Tides",
+   "look": "A round rock pool on the shore that fills and empties with the tide, ringed by smooth white stones.",
+   "lore": "A Thủy (water) vein that swells at high tide and fades at low. The fishers say it breathes with the sea, as the lake at Hồ Tâm does."
+  },
+  "prov_r16_4_town_1": {
+   "name": "Đan Kiều Trấn",
+   "name_han": "丹橋鎮",
+   "gloss": "Vermilion Bridge Town",
+   "look": "A walled river town on the edge of the steppe, its two halves joined by a humped bridge lacquered bright red.",
+   "lore": "Herders bring horses, goats and hides to its market, and Phượng Minh's disciples cross the bridge on the road north. The palace relacquers the bridge every ten years."
+  },
+  "prov_r16_4_hot_spring_2": {
+   "name": "Xích Thổ Thang",
+   "name_han": "赤土湯",
+   "gloss": "Red Earth Bath",
+   "look": "A hot spring in a hollow of red badland clay, its water opaque and rust-coloured, with gullies of bare red earth running down to it.",
+   "lore": "Herders from Đan Kiều soak their stiff joints here after the horse fairs, and its water stains skin red for days. Phượng Minh's fire disciples say the iron in the clay warms the blood, and come in winter."
+  },
+  "prov_r16_5_village_1": {
+   "name": "Mục Dương Thôn",
+   "name_han": "牧羊村",
+   "gloss": "Shepherd Village",
+   "look": "Stone sheepfolds and low houses by a river on the upland grass, big dogs lying at every gate.",
+   "lore": "Its shepherds sell wool down the river and keep their dogs against the red wolves."
+  },
+  "prov_r16_5_beast_lair_2": {
+   "name": "Hồng Lang Cương",
+   "name_han": "紅狼岡",
+   "gloss": "Red Wolf Ridge",
+   "look": "A forested ridge where rust-red wolves can be seen at dusk slipping between the trees.",
+   "lore": "Packs of red spirit wolves hunt the forest and the sheep. They whistle to each other instead of howling, and the shepherds listen for it."
+  },
+  "prov_r16_6_village_1": {
+   "name": "Ngô Miêu Thôn",
+   "name_han": "梧苗村",
+   "gloss": "Wutong Seedling Village",
+   "look": "A village by the palace road ringed by beds of young wutong in neat rows, each tagged with a strip of red cloth.",
+   "lore": "Since Phượng Minh's founding its people have raised the wutong for the palace terraces. Every sapling that leaves the village has a red tag tied by the child who watered it."
+  },
+  "prov_r16_6_peak_2": {
+   "name": "Thanh Minh Lĩnh",
+   "name_han": "清鳴嶺",
+   "gloss": "Ridge of the Clear Cry",
+   "look": "A bare ridge above the bamboo where any shout comes back clearly three times.",
+   "lore": "Young disciples of Phượng Minh practise their first sword cries here. Its qi runs Kim (metal)."
+  },
+  "prov_r16_7_peak_1": {
+   "name": "Huyền Tiêu Phong",
+   "name_han": "懸簫峰",
+   "gloss": "Peak of the Hanging Flute",
+   "look": "A thin spire of rock above the singing ravine, pierced near its top by a hole the wind whistles through.",
+   "lore": "Its whistle carries far on stormy nights, and the palace's elders tell disciples not to follow it. Its qi runs Kim (metal)."
+  },
+  "prov_r16_8_peak_1": {
+   "name": "Lạc Vũ Phong",
+   "name_han": "落羽峰",
+   "gloss": "Peak of the Fallen Feather",
+   "look": "A high cloud-wrapped summit where a flat ledge is strewn with feathers blown up from the valleys.",
+   "lore": "Once a year Phượng Minh's disciples climb to gather the feathers for the palace's rites. Its qi runs Thổ (earth)."
+  },
+  "prov_r16_8_mine_2": {
+   "name": "Xích Ngọc Khoáng",
+   "name_han": "赤玉礦",
+   "gloss": "Red Jade Mine",
+   "look": "A narrow cut in grey rock high under the clouds, its floor scattered with chips of red-veined jade.",
+   "lore": "Its red jade is carved into the palace's rite vessels and the pendants of its elders."
+  },
+  "prov_r16_9_village_1": {
+   "name": "Nhục Quế Thôn",
+   "name_han": "肉桂村",
+   "gloss": "Cinnamon Village",
+   "look": "A jungle village where rolled strips of bark dry on racks in every yard and the air smells sweet and hot.",
+   "lore": "Its people strip cinnamon from the hill trees and sell it in Thanh Khê to the ships."
+  },
+  "prov_r16_9_peak_2": {
+   "name": "Hồng Bích Nhai",
+   "name_han": "紅壁崖",
+   "gloss": "Red Wall Cliff",
+   "look": "A long cliff of red rock above the jungle, streaked black where the rain runs down, with a ledge near its top where the old mountain road once ran.",
+   "lore": "The cinnamon cutters of Nhục Quế steer home by it when the jungle closes in, and the road along its ledge once led to the empty market town of Tiêu Sơn. Its qi runs Hỏa (fire), warm in the red rock."
+  },
+  "prov_r16_9_ruin_3": {
+   "name": "Tiêu Sơn Thị",
+   "name_han": "簫山市",
+   "gloss": "Flute Mountain Market",
+   "look": "Grass-grown walls on a high shoulder of rock, with rows of stone stall bases lining a single street.",
+   "lore": "A mountain market town of Cửu Thiều Cung where pipes and flutes were sold to the palace and the plain. After the palace fell in 340 its people left within a year, like those of Vân Môn, and the town was never resettled.",
+   "former": "town",
+   "lived": [
+    150,
+    341
+   ]
+  }
  }
 }

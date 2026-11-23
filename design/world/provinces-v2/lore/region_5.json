@@ -68,9 +68,9 @@
    "lore": "River forest on the lower river, its people fishing from stone terraces on the bank. A spirit vein of soft water qi lies near the river. The drowned abbey of Tĩnh Thủy Quán stands in the woods, its walls still marked by the flood of 700."
   },
   "prov_r5_11": {
-   "name": "Lư Từ",
-   "name_han": "鸕鶿",
-   "gloss": "Cormorants",
+   "name": "Lô Chu",
+   "name_han": "鸕舟",
+   "gloss": "Cormorant Boats",
    "lore": "River forest where villagers fish with trained cormorants on the slow reaches. They sell their catch at Đào Thanh. The maples behind the village turn red each autumn."
   },
   "prov_r5_12": {
@@ -385,9 +385,9 @@
    "lore": "A small sect that cultivated the stillness of water. The great flood of 700 drowned it along with three villages, and the survivors went to Tùng Đào two years later."
   },
   "prov_r5_11_village_1": {
-   "name": "Lư Từ Thôn",
-   "name_han": "鸕鶿村",
-   "gloss": "Cormorant Village",
+   "name": "Lô Chu Thôn",
+   "name_han": "鸕舟村",
+   "gloss": "Cormorant-Boat Village",
    "look": "A river village of grey roofs where black cormorants perch on the gunwales of narrow boats, rings around their necks.",
    "lore": "Its people fish the slow reaches with trained cormorants that bring back fish they cannot swallow. They sell their catch at Đào Thanh and give each bird the seventh fish."
   },
@@ -541,7 +541,7 @@
    "name_han": "舊道林",
    "gloss": "Old Bed Forest",
    "look": "A long, narrow wood of willow and alder growing in a winding line across the meadow, following the dry bed of the old river.",
-   "lore": "The trees took root on the bed the river left in 281, and their line still shows its old bends. Since the flood of 1198, children from Tân Lưu dig among the roots for coins of Đông Lưu Thành."
+   "lore": "The trees took root on the bed the river left in 280, and their line still shows its old bends. Since the flood of 1198, children from Tân Lưu dig among the roots for coins of Đông Lưu Thành."
   },
   "prov_r5_21_village_1": {
    "name": "Độc Mộc Thôn",

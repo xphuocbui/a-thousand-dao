@@ -1,6 +1,6 @@
 # New history facts in the provinces-v2 lore (for review)
 
-**Status:** proposal, 2026-11-23 night. The writers who wrote the province and place lore
+**Status:** proposal, 2026-11-23 night; checked against canon by an independent reviewer on 2026-11-24 (no hard contradictions; one territory slip, seven dates and five readings fixed in the lore files). The writers who wrote the province and place lore
 (`design/world/provinces-v2/lore/`) added these small facts. All are dated before 1200, and as far as the writers
 checked, none contradicts `world_history.json` or `world_place_lore.json`. None is in the annals yet. This list is
 gathered from the writers' reports; the text itself is in the lore files.
@@ -98,9 +98,9 @@ gathered from the writers' reports; the text itself is in the lore files.
 
 - **The biggest addition: an eruption in 352** buried Hạ Lôi Thành, a Khải Lôi city about 3 tiles from the Tower.
   Phó Tiêu Tương built on the quiet cone in 380.
-- **Night Rain Edict, 906:** Trúc Ẩn Viện walked north, and the lamp town Thanh Đăng Trấn had emptied by 930.
+- **After the Night Rain Edict (905):** Trúc Ẩn Viện walked north in 906, and the lamp town Thanh Đăng Trấn had emptied by 930.
 - **Thunder Vein War:** Phượng Minh burned Thủ Lôi Bảo in 1042, and beasts took Thanh Thạch Bảo in 1041.
 - **Pirates:** Thôn Hải burned Lan Tân Trấn in 779.
-- **Truce of about 806:** the Tower pulled down Vọng Xu Bảo.
+- **Truce of 805:** the Tower pulled down Vọng Xu Bảo by 806.
 - **The 1199 earthquake** also split Sơn Khẩu Trại.
 - **Proposed sects:** Vũ Linh Đường (930) and Cốc Vũ Quán (610).
