@@ -1,8 +1,7 @@
 # Art bible drafts: Section 6 (Environment Design Language) and 8.8 (map and place art standards)
 
-> **Status:** draft, 2026-11-23 overnight (Claude, under the art lens, from what the night's map and place art
-> established). **Not in the art bible yet:** each section goes in only with the user's approval (the `/art-bible`
-> rule). Section 5 (characters) is not drafted.
+> **Status:** merged into `design/art/art-bible.md` (Section 6 and 8.8) with the user's approval, 2026-11-23. The
+> art bible is the source now; this file is the draft record only. Section 5 (characters) is not drafted.
 
 ## Section 6. Environment Design Language (draft)
 
@@ -56,7 +55,8 @@ never painted until found.
 | Stage art | levels and great-project stages painted from the place's own painting (`place_stages.py`), cut with the base patch | as place art | `assets/map/places/stages/manifest.json` |
 
 - **Masters and prompts** are kept beside the scripts (`design/map/continent-11/art/`, `tools/asset-pipeline/map/prompts/`)
-  with each call's meta file (model, quality, prompt, usage); everything regenerates from the scripts.
+  with each call's meta file (model, quality, prompt, usage); everything regenerates from the scripts. The master PNGs
+  are tracked in Git LFS (`.gitattributes`, `design/map/continent-11/art/**/*.png`).
 - **Model:** gpt-image-2, medium for crops and places (high for the single far painting); about $0.053 per medium image.
 - **Never baked:** text, labels, borders, markers, region names, player or NPC figures.
 - **Memory:** near layer ~19 MB VRAM, far layer ~6 MB, place sprites loaded on first draw (~254 × ~0.6 MB worst case if

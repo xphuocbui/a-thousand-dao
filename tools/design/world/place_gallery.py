@@ -92,7 +92,7 @@ def main():
             src_, n, n, html.escape(w_)) for n, w_, src_ in shots)
         proj.append('<article class="project"><h3>%s</h3><p>at %s</p><div class="stages">%s</div></article>' % (
             html.escape(j["project"]), html.escape(j["name"]), figs))
-    projects_html = ('<section><div class="section-head"><h2>Great projects</h2><p>Ten projects, three stages each, painted '
+    projects_html = ('<section><div class="section-head"><h2>Great projects</h2><p>Ten projects, two to five stages each, painted '
                      'from the place&rsquo;s own painting so it grows in place (design/world/great_projects_proposal.md).</p></div>%s</section>'
                      % "".join(proj)) if proj else ""
     page = TEMPLATE.replace("%%PROJECTS%%", projects_html)

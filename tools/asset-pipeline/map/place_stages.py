@@ -4,7 +4,7 @@ a place's development levels and the stages of its great projects, each painted 
 
 usage:
   python -I place_stages.py plan  <repo>              writes the jobs: levels for cities and sect seats, and each of the
-                                                     ten great projects' three stages at one place that lists it
+                                                     ten great projects' stages (2 to 5 each) at one place that lists it
   python -I place_stages.py paint <repo> <quality>    paints the jobs not yet done (stage n is painted from stage n-1)
   python -I place_stages.py cut   <repo>              cuts each stage into a sprite like place_art.py's
 
@@ -26,7 +26,9 @@ import place_art  # noqa: E402  (shares the crop geometry and radius table)
 PROJECTS = [  # key, name, how each stage looks (design/world/great_projects_proposal.md), words that pick a place
     ("tu_linh_dai_tran", "Great gathering array (Tụ Linh Đại Trận)",
      ["survey stakes and nine foundation stones set in a ring around the place", "stone pillars carved with array script standing in the ring",
-      "the pillars lit, faint golden qi lines joining them over the roofs"], ["gathering array", "array", "tụ linh"]),
+      "the pillars lit, faint golden qi lines joining them over the roofs",
+      "a second, outer ring of lit pillars, the qi lines now drawing one visible array figure over the whole place",
+      "the array figure glowing on the ground across the place, a soft pillar of light at its centre and the clouds above drawn into a slow spiral"], ["gathering array", "array", "tụ linh"]),
     ("linh_mach_cu", "Vein canal (Linh Mạch Cừ)",
      ["a fresh trench cut toward the place from the nearest high ground", "a stone-lined channel with sluice gates reaching the place",
       "the channel glowing faintly, a soft mist where it meets the place"], ["canal", "channel", "vein canal"]),
@@ -35,16 +37,20 @@ PROJECTS = [  # key, name, how each stage looks (design/world/great_projects_pro
       "the terraces green with spirit herbs, a small gathering stone at the top"], ["terrace", "field", "herb"]),
     ("thien_the", "Cloud ladder (Thiên Thê)",
      ["anchors and the first planks driven into the nearest cliff", "a stair and plank road climbing the cliff face",
-      "a roofed sky bridge with lanterns spanning the gap"], ["ladder", "bridge", "stair", "sky"]),
+      "a roofed sky bridge with lanterns spanning the gap",
+      "a second sky bridge and a lantern-lit waystation pavilion built halfway up the cliff"], ["ladder", "bridge", "stair", "sky"]),
     ("thuong_hoi_quan", "Trade quarter (Thương Hội Quán)",
      ["a cleared square and timber frames at the edge of the place", "covered halls and warehouses around the square",
-      "a walled trade quarter with a tall guild hall and plain coloured banners"], ["trade", "market", "guild", "warehouse"]),
+      "a walled trade quarter with a tall guild hall and plain coloured banners",
+      "the quarter grown past its old walls: a second guild hall, caravan yards and long rows of warehouses"], ["trade", "market", "guild", "warehouse"]),
     ("hai_de", "Harbour works (Hải Đê)",
-     ["piles and a rubble mole reaching into the water", "a stone breakwater and quays", "a lighthouse pagoda at the breakwater's end"],
+     ["piles and a rubble mole reaching into the water", "a stone breakwater and quays", "a lighthouse pagoda at the breakwater's end",
+      "a second breakwater closing a full harbour basin, with dry docks and a customs hall on the quay"],
      ["harbour", "breakwater", "lighthouse", "quay", "mole"]),
     ("ho_thanh_dai_tran", "Warding wall (Hộ Thành Đại Trận)",
      ["an earth rampart and stakes around the place", "stone walls with gate towers around the place",
-      "the walls hung with ward talismans and a faint dome of ward light over the place"], ["ward", "wall", "rampart"]),
+      "the walls hung with ward talismans and a faint dome of ward light over the place",
+      "a second, outer wall with watchtowers, and the ward dome bright and banded with script"], ["ward", "wall", "rampart"]),
     ("tang_kinh_cac", "Scripture pavilion (Tàng Kinh Các)",
      ["a cleared stone terrace inside the place", "a three-storey pavilion rising in bamboo scaffolding",
       "a five-storey library pagoda with a brass roof finial"], ["library", "scripture", "pavilion", "archive"]),
@@ -52,8 +58,8 @@ PROJECTS = [  # key, name, how each stage looks (design/world/great_projects_pro
      ["a stone platform and a flue at the edge of the place", "a furnace hall with a tall chimney",
       "the furnace hall with a glowing furnace mouth and a column of pale coloured smoke"], ["furnace", "forge", "kiln", "alchemy"]),
     ("tinh_that", "Sanctuary (Tĩnh Thất)",
-     ["a cleared path and marker stones beside the natural feature", "a small open pavilion beside the feature",
-      "the pavilion with a ring of stone lanterns, the feature itself untouched"], ["sanctuary", "shrine", "pavilion"]),
+     ["a cleared path and marker stones beside the natural feature",
+      "a small open pavilion with a ring of stone lanterns beside the feature, the feature itself untouched"], ["sanctuary", "shrine", "pavilion"]),
 ]
 LEVEL_KINDS = {"city", "great_seat", "minor_seat", "town", "market"}   # villages: a later pass (budget, 2026-11-22)
 
@@ -129,7 +135,7 @@ def paint(repo, quality):
                 if j["kind"] == "level":
                     what = "The place grows one development level: %s" % stage
                 else:
-                    what = "%s builds the great project %s, stage %d of 3: %s." % (j["name"], j["project"], n, stage)
+                    what = "%s builds the great project %s, stage %d of %d: %s." % (j["name"], j["project"], n, len(j["stages"]), stage)
                 pf = os.path.join(sdir(repo), "%s_%d.md" % (j["job"], n))
                 with open(pf, "w", encoding="utf-8") as f:
                     f.write(PROMPT.format(name=j["name"], what=what, share=share))

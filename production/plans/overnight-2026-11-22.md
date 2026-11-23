@@ -75,7 +75,14 @@ region zoom 4× → 6×; villages' level art left for a later pass (budget).
 5. Back up the masters (`design/map/continent-11/art/`, ~1.1 GB, not in git).
 6. Approve the art bible drafts (Section 6 and 8.8, `design/art/drafts/section-6-and-8-map-places-draft.md`).
 
-**Paths to commit (tonight's, own only):** `src/ui/theme/`, `src/ui/{fight,greybox,map,hud,tooltip,windows}/` (the
+**Answered 2026-11-23 morning:** committed (6cdc72bc); masters into Git LFS (d46a6858, not pushed: check the LFS
+quota first); resource boxes = linh thạch, lifespan, sect contribution, reputation, cultivation (level + exp, rate at
+the current place, rating); provinces = borders-only overlay; great projects: player funds first and builds on own
+ground later, small far-map symbol, stage count per project (2-5; art for stages 4-5 painted, Sanctuary cut to 2),
+levers handed to the GDD session (`production/plans/handoff-great-projects.md`); art bible Section 6 and 8.8 locked.
+Still open: your review of the place catalogue and its art.
+
+**Paths committed (tonight's, own only):** `src/ui/theme/`, `src/ui/{fight,greybox,map,hud,tooltip,windows}/` (the
 modified files), `src/gameplay/session/game_query.gd`, `tests/unit/ui/ui_rosewood_theme_test.gd(.uid)`,
 `tests/unit/session/session_reads_test.gd`, `assets/data/ui_hud.json`, `assets/data/world_place_lore.json`,
 `assets/map/`, `assets/ui/frames/frame_board*`, `assets/ui/kit.json`, `tools/asset-pipeline/map/`,
