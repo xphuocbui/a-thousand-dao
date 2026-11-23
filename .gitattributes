@@ -27,3 +27,6 @@
 # .gitattributes governs the INDEX. It does not retro-fix a working tree that
 # predates the rule -- run `git add --renormalize .` for that.
 .claude/**/*.md text eol=lf
+
+# Map art masters (tools/asset-pipeline/map/): ~1.7 GB of painted PNGs, costly to regenerate, kept in Git LFS.
+design/map/continent-11/art/**/*.png filter=lfs diff=lfs merge=lfs -text
