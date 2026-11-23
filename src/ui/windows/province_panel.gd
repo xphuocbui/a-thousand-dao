@@ -214,7 +214,8 @@ func _fill() -> void:
 					lines.append("")
 					lines.append(tr("Passed on to:"))
 					for t in to:
-						lines.append("  %s  %d %%" % [str(t.province), int(round(float(t.share) * 100.0))])
+						var who: String = str(t.get("name", "")) if str(t.get("name", "")) != "" else str(t.province)
+						lines.append("  %s  %d %%" % [who, int(round(float(t.share) * 100.0))])
 			else:
 				lines.append("[b]%s[/b]" % tr("Production a season"))
 				for k in prod:

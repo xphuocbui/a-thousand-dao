@@ -66,6 +66,23 @@ BUILDING_NAMES = {"road": "Road", "market_hall": "Market hall", "granary": "Gran
                   "mine_works": "Mine works", "hunting_lodge": "Hunting lodge", "landing": "Landing"}
 
 
+def label_point(pid, i, centre):
+    """Where a province's name sits: the tile of the province farthest inside it (most steps from its edge), near the
+    middle, so the name never hangs over a neighbour."""
+    m = pid == i
+    d = m.astype(np.int32)
+    cur = m.copy()
+    k = 0
+    while cur.any() and k < 30:
+        k += 1
+        nxt = cur & np.roll(cur, 1, 0) & np.roll(cur, -1, 0) & np.roll(cur, 1, 1) & np.roll(cur, -1, 1)
+        d += nxt
+        cur = nxt
+    ys, xs = np.nonzero(d == d.max())
+    j = int(np.argmin((xs - centre[0]) ** 2 + (ys - centre[1]) ** 2))
+    return [int(xs[j]), int(ys[j])]
+
+
 def main():
     cont = json.load(open(os.path.join(ROOT, "assets/data/world_continent.json"), encoding="utf-8"))
     res = json.load(open(os.path.join(ROOT, "assets/data/map_resources.json"), encoding="utf-8"))
@@ -232,6 +249,12 @@ def main():
                               "development": dev},
                     "passes_to": passed.get(i, {}).get("to", []),
                     "neighbours": [{"province": by_id[n["province"]]["key"], "border_tiles": n["border_tiles"]} for n in p["neighbours"]]})
+    name_of = {o["key"]: o["name"] for o in out}
+    for o in out:   # the gatherers and neighbours by name too, for the panel
+        for t in o["passes_to"]:
+            t["name"] = name_of.get(t["province"], "")
+        for n in o["neighbours"]:
+            n["name"] = name_of.get(n["province"], "")
     doc = {"_doc": "Provinces v2 (branch provinces-v2, 2026-11-23 night; proposal): each province's land, places (existing "
                    "and new, design/world/provinces-v2/), lore and start record, from tools/design/map/province_stats_v2.py "
                    "with the Provinces GDD formulas F1-F6. Production in the dump's per-class units for seed 7; population in "
@@ -239,6 +262,16 @@ def main():
                    "index, not in the GDD).",
            "schema_version": 1, "provinces": out}
     json.dump(doc, open(os.path.join(ROOT, "assets/data/world_provinces.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
+    # the map's drawing file gets each province's name too, for the names drawn at mid zoom
+    gp = os.path.join(ROOT, "assets/map/continent_11_provinces.json")
+    g = json.load(open(gp, encoding="utf-8"))
+    by_key = {o["key"]: o for o in out}
+    for gpv in g["provinces"]:
+        o = by_key.get(gpv.get("key", ""))
+        if o:
+            gpv["name"] = o["name"]
+            gpv["label_at"] = label_point(pid, o["id"], o["centre"])
+    json.dump(g, open(gp, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     n_set = sum(1 for o in out if o["kind"] == "settlement")
     pops = [o["stats"]["population"] for o in out if o["kind"] == "settlement"]
     accs = [o["stats"]["access"] for o in out if o["stats"]["access"] is not None]

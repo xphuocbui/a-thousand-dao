@@ -103,6 +103,7 @@ var _realms: Array = []                 # [{name, centre: Vector2 tile, width_ti
 var _region_info: Dictionary = {}       # grid region id -> {name, holder_name}
 var _alive: AliveLayer = null          # the alive layer: the shader's clock and the chimney smoke (greybox.alive)
 var _alive_cfg: Dictionary = {}
+var _prov_names: Array = []   # [{name, at (tile), kind}] from the provinces file (v2)
 var _prov_ids := PackedByteArray()   # u16 per tile: the province id (greybox.province_ids_file)
 
 
@@ -481,6 +482,8 @@ func _draw() -> void:
 				draw_texture_rect(tex, Rect2(tile_to_local(p.tile) - Vector2(side, side) * 0.5, Vector2(side, side)), false, Color(1, 1, 1, w))
 	if pol > 0.0 and _region_font != null:
 		_draw_names(pol)
+	if _region_font != null and not _prov_names.is_empty():
+		_draw_province_names()
 	var dot: float = _place_radius * lerpf(1.0, 1.6, w)
 	var font: Font = get_theme_default_font()
 	var taken: Array = []   # label boxes already drawn: a name that would overlap one is skipped (hover always shows)
@@ -652,6 +655,37 @@ func _draw_names(alpha: float) -> void:
 			break
 
 
+## The provinces' names (Paradox style: each province's name in small ink capitals across it, user 2026-11-23 night),
+## by greybox.map_zoom.province_names_px [from, full, to] (fading in from `from`, full at `full`, gone above `to` where
+## the place labels lead), sized by the zoom within province_name_font [min, max]; a name that would overlap one already
+## drawn is skipped.
+func _draw_province_names() -> void:
+	var zp: Array = _zcfg.get("province_names_px", [5.0, 8.0, 30.0])
+	var sc: float = tile_scale()
+	var a: float = smoothstep(float(zp[0]), float(zp[1]), sc) * (1.0 - smoothstep(float(zp[2]) * 0.8, float(zp[2]), sc))
+	if a <= 0.01 or not _borders_on:
+		return
+	var fr: Array = _zcfg.get("province_name_font", [10, 15])
+	var fs: int = int(clampf(sc * 1.1, float(fr[0]), float(fr[1])))
+	var ink := Color(0.18, 0.11, 0.06, 0.9 * a)
+	var halo := Color(0.93, 0.88, 0.74, 0.8 * a)
+	var view := Rect2(Vector2.ZERO, size)
+	var taken: Array = []
+	for pr in _prov_names:
+		var c: Vector2 = _origin() + (pr.at as Vector2) * sc
+		if not view.has_point(c):
+			continue
+		var label: String = str(pr.name).to_upper()
+		var tw: float = _region_font.get_string_size(label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs).x
+		var at := c - Vector2(tw * 0.5, -fs * 0.35)
+		var box := Rect2(at + Vector2(0, -fs), Vector2(tw, fs * 1.25)).grow(3)
+		if taken.any(func(t): return (t as Rect2).intersects(box)):
+			continue
+		taken.append(box)
+		draw_string_outline(_region_font, at, label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, 5, halo)
+		draw_string(_region_font, at, label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, ink)
+
+
 ## Where a place's diamond and name sit: on its tile, or, on the region side when the place has its own art, just below
 ## the art so the marker never covers the place's signature (the place art is centred on the tile).
 func _marker_at(p: Dictionary) -> Vector2:
@@ -698,8 +732,12 @@ func _load_provinces(path: String) -> void:
 	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
 	if not (parsed is Dictionary):
 		return
+	_prov_names = []
 	for p in (parsed as Dictionary).get("provinces", []):
 		_prov_region[int(p.id)] = int(p.region)
+		if str(p.get("name", "")) != "" and p.has("label_at"):   # the province names drawn at mid zoom
+			_prov_names.append({"name": str(p.name), "at": Vector2(float(p.label_at[0]), float(p.label_at[1])) + Vector2(0.5, 0.5),
+				"kind": str(p.get("kind", ""))})
 	for ln in (parsed as Dictionary).get("lines", []):
 		var flat: Array = ln.points
 		var pts := PackedVector2Array()
