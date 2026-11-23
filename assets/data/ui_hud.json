@@ -2,6 +2,16 @@
   "schema_version": 1,
   "_doc": "Designer knobs of the map screen HUD (design/ux/hud.md, Tuning Knobs; only the ones the greybox uses so far). lifespan_warn_share: the share of the lifespan left at or below which the lifespan readout warns (0..1). end_turn_cooldown: seconds after a turn during which End turn is refused. bubbles: the map bubbles (design/ux/hud.md, Map bubbles): trip_seasons = bubble_trip_seasons, how many seasons of travel area bubbles reach; max = bubbles_max, area bubbles on screen at once; region_zoom = how many times the region zoom magnifies the continent view; prefilter_tiles_per_season = a straight-line radius (tiles per season of reach, about the fastest ground speed) inside which route times are worked out; explore_kinds = the place kinds (world_continent.json places[].kind) that get an explore bubble. attitude_bands: [lowest attitude, band word] in rising order (npc-interaction-dialogue.md rule 13: hostile <= -30, cold -29..-10, neutral -9..9, warm 10..29, friendly 30..59, close 60+). link_styles: how tooltipable text looks (design/ux/hud.md Tooltips: Content; LinkStyle): every kind is underlined; colour (#RRGGBB), bold and italic per kind; person colours by relation, item colours by rarity 1-6 (placeholders until the art bible names rarity colours), a sect in its own colour. tooltips: design/ux/hud.md Tooltips and Tuning Knobs: tooltip_delay, tooltip_lock (any of timer, middle, click), tooltip_lock_delay and tooltip_close_grace are the player settings' defaults (seconds); tooltip_depth_max the deepest level; edge_margin the safe zone in layout px; width a tooltip's width in layout px. greybox: settings of the slice-1 greybox only (src/ui/greybox/map_screen.gd), to be replaced by the art bible's look. greybox.seed: the world seed the greybox starts with when no --seed is given. greybox.biome_colours: a flat placeholder colour per biome name of world_continent.json legend.biome_ids (hex RGB). greybox.unknown_colour: the colour of a biome missing from that list. greybox.place_radius_px: the place dot radius in layout pixels at continent zoom. greybox.routes_per_frame: how many of the Places panel's route times are worked out each frame.",
   "lifespan_warn_share": 0.1,
+  "_resource_boxes": "design/ux/hud.md Resource box and Visual Budget drop order steps 4-5 (2026-11-23): widths in layout px; the cultivation box is cultivation_box_factor times the width; compact below compact_below; rating and renown icon-only below boxes_icon_below.",
+  "resource_box_width": 144,
+  "resource_box_width_compact": 112,
+  "resource_box_icon_width": 48,
+  "cultivation_box_factor": 2.25,
+  "boxes_icon_below": 1360,
+  "top_bar_height": 48,
+  "compact_below": [1600, 900],
+  "alerts_shown_max": 8,
+  "alerts_shown_max_compact": 4,
   "attitude_bands": [
     [
       -100,

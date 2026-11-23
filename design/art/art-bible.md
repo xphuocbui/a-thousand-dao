@@ -563,9 +563,9 @@ Taken from grand-strategy top bars (user, 2026-11-22): each resource has its own
 - Fixed width per box, so a changing number never shifts the bar.
 - Hover opens the breakdown tooltip (income and costs); a click opens the window the resource belongs to.
 - Contextual boxes appear only when they apply (sect contribution only in a sect).
-- *Which* resources get a box is a `design/ux/hud.md` change (Z1 Top bar, Group 2), queued in
-  `production/plans/ui-greybox-build.md`; candidates: linh thạch, lifespan left (thọ nguyên), sect contribution (cống
-  hiến), reputation, unspent Đạo Đồ points.
+- The boxes (user, 2026-11-23; `design/ux/hud.md` elements 2, 8, 10, 33–35): linh thạch, lifespan left (thọ nguyên),
+  cultivation (realm, level, progress bar and the rate here; double width), rating (power number), renown (danh vọng),
+  and sect contribution (cống hiến) while in a sect. Six new painted icons.
 
 ### 7.14 Map labels and markers
 

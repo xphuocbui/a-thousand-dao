@@ -6,9 +6,11 @@ extends RefCounted
 ## A frontend calls them only while no session job runs (decision 6). They grow screen by screen.
 
 
-## The clock: {year, season, index, label}.
+## The clock: {year, season, index, label, season_name}.
 static func clock(s: GameSession) -> Dictionary:
-	return {"year": s.year, "season": s.season, "index": s.season_index(), "label": s.clock_label()}
+	var names: Array = s.gd.world_gen().get("season_names", [])
+	return {"year": s.year, "season": s.season, "index": s.season_index(), "label": s.clock_label(),
+		"season_name": str(names[s.season]) if s.season < names.size() else ""}
 
 
 ## The player's essentials a screen needs beside StateSnapshot: {id, name, location_id, home_id, realm_label}.
@@ -116,6 +118,26 @@ static func breakdown(s: GameSession, what: String) -> Dictionary:
 	if b == null:
 		return {}
 	return {"total": b.total, "lines": Array(b.lines())}
+
+
+## The top bar's resource boxes beside StateSnapshot (design/ux/hud.md elements 8, 33-35): {rate_pct (progress per
+## season if the player cultivates at the current place, as a % of the level's requirement), power (the shown power
+## number, -1 when the player has no rating yet), provisional (a world-generation rating), in_sect, contribution (0 outside a sect), renown (-1: not tracked by
+## the game yet), held (at the bottleneck or a realm cap: progress does not move)}. Reads only: an unrated player gets no rating record.
+static func resources(s: GameSession) -> Dictionary:
+	var c: Character = s.player
+	if c == null:
+		return {}
+	var req: float = CultivationRules.level_requirement(c, s.gd)
+	var rate: Dictionary = breakdown(s, "rate")
+	var rec: Dictionary = s.db.get_record(RatingService.TABLE, c.id)
+	var rated: bool = not rec.is_empty()
+	var in_sect: bool = c.sect_id != ""
+	return {"rate_pct": (100.0 * float(rate.get("total", 0.0)) / req) if req > 0.0 else 0.0,
+		"power": s.ratings.ladder.power_number(s.ratings.rating_of(c.id)) if rated else -1,
+		"provisional": rated and str(rec.get("state", "")) == RatingService.PROVISIONAL,
+		"in_sect": in_sect, "contribution": s.sect_members.contribution(c.sect_id, c.id) if in_sect else 0,
+		"renown": -1, "held": CultivationRules.at_bottleneck(c, s.gd) or CultivationRules.is_capped(c, s.gd)}
 
 
 ## The cultivation requirement of the player's current level (the bar's full mark).

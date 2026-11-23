@@ -29,11 +29,18 @@ var _map := MapView.new()
 var _loading := ColorRect.new()
 var _loading_label := Label.new()
 var _alerts := Label.new()
-var _stones := Label.new()
+# Z1 resource boxes (design/ux/hud.md elements 2, 8, 10, 33-35; the glyphs stand in for the painted icons)
+var _stones := ResourceBox.new("Linh thạch", "◆")
+var _box_life := ResourceBox.new("Lifespan", "⧖")
+var _box_cult := ResourceBox.new("Cultivation", "☯", 288.0, true)
+var _box_power := ResourceBox.new("Rating", "⚔")
+var _box_renown := ResourceBox.new("Renown", "★")
+var _box_sect := ResourceBox.new("Sect contribution", "宗")
+var _seen_index: int = -1        # the season the last refresh saw
+var _seen_player: String = ""    # a new life (succession) clears the baseline
+var _seen_values: Dictionary = {}
+var _baseline: Dictionary = {}   # each box's change from the last resolution (hud.md Resource box: the change)
 var _season := Label.new()
-var _realm := Label.new()
-var _cult_bar := ProgressBar.new()
-var _lifespan := Label.new()
 var _focus := Button.new()
 var _zoom_button := Button.new()
 var _comparison := FocusComparison.new()
@@ -94,10 +101,7 @@ func _ready() -> void:
 	LinkStyle.set_fonts(paper.fonts.strong, RosewoodTheme.variation(load(str(tcfg.get("fonts", {}).get("italic", ""))) if ResourceLoader.exists(str(tcfg.get("fonts", {}).get("italic", ""))) else null, 400, true))
 	LinkStyle.configure(_cfg.get("link_styles", {}))
 	# The readouts with a tooltip, styled once the table is loaded (hud.md Tooltips: Link styles).
-	LinkStyle.apply(_stones, "number")
 	LinkStyle.apply(_season, "term")
-	LinkStyle.apply(_realm, "term")
-	LinkStyle.apply(_lifespan, "number")
 	_tips.chain.resolve = func(key: String) -> Dictionary: return TooltipLayer.term_content(gd.file("ui_terms").get("terms", {}), key)
 	# Power Rankings runs (rule 13 one season late and worker processes, 2026-11-22); --ratings-off switches its fights
 	# off for this run (the demo presses through seasons with no pause, which would wait for every batch).
@@ -258,16 +262,18 @@ func _build_layout() -> void:
 	_alerts.text = tr("Alerts: none")
 	_alerts.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	bar.add_child(_alerts)
-	TooltipLayer.set_tip(_stones, _tip_stones)
-	_stones.focus_mode = Control.FOCUS_ALL
-	_stones.mouse_filter = Control.MOUSE_FILTER_STOP
-	var stones_word := Label.new()
-	stones_word.text = tr("Linh thạch")
-	var stones_box := HBoxContainer.new()
-	stones_box.add_theme_constant_override("separation", 6)
-	stones_box.add_child(stones_word)
-	stones_box.add_child(_stones)
-	bar.add_child(stones_box)
+	# One right-anchored group: the alert row expands, so neither the alerts nor the contextual sect box (leftmost)
+	# ever moves the other boxes (hud.md Layout Zones, Z1).
+	var boxes := HBoxContainer.new()
+	boxes.add_theme_constant_override("separation", 8)
+	for pair in [[_box_sect, _tip_sect], [_stones, _tip_stones], [_box_life, _tip_lifespan], [_box_cult, _tip_cultivation],
+			[_box_power, _tip_power], [_box_renown, _tip_renown]]:
+		var box: ResourceBox = pair[0]
+		TooltipLayer.set_tip(box, pair[1])
+		boxes.add_child(box)
+	for box: ResourceBox in [_box_life, _box_cult, _box_renown]:
+		box.pressed.connect(_open_sheet_from.bind(box))   # the character sheet (several boxes share it: intended)
+	bar.add_child(boxes)
 	TooltipLayer.set_tip(_season, _tip_season)
 	bar.add_child(_season)
 	for t in [["W", tr("Wiki (not in the greybox yet)")], ["≡", tr("Game menu (not in the greybox yet)")]]:
@@ -282,7 +288,7 @@ func _build_layout() -> void:
 	note.add_theme_color_override("font_color", Color(1, 0.85, 0.4))
 	note.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
 	note.offset_left = 24
-	note.offset_top = 52
+	note.offset_top = 68
 	add_child(note)
 
 	# Z2 window buttons
@@ -290,7 +296,7 @@ func _build_layout() -> void:
 	z2.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT)
 	z2.offset_left = -160
 	z2.offset_right = -16
-	z2.offset_top = 56
+	z2.offset_top = 68
 	add_child(z2)
 	_zones.append(z2)
 	_sheet_button.text = tr("Character") + " (C)"
@@ -314,7 +320,7 @@ func _build_layout() -> void:
 	z3.offset_left = 16
 	z3.offset_bottom = -16
 	z3.offset_top = -112
-	z3.offset_right = 380
+	z3.offset_right = 112   # the portrait only: realm, cultivation and lifespan moved to Z1 (2026-11-23)
 	add_child(z3)
 	_zones.append(z3)
 	var row := HBoxContainer.new()
@@ -331,23 +337,6 @@ func _build_layout() -> void:
 	_portrait.add_theme_stylebox_override(&"pressed", face_hover)
 	_portrait.pressed.connect(_open_sheet_from.bind(_portrait))
 	row.add_child(_portrait)
-	var col := VBoxContainer.new()
-	col.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	row.add_child(col)
-	col.add_child(_realm)
-	_cult_bar.custom_minimum_size = Vector2(220, 20)
-	TooltipLayer.set_tip(_cult_bar, _tip_cultivation)
-	_cult_bar.focus_mode = Control.FOCUS_ALL
-	TooltipLayer.set_tip(_realm, _tip_realm)
-	TooltipLayer.set_tip(_lifespan, _tip_lifespan)
-	col.add_child(_cult_bar)
-	var life_row := HBoxContainer.new()
-	life_row.add_theme_constant_override("separation", 6)
-	var age_word := Label.new()
-	age_word.text = tr("age")
-	life_row.add_child(age_word)
-	life_row.add_child(_lifespan)
-	col.add_child(life_row)
 
 	# Z4 map modes
 	var z4 := HBoxContainer.new()
@@ -495,18 +484,85 @@ func _refresh() -> void:
 	if session == null or GameQuery.player(session).is_empty():
 		return
 	var snap: Dictionary = StateSnapshot.take(session)
-	_stones.text = HudReadouts.stones_text(float(snap.linh_thach))
-	_season.text = session.clock_label()
-	_realm.text = str(snap.realm_label)
-	var req: float = GameQuery.level_requirement(session)
-	_cult_bar.value = HudReadouts.cultivation_share(float(snap.tu_vi), req) * 100.0
-	_lifespan.text = HudReadouts.lifespan_numbers(float(snap.age), float(snap.lifespan))
-	var warn: bool = HudReadouts.lifespan_warning(float(snap.age), float(snap.lifespan), float(_cfg.get("lifespan_warn_share", 0.1)))
-	_lifespan.add_theme_color_override("font_color", Color(1, 0.7, 0.2) if warn else Color(0.9, 0.9, 0.9))
+	var clock: Dictionary = GameQuery.clock(session)
+	_season.text = tr("%s, year %d") % [str(clock.season_name), int(clock.year)]   # element 3's short form; the date on hover
+	_refresh_boxes(snap)
 	_alerts.text = tr("Alerts:") + " " + (tr("an event is waiting") if session.has_pending_event() else tr("none"))
 	_refresh_focus()
 	_refresh_map(str(snap.location_id))
 	_refresh_turn_button()
+
+
+## The resource boxes (hud.md elements 2, 8, 10, 33-35): numbers, the change the last season resolution made (the
+## values right after it minus the last seen before it, frozen within the season; none on a new game, a load or a new
+## life) and the compact forms.
+func _refresh_boxes(snap: Dictionary) -> void:
+	var res: Dictionary = GameQuery.resources(session)
+	var req: float = GameQuery.level_requirement(session)
+	var vals := {"stones": float(snap.linh_thach), "lifespan": float(snap.lifespan), "power": float(res.power),
+		"contribution": float(res.contribution)}
+	var idx: int = int(GameQuery.clock(session).index)
+	var pid: String = str(GameQuery.player(session).id)
+	if pid != _seen_player:
+		_seen_player = pid
+		_seen_index = idx
+		_seen_values = {}
+		_baseline = {}
+	elif idx > _seen_index:
+		# the change the resolution made: right after minus right before End turn, frozen until the next End turn
+		_baseline = {}
+		for k in vals:
+			if _seen_values.has(k):
+				_baseline[k] = float(vals[k]) - float(_seen_values[k])
+		_seen_index = idx
+	_seen_values = vals
+	var delta := func(key: String) -> float: return float(_baseline.get(key, 0.0))
+	var compact: bool = _is_compact()
+	var w: float = float(_cfg.get("resource_box_width_compact" if compact else "resource_box_width", 112.0 if compact else 144.0))
+	for box: ResourceBox in [_stones, _box_life, _box_power, _box_renown, _box_sect]:
+		box.set_width(w)
+	_box_cult.set_width(float(_cfg.get("cultivation_box_factor", 2.25)) * w)
+	var icon_only: bool = get_viewport_rect().size.x < float(_cfg.get("boxes_icon_below", 1360))   # drop step 5
+	for box: ResourceBox in [_box_power, _box_renown]:
+		box.set_icon_only(icon_only)
+		if icon_only:
+			box.set_width(float(_cfg.get("resource_box_icon_width", 48.0)))
+	var shown := func(d: float, decimals: int = 0, suffix: String = "") -> String:
+		return HudReadouts.change_mark(d, decimals) if compact else HudReadouts.change_text(d, decimals, suffix)
+	var said := func(d: float, decimals: int = 0) -> String:
+		var t: String = HudReadouts.change_text(d, decimals)
+		return "" if t == "" else (", " + (tr("up %s this season") if d > 0.0 else tr("down %s this season")) % t.substr(3))
+	var short := func(n: float) -> String: return HudReadouts.short_number(n)
+	var d: float = delta.call("stones")
+	_stones.show_value(short.call(float(snap.linh_thach)), shown.call(d), tr("Linh thạch") + " " + HudReadouts.stones_text(float(snap.linh_thach)) + said.call(d))
+	d = delta.call("lifespan")
+	var warn: bool = HudReadouts.lifespan_warning(float(snap.age), float(snap.lifespan), float(_cfg.get("lifespan_warn_share", 0.1)))
+	var left: String = HudReadouts.years_left_text(float(snap.age), float(snap.lifespan))
+	_box_life.show_value(left + (" ⌛" if warn else ""), shown.call(d, 0, " y"), tr("Lifespan") + " " + left + said.call(d) + ((", " + tr("little lifespan left")) if warn else ""))
+	_box_life.set_warning(warn, Color.from_string(str(_cfg.get("theme", {}).get("palette", {}).get("amber", "#E0A030")), Color(0.88, 0.63, 0.19)))
+	var pct: String = HudReadouts.cultivation_text(float(snap.tu_vi), req)
+	var rate: float = 0.0 if bool(res.held) else float(res.rate_pct)   # held: no change (its tooltip says why)
+	_box_cult.show_value(str(snap.realm_label) + "  " + pct, shown.call(rate, 1, "%"),
+		tr("Cultivation:") + " %s, %s" % [str(snap.realm_label), pct] + ((", " + tr("up %s a season here") % HudReadouts.change_text(rate, 1, "%").substr(3)) if HudReadouts.change_text(rate, 1) != "" else ""))
+	_box_cult.bar.value = HudReadouts.cultivation_share(float(snap.tu_vi), req) * 100.0
+	if int(res.power) < 0:
+		_box_power.show_value("—", "", tr("Rating: not rated yet"))
+	else:
+		d = delta.call("power")
+		var pn: String = ("~" if bool(res.provisional) else "") + short.call(float(res.power))
+		_box_power.show_value(pn, shown.call(d), tr("Rating") + " " + pn + said.call(d))
+	_box_renown.show_value("—", "", tr("Renown: not tracked yet"))
+	_box_sect.visible = bool(res.in_sect)
+	if bool(res.in_sect):
+		d = delta.call("contribution")
+		_box_sect.show_value(short.call(float(res.contribution)), shown.call(d), tr("Sect contribution") + " " + HudReadouts.stones_text(float(res.contribution)) + said.call(d))
+
+
+## The compact layout (hud.md Visual Budget: below compact_below, 1600 x 900 layout px).
+func _is_compact() -> bool:
+	var v: Vector2 = get_viewport_rect().size
+	var below: Array = _cfg.get("compact_below", [1600, 900])
+	return v.x < float(below[0]) or v.y < float(below[1])
 
 
 func _refresh_focus() -> void:
@@ -1070,15 +1126,8 @@ func _tip_stones(_at: Vector2) -> Variant:
 func _tip_season(_at: Vector2) -> Variant:
 	if _busy() or GameQuery.player(session).is_empty():
 		return ""   # never read the session while a job runs on it
-	return {"title": _season.text, "summary": tr("The calendar: one turn is one season."),
+	return {"title": _season.text, "fact": str(GameQuery.clock(session).label), "summary": tr("The calendar: one turn is one season."),
 		"body": TooltipLayer.parse_body(tr("End the turn to pass one [[mua|season]].")), "wiki": "mua"}
-
-
-func _tip_realm(_at: Vector2) -> Variant:
-	if _busy() or GameQuery.player(session).is_empty():
-		return ""   # never read the session while a job runs on it
-	return {"title": _realm.text, "summary": tr("Your realm and stage."),
-		"body": TooltipLayer.parse_body(tr("Your [[canh_gioi|realm]]: [[luyen_khi|Qi Refining]] is the first.")), "wiki": "canh_gioi"}
 
 
 func _tip_cultivation(_at: Vector2) -> Variant:
@@ -1086,7 +1135,7 @@ func _tip_cultivation(_at: Vector2) -> Variant:
 		return ""   # never read the session while a job runs on it
 	var snap: Dictionary = StateSnapshot.take(session)
 	var rate: Dictionary = GameQuery.breakdown(session, "rate")
-	return {"title": tr("Cultivation progress"), "fact": HudReadouts.cultivation_text(float(snap.tu_vi), GameQuery.level_requirement(session)),
+	return {"title": tr("Cultivation:") + " " + str(snap.realm_label), "fact": HudReadouts.cultivation_text(float(snap.tu_vi), GameQuery.level_requirement(session)),
 		"summary": tr("Cultivating here adds about %s a season.") % Breakdown._fmt(float(rate.total)),
 		"body": TooltipLayer.parse_body(tr("Your [[tu_vi|cultivation base]]; when it is full you attempt a [[dot_pha|breakthrough]].")),
 		"lines": Array(rate.lines), "wiki": "tu_vi"}
@@ -1102,6 +1151,30 @@ func _tip_lifespan(_at: Vector2) -> Variant:
 		"summary": tr("When age reaches lifespan, this life ends."),
 		"body": TooltipLayer.parse_body(tr("Every [[mua|season]] costs a quarter year of [[tho_nguyen|lifespan]].")),
 		"lines": Array(life.lines), "wiki": "tho_nguyen"}
+
+
+func _tip_power(_at: Vector2) -> Variant:
+	if _busy() or GameQuery.player(session).is_empty():
+		return ""   # never read the session while a job runs on it
+	var res: Dictionary = GameQuery.resources(session)
+	if int(res.power) < 0:
+		return {"title": tr("Rating"), "summary": tr("You have no rating yet: it comes from rated fights.")}
+	return {"title": tr("Rating"), "fact": ("~" if bool(res.provisional) else "") + HudReadouts.stones_text(float(res.power)),
+		"summary": tr("Your power number: provisional (~) until your first rated fights.") if bool(res.provisional) else tr("Your power number, from rated fights."),
+		"body": TooltipLayer.parse_body(tr("Shown one season late. The rankings window is not in the greybox yet."))}
+
+
+func _tip_renown(_at: Vector2) -> Variant:
+	return {"title": tr("Renown (danh vọng)"), "summary": tr("Not tracked by the game yet."),
+		"body": TooltipLayer.parse_body(tr("How widely your deeds are known. Its sources are still to be designed."))}
+
+
+func _tip_sect(_at: Vector2) -> Variant:
+	if _busy() or GameQuery.player(session).is_empty():
+		return ""   # never read the session while a job runs on it
+	var res: Dictionary = GameQuery.resources(session)
+	return {"title": tr("Sect contribution (cống hiến)"), "fact": HudReadouts.stones_text(float(res.contribution)),
+		"summary": tr("Earned by sect duties and missions; buys ranks and services.")}
 
 
 ## The wiki is not in the greybox: its entry text opens in the side panel instead.

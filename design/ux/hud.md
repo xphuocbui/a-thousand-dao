@@ -1,8 +1,8 @@
 # HUD Design
 
-> **Status**: **Approved 2026-11-22** (lean `/design-review` round 6, after full rounds 1–4 and lean round 5; history in `design/gdd/reviews/hud-review-log.md`) **Changed after approval, 2026-11-22 (user request):** map bubbles, elements 30–32 (Map bubbles); lean round 7 NEEDS REVISION (16 fixes applied), lean round 8 NEEDS REVISION (2 fixes applied), **lean round 9 APPROVED**, all the same day. **Changed after approval, 2026-11-22 (person window, `design/ux/person.md`):** current places for people bubbles and pins, the share of the season left in the Focus preview, numbers follow the language, gamepad X on a person; lean round 10 NEEDS REVISION (fixes applied), **lean round 11 APPROVED**.
+> **Status**: **Approved 2026-11-22** (lean `/design-review` round 6, after full rounds 1–4 and lean round 5; history in `design/gdd/reviews/hud-review-log.md`) **Changed after approval, 2026-11-22 (user request):** map bubbles, elements 30–32 (Map bubbles); lean round 7 NEEDS REVISION (16 fixes applied), lean round 8 NEEDS REVISION (2 fixes applied), **lean round 9 APPROVED**, all the same day. **Changed after approval, 2026-11-22 (person window, `design/ux/person.md`):** current places for people bubbles and pins, the share of the season left in the Focus preview, numbers follow the language, gamepad X on a person; lean round 10 NEEDS REVISION (fixes applied), **lean round 11 APPROVED**. **Changed after approval, 2026-11-23 (user request):** grand-strategy resource boxes in the top bar (linh thạch, lifespan, cultivation, rating, renown, sect contribution; elements 2, 8, 10, 33–35); realm, cultivation and lifespan move up from Z3, which keeps the portrait; a Borders toggle on the map (element 13; provinces as a drawing layer only); lean round 12 NEEDS REVISION (3 blocking, 7 recommended, all applied); lean round 13 NEEDS REVISION (1 blocking: the alert row's width; 6 recommended; all applied); **lean round 14 APPROVED** (0 blocking; 5 recommended, applied).
 > **Author**: user + ux-designer
-> **Last Updated**: 2026-11-22
+> **Last Updated**: 2026-11-23
 > **Platform Targets**: PC (Steam / Epic); keyboard and mouse; gamepad partial (from `.claude/docs/technical-preferences.md`; `project.yaml` has no `platform` block)
 > **Template**: HUD Design
 > **Reviews**: `/ux-review` 2026-11-22 (headless Sonnet): NOT ASSESSED (no accessibility tier), 0 blocking, 6 advisory; all 6 fixed the same day (edge margin, Must Show vs MUST KEEP, area budget, M / Tab / F6 keys, performance criterion, split criteria). Round 2 2026-11-22 (headless Sonnet, after the tier was committed): **APPROVED**, 0 blocking, 5 advisory; 1–4 fixed the same day (committed tier cited, rebindable keys, colourblind mode and brightness in settings, End turn hold-or-confirm); 5 (Z2 budget at 1280×720) is checked on the first build screenshot
@@ -76,6 +76,8 @@ relevant; **On Demand** = the player opens it; **Hidden** = never shown as text.
 
 **Group 1: the character's readouts**
 
+(Since 2026-11-23 realm, stage and level, the cultivation bar and lifespan show as top-bar resource boxes, elements 8 and 10, not in Z3.)
+
 | Item | Category | Source |
 |---|---|---|
 | Realm, stage, level (the layer, tầng, in Luyện Khí) | Must Show | canh-gioi.md |
@@ -83,13 +85,17 @@ relevant; **On Demand** = the player opens it; **Hidden** = never shown as text.
 | Lifespan: age / lifespan (thọ nguyên) | Must Show | canh-gioi.md, living-world-tick.md |
 | Health, linh lực | Contextual: a small bar shows when below full | combat-defence.md, character-stats.md |
 | Heart demon, toxicity, vitality bands | Contextual: an icon on the portrait once past a band | character-stats.md |
-| Power number and realm rank ("12th of 835 Trúc Cơ") | On Demand: the portrait tooltip and the sheet | power-rankings.md |
+| Power number (rating) | Must Show: a top-bar box (since 2026-11-23); the realm rank ("12th of 835 Trúc Cơ") on hover | power-rankings.md |
+| Renown (danh vọng) | Must Show: a top-bar box (user, 2026-11-23) | character-stats.md (merit, incense, renown) |
 
 **Group 2: resources and the turn**
+
+Since 2026-11-23 (user) the character's readouts and resources show as **resource boxes** on the top bar, grand-strategy style (element 2's form): linh thạch, lifespan, cultivation (realm, level, progress and the rate here), rating, renown, and sect contribution while in a sect.
 
 | Item | Category | Source |
 |---|---|---|
 | Linh thạch | Must Show | regional-economy-trade.md, item-database.md |
+| Sect contribution (cống hiến) | Contextual: a top-bar box while the player is in a sect | sects.md |
 | Season and year | Must Show | Time & Turn #4 |
 | Season focus chosen, and the End turn button (blocked state names what's waiting) | Must Show | HUD Philosophy rules 1–2 |
 | Unspent Đạo Đồ points | Contextual: a badge on the Đạo Đồ button when above 0 | dao-do.md |
@@ -102,7 +108,7 @@ relevant; **On Demand** = the player opens it; **Hidden** = never shown as text.
 | The player's bubble (element 30) and the current place's name | Must Show | travel-map.md |
 | The abode bubble (element 31) | Contextual: when the player has a home | cave-abode.md |
 | Area bubbles: what can be done at nearby known places (element 32) | Contextual: region zoom only | travel-map.md, regional-economy-trade.md, sects.md, quests.md, npc-relationships.md, spirit-herbs.md |
-| Places, sect seats, cities and borders at region and continent zoom, with a legend | Must Show (the map is the board) | travel-map.md |
+| Places, sect seats, cities and region borders at region and continent zoom, with a legend | Must Show (the map is the board); region borders behind the Borders toggle (element 13), on by default | travel-map.md |
 | Route preview when hovering or choosing a destination: seasons, danger, encounter chance, teleport fee | Contextual | travel-map.md (`route`) |
 | Map modes: terrain, sect territory, qi density by element, prices last seen, specialties, danger, known people | On Demand (buttons) | travel-map.md, regional-economy-trade.md, trade-goods.md, npc-relationships.md |
 | Place stat block (qi layers, the character's match and density) | On Demand (place tooltip and place panel) | travel-map.md (`place`) |
@@ -158,11 +164,7 @@ right-click to snooze until next season.
 | The world seed's ledger; hidden tiles | Secrets stay secret | world-generation.md, travel-map.md |
 | Debug-only views: the true map, the money ledger, event validator warnings | Testing tools, debug terminal only | travel-map.md, regional-economy-trade.md, event-engine.md |
 
-**Philosophy check:** 8 Must Show *information* items (realm and stage, cultivation bar, lifespan, linh thạch, season
-and year, focus and End turn, marker and place (two elements, 17 and 30), the map). HUD Element Specifications adds 3 *controls* that are also
-always on screen (wiki and menu, window buttons, portrait), so with the marker-and-place item counting as two, **12
-elements are Must Show** (elements 2, 3, 4, 5, 7,
-8, 9, 10, 14, 15, 17, 30). This fits "information-dense
+**Philosophy check** (recounted 2026-11-23): 9 Must Show *information* items (the cultivation box: realm, stage, level, progress and the rate here; lifespan; linh thạch; rating; renown; season and year; focus and End turn; marker and place (two elements, 17 and 30); the map). HUD Element Specifications adds 3 *controls* that are also always on screen (wiki and menu, window buttons, portrait), so with the marker-and-place item counting as two, **13 elements are Must Show** (elements 2, 3, 4, 5, 7, 8, 10, 14, 15, 17, 30, 33, 34). This fits "information-dense
 on demand".
 
 **Terms:** *Must Show* means on screen at the base layout. *MUST KEEP* (Information Hierarchy) means it never drops,
@@ -179,7 +181,7 @@ Arrangement A, "CK3 classic" (user choice 2026-11-21, over a Civ-style and a por
 
 ```
 +--------------------------------------------------------------+
-| Z1  [!][!][!] alerts            linh thach 1,240 | Xuan Y3 |W|≡|
+| Z1 [!][!] [宗85▲10][◆1,240▲30][⧖136y][☯TrucCo3 ▓▓░62%▲4][⚔1,512▲8][★340▲5] Xuan Y3|W|≡|
 +--------------------------------------------------------------+
 | Z6 panel (opens over |                                 | Z2   |
 |    the map, left)    |                                 | [Ch] |
@@ -195,21 +197,21 @@ Arrangement A, "CK3 classic" (user choice 2026-11-21, over a Civ-style and a por
 |                      |                                 |------|
 |                      |                                 |outli-|
 |                      |                                 | ner  |
-| Z3 +--------+            Z4 [terrain][sect][qi][price].. +------+
-|    |portrait| Trúc Cơ 3 ======--- 62%  | Z5 focus: [Cultivate▾]|
-|    +--------+ age 84 / 220             |    [   END TURN    ]  |
+| Z3 +--------+            Z4 [terrain][sect][qi][price][bdr] +----+
+|    |portrait| (health, linh lực bars) | Z5 focus: [Cultivate▾]|
+|    +--------+ (band icons)            |    [   END TURN    ]  |
 +--------------------------------------------------------------+
 ```
-(Numbers in the wireframe use the English format; the Vietnamese UI shows 1.240, Localisation.)
+(Numbers in the wireframe use the English format; the Vietnamese UI shows 1.240, Localisation. Z1's boxes, left to right: sect contribution (in a sect), linh thạch, lifespan left, cultivation, rating, renown; the glyphs stand for the painted icons.)
 
 | Zone | Where | Holds |
 |---|---|---|
-| **Z1 Top bar** | Full width, top | Left: the alert row. Right: linh thạch, season and year, then the wiki (W) and the game menu (≡) (CK3 keeps these bottom-right; here Z5 is reserved for the turn) |
+| **Z1 Top bar** | Full width, top | Left: the alert row. Right: the resource boxes as one **right-anchored** group (elements 35, 2, 10, 8, 33, 34, left to right; the contextual sect contribution box is leftmost, so its appearing or leaving never moves the others, and the alert row's length never moves any box), season and year, then the wiki (W) and the game menu (≡) (CK3 keeps these bottom-right; here Z5 is reserved for the turn) |
 | **Z2 Right column** | Right edge | Window buttons: character, inventory, relationships, sect, quests and journal, rankings, news, places, Đạo Đồ, abode. Below them, the **outliner**: pinned people, places and quests, collapsible |
-| **Z3 Portrait cluster** | Bottom left | The player's portrait (click: character sheet), realm, stage and level, the cultivation bar, age / lifespan. Contextual: health and linh lực bars, band icons |
-| **Z4 Map controls** | Bottom centre | Map mode buttons; the region and continent zoom toggle |
+| **Z3 Portrait cluster** | Bottom left | The player's portrait (click: character sheet). Contextual: health and linh lực bars, band icons. (Realm, cultivation and lifespan moved to Z1's boxes, 2026-11-23) |
+| **Z4 Map controls** | Bottom centre | Map mode buttons; the region and continent zoom toggle; the Borders toggle (it stays its own button when the compact layout folds the map modes into a dropdown) |
 | **Z5 Turn block** | Bottom right | The season focus selector, the End turn button (a blocked state names what's waiting), progress of a multi-season command |
-| **Z6 Panel area** | Left, about ⅓ of the width, over the map; from the bottom of Z1 to the top of Z3, so it never covers Z3's MUST KEEP readouts | One panel at a time: character, person, place, sect and so on. Back and forward arrows step through the window history (the last `history_max`, 20, windows, like a browser: opening a new window after going back drops the forward entries); opening a name inside a panel replaces the panel |
+| **Z6 Panel area** | Left, about ⅓ of the width, over the map; from the bottom of Z1 to the top of Z3, so it never covers the portrait cluster | One panel at a time: character, person, place, sect and so on. Back and forward arrows step through the window history (the last `history_max`, 20, windows, like a browser: opening a new window after going back drops the forward entries); opening a name inside a panel replaces the panel |
 | **Z7 Centre windows** | Centre of the map area; with a panel open, centred in the space right of Z6, so the two never overlap. A temporary overlay: its width is capped by `centre_width_max` and its height by the viewport minus Z1, minus the tallest bottom zone (Z3, Z4 or Z5) it overlaps horizontally, minus 2 × `edge_margin`, scrolling inside when the content is taller (option buttons stay pinned below the scroll); one Z7 window shows at a time, the rest wait in order (a comparison opened while a blocking event card is up replaces it for the moment: the card is minimised); it does not count toward `panel_share_max` | Event cards, the season summary, quest offers, the multi-season confirm dialog. An event card can be minimised to its alert to look at the map first, but it still blocks End turn |
 | **Tooltip layer** | Above everything | Nested, lockable tooltips (HUD Philosophy rule 4) |
 
@@ -233,19 +235,19 @@ after approval for the person window (2026-11-22, lean rounds 10–11).
 
 | # | Element (zone) | Category | Shows | Form | Updates | Animation |
 |---|---|---|---|---|---|---|
-| 1 | Alert row (Z1) | Contextual | One icon per open alert (Information Architecture, Group 4); hover: detail, click: opens the window concerned, right-click or Delete on a focused alert (gamepad X): snooze until next season; beyond `alerts_shown_max`, a "+N" icon lists the rest | Icon row, newest left | When a season resolves, or when an action changes a condition | A new icon slides in once; no pulsing |
-| 2 | Linh thạch (Z1) | Must Show | Amount held; hover: the season's income and costs | Icon + number | Event-driven | The number ticks to its new value; a brief flash on a loss |
+| 1 | Alert row (Z1) | Contextual | One icon per open alert (Information Architecture, Group 4); hover: detail, click: opens the window concerned, right-click or Delete on a focused alert (gamepad X): snooze until next season; the row holds at most `alerts_shown_max` icons (`alerts_shown_max_compact` in the compact layout) and never more than fit in the space left of the resource boxes; blocking alerts come first and are never hidden: those that do not fit fold into their own "+N !" icon, drawn with the blocking frame and always shown, whose tooltip lists them; the non-blocking rest fold into "+N" | Icon row, newest left | When a season resolves, or when an action changes a condition | A new icon slides in once; no pulsing |
+| 2 | Linh thạch box (Z1) | Must Show | Amount held; change: what the last resolution did (▲ / ▼ with sign); hover: the season's income and costs; click: inventory | Resource box | Event-driven | The number ticks to its new value; a brief flash on a loss |
 | 3 | Season and year (Z1) | Must Show | "Xuân, year 3"; hover: the date and seasons per year | Text | On End turn | Changes in step with End turn |
 | 4 | Wiki and menu (Z1) | Must Show | The wiki opens the wiki panel; ≡ opens save, settings and quit | Two icon buttons | Static | None |
 | 5 | Window buttons (Z2) | Must Show | Character, inventory, relationships, sect, quests, rankings, news, places, Đạo Đồ, abode; badges such as unspent Đạo Đồ points or unread news | Icon buttons with number badges | Event-driven | A badge pops once when it appears |
 | 6 | Outliner (Z2) | On Demand (collapsible) | Pinned people (where they are now; changed 2026-11-22, `design/ux/person.md`), places, quests (seasons left) | List; a click centres the map or opens the window | On End turn | None |
-| 7 | Portrait (Z3) | Must Show | The player; hover: power number and realm rank, root line; click: character sheet | Portrait frame | On a realm change | None |
-| 8 | Realm, stage, level (Z3) | Must Show | "Trúc Cơ · stage 3"; "tầng 7" in Luyện Khí | Text | On a breakthrough | Short glow on a breakthrough |
-| 9 | Cultivation bar (Z3) | Must Show | Progress to the next level; hover: the rate-per-season Breakdown, seasons to the next level and to the bottleneck | Horizontal bar + % | On End turn | Fills over about 0.5 s after End turn |
-| 10 | Lifespan (Z3) | Must Show | "age 84 / 220"; hover: the lifespan Breakdown | Text | On End turn | Turns amber when `lifespan_warn_share` (10 %) or less of the lifespan is left |
+| 7 | Portrait (Z3) | Must Show | The player; hover: name, root line; click: character sheet | Portrait frame | On a realm change | None |
+| 8 | Cultivation box (Z1) | Must Show | "Trúc Cơ 3" ("tầng 7" in Luyện Khí) and the % to the next level, with a thin progress strip along the box's bottom edge; change: ▲ the progress per season if the player cultivates **at the current place** (density and match here); hover: the rate-per-season Breakdown, seasons to the next level and to the bottleneck, and how this place compares with the abode; click: character sheet | Resource box, double width | On End turn; on a move (the rate) | Short glow on a breakthrough; the bar fills over `motion_slow` after End turn |
+| 9 | (Merged into element 8, 2026-11-23) | — | The cultivation bar is the bar inside the cultivation box | — | — | — |
+| 10 | Lifespan box (Z1) | Must Show | Years left ("136 y"); change: shown only when lifespan was gained or lost by something other than time (▲ 50 y after a breakthrough), never the season's own passing; hover: age / lifespan and the lifespan Breakdown; click: character sheet | Resource box | On End turn | Turns amber with an hourglass mark when `lifespan_warn_share` (10 %) or less of the lifespan is left |
 | 11 | Health and linh lực (Z3) | Contextual | Only when below full | Thin bars under the portrait | Event-driven | Fade in and out |
 | 12 | Band icons (Z3) | Contextual | Heart demon, toxicity or vitality once past a band; hover: the band and its effect | Small icons on the portrait | On End turn | Fade in |
-| 13 | Map modes and zoom (Z4) | On Demand | Terrain, sect territory, qi by element, prices last seen, specialties, danger, known people; region or continent zoom (+ and −, the wheel) | Toggle buttons; the active one lit | Player-chosen | The map cross-fades between modes |
+| 13 | Map modes and zoom (Z4) | On Demand | Terrain, sect territory, qi by element, prices last seen, specialties, danger, known people; region or continent zoom (+ and −, the wheel); a **Borders** toggle: **region borders**, a thin plain ink line along the 20 regions over the painted map, in every mode, on by default, a player setting (one for all saves) (the user's "provinces" are this drawing layer only; tiles stay the rule unit, user 2026-11-23). In sect territory mode the sect's own control border (patterned, with the sect's name) is drawn above it, so the two never read alike | Toggle buttons; the active one lit | Player-chosen | The map cross-fades between modes |
 | 14 | Season focus selector (Z5) | Must Show | The chosen focus; a click opens the focus comparison (element 29) | Button | Player-chosen | None |
 | 15 | End turn (Z5) | Must Show | "End turn: <focus>"; armed: "Confirm end turn"; blocked, in this order of precedence: "Event waiting: <title>", "Check focus: <reason>", "Checking focus…"; a click (or Enter) on a blocked button opens the blocker; label changes are announced; a non-blocking reminder pip when Đạo Đồ points are unspent or a matured herb waits, with the details in its tooltip | Large button | Event-driven | A gentle glow when ready; none when blocked |
 | 16 | Multi-season progress (Z5) | Contextual | "Closed door: year 2 of 5", and Stop (takes effect at the next season boundary) | Bar + text | Each simulated season | Steady fill |
@@ -265,6 +267,18 @@ after approval for the person window (2026-11-22, lean rounds 10–11).
 | 30 | Your bubble (map) | Must Show | A round portrait badge at the player's location, replacing a plain marker; a status mark while travelling (an arrow) or in closed-door cultivation; hover: name, realm, place; click: the character sheet | Map badge | On a move | Slides along the route (as element 17's marker did) |
 | 31 | Abode bubble (map) | Contextual: when the player has a home, at every zoom | A house badge at the home's place; click: the cave abode full screen (changes that need the player present say so, and are locked while away) | Map badge | On a home change | None |
 | 32 | Area bubbles (map) | Contextual: region zoom only | What can be done at the current place and at known places within `bubble_trip_seasons`: market, sect and quests, people the player knows who are there, explore and search; each an icon and a count (Map bubbles); hover: the place's name and what is there, and for another place the route's seasons, danger and fee (drawing the route preview, element 18); a merged bubble lists its parts; Q or F2 opens the tooltip from the keyboard | Map badges | At each season start and on a move | Fade in |
+| 33 | Rating box (Z1) | Must Show | The power number (power-rankings.md); change: since last season (▲ / ▼ with sign); hover: the realm rank ("12th of 835 Trúc Cơ") and what moved it; click: rankings | Resource box | On End turn; after a rating fight | The number ticks to its new value |
+| 34 | Renown box (Z1) | Must Show | Renown (danh vọng); change: last season's (▲ / ▼ with sign); hover: where it came from this season; click: character sheet | Resource box | On End turn; on an event | The number ticks |
+| 35 | Sect contribution box (Z1) | Contextual: while in a sect | Contribution (cống hiến) held; change: last season's net; hover: earned and spent, and the next rank's need; click: sect window | Resource box | On End turn; on a sect action | Fades in on joining, out on leaving |
+
+**Resource box** (elements 2, 8, 10, 33–35; art bible 7.13): a small wood plaque with the resource's painted icon, its tabular number and the season's change as ▲ or ▼ with a sign (never colour alone). Each box has a fixed width (`resource_box_width`, 144 layout px; the cultivation box `cultivation_box_factor`, 2.25, times that; `resource_box_width_compact`, 112, in the compact layout), so a changing number never moves the bar. A number above 99,999 is shortened, always rounded down: thousands up to 999,999 ("123k", "999k"), then millions with one decimal ("1.2M" for 1,250,000; in Vietnamese "1,2M", numbers following the language), the full number in its tooltip and accessible name. Z1 is one row, `top_bar_height` (48 layout px, the 36 px boxes inside the bar's frame) high; the cultivation box's progress bar is a thin strip along its bottom edge, so the realm name keeps the row. A box is one focusable control: Q (or hover) opens its tooltip, Enter (or a click) opens its window, and its accessible name reads the resource, the number and the change ("Linh thạch 1,240, up 30 this season"). In the compact layout the change shows as the ▲ / ▼ mark only, the number moving into the tooltip (Visual Budget).
+
+- **The change** is what the last season resolution did: the value right after it minus the value right before End turn. It is **frozen until the next End turn**: buying or earning during the season moves the number, not the change. The lifespan box compares the lifespan itself, not the years left, so time passing never shows as a change (a five-season closed door does not read ▼ 1¼ y). A multi-season command is one End turn, so its change is the whole command's. On a new game, after loading a save and after succession there is no baseline: no change shows until the next End turn.
+- **Renown** shows "—" until the game tracks it: `character-stats.md` has the stat (≥ 0) but no sources or season change yet (Open Questions). Its accessible name then reads "Renown: not tracked yet"; it stays on screen (Must Show) so the bar's layout does not change when it starts.
+- **The cultivation rate here** is the rate-per-season Breakdown the old cultivation bar already showed on hover (element 9, approved 2026-11-21: `canh-gioi.md`'s rate per season at the current place's density and qi, `CultivationRules.rate_per_season`), as a share of the level's requirement. No new rule: only a read added to the GameQuery contract (ADR-0006), `GameQuery.resources`. At the bottleneck or a realm cap (`GameQuery.resources` `held`, from `CultivationRules.at_bottleneck` and `is_capped`) the box shows no change and its tooltip says why; while travelling it is the rate at the place the player is in now.
+- **Several boxes open the character sheet** (cultivation, lifespan, renown): intended, each on its own section.
+- **On full screens** (Z1 stays) the boxes are tooltip-only: Enter or a click does nothing there, since Z6 is hidden.
+- **A provisional rating** (from world generation, `power-rankings.md`) shows with a "~" before the number, in the box and its tooltip, and its accessible name reads "Rating about 1,512, provisional".
 
 ### Tooltips
 
@@ -301,7 +315,7 @@ tooltip follows the Esc rules in Platform Adaptation.
   their rarity colour; sects bold italic, in the sect's colour. Buttons, map bubbles and icons keep their own look.
   The underline is the constant cue, so a style never relies on colour alone; the colours are data (`link_styles`,
   rarity colours to come from the art bible). In a readout only the part with the tooltip is styled ("Linh thạch
-  **30**", "age **17 / 120**").
+  **30**"); a resource box is one control, so its number is styled as a number.
 - **Keyboard.** **Q** (or **F2**) opens the focused element's tooltip, already locked, **and moves focus into it**.
   Inside a tooltip, Tab and Shift+Tab move between its highlighted words and wrap around (zone Tab is suspended while a
   tooltip has focus; Shift+Tab from the first word reaches any title strips); Enter or Q on a word opens its tooltip;
@@ -536,7 +550,7 @@ until End turn).
 | **Blocking event waits** | An event needing an answer | End turn names it; character-changing free actions show a lock mark (HUD Philosophy rule 2) |
 | **Combat** | A fight or tribulation | Everything is hidden, the top bar too (Layout Zones exception); the fight spec's header and controls take over |
 | **Game menu ("paused")** | ≡ or Esc | A modal menu over a dimmed screen: save, load, settings, wiki, quit; it shows the world seed so it can be shared (world-generation.md) |
-| **Low lifespan** | `lifespan_warn_share` (10 %) or less left | The lifespan readout turns amber, and an alert appears once |
+| **Low lifespan** | `lifespan_warn_share` (10 %) or less left | The lifespan box turns amber with an hourglass mark, and an alert appears once |
 | **Nothing to show** | No alerts, no pins | The alert row is empty with no placeholder; the outliner shows "Pin people, places or quests here" |
 | **No data on the map** | A map mode or route with nothing known | Prices mode: markets never visited are hatched "not seen"; route preview to an unreachable place: "No route" and the reason (for example, needs flight); known-people mode with no one known here: "You know no one here yet." |
 
@@ -548,17 +562,17 @@ Approved by the user 2026-11-21. The order in which elements drop when space run
 
 | Tier | Elements | What carries it when hidden |
 |---|---|---|
-| **MUST KEEP** | End turn and focus; realm, stage and level; cultivation bar; lifespan; season and year; linh thạch; the player's bubble and place name (elements 30 and 17); blocking alerts | — (never hidden on the map) |
-| **SHOULD KEEP** | Window buttons; portrait; wiki and menu; map mode buttons; non-blocking alerts | Keyboard shortcuts open every window; map modes fold into one dropdown |
-| **CAN HIDE** | Outliner (collapses); health and linh lực bars; band icons; route preview; clue area | The window buttons and the portrait tooltip; band states also raise an alert |
+| **MUST KEEP** | End turn and focus; the cultivation box (realm, stage, level, progress); the lifespan box; season and year; the linh thạch box; the player's bubble and place name (elements 30 and 17); blocking alerts | — (never hidden on the map) |
+| **SHOULD KEEP** | Window buttons; portrait; wiki and menu; map mode buttons; non-blocking alerts; the rating, renown and sect contribution boxes (their change shrinks to a mark in the compact layout) | Keyboard shortcuts open every window; map modes fold into one dropdown |
+| **CAN HIDE** | Outliner (collapses); health and linh lực bars; band icons; route preview; clue area | The window buttons and the boxes' tooltips; band states also raise an alert |
 | **ALWAYS HIDE** | Information Architecture, Group 7 | Nothing (debug only) |
 
 ---
 
 ## Visual Budget
 
-Approved by the user 2026-11-21; every number is a tuning knob. **Screen share is the budget.** The 32 elements in HUD
-Element Specifications, with their sub-indicators (the autosave indicator, "The world turns…", lock marks, the hold
+Approved by the user 2026-11-21; every number is a tuning knob. **Screen share is the budget.** The 34 live elements in HUD
+Element Specifications (35 numbers; element 9 is merged into 8), with their sub-indicators (the autosave indicator, "The world turns…", lock marks, the hold
 ring, tooltip title strips), are the complete list for the map screen; adding one is a change to this spec, not a
 build decision.
 
@@ -569,13 +583,18 @@ build decision.
   measured as the combined area the HUD covers (overlaps counted once, not a sum of zone sizes). Z7 is not counted:
   it is a temporary overlay, at most `centre_width_max` **40 %** of the screen width, its height capped as in Layout
   Zones.
-- **Alerts**: at most `alerts_shown_max` **8** icons at once; the rest fold into a "+N" icon whose tooltip lists them,
-  with blocking alerts always first.
+- **Alerts**: at most `alerts_shown_max` **8** icons at once, and never more than fit in the alert row's space (Z1:
+  the row ends where the right-anchored resource boxes begin, so it never overlaps them); blocking alerts come first and are never hidden: those that do not fit fold into their own "+N !" icon, drawn with the blocking frame and always shown, whose tooltip lists them; the non-blocking rest fold into "+N".
 - **Drop order** when the layout area (in layout pixels, Platform Adaptation: Scaling rule) is smaller than
   `compact_below` (1600×900):
   1. Collapse the outliner.
   2. Fold the map modes into one dropdown.
   3. Show window buttons as icons only, without labels.
+  4. Resource boxes narrow to `resource_box_width_compact` and show their change as the ▲ / ▼ mark only (the number moves into the tooltip), and the alert row shows at most `alerts_shown_max_compact` (4) alert icons (the fold icons do not count toward either cap), folding as in Alerts above ("+N !" for blocking overflow, "+N" for the rest).
+  5. Below `boxes_icon_below` (1,360 layout px wide) the rating and renown boxes show their icon and change mark only, the
+     number in the tooltip and the accessible name (they are SHOULD KEEP; the MUST KEEP boxes never shrink further).
+
+  Fit at 1280×720 (layout px), with step 5: boxes 3 × 112 + 252 + 2 × 48 = 684, gaps 6 × 8 = 48, season about 130 (the Vietnamese "Xuân, năm 3"), wiki and menu 72, four alerts and both fold icons ("+N !", "+N") about 212, separators 48: about 1,194 of the 1,248 (the first build at 1280×720 fits, 2026-11-23) between the margins (about 120 px spare for longer strings). An AC measures it in both languages.
 
   MUST KEEP elements never drop. At 1280×720 the 10 window buttons fit in Z2 once the outliner collapses; the first
   build screenshot confirms it.
@@ -588,7 +607,7 @@ Approved by the user 2026-11-21.
 
 | Type | Trigger | Where | Lasts | Max at once | Queue behaviour |
 |---|---|---|---|---|---|
-| **Alert icon** | A standing condition (Information Architecture, Group 4) | Z1 alert row | Until resolved, or snoozed until next season | `alerts_shown_max` (8), then "+N" | Blocking alerts first, then newest |
+| **Alert icon** | A standing condition (Information Architecture, Group 4) | Z1 alert row | Until resolved, or snoozed until next season | `alerts_shown_max` (8; 4 compact) and what fits, then "+N !" for blocking overflow and "+N" for the rest | Blocking alerts first, then newest |
 | **Toast** | The result of a free action ("Bought 3 herbs", "Planted Huyết Linh Thảo") | Bottom centre, above Z4 | `toast_seconds` (3 s) | 3 stacked, newest on top | A 4th pushes out the oldest |
 | **Refusal** | A click that can't be done ("Not enough linh thạch (need 120)") | Next to the control clicked | `refusal_seconds` (2 s), or until the mouse leaves; reappears on hovering or focusing the control again, and on Q; it is also the control's accessible description | 1 | Never queued; replaces the last |
 | **Season summary** | End turn | Z7 centre | Until closed | 1 | Opens **first**; the season's events follow it. It also lists the season's toasts under "This season" |
@@ -704,7 +723,7 @@ Approved by the user 2026-11-21. PC (Steam / Epic); keyboard and mouse first; ga
 
 Approved by the user 2026-11-21. **Tier: Standard**, plus reduced motion and menu and panel screen-reader support, committed 2026-11-22 in `design/accessibility-requirements.md`; that document wins where the two differ.
 
-- **Focus order:** Z5 (End turn) → Z3 → Z1 alerts → Z2 buttons → Z4 → the map → the open panel → a non-blocking Z7
+- **Focus order:** Z5 (End turn) → Z3 → Z1 alerts → Z1 resource boxes → Z2 buttons → Z4 → the map → the open panel → a non-blocking Z7
   window. F6 jumps between these zones;
   Tab moves within one. Every interactive element can be reached with the keyboard, including tooltips (Q) and the
   map (the Places panel). **Opening a panel moves focus to its first control**; Back and Forward keep focus in the
@@ -718,10 +737,11 @@ Approved by the user 2026-11-21. **Tier: Standard**, plus reduced motion and men
   secondary lines inside tooltips and Breakdowns (`design/accessibility-requirements.md`, 2026-11-22); both grow with UI
   scale. Vietnamese diacritics must be legible at the smallest size.
 - **Never colour alone:** each alert has its own glyph shape, and blocking alerts also have a distinct frame and sort
-  first; the amber lifespan also shows an hourglass icon; band icons carry their band number; health and linh lực bars
+  first; the amber lifespan box also shows an hourglass mark and its accessible name adds "little lifespan left" (announced once when it starts); each box's change is a ▲ / ▼ mark with a sign; the cultivation box reads "Cultivation: Trúc Cơ 3, 62 percent, up 4 percent a season here"; band icons carry their band number; health and linh lực bars
   carry their own icons; sect territory has a border pattern and the sect's name; price changes show arrows and
   numbers; map modes have a legend with patterns, not only hues. With reduced motion on, the linh thạch loss flash is
-  replaced by a "−12" change shown beside the number.
+  replaced by a "−12" change shown beside the number, and the boxes' number ticks, the cultivation fill and the sect
+  box's fade happen at once.
 - **Compact labels:** when the compact layout drops the window buttons' labels, each label stays in the button's
   tooltip and accessible name.
 - **Reduced motion:** a setting turns off slides, glows, cross-fades, the filling bars (cultivation and multi-season
@@ -756,6 +776,7 @@ Approved by the user 2026-11-21.
 | Reduced motion | on / off | off |
 | Toast duration (`toast_seconds`) | 2–6 s | 3 s |
 | Outliner | shown / collapsed | shown |
+| Borders (element 13) | on / off, one setting for all saves | on |
 | Alerts by kind | on / off per kind (blocking alerts can't be turned off) | all on |
 | Colourblind mode | off / red-green | off |
 | Brightness (map and art) | slider | default |
@@ -769,6 +790,12 @@ Approved by the user 2026-11-21.
 | Knob | Default | Used in |
 |---|---|---|
 | `lifespan_warn_share` | 0.10 | Element 10; Low lifespan state |
+| `resource_box_width` | 144 px (the cultivation box × `cultivation_box_factor`, 2.25) | Resource box (elements 2, 8, 10, 33–35) |
+| `resource_box_width_compact` | 112 px (the cultivation box × 2.25) | Resource box, compact layout |
+| `top_bar_height` | 48 px | Z1 (one row; measured on the first build, 2026-11-23) |
+| `boxes_icon_below` | 1360 px (layout width) | Visual Budget drop order step 5 |
+| `resource_box_icon_width` | 48 px | Visual Budget drop order step 5 (icon-only boxes) |
+| `alerts_shown_max_compact` | 4 | Visual Budget drop order (compact layout) |
 | `chrome_share_max` | 0.15 | Visual Budget |
 | `chrome_share_max_compact` | 0.20 | Visual Budget (compact layout) |
 | `panel_share_max` | 0.45 | Visual Budget |
@@ -785,7 +812,7 @@ Approved by the user 2026-11-21.
 | `bubble_trip_seasons` | 1 | Map bubbles (how far area bubbles reach) |
 | `bubbles_max` | 12 | Map bubbles (area bubbles on screen at once) |
 | `motion_fast` | 0.15 s | Panel slide, fades |
-| `motion_slow` | 0.5 s | Cultivation bar fill |
+| `motion_slow` | 0.5 s | Cultivation box progress fill |
 | `refusal_seconds` | 2 s | Feedback (refusal) |
 | `reminder_escalate_seasons` | 2 | The turn (reminders) |
 
@@ -800,8 +827,37 @@ up beside the screenshots. Timings are counted in simulated frames at a fixed 1/
 exact boundary; "appears" means `visible` becomes true. Rows marked `[GdUnit]` drive input through simulated events and an injected clock.
 
 **Layout and scaling**
-- [ ] `[Screenshot]` At 1920×1080 on the bare map, all 12 Must Show elements are visible (elements 2, 3, 4, 5, 7, 8,
-      9, 10, 14, 15, 17, 30).
+- [ ] `[Screenshot]` At 1920×1080 on the bare map, all 13 Must Show elements are visible (elements 2, 3, 4, 5, 7, 8,
+      10, 14, 15, 17, 30, 33, 34).
+- [ ] `[GdUnit]` Each resource box keeps its rectangle when its number changes from 1 to 1,000,000 (the neighbours do
+      not move, and 1,000,000 shows as "1.0M" inside the box with the full number in its tooltip); the sect
+      contribution box appears on joining a sect and disappears on leaving, and no other box moves either time; adding
+      or removing alerts moves no box.
+- [ ] `[GdUnit]` After End turn each box's change equals the value right after the resolution minus the value right
+      before End turn, and a purchase during the season changes the number but not the change; a five-season
+      closed door shows the whole command's change; after loading a save or a succession no change shows until the next
+      End turn.
+- [ ] `[GdUnit]` The Borders toggle is on in a new game, draws region borders in every map mode, is saved as a
+      setting, is reachable with Tab in Z4 and stays a button when the map modes fold into a dropdown.
+- [ ] `[GdUnit]` On a full screen, Enter or a click on a box opens no window; Q opens its tooltip.
+- [ ] `[GdUnit]` At 1280×720, in English and in Vietnamese, the measured widths of the Z1 children (alerts with 4 icons
+      and "+N", the boxes, season, wiki and menu, gaps) sum to at most the bar's width; below `boxes_icon_below` the
+      rating and renown boxes show icon and mark only.
+- [ ] `[GdUnit]` The lifespan box turns amber with an hourglass mark at `lifespan_warn_share` and its accessible name adds
+      "little lifespan left", announced once; a provisional rating shows "~1,512" and reads "Rating about 1,512,
+      provisional"; renown shows "—" and reads "Renown: not tracked yet"; below `boxes_icon_below` the rating and
+      renown boxes hide their number and keep it in the accessible name; the "+N !" and "+N" icons are reached with Tab
+      in Z1 and Q opens their list.
+- [ ] `[GdUnit]` A box shows 99,999 as "99,999", 100,000 as "100k", 999,999 as "999k" and 1,000,000 as "1.0M"; in Vietnamese 1,250,000 shows as "1,2M" and
+      1,240 as "1.240" (numbers follow the language).
+- [ ] `[GdUnit]` A box's change shows ▲ with a + sign for a gain, ▼ with a − sign for a loss and no mark for no change;
+      the lifespan box shows no change mark for a season that only passed, and ▲ for a breakthrough's gain.
+- [ ] `[GdUnit]` The cultivation box's rate equals the rate-per-season Breakdown's total at the current place, and it
+      changes after a move to a place of different density or match.
+- [ ] `[GdUnit]` Enter (or a click) on each box opens its window (inventory, character sheet, rankings, sect), and Q
+      opens its tooltip; its accessible name reads resource, number and change.
+- [ ] `[Screenshot]` At 1280×720 (compact) and 1920×1080, Z1 holds the alerts, all six boxes, season, wiki and menu
+      with no overlap or clipping, the compact boxes showing the change mark only.
 - [ ] `[GdUnit]` At 1920×1080 on the bare map, the union of the Z1–Z5 rectangles covers at most `chrome_share_max`
       (15 %) of the viewport.
 - [ ] `[GdUnit]` At 1280×720 and at 2560×1080 (21:9), every HUD control's rectangle lies inside the layout area
@@ -925,7 +981,9 @@ exact boundary; "appears" means `visible` becomes true. Rows marked `[GdUnit]` d
 - [ ] `[Screenshot]` The game menu shows the world seed.
 
 **Notifications**
-- [ ] `[GdUnit]` With 10 alerts, 8 show plus "+2", with blocking alerts first.
+- [ ] `[GdUnit]` With 10 non-blocking alerts, 8 show plus "+2"; in the compact layout 4 show plus "+6"; with 6 blocking
+      and 4 other alerts at 1280×720, the row shows the blocking alerts that fit, a "+N !" icon for the rest of them and
+      a "+N" for the others, and its rectangle never intersects the resource boxes.
 - [ ] `[GdUnit]` A snoozed alert whose condition still holds comes back at the next season.
 - [ ] `[GdUnit]` A 4th toast pushes out the oldest; at most 3 show.
 - [ ] `[GdUnit]` A refused click shows the refusal beside the control; hovering or focusing the control again, or Q,
@@ -972,7 +1030,7 @@ exact boundary; "appears" means `visible` becomes true. Rows marked `[GdUnit]` d
 - [ ] `[Manual]` Typing Vietnamese with real Telex (Windows keyboard), Unikey and EVKey into the Places search opens
       no window.
 - [ ] `[GdUnit]` With the map focused, the arrow keys pan it and keep the focused place in view.
-- [ ] `[GdUnit]` F6 visits Z5, Z3, Z1, Z2, Z4, the map, the open panel and a non-blocking Z7 window in that order, and
+- [ ] `[GdUnit]` F6 visits Z5, Z3, Z1 (alerts, then the resource boxes), Z2, Z4, the map, the open panel and a non-blocking Z7 window in that order, and
       Tab reaches every control inside each.
 - [ ] `[Manual]` With NVDA running, every map-screen button is announced with its name and role, and an opened
       tooltip's text, a selected Places row, a new alert and a toast are announced.
@@ -982,7 +1040,7 @@ exact boundary; "appears" means `visible` becomes true. Rows marked `[GdUnit]` d
       bars and the focus ring, in Z1–Z7.
 - [ ] `[GdUnit]` With reduced motion on, no UI tween is running after any state change, and each element shows its
       final value in the same frame (the alert slide-in, the linh thạch tick and flash, the badge pop, the
-      breakthrough glow and banner fade, the cultivation bar fill, the multi-season progress fill, the hold ring, the
+      breakthrough glow and banner fade, the cultivation box fill, the multi-season progress fill, the hold ring, the
       health and linh lực fades, the band icon fade, the toast fade, the tooltip fade, the map mode cross-fade, the End
       turn glow, the bubble slide and the area bubbles' fade-in, the route draw, the panel slide, the centre window fade).
 - [ ] `[Screenshot]` With the red-green colourblind mode on, a Coblis simulation of the map modes and the alert row
@@ -1030,6 +1088,8 @@ exact boundary; "appears" means `visible` becomes true. Rows marked `[GdUnit]` d
 ---
 
 ## Open Questions
+
+- **Resource box data (2026-11-23):** `GameQuery.resources` gives the rate here, the power number and contribution (ADR-0006); the season changes come from the HUD's End-turn baseline (Resource box). **Renown** has no sources or season rule in `character-stats.md` yet (the GDD session's), so its box shows "—" until it does. The icons for the six boxes are new art (art bible 7.13).
 
 - Player journey map not yet created. Author it from the template at `.claude/docs/templates/player-journey.md` to
   establish player context for this screen.

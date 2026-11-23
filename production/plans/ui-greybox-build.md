@@ -161,7 +161,14 @@ breakdown, click the resource's window; contextual boxes only when they apply. C
 (moves up from the character box), sect contribution (in a sect), reputation, unspent Đạo Đồ points.
 **Picked (user, 2026-11-23):** linh thạch, lifespan left, sect contribution (in a sect), reputation, and a cultivation
 box: realm level + exp, cultivation rate at the current place, and the current rating (power number). Unspent Đạo Đồ
-points not picked. Next: a `/ux-design` revision of hud.md Z1 Group 2, then its review.
+points not picked. **Done 2026-11-23:** `design/ux/hud.md` revised (elements 2, 8, 10, 33-35; Z3 readouts moved up, user
+pick "move up"; Borders toggle; drop steps 4-5); lean review rounds 12 NEEDS REVISION, 13 NEEDS REVISION, **14
+APPROVED** (headless Sonnet, read-only; every finding applied). Built: `src/ui/hud/resource_box.gd`,
+`GameQuery.resources` (rate here, power, provisional, contribution, held), HudReadouts change/short/years-left and
+numbers following the language, the boxes in the map screen with the frozen per-season change, element 3's short
+season label. Evidence: `production/qa/evidence/hud-greybox/10-resource-boxes-{1920x1080,1280x720}.png`; UI tests 83/83,
+demo 60/60. Not built yet: the Borders toggle (map overlay), the alert-row icons and fold icons (the greybox alert row
+is still one label), the six painted icons (glyphs stand in), renown (no game stat yet; shows "—").
 **Provinces (user, 2026-11-23):** borders only: soft region/control borders drawn over the painted map as a toggleable
 overlay; tiles stay the rule unit, no rule change.
 

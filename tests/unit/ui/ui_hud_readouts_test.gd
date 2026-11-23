@@ -30,3 +30,44 @@ func test_stones_text_groups_thousands() -> void:
 	assert_eq(HudReadouts.stones_text(1234567.0), "1,234,567", "millions")
 	assert_eq(HudReadouts.stones_text(-1500.0), "-1,500", "negative")
 	assert_eq(HudReadouts.stones_text(0.0), "0", "zero")
+
+
+func test_change_text_carries_mark_and_sign() -> void:
+	assert_eq(HudReadouts.change_text(30.0), "▲ +30")
+	assert_eq(HudReadouts.change_text(-12.0), "▼ −12")
+	assert_eq(HudReadouts.change_text(0.2), "")
+	assert_eq(HudReadouts.change_text(1500.0), "▲ +1,500")
+	assert_eq(HudReadouts.change_text(4.26, 1, "%"), "▲ +4.3%")
+	assert_eq(HudReadouts.change_text(0.04, 1, "%"), "")
+
+
+func test_change_mark_is_the_mark_alone() -> void:
+	assert_eq(HudReadouts.change_mark(30.0), "▲")
+	assert_eq(HudReadouts.change_mark(-3.0), "▼")
+	assert_eq(HudReadouts.change_mark(0.0), "")
+
+
+func test_years_left_rounds_down_and_never_goes_negative() -> void:
+	assert_eq(HudReadouts.years_left_text(84.0, 220.5), "136 y")
+	assert_eq(HudReadouts.years_left_text(230.0, 220.0), "0 y")
+
+
+func test_short_number_groups_then_shortens() -> void:
+	assert_eq(HudReadouts.short_number(1240.0), "1,240")
+	assert_eq(HudReadouts.short_number(99999.0), "99,999")
+	assert_eq(HudReadouts.short_number(123456.0), "123k")
+	assert_eq(HudReadouts.short_number(1000000.0), "1.0M")
+	assert_eq(HudReadouts.short_number(1250000.0), "1.2M")
+
+
+func test_numbers_follow_the_language() -> void:
+	var was: String = TranslationServer.get_locale()
+	TranslationServer.set_locale("vi")
+	var grouped: String = HudReadouts.stones_text(1240.0)
+	var millions: String = HudReadouts.short_number(1250000.0)
+	var rate: String = HudReadouts.change_text(4.26, 1, "%")
+	TranslationServer.set_locale(was)
+	assert_eq(grouped, "1.240")
+	assert_eq(millions, "1,2M")
+	assert_eq(rate, "▲ +4,3%")
+	assert_eq(HudReadouts.short_number(100000.0), "100k")
