@@ -167,8 +167,15 @@ APPROVED** (headless Sonnet, read-only; every finding applied). Built: `src/ui/h
 `GameQuery.resources` (rate here, power, provisional, contribution, held), HudReadouts change/short/years-left and
 numbers following the language, the boxes in the map screen with the frozen per-season change, element 3's short
 season label. Evidence: `production/qa/evidence/hud-greybox/10-resource-boxes-{1920x1080,1280x720}.png`; UI tests 83/83,
-demo 60/60. Not built yet: the Borders toggle (map overlay), the alert-row icons and fold icons (the greybox alert row
-is still one label), the six painted icons (glyphs stand in), renown (no game stat yet; shows "—").
+demo 60/60. **Then, same day (user: "looks a bit bare, do it similar to Paradox"):** CK3/EU4 layout picked; one carved
+strip, resources from the left in brass sockets with painted medallions, brass dividers, a hanging date cartouche with
+the season's medallion, the alert row (Z1a) below the bar. Art: 3 images (about $0.16), icons picked by the user from
+candidates (`tools/asset-pipeline/ui/prompts/topbar-picks.json`), cut by `tools/asset-pipeline/ui/cut_topbar.py`
+(`check` mode enforces 8.6 for HUD medallions; watched failing, then fixed). Spec: lean rounds 15 and 16 NEEDS
+REVISION, **17 APPROVED**, all findings applied; art bible 7.13, 8.1, 8.3 and 8.6 note. Evidence:
+`production/qa/evidence/hud-greybox/11-topbar-paradox-{1920x1080,1280x720}.png`; UI 83/83, reads suite exits 0 with `-d`,
+demo 60/60. Not built yet: the Borders toggle (map overlay), alert icons and fold icons (Z1a is still one label),
+renown (no game stat yet; shows "—"), the wiki and menu buttons' art.
 **Provinces (user, 2026-11-23):** borders only: soft region/control borders drawn over the painted map as a toggleable
 overlay; tiles stay the rule unit, no rule change.
 

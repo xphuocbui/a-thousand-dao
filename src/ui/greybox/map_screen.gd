@@ -29,6 +29,16 @@ var _map := MapView.new()
 var _loading := ColorRect.new()
 var _loading_label := Label.new()
 var _alerts := Label.new()
+const BAR_TOP := 16.0                 # Z1's top edge: edge_margin (hud.md Layout Zones, safe zone)
+var _bar_h: float = 56.0              # top_bar_height (ui_hud.json; applied by _apply_topbar)
+var _z1 := Control.new()
+var _strip := TextureRect.new()       # the carved strip, tiled sideways (art bible 7.13)
+var _dividers: Array[TextureRect] = []
+var _sect_divider: TextureRect = null # hidden with the contextual sect box
+var _cartouche := TextureRect.new()   # element 3's frame
+var _season_icon := TextureRect.new()
+var _season_tex: Dictionary = {}      # season index -> its medallion
+var _alert_row := PanelContainer.new()
 # Z1 resource boxes (design/ux/hud.md elements 2, 8, 10, 33-35; the glyphs stand in for the painted icons)
 var _stones := ResourceBox.new("Linh thạch", "◆")
 var _box_life := ResourceBox.new("Lifespan", "⧖")
@@ -100,6 +110,7 @@ func _ready() -> void:
 	_fight.apply_theme(paper.theme, str(tcfg.get("wood_texture", "")))
 	LinkStyle.set_fonts(paper.fonts.strong, RosewoodTheme.variation(load(str(tcfg.get("fonts", {}).get("italic", ""))) if ResourceLoader.exists(str(tcfg.get("fonts", {}).get("italic", ""))) else null, 400, true))
 	LinkStyle.configure(_cfg.get("link_styles", {}))
+	_apply_topbar(paper.fonts.strong)
 	# The readouts with a tooltip, styled once the table is loaded (hud.md Tooltips: Link styles).
 	LinkStyle.apply(_season, "term")
 	_tips.chain.resolve = func(key: String) -> Dictionary: return TooltipLayer.term_content(gd.file("ui_terms").get("terms", {}), key)
@@ -248,47 +259,95 @@ func _build_layout() -> void:
 	_map.zoom_changed.connect(func(_r: bool): _refresh())
 	add_child(_map)
 
-	# Z1 top bar
-	var z1 := PanelContainer.new()
-	z1.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
-	z1.offset_left = 16
-	z1.offset_right = -16
-	z1.offset_top = 8
-	add_child(z1)
-	_zones.append(z1)
+	# Z1 top bar (hud.md Layout Zones, Z1; art bible 7.13): one carved strip; the resources from the left in brass
+	# sockets with brass dividers between them; the date cartouche, wiki and menu on the right; the alert row hangs
+	# below the bar. Art and sizes are applied by _apply_topbar once ui_hud.json is loaded.
+	_z1.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
+	_z1.offset_left = 16
+	_z1.offset_right = -16
+	_z1.offset_top = BAR_TOP
+	_z1.offset_bottom = BAR_TOP + _bar_h
+	_z1.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(_z1)
+	_zones.append(_z1)
+	_strip.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_strip.stretch_mode = TextureRect.STRETCH_TILE
+	_strip.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_strip.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_z1.add_child(_strip)
 	var bar := HBoxContainer.new()
-	bar.add_theme_constant_override("separation", 16)
-	z1.add_child(bar)
-	_alerts.text = tr("Alerts: none")
-	_alerts.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	bar.add_child(_alerts)
-	# One right-anchored group: the alert row expands, so neither the alerts nor the contextual sect box (leftmost)
-	# ever moves the other boxes (hud.md Layout Zones, Z1).
+	bar.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	bar.offset_left = 12
+	bar.offset_right = -8
+	bar.add_theme_constant_override("separation", 6)
+	_z1.add_child(bar)
+	# One left-anchored group: the contextual sect box is last, so its appearing never moves the others.
 	var boxes := HBoxContainer.new()
-	boxes.add_theme_constant_override("separation", 8)
-	for pair in [[_box_sect, _tip_sect], [_stones, _tip_stones], [_box_life, _tip_lifespan], [_box_cult, _tip_cultivation],
-			[_box_power, _tip_power], [_box_renown, _tip_renown]]:
+	boxes.add_theme_constant_override("separation", 6)
+	var first := true
+	for pair in [[_stones, _tip_stones], [_box_life, _tip_lifespan], [_box_cult, _tip_cultivation],
+			[_box_power, _tip_power], [_box_renown, _tip_renown], [_box_sect, _tip_sect]]:
 		var box: ResourceBox = pair[0]
+		if not first:
+			var dv := TextureRect.new()
+			dv.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
+			dv.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			_dividers.append(dv)
+			boxes.add_child(dv)
+			if box == _box_sect:
+				_sect_divider = dv
+		first = false
 		TooltipLayer.set_tip(box, pair[1])
 		boxes.add_child(box)
 	for box: ResourceBox in [_box_life, _box_cult, _box_renown]:
 		box.pressed.connect(_open_sheet_from.bind(box))   # the character sheet (several boxes share it: intended)
 	bar.add_child(boxes)
+	var spacer := Control.new()
+	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	spacer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	bar.add_child(spacer)
+	# Element 3: the date cartouche hangs below the strip, holding the season's medallion and the season and year.
+	_cartouche.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_cartouche.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+	_cartouche.custom_minimum_size = Vector2(170, 64)
+	var date_row := HBoxContainer.new()
+	date_row.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	date_row.offset_left = 22
+	date_row.offset_right = -22
+	date_row.offset_bottom = -8
+	date_row.alignment = BoxContainer.ALIGNMENT_CENTER
+	date_row.add_theme_constant_override("separation", 6)
+	date_row.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_season_icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_season_icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	_season_icon.custom_minimum_size = Vector2(28, 28)
+	_season_icon.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	_season_icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	date_row.add_child(_season_icon)
 	TooltipLayer.set_tip(_season, _tip_season)
-	bar.add_child(_season)
+	date_row.add_child(_season)
+	_cartouche.add_child(date_row)
+	bar.add_child(_cartouche)
 	for t in [["W", tr("Wiki (not in the greybox yet)")], ["≡", tr("Game menu (not in the greybox yet)")]]:
 		var b := Button.new()
 		b.text = t[0]
+		b.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 		TooltipLayer.set_tip(b, t[1])
 		b.disabled = true
 		bar.add_child(b)
+	# Element 1: the alert row, below the bar, centred between Z6's width and Z2; only while alerts are open.
+	_alert_row.set_anchors_preset(Control.PRESET_CENTER_TOP)
+	_alert_row.theme_type_variation = &"WoodPanel"
+	_alert_row.visible = false
+	add_child(_alert_row)
+	_alert_row.add_child(_alerts)
 
 	var note := Label.new()
 	note.text = tr("Greybox: LLM off.") + ((" " + tr("Rating fights off for this run (--ratings-off).")) if _args.has("--ratings-off") else "")
 	note.add_theme_color_override("font_color", Color(1, 0.85, 0.4))
 	note.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
 	note.offset_left = 24
-	note.offset_top = 68
+	note.offset_top = BAR_TOP + _bar_h + 8
 	add_child(note)
 
 	# Z2 window buttons
@@ -296,7 +355,7 @@ func _build_layout() -> void:
 	z2.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT)
 	z2.offset_left = -160
 	z2.offset_right = -16
-	z2.offset_top = 68
+	z2.offset_top = BAR_TOP + _bar_h + 20   # clear of the hanging date cartouche
 	add_child(z2)
 	_zones.append(z2)
 	_sheet_button.text = tr("Character") + " (C)"
@@ -488,6 +547,20 @@ func _refresh() -> void:
 	_season.text = tr("%s, year %d") % [str(clock.season_name), int(clock.year)]   # element 3's short form; the date on hover
 	_refresh_boxes(snap)
 	_alerts.text = tr("Alerts:") + " " + (tr("an event is waiting") if session.has_pending_event() else tr("none"))
+	_alert_row.visible = session.has_pending_event()   # element 1 shows only while alerts are open
+	_alert_row.reset_size()
+	_alert_row.offset_left = -_alert_row.size.x / 2.0
+	_alert_row.offset_right = _alert_row.size.x / 2.0
+	_alert_row.offset_top = BAR_TOP + _bar_h + float(_cfg.get("alert_row_gap", 6))
+	# Z1a never reaches past the cartouche or Z2 (hud.md Z1): shift left when it would
+	var limit: float = minf(_cartouche.get_global_rect().position.x, get_viewport_rect().size.x - 160.0) - 8.0
+	var right: float = get_viewport_rect().size.x / 2.0 + _alert_row.size.x / 2.0
+	if right > limit:
+		_alert_row.offset_left -= right - limit
+		_alert_row.offset_right -= right - limit
+	var s_tex: Texture2D = _season_tex.get(int(GameQuery.clock(session).season))
+	_season_icon.texture = s_tex
+	_season_icon.visible = s_tex != null
 	_refresh_focus()
 	_refresh_map(str(snap.location_id))
 	_refresh_turn_button()
@@ -553,9 +626,53 @@ func _refresh_boxes(snap: Dictionary) -> void:
 		_box_power.show_value(pn, shown.call(d), tr("Rating") + " " + pn + said.call(d))
 	_box_renown.show_value("—", "", tr("Renown: not tracked yet"))
 	_box_sect.visible = bool(res.in_sect)
+	if _sect_divider != null:
+		_sect_divider.visible = bool(res.in_sect)
 	if bool(res.in_sect):
 		d = delta.call("contribution")
 		_box_sect.show_value(short.call(float(res.contribution)), shown.call(d), tr("Sect contribution") + " " + HudReadouts.stones_text(float(res.contribution)) + said.call(d))
+
+
+## Z1's art and sizes from ui_hud.json "topbar" (art bible 7.13): the strip, sockets, dividers, cartouche, the six
+## resource icons and the four season icons; every file that does not load is printed (the glyph stand-in stays), so a
+## missing asset is reported, never silent.
+func _apply_topbar(strong: Font) -> void:
+	var tb: Dictionary = _cfg.get("topbar", {})
+	_bar_h = float(_cfg.get("top_bar_height", 56))
+	_z1.offset_bottom = BAR_TOP + _bar_h
+	for p in [_panel, _person, _places]:   # Z6 starts just below Z1 (Z1a is centred clear of it)
+		p.offset_top = BAR_TOP + _bar_h + 8
+	var tex := func(key: String) -> Texture2D:
+		var path: String = str(tb.get(key, ""))
+		if path == "" or not ResourceLoader.exists(path):
+			push_warning("top bar: missing %s (%s)" % [key, path])
+			return null
+		return load(path)
+	_strip.texture = tex.call("strip")
+	_cartouche.texture = tex.call("cartouche")
+	_cartouche.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_cartouche.stretch_mode = TextureRect.STRETCH_SCALE
+	var divider: Texture2D = tex.call("divider")
+	for dv: TextureRect in _dividers:
+		dv.texture = divider
+	var socket: Texture2D = tex.call("socket")
+	var icon_px: float = float(_cfg.get("top_bar_icon", 32))
+	var icons: Dictionary = tb.get("icons", {})
+	var small_px: int = int(_cfg.get("theme", {}).get("sizes", {}).get("small", 14))
+	for pair in [[_stones, "linh_thach"], [_box_life, "lifespan"], [_box_cult, "cultivation"], [_box_power, "rating"],
+			[_box_renown, "renown"], [_box_sect, "sect"]]:
+		var path: String = str(icons.get(pair[1], ""))
+		var t: Texture2D = load(path) if path != "" and ResourceLoader.exists(path) else null
+		if t == null:
+			push_warning("top bar: missing icon %s (%s)" % [pair[1], path])
+		(pair[0] as ResourceBox).set_art(t, socket, icon_px)
+		(pair[0] as ResourceBox).set_faces(strong, small_px)
+	var seasons: Array = tb.get("seasons", [])
+	for k in seasons.size():
+		if ResourceLoader.exists(str(seasons[k])):
+			_season_tex[k] = load(str(seasons[k]))
+		else:
+			push_warning("top bar: missing season icon %d (%s)" % [k, seasons[k]])
 
 
 ## The compact layout (hud.md Visual Budget: below compact_below, 1600 x 900 layout px).

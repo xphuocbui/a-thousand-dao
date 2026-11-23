@@ -557,15 +557,21 @@ Section 4).
 
 ### 7.13 Top bar and resource boxes
 
-Taken from grand-strategy top bars (user, 2026-11-22): each resource has its own box.
-- A small wood plaque: the resource's painted icon, its printed tabular number, and a ▲ / ▼ mark with a sign for this
-  season's change (never colour alone).
-- Fixed width per box, so a changing number never shifts the bar.
-- Hover opens the breakdown tooltip (income and costs); a click opens the window the resource belongs to.
-- Contextual boxes appear only when they apply (sect contribution only in a sect).
-- The boxes (user, 2026-11-23; `design/ux/hud.md` elements 2, 8, 10, 33–35): linh thạch, lifespan left (thọ nguyên),
-  cultivation (realm, level, progress bar and the rate here; double width), rating (power number), renown (danh vọng),
-  and sect contribution (cống hiến) while in a sect. Six new painted icons.
+Taken from grand-strategy top bars (user, 2026-11-22; CK3/EU4 layout picked 2026-11-23, `design/ux/hud.md` Z1).
+- **The bar** is one continuous strip of carved dark rosewood with a polished brass trim along both edges, a calm
+  repeating fret carving and a slim gilt bead under it (`assets/ui/topbar/topbar_strip.png`, tiled sideways).
+- **Each resource** sits on the strip, not in its own plaque: a painted **medallion icon** (a brass-rimmed disc of dark
+  lacquer holding one painted object) in a round brass socket, its printed tabular number in the bold face, and the
+  season's change as ▲ / ▼ with a sign in the smaller face (never colour alone). Thin brass dividers with a small
+  diamond separate the resources. Fixed width per resource, so a changing number never shifts the bar.
+- **The date** hangs at the right end in a rosewood cartouche with brass scroll ends and a lower edge that dips in the
+  middle, holding the season's medallion and the printed season and year.
+- Hover opens the breakdown tooltip (income and costs); a click opens the window the resource belongs to. Contextual
+  boxes appear only when they apply (sect contribution only in a sect).
+- **Icons picked by the user (2026-11-23, 8.6 rule 9):** linh thạch, spirit-stone crystals; lifespan, a longevity
+  peach; cultivation, a golden qi orb; rating, crossed swords; renown, a bronze bell; sect contribution, a jade token.
+  Seasons: plum blossom (spring), lotus (summer), maple leaves (autumn), snowy pine (winter). Masters, prompts and the
+  picks are in `tools/asset-pipeline/ui/` (`kit-topbar`, `kit-res-icons`, `kit-season-icons`, `topbar-picks.json`).
 
 ### 7.14 Map labels and markers
 
@@ -618,6 +624,7 @@ The furniture is heavy: nothing bounces, springs or slides across the map.
   | Art | 50 px | 128 × 128 | 256 × 256 for tooltips and the inspect panel |
   | Ward | 40 px | 96 × 96 | — |
   | Buff / debuff chip | 16–20 px | 48 × 48 | drawn as its own simplified master, never a downscaled art icon |
+  | HUD medallion (top bar resources, seasons) | 28–32 px | 64 × 64 | a painted brass-rimmed disc on chroma green, cut by `tools/asset-pipeline/ui/cut_topbar.py`; no SVG master (7.13) |
 
   The art director's five tiers (256/128/64/48/24) were not adopted; revisit only if 1× icons look soft in play.
 - **Format**: PNG, sRGB, 8-bit RGBA, straight alpha, no embedded ICC profile, SDR (HDR output must not lift the
@@ -640,6 +647,7 @@ needed (user decision):
 assets/icons/arts/art_<art_id>.png          (+ art_<art_id>@256.png)
 assets/icons/wards/ward_<ward_id>.png
 assets/icons/status/buff_<element>.png, debuff_<element>.png
+assets/icons/hud/res_<resource>.png, season_<season>.png   (top bar medallions, 7.13)
 tools/asset-pipeline/icons/                 subject library, recipes, SVG masters, the render script (outside Godot)
 ```
 
@@ -676,6 +684,8 @@ silhouettes overlap too closely. It writes a contact sheet at 50 px and 40 px, i
    as a style reference or input (the style reference is our own approved icons only).
 10. **Technical**: the validation script passes and no banding shows on the near-black ground.
 11. **Evidence**: a screenshot of the icons in fight-screen slots at 1× and 2× is kept in `production/qa/evidence/`.
+
+**HUD medallions** (7.13; top bar resources and seasons) pass items 1, 2 (core 7:1 against the medallion's own lacquer ground, at 32 px), 5 (adapted: the disc fills the tile, its subject 62–72 % of the disc's inside, the border pixels clear), 7, 8, 9 and 10 (no banding; `python -I tools/asset-pipeline/ui/cut_topbar.py <repo> check` fails on a missing or extra file in `assets/icons/hud/`, a size other than 64 × 64, a name outside `res_<resource>` / `season_<season>`, or a non-zero alpha on the border pixels), with 32 px in place of 40 and 50 px; items 3, 4 and 6 are combat-icon grammar and do not apply. Item 11's evidence is a top-bar screenshot at 1280×720 and 1920×1080 in `production/qa/evidence/hud-greybox/`.
 
 ### 8.7 UI furniture assets (approved 2026-11-22)
 

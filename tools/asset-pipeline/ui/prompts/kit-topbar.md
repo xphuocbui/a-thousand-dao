@@ -1,0 +1,6 @@
+<!-- Top bar prompt (art bible 7.13, Paradox-style bar, 2026-11-23); the comment is stripped before sending -->
+Four assets for the top bar of a grand-strategy game screen.
+(1) Top of the canvas: one long horizontal top-bar strip, about 94 % of the canvas width and 9 % of its height: a band of carved dark rosewood with a thin polished brass trim along its top and bottom edges and a slim gilt bead under the bottom trim; its middle is a calm, evenly repeating shallow lattice carving, the same all along, so the strip can be cut and repeated sideways.
+(2) Below it, on the left: a date cartouche about 30 % of the canvas width and 12 % of its height: an ornate rosewood frame with brass scroll ornaments at both short ends and a gently curved lower edge that hangs a little lower in the middle; its centre is a plain, smooth dark lacquer panel for a printed date.
+(3) Below the strip, in the middle: one round icon socket, about 12 % of the canvas height across: a polished brass ring with four tiny rivets, its inside a recessed plain dark lacquer disc.
+(4) On the right: one slim vertical brass divider, about 8 % of the canvas height tall and very narrow, with a small brass diamond at its middle.

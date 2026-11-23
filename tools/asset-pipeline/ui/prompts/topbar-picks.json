@@ -1,0 +1,5 @@
+{
+ "_doc": "The user's picks from masters/topbar-candidates.png (2026-11-23; art bible 8.6 rule 9). Numbers are the candidates' positions in kit-res-icons-m1.png (1-12) and kit-season-icons-m1.png (1-8).",
+ "resources": {"linh_thach": 1, "lifespan": 4, "cultivation": 5, "rating": 8, "renown": 9, "sect": 11},
+ "seasons": {"spring": 1, "summer": 3, "autumn": 5, "winter": 7}
+}

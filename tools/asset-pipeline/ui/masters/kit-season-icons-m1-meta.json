@@ -1,0 +1,23 @@
+{
+ "created": 1795423680,
+ "background": "opaque",
+ "output_format": "png",
+ "quality": "medium",
+ "safety_identifier": null,
+ "size": "1536x1024",
+ "usage": {
+  "input_tokens": 1686,
+  "input_tokens_details": {
+   "image_tokens": 1296,
+   "text_tokens": 390
+  },
+  "output_tokens": 1372,
+  "output_tokens_details": {
+   "image_tokens": 1372,
+   "text_tokens": 0
+  },
+  "total_tokens": 3058
+ },
+ "model": "gpt-image-2",
+ "prompt": "Using the exact art style, materials, lighting and colours of the attached game UI mockup (carved dark rosewood frames, geometric window-lattice carving, brass corner fittings with small rivets, aged parchment insets), paint game UI ASSETS for that interface, not a screen.\n\nRules for every asset: seen perfectly flat and straight-on, no perspective, perfectly straight edges and right angles, mirror-symmetric left to right; evenly lit from the top left; no text, no letters, no numbers, no icons, no symbols, no logo, no watermark; no drop shadow cast onto the background. The background is one flat, pure chroma-key green (#00FF00) everywhere around the assets, with clear empty space between assets and around the canvas edge.\n\nThe assets:\n\nPaint 8 small round season medallions for this interface, in an exact grid of 4 columns and 2 rows, evenly spaced, all the same size (each about 19 % of the canvas width across), with clear chroma-green space between them. Each medallion: a thin polished brass rim; inside, on a deep dark lacquer ground, ONE painted motif, centred, lit warmly from the top left, simple and readable when shown very small (24 pixels). No text, letters, characters, numbers or symbols anywhere.\nRow 1, left to right: (1) spring: a sprig of pink plum blossoms; (2) spring: a fresh green willow twig with new leaves; (3) summer: an open pink lotus flower on a pad; (4) summer: a blazing golden sun over a ripple of water.\nRow 2: (5) autumn: two red maple leaves; (6) autumn: a golden chrysanthemum; (7) winter: a small pine branch with snow; (8) winter: a white plum blossom on a snowy twig."
+}

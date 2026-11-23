@@ -1,0 +1,23 @@
+{
+ "created": 1795423683,
+ "background": "opaque",
+ "output_format": "png",
+ "quality": "medium",
+ "safety_identifier": null,
+ "size": "1536x1024",
+ "usage": {
+  "input_tokens": 1786,
+  "input_tokens_details": {
+   "image_tokens": 1296,
+   "text_tokens": 490
+  },
+  "output_tokens": 1372,
+  "output_tokens_details": {
+   "image_tokens": 1372,
+   "text_tokens": 0
+  },
+  "total_tokens": 3158
+ },
+ "model": "gpt-image-2",
+ "prompt": "Using the exact art style, materials, lighting and colours of the attached game UI mockup (carved dark rosewood frames, geometric window-lattice carving, brass corner fittings with small rivets, aged parchment insets), paint game UI ASSETS for that interface, not a screen.\n\nRules for every asset: seen perfectly flat and straight-on, no perspective, perfectly straight edges and right angles, mirror-symmetric left to right; evenly lit from the top left; no text, no letters, no numbers, no icons, no symbols, no logo, no watermark; no drop shadow cast onto the background. The background is one flat, pure chroma-key green (#00FF00) everywhere around the assets, with clear empty space between assets and around the canvas edge.\n\nThe assets:\n\nPaint 12 round HUD resource medallions for this interface, in an exact grid of 4 columns and 3 rows, evenly spaced, all the same size (each about 19 % of the canvas width across), with clear chroma-green space between them. Each medallion: a thin polished brass rim; inside, on a deep dark lacquer ground, ONE painted object, centred, filling about 70 % of the inside, lit warmly from the top left with a soft rim light, rich, simple and readable when shown very small (32 pixels). No text, letters, characters, numbers or symbols anywhere.\nRow 1, left to right: (1) a cluster of three pale blue-white glowing spirit-stone crystals; (2) a small heap of smooth polished spirit stones glowing faintly blue; (3) a bronze incense burner with one burning incense stick and a thin curl of smoke; (4) a ripe longevity peach with two green leaves.\nRow 2: (5) a glowing golden orb of qi with a swirl of gold-white energy around it; (6) a closed pink lotus bud with a golden glow at its heart; (7) one upright straight double-edged sword with a red tassel; (8) two crossed straight swords.\nRow 3: (9) a bronze temple bell; (10) a rolled paper scroll tied with a red cord, blank; (11) a green jade token plaque with a carved cloud border, a plain face and a red tassel; (12) a pale green jade ring disc with a red tassel."
+}
