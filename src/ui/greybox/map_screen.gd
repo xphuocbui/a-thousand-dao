@@ -1007,6 +1007,8 @@ func _open_province(province_id: int) -> void:
 		art = _map.place_art(cid)
 		if art != null:
 			break
+	if art == null:   # no painted place: the province's own piece of the painted map
+		art = _map.province_art(province_id)
 	_places.close_panel()
 	_panel.close_panel()
 	_province.open_province(rec, ctx, art, _map)

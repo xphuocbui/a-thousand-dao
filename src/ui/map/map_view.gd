@@ -105,6 +105,7 @@ var _alive: AliveLayer = null          # the alive layer: the shader's clock and
 var _alive_cfg: Dictionary = {}
 var _prov_names: Array = []   # [{name, at (tile), kind}] from the provinces file (v2)
 var _prov_name_by_id: Dictionary = {}   # province id -> name, for the hover
+var _prov_at: Dictionary = {}   # province id -> its inner point (tile), for the panel's map picture
 var _prov_tint: ImageTexture = null   # the province map mode's colours (null: off)
 var _prov_ids := PackedByteArray()   # u16 per tile: the province id (greybox.province_ids_file)
 
@@ -738,10 +739,13 @@ func _load_provinces(path: String) -> void:
 		return
 	_prov_names = []
 	_prov_name_by_id = {}
+	_prov_at = {}
 	for p in (parsed as Dictionary).get("provinces", []):
 		_prov_region[int(p.id)] = int(p.region)
 		if str(p.get("name", "")) != "":
 			_prov_name_by_id[int(p.id)] = str(p.name)
+		if p.has("label_at"):
+			_prov_at[int(p.id)] = Vector2(float(p.label_at[0]), float(p.label_at[1])) + Vector2(0.5, 0.5)
 		if str(p.get("name", "")) != "" and p.has("label_at"):   # the province names drawn at mid zoom
 			_prov_names.append({"name": str(p.name), "at": Vector2(float(p.label_at[0]), float(p.label_at[1])) + Vector2(0.5, 0.5),
 				"kind": str(p.get("kind", ""))})
@@ -1231,6 +1235,32 @@ func set_province_colours(colours: Dictionary) -> void:
 			data[i * 4 + 3] = c.a8
 	_prov_tint = ImageTexture.create_from_image(Image.create_from_data(w, h, false, Image.FORMAT_RGBA8, data))
 	queue_redraw()
+
+
+## The province's own piece of the painted map, for the province panel when none of its places has a painting
+## (greybox.map_zoom.province_art_tiles [w, h] around its inner point): a region of the streamed 3x tile holding that
+## point, shown through an AtlasTexture (no copy). Null with no tiles or no point.
+func province_art(province_id: int) -> Texture2D:
+	if _hi.is_empty() or not _prov_at.has(province_id):
+		return null
+	var at: Vector2 = _prov_at[province_id]
+	var chunk: int = int(_hi.get("chunk_tiles", 40))
+	var px: float = float(_hi.get("px_per_tile", 48))
+	var pad: float = float(_hi.get("pad", 0))
+	var cx: int = clampi(int(floor(at.x / chunk)), 0, int(_hi.get("cols", 1)) - 1)
+	var cy: int = clampi(int(floor(at.y / chunk)), 0, int(_hi.get("rows", 1)) - 1)
+	var path: String = "%s/near_%d_%d.jpg" % [str(_hi.get("dir", "")), cx, cy]
+	if not ResourceLoader.exists(path):
+		return null
+	var tex: Texture2D = load(path)
+	var wh: Array = _zcfg.get("province_art_tiles", [20.0, 11.0])
+	var size_px := Vector2(float(wh[0]), float(wh[1])) * px
+	var centre_px := (at - Vector2(cx * chunk, cy * chunk)) * px + Vector2(pad, pad)
+	var tl := (centre_px - size_px * 0.5).clamp(Vector2.ZERO, Vector2(tex.get_width(), tex.get_height()) - size_px)
+	var a := AtlasTexture.new()
+	a.atlas = tex
+	a.region = Rect2(tl, size_px)
+	return a
 
 
 ## Whether a province map mode is on (for tests and the demo).
