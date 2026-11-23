@@ -14,7 +14,7 @@
 > Plan, evidence and the acceptance-criteria audit: `production/plans/continent-world.md`,
 > `production/qa/evidence/continent-world/` (04-ac-coverage.md).
 > **Author**: user + Claude
-> **Last Updated**: 2026-11-20
+> **Last Updated**: 2026-11-23
 > **Last Verified**: 2026-11-20
 > **Implements Pillar**: Pillar 5 (A World That Remembers), Pillar 4 (Every Season Counts); touches Pillar 1 (Your Dao, Your Name) and Pillar 2 (Every Number Is Bounded and Visible)
 
@@ -290,7 +290,8 @@ names rather than a place.
 
     **Population.** A settlement's mortal population is its size weight times the livability of its land (the map
     tools' measure of water, coast and climate), so a well-watered river town houses two or three times a poor one.
-    Population is fixed for now (no growth or famine). It drives both what a settlement makes (Formula H2) and what its
+    This is the **starting** population: since 2026-11-23 it lives in the province record and grows or falls slowly
+    with food, safety and capacity (Provinces #48, rule 5, Formula F3). It drives both what a settlement makes (Formula H2) and what its
     people need (the contract's `pop_settlement_weight`, Regional Economy & Trade Formula C's `W_set`).
 22. **Reserves thin and slowly recover.** Extraction above a site's sustainable rate lowers its reserve, and its output
     falls with it. A rested site recovers slowly. A reserve never falls below a floor, so nothing is lost for good, but
@@ -304,8 +305,10 @@ names rather than a place.
     towns, its production and its taxes. How it taxes and spends belongs to Sects (#26). Every region belongs to a sect;
     there are no unowned regions (user decision 2026-11-14). Wilderness, the land away from roads and towns, still
     lies inside every territory. A loose cultivator owns only their cave abodes.
-25. **The production contract.** Once a season the map adds up production by resource kind, for each region and each
-    territory, and publishes it with the region's population. **Regional Economy & Trade** (a new system, designed
+25. **The production contract.** Once a season the map's places' output is added up by resource kind **per province**
+    (Provinces #48, rule 6 and Formula F4, which add the wilderness shares and province buildings), and published with
+    each province's population and market access; region and territory values are the sums of their provinces
+    (amended 2026-11-23). **Regional Economy & Trade** (a new system, designed
     next) turns that into market stock, prices and the flow of goods between markets. Until it exists, the Market
     works as built.
 
@@ -357,7 +360,9 @@ names rather than a place.
 
 **Layers 2 and 1: works on the land**
 
-31. **Shared works (layer 2).** Whoever holds a place (a sect, an NPC or a player) can spend seasons and linh thạch or
+31. **Shared works (layer 2).** *(Amended 2026-11-23: layer-2 works are now Provinces #48's **province buildings**, one
+    catalogue built in province slots; this rule keeps what they do to places, their caps and the two kinds.)* Whoever
+    holds a place (a sect, an NPC or a player) can spend seasons and linh thạch or
     materials to raise its density, push its element shares toward a chosen element, or raise its production, for
     everyone there. There are two kinds:
     - **Permanent works** (spirit groves, qi channels) give small gains that never fade, up to a low cap per place, so the
@@ -373,7 +378,8 @@ names rather than a place.
 **Developed ground and where people live**
 
 33. **Cities and sect grounds are developed, and most people live there.**
-    - Settlements and sect seats start each game with layer 2 works already built (authored with the map), and their
+    - Settlements and sect seats start each game with layer 2 works already built (authored with the map; since
+      2026-11-23 these are Provinces' starting buildings, plus its `infra_old` top-up, Provinces rule 10), and their
       holders keep them up. A city holds more than a town, a town more than a village, and a sect seat the most. Settlements' natural density
       is low (0.6–1.1), so these works are what make a city a decent place to cultivate.
     - **Most NPCs live in settlements and sect grounds** (about 85 %, `npc_settled_share`; user decision 2026-11-10).

@@ -1791,15 +1791,14 @@ formulas:
     referenced_by:
       - design/gdd/regional-economy-trade.md
       - design/gdd/sects.md
+      - design/gdd/provinces.md
     variables:
-      - d_r
-      - d_reach
-      - trade_mult
+      - inf_v
       - road_danger
-      - war_r
+      - war_v
     output_range: [0, 1]
-    expression: "acc = exp(-d/(d_reach*trade_mult)) * clamp(1 - 0.10*0.92^M*(1-reach) - 0.40*war, 0, 1)"
-    notes: "RET Formula A. d_reach 250 (guess). Linh thach always 1. To be superseded by province_market_access (Provinces F6) in the RET revision (user 2026-11-23); value unchanged until then."
+    expression: "acc_v = inf_v * clamp(1 - 0.10*0.92^M*(1-inf_v) - 0.40*war_v, 0, 1); inf_v = province_market_access"
+    notes: "RET Formula A, amended 2026-11-23 (Provinces #48, user decision Victoria 3): distance term replaced by Provinces F6; safety kept. Linh thach always 1."
     added: 2026-11-14
     revised: 2026-11-23
   - name: market_supply
@@ -2792,7 +2791,7 @@ formulas:
       - P_market
     output_range: [0, 1]
     expression: "infra = infra0 + i_road*road + i_river*min(river,river_cap) + infra_old + sum infra_b; usage = sum max(0,prod-D_loc)*val*P; acc = min(1, infra/usage)"
-    notes: "Provinces F6, Victoria 3 rule (user 2026-11-23). Replaces market_access (RET Formula A) in the RET revision."
+    notes: "Provinces F6, Victoria 3 rule (user 2026-11-23). RET Formula A multiplies it by the safety term."
     added: 2026-11-23
     revised: ""
 constants:

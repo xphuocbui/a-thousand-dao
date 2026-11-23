@@ -422,7 +422,10 @@ other province gets `infra_old` 0.
 **Not a dependency:** Cave Abode (#47). Home works stay on the player's place (Travel & Map rule 32); they are not
 province buildings and use no slot.
 
-**Amendments owed** (changes to other GDDs, not just links; made in the planned order with the user's approval):
+**Amendments made 2026-11-23** (user: "just finish this"): Travel & Map rules 21, 25, 31, 33 and systems-index row 47;
+Regional Economy & Trade rules 3, 6, 7, 11, 16, 20, the units note and Formula A (access = Provinces F6 times the kept
+safety term); Sects rule 9; Living World Tick S6. Still open: Event Engine (shocks as province modifiers; no change
+needed to its rules yet). The list as it was planned:
 - Travel & Map (approved): rule 21 (mortal population is now living, Formula F3 here, not fixed); rule 25 (the
   contract per province); rule 31 (layer-2 shared works become province buildings); rule 33 (starting development
   includes `infra_old`); and systems-index row 47's note that layer-2 works stay in Travel & Map;

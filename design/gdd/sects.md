@@ -82,6 +82,11 @@ nothing in this paragraph fixes a number.
    Institutions scales the stock of manuals, pills and teachers, and Military scales how safe the flow is. A great
    sect's effective level in a track counts its own investment plus half of its vassals' investment, converted back to
    a level (Formula F1; user decision 2026-11-14). Layer-2 works on sect land are gated by Holdings (Formula F2).
+   *(Amended 2026-11-23, Provinces #48, user decision:)* layer-2 works are now **province buildings**, built and upkept as
+   works are (their upkeep is F3's `works_due`). Each track level **caps** the level of its building kinds in the sect's
+   provinces: Holdings caps production buildings (the F2 gate), Trade caps logistics buildings and market halls (which
+   set a province's market access, Regional Economy & Trade Formula A), Military caps warding walls, Institutions caps
+   gathering arrays and pavilions (Provinces rule 9). Tracks stay sect-wide levels.
 10. **Treasury.** Income is the sect's share of production and trade after its vassals' tribute, plus tribute from
     vassals, plus a fee on the missions posted on its boards. Mission rewards are paid by the **client** (towns,
     merchants, villages, out of the production the sect does not collect); the sect keeps a fee (user decision 2026-11-14).
