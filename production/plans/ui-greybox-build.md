@@ -195,7 +195,7 @@ overlay; tiles stay the rule unit, no rule change.
   several zoom states in one launch, and ratings off by default in test runs (`--ratings-on` keeps them; the 40-50 s
   End turn wait is recorded in `production/qa/bugs/2026-11-23-season-end-waits-for-ratings.md`).
 
-**Next (user, 2026-11-23): provinces.**
+**Provinces (user, 2026-11-23):** drawn on the map (bf7158b2). Next: provinces as the economy's units (prototype in `prototypes/province-economy/`, then the GDD revision with the user, section by section; the GDD rule is lifted). **Each province is a full record** (user): its resources, mortal population, production, buildings and works, bonuses and modifiers, and so on: designed in the GDD revision.
 
 ## Queued (user, 2026-11-23)
 - **Map name font looks a bit bad** (region names, and now the great sects' names on the political map): find a

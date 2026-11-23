@@ -1799,9 +1799,9 @@ formulas:
       - war_r
     output_range: [0, 1]
     expression: "acc = exp(-d/(d_reach*trade_mult)) * clamp(1 - 0.10*0.92^M*(1-reach) - 0.40*war, 0, 1)"
-    notes: "RET Formula A. d_reach 250 (guess). Linh thach always 1."
+    notes: "RET Formula A. d_reach 250 (guess). Linh thach always 1. To be superseded by province_market_access (Provinces F6) in the RET revision (user 2026-11-23); value unchanged until then."
     added: 2026-11-14
-    revised: ""
+    revised: 2026-11-23
   - name: market_supply
     status: active
     source: design/gdd/regional-economy-trade.md
@@ -2689,6 +2689,111 @@ formulas:
     expression: "price = m* * bm_raw * V_in / (sr_fin * yield * ps_mean - m* * fuel_frac), m* 1.8, bm_raw 1.10, sr_fin 0.6, ps_mean 1; Tay Tuy Dan 430, Dien Tho Dan 2,140; breakthrough pills keep scarcity prices (400 / 3,000 / 12,000 / 40,000) and are skipped by the lint"
     notes: "Alchemy F4, rule 12 (user decision 2026-11-21: price follows the margin; replaces the 2026-11-14 'raise inputs, keep prices' for those three). Breakthrough pills exempt (scarcity price, user decision 2026-11-21 after the M_market check)."
     added: 2026-11-21
+    revised: ""
+  - name: province_potential
+    status: active
+    source: design/gdd/provinces.md
+    referenced_by:
+      - design/gdd/provinces.md
+    variables:
+      - base
+      - share
+      - out_b
+      - val
+      - secondary_share
+    output_range: [0, null]
+    expression: "pot[v,k] = sum base[p,k] + sum share[w,v]*pot[w,k] + sum out[b,k]; main = argmax pot*val"
+    notes: "Provinces F1. Main good plus up to two secondary goods at >= secondary_share of the main."
+    added: 2026-11-23
+    revised: ""
+  - name: wild_share
+    status: active
+    source: design/gdd/provinces.md
+    referenced_by:
+      - design/gdd/provinces.md
+    variables:
+      - border
+      - wild_hops
+    output_range: [0, 1]
+    expression: "share[w,v] = border[w,v] / sum border[w,v'] over settlement neighbours"
+    notes: "Provinces F2. No settlement neighbour: passed to wilderness neighbours up to wild_hops; beyond that ungathered."
+    added: 2026-11-23
+    revised: ""
+  - name: province_population
+    status: active
+    source: design/gdd/provinces.md
+    referenced_by:
+      - design/gdd/provinces.md
+      - design/gdd/regional-economy-trade.md
+    variables:
+      - P_set
+      - cap0
+      - cap_b
+      - g
+      - cover_st
+      - famine_cover
+      - f_fam
+      - f_war
+      - pop_floor
+    output_range: [pop_floor*P0, C]
+    expression: "fed: P + g*P*(1-P/C); famine: P*(1-f_fam*(1-cover/famine_cover)); war: *(1-f_war); clamp(pop_floor*P0, max(C, P*(1-f_fam)))"
+    notes: "Provinces F3, once a year. All values guesses."
+    added: 2026-11-23
+    revised: ""
+  - name: province_production
+    status: active
+    source: design/gdd/provinces.md
+    referenced_by:
+      - design/gdd/provinces.md
+      - design/gdd/regional-economy-trade.md
+    variables:
+      - out_H
+      - share
+      - out_b
+      - staff
+      - inc
+      - more
+      - staff_lvl
+    output_range: [0, null]
+    expression: "prod = (sum out_H + sum share*prod_wild + sum out_b*staff) * (1+sum inc) * prod(1+more), clamped at 0"
+    notes: "Provinces F4. staff = min(1, P/(staff_lvl*level))."
+    added: 2026-11-23
+    revised: ""
+  - name: province_slots
+    status: active
+    source: design/gdd/provinces.md
+    referenced_by:
+      - design/gdd/provinces.md
+    variables:
+      - base_slots
+      - slot_pop_step
+      - wild_slots
+    output_range: [1, 9]
+    expression: "slots = base_slots[seat] + floor(P/slot_pop_step); wilderness wild_slots"
+    notes: "Provinces F5. Never removes standing buildings."
+    added: 2026-11-23
+    revised: ""
+  - name: province_market_access
+    status: active
+    source: design/gdd/provinces.md
+    referenced_by:
+      - design/gdd/provinces.md
+      - design/gdd/regional-economy-trade.md
+    variables:
+      - infra0
+      - i_road
+      - road
+      - i_river
+      - river
+      - river_cap
+      - infra_b
+      - infra_old
+      - D_loc
+      - P_market
+    output_range: [0, 1]
+    expression: "infra = infra0 + i_road*road + i_river*min(river,river_cap) + infra_old + sum infra_b; usage = sum max(0,prod-D_loc)*val*P; acc = min(1, infra/usage)"
+    notes: "Provinces F6, Victoria 3 rule (user 2026-11-23). Replaces market_access (RET Formula A) in the RET revision."
+    added: 2026-11-23
     revised: ""
 constants:
   - name: root_count_weights
@@ -5954,3 +6059,66 @@ constants:
     notes: "Alchemy F5, rule 11 (user decision 2026-11-21 after the Realms re-run): the main herb stays exactly as Realms Formula D models it; the companion is by element value. Value-form main herbs would double pill supply. Pill prices stay provisional until the M_market check."
     added: 2026-11-21
     revised: 2026-11-21
+  - name: secondary_share
+    status: active
+    source: design/gdd/provinces.md
+    referenced_by:
+      - design/gdd/provinces.md
+    value: 0.35
+    unit: share of the main goods value
+    notes: "Provinces F1 (guess)."
+    added: 2026-11-23
+    revised: ""
+  - name: wild_hops
+    status: active
+    source: design/gdd/provinces.md
+    referenced_by:
+      - design/gdd/provinces.md
+    value: 6
+    unit: province links
+    notes: "Provinces F2."
+    added: 2026-11-23
+    revised: ""
+  - name: start_access_min
+    status: active
+    source: design/gdd/provinces.md
+    referenced_by:
+      - design/gdd/provinces.md
+      - design/gdd/regional-economy-trade.md
+    value: 0.5
+    unit: market access
+    notes: "Provinces F6 / rule 10: starting logistics top up to this (guess)."
+    added: 2026-11-23
+    revised: ""
+  - name: i_road
+    status: active
+    source: design/gdd/provinces.md
+    referenced_by:
+      - design/gdd/provinces.md
+      - design/gdd/regional-economy-trade.md
+    value: 40
+    unit: infrastructure per road tile
+    notes: "Provinces F6 (guess; median province 13 road tiles carries its 470)."
+    added: 2026-11-23
+    revised: ""
+  - name: infra0
+    status: active
+    source: design/gdd/provinces.md
+    referenced_by:
+      - design/gdd/provinces.md
+      - design/gdd/regional-economy-trade.md
+    value: {village: 100, market: 200, town: 200, minor_seat: 300, city: 400, great_seat: 600}
+    unit: infrastructure by seat kind
+    notes: "Provinces F6 (guess)."
+    added: 2026-11-23
+    revised: ""
+  - name: base_slots
+    status: active
+    source: design/gdd/provinces.md
+    referenced_by:
+      - design/gdd/provinces.md
+    value: {village: 2, market: 3, town: 3, minor_seat: 4, city: 5, great_seat: 6}
+    unit: building slots by seat kind
+    notes: "Provinces F5 / rule 7."
+    added: 2026-11-23
+    revised: ""
