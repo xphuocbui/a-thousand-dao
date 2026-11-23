@@ -202,6 +202,18 @@ func _fill() -> void:
 				if p.has("id"):
 					line = "[url=%d]%s[/url]" % [int(p.id), line]
 				lines.append(line)
+				# what one sees there and its story, small, under the name (new places have no panel of their own yet)
+				var gl: String = str(p.get("gloss", ""))
+				var desc: Array = []
+				if gl != "":
+					desc.append("[i]%s.[/i]" % gl.trim_suffix("."))
+				if str(p.get("look", "")) != "":
+					desc.append(str(p.look))
+				if bool(p.get("new", false)) and str(p.get("lore", "")) != "":
+					desc.append(str(p.lore))
+				if not desc.is_empty():
+					lines.append("[font_size=13][indent]%s[/indent][/font_size]" % " ".join(desc))
+				lines.append("")
 		2:   # Economy
 			var prod: Dictionary = st.get("production", {})
 			var own: Dictionary = st.get("own_output", {})

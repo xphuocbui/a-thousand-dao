@@ -323,7 +323,7 @@
   {
    "key": "prov_r11_1",
    "id": 181,
-   "kind": "settlement",
+   "kind": "wilderness",
    "seat": null,
    "tiles": 59,
    "centre": [
@@ -346,9 +346,7 @@
      "kind": "island"
     }
    ],
-   "new_slots": [
-    "prov_r11_1_village_1"
-   ]
+   "new_slots": []
   },
   {
    "key": "prov_r11_10",
@@ -460,7 +458,7 @@
   {
    "key": "prov_r11_2",
    "id": 186,
-   "kind": "settlement",
+   "kind": "wilderness",
    "seat": null,
    "tiles": 78,
    "centre": [
@@ -491,9 +489,7 @@
      "kind": "spirit_vein"
     }
    ],
-   "new_slots": [
-    "prov_r11_2_village_1"
-   ]
+   "new_slots": []
   },
   {
    "key": "prov_r11_3",
@@ -886,20 +882,6 @@
    "lake_shore": false
   },
   {
-   "slot": "prov_r11_1_village_1",
-   "province": "prov_r11_1",
-   "kind": "village",
-   "tile": [
-    121,
-    155
-   ],
-   "biome": "temperate_forest",
-   "elevation_km": 0.01,
-   "river": false,
-   "coast": true,
-   "lake_shore": false
-  },
-  {
    "slot": "prov_r11_10_village_1",
    "province": "prov_r11_10",
    "kind": "village",
@@ -1009,20 +991,6 @@
    "elevation_km": 0.12,
    "river": false,
    "coast": false,
-   "lake_shore": false
-  },
-  {
-   "slot": "prov_r11_2_village_1",
-   "province": "prov_r11_2",
-   "kind": "village",
-   "tile": [
-    29,
-    195
-   ],
-   "biome": "temperate_forest",
-   "elevation_km": 0.0,
-   "river": false,
-   "coast": true,
    "lake_shore": false
   },
   {

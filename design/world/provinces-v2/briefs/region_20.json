@@ -660,7 +660,7 @@
   {
    "key": "prov_r20_22",
    "id": 457,
-   "kind": "settlement",
+   "kind": "wilderness",
    "seat": null,
    "tiles": 69,
    "centre": [
@@ -691,14 +691,12 @@
      "kind": "hot_spring"
     }
    ],
-   "new_slots": [
-    "prov_r20_22_village_1"
-   ]
+   "new_slots": []
   },
   {
    "key": "prov_r20_23",
    "id": 458,
-   "kind": "settlement",
+   "kind": "wilderness",
    "seat": null,
    "tiles": 48,
    "centre": [
@@ -719,7 +717,6 @@
    "coast": true,
    "existing_places": [],
    "new_slots": [
-    "prov_r20_23_village_1",
     "prov_r20_23_lava_vent_2",
     "prov_r20_23_ruin_3"
    ]
@@ -727,7 +724,7 @@
   {
    "key": "prov_r20_24",
    "id": 459,
-   "kind": "settlement",
+   "kind": "wilderness",
    "seat": null,
    "tiles": 50,
    "centre": [
@@ -758,9 +755,7 @@
      "kind": "beast_lair"
     }
    ],
-   "new_slots": [
-    "prov_r20_24_village_1"
-   ]
+   "new_slots": []
   },
   {
    "key": "prov_r20_25",
@@ -1541,34 +1536,6 @@
    "lake_shore": false
   },
   {
-   "slot": "prov_r20_22_village_1",
-   "province": "prov_r20_22",
-   "kind": "village",
-   "tile": [
-    439,
-    349
-   ],
-   "biome": "jungle",
-   "elevation_km": 0.01,
-   "river": false,
-   "coast": true,
-   "lake_shore": false
-  },
-  {
-   "slot": "prov_r20_23_village_1",
-   "province": "prov_r20_23",
-   "kind": "village",
-   "tile": [
-    448,
-    344
-   ],
-   "biome": "jungle",
-   "elevation_km": 0.01,
-   "river": false,
-   "coast": true,
-   "lake_shore": false
-  },
-  {
    "slot": "prov_r20_23_lava_vent_2",
    "province": "prov_r20_23",
    "kind": "lava_vent",
@@ -1596,20 +1563,6 @@
    "coast": true,
    "lake_shore": false,
    "former": "sect"
-  },
-  {
-   "slot": "prov_r20_24_village_1",
-   "province": "prov_r20_24",
-   "kind": "village",
-   "tile": [
-    470,
-    339
-   ],
-   "biome": "jungle",
-   "elevation_km": 0.01,
-   "river": false,
-   "coast": true,
-   "lake_shore": false
   },
   {
    "slot": "prov_r20_25_village_1",

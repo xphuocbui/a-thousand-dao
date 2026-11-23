@@ -104,6 +104,7 @@ var _region_info: Dictionary = {}       # grid region id -> {name, holder_name}
 var _alive: AliveLayer = null          # the alive layer: the shader's clock and the chimney smoke (greybox.alive)
 var _alive_cfg: Dictionary = {}
 var _prov_names: Array = []   # [{name, at (tile), kind}] from the provinces file (v2)
+var _prov_name_by_id: Dictionary = {}   # province id -> name, for the hover
 var _prov_ids := PackedByteArray()   # u16 per tile: the province id (greybox.province_ids_file)
 
 
@@ -733,8 +734,11 @@ func _load_provinces(path: String) -> void:
 	if not (parsed is Dictionary):
 		return
 	_prov_names = []
+	_prov_name_by_id = {}
 	for p in (parsed as Dictionary).get("provinces", []):
 		_prov_region[int(p.id)] = int(p.region)
+		if str(p.get("name", "")) != "":
+			_prov_name_by_id[int(p.id)] = str(p.name)
 		if str(p.get("name", "")) != "" and p.has("label_at"):   # the province names drawn at mid zoom
 			_prov_names.append({"name": str(p.name), "at": Vector2(float(p.label_at[0]), float(p.label_at[1])) + Vector2(0.5, 0.5),
 				"kind": str(p.get("kind", ""))})
@@ -1276,11 +1280,17 @@ func _gui_input(event: InputEvent) -> void:
 		var p: Dictionary = _place_at(mm.position)
 		var id: String = str(p.get("id", ""))
 		var reg: int = 0 if id != "" or near_weight() >= 0.5 else _region_under(mm.position)
+		var prov: int = province_at(mm.position) if id == "" and near_weight() >= 0.5 else 0
+		var prov_name: String = str(_prov_name_by_id.get(prov, ""))
+		if prov > 0:
+			reg = -prov   # a province hover counts as its own hover target (negative: never a region id)
 		if id != _hover_id or reg != _hover_region:
 			_hover_id = id
 			_hover_region = reg
 			if id != "":
 				TooltipLayer.set_tip(self, str(p.get("name", "")))
+			elif prov_name != "":   # zoomed in, over open land: the province's name (and its region)
+				TooltipLayer.set_tip(self, prov_name)
 			elif reg > 0 and _region_info.has(reg):   # hover a region while the tint is on: its name and holder
 				var info: Dictionary = _region_info[reg]
 				var held: String = str(info.holder_name)

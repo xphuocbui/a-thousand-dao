@@ -115,6 +115,7 @@ def main():
         if p["kind"] in w_size:
             liv_by_biome[p["biome"]].append(float(p.get("livability", 1.0)))
     liv_all = [v for vs in liv_by_biome.values() for v in vs]
+    place_lore = json.load(open(os.path.join(ROOT, "assets/data/world_place_lore.json"), encoding="utf-8")).get("places", {})
     lore = {"provinces": {}, "places": {}}
     for f in glob.glob(os.path.join(WV2, "lore", "region_*.json")):
         try:
@@ -140,7 +141,9 @@ def main():
                 own[c] += v
             if pl["kind"] in w_size:
                 settle.append((pl["kind"], float(pl.get("livability", 1.0))))
-            plist.append({"id": q, "name": pl["name"], "name_han": pl.get("name_han", ""), "kind": pl["kind"], "tile": pl["tile"], "new": False})
+            pe = place_lore.get(str(q), {})
+            plist.append({"id": q, "name": pl["name"], "name_han": pl.get("name_han", ""), "kind": pl["kind"], "tile": pl["tile"], "new": False,
+                          "gloss": pl.get("gloss", ""), "look": pe.get("look", "")})
         for s in slots_by[key]:
             if s.get("proposal"):
                 continue   # a proposed minor sect is listed but adds nothing until accepted
@@ -152,7 +155,8 @@ def main():
         for s in slots_by[key]:
             e = lore["places"].get(s["slot"], {})
             plist.append({"slot": s["slot"], "name": e.get("name", ""), "name_han": e.get("name_han", ""), "kind": s["kind"],
-                          "tile": s["tile"], "new": True, "proposal": bool(s.get("proposal", False))})
+                          "tile": s["tile"], "new": True, "proposal": bool(s.get("proposal", False)),
+                          "gloss": e.get("gloss", ""), "look": e.get("look", ""), "lore": e.get("lore", "")})
         seat = None
         for kind in SEAT_RANK:
             if any(k == kind for k, _ in settle):

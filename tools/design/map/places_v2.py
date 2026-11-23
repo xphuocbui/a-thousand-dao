@@ -51,6 +51,25 @@ def chance(key, salt):
     return int(hashlib.sha1((key + "|" + salt).encode()).hexdigest()[:8], 16) / 0xFFFFFFFF
 
 
+def _landmass(fw, tile):
+    """The fine cells of the landmass holding [tile] (4-connected land of fine_water)."""
+    from collections import deque
+    land = (fw & 3) == 0
+    y, x = tile[1] * 4 + 2, tile[0] * 4 + 2
+    if not land[y, x]:
+        return set()
+    seen = {(y, x)}
+    q = deque([(y, x)])
+    while q and len(seen) < 20000:   # an isle, not the mainland
+        cy, cx = q.popleft()
+        for dy, dx in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+            n = (cy + dy, cx + dx)
+            if 0 <= n[0] < land.shape[0] and 0 <= n[1] < land.shape[1] and land[n] and n not in seen:
+                seen.add(n)
+                q.append(n)
+    return seen
+
+
 def main():
     cont = json.load(open(os.path.join(ROOT, "assets/data/world_continent.json"), encoding="utf-8"))
     meta = json.load(open(os.path.join(ROOT, "design/map/continent-11/base/meta.json"), encoding="utf-8"))
@@ -189,6 +208,23 @@ def main():
                      "river": bool(river[y, x]), "coast": bool(near_sea[y, x]), "lake_shore": bool(near_lake[y, x])}
                 slots.append(s)
                 p2["new_slots"].append(s["slot"])
+    # the authored isles stay unsettled (their lore says so: "no settlement ever stood on the isle"): a new village or
+    # town on the landmass of an existing island place is dropped. Applied after the picks, so no other slot moves.
+    fw = np.asarray(Image.open(os.path.join(ROOT, "design/map/continent-11/base/fine_water.png")))
+    island_px = set()
+    for q in cont["places"]:
+        if q["kind"] == "island":
+            island_px |= _landmass(fw, q["tile"])
+    dropped = {s["slot"] for s in slots if s["kind"] in SETTLED and (s["tile"][1] * 4 + 2, s["tile"][0] * 4 + 2) in island_px}
+    slots = [s for s in slots if s["slot"] not in dropped]
+    for plist in by_region.values():
+        for p2 in plist:
+            p2["new_slots"] = [k for k in p2["new_slots"] if k not in dropped]
+            if p2["kind"] == "settlement" and p2["seat"] is None and not any(
+                    k for k in p2["new_slots"] if k.split("_")[-2] in ("village", "town")):
+                p2["kind"] = "wilderness"
+    if dropped:
+        print("dropped (on an authored isle):", ", ".join(sorted(dropped)))
     os.makedirs(os.path.join(OUT, "briefs"), exist_ok=True)
     json.dump({"_doc": "New place slots per province (tools/design/map/places_v2.py); names and lore in region_<r>.json.",
                "slots": slots}, open(os.path.join(OUT, "slots.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
