@@ -58,8 +58,8 @@ development buttons (no one spends to raise a stat directly; buildings do it).
 
 ## On the map (built alongside the panel)
 
-- **Province names:** each province's name is drawn in small ink capitals at its innermost tile. They fade in from 6
-  to 9 px per tile and out by 24 px, where the place labels take over (`province_names_px`, `province_name_font`).
+- **Province names:** each province's name is drawn in small ink capitals at its innermost tile. They fade in from 8
+  to 11 px per tile and out by 24 px, where the place labels take over (`province_names_px`, `province_name_font`).
 - **Hover:** at region zoom, hovering open land names the province.
 - **The new places:** from 14 px per tile, settlements and mines show with their symbol and other places as small ink
   diamonds, with names from 22 px. Hovering one gives its name, gloss and kind.
@@ -75,7 +75,7 @@ development buttons (no one spends to raise a stat directly; buildings do it).
   (`assets/map/continent_11_province_ids.bin`) answers which province.
 - `Esc` or × closes it; focus returns to the map. It closes the place and Places panels when it opens (one Z6 panel at a
   time).
-- Gamepad and keyboard: owed. The panel's tabs take focus, but no button opens the province under the map cursor yet.
+- **Keyboard and gamepad:** with the map focused, `V` (gamepad Y) opens the province at the view's centre; the arrow keys and left stick pan there first. The tabs take focus, and `Esc` closes.
 
 ## Accessibility
 

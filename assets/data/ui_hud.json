@@ -142,7 +142,7 @@
       "zoom_friction": 8.0, "zoom_speed_max": 6.0, "glide_seconds": 0.45, "pan_speed": 900.0, "pan_accel": 6.0, "pan_friction": 6.0, "fling_max": 2400.0, "political_alpha": 0.35, "realm_name_px": [18, 40], "region_name_px": [13, 20],
       "_borders_doc": "Border lines (user 2026-11-23: 'double border for country borders, dash for regions, dash + dot for provinces, one thickness'): every line border_px wide in one ink at border_alpha; a country (holder) border is two lines border_double_gap px apart; dash and dash_dot are on/off lengths in screen px.",
       "border_px": 1.4, "border_alpha": 0.8, "border_double_gap": 3.0, "border_dash": [9.0, 5.0], "border_dash_dot": [9.0, 4.0, 1.6, 4.0],
-      "province_from_fit": 1.15, "province_full_fit": 1.7, "province_names_px": [6.0, 9.0, 24.0], "province_name_font": [12, 16], "new_places_from_px": 14.0, "new_place_label_px": 22.0, "province_art_tiles": [20.0, 11.0], "political_near": 0.45, "border_bold_near": 0.8,
+      "province_from_fit": 1.15, "province_full_fit": 1.7, "province_names_px": [8.0, 11.0, 24.0], "province_name_font": [12, 16], "new_places_from_px": 14.0, "new_place_label_px": 22.0, "province_art_tiles": [20.0, 11.0], "political_near": 0.45, "border_bold_near": 0.8,
       "sect_colours": {"thien_xu": "#B8923A", "tung_dao": "#2F7F86", "lac_ha": "#C8845A", "thinh_vu": "#6B4A8C",
         "bang_tam": "#3F5FA8", "thuy_vi": "#5FA041", "phuong_minh": "#A82E3A"},
       "sect_colours_cb": {"thien_xu": "#E6C229", "tung_dao": "#1B9E9E", "lac_ha": "#D9822B", "thinh_vu": "#7B5CC4",

@@ -107,6 +107,7 @@ var _prov_names: Array = []   # [{name, at (tile), kind}] from the provinces fil
 var _prov_name_by_id: Dictionary = {}   # province id -> name, for the hover
 var _new_places: Array = []   # proposal places (world_provinces.json, new: true): [{name, gloss, kind, tile, proposal}]
 var _prov_at: Dictionary = {}   # province id -> its inner point (tile), for the panel's map picture
+var _line_boxes: Dictionary = {}   # "bold" / "thin" / "prov" -> each line's bounding box in tiles (draw culling)
 var _prov_tint: ImageTexture = null   # the province map mode's colours (null: off)
 var _prov_ids := PackedByteArray()   # u16 per tile: the province id (greybox.province_ids_file)
 
@@ -548,6 +549,10 @@ func _draw_borders(pol: float) -> void:
 	var view := Rect2(Vector2(-8, -8), size + Vector2(16, 16))
 	var width: float = float(_zcfg.get("border_px", 1.4))
 	var ink := Color(0.15, 0.1, 0.07, float(_zcfg.get("border_alpha", 0.8)))
+	var vt := Rect2(-o / sc, size / sc).grow(2.0)   # the view in tiles, a little wider
+	var in_view := func(set_name: String, i: int) -> bool:
+		var boxes: Array = _line_boxes.get(set_name, [])
+		return i >= boxes.size() or vt.intersects(boxes[i])
 	var to_screen := func(pts: PackedVector2Array) -> PackedVector2Array:
 		var tr2 := PackedVector2Array()
 		tr2.resize(pts.size())
@@ -563,24 +568,40 @@ func _draw_borders(pol: float) -> void:
 	var pa: float = smoothstep(fit * float(_zcfg.get("province_from_fit", 1.15)), fit * float(_zcfg.get("province_full_fit", 1.7)), tile_scale())
 	if pa > 0.0 and _borders_on:
 		var segs := PackedVector2Array()
-		for ln in _lines_prov:
-			_pattern_segments(to_screen.call(ln), _zcfg.get("border_dash_dot", [9.0, 4.0, 1.6, 4.0]), segs)
+		for i in _lines_prov.size():
+			if in_view.call("prov", i):
+				_pattern_segments(to_screen.call(_lines_prov[i]), _zcfg.get("border_dash_dot", [9.0, 4.0, 1.6, 4.0]), segs)
 		if not segs.is_empty():
 			draw_multiline(segs, Color(ink, ink.a * pa), width, true)
 	if _borders_on:
 		var segs := PackedVector2Array()
-		for ln in _lines_thin:
-			_pattern_segments(to_screen.call(ln), _zcfg.get("border_dash", [9.0, 5.0]), segs)
+		for i in _lines_thin.size():
+			if in_view.call("thin", i):
+				_pattern_segments(to_screen.call(_lines_thin[i]), _zcfg.get("border_dash", [9.0, 5.0]), segs)
 		if not segs.is_empty():
 			draw_multiline(segs, ink, width, true)
 	if pol > 0.0:
 		var gap: float = float(_zcfg.get("border_double_gap", 3.0)) * 0.5
-		for ln in _lines_bold:
-			var s: PackedVector2Array = to_screen.call(ln)
+		for i in _lines_bold.size():
+			if not in_view.call("bold", i):
+				continue
+			var s: PackedVector2Array = to_screen.call(_lines_bold[i])
 			if s.size() < 2:
 				continue
 			draw_polyline(_offset_line(s, gap), Color(ink, ink.a * pol), width, true)
 			draw_polyline(_offset_line(s, -gap), Color(ink, ink.a * pol), width, true)
+
+
+## Each line's bounding box (tiles), for culling the lines outside the view before their points are moved.
+static func _boxes_of(lines: Array) -> Array:
+	var out: Array = []
+	for ln in lines:
+		var pts: PackedVector2Array = ln
+		var r := Rect2(pts[0], Vector2.ZERO) if pts.size() > 0 else Rect2()
+		for q in pts:
+			r = r.expand(q)
+		out.append(r)
+	return out
 
 
 ## The dash pattern [param pattern] (on, off, on, off ... lengths in screen px) along the screen polyline [param pts],
@@ -1079,6 +1100,7 @@ func _bake_politics(regions: Array) -> void:
 			_lines_bold.append(pts)
 		else:
 			_lines_thin.append(pts)
+	_line_boxes = {"bold": _boxes_of(_lines_bold), "thin": _boxes_of(_lines_thin), "prov": _boxes_of(_lines_prov)}
 	_realms = []
 	var names: Dictionary = {}
 	for r in regions:
@@ -1442,6 +1464,10 @@ func _gui_input(event: InputEvent) -> void:
 			KEY_0, KEY_KP_0:
 				zoom_fit()
 				accept_event()
+			KEY_V:   # the province at the view's centre (keyboard players pan with the arrows; design/ux/province-panel.md)
+				if province_at(size * 0.5) > 0:
+					province_clicked.emit(province_at(size * 0.5))
+				accept_event()
 		if pan != Vector2.ZERO:   # held arrow keys pan with acceleration in _process; reduced motion steps at once
 			if _reduced_motion:
 				_center += pan * PAN_STEP / tile_scale()
@@ -1460,6 +1486,10 @@ func _gui_input(event: InputEvent) -> void:
 			accept_event()
 	elif event is InputEventJoypadButton and event.pressed and (event as InputEventJoypadButton).button_index == JOY_BUTTON_RIGHT_STICK:
 		zoom_fit()
+		accept_event()
+	elif event is InputEventJoypadButton and event.pressed and (event as InputEventJoypadButton).button_index == JOY_BUTTON_Y:
+		if province_at(size * 0.5) > 0:   # the gamepad's Y: the province at the view's centre
+			province_clicked.emit(province_at(size * 0.5))
 		accept_event()
 
 

@@ -127,3 +127,28 @@ func test_a_province_map_mode_replaces_the_political_tint_and_turns_off_again() 
 	assert_true(v.province_mode_on(), "colours given: the mode is on")
 	v.set_province_colours({})
 	assert_false(v.province_mode_on(), "an empty set turns it off")
+
+
+func test_v_opens_the_province_at_the_view_centre() -> void:
+	# Arrange: a map centred on Bình Thủy Môn's tile
+	var gd := game_data()
+	var cfg: Dictionary = gd.file("ui_hud").get("greybox", {}).duplicate(true)
+	for k in ["far_layer", "near_layer", "place_sprites", "near_hi"]:
+		cfg[k] = ""
+	cfg["terrain_shader"] = {}
+	cfg["alive"] = {}
+	var v := MapView.new()
+	v.size = Vector2(1920, 1080)
+	v.setup(ContinentGrid.from_continent(gd), cfg, 4.0)
+	auto_free(v)
+	v.set_region_zoom(true, Vector2(125.5, 247.5))
+	var got := [0]
+	v.province_clicked.connect(func(id): got[0] = id)
+	# Act
+	var ev := InputEventKey.new()
+	ev.physical_keycode = KEY_V
+	ev.pressed = true
+	v._gui_input(ev)
+	# Assert
+	assert_eq(got[0], v.province_at(v.size * 0.5), "V asks for the province under the view's centre")
+	assert_true(got[0] > 0, "there is land there")
