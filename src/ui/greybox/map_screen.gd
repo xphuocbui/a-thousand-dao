@@ -63,6 +63,8 @@ var _turn_note := Label.new()
 var _sheet_button := Button.new()
 var _portrait := Button.new()
 var _panel := TextPanel.new()
+var _province := ProvincePanel.new()   # the province panel (design/ux/province-panel.md, draft)
+var _provinces: Dictionary = {}       # province id -> its world_provinces.json record
 var _person := PersonPanel.new()
 var _fight := FightScreen.new()
 var _people_list := VBoxContainer.new()
@@ -103,7 +105,7 @@ func _ready() -> void:
 	for e in paper.errors:
 		push_warning("theme: " + str(e))
 	theme = wood.theme
-	for w in [_panel, _person, _places, _centre, _comparison]:
+	for w in [_panel, _province, _person, _places, _centre, _comparison]:
 		(w as Control).theme = paper.theme
 		(w as Control).theme_type_variation = &"WindowPanel"
 	_tips.theme = paper.theme
@@ -212,6 +214,10 @@ func _shot_and_quit(path: String) -> void:
 		if _arg_value("--alive-at", "") != "" and _map.alive_layer() != null:
 			_map.alive_layer().set_reduced_motion(false)
 			_map.alive_layer().set_clock(float(_arg_value("--alive-at", "0")))
+		if _arg_value("--province", "") != "":   # --province=ID: the province panel open in the shots
+			_open_province(int(_arg_value("--province", "0")))
+			if _arg_value("--province-tab", "") != "":
+				_province.show_tab(int(_arg_value("--province-tab", "0")))
 		if _arg_value("--season", "") != "":
 			_season_shot = int(_arg_value("--season", "0"))
 			_map.set_season(_season_shot)
@@ -345,6 +351,7 @@ func _build_layout() -> void:
 	theme = _greybox_theme()   # replaced by the Rosewood theme in _ready once ui_hud.json is loaded
 	_map.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_map.place_clicked.connect(_on_place_clicked)
+	_map.province_clicked.connect(_open_province)
 	_map.bubble_pressed.connect(_on_bubble_pressed)
 	_map.zoom_changed.connect(func(_r: bool): _refresh())
 	add_child(_map)
@@ -550,6 +557,13 @@ func _build_layout() -> void:
 	_panel.offset_top = 80
 	_panel.offset_bottom = -132
 	add_child(_panel)
+	_province.set_anchors_preset(Control.PRESET_LEFT_WIDE)   # the same Z6 place as the other panels
+	_province.anchor_right = 0.33
+	_province.offset_left = 16
+	_province.offset_top = 80
+	_province.offset_bottom = -132
+	add_child(_province)
+	_province.place_pressed.connect(func(cid: int): _open_place_by_continent_id(cid))
 	for p in [_person]:
 		p.set_anchors_preset(Control.PRESET_LEFT_WIDE)
 		p.anchor_right = 0.33
@@ -739,7 +753,7 @@ func _apply_topbar(strong: Font) -> void:
 	var tb: Dictionary = _cfg.get("topbar", {})
 	_bar_h = float(_cfg.get("top_bar_height", 56))
 	_z1.offset_bottom = BAR_TOP + _bar_h
-	for p in [_panel, _person, _places]:   # Z6 starts just below Z1 (Z1a is centred clear of it)
+	for p in [_panel, _province, _person, _places]:   # Z6 starts just below Z1 (Z1a is centred clear of it)
 		p.offset_top = BAR_TOP + _bar_h + 8
 	var tex := func(key: String) -> Texture2D:
 		var path: String = str(tb.get(key, ""))
@@ -813,6 +827,8 @@ func _refresh_map(location_id: String) -> void:
 		rects.append((z as Control).get_global_rect())
 	if _panel.visible:
 		rects.append(_panel.get_global_rect())
+	if _province.visible:
+		rects.append(_province.get_global_rect())
 	if _places.visible:
 		rects.append(_places.get_global_rect())
 	_map.set_blocked_rects(rects)
@@ -956,6 +972,43 @@ func _open_place_details(place_id: String) -> void:
 	lines.append_array(GameQuery.place_lines(session, place_id))
 	_places.close_panel()
 	_panel.open_panel(tr("Place"), lines, _places_button, _map.place_art(int(rec.get("continent_id", -1))))
+
+
+## Opens the province panel on province [param province_id] (a click on open land; design/ux/province-panel.md).
+func _open_province(province_id: int) -> void:
+	if _busy():
+		return
+	if _provinces.is_empty():
+		for r in GameQuery.provinces(session):
+			_provinces[int(r.id)] = r
+	var rec: Dictionary = _provinces.get(province_id, {})
+	if rec.is_empty():
+		return
+	var info: Dictionary = _map.region_info(int(rec.get("region", 0)))
+	var ctx: Dictionary = {"region_name": str(info.get("name", "")), "holder_name": str(info.get("holder_name", ""))}
+	var art: Texture2D = null   # the seat's painting, else the first place of the province that has one
+	var order: Array = []
+	if rec.get("seat_place") != null:
+		order.append(int(rec.seat_place))
+	for p in rec.get("places", []):
+		if p.has("id"):
+			order.append(int(p.id))
+	for cid in order:
+		art = _map.place_art(cid)
+		if art != null:
+			break
+	_places.close_panel()
+	_panel.close_panel()
+	_province.open_province(rec, ctx, art, _map)
+
+
+## Opens the place panel of the place with continent id [param cid] (from the province panel's Places tab).
+func _open_place_by_continent_id(cid: int) -> void:
+	for p in _known_cache:
+		if int(p.get("id", -1)) == cid or int(p.get("continent_id", -1)) == cid:
+			_province.close_panel()
+			_open_place_details(str(p.id))
+			return
 
 
 func _kind_name(kind: String, count: int) -> String:

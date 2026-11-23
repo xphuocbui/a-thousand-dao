@@ -186,6 +186,12 @@ static func _holder_sect(s: GameSession, holder: String) -> Dictionary:
 
 ## A place's authored look, lore and history (assets/data/world_place_lore.json, keyed by the continent place id the
 ## world record carries): {look, lore, history, special, levels, projects}; {} when the place has none.
+## The provinces' records (assets/data/world_provinces.json, branch provinces-v2: land, places, lore and the start
+## record; design/ux/province-panel.md). Read-only: the data file, shared, not copied.
+static func provinces(s: GameSession) -> Array:
+	return s.gd.file("world_provinces").get("provinces", [])
+
+
 static func place_lore(s: GameSession, place_id: String) -> Dictionary:
 	var p: Dictionary = s.db.get_record("places", place_id)
 	if p.is_empty() or not p.has("continent_id"):

@@ -14,6 +14,9 @@ extends Control
 
 ## The player clicked the known place [param place_id] (not a bubble).
 signal place_clicked(place_id: String)
+## Open land was clicked (no place under the cursor): [param province_id] is the province there (Provinces rule 1's
+## tile index, greybox.province_ids_file), 0 over water or with no index.
+signal province_clicked(province_id: int)
 ## The player pressed a bubble of [param kind] at [param place_id] ("player", "abode" or an area kind).
 signal bubble_pressed(kind: String, place_id: String)
 ## The zoom crossed the middle of the transition band ([param region] true on the region side).
@@ -100,6 +103,7 @@ var _realms: Array = []                 # [{name, centre: Vector2 tile, width_ti
 var _region_info: Dictionary = {}       # grid region id -> {name, holder_name}
 var _alive: AliveLayer = null          # the alive layer: the shader's clock and the chimney smoke (greybox.alive)
 var _alive_cfg: Dictionary = {}
+var _prov_ids := PackedByteArray()   # u16 per tile: the province id (greybox.province_ids_file)
 
 
 func _init() -> void:
@@ -141,6 +145,7 @@ func setup(grid: ContinentGrid, cfg: Dictionary, region_factor: float) -> void:
 	_load_terrain(cfg.get("terrain_shader", {}))
 	_load_alive(cfg.get("alive", {}))
 	_load_provinces(str(cfg.get("provinces_file", "")))
+	_load_province_index(str(cfg.get("province_ids_file", "")))
 	_backdrop_far = Color.from_string(str(cfg.get("backdrop_far", "#141A24")), Color(0.08, 0.1, 0.14))
 	_backdrop_near = Color.from_string(str(cfg.get("backdrop_near", "#141A24")), Color(0.08, 0.1, 0.14))
 	mouse_filter = Control.MOUSE_FILTER_STOP
@@ -1149,6 +1154,30 @@ func _place_at(pos: Vector2) -> Dictionary:
 
 
 ## The grid region under local [param pos] (0 for sea or off the map).
+## The province at local position [param pos] (0 over water, off the map, or with no index loaded).
+func province_at(pos: Vector2) -> int:
+	var t: Vector2 = local_to_tile(pos)
+	var x: int = int(floor(t.x))
+	var y: int = int(floor(t.y))
+	if _prov_ids.is_empty() or x < 0 or y < 0 or x >= _grid_size.x or y >= _grid_size.y:
+		return 0
+	return _prov_ids.decode_u16((y * _grid_size.x + x) * 2)
+
+
+## The grid region [param region]'s name and holder ({name, holder_name}; empty if unknown).
+func region_info(region: int) -> Dictionary:
+	return _region_info.get(region, {})
+
+
+## Reads the tile-to-province index at [param path] (u16 per tile, row-major, 0 = water; provinces_v2.py --game).
+func _load_province_index(path: String) -> void:
+	_prov_ids = PackedByteArray()
+	if path != "" and FileAccess.file_exists(path):
+		var b: PackedByteArray = FileAccess.get_file_as_bytes(path)
+		if b.size() == _grid_size.x * _grid_size.y * 2:
+			_prov_ids = b
+
+
 func _region_under(pos: Vector2) -> int:
 	var t: Vector2 = local_to_tile(pos)
 	var x: int = int(floor(t.x))
@@ -1190,6 +1219,8 @@ func _gui_input(event: InputEvent) -> void:
 					var p: Dictionary = _place_at(mb.position)
 					if not p.is_empty():
 						place_clicked.emit(str(p.id))
+					elif province_at(mb.position) > 0:
+						province_clicked.emit(province_at(mb.position))
 				_pressed = false
 				_dragging = false
 			accept_event()

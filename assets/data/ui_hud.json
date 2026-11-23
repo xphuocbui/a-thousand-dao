@@ -150,6 +150,7 @@
     },
     "place_radius_px": 3.0,
     "provinces_file": "res://assets/map/continent_11_provinces.json",
+    "province_ids_file": "res://assets/map/continent_11_province_ids.bin",
     "routes_per_frame": 3,
     "unknown_colour": "#808080",
     "biome_colours": {
