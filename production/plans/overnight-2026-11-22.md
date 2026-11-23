@@ -43,7 +43,7 @@ medium $0.053, high $0.211). About $12 left for redoing places after your review
 **Tests:** full suite 860 cases, all pass. One known fault, **not from tonight**: `tests/unit/session/session_reads_test.gd`
 passes every case, then Godot faults at shutdown ("Run dispose test resources"): exit 139 with `-d`, a hang
 without it. Bisected: same with the lore file removed, and same on a clean checkout of HEAD (6b4899a2), so it predates
-tonight's work. Not fixed; a candidate for a separate look (gdUnit dispose of the session suite).
+tonight's work. **Cause found and the test fixed 2026-11-23** (two cases dropped their session without `shutdown()`, leaving the season rating batch thread running at exit): `production/qa/bugs/2026-11-23-session-test-shutdown-crash.md`, with an open follow-up for the session code.
 
 **Where to look:** the gallery https://claude.ai/artifact/8fD5fkFY4TGP1npH5xJizP (section "Overnight") and the place
 catalogue page (link in the log below once published).

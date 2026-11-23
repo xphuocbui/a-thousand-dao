@@ -180,6 +180,7 @@ func test_the_practice_fight_carries_each_side_s_sheet_for_the_portrait() -> voi
 		for key in ["ward_pts", "ward_layer", "drain", "resist", "soul_res", "divine_sense", "crit_mult", "power"]:
 			assert_true(sh.has(key), "side %s's sheet has %s" % [side, key])
 		assert_true(f[side].has("effect_info"), "side %s names its Effects" % side)
+	s.shutdown()   # joins the season rating batch new_game started; without it the process exits under the thread
 
 
 func test_a_place_carries_its_catalogue_look_and_lore() -> void:
@@ -191,3 +192,4 @@ func test_a_place_carries_its_catalogue_look_and_lore() -> void:
 	var cat: Dictionary = s.gd.file("world_place_lore").places
 	assert_eq(str(lore.get("name", "")), str(cat[str(int(rec.continent_id))].name), "keyed by the continent place id")
 	assert_eq(GameQuery.place_lore(s, "no_such_place"), {}, "an unknown place has none")
+	s.shutdown()
