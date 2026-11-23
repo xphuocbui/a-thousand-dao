@@ -215,7 +215,30 @@ def main():
     for q in cont["places"]:
         if q["kind"] == "island":
             island_px |= _landmass(fw, q["tile"])
-    dropped = {s["slot"] for s in slots if s["kind"] in SETTLED and (s["tile"][1] * 4 + 2, s["tile"][0] * 4 + 2) in island_px}
+    on_isle = [s for s in slots if s["kind"] in SETTLED and (s["tile"][1] * 4 + 2, s["tile"][0] * 4 + 2) in island_px]
+    dropped = set()
+    others = [tuple(s["tile"]) for s in slots if s not in on_isle] + [tuple(q["tile"]) for q in cont["places"]]
+    key_to_id = {p["key"]: p["id"] for p in provs}
+    for s in on_isle:   # move it to the province's own land off the isle, if it has livable land there; else drop it
+        m = pid == key_to_id[s["province"]]
+        ys, xs = np.nonzero(m & np.isin(main_b, [k for k, v in names.items() if v in LIVABLE]))
+        best = None
+        for x, y in zip(xs.tolist(), ys.tolist()):
+            if (y * 4 + 2, x * 4 + 2) in island_px or not all(max(abs(x - a), abs(y - b)) >= MIN_GAP for a, b in others):
+                continue
+            sc = near_sea[y, x] * 3.0 + river[y, x] * 2.0 - abs(x - s["tile"][0]) * 0.05 - abs(y - s["tile"][1]) * 0.05
+            if best is None or sc > best[0]:
+                best = (sc, x, y)
+        if best is None:
+            dropped.add(s["slot"])
+        else:
+            s["tile"] = [best[1], best[2]]
+            s["biome"] = names[int(main_b[best[2], best[1]])]
+            s["elevation_km"] = round(float(elev[best[2], best[1]]) / 1000.0, 2)
+            s["coast"] = bool(near_sea[best[2], best[1]])
+            s["river"] = bool(river[best[2], best[1]])
+            others.append((best[1], best[2]))
+            print("moved off an authored isle:", s["slot"], s["tile"])
     slots = [s for s in slots if s["slot"] not in dropped]
     for plist in by_region.values():
         for p2 in plist:

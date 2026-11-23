@@ -1,126 +1,893 @@
 {
  "region": 3,
  "provinces": {
-  "prov_p102": {"name": "Ô Đề", "name_han": "烏啼", "gloss": "The Crows' Cry", "lore": "A long stretch of coastal forest with a few limestone knolls and marshy hollows, under the crow ridge of Ô Đề Thôn. Its people fish, cut oak and feed the crows at the new year. Inland lie the walls of a town whose wells turned salt after the earthquake of 1033."},
-  "prov_p103": {"name": "Lâm Tuyền", "name_han": "林泉", "gloss": "Woods and Springs", "lore": "Wooded coastal slopes above the bamboo pipe line of Lâm Tuyền Thôn. Its villagers fish and keep the spring that cured the coughing sickness of 760. The woods above ring with cicadas all summer."},
-  "prov_p104": {"name": "Thu Diệp", "name_han": "秋葉", "gloss": "The Autumn Leaves", "lore": "Steep mountain, limestone and maple forest falling to the sea around Thu Diệp Thôn. The village lives by fishing and by the red leaves it sells as bookmarks in Lam Yên Thị. A summit of red maples above it is the source of the best leaves."},
-  "prov_p31": {"name": "Hàn Tân", "name_han": "寒津", "gloss": "The Cold Ford", "lore": "River forest, marsh and tundra edge around the ford and port of Hàn Tân Thành. Fishers and ferrymen live by the river and the cold sea, and fir timber goes out by boat. On the marsh coast lie the drowned quays of a town emptied under Tùng Đào's resin tax."},
-  "prov_p45": {"name": "Lam Yên", "name_han": "嵐煙", "gloss": "The Mountain Mist", "lore": "Forested foothills climbing to high ground below Thúy Vi Tông, inland and nearly always in haze. Carters, stallholders and herb growers live along the stair road of Lam Yên Thị. A wood spring below the market feeds the herb plots of the lower slopes."},
-  "prov_p58": {"name": "Bách Diệp", "name_han": "柏葉", "gloss": "The Cypress Leaves", "lore": "River-mouth forest and steep mountain around the cypress grid of Bách Diệp Trấn. The town lives by cypress resin and incense and the coast trade. A squared summit above the town is said to have been the students' model for the grid."},
-  "prov_p59": {"name": "Tiều Ca", "name_han": "樵歌", "gloss": "The Woodcutters' Song", "lore": "Forested ridges, limestone gorges and a small volcanic shoulder on the south coast, below Không Sơn's boundary stones. Woodcutters send timber down the flume of Tiều Ca Trấn, and miners dig alum from the volcanic rock. Their songs echo back from the gorge, but only below the stones."},
-  "prov_thuy_vi": {"name": "Thúy Vi", "name_han": "翠微", "gloss": "The Emerald Haze", "lore": "The twin summits of Thúy Vi Tông and the forested mountains around them, with no coast and no river, high and always half in haze. Herb terraces, pill furnaces and the green jade of Bích Ngọc Khoáng are its wealth. Disciples walk the white spiral Haze Walk from dawn to dusk before they take their vows."},
-  "prov_van_khoi": {"name": "Vân Khởi", "name_han": "雲起", "gloss": "The Rising Clouds", "lore": "High mountain shoulders and forest above the south coast, where the abbey of Vân Khởi Quán follows its stream to where the water ends. Hermits, teachers and a few mica diggers live here. Below the abbey stands an empty fort built against Thôn Hải's pirates."},
-  "prov_r3_1": {"name": "Bạch Mang Nguyên", "name_han": "白茫原", "gloss": "Plain of the White Blankness", "lore": "Flat frozen tundra on the far northern sea, white in every direction. No one lives here. A deep cold spirit vein lies under the ice, and Thúy Vi's alchemists come for its water."},
-  "prov_r3_10": {"name": "Phiệt Công", "name_han": "筏工", "gloss": "The Raftsmen", "lore": "River forest in the north-east, where logs are tied into rafts and floated downstream. Raftsmen and loggers live along the river. Beavers dam the side streams and the raftsmen break the dams each spring."},
-  "prov_r3_11": {"name": "Tân Cư", "name_han": "新居", "gloss": "The New Homes", "lore": "River forest inland of the Cold Ford, settled by fishers who left the coast under Tùng Đào's resin tax. Its people farm, fish the river and remember the tax with jokes. Deep in its woods lies a forest so quiet that it seems Không Sơn's."},
-  "prov_r3_12": {"name": "Hồ Đào", "name_han": "胡桃", "gloss": "The Walnuts", "lore": "Inland forest of walnut and oak in the north of the ridges. Its villagers gather walnuts and press walnut oil for lamps and ink. In early summer white butterflies fill the woods."},
-  "prov_r3_13": {"name": "Thủy Ma", "name_han": "水磨", "gloss": "The Watermills", "lore": "River forest in the north-east, where mills grind grain for the north. Its villagers mill, farm and fish the river. In its woods stands Hộ Lâm Đường, whose wardens keep the northern forests for Thúy Vi."},
-  "prov_r3_14": {"name": "Tạo Chỉ", "name_han": "造紙", "gloss": "The Papermakers", "lore": "River forest and marsh in the north-east, where bark and hemp are beaten into paper. The village's paper goes to Lam Yên Thị for copied scripture. Brown bears fish the river beside the papermakers' vats."},
-  "prov_r3_15": {"name": "Phục Linh", "name_han": "茯苓", "gloss": "The Poria", "lore": "Pine forest on the road north from Lam Yên, gently rising toward the mountains. Its villagers dig poria fungus from pine roots for Thúy Vi's furnaces. An old post town on the road stands empty since the road was moved."},
-  "prov_r3_16": {"name": "Bạch Lạp", "name_han": "白蠟", "gloss": "The White Wax", "lore": "Inland forest of ash trees north of the seat. Its villagers raise wax insects on the ash and scrape white wax for candles and pill coatings. The forest is loud with birds at dawn."},
-  "prov_r3_17": {"name": "Bối Độ", "name_han": "背渡", "gloss": "The Carried Crossing", "lore": "River forest in the east, where the river runs wide over stone shallows. Its villagers fish and ford travellers across. A wood vein rises in the forest above the shallows."},
-  "prov_r3_18": {"name": "Tử Tô", "name_han": "紫蘇", "gloss": "The Perilla", "lore": "River forest east of the seat, where perilla and other herbs grow in riverside plots. Its villagers grow herbs for the alchemists. In its woods lie the ruins of a herb academy destroyed by its own pill fire."},
-  "prov_r3_19": {"name": "Tỏa Vân Lĩnh", "name_han": "鎖雲嶺", "gloss": "Ridges That Lock the Clouds", "lore": "Forest and high mountain west of the seat, where cloud gathers in the valleys and stays. No one lives here but a few hermits. A pale stone pillar of a peak rises from the cloud."},
-  "prov_r3_2": {"name": "Vô Thụ Hoang", "name_han": "無樹荒", "gloss": "The Treeless Waste", "lore": "Tundra on the northern coast with only a few stunted trees at its southern edge. No one lives here. Snow hares in their thousands feed the foxes and owls of the north."},
-  "prov_r3_20": {"name": "Cửu Điệp Lĩnh", "name_han": "九疊嶺", "gloss": "Ridges of Ninefold Folds", "lore": "Folded high ridges and forest just east of Thúy Vi Tông's seat. No one lives here but miners and the sect's watchers. An empty fort above the north road dates from the years the Cold Ford was lost."},
-  "prov_r3_21": {"name": "Hoa Mạch", "name_han": "花麥", "gloss": "The Flowering Wheat", "lore": "A wide forest east of the seat, running to the coast, with clearings of buckwheat. Its villagers farm the clearings and sell flour to Lam Yên. A great tree at the forest's heart holds a wood vein."},
-  "prov_r3_22": {"name": "Lãm Thúy", "name_han": "攬翠", "gloss": "Gathering the Green", "lore": "Coastal forest on the eastern shore of the ridges. Lãm Thúy Trấn trades timber, fish and herbs along the coast. Inland stand the burnt halls of a sect whose head died in his tribulation."},
-  "prov_r3_23": {"name": "Trầm Vân Lĩnh", "name_han": "沉雲嶺", "gloss": "Ridges of Sunken Cloud", "lore": "High mountain and forest in the west of the ridges, where clouds sink into the valleys at dusk. No one lives here now. High on a shoulder lie the buried streets of a mountain town lost to an avalanche."},
-  "prov_r3_24": {"name": "Bích Chướng Lĩnh", "name_han": "碧嶂嶺", "gloss": "Ridges of the Green Screen", "lore": "Steep high mountains clad in forest on their lower slopes, west of the seat. No one lives here but miners. Blue-green jade is dug below a cliff that cuts the clouds."},
-  "prov_r3_25": {"name": "Tuyệt Bích Lĩnh", "name_han": "絕壁嶺", "gloss": "Ridges of Sheer Walls", "lore": "The highest bare walls of rock south of the seat, with only a little forest in the clefts. No one lives here. Miners dig cold iron from its flanks for Thúy Vi's furnace fittings."},
-  "prov_r3_26": {"name": "Lưu Thúy Lĩnh", "name_han": "流翠嶺", "gloss": "Ridges of Flowing Green", "lore": "Forest and mountain cut by a river running south, its slopes green with moss and fern. A few miners cut inkstone here for the scholars of Lam Yên. A peak holds the cloud on its shoulder most mornings."},
-  "prov_r3_27": {"name": "Ngọa Ngưu Lĩnh", "name_han": "臥牛嶺", "gloss": "Ridges of the Sleeping Ox", "lore": "A short ridge of mountain and forest by a river, shaped like an ox lying down. No one lives here. Herdsmen from below say the ridge breathes on cold mornings."},
-  "prov_r3_28": {"name": "Vô Nhân Lĩnh", "name_han": "無人嶺", "gloss": "Ridges Where No One Is Seen", "lore": "High mountain above the south coast where Không Sơn Viện stands empty and unlooted. No one lives here, and Thúy Vi keeps it so. A soapstone pit at the foot of the ridge is the only work done in the land."},
-  "prov_r3_29": {"name": "Thiên Thúy Lĩnh", "name_han": "天翠嶺", "gloss": "Ridges of Heaven's Green", "lore": "The highest mountains of the ridges, south-east of the seat, falling to the coast through forest. No one lives here. From its sunrise peak one can see both the cape and the eastern sea."},
-  "prov_r3_3": {"name": "Lẫm Phong Hoang", "name_han": "凜風荒", "gloss": "Waste of the Biting Wind", "lore": "Tundra and bare high rock on the north coast, swept by wind off the ice. No one lives here. Ice rhinoceroses cross it on the plain of Băng Tê Nguyên."},
-  "prov_r3_30": {"name": "Tùng Yên", "name_han": "松煙", "gloss": "The Pine Soot", "lore": "Forested mountains west of Vân Khởi, inland and steep. Its villagers burn pine for soot and press it into ink for the scholars of three sects. A peak of pines above the village gives the wood."},
-  "prov_r3_31": {"name": "Hải Đường", "name_han": "海棠", "gloss": "The Crabapples", "lore": "Coastal forest south of the seat with orchards of crabapple. Its villagers fish and sell blossom and fruit in Lam Yên. Giant centipedes live in a damp valley above the orchards."},
-  "prov_r3_32": {"name": "Đồng Du", "name_han": "桐油", "gloss": "The Tung Oil", "lore": "Inland forest of the far south-east, rising to wooded hills. Its villagers press tung oil for boats, paint and lamps. Grey wolves run on the hill ridge above."},
-  "prov_r3_33": {"name": "Hôi Diêu", "name_han": "灰窯", "gloss": "The Lime Kilns", "lore": "Forest and limestone karst in the south-east. Its villagers burn limestone for lime and sell it to builders along the coast. A gorge so narrow that only a thread of sky shows cuts the karst."},
-  "prov_r3_4": {"name": "Sương Tùng Nguyên", "name_han": "霜松原", "gloss": "Plain of Frosted Pines", "lore": "Tundra and pine forest on the northern coast. No one lives here. On its shore stand the ruins of a sect that went out on the ice after a mirage."},
-  "prov_r3_5": {"name": "Hắc Thủy Trạch", "name_han": "黑水澤", "gloss": "Marsh of Black Water", "lore": "Forest, tundra and black peat marsh in the north. No one lives here. Frost toads sing in the marsh pools all summer."},
-  "prov_r3_6": {"name": "Nghịch Triều", "name_han": "逆潮", "gloss": "The Backward Tide", "lore": "Forest, tundra and marsh where a river reaches the north coast. Its villagers fish the river and the backwaters. On the coast stand the snowed-in walls of a temple of snow-sitters."},
-  "prov_r3_7": {"name": "Đông Hà Hoang", "name_han": "凍河荒", "gloss": "Waste of the Frozen River", "lore": "Tundra and thin forest where a river freezes solid down to the sea. No one lives here. Snow roe deer winter along the frozen banks."},
-  "prov_r3_8": {"name": "Cô Tùng Lĩnh", "name_han": "孤松嶺", "gloss": "Ridges of the Lone Pine", "lore": "Tundra, forest and a few high crags on the north-west coast. No one lives here. A pine-spirit vein lies in its forest, and an old abbey ruin stands on the crag."},
-  "prov_r3_9": {"name": "Việt Quất", "name_han": "越橘", "gloss": "The Lingonberries", "lore": "Northern forest with a little tundra at its edges. Its villagers pick lingonberries and trap fur. Its old town stands empty since the river moved."}
+  "prov_p102": {
+   "name": "Ô Đề",
+   "name_han": "烏啼",
+   "gloss": "The Crows' Cry",
+   "lore": "A long stretch of coastal forest with a few limestone knolls and marshy hollows, under the crow ridge of Ô Đề Thôn. Its people fish, cut oak and feed the crows at the new year. Inland lie the walls of a town whose wells turned salt after the earthquake of 1033."
+  },
+  "prov_p103": {
+   "name": "Lâm Tuyền",
+   "name_han": "林泉",
+   "gloss": "Woods and Springs",
+   "lore": "Wooded coastal slopes above the bamboo pipe line of Lâm Tuyền Thôn. Its villagers fish and keep the spring that cured the coughing sickness of 760. The woods above ring with cicadas all summer."
+  },
+  "prov_p104": {
+   "name": "Thu Diệp",
+   "name_han": "秋葉",
+   "gloss": "The Autumn Leaves",
+   "lore": "Steep mountain, limestone and maple forest falling to the sea around Thu Diệp Thôn. The village lives by fishing and by the red leaves it sells as bookmarks in Lam Yên Thị. A summit of red maples above it is the source of the best leaves."
+  },
+  "prov_p31": {
+   "name": "Hàn Tân",
+   "name_han": "寒津",
+   "gloss": "The Cold Ford",
+   "lore": "River forest, marsh and tundra edge around the ford and port of Hàn Tân Thành. Fishers and ferrymen live by the river and the cold sea, and fir timber goes out by boat. On the marsh coast lie the drowned quays of a town emptied under Tùng Đào's resin tax."
+  },
+  "prov_p45": {
+   "name": "Lam Yên",
+   "name_han": "嵐煙",
+   "gloss": "The Mountain Mist",
+   "lore": "Forested foothills climbing to high ground below Thúy Vi Tông, inland and nearly always in haze. Carters, stallholders and herb growers live along the stair road of Lam Yên Thị. A wood spring below the market feeds the herb plots of the lower slopes."
+  },
+  "prov_p58": {
+   "name": "Bách Diệp",
+   "name_han": "柏葉",
+   "gloss": "The Cypress Leaves",
+   "lore": "River-mouth forest and steep mountain around the cypress grid of Bách Diệp Trấn. The town lives by cypress resin and incense and the coast trade. A squared summit above the town is said to have been the students' model for the grid."
+  },
+  "prov_p59": {
+   "name": "Tiều Ca",
+   "name_han": "樵歌",
+   "gloss": "The Woodcutters' Song",
+   "lore": "Forested ridges, limestone gorges and a small volcanic shoulder on the south coast, below Không Sơn's boundary stones. Woodcutters send timber down the flume of Tiều Ca Trấn, and miners dig alum from the volcanic rock. Their songs echo back from the gorge, but only below the stones."
+  },
+  "prov_thuy_vi": {
+   "name": "Thúy Vi",
+   "name_han": "翠微",
+   "gloss": "The Emerald Haze",
+   "lore": "The twin summits of Thúy Vi Tông and the forested mountains around them, with no coast and no river, high and always half in haze. Herb terraces, pill furnaces and the green jade of Bích Ngọc Khoáng are its wealth. Disciples walk the white spiral Haze Walk from dawn to dusk before they take their vows."
+  },
+  "prov_van_khoi": {
+   "name": "Vân Khởi",
+   "name_han": "雲起",
+   "gloss": "The Rising Clouds",
+   "lore": "High mountain shoulders and forest above the south coast, where the abbey of Vân Khởi Quán follows its stream to where the water ends. Hermits, teachers and a few mica diggers live here. Below the abbey stands an empty fort built against Thôn Hải's pirates."
+  },
+  "prov_r3_1": {
+   "name": "Bạch Mang Nguyên",
+   "name_han": "白茫原",
+   "gloss": "Plain of the White Blankness",
+   "lore": "Flat frozen tundra on the far northern sea, white in every direction. No one lives here. A deep cold spirit vein lies under the ice, and Thúy Vi's alchemists come for its water."
+  },
+  "prov_r3_10": {
+   "name": "Phiệt Công",
+   "name_han": "筏工",
+   "gloss": "The Raftsmen",
+   "lore": "River forest in the north-east, where logs are tied into rafts and floated downstream. Raftsmen and loggers live along the river. Beavers dam the side streams and the raftsmen break the dams each spring."
+  },
+  "prov_r3_11": {
+   "name": "Tân Cư",
+   "name_han": "新居",
+   "gloss": "The New Homes",
+   "lore": "River forest inland of the Cold Ford, settled by fishers who left the coast under Tùng Đào's resin tax. Its people farm, fish the river and remember the tax with jokes. Deep in its woods lies a forest so quiet that it seems Không Sơn's."
+  },
+  "prov_r3_12": {
+   "name": "Hồ Đào",
+   "name_han": "胡桃",
+   "gloss": "The Walnuts",
+   "lore": "Inland forest of walnut and oak in the north of the ridges. Its villagers gather walnuts and press walnut oil for lamps and ink. In early summer white butterflies fill the woods."
+  },
+  "prov_r3_13": {
+   "name": "Thủy Ma",
+   "name_han": "水磨",
+   "gloss": "The Watermills",
+   "lore": "River forest in the north-east, where mills grind grain for the north. Its villagers mill, farm and fish the river. In its woods stands Hộ Lâm Đường, whose wardens keep the northern forests for Thúy Vi."
+  },
+  "prov_r3_14": {
+   "name": "Tạo Chỉ",
+   "name_han": "造紙",
+   "gloss": "The Papermakers",
+   "lore": "River forest and marsh in the north-east, where bark and hemp are beaten into paper. The village's paper goes to Lam Yên Thị for copied scripture. Brown bears fish the river beside the papermakers' vats."
+  },
+  "prov_r3_15": {
+   "name": "Phục Linh",
+   "name_han": "茯苓",
+   "gloss": "The Poria",
+   "lore": "Pine forest on the road north from Lam Yên, gently rising toward the mountains. Its villagers dig poria fungus from pine roots for Thúy Vi's furnaces. An old post town on the road stands empty since the road was moved."
+  },
+  "prov_r3_16": {
+   "name": "Bạch Lạp",
+   "name_han": "白蠟",
+   "gloss": "The White Wax",
+   "lore": "Inland forest of ash trees north of the seat. Its villagers raise wax insects on the ash and scrape white wax for candles and pill coatings. The forest is loud with birds at dawn."
+  },
+  "prov_r3_17": {
+   "name": "Bối Độ",
+   "name_han": "背渡",
+   "gloss": "The Carried Crossing",
+   "lore": "River forest in the east, where the river runs wide over stone shallows. Its villagers fish and ford travellers across. A wood vein rises in the forest above the shallows."
+  },
+  "prov_r3_18": {
+   "name": "Tử Tô",
+   "name_han": "紫蘇",
+   "gloss": "The Perilla",
+   "lore": "River forest east of the seat, where perilla and other herbs grow in riverside plots. Its villagers grow herbs for the alchemists. In its woods lie the ruins of a herb academy destroyed by its own pill fire."
+  },
+  "prov_r3_19": {
+   "name": "Tỏa Vân Lĩnh",
+   "name_han": "鎖雲嶺",
+   "gloss": "Ridges That Lock the Clouds",
+   "lore": "Forest and high mountain west of the seat, where cloud gathers in the valleys and stays. No one lives here but a few hermits. A pale stone pillar of a peak rises from the cloud."
+  },
+  "prov_r3_2": {
+   "name": "Vô Thụ Hoang",
+   "name_han": "無樹荒",
+   "gloss": "The Treeless Waste",
+   "lore": "Tundra on the northern coast with only a few stunted trees at its southern edge. No one lives here. Snow hares in their thousands feed the foxes and owls of the north."
+  },
+  "prov_r3_20": {
+   "name": "Cửu Điệp Lĩnh",
+   "name_han": "九疊嶺",
+   "gloss": "Ridges of Ninefold Folds",
+   "lore": "Folded high ridges and forest just east of Thúy Vi Tông's seat. No one lives here but miners and the sect's watchers. An empty fort above the north road dates from the years the Cold Ford was lost."
+  },
+  "prov_r3_21": {
+   "name": "Hoa Mạch",
+   "name_han": "花麥",
+   "gloss": "The Flowering Wheat",
+   "lore": "A wide forest east of the seat, running to the coast, with clearings of buckwheat. Its villagers farm the clearings and sell flour to Lam Yên. A great tree at the forest's heart holds a wood vein."
+  },
+  "prov_r3_22": {
+   "name": "Lãm Thúy",
+   "name_han": "攬翠",
+   "gloss": "Gathering the Green",
+   "lore": "Coastal forest on the eastern shore of the ridges. Lãm Thúy Trấn trades timber, fish and herbs along the coast. Inland stand the burnt halls of a sect whose head died in his tribulation."
+  },
+  "prov_r3_23": {
+   "name": "Trầm Vân Lĩnh",
+   "name_han": "沉雲嶺",
+   "gloss": "Ridges of Sunken Cloud",
+   "lore": "High mountain and forest in the west of the ridges, where clouds sink into the valleys at dusk. No one lives here now. High on a shoulder lie the buried streets of a mountain town lost to an avalanche."
+  },
+  "prov_r3_24": {
+   "name": "Bích Chướng Lĩnh",
+   "name_han": "碧嶂嶺",
+   "gloss": "Ridges of the Green Screen",
+   "lore": "Steep high mountains clad in forest on their lower slopes, west of the seat. No one lives here but miners. Blue-green jade is dug below a cliff that cuts the clouds."
+  },
+  "prov_r3_25": {
+   "name": "Tuyệt Bích Lĩnh",
+   "name_han": "絕壁嶺",
+   "gloss": "Ridges of Sheer Walls",
+   "lore": "The highest bare walls of rock south of the seat, with only a little forest in the clefts. No one lives here. Miners dig cold iron from its flanks for Thúy Vi's furnace fittings."
+  },
+  "prov_r3_26": {
+   "name": "Lưu Thúy Lĩnh",
+   "name_han": "流翠嶺",
+   "gloss": "Ridges of Flowing Green",
+   "lore": "Forest and mountain cut by a river running south, its slopes green with moss and fern. A few miners cut inkstone here for the scholars of Lam Yên. A peak holds the cloud on its shoulder most mornings."
+  },
+  "prov_r3_27": {
+   "name": "Ngọa Ngưu Lĩnh",
+   "name_han": "臥牛嶺",
+   "gloss": "Ridges of the Sleeping Ox",
+   "lore": "A short ridge of mountain and forest by a river, shaped like an ox lying down. No one lives here. Herdsmen from below say the ridge breathes on cold mornings."
+  },
+  "prov_r3_28": {
+   "name": "Vô Nhân Lĩnh",
+   "name_han": "無人嶺",
+   "gloss": "Ridges Where No One Is Seen",
+   "lore": "High mountain above the south coast where Không Sơn Viện stands empty and unlooted. No one lives here, and Thúy Vi keeps it so. A soapstone pit at the foot of the ridge is the only work done in the land."
+  },
+  "prov_r3_29": {
+   "name": "Thiên Thúy Lĩnh",
+   "name_han": "天翠嶺",
+   "gloss": "Ridges of Heaven's Green",
+   "lore": "The highest mountains of the ridges, south-east of the seat, falling to the coast through forest. No one lives here. From its sunrise peak one can see both the cape and the eastern sea."
+  },
+  "prov_r3_3": {
+   "name": "Lẫm Phong Hoang",
+   "name_han": "凜風荒",
+   "gloss": "Waste of the Biting Wind",
+   "lore": "Tundra and bare high rock on the north coast, swept by wind off the ice. No one lives here. Ice rhinoceroses cross it on the plain of Băng Tê Nguyên."
+  },
+  "prov_r3_30": {
+   "name": "Tùng Yên",
+   "name_han": "松煙",
+   "gloss": "The Pine Soot",
+   "lore": "Forested mountains west of Vân Khởi, inland and steep. Its villagers burn pine for soot and press it into ink for the scholars of three sects. A peak of pines above the village gives the wood."
+  },
+  "prov_r3_31": {
+   "name": "Hải Đường",
+   "name_han": "海棠",
+   "gloss": "The Crabapples",
+   "lore": "Coastal forest south of the seat with orchards of crabapple. Its villagers fish and sell blossom and fruit in Lam Yên. Giant centipedes live in a damp valley above the orchards."
+  },
+  "prov_r3_32": {
+   "name": "Đồng Du",
+   "name_han": "桐油",
+   "gloss": "The Tung Oil",
+   "lore": "Inland forest of the far south-east, rising to wooded hills. Its villagers press tung oil for boats, paint and lamps. Grey wolves run on the hill ridge above."
+  },
+  "prov_r3_33": {
+   "name": "Thiêu Hôi",
+   "name_han": "燒灰",
+   "gloss": "Burning Lime",
+   "lore": "Forest and limestone karst in the south-east. Its villagers burn limestone for lime and sell it to builders along the coast. A gorge so narrow that only a thread of sky shows cuts the karst."
+  },
+  "prov_r3_4": {
+   "name": "Sương Tùng Nguyên",
+   "name_han": "霜松原",
+   "gloss": "Plain of Frosted Pines",
+   "lore": "Tundra and pine forest on the northern coast. No one lives here. On its shore stand the ruins of a sect that went out on the ice after a mirage."
+  },
+  "prov_r3_5": {
+   "name": "Hắc Thủy Trạch",
+   "name_han": "黑水澤",
+   "gloss": "Marsh of Black Water",
+   "lore": "Forest, tundra and black peat marsh in the north. No one lives here. Frost toads sing in the marsh pools all summer."
+  },
+  "prov_r3_6": {
+   "name": "Nghịch Triều",
+   "name_han": "逆潮",
+   "gloss": "The Backward Tide",
+   "lore": "Forest, tundra and marsh where a river reaches the north coast. Its villagers fish the river and the backwaters. On the coast stand the snowed-in walls of a temple of snow-sitters."
+  },
+  "prov_r3_7": {
+   "name": "Đông Hà Hoang",
+   "name_han": "凍河荒",
+   "gloss": "Waste of the Frozen River",
+   "lore": "Tundra and thin forest where a river freezes solid down to the sea. No one lives here. Snow roe deer winter along the frozen banks."
+  },
+  "prov_r3_8": {
+   "name": "Cô Tùng Lĩnh",
+   "name_han": "孤松嶺",
+   "gloss": "Ridges of the Lone Pine",
+   "lore": "Tundra, forest and a few high crags on the north-west coast. No one lives here. A pine-spirit vein lies in its forest, and an old abbey ruin stands on the crag."
+  },
+  "prov_r3_9": {
+   "name": "Việt Quất",
+   "name_han": "越橘",
+   "gloss": "The Lingonberries",
+   "lore": "Northern forest with a little tundra at its edges. Its villagers pick lingonberries and trap fur. Its old town stands empty since the river moved."
+  }
  },
  "places": {
-  "prov_p102_forest_1": {"name": "Lão Tượng Lâm", "name_han": "老橡林", "gloss": "Forest of Old Oaks", "look": "Broad old oaks grow down to the shore below the crow ridge, their branches black with roosting birds at dusk.", "lore": "The crows of Ô Đề roost here when the great oak is full. Villagers cut oak for boats only where no crows sit."},
-  "prov_p102_ruin_2": {"name": "Song Tỉnh Trấn", "name_han": "雙井鎮", "gloss": "Town of the Twin Wells", "former": "town", "lived": [450, 1034], "look": "Empty stone houses stand around two well-heads in an overgrown square, a crack running across the ground between them.", "lore": "The town grew up around two sweet wells on the coast road. The earthquake of 1033 split the ground and turned both wells salt, and the town was empty within a year."},
-  "prov_p103_forest_1": {"name": "Thiền Minh Lâm", "name_han": "蟬鳴林", "gloss": "Forest of Singing Cicadas", "look": "A sunny wooded slope above the pipe line, loud with cicadas all summer.", "lore": "The spring of Lâm Tuyền rises under these trees. Villagers say that if the cicadas fall silent at noon, someone is fouling the water."},
-  "prov_p104_peak_1": {"name": "Hồng Phong Đỉnh", "name_han": "紅楓頂", "gloss": "Summit of the Red Maples", "element": "Wood", "look": "A steep summit of limestone and maple turns crimson from crown to foot each autumn.", "lore": "Wood qi gathers in its maples, and the leaves from its top are the ones scholars pay most for. Only mortals of Thu Diệp may pick them."},
-  "prov_p31_forest_1": {"name": "Lãnh Sam Lâm", "name_han": "冷杉林", "gloss": "Forest of the Cold Firs", "look": "Dark firs stand close on the low ground by the ford, snow caught in their branches long into spring.", "lore": "Ferrymen cut ford poles and boat timber here. Under Tùng Đào the firs were tapped for resin, and the old scars still show on the trunks."},
-  "prov_p31_ruin_2": {"name": "Lô Khẩu Trấn", "name_han": "蘆口鎮", "gloss": "Town at the Reed Mouth", "former": "town", "lived": [440, 690], "look": "Rotted wooden quays and the stumps of house posts stand in a reed marsh on the coast, with a stone shrine above the water.", "lore": "A fishing town at a reedy inlet, it emptied when its fishers left for the hills under Tùng Đào's resin tax from 674. With no one to dredge it, the marsh took the quays."},
-  "prov_p45_spirit_vein_1": {"name": "Dưỡng Mộc Tuyền", "name_han": "養木泉", "gloss": "Spring That Feeds the Trees", "element": "Wood", "look": "A clear spring rises in a ring of unusually tall trees below the market stair, its runnels feeding terraced herb plots.", "lore": "Wood qi rises with the water, and herbs watered from it grow fast and strong. Lam Yên's herb growers share its water by an old rota."},
-  "prov_p58_peak_1": {"name": "Kỳ Bàn Phong", "name_han": "棋盤峰", "gloss": "Chessboard Peak", "element": "Earth", "look": "A flat-topped rocky peak above the cypress town, its summit crossed by natural cracks in a square grid.", "lore": "Earth qi gathers in its stone, and Không Sơn's students are said to have laid out the cypress grid by copying its cracks. Players climb it to play a game on the summit."},
-  "prov_p59_gorge_1": {"name": "Hồi Âm Cốc", "name_han": "回音谷", "gloss": "Valley of the Echo", "look": "A deep limestone valley opens onto the coast, its walls so close that every shout comes back three times.", "lore": "The woodcutters of Tiều Ca sing here freely, for it lies below the boundary stones. Their songs echo up the gorge and, they say, reach the old academy anyway."},
-  "prov_p59_mine_2": {"name": "Phàn Thạch Khoáng", "name_han": "礬石礦", "gloss": "Alum Mine", "look": "Pale altered rock on a volcanic shoulder is cut into pits, with leaching vats and white crusts below them.", "lore": "Miners dig alum stone and boil it for dyers and tanners along the coast. Thúy Vi's alchemists buy the purest crystals to clear their pill waters."},
-  "prov_thuy_vi_peak_1": {"name": "Quy Tịch Phong", "name_han": "歸寂峰", "gloss": "Peak of Returning to Stillness", "element": "Earth", "look": "A bare rock peak rises south of the twin summits, standing clear above the haze on most days.", "lore": "Earth qi gathers in its rock, and Thúy Vi's elders go up it for closed-door cultivation. From its top the whole spiral of the Haze Walk can be seen."},
-  "prov_van_khoi_peak_1": {"name": "Thủy Cùng Phong", "name_han": "水窮峰", "gloss": "Peak Where the Water Ends", "element": "Earth", "look": "A high rocky peak stands above the abbey, the thin stream rising toward it and vanishing into a cleft halfway up.", "lore": "Earth qi gathers in the stone above the place where the water ends. Abbot Tống Tọa Vân sends his oldest students up it to sit and watch the clouds rise."},
-  "prov_van_khoi_ruin_2": {"name": "Quan Lan Bảo", "name_han": "觀瀾堡", "gloss": "Fort That Watches the Waves", "former": "fort", "lived": [655, 790], "look": "A square stone fort stands on a mountain spur above the sea, its gate open and its watch platform broken.", "lore": "Thúy Vi built it to watch for Thôn Hải's pirate sails on the south coast. After the Pirate Purge of 781 it was no longer needed, and the garrison left within a decade."},
-  "prov_r3_1_spirit_vein_1": {"name": "Hàn Uyên Nhãn", "name_han": "寒淵眼", "gloss": "Eye of the Cold Deep", "element": "Water", "look": "A dark round hole in the tundra ice opens onto deep water that never freezes, breathing a thin mist.", "lore": "Water qi wells up from far below, cold enough to numb a hand in a moment. Alchemists lower jars on long cords to fill them."},
-  "prov_r3_10_village_1": {"name": "Phiệt Công Thôn", "name_han": "筏工村", "gloss": "Raftsmen's Village", "look": "Log rafts lie lashed along a forest river below a village of grey roofs, with stacked timber on the bank.", "lore": "The raftsmen float logs downstream to the coast. A raftsman's rank is counted by how many springs he has ridden the flood."},
-  "prov_r3_10_beast_lair_2": {"name": "Hà Ly Chử", "name_han": "河狸渚", "gloss": "Shoal of the Beavers", "look": "Stick dams and lodges choke a side stream into a chain of still ponds among gnawed stumps.", "lore": "Spirit beavers build dams strong enough to hold a flood. The raftsmen break them every spring and the beavers rebuild them every summer."},
-  "prov_r3_11_village_1": {"name": "Tân Cư Thôn", "name_han": "新居村", "gloss": "Village of New Homes", "look": "A village of grey roofs stands on a river bend in the forest, each door with a jar of pine resin by it.", "lore": "Fishers of the Cold Ford who left the coast under Tùng Đào's resin tax founded it in 675. It is still called the new homes, and the resin jars are a joke about the tax."},
-  "prov_r3_11_forest_2": {"name": "Vô Thanh Lâm", "name_han": "無聲林", "gloss": "Silent Forest", "look": "A forest of moss-hung trees where no bird sings and footsteps make no sound on the deep moss.", "lore": "Villagers say the quiet of Không Sơn Viện drifted north and settled here. Vân Khởi Quán sometimes sends novices to sit in it for a day."},
-  "prov_r3_12_village_1": {"name": "Hồ Đào Thôn", "name_han": "胡桃村", "gloss": "Walnut Village", "look": "Tall walnut trees shade a village of grey roofs, with nut husks drying in black heaps in every yard.", "lore": "The villagers press walnut oil for lamps and sell husk dye to the scribes of Lam Yên. Each child is given a walnut tree at birth."},
-  "prov_r3_12_forest_2": {"name": "Phấn Điệp Lâm", "name_han": "粉蝶林", "gloss": "Forest of the White Butterflies", "look": "In early summer clouds of white butterflies rise from an open oak forest, settling on every leaf.", "lore": "They come for a week and are gone, and the villagers say a soul rides on each one. No one sweeps the dead butterflies from the paths."},
-  "prov_r3_13_village_1": {"name": "Thủy Ma Thôn", "name_han": "水磨村", "gloss": "Watermill Village", "look": "A row of waterwheels turns along a forest river beside a village of grey roofs, sacks of flour stacked on the banks.", "lore": "The mills grind grain for all the northern villages. Millers are paid in a tenth of what they grind, and the scoop is kept in the village shrine."},
-  "prov_r3_13_beast_lair_2": {"name": "Độc Phong Cốc", "name_han": "毒蜂谷", "gloss": "Valley of the Poison Hornets", "look": "A wooded hollow is hung with grey paper nests as big as barrels, and the air hums.", "lore": "Spirit hornets nest here, and their sting can kill a mortal. The forest wardens of Hộ Lâm Đường take their nests for poison."},
-  "prov_r3_13_minor_seat_p": {"name": "Hộ Lâm Đường", "name_han": "護林堂", "gloss": "Hall of the Forest Wardens", "look": "A hall of dark timber stands on a wooded rise, its roof grown over with moss and a tall lookout platform in the oak beside it.", "lore": "A righteous hall of forest wardens sworn to Thúy Vi, who guard the northern woods and gather herbs and spirit wood for its furnaces. It was founded after the Cold Ford came home, to keep the northern forests for the sect.", "sect": {"key": "ho_lam", "name": "Hộ Lâm Đường", "name_han": "護林堂", "gloss": "Hall of the Forest Wardens", "alignment": "chính đạo", "leans": ["Wood", "Earth"], "craft": "forest wardens; herb and spirit-wood gatherers for Thúy Vi's furnaces", "lord": "thuy_vi", "founded": 910}},
-  "prov_r3_14_village_1": {"name": "Tạo Chỉ Thôn", "name_han": "造紙村", "gloss": "Papermakers' Village", "look": "Sheets of paper dry on wooden frames along a river village, beside vats of soaking bark.", "lore": "The villagers beat mulberry bark and hemp into paper for the copied scripture of Lam Yên Thị. A sheet that tears in the vat is never sold."},
-  "prov_r3_14_beast_lair_2": {"name": "Tông Hùng Lâm", "name_han": "棕熊林", "gloss": "Forest of the Brown Bears", "look": "A riverside forest of marsh and alder is torn with claw marks, fish carcasses scattered along the banks.", "lore": "Brown bears fish the river in autumn beside the papermakers' vats. The village keeps a drum to frighten them off."},
-  "prov_r3_15_village_1": {"name": "Phục Linh Thôn", "name_han": "茯苓村", "gloss": "Poria Village", "look": "A small village of grey roofs in pine forest, with baskets of white poria lumps drying under the eaves.", "lore": "The villagers dig poria fungus from old pine roots and sell it to Thúy Vi's furnaces. They plant a pine for each one they dig."},
-  "prov_r3_15_forest_2": {"name": "Thương Thúy Lâm", "name_han": "蒼翠林", "gloss": "Forest of Hoary Green", "look": "Old grey-green pines stand on rising ground, thick with lichen and hung with haze.", "lore": "Its oldest pines grow the best poria, and the villagers guard the roots jealously. Thúy Vi disciples walking the road north rest in its shade."},
-  "prov_r3_15_ruin_3": {"name": "Cổ Dịch Trấn", "name_han": "古驛鎮", "gloss": "Old Post Town", "former": "town", "lived": [520, 980], "look": "A street of empty inns and a collapsed post stable line an overgrown road through the pines.", "lore": "It was the post town on the old road from the Cold Ford to Lam Yên. When the road was moved east in 975, its inns closed one by one."},
-  "prov_r3_16_village_1": {"name": "Bạch Lạp Thôn", "name_han": "白蠟村", "gloss": "White-Wax Village", "look": "Ash trees around a village of grey roofs are crusted white with insect wax on their branches.", "lore": "The villagers raise wax insects and scrape white wax for candles and pill coatings. Thúy Vi buys most of it for its furnaces."},
-  "prov_r3_16_forest_2": {"name": "Sơ Hiểu Lâm", "name_han": "初曉林", "gloss": "Forest of First Light", "look": "A mixed forest of ash and oak echoes with birdsong from dawn until mid-morning.", "lore": "Bird-catchers come here for songbirds to sell in Lam Yên. Thúy Vi forbids nets in the spring nesting season."},
-  "prov_r3_17_village_1": {"name": "Bối Độ Thôn", "name_han": "背渡村", "gloss": "Village of the Carried Crossing", "look": "A village of grey roofs sits beside a wide river that runs thin and white over flat stones.", "lore": "Its people fish the shallows and carry travellers across on their backs. They know every stone of the ford by name."},
-  "prov_r3_17_spirit_vein_2": {"name": "Thanh Mộc Mạch", "name_han": "青木脈", "gloss": "Vein of the Green Wood", "element": "Wood", "look": "A line of unusually tall trees runs straight through the forest, greener than the woods on either side.", "lore": "Wood qi runs along the line under the ground, and trees planted on it outgrow all others. Thúy Vi's disciples follow the line to cultivate."},
-  "prov_r3_18_village_1": {"name": "Tử Tô Thôn", "name_han": "紫蘇村", "gloss": "Perilla Village", "look": "Plots of purple perilla and other herbs line the river below a small village of grey roofs.", "lore": "The villagers grow herbs for the alchemists and learned their plots from the ruined academy nearby. Its purple leaves are dried for tea along the coast."},
-  "prov_r3_18_spirit_vein_2": {"name": "Linh Lộ Tuyền", "name_han": "靈露泉", "gloss": "Spring of Spirit Dew", "element": "Wood", "look": "A spring in the forest floor seeps into a mossy hollow where heavy dew lies on every leaf all day.", "lore": "Wood qi rises with the water, and herbs gathered there with the dew on them are prized. Alchemists come before dawn to collect the dew itself."},
-  "prov_r3_18_ruin_3": {"name": "Bách Thảo Viện", "name_han": "百草院", "gloss": "Academy of a Hundred Herbs", "former": "sect", "lived": [610, 932], "look": "The scorched shell of an academy stands among wild herb beds, its central furnace hall blown open from inside.", "lore": "A small herb academy sworn to Thúy Vi kept a hundred kinds of herbs in its beds. In 932 a cauldron of untamed pill fire burst and destroyed the halls; Thúy Vi took its herb books to the seat."},
-  "prov_r3_19_peak_1": {"name": "Ngọc Trụ Phong", "name_han": "玉柱峰", "gloss": "Jade Pillar Peak", "element": "Earth", "look": "A tall pale pillar of stone rises out of the cloud that fills the valleys around it.", "lore": "Earth qi gathers in its pale rock. Hermits live in caves halfway up and come down only when the clouds lift."},
-  "prov_r3_2_beast_lair_1": {"name": "Tuyết Thố Nguyên", "name_han": "雪兔原", "gloss": "Plain of the Snow Hares", "look": "A white tundra plain crossed by countless small tracks, hares bounding away at every step.", "lore": "Snow hares breed here in their thousands, and a few spirit hares are as quick as a sword cut. Foxes and owls hunt them from all over the north."},
-  "prov_r3_20_peak_1": {"name": "Tê Hạc Phong", "name_han": "棲鶴峰", "gloss": "Peak Where the Cranes Roost", "element": "Metal", "look": "A grey rocky peak east of the seat, its ledges dotted with roosting cranes.", "lore": "Metal qi gathers in the rock, and the cranes return to it each spring. Thúy Vi disciples climb it to practise sword forms among the birds."},
-  "prov_r3_20_mine_2": {"name": "Bạch Tinh Khoáng", "name_han": "白晶礦", "gloss": "White Crystal Mine", "look": "A narrow adit on a mountain slope spills white tailings glittering with crystal.", "lore": "Miners dig clear quartz for formation stones and pill vials. Vụ Ẩn Môn buys its best crystals for its mist arrays."},
-  "prov_r3_20_ruin_3": {"name": "Vọng Bắc Bảo", "name_han": "望北堡", "gloss": "Fort That Watches the North", "former": "fort", "lived": [672, 910], "look": "A small stone fort stands on a wooded spur above the north road, its walls intact and its gate gone.", "lore": "Thúy Vi built it the year Tùng Đào took the Cold Ford, to watch the road north. After the Cold Ford came home in 905 it was left empty."},
-  "prov_r3_21_village_1": {"name": "Hoa Mạch Thôn", "name_han": "花麥村", "gloss": "Village of the Flowering Wheat", "look": "Clearings of white-flowering buckwheat surround a village of grey roofs deep in the forest.", "lore": "Buckwheat grows where rice will not, and its flour goes to Lam Yên for noodles. The villagers bless the fields when the flowers open."},
-  "prov_r3_21_spirit_vein_2": {"name": "Thụ Tâm Nhãn", "name_han": "樹心眼", "gloss": "Eye at the Tree's Heart", "element": "Wood", "look": "A vast old tree stands alone in a clearing, a hollow at its heart glowing faintly green at night.", "lore": "Wood qi rises through the tree's hollow heart. Villagers leave buckwheat cakes at its roots, and Thúy Vi disciples sit inside the hollow."},
-  "prov_r3_22_town_1": {"name": "Lãm Thúy Trấn", "name_han": "攬翠鎮", "gloss": "Town That Gathers the Green", "look": "A walled town of grey roofs on the eastern shore, its quay stacked with timber and bales of herbs.", "lore": "It trades timber, fish and herbs from the eastern forests along the coast. Its herb buyers are said to grade a root by smell alone."},
-  "prov_r3_22_forest_2": {"name": "Thâm U Lâm", "name_han": "深幽林", "gloss": "Forest of Deep Shade", "look": "A dense coastal forest so dark under its canopy that moss grows on the paths.", "lore": "Herb gatherers from the town find shade herbs here that grow nowhere else. They tie cords to the trees to find their way back."},
-  "prov_r3_22_ruin_3": {"name": "Minh Kính Đường", "name_han": "明鏡堂", "gloss": "Hall of the Bright Mirror", "former": "sect", "lived": [830, 1066], "look": "A burnt hall stands in a ring of lightning-split trees, a cracked bronze mirror still hanging over its door.", "lore": "A small sect of heart-mirror cultivators sworn to Thúy Vi. In 1066 its head tried to break through to Nguyên Anh, and his tribulation burned the hall and killed him; the disciples scattered."},
-  "prov_r3_23_peak_1": {"name": "Nhạn Hồi Phong", "name_han": "雁回峰", "gloss": "Peak Where the Geese Turn Back", "element": "Metal", "look": "A sharp grey peak stands so high that migrating geese turn aside around it.", "lore": "Metal qi gathers in its bare rock. Its south face is said to be too cold even for the geese."},
-  "prov_r3_23_ruin_2": {"name": "Vân Gian Trấn", "name_han": "雲間鎮", "gloss": "Town Among the Clouds", "former": "town", "lived": [560, 1020], "look": "High on a mountain shoulder the roofs of a small stone town poke out of a slope of old rubble and grass.", "lore": "A mountain town of herb growers and porters on the path to the western ridges. An avalanche in 1019 buried its upper street, and the survivors went down to Lam Yên Thị."},
-  "prov_r3_24_peak_1": {"name": "Đoạn Vân Nhai", "name_han": "斷雲崖", "gloss": "Cliff That Cuts the Clouds", "element": "Metal", "look": "A sheer grey cliff rises above the forest, and drifting clouds part around its edge.", "lore": "Metal qi gathers in its sharp rock. Sword cultivators say the cliff cut the clouds before they learned to."},
-  "prov_r3_24_mine_2": {"name": "Thương Ngọc Khoáng", "name_han": "蒼玉礦", "gloss": "Grey-Green Jade Mine", "look": "A cut in the mountain below the cliff shows bands of blue-green stone, with a ramp down to the road.", "lore": "Thúy Vi opened it long after Bích Ngọc Khoáng, to dig a bluer, harder jade. Its stone is carved into talismans and furnace lids."},
-  "prov_r3_25_peak_1": {"name": "Lăng Không Đỉnh", "name_han": "凌空頂", "gloss": "Summit Above the Void", "element": "Metal", "look": "A bare summit of grey rock juts out over a drop so deep that its foot is lost in haze.", "lore": "Metal qi gathers in its rock. Thúy Vi elders stand on the edge to test their nerve before breakthrough."},
-  "prov_r3_25_mine_2": {"name": "Lãnh Thiết Khoáng", "name_han": "冷鐵礦", "gloss": "Cold Iron Mine", "look": "A dark mine mouth on a sheer slope, with frost on the iron ore heaped outside even in summer.", "lore": "Its iron stays cold to the touch long after forging. Thúy Vi uses it for furnace fittings that must not grow hot."},
-  "prov_r3_26_peak_1": {"name": "Hàm Vân Phong", "name_han": "含雲峰", "gloss": "Peak That Holds the Clouds", "element": "Earth", "look": "A rounded forested peak with a band of cloud resting on its shoulder most mornings.", "lore": "Earth qi gathers in its stone, and the cloud seldom leaves. The monks of Vân Khởi say it holds what their own mountain lets go."},
-  "prov_r3_26_mine_2": {"name": "Nghiên Thạch Khoáng", "name_han": "硯石礦", "gloss": "Inkstone Mine", "look": "Small pits along a river bank show fine dark stone, with half-cut inkstones drying on the rocks.", "lore": "Its fine black stone makes inkstones for the scholars of Lam Yên. Miners test each block by grinding ink on it before they sell."},
-  "prov_r3_27_peak_1": {"name": "Ngưu Bối Phong", "name_han": "牛背峰", "gloss": "Ox-Back Peak", "element": "Earth", "look": "A long rounded peak by the river, shaped like the back of a lying ox.", "lore": "Earth qi gathers along its spine. Herdsmen below say a cultivator who sleeps on it wakes heavier and calmer."},
-  "prov_r3_28_peak_1": {"name": "Độc Tọa Phong", "name_han": "獨坐峰", "gloss": "Peak of Sitting Alone", "element": "Earth", "look": "A narrow rocky peak above Không Sơn Viện, with a single flat stone at its top big enough for one person.", "lore": "Earth qi gathers in its stone, and Không Sơn's masters sat on it alone. Thúy Vi lets no one climb it, and the stone is still clean."},
-  "prov_r3_28_mine_2": {"name": "Nhuyễn Thạch Khoáng", "name_han": "軟石礦", "gloss": "Softstone Mine", "look": "A small pit at the foot of the ridge by the shore shows soft pale grey stone, with carved bowls drying on a rack.", "lore": "Villagers dig soapstone here for bowls, moulds and pill moulds. They dig only at the foot, far below the academy."},
-  "prov_r3_29_peak_1": {"name": "Quan Nhật Phong", "name_han": "觀日峰", "gloss": "Sunrise-Watching Peak", "element": "Metal", "look": "The highest bare peak of the ridges, its summit catching the first light long before the valleys.", "lore": "Metal qi gathers in its rock. From its top one can see the cape and the eastern sea at once."},
-  "prov_r3_30_village_1": {"name": "Tùng Yên Thôn", "name_han": "松煙村", "gloss": "Pine-Soot Village", "look": "A village of grey roofs on a forested slope, with long brick soot kilns climbing the hill behind it.", "lore": "The villagers burn pine in long kilns and press the soot into ink. Their ink goes with the inkstones of Lưu Thúy to the scholars of three sects."},
-  "prov_r3_30_peak_2": {"name": "Vạn Tùng Phong", "name_han": "萬松峰", "gloss": "Peak of Ten Thousand Pines", "element": "Wood", "look": "A high peak covered to its top in pines, dark green against the bare mountains around it.", "lore": "Wood qi gathers in its pines. The soot burners of Tùng Yên cut only the dead trees on it."},
-  "prov_r3_31_village_1": {"name": "Hải Đường Thôn", "name_han": "海棠村", "gloss": "Crabapple Village", "look": "Pink crabapple orchards surround a village of grey roofs on the coast.", "lore": "The villagers fish and sell crabapple blossom and fruit in Lam Yên. The blossom is pressed into the pages of scripture beside Thu Diệp's leaves."},
-  "prov_r3_31_beast_lair_2": {"name": "Ngô Công Cốc", "name_han": "蜈蚣谷", "gloss": "Valley of the Centipedes", "look": "A damp wooded valley above the orchards, with rotting logs crawling with red centipedes.", "lore": "Giant centipedes live in its rot, and the biggest are as long as a man. Hồng Lô Cốc pays for their venom."},
-  "prov_r3_32_village_1": {"name": "Đồng Du Thôn", "name_han": "桐油村", "gloss": "Tung-Oil Village", "look": "Tung trees with white blossoms ring a village of grey roofs, and oil presses stand in every yard.", "lore": "The villagers press tung oil for boats, paint and lamps. Every boat on the coast is sealed with it."},
-  "prov_r3_32_beast_lair_2": {"name": "Thanh Lang Lĩnh", "name_han": "青狼嶺", "gloss": "Ridge of the Grey Wolves", "look": "A wooded hill ridge where packs of grey wolves have worn paths along the crest.", "lore": "Grey wolves hunt the ridge in packs, and the oldest are said to be clever as men. Villagers do not walk it after dark."},
-  "prov_r3_33_village_1": {"name": "Hôi Diêu Thôn", "name_han": "灰窯村", "gloss": "Lime-Kiln Village", "look": "White lime kilns smoke among limestone knolls beside a small village of white-dusted grey roofs.", "lore": "The villagers burn limestone for lime and sell it to builders along the coast. Their houses are the whitest in the ridges."},
-  "prov_r3_33_gorge_2": {"name": "Tuyến Thiên Hạp", "name_han": "線天峽", "gloss": "Gorge of the Thread of Sky", "look": "A limestone gorge so narrow and deep that only a thin line of sky shows overhead.", "lore": "The lime-burners take a short cut through it to the coast. In the noon light alone the gorge floor is lit, and then only for a moment."},
-  "prov_r3_4_spirit_vein_1": {"name": "Lăng Hàn Huyệt", "name_han": "凌寒穴", "gloss": "Hollow That Defies the Cold", "element": "Water", "look": "In the frozen tundra a small hollow of open water steams among frosted pines.", "lore": "Water qi wells up and keeps the hollow ice-free all winter. Thúy Vi disciples of the water arts sit beside it through the coldest month."},
-  "prov_r3_4_ruin_2": {"name": "Thận Lâu Các", "name_han": "蜃樓閣", "gloss": "Pavilion of the Mirage", "former": "sect", "lived": [350, 497], "look": "On the frozen shore the stone base of a tall pavilion stands empty, its upper floors fallen onto the beach.", "lore": "A small sect that studied the mirages of the northern sea built its pavilion here. In 497 its head walked out on the sea ice after a mirage of a city and never returned, and the disciples left."},
-  "prov_r3_5_beast_lair_1": {"name": "Hàn Thiềm Chử", "name_han": "寒蟾渚", "gloss": "Shoal of the Frost Toads", "look": "Black peat pools are ringed with frosted moss, and pale toads sit motionless at the water's edge.", "lore": "Frost toads sing here all summer and sleep frozen in the mud all winter. Their skin is a cooling medicine."},
-  "prov_r3_6_village_1": {"name": "Nghịch Triều Thôn", "name_han": "逆潮村", "gloss": "Village of the Backward Tide", "look": "A village of grey roofs stands on a river where the tide turns the current back upstream twice a day.", "lore": "The villagers fish the river and its backwaters and time their boats by the returning current. Children learn the tides before they learn to count."},
-  "prov_r3_6_beast_lair_2": {"name": "Dã Ngưu Chử", "name_han": "野牛渚", "gloss": "Shoal of the Wild Bison", "look": "A trampled marsh island in the forest, its mud churned by heavy hooves.", "lore": "Herds of wild forest bison graze here in summer. The villagers hunt one each autumn and no more."},
-  "prov_r3_6_ruin_3": {"name": "Tĩnh Tuyết Tự", "name_han": "靜雪寺", "gloss": "Temple of Still Snow", "former": "sect", "lived": [260, 455], "look": "Low stone halls stand half-buried in snow on the cold shore, a row of flat meditation stones before them.", "lore": "Monks sat in the snow here and cultivated stillness. The last monk died in 455 with no novices, and the temple was left to the snow."},
-  "prov_r3_7_beast_lair_1": {"name": "Tuyết Bào Nguyên", "name_han": "雪麅原", "gloss": "Plain of the Snow Roe", "look": "A tundra plain along a frozen river, crossed by the light tracks of roe deer.", "lore": "Snow roe deer winter along the frozen banks. Hunters say they can run on thin ice without breaking it."},
-  "prov_r3_8_spirit_vein_1": {"name": "Tùng Linh Mạch", "name_han": "松靈脈", "gloss": "Vein of the Pine Spirit", "element": "Wood", "look": "A grove of very old pines stands among the tundra, its needles greener than any other trees on the coast.", "lore": "Wood qi rises under the grove. Hunters say the oldest pine has a spirit, and they leave a little food at its roots."},
-  "prov_r3_8_ruin_2": {"name": "Bão Nhất Quán", "name_han": "抱一觀", "gloss": "Abbey of Embracing the One", "former": "sect", "lived": [150, 488], "look": "On a high crag a few roofless stone halls stand around a dry spring, prayer stones scattered on the ground.", "lore": "A small Daoist abbey older than Không Sơn Viện kept its hermits here. Its spring dried, and the last abbot went down to Không Sơn Viện as a guest in 488."},
-  "prov_r3_9_village_1": {"name": "Việt Quất Thôn", "name_han": "越橘村", "gloss": "Lingonberry Village", "look": "A small village of grey roofs in northern forest, with red berries spread on mats on every roof.", "lore": "The villagers pick lingonberries and trap fur. Berry jam from here keeps all winter and travels to Hàn Tân."},
-  "prov_r3_9_beast_lair_2": {"name": "Phi Thử Lâm", "name_han": "飛鼠林", "gloss": "Forest of the Flying Squirrels", "look": "A tall forest where flying squirrels glide from trunk to trunk at dusk.", "lore": "Spirit flying squirrels nest here, and their skins make light gloves. They steal berries from the villagers' roofs."},
-  "prov_r3_9_ruin_3": {"name": "Hoành Kiều Trấn", "name_han": "橫橋鎮", "gloss": "Town of the Crossing Bridge", "former": "town", "lived": [470, 1150], "look": "A stone bridge spans a dry hollow in the forest beside the empty walls of a small town.", "lore": "The town grew around a bridge on the river. A flood in 1148 moved the river west and left the bridge over dry ground, and the town followed the water."}
+  "prov_p102_forest_1": {
+   "name": "Lão Tượng Lâm",
+   "name_han": "老橡林",
+   "gloss": "Forest of Old Oaks",
+   "look": "Broad old oaks grow down to the shore below the crow ridge, their branches black with roosting birds at dusk.",
+   "lore": "The crows of Ô Đề roost here when the great oak is full. Villagers cut oak for boats only where no crows sit."
+  },
+  "prov_p102_ruin_2": {
+   "name": "Song Tỉnh Trấn",
+   "name_han": "雙井鎮",
+   "gloss": "Town of the Twin Wells",
+   "former": "town",
+   "lived": [
+    450,
+    1034
+   ],
+   "look": "Empty stone houses stand around two well-heads in an overgrown square, a crack running across the ground between them.",
+   "lore": "The town grew up around two sweet wells on the coast road. The earthquake of 1033 split the ground and turned both wells salt, and the town was empty within a year."
+  },
+  "prov_p103_forest_1": {
+   "name": "Thiền Minh Lâm",
+   "name_han": "蟬鳴林",
+   "gloss": "Forest of Singing Cicadas",
+   "look": "A sunny wooded slope above the pipe line, loud with cicadas all summer.",
+   "lore": "The spring of Lâm Tuyền rises under these trees. Villagers say that if the cicadas fall silent at noon, someone is fouling the water."
+  },
+  "prov_p104_peak_1": {
+   "name": "Hồng Phong Đỉnh",
+   "name_han": "紅楓頂",
+   "gloss": "Summit of the Red Maples",
+   "element": "Wood",
+   "look": "A steep summit of limestone and maple turns crimson from crown to foot each autumn.",
+   "lore": "Wood qi gathers in its maples, and the leaves from its top are the ones scholars pay most for. Only mortals of Thu Diệp may pick them."
+  },
+  "prov_p31_forest_1": {
+   "name": "Lãnh Sam Lâm",
+   "name_han": "冷杉林",
+   "gloss": "Forest of the Cold Firs",
+   "look": "Dark firs stand close on the low ground by the ford, snow caught in their branches long into spring.",
+   "lore": "Ferrymen cut ford poles and boat timber here. Under Tùng Đào the firs were tapped for resin, and the old scars still show on the trunks."
+  },
+  "prov_p31_ruin_2": {
+   "name": "Lô Khẩu Trấn",
+   "name_han": "蘆口鎮",
+   "gloss": "Town at the Reed Mouth",
+   "former": "town",
+   "lived": [
+    440,
+    690
+   ],
+   "look": "Rotted wooden quays and the stumps of house posts stand in a reed marsh on the coast, with a stone shrine above the water.",
+   "lore": "A fishing town at a reedy inlet, it emptied when its fishers left for the hills under Tùng Đào's resin tax from 674. With no one to dredge it, the marsh took the quays."
+  },
+  "prov_p45_spirit_vein_1": {
+   "name": "Dưỡng Mộc Tuyền",
+   "name_han": "養木泉",
+   "gloss": "Spring That Feeds the Trees",
+   "element": "Wood",
+   "look": "A clear spring rises in a ring of unusually tall trees below the market stair, its runnels feeding terraced herb plots.",
+   "lore": "Wood qi rises with the water, and herbs watered from it grow fast and strong. Lam Yên's herb growers share its water by an old rota."
+  },
+  "prov_p58_peak_1": {
+   "name": "Kỳ Bàn Phong",
+   "name_han": "棋盤峰",
+   "gloss": "Chessboard Peak",
+   "element": "Earth",
+   "look": "A flat-topped rocky peak above the cypress town, its summit crossed by natural cracks in a square grid.",
+   "lore": "Earth qi gathers in its stone, and Không Sơn's students are said to have laid out the cypress grid by copying its cracks. Players climb it to play a game on the summit."
+  },
+  "prov_p59_gorge_1": {
+   "name": "Hồi Âm Cốc",
+   "name_han": "回音谷",
+   "gloss": "Valley of the Echo",
+   "look": "A deep limestone valley opens onto the coast, its walls so close that every shout comes back three times.",
+   "lore": "The woodcutters of Tiều Ca sing here freely, for it lies below the boundary stones. Their songs echo up the gorge and, they say, reach the old academy anyway."
+  },
+  "prov_p59_mine_2": {
+   "name": "Phàn Thạch Khoáng",
+   "name_han": "礬石礦",
+   "gloss": "Alum Mine",
+   "look": "Pale altered rock on a volcanic shoulder is cut into pits, with leaching vats and white crusts below them.",
+   "lore": "Miners dig alum stone and boil it for dyers and tanners along the coast. Thúy Vi's alchemists buy the purest crystals to clear their pill waters."
+  },
+  "prov_thuy_vi_peak_1": {
+   "name": "Quy Tịch Phong",
+   "name_han": "歸寂峰",
+   "gloss": "Peak of Returning to Stillness",
+   "element": "Earth",
+   "look": "A bare rock peak rises south of the twin summits, standing clear above the haze on most days.",
+   "lore": "Earth qi gathers in its rock, and Thúy Vi's elders go up it for closed-door cultivation. From its top the whole spiral of the Haze Walk can be seen."
+  },
+  "prov_van_khoi_peak_1": {
+   "name": "Thủy Cùng Phong",
+   "name_han": "水窮峰",
+   "gloss": "Peak Where the Water Ends",
+   "element": "Earth",
+   "look": "A high rocky peak stands above the abbey, the thin stream rising toward it and vanishing into a cleft halfway up.",
+   "lore": "Earth qi gathers in the stone above the place where the water ends. Abbot Tống Tọa Vân sends his oldest students up it to sit and watch the clouds rise."
+  },
+  "prov_van_khoi_ruin_2": {
+   "name": "Quan Lan Bảo",
+   "name_han": "觀瀾堡",
+   "gloss": "Fort That Watches the Waves",
+   "former": "fort",
+   "lived": [
+    655,
+    790
+   ],
+   "look": "A square stone fort stands on a mountain spur above the sea, its gate open and its watch platform broken.",
+   "lore": "Thúy Vi built it to watch for Thôn Hải's pirate sails on the south coast. After the Pirate Purge of 781 it was no longer needed, and the garrison left within a decade."
+  },
+  "prov_r3_1_spirit_vein_1": {
+   "name": "Hàn Uyên Nhãn",
+   "name_han": "寒淵眼",
+   "gloss": "Eye of the Cold Deep",
+   "element": "Water",
+   "look": "A dark round hole in the tundra ice opens onto deep water that never freezes, breathing a thin mist.",
+   "lore": "Water qi wells up from far below, cold enough to numb a hand in a moment. Alchemists lower jars on long cords to fill them."
+  },
+  "prov_r3_10_village_1": {
+   "name": "Phiệt Công Thôn",
+   "name_han": "筏工村",
+   "gloss": "Raftsmen's Village",
+   "look": "Log rafts lie lashed along a forest river below a village of grey roofs, with stacked timber on the bank.",
+   "lore": "The raftsmen float logs downstream to the coast. A raftsman's rank is counted by how many springs he has ridden the flood."
+  },
+  "prov_r3_10_beast_lair_2": {
+   "name": "Hà Ly Chử",
+   "name_han": "河狸渚",
+   "gloss": "Shoal of the Beavers",
+   "look": "Stick dams and lodges choke a side stream into a chain of still ponds among gnawed stumps.",
+   "lore": "Spirit beavers build dams strong enough to hold a flood. The raftsmen break them every spring and the beavers rebuild them every summer."
+  },
+  "prov_r3_11_village_1": {
+   "name": "Tân Cư Thôn",
+   "name_han": "新居村",
+   "gloss": "Village of New Homes",
+   "look": "A village of grey roofs stands on a river bend in the forest, each door with a jar of pine resin by it.",
+   "lore": "Fishers of the Cold Ford who left the coast under Tùng Đào's resin tax founded it in 675. It is still called the new homes, and the resin jars are a joke about the tax."
+  },
+  "prov_r3_11_forest_2": {
+   "name": "Vô Thanh Lâm",
+   "name_han": "無聲林",
+   "gloss": "Silent Forest",
+   "look": "A forest of moss-hung trees where no bird sings and footsteps make no sound on the deep moss.",
+   "lore": "Villagers say the quiet of Không Sơn Viện drifted north and settled here. Vân Khởi Quán sometimes sends novices to sit in it for a day."
+  },
+  "prov_r3_12_village_1": {
+   "name": "Hồ Đào Thôn",
+   "name_han": "胡桃村",
+   "gloss": "Walnut Village",
+   "look": "Tall walnut trees shade a village of grey roofs, with nut husks drying in black heaps in every yard.",
+   "lore": "The villagers press walnut oil for lamps and sell husk dye to the scribes of Lam Yên. Each child is given a walnut tree at birth."
+  },
+  "prov_r3_12_forest_2": {
+   "name": "Phấn Điệp Lâm",
+   "name_han": "粉蝶林",
+   "gloss": "Forest of the White Butterflies",
+   "look": "In early summer clouds of white butterflies rise from an open oak forest, settling on every leaf.",
+   "lore": "They come for a week and are gone, and the villagers say a soul rides on each one. No one sweeps the dead butterflies from the paths."
+  },
+  "prov_r3_13_village_1": {
+   "name": "Thủy Ma Thôn",
+   "name_han": "水磨村",
+   "gloss": "Watermill Village",
+   "look": "A row of waterwheels turns along a forest river beside a village of grey roofs, sacks of flour stacked on the banks.",
+   "lore": "The mills grind grain for all the northern villages. Millers are paid in a tenth of what they grind, and the scoop is kept in the village shrine."
+  },
+  "prov_r3_13_beast_lair_2": {
+   "name": "Độc Phong Cốc",
+   "name_han": "毒蜂谷",
+   "gloss": "Valley of the Poison Hornets",
+   "look": "A wooded hollow is hung with grey paper nests as big as barrels, and the air hums.",
+   "lore": "Spirit hornets nest here, and their sting can kill a mortal. The forest wardens of Hộ Lâm Đường take their nests for poison."
+  },
+  "prov_r3_13_minor_seat_p": {
+   "name": "Hộ Lâm Đường",
+   "name_han": "護林堂",
+   "gloss": "Hall of the Forest Wardens",
+   "look": "A hall of dark timber stands on a wooded rise, its roof grown over with moss and a tall lookout platform in the oak beside it.",
+   "lore": "A righteous hall of forest wardens sworn to Thúy Vi, who guard the northern woods and gather herbs and spirit wood for its furnaces. It was founded after the Cold Ford came home, to keep the northern forests for the sect.",
+   "sect": {
+    "key": "ho_lam",
+    "name": "Hộ Lâm Đường",
+    "name_han": "護林堂",
+    "gloss": "Hall of the Forest Wardens",
+    "alignment": "chính đạo",
+    "leans": [
+     "Wood",
+     "Earth"
+    ],
+    "craft": "forest wardens; herb and spirit-wood gatherers for Thúy Vi's furnaces",
+    "lord": "thuy_vi",
+    "founded": 910
+   }
+  },
+  "prov_r3_14_village_1": {
+   "name": "Tạo Chỉ Thôn",
+   "name_han": "造紙村",
+   "gloss": "Papermakers' Village",
+   "look": "Sheets of paper dry on wooden frames along a river village, beside vats of soaking bark.",
+   "lore": "The villagers beat mulberry bark and hemp into paper for the copied scripture of Lam Yên Thị. A sheet that tears in the vat is never sold."
+  },
+  "prov_r3_14_beast_lair_2": {
+   "name": "Tông Hùng Lâm",
+   "name_han": "棕熊林",
+   "gloss": "Forest of the Brown Bears",
+   "look": "A riverside forest of marsh and alder is torn with claw marks, fish carcasses scattered along the banks.",
+   "lore": "Brown bears fish the river in autumn beside the papermakers' vats. The village keeps a drum to frighten them off."
+  },
+  "prov_r3_15_village_1": {
+   "name": "Phục Linh Thôn",
+   "name_han": "茯苓村",
+   "gloss": "Poria Village",
+   "look": "A small village of grey roofs in pine forest, with baskets of white poria lumps drying under the eaves.",
+   "lore": "The villagers dig poria fungus from old pine roots and sell it to Thúy Vi's furnaces. They plant a pine for each one they dig."
+  },
+  "prov_r3_15_forest_2": {
+   "name": "Thương Thúy Lâm",
+   "name_han": "蒼翠林",
+   "gloss": "Forest of Hoary Green",
+   "look": "Old grey-green pines stand on rising ground, thick with lichen and hung with haze.",
+   "lore": "Its oldest pines grow the best poria, and the villagers guard the roots jealously. Thúy Vi disciples walking the road north rest in its shade."
+  },
+  "prov_r3_15_ruin_3": {
+   "name": "Cổ Dịch Trấn",
+   "name_han": "古驛鎮",
+   "gloss": "Old Post Town",
+   "former": "town",
+   "lived": [
+    520,
+    980
+   ],
+   "look": "A street of empty inns and a collapsed post stable line an overgrown road through the pines.",
+   "lore": "It was the post town on the old road from the Cold Ford to Lam Yên. When the road was moved east in 975, its inns closed one by one."
+  },
+  "prov_r3_16_village_1": {
+   "name": "Bạch Lạp Thôn",
+   "name_han": "白蠟村",
+   "gloss": "White-Wax Village",
+   "look": "Ash trees around a village of grey roofs are crusted white with insect wax on their branches.",
+   "lore": "The villagers raise wax insects and scrape white wax for candles and pill coatings. Thúy Vi buys most of it for its furnaces."
+  },
+  "prov_r3_16_forest_2": {
+   "name": "Sơ Hiểu Lâm",
+   "name_han": "初曉林",
+   "gloss": "Forest of First Light",
+   "look": "A mixed forest of ash and oak echoes with birdsong from dawn until mid-morning.",
+   "lore": "Bird-catchers come here for songbirds to sell in Lam Yên. Thúy Vi forbids nets in the spring nesting season."
+  },
+  "prov_r3_17_village_1": {
+   "name": "Bối Độ Thôn",
+   "name_han": "背渡村",
+   "gloss": "Village of the Carried Crossing",
+   "look": "A village of grey roofs sits beside a wide river that runs thin and white over flat stones.",
+   "lore": "Its people fish the shallows and carry travellers across on their backs. They know every stone of the ford by name."
+  },
+  "prov_r3_17_spirit_vein_2": {
+   "name": "Thanh Mộc Mạch",
+   "name_han": "青木脈",
+   "gloss": "Vein of the Green Wood",
+   "element": "Wood",
+   "look": "A line of unusually tall trees runs straight through the forest, greener than the woods on either side.",
+   "lore": "Wood qi runs along the line under the ground, and trees planted on it outgrow all others. Thúy Vi's disciples follow the line to cultivate."
+  },
+  "prov_r3_18_village_1": {
+   "name": "Tử Tô Thôn",
+   "name_han": "紫蘇村",
+   "gloss": "Perilla Village",
+   "look": "Plots of purple perilla and other herbs line the river below a small village of grey roofs.",
+   "lore": "The villagers grow herbs for the alchemists and learned their plots from the ruined academy nearby. Its purple leaves are dried for tea along the coast."
+  },
+  "prov_r3_18_spirit_vein_2": {
+   "name": "Linh Lộ Tuyền",
+   "name_han": "靈露泉",
+   "gloss": "Spring of Spirit Dew",
+   "element": "Wood",
+   "look": "A spring in the forest floor seeps into a mossy hollow where heavy dew lies on every leaf all day.",
+   "lore": "Wood qi rises with the water, and herbs gathered there with the dew on them are prized. Alchemists come before dawn to collect the dew itself."
+  },
+  "prov_r3_18_ruin_3": {
+   "name": "Bách Thảo Viện",
+   "name_han": "百草院",
+   "gloss": "Academy of a Hundred Herbs",
+   "former": "sect",
+   "lived": [
+    610,
+    932
+   ],
+   "look": "The scorched shell of an academy stands among wild herb beds, its central furnace hall blown open from inside.",
+   "lore": "A small herb academy sworn to Thúy Vi kept a hundred kinds of herbs in its beds. In 932 a cauldron of untamed pill fire burst and destroyed the halls; Thúy Vi took its herb books to the seat."
+  },
+  "prov_r3_19_peak_1": {
+   "name": "Ngọc Trụ Phong",
+   "name_han": "玉柱峰",
+   "gloss": "Jade Pillar Peak",
+   "element": "Earth",
+   "look": "A tall pale pillar of stone rises out of the cloud that fills the valleys around it.",
+   "lore": "Earth qi gathers in its pale rock. Hermits live in caves halfway up and come down only when the clouds lift."
+  },
+  "prov_r3_2_beast_lair_1": {
+   "name": "Tuyết Thố Nguyên",
+   "name_han": "雪兔原",
+   "gloss": "Plain of the Snow Hares",
+   "look": "A white tundra plain crossed by countless small tracks, hares bounding away at every step.",
+   "lore": "Snow hares breed here in their thousands, and a few spirit hares are as quick as a sword cut. Foxes and owls hunt them from all over the north."
+  },
+  "prov_r3_20_peak_1": {
+   "name": "Tê Hạc Phong",
+   "name_han": "棲鶴峰",
+   "gloss": "Peak Where the Cranes Roost",
+   "element": "Metal",
+   "look": "A grey rocky peak east of the seat, its ledges dotted with roosting cranes.",
+   "lore": "Metal qi gathers in the rock, and the cranes return to it each spring. Thúy Vi disciples climb it to practise sword forms among the birds."
+  },
+  "prov_r3_20_mine_2": {
+   "name": "Bạch Tinh Khoáng",
+   "name_han": "白晶礦",
+   "gloss": "White Crystal Mine",
+   "look": "A narrow adit on a mountain slope spills white tailings glittering with crystal.",
+   "lore": "Miners dig clear quartz for formation stones and pill vials. Vụ Ẩn Môn buys its best crystals for its mist arrays."
+  },
+  "prov_r3_20_ruin_3": {
+   "name": "Vọng Bắc Bảo",
+   "name_han": "望北堡",
+   "gloss": "Fort That Watches the North",
+   "former": "fort",
+   "lived": [
+    672,
+    910
+   ],
+   "look": "A small stone fort stands on a wooded spur above the north road, its walls intact and its gate gone.",
+   "lore": "Thúy Vi built it the year Tùng Đào took the Cold Ford, to watch the road north. After the Cold Ford came home in 905 it was left empty."
+  },
+  "prov_r3_21_village_1": {
+   "name": "Hoa Mạch Thôn",
+   "name_han": "花麥村",
+   "gloss": "Village of the Flowering Wheat",
+   "look": "Clearings of white-flowering buckwheat surround a village of grey roofs deep in the forest.",
+   "lore": "Buckwheat grows where rice will not, and its flour goes to Lam Yên for noodles. The villagers bless the fields when the flowers open."
+  },
+  "prov_r3_21_spirit_vein_2": {
+   "name": "Thụ Tâm Nhãn",
+   "name_han": "樹心眼",
+   "gloss": "Eye at the Tree's Heart",
+   "element": "Wood",
+   "look": "A vast old tree stands alone in a clearing, a hollow at its heart glowing faintly green at night.",
+   "lore": "Wood qi rises through the tree's hollow heart. Villagers leave buckwheat cakes at its roots, and Thúy Vi disciples sit inside the hollow."
+  },
+  "prov_r3_22_town_1": {
+   "name": "Lãm Thúy Trấn",
+   "name_han": "攬翠鎮",
+   "gloss": "Town That Gathers the Green",
+   "look": "A walled town of grey roofs on the eastern shore, its quay stacked with timber and bales of herbs.",
+   "lore": "It trades timber, fish and herbs from the eastern forests along the coast. Its herb buyers are said to grade a root by smell alone."
+  },
+  "prov_r3_22_forest_2": {
+   "name": "Thâm U Lâm",
+   "name_han": "深幽林",
+   "gloss": "Forest of Deep Shade",
+   "look": "A dense coastal forest so dark under its canopy that moss grows on the paths.",
+   "lore": "Herb gatherers from the town find shade herbs here that grow nowhere else. They tie cords to the trees to find their way back."
+  },
+  "prov_r3_22_ruin_3": {
+   "name": "Minh Kính Đường",
+   "name_han": "明鏡堂",
+   "gloss": "Hall of the Bright Mirror",
+   "former": "sect",
+   "lived": [
+    830,
+    1066
+   ],
+   "look": "A burnt hall stands in a ring of lightning-split trees, a cracked bronze mirror still hanging over its door.",
+   "lore": "A small sect of heart-mirror cultivators sworn to Thúy Vi. In 1066 its head tried to break through to Nguyên Anh, and his tribulation burned the hall and killed him; the disciples scattered."
+  },
+  "prov_r3_23_peak_1": {
+   "name": "Nhạn Hồi Phong",
+   "name_han": "雁回峰",
+   "gloss": "Peak Where the Geese Turn Back",
+   "element": "Metal",
+   "look": "A sharp grey peak stands so high that migrating geese turn aside around it.",
+   "lore": "Metal qi gathers in its bare rock. Its south face is said to be too cold even for the geese."
+  },
+  "prov_r3_23_ruin_2": {
+   "name": "Vân Gian Trấn",
+   "name_han": "雲間鎮",
+   "gloss": "Town Among the Clouds",
+   "former": "town",
+   "lived": [
+    560,
+    1020
+   ],
+   "look": "High on a mountain shoulder the roofs of a small stone town poke out of a slope of old rubble and grass.",
+   "lore": "A mountain town of herb growers and porters on the path to the western ridges. An avalanche in 1019 buried its upper street, and the survivors went down to Lam Yên Thị."
+  },
+  "prov_r3_24_peak_1": {
+   "name": "Đoạn Vân Nhai",
+   "name_han": "斷雲崖",
+   "gloss": "Cliff That Cuts the Clouds",
+   "element": "Metal",
+   "look": "A sheer grey cliff rises above the forest, and drifting clouds part around its edge.",
+   "lore": "Metal qi gathers in its sharp rock. Sword cultivators say the cliff cut the clouds before they learned to."
+  },
+  "prov_r3_24_mine_2": {
+   "name": "Thương Ngọc Khoáng",
+   "name_han": "蒼玉礦",
+   "gloss": "Grey-Green Jade Mine",
+   "look": "A cut in the mountain below the cliff shows bands of blue-green stone, with a ramp down to the road.",
+   "lore": "Thúy Vi opened it long after Bích Ngọc Khoáng, to dig a bluer, harder jade. Its stone is carved into talismans and furnace lids."
+  },
+  "prov_r3_25_peak_1": {
+   "name": "Lăng Không Đỉnh",
+   "name_han": "凌空頂",
+   "gloss": "Summit Above the Void",
+   "element": "Metal",
+   "look": "A bare summit of grey rock juts out over a drop so deep that its foot is lost in haze.",
+   "lore": "Metal qi gathers in its rock. Thúy Vi elders stand on the edge to test their nerve before breakthrough."
+  },
+  "prov_r3_25_mine_2": {
+   "name": "Lãnh Thiết Khoáng",
+   "name_han": "冷鐵礦",
+   "gloss": "Cold Iron Mine",
+   "look": "A dark mine mouth on a sheer slope, with frost on the iron ore heaped outside even in summer.",
+   "lore": "Its iron stays cold to the touch long after forging. Thúy Vi uses it for furnace fittings that must not grow hot."
+  },
+  "prov_r3_26_peak_1": {
+   "name": "Hàm Vân Phong",
+   "name_han": "含雲峰",
+   "gloss": "Peak That Holds the Clouds",
+   "element": "Earth",
+   "look": "A rounded forested peak with a band of cloud resting on its shoulder most mornings.",
+   "lore": "Earth qi gathers in its stone, and the cloud seldom leaves. The monks of Vân Khởi say it holds what their own mountain lets go."
+  },
+  "prov_r3_26_mine_2": {
+   "name": "Nghiên Thạch Khoáng",
+   "name_han": "硯石礦",
+   "gloss": "Inkstone Mine",
+   "look": "Small pits along a river bank show fine dark stone, with half-cut inkstones drying on the rocks.",
+   "lore": "Its fine black stone makes inkstones for the scholars of Lam Yên. Miners test each block by grinding ink on it before they sell."
+  },
+  "prov_r3_27_peak_1": {
+   "name": "Ngưu Bối Phong",
+   "name_han": "牛背峰",
+   "gloss": "Ox-Back Peak",
+   "element": "Earth",
+   "look": "A long rounded peak by the river, shaped like the back of a lying ox.",
+   "lore": "Earth qi gathers along its spine. Herdsmen below say a cultivator who sleeps on it wakes heavier and calmer."
+  },
+  "prov_r3_28_peak_1": {
+   "name": "Độc Tọa Phong",
+   "name_han": "獨坐峰",
+   "gloss": "Peak of Sitting Alone",
+   "element": "Earth",
+   "look": "A narrow rocky peak above Không Sơn Viện, with a single flat stone at its top big enough for one person.",
+   "lore": "Earth qi gathers in its stone, and Không Sơn's masters sat on it alone. Thúy Vi lets no one climb it, and the stone is still clean."
+  },
+  "prov_r3_28_mine_2": {
+   "name": "Nhuyễn Thạch Khoáng",
+   "name_han": "軟石礦",
+   "gloss": "Softstone Mine",
+   "look": "A small pit at the foot of the ridge by the shore shows soft pale grey stone, with carved bowls drying on a rack.",
+   "lore": "Villagers dig soapstone here for bowls, moulds and pill moulds. They dig only at the foot, far below the academy."
+  },
+  "prov_r3_29_peak_1": {
+   "name": "Quan Nhật Phong",
+   "name_han": "觀日峰",
+   "gloss": "Sunrise-Watching Peak",
+   "element": "Metal",
+   "look": "The highest bare peak of the ridges, its summit catching the first light long before the valleys.",
+   "lore": "Metal qi gathers in its rock. From its top one can see the cape and the eastern sea at once."
+  },
+  "prov_r3_30_village_1": {
+   "name": "Tùng Yên Thôn",
+   "name_han": "松煙村",
+   "gloss": "Pine-Soot Village",
+   "look": "A village of grey roofs on a forested slope, with long brick soot kilns climbing the hill behind it.",
+   "lore": "The villagers burn pine in long kilns and press the soot into ink. Their ink goes with the inkstones of Lưu Thúy to the scholars of three sects."
+  },
+  "prov_r3_30_peak_2": {
+   "name": "Vạn Tùng Phong",
+   "name_han": "萬松峰",
+   "gloss": "Peak of Ten Thousand Pines",
+   "element": "Wood",
+   "look": "A high peak covered to its top in pines, dark green against the bare mountains around it.",
+   "lore": "Wood qi gathers in its pines. The soot burners of Tùng Yên cut only the dead trees on it."
+  },
+  "prov_r3_31_village_1": {
+   "name": "Hải Đường Thôn",
+   "name_han": "海棠村",
+   "gloss": "Crabapple Village",
+   "look": "Pink crabapple orchards surround a village of grey roofs on the coast.",
+   "lore": "The villagers fish and sell crabapple blossom and fruit in Lam Yên. The blossom is pressed into the pages of scripture beside Thu Diệp's leaves."
+  },
+  "prov_r3_31_beast_lair_2": {
+   "name": "Ngô Công Cốc",
+   "name_han": "蜈蚣谷",
+   "gloss": "Valley of the Centipedes",
+   "look": "A damp wooded valley above the orchards, with rotting logs crawling with red centipedes.",
+   "lore": "Giant centipedes live in its rot, and the biggest are as long as a man. Hồng Lô Cốc pays for their venom."
+  },
+  "prov_r3_32_village_1": {
+   "name": "Đồng Du Thôn",
+   "name_han": "桐油村",
+   "gloss": "Tung-Oil Village",
+   "look": "Tung trees with white blossoms ring a village of grey roofs, and oil presses stand in every yard.",
+   "lore": "The villagers press tung oil for boats, paint and lamps. Every boat on the coast is sealed with it."
+  },
+  "prov_r3_32_beast_lair_2": {
+   "name": "Thanh Lang Lĩnh",
+   "name_han": "青狼嶺",
+   "gloss": "Ridge of the Grey Wolves",
+   "look": "A wooded hill ridge where packs of grey wolves have worn paths along the crest.",
+   "lore": "Grey wolves hunt the ridge in packs, and the oldest are said to be clever as men. Villagers do not walk it after dark."
+  },
+  "prov_r3_33_village_1": {
+   "name": "Thiêu Hôi Thôn",
+   "name_han": "燒灰村",
+   "gloss": "Lime-Burning Village",
+   "look": "White lime kilns smoke among limestone knolls beside a small village of white-dusted grey roofs.",
+   "lore": "The villagers burn limestone for lime and sell it to builders along the coast. Their houses are the whitest in the ridges."
+  },
+  "prov_r3_33_gorge_2": {
+   "name": "Tuyến Thiên Hạp",
+   "name_han": "線天峽",
+   "gloss": "Gorge of the Thread of Sky",
+   "look": "A limestone gorge so narrow and deep that only a thin line of sky shows overhead.",
+   "lore": "The lime-burners take a short cut through it to the coast. In the noon light alone the gorge floor is lit, and then only for a moment."
+  },
+  "prov_r3_4_spirit_vein_1": {
+   "name": "Lăng Hàn Huyệt",
+   "name_han": "凌寒穴",
+   "gloss": "Hollow That Defies the Cold",
+   "element": "Water",
+   "look": "In the frozen tundra a small hollow of open water steams among frosted pines.",
+   "lore": "Water qi wells up and keeps the hollow ice-free all winter. Thúy Vi disciples of the water arts sit beside it through the coldest month."
+  },
+  "prov_r3_4_ruin_2": {
+   "name": "Thận Lâu Các",
+   "name_han": "蜃樓閣",
+   "gloss": "Pavilion of the Mirage",
+   "former": "sect",
+   "lived": [
+    350,
+    497
+   ],
+   "look": "On the frozen shore the stone base of a tall pavilion stands empty, its upper floors fallen onto the beach.",
+   "lore": "A small sect that studied the mirages of the northern sea built its pavilion here. In 497 its head walked out on the sea ice after a mirage of a city and never returned, and the disciples left."
+  },
+  "prov_r3_5_beast_lair_1": {
+   "name": "Hàn Thiềm Chử",
+   "name_han": "寒蟾渚",
+   "gloss": "Shoal of the Frost Toads",
+   "look": "Black peat pools are ringed with frosted moss, and pale toads sit motionless at the water's edge.",
+   "lore": "Frost toads sing here all summer and sleep frozen in the mud all winter. Their skin is a cooling medicine."
+  },
+  "prov_r3_6_village_1": {
+   "name": "Nghịch Triều Thôn",
+   "name_han": "逆潮村",
+   "gloss": "Village of the Backward Tide",
+   "look": "A village of grey roofs stands on a river where the tide turns the current back upstream twice a day.",
+   "lore": "The villagers fish the river and its backwaters and time their boats by the returning current. Children learn the tides before they learn to count."
+  },
+  "prov_r3_6_beast_lair_2": {
+   "name": "Dã Ngưu Chử",
+   "name_han": "野牛渚",
+   "gloss": "Shoal of the Wild Bison",
+   "look": "A trampled marsh island in the forest, its mud churned by heavy hooves.",
+   "lore": "Herds of wild forest bison graze here in summer. The villagers hunt one each autumn and no more."
+  },
+  "prov_r3_6_ruin_3": {
+   "name": "Tĩnh Tuyết Tự",
+   "name_han": "靜雪寺",
+   "gloss": "Temple of Still Snow",
+   "former": "sect",
+   "lived": [
+    260,
+    455
+   ],
+   "look": "Low stone halls stand half-buried in snow on the cold shore, a row of flat meditation stones before them.",
+   "lore": "Monks sat in the snow here and cultivated stillness. The last monk died in 455 with no novices, and the temple was left to the snow."
+  },
+  "prov_r3_7_beast_lair_1": {
+   "name": "Tuyết Bào Nguyên",
+   "name_han": "雪麅原",
+   "gloss": "Plain of the Snow Roe",
+   "look": "A tundra plain along a frozen river, crossed by the light tracks of roe deer.",
+   "lore": "Snow roe deer winter along the frozen banks. Hunters say they can run on thin ice without breaking it."
+  },
+  "prov_r3_8_spirit_vein_1": {
+   "name": "Tùng Linh Mạch",
+   "name_han": "松靈脈",
+   "gloss": "Vein of the Pine Spirit",
+   "element": "Wood",
+   "look": "A grove of very old pines stands among the tundra, its needles greener than any other trees on the coast.",
+   "lore": "Wood qi rises under the grove. Hunters say the oldest pine has a spirit, and they leave a little food at its roots."
+  },
+  "prov_r3_8_ruin_2": {
+   "name": "Bão Nhất Quán",
+   "name_han": "抱一觀",
+   "gloss": "Abbey of Embracing the One",
+   "former": "sect",
+   "lived": [
+    150,
+    488
+   ],
+   "look": "On a high crag a few roofless stone halls stand around a dry spring, prayer stones scattered on the ground.",
+   "lore": "A small Daoist abbey older than Không Sơn Viện kept its hermits here. Its spring dried, and the last abbot went down to Không Sơn Viện as a guest in 488."
+  },
+  "prov_r3_9_village_1": {
+   "name": "Việt Quất Thôn",
+   "name_han": "越橘村",
+   "gloss": "Lingonberry Village",
+   "look": "A small village of grey roofs in northern forest, with red berries spread on mats on every roof.",
+   "lore": "The villagers pick lingonberries and trap fur. Berry jam from here keeps all winter and travels to Hàn Tân."
+  },
+  "prov_r3_9_beast_lair_2": {
+   "name": "Phi Thử Lâm",
+   "name_han": "飛鼠林",
+   "gloss": "Forest of the Flying Squirrels",
+   "look": "A tall forest where flying squirrels glide from trunk to trunk at dusk.",
+   "lore": "Spirit flying squirrels nest here, and their skins make light gloves. They steal berries from the villagers' roofs."
+  },
+  "prov_r3_9_ruin_3": {
+   "name": "Hoành Kiều Trấn",
+   "name_han": "橫橋鎮",
+   "gloss": "Town of the Crossing Bridge",
+   "former": "town",
+   "lived": [
+    470,
+    1150
+   ],
+   "look": "A stone bridge spans a dry hollow in the forest beside the empty walls of a small town.",
+   "lore": "The town grew around a bridge on the river. A flood in 1148 moved the river west and left the bridge over dry ground, and the town followed the water."
+  }
  }
 }

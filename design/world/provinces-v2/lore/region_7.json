@@ -1,108 +1,735 @@
 {
  "region": 7,
  "provinces": {
-  "prov_le_hoa": {"name": "Lê Hoa", "name_han": "梨花", "gloss": "Pear Blossom", "lore": "Ice fields and the highest rock on the continent rise straight from a cold shore here, with a strip of rimed forest at their foot. The nuns of Lê Hoa Am are nearly the only people, and they live on the cold jade they cut high on the mountain and on the gifts of the villages below. Băng Tâm disciples pass through on their way to climb Lăng Tuyệt Phong before a long seclusion, and since Chúc Long Sơn rumbled in 1199 the hermitage has watched the north."},
-  "prov_p114": {"name": "Đỗ Quyên", "name_han": "杜鵑", "gloss": "Azalea", "lore": "Low forest and reed swamp run down to a grey shore of black shingle. The people fish and cut timber and leave the red azalea slopes untouched, because they hold the flowers to be the dead of the old eruption. Băng Tâm takes its tax here in dried fish and fir planks."},
-  "prov_p115": {"name": "Hoàng Oanh", "name_han": "黃鶯", "gloss": "Oriole", "lore": "A sheltered coastal valley of willow and fir, warmer than the land around it, where orioles spend the winter. Its people fish and weave the straw bird shelters, and they sell willow baskets up and down the coast. Nuns of Lê Hoa Am come down in the cold months only to hear the birds."},
-  "prov_p66": {"name": "Hòe Âm", "name_han": "槐蔭", "gloss": "Locust Shade", "lore": "River forest between the sea and the ice mountains, crossed by the old locust avenue that carries the hermitage's supplies uphill. Hunters, fishers and carters live here and answer to Lê Hoa Am. Every hunter still looks for the sealed cave with the sword's cold light that a man of the town found in 930 and lost again."},
-  "prov_r7_1": {"name": "Cực Băng Nguyên", "name_han": "極冰原", "gloss": "Ice Plain at the World's End", "lore": "A flat tongue of glacier at the very top of the continent, pushed into a frozen sea. No one lives here; the ice cracks too often to camp on. Băng Tâm sends novices here for a night alone to see if the cold breaks them."},
-  "prov_r7_2": {"name": "Tuyết Giác Hoang", "name_han": "雪角荒", "gloss": "Snow Cape Waste", "lore": "A small cape of glacier ending in a single white hill above the sea. Nothing grows and nothing is mined. Seal hunters use the hill as a sea mark and do not land."},
-  "prov_r7_3": {"name": "Vĩnh Đống Nguyên", "name_han": "永凍原", "gloss": "Plain of the Endless Freeze", "lore": "A broad sheet of ice that climbs from the shore to a lone summit. It has never thawed in living memory, and no one lives on it. Ice cultivators of Băng Tâm walk out here to sit where the Water qi is purest and the wind is worst."},
-  "prov_r7_4": {"name": "Chúc Âm Nguyên", "name_han": "燭陰原", "gloss": "Plain of the Torch Shade", "lore": "Glacier and black lava fields lie around the cone of Chúc Long Sơn, with a frozen lake and its coiled flood-dragon beyond. Hồ Thiên Phái stood here until the eruption of 425 buried it; since then the land has been empty. Băng Tâm holds it and forbids digging, and since the mountain rumbled in 1199 even the ice hunters stay away."},
-  "prov_r7_5": {"name": "Hàn Đài Nguyên", "name_han": "寒苔原", "gloss": "Cold Moss Plain", "lore": "A small spur of ice and moss tundra on the north coast. Reindeer cross it in summer, and a few hunters follow them. In winter it is left to the wind."},
-  "prov_r7_6": {"name": "Sóc Phong Nguyên", "name_han": "朔風原", "gloss": "Plain of the North Wind", "lore": "Flat moss tundra along the northern shore, swept by the north wind for most of the year. The only people are hunters who come for fur and walrus ivory in summer. A broken city of Hồ Thiên's age lies on its coast, and a frozen Water vein lies inland."},
-  "prov_r7_7": {"name": "Khúc Tùng Lâm", "name_han": "曲松林", "gloss": "Crooked Pine Woods", "lore": "Stunted, wind-twisted pine forest thins out here into open tundra. No village stands in it, because the snow owls of the plain take lambs, dogs and sometimes children. Trappers from Hàn Trạch work its edges in winter."},
-  "prov_r7_8": {"name": "Hàn Trạch", "name_han": "寒澤", "gloss": "Cold Marsh", "lore": "Fir forest broken by wide peat bogs on the edge of the tundra. Its people cut peat for fuel, pick cranberries and trap fur, and they sell all three to the coast. It is the northernmost village that pays Băng Tâm's tax in coin rather than fish."},
-  "prov_r7_9": {"name": "Lạc Tuyết Nguyên", "name_han": "落雪原", "gloss": "Plain of Falling Snow", "lore": "Half fir forest and half open tundra, where snow falls on more days than not. No one lives here, but a Wood vein in the forest draws Băng Tâm's herb gatherers in summer. The coast is low and drowned in ice for half the year."},
-  "prov_r7_10": {"name": "Lịch Thanh", "name_han": "瀝青", "gloss": "Pitch", "lore": "Inland pine forest on low ground, far from the sea. Its people tap the pines for resin, which they boil into pitch and sell for boats and torches. A strong Wood vein lies under the oldest stand of trees."},
-  "prov_r7_11": {"name": "Băng Khổng", "name_han": "冰孔", "gloss": "Ice Hole", "lore": "Fir forest on a cold coast where the sea freezes close to shore every winter. Its fishers set nets under the ice and live on the catch. The ruin of a small abbey stands in the woods inland."},
-  "prov_r7_12": {"name": "Sương Trạch Hoang", "name_han": "霜澤荒", "gloss": "Frost Marsh Waste", "lore": "Birch woods, frozen bog and tundra run to a bleak shore. It is empty now; the fur town on its coast was given up when the sable were gone. Hunters cross it in winter when the bogs bear weight."},
-  "prov_r7_13": {"name": "Hải Báo", "name_han": "海豹", "gloss": "Seal", "lore": "Wind-bent forest on a coast of low rocks where seals haul out. Its people hunt seals for oil, meat and hide, and they sell the oil as lamp fuel as far as Hòe Âm. Some tundra and bog lie behind the village."},
-  "prov_r7_14": {"name": "Côn Bố", "name_han": "昆布", "gloss": "Kelp", "lore": "Low coastal forest on ground that sinks below the sea in places. Its people cut kelp from the cold shallows and dry it on racks, eating it and selling it as fodder and medicine. The drowned wood inland floods every spring."},
-  "prov_r7_15": {"name": "Bộc Ngư", "name_han": "曝魚", "gloss": "Fish Drying", "lore": "Forest and fog-bound swamp on the west coast. Its people salt and dry cod for the long winter and for Băng Tâm's tax. The mist of the swamp woods is so thick that the village rings a bell at dusk to call its people home."},
-  "prov_r7_16": {"name": "Phiệt Mộc", "name_han": "筏木", "gloss": "Raft Timber", "lore": "Fir forest and swamp along a sheltered shore. Its people fell timber and float it down the coast in great rafts to Hòe Âm and beyond. A great elk lives in the woods behind the village, and loggers cut around its paths."},
-  "prov_r7_17": {"name": "Hải Nhai Lĩnh", "name_han": "海崖嶺", "gloss": "Sea Cliff Ridge", "lore": "A short range drops straight into the eastern sea in cliffs. No one lives here now, but iron is dug where the rock meets the water. A ruined fort on the cliffs once watched for pirates."},
-  "prov_r7_18": {"name": "Thanh Hàn Lĩnh", "name_han": "清寒嶺", "gloss": "Clear Cold Ridge", "lore": "Forested foothills and bare ridges with a clear river running to the sea. Nobody farms it; hunters from Hòe Âm work its slopes. The old pines on its cliffs are said to be older than Băng Tâm."},
-  "prov_r7_19": {"name": "U Nguyệt Lĩnh", "name_han": "幽月嶺", "gloss": "Ridge of the Dim Moon", "lore": "Bare high mountains over the eastern coast, home to Băng Phách Mạch, the Ice Soul vein. Băng Tâm keeps the land empty except for its vein keepers and a moonstone mine. Ice beasts drawn by the vein's cold roam the passes."},
-  "prov_r7_20": {"name": "Tích Tuyết Lĩnh", "name_han": "積雪嶺", "gloss": "Ridge of Deep Snow", "lore": "Mountains rising from the coast where snow lies deep until midsummer. Cold iron is mined in a single shaft, and the miners winter at Hoàng Oanh. Nothing else lives here but goats."},
-  "prov_r7_21": {"name": "Liệt Phong Lĩnh", "name_han": "烈風嶺", "gloss": "Ridge of Fierce Wind", "lore": "High bare mountains where the wind off the sea never stops. A stockade from Hồ Thiên's age lies in the lower pass. No one lives here, and Băng Tâm disciples come only to train in the wind."},
-  "prov_r7_22": {"name": "Hàn Khê", "name_han": "寒溪", "gloss": "Cold Brook", "lore": "A river valley of maple and fir between the mountains. Its people fish trout, burn charcoal and grow a little barley on the warm slopes. It is the last farming valley before the high ice."},
-  "prov_r7_23": {"name": "Thương Sam Lĩnh", "name_han": "蒼杉嶺", "gloss": "Grey Fir Ridge", "lore": "Grey fir forest climbs to bare rock here. Silver is mined at the foot of the ridge. No village stands in it; the miners come from Hàn Khê."},
-  "prov_r7_24": {"name": "Băng Hà Lĩnh", "name_han": "冰河嶺", "gloss": "Glacier River Ridge", "lore": "High mountains where slow glaciers grind down into the valleys. A Băng Tâm fort that once guarded the road to Băng Phách Mạch lies broken in the pass. The land is empty."},
-  "prov_r7_25": {"name": "Ngân Tuyết Lĩnh", "name_han": "銀雪嶺", "gloss": "Silver Snow Ridge", "lore": "High mountains whose snow shines silver at dusk. An ice-crystal cavern is worked in the lower rock. Only miners and a few Băng Tâm sword cultivators stay here, and only in summer."},
-  "prov_r7_26": {"name": "Vân Tiêu Lĩnh", "name_han": "雲霄嶺", "gloss": "Ridge Above the Clouds", "lore": "A wall of high mountains rising almost from the western shore to nearly four thousand metres. Tin is mined in the low valleys. No one lives above the clouds."},
-  "prov_r7_27": {"name": "Lam Hỏa Lĩnh", "name_han": "藍火嶺", "gloss": "Blue Fire Ridge", "lore": "High mountains with a small volcanic heart, where Hàn Diễm Khẩu breathes cold blue flame through the glacier. Alchemists come for its heat and leave quickly. The ice here is treacherous, and no one lives on it."},
-  "prov_r7_28": {"name": "Hàn Thạch Lĩnh", "name_han": "寒石嶺", "gloss": "Cold Stone Ridge", "lore": "Bare high mountains in the heart of the range. Silver is mined at the edge of the ice. No one lives here; the cold splits stone in a single night."},
-  "prov_r7_29": {"name": "Đoạn Vân Lĩnh", "name_han": "斷雲嶺", "gloss": "Ridge of Broken Clouds", "lore": "High mountains where the clouds from the sea break on the summits. A lodestone mine is worked here for compass needles and formation plates. No one stays the winter."},
-  "prov_r7_30": {"name": "Cửu Chuyển Lĩnh", "name_han": "九轉嶺", "gloss": "Ridge of Nine Turns", "lore": "High mountains around Hồi Lộ Phong and its winding ice stair. No one lives here. Băng Tâm disciples climb the stair roped together, and the ridge is named for its turns."},
-  "prov_r7_31": {"name": "Tuyệt Bích Lĩnh", "name_han": "絕壁嶺", "gloss": "Ridge of Sheer Walls", "lore": "Sheer high mountains above the desert side of the range. A gold vein is worked high on the rock, and a pass fort lies buried by snow. No one lives here."},
-  "prov_r7_32": {"name": "Vọng Tinh Lĩnh", "name_han": "望星嶺", "gloss": "Star-Watching Ridge", "lore": "High mountains on the border with Thiên Xu's land, looking down on the wild vein Tinh Tủy Mạch. No one lives here, and Băng Tâm has kept its people off the ridge since its claim to the vein was rejected in 1188. An agate cavern is still worked on the near side."},
-  "prov_r7_33": {"name": "Băng Giản Câu", "name_han": "冰澗溝", "gloss": "Ice Brook Gully", "lore": "Mountains cut by an icy river that runs down toward the desert, with red rock at their southern foot. Copper is mined in the gully. A beacon fort broken in the Desert Road War still stands on a spur."},
-  "prov_r7_34": {"name": "Vạn Nhận Lĩnh", "name_han": "萬仞嶺", "gloss": "Ridge of Ten Thousand Fathoms", "lore": "High mountains falling to the southern sea in great cliffs. No one lives here and no road crosses it. Seabirds nest on its walls in their thousands."}
+  "prov_le_hoa": {
+   "name": "Lê Hoa",
+   "name_han": "梨花",
+   "gloss": "Pear Blossom",
+   "lore": "Ice fields and the highest rock on the continent rise straight from a cold shore here, with a strip of rimed forest at their foot. The nuns of Lê Hoa Am are nearly the only people, and they live on the cold jade they cut high on the mountain and on the gifts of the villages below. Băng Tâm disciples pass through on their way to climb Lăng Tuyệt Phong before a long seclusion, and since Chúc Long Sơn rumbled in 1199 the hermitage has watched the north."
+  },
+  "prov_p114": {
+   "name": "Đỗ Quyên",
+   "name_han": "杜鵑",
+   "gloss": "Azalea",
+   "lore": "Low forest and reed swamp run down to a grey shore of black shingle. The people fish and cut timber and leave the red azalea slopes untouched, because they hold the flowers to be the dead of the old eruption. Băng Tâm takes its tax here in dried fish and fir planks."
+  },
+  "prov_p115": {
+   "name": "Hoàng Oanh",
+   "name_han": "黃鶯",
+   "gloss": "Oriole",
+   "lore": "A sheltered coastal valley of willow and fir, warmer than the land around it, where orioles spend the winter. Its people fish and weave the straw bird shelters, and they sell willow baskets up and down the coast. Nuns of Lê Hoa Am come down in the cold months only to hear the birds."
+  },
+  "prov_p66": {
+   "name": "Hòe Âm",
+   "name_han": "槐蔭",
+   "gloss": "Locust Shade",
+   "lore": "River forest between the sea and the ice mountains, crossed by the old locust avenue that carries the hermitage's supplies uphill. Hunters, fishers and carters live here and answer to Lê Hoa Am. Every hunter still looks for the sealed cave with the sword's cold light that a man of the town found in 930 and lost again."
+  },
+  "prov_r7_1": {
+   "name": "Cực Băng Nguyên",
+   "name_han": "極冰原",
+   "gloss": "Ice Plain at the World's End",
+   "lore": "A flat tongue of glacier at the very top of the continent, pushed into a frozen sea. No one lives here; the ice cracks too often to camp on. Băng Tâm sends novices here for a night alone to see if the cold breaks them."
+  },
+  "prov_r7_2": {
+   "name": "Tuyết Giác Hoang",
+   "name_han": "雪角荒",
+   "gloss": "Snow Cape Waste",
+   "lore": "A small cape of glacier ending in a single white hill above the sea. Nothing grows and nothing is mined. Seal hunters use the hill as a sea mark and do not land."
+  },
+  "prov_r7_3": {
+   "name": "Vĩnh Đống Nguyên",
+   "name_han": "永凍原",
+   "gloss": "Plain of the Endless Freeze",
+   "lore": "A broad sheet of ice that climbs from the shore to a lone summit. It has never thawed in living memory, and no one lives on it. Ice cultivators of Băng Tâm walk out here to sit where the Water qi is purest and the wind is worst."
+  },
+  "prov_r7_4": {
+   "name": "Chúc Âm Nguyên",
+   "name_han": "燭陰原",
+   "gloss": "Plain of the Torch Shade",
+   "lore": "Glacier and black lava fields lie around the cone of Chúc Long Sơn, with a frozen lake and its coiled flood-dragon beyond. Hồ Thiên Phái stood here until the eruption of 425 buried it; since then the land has been empty. Băng Tâm holds it and forbids digging, and since the mountain rumbled in 1199 even the ice hunters stay away."
+  },
+  "prov_r7_5": {
+   "name": "Hàn Đài Nguyên",
+   "name_han": "寒苔原",
+   "gloss": "Cold Moss Plain",
+   "lore": "A small spur of ice and moss tundra on the north coast. Reindeer cross it in summer, and a few hunters follow them. In winter it is left to the wind."
+  },
+  "prov_r7_6": {
+   "name": "Sóc Phong Nguyên",
+   "name_han": "朔風原",
+   "gloss": "Plain of the North Wind",
+   "lore": "Flat moss tundra along the northern shore, swept by the north wind for most of the year. The only people are hunters who come for fur and walrus ivory in summer. A broken city of Hồ Thiên's age lies on its coast, and a frozen Water vein lies inland."
+  },
+  "prov_r7_7": {
+   "name": "Khúc Tùng Lâm",
+   "name_han": "曲松林",
+   "gloss": "Crooked Pine Woods",
+   "lore": "Stunted, wind-twisted pine forest thins out here into open tundra. No village stands in it, because the snow owls of the plain take lambs, dogs and sometimes children. Trappers from Hàn Trạch work its edges in winter."
+  },
+  "prov_r7_8": {
+   "name": "Hàn Trạch",
+   "name_han": "寒澤",
+   "gloss": "Cold Marsh",
+   "lore": "Fir forest broken by wide peat bogs on the edge of the tundra. Its people cut peat for fuel, pick cranberries and trap fur, and they sell all three to the coast. It is the northernmost village that pays Băng Tâm's tax in coin rather than fish."
+  },
+  "prov_r7_9": {
+   "name": "Lạc Tuyết Nguyên",
+   "name_han": "落雪原",
+   "gloss": "Plain of Falling Snow",
+   "lore": "Half fir forest and half open tundra, where snow falls on more days than not. No one lives here, but a Wood vein in the forest draws Băng Tâm's herb gatherers in summer. The coast is low and drowned in ice for half the year."
+  },
+  "prov_r7_10": {
+   "name": "Lịch Thanh",
+   "name_han": "瀝青",
+   "gloss": "Pitch",
+   "lore": "Inland pine forest on low ground, far from the sea. Its people tap the pines for resin, which they boil into pitch and sell for boats and torches. A strong Wood vein lies under the oldest stand of trees."
+  },
+  "prov_r7_11": {
+   "name": "Băng Khổng",
+   "name_han": "冰孔",
+   "gloss": "Ice Hole",
+   "lore": "Fir forest on a cold coast where the sea freezes close to shore every winter. Its fishers set nets under the ice and live on the catch. The ruin of a small abbey stands in the woods inland."
+  },
+  "prov_r7_12": {
+   "name": "Sương Trạch Hoang",
+   "name_han": "霜澤荒",
+   "gloss": "Frost Marsh Waste",
+   "lore": "Birch woods, frozen bog and tundra run to a bleak shore. It is empty now; the fur town on its coast was given up when the sable were gone. Hunters cross it in winter when the bogs bear weight."
+  },
+  "prov_r7_13": {
+   "name": "Hải Báo",
+   "name_han": "海豹",
+   "gloss": "Seal",
+   "lore": "Wind-bent forest on a coast of low rocks where seals haul out. Its people hunt seals for oil, meat and hide, and they sell the oil as lamp fuel as far as Hòe Âm. Some tundra and bog lie behind the village."
+  },
+  "prov_r7_14": {
+   "name": "Côn Bố",
+   "name_han": "昆布",
+   "gloss": "Kelp",
+   "lore": "Low coastal forest on ground that sinks below the sea in places. Its people cut kelp from the cold shallows and dry it on racks, eating it and selling it as fodder and medicine. The drowned wood inland floods every spring."
+  },
+  "prov_r7_15": {
+   "name": "Bộc Ngư",
+   "name_han": "曝魚",
+   "gloss": "Fish Drying",
+   "lore": "Forest and fog-bound swamp on the west coast. Its people salt and dry cod for the long winter and for Băng Tâm's tax. The mist of the swamp woods is so thick that the village rings a bell at dusk to call its people home."
+  },
+  "prov_r7_16": {
+   "name": "Phiệt Mộc",
+   "name_han": "筏木",
+   "gloss": "Raft Timber",
+   "lore": "Fir forest and swamp along a sheltered shore. Its people fell timber and float it down the coast in great rafts to Hòe Âm and beyond. A great elk lives in the woods behind the village, and loggers cut around its paths."
+  },
+  "prov_r7_17": {
+   "name": "Hải Nhai Lĩnh",
+   "name_han": "海崖嶺",
+   "gloss": "Sea Cliff Ridge",
+   "lore": "A short range drops straight into the eastern sea in cliffs. No one lives here now, but iron is dug where the rock meets the water. A ruined fort on the cliffs once watched for pirates."
+  },
+  "prov_r7_18": {
+   "name": "Thanh Hàn Lĩnh",
+   "name_han": "清寒嶺",
+   "gloss": "Clear Cold Ridge",
+   "lore": "Forested foothills and bare ridges with a clear river running to the sea. Nobody farms it; hunters from Hòe Âm work its slopes. The old pines on its cliffs are said to be older than Băng Tâm."
+  },
+  "prov_r7_19": {
+   "name": "U Nguyệt Lĩnh",
+   "name_han": "幽月嶺",
+   "gloss": "Ridge of the Dim Moon",
+   "lore": "Bare high mountains over the eastern coast, home to Băng Phách Mạch, the Ice Soul vein. Băng Tâm keeps the land empty except for its vein keepers and a moonstone mine. Ice beasts drawn by the vein's cold roam the passes."
+  },
+  "prov_r7_20": {
+   "name": "Tích Tuyết Lĩnh",
+   "name_han": "積雪嶺",
+   "gloss": "Ridge of Deep Snow",
+   "lore": "Mountains rising from the coast where snow lies deep until midsummer. Cold iron is mined in a single shaft, and the miners winter at Hoàng Oanh. Nothing else lives here but goats."
+  },
+  "prov_r7_21": {
+   "name": "Liệt Phong Lĩnh",
+   "name_han": "烈風嶺",
+   "gloss": "Ridge of Fierce Wind",
+   "lore": "High bare mountains where the wind off the sea never stops. A stockade from Hồ Thiên's age lies in the lower pass. No one lives here, and Băng Tâm disciples come only to train in the wind."
+  },
+  "prov_r7_22": {
+   "name": "Hàn Khê",
+   "name_han": "寒溪",
+   "gloss": "Cold Brook",
+   "lore": "A river valley of maple and fir between the mountains. Its people fish trout, burn charcoal and grow a little barley on the warm slopes. It is the last farming valley before the high ice."
+  },
+  "prov_r7_23": {
+   "name": "Thương Sam Lĩnh",
+   "name_han": "蒼杉嶺",
+   "gloss": "Grey Fir Ridge",
+   "lore": "Grey fir forest climbs to bare rock here. Silver is mined at the foot of the ridge. No village stands in it; the miners come from Hàn Khê."
+  },
+  "prov_r7_24": {
+   "name": "Băng Hà Lĩnh",
+   "name_han": "冰河嶺",
+   "gloss": "Glacier River Ridge",
+   "lore": "High mountains where slow glaciers grind down into the valleys. A Băng Tâm fort that once guarded the road to Băng Phách Mạch lies broken in the pass. The land is empty."
+  },
+  "prov_r7_25": {
+   "name": "Ngân Tuyết Lĩnh",
+   "name_han": "銀雪嶺",
+   "gloss": "Silver Snow Ridge",
+   "lore": "High mountains whose snow shines silver at dusk. An ice-crystal cavern is worked in the lower rock. Only miners and a few Băng Tâm sword cultivators stay here, and only in summer."
+  },
+  "prov_r7_26": {
+   "name": "Vân Tiêu Lĩnh",
+   "name_han": "雲霄嶺",
+   "gloss": "Ridge Above the Clouds",
+   "lore": "A wall of high mountains rising almost from the western shore to nearly four thousand metres. Tin is mined in the low valleys. No one lives above the clouds."
+  },
+  "prov_r7_27": {
+   "name": "Lam Hỏa Lĩnh",
+   "name_han": "藍火嶺",
+   "gloss": "Blue Fire Ridge",
+   "lore": "High mountains with a small volcanic heart, where Hàn Diễm Khẩu breathes cold blue flame through the glacier. Alchemists come for its heat and leave quickly. The ice here is treacherous, and no one lives on it."
+  },
+  "prov_r7_28": {
+   "name": "Hàn Thạch Lĩnh",
+   "name_han": "寒石嶺",
+   "gloss": "Cold Stone Ridge",
+   "lore": "Bare high mountains in the heart of the range. Silver is mined at the edge of the ice. No one lives here; the cold splits stone in a single night."
+  },
+  "prov_r7_29": {
+   "name": "Đoạn Vân Lĩnh",
+   "name_han": "斷雲嶺",
+   "gloss": "Ridge of Broken Clouds",
+   "lore": "High mountains where the clouds from the sea break on the summits. A lodestone mine is worked here for compass needles and formation plates. No one stays the winter."
+  },
+  "prov_r7_30": {
+   "name": "Cửu Chuyển Lĩnh",
+   "name_han": "九轉嶺",
+   "gloss": "Ridge of Nine Turns",
+   "lore": "High mountains around Hồi Lộ Phong and its winding ice stair. No one lives here. Băng Tâm disciples climb the stair roped together, and the ridge is named for its turns."
+  },
+  "prov_r7_31": {
+   "name": "Tuyệt Bích Lĩnh",
+   "name_han": "絕壁嶺",
+   "gloss": "Ridge of Sheer Walls",
+   "lore": "Sheer high mountains above the desert side of the range. A gold vein is worked high on the rock, and a pass fort lies buried by snow. No one lives here."
+  },
+  "prov_r7_32": {
+   "name": "Vọng Tinh Lĩnh",
+   "name_han": "望星嶺",
+   "gloss": "Star-Watching Ridge",
+   "lore": "High mountains on the border with Thiên Xu's land, looking down on the wild vein Tinh Tủy Mạch. No one lives here, and Băng Tâm has kept its people off the ridge since its claim to the vein was rejected in 1188. An agate cavern is still worked on the near side."
+  },
+  "prov_r7_33": {
+   "name": "Băng Giản Câu",
+   "name_han": "冰澗溝",
+   "gloss": "Ice Brook Gully",
+   "lore": "Mountains cut by an icy river that runs down toward the desert, with red rock at their southern foot. Copper is mined in the gully. A beacon fort broken in the Desert Road War still stands on a spur."
+  },
+  "prov_r7_34": {
+   "name": "Vạn Nhận Lĩnh",
+   "name_han": "萬仞嶺",
+   "gloss": "Ridge of Ten Thousand Fathoms",
+   "lore": "High mountains falling to the southern sea in great cliffs. No one lives here and no road crosses it. Seabirds nest on its walls in their thousands."
+  }
  },
  "places": {
-  "prov_le_hoa_mine_1": {"name": "Hàn Ngọc Khoáng", "name_han": "寒玉礦", "gloss": "Cold Jade Mine", "look": "A narrow adit cut into a glacier-polished wall far above the clouds, its mouth hung with prayer strips stiff with frost.", "lore": "The nuns of Lê Hoa Am cut cold jade (hàn ngọc) here, a stone that stays cold in the hand. Only nuns may enter, and they work in silence."},
-  "prov_p114_forest_1": {"name": "Hàn Sam Lâm", "name_han": "寒杉林", "gloss": "Cold Fir Wood", "look": "Dark firs stand close on low ground behind the shore, their roots in black volcanic grit.", "lore": "The woodcutters of Đỗ Quyên cut their planks here and leave the azalea slopes alone. Old trees still carry scorch marks from the eruption."},
-  "prov_p115_forest_1": {"name": "Dã Liễu Lâm", "name_han": "野柳林", "gloss": "Wild Willow Wood", "look": "A tangle of grey willows and firs fills the valley floor, bare branches hung with straw bird shelters.", "lore": "The orioles of Hoàng Oanh roost here in winter. The village cuts willow for baskets only in spring, after the birds have gone."},
-  "prov_p66_beast_lair_1": {"name": "Hào Trư Cương", "name_han": "豪豬岡", "gloss": "Porcupine Rise", "look": "A low forested rise where the bark of every trunk is torn and black quills as long as arrows lie in the leaf litter.", "lore": "A spirit porcupine the size of an ox lives here and throws its quills like darts. Hòe Âm's hunters buy the quills for fletching and never go for the beast itself."},
-  "prov_p66_minor_seat_p": {"name": "Tầm Kiếm Đường", "name_han": "尋劍堂", "gloss": "Hall of the Sword Seekers", "look": "A long timber hall with a stone hearth stands on a wooded bluff over the sea, its walls hung with mountain maps marked in red.", "lore": "A Tiêu-clan hunter turned away from Lê Hoa Am's gate founded this hall in 1162 to take the men the hermitage will not. Its members hunt, guide and search the mountain for the sealed cave of 930, and Lê Hoa Am tolerates them under Băng Tâm's licence.", "sect": {"key": "tam_kiem", "name": "Tầm Kiếm Đường", "name_han": "尋劍堂", "gloss": "Hall of the Sword Seekers", "alignment": "trung lập", "leans": ["Metal", "Water"], "craft": "mountain hunters and guides who seek a lost sword cave", "lord": "bang_tam", "founded": 1162}},
-  "prov_r7_1_peak_1": {"name": "Băng Trụ Phong", "name_han": "冰柱峰", "gloss": "Ice Pillar Peak", "look": "A lone pillar of blue ice stands above the flat glacier, streaked white by the wind.", "lore": "Its Water qi is cold and clean, and novices sent to the plain sit at its foot. Those who last the night carve a mark in its base."},
-  "prov_r7_2_peak_1": {"name": "Bạch Thủ Phong", "name_han": "白首峰", "gloss": "Peak of the White Head", "look": "A round white hill of ice rises at the tip of the cape like an old man's head.", "lore": "Seal hunters steer by it and call it the old man. Its weak Water qi draws nothing but seabirds."},
-  "prov_r7_3_peak_1": {"name": "Phong Tuyết Đỉnh", "name_han": "風雪頂", "gloss": "Summit of Wind and Snow", "look": "A broad ice summit always wrapped in blowing snow, its top seen only on a few still days a year.", "lore": "Băng Tâm's ice cultivators sit here for the pure Water qi of the endless freeze. The wind has taken more than one careless disciple off the top."},
-  "prov_r7_5_peak_1": {"name": "Băng Bích Nhai", "name_han": "冰壁崖", "gloss": "Ice Wall Cliff", "look": "A cliff of grey rock sheathed in a curtain of ice faces the sea.", "lore": "Its Water qi gathers in the ice curtain. Hunters shelter at its foot in summer storms."},
-  "prov_r7_6_spirit_vein_1": {"name": "Đống Thủy Nhãn", "name_han": "凍水眼", "gloss": "Eye of the Frozen Water", "look": "A perfectly round pool in the moss tundra that never fully freezes, its black water steaming faintly in the cold.", "lore": "A Water vein rises here through the frozen ground. Băng Tâm has never built over it, and hunters drink from it only after making an offering."},
-  "prov_r7_6_ruin_2": {"name": "Bắc Đình Thành", "name_han": "北庭城", "gloss": "City of the Northern Court", "look": "Low stone walls trace a square on the tundra shore, half buried in moss, with the stump of a gate tower facing the sea.", "lore": "Hồ Thiên Phái built this fur and ivory city on the northern shore around 260. After the eruption of 425 buried the school, the trade died and the last families left within a few years.", "former": "city", "lived": [260, 432]},
-  "prov_r7_7_beast_lair_1": {"name": "Tuyết Hiêu Nguyên", "name_han": "雪鴞原", "gloss": "Snow Owl Plain", "look": "Open tundra dotted with boulders, each one crowned with white droppings and small bones.", "lore": "Snow owls as big as eagles hunt here, led by a spirit owl that flies by day. Trappers never cross the plain in the open."},
-  "prov_r7_8_village_1": {"name": "Hàn Trạch Thôn", "name_han": "寒澤村", "gloss": "Cold Marsh Village", "look": "Turf-roofed houses on a dry rise above the bog, with stacks of black peat drying beside every door.", "lore": "The villagers cut peat, pick cranberries and trap fur. They say the bog keeps everything, and now and then they cut out a perfectly kept bone or blade."},
-  "prov_r7_8_forest_2": {"name": "Hoàng Tùng Lâm", "name_han": "黃松林", "gloss": "Yellow Larch Wood", "look": "A thin wood of larches on wet ground that turns bright gold every autumn and stands bare all winter.", "lore": "Hàn Trạch's trappers set their lines here. Larch wood does not rot, and the village's bog paths are laid with it."},
-  "prov_r7_9_spirit_vein_1": {"name": "Tùng Tuyết Mạch", "name_han": "松雪脈", "gloss": "Vein of Snow and Pine", "look": "A ring of tall pines stands green in a land of stunted trees, and snow melts in a circle around them.", "lore": "A Wood vein feeds the ring of pines. Băng Tâm's herb gatherers pick the cold-root that grows only here."},
-  "prov_r7_10_village_1": {"name": "Lịch Thanh Thôn", "name_han": "瀝青村", "gloss": "Pitch Village", "look": "Log houses stand in a clearing of scarred pines, the air thick with the smoke of pitch kettles.", "lore": "The villagers tap pines for resin and boil it into pitch. Every pitch kettle in the village is lit from the same fire, which has not gone out since the village was founded."},
-  "prov_r7_10_spirit_vein_2": {"name": "Thụ Tâm Mạch", "name_han": "樹心脈", "gloss": "Tree-Heart Vein", "look": "A vast hollow pine stands in the oldest grove, green light seeping from cracks in its bark.", "lore": "A Wood vein rises through the heart of the old tree. The resin tappers never cut it, and they say its sap heals burns."},
-  "prov_r7_11_village_1": {"name": "Băng Khổng Thôn", "name_han": "冰孔村", "gloss": "Ice Hole Village", "look": "Wooden houses stand on a cold shore lined with racks of nets, and in winter a row of fishing holes runs out across the sea ice.", "lore": "Its fishers set nets under the sea ice and haul them through holes. They learned the craft from Hàn Giang's fishers long ago and still say a word for them before each haul."},
-  "prov_r7_11_forest_2": {"name": "Mặc Sam Lâm", "name_han": "墨杉林", "gloss": "Ink Fir Wood", "look": "Firs so dark they look black stand close together, and little light reaches the snow below them.", "lore": "Băng Khổng cuts its boat timber here. Children are told the ruined abbey's ghosts walk under these trees."},
-  "prov_r7_11_ruin_3": {"name": "Tuyết Ẩn Quán", "name_han": "雪隱觀", "gloss": "Abbey of the Snow Recluse", "look": "Three roofless stone halls stand in a forest clearing, with a meditation platform heaped with snow in the middle.", "lore": "A small band of ice hermits founded this abbey in 520. In 690 its last master went into seclusion and never came out; his few disciples went down to the coast, and the abbey fell in.", "former": "sect", "lived": [520, 690]},
-  "prov_r7_12_forest_1": {"name": "Hoa Bì Lâm", "name_han": "樺皮林", "gloss": "Birch Bark Wood", "look": "White birches stand in frozen bog, their peeling bark bright against the snow.", "lore": "Hunters cut the bark to roof shelters and make canoes. The wood is the last before the open tundra."},
-  "prov_r7_12_ruin_2": {"name": "Điêu Cừu Trấn", "name_han": "貂裘鎮", "gloss": "Sable Coat Town", "look": "A row of collapsed log warehouses lines an iced-in harbour on the tundra shore, a rusted fur press still standing among them.", "lore": "This fur town grew from 620 on the sable trade of the north coast. By 1065 the sable were trapped out and the harbour iced in each year, and the last families moved south to Hòe Âm.", "former": "town", "lived": [620, 1065]},
-  "prov_r7_13_village_1": {"name": "Hải Báo Thôn", "name_han": "海豹村", "gloss": "Seal Village", "look": "Low stone houses roofed with turf crowd a rocky shore, seal hides stretched on frames between them.", "lore": "The villagers hunt seals for oil, meat and hide. A seal skull is nailed above every door, and the village takes no more seals than it can eat in a winter."},
-  "prov_r7_13_forest_2": {"name": "Ngọa Tùng Lâm", "name_han": "臥松林", "gloss": "Wood of the Lying Pines", "look": "Pines bent flat by the sea wind crawl over the ground, their crowns all pointing inland.", "lore": "The sea wind is so steady here that Hải Báo's hunters steer by the pointing pines when fog hides the shore. Seals drag themselves up under the low branches to give birth, and the village does not hunt inside the wood."},
-  "prov_r7_14_village_1": {"name": "Côn Bố Thôn", "name_han": "昆布村", "gloss": "Kelp Village", "look": "Long racks of drying kelp line a low shore, and the houses behind them smell of the sea.", "lore": "The villagers cut kelp from the cold shallows and dry it for food, fodder and medicine. Băng Tâm's alchemists buy the finest blades for cold pills."},
-  "prov_r7_14_forest_2": {"name": "Trầm Mộc Lâm", "name_han": "沉木林", "gloss": "Drowned Wood", "look": "Dead grey trunks stand in still black water below sea level, with living firs on the higher ground around them.", "lore": "The wood floods with snowmelt every spring. Its sunken logs are cut out for timber that never rots."},
-  "prov_r7_15_village_1": {"name": "Bộc Ngư Thôn", "name_han": "曝魚村", "gloss": "Fish-Drying Village", "look": "Racks of split cod hang drying along a foggy shore in front of plank houses, and a bell hangs on a post at the village edge.", "lore": "Its people salt and dry cod for the winter and for the tax. The bell is rung at dusk so no one is lost in the swamp fog."},
-  "prov_r7_15_forest_2": {"name": "Trầm Vụ Lâm", "name_han": "沉霧林", "gloss": "Wood of Sunken Fog", "look": "Firs and swamp pools vanish into a white fog that lies low on the ground and rarely lifts.", "lore": "People who wander from the path here are found days later, if at all. The fishers of Bộc Ngư go in only roped together."},
-  "prov_r7_16_village_1": {"name": "Phiệt Mộc Thôn", "name_han": "筏木村", "gloss": "Raft Timber Village", "look": "Great rafts of fir logs lie moored along the shore below a village of loggers' huts.", "lore": "The villagers fell timber and float it down the coast in rafts. A raft master must make the trip to Hòe Âm ten times before he may build his own raft."},
-  "prov_r7_16_beast_lair_2": {"name": "Mi Lộc Lâm", "name_han": "麋鹿林", "gloss": "Elk Wood", "look": "A swampy wood with broad trails trampled through it and young trees stripped of bark at head height.", "lore": "A spirit elk with antlers wide as a cart lives here. Loggers cut around its trails, and when it bellows in autumn they stay out of the wood."},
-  "prov_r7_17_peak_1": {"name": "Kình Bối Phong", "name_han": "鯨背峰", "gloss": "Whale-Back Peak", "look": "A long, smooth grey summit humps over the sea like the back of a surfacing whale.", "lore": "Metal and Water qi meet on its bare rock above the sea. Sailors on the eastern coast steer by it."},
-  "prov_r7_17_mine_2": {"name": "Hải Thiết Khoáng", "name_han": "海鐵礦", "gloss": "Sea Iron Mine", "look": "Adits open in a rust-red cliff just above the surf, with a wooden chute running down to a landing.", "lore": "Iron ore is loaded straight onto boats here. The salt wind rusts every tool, and the miners say the iron is rust before it is dug."},
-  "prov_r7_17_ruin_3": {"name": "Vọng Triều Bảo", "name_han": "望潮堡", "gloss": "Tide-Watching Fort", "look": "A broken tower of grey stone stands on a cliff edge above the sea, its seaward wall gone.", "lore": "Băng Tâm built this watch fort around 650 against the pirates of Thôn Hải Môn. After the Pirate Purge of 781 it was not needed, and the garrison was withdrawn in 790; storms have broken it since.", "former": "fort", "lived": [650, 790]},
-  "prov_r7_18_peak_1": {"name": "Khô Tùng Nhai", "name_han": "枯松崖", "gloss": "Dead Pine Cliff", "look": "A sheer cliff of pale rock with a single dead pine hanging upside down from a crack near the top.", "lore": "Its Metal qi gathers in the bare rock. Hunters of Hòe Âm say the pine was already dead when Băng Tâm came."},
-  "prov_r7_19_mine_1": {"name": "Nguyệt Thạch Khoáng", "name_han": "月石礦", "gloss": "Moonstone Mine", "look": "A small mine on a mountainside above the sea, its spoil heap glittering faintly blue at night.", "lore": "Băng Tâm digs moonstone here, a cold milky stone that holds the qi of Băng Phách Mạch nearby. Miners work in pairs because of the beasts that roam toward the vein."},
-  "prov_r7_20_peak_1": {"name": "Hàn Ưng Phong", "name_han": "寒鷹峰", "gloss": "Cold Eagle Peak", "look": "A hooked summit of dark rock juts out over the valley like an eagle's beak.", "lore": "Metal qi gathers in its hard rock. Eagles nest under the hook and attack anyone who climbs near."},
-  "prov_r7_20_mine_2": {"name": "Hàn Thiết Khoáng", "name_han": "寒鐵礦", "gloss": "Cold Iron Mine", "look": "A single shaft opens in a snowfield under a timber shed, with frost thick on the ore carts.", "lore": "The iron here takes and keeps cold, and Băng Tâm's smiths use it for sword cores. The miners leave before the first snow."},
-  "prov_r7_21_peak_1": {"name": "Bão Tuyết Phong", "name_han": "抱雪峰", "gloss": "Snow-Embracing Peak", "look": "A high peak whose two arms of rock curve around a deep bowl of snow.", "lore": "Water qi gathers in the snow bowl. Băng Tâm disciples train their sword forms in the wind on its rim."},
-  "prov_r7_21_ruin_2": {"name": "Lũng Đầu Trại", "name_han": "隴頭寨", "gloss": "Stockade at the Ridge Head", "look": "A ring of fallen stone walls stands at the head of a pass, with the burned stumps of timber gates.", "lore": "Hồ Thiên Phái built this stockade around 260 to guard the pass to its coast. After the eruption of 425 buried the school, the garrison went home and never came back.", "former": "fort", "lived": [260, 426]},
-  "prov_r7_22_village_1": {"name": "Hàn Khê Thôn", "name_han": "寒溪村", "gloss": "Cold Brook Village", "look": "Stone houses and barley strips line a fast clear river, with charcoal mounds smoking on the slopes above.", "lore": "Its people fish trout, burn charcoal and grow barley. They send their charcoal down to Hòe Âm and their sons up to the mines."},
-  "prov_r7_22_forest_2": {"name": "Phong Diệp Lâm", "name_han": "楓葉林", "gloss": "Maple Wood", "look": "A wood of maples climbs the valley side and turns blood red for a few weeks each autumn.", "lore": "Hàn Khê's charcoal burners work here. The red leaves are said to mark the last warm ground before the ice."},
-  "prov_r7_23_peak_1": {"name": "Kiếm Tích Phong", "name_han": "劍脊峰", "gloss": "Sword-Spine Peak", "look": "A thin, sharp ridge of grey rock runs up to a narrow summit like the spine of a blade.", "lore": "Its Metal qi draws Băng Tâm's sword cultivators, who walk the edge as a test of balance."},
-  "prov_r7_23_mine_2": {"name": "Ngân Ti Khoáng", "name_han": "銀絲礦", "gloss": "Silver Wire Mine", "look": "A small mine at the forest edge, where thin silver veins show like threads in the quarried rock.", "lore": "Miners from Hàn Khê work the silver in summer. The threads are thin, and the mine has never made anyone rich."},
-  "prov_r7_24_peak_1": {"name": "Bích Trâm Phong", "name_han": "碧簪峰", "gloss": "Green Hairpin Peak", "look": "A slender spire of green-grey rock rises above a glacier like a hairpin.", "lore": "Metal qi gathers in the spire. Lê Hoa Am's nuns say the first abbess dropped her hairpin from here."},
-  "prov_r7_24_ruin_2": {"name": "Thủ Tuyết Bảo", "name_han": "守雪堡", "gloss": "Snow Watch Fort", "look": "A square stone fort in a high pass, its gate torn off and long claw marks scored down its walls.", "lore": "Băng Tâm built this fort in 760 to guard the road to Băng Phách Mạch. In 1102 ice beasts drawn by the vein's cold overran it, and the Pavilion did not rebuild.", "former": "fort", "lived": [760, 1102]},
-  "prov_r7_25_peak_1": {"name": "Băng Kỳ Phong", "name_han": "冰旗峰", "gloss": "Ice Banner Peak", "look": "A high peak that trails a long plume of blown snow from its top like a banner.", "lore": "Water qi streams off its summit with the snow. Climbers read the weather from the banner's direction."},
-  "prov_r7_25_mine_2": {"name": "Băng Tinh Quật", "name_han": "冰晶窟", "gloss": "Ice Crystal Cavern", "look": "A cave mouth in grey rock opens onto a hall lined with clear rock crystal.", "lore": "Clear crystal is cut here for formation plates. The miners say the crystal is ice that froze so long ago it forgot how to melt."},
-  "prov_r7_26_peak_1": {"name": "Thùy Thiên Phong", "name_han": "垂天峰", "gloss": "Peak That Hangs from Heaven", "look": "An immense white peak rises nearly four thousand metres from the sea, its top usually lost in cloud.", "lore": "Its Metal and Water qi are strong and cold. Few have climbed it, and none have come down with the same face."},
-  "prov_r7_26_mine_2": {"name": "Tích Thạch Khoáng", "name_han": "錫石礦", "gloss": "Tinstone Mine", "look": "Small pits and a stream sluice dot a valley floor below the great peak, the gravel black with tinstone.", "lore": "Tin is washed from the stream gravel here. Băng Tâm's smiths mix it into bronze for bells and mirrors."},
-  "prov_r7_28_peak_1": {"name": "Kim Quan Phong", "name_han": "金冠峰", "gloss": "Golden Crown Peak", "look": "A high peak with a ring of rock towers at its top, which catches the first sun and glows gold.", "lore": "Its Metal qi is strongest at dawn. Băng Tâm's sword cultivators climb to greet the first light on it."},
-  "prov_r7_28_mine_2": {"name": "Hàn Ngân Khoáng", "name_han": "寒銀礦", "gloss": "Cold Silver Mine", "look": "A cluster of stone huts and an adit sit at the foot of a glacier.", "lore": "Silver is mined here at the edge of the ice. Miners say the ore is coldest in summer, when the glacier sweats."},
-  "prov_r7_29_peak_1": {"name": "Huyền Băng Phong", "name_han": "玄冰峰", "gloss": "Black Ice Peak", "look": "A high peak sheathed in old dark ice, so dense it looks black.", "lore": "Its Water qi is heavy and old. Ice cultivators cut cores from the black ice for their meditation."},
-  "prov_r7_29_mine_2": {"name": "Từ Thạch Khoáng", "name_han": "磁石礦", "gloss": "Lodestone Mine", "look": "A mine on a bare slope where tools left on the rock creep slowly toward the adit mouth.", "lore": "Lodestone is mined here for compass needles and formation plates. Miners carry no iron underground."},
-  "prov_r7_31_peak_1": {"name": "Vô Điểu Phong", "name_han": "無鳥峰", "gloss": "Birdless Peak", "look": "A sheer high peak of pale rock where no bird flies and no wind sound carries.", "lore": "Its Metal qi is so strong that birds turn away from it. Sword cultivators come here to sit in its silence."},
-  "prov_r7_31_mine_2": {"name": "Hàn Kim Quật", "name_han": "寒金窟", "gloss": "Cold Gold Cavern", "look": "A cave high on a cliff face, reached by a ladder of iron spikes, with gold showing in the quartz of its walls.", "lore": "Băng Tâm works the gold vein only in high summer. Two miners fell from the ladder in its first year, and their names are cut at its foot."},
-  "prov_r7_31_ruin_3": {"name": "Đoạn Tuyết Quan", "name_han": "斷雪關", "gloss": "Snowbreak Pass Fort", "look": "Only the top of a gatehouse roof and one watch tower show above a slope of old avalanche snow.", "lore": "Băng Tâm built this fort in 530 to hold the high pass from the desert into the ice mountains. An avalanche buried it with its garrison in the winter of 1012, and it was never dug out.", "former": "fort", "lived": [530, 1012]},
-  "prov_r7_32_peak_1": {"name": "Hàn Tinh Phong", "name_han": "寒星峰", "gloss": "Cold Star Peak", "look": "A high peak whose ice glitters like stars on clear nights.", "lore": "Its Metal qi runs toward the vein in the valley below. From the top one can see Tinh Tủy Mạch and the cranes that circle it."},
-  "prov_r7_32_mine_2": {"name": "Mã Não Quật", "name_han": "瑪瑙窟", "gloss": "Agate Cavern", "look": "A cave mouth in a cliff of banded rock, its floor scattered with chips of red and white agate.", "lore": "Agate is cut here for seals and ornaments. Miners come from Băng Tâm's side only and never cross the ridge."},
-  "prov_r7_32_ruin_3": {"name": "Khuy Tinh Bảo", "name_han": "窺星堡", "gloss": "Star-Peering Fort", "look": "A small stone watch fort on the ridge, its doors sealed with plain wooden bars.", "lore": "Băng Tâm built this watch fort around 1100 to look down on Tinh Tủy Mạch. After its claim to the vein was rejected and Thiên Xu doubled its guard in 1189, the Pavilion withdrew the watchers and barred the doors so as not to look like it was preparing a war.", "former": "fort", "lived": [1100, 1189]},
-  "prov_r7_33_peak_1": {"name": "Túc Nhạn Phong", "name_han": "宿雁峰", "gloss": "Peak Where the Geese Rest", "look": "A high peak above a southern gully, where migrating geese rest on its snowfields in spring.", "lore": "Its Metal qi gathers in the bare upper rock. Hunters say geese that land here in autumn never fly on."},
-  "prov_r7_33_mine_2": {"name": "Đồng Lục Quật", "name_han": "銅綠窟", "gloss": "Verdigris Cavern", "look": "Red and green stained adits open in the gully wall above the icy brook.", "lore": "Copper is mined here where the mountain meets the desert. The ore goes down to the desert towns by camel."},
-  "prov_r7_33_ruin_3": {"name": "Lang Yên Bảo", "name_han": "狼煙堡", "gloss": "Wolf-Smoke Fort", "look": "A beacon fort on a spur above the gully, its walls glazed black by fire and its beacon tower split.", "lore": "Băng Tâm built this beacon fort in 520 to pass warnings along the caravan road. Phượng Minh's fire broke it in 726, the same year Cô Thành fell.", "former": "fort", "lived": [520, 726]},
-  "prov_r7_34_peak_1": {"name": "Ngân Bình Phong", "name_han": "銀屏峰", "gloss": "Silver Screen Peak", "look": "A long wall of snow-covered summit stands like a silver screen above the southern sea.", "lore": "Its Metal and Water qi meet over the sea cliffs. Seabirds nest on its walls in their thousands."}
+  "prov_le_hoa_mine_1": {
+   "name": "Hàn Ngọc Khoáng",
+   "name_han": "寒玉礦",
+   "gloss": "Cold Jade Mine",
+   "look": "A narrow adit cut into a glacier-polished wall far above the clouds, its mouth hung with prayer strips stiff with frost.",
+   "lore": "The nuns of Lê Hoa Am cut cold jade (hàn ngọc) here, a stone that stays cold in the hand. Only nuns may enter, and they work in silence."
+  },
+  "prov_p114_forest_1": {
+   "name": "Hàn Sam Lâm",
+   "name_han": "寒杉林",
+   "gloss": "Cold Fir Wood",
+   "look": "Dark firs stand close on low ground behind the shore, their roots in black volcanic grit.",
+   "lore": "The woodcutters of Đỗ Quyên cut their planks here and leave the azalea slopes alone. Old trees still carry scorch marks from the eruption."
+  },
+  "prov_p115_forest_1": {
+   "name": "Dã Liễu Lâm",
+   "name_han": "野柳林",
+   "gloss": "Wild Willow Wood",
+   "look": "A tangle of grey willows and firs fills the valley floor, bare branches hung with straw bird shelters.",
+   "lore": "The orioles of Hoàng Oanh roost here in winter. The village cuts willow for baskets only in spring, after the birds have gone."
+  },
+  "prov_p66_beast_lair_1": {
+   "name": "Hào Trư Cương",
+   "name_han": "豪豬岡",
+   "gloss": "Porcupine Rise",
+   "look": "A low forested rise where the bark of every trunk is torn and black quills as long as arrows lie in the leaf litter.",
+   "lore": "A spirit porcupine the size of an ox lives here and throws its quills like darts. Hòe Âm's hunters buy the quills for fletching and never go for the beast itself."
+  },
+  "prov_p66_minor_seat_p": {
+   "name": "Tầm Kiếm Đường",
+   "name_han": "尋劍堂",
+   "gloss": "Hall of the Sword Seekers",
+   "look": "A long timber hall with a stone hearth stands on a wooded bluff over the sea, its walls hung with mountain maps marked in red.",
+   "lore": "A Tiêu-clan hunter turned away from Lê Hoa Am's gate founded this hall in 1162 to take the men the hermitage will not. Its members hunt, guide and search the mountain for the sealed cave of 930, and Lê Hoa Am tolerates them under Băng Tâm's licence.",
+   "sect": {
+    "key": "tam_kiem",
+    "name": "Tầm Kiếm Đường",
+    "name_han": "尋劍堂",
+    "gloss": "Hall of the Sword Seekers",
+    "alignment": "trung lập",
+    "leans": [
+     "Metal",
+     "Water"
+    ],
+    "craft": "mountain hunters and guides who seek a lost sword cave",
+    "lord": "bang_tam",
+    "founded": 1162
+   }
+  },
+  "prov_r7_1_peak_1": {
+   "name": "Băng Trụ Phong",
+   "name_han": "冰柱峰",
+   "gloss": "Ice Pillar Peak",
+   "look": "A lone pillar of blue ice stands above the flat glacier, streaked white by the wind.",
+   "lore": "Its Water qi is cold and clean, and novices sent to the plain sit at its foot. Those who last the night carve a mark in its base."
+  },
+  "prov_r7_2_peak_1": {
+   "name": "Bạch Thủ Phong",
+   "name_han": "白首峰",
+   "gloss": "Peak of the White Head",
+   "look": "A round white hill of ice rises at the tip of the cape like an old man's head.",
+   "lore": "Seal hunters steer by it and call it the old man. Its weak Water qi draws nothing but seabirds."
+  },
+  "prov_r7_3_peak_1": {
+   "name": "Phong Tuyết Đỉnh",
+   "name_han": "風雪頂",
+   "gloss": "Summit of Wind and Snow",
+   "look": "A broad ice summit always wrapped in blowing snow, its top seen only on a few still days a year.",
+   "lore": "Băng Tâm's ice cultivators sit here for the pure Water qi of the endless freeze. The wind has taken more than one careless disciple off the top."
+  },
+  "prov_r7_5_peak_1": {
+   "name": "Băng Bích Nhai",
+   "name_han": "冰壁崖",
+   "gloss": "Ice Wall Cliff",
+   "look": "A cliff of grey rock sheathed in a curtain of ice faces the sea.",
+   "lore": "Its Water qi gathers in the ice curtain. Hunters shelter at its foot in summer storms."
+  },
+  "prov_r7_6_spirit_vein_1": {
+   "name": "Đống Thủy Nhãn",
+   "name_han": "凍水眼",
+   "gloss": "Eye of the Frozen Water",
+   "look": "A perfectly round pool in the moss tundra that never fully freezes, its black water steaming faintly in the cold.",
+   "lore": "A Water vein rises here through the frozen ground. Băng Tâm has never built over it, and hunters drink from it only after making an offering."
+  },
+  "prov_r7_6_ruin_2": {
+   "name": "Bắc Đình Thành",
+   "name_han": "北庭城",
+   "gloss": "City of the Northern Court",
+   "look": "Low stone walls trace a square on the tundra shore, half buried in moss, with the stump of a gate tower facing the sea.",
+   "lore": "Hồ Thiên Phái built this fur and ivory city on the northern shore around 260. After the eruption of 425 buried the school, the trade died and the last families left within a few years.",
+   "former": "city",
+   "lived": [
+    260,
+    432
+   ]
+  },
+  "prov_r7_7_beast_lair_1": {
+   "name": "Tuyết Hiêu Nguyên",
+   "name_han": "雪鴞原",
+   "gloss": "Snow Owl Plain",
+   "look": "Open tundra dotted with boulders, each one crowned with white droppings and small bones.",
+   "lore": "Snow owls as big as eagles hunt here, led by a spirit owl that flies by day. Trappers never cross the plain in the open."
+  },
+  "prov_r7_8_village_1": {
+   "name": "Hàn Trạch Thôn",
+   "name_han": "寒澤村",
+   "gloss": "Cold Marsh Village",
+   "look": "Turf-roofed houses on a dry rise above the bog, with stacks of black peat drying beside every door.",
+   "lore": "The villagers cut peat, pick cranberries and trap fur. They say the bog keeps everything, and now and then they cut out a perfectly kept bone or blade."
+  },
+  "prov_r7_8_forest_2": {
+   "name": "Hoàng Tùng Lâm",
+   "name_han": "黃松林",
+   "gloss": "Yellow Larch Wood",
+   "look": "A thin wood of larches on wet ground that turns bright gold every autumn and stands bare all winter.",
+   "lore": "Hàn Trạch's trappers set their lines here. Larch wood does not rot, and the village's bog paths are laid with it."
+  },
+  "prov_r7_9_spirit_vein_1": {
+   "name": "Tùng Tuyết Mạch",
+   "name_han": "松雪脈",
+   "gloss": "Vein of Snow and Pine",
+   "look": "A ring of tall pines stands green in a land of stunted trees, and snow melts in a circle around them.",
+   "lore": "A Wood vein feeds the ring of pines. Băng Tâm's herb gatherers pick the cold-root that grows only here."
+  },
+  "prov_r7_10_village_1": {
+   "name": "Lịch Thanh Thôn",
+   "name_han": "瀝青村",
+   "gloss": "Pitch Village",
+   "look": "Log houses stand in a clearing of scarred pines, the air thick with the smoke of pitch kettles.",
+   "lore": "The villagers tap pines for resin and boil it into pitch. Every pitch kettle in the village is lit from the same fire, which has not gone out since the village was founded."
+  },
+  "prov_r7_10_spirit_vein_2": {
+   "name": "Thụ Tâm Mạch",
+   "name_han": "樹心脈",
+   "gloss": "Tree-Heart Vein",
+   "look": "A vast hollow pine stands in the oldest grove, green light seeping from cracks in its bark.",
+   "lore": "A Wood vein rises through the heart of the old tree. The resin tappers never cut it, and they say its sap heals burns."
+  },
+  "prov_r7_11_village_1": {
+   "name": "Băng Khổng Thôn",
+   "name_han": "冰孔村",
+   "gloss": "Ice Hole Village",
+   "look": "Wooden houses stand on a cold shore lined with racks of nets, and in winter a row of fishing holes runs out across the sea ice.",
+   "lore": "Its fishers set nets under the sea ice and haul them through holes. They learned the craft from Hàn Giang's fishers long ago and still say a word for them before each haul."
+  },
+  "prov_r7_11_forest_2": {
+   "name": "Mặc Sam Lâm",
+   "name_han": "墨杉林",
+   "gloss": "Ink Fir Wood",
+   "look": "Firs so dark they look black stand close together, and little light reaches the snow below them.",
+   "lore": "Băng Khổng cuts its boat timber here. Children are told the ruined abbey's ghosts walk under these trees."
+  },
+  "prov_r7_11_ruin_3": {
+   "name": "Tuyết Ẩn Quán",
+   "name_han": "雪隱觀",
+   "gloss": "Abbey of the Snow Recluse",
+   "look": "Three roofless stone halls stand in a forest clearing, with a meditation platform heaped with snow in the middle.",
+   "lore": "A small band of ice hermits founded this abbey in 520. In 690 its last master went into seclusion and never came out; his few disciples went down to the coast, and the abbey fell in.",
+   "former": "sect",
+   "lived": [
+    520,
+    690
+   ]
+  },
+  "prov_r7_12_forest_1": {
+   "name": "Hoa Bì Lâm",
+   "name_han": "樺皮林",
+   "gloss": "Birch Bark Wood",
+   "look": "White birches stand in frozen bog, their peeling bark bright against the snow.",
+   "lore": "Hunters cut the bark to roof shelters and make canoes. The wood is the last before the open tundra."
+  },
+  "prov_r7_12_ruin_2": {
+   "name": "Điêu Cừu Trấn",
+   "name_han": "貂裘鎮",
+   "gloss": "Sable Coat Town",
+   "look": "A row of collapsed log warehouses lines an iced-in harbour on the tundra shore, a rusted fur press still standing among them.",
+   "lore": "This fur town grew from 620 on the sable trade of the north coast. By 1065 the sable were trapped out and the harbour iced in each year, and the last families moved south to Hòe Âm.",
+   "former": "town",
+   "lived": [
+    620,
+    1065
+   ]
+  },
+  "prov_r7_13_village_1": {
+   "name": "Hải Báo Thôn",
+   "name_han": "海豹村",
+   "gloss": "Seal Village",
+   "look": "Low stone houses roofed with turf crowd a rocky shore, seal hides stretched on frames between them.",
+   "lore": "The villagers hunt seals for oil, meat and hide. A seal skull is nailed above every door, and the village takes no more seals than it can eat in a winter."
+  },
+  "prov_r7_13_forest_2": {
+   "name": "Ngọa Tùng Lâm",
+   "name_han": "臥松林",
+   "gloss": "Wood of the Lying Pines",
+   "look": "Pines bent flat by the sea wind crawl over the ground, their crowns all pointing inland.",
+   "lore": "The sea wind is so steady here that Hải Báo's hunters steer by the pointing pines when fog hides the shore. Seals drag themselves up under the low branches to give birth, and the village does not hunt inside the wood."
+  },
+  "prov_r7_14_village_1": {
+   "name": "Côn Bố Thôn",
+   "name_han": "昆布村",
+   "gloss": "Kelp Village",
+   "look": "Long racks of drying kelp line a low shore, and the houses behind them smell of the sea.",
+   "lore": "The villagers cut kelp from the cold shallows and dry it for food, fodder and medicine. Băng Tâm's alchemists buy the finest blades for cold pills."
+  },
+  "prov_r7_14_forest_2": {
+   "name": "Trầm Mộc Lâm",
+   "name_han": "沉木林",
+   "gloss": "Drowned Wood",
+   "look": "Dead grey trunks stand in still black water below sea level, with living firs on the higher ground around them.",
+   "lore": "The wood floods with snowmelt every spring. Its sunken logs are cut out for timber that never rots."
+  },
+  "prov_r7_15_village_1": {
+   "name": "Bộc Ngư Thôn",
+   "name_han": "曝魚村",
+   "gloss": "Fish-Drying Village",
+   "look": "Racks of split cod hang drying along a foggy shore in front of plank houses, and a bell hangs on a post at the village edge.",
+   "lore": "Its people salt and dry cod for the winter and for the tax. The bell is rung at dusk so no one is lost in the swamp fog."
+  },
+  "prov_r7_15_forest_2": {
+   "name": "Trầm Vụ Lâm",
+   "name_han": "沉霧林",
+   "gloss": "Wood of Sunken Fog",
+   "look": "Firs and swamp pools vanish into a white fog that lies low on the ground and rarely lifts.",
+   "lore": "People who wander from the path here are found days later, if at all. The fishers of Bộc Ngư go in only roped together."
+  },
+  "prov_r7_16_village_1": {
+   "name": "Phiệt Mộc Thôn",
+   "name_han": "筏木村",
+   "gloss": "Raft Timber Village",
+   "look": "Great rafts of fir logs lie moored along the shore below a village of loggers' huts.",
+   "lore": "The villagers fell timber and float it down the coast in rafts. A raft master must make the trip to Hòe Âm ten times before he may build his own raft."
+  },
+  "prov_r7_16_beast_lair_2": {
+   "name": "Mi Lộc Lâm",
+   "name_han": "麋鹿林",
+   "gloss": "Elk Wood",
+   "look": "A swampy wood with broad trails trampled through it and young trees stripped of bark at head height.",
+   "lore": "A spirit elk with antlers wide as a cart lives here. Loggers cut around its trails, and when it bellows in autumn they stay out of the wood."
+  },
+  "prov_r7_17_peak_1": {
+   "name": "Kình Bối Phong",
+   "name_han": "鯨背峰",
+   "gloss": "Whale-Back Peak",
+   "look": "A long, smooth grey summit humps over the sea like the back of a surfacing whale.",
+   "lore": "Metal and Water qi meet on its bare rock above the sea. Sailors on the eastern coast steer by it."
+  },
+  "prov_r7_17_mine_2": {
+   "name": "Hải Thiết Khoáng",
+   "name_han": "海鐵礦",
+   "gloss": "Sea Iron Mine",
+   "look": "Adits open in a rust-red cliff just above the surf, with a wooden chute running down to a landing.",
+   "lore": "Iron ore is loaded straight onto boats here. The salt wind rusts every tool, and the miners say the iron is rust before it is dug."
+  },
+  "prov_r7_17_ruin_3": {
+   "name": "Vọng Triều Bảo",
+   "name_han": "望潮堡",
+   "gloss": "Tide-Watching Fort",
+   "look": "A broken tower of grey stone stands on a cliff edge above the sea, its seaward wall gone.",
+   "lore": "Băng Tâm built this watch fort around 650 against the pirates of Thôn Hải Môn. After the Pirate Purge of 781 it was not needed, and the garrison was withdrawn in 790; storms have broken it since.",
+   "former": "fort",
+   "lived": [
+    650,
+    790
+   ]
+  },
+  "prov_r7_18_peak_1": {
+   "name": "Khô Tùng Nhai",
+   "name_han": "枯松崖",
+   "gloss": "Dead Pine Cliff",
+   "look": "A sheer cliff of pale rock with a single dead pine hanging upside down from a crack near the top.",
+   "lore": "Its Metal qi gathers in the bare rock. Hunters of Hòe Âm say the pine was already dead when Băng Tâm came."
+  },
+  "prov_r7_19_mine_1": {
+   "name": "Nguyệt Thạch Khoáng",
+   "name_han": "月石礦",
+   "gloss": "Moonstone Mine",
+   "look": "A small mine on a mountainside above the sea, its spoil heap glittering faintly blue at night.",
+   "lore": "Băng Tâm digs moonstone here, a cold milky stone that holds the qi of Băng Phách Mạch nearby. Miners work in pairs because of the beasts that roam toward the vein."
+  },
+  "prov_r7_20_peak_1": {
+   "name": "Hàn Ưng Phong",
+   "name_han": "寒鷹峰",
+   "gloss": "Cold Eagle Peak",
+   "look": "A hooked summit of dark rock juts out over the valley like an eagle's beak.",
+   "lore": "Metal qi gathers in its hard rock. Eagles nest under the hook and attack anyone who climbs near."
+  },
+  "prov_r7_20_mine_2": {
+   "name": "Hàn Thiết Khoáng",
+   "name_han": "寒鐵礦",
+   "gloss": "Cold Iron Mine",
+   "look": "A single shaft opens in a snowfield under a timber shed, with frost thick on the ore carts.",
+   "lore": "The iron here takes and keeps cold, and Băng Tâm's smiths use it for sword cores. The miners leave before the first snow."
+  },
+  "prov_r7_21_peak_1": {
+   "name": "Bão Tuyết Phong",
+   "name_han": "抱雪峰",
+   "gloss": "Snow-Embracing Peak",
+   "look": "A high peak whose two arms of rock curve around a deep bowl of snow.",
+   "lore": "Water qi gathers in the snow bowl. Băng Tâm disciples train their sword forms in the wind on its rim."
+  },
+  "prov_r7_21_ruin_2": {
+   "name": "Lũng Đầu Trại",
+   "name_han": "隴頭寨",
+   "gloss": "Stockade at the Ridge Head",
+   "look": "A ring of fallen stone walls stands at the head of a pass, with the burned stumps of timber gates.",
+   "lore": "Hồ Thiên Phái built this stockade around 260 to guard the pass to its coast. After the eruption of 425 buried the school, the garrison went home and never came back.",
+   "former": "fort",
+   "lived": [
+    260,
+    426
+   ]
+  },
+  "prov_r7_22_village_1": {
+   "name": "Hàn Khê Thôn",
+   "name_han": "寒溪村",
+   "gloss": "Cold Brook Village",
+   "look": "Stone houses and barley strips line a fast clear river, with charcoal mounds smoking on the slopes above.",
+   "lore": "Its people fish trout, burn charcoal and grow barley. They send their charcoal down to Hòe Âm and their sons up to the mines."
+  },
+  "prov_r7_22_forest_2": {
+   "name": "Phong Diệp Lâm",
+   "name_han": "楓葉林",
+   "gloss": "Maple Wood",
+   "look": "A wood of maples climbs the valley side and turns blood red for a few weeks each autumn.",
+   "lore": "Hàn Khê's charcoal burners work here. The red leaves are said to mark the last warm ground before the ice."
+  },
+  "prov_r7_23_peak_1": {
+   "name": "Kiếm Tích Phong",
+   "name_han": "劍脊峰",
+   "gloss": "Sword-Spine Peak",
+   "look": "A thin, sharp ridge of grey rock runs up to a narrow summit like the spine of a blade.",
+   "lore": "Its Metal qi draws Băng Tâm's sword cultivators, who walk the edge as a test of balance."
+  },
+  "prov_r7_23_mine_2": {
+   "name": "Ngân Lũ Khoáng",
+   "name_han": "銀縷礦",
+   "gloss": "Silver Thread Mine",
+   "look": "A small mine at the forest edge, where thin silver veins show like threads in the quarried rock.",
+   "lore": "Miners from Hàn Khê work the silver in summer. The threads are thin, and the mine has never made anyone rich."
+  },
+  "prov_r7_24_peak_1": {
+   "name": "Bích Trâm Phong",
+   "name_han": "碧簪峰",
+   "gloss": "Green Hairpin Peak",
+   "look": "A slender spire of green-grey rock rises above a glacier like a hairpin.",
+   "lore": "Metal qi gathers in the spire. Lê Hoa Am's nuns say the first abbess dropped her hairpin from here."
+  },
+  "prov_r7_24_ruin_2": {
+   "name": "Thủ Tuyết Bảo",
+   "name_han": "守雪堡",
+   "gloss": "Snow Watch Fort",
+   "look": "A square stone fort in a high pass, its gate torn off and long claw marks scored down its walls.",
+   "lore": "Băng Tâm built this fort in 760 to guard the road to Băng Phách Mạch. In 1102 ice beasts drawn by the vein's cold overran it, and the Pavilion did not rebuild.",
+   "former": "fort",
+   "lived": [
+    760,
+    1102
+   ]
+  },
+  "prov_r7_25_peak_1": {
+   "name": "Băng Kỳ Phong",
+   "name_han": "冰旗峰",
+   "gloss": "Ice Banner Peak",
+   "look": "A high peak that trails a long plume of blown snow from its top like a banner.",
+   "lore": "Water qi streams off its summit with the snow. Climbers read the weather from the banner's direction."
+  },
+  "prov_r7_25_mine_2": {
+   "name": "Băng Tinh Quật",
+   "name_han": "冰晶窟",
+   "gloss": "Ice Crystal Cavern",
+   "look": "A cave mouth in grey rock opens onto a hall lined with clear rock crystal.",
+   "lore": "Clear crystal is cut here for formation plates. The miners say the crystal is ice that froze so long ago it forgot how to melt."
+  },
+  "prov_r7_26_peak_1": {
+   "name": "Thùy Thiên Phong",
+   "name_han": "垂天峰",
+   "gloss": "Peak That Hangs from Heaven",
+   "look": "An immense white peak rises nearly four thousand metres from the sea, its top usually lost in cloud.",
+   "lore": "Its Metal and Water qi are strong and cold. Few have climbed it, and none have come down with the same face."
+  },
+  "prov_r7_26_mine_2": {
+   "name": "Tích Thạch Khoáng",
+   "name_han": "錫石礦",
+   "gloss": "Tinstone Mine",
+   "look": "Small pits and a stream sluice dot a valley floor below the great peak, the gravel black with tinstone.",
+   "lore": "Tin is washed from the stream gravel here. Băng Tâm's smiths mix it into bronze for bells and mirrors."
+  },
+  "prov_r7_28_peak_1": {
+   "name": "Kim Quan Phong",
+   "name_han": "金冠峰",
+   "gloss": "Golden Crown Peak",
+   "look": "A high peak with a ring of rock towers at its top, which catches the first sun and glows gold.",
+   "lore": "Its Metal qi is strongest at dawn. Băng Tâm's sword cultivators climb to greet the first light on it."
+  },
+  "prov_r7_28_mine_2": {
+   "name": "Hàn Ngân Khoáng",
+   "name_han": "寒銀礦",
+   "gloss": "Cold Silver Mine",
+   "look": "A cluster of stone huts and an adit sit at the foot of a glacier.",
+   "lore": "Silver is mined here at the edge of the ice. Miners say the ore is coldest in summer, when the glacier sweats."
+  },
+  "prov_r7_29_peak_1": {
+   "name": "Huyền Băng Phong",
+   "name_han": "玄冰峰",
+   "gloss": "Black Ice Peak",
+   "look": "A high peak sheathed in old dark ice, so dense it looks black.",
+   "lore": "Its Water qi is heavy and old. Ice cultivators cut cores from the black ice for their meditation."
+  },
+  "prov_r7_29_mine_2": {
+   "name": "Từ Thạch Khoáng",
+   "name_han": "磁石礦",
+   "gloss": "Lodestone Mine",
+   "look": "A mine on a bare slope where tools left on the rock creep slowly toward the adit mouth.",
+   "lore": "Lodestone is mined here for compass needles and formation plates. Miners carry no iron underground."
+  },
+  "prov_r7_31_peak_1": {
+   "name": "Vô Điểu Phong",
+   "name_han": "無鳥峰",
+   "gloss": "Birdless Peak",
+   "look": "A sheer high peak of pale rock where no bird flies and no wind sound carries.",
+   "lore": "Its Metal qi is so strong that birds turn away from it. Sword cultivators come here to sit in its silence."
+  },
+  "prov_r7_31_mine_2": {
+   "name": "Hàn Kim Quật",
+   "name_han": "寒金窟",
+   "gloss": "Cold Gold Cavern",
+   "look": "A cave high on a cliff face, reached by a ladder of iron spikes, with gold showing in the quartz of its walls.",
+   "lore": "Băng Tâm works the gold vein only in high summer. Two miners fell from the ladder in its first year, and their names are cut at its foot."
+  },
+  "prov_r7_31_ruin_3": {
+   "name": "Đoạn Tuyết Quan",
+   "name_han": "斷雪關",
+   "gloss": "Snowbreak Pass Fort",
+   "look": "Only the top of a gatehouse roof and one watch tower show above a slope of old avalanche snow.",
+   "lore": "Băng Tâm built this fort in 530 to hold the high pass from the desert into the ice mountains. An avalanche buried it with its garrison in the winter of 1012, and it was never dug out.",
+   "former": "fort",
+   "lived": [
+    530,
+    1012
+   ]
+  },
+  "prov_r7_32_peak_1": {
+   "name": "Hàn Tinh Phong",
+   "name_han": "寒星峰",
+   "gloss": "Cold Star Peak",
+   "look": "A high peak whose ice glitters like stars on clear nights.",
+   "lore": "Its Metal qi runs toward the vein in the valley below. From the top one can see Tinh Tủy Mạch and the cranes that circle it."
+  },
+  "prov_r7_32_mine_2": {
+   "name": "Mã Não Quật",
+   "name_han": "瑪瑙窟",
+   "gloss": "Agate Cavern",
+   "look": "A cave mouth in a cliff of banded rock, its floor scattered with chips of red and white agate.",
+   "lore": "Agate is cut here for seals and ornaments. Miners come from Băng Tâm's side only and never cross the ridge."
+  },
+  "prov_r7_32_ruin_3": {
+   "name": "Khuy Tinh Bảo",
+   "name_han": "窺星堡",
+   "gloss": "Star-Peering Fort",
+   "look": "A small stone watch fort on the ridge, its doors sealed with plain wooden bars.",
+   "lore": "Băng Tâm built this watch fort around 1100 to look down on Tinh Tủy Mạch. After its claim to the vein was rejected and Thiên Xu doubled its guard in 1189, the Pavilion withdrew the watchers and barred the doors so as not to look like it was preparing a war.",
+   "former": "fort",
+   "lived": [
+    1100,
+    1189
+   ]
+  },
+  "prov_r7_33_peak_1": {
+   "name": "Túc Nhạn Phong",
+   "name_han": "宿雁峰",
+   "gloss": "Peak Where the Geese Rest",
+   "look": "A high peak above a southern gully, where migrating geese rest on its snowfields in spring.",
+   "lore": "Its Metal qi gathers in the bare upper rock. Hunters say geese that land here in autumn never fly on."
+  },
+  "prov_r7_33_mine_2": {
+   "name": "Đồng Lục Quật",
+   "name_han": "銅綠窟",
+   "gloss": "Verdigris Cavern",
+   "look": "Red and green stained adits open in the gully wall above the icy brook.",
+   "lore": "Copper is mined here where the mountain meets the desert. The ore goes down to the desert towns by camel."
+  },
+  "prov_r7_33_ruin_3": {
+   "name": "Lang Yên Bảo",
+   "name_han": "狼煙堡",
+   "gloss": "Wolf-Smoke Fort",
+   "look": "A beacon fort on a spur above the gully, its walls glazed black by fire and its beacon tower split.",
+   "lore": "Băng Tâm built this beacon fort in 520 to pass warnings along the caravan road. Phượng Minh's fire broke it in 726, the same year Cô Thành fell.",
+   "former": "fort",
+   "lived": [
+    520,
+    726
+   ]
+  },
+  "prov_r7_34_peak_1": {
+   "name": "Ngân Bình Phong",
+   "name_han": "銀屏峰",
+   "gloss": "Silver Screen Peak",
+   "look": "A long wall of snow-covered summit stands like a silver screen above the southern sea.",
+   "lore": "Its Metal and Water qi meet over the sea cliffs. Seabirds nest on its walls in their thousands."
+  }
  }
 }
