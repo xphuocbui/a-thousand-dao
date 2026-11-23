@@ -218,6 +218,8 @@ func _shot_and_quit(path: String) -> void:
 			_open_province(int(_arg_value("--province", "0")))
 			if _arg_value("--province-tab", "") != "":
 				_province.show_tab(int(_arg_value("--province-tab", "0")))
+		if _arg_value("--map-mode", "") != "":   # --map-mode=development|goods in the shots
+			_set_province_mode(_arg_value("--map-mode", ""))
 		if _arg_value("--season", "") != "":
 			_season_shot = int(_arg_value("--season", "0"))
 			_map.set_season(_season_shot)
@@ -503,13 +505,21 @@ func _build_layout() -> void:
 	z4.offset_right = 300
 	add_child(z4)
 	_zones.append(z4)
-	for m in [["Terrain", true], ["Sect", false], ["Qi", false], ["Prices", false]]:
+	var modes := ButtonGroup.new()   # one map mode at a time
+	for m in [["Terrain", true, ""], ["Sect", false, ""], ["Qi", false, ""], ["Prices", false, ""],
+			["Development", true, "development"], ["Goods", true, "goods"]]:
 		var b := Button.new()
 		b.text = tr(m[0])
 		b.toggle_mode = true
-		b.button_pressed = m[1]
+		b.button_pressed = m[0] == "Terrain"
 		b.disabled = not m[1]
-		TooltipLayer.set_tip(b, tr("Map mode") if m[1] else tr("Not in the greybox yet"))
+		if m[1]:
+			b.button_group = modes
+			var mode: String = m[2]
+			b.pressed.connect(func(): _set_province_mode(mode))
+		var tips := {"Terrain": "Map mode", "Development": "Map mode: provinces by development (built levels and people)",
+			"Goods": "Map mode: provinces by their main good"}
+		TooltipLayer.set_tip(b, tr(tips.get(m[0], "Not in the greybox yet")))
 		z4.add_child(b)
 	_zoom_button.text = tr("Region view")
 	TooltipLayer.set_tip(_zoom_button, tr("Zoom in around you to see what you can do nearby (+ / −, or the mouse wheel)"))
@@ -1000,6 +1010,33 @@ func _open_province(province_id: int) -> void:
 	_places.close_panel()
 	_panel.close_panel()
 	_province.open_province(rec, ctx, art, _map)
+
+
+## The province map modes (design/ux/province-panel.md, open question 4): "development" tints each province from pale
+## to deep red by its development; "goods" by its main good (herbs green, ore slate, beast parts brown, specialties
+## violet; wilderness paler); "" turns them off.
+func _set_province_mode(mode: String) -> void:
+	if session == null:
+		return
+	var colours: Dictionary = {}
+	var provs: Array = GameQuery.provinces(session)
+	if mode == "development":
+		var top: float = 1.0
+		for r in provs:
+			top = maxf(top, float(r.get("stats", {}).get("development", 0)))
+		for r in provs:
+			var d: float = float(r.get("stats", {}).get("development", 0)) / top
+			var c := Color(0.96, 0.9, 0.72).lerp(Color(0.62, 0.12, 0.08), sqrt(clampf(d, 0.0, 1.0)))
+			colours[int(r.id)] = Color(c, 0.85 if str(r.get("kind", "")) == "settlement" else 0.35)
+	elif mode == "goods":
+		var hue := {"herb": Color(0.36, 0.6, 0.28), "ore": Color(0.42, 0.48, 0.58), "beast": Color(0.55, 0.36, 0.2), "special": Color(0.5, 0.32, 0.6)}
+		for r in provs:
+			var g: String = str(r.get("stats", {}).get("main_good", ""))
+			for k in hue:
+				if g.begins_with(k):
+					var c: Color = hue[k]
+					colours[int(r.id)] = Color(c, 0.85 if str(r.get("kind", "")) == "settlement" else 0.45)
+	_map.set_province_colours(colours)
 
 
 ## Opens the place panel of the place with continent id [param cid] (from the province panel's Places tab).

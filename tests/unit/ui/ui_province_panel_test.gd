@@ -108,3 +108,22 @@ func test_the_map_finds_the_province_under_open_land() -> void:
 	assert_true(want > 0, "the seat's province is in the data")
 	assert_eq(v.province_at(at), want, "the tile index puts the seat in its own province")
 	assert_eq(v.province_at(v.tile_to_local(Vector2i(0, 0))), 0, "open sea has no province")
+
+
+func test_a_province_map_mode_replaces_the_political_tint_and_turns_off_again() -> void:
+	# Arrange
+	var gd := game_data()
+	var cfg: Dictionary = gd.file("ui_hud").get("greybox", {}).duplicate(true)
+	for k in ["far_layer", "near_layer", "place_sprites", "near_hi"]:
+		cfg[k] = ""
+	cfg["terrain_shader"] = {}
+	cfg["alive"] = {}
+	var v := MapView.new()
+	v.size = Vector2(1920, 1080)
+	v.setup(ContinentGrid.from_continent(gd), cfg, 4.0)
+	auto_free(v)
+	# Act / Assert
+	v.set_province_colours({1: Color.RED, 2: Color.BLUE})
+	assert_true(v.province_mode_on(), "colours given: the mode is on")
+	v.set_province_colours({})
+	assert_false(v.province_mode_on(), "an empty set turns it off")

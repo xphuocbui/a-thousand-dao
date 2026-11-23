@@ -105,6 +105,7 @@ var _alive: AliveLayer = null          # the alive layer: the shader's clock and
 var _alive_cfg: Dictionary = {}
 var _prov_names: Array = []   # [{name, at (tile), kind}] from the provinces file (v2)
 var _prov_name_by_id: Dictionary = {}   # province id -> name, for the hover
+var _prov_tint: ImageTexture = null   # the province map mode's colours (null: off)
 var _prov_ids := PackedByteArray()   # u16 per tile: the province id (greybox.province_ids_file)
 
 
@@ -464,7 +465,9 @@ func _draw() -> void:
 	# the political tint and the sect borders stay when zoomed in, lighter (user 2026-11-23: "keep the political overlay
 	# when zoomed in, especially showing provinces"): political_near / border_bold_near of their full strength
 	var pol_tint: float = lerpf(1.0, float(_zcfg.get("political_near", 0.45)), w)
-	if pol_tint > 0.0 and _tint != null:
+	if _prov_tint != null:   # a province map mode (development, goods) replaces the political tint while it is on
+		draw_texture_rect(_prov_tint, map_rect, false, Color(1, 1, 1, float(_zcfg.get("province_mode_alpha", 0.55))))
+	elif pol_tint > 0.0 and _tint != null:
 		draw_texture_rect(_tint, map_rect, false, Color(1, 1, 1, float(_zcfg.get("political_alpha", 0.35)) * pol_tint))
 	_draw_borders(lerpf(1.0, float(_zcfg.get("border_bold_near", 0.8)), w))
 	if w > 0.0 and not _hi.is_empty() and not terrain:
@@ -1204,6 +1207,35 @@ func province_at(pos: Vector2) -> int:
 	if _prov_ids.is_empty() or x < 0 or y < 0 or x >= _grid_size.x or y >= _grid_size.y:
 		return 0
 	return _prov_ids.decode_u16((y * _grid_size.x + x) * 2)
+
+
+## A province map mode (design/ux/province-panel.md, open question 4; EU's development and trade-goods modes): each
+## province tinted with [param colours] (province id -> Color); an empty dictionary turns the mode off and brings the
+## political tint back. Needs the tile index.
+func set_province_colours(colours: Dictionary) -> void:
+	if colours.is_empty() or _prov_ids.is_empty():
+		_prov_tint = null
+		queue_redraw()
+		return
+	var w: int = _grid_size.x
+	var h: int = _grid_size.y
+	var data := PackedByteArray()
+	data.resize(w * h * 4)
+	for i in w * h:
+		var id: int = _prov_ids.decode_u16(i * 2)
+		if id > 0 and colours.has(id):
+			var c: Color = colours[id]
+			data[i * 4] = c.r8
+			data[i * 4 + 1] = c.g8
+			data[i * 4 + 2] = c.b8
+			data[i * 4 + 3] = c.a8
+	_prov_tint = ImageTexture.create_from_image(Image.create_from_data(w, h, false, Image.FORMAT_RGBA8, data))
+	queue_redraw()
+
+
+## Whether a province map mode is on (for tests and the demo).
+func province_mode_on() -> bool:
+	return _prov_tint != null
 
 
 ## The grid region [param region]'s name and holder ({name, holder_name}; empty if unknown).
