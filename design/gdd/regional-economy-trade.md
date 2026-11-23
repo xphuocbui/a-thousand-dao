@@ -1,9 +1,9 @@
 # Regional Economy & Trade (Vùng Kinh Tế & Thương Lộ)
 
-> **Status**: Amended 2026-11-23 by Provinces (#48), awaiting re-review: provinces are the land unit (Formulas units note; rules 3, 6, 7, 11, 16, 20), Formula A's access reads Provinces F6 (Victoria 3: infrastructure over usage) times the existing safety term, distance no longer sets access. Earlier: Approved (design-review 11, lean, 2026-11-14: 0 blocking, 9 recommended); amended 2026-11-14 by Trade Goods (#45): crafted classes (rule 4), `craft_in` and crafted demand (rule 9, Formula C), the scarcity factor (Formula G), in-kind workshops (Formula H), the `kind_stipend` split (Formula I), `bmix` herb 0.40 and pill 0.10 (Formulas C, L2); amended 2026-11-15 by Trade Goods Open Question 14 (user approved): raw rarity bands (rule 4, Formula C, per-band `D_min`), shelved stock (rule 8, Formulas D, E, F: unshelved goods skip the draw; price, cover and `avail_A` read shelved value; exports first; `max(0, D − craft_in)`; market-id-order world sums). Earlier: Needs Revision (design-review 10, lean, 2026-11-14: review-9 blocker resolved; 1 blocker, the tick order of F3 invest and spend_T, revised the same day, awaiting a re-review; design-review 9, lean, 2026-11-14: review-8 blockers confirmed resolved; 1 blocker, Sects AC-SM-08's stale Tr', revised the same day, awaiting a re-review; earlier: design-review 8, lean: 2 small blockers revised; design-system 2026-11-14, guided and lean: CD-GDD-ALIGN skipped, Lean mode; specialists consulted for Formulas (systems-designer, economy-designer) and Acceptance Criteria (qa-lead))
+> **Status**: Approved 2026-11-23 (design-review 17, lean, round 6, 0 blocking). Earlier: In Review. Amended 2026-11-23 by Provinces (#48); design-review 16 (lean, round 5, 3 blocking, revised the same day): Provinces F6 usage counts goods brought in (user decision 2026-11-23), so every statement that a short province trades at P in peace was rewritten (Player Fantasy, rules 16, 20, 22, Formula A variable, L1 examples and asymmetry, G output range, edge case, AC-RE-67, AC-RE-70); design-review 15 (full, round 4, 4 blocking, revised the same day) awaiting re-review; design-review 14 (full, round 3, 4 blocking, revised the same day) awaiting re-review; design-review 13 (full, round 2, 5 blocking, revised the same day); design-review 12 (full, 6 blocking groups, revised the same day): provinces are the land unit (Formulas units note; rules 3, 6, 7, 11, 16, 20), Formula A's access reads Provinces F6 (Victoria 3: infrastructure over usage) times the existing safety term, distance no longer sets access. Earlier: Approved (design-review 11, lean, 2026-11-14: 0 blocking, 9 recommended); amended 2026-11-14 by Trade Goods (#45): crafted classes (rule 4), `craft_in` and crafted demand (rule 9, Formula C), the scarcity factor (Formula G), in-kind workshops (Formula H), the `kind_stipend` split (Formula I), `bmix` herb 0.40 and pill 0.10 (Formulas C, L2); amended 2026-11-15 by Trade Goods Open Question 14 (user approved): raw rarity bands (rule 4, Formula C, per-band `D_min`), shelved stock (rule 8, Formulas D, E, F: unshelved goods skip the draw; price, cover and `avail_A` read shelved value; exports first; `max(0, D − craft_in)`; market-id-order world sums). Earlier: Needs Revision (design-review 10, lean, 2026-11-14: review-9 blocker resolved; 1 blocker, the tick order of F3 invest and spend_T, revised the same day, awaiting a re-review; design-review 9, lean, 2026-11-14: review-8 blockers confirmed resolved; 1 blocker, Sects AC-SM-08's stale Tr', revised the same day, awaiting a re-review; earlier: design-review 8, lean: 2 small blockers revised; design-system 2026-11-14, guided and lean: CD-GDD-ALIGN skipped, Lean mode; specialists consulted for Formulas (systems-designer, economy-designer) and Acceptance Criteria (qa-lead))
 > **Author**: user + Claude
 > **Last Updated**: 2026-11-23
-> **Last Verified**: 2026-11-14
+> **Last Verified**: 2026-11-23 (design-review 16, lean; the amendment's blockers revised the same day, awaiting a re-review)
 > **Implements Pillar**: Pillar 5 (A World That Remembers), Pillar 4 (Every Season Counts); touches Pillar 2 (Every Number Is Bounded and Visible)
 
 ## Summary
@@ -44,9 +44,14 @@ adds to or replaces the mission and stipend faucets (Travel & Map Open Question 
 ## Player Fantasy
 
 The world's wealth is real and finite. Every stone in your purse came out of a mine someone holds, and every price
-tells you what the land is short of. The cultivator who reads the map, carries herbs from a glut to a famine and gets
-home alive turns travel into cultivation resources; the one who ignores it pays village prices forever.
-*(Accepted 2026-11-14 in the design-review revision.)*
+tells you what the land is short of. The cultivator who reads the map, buys where the roads are poor and the goods pile
+up, sells where the market pays full price (above it where war or a shock has cut supply) and gets home alive turns
+travel into cultivation resources; the one who ignores it pays village prices forever. A famine shows in the
+market price everywhere, and a province short of a good with poor roads pays more than the market price even in peace;
+war and shocks lift a place further.
+*(Accepted 2026-11-14; reworded 2026-11-23, design-review 15 and the user decision that usage counts goods brought in:
+the glut end of a route is a poor-road discount and the famine end is a poorly connected province paying above the
+market price.)*
 
 ## Detailed Design
 
@@ -61,9 +66,9 @@ home alive turns travel into cultivation resources; the one who ignores it pays 
    stock join the new holder's market in the same season's economy tick (the Sects tick, which moves holders, runs
    first; rule 19). A great sect that falls closes its market; its regions join the victors' markets. There is no market without a sect.
 3. **Market places.** Inside a market, the places that sell to the player (Market #20: cities, towns, markets and
-   villages with a market flag) all sell from the market's price for each good, moved by their province's local price
-   (rule 20). A place adds only its own stock depth and a settlement margin (rule 14). There is one **market price** per
-   good per market; each place sells at its province's **local price** (rule 20), not at a price of its own.
+   villages with a market flag) all sell from their province's **local price** (rule 20), which is the market's price for
+   each good moved by the province's own balance. A place adds only its own stock depth and a settlement margin (rule 14).
+   There is one **market price** per good per market, and no price of a place's own.
    *(Design-review 7: the earlier "one price per market, not one per place" contradicted rule 20.)*
 
 **Goods and money**
@@ -94,8 +99,12 @@ home alive turns travel into cultivation resources; the one who ignores it pays 
 7. **Market access** *(amended 2026-11-23, Provinces #48; Victoria 3's rule, user decision)*. Each province reaches its
    market at a rate from 0 to 1: its infrastructure over its usage (Provinces Formula F6: roads, rivers, landings and
    logistics buildings against the goods it ships), cut by Military safety and war. Distance no longer sets access; the
-   sect's Trade level acts by capping logistics buildings (Provinces rule 9). An under-connected province uses part of
-   its output locally and loses the rest to spoilage and loss. Access is computed per province each season.
+   sect's Trade level acts by capping new logistics buildings (Provinces rules 8–9). Only the access share of a province's
+   output reaches the market's supply (Formula B, as Provinces rule 11 says); the rest is lost to spoilage and bandits and
+   is never supplied, collected or paid for. The province's own demand is still met from the market at its local price
+   (Formula L1 counts the province's full output and demand). Access is computed per province each season. A wilderness
+   province has no access and no shop: its gathered output is counted in its gatherers' production (Provinces F2) and is
+   left out of Formulas B and I, and a wilderness place's `price_index` is the market price P.
 8. **Stock carries over.** What a market does not sell in a season stays as stock. Stock decays by good class (herbs
    fast, ores almost never). Price depends on **cover**: stock plus supply, divided by demand. *(Amended 2026-11-15,
    Trade Goods rule 6 and Formula B.)* A named good whose pool value is under one unit is **unshelved**: spoilage,
@@ -138,7 +147,19 @@ home alive turns travel into cultivation resources; the one who ignores it pays 
     the market's great sect or its vassal sects; (user decision 2026-11-14)). **Trading is a rewarded way to spend time** *(user decision 2026-11-14: a season spent
     travelling is a season not cultivating, so the trip must be able to pay)*. Between markets the price gap, which flow
     closes to tariff plus transport, bounds profit. **Between provinces of one market**, local prices (rule 20) differ by up
-    to ±`loc_band`, so buying in a glut province and selling in a shortage province is allowed and untariffed. Only the
+    to ±`loc_band`. Access is one number per province (Provinces F6 sums usage over all classes, goods shipped out plus
+    goods brought in), so a province is under-connected, and its local price differs from P, when its infrastructure is
+    below that load: a surplus province with poor roads sits below the market price in the glut class; a province short
+    of a good (it brings goods in) with poor roads prices that good above P in peace too (L1), and a province that is
+    short of one good but ships a surplus of another has one access for both. A province whose infrastructure covers its
+    load has access 1 and trades at P, and its shortage reaches it through P itself; a surplus province whose balance sits
+    under its market's own ratio (`bal_r` < 1, L1) also prices above P once its load exceeds its infrastructure. War
+    touching a province lowers its access further (Formula A). The player closes a gap only by their own trading: buying
+    in a glut province wears out the buying end (its local price rises with the player's purchases) and selling in a short,
+    poorly connected province wears out the selling end (its local price falls with the player's sales); at access 1 a
+    trade does not move the local price (L1; it still moves P through `P_eff`, G). The main steady loop is this route
+    inside one market, buying in a glut province and selling in a poorly connected short one; shocks and war are the
+    windfalls, and carrying between markets is a shock play, because flow closes that gap. So buying in a glut province and selling in a shortage province is allowed and untariffed. Only the
     player's own trading closes that gap: what the player buys and sells in a province enters its balance and moves its
     local price at the season's tick (Formula L1), and selling many goods at one place in one season fetches less for
     each (slippage, Formula G). A route therefore wears out as the player works it *(user decision 2026-11-14,
@@ -148,18 +169,19 @@ home alive turns travel into cultivation resources; the one who ignores it pays 
     items (bags, storage rings; the Item Database owns the capacities), so trade ties into gear. Goods carried on the
     road are at stake: if the player dies or is defeated, the cargo is lost or taken by the victor (Formula K treats it
     as the victim's holding).
-17. **Visible numbers.** Every price shows its parts (Item Database value, market price, tariff, margin, standing,
-    Mị lực), and the market ledger shows supply, demand, stock, cover and flow for the season (Pillar 2).
+17. **Visible numbers.** Every price shows its parts (Item Database value, market price, local factor `p_loc / P` with its
+    reason: the province's glut, shortage or war and its access, tariff, margin, standing, Mị lực), and the market ledger shows supply, demand, stock, cover and flow for the season (Pillar 2).
 
 **Change and the seasonal tick**
 
 18. **Shocks come from events.** War raids (Sects F9), blights, gluts and embargoes change supply or demand by budgeted
     amounts set by the Event Engine. The LLM narrates a shock and never sets a price (Pillar 2).
 19. **Tick order, once a season, after Travel & Map's production and Sects' season tick:** (a) read the contract;
-    (b) apply holder changes; (c) compute access, supply and demand; (d) compute links and flows; (e) update prices and
+    (b) apply holder changes; (c) access (read each province's `inf_v` from the contract, which Provinces computes at its step 4, and multiply by `safe_v`; a holder change in (b) does not alter `inf_v` mid-tick), supply and demand; (d) compute links and flows; (e) update prices and
     stock; (f) write `price_index`, each sect's trade income and production value; (g) restock the market places
     (replacing the built yearly restock). Local prices (rule 20) and provision baskets (rule 21) are worked out in step
-    (e), after market prices.
+    (e), after market prices. Access (step c) reads this season's production and effective building levels, and
+    **last season's** `D_loc` (`D_r`, stored in step e) and `fill`, so it has no circular dependency (Provinces F6).
     **Which season's values:** step (c) reads the **previous season's committed** `spend_T` (including the track share of
     Sects F3's `invest`) and `works_due`; the Sects tick computes this season's `invest` from the `Inc` that step (f) wrote
     last season, and it is counted in D next season. No step reads a value written later in the same tick, so the
@@ -172,7 +194,9 @@ home alive turns travel into cultivation resources; the one who ignores it pays 
 
 20. **Local prices.** Each province has a local price for each good: its market's price, moved by the province's own
     surplus or shortage, and moved more the poorer its access. At access 1 the local price equals the market price.
-    Shops sell at the local price of the province they stand in, and Travel & Map's `price_index` for a place is its
+    Access falls below 1 for a big producer with few roads (a glut: a lower price), for a province short of goods with few
+    roads (usage counts goods brought in as well as shipped out, Provinces F6: a higher price) and for a province in a
+    war zone (Formula A's war term). Shops sell at the local price of the province they stand in, and Travel & Map's `price_index` for a place is its
     province's local price (Formula L1). *(After Victoria 3's market access; per province since 2026-11-23.)*
 21. **Realm needs.** Every cultivator, the player and NPCs alike, has a **provision basket** each season that grows
     steeply by realm: mostly herbs, then ores (gear upkeep), beast parts and special goods. It is bought at local prices
@@ -184,7 +208,7 @@ home alive turns travel into cultivation resources; the one who ignores it pays 
 22. **Demand follows wealth.** An NPC fills as much of their basket as their purse allows above their reserve, before
     any stone cultivation. Population demand (Formula C) is the sum of what NPCs actually buy, so a poor territory
     demands less and its prices fall, **except for staple goods**: herbs and beast parts keep a **subsistence floor**
-    of need that does not depend on purses (`sub_floor`, Formula C), so a famine still shows as a high price where the
+    of need that does not depend on purses (`sub_floor`, Formula C), so a famine still shows as a high market price P (cover), and as a higher local price where the province is poorly connected (its usage counts the shortfall, rule 16) or war touches it, where the
     land is short *(user decision 2026-11-14, design-review 7: a poor famine region must not pay a trader least)*.
 23. **Merchant charters (Post-MVP outline; no numbers, not built for MVP).** A cultivator, the player included, may buy a
     charter on a link from the sect that holds it. The charter pays upkeep each season and earns a share of the margin
@@ -209,7 +233,7 @@ either market.
 
 | System | Direction | What passes between them |
 |---|---|---|
-| **Travel & Map** (#25) | in / out | In: the seasonal production contract (rule 25; Formula L), population, settlement weights, regions and holders, travel and encounter risk for carrying. Out: `price_index` per good class (Travel & Map Formula H's `D_f`). |
+| **Travel & Map** (#25) | in / out | In: the seasonal production contract (rule 25; Formula L; per province since 2026-11-23), population, settlement weights, regions and holders, travel and encounter risk for carrying. Out: `price_index` per good class (Travel & Map Formula H's `D_f`). |
 | **Sects & Missions** (#26) | in / out | In: development levels (Holdings, Trade, Military, Institutions), the Tax, Openness and tariff dials, holder changes, war state. Out: each sect's production value and trade income (replacing `world_production_guess`), market prices, and the client-paid mission cash pool. |
 | **Market** (#20) | out | The market price per good class, each place's stock list, and the seasonal restock. Market keeps buying and selling at a place. |
 | **Item Database** | in | Value per unit and good class of each item (rule 4). It owns value; this system owns the multiplier. |
@@ -233,7 +257,11 @@ Prices come from cover only. Money never sets a price; inflation shows only as p
 **Units of land** *(amended 2026-11-23, Provinces #48)*. Wherever Formulas B, C (`D_r`), I and L1 write region r, read
 **province** v: production is Provinces Formula F4, `W_set` is the province's mortal population (Provinces F3), and
 `acc` is Formula A per province. A region's values, where a rule still names one, are the sums of its provinces.
-Market-wide terms (`shockS[m,k]`, links, `fill`, sect spending) are unchanged.
+Market-wide terms (`shockS[m,k]`, links, `fill`, sect spending) are unchanged. In Formulas B, G (`Dp`), I and L1 the
+index r, and the words "region" in their variable tables, examples and fixtures, now mean a province (FX-RE-PLAYER's
+two "regions" and the ACs' "region" included); the player's `buy_pl` and `sell_pl` are kept per province. A province
+always belongs to its region's holder (Provinces rule 2), so holder changes (rule 2) move whole regions' provinces
+together. A **wilderness** province has no `acc_v`; it is left out of B and I (rule 7).
 
 **Good classes** k: herb, ore, beast, special, each by rarity band (rule 4, amended 2026-11-15: 8 raw classes in the
 MVP), plus Trade Goods' crafted classes. Linh thạch is money (rule 5) and has no k.
@@ -250,20 +278,27 @@ The market_access formula is defined as:
 *(Amended 2026-11-23, Provinces #48, user decision: Victoria 3's rule. The distance term `exp(−d / (d_reach ·
 trade_mult))` is replaced by the province's infrastructure access; the safety term is kept.)*
 
-`acc_v = inf_v · safe_v` · `inf_v = acc[v]` (Provinces Formula F6: `min(1, infra / usage)`) ·
+`acc_v = inf_v · safe_v` · `inf_v = acc[v]` (Provinces Formula F6: 1 if usage ≤ infra, else `infra / usage`, so usage 0 gives 1) ·
 `safe_v = clamp(1 − λ_road · dmg^M · (1 − inf_v) − λ_war · war_v, 0, 1)`
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| inf_v | float | 0–1 | Provinces F6 | Infrastructure over usage; Trade caps the logistics buildings behind it (Provinces rule 9) |
+| acc_v | float | 0–1 | calculated | The result: market access of province v. Provinces' `start_access_min` floors `inf_v`, not `acc_v`, so a forced seat can sit a little below that floor (AC-RE-69: 0.475) |
+| safe_v | float | 0–1 | calculated | Safety term; 1 at inf 1 in peace |
+| M | int | ≥ 0 | Sects (Military level) | The sect's Military level, in `dmg^M` |
+| inf_v | float | 0–1 | Provinces F6 (contract, Provinces step 4) | Infrastructure over usage; usage counts goods brought in as well as shipped out (user decision 2026-11-23), so a poorly connected province short of a good has `inf_v` below 1 in peace too; Trade caps the logistics buildings behind it (Provinces rule 9) |
 | dmg^M | float | 0.92^M | Sects F2 (`road_danger`) | Military safety |
 | λ_road, λ_war | float | 0.10, 0.40 | data file *(guess)* | Loss to bandits on poorly served roads; loss in a province war touches |
-| war_v | int | 0 or 1 | Sects (war state) | War touches the province's region this season |
+| war_v | int | 0 or 1 | Sects (war state) | War touches the province's region (its holder's war zone) this season |
 
-**Output Range:** 0 to 1; 1 for a fully served province in peace. Linh thạch always has access 1 (money is not goods).
-**Example:** infrastructure 7,292 against usage 10,000 (inf 0.7292), Military 6 (0.606), peace: safe = 1 − 0.1 · 0.606
-· 0.2708 = 0.9836; **acc = 0.7172**. With war: safe = 0.5836, **acc = 0.4256**.
+**Output Range:** 0 to 1 (at the start the least is 0.275: inf 0.5 in war with Military 0; after generation `inf_v` has no floor, so a growing producer can fall lower, about 0.13 at inf 0.25 in war; L1's `loc_band` clamp, not A, bounds the price effect); 1 for a fully served province in peace. Linh thạch always has access 1 (money is not goods;
+mine output is also left out of Provinces F6's usage). A wilderness province has no `acc_v` (rule 7). Military does nothing
+at inf 1 in peace (the road term has `1 − inf_v`): bandits hunt poorly served roads (intended). `d_reach` is no longer an
+input here (it stays in Formula F's route safety).
+**Example:** infrastructure 5,833.6 against usage 8,000 (inf 0.7292; the first tick, `D_loc` 0), Military 6 (0.606), peace:
+safe = 1 − 0.1 · 0.606 · 0.2708 = 0.9836; **acc = 0.7172**. With war: safe = 0.5836, **acc = 0.4255**. With Military 0
+(dmg 1), peace: safe = 0.9729, **acc = 0.7095** (acc computed from the unrounded safe).
 
 ### B. Supply (rule 6)
 
@@ -274,7 +309,8 @@ The market_supply formula is defined as:
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| value_lt[r,k] | float | ≥ 0 | Travel & Map L (contract) | Base value produced in region r, non-money kinds |
+| value_lt[r,k] | float | ≥ 0 | Travel & Map L (contract) | Base value produced in province r (read v by the units note), non-money kinds |
+| acc_r | float | 0–1 | A (per province; r read as province) | Market access: the share of the province's output that reaches the market |
 | collect, s_max | float | 0.086–0.6; 0.6 | Sects F2 | Holdings collect share and its limit |
 | h0 | float | 0.6 | data file *(guess)* | Share that reaches the market even at Holdings 0, so a poor sect is not also starved of goods |
 | shockS | float | 0–0.8 (summed) | Event Engine | Raids, blight (rule 18) |
@@ -326,7 +362,7 @@ flows sum to 0 over the world). Then the steady stock is `(1 − dk) · (c_ref �
 the same: herb `0.8 · (0.4 + 1.10 − 1) · D = 0.4 · D`, cover `0.4 + 1.10 = 1.5` = `c_ref` (AC-RE-57). *(Design-review
 7: with S = D herb stock decayed to 0, cover fell to 1.0 and the herb price drifted to about 1.33 with no shock.)*
 Rough world check *(guess)*: baskets come to about 54.5k a season (census × basket), and settlement demand
-is unknown until the map is final. About 160k of the 250k non-mine supply reaches markets (h_f ~0.8 × access ~0.8),
+is unknown until the map is final. About 160k of the 250k non-mine supply reaches markets (h_f ~0.8 × access ~0.8; the access figure predates Provinces and is re-derived from its measured distribution, Open Question 19),
 and sects use about 47k of it (`goods_frac` × investment and upkeep). That leaves a mean `d_scale` of about 1.2–2.1,
 inside 0.5–3. A class that lands outside the range means the production or basket data are off; d_scale is not
 stretched to hide it (AC-RE-51).
@@ -369,7 +405,7 @@ cover above `c_ref` (a glut market, price below 1.0 from season 1); the calibrat
 
 The market_price formula is defined as:
 
-`c = (stock + S) / max(D, D_min[k])` · `P* = P_maxeff[k]` if c = 0, else `clamp((c / c_ref[k])^(−ε[k]), P_min[k], P_maxeff[k])` · `P' = clamp(P · (P*/P)^α, P / δ[k], P · δ[k])` · `price_index[r,k] = p_loc[r,k]` (Formula L1; at access 1, the seat, this equals `P'[m(r),k]`)
+`c = (stock + S) / max(D, D_min[k])` · `P* = P_maxeff[k]` if c = 0, else `clamp((c / c_ref[k])^(−ε[k]), P_min[k], P_maxeff[k])` · `P' = clamp(P · (P*/P)^α, P / δ[k], P · δ[k])` · `price_index[r,k] = p_loc[r,k]` (Formula L1; at access 1 this equals `P'[m(r),k]`)
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
@@ -392,7 +428,7 @@ own `D_min = max(1, 0.05 · calibrated D[m,(κ,b)])`.
 
 **Output Range:** P from P_min to P_max (P_maxeff while Strained). A herb shock reaches its ceiling in 3–4 seasons, an
 ore shock in about 5 (from 1.0 with cover 0, a herb price crosses 2.0 in season 4 and an ore price crosses 1.6 in
-season 5). Partial adjustment approaches P* without reaching it exactly. `price_index` is 1.0 for any region whose market has not ticked. Travel & Map's D_f stays in
+season 5). Partial adjustment approaches P* without reaching it exactly. `price_index` is 1.0 for any province whose market has not ticked. Travel & Map's D_f stays in
 0.75–1.25.
 Linh thạch has no price: a mine's `price_index` is always 1.0, so its D_f is 1. A technique manual uses P = 1.0;
 the crafted classes take Trade Goods Formula E's parameters.
@@ -466,26 +502,28 @@ The shop_price formula is defined as:
 | St | int | −100–100 | Sects (standing) | Standing lowers buy prices and lifts sell prices a little (finished goods only). Sects F11's refusal at St ≤ −30 applies to the sect's own stock; market places never refuse on standing, only when Embargoed or Closed (rule 16) |
 | mg_buy, mg_sell | float | city 1.0 / 1.0; town and market 1.05 / 0.95; village 1.15 / 0.90 | data file *(guess)* | Place margin |
 | tar_in | float | tar[O] of this market if the item's `origin_market` ≠ m, else 0 | calculated (F) | Rule 16. The tag changes only when a shop sells the item (to the shop's market), when it is gathered (to the market where it is gathered) or crafted (Trade Goods Formula I); gifts, loot, theft and carrying keep it (user decision 2026-11-14) |
-| loc_band_fin | float | 0.25 | data file *(guess)*; user decision 2026-11-14 | Narrower local band for finished goods' shop prices (L1's `loc_band` is 0.5 for raw goods) |
+| loc_band_fin | float | 0.25 | data file *(guess)*; user decision 2026-11-14 | Narrower local band for finished goods' shop prices (L1's `loc_band` is 0.5 for raw goods). **Dormant** since 2026-11-23: crafted `p_loc` = P (L1), so it binds only if a raw-priced input reaches a finished good's price |
 | player_cap | float | 0.10 | data file *(guess)* | The player's share of a season's demand |
 | slip | float | 0–1 | calculated | Sell slippage at one place within a season (user decision 2026-11-14, design-review 6). 1 at the first sale of a small item; falls as the player sells more of that class there. Never applies to buys (buys are bounded by the shelf, Edge Cases) |
 | q_sold[p,k] | float | ≥ 0 | calculated | Base value the player has already sold of class k at place p this season; resets at the season tick. A finished good counts against its own crafted class; a manual has slip 1 |
-| Dp[p,k] | float | ≥ 1 | calculated (L1's `D_r`) | The place's share of its region's demand for the season, by settlement weight `w_p` (city 8, town 4, market 3, village 1; Travel & Map L). The floor of 1 keeps a region with no demand finite: it buys at the floor price |
+| Dp[p,k] | float | ≥ 1 | calculated (L1's `D_r`) | The place's share of its province's demand for the season, by settlement weight `w_p` (city 8, town 4, market 3, village 1; Travel & Map L). The floor of 1 keeps a province with no demand finite: it buys at the floor price. `D_r` is that of the province the place stands in; `Dp` is defined only for a province with at least one selling place (Σ w_p' > 0), and a province with none has no sale |
 
 **Raw goods trade at the bulk spread and place margin only:** charm and standing do not apply to them (`ch = 0`,
 `stp = sts = 1`), or charm and standing at their limits would let a player buy and sell at one place for profit.
 **Output Range:** buying and selling at one place never pays. **Carrying between places can pay by design** (rule 16;
-user decision 2026-11-14): with p_loc spread over ±`loc_band`, a raw good bought at the lowest local price (factor
-1.10 · 0.5 = 0.55 of P) and sold at the highest (0.90 · 1.5 = 1.35 of P) returns up to about 2.4×, before travel. Real
-spreads are smaller (a herb region at 0.656 against a short one near 1.4 P in L1: about 1.8×), and the trip costs seasons and risk.
+user decision 2026-11-14). *(Amended 2026-11-23: the figures in this paragraph are upper bounds that need a glut province and a short province
+both at very poor access; a short province pays above P in peace only to the extent its load exceeds its roads, so
+real carries are the smaller figures below.)* With p_loc spread over ±`loc_band`, a raw good bought at the lowest local price (factor
+1.10 · 0.5 = 0.55 of P) and sold at the highest (0.90 · 1.5 = 1.35 of P) returns up to about 2.4× at both band edges (access near 0 at both ends; in peace the sell end is the poorly connected short province), before travel. Real
+spreads are smaller (a herb province at 0.656 against an ore-short province at 1.456 in L1, peace: 0.90 · 1.456 / (0.656 · 1.10) is about 1.8×; against one at P, 0.90 · 1.065 / (0.656 · 1.10) is about 1.33×), and the trip costs seasons and risk.
 These are first-trip figures: the player's purchases raise the glut region's local price and their sales lower the
 short region's at the next tick (L1), and `slip` lowers each further sale within the season, so a worked route
 returns less each time (AC-RE-49, AC-RE-55, AC-RE-56).
-Finished goods carried between regions of one market can return more: buying at the lowest local price (0.5 · 1.5 · 0.8 ·
-0.8 = 0.48 of P) and selling at the highest (1.5 · 0.6 · 1.2 · 1.1 = 1.19 of P) is about **2.5×** before travel. **Decided 2026-11-14 (design-review 3, user):** finished goods use a narrower local band,
-`loc_band_fin` 0.25, applied as `p_loc` clamped to `P · (1 ± loc_band_fin)` in their shop prices only (raw goods keep
-`loc_band` 0.5). The same trip then returns at most 0.75 · 1.5 · 0.8 · 0.8 = 0.72 of P bought and 1.25 · 0.6 · 1.2 · 1.1
-= 0.99 of P sold, about **1.4×** before travel. No same-season resale rule is needed. AC-RE-49 still tests finished goods as well as raw.
+**Finished goods inside one market (amended 2026-11-23, design-review 14):** crafted classes have `p_loc` = P in every province (L1), so
+two provinces of one market show a finished good at the same P and there is no within-market gap to carry. The earlier
+figures (about 2.5× before, about 1.4× after the narrower `loc_band_fin` 0.25 of design-review 3, user 2026-11-14) are
+**superseded**; `loc_band_fin` stays as a dormant knob that binds only if a province's raw-priced input is ever passed to a
+finished good's shop price. AC-RE-49 asserts that the finished-goods margin inside one market is at most 0.
 Raw: lowest buy factor 1.10 > highest sell 0.90 *at the same local price*.
 Finished: lowest buy 1.5 · 0.80 · 0.80 = 0.96 > highest sell 0.6 · 1.20 · 1.10 = 0.792. The player moves cover by at
 most ±10 %, about ±4 % of price a season after α.
@@ -505,7 +543,8 @@ The money_balance formula is defined as:
 
 **Holders** (each a stored ledger, Pillar 2): sect treasuries (Sects F3); NPC purses (per NPC, or per realm band per
 market if per-NPC is too heavy: an ADR); one **commons pool** per market (towns, merchants and mine labour: the clients
-who pay mission cash and fees, buy goods and receive the mine share sects do not collect); the player; and the **sink
+who pay mission cash and fees, buy goods and receive the mine share sects do not collect); the **lost-stash pool**
+(Formula K: half of a wild site's output, drawn only for "found" money); the player; and the **sink
 ledger**, which counts what was burned so the harness can check `ΔM = F_mine − sinks` each season.
 
 **Variables:**
@@ -513,7 +552,7 @@ ledger**, which counts what was burned so the harness can check `ΔM = F_mine �
 |----------|------|-------|--------|-------------|
 | M | float | ≥ 0 | World Database (sum of ledgers, player excluded) | Money in the world |
 | player_net | float | any | calculated | Money that moved from the world's holders to the player this season (sales, loot, missions, stipends, less purchases and fees) |
-| F_mine | float | ~124,000 | Travel & Map L | The only faucet; the holder collects `collect_mine` (I), the commons pool the rest |
+| F_mine | float | ~124,000 | Travel & Map L | The only faucet; the holder collects `collect_mine` (I), the commons pool the rest; a wild (unworked) site's output goes half to the lost-stash pool and half to the commons pool |
 | goods_frac | float | 0.5 | data file *(guess)* | As in C |
 | f_burn | float | 0.5 | data file *(guess)* | Share of array fees burned powering arrays |
 | lost_frac | float | 0.3 | data file *(guess)* | Share of an heirless death's purse lost (it can seed a hidden place) |
@@ -533,9 +572,10 @@ ledger**, which counts what was burned so the harness can check `ΔM = F_mine �
 | Formation fuel, upkeep and triggers (Formations, 2026-11-21) | not derived |
 | Abode grades, upkeep and claims (Cave Abode, 2026-11-21) | not derived |
 | Craft fuel: brew fuel, refining fuel, talisman ink (2026-11-21) | not derived |
+| Province buildings, construction cost (Provinces rules 8–9; paid inside `burn_works`, from the Holdings and Trade `spend_T` share; a payment forfeited when a region changes holder is already burned, so it needs no booking. A building the **player funds** through a sect or city mission is a transfer from the player to the holder's treasury (or the commons pool for a city mission), booked in `player_net`, and its cost is then burned once through that holder's `spend_T`; a **local lord's** construction is paid from the lord's own treasury inside `burn_works`) | finite sink, not derived |
 | Sects F3 `invest`, track share, cash half burned (inside `burn_works`) | self-adjusting: grows with what sects hold above their reserve |
 | Stone cultivation (J), from mission and loot money above the basket only | about 5–10k without treasury missions; more as `inv_miss` missions reach cultivators |
-| **Net** | **not derived; target ΔM a year −2 % to +5 % (AC-RE-37)** |
+| **Net** | **not derived; target ΔM a year −2 % to +5 % (AC-RE-37)**. The lines above derive about +58,000 to +63,000 a season of unbooked surplus (about 5 % of M_0), so the three undefined sinks (formation, abode, craft fuel), with construction and stones, must together burn about 55,000 to 60,000 a season; this is the budget the harness checks (Open Question 19) |
 
 *(Design-review 6: the earlier table booked stone cultivation at 60–75k a season. With the basket pegged to the stipend
 (AC-RE-48), a member living on the stipend has nothing left for stones, so that figure had no income behind it. The
@@ -571,7 +611,8 @@ to the commons pool, and a sale larger than the pool's balance pays only that ba
 The transport cost `τ` is a threshold only, with no goods lost and no money burned: it decides whether a gap is worth
 closing, nothing more. A pool that cannot pay limits the flow to what it can pay (the rest stays in A as stock).
 Mine output a sect does not collect goes to the commons pool; output of unworked (wild) sites goes half to the
-lost-stash pool (K) and half to the commons pool.
+lost-stash pool (K) and half to the commons pool. A mine in a wilderness province that a holder works counts as held
+(its region holder's `Inc_mine`); one nobody works is a wild site; no mine is counted in both.
 **Commons pool rule.** A pool keeps 2–4 seasons of its mission cash *(guess)*. Above the band it posts more or bigger
 missions; below it, fewer. Money then flows to cultivators, who burn it.
 **Treasury rule** *(user decision 2026-11-14, design-review 7; replaces design-review 6's treasury band)*. Sects F3's
@@ -684,26 +725,29 @@ narration is told the smaller sum.
 The local_price formula is defined as:
 
 `p_loc[r,k] = clamp(P[m,k] · bal_r^(−ε[k] · (1 − acc_r)), P[m,k] · (1 − loc_band), P[m,k] · (1 + loc_band))` ·
-`bal_r = ((value_lt[r,k] + sell_pl[r,k] + 1) / (D_r[r,k] + buy_pl[r,k] + 1)) / ρ[m,k]` · `ρ[m,k] = Σ_{r∈m} value_lt[r,k] / Σ_{r∈m} D_r[r,k]` (the market's own ratio, so a region that is typical of its market has bal = 1; ρ = 1 if either sum is 0; ρ leaves out the player's trades) ·
-`D_r[r,k] = d_scale[k] · bmix[k] · (Σ_rl n[r,rl] · basket[rl] · max(fill[m,rl], sub_floor[k]) + set_w · W_set[r]) + goods_frac · works_due[r] · wmix[k]` (Formula C's population and works terms for the region's own heads, settlements and works, with the same `d_scale`, `bmix`, `sub_floor` and previous-season `fill`; sect track spending and the player are market-wide and are not assigned to regions) · `price_index[r,k] = p_loc[r,k]`
+`bal_r = ((value_lt[r,k] + sell_pl[r,k] + 1) / (D_r[r,k] + buy_pl[r,k] + 1)) / ρ[m,k]` · `ρ[m,k] = Σ_{r∈m, settlement} value_lt[r,k] / Σ_{r∈m, settlement} D_r[r,k]` (the market's own ratio, so a region that is typical of its market has bal = 1; ρ = 1 if either sum is 0; ρ leaves out the player's trades) ·
+`D_r[r,k] = d_scale[k] · bmix[k] · (Σ_rl n[r,rl] · basket[rl] · max(fill[m,rl], sub_floor[k]) + set_w · W_set[r]) + goods_frac · works_due[r] · wmix[k]` (Formula C's population and works terms for the region's own heads, settlements and works, with the same `d_scale`, `bmix`, `sub_floor` and previous-season `fill`; for a banded raw class (κ, b) multiply by `bs[κ,b]` as in Formula C; sect track spending and the player are market-wide and are not assigned to regions) · `price_index[r,k] = p_loc[r,k]`
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
-| value_lt[r,k] | float | ≥ 0 | Travel & Map L | What region r makes of good k |
-| D_r[r,k] | float | ≥ 0 | calculated (the formula above, from C's terms) | The region's own demand, in the same base-value units as `value_lt` |
+| value_lt[r,k] | float | ≥ 0 | Travel & Map L | What province r makes of good k |
+| n[r,rl] | int | ≥ 0 | contract `pop_cultivators`, read per province (the heads living in the province's places; Travel & Map's contract is owed per province, Open Question 18) | Heads by realm in province r |
+| D_r[r,k] | float | ≥ 0 | calculated (the formula above, from C's terms) | The province's own demand, in the same base-value units as `value_lt` |
 | ρ[m,k] | float | > 0 | calculated | The market's total production over its total regional demand; normalises `bal_r` so d_scale does not bias local prices |
 | acc_r | float | 0–1 | A (per province) | Market access; at 1 the local price is the market price |
 | ε[k] | float | per class | E | Same elasticity as the market price |
 | loc_band | float | 0.5 | data file *(guess)* | The farthest a local price may sit from its market's price |
-| buy_pl, sell_pl | float | ≥ 0 | calculated (the player's trade ledger) | Base value of class k the player bought and sold at places in region r, read at the season's tick (step e), **with memory**: this season's trades plus `pl_mem` (0.5, guess) times last season's carried value, so a worked route recovers over a few seasons (user decision 2026-11-14). Uncapped: the `loc_band` clamp bounds the effect (user decision 2026-11-14, design-review 6) |
+| buy_pl, sell_pl | float | ≥ 0 | calculated (the player's trade ledger) | Base value of class k the player bought and sold at places in province r, read at the season's tick (step e), **with memory**: this season's trades plus `pl_mem` (0.5, guess) times last season's carried value, so a worked route recovers over a few seasons (user decision 2026-11-14). Uncapped: the `loc_band` clamp bounds the effect (user decision 2026-11-14, design-review 6) |
 
-**Output Range:** P · (1 − loc_band) to P · (1 + loc_band). The +1 keeps a region with no output or no demand finite.
-**Example** (market ratio ρ = 1, no player trades): a herb region at access 0.5 making 8,000 against 2,000 of demand: bal = 3.9985; 1.065 · 3.9985^−0.35 =
-**0.656**. An ore-short region at access 0.5 (500 made, 3,000 needed): 1.0 · 0.1669^−0.2 = **1.43**.
-**Player feedback example:** the player buys 2,000 of herbs in that herb region in a season: bal = 8,001 / 4,001 =
-1.9998 and next season's local price is **0.836**. The player sells 2,000 of ore in the ore-short region: bal =
-2,501 / 3,001 = 0.8334 and its local price falls to **1.037**. At access 1 the exponent is 0 and the
+**Output Range:** P · (1 − loc_band) to P · (1 + loc_band). The +1 keeps a province with no output or no demand finite.
+**Example** (market ratio ρ = 1, no player trades): a herb province at access 0.5 (a big producer with few roads) making 8,000 against 2,000 of demand: bal = 3.9985; 1.065 · 3.9985^−0.35 =
+**0.656**. An ore-short province in a war zone (inf 1, war_v 1, so acc 0.60 by Formula A; 500 made, 3,000 needed): 1.0 · 0.1669^−0.16 = **1.33**.
+In peace the same ore-short province (500 made, 3,000 needed, no other class off balance) has usage 2,500 (the shortfall, Provinces F6): with infrastructure 2,500 or more it has access 1 and p_loc = P; with infrastructure 1,250 and Military 0, inf 0.5, safe 0.95, acc **0.475** and p_loc = 1.0 · 0.1669^(−0.4 · 0.525) = **1.456**, above P in peace (rule 16). Access is one number per province, so a province that is short of ore and ships herbs has one access for both, and its ore price rises above P once its total load (shortfall plus surplus) exceeds its infrastructure (AC-RE-70). `D_loc[v,κ]` for Provinces F6 is the sum of `D_r` over the kind's bands.
+**Crafted classes:** L1 applies to the raw classes only. Provinces make no crafted goods (`value_lt` 0), so a crafted class has `p_loc` = P in every province (Formula G's `loc_band_fin` clamp therefore only ever binds for raw-priced inputs and shop prices read P for finished goods). **Asymmetry:** in peace `p_loc` > P wherever access is below 1 (load over infrastructure) and `bal_r` < 1: a short province with poor roads (the shortfall is load), a mixed province (a glut in one class, a shortage in another), or a surplus province that makes less, against its demand, than its market's typical province (Provinces F6 counts surplus as `prod` over `D_loc` and L1 centres on ρ, which is about 1.5 in practice; AC-RE-72). The upper band edge is reached with very poor access or in war.
+**Player feedback example:** the player buys 2,000 of herbs in that herb province in a season: bal = 8,001 / 4,001 =
+1.9998 and next season's local price is **0.836**. The player sells 2,000 of ore in the war-zone ore-short province: bal =
+2,501 / 3,001 = 0.8334 and its local price falls to **1.030**. At access 1 the exponent is 0 and the
 player moves only P, through `P_eff` (G).
 
 ### L2. Provision basket and bonus (rules 21–22)
@@ -733,7 +777,7 @@ report raised. Review manually before production.
 
 **Zero and limits**
 - **If demand for a good is 0**: D_min (Formula E, at least 1) stands in wherever D divides or caps (D, E, F). With stock or supply above `D_min`, cover is large and the price falls toward its floor; with stock and supply both 0, cover is 0 and the price climbs (AC-RE-62); stock fills to `s_cap · D_min` (Formula D) and the rest is lost; a link's `Q_close` stays finite.
-- **If a region is poor and short of a staple** (famine): its herb and beast demand does not fall below `sub_floor` of its baskets (Formula C, rule 22), so the shortage still raises cover-based and local prices; the unpaid part moves goods and price, not money.
+- **If a province is poor and short of a staple** (famine): its herb and beast demand does not fall below `sub_floor` of its baskets (Formula C, rule 22), so the shortage still raises the cover-based market price, and the local price too where the province's infrastructure is under its usage (the shortfall counts, Provinces F6; rule 16) or war touches it (a well-connected short province has access 1 and p_loc = P in peace); the unpaid part moves goods and price, not money.
 - **If supply and stock are both 0**: cover is 0, P* is the Strained ceiling, and the price climbs at δ a season. The
   market turns Strained for that good, its places restock nothing of that class, and the ledger still shows a price.
 - **If a market's places restock**: each place's shelf is a **view** of the pool, not a withdrawal. It lists items whose
@@ -751,13 +795,13 @@ report raised. Review manually before production.
   proportion to its share of the old market's supply, and the new market's price for each good starts at the
   supply-weighted mean of the two markets' prices.
 - **If a great sect falls**: its market closes, its links are deleted, and its stock is split among the victors'
-  markets in proportion to the base value (`value_lt`) of the regions each gains. Its commons pool is split the same way.
+  markets per class, in proportion to the base value (`value_lt`) of the regions each gains. Its commons pool is split the same way.
 - **If two markets go to war**: their link is cut from that season's tick. Flow is settled within each tick, so no goods
   are in transit.
 - **If a market is Embargoed**: it has no links, Imp = Exp = 0, and outsiders (anyone who is not a member of its great sect or a vassal, rule 16; the player included)
   can neither buy nor sell there.
 - **If a sect's Openness is 0**: no links; members still trade at its places.
-- **If a sect has Trade 0**: it has no links, and its provinces can hold no logistics buildings above level 0 (Provinces rule 9), so their access comes from land and `infra_old` alone.
+- **If a sect has Trade 0**: it has no links and builds no new logistics buildings (Provinces rules 8–9: a cap gates new orders only); standing ones keep their level, so access comes from land, `infra_old` and standing buildings, and a growing producer's access can fall as its usage rises. AC-RE-69.
 
 **Money**
 - **If a sink would take a holder below 0**: it takes only what the holder has; nothing goes negative.
@@ -771,9 +815,9 @@ report raised. Review manually before production.
 
 **The player**
 - **If the player trades beyond `player_cap`**: the trade goes through at the shop price, but the market's price stops
-  moving with it. The region's local price still moves with all of it (`buy_pl`, `sell_pl`, L1), within `loc_band`.
+  moving with it. The province's local price still moves with all of it (`buy_pl`, `sell_pl`, L1), within `loc_band`.
 - **If the player sells a lot at one place in one season**: each sale is cheaper by `slip` (Formula G), down to the floor
-  price of 1. `q_sold` resets at the season tick. A region with no demand for a class (`D_r` 0) buys it at about the floor.
+  price of 1. `q_sold` resets at the season tick. A province with no demand for a class (`D_r` 0) buys it at about the floor.
 - **If a sect's own use of a class exceeds what it collected**: it buys the shortfall in cash at P from the commons pool
   (`Buy_short`, Formula I). If its treasury cannot pay, it buys what it can, and its works and tracks progress with
   only the goods it had *(the Sects tick owns the progress rule)*.
@@ -797,7 +841,7 @@ report raised. Review manually before production.
 
 **Local prices and baskets**
 - **If a local price passes its band**: it is clamped to P · (1 ± loc_band), and the breakdown says so.
-- **If a region makes none of a good, or needs none**: the +1 in bal_r keeps the price finite, inside the band.
+- **If a province makes none of a good, or needs none**: the +1 in bal_r keeps the price finite, inside the band.
 - **If a cultivator is a loose cultivator (tán tu, no stipend)** *(user decision 2026-11-14, design-review 3)*: they have
   no faucet of their own. Their purse starts at reserve and rises only from missions and loot, so their basket fill is 0
   until a mission or loot lifts the purse above reserve (rule 22, AC-RE-47). Their fill then tracks how much the commons
@@ -847,7 +891,7 @@ buying and selling at one place never pays (AC-RE-22); `P_min < 1 < P_max ≤ P_
 
 | Knob | Value | Safe range *(guess)* | What it affects | Formula |
 |---|---|---|---|---|
-| `d_reach` | 250 tiles | 150–400 | How fast route safety falls with distance on a link between markets (no longer used for access, 2026-11-23) | F |
+| `d_reach` (key `econ_d_reach`) | 250 tiles | 150–400 | How fast route safety falls with distance on a link between markets (no longer used for access, 2026-11-23) | F |
 | `λ_road`, `λ_war` | 0.10; 0.40 | 0–0.3; 0.2–0.7 | Loss to bandits; loss in a region at war | A, F |
 | `h0` | 0.6 | 0.4–0.8 | How much a poor (low Holdings) sect's land still supplies its market | B |
 | `bmix[k]` | herb 0.40 / ore 0.2 / beast 0.2 / special 0.1 / pill 0.10 | sums to 1 | What a basket and settlement demand are made of | C, L2 |
@@ -875,14 +919,16 @@ buying and selling at one place never pays (AC-RE-22); `P_min < 1 < P_max ≤ P_
 | `M_0` | ~1,200,000 | 6–15 seasons of faucet | Starting money | H |
 | commons pool band | 2–4 seasons of mission cash | 1–6 | When the commons posts more or fewer missions | H |
 | `inv_miss` | 0.5 | 0.2–0.8 | Share of Sects F3's `invest` posted as missions rather than sent to a track; how much treasury surplus reaches cultivators (and stones) versus burns in works | H |
-| `sub_floor[k]` | herb 0.5, beast 0.5, ore 0, special 0 | 0–0.8 | Subsistence need of staple goods that ignores purses; how strongly a poor famine region still prices a shortage | C, L1 |
+| `pl_mem` | 0.5 | 0–0.8 | Share of last season's carried player trade value that still moves a province's local price (L1 `buy_pl`, `sell_pl`); near 1 a worked route never recovers, 0 recovers at once (rule 16 wear-out) |
+| `inv_frac` | 0.5 | 0.2–0.7 | Share of a treasury's excess over its reserve that Sects F3 `invest` spends (Formula H treasury rule; `inv_frac · c_inv > 0`); sets `E*` |
+| `sub_floor[k]` | herb 0.5, beast 0.5, ore 0, special 0 | 0–0.8 | Subsistence need of staple goods that ignores purses; how strongly a poor famine province still prices a shortage (market-wide in P; locally where access is below 1) | C, L1 |
 | `cm0` | 0.5 | 0.3–0.7 | Share of mine output a sect keeps even at low Holdings | I |
 | `kind_stipend` | 15 % | 0–30 % | Stipends paid in goods rather than money | I |
 | `spt[rl]` | 1 / 4 / 20 / 150 / 1,000 | steepness kept rising | Stones per tu vi by realm; the main money sink | J |
 | `absorb_cap` | 0.5 | 0.2–0.8 | Most stones may add to a season's cultivation rate | J |
 | `s_spend`, `reserve[rl]` | 0.3; 2 × mission pay | 0.1–0.5; 1–4 × | How freely NPCs spend their purses | J, L2 |
-| `loc_band` | 0.5 | 0.2–0.6 | How far a region's price may sit from its market's; regional carrying profit (rule 16) | L1 |
-| `loc_band_fin` | 0.25 | 0.1–0.4 (≤ `loc_band`) | The same band for finished goods' shop prices; keeps their same-market carry near 1.4× | G, L1 |
+| `loc_band` | 0.5 | 0.2–0.6 | How far a province's price may sit from its market's; carrying profit inside a market (rule 16) | L1 |
+| `loc_band_fin` | 0.25 | 0.1–0.4 (≤ `loc_band`) | The same band for finished goods' shop prices; dormant while crafted `p_loc` = P (no within-market finished-goods gap) | G, L1 |
 | `basket[rl]` | 3 / 20 / 50 / 325 / 2,500 | pegged to stipends | Cost of being provisioned | C, L2 |
 | `prov_max` | 0.15 | 0.05–0.25 | Cultivation bonus of a full basket | L2 |
 
@@ -910,8 +956,8 @@ the same frame as the click, and the season's price change is shown when the sea
 `ux-designer` not consulted (Lean mode). Review manually before production. The first build is the Debug Terminal
 (existing `src/debug_terminal/`), with retained screenshots for AC-RE-25 and AC-RE-26.
 
-- **Price breakdown** (rule 17): every shop price opens a breakdown listing V, P, tariff, place margin, standing and
-  Mị lực, each as one line, multiplying to the price shown; for raw goods charm and standing read "not applied".
+- **Price breakdown** (rule 17): every shop price opens a breakdown listing V, P, the local factor `p_loc / P` (with its
+  reason), tariff, place margin, standing and Mị lực, each as one line, multiplying to the price shown (up to the final ceil or floor); at factor 1.0 the reason line reads "at market price (access 1); shortage, if any, is in P"; for raw goods charm and standing read "not applied".
 - **Market ledger:** per market, per good class: supply, demand, stock, cover, short, price and its change, flow on
   each link (in and out), tariff paid, and the market's state. It also shows the market's links and why a link is
   missing (war, Openness 0, Trade 0, no border).
@@ -928,7 +974,7 @@ the same frame as the click, and the season's price change is shown when the sea
 |---|---|---|---|
 | Rules 1–2, 12 | sects.md rules 1–3, 9, 17–18; F2 | Great sects as countries, holder changes, Openness, Trade, Military, `trade_mult`, `road_danger` | Read |
 | Rule 5; Formula I | sects.md rule 10; F3 | Sect income; `world_production_guess` replaced; mission cash paid by clients | Sects F3 revised 2026-11-14 |
-| Rules 6, 7, 11, 20; Formulas A, B, C, L1 | provinces.md rules 5, 6, 9, 11; Formulas F3, F4, F6 | Provinces as the land unit; access as infrastructure over usage | Read (2026-11-23) |
+| Rules 2, 6, 7, 11, 20; Formulas A, B, C, L1 | provinces.md rules 2, 5, 6, 8, 9, 10, 11; Formulas F2, F3, F4, F6 | Provinces as the land unit; access as infrastructure over usage | Read (2026-11-23) |
 | Rules 6, 11; Formulas A, B, E | travel-map.md rules 21, 24–25; Formulas H, L | The production contract, `price_index` and `D_f` | Read; Travel & Map Open Question 1 answered here |
 | Formula G | sects.md F11 (`sect_standing_price`); built Market (`buy_markup`, `sell_ratio`, Mị lực 0.004) | Shop prices | Read |
 | Rule 4; Formula G | item-database.md rule 9; Formula B | Value per unit; herb ageing | Read; **`origin_market` tag to be added** |
@@ -943,7 +989,7 @@ Tolerance: ±0.5 in the last digit shown; money ledgers must balance exactly.
 
 **Fixtures** (`assets/data/economy.json` at the Formulas values; Travel & Map `demand_elasticity` 0.5, D_f clamped to
 0.75–1.25)
-- **FX-RE-B** (one market, herbs): seat province 12,000 herbs (inf 1); province R2 8,000 with infrastructure 7,292 against usage 10,000 (inf 0.7292; was d 150, amended 2026-11-23); holder Trade 6, Military 6,
+- **FX-RE-B** (one market, herbs): seat province 12,000 herbs (inf 1, injected: Provinces F6's best real province reaches about 0.25); province R2 8,000 with infrastructure 5,833.6 against usage 8,000 (inf 0.7292, the first tick with `D_loc` 0; was d 150 and usage 10,000, amended 2026-11-23); holder Trade 6, Military 6,
   Holdings 6 (collect 0.3231), peace; heads 600 / 130 / 30 / 5 / 1, W_set 60, bmix[herb] 0.5, d_scale[herb] 2.2, Institutions spending
   327; injected Imp 1,200, Exp 0; stock 3,000, P 1.00; player net buying 400.
 - **FX-RE-2M** (two linked markets, herbs): A P 0.90, D 20,000, stock 5,000, S 20,000 (cover 1.25), trade_mult 1.9; B P 1.30,
@@ -955,37 +1001,42 @@ Tolerance: ±0.5 in the last digit shown; money ledgers must balance exactly.
   fees, tribute, head's draw and war cost all 0 *(design-review 7)*.
 - **FX-RE-PLAYER** *(design-review 7)*: a scripted Foundation Establishment player, purse 4 × FE mission pay, carry cap
   2,000 base value *(fixture value until the Item Database sets storage caps)*; each trip buys up to the cap of the raw
-  good with the largest `p_loc` gap between the two fixed regions and sells it all at the other; a **travel season** is
-  each season the player spends on the road, both legs counted; seeds FX-TM-SEEDS[0..9]; route regions fixed per run
+  good with the largest `p_loc` gap between the two fixed provinces (adjacent, in one market; ties go to the lower province id) and sells it all at the other; a **travel season** is
+  each season the player spends on the road, both legs counted; seeds FX-TM-SEEDS[0..9]; route provinces fixed per run
   by the largest raw-herb `p_loc` gap at season 41.
 - **FX-RE-WORLD**: FX-TM-WORLD plus the defaults, seeds FX-TM-SEEDS[0..9], 400 seasons, burn-in 40 seasons
   *(PROPOSAL)*; no scripted shocks and no player unless stated.
 
 **Markets and money**
 - **AC-RE-01** [Config] Rule 1. **GIVEN** the shipped world at season 0, **THEN** there are exactly 7 markets, one per
-  great sect; every region is in exactly one market; no minor sect has a market.
-- **AC-RE-02** [Integration] Rule 2. **GIVEN** region R2 moves from market X to Y in the Sects tick of season s, **THEN**
-  in season s's economy tick R2's production counts for Y, Y receives stock_X · S_R2 / S_X, and Y's price is
-  (S_Y · P_Y + S_R2 · P_X) / (S_Y + S_R2).
+  great sect; every region (and so every province) is in exactly one market; no minor sect has a market.
+- **AC-RE-02** [Integration] Rule 2. **GIVEN** the provinces of region R2 move from market X to Y in the Sects tick of
+  season s, for one class k, with supplies read before the move and without Imp or Exp (`S_R2` = X's `h_f` · Σ `value_lt` · acc over
+  R2's provinces = 4,000; `S_X` the same sum over all of X = 20,000; `stock_X` 5,000; `S_Y` 10,000; P_X 1.2, P_Y 1.0), **THEN**
+  in season s's economy tick their production counts for Y, Y gains stock_X · S_R2 / S_X = **1,000** of stock (X keeps 4,000), and
+  Y's price after step (b) and before step (e) is (S_Y · P_Y + S_R2 · P_X) / (S_Y + S_R2) = **1.0571**. The check runs per class.
 - **AC-RE-03** [Integration] Rule 2, sect falls. **GIVEN** X falls and regions worth 2/3 of its `value_lt` go to Y and
-  1/3 to Z, **THEN** X's market is Closed, its links are deleted, and its stock (each class by that class's `value_lt` of the regions gained) and its commons pool (by total `value_lt`) split 2:1.
-- **AC-RE-04** [Logic] Rules 3 and 20. **GIVEN** a city, a town and a village in **one region** at access 1, P 1.0, a raw
-  herb of V 120 and no player sales, **THEN** all price from the same `p_loc` (= P), and their buy prices are **132**,
-  **139** and **152** (margins 1.0 / 1.05 / 1.15). Places in different regions of one market share P but may differ by `p_loc` (AC-RE-45).
+  1/3 to Z, **THEN** X's market is Closed, its links are deleted, and its stock (per class, by that class's `value_lt` of the regions gained; fixture: every region has the same class mix) and its commons pool (by total `value_lt`, mine value included) split 2:1.
+- **AC-RE-04** [Logic] Rules 3 and 20. **GIVEN** a city, a town and a village in **one province** at access 1, P 1.0, a raw
+  herb of V 120, raw buy markup 1.10 and no player sales, **THEN** all price from the same `p_loc` (= P), and their buy prices are **132**,
+  **139** and **152** (margins 1.0 / 1.05 / 1.15).
 - **AC-RE-05** [Logic] Rule 4 *(amended 2026-11-14; as Trade Goods AC-TG-27)*. **GIVEN** a finished good of V 100 in
   crafted class (pill, 2) at P 1.065, in a city, Mị lực 50, St 0, **THEN** buy = **160**; changing P_herb does not change
   it; a manual uses P = 1.0.
-- **AC-RE-06** [Logic] Rule 5. **THEN** the price table has 4 classes and no linh thạch; a mine's access is 1 and its
+- **AC-RE-06** [Logic] Rule 5. **THEN** the price table has one entry per class of rule 4 (the 8 raw band classes plus the crafted pill, talisman and artifact classes by tier) and no linh thạch; a mine's access is 1 and its
   `price_index` is 1.0.
 - **AC-RE-07** [Harness] Rule 5, Formula H. **GIVEN** FX-RE-WORLD with a scripted player, **THEN** every season
-  ΔM = F_mine − (burn_works + burn_stone + burn_fees + burn_formation + burn_abode + burn_heirless) − player_net within 1e-6 (float
+  ΔM = F_mine − (burn_works + burn_stone + burn_fees + burn_formation + burn_abode + burn_craft + burn_heirless) − player_net within 1e-6 (float
   ledgers); missions, cash stipends, tribute, tax, mission fees, the head's draw, war cost, the unburned teleport fees,
   tariffs, `Buy_short` and loot only move balances between holders, each from the payer Formula H names.
 
 **Supply, demand, stock and price**
 - **AC-RE-08** [Logic] Formula A, rule 7. **GIVEN** FX-RE-B, **THEN** R2: inf **0.7292**, safe **0.9836**, acc
-  **0.7172**; a province
-  at inf 1 in peace acc 1, with war_v 1 acc **0.60**; R2 with war_v 1 acc **0.4256**; a province with usage 0 has inf 1.
+  **0.7172**; R2 with war_v 1 acc **0.4255**; R2 with Military 0 in peace safe **0.9729**, acc **0.7095** (acc from the unrounded safe).
+- **AC-RE-08b** [Logic] Formula A, edge branches. **THEN** a province at inf 1 in peace has acc 1 whatever Military; at
+  inf 1 with war_v 1 acc **0.60**; a province with usage 0 has inf 1 (acc = safe); infrastructure above usage caps inf at 1;
+  with `λ_war` overridden to 1.2 and war_v 1 acc clamps to 0; a wilderness province has no `acc_v` and no local-price record, and a place there reads the market price P as its
+  `price_index`.
 - **AC-RE-09** [Logic] Formula B, rule 6. **GIVEN** FX-RE-B, **THEN** h_f = **0.8154**; at Holdings 0 (collect 0.0857)
   h_f = **0.6571**; shockS 0.5 halves the production term.
 - **AC-RE-10** [Integration] Formulas B → E. **GIVEN** FX-RE-B for one tick, **THEN** S **15,663.2**, D **14,891.0**,
@@ -1010,7 +1061,7 @@ Tolerance: ±0.5 in the last digit shown; money ledgers must balance exactly.
 
 **Feeding the land, and trade**
 - **AC-RE-16** [Integration] Rule 11 → Travel & Map. **GIVEN** the AC-RE-10 tick, **THEN** the seat province (access 1)
-  reads `price_index` **1.0649** and D_f **1.0325**, and R2 reads its local price (L1, AC-RE-45); P 3.0 gives D_f **1.25**, P 0.5 gives **0.75**; an unticked market gives 1.0.
+  reads `price_index` **1.0649** and D_f **1.0325**, and R2 (injected `D_r` 2,000, ρ 1: bal 3.9985) reads its local price **0.809** (L1); P 3.0 gives D_f **1.25**, P 0.5 gives **0.75**; an unticked market gives 1.0.
 - **AC-RE-17** [Logic] Rule 12. **THEN** a link exists only with a border or teleport array, no war between the two,
   Openness ≥ 1 and Trade ≥ 1 on both sides; flipping any one condition removes it in the tick of the season it flips
   (as war does, AC-RE-20).
@@ -1025,23 +1076,25 @@ Tolerance: ±0.5 in the last digit shown; money ledgers must balance exactly.
   Imp = Exp = 0 between them; neither market is Embargoed by it.
 
 **The player**
-- **AC-RE-21** [Logic] Formula G, rule 15. **GIVEN** a raw herb of V 120 at P 1.065, **THEN** village buy **162**, city buy
+- **AC-RE-21** [Logic] Formula G, rule 15. **GIVEN** a raw herb of V 120 at P 1.065 and access 1 (p_loc = P), **THEN** village buy **162**, city buy
   **141**, unchanged by Mị lực 100 or St 100. **GIVEN** a finished good of V 100 at P 1.0 in a city, Mị lực 100, St 50,
   **THEN** buy **108** and sell **75** (`slip` stubbed to 1); Mị lực 150 clamps charm to 0.20.
 - **AC-RE-22** [Logic] Formula G. **GIVEN** the grid Mị lực 0–200, St −100–100, every margin, P 0.5–4.0, V 1–10,000,
   **THEN** for raw and finished goods the buy price is at least the sell price at any one place (cross-place carrying is allowed by design: rule 16, AC-RE-49).
 - **AC-RE-23** [Logic] P_eff. **GIVEN** D_pre 14,491 and player buys of 3,000, **THEN** P_eff = **1,449.1**, and further
   buys still go through at the shop price; sells of 3,000 give **−1,449.1**.
-- **AC-RE-24** [Logic] Rule 16. **GIVEN** a herb of V 120 tagged with origin A, sold in a city in B with `slip` stubbed to 1, **THEN** at P 1.30
+- **AC-RE-24** [Logic] Rule 16. **GIVEN** a herb of V 120 tagged with origin A, sold in a city in B at access 1 (p_loc = P) with `slip` stubbed to 1, **THEN** at P 1.30
   with tariff 0.12 it sells for **123**, at P 2.0 for **190**; the same herb tagged B at P 2.0 sells for **216**; an item
   with no `origin_market` pays no tariff. **GIVEN** B is Embargoed or Closed and the player is not a member, **THEN**
   buying and selling are refused and the item keeps tag A.
 - **AC-RE-25** [UI] Rule 17. **GIVEN** a raw and a finished item at a village in B, **THEN** the breakdown shows V, P,
-  tariff, margin, standing and Mị lực, the parts multiply to the price shown, and for the raw item charm and standing
-  show as not applied. Evidence: retained screenshots at `production/qa/evidence/re-price-breakdown-[date].png`.
+  the local factor `p_loc / P` with its reason (glut, shortage or war) and the province's access, tariff, margin, standing and Mị lực; the displayed
+  price equals the ceil (buy) or floor (sell) of the product of the unrounded parts (the displayed rounded parts reproduce it within ±1; fixture: FX-RE-B R2 herb V 120, p_loc 0.8094 against P 1.0649, factor 0.760); for the raw item charm and standing
+  show as not applied. The raw item sits in a province with `p_loc` ≠ P; a second case at access 1 shows the factor 1.0 with the line
+  "at market price (access 1); shortage, if any, is in P". Evidence: retained screenshots at `production/qa/evidence/re-price-breakdown-[date].png`.
   *(Provisional until UI Requirements is written.)*
 - **AC-RE-26** [UI] Rule 17. **THEN** the ledger shows supply, demand, stock, cover, short, flow per link and state for
-  all 4 classes, matching the tick's dump. Evidence: `production/qa/evidence/re-ledger-[date].png`. *(Provisional.)*
+  every class of rule 4 (8 raw band classes plus the crafted classes), matching the tick's dump. Evidence: `production/qa/evidence/re-ledger-[date].png`. *(Provisional.)*
 
 **Shocks and tick order**
 - **AC-RE-27** [Logic] Rule 18. **GIVEN** a mock LLM that tries to set a price, **THEN** nothing changes; shocks come only
@@ -1099,9 +1152,9 @@ harness run *(design-review 7)*.
 
 **Local prices, baskets, carrying and calibration** (numbered after the sections above; numbers kept because other
 sections cite them)
-- **AC-RE-45** [Logic] Formula L1, rule 20. **GIVEN** herb P 1.065, access 0.5, value_lt 8,000, D_r 2,000 and ρ 1, **THEN**
-  p_loc = **0.656**; with ρ 2 the same region gives bal 2.0 and p_loc **0.836**; D_r is built from the region's own heads, settlements and works with `d_scale`, `bmix` and previous-season `fill` (a fixture region of 100 QR heads, W_set 10, works_due 0, herb: 0.5 · 2.2 · (300 + 500) = **880**); **GIVEN** ore P 1.0, access 0.5, value_lt 500 and D_r 3,000, **THEN** p_loc = **1.43**; at access 1
-  p_loc = P; a raw value outside the band clamps to P · (1 ± 0.5); a finished good's shop price clamps p_loc to P · (1 ± `loc_band_fin` 0.25), so a region at 1.43 P prices a finished good from 1.25 P. A shop in the region prices from p_loc.
+- **AC-RE-45** [Logic] Formula L1, rule 20 (P held at its injected value; `bmix[herb]` injected 0.5). **GIVEN** herb P 1.065, access 0.5, value_lt 8,000, D_r 2,000 and ρ 1, **THEN**
+  p_loc = **0.656**; with ρ 2 the same region gives bal 2.0 and p_loc **0.836**; D_r is built from the region's own heads, settlements and works with `d_scale`, `bmix` and previous-season `fill` (a fixture province of 100 QR heads at fill 1, W_set 10, `set_w` 50, works_due 0, herb: 0.5 · 2.2 · (300 + 500) = **880**); **GIVEN** ore P 1.0, access 0.60 (war zone), value_lt 500, D_r 3,000 and ρ 1, **THEN** p_loc = **1.33**; at access 1
+  p_loc = P; a raw value outside the band clamps to P · (1 ± 0.5) (ore P 1.0, value_lt 0, D_r 3,000, access 0.60: p_loc **1.50**); a finished good prices from P in every province (crafted classes, L1), so `loc_band_fin` is dormant. A shop in the province prices from p_loc.
 - **AC-RE-46** [Logic] Formula L2, rule 21. **GIVEN** a Nascent Soul with all local prices 1.0, **THEN** basket_cost =
   **325**; spending 325 gives prov **0.15**, 162.5 gives **0.075**, 0 gives 0 and no penalty; the goods are consumed and
   the money goes to the commons pool.
@@ -1113,13 +1166,17 @@ sections cite them)
 - **AC-RE-48** [Config] Rule 21. **THEN** each realm's basket at P = 1 equals that realm's season stipend (3 / 20 / 50 /
   325 / 2,500).
 - **AC-RE-49** [Harness] Rule 16, Formulas G and L1 (user decisions 2026-11-14, design-reviews 4, 6 and 7). **GIVEN**
-  FX-RE-PLAYER (run once with raw goods and once with finished goods) carrying between two regions of one market for
+  FX-RE-PLAYER in its one-market run (1M: two provinces of one market, raw goods) carrying between them for
   **40 seasons**, **THEN** (a) the trip is allowed and untariffed; (b) **with all profit reinvested**, the player's mean
   profit per travel season over the 40 seasons stays within **0.5–1.5×** FE mission pay *(PROPOSAL; economy-designer
   owns the band)*; (c) **in a separate run at fixed capital** (profit withdrawn each season, cargo at the cap), the mean
-  margin per unit of base value, (sell − buy) / buy, in seasons 31–40 is below that in seasons 1–10 (the route wears
-  out; reinvestment growth cannot mask it). Same-place trading is AC-RE-22's. The run is repeated for a scripted player
-  carrying between two **markets**, once on a linked pair and once on an unlinked pair at the largest price gap the
+  margin per unit of base value, (sell − buy) / buy, in seasons 31–40 is at least 10 % below that in seasons 1–10 (the route wears
+  out; reinvestment growth cannot mask it). The run also reports the share of settlement provinces with `p_loc` below
+  0.82 · P (a route needs a buy price under about 0.82 of P to beat the bulk spread), so a flat world is seen before the
+  profit band is judged (Open Question 19); in a flat world (every `p_loc` = P) the 1M run passes (a) and (c) only if it reports a negative route margin and the profit band (b) is waived. **Finished goods inside one market** *(design-review 14)*: crafted `p_loc` = P in every
+  province (L1), so a run that buys and sells a finished good between two provinces of one market shows (sell − buy) / buy ≤ 0
+  in every season (no within-market carry; buy ≥ 0.96 P, sell ≤ 0.792 P, Formula G). Same-place trading is AC-RE-22's. The run is repeated for a scripted player
+  carrying between two **markets** (the 2M run: the raw-herb good with the largest market-price gap at season 41), once on a linked pair and once on an unlinked pair at the largest price gap the
   world reaches, paying the importing sect's tariff; the same band applies *(design-review 4, user decision
   2026-11-14)*.
 - **AC-RE-50** [Logic] Formula F, resolution order. **GIVEN** market A exports herb to both B and C with `avail_A` 1,000
@@ -1138,21 +1195,21 @@ sections cite them)
   1,100 kind stipends; the sink ledger shows burn_works **5,000** (not 10,000); and the commons pool changes by
   +4,062 (uncollected mine cash, (1 − 0.6615) · 12,000) − 5,834.4 − 1,800 = **−3,572.4**.
 - **AC-RE-53** [Logic] Formula I, shortfall. **GIVEN** a sect with Military spending 10,000 (own use beast 0.5 · 10,000 ·
-  0.4 = 2,000), G_coll[beast] 500 and P_beast 1.2, **THEN** G_sold[beast] = 0, short_own[beast] = **1,500**, the sect
-  pays **1,800** in cash to the commons pool, and market beast stock falls by the 2,000 own use once (through D).
+  0.28 = 1,400, Military mix of Formula C), G_coll[beast] 500 and P_beast 1.2, **THEN** G_sold[beast] = 0, short_own[beast] = **900**, the sect
+  pays **1,080** in cash to the commons pool, and market beast stock falls by the 1,400 own use once (through D).
 - **AC-RE-54** [Logic] Formula H, treasury rule (design-review 7). **GIVEN** a sect with R 40,000, a treasury of
   60,000, Inc = Cost (N 0), `inv_frac` 0.5, `inv_miss` 0.5 and `goods_frac` 0.5, **THEN** `invest` is **10,000**:
   **5,000** reserved at posting for missions from the treasury with no mission fee (paid on completion; an untaken
   mission's 5,000 returns to the treasury at its deadline), 5,000 to the track as `spend_T`, of which
   `burn_works` gains **2,500** and own use gains 2,500 of goods; the treasury ends at **52,500**; nothing else spends
   the excess. **GIVEN** a treasury of 40,000 or less, **THEN** `invest` is 0.
-- **AC-RE-55** [Logic] Formula L1, player feedback. **GIVEN** AC-RE-45's herb region (P 1.065, access 0.5, value_lt
+- **AC-RE-55** [Logic] Formula L1, player feedback. **GIVEN** AC-RE-45's herb province (P held at 1.065, access 0.5, value_lt
   8,000, D_r 2,000, ρ 1) and player purchases there of 2,000 this season, **THEN** next season's p_loc is **0.836**
-  (was 0.656); **GIVEN** the ore-short region (P 1.0, access 0.5, value_lt 500, D_r 3,000) and player sales of 2,000,
-  **THEN** p_loc is **1.037** (was 1.43); ρ is unchanged by the player's trades; at access 1 p_loc stays equal to P.
-  **GIVEN** no player trades the following season, **THEN** half carries (`pl_mem` 0.5): the herb region's p_loc is
-  **0.756** and the ore region's **1.149**.
-- **AC-RE-56** [Logic] Formula G, slippage. **GIVEN** a city in a region with herb Dp 2,000, p_loc 1.0, and untagged V 120
+  (was 0.656); **GIVEN** the war-zone ore-short province (P held at 1.0, access 0.60, value_lt 500, D_r 3,000, ρ 1) and player sales of 2,000,
+  **THEN** p_loc is **1.030** (was 1.33); ρ is unchanged by the player's trades; at access 1 p_loc stays equal to P.
+  **GIVEN** no player trades the following season, **THEN** half carries (`pl_mem` 0.5): the herb province's p_loc is
+  **0.756** and the ore province's **1.117**.
+- **AC-RE-56** [Logic] Formula G, slippage. **GIVEN** a city in a province with herb Dp 2,000, p_loc 1.0, and untagged V 120
   herbs, **THEN** the first sale is **103**, a sale after 1,000 already sold that season is **79**, and after 2,000 it
   is **65**; buys are unchanged by slippage; q_sold is 0 again after the season tick; a manual (no main input) has slip 1.
 
@@ -1193,15 +1250,34 @@ sections cite them)
   at its ceiling, and markets in each of the four states, **THEN** each price shows an up or down mark banded small / large
   / at ceiling or floor, each market state shows its own icon on the ledger and over the seat on the map, and colour is
   never the only cue. Evidence: `production/qa/evidence/re-price-marks-[date].png`. *(Provisional.)*
-- **AC-RE-67** [Logic] Rule 22, famine (Player Fantasy). **GIVEN** herb P 1.0, a region at access 0.5 making 500 of herbs
-  with 100 Qi Refining heads at fill 0, W_set 10, d_scale 2.2, bmix[herb] 0.5 and ρ 1, **THEN** D_r = **715** (the
-  subsistence floor counts half a basket) and p_loc = **1.133**, above the market price; with `sub_floor` 0 it would be
-  550 and 1.034. A poor region short of a staple is where a trader is paid most.
+- **AC-RE-67** [Logic] Rule 22, famine (Player Fantasy). **GIVEN** herb P 1.0, a province with no surplus in any class in a war zone (access 0.60) making 500 of herbs
+  with 100 Qi Refining heads at fill 0, QR basket 3, `set_w` 50, W_set 10, d_scale 2.2, bmix[herb] 0.5 and ρ 1, **THEN** D_r = **715** (the
+  subsistence floor counts half a basket) and p_loc = **1.105**, above the market price; with `sub_floor` 0 it would be
+  550 and **1.027**. In peace the same province with infrastructure 215 or more has access 1 and p_loc = P (the famine shows market-wide in P: cover,
+  Formula E; the case of AC-RE-13); with infrastructure 107.5 it has usage 215, acc 0.475 (Military 0) and p_loc **1.140**
+  (AC-RE-70).
 - **AC-RE-68** [Harness] Per-market drift. With no scripted shocks, every market's mean P per class over any 40-season
   window stays within **0.85–1.20** *(PROPOSAL)*, so a world mean inside AC-RE-38's band cannot hide one market drifting.
+- **AC-RE-69** [Integration] Trade 0, Provinces rule 8. **GIVEN** a sect whose Trade falls from 3 to 0 with a level-2 caravan post
+  standing in one of its provinces, **THEN** it has no links, an order for a new logistics building is refused, the
+  standing post keeps level 2 and still counts in `infra`. **GIVEN** a province with `infra` 900 (infra0 100 plus the level-2
+  post, +800), usage 1,800 and Military 0 (dmg 1), peace, **THEN** inf **0.5** and acc = 0.5 · (1 − 0.1 · 1 · 0.5) =
+  **0.475**; with usage risen to 2,250, inf **0.4**, safe 0.94 and acc **0.376** (±0.001).
+- **AC-RE-70** [Logic] Rule 16, Formula A, Provinces F6. **GIVEN** a province making 500 of a good with `D_loc` 715 and no
+  other class off balance, **THEN** usage 215 (the shortfall counts, Provinces F6); with infrastructure 215 or more inf 1, acc 1 in
+  peace and p_loc = P, and with war_v 1 acc **0.60** (AC-RE-67); with infrastructure 107.5 and Military 0, inf 0.5, safe 0.95, acc **0.475**
+  and p_loc = 1.0 · 0.6997^(−0.7 · 0.525) = **1.140**, above P in peace. **GIVEN** the war-zone ore-short province of AC-RE-55 in peace with infrastructure 1,250, usage 2,500, **THEN** acc 0.475 and p_loc **1.456**.
+  **GIVEN** a province making 8,000 of herbs (D_loc 2,000) and 500 of ore (D_r 3,000), infrastructure 5,100, Military 0, peace, ρ 1,
+  **THEN** usage 8,500 (the herb surplus 6,000 plus the ore shortfall 2,500), inf **0.6**, safe 0.96, its single acc **0.576**, and its ore p_loc is
+  1.0 · 0.1669^(−0.4 · 0.424) = **1.355**, above P by L1. With infrastructure 8,500 or more its acc is 1 and the ore p_loc is P. The same province's herb p_loc is 1.0 · 3.9985^(−0.7 · 0.424) = **0.663** (one acc for every class).
+- **AC-RE-72** [Logic] Rule 16, Formula L1, Provinces F6. **GIVEN** a surplus province making 1,200 of a herb class with `D_loc` 1,000, infrastructure 400, a further surplus of 400 in other classes, Military 0, peace and ρ 1.5, **THEN** usage is 200 + 400 = 600 (Provinces F6 counts surplus as `prod − D_loc`, without ρ), inf 0.6667, safe 0.9667, acc is 0.6444, bal = (1,201 / 1,001) / 1.5 = 0.7999 and p_loc = 1.0 · 0.7999^(−0.7 · 0.3556) = **1.057**, above P in peace.
+- **AC-RE-73** [Logic] Rule 16, Formula K, Formula H. **GIVEN** a player who dies carrying cargo, **THEN** the cargo goes to the victor (or is lost) as the victim's holding and no money is created; **GIVEN** an heirless NPC death with purse 1,000 and `lost_frac` 0.3, **THEN** `burn_heirless` gains **300** and the remaining 700 goes to the commons pool of the place of death.
+- **AC-RE-71** [Integration] Rule 19. **GIVEN** R2 of FX-RE-B (production 8,000, infrastructure 5,833.6) with `D_loc` 0 in season s and
+  step (e) storing `D_r` 2,000, **THEN** season s's acc is unchanged (inf 0.7292), and season s+1's usage is 6,000 and
+  inf **0.9723** and acc 0.9723 · (1 − 0.1 · 0.606 · 0.0277) = **0.9707** at Military 6 in peace.
 
 **Performance** *(PROPOSAL; owner technical-director)*
-- **AC-RE-44** [Harness] The market part of the tick (7 markets × 4 classes, ~20 regions, up to 21 links) runs in a
+- **AC-RE-44** [Harness] The market part of the tick (7 markets × 8 raw classes plus the crafted classes, 273 provinces of which 141 are settlement provinces, up to 21 links; about 1,100 local-price evaluations a season) runs in a
   median of 2 ms or less, p99 5 ms; stone cultivation over 5,000 NPCs 5 ms or less; the whole economy tick 8 ms or less on
   the reference machine over 400 seasons; memory does not grow past the bounded ledger history.
 
@@ -1226,3 +1302,5 @@ sections cite them)
 | 15 | ~~Sect cash balance after own use moved in kind~~ **Answered 2026-11-14:** Sects F3's `invest` is the only spender of a treasury's surplus (design-review 7). **Closed 2026-11-14 (user):** Sects F3's `Cost` counts the cash share only (no double count); treasury missions are reserved at posting, paid on completion and returned if untaken (Formula H). Still open: `inv_miss` value and the AC-SM-42 re-run | economy-designer, Balance Harness | Harness run |
 | 16 | ~~Carry capacity and cargo loss~~ **Answered 2026-11-14 (design-review 7, user):** a carry cap set by storage items, and cargo lost or looted on death or defeat (rule 16, Formula K). Still open: the capacity of each storage item (Item Database) and whether road encounters can take part of a cargo short of defeat | Item Database, Travel & Map | Item Database revision |
 | 17 | ~~Crafted goods' `origin_market` and crafting arbitrage~~ **Closed 2026-11-14 by Trade Goods (#45):** the main input's origin (Trade Goods Formula I); crafted sales move their own class, and the craft margin lint (Trade Goods Formula J) bounds recipes | economy-designer, Item Database | Before the crafting and alchemy pass |
+| 18 | Owed in other GDDs after the 2026-11-23 amendment *(tracked, not blocking)*: owed in **Provinces**: a note that F6 counts a class as surplus when `prod` exceeds `D_loc` (no ρ) while this GDD's L1 centres on the market ratio ρ, so a surplus province under the ratio can price above P in peace (design-review 15); (F6 now counts goods brought in, user decision 2026-11-23, and says so; Provinces' own measurement script needs the re-measure it names in its Open Question 1), that F6's `D_loc` input is `D_r` stored in tick step (e), that `start_access_min` floors `inf` and not the final `acc` (Formula A multiplies by the safety term), and that construction cost is paid inside Formula H's `burn_works` from the Holdings and Trade `spend_T` share (a payment forfeited at a holder change is already burned); owed in **Travel & Map**: the production contract and `price_index` per province (its Formula H and rule 25 read per place); owed in **Sects**: Formula F2's `road_danger` is read per province in Formula A, and a per-province `war_v` (the province's region is in its holder's war zone) is published for Formula A; Formula F's `d_reach` (route safety here) is a different key from Sects' own `d_reach`, so the data file prefixes it `econ_`. Provinces Open Question 1's balance pass sets `infra0`, `i_road`, `start_access_min` | Provinces, Travel & Map, Sects | Provinces review |
+| 19 | Does the harness show money balanced with the three undefined sinks plus construction and stones burning about 55,000–60,000 a season together (Formula H, design-review 15)? Does the harness show an intra-market route that pays (rule 16, AC-RE-49, which now reports the share of provinces under 0.82 P)? The harness also checks that access does not swing with period 2 (acc ↔ last season's `D_loc` ↔ price) by more than 0.1 over 40 seasons on a glut province; if it does, limit the per-season change of `inf_v`. Formula H and I's world estimates were computed under the old distance access and are re-derived from Provinces' measured access distribution; the ±20 % check of `world_production_guess` uses pre-access `value_lt`. In peace a glut province with poor roads sits below P and a short province with poor roads sits above it, so both halves of a route can pay inside one market, each wearing out as the player works it. If the world is too flat, widen via Provinces' `i_road` rather than a new rule. The harness also reports the share of provinces under access 0.5 that are short of a good (imports in usage, user decision 2026-11-23) and the mean peace local price of the shortest decile, and each sect's mean access over time and flags any sect below 0.5 for more than 40 seasons (the low-access loop: less collected, more `Buy_short`, fewer roads; Trade 0 sects first), and runs AC-RE-49 with the player free to rotate between province pairs *(design-review 14)* | economy-designer, Balance Harness | Harness run |

@@ -217,6 +217,13 @@ func _shot_and_quit(path: String) -> void:
 				_map.zoom_by(px / _map.tile_scale())
 			_refresh()
 			await _frames(4)
+			# zoomed in close: wait (up to 10 s) for the streamed near tiles in view to load (MapView near_hi)
+			var waited: int = 0
+			while _map.hi_probe().active and (int(_map.hi_probe().pending) > 0 or waited < 3) and waited < 600:
+				await get_tree().process_frame
+				waited += 1
+			await _frames(2)
+			print("SHOT %s px %.1f weight %.2f streamed %s" % [kv[0], _map.tile_scale(), _map.near_weight(), str(_map.hi_probe())])
 			await RenderingServer.frame_post_draw
 			get_viewport().get_texture().get_image().save_png(ProjectSettings.globalize_path(path.get_basename() + "-" + kv[0] + ".png"))
 		get_tree().quit()

@@ -1,0 +1,7 @@
+Paint 12 small map symbols for a grand-strategy game set in an ancient East Asian cultivation (xianxia) world, in an exact grid of 4 columns and 3 rows, evenly spaced, all about the same size (each about 18 % of the canvas width across), on flat pure chroma green (#00FF00) with clear green space between them. Every symbol must read clearly when shown very small (about 40 pixels). No text, letters, characters, seals, banners with writing or numbers anywhere.
+
+Row 1, left to right: (1) a great sect seat: a tall many-tiered pagoda among halls on a mountain; (2) a minor sect: a single three-tier pagoda with a courtyard wall; (3) a city: a walled city with a gatehouse and roofs; (4) a town: a cluster of tiled houses with a low wall.
+Row 2: (5) a market town: stalls with awnings and a bridge; (6) a village: four thatched farmhouses; (7) a mine: a timber mine head in a rock face with a cart; (8) a mountain peak landmark: a stone shrine on a sharp peak.
+Row 3: (9) a lake landmark: a pavilion on stilts over water; (10) an island landmark: a lighthouse tower on a rock; (11) a forest landmark: a giant ancient spirit tree; (12) a volcano landmark: a smoking cone with a glowing crater.
+
+Style: Chinese ink-wash painting (shuimo): loose confident black and grey brush strokes on the green, a few soft washes of muted colour (indigo roofs, ochre walls, a touch of vermilion), elegant and sparse, drawn in a gentle three-quarter view, like the vignettes on a classical painted scroll map.

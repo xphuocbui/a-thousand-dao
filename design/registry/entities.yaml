@@ -2714,10 +2714,10 @@ formulas:
       - border
       - wild_hops
     output_range: [0, 1]
-    expression: "share[w,v] = border[w,v] / sum border[w,v'] over settlement neighbours"
-    notes: "Provinces F2. No settlement neighbour: passed to wilderness neighbours up to wild_hops; beyond that ungathered."
+    expression: "share[w,v] = border[w,v] / sum border[w,v'] over neighbours at distance d[w]-1 from a settlement"
+    notes: "Provinces F2. Breadth-first distance d to the nearest settlement province; output only moves toward it; beyond wild_hops ungathered."
     added: 2026-11-23
-    revised: ""
+    revised: 2026-11-23
   - name: province_population
     status: active
     source: design/gdd/provinces.md
@@ -2755,7 +2755,7 @@ formulas:
       - staff_lvl
     output_range: [0, null]
     expression: "prod = (sum out_H + sum share*prod_wild + sum out_b*staff) * (1+sum inc) * prod(1+more), clamped at 0"
-    notes: "Provinces F4. staff = min(1, P/(staff_lvl*level))."
+    notes: "Provinces F4. staff = min(1, P/(staff_lvl*level)), 0 at level 0; out_b is the non-site part (site gain is in G_f of Travel & Map H)."
     added: 2026-11-23
     revised: ""
   - name: province_slots
@@ -2767,8 +2767,8 @@ formulas:
       - base_slots
       - slot_pop_step
       - wild_slots
-    output_range: [1, 9]
-    expression: "slots = base_slots[seat] + floor(P/slot_pop_step); wilderness wild_slots"
+    output_range: [1, null]
+    expression: "slots = max(base_slots[seat] + floor(P/slot_pop_step), buildings standing); wilderness wild_slots; no cap"
     notes: "Provinces F5. Never removes standing buildings."
     added: 2026-11-23
     revised: ""
@@ -2790,7 +2790,7 @@ formulas:
       - D_loc
       - P_market
     output_range: [0, 1]
-    expression: "infra = infra0 + i_road*road + i_river*min(river,river_cap) + infra_old + sum infra_b; usage = sum max(0,prod-D_loc)*val*P; acc = min(1, infra/usage)"
+    expression: "infra = infra0 + i_road*road + i_river*min(river,river_cap) + infra_old + sum infra_b; usage = sum over raw classes |prod*val - D_loc| (shipped out + brought in, user 2026-11-23); acc = min(1, infra/usage)"
     notes: "Provinces F6, Victoria 3 rule (user 2026-11-23). RET Formula A multiplies it by the safety term."
     added: 2026-11-23
     revised: ""

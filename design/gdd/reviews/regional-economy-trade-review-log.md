@@ -285,3 +285,160 @@ Reviewed-Content-Hash: design/gdd/sects.md 8caf0f5cd437bd93ef475732bdb0a562a234d
 Reviewed-Content-Hash: design/gdd/item-database.md 1742ab337d3d545765af3912c13a9848028b836f
 Reviewed-Content-Hash: design/gdd/canh-gioi.md 27b622e32719f9923ae966aed1948b3277f683bc
 Reviewed-Content-Hash: design/gdd/game-concept.md 49d71013c64d03b68e058d74fa88f8c2c4e1b7a3
+
+## Review — 2026-11-23 — Verdict: NEEDS REVISION (twelfth review, full, of the Provinces #48 amendment; 6 blocking groups, revised the same day by the unattended loop, awaiting a re-review)
+Review mode: full · Workflow: standard
+Scope signal: XL
+Specialists: game-designer, systems-designer, economy-designer, qa-lead; senior: creative-director
+Blocking items: 6 | Recommended: 14
+Summary: The amendment's arithmetic is right (Formula A, B, C, E recompute) but its examples and a few rules contradict Provinces F6 and rules 8 and 11. FX-RE-B's usage exceeds its output; the ore-short and famine local-price examples need access below 1 for a province that is short of a good, which F6 (outbound load only) never gives it; rule 7 says an under-connected province uses part locally while B ships the whole output times access; the Trade 0 edge case contradicts Provinces rule 8 (caps gate new orders); wilderness access is undefined; region and province units are mixed (AC-RE-44 still says ~20 regions). No new mechanic is needed.
+Prior verdict resolved: Yes (review 11 was APPROVED; this reviews the amendment)
+Findings:
+- [BLOCKING] FX-RE-B, AC-RE-08, Formula A example: R2 usage 10,000 exceeds its 8,000 output; use infrastructure 5,833.6 against usage 8,000 (first tick, D_loc 0).
+- [BLOCKING] Rules 16, 20, Formula L1, AC-RE-45/55/67: a province short of a good has usage 0 and access 1 (F6), so peace gives it the market price; rebuild the short-good examples as war cases (access 0.6) and say so.
+- [BLOCKING] Rule 7: contradicts Formula B and Provinces rule 11; rewrite to match B.
+- [BLOCKING] Trade 0 edge case: contradicts Provinces rule 8; caps gate new orders, standing buildings keep their level; add an AC.
+- [BLOCKING] Formulas A, B, I, Edge Cases: wilderness province has no acc_v, is left out of B and I.
+- [BLOCKING] Units: r indexes provinces in B, I, L1, G (Dp), FX-RE-PLAYER, AC-RE-04/49, interactions row; AC-RE-44 says ~20 regions (273 provinces, 141 settlement).
+- [RECOMMENDED] Formula A: use F6's piecewise form (usage 0); rule 19: D_loc and fill are last season's; mine stones excluded from usage; Military does nothing at inf 1 in peace (intended); split AC-RE-08 by branch; ρ in ore examples; Trade 0 AC; FX-RE-PLAYER tie-break; AC-RE-49 route pair; short_own cash note; holder unit; Last Verified; rule 3 repetition.
+- [REJECTED by creative-director] inbound load in F6 usage; min(prod, D_loc) split in B; Trade 0 access floor; inf_v in the L1 exponent.
+Reviewed-Content-Hash: design/gdd/regional-economy-trade.md 2bee9c3562f57f51a9be9582500c38b0f4404b0c
+Reviewed-Content-Hash: design/registry/entities.yaml 7fb27b3136d2605356946a5868dc9f8a4d9ebe5f
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md 4dcc8b81162613c757144532f1b72708ab3ba27f
+Reviewed-Content-Hash: design/gdd/provinces.md d8bab6bcd392d4e0b1c06eafa2391db86bc56e30
+Reviewed-Content-Hash: design/gdd/travel-map.md 34615ef6a3454d058bdb1e8551ec4973f909d1b2
+Reviewed-Content-Hash: design/gdd/sects.md 9db8041d244fe5e1ec55f9e9b146782b6ea0d653
+Reviewed-Content-Hash: design/gdd/item-database.md ec553379489fd19353c568d7143e918b3d6cc355
+Reviewed-Content-Hash: design/gdd/canh-gioi.md c8ae4f305d1c42ce24da5873f1133394a0652175
+Reviewed-Content-Hash: design/gdd/game-concept.md b497f52abf8ff59cc59b08839a90ad20b0a36572
+Receipt note: the hashes stamp the text this review read, before the revisions below.
+
+## Review — 2026-11-23 — Verdict: NEEDS REVISION (thirteenth review, full, round 2 of the Provinces #48 amendment; 5 blocking, revised the same day by the unattended loop, awaiting a re-review)
+Review mode: full · Workflow: standard
+Scope signal: XL
+Specialists: systems-designer, economy-designer, game-designer, qa-lead; senior: creative-director
+Blocking items: 5 | Recommended: 14
+Summary: Round 1's fixes hold and every worked example recomputes (Formulas A–E, G, I, L1; two 4-digit rounding drifts in A's war and Military 0 values). Remaining blockers are text contradictions, not new mechanics: access is one number per province (Provinces F6 sums classes) yet rule 16 and L1 call it per good; L1 has no rule for crafted classes; the price breakdown (rule 17, AC-RE-25) omits the local factor; AC-RE-69 leaves out the safety term; L1's per-province head count has no named source.
+Prior verdict resolved: Yes (review 12 blockers confirmed resolved)
+Findings:
+- [BLOCKING] Rule 16, Formula L1, AC-RE-67: "a province short of a good has access 1" is false for a glut-in-one-good, short-in-another province (F6 sums usage over classes); reword to "no net surplus in any class". Creative-director rejected the per-good access alternative (a new mechanic).
+- [BLOCKING] Formula L1, G: value_lt of crafted classes is 0, so bal is tiny and war pushes p_loc to the band top; state L1 applies to raw classes, crafted p_loc = P.
+- [BLOCKING] Rule 17, UI Requirements, AC-RE-25: breakdown lacks the local factor p_loc / P, so parts do not multiply to the price.
+- [BLOCKING] AC-RE-69: acc = infra/usage omits safe; rewrite with numbers (inf 0.5, acc 0.475; usage 2,250 inf 0.4).
+- [BLOCKING] Formula L1: n[r,rl] has no named source per province.
+- [RECOMMENDED] Formula A / AC-RE-08: war acc 0.4255 and Military 0 acc 0.7095 (unrounded safe).
+- [RECOMMENDED] Rule 16, AC-RE-49: name the wearing end (buy end in peace); report the share of provinces at p_loc < 0.82 P; OQ 19 as a numeric harness check.
+- [RECOMMENDED] Standalone short-province-in-peace AC; rule 19 last-season D_loc AC; AC-RE-16 R2 number; AC-RE-45 set_w and fill; AC-RE-02/03 province wording; AC-RE-04 "may differ" clause.
+- [RECOMMENDED] Formula G Output Range stale (peace carry cap); ρ over settlement provinces; FX-RE-B seat inf injected; stale "region" wording; Formula H/I estimates to re-derive; acc ↔ D_loc oscillation harness check; show bal_r in the ledger.
+- [NOT APPLIED] split of AC-RE-45 and 08b; fixture forcing acc ≤ 0.75 in FX-RE-PLAYER (game-designer's report instead).
+Reviewed-Content-Hash: design/gdd/regional-economy-trade.md 0b61c47a5adfe5f607d3d172ca19170e5685eec8
+Reviewed-Content-Hash: design/registry/entities.yaml 7fb27b3136d2605356946a5868dc9f8a4d9ebe5f
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md 4dcc8b81162613c757144532f1b72708ab3ba27f
+Reviewed-Content-Hash: design/gdd/provinces.md d8bab6bcd392d4e0b1c06eafa2391db86bc56e30
+Reviewed-Content-Hash: design/gdd/travel-map.md 34615ef6a3454d058bdb1e8551ec4973f909d1b2
+Reviewed-Content-Hash: design/gdd/sects.md 9db8041d244fe5e1ec55f9e9b146782b6ea0d653
+Reviewed-Content-Hash: design/gdd/item-database.md ec553379489fd19353c568d7143e918b3d6cc355
+Reviewed-Content-Hash: design/gdd/canh-gioi.md c8ae4f305d1c42ce24da5873f1133394a0652175
+Reviewed-Content-Hash: design/gdd/game-concept.md b497f52abf8ff59cc59b08839a90ad20b0a36572
+Receipt note: the hashes stamp the text this review read, before the revisions above.
+
+## Review — 2026-11-23 — Verdict: NEEDS REVISION (fourteenth review, full, round 3 of the Provinces #48 amendment; 4 blocking, revised the same day by the unattended loop, awaiting a re-review)
+Review mode: full · Workflow: standard
+Scope signal: XL
+Specialists: systems-designer, economy-designer, game-designer, qa-lead; senior: creative-director
+Blocking items: 4 | Recommended: 16
+Summary: Rounds 1-2 hold and every worked example recomputes. The remaining blockers are leftovers of round 2's rule that crafted classes price at P in every province (the finished-goods carry text, AC-RE-45 and AC-RE-49 still assume a within-market gap), a mixed-province access claim that is only true when surplus usage exceeds infrastructure (AC-RE-70 had no infrastructure), an untestable AC-RE-02, and Formula H naming no home for Provinces' construction cost (plus AC-RE-07's identity omitting `burn_craft`). All are text and AC fixes; no standing decision reopened. The creative-director rejected the economy-designer's split of B by `D_loc` (reverses round 1) and sending forfeited construction money to the commons pool (would undo a burn).
+Prior verdict resolved: Yes (review 13 blockers confirmed resolved)
+Findings:
+- [BLOCKING] Formula G (finished-goods carry), AC-RE-45, AC-RE-49, `loc_band_fin`: contradict crafted `p_loc` = P; the within-market finished-goods gap does not exist.
+- [BLOCKING] Rule 16, L1, AC-RE-70: "mixed province has access below 1" only when surplus usage exceeds infrastructure; AC-RE-70 needs infra 4,000 (acc 0.6444, ore 1.29).
+- [BLOCKING] AC-RE-02: not derivable (per class, which `h_f`, before or after the move, price step).
+- [BLOCKING] Formula H / AC-RE-07: Provinces construction cost has no stated home (inside `burn_works`); AC-RE-07 omits `burn_craft`.
+- [RECOMMENDED] L1 `D_r` lacks `bs[κ,b]`; rule 22 / Edge Cases / `sub_floor` / AC-RE-67 famine wording (local price moves only in war); G "real spreads" about 1.33× in peace; rule 19(c) reads `inf_v` from the contract; Formula A and B variable rows; `war_v` owed in Sects; Cross-References rules; AC-RE-03/45/55/24/21/25/69/08b/05 wording and numbers; stale access 0.8 in the rough world check; "0.55 P · 1.10" typo; wilderness mine money owner; UI reason line at factor 1.0.
+- [REJECTED by creative-director] splitting B and I by `D_loc` (reverses round 1); forfeited construction money to the commons pool.
+- [NOT APPLIED] route rotation and local-price loop ACs (harness, Open Question 19), war counted thrice (guess values), "prices elsewhere" for provinces (UI session), AC-RE-44 percentiles.
+Reviewed-Content-Hash: design/gdd/regional-economy-trade.md c80f17a4e56fe932211d171804c3bc2c968597e5
+Reviewed-Content-Hash: design/registry/entities.yaml 7fb27b3136d2605356946a5868dc9f8a4d9ebe5f
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md 4dcc8b81162613c757144532f1b72708ab3ba27f
+Reviewed-Content-Hash: design/gdd/provinces.md d8bab6bcd392d4e0b1c06eafa2391db86bc56e30
+Reviewed-Content-Hash: design/gdd/travel-map.md 34615ef6a3454d058bdb1e8551ec4973f909d1b2
+Reviewed-Content-Hash: design/gdd/sects.md 9db8041d244fe5e1ec55f9e9b146782b6ea0d653
+Reviewed-Content-Hash: design/gdd/item-database.md ec553379489fd19353c568d7143e918b3d6cc355
+Reviewed-Content-Hash: design/gdd/canh-gioi.md c8ae4f305d1c42ce24da5873f1133394a0652175
+Reviewed-Content-Hash: design/gdd/game-concept.md b497f52abf8ff59cc59b08839a90ad20b0a36572
+Reviewed-Content-Hash: design/gdd/trade-goods.md 4114de5549c4bfffef3fe811c59a175c6cac4188
+Receipt note: the hashes stamp the text this review read, before the revisions below.
+
+## Review — 2026-11-23 — Verdict: NEEDS REVISION (fifteenth review, full, round 4 of the Provinces #48 amendment; 4 blocking, revised the same day by the unattended loop, awaiting a re-review)
+Review mode: full · Workflow: standard
+Scope signal: XL
+Specialists: systems-designer, economy-designer, game-designer, qa-lead; senior: creative-director
+Blocking items: 4 | Recommended: 14
+Summary: Rounds 1-3 hold and every amendment example recomputes. Remaining blockers are claim-versus-formula text: rule 16 / L1 say a province with a surplus prices at or below P in peace, but L1 centres on the market ratio ρ while Provinces F6 does not, so a surplus province under ρ can price above P; Formula H has no payer for player-funded or local-lord construction and omits the lost-stash pool; the Player Fantasy promises a famine end that peace does not give; several ACs are stale (4 classes, old Military mix, rounding, mixed one/two-market fixture). The creative-director rejected changing F6 to read ρ·D_loc (cross-GDD) and dropping ρ from L1 (reverses round 3): fix the sentence.
+Prior verdict resolved: Yes (review 14 blockers confirmed resolved)
+Findings:
+- [BLOCKING] Rule 16, Formula L1: "in peace p_loc > P only for a mixed province" is false when bal_r < 1 (a surplus province under the market ratio, ρ about 1.5) with infrastructure under usage; reword, add an AC with ρ 1.5.
+- [BLOCKING] Player Fantasy: the peace famine end does not exist; reword to the glut route, war and shocks.
+- [BLOCKING] Formula H: no payer for player-funded building or a local lord's construction; lost-stash pool missing from the holder list; "commons gets the rest" contradicts the wild-site half.
+- [BLOCKING] AC-RE-06, 26 (4 classes), 53 (old Military mix), 25 (rounding), 49 and FX-RE-PLAYER (one-market and two-market mixed).
+- [RECOMMENDED] Formula A output range (0.275 at start) and FX-RE-B comment; D_loc per class sum; G Dp zero-shop guard and "0.55 P" garble; G stale 2.4x/1.8x; rule 16 access-1 wording and main-loop sentence; H surplus budget for undefined sinks; Tuning Knobs pl_mem, inv_frac; AC-RE-16, 45, 55, 71, 69, 70, 67, 02, 49 tweaks; ACs for cargo loss and no-heir burn.
+- [NOT APPLIED] province-panel and own-effect ledger lines (UI session); AC splits; AC-RE-44 machine detail.
+Reviewed-Content-Hash: design/gdd/regional-economy-trade.md 89a14ab40a5d86cfbcc3169eecf1f5338593ee02
+Reviewed-Content-Hash: design/registry/entities.yaml 7fb27b3136d2605356946a5868dc9f8a4d9ebe5f
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md 4dcc8b81162613c757144532f1b72708ab3ba27f
+Reviewed-Content-Hash: design/gdd/provinces.md d8bab6bcd392d4e0b1c06eafa2391db86bc56e30
+Reviewed-Content-Hash: design/gdd/travel-map.md 34615ef6a3454d058bdb1e8551ec4973f909d1b2
+Reviewed-Content-Hash: design/gdd/sects.md 9db8041d244fe5e1ec55f9e9b146782b6ea0d653
+Reviewed-Content-Hash: design/gdd/item-database.md ec553379489fd19353c568d7143e918b3d6cc355
+Reviewed-Content-Hash: design/gdd/canh-gioi.md c8ae4f305d1c42ce24da5873f1133394a0652175
+Reviewed-Content-Hash: design/gdd/game-concept.md b497f52abf8ff59cc59b08839a90ad20b0a36572
+Reviewed-Content-Hash: design/gdd/trade-goods.md 4114de5549c4bfffef3fe811c59a175c6cac4188
+Receipt note: the hashes stamp the text this review read, before the revisions above.
+
+## Review — 2026-11-23 — Verdict: NEEDS REVISION (sixteenth review, lean, round 5 of the Provinces #48 amendment; 3 blocking, revised the same day by the unattended loop, awaiting a re-review)
+Review mode: lean · Workflow: standard
+Scope signal: XL
+Specialists: none (lean)
+Blocking items: 3 | Recommended: 4
+Summary: Rounds 1-4 hold. The user decision of 2026-11-23 (after round 4: Provinces F6 usage counts goods brought in as well as shipped out) makes a poorly connected province short of a good under-connected, so its local price rises above P in peace too. The GDD still says in a dozen places that a short province has access 1 and trades at P in peace and that local shortages show only in war; those sentences, the examples built on them and two ACs now contradict Provinces F6 and L1.
+Prior verdict resolved: Yes (review 15 blockers confirmed resolved)
+Findings:
+- [BLOCKING] Rule 16, rule 20, rule 22, Player Fantasy, Edge Cases (famine), Tuning Knobs `sub_floor`: "a short province has access 1 and trades at P in peace; shortage shows locally only in war" is wrong under F6 with imports.
+- [BLOCKING] Formula A and L1 (notes and examples), Formula G output range: A does not say usage counts goods brought in; L1's peace ore-short example and G's "sell end at most P in peace" (1.64x, 1.33x) contradict it.
+- [BLOCKING] AC-RE-67 and AC-RE-70 (and Open Questions 18, 19): assert usage 0, access 1, p_loc = P for a short province in peace; need a peace case with usage = shortfall.
+- [RECOMMENDED] Header Status and Last Verified; Open Question 18's owed-in-Provinces note is done in Provinces and is rewritten; Open Question 19 sentence "in peace only glut provinces sit below P"; price-breakdown reason line wording.
+- [NOT APPLIED] AC splits; harness-measured figures.
+Reviewed-Content-Hash: design/gdd/regional-economy-trade.md 59b7692b86935d63ccd4eda96d4f0b7997aca937
+Reviewed-Content-Hash: design/registry/entities.yaml ca55c0128329ac74148b7230d2e87822c420af09
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md 4dcc8b81162613c757144532f1b72708ab3ba27f
+Reviewed-Content-Hash: design/gdd/provinces.md 9ac50486025115a27a3fbe5d19f8d71a3269fa51
+Reviewed-Content-Hash: design/gdd/travel-map.md 34615ef6a3454d058bdb1e8551ec4973f909d1b2
+Reviewed-Content-Hash: design/gdd/sects.md 9db8041d244fe5e1ec55f9e9b146782b6ea0d653
+Reviewed-Content-Hash: design/gdd/item-database.md ec553379489fd19353c568d7143e918b3d6cc355
+Reviewed-Content-Hash: design/gdd/canh-gioi.md c8ae4f305d1c42ce24da5873f1133394a0652175
+Reviewed-Content-Hash: design/gdd/game-concept.md b497f52abf8ff59cc59b08839a90ad20b0a36572
+Reviewed-Content-Hash: design/gdd/trade-goods.md 4114de5549c4bfffef3fe811c59a175c6cac4188
+Receipt note: the hashes stamp the text this review read, before the revisions above.
+
+## Review — 2026-11-23 — Verdict: APPROVED (seventeenth review, lean, round 6 of the Provinces #48 amendment; 0 blocking, 3 recommended, none applied)
+Review mode: lean · Workflow: standard
+Scope signal: XL
+Specialists: none (lean)
+Blocking items: 0 | Recommended: 3
+Summary: Round 5's three blockers (stale "a short province trades at P in peace" statements) are resolved: rules 16, 20, 22, Player Fantasy, the famine edge case, Formula A's `inf_v` row, L1's examples and asymmetry, G's output range and AC-RE-45/55/67/69/70/71/72 now agree with Provinces F6 counting goods brought in. Every worked example in A, B, L1 and the amendment's ACs was recomputed and matches (0.7172, 0.4255, 0.7095, 0.656, 1.33, 1.456, 0.836, 1.030, 1.105, 1.027, 1.140, 1.355, 0.663, 1.057, 0.9707, 0.475, 0.376). No contradiction with Provinces F6 or the registry found.
+Prior verdict resolved: Yes (review 16 blockers confirmed resolved)
+Findings:
+- [RECOMMENDED] Cross-References: the Provinces row omits rules 3 and 16, which the amendment also touched.
+- [RECOMMENDED] Tuning Knobs `λ_road`, `λ_war`: "loss in a region at war" reads per province now (`war_v`).
+- [RECOMMENDED] Dependencies, Provinces row: "pending review" status is stale next to Provinces' own In Review header.
+Reviewed-Content-Hash: design/gdd/regional-economy-trade.md f9319169b8ba2958f864b181b6ddd0427151d128
+Reviewed-Content-Hash: design/registry/entities.yaml ca55c0128329ac74148b7230d2e87822c420af09
+Reviewed-Content-Hash: .claude/skills/design-review/SKILL.md 4dcc8b81162613c757144532f1b72708ab3ba27f
+Reviewed-Content-Hash: design/gdd/provinces.md 9ac50486025115a27a3fbe5d19f8d71a3269fa51
+Reviewed-Content-Hash: design/gdd/travel-map.md 34615ef6a3454d058bdb1e8551ec4973f909d1b2
+Reviewed-Content-Hash: design/gdd/sects.md 9db8041d244fe5e1ec55f9e9b146782b6ea0d653
+Reviewed-Content-Hash: design/gdd/item-database.md ec553379489fd19353c568d7143e918b3d6cc355
+Reviewed-Content-Hash: design/gdd/canh-gioi.md c8ae4f305d1c42ce24da5873f1133394a0652175
+Reviewed-Content-Hash: design/gdd/game-concept.md b497f52abf8ff59cc59b08839a90ad20b0a36572
+Reviewed-Content-Hash: design/gdd/trade-goods.md 4114de5549c4bfffef3fe811c59a175c6cac4188
+Receipt note: the hashes stamp the text this review read (no revision was made).

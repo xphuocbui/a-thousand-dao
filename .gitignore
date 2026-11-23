@@ -190,3 +190,7 @@ prototypes/continent-candidates/
 # PoE 1 / PoE 2 passive tree data (GGG's data, read by the Đạo Đồ study tools; kept local, user decision 2026-11-18)
 design/dao-do/reference/poe/
 design/dao-do/reference/poe2/
+
+# near-layer repaint work files (tools/asset-pipeline/map/near_upres.py), several GB
+design/map/continent-11/art/near/upres/
+design/map/continent-11/art/near/upres4/

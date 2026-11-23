@@ -12,6 +12,7 @@ func _view(reduced: bool = false) -> MapView:
 	cfg["far_layer"] = ""   # the zoom and political rules do not need the painted layers
 	cfg["near_layer"] = ""
 	cfg["place_sprites"] = ""
+	cfg["near_hi"] = ""
 	var v := MapView.new()
 	v.size = Vector2(1920, 1080)
 	v.setup(ContinentGrid.from_continent(gd), cfg, 4.0)
@@ -86,7 +87,8 @@ func test_the_zoom_stays_between_the_fit_and_the_deepest_zoom() -> void:
 	assert_near(v.tile_scale(), fit, 0.001, "never past the fit")
 	for i in 20:
 		v.zoom_by(1.25, v.size * 0.5)
-	assert_near(v.tile_scale(), 18.0, 0.5, "the deepest zoom is zoom_max_px")
+	assert_near(v.tile_scale(), float(v._zcfg.get("zoom_max_px", 0.0)), 0.5, "the deepest zoom is zoom_max_px")
+	assert_true(v.tile_scale() >= 36.0, "the 4x near layer allows about twice the old deepest zoom (18)")
 
 
 func test_the_band_weights_and_region_zoom() -> void:
@@ -141,3 +143,45 @@ func test_every_file_line_lands_in_exactly_one_set() -> void:
 	v.set_regions([{"name": "A", "centre": [100, 100], "grid_id": 1, "holder_key": "tung_dao", "holder_name": "T"}], null)
 	var p: Dictionary = v.politics_probe(1)
 	assert_eq(int(p.bold) + int(p.thin) + int(p.provinces), v._prov_lines.size(), "holder + region + province = the file's lines")
+
+
+func test_streamed_tiles_in_view_are_the_chunks_the_view_touches() -> void:
+	# Arrange: 40-tile chunks over the 540 x 360 continent (14 x 9 chunks)
+	var view := Rect2(Vector2(75, 30), Vector2(10, 20))   # tiles 75..85 x 30..50
+	# Act
+	var got: Array = MapView.chunks_in_view(view, 40, 14, 9)
+	# Assert
+	assert_eq(got, [Vector2i(1, 0), Vector2i(2, 0), Vector2i(1, 1), Vector2i(2, 1)], "a view across a chunk corner needs its four chunks")
+	assert_eq(MapView.chunks_in_view(Rect2(Vector2(-50, -50), Vector2(20, 20)), 40, 14, 9), [], "a view off the map needs none")
+	assert_eq(MapView.chunks_in_view(Rect2(Vector2(530, 350), Vector2(30, 30)), 40, 14, 9), [Vector2i(13, 8)], "the last chunk is clamped at the map's corner")
+	assert_eq(MapView.chunks_in_view(view, 40, 14, 9, 40.0).size(), 12, "a one-chunk margin adds the ring around the view")
+
+
+func test_streamed_tiles_draw_only_when_zoomed_in_past_hi_from_px() -> void:
+	# Arrange: a view with a (fake) tile manifest and no files, so nothing loads
+	var v := _view(true)
+	v._hi = {"dir": "res://nowhere", "chunk_tiles": 40, "px_per_tile": 48, "pad": 16, "cols": 14, "rows": 9}
+	# Act / Assert
+	assert_false(v.hi_active(), "at the fit the overview alone")
+	v.zoom_by(float(v._zcfg.get("hi_from_px", 14.0)) / v.tile_scale() * 1.01, v.size * 0.5)
+	assert_true(v.hi_active(), "past hi_from_px the streamed tiles draw")
+	v._stream_hi()
+	assert_eq(int(v.hi_probe().pending), 0, "missing files are never requested")
+
+
+
+func test_built_places_get_a_growing_symbol_and_natural_landmarks_none() -> void:
+	# Arrange: the shipped symbol config (style G, user 2026-11-23)
+	var gd := game_data()
+	var cfg: Dictionary = gd.file("ui_hud").get("greybox", {}).duplicate(true)
+	var v := _view(true)
+	v._load_symbols(cfg.get("place_symbols", {}))
+	# Act
+	var start: float = v.symbol_side("city")
+	v.zoom_by(float(v._zcfg.get("zoom_max_px", 40.0)) / v.tile_scale(), v.size * 0.5)
+	var deepest: float = v.symbol_side("city")
+	# Assert
+	assert_near(start, float(cfg.place_symbols.px.city), 0.01, "a city's symbol starts at its configured px")
+	assert_near(deepest, float(cfg.place_symbols.px.city) * float(cfg.place_symbols.grow), 0.01, "and grows to px x grow at the deepest zoom")
+	assert_eq(v.symbol_side("volcano"), 0.0, "a natural landmark has no symbol: it is painted into the terrain")
+	assert_eq(v.symbol_side("peak"), 0.0, "nor a peak")

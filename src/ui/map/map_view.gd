@@ -4,7 +4,9 @@ extends Control
 ## and the political map): one continuous zoom measured in screen px per tile, from the fit (the whole continent) to
 ## zoom_max_px. Below the transition band the paper map (far layer) shows with the political map (each region tinted in
 ## its great sect's colour, bold ink where the holder changes, the great sects' names large across their territory);
-## above it the painted relief (near layer) with the place art; inside the band the two cross-fade. Known places are
+## above it the painted relief (near layer), streamed in tiles at 48 px per tile when zoomed in close (near_hi); inside
+## the band the two cross-fade. Place art shows in the place panel, not on the map (user, 2026-11-23: a town painted
+## to scale never fits the map). Known places are
 ## diamonds; the player's bubble (element 30), the abode bubble (31) and, on the region side of the band, the area
 ## bubbles (32). Drag with the left or middle button, or the arrow keys, to pan; the wheel zooms about the cursor, + and
 ## - about the centre, 0 back to the fit. Display only: it never changes game state; clicks are reported through
@@ -28,6 +30,17 @@ var _near: Texture2D = null
 ## size_tiles}. Drawn for known places only, so the art never reveals a place the player has not found.
 var _sprites: Dictionary = {}
 var _sprite_dir: String = ""
+var _place_art_on_map: bool = false   # ui_hud.json greybox.place_art_on_map (off: the art is the panel's picture)
+## The streamed near tiles (assets/map/near_hi/manifest.json): {dir, chunk_tiles, px_per_tile, pad, cols, rows}, empty
+## when absent. Loaded tiles: "cx_cy" -> {tex, used (msec)}; requested and not yet loaded: "cx_cy" -> path.
+var _hi: Dictionary = {}
+var _hi_tex: Dictionary = {}
+var _hi_pending: Dictionary = {}
+## Place symbols (ui_hud.json greybox.place_symbols; user 2026-11-23, style G): kind -> Texture2D for built places
+## (seats, cities, towns, markets, villages, mines); natural landmarks have none, they are painted into the terrain.
+var _symbols: Dictionary = {}
+var _symbol_px: Dictionary = {}     # kind -> screen px of the symbol's longest side at the relief's start
+var _symbol_grow: float = 1.3       # how much bigger at the deepest zoom
 ## Region names at continent zoom: [{name, centre: Vector2 (tile)}] (art bible 7.14: engine-drawn, never painted).
 var _regions: Array = []
 var _region_font: Font = null
@@ -117,6 +130,9 @@ func setup(grid: ContinentGrid, cfg: Dictionary, region_factor: float) -> void:
 	_far = _layer_texture(str(cfg.get("far_layer", "")))
 	_near = _layer_texture(str(cfg.get("near_layer", "")))
 	_load_sprites(str(cfg.get("place_sprites", "")))
+	_place_art_on_map = bool(cfg.get("place_art_on_map", false))
+	_load_hi(str(cfg.get("near_hi", "")))
+	_load_symbols(cfg.get("place_symbols", {}))
 	_load_provinces(str(cfg.get("provinces_file", "")))
 	_backdrop_far = Color.from_string(str(cfg.get("backdrop_far", "#141A24")), Color(0.08, 0.1, 0.14))
 	_backdrop_near = Color.from_string(str(cfg.get("backdrop_near", "#141A24")), Color(0.08, 0.1, 0.14))
@@ -297,6 +313,7 @@ func _set_px(v: float) -> void:
 ## The motion each frame: a glide, the zoom's momentum, the pan's fling and held arrow keys; processing stops when
 ## everything is at rest.
 func _process(delta: float) -> void:
+	_stream_hi()
 	var busy: bool = false
 	if _glide_t >= 0.0:
 		_glide_t = minf(1.0, _glide_t + delta / maxf(0.01, float(_zcfg.get("glide_seconds", 0.45))))
@@ -345,7 +362,8 @@ func _process(delta: float) -> void:
 			_pan_vel = Vector2.ZERO
 	if _key_vel.length() < 2.0 and dir == Vector2.ZERO:
 		_key_vel = Vector2.ZERO
-	if not busy and dir == Vector2.ZERO and _pan_vel == Vector2.ZERO and _key_vel == Vector2.ZERO:
+	# idle: stop processing, unless streamed tiles are still loading (they are collected here)
+	if not busy and dir == Vector2.ZERO and _pan_vel == Vector2.ZERO and _key_vel == Vector2.ZERO and _hi_pending.is_empty():
 		set_process(false)
 
 
@@ -381,6 +399,8 @@ func _relayout() -> void:
 		_px = _fit_px()
 		_px_target = _px
 		_clamp_center()
+	if hi_active():
+		set_process(true)   # the view changed: request the streamed tiles now in view (an instant zoom has no motion)
 	var w: float = near_weight()
 	for b in _layer.get_children():
 		var mb: MapBubble = b
@@ -413,7 +433,9 @@ func _draw() -> void:
 	if pol > 0.0 and _tint != null:
 		draw_texture_rect(_tint, map_rect, false, Color(1, 1, 1, float(_zcfg.get("political_alpha", 0.35)) * pol))
 	_draw_borders(pol)
-	if w > 0.0 and _near != null:
+	if w > 0.0 and not _hi.is_empty():
+		_draw_hi(w)
+	if w > 0.0 and _near != null and _place_art_on_map:
 		var by_rank: Array = _places.duplicate()   # small places first, so seats and cities sit on top where patches meet
 		by_rank.sort_custom(func(a, b): return _label_rank(a) > _label_rank(b))
 		for p in by_rank:   # each known place's own art, painted into its patch of the near layer
@@ -435,19 +457,31 @@ func _draw() -> void:
 	for p in order:
 		var at: Vector2 = _marker_at(p)
 		var hover: bool = p.id == _hover_id
-		# a diamond marks a fixed named place (art bible Section 3): cinnabar on the paper map, bone on the relief
-		var fill := Color(0.52, 0.1, 0.11).lerp(Color(0.91, 0.85, 0.71), w)
-		if hover:
-			fill = Color(1, 0.86, 0.4)
-		_diamond(at, dot + 1.5, Color(0.1, 0.07, 0.05))
-		_diamond(at, dot, fill)
-		if p.id == _destination_id:
-			draw_arc(at, dot + 6.0, 0.0, TAU, 24, Color(1, 0.85, 0.2), 2.0)
+		var side: float = symbol_side(str(p.get("kind", "")))
+		var label_at: Vector2 = at
+		if side > 0.0 and w > 0.0:
+			# a built place on the relief: its symbol stands on the tile (the tile point is its base), fading in with w
+			var tex: Texture2D = _symbols[str(p.kind)]
+			var c := Color(1, 1, 1, w) if not hover else Color(1.15, 1.05, 0.8, w)
+			draw_texture_rect(tex, Rect2(at - Vector2(side * 0.5, side * 0.92), Vector2(side, side)), false, c)
+			if p.id == _destination_id:
+				draw_arc(at - Vector2(0, side * 0.4), side * 0.55, 0.0, TAU, 32, Color(1, 0.85, 0.2, w), 2.0)
+			label_at = at + Vector2(side * 0.3, -side * 0.35)
+		if side <= 0.0 or w < 0.5:
+			# a diamond marks a fixed named place (art bible Section 3): cinnabar on the paper map, bone on the relief
+			var fill := Color(0.52, 0.1, 0.11).lerp(Color(0.91, 0.85, 0.71), w)
+			if hover:
+				fill = Color(1, 0.86, 0.4)
+			var da: float = 1.0 if side <= 0.0 else 1.0 - w * 2.0
+			_diamond(at, dot + 1.5, Color(0.1, 0.07, 0.05, da))
+			_diamond(at, dot, Color(fill, da))
+			if p.id == _destination_id and side <= 0.0:
+				draw_arc(at, dot + 6.0, 0.0, TAU, 24, Color(1, 0.85, 0.2), 2.0)
 		if w >= 0.5:   # the name on a dark, see-through backing (7.14), fading in with the relief
 			var name: String = str(p.name)
 			var fs: int = 13
 			var sz: Vector2 = font.get_string_size(name, HORIZONTAL_ALIGNMENT_LEFT, -1, fs)
-			var box := Rect2(at + Vector2(8, -sz.y * 0.5 - 1), sz + Vector2(8, 3))
+			var box := Rect2(label_at + Vector2(8, -sz.y * 0.5 - 1), sz + Vector2(8, 3))
 			if not hover and taken.any(func(r): return (r as Rect2).intersects(box)):
 				continue
 			taken.append(box)
@@ -528,7 +562,7 @@ func _draw_names(alpha: float) -> void:
 ## the art so the marker never covers the place's signature (the place art is centred on the tile).
 func _marker_at(p: Dictionary) -> Vector2:
 	var at: Vector2 = tile_to_local(p.tile)
-	if _near == null:
+	if _near == null or not _place_art_on_map:
 		return at
 	var spr: Dictionary = _sprites.get(str(int(p.get("rec", {}).get("continent_id", -1))), {})
 	if spr.is_empty():
@@ -579,6 +613,130 @@ func _load_provinces(path: String) -> void:
 		for i in pts.size():
 			pts[i] = Vector2(float(flat[2 * i]), float(flat[2 * i + 1]))
 		_prov_lines.append({"a": int(ln.a), "b": int(ln.b), "pts": pts})
+
+
+## Reads the streamed near-tile manifest at [param path] (missing: the overview near layer alone).
+func _load_hi(path: String) -> void:
+	_hi = {}
+	if path == "" or not FileAccess.file_exists(path):
+		return
+	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+	if parsed is Dictionary:
+		_hi = parsed
+
+
+## Whether the streamed tiles are drawn at the zoom now (from hi_from_px, map_zoom, up; and only with a near layer).
+func hi_active() -> bool:
+	return not _hi.is_empty() and near_weight() > 0.0 and tile_scale() >= float(_zcfg.get("hi_from_px", 14.0))
+
+
+## The streamed tiles that cover [param view] (a rect in game tiles), tiles of [param chunk] game tiles in a
+## [param cols] x [param rows] grid, widened by [param margin] tiles, as [Vector2i(cx, cy)].
+static func chunks_in_view(view: Rect2, chunk: int, cols: int, rows: int, margin: float = 0.0) -> Array:
+	var out: Array = []
+	if chunk <= 0:
+		return out
+	var r := view.grow(margin)
+	var cx0: int = clampi(int(floor(r.position.x / chunk)), 0, cols - 1)
+	var cy0: int = clampi(int(floor(r.position.y / chunk)), 0, rows - 1)
+	var cx1: int = clampi(int(floor(r.end.x / chunk)), 0, cols - 1)
+	var cy1: int = clampi(int(floor(r.end.y / chunk)), 0, rows - 1)
+	if r.end.x < 0.0 or r.end.y < 0.0 or r.position.x >= float(cols * chunk) or r.position.y >= float(rows * chunk):
+		return out
+	for cy in range(cy0, cy1 + 1):
+		for cx in range(cx0, cx1 + 1):
+			out.append(Vector2i(cx, cy))
+	return out
+
+
+func _view_tiles() -> Rect2:
+	var a: Vector2 = local_to_tile(Vector2.ZERO)
+	return Rect2(a, local_to_tile(size) - a)
+
+
+## Requests the tiles in view (one ring around them ahead of a pan) on a background thread, collects the loaded ones,
+## and drops the least recently drawn above hi_cache (map_zoom). Never blocks the frame.
+func _stream_hi() -> void:
+	if _hi.is_empty():
+		return
+	for key in _hi_pending.keys():
+		var path: String = _hi_pending[key]
+		var st: int = ResourceLoader.load_threaded_get_status(path)
+		if st == ResourceLoader.THREAD_LOAD_LOADED:
+			_hi_tex[key] = {"tex": ResourceLoader.load_threaded_get(path), "used": Time.get_ticks_msec()}
+			_hi_pending.erase(key)
+			queue_redraw()
+		elif st == ResourceLoader.THREAD_LOAD_FAILED or st == ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
+			_hi_pending.erase(key)
+			_hi_tex[key] = {"tex": null, "used": Time.get_ticks_msec()}
+	if not hi_active():
+		return
+	var chunk: int = int(_hi.get("chunk_tiles", 40))
+	for c in chunks_in_view(_view_tiles(), chunk, int(_hi.get("cols", 0)), int(_hi.get("rows", 0)), float(chunk)):
+		var key: String = "%d_%d" % [c.x, c.y]
+		if _hi_tex.has(key) or _hi_pending.has(key):
+			continue
+		var path: String = "%s/near_%d_%d.jpg" % [str(_hi.get("dir", "")), c.x, c.y]
+		if ResourceLoader.exists(path) and ResourceLoader.load_threaded_request(path) == OK:
+			_hi_pending[key] = path
+	var cap: int = int(_zcfg.get("hi_cache", 30))
+	if _hi_tex.size() > cap:
+		var keys: Array = _hi_tex.keys()
+		keys.sort_custom(func(a, b): return int(_hi_tex[a].used) < int(_hi_tex[b].used))
+		for i in keys.size() - cap:
+			_hi_tex.erase(keys[i])
+
+
+## Draws the loaded streamed tiles in view over the overview layer at [param w] opacity (only their inner region, so
+## the padding that hides filter seams never shows).
+func _draw_hi(w: float) -> void:
+	if not hi_active():
+		return
+	var chunk: int = int(_hi.get("chunk_tiles", 40))
+	var px: float = float(_hi.get("px_per_tile", 48))
+	var pad: float = float(_hi.get("pad", 0))
+	var sc: float = tile_scale()
+	var now: int = Time.get_ticks_msec()
+	for c in chunks_in_view(_view_tiles(), chunk, int(_hi.get("cols", 0)), int(_hi.get("rows", 0))):
+		var e: Variant = _hi_tex.get("%d_%d" % [c.x, c.y])
+		if e == null or e.tex == null:
+			continue
+		e.used = now
+		var t0 := Vector2(c.x * chunk, c.y * chunk)
+		var tw := Vector2(minf(chunk, _grid_size.x - t0.x), minf(chunk, _grid_size.y - t0.y))
+		var dst := Rect2(_origin() + t0 * sc, tw * sc)
+		draw_texture_rect_region(e.tex, dst, Rect2(Vector2(pad, pad), tw * px), Color(1, 1, 1, w))
+
+
+## Streamed tiles loaded and requested now (for tests and the demo).
+func hi_probe() -> Dictionary:
+	return {"loaded": _hi_tex.size(), "pending": _hi_pending.size(), "active": hi_active()}
+
+
+## Reads the place symbols from [param cfg] (ui_hud.json greybox.place_symbols: dir, px per kind, grow); a kind
+## whose file is missing has no symbol and keeps its diamond.
+func _load_symbols(cfg: Variant) -> void:
+	_symbols = {}
+	_symbol_px = {}
+	if not (cfg is Dictionary):
+		return
+	var dir: String = str(cfg.get("dir", ""))
+	_symbol_grow = float(cfg.get("grow", 1.3))
+	var px: Dictionary = cfg.get("px", {})
+	for kind in px:
+		var path: String = "%s/%s.png" % [dir, kind]
+		if dir != "" and ResourceLoader.exists(path):
+			_symbols[str(kind)] = load(path)
+			_symbol_px[str(kind)] = float(px[kind])
+
+
+## The screen size (px) of the symbol of place [param kind] at the zoom now, or 0 when the kind has none (natural
+## landmarks, or no file): px from the config at the relief's start, growing to px x grow at the deepest zoom.
+func symbol_side(kind: String) -> float:
+	if not _symbols.has(kind):
+		return 0.0
+	var t: float = smoothstep(float(_zcfg.get("near_to_px", 9.6)), _max_px(), tile_scale())
+	return float(_symbol_px[kind]) * lerpf(1.0, _symbol_grow, t)
 
 
 ## Reads the place-art manifest at [param path] (missing: no place art, the markers still show).
@@ -817,6 +975,11 @@ func _place_at(pos: Vector2) -> Dictionary:
 	var best_d: float = maxf(_place_radius * 2.5, 8.0)
 	for p in _places:
 		var d: float = minf(tile_to_local(p.tile).distance_to(pos), _marker_at(p).distance_to(pos))
+		var side: float = symbol_side(str(p.get("kind", ""))) if near_weight() >= 0.5 else 0.0
+		if side > 0.0:   # anywhere on a symbol counts as on the place
+			var r := Rect2(_marker_at(p) - Vector2(side * 0.45, side * 0.9), Vector2(side * 0.9, side * 0.9))
+			if r.has_point(pos):
+				d = 0.0
 		if d < best_d:
 			best_d = d
 			best = p
