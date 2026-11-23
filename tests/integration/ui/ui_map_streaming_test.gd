@@ -1,5 +1,5 @@
 extends DaoTestSuite
-## MapView's streamed near tiles (assets/map/near_hi, user 2026-11-23: "4x + deeper zoom") with the shipped files: zoomed
+## MapView's streamed near tiles (assets/map/paper_hi since 2026-11-23, was near_hi; user 2026-11-23: "4x + deeper zoom") with the shipped files: zoomed
 ## in close, the tiles in view load in the background and are drawn over the overview layer.
 
 
@@ -8,7 +8,7 @@ func test_zoomed_in_close_the_tiles_in_view_load() -> void:
 	var gd := game_data()
 	var cfg: Dictionary = gd.file("ui_hud").get("greybox", {}).duplicate(true)
 	cfg["terrain_shader"] = {}   # the painted-tile path (the terrain shader does not stream tiles)
-	cfg["near_hi"] = "res://assets/map/near_hi/manifest.json"   # the streamed tiles (the shipped paper map uses one texture)
+	cfg["near_hi"] = "res://assets/map/paper_hi/manifest.json"   # the streamed tiles (the shipped paper map uses one texture)
 	var v := MapView.new()
 	v.size = Vector2(1920, 1080)
 	add_child(v)
@@ -33,7 +33,7 @@ func test_an_instant_zoom_on_an_idle_map_still_loads_the_tiles() -> void:
 	var gd := game_data()
 	var cfg: Dictionary = gd.file("ui_hud").get("greybox", {}).duplicate(true)
 	cfg["terrain_shader"] = {}   # the painted-tile path (the terrain shader does not stream tiles)
-	cfg["near_hi"] = "res://assets/map/near_hi/manifest.json"   # the streamed tiles (the shipped paper map uses one texture)
+	cfg["near_hi"] = "res://assets/map/paper_hi/manifest.json"   # the streamed tiles (the shipped paper map uses one texture)
 	var v := MapView.new()
 	v.size = Vector2(1920, 1080)
 	add_child(v)
@@ -58,7 +58,7 @@ func test_the_terrain_shader_draws_the_game_water_over_the_streamed_painted_land
 	# Arrange: the shipped config (terrain_shader enabled with painted_land, user 2026-11-23)
 	var gd := game_data()
 	var cfg: Dictionary = gd.file("ui_hud").get("greybox", {}).duplicate(true)
-	cfg["near_hi"] = "res://assets/map/near_hi/manifest.json"
+	cfg["near_hi"] = "res://assets/map/paper_hi/manifest.json"
 	var v := MapView.new()
 	v.size = Vector2(1920, 1080)
 	add_child(v)

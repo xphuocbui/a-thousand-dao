@@ -88,7 +88,7 @@ def tile(repo, cx, cy):
 
 
 def main(repo, only):
-    out = os.path.join(repo, os.environ.get("TILES_OUT", "assets/map/near_hi"))
+    out = os.path.join(repo, os.environ.get("TILES_OUT", "assets/map/paper_hi"))
     os.makedirs(out, exist_ok=True)
     cols, rows = math.ceil(GRID[0] / CHUNK), math.ceil(GRID[1] / CHUNK)
     overview = None if only else Image.new("RGB", (GRID[0] * OVERVIEW_PX, GRID[1] * OVERVIEW_PX))
@@ -111,7 +111,7 @@ def main(repo, only):
     json.dump({"_doc": "Streamed near-map tiles (tools/asset-pipeline/map/near_tiles.py): tile (cx, cy) covers game tiles "
                        "[cx*chunk_tiles, cy*chunk_tiles] onward, chunk_tiles across (less at the map's right and bottom "
                        "edge), at px_per_tile, with pad px of overlap on every side; draw only the inner region.",
-               "dir": "res://" + os.environ.get("TILES_OUT", "assets/map/near_hi"), "chunk_tiles": CHUNK, "px_per_tile": PX, "pad": PAD,
+               "dir": "res://" + os.environ.get("TILES_OUT", "assets/map/paper_hi"), "chunk_tiles": CHUNK, "px_per_tile": PX, "pad": PAD,
                "cols": cols, "rows": rows, "grid": list(GRID)},
               open(os.path.join(out, "manifest.json"), "w", encoding="utf-8"), indent=1)
     if overview is not None:
