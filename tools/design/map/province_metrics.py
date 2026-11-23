@@ -19,6 +19,7 @@ from PIL import Image
 ROOT = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", ".."))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 RIDGE_D = 3
+CREST_MIN = 800.0   # metres: a crest lower than this is a hill line, not a ridge
 
 
 def river_tiles():
@@ -73,6 +74,16 @@ def main(path):
         on_border |= (sh > 0) & (sh != pid) & (shr == regn)
     rv_land = rv & (pid > 0)
     print("drawn river tiles on a province border: %.1f %% of %d" % (100.0 * (on_border & rv_land).sum() / max(1, rv_land.sum()), rv_land.sum()))
+    # ridge crests: land tiles above CREST_MIN m that are the highest within RIDGE_D tiles along x or along y (a line
+    # of local highs, i.e. a ridge); the share of them on a province border (same region), measured like the rivers
+    crest = np.zeros_like(rv)
+    for axis in (0, 1):
+        hi = np.ones(elev.shape, bool)
+        for k in range(1, RIDGE_D + 1):
+            hi &= (elev >= np.roll(elev, k, axis)) & (elev >= np.roll(elev, -k, axis))
+        crest |= hi
+    crest &= (elev > CREST_MIN) & (pid > 0)
+    print("ridge crest tiles on a province border: %.1f %% of %d" % (100.0 * (on_border & crest).sum() / max(1, crest.sum()), crest.sum()))
     sizes = np.bincount(pid[pid > 0])[1:]
     sizes = sizes[sizes > 0]
     q = np.percentile(sizes, [25, 50, 75])

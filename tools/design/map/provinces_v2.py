@@ -33,7 +33,7 @@ sys.path.insert(0, HERE)
 import provinces as P  # noqa: E402
 
 ROOT = P.ROOT
-OUT = os.path.join(ROOT, "design/map/continent-11/provinces-v2")
+OUT = os.path.join(ROOT, os.environ.get("PROV_OUT", "design/map/continent-11/provinces-v2"))
 SEED_KINDS = P.SEED_KINDS
 SEED_COST = 21.0     # every land tile ends within this travel cost of a seed (grassland tile = 1): sets the size
 RELAX = 2            # passes moving the added seeds to their province's middle
@@ -133,7 +133,14 @@ def main(render, game):
             moved.append((int(xs[k]), int(ys[k])))
         extra = moved
     seeds = pts + extra
+    # FINAL_UP (environment): the last growth may climb at a different cost than the seeding did, so a stronger ridge
+    # barrier can be tried on the same seeds (the same provinces, keyed the same) without moving them
+    global UP, DOWN
+    seed_up, seed_down = UP, DOWN
+    UP = float(os.environ.get("FINAL_UP", UP))
+    DOWN = float(os.environ.get("FINAL_DOWN", DOWN))
     owner, dist = grow(seeds, land, regn, cost, elev, river, W, H)
+    UP, DOWN = seed_up, seed_down
     kind = [s[2]["kind"] for s in seat] + ["wilderness"] * len(extra)
     seed_place = [s[2] for s in seat] + [None] * len(extra)
     # tiny provinces merge into the neighbour with the longest shared border (a settlement keeps its province)

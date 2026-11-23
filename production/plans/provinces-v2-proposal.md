@@ -17,6 +17,7 @@ Regional Economy & Trade (#43) stay as approved, and this file lists the changes
 | Part | Where | Result |
 |---|---|---|
 | Shapes | `tools/design/map/provinces_v2.py`, `design/map/continent-11/provinces-v2/`, `assets/map/continent_11_provinces.json`, `continent_11_province_ids.bin` | 273 → **705** provinces (median 253 → 107 tiles); drawn river tiles on a province border 13 % → 48 % (`province_metrics.py`); stable keys |
+| Ridges | (same generator) | **Not achieved.** Ridge crest tiles on a province border: 16.9 % (old) → 25.6 % (new), but any land tile is on a border 12.5 % → 23.2 % of the time, so a crest is 1.35× as likely as chance in the old cut and only 1.1× in the new. Rivers are 2.05×. See decision 8 |
 | Places | `tools/design/map/places_v2.py`, `design/world/provinces-v2/slots.json` | **1,245** new place slots from the land |
 | Lore | `design/world/provinces-v2/lore/region_*.json`, checked by `places_v2_check.py` | names (Hán-Việt + 漢字 + gloss) and lore for every province and new place, written per great sect's territory |
 | Stats | `tools/design/map/province_stats_v2.py` → `assets/data/world_provinces.json` | population, capacity, production by good, main and secondary goods, buildings, slots, infrastructure, usage, access, development, per province |
@@ -88,6 +89,24 @@ Regional Economy & Trade (#43) stay as approved, and this file lists the changes
 7. **New history:** the writers added small facts (new ruins with dates and causes, a few disasters, one more Thôn Hải
    raid in 744). The writers' reports list them, and none contradicts the annals as far as they checked. Worth a read
    before merging into `world_history.json`. The new facts are only in the lore files for now.
+
+8. **Ridges.** Borders now follow rivers (a river tile is twice as likely as chance to be on a border), but not ridges
+   (1.1×, against 1.35× in the old cut). Costly climbing makes a mountain range its own province with borders at its
+   feet, and crossing a crest must cost the same both ways for a border to sit on it. Tried on the same seeds
+   (`FINAL_UP` / `FINAL_DOWN` in `provinces_v2.py`):
+
+   | Final growth | Crests on a border | Rivers on a border | Provinces |
+   |---|---|---|---|
+   | as built (up 0.012, down 0.002) | 25.6 % | 47.6 % | 705 |
+   | up 0.03 | 24.3 % | 47.4 % | 699 |
+   | up 0.06 | 22.3 % | 48.3 % | 686 |
+   | up = down = 0.012 | 27.8 % | 45.7 % | 713 |
+   | up = down = 0.025 | 28.9 % | 43.9 % | 701 |
+
+   The equal-cost runs help a little (about 1.25× chance), but they change the province count. The new places and
+   lore are keyed to the provinces as built, so a re-cut means re-planning the slots (the lore for settlement
+   provinces survives through their keys). Recommended: decide whether ridges matter enough for a re-cut. If yes,
+   re-cut once with equal costs, then re-plan, and the writers re-fit only the wilderness provinces that changed.
 
 ## GDD deltas this would need (not applied)
 
