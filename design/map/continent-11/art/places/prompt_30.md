@@ -1,0 +1,12 @@
+Paint ONE place into this tile of a painted grand-strategy map. The input is the finished map around the place, seen straight down; the place stands at the exact CENTRE of the image.
+
+The place: Yên Ba Thành, city. Paint it as a walled city: a rectangular wall with gate towers, dense grey-tile roofs inside, a central tower or palace, a market square, suburbs along the roads outside the walls.
+How it looks: A walled port city stands where a river meets the sea, its quays and lower streets often lost in a drifting blue-green mist. Above the haze rises a slender pagoda of green-glazed tile at the end of the harbour mole, and a bronze horn at its top sounds through the fog to guide the ships home.
+Art brief: A rectangular walled port city of grey-tile roofs at a river mouth, its lower streets and quays softly veiled in blue-green mist. Signature element: a tall, slender pagoda of green-glazed tile standing at the end of a long stone harbour mole, rising clear above the mist, with a small bronze horn at its peak. At the base: stone quays, a river mouth with small junks, the sea edge. Warm golden light from the top left catching the pagoda's upper roofs above the haze. Avoid: text, people larger than specks, ships outside the harbour, anything outside the city's footprint.
+
+Rules:
+- Paint the place as a small, finely detailed miniature, as if a model-maker had built it into this painted relief: seen from above at a gentle angle so roofs, walls and towers read clearly, its base sitting naturally on the terrain that is there (follow the slopes, the shore, the river).
+- Keep it centred and compact: the whole place fits inside a circle about 22 % of the image width across the centre. Short roads or paths may lead out of it.
+- Match the map exactly: the same golden-hour light from the TOP LEFT with soft shadows to the bottom right, the same painterly style, colours and level of detail as the surrounding terrain; the building scale fits the trees and hills around it.
+- Leave everything outside that central circle exactly as it is in the input.
+- Never: text, labels, banners with writing, flags with symbols, people larger than specks, a frame, a vignette, clouds over the place.

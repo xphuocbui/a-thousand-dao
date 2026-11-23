@@ -1,0 +1,2003 @@
+{
+ "regions": [
+  {
+   "id": 5,
+   "name": "Cửu Khúc Xuyên",
+   "name_han": "九曲川",
+   "gloss": "Land of the Nine-Bend River",
+   "image": "The great northern river basin",
+   "holder": {
+    "key": "tung_dao",
+    "name": "Tùng Đào Cung",
+    "gloss": "Palace of the Pine Waves",
+    "kind": "great",
+    "alignment": "chinh",
+    "leans": [
+     "Wood",
+     "Water"
+    ],
+    "specialty": "phap_tu",
+    "founded": 200,
+    "lord": null
+   },
+   "biomes": [
+    {
+     "biome": "Temperate forest",
+     "share": 85.2
+    },
+    {
+     "biome": "Tundra",
+     "share": 7.2
+    },
+    {
+     "biome": "Swamp",
+     "share": 4.8
+    },
+    {
+     "biome": "High mountain",
+     "share": 2.6
+    }
+   ],
+   "landmass": "main",
+   "neighbours": [
+    "Lãnh Nguyệt Lâm",
+    "Thâm Tùng Hải",
+    "Dao Quang Lĩnh",
+    "Thiên Tuyền Nguyên"
+   ],
+   "famous_sites": [],
+   "fallen_sects": [],
+   "places": [
+    {
+     "id": 12,
+     "name": "Thải Chi Cốc",
+     "name_han": "採芝谷",
+     "gloss": null,
+     "note": null,
+     "kind": "minor_seat",
+     "biome": "temperate forest",
+     "elevation_km": 0.02,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "thai_chi",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 480,
+       "kind": "sect_founded",
+       "tier": "annal",
+       "text": "Lingzhi pickers who left the world settle the valley and found Thải Chi Cốc, singing the old song of the four hermits.",
+       "secret": false
+      },
+      {
+       "year": 520,
+       "kind": "trade",
+       "tier": "annal",
+       "text": "Thải Chi Cốc plants the first spirit-herb fields along the river; the valley smells of medicine for a century.",
+       "secret": false
+      },
+      {
+       "year": 1000,
+       "kind": "headship",
+       "tier": "annal",
+       "text": "Nghiêm Linh Chi becomes valley-mistress of Thải Chi Cốc and opens its herb fields to the river's orphans.",
+       "secret": false
+      }
+     ],
+     "residents": [
+      {
+       "name": "Nghiêm Linh Chi",
+       "role": "Valley-mistress of Thải Chi Cốc, herb fields and alchemy",
+       "alive": true,
+       "realm": "ket_dan",
+       "sect": "thai_chi"
+      }
+     ],
+     "seat_of": {
+      "key": "thai_chi",
+      "name": "Thải Chi Cốc",
+      "gloss": "Valley of the Lingzhi Pickers",
+      "kind": "minor",
+      "alignment": "chinh",
+      "leans": [
+       "Wood",
+       "Water"
+      ],
+      "specialty": "dan_su",
+      "founded": 480,
+      "lord": "tung_dao",
+      "craft": "herb fields and alchemy (luyện đan)",
+      "note": "Thải Chi Ca, the song of the Four Hoary Hermits of Mount Thương who left the world to pick lingzhi",
+      "leader": "Nghiêm Linh Chi"
+     }
+    },
+    {
+     "id": 13,
+     "name": "Lãng Đào Môn",
+     "name_han": "浪淘門",
+     "gloss": null,
+     "note": null,
+     "kind": "minor_seat",
+     "biome": "temperate forest",
+     "elevation_km": 0.01,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "lang_dao",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "thuy"
+     ],
+     "events": [
+      {
+       "year": 790,
+       "kind": "sect_founded",
+       "tier": "annal",
+       "text": "The ferrymen of the Nine-Bend River band together as Lãng Đào Môn, under Tùng Đào, to carry the river trade.",
+       "secret": false
+      }
+     ],
+     "residents": [
+      {
+       "name": "Giang Cửu Khúc",
+       "role": "Head of Lãng Đào Môn, river fleets, ferries and river trade",
+       "alive": true,
+       "realm": "ket_dan",
+       "sect": "lang_dao"
+      }
+     ],
+     "seat_of": {
+      "key": "lang_dao",
+      "name": "Lãng Đào Môn",
+      "gloss": "Gate of the Washing Waves",
+      "kind": "minor",
+      "alignment": "chinh",
+      "leans": [
+       "Water",
+       "Wood"
+      ],
+      "specialty": "phap_tu",
+      "founded": 790,
+      "lord": "tung_dao",
+      "craft": "river fleets, ferries and river trade",
+      "note": "Lưu Vũ Tích, Lãng Đào Sa: cửu khúc Hoàng Hà vạn lý sa (the nine-bend river and its ten thousand li of sand), the poem behind its region's name",
+      "leader": "Giang Cửu Khúc"
+     }
+    },
+    {
+     "id": 33,
+     "name": "Đào Thanh Thành",
+     "name_han": "濤聲城",
+     "gloss": "City of the Wave Sound",
+     "note": "The pine waves of Tùng Đào Cung, heard from the city below its seat",
+     "kind": "city",
+     "biome": "temperate forest",
+     "elevation_km": 0.08,
+     "coast": false,
+     "river": true,
+     "port": false,
+     "holder": "tung_dao",
+     "founded": 300,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "thuy"
+     ],
+     "events": [
+      {
+       "year": 300,
+       "kind": "city_founded",
+       "tier": "landmark",
+       "text": "Tùng Đào Cung founds Đào Thanh Thành on the river below its forests.",
+       "secret": false
+      },
+      {
+       "year": 700,
+       "kind": "disaster",
+       "tier": "annal",
+       "text": "A great flood on the Nine-Bend River drowns three villages; Tùng Đào moves Đào Thanh Thành's quays up the bank.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 47,
+     "name": "Đào Sa Thị",
+     "name_han": "淘沙市",
+     "gloss": "Market of the Washed Sands",
+     "note": "Lưu Vũ Tích, Lãng Đào Sa: after a thousand washings the sand gives up its gold; beside Lãng Đào Môn",
+     "kind": "market",
+     "biome": "temperate forest",
+     "elevation_km": 0.01,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "tung_dao",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 800,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "Gold-washers learn that after a thousand washings the river sand gives up its gold; Đào Sa Thị grows beside Lãng Đào Môn.",
+       "secret": false
+      },
+      {
+       "year": 1092,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "Triệu Huyết Y, fleeing the hunt that killed her master, hides for two years among the gold-washers of Đào Sa Thị.",
+       "secret": false
+      },
+      {
+       "year": 1173,
+       "kind": "raid",
+       "tier": "annal",
+       "text": "In the Ferry War, Lạc Hà raiders burn Lãng Đào's boats at the Đào Sa landing; the gold-washers fish nails from the river for years.",
+       "secret": false
+      }
+     ],
+     "residents": [
+      {
+       "name": "Triệu Huyết Y",
+       "role": "The last disciple of the ma đạo master Mặc Huyết Sinh (age 260), hunting for her master's abode",
+       "alive": true,
+       "realm": "ket_dan",
+       "sect": ""
+      }
+     ]
+    },
+    {
+     "id": 62,
+     "name": "Hà Bạn Trấn",
+     "name_han": "河畔鎮",
+     "gloss": "Riverside Town",
+     "note": null,
+     "kind": "town",
+     "biome": "temperate forest",
+     "elevation_km": 0.02,
+     "coast": false,
+     "river": true,
+     "port": false,
+     "holder": "thai_chi",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "thuy"
+     ],
+     "events": [
+      {
+       "year": 290,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "The river's new course runs past the door of a fishing hamlet; Hà Bạn Trấn grows on the new bank.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 63,
+     "name": "Lâm Hạ Trấn",
+     "name_han": "林下鎮",
+     "gloss": "Under the Trees Town",
+     "note": null,
+     "kind": "town",
+     "biome": "temperate forest",
+     "elevation_km": 0.06,
+     "coast": false,
+     "river": true,
+     "port": false,
+     "holder": "tung_dao",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "thuy"
+     ],
+     "events": [
+      {
+       "year": 600,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "Tùng Đào sets its northern granaries in the shade of Lâm Hạ Trấn, so the grain keeps.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 108,
+     "name": "Tuyết Ốc Thôn",
+     "name_han": "雪屋村",
+     "gloss": "Snow Houses Village",
+     "note": null,
+     "kind": "village",
+     "biome": "temperate forest",
+     "elevation_km": 0.03,
+     "coast": false,
+     "river": true,
+     "port": false,
+     "holder": "tung_dao",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "thuy"
+     ],
+     "events": [
+      {
+       "year": 340,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "Winters on the upper river are so deep that the houses of Tuyết Ốc are built half under the snow.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 109,
+     "name": "Hàn Mai Thôn",
+     "name_han": "寒梅村",
+     "gloss": "Winter Plum Village",
+     "note": null,
+     "kind": "village",
+     "biome": "temperate forest",
+     "elevation_km": 0.02,
+     "coast": false,
+     "river": true,
+     "port": false,
+     "holder": "tung_dao",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "thuy"
+     ],
+     "events": [
+      {
+       "year": 420,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "A winter plum blooms through the snow above a buried child, who is dug out alive; the village is named Hàn Mai.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 110,
+     "name": "Bạch Lang Thôn",
+     "name_han": "白狼村",
+     "gloss": "White Wolf Village",
+     "note": null,
+     "kind": "village",
+     "biome": "temperate forest",
+     "elevation_km": 0.04,
+     "coast": false,
+     "river": true,
+     "port": false,
+     "holder": "tung_dao",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "thuy"
+     ],
+     "events": [
+      {
+       "year": 456,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "The village built on the white wolf king's den is named Bạch Lang; its children wear wolf-tooth charms.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 224,
+     "name": "Đông Lưu Thành",
+     "name_han": "東流城",
+     "gloss": "City Where All Flows East",
+     "note": "Lý Bạch: all things since ancient times flow east like water. A mortal town left dry when the river changed its course.",
+     "kind": "ruin",
+     "biome": "temperate forest",
+     "elevation_km": 0.0,
+     "coast": false,
+     "river": true,
+     "port": false,
+     "holder": "tung_dao",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "thuy"
+     ],
+     "events": [
+      {
+       "year": 90,
+       "kind": "city_founded",
+       "tier": "landmark",
+       "text": "Mortal boatmen build Đông Lưu Thành on a great bend of the northern river.",
+       "secret": false
+      },
+      {
+       "year": 100,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "The boatmen of Đông Lưu give the river spirit a pig every spring for safe passage.",
+       "secret": false
+      },
+      {
+       "year": 270,
+       "kind": "omen",
+       "tier": "annal",
+       "text": "The river spirit stops answering the boatmen's offerings; ten years later the river leaves them.",
+       "secret": false
+      },
+      {
+       "year": 281,
+       "kind": "city_abandoned",
+       "tier": "landmark",
+       "text": "Left dry when the river changes its course, Đông Lưu Thành is abandoned; all things flow east.",
+       "secret": false
+      },
+      {
+       "year": 1198,
+       "kind": "discovery",
+       "tier": "annal",
+       "text": "A spring flood uncovers the old street of Đông Lưu Thành on the dry bed; children find coins of a city no one remembers.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 242,
+     "name": "Hổ Khiếu Cương",
+     "name_han": "虎嘯岡",
+     "gloss": "Tiger's Roar Ridge",
+     "note": "A ridge between the nine bends of Cửu Khúc Xuyên where a tiger's roar carries.",
+     "kind": "beast_lair",
+     "biome": "highland",
+     "elevation_km": 0.98,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "kim"
+     ],
+     "events": [],
+     "residents": []
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "name": "Dao Quang Lĩnh",
+   "name_han": "瑤光嶺",
+   "gloss": "Ridge of the Jade Light",
+   "image": "Dao Quang (Alkaid), a star of the Northern Dipper like Thiên Xu",
+   "holder": {
+    "key": "thien_xu",
+    "name": "Thiên Xu Tông",
+    "gloss": "Sect of the Heavenly Pivot",
+    "kind": "great",
+    "alignment": "trung",
+    "leans": [
+     "Metal",
+     "Earth"
+    ],
+    "specialty": "tran_su",
+    "founded": 120,
+    "lord": null
+   },
+   "biomes": [
+    {
+     "biome": "Temperate forest",
+     "share": 60.4
+    },
+    {
+     "biome": "High mountain",
+     "share": 23.2
+    },
+    {
+     "biome": "Steppe",
+     "share": 9.3
+    },
+    {
+     "biome": "Badlands",
+     "share": 6.0
+    }
+   ],
+   "landmass": "main",
+   "neighbours": [
+    "Lãnh Nguyệt Lâm",
+    "Cửu Khúc Xuyên",
+    "Ngọc Hồ Sơn",
+    "Thiên Tuyền Nguyên",
+    "Ngọc Hành Sơn"
+   ],
+   "famous_sites": [],
+   "fallen_sects": [],
+   "places": [
+    {
+     "id": 14,
+     "name": "Cửu Cao Phái",
+     "name_han": "九皋派",
+     "gloss": null,
+     "note": null,
+     "kind": "minor_seat",
+     "biome": "temperate forest",
+     "elevation_km": 0.31,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "cuu_cao",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "tho"
+     ],
+     "events": [
+      {
+       "year": 700,
+       "kind": "sect_founded",
+       "tier": "landmark",
+       "text": "Crane riders tame the first cranes of the nine marshes in Dao Quang Lĩnh and found Cửu Cao Phái; their cry is heard in the sky.",
+       "secret": false
+      },
+      {
+       "year": 1197,
+       "kind": "beast",
+       "tier": "annal",
+       "text": "Ung Hạc Minh tames a crane king that will let no one else ride it.",
+       "secret": false
+      }
+     ],
+     "residents": [
+      {
+       "name": "Ung Hạc Minh",
+       "role": "Head of Cửu Cao Phái, crane riders and beast tamers",
+       "alive": true,
+       "realm": "ket_dan",
+       "sect": "cuu_cao"
+      }
+     ],
+     "seat_of": {
+      "key": "cuu_cao",
+      "name": "Cửu Cao Phái",
+      "gloss": "School of the Nine Marshes",
+      "kind": "minor",
+      "alignment": "chinh",
+      "leans": [
+       "Wind",
+       "Wood"
+      ],
+      "specialty": "phap_tu",
+      "founded": 700,
+      "lord": "thien_xu",
+      "craft": "spirit beasts: crane riders and beast tamers",
+      "note": "Kinh Thi, Hạc Minh: hạc minh vu cửu cao, thanh văn vu thiên (the crane cries in the nine marshes and is heard in the sky)",
+      "leader": "Ung Hạc Minh"
+     }
+    },
+    {
+     "id": 34,
+     "name": "Khai Dương Thành",
+     "name_han": "開陽城",
+     "gloss": "City Opening to the Sun",
+     "note": "Khai Dương (Mizar), a star of the Northern Dipper like Thiên Xu",
+     "kind": "city",
+     "biome": "temperate forest",
+     "elevation_km": 0.0,
+     "coast": true,
+     "river": true,
+     "port": true,
+     "holder": "thien_xu",
+     "founded": 280,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "thuy"
+     ],
+     "events": [
+      {
+       "year": 280,
+       "kind": "city_founded",
+       "tier": "landmark",
+       "text": "Thiên Xu Tông founds Khai Dương Thành on the northern road.",
+       "secret": false
+      },
+      {
+       "year": 900,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "Khai Dương Thành's gate is rebuilt to face the morning star; travellers say the city wakes before the sun.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 64,
+     "name": "Bích Khê Trấn",
+     "name_han": "碧溪鎮",
+     "gloss": "Jade Brook Town",
+     "note": null,
+     "kind": "town",
+     "biome": "temperate forest",
+     "elevation_km": 0.08,
+     "coast": false,
+     "river": true,
+     "port": false,
+     "holder": "thien_xu",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "thuy"
+     ],
+     "events": [
+      {
+       "year": 300,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "A jade-green brook below the ridges gives Bích Khê Trấn its name and its trade in river jade.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 65,
+     "name": "Thanh Bách Thành",
+     "name_han": "青柏城",
+     "gloss": "Green Cypress City",
+     "note": null,
+     "kind": "city",
+     "biome": "temperate forest",
+     "elevation_km": 0.12,
+     "coast": false,
+     "river": true,
+     "port": false,
+     "holder": "thien_xu",
+     "founded": 520,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "tho"
+     ],
+     "events": [
+      {
+       "year": 520,
+       "kind": "city_founded",
+       "tier": "landmark",
+       "text": "Thiên Xu Tông founds Thanh Bách Thành on its northern road.",
+       "secret": false
+      },
+      {
+       "year": 980,
+       "kind": "trade",
+       "tier": "annal",
+       "text": "A star falls near Thanh Bách Thành; the fragment is sold to Thối Tinh Môn for three years of the city's taxes.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 111,
+     "name": "Ba Quang Thôn",
+     "name_han": "波光村",
+     "gloss": "Glinting Waves Village",
+     "note": null,
+     "kind": "village",
+     "biome": "grassland",
+     "elevation_km": 0.09,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "cuu_cao",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 600,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "Light glints so brightly on the mountain lakes at Ba Quang that travellers think the village is on fire.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 112,
+     "name": "Hạc Quy Thôn",
+     "name_han": "鶴歸村",
+     "gloss": "Crane's Return Village",
+     "note": null,
+     "kind": "village",
+     "biome": "temperate forest",
+     "elevation_km": 0.07,
+     "coast": false,
+     "river": true,
+     "port": false,
+     "holder": "thien_xu",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "thuy"
+     ],
+     "events": [
+      {
+       "year": 700,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "Cranes return to the marshes on the same day every year; the village where they land is named Hạc Quy, and Cửu Cao Phái rides the first of them.",
+       "secret": false
+      },
+      {
+       "year": 1010,
+       "kind": "birth",
+       "tier": "annal",
+       "text": "Ung Hạc Minh is born in Hạc Quy Thôn; that year the cranes stay a month longer.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 113,
+     "name": "Lộc Uyển Thôn",
+     "name_han": "鹿苑村",
+     "gloss": "Deer Park Village",
+     "note": null,
+     "kind": "village",
+     "biome": "temperate forest",
+     "elevation_km": 0.1,
+     "coast": false,
+     "river": true,
+     "port": false,
+     "holder": "thien_xu",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "thuy"
+     ],
+     "events": [
+      {
+       "year": 380,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "Deer gather each spring in the high meadow of Lộc Uyển; Thiên Xu forbids hunting there.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 181,
+     "name": "Phụ Tinh Phong",
+     "name_han": "輔星峰",
+     "gloss": "Peak of the Companion Star",
+     "note": "Phụ tinh (Alcor), the faint star beside the Dipper",
+     "kind": "peak",
+     "biome": "glacier",
+     "elevation_km": 4.28,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 3,
+     "qi_top": [
+      "kim",
+      "tho"
+     ],
+     "events": [
+      {
+       "year": 760,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "Phá Quân Môn's disciples begin to drill at night on Phụ Tinh Phong, under the faint companion star.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 182,
+     "name": "Trích Tinh Phong",
+     "name_han": "摘星峰",
+     "gloss": "Peak Where One Picks the Stars",
+     "note": "Lý Bạch: thủ khả trích tinh thần (one could pluck the stars by hand); 4.7 km, the roof of the heartland",
+     "kind": "peak",
+     "biome": "high mountain",
+     "elevation_km": 4.72,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 2,
+     "qi_top": [
+      "kim",
+      "tho"
+     ],
+     "events": [
+      {
+       "year": 260,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "Thiên Xu's first watchmen climb Trích Tinh Phong and report that one could pluck the stars by hand.",
+       "secret": false
+      },
+      {
+       "year": 1100,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "The pilgrims' road up Trích Tinh Phong is cut into the rock in a thousand steps.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 205,
+     "name": "Tinh Tủy Mạch",
+     "name_han": "星髓脈",
+     "gloss": "Star Marrow Vein",
+     "note": "A wild vein high in Dao Quang Lĩnh, near Trích Tinh Phong, 4 tiles from Băng Tâm's border.",
+     "kind": "spirit_vein",
+     "biome": "high mountain",
+     "elevation_km": 3.02,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "thien_xu",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 2,
+     "qi_top": [
+      "kim",
+      "tho"
+     ],
+     "events": [
+      {
+       "year": 470,
+       "kind": "discovery",
+       "tier": "annal",
+       "text": "Thiên Xu finds the Star Marrow vein high near Trích Tinh Phong and posts a guard that has never been withdrawn.",
+       "secret": false
+      },
+      {
+       "year": 1188,
+       "kind": "petition",
+       "tier": "landmark",
+       "text": "Băng Tâm Các claims Tinh Tủy Mạch before the Pivot; the claim is rejected, and Sở Ngọc Hồ withdraws in silence.",
+       "secret": false
+      },
+      {
+       "year": 1189,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "After Băng Tâm's petition, Thiên Xu doubles the guard on Tinh Tủy Mạch; Cửu Cao's cranes circle it day and night.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 218,
+     "name": "Phá Quân Môn",
+     "name_han": "破軍門",
+     "gloss": "Gate of the Army-Breaker Star",
+     "note": "The mountain fort of the vassal that rebelled against Thiên Xu.",
+     "kind": "ruin",
+     "biome": "high mountain",
+     "elevation_km": 2.91,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "thien_xu",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 2,
+     "qi_top": [
+      "kim",
+      "tho"
+     ],
+     "events": [
+      {
+       "year": 720,
+       "kind": "sect_founded",
+       "tier": "landmark",
+       "text": "Hạ Lang Tinh founds Phá Quân Môn in the mountains of Dao Quang Lĩnh as a vassal of Thiên Xu, named for the Dipper's seventh star, the Army-Breaker.",
+       "secret": false
+      },
+      {
+       "year": 870,
+       "kind": "war_start",
+       "tier": "landmark",
+       "text": "Hạ Lang Tinh leads Phá Quân Môn against its lord, to win by war the land the Compact forbids.",
+       "secret": false
+      },
+      {
+       "year": 872,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "In the rebellion, Cửu Cao's crane riders carry Thiên Xu's messages over Phá Quân's fort.",
+       "secret": false
+      },
+      {
+       "year": 874,
+       "kind": "war_end",
+       "tier": "landmark",
+       "text": "Thiên Xu destroys Phá Quân Môn; Đỗ Tinh Hà takes Hạ Lang Tinh's spear, and Cửu Cao Phái receives the rebels' holdings.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 234,
+     "name": "Bằng Sào Nhai",
+     "name_han": "鵬巢崖",
+     "gloss": "Roc's Nest Cliff",
+     "note": "A roc nests on the cliffs of Dao Quang Lĩnh.",
+     "kind": "beast_lair",
+     "biome": "highland",
+     "elevation_km": 1.48,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "tho",
+      "kim"
+     ],
+     "events": [],
+     "residents": []
+    }
+   ]
+  },
+  {
+   "id": 7,
+   "name": "Ngọc Hồ Sơn",
+   "name_han": "玉壺山",
+   "gloss": "Mountains of the Jade Vessel",
+   "image": "Băng tâm tại ngọc hồ: the ice heart sits in the jade vessel",
+   "holder": {
+    "key": "bang_tam",
+    "name": "Băng Tâm Các",
+    "gloss": "Pavilion of the Ice Heart",
+    "kind": "great",
+    "alignment": "chinh",
+    "leans": [
+     "Water",
+     "Ice"
+    ],
+    "specialty": "kiem_tu",
+    "founded": 440,
+    "lord": null
+   },
+   "biomes": [
+    {
+     "biome": "Temperate forest",
+     "share": 45.7
+    },
+    {
+     "biome": "High mountain",
+     "share": 33.4
+    },
+    {
+     "biome": "Tundra",
+     "share": 8.7
+    },
+    {
+     "biome": "Swamp",
+     "share": 6.7
+    }
+   ],
+   "landmass": "main",
+   "neighbours": [
+    "Lãnh Nguyệt Lâm",
+    "Dao Quang Lĩnh",
+    "Cô Yên Mạc",
+    "Hàn Sương Châu",
+    "Ngọc Hành Sơn"
+   ],
+   "famous_sites": [],
+   "fallen_sects": [
+    {
+     "name": "Hồ Thiên Phái",
+     "name_han": "胡天派",
+     "gloss": "School of the Northern Sky",
+     "founded": 210,
+     "fell": 425,
+     "cause": "buried by the eruption of Chúc Long Sơn",
+     "ruin": null
+    }
+   ],
+   "places": [
+    {
+     "id": 15,
+     "name": "Lê Hoa Am",
+     "name_han": "梨花庵",
+     "gloss": null,
+     "note": null,
+     "kind": "minor_seat",
+     "biome": "high mountain",
+     "elevation_km": 0.68,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "le_hoa",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "kim",
+      "tho"
+     ],
+     "events": [
+      {
+       "year": 600,
+       "kind": "sect_founded",
+       "tier": "annal",
+       "text": "A snow that falls like pear blossom overnight in the eighth month brings a nun to found Lê Hoa Am by the ice fields.",
+       "secret": false
+      },
+      {
+       "year": 1020,
+       "kind": "headship",
+       "tier": "annal",
+       "text": "Thái Lê Tuyết becomes abbess of Lê Hoa Am.",
+       "secret": false
+      },
+      {
+       "year": 1150,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "The Tiêu clan sends its first son to the gate of Lê Hoa Am; he is turned away for being a son, and becomes a hunter.",
+       "secret": false
+      }
+     ],
+     "residents": [
+      {
+       "name": "Thái Lê Tuyết",
+       "role": "Abbess of Lê Hoa Am, ice cultivation in a hermitage by the ice fields",
+       "alive": true,
+       "realm": "ket_dan",
+       "sect": "le_hoa"
+      }
+     ],
+     "seat_of": {
+      "key": "le_hoa",
+      "name": "Lê Hoa Am",
+      "gloss": "Hermitage of the Pear Blossom",
+      "kind": "minor",
+      "alignment": "chinh",
+      "leans": [
+       "Ice",
+       "Water"
+      ],
+      "specialty": "kiem_tu",
+      "founded": 600,
+      "lord": "bang_tam",
+      "craft": "ice cultivation; a hermitage near the ice fields",
+      "note": "Sầm Tham: thiên thụ vạn thụ lê hoa khai (snow, as if a thousand trees burst into pear blossom overnight)",
+      "leader": "Thái Lê Tuyết"
+     }
+    },
+    {
+     "id": 66,
+     "name": "Hòe Âm Trấn",
+     "name_han": "槐蔭鎮",
+     "gloss": "Locust Shade Town",
+     "note": null,
+     "kind": "town",
+     "biome": "temperate forest",
+     "elevation_km": 0.0,
+     "coast": true,
+     "river": true,
+     "port": true,
+     "holder": "le_hoa",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 520,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "Locust trees planted by the Tiêu family shade the road into the mountains; their village becomes Hòe Âm.",
+       "secret": false
+      },
+      {
+       "year": 930,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "A hunter of Hòe Âm finds a sealed cave on the mountain with a sword's cold light behind the seal; he runs, and never finds it again.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 114,
+     "name": "Đỗ Quyên Thôn",
+     "name_han": "杜鵑村",
+     "gloss": "Azalea Village",
+     "note": null,
+     "kind": "village",
+     "biome": "temperate forest",
+     "elevation_km": 0.0,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "bang_tam",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 640,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "Azaleas bloom red on the slopes above Đỗ Quyên Thôn each spring; the villagers say they are the eruption's dead.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 115,
+     "name": "Hoàng Oanh Thôn",
+     "name_han": "黃鶯村",
+     "gloss": "Oriole Village",
+     "note": null,
+     "kind": "village",
+     "biome": "temperate forest",
+     "elevation_km": 0.0,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "bang_tam",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 850,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "Orioles winter in the valley of Hoàng Oanh Thôn, the only birdsong in the ice mountains.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 183,
+     "name": "Hồi Lộ Phong",
+     "name_han": "迴路峰",
+     "gloss": "Peak of the Winding Road",
+     "note": "Sầm Tham, Bạch Tuyết Ca: sơn hồi lộ chuyển bất kiến quân (the mountain turns, the road bends, and you are gone)",
+     "kind": "peak",
+     "biome": "high mountain",
+     "elevation_km": 3.51,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 2,
+     "qi_top": [
+      "kim",
+      "tho"
+     ],
+     "events": [
+      {
+       "year": 300,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "Hồ Thiên's disciples carve a stair of ice up Hồi Lộ Phong; it bends so often that companions lose each other in plain sight.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 184,
+     "name": "Lăng Tuyệt Phong",
+     "name_han": "凌絕峰",
+     "gloss": "Peak Above All",
+     "note": "Đỗ Phủ, Vọng Nhạc: hội đương lăng tuyệt đỉnh, nhất lãm chúng sơn tiểu (I shall stand on the very top and see all mountains small); 5.2 km, the highest on the continent",
+     "kind": "peak",
+     "biome": "glacier",
+     "elevation_km": 5.24,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 3,
+     "qi_top": [
+      "kim",
+      "tho"
+     ],
+     "events": [
+      {
+       "year": 480,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "Băng Tâm's climbers reach the top of Lăng Tuyệt Phong and see all the mountains small.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 188,
+     "name": "Chúc Long Sơn",
+     "name_han": "燭龍山",
+     "gloss": "Mountain of the Torch Dragon",
+     "note": "Sơn Hải Kinh: in the dark far north the Torch Dragon lights the world; a volcano on the ice",
+     "kind": "volcano",
+     "biome": "volcano",
+     "elevation_km": 1.35,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 4,
+     "qi_top": [
+      "hoa",
+      "thuy"
+     ],
+     "events": [
+      {
+       "year": 120,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "Ice hunters say the Torch Dragon sleeps under Chúc Long Sơn and lights the mountain when it dreams.",
+       "secret": false
+      },
+      {
+       "year": 425,
+       "kind": "disaster",
+       "tier": "landmark",
+       "text": "Chúc Long Sơn erupts under the ice and buries Hồ Thiên Phái with its founder Khúc Hồ Già; Ngọc Hồ Sơn lies empty.",
+       "secret": false
+      },
+      {
+       "year": 1199,
+       "kind": "omen",
+       "tier": "annal",
+       "text": "Chúc Long Sơn rumbles under the ice for the first time in 774 years; Lê Hoa Am's nuns pray all winter.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 209,
+     "name": "Băng Phách Mạch",
+     "name_han": "冰魄脈",
+     "gloss": "Vein of the Ice Soul",
+     "note": "Băng phách, the ice soul, is an old name for the moon. Under the ice mountains of Ngọc Hồ Sơn, within reach of the storm peaks.",
+     "kind": "spirit_vein",
+     "biome": "high mountain",
+     "elevation_km": 2.78,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "bang_tam",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 4,
+     "qi_top": [
+      "kim",
+      "tho"
+     ],
+     "events": [
+      {
+       "year": 760,
+       "kind": "discovery",
+       "tier": "annal",
+       "text": "Băng Tâm opens the Ice Soul vein, Băng Phách Mạch, below the ice mountains.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 214,
+     "name": "Hồ Thiên Phái",
+     "name_han": "胡天派",
+     "gloss": "School of the Northern Sky",
+     "note": "Buried by the eruption of Chúc Long Sơn under the ice.",
+     "kind": "ruin",
+     "biome": "tundra",
+     "elevation_km": 0.0,
+     "coast": true,
+     "river": false,
+     "port": false,
+     "holder": "bang_tam",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 3,
+     "qi_top": [
+      "thuy",
+      "hoa"
+     ],
+     "events": [
+      {
+       "year": 210,
+       "kind": "sect_founded",
+       "tier": "landmark",
+       "text": "Khúc Hồ Già founds Hồ Thiên Phái on the ice of Ngọc Hồ Sơn, below the fire mountain Chúc Long Sơn, where snow flies in the eighth month.",
+       "secret": false
+      },
+      {
+       "year": 230,
+       "kind": "item_made",
+       "tier": "landmark",
+       "text": "Khúc Hồ Già forges the sword Phi Tuyết from ice that never melts.",
+       "secret": false
+      },
+      {
+       "year": 426,
+       "kind": "omen",
+       "tier": "annal",
+       "text": "A year after the eruption, steam still rises from the ice where Hồ Thiên stood; no bird sings there.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 239,
+     "name": "Hàn Giao Chử",
+     "name_han": "寒蛟渚",
+     "gloss": "Islet of the Cold Flood-Dragon",
+     "note": "A lone islet far north of Ngọc Hồ Sơn where a cold giao coils.",
+     "kind": "beast_lair",
+     "biome": "tundra",
+     "elevation_km": 0.09,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 2,
+     "qi_top": [
+      "thuy",
+      "hoa"
+     ],
+     "events": [],
+     "residents": []
+    },
+    {
+     "id": 252,
+     "name": "Hàn Diễm Khẩu",
+     "name_han": "寒焰口",
+     "gloss": "Cold Flame Vent",
+     "note": "A vent high on Ngọc Hồ Sơn, fire under the ice of Băng Tâm's land.",
+     "kind": "lava_vent",
+     "biome": "volcano",
+     "elevation_km": 2.7,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "bang_tam",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 4,
+     "qi_top": [
+      "hoa",
+      "kim"
+     ],
+     "events": [],
+     "residents": []
+    }
+   ]
+  },
+  {
+   "id": 8,
+   "name": "Cô Yên Mạc",
+   "name_han": "孤煙漠",
+   "gloss": "Desert of the Lone Smoke",
+   "image": "Vương Duy: đại mạc cô yên trực, a lone column of smoke over the great desert",
+   "holder": {
+    "key": "bang_tam",
+    "name": "Băng Tâm Các",
+    "gloss": "Pavilion of the Ice Heart",
+    "kind": "great",
+    "alignment": "chinh",
+    "leans": [
+     "Water",
+     "Ice"
+    ],
+    "specialty": "kiem_tu",
+    "founded": 440,
+    "lord": null
+   },
+   "biomes": [
+    {
+     "biome": "Steppe",
+     "share": 44.0
+    },
+    {
+     "biome": "Desert",
+     "share": 20.0
+    },
+    {
+     "biome": "High mountain",
+     "share": 15.1
+    },
+    {
+     "biome": "Grassland",
+     "share": 7.9
+    }
+   ],
+   "landmass": "main",
+   "neighbours": [
+    "Ngọc Hồ Sơn",
+    "Hàn Sương Châu",
+    "Ngọc Hành Sơn",
+    "Triêu Dương Nguyên"
+   ],
+   "famous_sites": [],
+   "fallen_sects": [],
+   "places": [
+    {
+     "id": 3,
+     "name": "Băng Tâm Các",
+     "name_han": "冰心閣",
+     "gloss": null,
+     "note": null,
+     "kind": "great_seat",
+     "biome": "badlands",
+     "elevation_km": 0.91,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "bang_tam",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "tho",
+      "kim"
+     ],
+     "events": [
+      {
+       "year": 440,
+       "kind": "sect_founded",
+       "tier": "landmark",
+       "text": "Tần Ngưng Sương founds Băng Tâm Các in the cold north-east, among the ice fields, a pavilion for the ice heart.",
+       "secret": false
+      },
+      {
+       "year": 445,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "Tần Ngưng Sương makes the well water of the desert seat cold enough to keep ice all summer.",
+       "secret": false
+      },
+      {
+       "year": 1010,
+       "kind": "headship",
+       "tier": "landmark",
+       "text": "Tần Ngưng Sương dies at 710; Sở Ngọc Hồ becomes head of Băng Tâm Các and keeper of the Jade Vessel.",
+       "secret": false
+      },
+      {
+       "year": 1188,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "Sở Ngọc Hồ returns from the Pivot's court without a word and shuts herself in the seat's ice hall for a year.",
+       "secret": false
+      }
+     ],
+     "residents": [
+      {
+       "name": "Sở Ngọc Hồ",
+       "role": "Head of Băng Tâm Các",
+       "alive": true,
+       "realm": "nguyen_anh",
+       "sect": "bang_tam"
+      },
+      {
+       "name": "Tiết Hàn Mai",
+       "role": "First elder of Băng Tâm Các (age 440)",
+       "alive": true,
+       "realm": "ket_dan",
+       "sect": "bang_tam"
+      },
+      {
+       "name": "Sở Hàn Y",
+       "role": "The head's disciple, age 60",
+       "alive": true,
+       "realm": "truc_co",
+       "sect": "bang_tam"
+      }
+     ],
+     "seat_of": {
+      "key": "bang_tam",
+      "name": "Băng Tâm Các",
+      "gloss": "Pavilion of the Ice Heart",
+      "kind": "great",
+      "alignment": "chinh",
+      "leans": [
+       "Water",
+       "Ice"
+      ],
+      "specialty": "kiem_tu",
+      "founded": 440,
+      "lord": null,
+      "leader": "Sở Ngọc Hồ"
+     }
+    },
+    {
+     "id": 16,
+     "name": "Dạ Quang Môn",
+     "name_han": "夜光門",
+     "gloss": null,
+     "note": null,
+     "kind": "minor_seat",
+     "biome": "steppe",
+     "elevation_km": 0.01,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "da_quang",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "tho",
+      "hoa"
+     ],
+     "events": [
+      {
+       "year": 970,
+       "kind": "sect_founded",
+       "tier": "landmark",
+       "text": "Hạng Dạ Bôi gathers the desert raiders and founds Dạ Quang Môn, bound to no lord.",
+       "secret": false
+      },
+      {
+       "year": 1119,
+       "kind": "war_start",
+       "tier": "landmark",
+       "text": "Băng Tâm Các marches on the desert raiders of Dạ Quang Môn.",
+       "secret": false
+      },
+      {
+       "year": 1121,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "Dạ Quang Môn's raiders are made to guard the very caravans they used to rob.",
+       "secret": false
+      },
+      {
+       "year": 1121,
+       "kind": "war_end",
+       "tier": "landmark",
+       "text": "Hạng Dạ Bôi kneels to Sở Ngọc Hồ; Dạ Quang Môn becomes a vassal of Băng Tâm, and does not forget.",
+       "secret": false
+      },
+      {
+       "year": 1194,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "Dạ Quang's young blades drink from the night-glowing cups again; Băng Tâm's elders pretend not to see.",
+       "secret": false
+      }
+     ],
+     "residents": [
+      {
+       "name": "Hạng Dạ Bôi",
+       "role": "Head of Dạ Quang Môn, blood sabres and caravan raiding in the desert (ma đạo)",
+       "alive": true,
+       "realm": "ket_dan",
+       "sect": "da_quang"
+      }
+     ],
+     "seat_of": {
+      "key": "da_quang",
+      "name": "Dạ Quang Môn",
+      "gloss": "Gate of the Night-Glowing Cup",
+      "kind": "minor",
+      "alignment": "ma",
+      "leans": [
+       "Fire",
+       "Metal"
+      ],
+      "specialty": "kiem_tu",
+      "founded": 970,
+      "lord": "bang_tam",
+      "craft": "blood sabres and caravan raiding in the desert",
+      "note": "Vương Hàn, Lương Châu Từ: bồ đào mỹ tửu dạ quang bôi (grape wine in the night-glowing cup); of those who go to war, how many return?",
+      "leader": "Hạng Dạ Bôi"
+     }
+    },
+    {
+     "id": 35,
+     "name": "Trường Vân Thành",
+     "name_han": "長雲城",
+     "gloss": "City of the Long Clouds",
+     "note": "Vương Xương Linh, Tòng Quân Hành: Thanh Hải trường vân ám tuyết sơn (long clouds darken the snow mountains); the same poet as Băng Tâm",
+     "kind": "city",
+     "biome": "grassland",
+     "elevation_km": 0.0,
+     "coast": true,
+     "river": true,
+     "port": true,
+     "holder": "bang_tam",
+     "founded": 470,
+     "on_road": true,
+     "array": true,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "tho"
+     ],
+     "events": [
+      {
+       "year": 470,
+       "kind": "city_founded",
+       "tier": "landmark",
+       "text": "Băng Tâm Các founds Trường Vân Thành at the edge of the desert, under the long clouds over the snow mountains.",
+       "secret": false
+      },
+      {
+       "year": 870,
+       "kind": "birth",
+       "tier": "annal",
+       "text": "Hạng Dạ Bôi is born to a caravan guard's family in Trường Vân Thành.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 67,
+     "name": "Hồi Lan Thành",
+     "name_han": "迴瀾城",
+     "gloss": "Turning Waves City",
+     "note": null,
+     "kind": "city",
+     "biome": "grassland",
+     "elevation_km": 0.03,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "bang_tam",
+     "founded": 760,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "tho"
+     ],
+     "events": [
+      {
+       "year": 760,
+       "kind": "city_founded",
+       "tier": "landmark",
+       "text": "Băng Tâm Các founds Hồi Lan Thành on the desert coast, after the Desert Road War.",
+       "secret": false
+      },
+      {
+       "year": 770,
+       "kind": "trade",
+       "tier": "annal",
+       "text": "Hồi Lan Thành's harbour fills with ships from the south once the caravan road is safe.",
+       "secret": false
+      },
+      {
+       "year": 1160,
+       "kind": "trade",
+       "tier": "annal",
+       "text": "A merchant of Hồi Lan Thành brings the first southern rice through the desert since the Desert Road War; Băng Tâm taxes it at half.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 116,
+     "name": "Ngư Đàm Thôn",
+     "name_han": "魚潭村",
+     "gloss": "Fish Pool Village",
+     "note": null,
+     "kind": "village",
+     "biome": "grassland",
+     "elevation_km": 0.01,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "bang_tam",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "tho"
+     ],
+     "events": [
+      {
+       "year": 500,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "Fish ponds dug in an oasis give Ngư Đàm Thôn its name and Băng Tâm's desert its only fish.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 117,
+     "name": "Liên Đường Thôn",
+     "name_han": "蓮塘村",
+     "gloss": "Lotus Pond Village",
+     "note": null,
+     "kind": "village",
+     "biome": "grassland",
+     "elevation_km": 0.0,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "da_quang",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "tho",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 560,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "Lotus ponds bloom at Liên Đường in the middle of the steppe; caravans stop just to look.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 118,
+     "name": "Mã Minh Thôn",
+     "name_han": "馬鳴村",
+     "gloss": "Neighing Horses Village",
+     "note": null,
+     "kind": "village",
+     "biome": "grassland",
+     "elevation_km": 0.03,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "bang_tam",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "tho",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 100,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "Nomad herders drive their horses across the steppe behind the range; their camping ground becomes Mã Minh Thôn.",
+       "secret": false
+      },
+      {
+       "year": 1050,
+       "kind": "disaster",
+       "tier": "annal",
+       "text": "A sandstorm buries the wells of Mã Minh Thôn; the village moves three li east, horses and all.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 203,
+     "name": "Viên Đề Hạp",
+     "name_han": "猿啼峽",
+     "gloss": "Gorge of the Crying Gibbons",
+     "note": "Lý Bạch: lưỡng ngạn viên thanh đề bất trú (on both banks the gibbons cry without end)",
+     "kind": "gorge",
+     "biome": "high mountain",
+     "elevation_km": 0.21,
+     "coast": false,
+     "river": true,
+     "port": false,
+     "holder": "",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 2,
+     "qi_top": [
+      "kim",
+      "tho"
+     ],
+     "events": [
+      {
+       "year": 600,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "The gibbons of Viên Đề Hạp cry on both banks without end; caravan drivers stop their ears with wax.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 227,
+     "name": "Cô Thành",
+     "name_han": "孤城",
+     "gloss": "The Lone Fortress",
+     "note": "Vương Xương Linh, the poet of Băng Tâm: the lone fortress looks far toward the jade gate. Destroyed in the Desert Road War.",
+     "kind": "ruin",
+     "biome": "steppe",
+     "elevation_km": 0.01,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "bang_tam",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "tho",
+      "hoa"
+     ],
+     "events": [
+      {
+       "year": 520,
+       "kind": "city_founded",
+       "tier": "landmark",
+       "text": "Băng Tâm Các raises Cô Thành, a lone fortress on a desert lake, to guard the caravan road.",
+       "secret": false
+      },
+      {
+       "year": 724,
+       "kind": "siege",
+       "tier": "annal",
+       "text": "Cô Thành's garrison holds out for two years against Phượng Minh's fire, drinking the desert lake down to salt.",
+       "secret": false
+      },
+      {
+       "year": 726,
+       "kind": "city_ruined",
+       "tier": "landmark",
+       "text": "Phượng Minh's fire breaks Cô Thành; the lone fortress falls and the desert lake turns to salt.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    }
+   ]
+  }
+ ]
+}

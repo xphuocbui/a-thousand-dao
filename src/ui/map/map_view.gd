@@ -18,6 +18,20 @@ const DRAG_THRESHOLD := 5.0
 const PAN_STEP := 40.0
 
 var _texture: ImageTexture = null
+## The painted layers (art bible Section 1, Principle 2: one map, two distances): the far layer (paper campaign map)
+## at continent zoom, the near layer (painted relief) at region zoom; null falls back to the biome colours.
+var _far: Texture2D = null
+var _near: Texture2D = null
+## Place art on the near layer (assets/map/places/manifest.json): place id -> {texture (loaded on first draw), tile,
+## size_tiles}. Drawn at region zoom for known places only, so the art never reveals a place the player has not found.
+var _sprites: Dictionary = {}
+var _sprite_dir: String = ""
+## Region names at continent zoom: [{name, centre: Vector2 (tile)}] (art bible 7.14: engine-drawn, never painted).
+var _regions: Array = []
+var _region_font: Font = null
+## The colour around the map image (the paper at continent zoom, the open sea at region zoom).
+var _backdrop_far := Color(0.08, 0.1, 0.14)
+var _backdrop_near := Color(0.08, 0.1, 0.14)
 var _grid_size := Vector2i.ZERO
 ## Known places: [{id, name, tile: Vector2i, kind}].
 var _places: Array = []
@@ -63,6 +77,11 @@ func setup(grid: ContinentGrid, cfg: Dictionary, region_factor: float) -> void:
 				by_id[b] = Color(str(colours[name])) if colours.has(name) else unknown
 			img.set_pixel(x, y, by_id[b])
 	_texture = ImageTexture.create_from_image(img)
+	_far = _layer_texture(str(cfg.get("far_layer", "")))
+	_near = _layer_texture(str(cfg.get("near_layer", "")))
+	_load_sprites(str(cfg.get("place_sprites", "")))
+	_backdrop_far = Color.from_string(str(cfg.get("backdrop_far", "#141A24")), Color(0.08, 0.1, 0.14))
+	_backdrop_near = Color.from_string(str(cfg.get("backdrop_near", "#141A24")), Color(0.08, 0.1, 0.14))
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	_relayout()
 
@@ -183,26 +202,138 @@ func _relayout() -> void:
 
 
 func _draw() -> void:
-	draw_rect(Rect2(Vector2.ZERO, size), Color(0.08, 0.1, 0.14))
-	if _texture != null:
-		draw_texture_rect(_texture, Rect2(_origin(), Vector2(_grid_size) * tile_scale()), false)
+	draw_rect(Rect2(Vector2.ZERO, size), _backdrop_near if _region else _backdrop_far)
+	var art: Texture2D = (_near if _near != null else _far) if _region else (_far if _far != null else _near)
+	if art == null:
+		art = _texture
+	if art != null:   # every layer is registered to the grid: its full size covers the whole continent
+		draw_texture_rect(art, Rect2(_origin(), Vector2(_grid_size) * tile_scale()), false)
+	if _region and art == _near and _near != null:
+		var by_rank: Array = _places.duplicate()   # small places first, so seats and cities sit on top where patches meet
+		by_rank.sort_custom(func(a, b): return _label_rank(a) > _label_rank(b))
+		for p in by_rank:   # each known place's own art, painted into its patch of the near layer
+			var rec: Dictionary = p.get("rec", {})   # the art is keyed by the authored continent id, not the session id
+			var spr: Dictionary = _sprites.get(str(int(rec.get("continent_id", -1))), {})
+			if spr.is_empty():
+				continue
+			var tex: Texture2D = _sprite_texture(spr)
+			if tex != null:
+				var side: float = float(spr.size_tiles) * tile_scale()
+				draw_texture_rect(tex, Rect2(tile_to_local(p.tile) - Vector2(side, side) * 0.5, Vector2(side, side)), false)
+	if not _region and _region_font != null:   # region names: letter-spaced heading face, ink with a paper halo
+		for r in _regions:
+			var label: String = " ".join(Array(str(r.name).to_upper().split("")))
+			var fs: int = int(clampf(tile_scale() * 6.0, 13.0, 26.0))
+			var w: float = _region_font.get_string_size(label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs).x
+			var at: Vector2 = tile_to_local(Vector2i(r.centre)) - Vector2(w * 0.5, -fs * 0.35)
+			draw_string_outline(_region_font, at, label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, 4, Color(0.89, 0.83, 0.68, 0.75))
+			draw_string(_region_font, at, label, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, Color(0.24, 0.16, 0.1, 0.85))
 	var dot: float = _place_radius * (1.6 if _region else 1.0)
-	for p in _places:
-		var at: Vector2 = tile_to_local(p.tile)
-		var col := Color(0.95, 0.92, 0.8) if p.id != _hover_id else Color(1, 1, 0.4)
-		draw_circle(at, dot, Color(0.1, 0.1, 0.1))
-		draw_circle(at, dot - 1.0, col)
+	var font: Font = get_theme_default_font()
+	var taken: Array = []   # label boxes already drawn: a name that would overlap one is skipped (hover always shows)
+	var order: Array = _places.duplicate()
+	order.sort_custom(func(a, b): return _label_rank(a) < _label_rank(b))
+	for p in order:
+		var at: Vector2 = _marker_at(p)
+		var hover: bool = p.id == _hover_id
+		# a diamond marks a fixed named place (art bible Section 3): bone on the painted relief, cinnabar on the paper map
+		var fill := Color(0.91, 0.85, 0.71) if _region else Color(0.52, 0.1, 0.11)
+		if hover:
+			fill = Color(1, 0.86, 0.4)
+		_diamond(at, dot + 1.5, Color(0.1, 0.07, 0.05))
+		_diamond(at, dot, fill)
 		if p.id == _destination_id:
-			draw_arc(at, dot + 5.0, 0.0, TAU, 24, Color(1, 0.85, 0.2), 2.0)
-		if _region:
-			draw_string(get_theme_default_font(), at + Vector2(8, 4), str(p.name), HORIZONTAL_ALIGNMENT_LEFT, -1, 13, Color(1, 1, 1, 0.9))
+			draw_arc(at, dot + 6.0, 0.0, TAU, 24, Color(1, 0.85, 0.2), 2.0)
+		if _region:   # the name on a dark, see-through backing (7.14)
+			var name: String = str(p.name)
+			var fs: int = 13
+			var sz: Vector2 = font.get_string_size(name, HORIZONTAL_ALIGNMENT_LEFT, -1, fs)
+			var box := Rect2(at + Vector2(8, -sz.y * 0.5 - 1), sz + Vector2(8, 3))
+			if not hover and taken.any(func(r): return (r as Rect2).intersects(box)):
+				continue
+			taken.append(box)
+			draw_rect(box, Color(0.08, 0.05, 0.03, 0.62))
+			draw_string(font, box.position + Vector2(4, font.get_ascent(fs) + 1), name, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, Color(0.96, 0.92, 0.82))
+
+
+## Where a place's diamond and name sit: on its tile, or, at region zoom when the place has its own art, just below
+## the art so the marker never covers the place's signature (the place art is centred on the tile).
+func _marker_at(p: Dictionary) -> Vector2:
+	var at: Vector2 = tile_to_local(p.tile)
+	if not _region or _near == null:
+		return at
+	var spr: Dictionary = _sprites.get(str(int(p.get("rec", {}).get("continent_id", -1))), {})
+	if spr.is_empty():
+		return at
+	return at + Vector2(0, float(spr.size_tiles) * tile_scale() * 0.3)
+
+
+## Label priority: sect seats and cities first, then towns and markets, then everything else (lower draws first).
+static func _label_rank(p: Dictionary) -> int:
+	match str(p.get("kind", "")):
+		"great_seat", "city": return 0
+		"minor_seat", "town", "market": return 1
+		"village": return 3
+	return 2
+
+
+func _diamond(at: Vector2, r: float, c: Color) -> void:
+	draw_colored_polygon(PackedVector2Array([at + Vector2(0, -r), at + Vector2(r, 0), at + Vector2(0, r), at + Vector2(-r, 0)]), c)
+
+
+## Reads the place-art manifest at [param path] (missing: no place art, the markers still show).
+func _load_sprites(path: String) -> void:
+	_sprites = {}
+	if path == "" or not FileAccess.file_exists(path):
+		return
+	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+	if not (parsed is Dictionary):
+		return
+	_sprite_dir = path.get_base_dir()
+	for k in (parsed as Dictionary).get("places", {}):
+		_sprites[str(k)] = (parsed as Dictionary).places[k].duplicate()
+
+
+func _sprite_texture(spr: Dictionary) -> Texture2D:
+	if not spr.has("texture"):
+		var path: String = _sprite_dir + "/" + str(spr.get("file", ""))
+		spr["texture"] = load(path) if ResourceLoader.exists(path) else null
+	return spr.texture
+
+
+## A painted map layer at [param path], or null when the path is empty or the file is missing (the map then draws the
+## biome colours).
+static func _layer_texture(path: String) -> Texture2D:
+	if path == "" or not ResourceLoader.exists(path):
+		return null
+	return load(path) as Texture2D
+
+
+## Sets the region names drawn at continent zoom ([param regions] from GameQuery.regions) in [param font].
+func set_regions(regions: Array, font: Font) -> void:
+	_regions = regions.map(func(r): return {"name": str(r.name), "centre": Vector2(float(r.centre[0]), float(r.centre[1])) + Vector2(0.5, 0.5)})
+	_region_font = font
+	queue_redraw()
+
+
+## The place art of the authored place [param continent_id] (its patch of the near map), or null.
+func place_art(continent_id: int) -> Texture2D:
+	var spr: Dictionary = _sprites.get(str(continent_id), {})
+	return _sprite_texture(spr) if not spr.is_empty() else null
+
+
+## Which layer is drawn now: "near", "far" or "biome" (for the demo checks).
+func drawn_layer() -> String:
+	if _region:
+		return "near" if _near != null else ("far" if _far != null else "biome")
+	return "far" if _far != null else ("near" if _near != null else "biome")
 
 
 func _place_at(pos: Vector2) -> Dictionary:
 	var best: Dictionary = {}
 	var best_d: float = maxf(_place_radius * 2.5, 8.0)
 	for p in _places:
-		var d: float = tile_to_local(p.tile).distance_to(pos)
+		var d: float = minf(tile_to_local(p.tile).distance_to(pos), _marker_at(p).distance_to(pos))
 		if d < best_d:
 			best_d = d
 			best = p

@@ -1,0 +1,72 @@
+id 7 Thính Vũ Lâu: 432 words
+id 27 Hồng Đậu Trang: year 520 is not in its record
+id 27 Hồng Đậu Trang: year 648 is not in its record
+id 27 Hồng Đậu Trang: year 1000 is not in its record
+id 41 Lai Nghi Thành: year 600 is not in its record
+id 41 Lai Nghi Thành: year 649 is not in its record
+id 41 Lai Nghi Thành: year 762 is not in its record
+id 41 Lai Nghi Thành: year 776 is not in its record
+id 41 Lai Nghi Thành: year 781 is not in its record
+id 41 Lai Nghi Thành: year 341 is not in its record
+id 43 Không Mông Thành: year 481 is not in its record
+id 43 Không Mông Thành: year 480 is not in its record
+id 43 Không Mông Thành: year 481 is not in its record
+id 44 Ngũ Thải Thành: year 560 is not in its record
+id 44 Ngũ Thải Thành: year 640 is not in its record
+id 44 Ngũ Thải Thành: year 776 is not in its record
+id 44 Ngũ Thải Thành: year 1020 is not in its record
+id 85 Hoàng Vân Thành: year 722 is not in its record
+id 85 Hoàng Vân Thành: year 728 is not in its record
+id 89 Xuân Thảo Thành: year 610 is not in its record
+id 89 Xuân Thảo Thành: year 612 is not in its record
+id 89 Xuân Thảo Thành: year 618 is not in its record
+id 89 Xuân Thảo Thành: year 620 is not in its record
+id 90 Lãng Hoa Thành: year 640 is not in its record
+id 90 Lãng Hoa Thành: year 780 is not in its record
+id 90 Lãng Hoa Thành: year 776 is not in its record
+id 90 Lãng Hoa Thành: year 781 is not in its record
+id 93 Thạch Cơ Thành: year 781 is not in its record
+id 93 Thạch Cơ Thành: year 782 is not in its record
+id 94 Tang Điền Trấn (town): the rule expects special
+id 161 Cúc Viên Thôn (village): the rule expects special
+id 162 Tang Âm Thôn (village): the rule expects special
+id 163 Hồ Tâm Thôn (village): the rule expects special
+id 164 Lô Châu Thôn (village): the rule expects special
+id 180 Đan Thạch Khoáng (mine): the rule expects special
+id 187 Liệt Khuyết Phong: year 480 is not in its record
+id 193 Triêu Hà Hồ: year 340 is not in its record
+id 193 Triêu Hà Hồ: year 520 is not in its record
+id 193 Triêu Hà Hồ: year 660 is not in its record
+id 193 Triêu Hà Hồ: year 1100 is not in its record
+id 194 Tàn Hà Hồ: year 380 is not in its record
+id 194 Tàn Hà Hồ: year 880 is not in its record
+id 194 Tàn Hà Hồ: year 905 is not in its record
+id 199 Đồ Nam Đảo: year 640 is not in its record
+id 199 Đồ Nam Đảo: year 781 is not in its record
+id 202 Đả Diệp Lâm: year 480 is not in its record
+id 202 Đả Diệp Lâm: year 690 is not in its record
+id 202 Đả Diệp Lâm: year 907 is not in its record
+id 208 Kinh Lôi Mạch: year 480 is not in its record
+id 208 Kinh Lôi Mạch: year 1045 is not in its record
+id 208 Kinh Lôi Mạch: year 1150 is not in its record
+id 215 Xích Thành Môn: year 280 is not in its record
+id 215 Xích Thành Môn: year 300 is not in its record
+id 215 Xích Thành Môn: year 584 is not in its record
+id 215 Xích Thành Môn: year 1020 is not in its record
+id 215 Xích Thành Môn: year 1190 is not in its record
+id 217 Thôn Hải Môn: year 762 is not in its record
+id 217 Thôn Hải Môn: year 765 is not in its record
+id 217 Thôn Hải Môn: year 780 is not in its record
+id 217 Thôn Hải Môn: year 776 is not in its record
+id 220 Vân Môn Thành: year 340 is not in its record
+id 220 Vân Môn Thành: year 520 is not in its record
+id 221 Lôi Trạch Thành: year 480 is not in its record
+id 221 Lôi Trạch Thành: year 480 is not in its record
+id 221 Lôi Trạch Thành: year 960 is not in its record
+id 228 Châu Lệ Cảng: year 640 is not in its record
+id 228 Châu Lệ Cảng: year 763 is not in its record
+id 228 Châu Lệ Cảng: year 776 is not in its record
+id 228 Châu Lệ Cảng: year 781 is not in its record
+id 230 Thu Phần Các: year 170 is not in its record
+id 230 Thu Phần Các: year 480 is not in its record
+id 230 Thu Phần Các: year 481 is not in its record

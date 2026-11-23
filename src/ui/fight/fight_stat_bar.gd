@@ -18,6 +18,8 @@ var fill: Color = Color(0.75, 0.25, 0.25)
 var mirrored: bool = false
 ## Optional words after the numbers ("loadout only: not recorded").
 var note: String = ""
+## True draws the fill hatched (ward shields, art bible Section 4).
+var hatched: bool = false
 
 
 func _init() -> void:
@@ -34,21 +36,33 @@ func set_reading(v: float, mx: float, res: float = 0.0) -> void:
 
 
 func _draw() -> void:
-	var r := Rect2(Vector2.ZERO, size)
-	draw_rect(r, Color(0.13, 0.14, 0.17))
+	var outer := Rect2(Vector2.ZERO, size)
+	var trough: StyleBox = get_theme_stylebox(&"trough", &"FightStatBar") if has_theme_stylebox(&"trough", &"FightStatBar") else null
+	if trough != null:   # the recessed brass trough (art bible 7.12); the fill sits inside its rim
+		draw_style_box(trough, outer)
+	else:
+		draw_rect(outer, Color(0.13, 0.14, 0.17))
+	var r: Rect2 = outer.grow(-3.0) if trough != null else outer
 	var share: float = clampf(value / max_value, 0.0, 1.0)
-	var w: float = size.x * share
-	var fr := Rect2(Vector2(size.x - w if mirrored else 0.0, 0.0), Vector2(w, size.y))
+	var w: float = r.size.x * share
+	var fr := Rect2(Vector2(r.end.x - w if mirrored else r.position.x, r.position.y), Vector2(w, r.size.y))
 	draw_rect(fr, fill)
+	draw_rect(Rect2(fr.position, Vector2(fr.size.x, maxf(1.0, fr.size.y * 0.3))), Color(1, 1, 1, 0.12))   # a soft top light
+	if hatched and w > 0.0:   # ward shields are hatched, so they never read as linh lực (art bible Section 4)
+		var hx: float = fr.position.x
+		while hx < fr.end.x:
+			draw_line(Vector2(hx, fr.end.y), Vector2(minf(hx + fr.size.y, fr.end.x), fr.position.y), Color(1, 1, 1, 0.35), 1.0)
+			hx += 5.0
 	if reserved > 0.0:
-		var rw: float = size.x * reserved / max_value
-		var rr := Rect2(Vector2(0.0 if mirrored else size.x - rw, 0.0), Vector2(rw, size.y))
+		var rw: float = r.size.x * reserved / max_value
+		var rr := Rect2(Vector2(r.position.x if mirrored else r.end.x - rw, r.position.y), Vector2(rw, r.size.y))
 		draw_rect(rr, Color(0.25, 0.25, 0.3))
 		var x: float = rr.position.x
 		while x < rr.end.x:   # hatching: the reserved share is locked, not empty
-			draw_line(Vector2(x, size.y), Vector2(minf(x + size.y, rr.end.x), 0.0), Color(0.5, 0.5, 0.6), 1.0)
+			draw_line(Vector2(x, rr.end.y), Vector2(minf(x + rr.size.y, rr.end.x), rr.position.y), Color(0.5, 0.5, 0.6), 1.0)
 			x += 6.0
-	draw_rect(r, Color(0.35, 0.36, 0.42), false, 1.0)
+	if trough == null:
+		draw_rect(outer, Color(0.35, 0.36, 0.42), false, 1.0)
 	var font: Font = get_theme_default_font()
 	var fs: int = 14
 	var text: String = "%s  %s / %s%s" % [title, HudReadouts.stones_text(value), HudReadouts.stones_text(max_value),
@@ -57,4 +71,5 @@ func _draw() -> void:
 	var tx: float = size.x - tw - 6.0 if mirrored else 6.0
 	var ty: float = (size.y + font.get_ascent(fs) - font.get_descent(fs)) * 0.5
 	draw_string(font, Vector2(tx + 1, ty + 1), text, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, Color(0, 0, 0, 0.8))
-	draw_string(font, Vector2(tx, ty), text, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, Color(0.95, 0.95, 0.95))
+	var ink: Color = get_theme_color(&"text", &"FightStatBar") if has_theme_color(&"text", &"FightStatBar") else Color(0.95, 0.95, 0.95)
+	draw_string(font, Vector2(tx, ty), text, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, ink)

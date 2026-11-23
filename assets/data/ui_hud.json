@@ -1,19 +1,96 @@
 {
   "schema_version": 1,
   "_doc": "Designer knobs of the map screen HUD (design/ux/hud.md, Tuning Knobs; only the ones the greybox uses so far). lifespan_warn_share: the share of the lifespan left at or below which the lifespan readout warns (0..1). end_turn_cooldown: seconds after a turn during which End turn is refused. bubbles: the map bubbles (design/ux/hud.md, Map bubbles): trip_seasons = bubble_trip_seasons, how many seasons of travel area bubbles reach; max = bubbles_max, area bubbles on screen at once; region_zoom = how many times the region zoom magnifies the continent view; prefilter_tiles_per_season = a straight-line radius (tiles per season of reach, about the fastest ground speed) inside which route times are worked out; explore_kinds = the place kinds (world_continent.json places[].kind) that get an explore bubble. attitude_bands: [lowest attitude, band word] in rising order (npc-interaction-dialogue.md rule 13: hostile <= -30, cold -29..-10, neutral -9..9, warm 10..29, friendly 30..59, close 60+). link_styles: how tooltipable text looks (design/ux/hud.md Tooltips: Content; LinkStyle): every kind is underlined; colour (#RRGGBB), bold and italic per kind; person colours by relation, item colours by rarity 1-6 (placeholders until the art bible names rarity colours), a sect in its own colour. tooltips: design/ux/hud.md Tooltips and Tuning Knobs: tooltip_delay, tooltip_lock (any of timer, middle, click), tooltip_lock_delay and tooltip_close_grace are the player settings' defaults (seconds); tooltip_depth_max the deepest level; edge_margin the safe zone in layout px; width a tooltip's width in layout px. greybox: settings of the slice-1 greybox only (src/ui/greybox/map_screen.gd), to be replaced by the art bible's look. greybox.seed: the world seed the greybox starts with when no --seed is given. greybox.biome_colours: a flat placeholder colour per biome name of world_continent.json legend.biome_ids (hex RGB). greybox.unknown_colour: the colour of a biome missing from that list. greybox.place_radius_px: the place dot radius in layout pixels at continent zoom. greybox.routes_per_frame: how many of the Places panel's route times are worked out each frame.",
-  "lifespan_warn_share": 0.10,
-  "attitude_bands": [[-100, "hostile"], [-29, "cold"], [-9, "neutral"], [10, "warm"], [30, "friendly"], [60, "close"]],
+  "lifespan_warn_share": 0.1,
+  "attitude_bands": [
+    [
+      -100,
+      "hostile"
+    ],
+    [
+      -29,
+      "cold"
+    ],
+    [
+      -9,
+      "neutral"
+    ],
+    [
+      10,
+      "warm"
+    ],
+    [
+      30,
+      "friendly"
+    ],
+    [
+      60,
+      "close"
+    ]
+  ],
   "link_styles": {
-    "term": {"colour": "#E8C268"},
-    "number": {"bold": true},
-    "person": {"bold": true, "colours": {"friend": "#5BD66B", "neutral": "#D8D8D8", "hostile": "#E5384F"}},
-    "place": {"italic": true},
-    "item": {"colours": {"1": "#D8D8D8", "2": "#5BD66B", "3": "#4FA3FF", "4": "#B98CFF", "5": "#FF9F43", "6": "#FF5A5A"}},
-    "sect": {"bold": true, "italic": true}
+    "term": {
+      "colour": "#E8C268"
+    },
+    "number": {
+      "bold": true
+    },
+    "person": {
+      "bold": true,
+      "colours": {
+        "friend": "#5BD66B",
+        "neutral": "#D8D8D8",
+        "hostile": "#E5384F"
+      }
+    },
+    "place": {
+      "italic": true
+    },
+    "item": {
+      "colours": {
+        "1": "#D8D8D8",
+        "2": "#5BD66B",
+        "3": "#4FA3FF",
+        "4": "#B98CFF",
+        "5": "#FF9F43",
+        "6": "#FF5A5A"
+      }
+    },
+    "sect": {
+      "bold": true,
+      "italic": true
+    },
+    "paper": {
+      "_doc": "Overrides on parchment (windows, tooltips; art bible Section 4: terms cinnabar, relation and rarity colours in their on-parchment values).",
+      "term": {
+        "colour": "#84191B"
+      },
+      "person": {
+        "colours": {
+          "friend": "#1F6B3A",
+          "neutral": "#2B2118",
+          "hostile": "#8E1B2A"
+        }
+      },
+      "item": {
+        "colours": {
+          "1": "#2B2118",
+          "2": "#14523B",
+          "3": "#1F4580",
+          "4": "#5E2A84",
+          "5": "#5E4316",
+          "6": "#7A1030"
+        }
+      }
+    }
   },
   "tooltips": {
     "tooltip_delay": 0.3,
-    "tooltip_lock": ["timer", "middle", "click"],
+    "tooltip_lock": [
+      "timer",
+      "middle",
+      "click"
+    ],
     "tooltip_lock_delay": 1.0,
     "tooltip_close_grace": 0.3,
     "tooltip_depth_max": 5,
@@ -24,9 +101,23 @@
   "bubbles": {
     "trip_seasons": 1.0,
     "max": 12,
-    "region_zoom": 4.0,
+    "region_zoom": 6.0,
     "prefilter_tiles_per_season": 90,
-    "explore_kinds": ["ruin", "mine", "beast_lair", "peak", "spirit_vein", "lake", "island", "hot_spring", "lava_vent", "forest", "volcano", "gorge", "lightning_wood"]
+    "explore_kinds": [
+      "ruin",
+      "mine",
+      "beast_lair",
+      "peak",
+      "spirit_vein",
+      "lake",
+      "island",
+      "hot_spring",
+      "lava_vent",
+      "forest",
+      "volcano",
+      "gorge",
+      "lightning_wood"
+    ]
   },
   "greybox": {
     "seed": 7,
@@ -53,10 +144,16 @@
       "miasma": "#6d5a72",
       "lake": "#5a83a6",
       "sea": "#3b5f86"
-    }
+    },
+    "far_layer": "res://assets/map/map_far_paper.png",
+    "near_layer": "res://assets/map/map_near_relief.jpg",
+    "_layers_doc": "far_layer / near_layer: the painted map layers (art bible Section 1, Principle 2), registered to the 540 x 360 grid (each image covers the whole continent); made by tools/asset-pipeline/map/ (guide.py, paint_tiles.py, prompts/). A missing file falls back to the biome colours.",
+    "place_sprites": "res://assets/map/places/manifest.json",
+    "backdrop_far": "#D9C9A0",
+    "backdrop_near": "#233F66"
   },
   "fight_screen": {
-    "_doc": "Fight screen (design/ux/fight-screen.md): timings in ms, sizes in px. Colours from the art bible 7.4/7.5 (hue table; damage types). recent_ms: how long a floating number rises and fades; flash_ms: an art's fire flash; link_ms: a feed's link line; float_group_ms: hits and ticks a side takes within this window share one floating number (one per side per pulse, AC 22).",
+    "_doc": "Fight screen (design/ux/fight-screen.md): timings in ms, sizes in px. Colours from the art bible 7.4/7.5 (hue table; damage types). recent_ms: how long a floating number rises and fades; flash_ms: an art's fire flash; link_ms: a feed's link line; float_group_ms: hits and ticks a side takes within this window share one floating number (one per side per pulse, AC 22). side_colors are on wood (names, header); side_colors_paper on parchment (log lines), art bible Section 4.",
     "recent_ms": 900,
     "flash_ms": 350,
     "link_ms": 700,
@@ -65,8 +162,16 @@
     "ward_px": 40,
     "chip_px": 32,
     "portrait_px": 56,
-    "side_colors": {"A": "#A8D0FF", "B": "#FFB890"},
-    "bar_colors": {"health": "#C04040", "body": "#B08A5A", "ward": "#7AB8D8", "qi": "#4A8CE6"},
+    "side_colors": {
+      "A": "#A8D0FF",
+      "B": "#FFB890"
+    },
+    "bar_colors": {
+      "health": "#C04040",
+      "body": "#B08A5A",
+      "ward": "#7AB8D8",
+      "qi": "#4A8CE6"
+    },
     "dtype_colors": {
       "phys": "#BFB39A",
       "fire": "#FF7A1A",
@@ -120,12 +225,82 @@
       "_doc": "Fight log (Log list pattern): fold_gap_ms: a repeat folds into the entry before it when it comes within this long of its last repeat; fold_kinds: the row kinds that fold; font_px the line size; qi_low_share: the result line names a side short of linh lực when it sat below its cheapest art's cost for at least this share of the fight; colours for the selection, the focus ring, the result line and Full lines.",
       "fold_gap_ms": 2500,
       "qi_low_share": 0.5,
-      "fold_kinds": ["tick", "qi_tick", "hit", "stacks", "status", "effect", "bank", "feed"],
+      "fold_kinds": [
+        "tick",
+        "qi_tick",
+        "hit",
+        "stacks",
+        "status",
+        "effect",
+        "bank",
+        "feed"
+      ],
       "font_px": 14,
-      "sel_color": "#FFFFFF1F",
-      "ring_color": "#F2CC73",
-      "result_color": "#F2CC73",
-      "full_color": "#DCDEE6"
+      "sel_color": "#2B21181F",
+      "ring_color": "#84191B",
+      "result_color": "#84191B",
+      "full_color": "#2B2118",
+      "chip_font_px": 14
+    },
+    "side_colors_paper": {
+      "A": "#284177",
+      "B": "#7A300C"
+    }
+  },
+  "theme": {
+    "_doc": "Rosewood Campaign Table theme (design/art/art-bible.md Section 4, 7.10-7.12, 8.7), built by src/ui/theme/rosewood_theme.gd. palette: Section 4's colours; fonts: res paths and variable-font weights (numbers use tabular figures); sizes: the 7.11 type scale; states: the plaque's colour multiplier for hover, pressed and disabled (one texture, every state drawn by the engine, 7.7).",
+    "kit": "res://assets/ui/kit.json",
+    "paper_texture": "res://assets/ui/textures/tex_parchment.png",
+    "wood_texture": "res://assets/ui/textures/tex_rosewood.png",
+    "palette": {
+      "rosewood": "#2A1A12",
+      "brass": "#C9A25A",
+      "parchment": "#E3D4AE",
+      "ink": "#2B2118",
+      "bone": "#E8D9B5",
+      "cinnabar": "#84191B",
+      "cinnabar_light": "#E88A78",
+      "gilt": "#5E4316",
+      "player_paper": "#284177",
+      "foe_paper": "#7A300C",
+      "player_wood": "#A8D0FF",
+      "foe_wood": "#FFB890",
+      "tile_edge": "#1A100B",
+      "recess": "#150D09",
+      "amber_wood": "#E0A040",
+      "amber_paper": "#6E4600"
+    },
+    "fonts": {
+      "body": "res://assets/fonts/literata/literata_vf.ttf",
+      "heading": "res://assets/fonts/cormorant_garamond/cormorant_garamond_vf.ttf",
+      "body_weight": 400,
+      "strong_weight": 600,
+      "heading_weight": 600,
+      "italic": "res://assets/fonts/literata/literata_italic_vf.ttf"
+    },
+    "sizes": {
+      "small": 14,
+      "body": 16,
+      "large": 18,
+      "heading": 22,
+      "title": 28
+    },
+    "states": {
+      "hover": [
+        1.18,
+        1.14,
+        1.05
+      ],
+      "pressed": [
+        0.78,
+        0.74,
+        0.7
+      ],
+      "disabled": [
+        0.55,
+        0.52,
+        0.5
+      ]
     }
   }
 }

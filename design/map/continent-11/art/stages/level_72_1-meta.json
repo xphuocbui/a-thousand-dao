@@ -1,0 +1,23 @@
+{
+ "created": 1795389631,
+ "background": "opaque",
+ "output_format": "png",
+ "quality": "medium",
+ "safety_identifier": null,
+ "size": "1536x864",
+ "usage": {
+  "input_tokens": 1450,
+  "input_tokens_details": {
+   "image_tokens": 1296,
+   "text_tokens": 154
+  },
+  "output_tokens": 1078,
+  "output_tokens_details": {
+   "image_tokens": 1078,
+   "text_tokens": 0
+  },
+  "total_tokens": 2528
+ },
+ "model": "gpt-image-2",
+ "prompt": "This image is a painted grand-strategy map seen straight down, with Triều Âm Thành painted at its centre. Change ONLY the place at the centre, and only as described; keep its layout, every existing building, the terrain, the water, the colours and the golden-hour light from the top left exactly as they are, so the two images can be swapped on the map.\n\nThe place grows one development level: The breakwater is lengthened along the river mouth and a customs hall rises at the harbour gate.\n\nKeep the change inside a circle about 22 % of the image width across the centre. Never: text, labels, writing, symbols on flags, people larger than specks, a frame, a vignette."
+}

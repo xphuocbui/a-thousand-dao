@@ -1,0 +1,4 @@
+# Masters and inputs of the map art (tools/asset-pipeline/map/): large and regenerable from the scripts (at a cost:
+# keep a backup outside git). Plans, prompts, radii and meta files are tracked.
+*.png
+!guide_4x.png

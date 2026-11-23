@@ -1,0 +1,1072 @@
+[
+ {
+  "job": "level_1",
+  "place": 1,
+  "kind": "level",
+  "name": "Thúy Vi Tông",
+  "stages": [
+   "A new hall of pill furnaces rises on the eastern summit and the herb terraces climb another band of the slope.",
+   "A tall many-roofed pagoda crowns the lower summit facing the spiral path, and covered stairs link the herb terraces of both peaks."
+  ]
+ },
+ {
+  "job": "level_2",
+  "place": 2,
+  "kind": "level",
+  "name": "Tùng Đào Cung",
+  "stages": [
+   "A second terrace of halls climbs the far end of the ridge and the gallery gains a bell pavilion at its midpoint.",
+   "A tall many-roofed pagoda rises at the gallery's far end, and a broad stone stair road is cut down through the pines toward the city below."
+  ]
+ },
+ {
+  "job": "level_3",
+  "place": 3,
+  "kind": "level",
+  "name": "Băng Tâm Các",
+  "stages": [
+   "A second ice hall carved into the badland ridge behind the pavilion, and terraces of sword-practice grounds below it.",
+   "Twin frost-rimmed side towers flanking the main pavilion, joined by covered bridges, and a ring of cold wells mist-veiling the lower terraces."
+  ]
+ },
+ {
+  "job": "level_4",
+  "place": 4,
+  "kind": "level",
+  "name": "Lạc Hà Tông",
+  "stages": [
+   "More terraces climb the rise, a second ring of rose-tiled halls stands around the Sunset Ring, and a covered stair runs down toward the river market.",
+   "The terraces crown the whole swell; a tall many-roofed pagoda rises behind the Sunset Ring, and banners of rose silk hang along every terrace wall."
+  ]
+ },
+ {
+  "job": "level_5",
+  "place": 5,
+  "kind": "level",
+  "name": "Thiên Xu Tông",
+  "stages": [
+   "Covered stairs join the seven terraces, and a walled formation yard with stone array discs opens below the lowest hall.",
+   "Each terrace gains a tall pagoda so the Dipper line reads from far off, and a ring of warding pillars stands around the whole ridge."
+  ]
+ },
+ {
+  "job": "level_6",
+  "place": 6,
+  "kind": "level",
+  "name": "Phượng Minh Cung",
+  "stages": [
+   "A second ring of red halls and a covered music terrace climb the ridge around the great wutong, and a stair of red gates runs down toward Thiều Âm Thị.",
+   "A nine-roof pagoda rises beside the tree, nearly as tall as its crown, and the terraces spread along the whole ridge with a wutong planted on every step."
+  ]
+ },
+ {
+  "job": "level_7",
+  "place": 7,
+  "kind": "level",
+  "name": "Thính Vũ Lâu",
+  "stages": [
+   "New halls stack up the cone's flank on black stone terraces, each roof hung with its own rain-chains, and a covered stair climbs from the lake.",
+   "A second, lower tower rises on a shoulder of the cone, joined to the first by a roofed bridge; the whole slope is walled in dark stone, and still no window shows a light."
+  ]
+ },
+ {
+  "job": "level_8",
+  "place": 8,
+  "kind": "level",
+  "name": "Hàm Nguyệt Trang",
+  "stages": [
+   "Pearl sheds spread along the shore on both sides of the piers and the moon-viewing tower gains a fourth roof.",
+   "The manor walls take in the birch grove, a stone pearl hall rises behind the tower, and a second, smaller ring of white stones is laid in the shallows for the disciples."
+  ]
+ },
+ {
+  "job": "level_9",
+  "place": 9,
+  "kind": "level",
+  "name": "Hồng Lô Cốc",
+  "stages": [
+   "A second, taller furnace stack rises beside the first and the snow-free ring widens over a new terrace of drying sheds.",
+   "A stacked pagoda hall of red tile crowns the valley head above the furnaces, and a curved stone breakwater shelters the ash boats."
+  ]
+ },
+ {
+  "job": "level_10",
+  "place": 10,
+  "kind": "level",
+  "name": "Vân Khởi Quán",
+  "stages": [
+   "A row of hermit cells is cut into the cliff beside the platform and a stone path climbs to a second, higher terrace.",
+   "A stacked three-roofed sutra tower rises above the halls, and a covered walk follows the stream from the gate to the platform."
+  ]
+ },
+ {
+  "job": "level_11",
+  "place": 11,
+  "kind": "level",
+  "name": "Vạn Hác Viện",
+  "stages": [
+   "A second hall of practice rooms lines the far rim and a narrow stair is cut down the side of the pillar.",
+   "A tall three-roofed hall of the zither rises on the highest point of the rim, facing the pillar pavilion across the ravine."
+  ]
+ },
+ {
+  "job": "level_12",
+  "place": 12,
+  "kind": "level",
+  "name": "Thải Chi Cốc",
+  "stages": [
+   "More drying sheds and a stone furnace house with a tall chimney; the herb terraces climb further up both valley walls.",
+   "A second pagoda hall joined to the first by a covered stair, an upper grove of shaded lingzhi logs, and long orphan dormitories along the lower fields."
+  ]
+ },
+ {
+  "job": "level_13",
+  "place": 13,
+  "kind": "level",
+  "name": "Lãng Đào Môn",
+  "stages": [
+   "A covered slipway and a second hall for rope-makers; the watch pagoda gains a lantern storey to signal ferries at night.",
+   "A stone dock of its own on the river bend with rows of rebuilt ferries drawn up, and a four-roof pagoda rising behind the gate of hulls."
+  ]
+ },
+ {
+  "job": "level_14",
+  "place": 14,
+  "kind": "level",
+  "name": "Cửu Cao Phái",
+  "stages": [
+   "More roost towers out across the marsh and a long crane stable hall on the lower terrace.",
+   "A tall roost tower for the crane king beside a five-roof pagoda, and a stone landing terrace where riders come down from the sky."
+  ]
+ },
+ {
+  "job": "level_15",
+  "place": 15,
+  "kind": "level",
+  "name": "Lê Hoa Am",
+  "stages": [
+   "A meditation hall cut into the ice field edge and a wider ring of rimed pear trees.",
+   "A second bell pagoda higher on the slope, a covered stair between the two, and a walled guest court below for pilgrims."
+  ]
+ },
+ {
+  "job": "level_16",
+  "place": 16,
+  "kind": "level",
+  "name": "Dạ Quang Môn",
+  "stages": [
+   "A second ring of earth walls with stables, and a feasting hall with a dark tiled roof.",
+   "A tall watch pagoda over the caravan road and a row of glowing stone cups on the outer wall."
+  ]
+ },
+ {
+  "job": "level_17",
+  "place": 17,
+  "kind": "level",
+  "name": "Trạc Anh Đài",
+  "stages": [
+   "A second terrace is cut lower into the stream, a covered hall rises at the crest, and smokehouses for seal meat line the path up the rise.",
+   "The halls reach the crest under a tall watch pavilion, a stone stair joins every terrace, and the drying poles stretch in long bright rows down both banks."
+  ]
+ },
+ {
+  "job": "level_18",
+  "place": 18,
+  "kind": "level",
+  "name": "Bình Thủy Môn",
+  "stages": [
+   "A ferry hall rises by the quay, and a second tier of halls climbs the headland behind the main hall.",
+   "The headland is terraced to the point, a covered stair runs down to a stone pier, and the lantern mast is doubled with a second mast across the cove."
+  ]
+ },
+ {
+  "job": "level_19",
+  "place": 19,
+  "kind": "level",
+  "name": "Mục Vân Trang",
+  "stages": [
+   "A second stable hall and a long covered viewing gallery rise beside the track.",
+   "The manor climbs to a high riders' hall above the stable tower, and a second track loops out toward the coast with stone stands."
+  ]
+ },
+ {
+  "job": "level_20",
+  "place": 20,
+  "kind": "level",
+  "name": "Thiên Bảo Trai",
+  "stages": [
+   "An auction hall with a gilded double roof rises on a new terrace, and the furnace ring grows a second row.",
+   "The pagoda gains a higher tier with a gilt spire, and a walled treasury court with its own gate faces the market road."
+  ]
+ },
+ {
+  "job": "level_21",
+  "place": 21,
+  "kind": "level",
+  "name": "Nam Phố Đường",
+  "stages": [
+   "A second painted hall rises behind the first, joined by a covered gallery, and a walled yard of paper-drying lines spreads under the trees.",
+   "A three-roof scripture pavilion with cloud-painted beams rises above the forest canopy, ringed by scribes' cells and a small ink-grinding mill on a brook."
+  ]
+ },
+ {
+  "job": "level_22",
+  "place": 22,
+  "kind": "level",
+  "name": "Củng Tinh Quán",
+  "stages": [
+   "A second court with a star-map paved into its floor opens beside the armillary, and a covered walk leads down to the lakeshore.",
+   "A tall three-roof observation tower rises over the abbey, its open top deck facing the pole, and the walls take in the near shore of the lake."
+  ]
+ },
+ {
+  "job": "level_23",
+  "place": 23,
+  "kind": "level",
+  "name": "Thối Tinh Môn",
+  "stages": [
+   "A second cascade of troughs and a walled ore yard open beside the first, and the forge hall gains a third roof.",
+   "A tall smoke tower of black stone crowns the seat, and a covered stair runs from the forges down to the mine road."
+  ]
+ },
+ {
+  "job": "level_24",
+  "place": 24,
+  "kind": "level",
+  "name": "Phất Y Cốc",
+  "stages": [
+   "A walled practice yard of raked sand and a row of guest lodgings for hiring patrons stand below the gate.",
+   "A tall sword pavilion of three plain roofs rises at the valley head, with a stone stair to a meditation ledge above, and still no name carved anywhere."
+  ]
+ },
+ {
+  "job": "level_25",
+  "place": 25,
+  "kind": "level",
+  "name": "Trúc Thực Viên",
+  "stages": [
+   "A second terrace of seed bamboo and a woven-bamboo seed store join the garden, and a beast pen of woven bamboo stands at the edge.",
+   "A tall three-roof hall of bamboo and red timber rises over the beds, with stepped seed terraces spreading from it like a fan."
+  ]
+ },
+ {
+  "job": "level_26",
+  "place": 26,
+  "kind": "level",
+  "name": "Lễ Tuyền Phái",
+  "stages": [
+   "A second pagoda roof and a wine cellar dug into the rise; the spring basin gains a carved stone canopy and a covered walk runs down to the lake.",
+   "The whole rise is terraced with herb courts and a guest hall for the Pivot's envoys; a white balustrade rings the wutong and a long jar store lines the shore."
+  ]
+ },
+ {
+  "job": "level_27",
+  "place": 27,
+  "kind": "level",
+  "name": "Hồng Đậu Trang",
+  "stages": [
+   "A guest wing on stilts over the shore and a walled poison garden behind the halls; the moon gate gains a twin on the sea side.",
+   "Three walled courts climb the slope to a red pagoda where Phi Hồng is kept; the bean vines now cover the whole outer wall."
+  ]
+ },
+ {
+  "job": "level_28",
+  "place": 28,
+  "kind": "level",
+  "name": "Xuyên Lâm Môn",
+  "stages": [
+   "A second staff house at the foot of the stair, and a roofed rest hall halfway down for travellers.",
+   "A walled mountain gate with a training court cut into the ridge and a covered stair running the full way down into the forest."
+  ]
+ },
+ {
+  "job": "level_29",
+  "place": 29,
+  "kind": "level",
+  "name": "Phần Vũ Đường",
+  "stages": [
+   "A second tier of halls and a walled court around the sitting vents, with a stone bath for the burned.",
+   "A stepped red-stone hall rises high over the whole vent field, and the black mast stands on its top terrace."
+  ]
+ },
+ {
+  "job": "level_30",
+  "place": 30,
+  "kind": "level",
+  "name": "Yên Ba Thành",
+  "stages": [
+   "The walls extend up the river bank and a second quay with green-roofed warehouses lines the river mouth.",
+   "A great stone harbour gate spans the river behind the mole, and the upper town's green roofs climb a terraced hill clear of the mist."
+  ]
+ },
+ {
+  "job": "level_31",
+  "place": 31,
+  "kind": "level",
+  "name": "Hàn Tân Thành",
+  "stages": [
+   "The walls reach the far bank and a fortified bridge-gate rises at the middle of the ford.",
+   "A tall beacon tower stands over the harbour, and a second line of pillars marks a deep channel for larger ships."
+  ]
+ },
+ {
+  "job": "level_32",
+  "place": 32,
+  "kind": "level",
+  "name": "Tùng Gian Thành",
+  "stages": [
+   "The walls grow to take in a new pine grove, and a carved timber hall with a double roof rises behind the moon gate.",
+   "A second moon-viewing terrace tower stands above the harbour, and a stone mole extends the port into the sea."
+  ]
+ },
+ {
+  "job": "level_33",
+  "place": 33,
+  "kind": "level",
+  "name": "Đào Thanh Thành",
+  "stages": [
+   "A second row of wharf warehouses along the high quays and a pine-roofed listening terrace on the upper wall.",
+   "An outer wall reaching to the forest edge, a covered bridge over the river, and a five-roof bell pagoda that answers the pine waves."
+  ]
+ },
+ {
+  "job": "level_34",
+  "place": 34,
+  "kind": "level",
+  "name": "Khai Dương Thành",
+  "stages": [
+   "A stone sea mole with warehouses along it, and a second bronze disc on the river gate.",
+   "An outer harbour wall, a lighthouse tower on the mole, and a new walled quarter climbing the riverbank inland."
+  ]
+ },
+ {
+  "job": "level_35",
+  "place": 35,
+  "kind": "level",
+  "name": "Trường Vân Thành",
+  "stages": [
+   "A second caravan gallery branching to a new dock, and a stone caravanserai inside the land gate.",
+   "An outer wall around the docks, a lighthouse on the river mouth, and a taller ward formation pagoda at the city's centre."
+  ]
+ },
+ {
+  "job": "level_36",
+  "place": 36,
+  "kind": "level",
+  "name": "Liên Giang Thành",
+  "stages": [
+   "The roofed bridge is doubled with a second span, new ice-houses line the quays, and the walls take in the fishers' quarter on the far bank.",
+   "A tall grey drum tower rises over the harbour, the quays run out in stone piers to the sea, and both banks are walled to the forest edge."
+  ]
+ },
+ {
+  "job": "level_37",
+  "place": 37,
+  "kind": "level",
+  "name": "Đàm Ảnh Thành",
+  "stages": [
+   "A painters' hall with long open galleries rises on the pool's north side, and the river quay is rebuilt in stone.",
+   "A second walled ward takes in the river's far bank, and a tall pavilion over the water is built so its reflection completes it in the pool."
+  ]
+ },
+ {
+  "job": "level_38",
+  "place": 38,
+  "kind": "level",
+  "name": "Nhạn Thanh Thành",
+  "stages": [
+   "A great wool exchange with a long grey roof rises by the harbour, and the walls take in the dyers' quarter.",
+   "A second winged tower is raised over the river gate, and stone wool warehouses line both banks to the sea."
+  ]
+ },
+ {
+  "job": "level_39",
+  "place": 39,
+  "kind": "level",
+  "name": "Tử Điện Thành",
+  "stages": [
+   "A second armoury hall with violet tile rises inside a new inner wall, and the harbour gains a war-boat slip.",
+   "The walls are doubled on the landward side with gate towers, and the ward array's shimmer brightens into a clear violet dome over the bay front."
+  ]
+ },
+ {
+  "job": "level_40",
+  "place": 40,
+  "kind": "level",
+  "name": "Tinh Hán Thành",
+  "stages": [
+   "The wall runs the whole shore, a second stone quay reaches out from the bone reef, and a lighthouse tower rises at the reef's end.",
+   "A grand harbour hall with a three-roof pagoda faces the sea, the reef is armoured with dressed stone between every rib, and the formation's pillars glow faintly along the walls at dusk."
+  ]
+ },
+ {
+  "job": "level_41",
+  "place": 41,
+  "kind": "level",
+  "name": "Lai Nghi Thành",
+  "stages": [
+   "The nine-tier terrace gains a roofed musicians' gallery and the harbour a second mole lined with warehouses.",
+   "A second wall ring takes in the river quays; the terrace is faced in red-lacquered stone and a tall ceremonial gate opens on the sea."
+  ]
+ },
+ {
+  "job": "level_42",
+  "place": 42,
+  "kind": "level",
+  "name": "Thu Trì Thành",
+  "stages": [
+   "The pools climb higher up the hill as the upper town grows; a second harbour basin and a long covered hall for the Night Rain trade.",
+   "A walled upper city of dark halls looks down over the tiered pools; the market's awnings spread across three terraces and the harbour is walled in stone."
+  ]
+ },
+ {
+  "job": "level_43",
+  "place": 43,
+  "kind": "level",
+  "name": "Không Mông Thành",
+  "stages": [
+   "The arcades reach the harbour quays, and a drum tower rises at the main crossing.",
+   "A second wall ring up the valley sides; covered bridges link the arcades across the river, and the harbour gains a stone breakwater."
+  ]
+ },
+ {
+  "job": "level_44",
+  "place": 44,
+  "kind": "level",
+  "name": "Ngũ Thải Thành",
+  "stages": [
+   "A sixth ward of plain grey roofs for newcomers and a stone breakwater for the harbour.",
+   "A second wall ring up the river, and a five-roofed hall of the potters' guilds at the city's heart."
+  ]
+ },
+ {
+  "job": "level_45",
+  "place": 45,
+  "kind": "level",
+  "name": "Lam Yên Thị",
+  "stages": [
+   "A second side stair of stalls branches off halfway up, and an inn with a double grey roof stands at the foot.",
+   "A covered market hall straddles the stair's midpoint, and a stone gate arch marks the market's lower entrance."
+  ]
+ },
+ {
+  "job": "level_46",
+  "place": 46,
+  "kind": "level",
+  "name": "Tùng Hạ Thị",
+  "stages": [
+   "A second, outer ring of stall-houses is begun and a caravan yard is fenced beside the gate.",
+   "A round two-storey market hall rises in the centre of the ring, and a timber palisade with a roofed gate encloses both rings."
+  ]
+ },
+ {
+  "job": "level_47",
+  "place": 47,
+  "kind": "level",
+  "name": "Đào Sa Thị",
+  "stages": [
+   "A raised boardwalk links the stalls to a rebuilt landing, with a red-doored assay house at its head.",
+   "A market square on piles behind a timber palisade, a small customs pagoda flying Tùng Đào's colours, and washing cradles out to the far sandbars."
+  ]
+ },
+ {
+  "job": "level_48",
+  "place": 48,
+  "kind": "level",
+  "name": "Tống Khách Thị",
+  "stages": [
+   "A walled inn yard joins the market, and the stalls double along the road under longer eaves.",
+   "The market gains a gate and a covered street, and a second, larger pavilion rises beside the old one, which is kept exactly as it was."
+  ]
+ },
+ {
+  "job": "level_49",
+  "place": 49,
+  "kind": "level",
+  "name": "Tương Phùng Thị",
+  "stages": [
+   "A stone quay with warehouses anchors the raft, and the boats spread into two lashed arms.",
+   "A covered market hall stands on piles over the water, and the raft rings it in a wide floating crescent."
+  ]
+ },
+ {
+  "job": "level_50",
+  "place": 50,
+  "kind": "level",
+  "name": "Vật Hoa Thị",
+  "stages": [
+   "A covered arcade rings the square and a caravan yard is walled in beside the road.",
+   "A stone exchange hall with a high double roof faces the scale, and the market's walls take in a second square."
+  ]
+ },
+ {
+  "job": "level_51",
+  "place": 51,
+  "kind": "level",
+  "name": "Hạc Đinh Thị",
+  "stages": [
+   "More islets are joined; a timber market hall on piles stands at the centre of the causeways, and a ferry landing serves the sect road.",
+   "The causeways become a raised stone walk on low arches across the whole shoal, with a two-roof market tower at its heart; the cranes still stand below."
+  ]
+ },
+ {
+  "job": "level_52",
+  "place": 52,
+  "kind": "level",
+  "name": "Thiên Quyền Thị",
+  "stages": [
+   "A second gantry and a covered arcade of money-changers' stalls ring the square, and a stone weights hall with bronze doors stands on its north side.",
+   "The market is walled and gated in stone, with a drum tower over the gantries and a long caravan yard on the road toward Thạch Kiều Thành."
+  ]
+ },
+ {
+  "job": "level_53",
+  "place": 53,
+  "kind": "level",
+  "name": "Thiều Âm Thị",
+  "stages": [
+   "A covered market hall of bamboo and a second stage on the far bank join the lanes, with a footbridge between them.",
+   "The market is walled with a red gate tower, a drum tower and an instrument-makers' guild hall, and a stone landing takes the river boats."
+  ]
+ },
+ {
+  "job": "level_54",
+  "place": 54,
+  "kind": "level",
+  "name": "Hạnh Hoa Thị",
+  "stages": [
+   "A covered flower hall at the market gate and a stone quay on the river.",
+   "A second walled quarter of healers and herb sellers; the apricot grove is walled as a market garden."
+  ]
+ },
+ {
+  "job": "level_55",
+  "place": 55,
+  "kind": "level",
+  "name": "Quy Điểu Trấn",
+  "stages": [
+   "The wall runs further along the shore and the nest poles stand in double rows; a stone pearl market hall rises by the harbour.",
+   "A second harbour basin is cut, and a tall grey-roofed bird-watching tower stands over the shore where the winter ice market is held."
+  ]
+ },
+ {
+  "job": "level_56",
+  "place": 56,
+  "kind": "level",
+  "name": "Mục Ca Thành",
+  "stages": [
+   "A second ring of folds is built and a long covered wool hall rises inside the walls.",
+   "A tall drum-and-song tower stands at the city's centre, and the harbour gains a stone mole for the wool ships."
+  ]
+ },
+ {
+  "job": "level_57",
+  "place": 57,
+  "kind": "level",
+  "name": "Bạch Sa Trấn",
+  "stages": [
+   "A merchants' quarter of two-storey warehouses grows inside an extended wall and the pier is rebuilt in stone.",
+   "A tall double-roofed clan hall of the Thẩm stands at the town's heart, and a small harbour wall curves around the rows of net frames."
+  ]
+ },
+ {
+  "job": "level_58",
+  "place": 58,
+  "kind": "level",
+  "name": "Bách Diệp Trấn",
+  "stages": [
+   "The grid is extended along the river and an incense workshop quarter is added inside a longer wall.",
+   "A tall cypress-wood hall of the incense guild rises at the town's heart, and a stone quay lines the river mouth."
+  ]
+ },
+ {
+  "job": "level_59",
+  "place": 59,
+  "kind": "level",
+  "name": "Tiều Ca Trấn",
+  "stages": [
+   "A second flume comes down a neighbouring ridge and a sawmill house stands over the log pond.",
+   "A stone harbour wall shelters the timber ships, and a tall woodcutters' guild hall rises inside the walls."
+  ]
+ },
+ {
+  "job": "level_60",
+  "place": 60,
+  "kind": "level",
+  "name": "Lộc Minh Trấn",
+  "stages": [
+   "A carvers' quarter of open workshops spreads along the river bank and the ferry pier is doubled.",
+   "A tall carved timber hall of the Lâm clan rises over the town, and a stone ferry landing replaces the old pier with the stag moved to its end."
+  ]
+ },
+ {
+  "job": "level_61",
+  "place": 61,
+  "kind": "level",
+  "name": "Cổ Độ Thành",
+  "stages": [
+   "A smiths' quarter with tall chimneys grows outside the river gate, and a second ferry stair is built downstream.",
+   "A tall drum tower of the ferrymen rises over the stair, and the walls take in the smiths' quarter and a stone river quay."
+  ]
+ },
+ {
+  "job": "level_62",
+  "place": 62,
+  "kind": "level",
+  "name": "Hà Bạn Trấn",
+  "stages": [
+   "A second waterwheel and a stone mill house, with a covered herb wharf along the bank.",
+   "The wall runs along the river with a water gate, and a row of mills turns in a cut channel beside the town."
+  ]
+ },
+ {
+  "job": "level_63",
+  "place": 63,
+  "kind": "level",
+  "name": "Lâm Hạ Trấn",
+  "stages": [
+   "More round granaries on staddle stones and a timber fence around the storehouse quarter.",
+   "A stone granary hall with a tall vented roof under the oldest beeches, and a full town wall with a grain gate on the river."
+  ]
+ },
+ {
+  "job": "level_64",
+  "place": 64,
+  "kind": "level",
+  "name": "Bích Khê Trấn",
+  "stages": [
+   "A carvers' street with a covered market, and a stone footbridge across the green brook.",
+   "A larger wall, a jade hall with a green-glazed roof, and weirs stepping the brook far upstream."
+  ]
+ },
+ {
+  "job": "level_65",
+  "place": 65,
+  "kind": "level",
+  "name": "Thanh Bách Thành",
+  "stages": [
+   "A second market quarter inside the walls and a shrine pavilion on the crater pond's rim.",
+   "An outer wall enclosing the crater pond, and a tall tax hall with stacked roofs among the oldest cypresses."
+  ]
+ },
+ {
+  "job": "level_66",
+  "place": 66,
+  "kind": "level",
+  "name": "Hòe Âm Trấn",
+  "stages": [
+   "A stone quay with a hunters' market, and the locust avenue extended further up the mountain road.",
+   "A larger wall with a harbour gate, a Tiêu family hall with a two-tier roof, and a waystation for Lê Hoa Am's pilgrims at the avenue's end."
+  ]
+ },
+ {
+  "job": "level_67",
+  "place": 67,
+  "kind": "level",
+  "name": "Hồi Lan Thành",
+  "stages": [
+   "A rice market quarter and warehouses along the inner breakwater.",
+   "A second hooked breakwater forming a full harbour ring, with a watch pagoda at its tip and a walled merchant quarter outside the old wall."
+  ]
+ },
+ {
+  "job": "level_68",
+  "place": 68,
+  "kind": "level",
+  "name": "Mộc Lan Thành",
+  "stages": [
+   "A fur market hall with a high grey roof rises behind the quay, and the magnolia rows run on along a new sea wall.",
+   "The walls take in the beach quarter, a stone breakwater shelters the harbour, and a three-roofed gate tower faces the volcano inland."
+  ]
+ },
+ {
+  "job": "level_69",
+  "place": 69,
+  "kind": "level",
+  "name": "Kê Minh Trấn",
+  "stages": [
+   "The harbour wall is lengthened into a stone pier and a fish market roof rises by the gate.",
+   "A second ring of wall takes in the poultry yards and net sheds, and a covered gatehouse lifts the rooster pole higher still."
+  ]
+ },
+ {
+  "job": "level_70",
+  "place": 70,
+  "kind": "level",
+  "name": "Xích Ngạn Trấn",
+  "stages": [
+   "A pigment mill and drying yard sit inside the walls, and a second stair is cut to a new landing.",
+   "The town fills the clifftop, a stone pier runs out from the cove, and a tall grey-tile hall overlooks the sea from the cliff edge."
+  ]
+ },
+ {
+  "job": "level_71",
+  "place": 71,
+  "kind": "level",
+  "name": "Hải Yến Trấn",
+  "stages": [
+   "Tall nest houses with many tiers of eaves rise inside the walls, and the harbour gains a stone quay.",
+   "A ring of nest towers stands along the walls, and a nest market hall with a high grey roof faces the harbour."
+  ]
+ },
+ {
+  "job": "level_72",
+  "place": 72,
+  "kind": "level",
+  "name": "Triều Âm Thành",
+  "stages": [
+   "The breakwater is lengthened along the river mouth and a customs hall rises at the harbour gate.",
+   "A second harbour basin is walled in, and a tall bell-less listening tower stands on the breakwater's end, open to the sea wind."
+  ]
+ },
+ {
+  "job": "level_73",
+  "place": 73,
+  "kind": "level",
+  "name": "Thanh Điền Trấn",
+  "stages": [
+   "A walled horse yard joins the town and the hitching rails double along the road.",
+   "A granary row and a fair ground with a viewing stand rise beside the walls."
+  ]
+ },
+ {
+  "job": "level_74",
+  "place": 74,
+  "kind": "level",
+  "name": "Thảo Đường Thành",
+  "stages": [
+   "A new granary ward is walled in and more ponds are dug in rows along the road.",
+   "A tall grain hall with a double roof rises at the city's heart, and canals link the pond grid to the sea."
+  ]
+ },
+ {
+  "job": "level_75",
+  "place": 75,
+  "kind": "level",
+  "name": "Ngư Lương Trấn",
+  "stages": [
+   "A fish market roof and smoking sheds rise on the bank by the weir.",
+   "A second weir is built upstream and the walls take in both banks, joined by a footbridge along the old weir."
+  ]
+ },
+ {
+  "job": "level_76",
+  "place": 76,
+  "kind": "level",
+  "name": "Liễu Ngạn Trấn",
+  "stages": [
+   "The levee is faced with stone and a drum house is built beside the flood-pillar.",
+   "A stone river gate and a sluice tower guard the town, and the levee runs on past the walls on both sides."
+  ]
+ },
+ {
+  "job": "level_77",
+  "place": 77,
+  "kind": "level",
+  "name": "Hòa Phong Trấn",
+  "stages": [
+   "A house of healing with a long open veranda rises facing the sea.",
+   "The town grows a seaside terrace of guesthouses for the sick, each with its own tall wind-scoop, and a stone quay for the boats that bring them."
+  ]
+ },
+ {
+  "job": "level_78",
+  "place": 78,
+  "kind": "level",
+  "name": "Ngũ Cốc Thành",
+  "stages": [
+   "A guild hall for the grain towers rises behind the quay, and a breakwater shelters the ships.",
+   "A second row of grain towers is built on a new pier, and the walls take in the barge canal from the plain."
+  ]
+ },
+ {
+  "job": "level_79",
+  "place": 79,
+  "kind": "level",
+  "name": "Phong Lâm Trấn",
+  "stages": [
+   "The wall reaches the waterline, a stone quay takes larger boats, and a second clan hall rises opposite the Tạ hall.",
+   "A curved harbour mole runs out under the maples, a two-storey gate tower stands on the sea wall, and the Tạ hall gains an upper storey whose new eaves the swallows fill within a spring."
+  ]
+ },
+ {
+  "job": "level_80",
+  "place": 80,
+  "kind": "level",
+  "name": "Tang Ma Thành",
+  "stages": [
+   "Weaving halls and silk-dyeing yards spill outside the wall, and a stone gatehouse rises over the main rope bridge.",
+   "A second wall rings the rope walks and dyeworks, a tall drum tower stands at the centre, and the lattice of rope bridges spreads over every channel, hung with silk pennants."
+  ]
+ },
+ {
+  "job": "level_81",
+  "place": 81,
+  "kind": "level",
+  "name": "Thạch Kiều Thành",
+  "stages": [
+   "A second wall takes in the caravan yards on both banks, and a tall drum tower rises at the bridge's north end.",
+   "The city spreads across both banks in a double grid, with a three-roof Hall of the Compact beside the bridge, bell towers on every gate, and stone embankments lined with river barges."
+  ]
+ },
+ {
+  "job": "level_82",
+  "place": 82,
+  "kind": "level",
+  "name": "Song Kiều Trấn",
+  "stages": [
+   "A second wall takes in an ore yard beside the bridges, and an Ôn clan hall with a two-storey gate faces the toll pier.",
+   "The town spreads across both banks inside one wall, with a drum tower over the square and a stone assay hall raised over the open scales."
+  ]
+ },
+ {
+  "job": "level_83",
+  "place": 83,
+  "kind": "level",
+  "name": "Mạch Điền Trấn",
+  "stages": [
+   "A second granary on staddle stones and a stone harbour wall join the town, and the town wall is extended to the quay.",
+   "A row of great granaries stands along the harbour, with a granary-master's hall and a drum tower over the gate."
+  ]
+ },
+ {
+  "job": "level_84",
+  "place": 84,
+  "kind": "level",
+  "name": "Thanh Khê Thành",
+  "stages": [
+   "A second wall takes in shipyards along the brook, and a stone harbour arm doubles the anchorage under the lanterns.",
+   "A red gate tower stands at the harbour mouth, a three-roof harbour hall faces the gulf, and the lantern row runs round the whole enlarged harbour."
+  ]
+ },
+ {
+  "job": "level_85",
+  "place": 85,
+  "kind": "level",
+  "name": "Hoàng Vân Thành",
+  "stages": [
+   "A second ring of granaries rises outside the walls and a stone grain wharf runs along the river.",
+   "A walled granary district with a yellow-roofed counting hall at its heart; a canal basin is cut from the river for the barges."
+  ]
+ },
+ {
+  "job": "level_86",
+  "place": 86,
+  "kind": "level",
+  "name": "Đạo Hương Trấn",
+  "stages": [
+   "The Vương build an ancestral hall facing the row of stones, and the town walls are faced in brick.",
+   "A second walled quarter for rice merchants and a stone-paved field road; the row of generation stones now runs to the river."
+  ]
+ },
+ {
+  "job": "level_87",
+  "place": 87,
+  "kind": "level",
+  "name": "Lục Dã Trấn",
+  "stages": [
+   "A drying pavilion for herbs and a walled seed garden of Lễ Tuyền Phái beside the town.",
+   "A brick-walled town with a healers' hall at the gate, and the herb chequer spread far across the meadows."
+  ]
+ },
+ {
+  "job": "level_88",
+  "place": 88,
+  "kind": "level",
+  "name": "Bình Dã Trấn",
+  "stages": [
+   "A second drying yard outside the walls and roofed sheds to store the mats.",
+   "A brick-walled town with a raised drying terrace on every rooftop and a merchants' hall facing the great yard."
+  ]
+ },
+ {
+  "job": "level_89",
+  "place": 89,
+  "kind": "level",
+  "name": "Xuân Thảo Thành",
+  "stages": [
+   "A second turf-capped wall ring and a stone bridge over the river with a market at its foot.",
+   "A walled forest-trade city with a timber hall on a grassy mound at its heart, its own roof turfed like the walls."
+  ]
+ },
+ {
+  "job": "level_90",
+  "place": 90,
+  "kind": "level",
+  "name": "Lãng Hoa Thành",
+  "stages": [
+   "A second harbour mole with its own blowholes, and stone salt pans along the shore.",
+   "A walled upper town around the watch hall, and a long spray wall running the whole bay."
+  ]
+ },
+ {
+  "job": "level_91",
+  "place": 91,
+  "kind": "level",
+  "name": "Vọng Hải Trấn",
+  "stages": [
+   "A walled signal post joins the towers along the cliffs, and a fishing harbour is dug in the river mouth.",
+   "A brick-walled coastal town with a beacon hall and a covered stair from the harbour to the towers."
+  ]
+ },
+ {
+  "job": "level_92",
+  "place": 92,
+  "kind": "level",
+  "name": "Phong Đăng Trấn",
+  "stages": [
+   "A walled granary yard for the tax grain and a stone quay for the boats.",
+   "A brick-walled town with the Lục family's manor on a rise and a second steelyard over the harbour gate."
+  ]
+ },
+ {
+  "job": "level_93",
+  "place": 93,
+  "kind": "level",
+  "name": "Thạch Cơ Thành",
+  "stages": [
+   "A second jetty beside the first and a walled shipyard on the shore.",
+   "A fortified harbour city with a stone lighthouse at the red end of the jetty and a sea wall around the anchorage."
+  ]
+ },
+ {
+  "job": "level_94",
+  "place": 94,
+  "kind": "level",
+  "name": "Tang Điền Trấn",
+  "stages": [
+   "A reeling house by the shore and more silkworm sheds in the outer fields.",
+   "A brick-walled silk town with a dye works and a stone pier for the silk boats."
+  ]
+ },
+ {
+  "job": "level_230",
+  "place": 230,
+  "kind": "level",
+  "name": "Thu Phần Các",
+  "stages": [
+   "A walled grave court with a ward-stone at each corner, and a second tower for the soul arts.",
+   "Terraced halls climb the whole hill, and the slip strings reach down to its foot."
+  ]
+ },
+ {
+  "job": "tu_linh_dai_tran_39",
+  "place": 39,
+  "kind": "tu_linh_dai_tran",
+  "name": "Tử Điện Thành",
+  "project": "Great gathering array (Tụ Linh Đại Trận)",
+  "stages": [
+   "survey stakes and nine foundation stones set in a ring around the place",
+   "stone pillars carved with array script standing in the ring",
+   "the pillars lit, faint golden qi lines joining them over the roofs"
+  ]
+ },
+ {
+  "job": "linh_mach_cu_145",
+  "place": 145,
+  "kind": "linh_mach_cu",
+  "name": "Đào Khê Thôn",
+  "project": "Vein canal (Linh Mạch Cừ)",
+  "stages": [
+   "a fresh trench cut toward the place from the nearest high ground",
+   "a stone-lined channel with sluice gates reaching the place",
+   "the channel glowing faintly, a soft mist where it meets the place"
+  ]
+ },
+ {
+  "job": "linh_dien_4",
+  "place": 4,
+  "kind": "linh_dien",
+  "name": "Lạc Hà Tông",
+  "project": "Spirit field terraces (Linh Điền)",
+  "stages": [
+   "marked slopes and the first low terrace walls on the hill beside the place",
+   "terraced fields stepping up the hill",
+   "the terraces green with spirit herbs, a small gathering stone at the top"
+  ]
+ },
+ {
+  "job": "thien_the_33",
+  "place": 33,
+  "kind": "thien_the",
+  "name": "Đào Thanh Thành",
+  "project": "Cloud ladder (Thiên Thê)",
+  "stages": [
+   "anchors and the first planks driven into the nearest cliff",
+   "a stair and plank road climbing the cliff face",
+   "a roofed sky bridge with lanterns spanning the gap"
+  ]
+ },
+ {
+  "job": "thuong_hoi_quan_47",
+  "place": 47,
+  "kind": "thuong_hoi_quan",
+  "name": "Đào Sa Thị",
+  "project": "Trade quarter (Thương Hội Quán)",
+  "stages": [
+   "a cleared square and timber frames at the edge of the place",
+   "covered halls and warehouses around the square",
+   "a walled trade quarter with a tall guild hall and plain coloured banners"
+  ]
+ },
+ {
+  "job": "hai_de_34",
+  "place": 34,
+  "kind": "hai_de",
+  "name": "Khai Dương Thành",
+  "project": "Harbour works (Hải Đê)",
+  "stages": [
+   "piles and a rubble mole reaching into the water",
+   "a stone breakwater and quays",
+   "a lighthouse pagoda at the breakwater's end"
+  ]
+ },
+ {
+  "job": "ho_thanh_dai_tran_5",
+  "place": 5,
+  "kind": "ho_thanh_dai_tran",
+  "name": "Thiên Xu Tông",
+  "project": "Warding wall (Hộ Thành Đại Trận)",
+  "stages": [
+   "an earth rampart and stakes around the place",
+   "stone walls with gate towers around the place",
+   "the walls hung with ward talismans and a faint dome of ward light over the place"
+  ]
+ },
+ {
+  "job": "tang_kinh_cac_21",
+  "place": 21,
+  "kind": "tang_kinh_cac",
+  "name": "Nam Phố Đường",
+  "project": "Scripture pavilion (Tàng Kinh Các)",
+  "stages": [
+   "a cleared stone terrace inside the place",
+   "a three-storey pavilion rising in bamboo scaffolding",
+   "a five-storey library pagoda with a brass roof finial"
+  ]
+ },
+ {
+  "job": "dan_lo_12",
+  "place": 12,
+  "kind": "dan_lo",
+  "name": "Thải Chi Cốc",
+  "project": "Great furnace (Đan Lô)",
+  "stages": [
+   "a stone platform and a flue at the edge of the place",
+   "a furnace hall with a tall chimney",
+   "the furnace hall with a glowing furnace mouth and a column of pale coloured smoke"
+  ]
+ },
+ {
+  "job": "tinh_that_181",
+  "place": 181,
+  "kind": "tinh_that",
+  "name": "Phụ Tinh Phong",
+  "project": "Sanctuary (Tĩnh Thất)",
+  "stages": [
+   "a cleared path and marker stones beside the natural feature",
+   "a small open pavilion beside the feature",
+   "the pavilion with a ring of stone lanterns, the feature itself untouched"
+  ]
+ }
+]

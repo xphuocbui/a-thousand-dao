@@ -1,0 +1,23 @@
+{
+ "created": 1795387563,
+ "background": "opaque",
+ "output_format": "png",
+ "quality": "medium",
+ "safety_identifier": null,
+ "size": "1536x864",
+ "usage": {
+  "input_tokens": 1737,
+  "input_tokens_details": {
+   "image_tokens": 1296,
+   "text_tokens": 441
+  },
+  "output_tokens": 1078,
+  "output_tokens_details": {
+   "image_tokens": 1078,
+   "text_tokens": 0
+  },
+  "total_tokens": 2815
+ },
+ "model": "gpt-image-2",
+ "prompt": "Paint ONE place into this tile of a painted grand-strategy map. The input is the finished map around the place, seen straight down; the place stands at the exact CENTRE of the image.\n\nThe place: Phất Y Cốc, minor seat. Paint it as a minor sect's seat: a compact walled compound of halls and one tall pagoda or tower, terraces where the land climbs.\nHow it looks: In a high green valley ringed by grey peaks, a modest sect of plain timber halls stands behind a tall stone gate whose name board is left deliberately blank. Swordsmen pass in and out beneath the empty board without a word.\nArt brief: A vertical minor sect seat in a high green mountain valley: a tall plain grey stone gate with an empty pale name board across its top, behind it unpainted timber halls with grey-tile roofs climbing a short slope to a modest two-roof hall. Green meadow and grey boulders at the base, peaks at the edge of the footprint. Warm golden light from the top left on the blank board. No text anywhere, no people larger than specks, nothing outside the place's footprint.\n\nRules:\n- Paint the place as a small, finely detailed miniature, as if a model-maker had built it into this painted relief: seen from above at a gentle angle so roofs, walls and towers read clearly, its base sitting naturally on the terrain that is there (follow the slopes, the shore, the river).\n- Keep it centred and compact: the whole place fits inside a circle about 20 % of the image width across the centre. Short roads or paths may lead out of it.\n- Match the map exactly: the same golden-hour light from the TOP LEFT with soft shadows to the bottom right, the same painterly style, colours and level of detail as the surrounding terrain; the building scale fits the trees and hills around it.\n- Leave everything outside that central circle exactly as it is in the input.\n- Never: text, labels, banners with writing, flags with symbols, people larger than specks, a frame, a vignette, clouds over the place."
+}

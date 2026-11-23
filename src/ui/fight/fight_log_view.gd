@@ -55,7 +55,7 @@ func set_lines(lines: Array) -> void:
 			continue
 		var x: Dictionary = lines[i]
 		l.text = str(x.text)
-		l.modulate = x.get("color", Color.WHITE)
+		l.add_theme_color_override("font_color", x.get("color", Color.WHITE))
 		_ids[i] = str(x.id)
 	if _sel_id != "" and not _ids.has(_sel_id):
 		_sel_id = ""

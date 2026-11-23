@@ -1,0 +1,12 @@
+Paint ONE place into this tile of a painted grand-strategy map. The input is the finished map around the place, seen straight down; the place stands at the exact CENTRE of the image.
+
+The place: Phá Quân Môn, ruin. Paint it as a ruin: broken walls, toppled pillars and roofless halls overgrown by the land, no smoke, no life.
+How it looks: On a high mountain shoulder, a gate arch split clean down the middle still stands, each half leaning away from the other, with seven iron star-studs running across its broken lintel. Behind it, scorched walls and the stump of a watchtower climb the slope. Grass grows in the old parade ground, and little else.
+Art brief: A small painted miniature of broken verticals on a high mountain shoulder: a stone gate arch split down the middle, its two halves leaning apart, a row of seven small iron studs on the broken lintel, the signature element. Behind it, fire-blackened wall stubs and the jagged stump of a watchtower climbing the slope, a grassy parade ground in front. No intact roofs. Snow and grey rock around. Warm golden-hour light from the top left, long shadows through the split. No text, no people larger than specks, nothing outside the footprint.
+
+Rules:
+- Paint the place as a small, finely detailed miniature, as if a model-maker had built it into this painted relief: seen from above at a gentle angle so roofs, walls and towers read clearly, its base sitting naturally on the terrain that is there (follow the slopes, the shore, the river).
+- Keep it centred and compact: the whole place fits inside a circle about 15 % of the image width across the centre. Short roads or paths may lead out of it.
+- Match the map exactly: the same golden-hour light from the TOP LEFT with soft shadows to the bottom right, the same painterly style, colours and level of detail as the surrounding terrain; the building scale fits the trees and hills around it.
+- Leave everything outside that central circle exactly as it is in the input.
+- Never: text, labels, banners with writing, flags with symbols, people larger than specks, a frame, a vignette, clouds over the place.

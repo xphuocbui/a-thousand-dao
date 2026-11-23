@@ -39,7 +39,7 @@ func _init() -> void:
 	box.add_child(head)
 	var title := Label.new()
 	title.text = tr("Places")
-	title.add_theme_font_size_override("font_size", 20)
+	title.theme_type_variation = &"HeadingLabel"
 	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	head.add_child(title)
 	var close := Button.new()

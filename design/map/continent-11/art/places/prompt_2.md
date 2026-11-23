@@ -1,0 +1,12 @@
+Paint ONE place into this tile of a painted grand-strategy map. The input is the finished map around the place, seen straight down; the place stands at the exact CENTRE of the image.
+
+The place: Tùng Đào Cung, great seat. Paint it as a great sect's seat: vertical, stacked pagoda roofs and terraces climbing the slope, the tallest outline in the land, walls and gates, a main hall.
+How it looks: Out of an endless sea of pines a long ridge rises, crowned with stacked halls of dark timber and blue-grey tile. Along the crest runs an open-sided roofed gallery so long that it follows the ridge out of sight, and the wind through the pines sounds in it like surf.
+Art brief: The tallest outline of the pine sea: a long forested ridge crowned with stacked pagoda halls of dark timber and blue-grey tile, climbing in terraces to a many-roofed main hall. Signature element: a long, open-sided roofed gallery running along the ridge crest from the main hall out into the pines and out of view. A small separate hermitage sits on a lower spur beside the seat. At the base: unbroken dark-green pine canopy rolling away like waves, a stone stair rising out of it. Warm light from the top left combing across the pine tops. Avoid: text, people larger than specks, anything outside the ridge.
+
+Rules:
+- Paint the place as a small, finely detailed miniature, as if a model-maker had built it into this painted relief: seen from above at a gentle angle so roofs, walls and towers read clearly, its base sitting naturally on the terrain that is there (follow the slopes, the shore, the river).
+- Keep it centred and compact: the whole place fits inside a circle about 25 % of the image width across the centre. Short roads or paths may lead out of it.
+- Match the map exactly: the same golden-hour light from the TOP LEFT with soft shadows to the bottom right, the same painterly style, colours and level of detail as the surrounding terrain; the building scale fits the trees and hills around it.
+- Leave everything outside that central circle exactly as it is in the input.
+- Never: text, labels, banners with writing, flags with symbols, people larger than specks, a frame, a vignette, clouds over the place.

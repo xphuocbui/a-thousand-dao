@@ -126,7 +126,7 @@ func close_panel() -> void:
 func _build() -> void:
 	var v: Dictionary = _view
 	_name.text = str(v.get("name", ""))
-	LinkStyle.apply(_name, "person", _relation())
+	LinkStyle.apply(_name, "person", _relation(), "paper")
 	var standing: Array = [str(v.get("realm_label", ""))]
 	if str(v.get("sect", "")) != "":
 		standing.append(str(v.sect) + ((", " + str(v.rank)) if str(v.get("rank", "")) != "" else ""))
@@ -164,7 +164,7 @@ func _build() -> void:
 	for t in ties:
 		var b := LinkButton.new()
 		b.text = str(t.partner)
-		LinkStyle.apply(b, "person")
+		LinkStyle.apply(b, "person", "", "paper")
 		var pid: String = str(t.partner_id)
 		b.pressed.connect(func(): person_requested.emit(pid))
 		var row := HBoxContainer.new()
@@ -241,7 +241,7 @@ func _section(title: String, lines: Array) -> Control:
 	var h := Label.new()
 	h.text = title
 	h.add_theme_font_size_override("font_size", 14)
-	h.modulate = Color(0.95, 0.8, 0.45)
+	h.theme_type_variation = &"RowLabel"   # gilt section caps on parchment (art bible 7.11)
 	h.focus_mode = Control.FOCUS_ALL
 	_body.add_child(h)
 	for line in lines:

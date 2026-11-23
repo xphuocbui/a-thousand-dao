@@ -1,0 +1,23 @@
+{
+ "created": 1795388650,
+ "background": "opaque",
+ "output_format": "png",
+ "quality": "medium",
+ "safety_identifier": null,
+ "size": "1536x864",
+ "usage": {
+  "input_tokens": 1466,
+  "input_tokens_details": {
+   "image_tokens": 1296,
+   "text_tokens": 170
+  },
+  "output_tokens": 1078,
+  "output_tokens_details": {
+   "image_tokens": 1078,
+   "text_tokens": 0
+  },
+  "total_tokens": 2544
+ },
+ "model": "gpt-image-2",
+ "prompt": "This image is a painted grand-strategy map seen straight down, with Phượng Minh Cung painted at its centre. Change ONLY the place at the centre, and only as described; keep its layout, every existing building, the terrain, the water, the colours and the golden-hour light from the top left exactly as they are, so the two images can be swapped on the map.\n\nThe place grows one development level: A nine-roof pagoda rises beside the tree, nearly as tall as its crown, and the terraces spread along the whole ridge with a wutong planted on every step.\n\nKeep the change inside a circle about 25 % of the image width across the centre. Never: text, labels, writing, symbols on flags, people larger than specks, a frame, a vignette."
+}

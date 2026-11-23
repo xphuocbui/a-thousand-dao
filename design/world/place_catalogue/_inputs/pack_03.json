@@ -1,0 +1,2260 @@
+{
+ "regions": [
+  {
+   "id": 9,
+   "name": "Hàn Sương Châu",
+   "name_han": "寒霜洲",
+   "gloss": "Land of Cold Frost",
+   "image": "The north-east forest peninsula",
+   "holder": {
+    "key": "bang_tam",
+    "name": "Băng Tâm Các",
+    "gloss": "Pavilion of the Ice Heart",
+    "kind": "great",
+    "alignment": "chinh",
+    "leans": [
+     "Water",
+     "Ice"
+    ],
+    "specialty": "kiem_tu",
+    "founded": 440,
+    "lord": null
+   },
+   "biomes": [
+    {
+     "biome": "Temperate forest",
+     "share": 69.1
+    },
+    {
+     "biome": "Tundra",
+     "share": 11.9
+    },
+    {
+     "biome": "High mountain",
+     "share": 9.1
+    },
+    {
+     "biome": "Steppe",
+     "share": 3.6
+    }
+   ],
+   "landmass": "main",
+   "neighbours": [
+    "Ngọc Hồ Sơn",
+    "Cô Yên Mạc"
+   ],
+   "famous_sites": [],
+   "fallen_sects": [
+    {
+     "name": "Hàn Giang Môn",
+     "name_han": "寒江門",
+     "gloss": "Gate of the Cold River",
+     "founded": 300,
+     "fell": 498,
+     "cause": "conquered by Băng Tâm in the War of the Frost Coast",
+     "ruin": null
+    }
+   ],
+   "places": [
+    {
+     "id": 17,
+     "name": "Trạc Anh Đài",
+     "name_han": "濯纓臺",
+     "gloss": null,
+     "note": null,
+     "kind": "minor_seat",
+     "biome": "temperate forest",
+     "elevation_km": 0.07,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "trac_anh",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "thuy"
+     ],
+     "events": [
+      {
+       "year": 830,
+       "kind": "sect_founded",
+       "tier": "annal",
+       "text": "Fishers and sea hunters of the frost coast found Trạc Anh Đài, where they wash their hat strings in the clear water.",
+       "secret": false
+      }
+     ],
+     "residents": [
+      {
+       "name": "Đoàn Thanh Lãng",
+       "role": "Head of Trạc Anh Đài, fishers and sea hunters of the frost coast",
+       "alive": true,
+       "realm": "ket_dan",
+       "sect": "trac_anh"
+      }
+     ],
+     "seat_of": {
+      "key": "trac_anh",
+      "name": "Trạc Anh Đài",
+      "gloss": "Terrace Where the Hat Strings Are Washed",
+      "kind": "minor",
+      "alignment": "trung",
+      "leans": [
+       "Water",
+       "Ice"
+      ],
+      "specialty": "the_tu",
+      "founded": 830,
+      "lord": "bang_tam",
+      "craft": "fishers and sea hunters of the frost coast",
+      "note": "Khuất Nguyên, Ngư Phủ: the fisherman's song, when the water is clear, wash your hat strings in it",
+      "leader": "Đoàn Thanh Lãng"
+     }
+    },
+    {
+     "id": 36,
+     "name": "Liên Giang Thành",
+     "name_han": "連江城",
+     "gloss": "City Where the Rain Meets the River",
+     "note": "Vương Xương Linh: hàn vũ liên giang dạ nhập Ngô (cold rain joins the river by night), the first line of the Băng Tâm poem",
+     "kind": "city",
+     "biome": "temperate forest",
+     "elevation_km": 0.01,
+     "coast": true,
+     "river": true,
+     "port": true,
+     "holder": "bang_tam",
+     "founded": 350,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 350,
+       "kind": "city_founded",
+       "tier": "landmark",
+       "text": "Hàn Giang Môn founds Liên Giang Thành where the cold rain joins the river.",
+       "secret": false
+      },
+      {
+       "year": 499,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "After the Frost Coast falls, Hàn Giang's fishers keep fishing the cold river under Băng Tâm's flag and pay their tax in ice-fish.",
+       "secret": false
+      },
+      {
+       "year": 990,
+       "kind": "birth",
+       "tier": "annal",
+       "text": "Đoàn Thanh Lãng is born in Liên Giang Thành during a cold rain that joins the river by night.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 48,
+     "name": "Tống Khách Thị",
+     "name_han": "送客市",
+     "gloss": "Market of Farewells",
+     "note": "Vương Xương Linh: bình minh tống khách (at dawn I see my guest off), the Băng Tâm poem",
+     "kind": "market",
+     "biome": "temperate forest",
+     "elevation_km": 0.19,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "bang_tam",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "tho"
+     ],
+     "events": [
+      {
+       "year": 900,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "A traveller is seen off at dawn from Tống Khách Thị and never returns; the market still pours a farewell cup for him each year.",
+       "secret": false
+      },
+      {
+       "year": 1130,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "After his duel, Tư Không Hạc Niên settles in Tống Khách Thị and teaches no one.",
+       "secret": false
+      }
+     ],
+     "residents": [
+      {
+       "name": "Tư Không Hạc Niên",
+       "role": "A wandering sword sage (age 500), bound to no sect",
+       "alive": true,
+       "realm": "nguyen_anh",
+       "sect": ""
+      }
+     ]
+    },
+    {
+     "id": 68,
+     "name": "Mộc Lan Thành",
+     "name_han": "木蘭城",
+     "gloss": "Magnolia City",
+     "note": null,
+     "kind": "city",
+     "biome": "temperate forest",
+     "elevation_km": 0.0,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "bang_tam",
+     "founded": 620,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 620,
+       "kind": "city_founded",
+       "tier": "landmark",
+       "text": "Băng Tâm Các founds Mộc Lan Thành on the frost coast.",
+       "secret": false
+      },
+      {
+       "year": 1180,
+       "kind": "beast",
+       "tier": "annal",
+       "text": "Hunters bring a white bear out of Vô Tung Lâm alive and sell it in Mộc Lan Thành to a buyer from Thiên Bảo Trai.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 69,
+     "name": "Kê Minh Trấn",
+     "name_han": "雞鳴鎮",
+     "gloss": "Cockcrow Town",
+     "note": null,
+     "kind": "town",
+     "biome": "grassland",
+     "elevation_km": 0.01,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "bang_tam",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "tho"
+     ],
+     "events": [
+      {
+       "year": 360,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "The cock crows at Kê Minh even in the dark of winter; the town keeps the cock as its emblem.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 119,
+     "name": "Tiều Lộ Thôn",
+     "name_han": "樵路村",
+     "gloss": "Woodcutters' Path Village",
+     "note": null,
+     "kind": "village",
+     "biome": "temperate forest",
+     "elevation_km": 0.01,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "trac_anh",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "thuy"
+     ],
+     "events": [
+      {
+       "year": 540,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "The woodcutters' paths into Vô Tung Lâm vanish under the snow every night; only the people of Tiều Lộ Thôn can find them again.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 120,
+     "name": "Lâm Ẩn Thôn",
+     "name_han": "林隱村",
+     "gloss": "Hidden in the Woods Village",
+     "note": null,
+     "kind": "village",
+     "biome": "temperate forest",
+     "elevation_km": 0.0,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "bang_tam",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 780,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "Lâm Ẩn Thôn shelters a hermit who teaches the village children to read tracks in the snow.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 121,
+     "name": "Lô Hoa Thôn",
+     "name_han": "蘆花村",
+     "gloss": "Reed Flowers Village",
+     "note": null,
+     "kind": "village",
+     "biome": "grassland",
+     "elevation_km": 0.01,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "bang_tam",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 640,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "Reed flowers cover the marsh at Lô Hoa Thôn like snow in summer.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 168,
+     "name": "Băng Lăng Khoáng",
+     "name_han": "冰稜礦",
+     "gloss": "Icicle Mine",
+     "note": "Shafts hung with ice in the frost land of Hàn Sương Châu.",
+     "kind": "mine",
+     "biome": "high mountain",
+     "elevation_km": 0.94,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "bang_tam",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 2,
+     "qi_top": [
+      "kim",
+      "thuy"
+     ],
+     "events": [
+      {
+       "year": 580,
+       "kind": "mine",
+       "tier": "annal",
+       "text": "Băng Tâm opens Băng Lăng Khoáng, a shaft hung with ice that never melts.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 189,
+     "name": "Sương Diễm Sơn",
+     "name_han": "霜焰山",
+     "gloss": "Mountain of Frost and Flame",
+     "note": "Fire under the frost of the north-east peninsula",
+     "kind": "volcano",
+     "biome": "volcano",
+     "elevation_km": 1.16,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 4,
+     "qi_top": [
+      "hoa",
+      "thuy"
+     ],
+     "events": [
+      {
+       "year": 700,
+       "kind": "disaster",
+       "tier": "annal",
+       "text": "Sương Diễm Sơn breathes fire under the frost for a week; the people of Mộc Lan Thành sleep on the beach.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 191,
+     "name": "Phiến Băng Hồ",
+     "name_han": "片冰湖",
+     "gloss": "Lake of the Piece of Ice",
+     "note": "Vương Xương Linh: nhất phiến băng tâm (one piece of ice heart); beside Băng Tâm Các",
+     "kind": "lake",
+     "biome": "lake",
+     "elevation_km": -0.04,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "hoa"
+     ],
+     "events": [
+      {
+       "year": 1065,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "Phiến Băng Hồ freezes as clear as glass; Băng Tâm disciples meditate on it and see their own hearts.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 201,
+     "name": "Vô Tung Lâm",
+     "name_han": "無蹤林",
+     "gloss": "Forest Without Tracks",
+     "note": "Liễu Tông Nguyên, Giang Tuyết: vạn kính nhân tung diệt (on ten thousand paths, no human trace)",
+     "kind": "forest",
+     "biome": "temperate forest",
+     "elevation_km": 0.24,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "thuy"
+     ],
+     "events": [],
+     "residents": []
+    },
+    {
+     "id": 216,
+     "name": "Hàn Giang Môn",
+     "name_han": "寒江門",
+     "gloss": "Gate of the Cold River",
+     "note": "The fishers' sect of the frost coast, conquered by Băng Tâm.",
+     "kind": "ruin",
+     "biome": "temperate forest",
+     "elevation_km": 0.01,
+     "coast": true,
+     "river": false,
+     "port": false,
+     "holder": "bang_tam",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 300,
+       "kind": "sect_founded",
+       "tier": "landmark",
+       "text": "Liễu Thoa Lạp founds Hàn Giang Môn on the frost coast, a sect of fishers who cultivate alone in the snow on the cold river.",
+       "secret": false
+      },
+      {
+       "year": 330,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "Hàn Giang's fishers cut holes in the river ice and sit cultivating in the snow beside them for days without moving.",
+       "secret": false
+      },
+      {
+       "year": 498,
+       "kind": "war_end",
+       "tier": "landmark",
+       "text": "Hàn Giang Môn falls with its last head Liễu Cô Chu; Hàn Sương Châu and Liên Giang Thành pass to Băng Tâm Các.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 233,
+     "name": "Tuyết Lang Nguyên",
+     "name_han": "雪狼原",
+     "gloss": "Snow Wolf Plain",
+     "note": "Tundra of Hàn Sương Châu where the snow wolves run in packs.",
+     "kind": "beast_lair",
+     "biome": "tundra",
+     "elevation_km": 0.34,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 2,
+     "qi_top": [
+      "thuy",
+      "kim"
+     ],
+     "events": [],
+     "residents": []
+    },
+    {
+     "id": 246,
+     "name": "Noãn Ngọc Tuyền",
+     "name_han": "暖玉泉",
+     "gloss": "Warm Jade Spring",
+     "note": "A warm spring in the frost land of Hàn Sương Châu, its stones warm to the touch.",
+     "kind": "hot_spring",
+     "biome": "high mountain",
+     "elevation_km": 0.37,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "bang_tam",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 2,
+     "qi_top": [
+      "thuy",
+      "hoa"
+     ],
+     "events": [],
+     "residents": []
+    }
+   ]
+  },
+  {
+   "id": 10,
+   "name": "Cô Vụ Đảo",
+   "name_han": "孤鶩島",
+   "gloss": "Isle of the Lone Wild Duck",
+   "image": "Vương Bột: lạc hà dữ cô vụ tề phi, the same line as Lạc Hà Tông",
+   "holder": {
+    "key": "lac_ha",
+    "name": "Lạc Hà Tông",
+    "gloss": "Sect of the Drifting Sunset Clouds",
+    "kind": "great",
+    "alignment": "trung",
+    "leans": [
+     "Earth",
+     "Wood"
+    ],
+    "specialty": "phap_tu",
+    "founded": 290,
+    "lord": null
+   },
+   "biomes": [
+    {
+     "biome": "Grassland",
+     "share": 53.2
+    },
+    {
+     "biome": "Bamboo forest",
+     "share": 19.8
+    },
+    {
+     "biome": "Jungle",
+     "share": 18.0
+    },
+    {
+     "biome": "Temperate forest",
+     "share": 4.6
+    }
+   ],
+   "landmass": "island",
+   "neighbours": [],
+   "famous_sites": [],
+   "fallen_sects": [],
+   "places": [
+    {
+     "id": 18,
+     "name": "Bình Thủy Môn",
+     "name_han": "萍水門",
+     "gloss": null,
+     "note": null,
+     "kind": "minor_seat",
+     "biome": "grassland",
+     "elevation_km": 0.01,
+     "coast": true,
+     "river": false,
+     "port": false,
+     "holder": "binh_thuy",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "thuy"
+     ],
+     "events": [
+      {
+       "year": 520,
+       "kind": "sect_founded",
+       "tier": "annal",
+       "text": "Strangers far from home, meeting on the island like duckweed on water, found Bình Thủy Môn.",
+       "secret": false
+      },
+      {
+       "year": 1110,
+       "kind": "headship",
+       "tier": "annal",
+       "text": "Bùi Phiêu Bình becomes head of Bình Thủy Môn; under him the strait crossing runs every day of the year.",
+       "secret": false
+      }
+     ],
+     "residents": [
+      {
+       "name": "Bùi Phiêu Bình",
+       "role": "Head of Bình Thủy Môn, sea trade, ships and the strait crossing",
+       "alive": true,
+       "realm": "ket_dan",
+       "sect": "binh_thuy"
+      }
+     ],
+     "seat_of": {
+      "key": "binh_thuy",
+      "name": "Bình Thủy Môn",
+      "gloss": "Gate of Duckweed and Water",
+      "kind": "minor",
+      "alignment": "trung",
+      "leans": [
+       "Water",
+       "Wood"
+      ],
+      "specialty": "phap_tu",
+      "founded": 520,
+      "lord": "lac_ha",
+      "craft": "sea trade, ships and the strait crossing",
+      "note": "Vương Bột: bình thủy tương phùng, tận thị tha hương chi khách (duckweed meets water: all here are strangers far from home)",
+      "leader": "Bùi Phiêu Bình"
+     }
+    },
+    {
+     "id": 37,
+     "name": "Đàm Ảnh Thành",
+     "name_han": "潭影城",
+     "gloss": "City of the Pool's Reflections",
+     "note": "Vương Bột, Đằng Vương Các: nhàn vân đàm ảnh nhật du du (idle clouds and their reflections in the pool, day after day)",
+     "kind": "city",
+     "biome": "grassland",
+     "elevation_km": 0.0,
+     "coast": true,
+     "river": true,
+     "port": true,
+     "holder": "lac_ha",
+     "founded": 410,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 410,
+       "kind": "city_founded",
+       "tier": "landmark",
+       "text": "Cô Phàm Các builds Đàm Ảnh Thành, and below it the harbour of Bích Không Cảng, from which its sails vanish into the blue.",
+       "secret": false
+      },
+      {
+       "year": 800,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "Đàm Ảnh Thành's still pool mirrors the clouds so clearly that painters come from the mainland to paint the sky upside down.",
+       "secret": false
+      },
+      {
+       "year": 1060,
+       "kind": "tribulation_death",
+       "tier": "landmark",
+       "text": "A Hóa Thần tribulation over the island sea kills the master of Đoạn Thương Hải; he survives it, blind, holding the Thương Tang Kính.",
+       "secret": false
+      },
+      {
+       "year": 1062,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "Blind after the tribulation, Đoạn Thương Hải settles in Đàm Ảnh Thành and listens to the pool instead of looking at it.",
+       "secret": false
+      }
+     ],
+     "residents": [
+      {
+       "name": "Đoạn Thương Hải",
+       "role": "The only man to survive a Hóa Thần tribulation that killed his master (age 480); blind since, lives by the island sea",
+       "alive": true,
+       "realm": "nguyen_anh",
+       "sect": ""
+      }
+     ]
+    },
+    {
+     "id": 49,
+     "name": "Tương Phùng Thị",
+     "name_han": "相逢市",
+     "gloss": "Market of Chance Meetings",
+     "note": "Vương Bột: bình thủy tương phùng (duckweed and water meet by chance); beside Bình Thủy Môn",
+     "kind": "market",
+     "biome": "grassland",
+     "elevation_km": 0.0,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "lac_ha",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "tho"
+     ],
+     "events": [
+      {
+       "year": 525,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "A market of chance meetings grows beside Bình Thủy Môn; it is called Tương Phùng Thị.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 70,
+     "name": "Xích Ngạn Trấn",
+     "name_han": "赤岸鎮",
+     "gloss": "Red Shore Town",
+     "note": null,
+     "kind": "town",
+     "biome": "grassland",
+     "elevation_km": 0.12,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "lac_ha",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 330,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "The first mainland traders name the red cliffs of the island's east coast Xích Ngạn.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 71,
+     "name": "Hải Yến Trấn",
+     "name_han": "海燕鎮",
+     "gloss": "Sea Swallow Town",
+     "note": null,
+     "kind": "town",
+     "biome": "grassland",
+     "elevation_km": 0.0,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "lac_ha",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 600,
+       "kind": "trade",
+       "tier": "annal",
+       "text": "Sea swallows nest so thickly under the eaves of Hải Yến Trấn that its people sell the nests to alchemists.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 72,
+     "name": "Triều Âm Thành",
+     "name_han": "潮音城",
+     "gloss": "Tide Song City",
+     "note": null,
+     "kind": "city",
+     "biome": "grassland",
+     "elevation_km": 0.0,
+     "coast": true,
+     "river": true,
+     "port": true,
+     "holder": "lac_ha",
+     "founded": 540,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 540,
+       "kind": "city_founded",
+       "tier": "landmark",
+       "text": "Lạc Hà Tông founds Triều Âm Thành on the western shore of Cô Vụ Đảo.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 122,
+     "name": "Bối Sa Thôn",
+     "name_han": "貝沙村",
+     "gloss": "Shell Sands Village",
+     "note": null,
+     "kind": "village",
+     "biome": "grassland",
+     "elevation_km": 0.03,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "lac_ha",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "tho"
+     ],
+     "events": [
+      {
+       "year": 230,
+       "kind": "trade",
+       "tier": "annal",
+       "text": "Islanders gather shells on the white beach of Bối Sa to trade as coins on the mainland.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 123,
+     "name": "Lãng Thạch Thôn",
+     "name_han": "浪石村",
+     "gloss": "Wave Rock Village",
+     "note": null,
+     "kind": "village",
+     "biome": "grassland",
+     "elevation_km": 0.01,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "binh_thuy",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 960,
+       "kind": "discovery",
+       "tier": "annal",
+       "text": "Wave Rock at Lãng Thạch Thôn splits in a storm, and a sea cave full of old Cô Phàm charts is found inside.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 124,
+     "name": "Dương Liễu Thôn",
+     "name_han": "楊柳村",
+     "gloss": "Willows Village",
+     "note": null,
+     "kind": "village",
+     "biome": "grassland",
+     "elevation_km": 0.0,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "lac_ha",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 750,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "Willows planted on the dunes at Dương Liễu Thôn hold the island's sand against the storms.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 125,
+     "name": "Tình Sa Thôn",
+     "name_han": "晴沙村",
+     "gloss": "Sunlit Sands Village",
+     "note": null,
+     "kind": "village",
+     "biome": "grassland",
+     "elevation_km": 0.0,
+     "coast": true,
+     "river": true,
+     "port": true,
+     "holder": "lac_ha",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "thuy"
+     ],
+     "events": [
+      {
+       "year": 1190,
+       "kind": "beast",
+       "tier": "annal",
+       "text": "On the sunny sands of Tình Sa a stranded whale lives for three days; the island gives it back to the sea.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 126,
+     "name": "Nguyệt Loan Thôn",
+     "name_han": "月灣村",
+     "gloss": "Moon Cove Village",
+     "note": null,
+     "kind": "village",
+     "biome": "grassland",
+     "elevation_km": 0.04,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "lac_ha",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 870,
+       "kind": "disaster",
+       "tier": "annal",
+       "text": "The moon-shaped cove at Nguyệt Loan shelters the island's fishing fleet from the great storm of 870.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 226,
+     "name": "Bích Không Cảng",
+     "name_han": "碧空港",
+     "gloss": "Harbour of the Blue Sky",
+     "note": "Lý Bạch: the lone sail vanishes into the blue sky. Cô Phàm's harbour, emptied when the fleet was lost.",
+     "kind": "ruin",
+     "biome": "grassland",
+     "elevation_km": 0.01,
+     "coast": true,
+     "river": false,
+     "port": false,
+     "holder": "lac_ha",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 420,
+       "kind": "item_made",
+       "tier": "landmark",
+       "text": "Giang Bích Không makes the Viễn Ảnh Châm, a needle that always points to the last ship to leave port.",
+       "secret": false
+      },
+      {
+       "year": 706,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "A year after the fleet is lost, the widows of Bích Không Cảng leave the harbour; the empty quays face the blue.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 241,
+     "name": "Vụ Báo Lâm",
+     "name_han": "霧豹林",
+     "gloss": "Mist Leopard Forest",
+     "note": "Jungle of Cô Vụ Đảo, the lonely misty island, where leopards hunt in the mist.",
+     "kind": "beast_lair",
+     "biome": "jungle",
+     "elevation_km": 0.11,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 2,
+     "qi_top": [
+      "moc",
+      "thuy"
+     ],
+     "events": [],
+     "residents": []
+    }
+   ]
+  },
+  {
+   "id": 11,
+   "name": "Trường Thiên Nguyên",
+   "name_han": "長天原",
+   "gloss": "Plain of the Endless Sky",
+   "image": "Vương Bột: thu thủy cộng trường thiên nhất sắc",
+   "holder": {
+    "key": "lac_ha",
+    "name": "Lạc Hà Tông",
+    "gloss": "Sect of the Drifting Sunset Clouds",
+    "kind": "great",
+    "alignment": "trung",
+    "leans": [
+     "Earth",
+     "Wood"
+    ],
+    "specialty": "phap_tu",
+    "founded": 290,
+    "lord": null
+   },
+   "biomes": [
+    {
+     "biome": "Grassland",
+     "share": 58.8
+    },
+    {
+     "biome": "Steppe",
+     "share": 22.9
+    },
+    {
+     "biome": "Temperate forest",
+     "share": 16.7
+    }
+   ],
+   "landmass": "main",
+   "neighbours": [
+    "Tuyết Hỏa Giác",
+    "Thu Thủy Loan",
+    "Ngư Ca Xuyên"
+   ],
+   "famous_sites": [],
+   "fallen_sects": [],
+   "places": [
+    {
+     "id": 19,
+     "name": "Mục Vân Trang",
+     "name_han": "牧雲莊",
+     "gloss": null,
+     "note": null,
+     "kind": "minor_seat",
+     "biome": "grassland",
+     "elevation_km": 0.04,
+     "coast": true,
+     "river": false,
+     "port": false,
+     "holder": "muc_van",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 740,
+       "kind": "sect_founded",
+       "tier": "annal",
+       "text": "Herders of the open plain found Mục Vân Trang to raise spirit horses that run like clouds.",
+       "secret": false
+      },
+      {
+       "year": 1185,
+       "kind": "festival",
+       "tier": "annal",
+       "text": "Mục Vân Trang's horses win every race at the Lạc Hà festival; Kim Vạn Lý bets on them and loses anyway.",
+       "secret": false
+      }
+     ],
+     "residents": [
+      {
+       "name": "Khấu Mục Vân",
+       "role": "Head of Mục Vân Trang, spirit horses and herd beasts of the open plain",
+       "alive": true,
+       "realm": "ket_dan",
+       "sect": "muc_van"
+      }
+     ],
+     "seat_of": {
+      "key": "muc_van",
+      "name": "Mục Vân Trang",
+      "gloss": "Manor of the Cloud Herders",
+      "kind": "minor",
+      "alignment": "trung",
+      "leans": [
+       "Wind",
+       "Earth"
+      ],
+      "specialty": "the_tu",
+      "founded": 740,
+      "lord": "lac_ha",
+      "craft": "spirit horses and herd beasts of the open plain",
+      "note": "Herding clouds under the endless sky of Trường Thiên Nguyên",
+      "leader": "Khấu Mục Vân"
+     }
+    },
+    {
+     "id": 38,
+     "name": "Nhạn Thanh Thành",
+     "name_han": "雁聲城",
+     "gloss": "City of the Wild Geese's Cry",
+     "note": "Vương Bột: nhạn trận kinh hàn (the wild geese in formation, startled by the cold)",
+     "kind": "city",
+     "biome": "steppe",
+     "elevation_km": 0.0,
+     "coast": true,
+     "river": true,
+     "port": true,
+     "holder": "lac_ha",
+     "founded": 450,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "tho"
+     ],
+     "events": [
+      {
+       "year": 450,
+       "kind": "city_founded",
+       "tier": "landmark",
+       "text": "Lạc Hà Tông founds Nhạn Thanh Thành on the western plain, where the wild geese fly in formation.",
+       "secret": false
+      },
+      {
+       "year": 1040,
+       "kind": "trade",
+       "tier": "annal",
+       "text": "Kim Vạn Lý buys the wool of the whole plain in one season and becomes the richest merchant of the west.",
+       "secret": false
+      },
+      {
+       "year": 1120,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "Wild geese fly so low over Nhạn Thanh Thành in a cold year that archers shoot them from the walls; the city forbids it ever after.",
+       "secret": false
+      }
+     ],
+     "residents": [
+      {
+       "name": "Kim Vạn Lý",
+       "role": "The richest merchant of the western plains (age 350)",
+       "alive": true,
+       "realm": "ket_dan",
+       "sect": ""
+      }
+     ]
+    },
+    {
+     "id": 73,
+     "name": "Thanh Điền Trấn",
+     "name_han": "青田鎮",
+     "gloss": "Green Fields Town",
+     "note": null,
+     "kind": "town",
+     "biome": "grassland",
+     "elevation_km": 0.01,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "muc_van",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "thuy"
+     ],
+     "events": [
+      {
+       "year": 680,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "The green fields around Thanh Điền stretch so far that its farmers ride to their work.",
+       "secret": false
+      },
+      {
+       "year": 940,
+       "kind": "birth",
+       "tier": "annal",
+       "text": "Khấu Mục Vân is born in Thanh Điền; a spirit foal is born the same night and will let no one else ride it.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 74,
+     "name": "Thảo Đường Thành",
+     "name_han": "草塘城",
+     "gloss": "Grass Pond City",
+     "note": null,
+     "kind": "city",
+     "biome": "grassland",
+     "elevation_km": 0.01,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "lac_ha",
+     "founded": 680,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 680,
+       "kind": "city_founded",
+       "tier": "landmark",
+       "text": "Lạc Hà Tông founds Thảo Đường Thành among the farms of the western plain.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 75,
+     "name": "Ngư Lương Trấn",
+     "name_han": "漁梁鎮",
+     "gloss": "Fish Weir Town",
+     "note": null,
+     "kind": "town",
+     "biome": "grassland",
+     "elevation_km": 0.01,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "lac_ha",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 430,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "Lạc Hà's rule brings fishing weirs to the plain's rivers; Ngư Lương Trấn grows around the largest.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 127,
+     "name": "Điền Viên Thôn",
+     "name_han": "田園村",
+     "gloss": "Fields and Gardens Village",
+     "note": null,
+     "kind": "village",
+     "biome": "grassland",
+     "elevation_km": 0.02,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "muc_van",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 890,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "The gardens and fields of Điền Viên feed the scholars of Nhạn Thanh Thành, who retire there to farm.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 128,
+     "name": "Yến Quy Thôn",
+     "name_han": "燕歸村",
+     "gloss": "Swallows' Return Village",
+     "note": null,
+     "kind": "village",
+     "biome": "grassland",
+     "elevation_km": 0.02,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "lac_ha",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 300,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "Swallows return to the same farm every spring for a hundred years; the village becomes Yến Quy.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 129,
+     "name": "Chu Tân Thôn",
+     "name_han": "舟津村",
+     "gloss": "Boat Ford Village",
+     "note": null,
+     "kind": "village",
+     "biome": "grassland",
+     "elevation_km": -0.05,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "muc_van",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 520,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "A ford on the plain's widest river becomes Chu Tân Thôn.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 130,
+     "name": "Lô Cảng Thôn",
+     "name_han": "蘆港村",
+     "gloss": "Reed Harbour Village",
+     "note": null,
+     "kind": "village",
+     "biome": "grassland",
+     "elevation_km": 0.01,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "lac_ha",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 800,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "A reed harbour at Lô Cảng shelters the coast boats; Lạc Hà builds its western watch there.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 131,
+     "name": "Diêm Điền Thôn",
+     "name_han": "鹽田村",
+     "gloss": "Salt Pans Village",
+     "note": null,
+     "kind": "village",
+     "biome": "grassland",
+     "elevation_km": 0.01,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "lac_ha",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "tho"
+     ],
+     "events": [
+      {
+       "year": 200,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "Salt pans dug at Diêm Điền on the west coast make the continent's first sea salt.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 195,
+     "name": "Phù Chử Đảo",
+     "name_han": "鳧渚島",
+     "gloss": "Isle of the Wild Ducks",
+     "note": "Vương Bột: hạc đinh phù chử (crane shoals and wild-duck isles)",
+     "kind": "island",
+     "biome": "temperate forest",
+     "elevation_km": 0.01,
+     "coast": true,
+     "river": false,
+     "port": false,
+     "holder": "",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 470,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "Wild ducks crowd the isle of Phù Chử so thickly that boats must wait for them to move.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 196,
+     "name": "Tịch Chiếu Đảo",
+     "name_han": "夕照島",
+     "gloss": "Isle of the Evening Glow",
+     "note": "The westernmost island, last to see the sunset of Lạc Hà",
+     "kind": "island",
+     "biome": "grassland",
+     "elevation_km": 0.05,
+     "coast": true,
+     "river": false,
+     "port": false,
+     "holder": "",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 600,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "The westernmost island, Tịch Chiếu, is the last land to see the sunset; Lạc Hà's elders go there to die.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    }
+   ]
+  },
+  {
+   "id": 12,
+   "name": "Thu Thủy Loan",
+   "name_han": "秋水灣",
+   "gloss": "Bay of Autumn Water",
+   "image": "The same line: autumn water one colour with the endless sky",
+   "holder": {
+    "key": "lac_ha",
+    "name": "Lạc Hà Tông",
+    "gloss": "Sect of the Drifting Sunset Clouds",
+    "kind": "great",
+    "alignment": "trung",
+    "leans": [
+     "Earth",
+     "Wood"
+    ],
+    "specialty": "phap_tu",
+    "founded": 290,
+    "lord": null
+   },
+   "biomes": [
+    {
+     "biome": "Steppe",
+     "share": 39.2
+    },
+    {
+     "biome": "Grassland",
+     "share": 37.2
+    },
+    {
+     "biome": "Badlands",
+     "share": 8.9
+    },
+    {
+     "biome": "Bamboo forest",
+     "share": 4.8
+    }
+   ],
+   "landmass": "main",
+   "neighbours": [
+    "Trường Thiên Nguyên",
+    "Ngư Ca Xuyên",
+    "Thiên Tuyền Nguyên",
+    "Tiêu Vũ Lâm"
+   ],
+   "famous_sites": [],
+   "fallen_sects": [],
+   "places": [
+    {
+     "id": 20,
+     "name": "Thiên Bảo Trai",
+     "name_han": "天寶齋",
+     "gloss": null,
+     "note": null,
+     "kind": "minor_seat",
+     "biome": "steppe",
+     "elevation_km": 0.4,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "thien_bao",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "tho",
+      "kim"
+     ],
+     "events": [
+      {
+       "year": 350,
+       "kind": "sect_founded",
+       "tier": "annal",
+       "text": "Thiên Bảo Trai is founded beside the bay as a refiners' workshop; its sign says the riches of the land are heaven's treasures.",
+       "secret": false
+      },
+      {
+       "year": 1050,
+       "kind": "headship",
+       "tier": "annal",
+       "text": "Phan Vật Hoa becomes mistress of Thiên Bảo Trai and holds a treasure auction every season.",
+       "secret": false
+      }
+     ],
+     "residents": [
+      {
+       "name": "Phan Vật Hoa",
+       "role": "Mistress of Thiên Bảo Trai, artifact refining and the treasure market",
+       "alive": true,
+       "realm": "nguyen_anh",
+       "sect": "thien_bao"
+      }
+     ],
+     "seat_of": {
+      "key": "thien_bao",
+      "name": "Thiên Bảo Trai",
+      "gloss": "Studio of Heaven's Treasures",
+      "kind": "minor",
+      "alignment": "trung",
+      "leans": [
+       "Metal",
+       "Earth"
+      ],
+      "specialty": "tran_su",
+      "founded": 350,
+      "lord": "lac_ha",
+      "craft": "artifact refining and a treasure market",
+      "note": "Vương Bột: vật hoa thiên bảo (the riches of the land are the treasures of heaven)",
+      "leader": "Phan Vật Hoa"
+     }
+    },
+    {
+     "id": 39,
+     "name": "Tử Điện Thành",
+     "name_han": "紫電城",
+     "gloss": "City of the Purple Lightning",
+     "note": "Vương Bột: tử điện thanh sương, Vương tướng quân chi vũ khố (the purple-lightning and blue-frost swords of General Vương's armoury)",
+     "kind": "city",
+     "biome": "grassland",
+     "elevation_km": 0.0,
+     "coast": true,
+     "river": true,
+     "port": true,
+     "holder": "lac_ha",
+     "founded": 360,
+     "on_road": true,
+     "array": true,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "thuy"
+     ],
+     "events": [
+      {
+       "year": 360,
+       "kind": "city_founded",
+       "tier": "landmark",
+       "text": "Lạc Anh Phái founds a city on the bay side of the Petal Shore; it will bear another name before it bears its last.",
+       "secret": false
+      },
+      {
+       "year": 620,
+       "kind": "war_end",
+       "tier": "landmark",
+       "text": "The Pivot's judgement divides the Petal Shore, the bay to Lạc Hà and the forest to Thính Vũ; Lạc Hà renames the bay city Tử Điện Thành, for its armoury.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 50,
+     "name": "Vật Hoa Thị",
+     "name_han": "物華市",
+     "gloss": "Market of the Land's Riches",
+     "note": "Vương Bột: vật hoa thiên bảo (the riches of the land are heaven's treasures); beside Thiên Bảo Trai",
+     "kind": "market",
+     "biome": "steppe",
+     "elevation_km": 0.15,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "lac_ha",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "tho",
+      "hoa"
+     ],
+     "events": [
+      {
+       "year": 500,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "A market for the land's riches grows beside Thiên Bảo Trai; it is called Vật Hoa Thị.",
+       "secret": false
+      },
+      {
+       "year": 1004,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "A year after Kim Cốc burns, its merchants beg in Vật Hoa Thị; Thiên Bảo Trai hires the ones who can still count.",
+       "secret": false
+      },
+      {
+       "year": 1105,
+       "kind": "tale",
+       "tier": "landmark",
+       "text": "Lạc Đan Thanh buys the Đào Nguyên Đồ at Vật Hoa Thị for a pill no one else could make.",
+       "secret": false
+      },
+      {
+       "year": 1110,
+       "kind": "trade",
+       "tier": "annal",
+       "text": "Lạc Đan Thanh sets up his pill stall in Vật Hoa Thị and charges whatever he likes.",
+       "secret": false
+      }
+     ],
+     "residents": [
+      {
+       "name": "Lạc Đan Thanh",
+       "role": "A famous alchemist who sells his pills in the market (age 300)",
+       "alive": true,
+       "realm": "ket_dan",
+       "sect": ""
+      }
+     ]
+    },
+    {
+     "id": 76,
+     "name": "Liễu Ngạn Trấn",
+     "name_han": "柳岸鎮",
+     "gloss": "Willow Bank Town",
+     "note": null,
+     "kind": "town",
+     "biome": "grassland",
+     "elevation_km": 0.01,
+     "coast": false,
+     "river": true,
+     "port": false,
+     "holder": "lac_ha",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "tho"
+     ],
+     "events": [
+      {
+       "year": 410,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "Willows planted on the bank at Liễu Ngạn hold the river where it floods.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 77,
+     "name": "Hòa Phong Trấn",
+     "name_han": "和風鎮",
+     "gloss": "Gentle Breeze Town",
+     "note": null,
+     "kind": "town",
+     "biome": "grassland",
+     "elevation_km": 0.01,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "lac_ha",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 900,
+       "kind": "disaster",
+       "tier": "annal",
+       "text": "A gentle sea breeze keeps Hòa Phong Trấn free of fever in the year of the southern plague.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 78,
+     "name": "Ngũ Cốc Thành",
+     "name_han": "五穀城",
+     "gloss": "Five Grains City",
+     "note": null,
+     "kind": "city",
+     "biome": "grassland",
+     "elevation_km": 0.01,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "lac_ha",
+     "founded": 1010,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 1010,
+       "kind": "city_founded",
+       "tier": "landmark",
+       "text": "Ngũ Cốc Thành grows rich on the trade Kim Cốc lost.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 132,
+     "name": "Khê Thanh Thôn",
+     "name_han": "溪聲村",
+     "gloss": "Brook Sound Village",
+     "note": null,
+     "kind": "village",
+     "biome": "grassland",
+     "elevation_km": 0.02,
+     "coast": false,
+     "river": true,
+     "port": false,
+     "holder": "lac_ha",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "tho"
+     ],
+     "events": [
+      {
+       "year": 700,
+       "kind": "trade",
+       "tier": "annal",
+       "text": "The brooks at Khê Đầu and Khê Thanh run so clear that Thiên Bảo Trai washes its finest refinings in them.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 133,
+     "name": "Khê Đầu Thôn",
+     "name_han": "溪頭村",
+     "gloss": "Brook Head Village",
+     "note": null,
+     "kind": "village",
+     "biome": "grassland",
+     "elevation_km": 0.01,
+     "coast": false,
+     "river": true,
+     "port": false,
+     "holder": "lac_ha",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "tho"
+     ],
+     "events": [],
+     "residents": []
+    },
+    {
+     "id": 134,
+     "name": "Hải Môn Thôn",
+     "name_han": "海門村",
+     "gloss": "Sea Gate Village",
+     "note": null,
+     "kind": "village",
+     "biome": "grassland",
+     "elevation_km": 0.0,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "lac_ha",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "thuy"
+     ],
+     "events": [
+      {
+       "year": 450,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "The Sea Gate at Hải Môn Thôn is a rock arch the tide runs through twice a day.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 135,
+     "name": "Tân Khẩu Thôn",
+     "name_han": "津口村",
+     "gloss": "Harbour Mouth Village",
+     "note": null,
+     "kind": "village",
+     "biome": "grassland",
+     "elevation_km": 0.01,
+     "coast": true,
+     "river": false,
+     "port": true,
+     "holder": "lac_ha",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 805,
+       "kind": "settlement",
+       "tier": "annal",
+       "text": "Refugees from Vô Định Thành found Tân Khẩu Thôn at the harbour mouth and never speak of the plain.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 169,
+     "name": "Xích Kim Khoáng",
+     "name_han": "赤金礦",
+     "gloss": "Red Gold Mine",
+     "note": "Gold the colour of Lạc Hà's sunset, for Thiên Bảo Trai's treasure market.",
+     "kind": "mine",
+     "biome": "badlands",
+     "elevation_km": 0.4,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "thien_bao",
+     "founded": null,
+     "on_road": true,
+     "array": false,
+     "danger": 2,
+     "qi_top": [
+      "kim",
+      "tho"
+     ],
+     "events": [
+      {
+       "year": 360,
+       "kind": "mine",
+       "tier": "annal",
+       "text": "Red gold is found at Xích Kim; Thiên Bảo Trai buys the mine before Lạc Hà's stewards hear of it.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 207,
+     "name": "Trường Hà Mạch",
+     "name_han": "長河脈",
+     "gloss": "Vein of the Long River",
+     "note": "Vương Duy: trường hà lạc nhật viên, the long river and the round setting sun. On the border with Thính Vũ.",
+     "kind": "spirit_vein",
+     "biome": "high mountain",
+     "elevation_km": 1.22,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "lac_ha",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 2,
+     "qi_top": [
+      "tho",
+      "kim"
+     ],
+     "events": [
+      {
+       "year": 620,
+       "kind": "discovery",
+       "tier": "annal",
+       "text": "Lạc Hà finds the Long River vein on its new border with Thính Vũ and names it Trường Hà Mạch.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 219,
+     "name": "Kim Cốc Thành",
+     "name_han": "金谷城",
+     "gloss": "City of the Golden Valley",
+     "note": "Kim Cốc Viên's merchant city, burned in the crash of 1003.",
+     "kind": "ruin",
+     "biome": "grassland",
+     "elevation_km": 0.01,
+     "coast": true,
+     "river": false,
+     "port": false,
+     "holder": "lac_ha",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "thuy",
+      "moc"
+     ],
+     "events": [
+      {
+       "year": 760,
+       "kind": "sect_founded",
+       "tier": "landmark",
+       "text": "Merchants of Thu Thủy Loan found Kim Cốc Viên, a garden of trade under Lạc Hà Tông, and build Kim Cốc Thành around it.",
+       "secret": false
+      },
+      {
+       "year": 1003,
+       "kind": "sect_fall",
+       "tier": "landmark",
+       "text": "Kim Cốc Viên collapses in a market crash and a great fire; Kim Cốc Thành burns, and the pearl Lục Châu is lost in the ashes.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 222,
+     "name": "Hồng Vũ Thành",
+     "name_han": "紅雨城",
+     "gloss": "City of the Red Rain",
+     "note": "Lý Hạ: peach petals falling like red rain. Lạc Anh's city on the Petal Shore, burned in the war over its land.",
+     "kind": "ruin",
+     "biome": "grassland",
+     "elevation_km": 0.02,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "lac_ha",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "moc",
+      "tho"
+     ],
+     "events": [
+      {
+       "year": 240,
+       "kind": "item_made",
+       "tier": "landmark",
+       "text": "Đào Tân Phân forges the twin swords Phi Hồng and Tàn Hồng from one peach branch hardened by a thousand springs, and decrees that whoever holds both leads the school.",
+       "secret": false
+      },
+      {
+       "year": 260,
+       "kind": "city_founded",
+       "tier": "landmark",
+       "text": "Lạc Anh Phái builds Hồng Vũ Thành on the Petal Shore.",
+       "secret": false
+      },
+      {
+       "year": 618,
+       "kind": "city_ruined",
+       "tier": "landmark",
+       "text": "Hồng Vũ Thành burns in the fighting; its petals and its ashes fall together like red rain.",
+       "secret": false
+      },
+      {
+       "year": 1180,
+       "kind": "omen",
+       "tier": "annal",
+       "text": "Ghost lights are seen on the ruins of Hồng Vũ Thành every spring when the peach trees bloom.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 223,
+     "name": "Vô Định Thành",
+     "name_han": "無定城",
+     "gloss": "City of the Vô Định River",
+     "note": "Trần Đào: the bones by the Vô Định river that wives still dream of. Burned in the battle of 803 and left to the miasma.",
+     "kind": "ruin",
+     "biome": "steppe",
+     "elevation_km": 0.23,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "lac_ha",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 1,
+     "qi_top": [
+      "tho",
+      "hoa"
+     ],
+     "events": [
+      {
+       "year": 600,
+       "kind": "city_founded",
+       "tier": "landmark",
+       "text": "Lạc Hà Tông builds Vô Định Thành on the river where three lands meet.",
+       "secret": false
+      },
+      {
+       "year": 803,
+       "kind": "city_ruined",
+       "tier": "landmark",
+       "text": "Vô Định Thành burns in the battle on the plain, and the miasma takes what is left; its dead are still dreamed of in the river towns.",
+       "secret": false
+      },
+      {
+       "year": 1196,
+       "kind": "tale",
+       "tier": "annal",
+       "text": "Children of Tân Khẩu dare each other to touch the edge of the miasma by Vô Định Thành; one doesn't come back.",
+       "secret": false
+      }
+     ],
+     "residents": []
+    },
+    {
+     "id": 243,
+     "name": "Thiên Chu Lâm",
+     "name_han": "千蛛林",
+     "gloss": "Thousand Spider Wood",
+     "note": "Jungle of Thu Thủy Loan webbed by poison spiders.",
+     "kind": "beast_lair",
+     "biome": "jungle",
+     "elevation_km": 0.05,
+     "coast": false,
+     "river": false,
+     "port": false,
+     "holder": "",
+     "founded": null,
+     "on_road": false,
+     "array": false,
+     "danger": 2,
+     "qi_top": [
+      "moc",
+      "tho"
+     ],
+     "events": [],
+     "residents": []
+    }
+   ]
+  }
+ ]
+}

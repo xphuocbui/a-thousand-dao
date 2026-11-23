@@ -32,10 +32,13 @@ func set_px(px: int) -> void:
 
 func _draw() -> void:
 	var r := Rect2(Vector2.ZERO, size)
-	if frame == "empty" or icon == null:
-		draw_rect(r, Color(0.1, 0.11, 0.13))
-		_dashed(r, Color(0.4, 0.4, 0.46))
+	if frame == "empty" or icon == null:   # an empty slot: a dark recess with a dashed brass line (art bible 7.12)
+		draw_rect(r, _col(&"recess", Color(0.1, 0.11, 0.13)))
+		_dashed(r.grow(-1), _col(&"dash", Color(0.4, 0.4, 0.46)))
+		if has_focus():
+			_ring(r)
 		return
+	draw_rect(Rect2(r.position + Vector2(1, 1), r.size), Color(0, 0, 0, 0.45))   # the 1 px warm-ink contact shadow (7.1)
 	draw_texture_rect(icon, r.grow(-2), false)
 	if charge < 1.0:
 		var h: float = (size.y - 4.0) * (1.0 - clampf(charge, 0.0, 1.0))
@@ -43,7 +46,7 @@ func _draw() -> void:
 		draw_line(Vector2(2, 2 + h), Vector2(size.x - 2, 2 + h), Color(1, 1, 1, 0.55), 1.0)
 	if not affordable:
 		draw_rect(r.grow(-2), Color(0.05, 0.05, 0.1, 0.55))
-	var edge := Color(0.55, 0.56, 0.62)
+	var edge: Color = _col(&"edge", Color(0.55, 0.56, 0.62))
 	if frame == "ward":
 		_chamfer(r, edge)
 		_chamfer(r.grow(-3), edge.darkened(0.3))
@@ -53,7 +56,7 @@ func _draw() -> void:
 		draw_rect(r.grow(1), Color(1.0, 0.95, 0.7, flash), false, 3.0)
 		draw_rect(r.grow(-2), Color(1.0, 0.95, 0.7, flash * 0.35))
 	if has_focus():
-		draw_rect(r.grow(2), Color(1, 1, 1), false, 2.0)
+		_ring(r)
 	var font: Font = get_theme_default_font()
 	if step > 0:
 		_badge(font, Vector2(3, 3), str(step), Color(0.2, 0.45, 0.9))
@@ -61,6 +64,17 @@ func _draw() -> void:
 		_badge(font, Vector2(size.x - 17, 3), "⚡", Color(0.85, 0.6, 0.1))
 	if badge != "":
 		_badge(font, Vector2(size.x - 6 - font.get_string_size(badge, HORIZONTAL_ALIGNMENT_LEFT, -1, 13).x, size.y - 18), badge, Color(0.15, 0.15, 0.18))
+
+
+## A theme colour of FightSlot (the Rosewood theme sets them), else [param fallback].
+func _col(name: StringName, fallback: Color) -> Color:
+	return get_theme_color(name, &"FightSlot") if has_theme_color(name, &"FightSlot") else fallback
+
+
+## The double focus ring (art bible 7.12): bone outside, ink inside.
+func _ring(r: Rect2) -> void:
+	draw_rect(r.grow(3), _col(&"ring_outer", Color(1, 1, 1)), false, 2.0)
+	draw_rect(r.grow(1), _col(&"ring_inner", Color(0, 0, 0)), false, 1.0)
 
 
 func _badge(font: Font, at: Vector2, text: String, bg: Color) -> void:

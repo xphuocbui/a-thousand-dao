@@ -95,6 +95,8 @@ func test_every_read_method_and_guidance_read_leaves_the_world_unchanged() -> vo
 		"GameQuery.level_requirement": func(): return GameQuery.level_requirement(s),
 		"GameQuery.travel_factor": func(): return GameQuery.travel_factor(s),
 		"GameQuery.place_lines": func(): return GameQuery.place_lines(s, here),
+		"GameQuery.place_lore": func(): return GameQuery.place_lore(s, here),
+		"GameQuery.regions": func(): return GameQuery.regions(s),
 		"GameQuery.sheet_lines": func(): return GameQuery.sheet_lines(s),
 		"GameQuery.person": func(): return GameQuery.person(s, npc),
 		"GameQuery.people_at": func(): return GameQuery.people_at(s, here),
@@ -177,3 +179,14 @@ func test_the_practice_fight_carries_each_side_s_sheet_for_the_portrait() -> voi
 		for key in ["ward_pts", "ward_layer", "drain", "resist", "soul_res", "divine_sense", "crit_mult", "power"]:
 			assert_true(sh.has(key), "side %s's sheet has %s" % [side, key])
 		assert_true(f[side].has("effect_info"), "side %s names its Effects" % side)
+
+
+func test_a_place_carries_its_catalogue_look_and_lore() -> void:
+	var s := _session()
+	var here: String = str(s.player.location_id)
+	var lore: Dictionary = GameQuery.place_lore(s, here)
+	assert_true(str(lore.get("look", "")) != "" and str(lore.get("lore", "")) != "", "the player's place has a look and lore")
+	var rec: Dictionary = s.db.get_record("places", here)
+	var cat: Dictionary = s.gd.file("world_place_lore").places
+	assert_eq(str(lore.get("name", "")), str(cat[str(int(rec.continent_id))].name), "keyed by the continent place id")
+	assert_eq(GameQuery.place_lore(s, "no_such_place"), {}, "an unknown place has none")

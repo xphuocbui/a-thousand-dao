@@ -11,6 +11,9 @@ const KINDS := ["term", "number", "person", "place", "item", "sect"]
 
 static var _cfg: Dictionary = {}
 static var _fonts: Dictionary = {}
+## The theme's bold and italic faces (art bible 7.11), set by [method set_fonts]; null keeps the engine fallback.
+static var _bold_base: Font = null
+static var _italic_base: Font = null
 
 
 ## Sets the style table (ui_hud.json "link_styles"); takes effect for controls styled after it.
@@ -19,11 +22,23 @@ static func configure(cfg: Dictionary) -> void:
 	_fonts = {}
 
 
+## Uses the theme's faces for bold and italic links (Literata semibold and italic) instead of a synthetic slant.
+static func set_fonts(bold: Font, italic: Font) -> void:
+	_bold_base = bold
+	_italic_base = italic
+	_fonts = {}
+
+
 ## The style of [param kind] (one of [constant KINDS]; unknown kinds read as "term") with an optional [param variant]:
 ## a key of the kind's "colours" table (a relation, a rarity) or a colour given directly as "#RRGGBB" (a sect's own
 ## colour). Returns {colour: Color or null (keep the theme's), bold: bool, italic: bool}.
-static func style_of(kind: String, variant: String = "") -> Dictionary:
-	var k: Dictionary = _cfg.get(kind if KINDS.has(kind) else "term", {})
+static func style_of(kind: String, variant: String = "", surface: String = "wood") -> Dictionary:
+	var name: String = kind if KINDS.has(kind) else "term"
+	var k: Dictionary = _cfg.get(name, {}).duplicate(true)
+	if surface == "paper":   # on parchment the table's "paper" overrides apply (art bible Section 4: dark on light)
+		var over: Dictionary = _cfg.get("paper", {}).get(name, {})
+		for key in over:
+			k[key] = over[key]
 	var hex: String = str(k.get("colour", ""))
 	var table: Dictionary = k.get("colours", {})
 	if variant.begins_with("#"):
@@ -44,8 +59,9 @@ static func kind_of_key(key: String) -> String:
 
 ## Styles [param c] (a Label or a LinkButton) as tooltipable text of [param kind] / [param variant]: underline, colour,
 ## bold and italic per the table.
-static func apply(c: Control, kind: String, variant: String = "") -> void:
-	var st: Dictionary = style_of(kind, variant)
+## [param surface] is "wood" (the HUD) or "paper" (windows, tooltips).
+static func apply(c: Control, kind: String, variant: String = "", surface: String = "wood") -> void:
+	var st: Dictionary = style_of(kind, variant, surface)
 	var font: Font = _font(bool(st.bold), bool(st.italic))
 	if font != null:
 		c.add_theme_font_override(&"font", font)
@@ -67,10 +83,11 @@ static func _font(bold: bool, italic: bool) -> Font:
 	var key: String = "%s|%s" % [bold, italic]
 	if not _fonts.has(key):
 		var f := FontVariation.new()
-		f.base_font = ThemeDB.fallback_font
-		if bold:
+		var base: Font = _italic_base if italic and _italic_base != null else (_bold_base if _bold_base != null else ThemeDB.fallback_font)
+		f.base_font = base
+		if bold and (italic or _bold_base == null):
 			f.variation_embolden = 0.7
-		if italic:
+		if italic and _italic_base == null:
 			f.variation_transform = Transform2D(Vector2(1, 0), Vector2(0.2, 1), Vector2.ZERO)   # a synthetic slant
 		_fonts[key] = f
 	return _fonts[key]

@@ -1,0 +1,8 @@
+<!-- Near map layer prompt (overnight 2026-11-22); the comment is stripped before sending -->
+Repaint this map tile as a finished, high-end painted terrain for a grand-strategy game map: a painterly, almost diorama-like relief of real landscape, as if a hand-painted scale model of the land were photographed STRAIGHT DOWN from directly above (orthographic top-down, no perspective, no horizon, no tilt).
+
+KEEP THE GEOGRAPHY EXACTLY: every coastline, island, lake, river and mountain ridge stays where it is in the input, with the same shapes and sizes, because this tile is stitched edge to edge with its neighbours. Keep each area's land type from its colour in the input: dark green = forest, yellow-green = bamboo, light green = grassland and farmland, olive-yellow = steppe, sand = desert, red-brown = badlands and dry hills, grey-brown = highlands, grey and white = high mountains and snow, dark grey = volcanic rock, blue = water.
+
+Style: rich painted detail at a small scale: individual tree crowns in the forests, folded ridges and gullies in the mountains with snow on the peaks, soft meadows, field patterns only where the land is open grassland or farmland near rivers, glinting rivers, lakes with soft light on the water. Warm golden-hour light from the TOP LEFT, soft long shadows to the bottom right, a faint warm haze. Colours natural and rich but not oversaturated.
+
+Never: buildings, towns, roads, bridges, people, animals, boats, text, labels, symbols, borders, frames, vignette, clouds or mist covering the land, or any fade at the image edges. The painting must reach every edge of the image.

@@ -21,7 +21,7 @@ func _init() -> void:
 	var box := VBoxContainer.new()
 	box.add_theme_constant_override("separation", 8)
 	add_child(box)
-	_title.add_theme_font_size_override("font_size", 20)
+	_title.theme_type_variation = &"HeadingLabel"
 	box.add_child(_title)
 	_body.fit_content = true
 	_body.scroll_active = true

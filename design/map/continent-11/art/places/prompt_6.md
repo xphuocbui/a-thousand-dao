@@ -1,0 +1,12 @@
+Paint ONE place into this tile of a painted grand-strategy map. The input is the finished map around the place, seen straight down; the place stands at the exact CENTRE of the image.
+
+The place: Phượng Minh Cung, great seat. Paint it as a great sect's seat: vertical, stacked pagoda roofs and terraces climbing the slope, the tallest outline in the land, walls and gates, a main hall.
+How it looks: High on the ridges of Thê Ngô Lĩnh, a palace of red-lacquered halls and stacked golden-brown pagoda roofs climbs around one colossal ancient wutong (ngô đồng) tree, whose broad green crown rises above the highest roof. Wutong groves fill the terraces below.
+Art brief: The tallest vertical in its land: a palace climbing a high ridge in terraces of red-lacquered timber halls and stacked golden-brown pagoda roofs, wrapped around one colossal wutong tree whose broad pale-green crown rises above the highest roof. Wutong groves on the lower terraces, grey rock and a winding stair at the base. Warm golden light from the top left making the red lacquer and the tree's crown glow. No text, no people or birds larger than specks, nothing outside the place's footprint.
+
+Rules:
+- Paint the place as a small, finely detailed miniature, as if a model-maker had built it into this painted relief: seen from above at a gentle angle so roofs, walls and towers read clearly, its base sitting naturally on the terrain that is there (follow the slopes, the shore, the river).
+- Keep it centred and compact: the whole place fits inside a circle about 25 % of the image width across the centre. Short roads or paths may lead out of it.
+- Match the map exactly: the same golden-hour light from the TOP LEFT with soft shadows to the bottom right, the same painterly style, colours and level of detail as the surrounding terrain; the building scale fits the trees and hills around it.
+- Leave everything outside that central circle exactly as it is in the input.
+- Never: text, labels, banners with writing, flags with symbols, people larger than specks, a frame, a vignette, clouds over the place.

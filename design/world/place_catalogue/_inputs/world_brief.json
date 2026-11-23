@@ -1,0 +1,957 @@
+{
+ "start_year": 1200,
+ "calendar": "Thiên Nguyên lịch (years since the first recorded opening of Phù Tang Cảnh)",
+ "great_sects": [
+  {
+   "key": "thien_xu",
+   "name": "Thiên Xu Tông",
+   "gloss": "Sect of the Heavenly Pivot",
+   "kind": "great",
+   "alignment": "trung",
+   "leans": [
+    "Metal",
+    "Earth"
+   ],
+   "specialty": "tran_su",
+   "founded": 120,
+   "lord": null
+  },
+  {
+   "key": "tung_dao",
+   "name": "Tùng Đào Cung",
+   "gloss": "Palace of the Pine Waves",
+   "kind": "great",
+   "alignment": "chinh",
+   "leans": [
+    "Wood",
+    "Water"
+   ],
+   "specialty": "phap_tu",
+   "founded": 200,
+   "lord": null
+  },
+  {
+   "key": "lac_ha",
+   "name": "Lạc Hà Tông",
+   "gloss": "Sect of the Drifting Sunset Clouds",
+   "kind": "great",
+   "alignment": "trung",
+   "leans": [
+    "Earth",
+    "Wood"
+   ],
+   "specialty": "phap_tu",
+   "founded": 290,
+   "lord": null
+  },
+  {
+   "key": "thinh_vu",
+   "name": "Thính Vũ Lâu",
+   "gloss": "Tower Where One Listens to the Rain",
+   "kind": "great",
+   "alignment": "ma",
+   "leans": [
+    "Metal",
+    "Water",
+    "Thunder"
+   ],
+   "specialty": "kiem_tu",
+   "founded": 380,
+   "lord": null
+  },
+  {
+   "key": "bang_tam",
+   "name": "Băng Tâm Các",
+   "gloss": "Pavilion of the Ice Heart",
+   "kind": "great",
+   "alignment": "chinh",
+   "leans": [
+    "Water",
+    "Ice"
+   ],
+   "specialty": "kiem_tu",
+   "founded": 440,
+   "lord": null
+  },
+  {
+   "key": "thuy_vi",
+   "name": "Thúy Vi Tông",
+   "gloss": "Sect of the Emerald Haze",
+   "kind": "great",
+   "alignment": "chinh",
+   "leans": [
+    "Wood",
+    "Earth"
+   ],
+   "specialty": "dan_su",
+   "founded": 500,
+   "lord": null
+  },
+  {
+   "key": "phuong_minh",
+   "name": "Phượng Minh Cung",
+   "gloss": "Palace of the Phoenix's Call",
+   "kind": "great",
+   "alignment": "chinh",
+   "leans": [
+    "Fire",
+    "Wood"
+   ],
+   "specialty": "phap_tu",
+   "founded": 480,
+   "lord": null
+  }
+ ],
+ "territory_eras": [
+  {
+   "from": 0,
+   "to": 119,
+   "name": "The Wild Age",
+   "name_hv": "Hoang Kỷ",
+   "name_han": "荒紀",
+   "gist": "Hermits and beasts. Cửu Thiều Cung (70) is the only sect."
+  },
+  {
+   "from": 120,
+   "to": 339,
+   "name": "The Age of First Gates",
+   "name_hv": "Khai Môn Kỷ",
+   "name_han": "開門紀",
+   "gist": "Thiên Xu and the first great sects open their gates; Thiên Xu claims the heart of the continent. Ends with the War of the Nine Shao, Thiên Xu's first judgement."
+  },
+  {
+   "from": 340,
+   "to": 509,
+   "name": "The Age of Seven Seats",
+   "name_hv": "Thất Tọa Kỷ",
+   "name_han": "七座紀",
+   "gist": "The other great sects are founded and grab land; three old sects end. Ends when Tùng Đào and Lạc Hà try to take the heart and lose the War of the Pivot."
+  },
+  {
+   "from": 510,
+   "to": 789,
+   "name": "The Age of the North Star Compact",
+   "name_hv": "Bắc Thần Kỷ",
+   "name_han": "北辰紀",
+   "gist": "Land changes hands only by a fall, a gift, an oath or a war licensed by Thiên Xu's writ. Thiên Xu enforces the Compact."
+  },
+  {
+   "from": 790,
+   "to": 805,
+   "name": "The War of Broken Halberds",
+   "name_hv": "Chiết Kích Chi Chiến",
+   "name_han": "折戟之戰",
+   "gist": "Lạc Hà and Thính Vũ break the Compact together; Thiên Xu wins at the cost of its marshal, and the 805 truce renews the Compact."
+  },
+  {
+   "from": 806,
+   "to": 1200,
+   "name": "The Age of Vein Wars",
+   "name_hv": "Tranh Mạch Kỷ",
+   "name_han": "爭脈紀",
+   "gist": "No sect dares an open war of conquest; neighbours fight short wars over the wild veins near their borders, and Thiên Xu ends or decides them."
+  }
+ ],
+ "landmarks": [
+  {
+   "year": 0,
+   "text": "Mạc Quy Khư, a Kết Đan cultivator of 240, enters the gate of Phù Tang Cảnh on Dục Nhật Đảo at its first recorded opening; the Thiên Nguyên calendar counts its years from that day."
+  },
+  {
+   "year": 15,
+   "text": "A nameless swordsman kills the sea-serpent of the inland sea; its bones become the reef where a harbour will one day stand."
+  },
+  {
+   "year": 40,
+   "text": "A Hóa Thần master of water, whose name no one remembers, leaves the world from the long northern lake while a young Mạc Quy Khư watches; his old home and its cold, deep qi stay behind as a blessed land."
+  },
+  {
+   "year": 50,
+   "text": "Mortal traders begin to meet at a stone bridge in the heart of the continent, where the roads from four coasts cross."
+  },
+  {
+   "year": 60,
+   "text": "A star falls on the northern mountains; its crater seals over a small realm of iron and starlight that opens and closes with the stars."
+  },
+  {
+   "year": 70,
+   "text": "Cơ Phượng Nghi founds Cửu Thiều Cung on the ridges of Thê Ngô Lĩnh, a palace of court music whose nine Shao tunes are said to call the phoenix."
+  },
+  {
+   "year": 80,
+   "text": "Cơ Phượng Nghi carves the Tiêu Thiều Quản, nine pipes for the nine Shao; it is said a disciple who hears it played in full forgets every other teacher."
+  },
+  {
+   "year": 90,
+   "text": "Lightning strikes the same peak every night for a year; the rock there still hums with thunder."
+  },
+  {
+   "year": 90,
+   "text": "Mortal boatmen build Đông Lưu Thành on a great bend of the northern river."
+  },
+  {
+   "year": 100,
+   "text": "A monk sits a hundred years facing the sunrise on a high peak and dies there; the light he gathered never leaves the place."
+  },
+  {
+   "year": 110,
+   "text": "Stones fall from the sky on Thiên Tuyền Nguyên for nine days; the star iron in them draws the first cultivators to the heart."
+  },
+  {
+   "year": 120,
+   "text": "Chung Hoài Cực, at 80, founds Thiên Xu Tông under the stars of the Northern Dipper; the ground around his seat grows rich as the sect gathers, and becomes the Bắc Thần Phúc Địa."
+  },
+  {
+   "year": 120,
+   "text": "Cửu Thiều Cung takes the rice plain of Triêu Dương Nguyên under its protection."
+  },
+  {
+   "year": 130,
+   "text": "Cửu Thiều builds Vân Môn Thành on the plain, named for the Vân Môn music, the Thiều's twin; the stone chime Vân Môn Khánh hangs in its hall."
+  },
+  {
+   "year": 150,
+   "text": "A fire dragon dies of age in its lair; the heat of its long life seeps into the earth and the land around it stays warm and rich with fire."
+  },
+  {
+   "year": 150,
+   "text": "Under Thiên Xu Tông's protection the traders' crossing grows into Thạch Kiều Thành, the first city of the heart."
+  },
+  {
+   "year": 160,
+   "text": "Lý Thiên Cổ founds Khải Lôi Môn in Kinh Trập Sơn, where spring thunder wakes the sleeping creatures; the Gate teaches that a cultivator must invite the lightning."
+  },
+  {
+   "year": 170,
+   "text": "Khải Lôi Môn builds Lôi Trạch Thành at the river mouth below its mountains."
+  },
+  {
+   "year": 180,
+   "text": "Bùi Lộc Trại founds Không Sơn Viện in the hills of Thanh Loan Lĩnh, an academy so quiet that, as the poem says, on the empty mountain no one is seen."
+  },
+  {
+   "year": 180,
+   "text": "The star-readers of Củng Tinh Quán finish the Tuyền Cơ Nghi, an armillary that follows the Northern Dipper through the year."
+  },
+  {
+   "year": 200,
+   "text": "Kỳ Tùng Ẩn founds Tùng Đào Cung among the endless pines, with his first disciple Thôi Khinh Hồng, then 120."
+  },
+  {
+   "year": 200,
+   "text": "Khải Lôi Môn founds Không Mông Thành in the hazy rain of its southern valleys."
+  },
+  {
+   "year": 200,
+   "text": "Lý Thiên Cổ first beats a drum of thunder-struck wood; the Xuân Lôi Cổ becomes the heart of Khải Lôi's inheritance."
+  },
+  {
+   "year": 210,
+   "text": "Khúc Hồ Già founds Hồ Thiên Phái on the ice of Ngọc Hồ Sơn, below the fire mountain Chúc Long Sơn, where snow flies in the eighth month."
+  },
+  {
+   "year": 230,
+   "text": "Thiên Xu Tông takes the ore mountains of Ngọc Hành Sơn under its protection, and wins the miners with fair weights, not swords."
+  },
+  {
+   "year": 230,
+   "text": "Đào Tân Phân founds Lạc Anh Phái where the forest meets the bay, and names it for the peach petals that fall there each spring."
+  },
+  {
+   "year": 230,
+   "text": "Khúc Hồ Già forges the sword Phi Tuyết from ice that never melts."
+  },
+  {
+   "year": 240,
+   "text": "Tùng Đào Cung raises Tùng Gian Thành among the pines below its palace."
+  },
+  {
+   "year": 240,
+   "text": "Đào Tân Phân forges the twin swords Phi Hồng and Tàn Hồng from one peach branch hardened by a thousand springs, and decrees that whoever holds both leads the school."
+  },
+  {
+   "year": 250,
+   "text": "Thiên Xu Tông extends its protection north over Dao Quang Lĩnh; its borders will not change again."
+  },
+  {
+   "year": 250,
+   "text": "Tôn Hà Khởi founds Xích Thành Môn among the red cliffs and vents of Đan Huyệt Châu, where the rock rises like a rosy cloud."
+  },
+  {
+   "year": 260,
+   "text": "At 500, Mạc Quy Khư survives his Hóa Thần tribulation; the lightning tears open a pocket realm of fire and snow where it struck, which opens when the seasons turn."
+  },
+  {
+   "year": 260,
+   "text": "Tùng Đào Cung takes the great river basin of Cửu Khúc Xuyên."
+  },
+  {
+   "year": 260,
+   "text": "Thiên Xu Tông founds Tinh Hán Thành, its port on the inland sea, on the reef of the old sea-serpent's bones."
+  },
+  {
+   "year": 260,
+   "text": "Xích Thành Môn weaves its war banner, the Xích Hà Kỳ, from fire-silk spun in the vents."
+  },
+  {
+   "year": 260,
+   "text": "Lạc Anh Phái builds Hồng Vũ Thành on the Petal Shore."
+  },
+  {
+   "year": 270,
+   "text": "Kỳ Tùng Ẩn and Chung Hoài Cực meet at Thạch Kiều Thành and drink for three days; the Pine and the Pivot keep the peace for two centuries."
+  },
+  {
+   "year": 280,
+   "text": "A river spirit's pool is left behind when the river changes its course; the water there keeps the river's old strength."
+  },
+  {
+   "year": 280,
+   "text": "Thiên Xu Tông founds Khai Dương Thành on the northern road."
+  },
+  {
+   "year": 281,
+   "text": "Left dry when the river changes its course, Đông Lưu Thành is abandoned; all things flow east."
+  },
+  {
+   "year": 290,
+   "text": "Nhan Cô Vụ founds Lạc Hà Tông in the western lands where the sun goes down."
+  },
+  {
+   "year": 300,
+   "text": "Liễu Thoa Lạp founds Hàn Giang Môn on the frost coast, a sect of fishers who cultivate alone in the snow on the cold river."
+  },
+  {
+   "year": 300,
+   "text": "Tùng Đào Cung founds Đào Thanh Thành on the river below its forests."
+  },
+  {
+   "year": 300,
+   "text": "Xích Thành Môn builds Ngũ Thải Thành on the coast of Đan Huyệt Châu."
+  },
+  {
+   "year": 320,
+   "text": "Tùng Đào Cung founds Cổ Độ Thành at the old ferry on its southern river."
+  },
+  {
+   "year": 330,
+   "text": "A hermit who could move mountains by stamping his foot dies in a cave of old earth; the ground there is dense with his strength."
+  },
+  {
+   "year": 330,
+   "text": "Tùng Đào Cung extends its rule to Lãnh Nguyệt Lâm and the long lake under the northern moon."
+  },
+  {
+   "year": 330,
+   "text": "Lạc Hà Tông takes the bay of Thu Thủy Loan, all but Lạc Anh Phái's Petal Shore."
+  },
+  {
+   "year": 330,
+   "text": "Lạc Hà Tông founds Tang Ma Thành among the mulberry and hemp fields of Ngư Ca Xuyên."
+  },
+  {
+   "year": 335,
+   "text": "Thiên Xu disciples begin to leave for Cửu Thiều Cung after hearing its music; Chung Hoài Cực calls it a theft of minds and marches south against Lạc Thiều Âm."
+  },
+  {
+   "year": 340,
+   "text": "In the War of the Nine Shao, Thiên Xu Tông under its founder Chung Hoài Cực, accusing the sound arts of its southern neighbour Cửu Thiều Cung of bending the minds of its disciples, destroys it; its last head Lạc Thiều Âm falls in the palace's last stand. The grounds lie empty."
+  },
+  {
+   "year": 345,
+   "text": "The dead of Cửu Thiều Cung are buried in the hills by those who loved them; grief and the dark of the grave still hold the place."
+  },
+  {
+   "year": 350,
+   "text": "Hàn Giang Môn founds Liên Giang Thành where the cold rain joins the river."
+  },
+  {
+   "year": 360,
+   "text": "Lạc Anh Phái founds a city on the bay side of the Petal Shore; it will bear another name before it bears its last."
+  },
+  {
+   "year": 360,
+   "text": "Lạc Hà Tông forges twin swords for its armoury, Tử Điện and Thanh Sương, after the purple lightning and blue frost of an old general's blades."
+  },
+  {
+   "year": 380,
+   "text": "Phó Tiêu Tương founds Thính Vũ Lâu in the rain forests, a tower from which one listens to the rain."
+  },
+  {
+   "year": 380,
+   "text": "Lý Thiên Cổ dies at 340; his disciple Hầu Xuân Lôi takes Khải Lôi Môn and the Xuân Lôi Cổ."
+  },
+  {
+   "year": 400,
+   "text": "Thính Vũ Lâu founds Thu Trì Thành, where night rain on the mountain swells the autumn pools."
+  },
+  {
+   "year": 400,
+   "text": "Giang Bích Không founds Cô Phàm Các on Cô Vụ Đảo, a sect of sailors who read the sea like a scripture."
+  },
+  {
+   "year": 410,
+   "text": "A sword cultivator breaks his sword on a rival's blade and buries it where he stood; the metal of both swords lies in the earth there."
+  },
+  {
+   "year": 410,
+   "text": "Cô Phàm Các builds Đàm Ảnh Thành, and below it the harbour of Bích Không Cảng, from which its sails vanish into the blue."
+  },
+  {
+   "year": 420,
+   "text": "A night-demon is sealed under a frozen shore after a long hunt; its darkness has not left the place."
+  },
+  {
+   "year": 420,
+   "text": "Lạc Hà Tông extends its rule over the open grassland of Trường Thiên Nguyên."
+  },
+  {
+   "year": 420,
+   "text": "Giang Bích Không makes the Viễn Ảnh Châm, a needle that always points to the last ship to leave port."
+  },
+  {
+   "year": 425,
+   "text": "Chúc Long Sơn erupts under the ice and buries Hồ Thiên Phái with its founder Khúc Hồ Già; Ngọc Hồ Sơn lies empty."
+  },
+  {
+   "year": 430,
+   "text": "Under Không Sơn Viện, fishers and ferrymen build Hàn Tân Thành at the cold ford of the north coast."
+  },
+  {
+   "year": 440,
+   "text": "Tần Ngưng Sương founds Băng Tâm Các in the cold north-east, among the ice fields, a pavilion for the ice heart."
+  },
+  {
+   "year": 450,
+   "text": "Lạc Hà Tông founds Nhạn Thanh Thành on the western plain, where the wild geese fly in formation."
+  },
+  {
+   "year": 455,
+   "text": "Thôi Khinh Hồng slays the white wolf king of Cửu Khúc Xuyên; the village built on its den is still called Bạch Lang."
+  },
+  {
+   "year": 460,
+   "text": "Bùi Lộc Trại dies; Thôi Bất Kiến becomes the master of Không Sơn Viện, and takes no disciple but one boy, Tống Tọa Vân."
+  },
+  {
+   "year": 470,
+   "text": "Ten years before his death, Hầu Xuân Lôi opens a sealed realm inside Kinh Trập Sơn to hide his sect's thunder inheritance; it stays hidden when Khải Lôi Môn falls."
+  },
+  {
+   "year": 470,
+   "text": "Băng Tâm Các claims the empty ice of Ngọc Hồ Sơn, forty-five years after the eruption."
+  },
+  {
+   "year": 470,
+   "text": "Băng Tâm Các founds Trường Vân Thành at the edge of the desert, under the long clouds over the snow mountains."
+  },
+  {
+   "year": 480,
+   "text": "Hầu Xuân Lôi, head of Khải Lôi Môn, is struck down by his own tribulation in Kinh Trập Sơn; the Gate That Opens the Thunder never recovers, and Thính Vũ Lâu rises on its ground."
+  },
+  {
+   "year": 480,
+   "text": "Ngô Thê Đồng founds Phượng Minh Cung on the lands left empty since the fall of Cửu Thiều Cung, 140 years before."
+  },
+  {
+   "year": 485,
+   "text": "Ngô Thê Đồng finds the Tiêu Thiều Quản in the ruins of Cửu Thiều's palace, and tells no one."
+  },
+  {
+   "year": 492,
+   "text": "Băng Tâm Các, under Tần Ngưng Sương, makes war on Hàn Giang Môn for the frost coast."
+  },
+  {
+   "year": 498,
+   "text": "Hàn Giang Môn falls with its last head Liễu Cô Chu; Hàn Sương Châu and Liên Giang Thành pass to Băng Tâm Các."
+  },
+  {
+   "year": 500,
+   "text": "Phùng Yên Hà founds Thúy Vi Tông in the blue-green mist of the north-western hills."
+  },
+  {
+   "year": 500,
+   "text": "Thôi Bất Kiến, with no heir, gives Thanh Loan Lĩnh, his whisk and his only student to Phùng Yên Hà; the empty mountain becomes Thúy Vi's."
+  },
+  {
+   "year": 500,
+   "text": "In the Strait Oath, Giang Bích Không swears Cô Phàm Các to Lạc Hà Tông; Cô Vụ Đảo becomes Lạc Hà's land."
+  },
+  {
+   "year": 501,
+   "text": "The Tuyền Cơ Nghi shows the Dipper's handle turned toward the heart; Củng Tinh Quán warns of war, and no one listens."
+  },
+  {
+   "year": 502,
+   "text": "Tùng Đào Cung and Lạc Hà Tông march together on the heart of the continent; Kỳ Tùng Ẩn breaks the peace of the three days."
+  },
+  {
+   "year": 503,
+   "text": "The allies raise Thiết Tỏa Quan and stretch an iron chain across the river road to the heart."
+  },
+  {
+   "year": 508,
+   "text": "Thiên Xu Tông breaks Thiết Tỏa Quan; the thousand-fathom chain sinks to the river bed."
+  },
+  {
+   "year": 509,
+   "text": "The War of the Pivot ends: Thiên Xu Tông has beaten Tùng Đào and Lạc Hà together, and takes no land."
+  },
+  {
+   "year": 510,
+   "text": "In Thạch Kiều Thành, Chung Hoài Cực sets the North Star Compact before the seven sects and stamps it with the Bắc Thần Ấn: land changes hands only by a fall, a gift, an oath or a war the Pivot licenses by writ, and Thiên Xu Tông will enforce it."
+  },
+  {
+   "year": 520,
+   "text": "A wandering swordsman, learning to ride the wind, spends a winter in a wind cave and leaves his breath in its stones."
+  },
+  {
+   "year": 520,
+   "text": "Phượng Minh Cung takes the rice plain of Triêu Dương Nguyên, empty since Cửu Thiều fell."
+  },
+  {
+   "year": 520,
+   "text": "Đào Tân Phân dies without naming an heir; Khương Vọng Nguyệt takes Lạc Anh Phái and Tàn Hồng, while her sworn sister Diệp Phi Hồng keeps Phi Hồng."
+  },
+  {
+   "year": 520,
+   "text": "Thiên Xu Tông founds Thanh Bách Thành on its northern road."
+  },
+  {
+   "year": 520,
+   "text": "Băng Tâm Các raises Cô Thành, a lone fortress on a desert lake, to guard the caravan road."
+  },
+  {
+   "year": 530,
+   "text": "Phượng Minh Cung founds Lai Nghi Thành on the plain, where the phoenix comes when the music is played nine times."
+  },
+  {
+   "year": 540,
+   "text": "Lạc Hà Tông founds Triều Âm Thành on the western shore of Cô Vụ Đảo."
+  },
+  {
+   "year": 540,
+   "text": "Tống Tọa Vân, the last student of the empty mountain, founds Vân Khởi Quán, to walk where the water ends and watch the clouds rise."
+  },
+  {
+   "year": 560,
+   "text": "A mortal fisherman follows a stream of peach petals through a cave into a hidden valley; he can never find the way again. Cultivators later learn the valley is a realm of Wood that opens only to those who come by the stream."
+  },
+  {
+   "year": 560,
+   "text": "Thúy Vi Tông takes the cape of snow and fire, Tuyết Hỏa Giác."
+  },
+  {
+   "year": 560,
+   "text": "Phượng Minh Cung founds Thanh Khê Thành, its port on the gulf."
+  },
+  {
+   "year": 560,
+   "text": "Tôn Hà Khởi dies; his heir Chu Liệt Nhật turns Xích Thành Môn to burning villages to feed its fire arts."
+  },
+  {
+   "year": 584,
+   "text": "Phượng Minh Cung asks the Pivot for a writ against Xích Thành Môn, which has burned eleven villages; the first writ of the Compact is granted."
+  },
+  {
+   "year": 590,
+   "text": "A meteor of cold iron falls in the high cold; the metal in the ground there gleams a pale blue."
+  },
+  {
+   "year": 590,
+   "text": "Phượng Minh destroys Xích Thành Môn with Chu Liệt Nhật; Đan Huyệt Châu and Ngũ Thải Thành pass to Phượng Minh, and the Xích Hà Kỳ hangs in its hall."
+  },
+  {
+   "year": 590,
+   "text": "Thúy Vi Tông founds Yên Ba Thành, a port in the mist of the river waves."
+  },
+  {
+   "year": 600,
+   "text": "Phượng Minh Cung founds Hoàng Vân Thành, the granary of the rice plain."
+  },
+  {
+   "year": 600,
+   "text": "Lạc Hà Tông builds Vô Định Thành on the river where three lands meet."
+  },
+  {
+   "year": 600,
+   "text": "Phượng Minh Cung builds the pearl harbour Châu Lệ Cảng on its eastern coast."
+  },
+  {
+   "year": 600,
+   "text": "Thối Tinh Môn forges the halberd Trầm Sa Kích from star iron for a young officer of Thiên Xu, Quý Trường Kích."
+  },
+  {
+   "year": 600,
+   "text": "A wandering painter paints the fisherman's lost valley from his telling; the Đào Nguyên Đồ is the only map of the way in."
+  },
+  {
+   "year": 610,
+   "text": "Lạc Anh Phái splits in a quarrel over its inheritance; its last head, Khương Vọng Nguyệt, vanishes, and the School of the Fallen Petals is never gathered again."
+  },
+  {
+   "year": 612,
+   "text": "Lạc Hà Tông and Thính Vũ Lâu both claim the empty Petal Shore; their disciples fight in the burning orchards."
+  },
+  {
+   "year": 618,
+   "text": "Hồng Vũ Thành burns in the fighting; its petals and its ashes fall together like red rain."
+  },
+  {
+   "year": 620,
+   "text": "The Pivot's judgement divides the Petal Shore, the bay to Lạc Hà and the forest to Thính Vũ; Lạc Hà renames the bay city Tử Điện Thành, for its armoury."
+  },
+  {
+   "year": 620,
+   "text": "Băng Tâm Các founds Mộc Lan Thành on the frost coast."
+  },
+  {
+   "year": 620,
+   "text": "A monk plays the zither in the pines of Thâm Tùng Hải until it sounds like ten thousand ravines; his listeners found Vạn Hác Viện and keep the Tùng Phong Cầm."
+  },
+  {
+   "year": 640,
+   "text": "Cung Hỏa Vân, a fire cultivator, vanishes among the volcanic vents; years later his body is found in the cave abode where he had hidden."
+  },
+  {
+   "year": 640,
+   "text": "Thính Vũ Lâu founds Xuân Thảo Thành on the forest land the Pivot gave it."
+  },
+  {
+   "year": 640,
+   "text": "Ô Kình Hải gathers pirates on an islet of the southern gulf and founds Thôn Hải Môn, the Gate That Swallows the Sea."
+  },
+  {
+   "year": 648,
+   "text": "Diệp Phi Hồng carries Phi Hồng into the rain forest of Tiêu Vũ Lâm and teaches its art to no one; the sword waits there for an heir."
+  },
+  {
+   "year": 649,
+   "text": "Hoàng Vân Thành's granaries feed the south through a seven-year drought; Phượng Minh's rice becomes its strength."
+  },
+  {
+   "year": 650,
+   "text": "A hermit alchemist burns a furnace for a hundred years without letting it cool; when he leaves, the fire stays in the stones."
+  },
+  {
+   "year": 668,
+   "text": "Tùng Đào Cung marches on the Cold Ford coast of Thúy Vi Tông without asking the Pivot for a writ."
+  },
+  {
+   "year": 672,
+   "text": "Tùng Đào takes the Cold Ford coast and Hàn Tân Thành; Chung Hoài Cực, Kỳ Tùng Ẩn's old drinking friend, lets it stand, and the Compact's first crack shows."
+  },
+  {
+   "year": 680,
+   "text": "Lạc Hà Tông founds Thảo Đường Thành among the farms of the western plain."
+  },
+  {
+   "year": 690,
+   "text": "Kỳ Tùng Ẩn dies at 620; his first disciple Thôi Khinh Hồng becomes the second head of Tùng Đào Cung."
+  },
+  {
+   "year": 700,
+   "text": "Hoắc Hàn Quang, the wandering ice swordsman, dies in a failed Hóa Thần tribulation; his cave abode stays sealed on the mountain."
+  },
+  {
+   "year": 700,
+   "text": "Where Hoắc Hàn Quang's failed tribulation struck the mountain, the lightning froze into ice and the cold has not melted since."
+  },
+  {
+   "year": 700,
+   "text": "Thúy Vi Tông founds Mục Ca Thành on its cape, where herders sing to their flocks."
+  },
+  {
+   "year": 700,
+   "text": "Crane riders tame the first cranes of the nine marshes in Dao Quang Lĩnh and found Cửu Cao Phái; their cry is heard in the sky."
+  },
+  {
+   "year": 705,
+   "text": "A storm sinks the whole fleet of Cô Phàm Các with its head Mã Viễn Ảnh; the Pavilion of the Lone Sail is lost at sea, and only its empty grounds remain."
+  },
+  {
+   "year": 710,
+   "text": "A crane-riding sage ascends from a high pass; the wind that carried him is said to blow there still."
+  },
+  {
+   "year": 720,
+   "text": "Hạ Lang Tinh founds Phá Quân Môn in the mountains of Dao Quang Lĩnh as a vassal of Thiên Xu, named for the Dipper's seventh star, the Army-Breaker."
+  },
+  {
+   "year": 722,
+   "text": "Băng Tâm Các and Phượng Minh Cung go to war over the caravan road between the desert and the rice plain."
+  },
+  {
+   "year": 726,
+   "text": "Phượng Minh's fire breaks Cô Thành; the lone fortress falls and the desert lake turns to salt."
+  },
+  {
+   "year": 728,
+   "text": "The Pivot imposes a truce on the Desert Road; the caravans pass again, and the border stays where it was."
+  },
+  {
+   "year": 734,
+   "text": "A beast tide pours out of the deep pines and overruns Hổ Khiếu Trấn; the tigers' roar is the last thing its people hear."
+  },
+  {
+   "year": 748,
+   "text": "Hạo Nguyệt Hồ freezes to its bed for one winter; the spirit fish of Hàm Nguyệt Trang live through it in the moon's reflection."
+  },
+  {
+   "year": 760,
+   "text": "Chung Hoài Cực dies at 720; Đỗ Tinh Hà, then 200, becomes the second head of Thiên Xu Tông."
+  },
+  {
+   "year": 760,
+   "text": "The night the founder dies, a boy is born in Thạch Kiều Thành under the fifth star of the Dipper; he is named Doãn Ngọc Hành."
+  },
+  {
+   "year": 760,
+   "text": "Merchants of Thu Thủy Loan found Kim Cốc Viên, a garden of trade under Lạc Hà Tông, and build Kim Cốc Thành around it."
+  },
+  {
+   "year": 760,
+   "text": "Băng Tâm Các founds Hồi Lan Thành on the desert coast, after the Desert Road War."
+  },
+  {
+   "year": 762,
+   "text": "Thôn Hải's pirates burn Châu Lệ Cảng; the pearl harbour's divers flee, and the pearls in the moonlit sea are said to weep."
+  },
+  {
+   "year": 776,
+   "text": "Đỗ Tinh Hà calls the Pirate Purge; Phượng Minh's and Lạc Hà's fleets sail under the Pivot's writ, and Thạch Cơ Thành rises around their stone jetty."
+  },
+  {
+   "year": 781,
+   "text": "The Purge ends at Thôn Hải Môn: Ô Kình Hải dies on his islet and his sabre Kình Nha is lost in the burning hold."
+  },
+  {
+   "year": 785,
+   "text": "Đỗ Tinh Hà names Quý Trường Kích war marshal of Thiên Xu, and gives him the Thiết Mã banner and its tally."
+  },
+  {
+   "year": 788,
+   "text": "Nhan Cô Vụ and Phó Tiêu Tương meet on the Petal Shore they once fought over, and swear to end the Pivot's oversight."
+  },
+  {
+   "year": 789,
+   "text": "The Tuyền Cơ Nghi goes dark for a whole night; Củng Tinh Quán's star-readers burn incense and wait for war."
+  },
+  {
+   "year": 790,
+   "text": "War breaks out on the border plain where three sects' lands meet: Thiên Xu Tông, under its war marshal Quý Trường Kích, against Lạc Hà Tông and Thính Vũ Lâu, whose founders Nhan Cô Vụ and Phó Tiêu Tương take the field."
+  },
+  {
+   "year": 800,
+   "text": "Thính Vũ Lâu founds Lãng Hoa Thành on the sea-spray coast, safe at last from pirates."
+  },
+  {
+   "year": 803,
+   "text": "At Chiết Kích Nguyên the war ends in one day. Quý Trường Kích falls and ten thousand die with him; the plain is poisoned with miasma, and the Vạn Cốt Trủng rises over the dead. His lieutenant Lôi Vô Danh escapes and is never seen in the sect again."
+  },
+  {
+   "year": 803,
+   "text": "Vô Định Thành burns in the battle on the plain, and the miasma takes what is left; its dead are still dreamed of in the river towns."
+  },
+  {
+   "year": 803,
+   "text": "Lạc Hà's sword Thanh Sương falls from its bearer's hand on Chiết Kích Nguyên; no one dares go back for it."
+  },
+  {
+   "year": 803,
+   "text": "Quý Trường Kích is laid under the Vạn Cốt Trủng with his halberd Trầm Sa Kích; its iron has not worn away."
+  },
+  {
+   "year": 805,
+   "text": "The three sects sign a truce and leave the poisoned plain empty between their lands."
+  },
+  {
+   "year": 805,
+   "text": "At the truce the North Star Compact is sworn again; Lạc Hà and Thính Vũ set their seals beside the Bắc Thần Ấn."
+  },
+  {
+   "year": 810,
+   "text": "Seven years after the battle, a gate opens by the barrow: a realm where armoured horses and frozen rivers return in dreams. Those who go in say the marshal's army still waits there."
+  },
+  {
+   "year": 860,
+   "text": "The wandering swordswoman Lương Lạc Mai is found dead in her sealed abode; no one learns the cause."
+  },
+  {
+   "year": 870,
+   "text": "A dying star's light falls on one patch of ground each dawn for a whole year; the dawn lingers there ever after."
+  },
+  {
+   "year": 870,
+   "text": "Hạ Lang Tinh leads Phá Quân Môn against its lord, to win by war the land the Compact forbids."
+  },
+  {
+   "year": 874,
+   "text": "Thiên Xu destroys Phá Quân Môn; Đỗ Tinh Hà takes Hạ Lang Tinh's spear, and Cửu Cao Phái receives the rebels' holdings."
+  },
+  {
+   "year": 880,
+   "text": "Phó Tiêu Tương dies at 640; Mạnh Dạ Vũ, then 180, becomes head of Thính Vũ Lâu and takes the Tương Phi Tán."
+  },
+  {
+   "year": 900,
+   "text": "Thôi Khinh Hồng, the second head of Tùng Đào Cung, retires at 820 to the retreat by its seat, and her disciple Đàm Tùng Lại, then 380, takes the headship."
+  },
+  {
+   "year": 901,
+   "text": "Thúy Vi Tông, holding the Pivot's writ, marches to take back the Cold Ford."
+  },
+  {
+   "year": 905,
+   "text": "Thúy Vi retakes the Cold Ford coast and Hàn Tân Thành after 233 years."
+  },
+  {
+   "year": 905,
+   "text": "Under the Tương Phi Tán, Mạnh Dạ Vũ proclaims the Night Rain Edict: the Tower opens to the ma đạo arts."
+  },
+  {
+   "year": 906,
+   "text": "Answering the Night Rain Edict, ma đạo masters from every corner of the continent come to Thính Vũ Lâu; among them is Cố Dạ Lan, who has never lost a duel."
+  },
+  {
+   "year": 910,
+   "text": "Nghê Hồng Đậu finds Phi Hồng in the rain forest, where Diệp Phi Hồng left it, and founds Hồng Đậu Trang around it."
+  },
+  {
+   "year": 920,
+   "text": "Cao Đan Hà, the most famous alchemist of her age, dies of her own pill in her cave abode."
+  },
+  {
+   "year": 940,
+   "text": "Nhan Cô Vụ dies at 790; Trầm Tịch Dương becomes the second head of Lạc Hà Tông."
+  },
+  {
+   "year": 940,
+   "text": "Tùng Đào Cung and Băng Tâm Các go to war over Hạo Nguyệt Hồ and its pearls."
+  },
+  {
+   "year": 944,
+   "text": "Đỗ Tinh Hà arbitrates the Long Lake War: the lake stays Tùng Đào's, and Băng Tâm may fish its northern shore."
+  },
+  {
+   "year": 950,
+   "text": "Lôi Vô Danh, who survived the war on the plain, dies of old age in a cave abode near the battlefield, 147 years after the battle."
+  },
+  {
+   "year": 960,
+   "text": "Lý Hận Bích founds Thu Phần Các among the graves of Lôi Trạch Thành, where ghosts sing old poems in autumn, and swears it to Thính Vũ Lâu."
+  },
+  {
+   "year": 970,
+   "text": "Hạng Dạ Bôi gathers the desert raiders and founds Dạ Quang Môn, bound to no lord."
+  },
+  {
+   "year": 1000,
+   "text": "Phùng Yên Hà dies at 640; Ngu Lam Sơn becomes head of Thúy Vi Tông and takes the White Cloud Whisk."
+  },
+  {
+   "year": 1000,
+   "text": "Thính Vũ Lâu opens the Night Rain Market in Thu Trì Thành, selling ma đạo pills, poisons and arts that no other city allows; its treasury doubles in fifty years."
+  },
+  {
+   "year": 1003,
+   "text": "Kim Cốc Viên collapses in a market crash and a great fire; Kim Cốc Thành burns, and the pearl Lục Châu is lost in the ashes."
+  },
+  {
+   "year": 1010,
+   "text": "Tần Ngưng Sương dies at 710; Sở Ngọc Hồ becomes head of Băng Tâm Các and keeper of the Jade Vessel."
+  },
+  {
+   "year": 1010,
+   "text": "Ngũ Cốc Thành grows rich on the trade Kim Cốc lost."
+  },
+  {
+   "year": 1010,
+   "text": "Lệ Tiêu Hồn reaches Nguyên Anh in the Tower's soul vaults; Mạnh Dạ Vũ makes him keeper of Kinh Lôi Mạch."
+  },
+  {
+   "year": 1020,
+   "text": "The young Hùng Phần Vũ founds Phần Vũ Đường in the vents where Xích Thành once stood; Phượng Minh lends it the Xích Hà Kỳ."
+  },
+  {
+   "year": 1040,
+   "text": "Phượng Minh Cung goes to war with Thính Vũ Lâu for the Kinh Lôi vein."
+  },
+  {
+   "year": 1046,
+   "text": "The Pivot ends the Thunder Vein War: Thính Vũ keeps the vein, and the south remembers."
+  },
+  {
+   "year": 1060,
+   "text": "A Hóa Thần tribulation over the island sea kills the master of Đoạn Thương Hải; he survives it, blind, holding the Thương Tang Kính."
+  },
+  {
+   "year": 1090,
+   "text": "Thiên Xu Tông calls a hunt under the North Star Compact for the ma đạo master Mặc Huyết Sinh; with Tùng Đào Cung and Băng Tâm Các at its side, Đỗ Tinh Hà, Thôi Khinh Hồng and Sở Ngọc Hồ kill him in his cave abode. His last disciple Triệu Huyết Y, then 150, escapes."
+  },
+  {
+   "year": 1100,
+   "text": "Ngô Thê Đồng dies at 770; Hoa Triêu Dương becomes head of Phượng Minh Cung."
+  },
+  {
+   "year": 1100,
+   "text": "Dying, Ngô Thê Đồng gives Hoa Triêu Dương the Tiêu Thiều Quản and tells her never to play it in full."
+  },
+  {
+   "year": 1105,
+   "text": "Lạc Đan Thanh buys the Đào Nguyên Đồ at Vật Hoa Thị for a pill no one else could make."
+  },
+  {
+   "year": 1119,
+   "text": "Băng Tâm Các marches on the desert raiders of Dạ Quang Môn."
+  },
+  {
+   "year": 1121,
+   "text": "Hạng Dạ Bôi kneels to Sở Ngọc Hồ; Dạ Quang Môn becomes a vassal of Băng Tâm, and does not forget."
+  },
+  {
+   "year": 1130,
+   "text": "Tư Không Hạc Niên duels Thạch Tàng Danh of Phất Y Cốc on Cùng Mục Phong for three days; neither wins, and he leaves without a sect."
+  },
+  {
+   "year": 1150,
+   "text": "Đỗ Tinh Hà steps down after 390 years; his disciple Doãn Ngọc Hành becomes head of Thiên Xu Tông and keeper of the Bắc Thần Ấn."
+  },
+  {
+   "year": 1150,
+   "text": "Thính Vũ Lâu attacks Đan Sơn Mạch, Phượng Minh's cinnabar vein near the heart."
+  },
+  {
+   "year": 1154,
+   "text": "Doãn Ngọc Hành brings Thiên Xu Tông into the war on Phượng Minh's side, to enforce the Compact."
+  },
+  {
+   "year": 1158,
+   "text": "Thính Vũ Lâu is beaten at Đan Sơn Mạch and withdraws; Mạnh Dạ Vũ swears the Pivot will answer for it."
+  },
+  {
+   "year": 1160,
+   "text": "Trầm Tịch Dương steps down; his disciple Tô Vãn Chiếu becomes head of Lạc Hà Tông and takes the sword Tử Điện."
+  },
+  {
+   "year": 1165,
+   "text": "Seven years after Đan Sơn Mạch, Thính Vũ Lâu has rebuilt its strength twice over; the Pivot's envoys count its disciples and do not like the number."
+  },
+  {
+   "year": 1172,
+   "text": "Tùng Đào and Lạc Hà fight over the river tolls on the Ngư Ca border; Lãng Đào Môn's ferries burn."
+  },
+  {
+   "year": 1175,
+   "text": "The Ferry War ends with the tolls split and no land changed; neither side forgives."
+  },
+  {
+   "year": 1176,
+   "text": "A girl is born in Lạc Hà Tông on the day the evening glow fills the whole sky; she is named Tô Mộ Vân."
+  },
+  {
+   "year": 1188,
+   "text": "Băng Tâm Các claims Tinh Tủy Mạch before the Pivot; the claim is rejected, and Sở Ngọc Hồ withdraws in silence."
+  }
+ ]
+}

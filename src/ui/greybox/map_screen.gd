@@ -58,6 +58,8 @@ var _shots: int = 0
 ## The UI scale setting in percent (design/ux/hud.md Scaling rule; 75-150 %). The settings menu is not in the greybox, so
 ## --ui-scale=N sets it for the run.
 var _ui_scale_pct: int = 100
+var _region_font: Font = null
+var _regions_set: bool = false
 var _scaling := false
 var _world_start_msec: int = 0
 var _known_cache: Array = []
@@ -76,6 +78,20 @@ func _ready() -> void:
 	_cfg = gd.file(UI_FILE)
 	_tips.configure(_cfg.get("tooltips", {}))
 	_fight.configure(_cfg.get("fight_screen", {}))
+	# the Rosewood theme (art bible 7.10-7.12): wood for the HUD, parchment for the windows, tooltips and the fight
+	var tcfg: Dictionary = _cfg.get("theme", {})
+	var paper: Dictionary = RosewoodTheme.build(tcfg, {}, "paper")
+	var wood: Dictionary = RosewoodTheme.build(tcfg, {}, "wood")
+	for e in paper.errors:
+		push_warning("theme: " + str(e))
+	theme = wood.theme
+	for w in [_panel, _person, _places, _centre, _comparison]:
+		(w as Control).theme = paper.theme
+		(w as Control).theme_type_variation = &"WindowPanel"
+	_tips.theme = paper.theme
+	_region_font = paper.fonts.heading
+	_fight.apply_theme(paper.theme, str(tcfg.get("wood_texture", "")))
+	LinkStyle.set_fonts(paper.fonts.strong, RosewoodTheme.variation(load(str(tcfg.get("fonts", {}).get("italic", ""))) if ResourceLoader.exists(str(tcfg.get("fonts", {}).get("italic", ""))) else null, 400, true))
 	LinkStyle.configure(_cfg.get("link_styles", {}))
 	# The readouts with a tooltip, styled once the table is loaded (hud.md Tooltips: Link styles).
 	LinkStyle.apply(_stones, "number")
@@ -221,7 +237,7 @@ func _on_world_ready(out: Dictionary) -> void:
 
 func _build_layout() -> void:
 	set_anchors_preset(Control.PRESET_FULL_RECT)
-	theme = _greybox_theme()
+	theme = _greybox_theme()   # replaced by the Rosewood theme in _ready once ui_hud.json is loaded
 	_map.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_map.place_clicked.connect(_on_place_clicked)
 	_map.bubble_pressed.connect(_on_bubble_pressed)
@@ -373,6 +389,7 @@ func _build_layout() -> void:
 	_focus.pressed.connect(func(): _open_comparison(turn.focus, turn.destination_id))
 	turn_box.add_child(_focus)
 	_end_turn.custom_minimum_size = Vector2(300, 52)
+	_end_turn.theme_type_variation = &"CommitButton"   # the cinnabar seal: committing the season (art bible Section 4)
 	_end_turn.pressed.connect(_try_end_turn)
 	turn_box.add_child(_end_turn)
 	_turn_note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -505,6 +522,9 @@ func _refresh_turn_button() -> void:
 
 
 func _refresh_map(location_id: String) -> void:
+	if not _regions_set and _region_font != null:   # region names are common knowledge: set once per game
+		_map.set_regions(GameQuery.regions(session), _region_font)
+		_regions_set = true
 	var places: Array = []
 	_known_cache = GameQuery.known_places(session)
 	for p in _known_cache:
@@ -655,9 +675,14 @@ func _open_place_details(place_id: String) -> void:
 		return
 	var rec: Dictionary = GameQuery.place(session, place_id)
 	var lines: Array = [str(rec.get("name", "")) + " — " + str(rec.get("kind", "")).replace("_", " "), ""]
+	var lore: Dictionary = GameQuery.place_lore(session, place_id)
+	for key in ["look", "lore", "history"]:   # the place's own description first (the place catalogue)
+		if str(lore.get(key, "")) != "":
+			lines.append(str(lore[key]))
+			lines.append("")
 	lines.append_array(GameQuery.place_lines(session, place_id))
 	_places.close_panel()
-	_panel.open_panel(tr("Place"), lines, _places_button)
+	_panel.open_panel(tr("Place"), lines, _places_button, _map.place_art(int(rec.get("continent_id", -1))))
 
 
 func _kind_name(kind: String, count: int) -> String:

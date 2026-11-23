@@ -137,6 +137,24 @@ Greybox stopped (user, 2026-11-22). `design/art/art-bible.md` Sections 1-4 and 7
 the fight screen as the style slice (remove per-node colour and font-size overrides), then the other screens; map art
 after a one-region test (engine-built vs AI-painted tiles) with a province drawing layer.
 
+**Done overnight 2026-11-22 (Claude, under the UI delegation; see `production/plans/overnight-2026-11-22.md`):**
+- `src/ui/theme/rosewood_theme.gd` builds the theme in two surfaces: **wood** (the map screen root: bone text, HUD
+  plates as the wood plaque) and **paper** (every window, the tooltip layer and the fight screen: ink text, framed
+  parchment). Type variations: WindowPanel, BoardPanel, PaperPanel, WoodPanel, TooltipPanel; WoodLabel, HeadingLabel,
+  TitleLabel, WoodHeading, RowLabel, WoodRowLabel; CommitButton (End turn). Lists and text fields styled (parchment
+  inset, cinnabar selection band). Tests: `tests/unit/ui/ui_rosewood_theme_test.gd`.
+- Fight screen restyled (style slice): carved frames over the wood board, slot rows on a parchment inset with titles
+  beside the slots, the log a parchment window; FightStatBar draws the brass trough; FightSlot reads theme colours
+  (recess, dashed brass, double focus ring); ward shields hatched.
+- Map screen: wood HUD, parchment windows and tooltips, End turn cinnabar; LinkStyle has a "paper" table (cinnabar
+  terms, darker relation and rarity colours) and uses the real Literata semibold and italic faces.
+- Map view: painted far layer (paper) at continent zoom and near layer (relief) at region zoom, region names on the
+  paper map (engine-drawn), diamond markers (art bible Section 3), names on a dark backing with overlap skipping, place
+  art drawn on known places only; the place details window shows the place's painting, look, lore and history.
+- Not done: the greybox `_greybox_theme()` is still set first and replaced in `_ready`; per-node font-size overrides
+  remain in places (map screen, person window, places panel title); the HUD's resource boxes wait for the user's pick;
+  labels on the map still use the default font size 13 (below the 14 px floor: raise when the map is reviewed).
+
 **Queued HUD spec change** (`design/ux/hud.md` Z1 Top bar, Group 2; user idea 2026-11-22, Paradox-style resource
 boxes; art in art bible 7.13): one box per resource with icon, tabular number and a signed ▲/▼ season change; hover a
 breakdown, click the resource's window; contextual boxes only when they apply. Candidates: linh thạch, lifespan left

@@ -1,0 +1,12 @@
+Paint ONE place into this tile of a painted grand-strategy map. The input is the finished map around the place, seen straight down; the place stands at the exact CENTRE of the image.
+
+The place: Băng Tâm Các, great seat. Paint it as a great sect's seat: vertical, stacked pagoda roofs and terraces climbing the slope, the tallest outline in the land, walls and gates, a main hall.
+How it looks: Out of red badlands at the desert's edge rises a tall white pavilion of stacked celadon-glazed roofs, pale stone terraces climbing to it. Even at midsummer frost rims its eaves, and a thin cold mist spills from the round well-house at its foot, where the water keeps ice all year. Far beyond, the snow ranges of Ngọc Hồ Sơn stand white against the sky.
+Art brief: A small painted miniature of a great sect seat on red-brown badland ridges: pale stone terraces climbing to a tall white pavilion tower of many stacked celadon-green glazed roofs, the tallest outline in its land, its eaves edged with white frost. At its foot a round white well-house with cold mist spilling over its rim; frost-rimmed eaves and the mist together form the signature element. Eroded red gullies and a desert road at the base. Warm golden-hour light from the top left, the frost catching it. No text, no people larger than specks, nothing outside the footprint.
+
+Rules:
+- Paint the place as a small, finely detailed miniature, as if a model-maker had built it into this painted relief: seen from above at a gentle angle so roofs, walls and towers read clearly, its base sitting naturally on the terrain that is there (follow the slopes, the shore, the river).
+- Keep it centred and compact: the whole place fits inside a circle about 25 % of the image width across the centre. Short roads or paths may lead out of it.
+- Match the map exactly: the same golden-hour light from the TOP LEFT with soft shadows to the bottom right, the same painterly style, colours and level of detail as the surrounding terrain; the building scale fits the trees and hills around it.
+- Leave everything outside that central circle exactly as it is in the input.
+- Never: text, labels, banners with writing, flags with symbols, people larger than specks, a frame, a vignette, clouds over the place.

@@ -1,0 +1,12 @@
+Paint ONE place into this tile of a painted grand-strategy map. The input is the finished map around the place, seen straight down; the place stands at the exact CENTRE of the image.
+
+The place: Phản Cảnh Lâm, forest. Paint it as a natural site: the natural feature leads, with at most a small shrine or marker; no rooflines.
+How it looks: From outside it is a dark sea of old spruce and larch rising gently to a low crown. At its heart a hollow ringed by giant trees holds a patch of amber evening light that lingers long after the rest of the forest has gone grey.
+Art brief: A broad, gently rising dome of dense dark conifer forest seen from above at an angle, no clearings at its edges. Signature element: a sunken hollow at the centre ringed by a few giant old larches whose crowns glow amber-gold as if lit from within, while the canopy around them lies in cool blue-green shadow. At the base: patches of snow, a faint hunters' trail that stops at the forest edge. Warm light from the top left, with the hollow's glow slightly warmer than the sun. Avoid: any roofline, text, people, paths into the heart, anything outside the forest's footprint.
+
+Rules:
+- Paint the place as a small, finely detailed miniature, as if a model-maker had built it into this painted relief: seen from above at a gentle angle so roofs, walls and towers read clearly, its base sitting naturally on the terrain that is there (follow the slopes, the shore, the river).
+- Keep it centred and compact: the whole place fits inside a circle about 18 % of the image width across the centre. Short roads or paths may lead out of it.
+- Match the map exactly: the same golden-hour light from the TOP LEFT with soft shadows to the bottom right, the same painterly style, colours and level of detail as the surrounding terrain; the building scale fits the trees and hills around it.
+- Leave everything outside that central circle exactly as it is in the input.
+- Never: text, labels, banners with writing, flags with symbols, people larger than specks, a frame, a vignette, clouds over the place.

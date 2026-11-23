@@ -23,7 +23,7 @@ func _init() -> void:
 	box.add_theme_constant_override("separation", 8)
 	add_child(box)
 	_title.text = tr("Season focus")
-	_title.add_theme_font_size_override("font_size", 20)
+	_title.theme_type_variation = &"HeadingLabel"
 	box.add_child(_title)
 	var hint := Label.new()
 	hint.text = tr("Pick what this season is for; End turn then resolves it.")

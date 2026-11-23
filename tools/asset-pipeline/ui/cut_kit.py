@@ -116,6 +116,7 @@ def main():
     win = w[y0:y1, x0:x1]
     win = remap_paper(win)
     m = list(frame_margins(win))
+    inner = list(m)   # where the parchment body starts on each side, before the lattice widens the side margins
     s = 2.0 * BORDER_1X / max(1, m[0])
     # the title bar's lattice panels sit at both ends and must not stretch: the left and right margins reach past them
     lum = win[..., :3].mean(axis=2)
@@ -134,6 +135,13 @@ def main():
     m[2] = max(m[2], w_ - right_start)
     size = (int(round(win.shape[1] * s)), int(round(win.shape[0] * s)))
     got = save(win, "frames/frame_window.png", size)
+    # the board frame: the same frame with its parchment body cut out, laid over the wood board (fight columns)
+    board = win.copy()
+    hh, ww = board.shape[:2]
+    board[inner[1]:hh - inner[3], inner[0]:ww - inner[2], 3] = 0.0
+    save(board, "frames/frame_board.png", size)
+    kit["pieces"]["frame_board"] = {"file": "frames/frame_board%s.png" % SUFFIX, "border_1x": BORDER_1X,
+                                    "size": got, "margins": scaled(m, s)}
     kit["pieces"]["frame_window"] = {"file": "frames/frame_window%s.png" % SUFFIX, "border_1x": BORDER_1X, "size": got, "margins": scaled(m, s),
                                      "source_margins": list(m), "scale": round(s, 4)}
     if SUFFIX:   # a comparison cut (another border width): only the window frame, under the suffix

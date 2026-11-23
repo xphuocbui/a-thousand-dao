@@ -1,0 +1,57 @@
+[
+ {
+  "pack": 1,
+  "regions": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "places": 45,
+  "file": "design/world/place_catalogue/_inputs\\pack_01.json"
+ },
+ {
+  "pack": 2,
+  "regions": [
+   5,
+   6,
+   7,
+   8
+  ],
+  "places": 43,
+  "file": "design/world/place_catalogue/_inputs\\pack_02.json"
+ },
+ {
+  "pack": 3,
+  "regions": [
+   9,
+   10,
+   11,
+   12
+  ],
+  "places": 56,
+  "file": "design/world/place_catalogue/_inputs\\pack_03.json"
+ },
+ {
+  "pack": 4,
+  "regions": [
+   13,
+   14,
+   15,
+   16
+  ],
+  "places": 51,
+  "file": "design/world/place_catalogue/_inputs\\pack_04.json"
+ },
+ {
+  "pack": 5,
+  "regions": [
+   17,
+   18,
+   19,
+   20
+  ],
+  "places": 59,
+  "file": "design/world/place_catalogue/_inputs\\pack_05.json"
+ }
+]

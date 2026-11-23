@@ -1,0 +1,2292 @@
+{
+ "_doc": "Place sprites for the near map (tools/asset-pipeline/map/place_art.py): each is cut from a painting of the place into its own patch of the near layer; draw it centred on the place's tile, size_tiles across, over the near layer.",
+ "px_per_tile": 12,
+ "places": {
+  "1": {
+   "file": "place_1.png",
+   "tile": [
+    147,
+    95
+   ],
+   "size_tiles": 8.0,
+   "kind": "great_seat"
+  },
+  "2": {
+   "file": "place_2.png",
+   "tile": [
+    236,
+    124
+   ],
+   "size_tiles": 9.34,
+   "kind": "great_seat"
+  },
+  "3": {
+   "file": "place_3.png",
+   "tile": [
+    455,
+    139
+   ],
+   "size_tiles": 9.4,
+   "kind": "great_seat"
+  },
+  "4": {
+   "file": "place_4.png",
+   "tile": [
+    198,
+    205
+   ],
+   "size_tiles": 8.6,
+   "kind": "great_seat"
+  },
+  "5": {
+   "file": "place_5.png",
+   "tile": [
+    281,
+    182
+   ],
+   "size_tiles": 8.38,
+   "kind": "great_seat"
+  },
+  "6": {
+   "file": "place_6.png",
+   "tile": [
+    369,
+    250
+   ],
+   "size_tiles": 9.08,
+   "kind": "great_seat"
+  },
+  "7": {
+   "file": "place_7.png",
+   "tile": [
+    253,
+    249
+   ],
+   "size_tiles": 8.6,
+   "kind": "great_seat"
+  },
+  "8": {
+   "file": "place_8.png",
+   "tile": [
+    303,
+    75
+   ],
+   "size_tiles": 15.8,
+   "kind": "minor_seat"
+  },
+  "9": {
+   "file": "place_9.png",
+   "tile": [
+    108,
+    78
+   ],
+   "size_tiles": 6.7,
+   "kind": "minor_seat"
+  },
+  "10": {
+   "file": "place_10.png",
+   "tile": [
+    140,
+    125
+   ],
+   "size_tiles": 6.4,
+   "kind": "minor_seat"
+  },
+  "11": {
+   "file": "place_11.png",
+   "tile": [
+    215,
+    149
+   ],
+   "size_tiles": 6.4,
+   "kind": "minor_seat"
+  },
+  "12": {
+   "file": "place_12.png",
+   "tile": [
+    256,
+    72
+   ],
+   "size_tiles": 14.3,
+   "kind": "minor_seat"
+  },
+  "13": {
+   "file": "place_13.png",
+   "tile": [
+    238,
+    76
+   ],
+   "size_tiles": 7.04,
+   "kind": "minor_seat"
+  },
+  "14": {
+   "file": "place_14.png",
+   "tile": [
+    355,
+    142
+   ],
+   "size_tiles": 11.7,
+   "kind": "minor_seat"
+  },
+  "15": {
+   "file": "place_15.png",
+   "tile": [
+    410,
+    140
+   ],
+   "size_tiles": 6.6,
+   "kind": "minor_seat"
+  },
+  "16": {
+   "file": "place_16.png",
+   "tile": [
+    431,
+    171
+   ],
+   "size_tiles": 6.4,
+   "kind": "minor_seat"
+  },
+  "17": {
+   "file": "place_17.png",
+   "tile": [
+    458,
+    97
+   ],
+   "size_tiles": 7.04,
+   "kind": "minor_seat"
+  },
+  "18": {
+   "file": "place_18.png",
+   "tile": [
+    125,
+    247
+   ],
+   "size_tiles": 6.4,
+   "kind": "minor_seat"
+  },
+  "19": {
+   "file": "place_19.png",
+   "tile": [
+    129,
+    168
+   ],
+   "size_tiles": 7.78,
+   "kind": "minor_seat"
+  },
+  "20": {
+   "file": "place_20.png",
+   "tile": [
+    227,
+    215
+   ],
+   "size_tiles": 6.7,
+   "kind": "minor_seat"
+  },
+  "21": {
+   "file": "place_21.png",
+   "tile": [
+    181,
+    161
+   ],
+   "size_tiles": 7.04,
+   "kind": "minor_seat"
+  },
+  "22": {
+   "file": "place_22.png",
+   "tile": [
+    260,
+    181
+   ],
+   "size_tiles": 7.78,
+   "kind": "minor_seat"
+  },
+  "23": {
+   "file": "place_23.png",
+   "tile": [
+    387,
+    160
+   ],
+   "size_tiles": 7.78,
+   "kind": "minor_seat"
+  },
+  "24": {
+   "file": "place_24.png",
+   "tile": [
+    335,
+    225
+   ],
+   "size_tiles": 6.4,
+   "kind": "minor_seat"
+  },
+  "25": {
+   "file": "place_25.png",
+   "tile": [
+    364,
+    278
+   ],
+   "size_tiles": 6.7,
+   "kind": "minor_seat"
+  },
+  "26": {
+   "file": "place_26.png",
+   "tile": [
+    409,
+    211
+   ],
+   "size_tiles": 6.4,
+   "kind": "minor_seat"
+  },
+  "27": {
+   "file": "place_27.png",
+   "tile": [
+    181,
+    305
+   ],
+   "size_tiles": 9.9,
+   "kind": "minor_seat"
+  },
+  "28": {
+   "file": "place_28.png",
+   "tile": [
+    342,
+    265
+   ],
+   "size_tiles": 12.32,
+   "kind": "minor_seat"
+  },
+  "29": {
+   "file": "place_29.png",
+   "tile": [
+    491,
+    240
+   ],
+   "size_tiles": 7.94,
+   "kind": "minor_seat"
+  },
+  "30": {
+   "file": "place_30.png",
+   "tile": [
+    127,
+    132
+   ],
+   "size_tiles": 14.0,
+   "kind": "city"
+  },
+  "31": {
+   "file": "place_31.png",
+   "tile": [
+    131,
+    76
+   ],
+   "size_tiles": 13.8,
+   "kind": "city"
+  },
+  "32": {
+   "file": "place_32.png",
+   "tile": [
+    193,
+    124
+   ],
+   "size_tiles": 7.2,
+   "kind": "city"
+  },
+  "33": {
+   "file": "place_33.png",
+   "tile": [
+    245,
+    131
+   ],
+   "size_tiles": 11.0,
+   "kind": "city"
+  },
+  "34": {
+   "file": "place_34.png",
+   "tile": [
+    347,
+    127
+   ],
+   "size_tiles": 8.38,
+   "kind": "city"
+  },
+  "35": {
+   "file": "place_35.png",
+   "tile": [
+    439,
+    177
+   ],
+   "size_tiles": 7.2,
+   "kind": "city"
+  },
+  "36": {
+   "file": "place_36.png",
+   "tile": [
+    487,
+    123
+   ],
+   "size_tiles": 7.78,
+   "kind": "city"
+  },
+  "37": {
+   "file": "place_37.png",
+   "tile": [
+    87,
+    258
+   ],
+   "size_tiles": 9.4,
+   "kind": "city"
+  },
+  "38": {
+   "file": "place_38.png",
+   "tile": [
+    146,
+    221
+   ],
+   "size_tiles": 15.7,
+   "kind": "city"
+  },
+  "39": {
+   "file": "place_39.png",
+   "tile": [
+    184,
+    278
+   ],
+   "size_tiles": 7.2,
+   "kind": "city"
+  },
+  "40": {
+   "file": "place_40.png",
+   "tile": [
+    377,
+    184
+   ],
+   "size_tiles": 7.2,
+   "kind": "city"
+  },
+  "41": {
+   "file": "place_41.png",
+   "tile": [
+    414,
+    220
+   ],
+   "size_tiles": 7.2,
+   "kind": "city"
+  },
+  "42": {
+   "file": "place_42.png",
+   "tile": [
+    229,
+    308
+   ],
+   "size_tiles": 13.2,
+   "kind": "city"
+  },
+  "43": {
+   "file": "place_43.png",
+   "tile": [
+    304,
+    275
+   ],
+   "size_tiles": 16.82,
+   "kind": "city"
+  },
+  "44": {
+   "file": "place_44.png",
+   "tile": [
+    414,
+    287
+   ],
+   "size_tiles": 7.78,
+   "kind": "city"
+  },
+  "45": {
+   "file": "place_45.png",
+   "tile": [
+    141,
+    89
+   ],
+   "size_tiles": 9.34,
+   "kind": "market"
+  },
+  "46": {
+   "file": "place_46.png",
+   "tile": [
+    230,
+    118
+   ],
+   "size_tiles": 8.64,
+   "kind": "market"
+  },
+  "47": {
+   "file": "place_47.png",
+   "tile": [
+    243,
+    72
+   ],
+   "size_tiles": 7.04,
+   "kind": "market"
+  },
+  "48": {
+   "file": "place_48.png",
+   "tile": [
+    458,
+    131
+   ],
+   "size_tiles": 9.4,
+   "kind": "market"
+  },
+  "49": {
+   "file": "place_49.png",
+   "tile": [
+    123,
+    239
+   ],
+   "size_tiles": 7.32,
+   "kind": "market"
+  },
+  "50": {
+   "file": "place_50.png",
+   "tile": [
+    219,
+    214
+   ],
+   "size_tiles": 6.9,
+   "kind": "market"
+  },
+  "51": {
+   "file": "place_51.png",
+   "tile": [
+    192,
+    200
+   ],
+   "size_tiles": 8.6,
+   "kind": "market"
+  },
+  "52": {
+   "file": "place_52.png",
+   "tile": [
+    288,
+    185
+   ],
+   "size_tiles": 8.38,
+   "kind": "market"
+  },
+  "53": {
+   "file": "place_53.png",
+   "tile": [
+    371,
+    258
+   ],
+   "size_tiles": 9.08,
+   "kind": "market"
+  },
+  "54": {
+   "file": "place_54.png",
+   "tile": [
+    259,
+    244
+   ],
+   "size_tiles": 8.6,
+   "kind": "market"
+  },
+  "55": {
+   "file": "place_55.png",
+   "tile": [
+    352,
+    109
+   ],
+   "size_tiles": 6.7,
+   "kind": "town"
+  },
+  "56": {
+   "file": "place_56.png",
+   "tile": [
+    78,
+    157
+   ],
+   "size_tiles": 7.2,
+   "kind": "city"
+  },
+  "57": {
+   "file": "place_57.png",
+   "tile": [
+    56,
+    168
+   ],
+   "size_tiles": 11.32,
+   "kind": "town"
+  },
+  "58": {
+   "file": "place_58.png",
+   "tile": [
+    151,
+    120
+   ],
+   "size_tiles": 11.32,
+   "kind": "town"
+  },
+  "59": {
+   "file": "place_59.png",
+   "tile": [
+    168,
+    141
+   ],
+   "size_tiles": 10.14,
+   "kind": "town"
+  },
+  "60": {
+   "file": "place_60.png",
+   "tile": [
+    205,
+    100
+   ],
+   "size_tiles": 5.6,
+   "kind": "town"
+  },
+  "61": {
+   "file": "place_61.png",
+   "tile": [
+    215,
+    164
+   ],
+   "size_tiles": 7.94,
+   "kind": "city"
+  },
+  "62": {
+   "file": "place_62.png",
+   "tile": [
+    255,
+    118
+   ],
+   "size_tiles": 7.0,
+   "kind": "town"
+  },
+  "63": {
+   "file": "place_63.png",
+   "tile": [
+    281,
+    136
+   ],
+   "size_tiles": 6.6,
+   "kind": "town"
+  },
+  "64": {
+   "file": "place_64.png",
+   "tile": [
+    286,
+    148
+   ],
+   "size_tiles": 7.38,
+   "kind": "town"
+  },
+  "65": {
+   "file": "place_65.png",
+   "tile": [
+    300,
+    159
+   ],
+   "size_tiles": 7.2,
+   "kind": "city"
+  },
+  "66": {
+   "file": "place_66.png",
+   "tile": [
+    401,
+    117
+   ],
+   "size_tiles": 9.44,
+   "kind": "town"
+  },
+  "67": {
+   "file": "place_67.png",
+   "tile": [
+    493,
+    156
+   ],
+   "size_tiles": 15.62,
+   "kind": "city"
+  },
+  "68": {
+   "file": "place_68.png",
+   "tile": [
+    444,
+    111
+   ],
+   "size_tiles": 7.2,
+   "kind": "city"
+  },
+  "69": {
+   "file": "place_69.png",
+   "tile": [
+    495,
+    141
+   ],
+   "size_tiles": 11.56,
+   "kind": "town"
+  },
+  "70": {
+   "file": "place_70.png",
+   "tile": [
+    57,
+    237
+   ],
+   "size_tiles": 8.74,
+   "kind": "town"
+  },
+  "71": {
+   "file": "place_71.png",
+   "tile": [
+    107,
+    245
+   ],
+   "size_tiles": 5.6,
+   "kind": "town"
+  },
+  "72": {
+   "file": "place_72.png",
+   "tile": [
+    62,
+    289
+   ],
+   "size_tiles": 15.92,
+   "kind": "city"
+  },
+  "73": {
+   "file": "place_73.png",
+   "tile": [
+    134,
+    173
+   ],
+   "size_tiles": 7.78,
+   "kind": "town"
+  },
+  "74": {
+   "file": "place_74.png",
+   "tile": [
+    152,
+    174
+   ],
+   "size_tiles": 7.2,
+   "kind": "city"
+  },
+  "75": {
+   "file": "place_75.png",
+   "tile": [
+    167,
+    177
+   ],
+   "size_tiles": 6.96,
+   "kind": "town"
+  },
+  "76": {
+   "file": "place_76.png",
+   "tile": [
+    199,
+    271
+   ],
+   "size_tiles": 5.6,
+   "kind": "town"
+  },
+  "77": {
+   "file": "place_77.png",
+   "tile": [
+    169,
+    282
+   ],
+   "size_tiles": 8.86,
+   "kind": "town"
+  },
+  "78": {
+   "file": "place_78.png",
+   "tile": [
+    151,
+    290
+   ],
+   "size_tiles": 13.42,
+   "kind": "city"
+  },
+  "79": {
+   "file": "place_79.png",
+   "tile": [
+    177,
+    166
+   ],
+   "size_tiles": 7.04,
+   "kind": "town"
+  },
+  "80": {
+   "file": "place_80.png",
+   "tile": [
+    183,
+    181
+   ],
+   "size_tiles": 7.2,
+   "kind": "city"
+  },
+  "81": {
+   "file": "place_81.png",
+   "tile": [
+    294,
+    211
+   ],
+   "size_tiles": 10.66,
+   "kind": "city"
+  },
+  "82": {
+   "file": "place_82.png",
+   "tile": [
+    359,
+    185
+   ],
+   "size_tiles": 7.04,
+   "kind": "town"
+  },
+  "83": {
+   "file": "place_83.png",
+   "tile": [
+    395,
+    241
+   ],
+   "size_tiles": 7.94,
+   "kind": "town"
+  },
+  "84": {
+   "file": "place_84.png",
+   "tile": [
+    395,
+    255
+   ],
+   "size_tiles": 14.28,
+   "kind": "city"
+  },
+  "85": {
+   "file": "place_85.png",
+   "tile": [
+    412,
+    182
+   ],
+   "size_tiles": 7.2,
+   "kind": "city"
+  },
+  "86": {
+   "file": "place_86.png",
+   "tile": [
+    411,
+    194
+   ],
+   "size_tiles": 5.6,
+   "kind": "town"
+  },
+  "87": {
+   "file": "place_87.png",
+   "tile": [
+    405,
+    205
+   ],
+   "size_tiles": 5.6,
+   "kind": "town"
+  },
+  "88": {
+   "file": "place_88.png",
+   "tile": [
+    210,
+    276
+   ],
+   "size_tiles": 6.6,
+   "kind": "town"
+  },
+  "89": {
+   "file": "place_89.png",
+   "tile": [
+    257,
+    290
+   ],
+   "size_tiles": 8.8,
+   "kind": "city"
+  },
+  "90": {
+   "file": "place_90.png",
+   "tile": [
+    278,
+    261
+   ],
+   "size_tiles": 14.68,
+   "kind": "city"
+  },
+  "91": {
+   "file": "place_91.png",
+   "tile": [
+    352,
+    288
+   ],
+   "size_tiles": 10.38,
+   "kind": "town"
+  },
+  "92": {
+   "file": "place_92.png",
+   "tile": [
+    337,
+    299
+   ],
+   "size_tiles": 11.54,
+   "kind": "town"
+  },
+  "93": {
+   "file": "place_93.png",
+   "tile": [
+    465,
+    229
+   ],
+   "size_tiles": 14.0,
+   "kind": "city"
+  },
+  "94": {
+   "file": "place_94.png",
+   "tile": [
+    481,
+    241
+   ],
+   "size_tiles": 6.6,
+   "kind": "town"
+  },
+  "95": {
+   "file": "place_95.png",
+   "tile": [
+    356,
+    72
+   ],
+   "size_tiles": 9.52,
+   "kind": "village"
+  },
+  "96": {
+   "file": "place_96.png",
+   "tile": [
+    358,
+    108
+   ],
+   "size_tiles": 6.6,
+   "kind": "village"
+  },
+  "97": {
+   "file": "place_97.png",
+   "tile": [
+    364,
+    108
+   ],
+   "size_tiles": 6.6,
+   "kind": "village"
+  },
+  "98": {
+   "file": "place_98.png",
+   "tile": [
+    87,
+    156
+   ],
+   "size_tiles": 9.96,
+   "kind": "village"
+  },
+  "99": {
+   "file": "place_99.png",
+   "tile": [
+    80,
+    163
+   ],
+   "size_tiles": 6.96,
+   "kind": "village"
+  },
+  "100": {
+   "file": "place_100.png",
+   "tile": [
+    65,
+    173
+   ],
+   "size_tiles": 9.22,
+   "kind": "village"
+  },
+  "101": {
+   "file": "place_101.png",
+   "tile": [
+    49,
+    177
+   ],
+   "size_tiles": 10.32,
+   "kind": "village"
+  },
+  "102": {
+   "file": "place_102.png",
+   "tile": [
+    179,
+    130
+   ],
+   "size_tiles": 12.28,
+   "kind": "village"
+  },
+  "103": {
+   "file": "place_103.png",
+   "tile": [
+    166,
+    132
+   ],
+   "size_tiles": 10.14,
+   "kind": "village"
+  },
+  "104": {
+   "file": "place_104.png",
+   "tile": [
+    136,
+    141
+   ],
+   "size_tiles": 14.0,
+   "kind": "village"
+  },
+  "105": {
+   "file": "place_105.png",
+   "tile": [
+    197,
+    118
+   ],
+   "size_tiles": 7.94,
+   "kind": "village"
+  },
+  "106": {
+   "file": "place_106.png",
+   "tile": [
+    198,
+    128
+   ],
+   "size_tiles": 7.04,
+   "kind": "village"
+  },
+  "107": {
+   "file": "place_107.png",
+   "tile": [
+    221,
+    160
+   ],
+   "size_tiles": 7.94,
+   "kind": "village"
+  },
+  "108": {
+   "file": "place_108.png",
+   "tile": [
+    251,
+    123
+   ],
+   "size_tiles": 7.04,
+   "kind": "village"
+  },
+  "109": {
+   "file": "place_109.png",
+   "tile": [
+    273,
+    124
+   ],
+   "size_tiles": 6.94,
+   "kind": "village"
+  },
+  "110": {
+   "file": "place_110.png",
+   "tile": [
+    279,
+    130
+   ],
+   "size_tiles": 6.96,
+   "kind": "village"
+  },
+  "111": {
+   "file": "place_111.png",
+   "tile": [
+    354,
+    124
+   ],
+   "size_tiles": 8.38,
+   "kind": "village"
+  },
+  "112": {
+   "file": "place_112.png",
+   "tile": [
+    281,
+    142
+   ],
+   "size_tiles": 6.6,
+   "kind": "village"
+  },
+  "113": {
+   "file": "place_113.png",
+   "tile": [
+    296,
+    152
+   ],
+   "size_tiles": 8.86,
+   "kind": "village"
+  },
+  "114": {
+   "file": "place_114.png",
+   "tile": [
+    376,
+    113
+   ],
+   "size_tiles": 6.96,
+   "kind": "village"
+  },
+  "115": {
+   "file": "place_115.png",
+   "tile": [
+    378,
+    119
+   ],
+   "size_tiles": 6.96,
+   "kind": "village"
+  },
+  "116": {
+   "file": "place_116.png",
+   "tile": [
+    470,
+    174
+   ],
+   "size_tiles": 10.24,
+   "kind": "village"
+  },
+  "117": {
+   "file": "place_117.png",
+   "tile": [
+    432,
+    180
+   ],
+   "size_tiles": 5.0,
+   "kind": "village"
+  },
+  "118": {
+   "file": "place_118.png",
+   "tile": [
+    426,
+    182
+   ],
+   "size_tiles": 6.96,
+   "kind": "village"
+  },
+  "119": {
+   "file": "place_119.png",
+   "tile": [
+    454,
+    102
+   ],
+   "size_tiles": 7.04,
+   "kind": "village"
+  },
+  "120": {
+   "file": "place_120.png",
+   "tile": [
+    448,
+    106
+   ],
+   "size_tiles": 5.0,
+   "kind": "village"
+  },
+  "121": {
+   "file": "place_121.png",
+   "tile": [
+    492,
+    128
+   ],
+   "size_tiles": 7.78,
+   "kind": "village"
+  },
+  "122": {
+   "file": "place_122.png",
+   "tile": [
+    111,
+    238
+   ],
+   "size_tiles": 8.86,
+   "kind": "village"
+  },
+  "123": {
+   "file": "place_123.png",
+   "tile": [
+    131,
+    249
+   ],
+   "size_tiles": 6.96,
+   "kind": "village"
+  },
+  "124": {
+   "file": "place_124.png",
+   "tile": [
+    48,
+    261
+   ],
+   "size_tiles": 13.88,
+   "kind": "village"
+  },
+  "125": {
+   "file": "place_125.png",
+   "tile": [
+    95,
+    261
+   ],
+   "size_tiles": 5.92,
+   "kind": "village"
+  },
+  "126": {
+   "file": "place_126.png",
+   "tile": [
+    57,
+    274
+   ],
+   "size_tiles": 11.7,
+   "kind": "village"
+  },
+  "127": {
+   "file": "place_127.png",
+   "tile": [
+    139,
+    168
+   ],
+   "size_tiles": 7.78,
+   "kind": "village"
+  },
+  "128": {
+   "file": "place_128.png",
+   "tile": [
+    147,
+    170
+   ],
+   "size_tiles": 7.04,
+   "kind": "village"
+  },
+  "129": {
+   "file": "place_129.png",
+   "tile": [
+    127,
+    176
+   ],
+   "size_tiles": 8.38,
+   "kind": "village"
+  },
+  "130": {
+   "file": "place_130.png",
+   "tile": [
+    158,
+    176
+   ],
+   "size_tiles": 6.96,
+   "kind": "village"
+  },
+  "131": {
+   "file": "place_131.png",
+   "tile": [
+    129,
+    190
+   ],
+   "size_tiles": 14.76,
+   "kind": "village"
+  },
+  "132": {
+   "file": "place_132.png",
+   "tile": [
+    201,
+    265
+   ],
+   "size_tiles": 6.96,
+   "kind": "village"
+  },
+  "133": {
+   "file": "place_133.png",
+   "tile": [
+    190,
+    273
+   ],
+   "size_tiles": 4.62,
+   "kind": "village"
+  },
+  "134": {
+   "file": "place_134.png",
+   "tile": [
+    178,
+    282
+   ],
+   "size_tiles": 7.94,
+   "kind": "village"
+  },
+  "135": {
+   "file": "place_135.png",
+   "tile": [
+    161,
+    283
+   ],
+   "size_tiles": 8.86,
+   "kind": "village"
+  },
+  "136": {
+   "file": "place_136.png",
+   "tile": [
+    186,
+    169
+   ],
+   "size_tiles": 10.38,
+   "kind": "village"
+  },
+  "137": {
+   "file": "place_137.png",
+   "tile": [
+    212,
+    171
+   ],
+   "size_tiles": 8.38,
+   "kind": "village"
+  },
+  "138": {
+   "file": "place_138.png",
+   "tile": [
+    173,
+    175
+   ],
+   "size_tiles": 6.96,
+   "kind": "village"
+  },
+  "139": {
+   "file": "place_139.png",
+   "tile": [
+    187,
+    186
+   ],
+   "size_tiles": 7.04,
+   "kind": "village"
+  },
+  "140": {
+   "file": "place_140.png",
+   "tile": [
+    283,
+    154
+   ],
+   "size_tiles": 6.46,
+   "kind": "village"
+  },
+  "141": {
+   "file": "place_141.png",
+   "tile": [
+    302,
+    165
+   ],
+   "size_tiles": 6.96,
+   "kind": "village"
+  },
+  "142": {
+   "file": "place_142.png",
+   "tile": [
+    371,
+    185
+   ],
+   "size_tiles": 6.7,
+   "kind": "village"
+  },
+  "143": {
+   "file": "place_143.png",
+   "tile": [
+    354,
+    189
+   ],
+   "size_tiles": 6.62,
+   "kind": "village"
+  },
+  "144": {
+   "file": "place_144.png",
+   "tile": [
+    372,
+    192
+   ],
+   "size_tiles": 7.78,
+   "kind": "village"
+  },
+  "145": {
+   "file": "place_145.png",
+   "tile": [
+    379,
+    234
+   ],
+   "size_tiles": 9.08,
+   "kind": "village"
+  },
+  "146": {
+   "file": "place_146.png",
+   "tile": [
+    389,
+    237
+   ],
+   "size_tiles": 7.5,
+   "kind": "village"
+  },
+  "147": {
+   "file": "place_147.png",
+   "tile": [
+    358,
+    279
+   ],
+   "size_tiles": 6.7,
+   "kind": "village"
+  },
+  "148": {
+   "file": "place_148.png",
+   "tile": [
+    413,
+    176
+   ],
+   "size_tiles": 5.0,
+   "kind": "village"
+  },
+  "149": {
+   "file": "place_149.png",
+   "tile": [
+    474,
+    185
+   ],
+   "size_tiles": 11.26,
+   "kind": "village"
+  },
+  "150": {
+   "file": "place_150.png",
+   "tile": [
+    412,
+    188
+   ],
+   "size_tiles": 6.6,
+   "kind": "village"
+  },
+  "151": {
+   "file": "place_151.png",
+   "tile": [
+    459,
+    196
+   ],
+   "size_tiles": 12.68,
+   "kind": "village"
+  },
+  "152": {
+   "file": "place_152.png",
+   "tile": [
+    410,
+    200
+   ],
+   "size_tiles": 4.0,
+   "kind": "village"
+  },
+  "153": {
+   "file": "place_153.png",
+   "tile": [
+    204,
+    276
+   ],
+   "size_tiles": 5.0,
+   "kind": "village"
+  },
+  "154": {
+   "file": "place_154.png",
+   "tile": [
+    243,
+    288
+   ],
+   "size_tiles": 6.96,
+   "kind": "village"
+  },
+  "155": {
+   "file": "place_155.png",
+   "tile": [
+    249,
+    290
+   ],
+   "size_tiles": 6.96,
+   "kind": "village"
+  },
+  "156": {
+   "file": "place_156.png",
+   "tile": [
+    199,
+    298
+   ],
+   "size_tiles": 18.0,
+   "kind": "village"
+  },
+  "157": {
+   "file": "place_157.png",
+   "tile": [
+    319,
+    278
+   ],
+   "size_tiles": 5.96,
+   "kind": "village"
+  },
+  "158": {
+   "file": "place_158.png",
+   "tile": [
+    263,
+    280
+   ],
+   "size_tiles": 6.96,
+   "kind": "village"
+  },
+  "159": {
+   "file": "place_159.png",
+   "tile": [
+    321,
+    290
+   ],
+   "size_tiles": 5.0,
+   "kind": "village"
+  },
+  "160": {
+   "file": "place_160.png",
+   "tile": [
+    315,
+    293
+   ],
+   "size_tiles": 7.38,
+   "kind": "village"
+  },
+  "161": {
+   "file": "place_161.png",
+   "tile": [
+    485,
+    223
+   ],
+   "size_tiles": 5.0,
+   "kind": "village"
+  },
+  "162": {
+   "file": "place_162.png",
+   "tile": [
+    481,
+    247
+   ],
+   "size_tiles": 6.6,
+   "kind": "village"
+  },
+  "163": {
+   "file": "place_163.png",
+   "tile": [
+    472,
+    260
+   ],
+   "size_tiles": 17.4,
+   "kind": "village"
+  },
+  "164": {
+   "file": "place_164.png",
+   "tile": [
+    410,
+    294
+   ],
+   "size_tiles": 7.38,
+   "kind": "village"
+  },
+  "165": {
+   "file": "place_165.png",
+   "tile": [
+    148,
+    100
+   ],
+   "size_tiles": 5.6,
+   "kind": "mine"
+  },
+  "166": {
+   "file": "place_166.png",
+   "tile": [
+    137,
+    124
+   ],
+   "size_tiles": 4.0,
+   "kind": "mine"
+  },
+  "167": {
+   "file": "place_167.png",
+   "tile": [
+    218,
+    150
+   ],
+   "size_tiles": 4.0,
+   "kind": "mine"
+  },
+  "168": {
+   "file": "place_168.png",
+   "tile": [
+    429,
+    121
+   ],
+   "size_tiles": 11.0,
+   "kind": "mine"
+  },
+  "169": {
+   "file": "place_169.png",
+   "tile": [
+    228,
+    221
+   ],
+   "size_tiles": 6.7,
+   "kind": "mine"
+  },
+  "170": {
+   "file": "place_170.png",
+   "tile": [
+    317,
+    173
+   ],
+   "size_tiles": 14.74,
+   "kind": "mine"
+  },
+  "171": {
+   "file": "place_171.png",
+   "tile": [
+    290,
+    175
+   ],
+   "size_tiles": 11.22,
+   "kind": "mine"
+  },
+  "172": {
+   "file": "place_172.png",
+   "tile": [
+    254,
+    186
+   ],
+   "size_tiles": 8.6,
+   "kind": "mine"
+  },
+  "173": {
+   "file": "place_173.png",
+   "tile": [
+    391,
+    167
+   ],
+   "size_tiles": 8.86,
+   "kind": "mine"
+  },
+  "174": {
+   "file": "place_174.png",
+   "tile": [
+    395,
+    174
+   ],
+   "size_tiles": 8.86,
+   "kind": "mine"
+  },
+  "175": {
+   "file": "place_175.png",
+   "tile": [
+    363,
+    210
+   ],
+   "size_tiles": 8.86,
+   "kind": "mine"
+  },
+  "176": {
+   "file": "place_176.png",
+   "tile": [
+    367,
+    217
+   ],
+   "size_tiles": 8.8,
+   "kind": "mine"
+  },
+  "177": {
+   "file": "place_177.png",
+   "tile": [
+    314,
+    246
+   ],
+   "size_tiles": 8.86,
+   "kind": "mine"
+  },
+  "178": {
+   "file": "place_178.png",
+   "tile": [
+    310,
+    253
+   ],
+   "size_tiles": 8.86,
+   "kind": "mine"
+  },
+  "179": {
+   "file": "place_179.png",
+   "tile": [
+    302,
+    254
+   ],
+   "size_tiles": 8.86,
+   "kind": "mine"
+  },
+  "180": {
+   "file": "place_180.png",
+   "tile": [
+    410,
+    305
+   ],
+   "size_tiles": 10.44,
+   "kind": "mine"
+  },
+  "181": {
+   "file": "place_181.png",
+   "tile": [
+    370,
+    140
+   ],
+   "size_tiles": 11.6,
+   "kind": "peak"
+  },
+  "182": {
+   "file": "place_182.png",
+   "tile": [
+    380,
+    161
+   ],
+   "size_tiles": 5.6,
+   "kind": "peak"
+  },
+  "183": {
+   "file": "place_183.png",
+   "tile": [
+    393,
+    139
+   ],
+   "size_tiles": 6.7,
+   "kind": "peak"
+  },
+  "184": {
+   "file": "place_184.png",
+   "tile": [
+    410,
+    146
+   ],
+   "size_tiles": 6.6,
+   "kind": "peak"
+  },
+  "185": {
+   "file": "place_185.png",
+   "tile": [
+    351,
+    213
+   ],
+   "size_tiles": 11.22,
+   "kind": "peak"
+  },
+  "186": {
+   "file": "place_186.png",
+   "tile": [
+    342,
+    248
+   ],
+   "size_tiles": 11.86,
+   "kind": "peak"
+  },
+  "187": {
+   "file": "place_187.png",
+   "tile": [
+    325,
+    255
+   ],
+   "size_tiles": 9.08,
+   "kind": "peak"
+  },
+  "188": {
+   "file": "place_188.png",
+   "tile": [
+    404,
+    27
+   ],
+   "size_tiles": 6.4,
+   "kind": "volcano"
+  },
+  "189": {
+   "file": "place_189.png",
+   "tile": [
+    429,
+    80
+   ],
+   "size_tiles": 7.78,
+   "kind": "volcano"
+  },
+  "190": {
+   "file": "place_190.png",
+   "tile": [
+    315,
+    89
+   ],
+   "size_tiles": 18.0,
+   "kind": "lake"
+  },
+  "191": {
+   "file": "place_191.png",
+   "tile": [
+    466,
+    123
+   ],
+   "size_tiles": 12.44,
+   "kind": "lake"
+  },
+  "192": {
+   "file": "place_192.png",
+   "tile": [
+    265,
+    186
+   ],
+   "size_tiles": 6.8,
+   "kind": "lake"
+  },
+  "193": {
+   "file": "place_193.png",
+   "tile": [
+    408,
+    203
+   ],
+   "size_tiles": 5.6,
+   "kind": "lake"
+  },
+  "194": {
+   "file": "place_194.png",
+   "tile": [
+    247,
+    256
+   ],
+   "size_tiles": 10.14,
+   "kind": "lake"
+  },
+  "195": {
+   "file": "place_195.png",
+   "tile": [
+    123,
+    151
+   ],
+   "size_tiles": 15.5,
+   "kind": "island"
+  },
+  "196": {
+   "file": "place_196.png",
+   "tile": [
+    29,
+    188
+   ],
+   "size_tiles": 9.84,
+   "kind": "island"
+  },
+  "197": {
+   "file": "place_197.png",
+   "tile": [
+    391,
+    276
+   ],
+   "size_tiles": 18.0,
+   "kind": "island"
+  },
+  "198": {
+   "file": "place_198.png",
+   "tile": [
+    469,
+    335
+   ],
+   "size_tiles": 8.0,
+   "kind": "island"
+  },
+  "199": {
+   "file": "place_199.png",
+   "tile": [
+    432,
+    346
+   ],
+   "size_tiles": 12.54,
+   "kind": "island"
+  },
+  "200": {
+   "file": "place_200.png",
+   "tile": [
+    301,
+    114
+   ],
+   "size_tiles": 8.2,
+   "kind": "forest"
+  },
+  "201": {
+   "file": "place_201.png",
+   "tile": [
+    472,
+    88
+   ],
+   "size_tiles": 10.7,
+   "kind": "forest"
+  },
+  "202": {
+   "file": "place_202.png",
+   "tile": [
+    347,
+    280
+   ],
+   "size_tiles": 10.38,
+   "kind": "forest"
+  },
+  "203": {
+   "file": "place_203.png",
+   "tile": [
+    401,
+    160
+   ],
+   "size_tiles": 10.54,
+   "kind": "gorge"
+  },
+  "204": {
+   "file": "place_204.png",
+   "tile": [
+    336,
+    221
+   ],
+   "size_tiles": 5.6,
+   "kind": "gorge"
+  },
+  "205": {
+   "file": "place_205.png",
+   "tile": [
+    378,
+    149
+   ],
+   "size_tiles": 11.14,
+   "kind": "spirit_vein"
+  },
+  "206": {
+   "file": "place_206.png",
+   "tile": [
+    242,
+    171
+   ],
+   "size_tiles": 9.46,
+   "kind": "spirit_vein"
+  },
+  "207": {
+   "file": "place_207.png",
+   "tile": [
+    219,
+    247
+   ],
+   "size_tiles": 9.8,
+   "kind": "spirit_vein"
+  },
+  "208": {
+   "file": "place_208.png",
+   "tile": [
+    333,
+    257
+   ],
+   "size_tiles": 7.9,
+   "kind": "spirit_vein"
+  },
+  "209": {
+   "file": "place_209.png",
+   "tile": [
+    419,
+    121
+   ],
+   "size_tiles": 10.68,
+   "kind": "spirit_vein"
+  },
+  "210": {
+   "file": "place_210.png",
+   "tile": [
+    33,
+    196
+   ],
+   "size_tiles": 9.84,
+   "kind": "spirit_vein"
+  },
+  "211": {
+   "file": "place_211.png",
+   "tile": [
+    375,
+    217
+   ],
+   "size_tiles": 8.8,
+   "kind": "spirit_vein"
+  },
+  "212": {
+   "file": "place_212.png",
+   "tile": [
+    400,
+    296
+   ],
+   "size_tiles": 6.7,
+   "kind": "peak"
+  },
+  "213": {
+   "file": "place_213.png",
+   "tile": [
+    156,
+    111
+   ],
+   "size_tiles": 11.32,
+   "kind": "ruin"
+  },
+  "214": {
+   "file": "place_214.png",
+   "tile": [
+    400,
+    24
+   ],
+   "size_tiles": 5.5,
+   "kind": "ruin"
+  },
+  "215": {
+   "file": "place_215.png",
+   "tile": [
+    491,
+    208
+   ],
+   "size_tiles": 17.78,
+   "kind": "ruin"
+  },
+  "216": {
+   "file": "place_216.png",
+   "tile": [
+    440,
+    116
+   ],
+   "size_tiles": 7.04,
+   "kind": "ruin"
+  },
+  "217": {
+   "file": "place_217.png",
+   "tile": [
+    472,
+    359
+   ],
+   "size_tiles": 18.0,
+   "kind": "ruin"
+  },
+  "218": {
+   "file": "place_218.png",
+   "tile": [
+    376,
+    164
+   ],
+   "size_tiles": 5.5,
+   "kind": "ruin"
+  },
+  "219": {
+   "file": "place_219.png",
+   "tile": [
+    182,
+    273
+   ],
+   "size_tiles": 5.92,
+   "kind": "ruin"
+  },
+  "220": {
+   "file": "place_220.png",
+   "tile": [
+    410,
+    216
+   ],
+   "size_tiles": 5.6,
+   "kind": "ruin"
+  },
+  "221": {
+   "file": "place_221.png",
+   "tile": [
+    265,
+    289
+   ],
+   "size_tiles": 8.86,
+   "kind": "ruin"
+  },
+  "222": {
+   "file": "place_222.png",
+   "tile": [
+    196,
+    275
+   ],
+   "size_tiles": 5.5,
+   "kind": "ruin"
+  },
+  "223": {
+   "file": "place_223.png",
+   "tile": [
+    229,
+    209
+   ],
+   "size_tiles": 6.96,
+   "kind": "ruin"
+  },
+  "224": {
+   "file": "place_224.png",
+   "tile": [
+    259,
+    110
+   ],
+   "size_tiles": 9.84,
+   "kind": "ruin"
+  },
+  "225": {
+   "file": "place_225.png",
+   "tile": [
+    208,
+    104
+   ],
+   "size_tiles": 5.5,
+   "kind": "ruin"
+  },
+  "226": {
+   "file": "place_226.png",
+   "tile": [
+    97,
+    256
+   ],
+   "size_tiles": 5.92,
+   "kind": "ruin"
+  },
+  "227": {
+   "file": "place_227.png",
+   "tile": [
+    435,
+    174
+   ],
+   "size_tiles": 5.5,
+   "kind": "ruin"
+  },
+  "228": {
+   "file": "place_228.png",
+   "tile": [
+    446,
+    199
+   ],
+   "size_tiles": 10.02,
+   "kind": "ruin"
+  },
+  "229": {
+   "file": "place_229.png",
+   "tile": [
+    235,
+    176
+   ],
+   "size_tiles": 9.46,
+   "kind": "ruin"
+  },
+  "230": {
+   "file": "place_230.png",
+   "tile": [
+    257,
+    282
+   ],
+   "size_tiles": 6.96,
+   "kind": "minor_seat"
+  },
+  "231": {
+   "file": "place_231.png",
+   "tile": [
+    298,
+    242
+   ],
+   "size_tiles": 11.42,
+   "kind": "beast_lair"
+  },
+  "232": {
+   "file": "place_232.png",
+   "tile": [
+    467,
+    342
+   ],
+   "size_tiles": 8.0,
+   "kind": "beast_lair"
+  },
+  "233": {
+   "file": "place_233.png",
+   "tile": [
+    441,
+    62
+   ],
+   "size_tiles": 13.34,
+   "kind": "beast_lair"
+  },
+  "234": {
+   "file": "place_234.png",
+   "tile": [
+    334,
+    170
+   ],
+   "size_tiles": 12.06,
+   "kind": "beast_lair"
+  },
+  "235": {
+   "file": "place_235.png",
+   "tile": [
+    389,
+    308
+   ],
+   "size_tiles": 10.0,
+   "kind": "beast_lair"
+  },
+  "236": {
+   "file": "place_236.png",
+   "tile": [
+    266,
+    214
+   ],
+   "size_tiles": 11.16,
+   "kind": "beast_lair"
+  },
+  "237": {
+   "file": "place_237.png",
+   "tile": [
+    226,
+    255
+   ],
+   "size_tiles": 10.44,
+   "kind": "beast_lair"
+  },
+  "238": {
+   "file": "place_238.png",
+   "tile": [
+    317,
+    200
+   ],
+   "size_tiles": 12.6,
+   "kind": "beast_lair"
+  },
+  "239": {
+   "file": "place_239.png",
+   "tile": [
+    396,
+    28
+   ],
+   "size_tiles": 6.22,
+   "kind": "beast_lair"
+  },
+  "240": {
+   "file": "place_240.png",
+   "tile": [
+    124,
+    54
+   ],
+   "size_tiles": 13.88,
+   "kind": "beast_lair"
+  },
+  "241": {
+   "file": "place_241.png",
+   "tile": [
+    73,
+    313
+   ],
+   "size_tiles": 10.94,
+   "kind": "beast_lair"
+  },
+  "242": {
+   "file": "place_242.png",
+   "tile": [
+    258,
+    151
+   ],
+   "size_tiles": 11.08,
+   "kind": "beast_lair"
+  },
+  "243": {
+   "file": "place_243.png",
+   "tile": [
+    129,
+    302
+   ],
+   "size_tiles": 9.86,
+   "kind": "beast_lair"
+  },
+  "244": {
+   "file": "place_244.png",
+   "tile": [
+    73,
+    60
+   ],
+   "size_tiles": 14.94,
+   "kind": "beast_lair"
+  },
+  "245": {
+   "file": "place_245.png",
+   "tile": [
+    76,
+    140
+   ],
+   "size_tiles": 11.76,
+   "kind": "hot_spring"
+  },
+  "246": {
+   "file": "place_246.png",
+   "tile": [
+    434,
+    75
+   ],
+   "size_tiles": 7.78,
+   "kind": "hot_spring"
+  },
+  "247": {
+   "file": "place_247.png",
+   "tile": [
+    109,
+    84
+   ],
+   "size_tiles": 6.7,
+   "kind": "hot_spring"
+  },
+  "248": {
+   "file": "place_248.png",
+   "tile": [
+    443,
+    349
+   ],
+   "size_tiles": 12.54,
+   "kind": "hot_spring"
+  },
+  "249": {
+   "file": "place_249.png",
+   "tile": [
+    180,
+    147
+   ],
+   "size_tiles": 9.04,
+   "kind": "hot_spring"
+  },
+  "250": {
+   "file": "place_250.png",
+   "tile": [
+    364,
+    202
+   ],
+   "size_tiles": 8.86,
+   "kind": "lava_vent"
+  },
+  "251": {
+   "file": "place_251.png",
+   "tile": [
+    401,
+    302
+   ],
+   "size_tiles": 6.7,
+   "kind": "lava_vent"
+  },
+  "252": {
+   "file": "place_252.png",
+   "tile": [
+    387,
+    140
+   ],
+   "size_tiles": 6.7,
+   "kind": "lava_vent"
+  },
+  "253": {
+   "file": "place_253.png",
+   "tile": [
+    487,
+    246
+   ],
+   "size_tiles": 6.7,
+   "kind": "lava_vent"
+  },
+  "254": {
+   "file": "place_254.png",
+   "tile": [
+    407,
+    288
+   ],
+   "size_tiles": 7.38,
+   "kind": "lightning_wood"
+  }
+ }
+}

@@ -44,6 +44,7 @@ var _cols := {}
 var _log := FightLogView.new()
 var _filter_buttons: Dictionary = {}
 var _overlay := Control.new()
+var _board := TextureRect.new()
 var _play := Button.new()
 var _time := Label.new()
 var _scrub := HSlider.new()
@@ -54,9 +55,13 @@ var _syncing: bool = false
 
 func _init() -> void:
 	visible = false
-	color = Color(0.07, 0.08, 0.1, 1.0)
+	color = Color("#2A1A12")   # the rosewood board under the tiled texture (art bible Section 2, fight replay)
 	set_anchors_preset(Control.PRESET_FULL_RECT)
 	mouse_filter = Control.MOUSE_FILTER_STOP
+	_board.stretch_mode = TextureRect.STRETCH_TILE
+	_board.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_board.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(_board)
 	var root := VBoxContainer.new()
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	root.offset_left = 12
@@ -68,17 +73,19 @@ func _init() -> void:
 	var head := HBoxContainer.new()
 	head.add_theme_constant_override("separation", 24)
 	root.add_child(head)
-	_situation.add_theme_font_size_override("font_size", 18)
+	_situation.theme_type_variation = &"WoodHeading"
 	head.add_child(_situation)
 	for l in [_clock, _pulse]:
-		l.add_theme_font_size_override("font_size", 18)
+		l.theme_type_variation = &"WoodLabel"
+		l.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 		head.add_child(l)
 	TooltipLayer.set_tip(_clock, tr("The fight clock: seconds since the fight began"))
 	TooltipLayer.set_tip(_pulse, tr("Pulses so far: once a second each side regenerates and its ticks resolve"))
 	var spacer := Control.new()
 	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	head.add_child(spacer)
-	_foe_realm.add_theme_font_size_override("font_size", 18)
+	_foe_realm.theme_type_variation = &"WoodLabel"
+	_foe_realm.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	head.add_child(_foe_realm)
 	root.add_child(HSeparator.new())
 	var mid := HBoxContainer.new()
@@ -86,21 +93,24 @@ func _init() -> void:
 	mid.add_theme_constant_override("separation", 12)
 	root.add_child(mid)
 	_cols["A"] = _column_shell(mid)
+	var log_window := PanelContainer.new()   # the log is a parchment window (art bible 7.10)
+	log_window.theme_type_variation = &"WindowPanel"
+	log_window.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	log_window.size_flags_stretch_ratio = 0.8
+	mid.add_child(log_window)
 	var centre := VBoxContainer.new()
-	centre.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	centre.size_flags_stretch_ratio = 0.8
-	mid.add_child(centre)
+	centre.add_theme_constant_override("separation", 6)
+	log_window.add_child(centre)
 	var lt := Label.new()
-	lt.text = tr("FIGHT LOG")
-	lt.add_theme_font_size_override("font_size", 14)
-	lt.modulate = Color(0.95, 0.8, 0.45)
+	lt.text = tr("Fight log")
+	lt.theme_type_variation = &"HeadingLabel"
 	centre.add_child(lt)
 	_build_log_filters(centre)
 	_log.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	_log.line_activated.connect(_on_line_activated)
 	centre.add_child(_log)
 	_cols["B"] = _column_shell(mid)
-	_result.add_theme_font_size_override("font_size", 20)
+	_result.theme_type_variation = &"WoodHeading"
 	_result.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	root.add_child(_result)
 	var bar := HBoxContainer.new()
@@ -122,6 +132,7 @@ func _init() -> void:
 	_scrub.value_changed.connect(func(val: float): if not _syncing: _seek(val))
 	TooltipLayer.set_tip(_scrub, tr("The timeline: drag to any moment of the fight"))
 	bar.add_child(_scrub)
+	_time.theme_type_variation = &"WoodLabel"
 	bar.add_child(_time)
 	_back.text = tr("Back to the map (Esc)")
 	_back.visible = false
@@ -132,6 +143,14 @@ func _init() -> void:
 	_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_overlay.draw.connect(_draw_overlay)
 	add_child(_overlay)
+
+
+## Applies the Rosewood theme ([method RosewoodTheme.build]) and the board's wood texture ([param wood], a tiled
+## texture path from ui_hud.json "theme").
+func apply_theme(t: Theme, wood: String) -> void:
+	theme = t
+	if wood != "" and ResourceLoader.exists(wood):
+		_board.texture = load(wood)
 
 
 ## Sets the screen's knobs (ui_hud.json "fight_screen").
@@ -148,7 +167,7 @@ func open_fight(fight: Dictionary, situation: String) -> void:
 	_scrub.max_value = float(_pb.end_ms)
 	_situation.text = situation
 	_foe_realm.text = "%s: %s" % [tr("Foe"), str(fight.b.realm)]
-	_foe_realm.modulate = _side_colour("B")
+	_foe_realm.add_theme_color_override("font_color", _side_colour("B"))
 	for side in ["A", "B"]:
 		_build_column(side, fight.a if side == "A" else fight.b)
 	_t = 0.0
@@ -564,12 +583,12 @@ func _render_log() -> void:
 		if _expandable(e):
 			mark = "▾ " if open else "▸ "
 		var text: String = _pulse_text(e) if _log_mode == "full" else _entry_text(e)
-		var colour: Color = _side_colour(str(e.side)) if _log_mode == "summary" else full_colour
+		var colour: Color = _side_paper(str(e.side)) if _log_mode == "summary" else full_colour
 		lines.append({"id": id, "text": mark + text, "color": colour})
 		if open:
 			for child in _expansion(e):
 				lines.append({"id": "%s>%d" % [id, int(child.row)], "text": "      " + str(child.text),
-					"color": _side_colour(str(child.side)).darkened(0.15)})
+					"color": _side_paper(str(child.side)).lightened(0.15)})
 	_log.set_lines(lines)
 
 
@@ -674,7 +693,7 @@ func _filter_button(flow: Control, key: String, text: String, tip: String, grp: 
 	b.toggle_mode = true
 	b.button_group = grp
 	b.button_pressed = key != "full"
-	b.add_theme_font_size_override("font_size", int(_cfg.get("log", {}).get("font_px", 14)))
+	b.add_theme_font_size_override("font_size", int(_cfg.get("log", {}).get("chip_font_px", 14)))
 	TooltipLayer.set_tip(b, tip)
 	if grp != null:
 		b.pressed.connect(func(): set_log_mode(key))
@@ -800,10 +819,13 @@ func _hit_colour(r: Dictionary) -> Color:
 # --- Building ---------------------------------------------------------------------------------------------------------
 
 func _column_shell(parent: Control) -> Dictionary:
+	var frame := PanelContainer.new()   # a carved frame over the wood board (art bible 7.10, the picked mock-up)
+	frame.theme_type_variation = &"BoardPanel"
+	frame.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	parent.add_child(frame)
 	var box := VBoxContainer.new()
-	box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	box.add_theme_constant_override("separation", 4)
-	parent.add_child(box)
+	frame.add_child(box)
 	return {"box": box, "slots": []}
 
 
@@ -822,21 +844,23 @@ func _build_column(side: String, info: Dictionary) -> void:
 	box.add_child(top)
 	var px: int = int(_cfg.get("portrait_px", 56))
 	var portrait := PanelContainer.new()
+	portrait.theme_type_variation = &"PaperPanel"
 	portrait.custom_minimum_size = Vector2(px, px)
 	var initial := Label.new()
 	initial.text = str(info.name).substr(0, 1)
 	initial.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	initial.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	initial.add_theme_font_size_override("font_size", 26)
+	initial.theme_type_variation = &"HeadingLabel"
 	portrait.add_child(initial)
 	TooltipLayer.set_tip(portrait, _sheet_tip(side, info))
 	var names := VBoxContainer.new()
 	var nm := Label.new()
 	nm.text = str(info.name) + ("  " + tr("(You)") if side == "A" else "")
-	nm.add_theme_font_size_override("font_size", 18)
-	nm.modulate = _side_colour(side)
+	nm.theme_type_variation = &"WoodHeading"
+	nm.add_theme_color_override("font_color", _side_colour(side))
 	var rl := Label.new()
 	rl.text = "%s · %s" % [str(info.realm), str(info.get("roots", ""))]
+	rl.theme_type_variation = &"WoodLabel"
 	rl.add_theme_font_size_override("font_size", 14)
 	rl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART   # never truncated (Localization)
 	names.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -865,14 +889,14 @@ func _build_column(side: String, info: Dictionary) -> void:
 	if ward_total > 0.0:
 		var w := _bar(box, tr("Ward shield"), str(bc.get("ward", "#7AB8D8")), mirror,
 			tr("Ward shields in slot order. Their soaking is not in the record yet."))
+		w.hatched = true
 		w.note = tr("(start)")
 		w.set_reading(ward_total, ward_total)
 	col.qi = _bar(box, tr("Linh lực"), str(bc.get("qi", "#4A8CE6")), mirror,
 		tr("Linh lực pays for arts and wards; the hatched end is reserved (wards and formation)."))
 	# formation (the default line until formations exist)
-	var fh := _row_title(box, tr("FORMATION") + "  " + tr("default line"), mirror,
+	var fh := _row_title(box, tr("FORMATION") + "  " + tr("default line"), mirror, &"WoodRowLabel",
 		tr("The formation diagram is designed but not built in the game yet, so each side fights with its default line: plain slots only."))
-	fh.modulate = Color(0.95, 0.8, 0.45)
 	var arts_flow := _flow(box, mirror)
 	col.slots = []
 	var spx: int = int(_cfg.get("slot_px", 48))
@@ -887,8 +911,15 @@ func _build_column(side: String, info: Dictionary) -> void:
 		arts_flow.add_child(slot)
 		col.slots.append(slot)
 	# wards, items
-	_row_title(box, tr("WARDS"), mirror, tr("Ward slots: up, down and broken states are not in the record yet."))
-	var wflow := _flow(box, mirror)
+	var paper := PanelContainer.new()   # the slot rows sit on a parchment inset (the picked mock-up)
+	paper.theme_type_variation = &"PaperPanel"
+	paper.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	box.add_child(paper)
+	var rows := VBoxContainer.new()
+	rows.add_theme_constant_override("separation", 3)
+	paper.add_child(rows)
+	box = rows
+	var wflow := _slot_row(box, tr("WARDS"), mirror, tr("Ward slots: up, down and broken states are not in the record yet."))
 	var wpx: int = int(_cfg.get("ward_px", 40))
 	var wards: Array = Array(info.get("wards", []))
 	if wards.is_empty():
@@ -907,8 +938,7 @@ func _build_column(side: String, info: Dictionary) -> void:
 				"%s %.1f s · %s %.1f s" % [tr("Cooldown"), float(w.cooldown), tr("up"), float(w.up)],
 				"%s %s · %s %s" % [tr("Shield"), HudReadouts.stones_text(float(w.shield)), tr("block"), HudReadouts.stones_text(float(w.block))]]})
 		wflow.add_child(ws)
-	_row_title(box, tr("ITEMS"), mirror, tr("Fight items are not in the game yet."))
-	var iflow := _flow(box, mirror)
+	var iflow := _slot_row(box, tr("ITEMS"), mirror, tr("Fight items are not in the game yet."))
 	for _i in int(_cfg.get("item_slots", 2)):
 		var it := FightSlot.new()
 		it.set_px(wpx)
@@ -916,15 +946,12 @@ func _build_column(side: String, info: Dictionary) -> void:
 		TooltipLayer.set_tip(it, tr("Item slot: fight items are not in the game yet"))
 		iflow.add_child(it)
 	# buffs, debuffs, status
-	_row_title(box, tr("BUFFS"), mirror, tr("Element stacks that help this side: icon and count, green halo, ↑"))
-	col.buffs = _flow(box, mirror)
-	_row_title(box, tr("DEBUFFS"), mirror, tr("Element stacks that hurt this side: icon and count, red dashed halo, ↓"))
-	col.debuffs = _flow(box, mirror)
-	_row_title(box, tr("STATUS"), mirror, tr("Statuses on this side, and the build's Effects that have fired"))
-	col.status = _flow(box, mirror)
+	col.buffs = _slot_row(box, tr("BUFFS"), mirror, tr("Element stacks that help this side: icon and count, green halo, ↑"))
+	col.debuffs = _slot_row(box, tr("DEBUFFS"), mirror, tr("Element stacks that hurt this side: icon and count, red dashed halo, ↓"))
+	col.status = _slot_row(box, tr("STATUS"), mirror, tr("Statuses on this side, and the build's Effects that have fired"))
 	col.down = Label.new()
-	col.down.add_theme_font_size_override("font_size", 22)
-	col.down.modulate = Color(1, 0.45, 0.4)
+	col.down.theme_type_variation = &"HeadingLabel"
+	col.down.add_theme_color_override("font_color", Color("#84191B"))
 	col.down.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT if mirror else HORIZONTAL_ALIGNMENT_LEFT
 	box.add_child(col.down)
 
@@ -987,15 +1014,30 @@ func _bar(box: Control, title: String, colour: String, mirror: bool, tip: String
 	return b
 
 
-func _row_title(box: Control, text: String, mirror: bool, tip: String) -> Label:
+func _row_title(box: Control, text: String, mirror: bool, variation: StringName, tip: String) -> Label:
 	var l := Label.new()
 	l.text = text
-	l.add_theme_font_size_override("font_size", 14)
-	l.modulate = Color(0.75, 0.77, 0.85)
+	l.theme_type_variation = variation
 	l.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT if mirror else HORIZONTAL_ALIGNMENT_LEFT
 	TooltipLayer.set_tip(l, tip)
 	box.add_child(l)
 	return l
+
+
+## One slot row on the parchment inset: its title beside its slots (the title on the outer side, mirrored for the
+## foe), so five rows fit at 1280x720 (fight-screen.md AC 15).
+func _slot_row(box: Control, text: String, mirror: bool, tip: String) -> HFlowContainer:
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 8)
+	box.add_child(row)
+	var l := _row_title(row, text, mirror, &"RowLabel", tip)
+	l.custom_minimum_size.x = float(_cfg.get("row_label_px", 76))
+	l.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	var f := _flow(row, mirror)
+	f.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	if mirror:
+		row.move_child(f, 0)
+	return f
 
 
 func _flow(box: Control, mirror: bool) -> HFlowContainer:
@@ -1025,8 +1067,14 @@ func _first_icon(rels: Array) -> Texture2D:
 	return null
 
 
+## A side's colour on wood (names, the header), from fight_screen "side_colors".
 func _side_colour(side: String) -> Color:
 	return Color.from_string(str(_cfg.get("side_colors", {}).get(side, "#DDDDDD")), Color(0.87, 0.87, 0.87))
+
+
+## A side's colour on parchment (log lines), from fight_screen "side_colors_paper" (art bible Section 4).
+func _side_paper(side: String) -> Color:
+	return Color.from_string(str(_cfg.get("side_colors_paper", {}).get(side, "#2B2118")), Color("#2B2118"))
 
 
 ## An engine id as an icon file name (ids use dashes, icon files underscores).

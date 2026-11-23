@@ -1,0 +1,12 @@
+Paint ONE place into this tile of a painted grand-strategy map. The input is the finished map around the place, seen straight down; the place stands at the exact CENTRE of the image.
+
+The place: Ô Đề Thôn, village. Paint it as a small village: a handful of low houses with grey or thatch roofs, gardens and fields close around it.
+How it looks: A small fishing village of grey roofs lies on the shore under a long ridge. On the ridge top a single huge bare oak stands black against the sky, its branches crowded with roosting crows.
+Art brief: A tiny fishing village of grey-tile houses on a strip of shore below a long wooded ridge. Signature element: one huge leafless oak on the ridge top, dark against the sky, its branches dotted with black crows as specks. At the base: a pebble beach, a few boats, drying racks. Warm light from the top left silhouetting the oak. Avoid: text, people larger than specks, anything outside the village and its ridge.
+
+Rules:
+- Paint the place as a small, finely detailed miniature, as if a model-maker had built it into this painted relief: seen from above at a gentle angle so roofs, walls and towers read clearly, its base sitting naturally on the terrain that is there (follow the slopes, the shore, the river).
+- Keep it centred and compact: the whole place fits inside a circle about 12 % of the image width across the centre. Short roads or paths may lead out of it.
+- Match the map exactly: the same golden-hour light from the TOP LEFT with soft shadows to the bottom right, the same painterly style, colours and level of detail as the surrounding terrain; the building scale fits the trees and hills around it.
+- Leave everything outside that central circle exactly as it is in the input.
+- Never: text, labels, banners with writing, flags with symbols, people larger than specks, a frame, a vignette, clouds over the place.

@@ -1,0 +1,12 @@
+Paint ONE place into this tile of a painted grand-strategy map. The input is the finished map around the place, seen straight down; the place stands at the exact CENTRE of the image.
+
+The place: Đông Lưu Thành, ruin. Paint it as a ruin: broken walls, toppled pillars and roofless halls overgrown by the land, no smoke, no life.
+How it looks: A long stone quay wall runs through an empty meadow, its rusted iron mooring rings hanging over grass where boats once tied up. Behind it stand the roofless stubs of warehouses, and a fresh scar of sand shows where a spring flood has opened up an old paved street. The living river runs past at a distance, along the edge of the bed.
+Art brief: A small painted miniature of broken verticals beside a dry, grassy river bed: a long stone quay wall standing in open meadow, hung with a row of rust-red iron mooring rings over the grass, the signature element; behind it the jagged, roofless wall stubs of old warehouses; a short strip of uncovered grey paving in pale flood sand. No intact roofs, only a few fallen grey tiles in the grass. A thin glint of living river along one edge of the footprint. Warm golden-hour light from the top left, long shadows from the wall stubs. No text, no people larger than specks, nothing outside the footprint.
+
+Rules:
+- Paint the place as a small, finely detailed miniature, as if a model-maker had built it into this painted relief: seen from above at a gentle angle so roofs, walls and towers read clearly, its base sitting naturally on the terrain that is there (follow the slopes, the shore, the river).
+- Keep it centred and compact: the whole place fits inside a circle about 15 % of the image width across the centre. Short roads or paths may lead out of it.
+- Match the map exactly: the same golden-hour light from the TOP LEFT with soft shadows to the bottom right, the same painterly style, colours and level of detail as the surrounding terrain; the building scale fits the trees and hills around it.
+- Leave everything outside that central circle exactly as it is in the input.
+- Never: text, labels, banners with writing, flags with symbols, people larger than specks, a frame, a vignette, clouds over the place.

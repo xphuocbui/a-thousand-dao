@@ -136,6 +136,25 @@ static func place_lines(s: GameSession, place_id: String) -> Array:
 	return TerminalViews.stat_block(s, p.duplicate(true))
 
 
+## The regions for the map's region names (art bible 7.14): [{id, name, name_han, centre: [x, y] tile}], every region
+## (their names are common knowledge, like the continent's outline).
+static func regions(s: GameSession) -> Array:
+	var out: Array = []
+	for r in s.db.all("regions"):
+		out.append({"id": str(r.id), "name": str(r.get("name", "")), "name_han": str(r.get("name_han", "")),
+			"centre": Array(r.get("centre_tile", [0, 0]))})
+	return out
+
+
+## A place's authored look, lore and history (assets/data/world_place_lore.json, keyed by the continent place id the
+## world record carries): {look, lore, history, special, levels, projects}; {} when the place has none.
+static func place_lore(s: GameSession, place_id: String) -> Dictionary:
+	var p: Dictionary = s.db.get_record("places", place_id)
+	if p.is_empty() or not p.has("continent_id"):
+		return {}
+	return s.gd.file("world_place_lore").get("places", {}).get(str(int(p.continent_id)), {}).duplicate(true)
+
+
 ## Display lines for the stand-in character sheet (until the character window is designed).
 static func sheet_lines(s: GameSession) -> Array:
 	return TerminalViews.sheet(s, TerminalIO.new())

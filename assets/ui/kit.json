@@ -1,6 +1,20 @@
 {
  "_doc": "Theme kit (art bible 8.7), cut by tools/asset-pipeline/ui/cut_kit.py. Sizes and margins in export pixels (2x UI scale); margins are the nine-slice texture margins (left, top, right, bottom).",
  "pieces": {
+  "frame_board": {
+   "file": "frames/frame_board.png",
+   "border_1x": 8.0,
+   "size": [
+    655,
+    452
+   ],
+   "margins": [
+    188,
+    55,
+    189,
+    14
+   ]
+  },
   "frame_window": {
    "file": "frames/frame_window.png",
    "border_1x": 8.0,

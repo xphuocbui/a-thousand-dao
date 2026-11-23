@@ -1,0 +1,12 @@
+Paint ONE place into this tile of a painted grand-strategy map. The input is the finished map around the place, seen straight down; the place stands at the exact CENTRE of the image.
+
+The place: Không Sơn Viện, ruin. Paint it as a ruin: broken walls, toppled pillars and roofless halls overgrown by the land, no smoke, no life.
+How it looks: High on a ridge above the haze a cluster of old halls stands silent, their doors open, the roof of the great lecture hall sagging and its small pagoda missing its top tier. Beside the path a raw landslide scar runs down the slope, and in it a stone gate carved with lines of poetry stands half-buried, its opening blocked with newer stone.
+Art brief: A ruin of broken verticals high on a bare ridge above the mist: old academy halls of grey stone with weathered grey tile roofs, doors standing open, a small pagoda missing its top roofs and the great lecture hall's roof sagging at one end. Signature element: a raw brown landslide scar down the slope beside the halls with a carved stone gate half-buried in it, its opening blocked with paler new stone. At the base: bare rock, a few old pines, haze below. Warm light from the top left with long, quiet shadows. Avoid: text, people, signs of looting or fire, anything outside the ridge.
+
+Rules:
+- Paint the place as a small, finely detailed miniature, as if a model-maker had built it into this painted relief: seen from above at a gentle angle so roofs, walls and towers read clearly, its base sitting naturally on the terrain that is there (follow the slopes, the shore, the river).
+- Keep it centred and compact: the whole place fits inside a circle about 15 % of the image width across the centre. Short roads or paths may lead out of it.
+- Match the map exactly: the same golden-hour light from the TOP LEFT with soft shadows to the bottom right, the same painterly style, colours and level of detail as the surrounding terrain; the building scale fits the trees and hills around it.
+- Leave everything outside that central circle exactly as it is in the input.
+- Never: text, labels, banners with writing, flags with symbols, people larger than specks, a frame, a vignette, clouds over the place.

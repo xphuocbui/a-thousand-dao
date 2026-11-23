@@ -1,0 +1,49 @@
+id 12 Thải Chi Cốc: year 260 is not in its record
+id 13 Lãng Đào Môn: year 1175 is not in its record
+id 14 Cửu Cao Phái: year 870 is not in its record
+id 14 Cửu Cao Phái: year 1188 is not in its record
+id 15 Lê Hoa Am: year 470 is not in its record
+id 33 Đào Thanh Thành: year 260 is not in its record
+id 33 Đào Thanh Thành: year 940 is not in its record
+id 33 Đào Thanh Thành: year 944 is not in its record
+id 33 Đào Thanh Thành: year 1172 is not in its record
+id 33 Đào Thanh Thành: year 1175 is not in its record
+id 34 Khai Dương Thành: year 250 is not in its record
+id 34 Khai Dương Thành: year 520 is not in its record
+id 34 Khai Dương Thành: year 870 is not in its record
+id 34 Khai Dương Thành: year 874 is not in its record
+id 35 Trường Vân Thành: year 520 is not in its record
+id 35 Trường Vân Thành: year 722 is not in its record
+id 35 Trường Vân Thành: year 726 is not in its record
+id 35 Trường Vân Thành: year 1121 is not in its record
+id 47 Đào Sa Thị: year 1172 is not in its record
+id 65 Thanh Bách Thành: year 870 is not in its record
+id 65 Thanh Bách Thành: year 874 is not in its record
+id 66 Hòe Âm Trấn (town): the rule expects special
+id 67 Hồi Lan Thành: year 728 is not in its record
+id 110 Bạch Lang Thôn: year 455 is not in its record
+id 114 Đỗ Quyên Thôn (village): the rule expects special
+id 115 Hoàng Oanh Thôn (village): the rule expects special
+id 181 Phụ Tinh Phong: year 874 is not in its record
+id 181 Phụ Tinh Phong: year 250 is not in its record
+id 181 Phụ Tinh Phong: year 720 is not in its record
+id 181 Phụ Tinh Phong: year 870 is not in its record
+id 181 Phụ Tinh Phong: year 874 is not in its record
+id 182 Trích Tinh Phong: year 470 is not in its record
+id 182 Trích Tinh Phong: year 1188 is not in its record
+id 183 Hồi Lộ Phong: year 470 is not in its record
+id 184 Lăng Tuyệt Phong: year 440 is not in its record
+id 184 Lăng Tuyệt Phong: year 470 is not in its record
+id 188 Chúc Long Sơn: year 774 is not in its record
+id 188 Chúc Long Sơn: year 470 is not in its record
+id 188 Chúc Long Sơn: year 774 is not in its record
+id 203 Viên Đề Hạp: year 722 is not in its record
+id 203 Viên Đề Hạp: year 728 is not in its record
+id 205 Tinh Tủy Mạch: year 110 is not in its record
+id 209 Băng Phách Mạch: year 470 is not in its record
+id 214 Hồ Thiên Phái: year 300 is not in its record
+id 214 Hồ Thiên Phái: year 470 is not in its record
+id 218 Phá Quân Môn: year 760 is not in its record
+id 224 Đông Lưu Thành: year 260 is not in its record
+id 227 Cô Thành: year 722 is not in its record
+id 227 Cô Thành: year 728 is not in its record

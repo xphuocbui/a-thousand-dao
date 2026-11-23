@@ -304,6 +304,7 @@ func _identity(i: int) -> String:
 func _build_view(i: int) -> Control:
 	var c: Dictionary = chain.levels[i].content
 	var panel := PanelContainer.new()
+	panel.theme_type_variation = &"TooltipPanel"   # the parchment card (art bible 7.10); plain when no theme is set
 	panel.mouse_filter = Control.MOUSE_FILTER_STOP
 	panel.focus_mode = Control.FOCUS_ALL
 	panel.custom_minimum_size = Vector2(_width, 0)
@@ -321,7 +322,7 @@ func _build_view(i: int) -> Control:
 	var mark := Label.new()
 	mark.text = tr("locked")
 	mark.add_theme_font_size_override(&"font_size", 14)
-	mark.modulate = Color(1.0, 0.85, 0.4)
+	mark.add_theme_color_override(&"font_color", Color("#84191B"))   # cinnabar on parchment (art bible Section 4)
 	mark.visible = false
 	head.add_child(mark)
 	panel.set_meta(&"lock_mark", mark)
@@ -347,7 +348,7 @@ func _build_view(i: int) -> Control:
 			if seg is Dictionary:
 				var w := LinkButton.new()
 				w.text = str(seg.get("text", "")) + (" ↗" if wiki_level else "")
-				LinkStyle.apply(w, str(seg.get("kind", LinkStyle.kind_of_key(str(seg.get("key", ""))))), str(seg.get("variant", "")))
+				LinkStyle.apply(w, str(seg.get("kind", LinkStyle.kind_of_key(str(seg.get("key", ""))))), str(seg.get("variant", "")), "paper")
 				w.focus_mode = Control.FOCUS_ALL
 				w.set_meta(WORD_META, str(seg.get("key", "")))
 				w.accessibility_description = tr("opens in the wiki") if wiki_level else tr("has details: Q")
@@ -372,7 +373,7 @@ func _build_view(i: int) -> Control:
 	if str(c.get("wiki", "")) != "":
 		var wiki := Button.new()
 		wiki.text = tr("Open in wiki")
-		wiki.flat = true
+		wiki.size_flags_horizontal = Control.SIZE_SHRINK_CENTER   # a wood plaque on the card (art bible 7.12)
 		wiki.pressed.connect(func(): wiki_requested.emit(str(c.get("wiki"))))
 		box.add_child(wiki)
 		focusables.append(wiki)

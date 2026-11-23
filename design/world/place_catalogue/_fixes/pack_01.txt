@@ -1,0 +1,35 @@
+id 1 Thúy Vi Tông: year 233 is not in its record
+id 8 Hàm Nguyệt Trang: year 940 is not in its record
+id 8 Hàm Nguyệt Trang: year 944 is not in its record
+id 9 Hồng Lô Cốc: year 560 is not in its record
+id 9 Hồng Lô Cốc: year 505 is not in its record
+id 30 Yên Ba Thành: year 560 is not in its record
+id 30 Yên Ba Thành: year 860 is not in its record
+id 30 Yên Ba Thành: year 1040 is not in its record
+id 30 Yên Ba Thành: year 1196 is not in its record
+id 31 Hàn Tân Thành: year 233 is not in its record
+id 32 Tùng Gian Thành: year 800 is not in its record
+id 45 Lam Yên Thị (market): the rule expects special
+id 56 Mục Ca Thành: year 560 is not in its record
+id 57 Bạch Sa Trấn: year 560 is not in its record
+id 57 Bạch Sa Trấn: year 590 is not in its record
+id 58 Bách Diệp Trấn (town): the rule expects special
+id 59 Tiều Ca Trấn (town): the rule expects special
+id 102 Ô Đề Thôn (village): the rule expects special
+id 103 Lâm Tuyền Thôn (village): the rule expects special
+id 104 Thu Diệp Thôn (village): the rule expects special
+id 165 Bích Ngọc Khoáng (mine): the rule expects special
+id 166 Vân Mẫu Khoáng (mine): the rule expects special
+id 200 Phản Cảnh Lâm: year 330 is not in its record
+id 206 Thương Tùng Mạch: year 200 is not in its record
+id 206 Thương Tùng Mạch: year 510 is not in its record
+id 210 Hỏa Ngọc Mạch: year 560 is not in its record
+id 213 Không Sơn Viện: year 240 is not in its record
+id 213 Không Sơn Viện: year 300 is not in its record
+id 213 Không Sơn Viện: year 430 is not in its record
+id 225 Hổ Khiếu Trấn: year 735 is not in its record
+id 229 Thiết Tỏa Quan: year 502 is not in its record
+id 229 Thiết Tỏa Quan: year 506 is not in its record
+id 229 Thiết Tỏa Quan: year 509 is not in its record
+id 229 Thiết Tỏa Quan: year 510 is not in its record
+id 229 Thiết Tỏa Quan: year 990 is not in its record

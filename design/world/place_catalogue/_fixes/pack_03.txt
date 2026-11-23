@@ -1,0 +1,58 @@
+id 18 Bình Thủy Môn: year 500 is not in its record
+id 18 Bình Thủy Môn: year 705 is not in its record
+id 18 Bình Thủy Môn: year 960 is not in its record
+id 19 Mục Vân Trang: year 420 is not in its record
+id 20 Thiên Bảo Trai: year 1003 is not in its record
+id 36 Liên Giang Thành: year 492 is not in its record
+id 37 Đàm Ảnh Thành: year 400 is not in its record
+id 37 Đàm Ảnh Thành: year 500 is not in its record
+id 37 Đàm Ảnh Thành: year 705 is not in its record
+id 38 Nhạn Thanh Thành: year 420 is not in its record
+id 38 Nhạn Thanh Thành: year 890 is not in its record
+id 39 Tử Điện Thành: year 610 is not in its record
+id 39 Tử Điện Thành: year 612 is not in its record
+id 39 Tử Điện Thành: year 618 is not in its record
+id 39 Tử Điện Thành: year 803 is not in its record
+id 39 Tử Điện Thành: year 1160 is not in its record
+id 48 Tống Khách Thị (market): the rule expects special
+id 68 Mộc Lan Thành: year 700 is not in its record
+id 68 Mộc Lan Thành: year 700 is not in its record
+id 69 Kê Minh Trấn (town): the rule expects special
+id 72 Triều Âm Thành: year 500 is not in its record
+id 72 Triều Âm Thành: year 705 is not in its record
+id 72 Triều Âm Thành: year 870 is not in its record
+id 74 Thảo Đường Thành: year 420 is not in its record
+id 74 Thảo Đường Thành: year 800 is not in its record
+id 78 Ngũ Cốc Thành: year 1003 is not in its record
+id 78 Ngũ Cốc Thành: year 1003 is not in its record
+id 119 Tiều Lộ Thôn (village): the rule expects special
+id 120 Lâm Ẩn Thôn (village): the rule expects special
+id 121 Lô Hoa Thôn (village): the rule expects special
+id 135 Tân Khẩu Thôn: year 1196 is not in its record
+id 168 Băng Lăng Khoáng (mine): the rule expects special
+id 189 Sương Diễm Sơn: year 620 is not in its record
+id 191 Phiến Băng Hồ: year 440 is not in its record
+id 195 Phù Chử Đảo: year 420 is not in its record
+id 196 Tịch Chiếu Đảo: year 290 is not in its record
+id 201 Vô Tung Lâm: year 540 is not in its record
+id 201 Vô Tung Lâm: year 620 is not in its record
+id 201 Vô Tung Lâm: year 780 is not in its record
+id 201 Vô Tung Lâm: year 1180 is not in its record
+id 207 Trường Hà Mạch: year 788 is not in its record
+id 207 Trường Hà Mạch: year 805 is not in its record
+id 216 Hàn Giang Môn: year 350 is not in its record
+id 216 Hàn Giang Môn: year 440 is not in its record
+id 216 Hàn Giang Môn: year 492 is not in its record
+id 219 Kim Cốc Thành: year 1010 is not in its record
+id 222 Hồng Vũ Thành: year 520 is not in its record
+id 222 Hồng Vũ Thành: year 610 is not in its record
+id 222 Hồng Vũ Thành: year 612 is not in its record
+id 222 Hồng Vũ Thành: year 620 is not in its record
+id 222 Hồng Vũ Thành: year 788 is not in its record
+id 223 Vô Định Thành: year 790 is not in its record
+id 223 Vô Định Thành: year 805 is not in its record
+id 226 Bích Không Cảng: year 705 is not in its record
+id 226 Bích Không Cảng: year 400 is not in its record
+id 226 Bích Không Cảng: year 410 is not in its record
+id 226 Bích Không Cảng: year 500 is not in its record
+id 226 Bích Không Cảng: year 705 is not in its record

@@ -1,0 +1,12 @@
+Paint ONE place into this tile of a painted grand-strategy map. The input is the finished map around the place, seen straight down; the place stands at the exact CENTRE of the image.
+
+The place: Hàm Nguyệt Trang, minor seat. Paint it as a minor sect's seat: a compact walled compound of halls and one tall pagoda or tower, terraces where the land climbs.
+How it looks: A low manor of dark timber and grey tile stands among birches on the lake shore, its slim piers reaching out over still water. Just off the piers a perfect ring of white stones breaks the surface, enclosing a circle of water so calm it holds the moon whole; the manor calls it the Moon Net.
+Art brief: A small lakeside sect seat seen from above at an angle: a walled compound of dark-stained timber halls under grey tile roofs set among pale birches, rising at the shore to a slender three-roofed moon-viewing tower, the tallest outline on this stretch of lake, with three slim wooden piers running out over the water. Signature element just off the piers: a perfect ring of white stones in the shallows, the water inside it mirror-still and holding a pale disc of reflected sky. At the base: reed beds, rows of thin pearl-farm stakes, a faint mist on the water. Warm golden light from the top left, long soft shadows across the water. Avoid: text, people larger than specks, more than a couple of tiny skiffs, anything outside the manor's footprint.
+
+Rules:
+- Paint the place as a small, finely detailed miniature, as if a model-maker had built it into this painted relief: seen from above at a gentle angle so roofs, walls and towers read clearly, its base sitting naturally on the terrain that is there (follow the slopes, the shore, the river).
+- Keep it centred and compact: the whole place fits inside a circle about 20 % of the image width across the centre. Short roads or paths may lead out of it.
+- Match the map exactly: the same golden-hour light from the TOP LEFT with soft shadows to the bottom right, the same painterly style, colours and level of detail as the surrounding terrain; the building scale fits the trees and hills around it.
+- Leave everything outside that central circle exactly as it is in the input.
+- Never: text, labels, banners with writing, flags with symbols, people larger than specks, a frame, a vignette, clouds over the place.

@@ -1,0 +1,23 @@
+{
+ "created": 1795389364,
+ "background": "opaque",
+ "output_format": "png",
+ "quality": "medium",
+ "safety_identifier": null,
+ "size": "1536x864",
+ "usage": {
+  "input_tokens": 1446,
+  "input_tokens_details": {
+   "image_tokens": 1296,
+   "text_tokens": 150
+  },
+  "output_tokens": 1078,
+  "output_tokens_details": {
+   "image_tokens": 1078,
+   "text_tokens": 0
+  },
+  "total_tokens": 2524
+ },
+ "model": "gpt-image-2",
+ "prompt": "This image is a painted grand-strategy map seen straight down, with Bình Dã Trấn painted at its centre. Change ONLY the place at the centre, and only as described; keep its layout, every existing building, the terrain, the water, the colours and the golden-hour light from the top left exactly as they are, so the two images can be swapped on the map.\n\nThe place grows one development level: A second drying yard outside the walls and roofed sheds to store the mats.\n\nKeep the change inside a circle about 18 % of the image width across the centre. Never: text, labels, writing, symbols on flags, people larger than specks, a frame, a vignette."
+}

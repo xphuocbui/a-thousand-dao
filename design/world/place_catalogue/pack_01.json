@@ -1,0 +1,421 @@
+{"places": [
+  {
+   "id": 8,
+   "name": "Hàm Nguyệt Trang",
+   "look": "A low manor of dark timber and grey tile stands among birches on the lake shore, its slim piers reaching out over still water. Just off the piers a perfect ring of white stones breaks the surface, enclosing a circle of water so calm it holds the moon whole; the manor calls it the Moon Net.",
+   "lore": "Hàm Nguyệt Trang is a small water-arts sect (tông môn) sworn to Tùng Đào Cung, living on spirit fish (linh ngư) and lake pearls. Its founder said the moon in the lake is easier to catch than the one in the sky, and novices still begin by sitting at the Moon Net until they can watch the reflection without breaking it. Its mistress Kiều Nguyệt Châu has doubled the pearl harvest since she took the manor. The manor keeps no war boats; its old ones lie on the lake bed where it sank them.",
+   "special": true,
+   "history": "In 410 a water cultivator founded Hàm Nguyệt Trang on the long lake, saying the moon in the lake is easier to catch than the one in the sky. In 470 a fisher of Tuyết Lộc pulled a pearl the size of a fist from Hạo Nguyệt Hồ; the manor bought it and began to farm pearls, and pearls have been its wealth ever since. In 610 its disciples tracked a snow-leopard spirit beast that had taken a child from Hàn Yên Thôn for forty days across the ice. In 748 the lake froze to its bed for one winter, and the manor's spirit fish lived through it in the moon's reflection, which the disciples count as proof of their founder's words. When Tùng Đào Cung and Băng Tâm Các went to war over the lake, Băng Tâm skiffs raided the pearl beds in 942, and the manor sank its own boats rather than lose them. The arbitration that ended the war left the lake with Tùng Đào but gave Băng Tâm the fishing of the northern shore, so the manor now shares its waters with its old raiders. In 1150 Kiều Nguyệt Châu became mistress of the manor and doubled the pearl harvest within twenty years.",
+   "art_brief": "A small lakeside sect seat seen from above at an angle: a walled compound of dark-stained timber halls under grey tile roofs set among pale birches, rising at the shore to a slender three-roofed moon-viewing tower, the tallest outline on this stretch of lake, with three slim wooden piers running out over the water. Signature element just off the piers: a perfect ring of white stones in the shallows, the water inside it mirror-still and holding a pale disc of reflected sky. At the base: reed beds, rows of thin pearl-farm stakes, a faint mist on the water. Warm golden light from the top left, long soft shadows across the water. Avoid: text, people larger than specks, more than a couple of tiny skiffs, anything outside the manor's footprint.",
+   "levels": ["Pearl sheds spread along the shore on both sides of the piers and the moon-viewing tower gains a fourth roof.", "The manor walls take in the birch grove, a stone pearl hall rises behind the tower, and a second, smaller ring of white stones is laid in the shallows for the disciples."]
+  },
+  {
+   "id": 55,
+   "name": "Quy Điểu Trấn",
+   "look": "A walled lakeside town of grey roofs whose shore is lined with rows of tall birch poles, each crowned with a straw nest-basket. In autumn every pole and roof ridge is crowded with returning birds; in winter the market tents stand out on the ice beyond the harbour wall.",
+   "lore": "Quy Điểu Trấn began as a traders' camp named for the birds that return to the lake each autumn in great flocks, and townsfolk still raise a new nest pole for every child born. Lake pearls made it rich, and each winter its market moves out onto the ice, where pearl buyers walk from stall to stall over the frozen water. It is a Tùng Đào town, and much of what Hàm Nguyệt Trang's pearl beds yield passes over its scales.",
+   "special": false,
+   "art_brief": "A small rectangular walled town of grey-tile roofs on a flat lake shore among birch and spruce. Signature element: long rows of tall, thin pale birch poles along the shoreline, each topped by a round straw nest-basket, a few with tiny birds as specks. A small stone harbour wall curves into the lake. At the base: a pebble shore, a few moored skiffs, a thin rim of pale ice. Warm light from the top left catching the pole tops. Avoid: text, people larger than specks, flocks that spill beyond the town, anything outside the town's footprint.",
+   "levels": ["The wall runs further along the shore and the nest poles stand in double rows; a stone pearl market hall rises by the harbour.", "A second harbour basin is cut, and a tall grey-roofed bird-watching tower stands over the shore where the winter ice market is held."]
+  },
+  {
+   "id": 95,
+   "name": "Tuyết Lộc Thôn",
+   "look": "A handful of low log houses with grey tile and turf roofs sit on the snowy north shore of the lake, entered through a gate arch built entirely of shed reindeer antlers. Herds graze the lichen between the houses and the water's edge.",
+   "lore": "Reindeer herders settled the lake's snowy north shore in 140, and their camp became Tuyết Lộc Thôn; each spring the herders add the year's finest shed antlers to the arch. A fisher of this village pulled from the lake the great pearl that started Hàm Nguyệt Trang's pearl farms, and the village answers to the manor. Since the Long Lake War, Băng Tâm fishers share the northern shore, and the herders trade them hides for salt.",
+   "special": false,
+   "art_brief": "A tiny village of half a dozen low log houses with grey tile roofs dusted with snow, on a white lakeshore with dark spruce behind. Signature element: a tall, rough gate arch made of interlocked pale reindeer antlers at the village entrance. At the base: snowy ground, a fenced corral, a few reindeer as specks, the lake edge with a short plank jetty. Warm light from the top left on the antlers. Avoid: text, people larger than specks, anything outside the village footprint.",
+   "levels": ["The antler arch is doubled in height, and a row of smokehouses and a fenced winter corral grow along the shore.", "A small stone shrine to the lake's first pearl stands beside the arch, and a longer jetty serves the fishers of the northern shore."]
+  },
+  {
+   "id": 96,
+   "name": "Hàn Yên Thôn",
+   "look": "A huddle of grey-roofed houses with tall stone chimneys sits on the lake shore, where on still winter mornings the smoke hangs frozen in pale columns. At the ice edge stands a lone post with a bronze bell, rung at every dusk.",
+   "lore": "The village takes its name from a winter so cold that smoke froze above its chimneys. When a snow-leopard spirit beast took a child from here, Hàm Nguyệt Trang's disciples tracked it for forty days across the ice; since then the bell at the shore calls the children in before dark. Villagers leave a fish on the bell post's stone base on the night the hunt set out, for the disciples who went.",
+   "special": false,
+   "art_brief": "A small cluster of grey-tile houses with unusually tall stone chimneys on a snowy lakeshore, thin pale smoke columns standing straight up. Signature element: a single tall wooden post at the ice edge carrying a small bronze bell under a little grey roof. At the base: snow, a strip of grey lake ice, birch and spruce at the back. Warm light from the top left, the bell glinting. Avoid: text, people larger than specks, anything outside the village footprint.",
+   "levels": ["A palisade faces the forest and a second bell post stands at the village's back toward the trees.", "A small stone watch-house for the lake patrol rises beside the shore bell, its single grey roof the tallest in the village."]
+  },
+  {
+   "id": 97,
+   "name": "Noãn Ốc Thôn",
+   "look": "Domed stone houses, thick-walled and half sunk into the ground, cluster on the lake shore like loaves of bread, each capped with a small grey tile roof. Between them a timber bath-house stands over a hot spring, its steam visible far across the ice.",
+   "lore": "Tùng Đào's first steward of the north built warm stone houses for the lake villages, and the hamlet beside them is still called Noãn Ốc. Since a hot spring was found under the snow here in 1015, old cultivators come every winter to soak their bones, and villagers rent bath hours by the burning of an incense stick. Locals say the steward's houses stay warm because he mixed a little of his own qi into the mortar.",
+   "special": false,
+   "art_brief": "A small village of round, domed, thick-walled stone houses half sunk into a snowy lakeshore, each with a little grey tile cap. Signature element: the domed beehive houses themselves, clustered like loaves, with one plain timber bath-house among them giving off a soft steam plume. At the base: snow, a strip of lake ice, a few birches. Warm light from the top left rounding the domes. Avoid: text, people larger than specks, anything outside the village footprint.",
+   "levels": ["New domed houses ring the bath-house and a covered walkway links them against the snow.", "A two-storey guest lodge for visiting cultivators rises beside the spring, and the bath-house gains a second, stone-walled pool."]
+  },
+  {
+   "id": 190,
+   "name": "Hạo Nguyệt Hồ",
+   "look": "The long lake runs pale silver between dark forest shores, the largest water on the continent, its far end lost in haze. On one shore a thin stone causeway leaves a small fishers' shrine and runs straight out into the lake, stopping in open water.",
+   "lore": "Fishers say a man once walked across this water into the moon, and they built a shrine where he set out; the causeway was laid later, stone by stone, by those who wanted to follow as far as they dared. The lake's pearls feed Hàm Nguyệt Trang and the shore towns, and once brought two great sects to war. Its water is cold and deep with qi, and the lake villages say the master who left the world here never quite took his home with him.",
+   "special": true,
+   "history": "In the Wild Age fishers on the long lake saw a man walk over the water into the moon, and in 45 they built a shrine on the shore where he had set out. In 470 a fisher of Tuyết Lộc pulled a pearl the size of a fist from the lake; Hàm Nguyệt Trang bought it and began to farm pearls, and the pearl trade later made the shore towns rich. In 748 Hạo Nguyệt Hồ froze to its bed for one winter, and the spirit fish of Hàm Nguyệt Trang lived through it in the moon's reflection. Its pearls drew Tùng Đào Cung and Băng Tâm Các into the Long Lake War in 940. In 944 Đỗ Tinh Hà arbitrated: the lake stayed Tùng Đào's, and Băng Tâm won the right to fish its northern shore. In 1192 a white moon-fox was seen on the lake three nights running, and the villagers say a blessed land is waking somewhere in the north.",
+   "art_brief": "A long, narrow lake of pale silver water lying between dark conifer and birch shores, seen from above at an angle, its far end fading into haze. Signature element on the near shore: a thin grey stone causeway that leaves a tiny grey-roofed shrine and runs straight out over the water, ending abruptly in open lake. At the edges: reed beds, a few lines of pearl-farm stakes, thin rims of pale ice. Warm low light from the top left laying a gold path across the water. Avoid: text, people, boats larger than specks, any roofline other than the tiny shrine, anything beyond the lake's own shores."
+  },
+  {
+   "id": 200,
+   "name": "Phản Cảnh Lâm",
+   "look": "From outside it is a dark sea of old spruce and larch rising gently to a low crown. At its heart a hollow ringed by giant trees holds a patch of amber evening light that lingers long after the rest of the forest has gone grey.",
+   "lore": "Lost travellers have walked out of Phản Cảnh Lâm by the light at its heart, which stays until dawn, and the forest is named for that returning light. Woodcutters tie a strip of bark to the last tree they pass, so the next lost walker can follow the light out. The forest belongs to no sect; Tùng Đào's patrols skirt its edge, and hunters leave the inner hollow alone.",
+   "special": true,
+   "history": "In the Wild Age and the Age of First Gates the northern forest was only a hunting ground for the lake villages, unnamed and unmapped. Late in the Age of First Gates its region passed under Tùng Đào Cung, but the palace never fenced or settled the deep heart of the wood. By 530 travellers knew that the evening light lingered in the heart of the forest so long that the lost could walk by it until dawn, and the forest took the name Phản Cảnh Lâm. The custom of tying bark strips to the trees grew from those walks, and the strips now mark several faint ways out. In 870 hunters found footprints in the snow leading into the forest and never out, and no one followed them. Since then the heart has been left alone, and the lake villages tell children that the light is someone waiting.",
+   "art_brief": "A broad, gently rising dome of dense dark conifer forest seen from above at an angle, no clearings at its edges. Signature element: a sunken hollow at the centre ringed by a few giant old larches whose crowns glow amber-gold as if lit from within, while the canopy around them lies in cool blue-green shadow. At the base: patches of snow, a faint hunters' trail that stops at the forest edge. Warm light from the top left, with the hollow's glow slightly warmer than the sun. Avoid: any roofline, text, people, paths into the heart, anything outside the forest's footprint."
+  },
+  {
+   "id": 9,
+   "name": "Hồng Lô Cốc",
+   "look": "A steep coastal valley of snow and black rock opens onto a grey sea, its terraces climbing to a squat red-brick furnace tower. Snow never settles in a wide ring around the tower; the bare dark ground there steams, and the stack glows at night like a coal.",
+   "lore": "Hồng Lô Cốc is a sect of alchemists (đan sư) sworn to Thúy Vi Tông, whose furnace was lit with fire carried from the volcanic isles. Its saying is that a snowflake on the red furnace is gone at once, and novices stand catching snow by the furnace mouth until they stop flinching. Its master Đồng Hồng Lô once kept the furnace burning nine years without letting it cool. The valley also works Bích Ngọc Khoáng, the green jade mine in the hills of Thanh Loan Lĩnh.",
+   "special": true,
+   "history": "Thúy Vi Tông took the cape of snow and fire in the Age of the North Star Compact, and its surveyors soon charted the smoking volcanic isles offshore. In 650 a company of alchemists carried fire from those isles across the water and lit a furnace in this coastal valley, founding Hồng Lô Cốc. The valley swore itself to Thúy Vi, whose own art is alchemy, and became its lord's furnace on the cape. In time it also took over the working of Bích Ngọc Khoáng, the green jade mine Thúy Vi had opened soon after its founding. In 930 Đồng Hồng Lô became master of the valley and kept its furnace burning for nine years without cooling, a feat the alchemists still toast each midwinter. In 1185 the volcanic isles smoked for a month, and Hồng Lô Cốc's alchemists sailed out to gather the ash before the rain could take it.",
+   "art_brief": "A sect seat climbing a narrow coastal valley of snow-covered black rock: stepped stone terraces with grey stone halls under dark red tile roofs rise from a small stone landing to a squat, tall red-brick furnace tower with a glowing orange mouth and a thin smoke plume, the tallest outline on the cape. Signature element: a perfect ring of bare, dark, steaming ground around the furnace tower where no snow lies, sharp against the white slopes. At the base: a stone landing, black shingle, a grey sea with one small ash boat. Warm golden light from the top left meeting the furnace's own orange glow. Avoid: text, people larger than specks, anything outside the valley.",
+   "levels": ["A second, taller furnace stack rises beside the first and the snow-free ring widens over a new terrace of drying sheds.", "A stacked pagoda hall of red tile crowns the valley head above the furnaces, and a curved stone breakwater shelters the ash boats."]
+  },
+  {
+   "id": 30,
+   "name": "Yên Ba Thành",
+   "look": "A walled port city stands where a river meets the sea, its quays and lower streets often lost in a drifting blue-green mist. Above the haze rises a slender pagoda of green-glazed tile at the end of the harbour mole, and a bronze horn at its top sounds through the fog to guide the ships home.",
+   "lore": "Yên Ba Thành is Thúy Vi Tông's port and the busiest market of its coast, where grain from the cape villages and the trade of the white sands meet. Sailors say the mist on the river waves makes a man sad, and the city answers with noise: the horn, drums at the gates, and taverns that stay open late. A protective formation (trận pháp) laid by Thúy Vi keeps the worst sea fogs out of the upper town.",
+   "special": true,
+   "history": "A generation after Thúy Vi Tông took the cape of snow and fire, the sect needed a harbour to tie it to its hills. In 590 it founded Yên Ba Thành, a port in the mist of the river waves, at the river's mouth, and raised the horn pagoda on its mole. The city grew into the cape's market, buying fish, wool and grain from the villages around it. Through one long, hard winter early in the Age of Vein Wars it lived on grain from Hòa Thử Thôn, and its granary wardens still buy from that village first. Generations later a daughter of the Thẩm clan of Bạch Sa married into one of its merchant houses, and the white sands became a trading town tied to Yên Ba. Only a few years ago, after a poor harvest drove grain prices in Mục Ca Thành beyond the herders' reach, they came to sing their songs for coin in Yên Ba's streets.",
+   "art_brief": "A rectangular walled port city of grey-tile roofs at a river mouth, its lower streets and quays softly veiled in blue-green mist. Signature element: a tall, slender pagoda of green-glazed tile standing at the end of a long stone harbour mole, rising clear above the mist, with a small bronze horn at its peak. At the base: stone quays, a river mouth with small junks, the sea edge. Warm golden light from the top left catching the pagoda's upper roofs above the haze. Avoid: text, people larger than specks, ships outside the harbour, anything outside the city's footprint.",
+   "levels": ["The walls extend up the river bank and a second quay with green-roofed warehouses lines the river mouth.", "A great stone harbour gate spans the river behind the mole, and the upper town's green roofs climb a terraced hill clear of the mist."]
+  },
+  {
+   "id": 56,
+   "name": "Mục Ca Thành",
+   "look": "A walled city of low grey roofs sits on open coastal grassland, hunched against the wind. Around its walls a ring of round dry-stone sheepfolds lies across the grass like beads on a string, and at dusk the herders' songs carry from fold to fold.",
+   "lore": "Thúy Vi founded the city on its cape where herders sing to their flocks, and the songs are still how flocks are counted, called home and sold. Each herding family owns a fold in the ring and a tune no one else may sing at it. The city lives on wool, hides and the sea, and buys its grain, so a poor harvest anywhere on the cape hits it hard.",
+   "special": true,
+   "history": "Long before any sect claimed the cape, herders drove their flocks along this grassy shore and sang to them. Thúy Vi Tông took Tuyết Hỏa Giác in the Age of the North Star Compact, and in 700 founded Mục Ca Thành on the cape where the herders sang. The city grew as the cape's wool and hide market, and its folds were added one by one around the walls as families settled. Its grain came from the cape villages and through the harbour of Yên Ba. In 1196 a poor harvest drove grain prices in the city so high that the herders went to sing their songs for coin in Yên Ba's streets. The songs came home with them changed, and old herders complain that the young now sing for strangers.",
+   "art_brief": "A rectangular walled city of low grey-tile roofs on open green-gold coastal grassland, a modest gate tower its tallest roof and a small harbour on the sea side. Signature element: a ring of round dry-stone sheepfolds strung around the outside of the walls, each a pale stone circle on the grass. At the base: rolling grass, a shingle shore, a short stone pier. Warm light from the top left with long shadows from the fold walls. Avoid: text, people or sheep larger than specks, anything outside the city and its ring of folds.",
+   "levels": ["A second ring of folds is built and a long covered wool hall rises inside the walls.", "A tall drum-and-song tower stands at the city's centre, and the harbour gains a stone mole for the wool ships."]
+  },
+  {
+   "id": 57,
+   "name": "Bạch Sa Trấn",
+   "look": "A small walled town of whitewashed walls and grey roofs sits on a beach of dazzling white sand. Along the shore stand long rows of whitewashed net-drying frames, so many that from the sea the town seems fenced in white lattice.",
+   "lore": "The Thẩm family, fishers of the white sands, built the first houses here, and the clan hall is still the town's court. Since a Thẩm daughter married into a merchant house of Yên Ba, the town trades as much as it fishes. A peach petal netted in midwinter is kept in a sealed jar at the clan hall; the elders say the hidden valley's stream has opened again, and strangers have begun asking which way the currents run.",
+   "special": true,
+   "history": "In 380 the Thẩm family, fishers of the white sands, built the first houses of Bạch Sa on this beach. For centuries it was a fishing village, and once Thúy Vi Tông took the cape it owed its catch to that sect. When Thúy Vi founded the port of Yên Ba Thành a generation later, Bạch Sa's fish went to its markets. In 1040 a daughter of the Thẩm clan married into a merchant house of Yên Ba, and the white sands became a trading town. In 1120 a fisher of Bạch Sa netted a peach petal in midwinter, far from any peach tree, and the elders said the hidden valley's stream had opened again. Since then cultivators come through asking about tides and streams, and the Thẩm clan answers them politely and tells them nothing.",
+   "art_brief": "A small rectangular walled town of whitewashed walls and grey-tile roofs on a broad beach of bright white sand. Signature element: long parallel rows of whitewashed net-drying frames running along the beach in front of the walls like white lattice. At the base: white sand, a few beached fishing boats, a short wooden pier into pale turquoise shallows. Warm light from the top left, the sand glowing. Avoid: text, people larger than specks, any peach tree, anything outside the town and its beach.",
+   "levels": ["A merchants' quarter of two-storey warehouses grows inside an extended wall and the pier is rebuilt in stone.", "A tall double-roofed clan hall of the Thẩm stands at the town's heart, and a small harbour wall curves around the rows of net frames."]
+  },
+  {
+   "id": 98,
+   "name": "Mạch Lãng Thôn",
+   "look": "A few grey-roofed farmhouses stand among wheat fields that ripple like waves over dark volcanic soil. Low walls of black lava stone divide the gold fields into long strips running down to the sea.",
+   "lore": "Wheat first grew here in the warm ash of the cape, and the fields of Mạch Lãng Thôn are still the oldest on it. Farmers say the ash remembers the fire and keeps the seed warm through the frosts. At harvest they leave the last strip standing for the wind to thresh.",
+   "special": false,
+   "art_brief": "A tiny farming village of a few grey-tile farmhouses on a gentle coastal slope. Signature element: long strips of golden wheat over black volcanic soil, divided by low, dark lava-stone walls that run in parallel lines down to the shore. At the base: a narrow dark beach and one small boat. Warm light from the top left raking across the wheat. Avoid: text, people larger than specks, anything outside the village fields.",
+   "levels": ["The lava-stone walls extend up the slope over new strips and a stone threshing floor is laid by the houses.", "A small granary barn with a double grey roof and a windmill on the slope serve the wider fields."]
+  },
+  {
+   "id": 99,
+   "name": "Phong Phàm Thôn",
+   "look": "A village of grey roofs sits on a windy headland above its boat sheds. On the point stands a tall mast hung with long cloth streamers of many colours, which the sailors read before every launch.",
+   "lore": "The sailors of Phong Phàm Thôn learned to read the cape's winds so well that their sails never go slack. Every family hangs its own streamer on the wind mast, and children learn the winds by watching how each one flies. Merchants of the coast hire Phong Phàm pilots whenever they can get them.",
+   "special": false,
+   "art_brief": "A small village of grey-tile houses on a grassy headland, boat sheds and a slipway below on the shore. Signature element: a tall wooden mast on the very tip of the headland trailing long, many-coloured cloth streamers in the wind. At the base: grass, rocks, a few small sailboats drawn up. Warm light from the top left catching the streamers. Avoid: text, people larger than specks, anything outside the headland.",
+   "levels": ["A second mast stands on the far point and the boat sheds grow into a small yard with a stone slipway.", "A pilots' hall with a lookout gallery rises beside the mast, and a short stone breakwater shelters the boats."]
+  },
+  {
+   "id": 100,
+   "name": "Hòa Thử Thôn",
+   "look": "Low farmhouses sit among millet and grain fields on the coast. Beside them stand rows of small granary huts raised on mushroom-shaped stone stilts, keeping the grain clear of damp and rats.",
+   "lore": "Grain from Hòa Thử Thôn fed Yên Ba Thành through the long winter of 860, and the city has not forgotten. The village keeps one granary hut empty in every row in memory of that winter, filled only when another bad year comes. Its millet wine is poured at harvest feasts all along the cape.",
+   "special": false,
+   "art_brief": "A small farming village of grey-tile houses among yellow millet fields near the shore. Signature element: neat rows of small square granary huts with grey roofs, each raised on mushroom-shaped stone stilts. At the base: field strips, a cart track, a small boat landing. Warm light from the top left casting short shadows under the raised granaries. Avoid: text, people larger than specks, anything outside the village.",
+   "levels": ["The granary rows double and a stone road links the village to the coast road.", "A large stone grain store with a double roof rises at the end of the rows, and a small pier ships grain to Yên Ba."]
+  },
+  {
+   "id": 101,
+   "name": "Ẩn Loan Thôn",
+   "look": "A few houses cling above a narrow cove hidden between cliffs, out of sight from the open sea. A steep stair cut into the rock leads down from the village to the mouth of a sea cave at the water's edge.",
+   "lore": "One winter a pirate crew hid in the cove below the village, and the villagers fed them and said nothing. When Thôn Hải fell the pirates vanished in a single night, leaving a chest of salt and a child; some say the child's line still lives here. The villagers are polite to strangers and tell them very little.",
+   "special": false,
+   "art_brief": "A tiny village of a few grey-tile houses on a cliff top above a narrow, hidden cove. Signature element: a steep stair cut into the cliff face zigzagging down to a dark sea cave mouth at the waterline. At the base: a small pebble beach, dark green water, one rowing boat. Warm light from the top left, the cove in partial shadow. Avoid: text, people larger than specks, ships, anything outside the cove.",
+   "levels": ["A rope hoist is rigged beside the stair and a few new houses climb along the cliff top.", "A small stone harbour wall is built across the cove's mouth, and a grey-roofed watch-house stands over the cave stair."]
+  },
+  {
+   "id": 210,
+   "name": "Hỏa Ngọc Mạch",
+   "look": "Far out in the western sea a black volcanic island rises in a steep cone, steam leaking from its flanks. Down the cone's sides run seams of fire jade that glow red-green through the rock at dusk, as if the mountain were cracked over a lamp.",
+   "lore": "A spirit vein (linh mạch) of fire jade lies under the volcano, charted by Thúy Vi's surveyors and kept on a sealed chart. It sits at the edge of the cape's waters, where Lạc Hà's waters begin, and few ships come so far. Thúy Vi sends no settlers; those who go are alchemists and miners on short, guarded voyages.",
+   "special": true,
+   "history": "In the Wild Age the island was only a smoking mark on the horizon for the cape's fishers. A few years before the find, Thúy Vi Tông took the cape of snow and fire and set its surveyors to chart the coast and the sea beyond. In 565 they found a pocket of fire jade under a volcano far out at sea, named it Hỏa Ngọc Mạch and kept the chart sealed. The vein became Thúy Vi's quiet treasure, worked in small voyages rather than settled. In the Age of Vein Wars it lies on the edge of Lạc Hà's waters, the kind of wild vein neighbours fight over, yet no war has been fought for it. The cape's sailors say the sealed chart is the reason: no one fights for what they cannot find.",
+   "art_brief": "A steep black volcanic cone rising alone from deep blue sea, a thin steam plume from its crater and wisps from its flanks. Signature element: branching seams of fire jade running down the cone's sides, glowing red and green through the dark rock. At the base: a narrow rim of black sand and white surf, at most one tiny cove. Warm light from the top left on the cone's shoulder. Avoid: any roofline, text, people, ships, anything beyond the island's shore."
+  },
+  {
+   "id": 244,
+   "name": "Hỏa Hồ Nguyên",
+   "look": "A flat white tundra under a low sky, broken by scattered round patches of bare, thawed brown earth. Each patch marks a fire fox den, its snow melted away by the beast's heat, and trails of melted prints run between them.",
+   "lore": "Fire foxes run on the snow of this plain, and their dens melt round holes in the white. The cape's hunters say a fox's warmth stays in its den long after it leaves, and travellers caught by a blizzard sleep in empty dens at their own risk. Fox pelts that never freeze are the prize of a brave hunter.",
+   "special": false,
+   "art_brief": "A flat expanse of white tundra seen from above at an angle, low lichen-covered hummocks breaking the snow. Signature element: scattered round patches of thawed brown earth, each with a dark den hole, linked by thin trails of melted footprints. At the base: snow, a frozen stream bed. Warm light from the top left, faint warm haze over the den patches. Avoid: any roofline, text, people, visible beasts larger than specks, anything outside the plain."
+  },
+  {
+   "id": 245,
+   "name": "Tuyết Để Tuyền",
+   "look": "A smooth snowfield lies high on the cape's mountains, white except for one blue ice cave at its foot. Steam pours from the cave mouth day and night, and the meltwater runs out warm and faintly green over the stones.",
+   "lore": "Hot water rises under the snowfields here and carves a cave from below. Thúy Vi's alchemists climb up to bottle the water, saying it carries fire and frost together. The ice roof of the cave thins each summer, and more than one careless bather has brought it down on himself.",
+   "special": false,
+   "art_brief": "A high mountain snowfield on a steep slope, smooth and bright. Signature element: one blue ice cave mouth at the foot of the snowfield with a thick plume of white steam pouring out, and a warm green-tinted stream running from it over grey stones. At the base: bare rock, scree, a few stunted pines below. Warm light from the top left on the snow. Avoid: any roofline, text, people, anything outside the snowfield and its stream."
+  },
+  {
+   "id": 247,
+   "name": "Hồ Tâm Thang",
+   "look": "A small rocky islet sits in the middle of a cold mountain lake. Its hot springs have built a staircase of white and rust-orange mineral terraces down to the water, each step a steaming pool.",
+   "lore": "Hot water at the lake's heart wells up on the islet and spills down its terraces into the cold lake. Thúy Vi disciples row out to soak and meditate there, one to a pool. Fishers say the lake never freezes within a stone's throw of the island.",
+   "special": false,
+   "art_brief": "A small rocky islet in a dark cold mountain lake ringed by snowy slopes. Signature element: a staircase of white and rust-orange mineral terraces down the islet's side, each terrace a small steaming turquoise pool. At the base: dark lake water with a ring of open water around the islet while the lake edges are iced. Warm light from the top left on the terraces. Avoid: any roofline, text, people, anything outside the islet and its ring of open water."
+  },
+  {
+   "id": 1,
+   "name": "Thúy Vi Tông",
+   "look": "Twin summits rise out of the blue-green haze of the hills, their slopes stepped with herb terraces and white-walled halls under green-glazed roofs. Around the higher summit a broad path of white stone winds in a spiral from the haze to the peak, and on misty mornings only its pale upper turns show above the clouds.",
+   "lore": "Thúy Vi Tông, the Sect of the Emerald Haze, is a righteous (chính đạo) great sect of alchemists whose herb terraces climb its slopes in green stripes. Its founder came into these hills when the last master of Không Sơn Viện gave them away, and the sect still leaves that old academy untouched. Its head Ngu Lam Sơn walked in the haze for a hundred days before giving his first order, and new disciples now walk the white spiral path, the Haze Walk, from dawn to dusk before they take their vows.",
+   "special": true,
+   "history": "In 500 Phùng Yên Hà founded Thúy Vi Tông in the blue-green mist of the north-western hills, the same year Thôi Bất Kiến of Không Sơn Viện, having no heir, gave Thanh Loan Lĩnh, his whisk and his only student to Phùng Yên Hà. In 505 the sect opened the green jade mine that Không Sơn had forbidden, and when Thôi Bất Kiến died in 520 it left his academy unlocked and unlooted. The sect took the cape of snow and fire in 560 and founded the ports of Yên Ba Thành in 590 and Mục Ca Thành in 700. In 668 Tùng Đào Cung marched on its Cold Ford coast without a writ, took it in 672, and the Pivot let the seizure stand. Thúy Vi waited, and in 901, holding the Pivot's writ, marched to take it back, retaking the Cold Ford in 905, more than two centuries after losing it. In 1000 Phùng Yên Hà died at 640; Ngu Lam Sơn became head, took the White Cloud Whisk, and walked in the haze for a hundred days before giving his first order.",
+   "art_brief": "A tall sect seat on twin forested summits, the tallest outline in its land: stacked pagoda halls with green-glazed roofs and white walls climbing stepped terraces up both peaks. Signature element: a broad path of white stone winding in a spiral around the higher summit from the mist to the peak, its upper turns standing clear above a sea of blue-green mist. On the lower slopes: herb terraces in bright green stripes; at the base the slopes vanish into haze, with a stone stair emerging toward the market below. Warm golden light from the top left on the upper roofs and the white path. Avoid: text, people larger than specks, anything outside the twin summits.",
+   "levels": ["A new hall of pill furnaces rises on the eastern summit and the herb terraces climb another band of the slope.", "A tall many-roofed pagoda crowns the lower summit facing the spiral path, and covered stairs link the herb terraces of both peaks."]
+  },
+  {
+   "id": 10,
+   "name": "Vân Khởi Quán",
+   "look": "High on a mountain shoulder a small abbey of grey stone halls follows a thin stream uphill to the point where it vanishes into a cleft in the rock. Beside that spot a wooden platform juts out over the drop, and below it the clouds rise from the valleys.",
+   "lore": "Vân Khởi Quán is a Daoist abbey (đạo quán) of mountain hermits and teachers, sworn to Thúy Vi Tông and founded by Tống Tọa Vân, the last student of Không Sơn Viện, who is still its abbot. Its teaching is to walk to where the water ends, then sit and watch the clouds rise, and a novice's first lesson is a day on the platform with nothing to do. The abbey works a small mica mine and calls the stone cloud made solid.",
+   "special": true,
+   "history": "Tống Tọa Vân came to these hills as a boy, the only disciple Thôi Bất Kiến took after becoming master of Không Sơn Viện in 460. In 500 his master, with no heir, gave the hills, his whisk and his only student to Phùng Yên Hà of Thúy Vi Tông. In 540 Tống Tọa Vân founded Vân Khởi Quán higher on the mountain, to walk where the water ends and watch the clouds rise, and swore the abbey to Thúy Vi. In 560 its monks opened the mica mine of Vân Mẫu Khoáng and said the stone was cloud made solid. Over the centuries hermits and teachers drifted up the mountain to the abbey, and Thúy Vi took to sending its restless disciples there to learn stillness. In 1080 the mica ran thin, and the abbot said only that clouds, too, pass.",
+   "art_brief": "A small mountain abbey on a high rocky shoulder: a few grey stone halls with dark grey tile roofs stepping up the slope beside a thin stream, ending in a slim two-roofed hall that is the abbey's tallest outline. Signature element: a cantilevered wooden platform jutting out over the cliff edge exactly where the stream disappears into a cleft in the rock. At the base: bare rock, a few twisted pines, white clouds welling up from the valley below the platform. Warm light from the top left on the platform and roofs. Avoid: text, people larger than specks, anything outside the mountain shoulder.",
+   "levels": ["A row of hermit cells is cut into the cliff beside the platform and a stone path climbs to a second, higher terrace.", "A stacked three-roofed sutra tower rises above the halls, and a covered walk follows the stream from the gate to the platform."]
+  },
+  {
+   "id": 31,
+   "name": "Hàn Tân Thành",
+   "look": "A walled port city of grey roofs stands on bleak tundra coast where a broad river meets the sea at a shallow ford. Across the ford march a line of tall stone pillars, each with a lamp niche, marking the safe crossing for wagons and boats alike.",
+   "lore": "Hàn Tân Thành is the northern ford and port of the cold coast, a city of fishers and ferrymen. It has changed hands twice and remembers both: the year the Cold Ford came home, the fishers lit lamps on every boat for a month, and the lamps in the ford pillars are still lit on that month's first night each year. Old families keep a jar of pine resin by the door, a joke about the tax they once could not pay.",
+   "special": true,
+   "history": "In 430 fishers and ferrymen built Hàn Tân Thành at the cold ford of the north coast, under the protection of Không Sơn Viện. When Không Sơn's last master gave his hills to Thúy Vi Tông's founder in 500, the Cold Ford came with them. In 668 Tùng Đào Cung marched on the Cold Ford coast without asking the Pivot for a writ, and in 672 it took the coast and the city; Chung Hoài Cực, Kỳ Tùng Ẩn's old drinking friend, let it stand, and the Compact's first crack showed. Under Tùng Đào the fishers were taxed in pine resin they did not have, and from 674 many left for the hills. In 901 Thúy Vi marched to take back the Cold Ford, this time holding the Pivot's writ. In 905 it retook the coast and Hàn Tân Thành after more than two centuries, and in 906, when the Cold Ford came home, the fishers lit lamps on every boat for a month.",
+   "art_brief": "A rectangular walled port city of grey-tile roofs on flat, pale tundra coast at the mouth of a wide, shallow river, a squat gate tower its tallest roof. Signature element: a line of tall stone pillars crossing the river ford from bank to bank, each with a small glowing lamp niche. At the base: stone quays and fishing boats on the sea side, gravel flats and frost along the river banks. Warm light from the top left over cold blue water. Avoid: text, people larger than specks, anything outside the city and its ford.",
+   "levels": ["The walls reach the far bank and a fortified bridge-gate rises at the middle of the ford.", "A tall beacon tower stands over the harbour, and a second line of pillars marks a deep channel for larger ships."]
+  },
+  {
+   "id": 45,
+   "name": "Lam Yên Thị",
+   "look": "A broad stone stair climbs from the valley into the mountain haze below Thúy Vi Tông, lined on both sides with stalls under indigo cloth awnings. On misty days the awnings fade into the haze one step at a time, so the market seems to climb into cloud.",
+   "lore": "The market grew at the foot of Thúy Vi Tông in the mountain mist and is named for it. Herbs, pill ingredients and scripture are its trade, and scholars from three sects come to buy the red-leaf bookmarks of Thu Diệp Thôn. Each stallholder hangs a small bell from the awning so customers can find the stall by ear in the fog.",
+   "special": true,
+   "history": "Before the market, the foot of the mountain was only the place where Thúy Vi's disciples met the carters who brought up rice and herbs. In 600 a market had grown there in the mountain mist, and it took the name Lam Yên Thị. Its stair was paved step by step as each stallholder laid the stones in front of a stall, so no two steps quite match. It became the place where the sect sold the pills it did not need and bought what its herb terraces could not grow, and scholars climbed it for copied scripture. The custom of awning bells began on a fog day when two buyers searched for each other's stalls from morning to noon. Within living memory the red leaves of Thu Diệp Thôn came onto its stalls as bookmarks for scripture, and scholars from three sects now climb the stair to buy them.",
+   "art_brief": "A market built along a broad stone stair that climbs a forested slope into haze. Signature element: two continuous lines of stalls under deep indigo cloth awnings flanking the stair, fading step by step into blue-green mist toward the top. A few low grey-roofed storehouses at the foot of the stair. At the base: a small paved square and the valley road. Warm light from the top left on the lower awnings. Avoid: text, people larger than specks, the sect seat itself, anything outside the stair's footprint.",
+   "levels": ["A second side stair of stalls branches off halfway up, and an inn with a double grey roof stands at the foot.", "A covered market hall straddles the stair's midpoint, and a stone gate arch marks the market's lower entrance."]
+  },
+  {
+   "id": 58,
+   "name": "Bách Diệp Trấn",
+   "look": "A walled town of grey roofs at a river mouth stands inside a vast grid of ancient cypresses planted in straight rows. From any approach the dark columns of the trees march out in lines, and the town sits at the centre of the pattern.",
+   "lore": "Không Sơn Viện's students planted the cypress groves around Bách Diệp as a lesson in patience, and the trees have long outlived the academy. No townsman may cut a cypress, and a dead one is replaced by a seedling grown from its own cones. The town trades cypress incense and resin along the coast.",
+   "special": true,
+   "history": "In the Age of First Gates the river mouth here was a fishing landing below the hills of Không Sơn Viện. In 240 the academy's students planted the cypress groves around Bách Diệp as a lesson in patience, setting each seedling on a measured line. The town grew up in the middle of the grid, its streets laid along the rows the students had drawn. When Không Sơn's last master gave the hills to Thúy Vi Tông, the town passed with them, and the new sect kept the old rule that no cypress may be cut. Over the centuries the groves grew taller than any roof, and the town learned to live by their resin and incense. Townsfolk say the trees are the academy's last lesson, and the only one anyone ever finished.",
+   "art_brief": "A small rectangular walled town of grey-tile roofs at a river mouth on the coast. Signature element: a large, exact grid of tall, dark, spire-shaped cypresses in straight rows surrounding the town on the land side. At the base: a river mouth, a small wooden harbour, a sandy bank. Warm light from the top left casting long parallel shadows from the rows. Avoid: text, people larger than specks, anything outside the town and its grid of trees.",
+   "levels": ["The grid is extended along the river and an incense workshop quarter is added inside a longer wall.", "A tall cypress-wood hall of the incense guild rises at the town's heart, and a stone quay lines the river mouth."]
+  },
+  {
+   "id": 59,
+   "name": "Tiều Ca Trấn",
+   "look": "A walled timber town of grey roofs sits on the coast below steep forested ridges. A long wooden log flume runs from the ridge tops straight down to the harbour, and logs rattle along it into the water.",
+   "lore": "Woodcutters singing on the ridges below Không Sơn Viện were once asked to sing more quietly, and the town they founded is still called Tiều Ca. Its woodcutters sing to this day, but only below the old academy's boundary stones, out of habit rather than fear. Its timber goes by sea to the cape and to Yên Ba.",
+   "special": true,
+   "history": "Woodcutters worked these ridges in the Wild Age, long before any sect stood above them. When Không Sơn Viện was founded on the mountain, its students found the woodcutters' songs too loud for their quiet. In 190 the woodcutters singing on the ridges below the academy were asked to sing more quietly, and the town they founded on the coast is still called Tiều Ca. They set boundary stones on the slope, and above those stones the woodcutters fall silent to this day. The log flume was built to bring timber down without the shouting of teams and oxen, and it became the town's pride. After the hills passed to Thúy Vi the timber trade grew, and Tiều Ca's logs now go by sea to the cape and to Yên Ba.",
+   "art_brief": "A small rectangular walled town of grey-tile roofs on a narrow coastal strip below forested ridges. Signature element: a long raised wooden log flume running from the ridge top straight down the slope into the harbour. At the base: a log pond, a timber yard, a short pier with a cargo boat. Warm light from the top left along the flume. Avoid: text, people larger than specks, anything outside the town and its flume.",
+   "levels": ["A second flume comes down a neighbouring ridge and a sawmill house stands over the log pond.", "A stone harbour wall shelters the timber ships, and a tall woodcutters' guild hall rises inside the walls."]
+  },
+  {
+   "id": 102,
+   "name": "Ô Đề Thôn",
+   "look": "A small fishing village of grey roofs lies on the shore under a long ridge. On the ridge top a single huge bare oak stands black against the sky, its branches crowded with roosting crows.",
+   "lore": "Crows gathered on the ridge in such numbers that the village beneath was named Ô Đề. Villagers feed them at the new year and believe the crows warn of storms by leaving the oak. Fishers look up at the ridge before they set out.",
+   "special": true,
+   "history": "Fishers beached their boats under this ridge in the Age of First Gates, without a village to speak of. In 410 crows gathered on the ridge in such numbers that the village growing beneath was named Ô Đề. The great oak on the crest was already old then, and the crows have roosted in it ever since. Fishers learned that the birds leave the oak before a storm, and began to watch the ridge before setting out. The custom of feeding the crows at the new year followed, and no villager will harm one. The village passed with the hills to Thúy Vi Tông, and its boats now sell their catch to the sect's towns along the coast.",
+   "art_brief": "A tiny fishing village of grey-tile houses on a strip of shore below a long wooded ridge. Signature element: one huge leafless oak on the ridge top, dark against the sky, its branches dotted with black crows as specks. At the base: a pebble beach, a few boats, drying racks. Warm light from the top left silhouetting the oak. Avoid: text, people larger than specks, anything outside the village and its ridge.",
+   "levels": ["A few more houses climb the slope toward the ridge and a small fish-smoking shed lines the shore.", "A small shrine to the crows stands at the foot of the oak, and a stone pier serves the boats."]
+  },
+  {
+   "id": 103,
+   "name": "Lâm Tuyền Thôn",
+   "look": "A coastal village of grey roofs lies under wooded slopes, with a long line of split bamboo pipes running down from the woods on wooden trestles. The pipes end in a row of stone troughs in the village square, always running.",
+   "lore": "A spring in the woods above the village cured the coughing sickness of 760, and the village took its name from its woods and springs. The pipe line was built to bring the water down for the sick, and every family repairs its own length of it. Travellers still come to fill jars at the troughs.",
+   "special": true,
+   "history": "Before it had its name, the village was a few fishers' houses on the shore below the wooded slopes. In 760 a coughing sickness spread along the coast, and a spring in the woods above the village cured those who drank from it. The village took its name from its woods and springs, and its families together built the long bamboo pipe line to carry the water down to the sick. Each family took one length of it to keep in repair, a duty passed from parent to child. Travellers and the sick of other villages came to fill jars at the troughs, and some of them stayed. The spring has never failed, and the villagers say that is because no one has ever sold its water.",
+   "art_brief": "A small village of grey-tile houses on the coast below wooded hills. Signature element: a long line of split bamboo pipes on wooden trestles running down from the woods to a row of stone troughs in the village square. At the base: the shore, a few boats, a path into the woods. Warm light from the top left on the bamboo. Avoid: text, people larger than specks, anything outside the village and its pipe line.",
+   "levels": ["A small roofed spring-house is built at the top of the pipe line and a second line feeds a bath-house.", "A healers' lodge with a double grey roof stands by the troughs, and the trestles are rebuilt in stone."]
+  },
+  {
+   "id": 104,
+   "name": "Thu Diệp Thôn",
+   "look": "A small village of grey roofs by the shore stands in front of a grove of maples that burns crimson every autumn. Wooden frames of pressed leaves dry in rows along the house walls.",
+   "lore": "Red leaves from Thu Diệp Thôn are sold in Lam Yên Thị as bookmarks for scripture, and scholars from three sects come to buy them. Each leaf is pressed between boards for a season. The villagers say a leaf picked by a cultivator turns brown, so only mortals may gather them.",
+   "special": true,
+   "history": "For most of its life the village was a quiet fishing place on the shore, known only for the red maples behind it. Its people pressed the leaves for their own pleasure and for the little shrines of the coast. In 1140 red leaves from Thu Diệp Thôn began to be sold in Lam Yên Thị as bookmarks for scripture, and scholars came from three sects to buy them. The trade made the village busier than it had ever been, and drying frames went up along every wall. The rule that only mortals may pick the leaves grew with the trade, and the villagers keep it strictly. The grove is now tended as carefully as any herb terrace in the hills.",
+   "art_brief": "A tiny village of grey-tile houses by the shore with a dense grove of red maples behind it. Signature element: the maple grove in full crimson, the brightest red on this coast, with small wooden leaf-pressing frames along the house walls. At the base: the shore, a footpath, a single boat. Warm light from the top left glowing through the red leaves. Avoid: text, people larger than specks, anything outside the village and its grove.",
+   "levels": ["The maple grove is extended up the slope and a long drying shed for pressed leaves is built.", "A small hall for sorting and wrapping the leaves stands by the road, its double grey roof facing the grove."]
+  },
+  {
+   "id": 165,
+   "name": "Bích Ngọc Khoáng",
+   "look": "A stepped quarry face is cut into a forested hill, its terraces banded with bright green stone. A cart ramp zigzags down the cut to the road at its foot.",
+   "lore": "Green jade was found in these hills when they belonged to Không Sơn Viện, but the academy forbade mining it, so the mountain stayed quiet. When the hills became Thúy Vi's, the mine was opened at last in 505. Today Hồng Lô Cốc works it under Thúy Vi, and its jade goes into pill bottles and furnace fittings.",
+   "special": true,
+   "history": "The green hills of Thanh Loan Lĩnh kept their jade unseen through the Wild Age. In 300 green jade was found in the hills, but Không Sơn Viện forbade mining it, so the mountain stayed quiet. For two centuries the find was known and left alone, and the academy's students walked past the green outcrops on the way to their lessons. When the hills passed to Thúy Vi Tông, the new sect wanted stone for its furnaces and pill vessels. In 505 the green jade mine of Bích Ngọc Khoáng was opened at last. In time its working passed to Hồng Lô Cốc, the alchemists' valley sworn to Thúy Vi, which cuts the jade into pill bottles and furnace fittings.",
+   "art_brief": "A stepped open quarry cut into the side of a green forested hill, its terraced faces showing bands of bright jade-green stone. Signature element: the green-banded stepped quarry face with a zigzag cart ramp down its middle. At the base: spoil heaps, two tiny plain sheds, a road. Warm light from the top left on the green bands. Avoid: any roofline beyond the two tiny sheds, text, people larger than specks, anything outside the quarry."
+  },
+  {
+   "id": 166,
+   "name": "Vân Mẫu Khoáng",
+   "look": "On a bare mountain slope a fan of glittering silver mica tailings spills down from a dark mine mouth, shining like a cloud resting on the rock. Above it thin seams in the cliff catch the light.",
+   "lore": "The monks of Vân Khởi Quán opened this mine and say its stone is cloud made solid; they set it in the abbey's windows and lamps. When the mica ran thin, the abbot Tống Tọa Vân said that clouds, too, pass. The monks still dig a little each year, more for the lesson than for the stone.",
+   "special": true,
+   "history": "The mica of this slope glittered unseen above the clouds until the monks of Vân Khởi Quán came up the mountain. In 560 they opened the mica mine and said the stone was cloud made solid. They set its thin sheets in the abbey's windows and lamps, so the halls glow pale at night. For five centuries the mine was dug by hand, a little at a time, as a practice as much as a trade. In 1080 the mica of Vân Mẫu Khoáng ran thin, and the abbot Tống Tọa Vân said that clouds, too, pass. The monks still dig a little each year, more for the lesson than for the stone.",
+   "art_brief": "A bare grey mountain slope with one dark mine mouth. Signature element: a wide fan of glittering silver-white mica tailings spilling down the slope below the mine mouth like a resting cloud. At the base: scree and a narrow path. Warm light from the top left sparkling on the mica. Avoid: any roofline, text, people larger than specks, anything outside the slope."
+  },
+  {
+   "id": 213,
+   "name": "Không Sơn Viện",
+   "look": "High on a ridge above the haze a cluster of old halls stands silent, their doors open, the roof of the great lecture hall sagging and its small pagoda missing its top tier. Beside the path a raw landslide scar runs down the slope, and in it a stone gate carved with lines of poetry stands half-buried, its opening blocked with newer stone.",
+   "lore": "The Academy of the Empty Mountain was so quiet that, as its poem says, on the empty mountain no one is seen. Its last master gave it away and died here, and Thúy Vi has left it unlocked and unlooted ever since; no visitor takes so much as a brush. Travellers who sleep here tell of someone reading aloud in the next room.",
+   "special": true,
+   "history": "In 180 Bùi Lộc Trại founded Không Sơn Viện in the hills of Thanh Loan Lĩnh, an academy so quiet that, as the poem says, on the empty mountain no one is seen. The woodcutters of Tiều Ca were asked to sing more quietly below it, and its students planted the cypress groves of Bách Diệp as a lesson in patience. When green jade was found in its hills the academy forbade mining it, and in the Age of Seven Seats fishers and ferrymen built Hàn Tân Thành under its protection. Bùi Lộc Trại died in 460, and Thôi Bất Kiến became master and took no disciple but one boy, Tống Tọa Vân. In 500, with no heir, Thôi Bất Kiến gave the hills, his whisk and his only student to Phùng Yên Hà, and the empty mountain became Thúy Vi's. He died in the empty academy in 520, and Phùng Yên Hà left it as it was, unlocked and unlooted. In 830 a landslide on the ridge uncovered a stone gate carved with Không Sơn's poem, and Thúy Vi sealed it again. In 1195 a traveller who spent a night in the empty halls swore he heard someone reading aloud in the next room.",
+   "art_brief": "A ruin of broken verticals high on a bare ridge above the mist: old academy halls of grey stone with weathered grey tile roofs, doors standing open, a small pagoda missing its top roofs and the great lecture hall's roof sagging at one end. Signature element: a raw brown landslide scar down the slope beside the halls with a carved stone gate half-buried in it, its opening blocked with paler new stone. At the base: bare rock, a few old pines, haze below. Warm light from the top left with long, quiet shadows. Avoid: text, people, signs of looting or fire, anything outside the ridge."
+  },
+  {
+   "id": 240,
+   "name": "Băng Tê Nguyên",
+   "look": "A frozen tundra plateau is crossed by deep trenches worn in the snow by heavy beasts. Great grey boulders stand scattered over it, scored with long gouges and polished smooth where ice rhinoceroses rub their horns.",
+   "lore": "Ice rhinoceroses cross this plain each season, cutting the same trenches year after year. Hunters judge a herd by the fresh gouges on the rubbing stones and steer well clear. Shed horn found here is prized by the alchemists of the hills.",
+   "special": false,
+   "art_brief": "A high, flat tundra plateau under snow, seen from above at an angle. Signature element: scattered huge grey boulders with long pale horn-gouges and polished sides, linked by deep trenches trodden through the snow. At the base: lichen patches, a frozen pool. Warm light from the top left catching the polished stone. Avoid: any roofline, text, people, beasts larger than specks, anything outside the plateau."
+  },
+  {
+   "id": 2,
+   "name": "Tùng Đào Cung",
+   "look": "Out of an endless sea of pines a long ridge rises, crowned with stacked halls of dark timber and blue-grey tile. Along the crest runs an open-sided roofed gallery so long that it follows the ridge out of sight, and the wind through the pines sounds in it like surf.",
+   "lore": "Tùng Đào Cung, the Palace of the Pine Waves, is a righteous great sect of spell cultivators (pháp tu) of Wood and Water, lord of the pine sea, the great river basin and the northern lake. Its disciples sit in the long gallery and learn to hear the pine waves before they are taught a single art, and pilgrims still climb the ridge only to listen. Thôi Khinh Hồng, the founder's first disciple and its second head, lives in the retreat beside the seat, and the palace lowers its voice near it.",
+   "special": true,
+   "history": "In 200 Kỳ Tùng Ẩn founded Tùng Đào Cung among the endless pines, with his first disciple Thôi Khinh Hồng beside him. The palace raised Tùng Gian Thành below it in 240, took the river basin of Cửu Khúc Xuyên in 260, and extended its rule to Lãnh Nguyệt Lâm and the long lake in 330. In 270 Kỳ Tùng Ẩn and Chung Hoài Cực drank for three days at Thạch Kiều Thành, a peace that held until 502, when he broke it to march on the heart with Lạc Hà Tông. The War of the Pivot ended in defeat in 509, the iron chain of Thiết Tỏa Quan lying on the river bed. In 672 the palace took the Cold Ford coast from Thúy Vi without a writ and held it until 905. Kỳ Tùng Ẩn died in 690 at 620 and Thôi Khinh Hồng became the second head; in 900 she retired to the retreat by the seat, and her disciple Đàm Tùng Lại took the headship. The palace kept the long lake in the arbitration of 944, and fought Lạc Hà over the river tolls on the Ngư Ca border in the Ferry War, which ended in 1175 with neither side forgiving.",
+   "art_brief": "The tallest outline of the pine sea: a long forested ridge crowned with stacked pagoda halls of dark timber and blue-grey tile, climbing in terraces to a many-roofed main hall. Signature element: a long, open-sided roofed gallery running along the ridge crest from the main hall out into the pines and out of view. A small separate hermitage sits on a lower spur beside the seat. At the base: unbroken dark-green pine canopy rolling away like waves, a stone stair rising out of it. Warm light from the top left combing across the pine tops. Avoid: text, people larger than specks, anything outside the ridge.",
+   "levels": ["A second terrace of halls climbs the far end of the ridge and the gallery gains a bell pavilion at its midpoint.", "A tall many-roofed pagoda rises at the gallery's far end, and a broad stone stair road is cut down through the pines toward the city below."]
+  },
+  {
+   "id": 11,
+   "name": "Vạn Hác Viện",
+   "look": "Deep in the pine sea the ground breaks into ravine after ravine. Over the deepest, on a single pillar of rock rising from its floor, stands a hexagonal pavilion, and the academy's halls step along the ravine rim around it.",
+   "lore": "Vạn Hác Viện is an academy of sound cultivation sworn to Tùng Đào Cung, keepers of the zither Tùng Phong Cầm. Its founders were listeners: a monk played under these pines until his zither sounded like ten thousand ravines, and they stayed to learn. The academy teaches that a piece is finished only when the listener forgets why he came, and students who play on the pillar pavilion hear every note thrown back by the ravines.",
+   "special": true,
+   "history": "Before the academy, the ravines of Thâm Tùng Hải were only a hard stretch for Tùng Đào's road wardens. In 620 a monk played the zither in the pines here until it sounded like ten thousand ravines, and his listeners founded Vạn Hác Viện around him and kept his Tùng Phong Cầm. The pavilion on the rock pillar is said to stand where he sat. Within two years its zither students were practising in Tùng Phong hamlet, where the villagers learned to sleep through anything. The academy swore itself to Tùng Đào and in time took the malachite workings of Thạch Lục Khoáng into its care. In 1080 a Vạn Hác student played so well under the pines that Thiên Xu's envoy forgot his message.",
+   "art_brief": "A sect seat among deep forested ravines: grey-roofed halls stepping along the rim of a deep ravine, rising toward its tallest element. Signature element: a single tall pillar of rock rising from the ravine floor, topped by a small hexagonal pavilion with a double grey roof. At the base: dark pine slopes falling into the ravine, a thin stream far below. Warm light from the top left on the pavilion, the ravine depths in shadow. Avoid: text, people larger than specks, bridges, anything outside the ravine rim.",
+   "levels": ["A second hall of practice rooms lines the far rim and a narrow stair is cut down the side of the pillar.", "A tall three-roofed hall of the zither rises on the highest point of the rim, facing the pillar pavilion across the ravine."]
+  },
+  {
+   "id": 32,
+   "name": "Tùng Gian Thành",
+   "look": "A walled city at a river mouth on the coast, its grey roofs half hidden among tall pines that grow inside and along its walls. In the wall facing the palace ridge stands a huge round moon gate, and from the harbour road the moon rises framed in it among the pines.",
+   "lore": "Tùng Gian Thành was Tùng Đào Cung's first city and is its port on the coast, with a formation laid over its walls. Its people never cut a pine inside the walls and build around the trees. On the Night of a Thousand Pines they hang a lantern on every tree around the city, and one of its great halls is roofed with beams from a single fallen pine, carved by the Lâm clan of Lộc Minh.",
+   "special": true,
+   "history": "In 240 Tùng Đào Cung raised Tùng Gian Thành among the pines below its palace, its first city. It grew as the palace's port where the river meets the sea, with the pine sea's timber, resin and pilgrims passing through its gates. Long after the founding, the Lâm clan's woodcarvers of Lộc Minh made the beams of a new hall in the city from a single fallen pine. In 880 the city held its first Night of a Thousand Pines, hanging a lantern on every tree around it, and the festival has been held ever since. The city's formation keeps the sea storms off its trees, and townsfolk boast that no pine inside the walls has fallen since the city was founded.",
+   "art_brief": "A rectangular walled city of grey-tile roofs at a river mouth on the coast, tall dark pines growing among the roofs and along the walls. Signature element: a huge circular moon gate set in the city wall on the side facing the hills, its round opening framing pines and sky. At the base: river quays, a small harbour, a sandy shore. Warm light from the top left through the pines. Avoid: text, people larger than specks, the palace itself, anything outside the city's footprint.",
+   "levels": ["The walls grow to take in a new pine grove, and a carved timber hall with a double roof rises behind the moon gate.", "A second moon-viewing terrace tower stands above the harbour, and a stone mole extends the port into the sea."]
+  },
+  {
+   "id": 46,
+   "name": "Tùng Hạ Thị",
+   "look": "In a wide clearing under old pines, a market stands in a perfect ring: round stall-houses with low grey cone roofs set shoulder to shoulder around an open circle. A single gate in the ring opens onto the road through the pine sea.",
+   "lore": "Tùng Hạ Thị began as a ring of tents pitched by pilgrims who came to hear the pine waves of the new palace, and it kept the ring when the tents became houses. It sells to caravans on the road through the pine sea and to travellers bound for the palace. The loose cultivator Lâm Dã Hạc was born here to a woodcutter's family, and the market still points out the roof where a crane landed on the day of his birth.",
+   "special": true,
+   "history": "In 205 pilgrims who came to hear the pine waves of the newly founded Tùng Đào Cung stayed on, and Tùng Hạ Thị began as a ring of tents beneath the pines. As the palace grew, the pilgrims' ring became a market for the road through the pine sea, and the tents were rebuilt as round houses on the same circle. Caravans made it a resting place, and woodcutters' families settled behind the ring. In 1145 Lâm Dã Hạc was born here to a woodcutter's family, and a crane landed on the roof the day he was born. In 1190 wolves from the deep pines followed the caravans to Tùng Hạ Thị, and Tùng Đào doubled the road watch, posting guards at the ring's gate.",
+   "art_brief": "A market in a clearing of tall old pines. Signature element: a perfect ring of small round stall-houses with low grey cone roofs set shoulder to shoulder around an open circular yard, with one gap for a gate. At the base: a forest road leading to the gate, a few carts as specks, woodcutters' houses just behind the ring. Warm light from the top left falling into the clearing. Avoid: text, people larger than specks, towers, anything outside the clearing.",
+   "levels": ["A second, outer ring of stall-houses is begun and a caravan yard is fenced beside the gate.", "A round two-storey market hall rises in the centre of the ring, and a timber palisade with a roofed gate encloses both rings."]
+  },
+  {
+   "id": 60,
+   "name": "Lộc Minh Trấn",
+   "look": "A walled town of grey roofs lies on a low river mouth at the forest's edge, every beam end of its timber houses carved. At the end of its ferry pier stands a life-sized stag carved from pine, head raised as if calling across the water.",
+   "lore": "A deer called at the forest's edge every dawn for a year, and the Lâm family settled where it called and named the place Lộc Minh. The Lâm clan's woodcarvers are known across the pine sea, and they made the beams of a new hall in Tùng Gian Thành from a single fallen pine. The town is held by Lãng Đào Môn, the ferrymen's sect (môn phái) that carries the river trade, and its pier is one of their landings.",
+   "special": false,
+   "art_brief": "A small rectangular walled town of timber houses with grey-tile roofs at a low, marshy river mouth on the edge of a pine forest. Signature element: a life-sized carved wooden stag standing at the end of a long ferry pier, head raised toward the water. At the base: reed banks, two flat ferry boats, a mud shore. Warm light from the top left on the stag. Avoid: text, people larger than specks, anything outside the town and its pier.",
+   "levels": ["A carvers' quarter of open workshops spreads along the river bank and the ferry pier is doubled.", "A tall carved timber hall of the Lâm clan rises over the town, and a stone ferry landing replaces the old pier with the stag moved to its end."]
+  },
+  {
+   "id": 61,
+   "name": "Cổ Độ Thành",
+   "look": "A walled city stands among bamboo groves on the bank of the southern river, where a broad stone ferry stair runs down into the water. At the top of the stair, set upright on a stone plinth, stands a single huge rusted iron link from a sunken chain, taller than a man.",
+   "lore": "Cổ Độ Thành stands at the old ferry on Tùng Đào's southern river, and its ferrymen still cross it as they did before the city had walls. In the War of the Pivot they carried the iron chain for Thiết Tỏa Quan link by link, and now they drag those links back out of the river and sell them to smiths. The great link at the ferry stair is said to be the first one raised, and no one has ever sold it.",
+   "special": true,
+   "history": "Long before it had walls, a ferry crossed the southern river here, and the old ferry gave the city its name. In 320 Tùng Đào Cung founded Cổ Độ Thành at the crossing. In 506, during the War of the Pivot, the ferrymen of Cổ Độ carried the iron chain for Thiết Tỏa Quan link by link up the river road. Two years later Thiên Xu broke the fort, and the thousand-fathom chain sank to the river bed. For centuries the river kept it, until in 990 the people of Cổ Độ began dragging its links from the river, and smiths paid well for the old war iron. Smithies have grown up around that trade, and the clang of iron by the ferry stair is now as old a sound as the boatmen's calls.",
+   "art_brief": "A rectangular walled city of grey-tile roofs among green bamboo groves on a river bank. Signature element: a broad stone ferry stair descending into the river, crowned by a single huge rusted iron chain link standing upright on a stone plinth. At the base: the river with two flat ferries, smithy smoke from a riverside quarter, bamboo along the bank. Warm light from the top left on the rust. Avoid: text, people larger than specks, any bridge across the river, anything outside the city's footprint.",
+   "levels": ["A smiths' quarter with tall chimneys grows outside the river gate, and a second ferry stair is built downstream.", "A tall drum tower of the ferrymen rises over the stair, and the walls take in the smiths' quarter and a stone river quay."]
+  },
+  {
+   "id": 105,
+   "name": "Bạch Hoa Thôn",
+   "look": "A small coastal village of grey roofs stands in a bright grove of white birches. Among the pale trunks the black stumps of old burned trees still stand, so the grove is pied black and white.",
+   "lore": "White birches grew where a forest fire had burned, and the new village was named Bạch Hoa. Villagers strip birch bark for writing sheets and boxes, and will not pull up the old stumps, saying they hold the ground for the birches. Charcoal from those stumps is never burned in a house.",
+   "special": false,
+   "art_brief": "A tiny coastal village of grey-tile houses inside a grove of slender white birches. Signature element: the white birch trunks mixed with tall black charred stumps, a striking black-and-white grove. At the base: a narrow beach, a small jetty, a bark-drying rack. Warm light from the top left on the white bark. Avoid: text, people larger than specks, anything outside the village and its grove.",
+   "levels": ["A bark workshop with long drying racks is built at the grove's edge and the jetty is lengthened.", "A small double-roofed shrine stands among the oldest stumps, and a stone pier serves boats carrying bark goods."]
+  },
+  {
+   "id": 106,
+   "name": "Thanh Tùng Thôn",
+   "look": "A river village of grey roofs sits beside a grove of tall pines planted in neat rows, each with a small flat stone at its foot. The rows run from the riverbank to the forest edge like ranks of soldiers.",
+   "lore": "When a beast tide overran Hổ Khiếu Trấn, its survivors moved to Thanh Tùng Thôn and planted a green pine for each of their dead. The pines are tall now, and each spring families sweep the stones beneath their own trees. No one cuts or taps them.",
+   "special": false,
+   "art_brief": "A small village of grey-tile houses on a river bank. Signature element: a grove of tall pines planted in exact rows beside the village, each tree with a small pale flat stone at its foot. At the base: the river, a ferry landing, a path between the rows. Warm light from the top left casting long ordered shadows. Avoid: text, people larger than specks, anything outside the village and its grove.",
+   "levels": ["A low stone wall is built around the memorial grove and a few new houses line the river path.", "A small ancestral hall with a double grey roof stands at the head of the pine rows."]
+  },
+  {
+   "id": 107,
+   "name": "Tùng Phong Thôn",
+   "look": "A small river village of grey roofs lies in the pines. Between two great pines at its edge long strings are stretched, and they hum and moan whenever the wind blows, a sound that carries over the whole hamlet.",
+   "lore": "Vạn Hác Viện's zither students practise in Tùng Phong hamlet, and the villagers have learned to sleep through anything. A student once strung the wind strings between the two pines, and the village keeps them tuned in return for the students' quiet hours. Children here can name a note before they can name the stars.",
+   "special": false,
+   "art_brief": "A tiny village of grey-tile houses beside a river in a pine forest. Signature element: two great pines at the village edge with long fine strings stretched between them, glinting in the light. At the base: a river bank, a shallow ford, a few garden plots. Warm light from the top left on the strings. Avoid: text, people larger than specks, anything outside the village.",
+   "levels": ["A small open practice pavilion for visiting students is built near the strings.", "A second pair of pines is strung across the river, and a guesthouse with a double grey roof stands by the ford."]
+  },
+  {
+   "id": 167,
+   "name": "Thạch Lục Khoáng",
+   "look": "On a high slope of the pine sea, small mine mouths open between the exposed roots of giant old pines. Heaps of green malachite spoil lie below them, bright against the brown needles.",
+   "lore": "Malachite was found under the roots of the oldest pines, and Tùng Đào let it be dug only where no tree must be cut. Miners tunnel between the roots and shore them with stone, never timber. Today Vạn Hác Viện holds the workings, and its malachite becomes green pigment for painters and inlay for zithers.",
+   "special": false,
+   "art_brief": "A steep high slope under giant old pines with huge exposed roots. Signature element: small dark mine mouths opening between the great pine roots, with bright green malachite spoil heaps below. At the base: brown needle litter, a narrow mule path. Warm light from the top left on the green spoil. Avoid: any roofline, cut trees, text, people larger than specks, anything outside the slope."
+  },
+  {
+   "id": 206,
+   "name": "Thương Tùng Mạch",
+   "look": "On a high summit above the pine sea stands a grove of pines with bark the colour of ash, older and paler than any around them. An old fence of stone posts and timber rails rings the grey grove, and the air inside is still even when the forest below is roaring.",
+   "lore": "A wild spirit vein runs under the grey pines, close to the heart and the Pivot's border. Tùng Đào fenced it and still guards it, and its disciples cultivate there in turns. Foresters say the pines turned grey from drinking the vein's metal and earth qi.",
+   "special": true,
+   "history": "Before it had a name, the grey grove on the summit was known to woodsmen only as a place where the wind fell silent. Tùng Đào Cung held the pine sea from its founding, but only in 470 did its disciples fence the grey pines over an old spirit vein near the heart and name it Thương Tùng Mạch. Under the North Star Compact, the vein could change hands only by a fall, a gift, an oath or a war licensed by the Pivot's writ, and it has stayed Tùng Đào's. In the Age of Vein Wars, when neighbours fight short wars over the wild veins near their borders, Tùng Đào set a standing watch on the grove, for it lies close to Thiên Xu's land. Its disciples cultivate there in turns, and the stillness under the grey pines is said to help a cultivator hear his own meridians.",
+   "art_brief": "A high, rocky summit rising above an endless dark pine sea. Signature element: a grove of pale, ash-grey pines on the summit, ringed by an old fence of stone posts and weathered timber rails. At the base: bare rock, a narrow guarded path climbing from the forest. Warm light from the top left on the grey bark. Avoid: any roofline, text, people larger than specks, anything outside the summit."
+  },
+  {
+   "id": 225,
+   "name": "Hổ Khiếu Trấn",
+   "look": "Deep in the pine sea, on a river bend, the walls of a small town have sunk under moss and young trees. Its timber watchtower lies toppled across the gate, scored with claw marks as long as a man is tall.",
+   "lore": "Woodsmen founded Hổ Khiếu Trấn where the tigers are, and the tigers ended it. The beast tide that overran it left no one to rebuild, and Tùng Đào never resettled it; its survivors' children live at Thanh Tùng Thôn. Hunters say a tiger still dens in the old magistrate's hall.",
+   "special": true,
+   "history": "In 380 woodsmen founded Hổ Khiếu Trấn deep in the pine sea, where the tigers are, and lived on timber and pelts. For centuries the town held its palisade against the forest. In 700 a tiger as large as a house was seen near the town; Tùng Đào sent three disciples, and two came back. In 734 a beast tide poured out of the deep pines and overran Hổ Khiếu Trấn, and the tigers' roar was the last thing its people heard. A year later the survivors moved to Thanh Tùng Thôn and planted a green pine for each of their dead. The town was never rebuilt, and the forest has taken back its streets.",
+   "art_brief": "A ruin of broken verticals on a river bend in deep pine forest: low moss-covered walls of a small town, roofless timber houses, young trees growing in the streets. Signature element: a tall timber watchtower toppled across the gateway, its beams scored with huge claw gouges. At the base: a river bend, a collapsed wooden landing. Warm light from the top left through the pines onto the fallen tower. Avoid: text, people, beasts larger than specks, anything outside the old walls."
+  },
+  {
+   "id": 229,
+   "name": "Thiết Tỏa Quan",
+   "look": "On a forested bluff above the river road stand the broken walls of a fort, its gate towers cracked and one fallen. At the bluff's edge a massive stone anchor-block still holds a great iron ring, snapped open, from which the chain once ran across the river.",
+   "lore": "Thiết Tỏa Quan was the fort of Tùng Đào and Lạc Hà in the War of the Pivot, where they stretched an iron chain across the river road to the heart. Thiên Xu broke it, and the chain sank to the river bed, where the people of Cổ Độ now drag up its links. Tùng Đào holds the ruin but has never rebuilt it, and its elders bring disciples here to see what breaking the peace cost.",
+   "special": true,
+   "history": "At the end of the Age of Seven Seats, Tùng Đào Cung and Lạc Hà Tông marched together on the heart of the continent, and Kỳ Tùng Ẩn broke the peace of the three days. In 503 the allies raised Thiết Tỏa Quan and stretched an iron chain across the river road to the heart. Through the years of the siege the ferrymen of Cổ Độ kept carrying the chain's iron up the river link by link. In 508 Thiên Xu Tông broke Thiết Tỏa Quan, and the thousand-fathom chain sank to the river bed. The war ended the next year with the allies beaten and no land taken, and soon after the North Star Compact was set at Thạch Kiều Thành. The fort was left as it fell. Nearly five centuries later the links of its chain began to be dragged from the river at Cổ Độ and sold to smiths.",
+   "art_brief": "A ruin of broken verticals on a forested bluff above a river: cracked stone walls of a fort, one gate tower still standing and broken-topped, the other fallen in a heap. Signature element: a massive square stone anchor-block at the bluff's edge holding a great iron ring snapped open, rust-red against the grey stone. At the base: a steep slope down to the river road, pines on the bluff. Warm light from the top left on the anchor-block. Avoid: text, people, a visible chain across the river, anything outside the bluff."
+  }
+]}
