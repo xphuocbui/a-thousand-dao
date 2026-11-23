@@ -22,6 +22,31 @@ Regional Economy & Trade (#43) stay as approved, and this file lists the changes
 | Stats | `tools/design/map/province_stats_v2.py` → `assets/data/world_provinces.json` | population, capacity, production by good, main and secondary goods, buildings, slots, infrastructure, usage, access, development, per province |
 | Panel | `src/ui/windows/province_panel.gd`, `design/ux/province-panel.md` (draft) | EU4/EU5-style; click open land; tests in `tests/unit/ui/ui_province_panel_test.gd` |
 
+## Also built during the night (the loop on the map)
+
+- **Province names** on the map at mid zoom, a **province hover**, and **the new places drawn at close zoom** with
+  their own hover.
+- **Development and Goods map modes**, and a **map picture for every province** in the panel.
+- **The lore is complete and checked:** `places_v2_check.py` reports 0 errors and 1 warning. Across the regions, 104
+  names used twice were renamed by the writers, and 8 by hand. A land-fit audit, `places_v2_fit.py`, flagged 11
+  entries; all were read and are fine (for example, a net-maker that sells to lake fishers).
+- **The authored isles stay unsettled.** The new villages planned on Phù Chử, Tịch Chiếu, Đồ Nam, Dục Nhật and the
+  isle near them were removed, and their provinces rewritten as unsettled isles. The hermit Mạc Quy Khư stays on Dục
+  Nhật Đảo, as canon has him.
+
+## Notes from the writers worth a look
+
+- A few new peaks stand higher than the peak canon calls the highest of its range: r15_1 at 4.60 km, r15_2 at 4.52 km
+  and r6_26 at 4.59 km. They are written as shoulders of the massif, with no "highest" claim. Some lake slots sit
+  beside canon lakes and are written as separate small lakes.
+- **Biggest new history facts** (all before 1200, none contradicting the annals as far as the writers checked):
+  - an eruption in 352 that buried Hạ Lôi Thành near the Tower;
+  - more Thôn Hải raids between 744 and 779;
+  - several new disasters (1012, 1019, 1033, 1102, 1148, 1151);
+  - ruins tied to the Desert Road War, the Frost Coast war and Cửu Thiều's fall.
+
+  Each writer's list sits in its report. Ask, and I'll gather them into one file.
+
 ## Decisions for the user (most important first)
 
 1. **The economy cannot take the new sites as they are.** At the same output as existing sites of their kind, the
@@ -65,5 +90,5 @@ Regional Economy & Trade (#43) stay as approved, and this file lists the changes
 - Gamepad and keyboard opening of the province panel.
 - A province map mode.
 - The local price line.
-- The panel's art fallback for provinces with no painted place: today the panel shows no picture. A painted landscape
-  per province would need image generation, which needs the user's go.
+- The panel's picture for provinces with no painted place is a crop of the painted map. A painted scene per province
+  would need image generation, which needs the user's go.

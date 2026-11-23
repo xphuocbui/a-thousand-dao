@@ -56,6 +56,19 @@ development buttons (no one spends to raise a stat directly; buildings do it).
 - **Works:** buildings standing / slots, each building with five level pips; the empty slots; road and river tiles.
 - **Modifiers:** one line per modifier with its source; "No modifiers ..." when none.
 
+## On the map (built alongside the panel)
+
+- **Province names:** each province's name is drawn in small ink capitals at its innermost tile. They fade in from 6
+  to 9 px per tile and out by 24 px, where the place labels take over (`province_names_px`, `province_name_font`).
+- **Hover:** at region zoom, hovering open land names the province.
+- **The new places:** from 14 px per tile, settlements and mines show with their symbol and other places as small ink
+  diamonds, with names from 22 px. Hovering one gives its name, gloss and kind.
+- **Map modes** (open question 4, built for review): **Development** tints provinces from pale to deep red, and
+  **Goods** by main good (herbs green, ore slate, beast parts brown, specialties violet; wilderness paler). Both sit in
+  the Z4 bar beside Terrain and replace the political tint while on.
+- **Picture fallback:** a province with no painted place shows its own piece of the painted map: a 20 × 11 tile
+  region of the 3× tile (`province_art_tiles`).
+
 ## Opening and closing
 
 - A left click on open land (no place, no bubble under the cursor) opens the province there. The map's tile index
@@ -78,4 +91,4 @@ development buttons (no one spends to raise a stat directly; buildings do it).
    1 unit = 1,000 mortals?
 3. **Local price per good:** should it go in Economy once Regional Economy & Trade writes it? (Rule 3; not in the data
    yet.)
-4. **A province map mode:** colour the map by development, access or main good (rule 14)?
+4. **Province map modes:** Development and Goods are built for review. Keep them, add Access, or change the colours?
