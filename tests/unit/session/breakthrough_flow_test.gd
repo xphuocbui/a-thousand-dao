@@ -45,7 +45,9 @@ func test_a_pill_attempt_burns_the_pill_and_a_failure_adds_insight() -> void:
 func test_with_the_condition_unmet_a_pill_needs_confirmation_and_is_kept_ac45() -> void:
 	var s := _session()
 	_gate(s, 1)
-	s.db.get_record("places", s.player.location_id)["density"] = 1.0
+	var here: Dictionary = s.db.get_record("places", s.player.location_id)
+	here["density"] = 1.0
+	here["qi"] = {}   # plain ground: the start place's province buildings (rule 10) would lift its density past the gate
 	var id: String = _pill(s, 1)
 	var r: Dictionary = s.breakthrough()
 	assert_true(r.get("needs_confirm", false), "preview first")

@@ -122,7 +122,8 @@ static func build(gd: GameData, db: WorldDB) -> void:
 			"seat_place": str(seat.get("id", "")), "places": places, "neighbours": nb,
 			"population": 0.0, "own_value": {}, "production_value": {}, "production_class": {}, "potential": {},
 			"main_good": "", "secondary_goods": [], "goods_fixed": false, "slots": 0, "buildings": [], "modifiers": [],
-			"dist": -1, "pass_to": []})
+			"dist": -1, "pass_to": [], "coast": bool(s.get("coast", false)), "river_tiles": int(s.get("river_tiles", 0)),
+			"next_building": 1})
 	for p in db.all("places"):   # the lakes and any place no shape lists
 		if str(p.get("province_id", "")) == "":
 			of_place(gd, db, p)
@@ -217,7 +218,9 @@ static func season(gd: GameData, db: WorldDB) -> void:
 			_fix_goods(cs, v, by_class)
 		var base: int = int(cs.get("base_slots", {}).get(str(v.seat_kind), 0)) if settled else int(cs.get("wild_slots", 1))
 		var extra: int = int(floor(float(v.population) / maxf(float(cs.get("slot_pop_step", 8.0)), 1e-9))) if settled else 0
-		v["slots"] = maxi(base + extra, Array(v.buildings).size())   # F5
+		var standing: int = Array(v.buildings).filter(func(b): return str(b.get("state", "")) != "cancelled").size()
+		v["slots"] = maxi(base + extra, standing)   # F5: slots never fall below the buildings standing
+		ProvinceBuildings.season(gd, db, v)   # rule 13 step 1 (advance) and the projection onto places (Stage 2)
 
 
 # F2's fixed routes, farthest wilderness first: [[record, [[to id, share, to is a settlement]]]], cached per world.

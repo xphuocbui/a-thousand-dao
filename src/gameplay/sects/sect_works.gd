@@ -1,11 +1,10 @@
 class_name SectWorks
 extends RefCounted
 
-## Sects develop their land (design/gdd/travel-map.md rules 31-33, Formula J; design/gdd/sects.md rule 8's Holdings and
-## F2's free_level, user decision 2026-11-24: prices, not caps): a sect builds layer-2 works on the places it holds, with no
+## Sects develop their land (design/gdd/provinces.md rule 9; Sects rule 8 and F2's free_level, user decision 2026-11-24:
+## prices, not caps; provinces-runtime Stage 2): a sect orders province buildings in the provinces it pays for, with no
 ## highest level, each level above its track's free level ⌈T / 2⌉ at track_surcharge more, saving over a few seasons:
-## worked mines (upkept, +production) and vein dressing (permanent, +production) on its sites, and the great array and
-## spirit grove (+density) at its seat. The works are paid from the investment the treasury rule sends to Holdings
+## production buildings by the output they add, and gathering arrays and spirit groves at its own seat by its members. The works are paid from the investment the treasury rule sends to Holdings
 ## (Regional Economy Formula H), so they add no spender of their own: the cash share burns as works and the goods share
 ## is met in kind. Each season the upkept works cost their upkeep (cash burned, goods in kind; the goods count as
 ## works_due demand in the markets), and a work unpaid for fade_seasons loses a level. Values are map_works.json's
@@ -27,12 +26,13 @@ static func work_max(gd: GameData, db: WorldDB, sect: Dictionary) -> int:
 	return _free(gd, db, sect, "holdings")
 
 
-## Sects F2 (user decision 2026-11-24: prices, not caps): the free level of work [param id]'s track, ⌈T / 2⌉; each
-## level above costs track_surcharge more again (MapWorks.cost).
+## Sects F2 (user decision 2026-11-24: prices, not caps): the free level of [param id]'s track, ⌈T / 2⌉ (a province
+## building kind, or a Travel & Map work id); each level above costs track_surcharge more again.
 static func free_level(gd: GameData, db: WorldDB, sect: Dictionary, id: String) -> int:
 	if sect.is_empty():
 		return -1
-	return _free(gd, db, sect, str(MapWorks.work(gd, id).get("track", "holdings")))
+	var track: String = str(ProvinceBuildings.kind(gd, id).get("track", MapWorks.work(gd, id).get("track", "holdings")))
+	return _free(gd, db, sect, track)
 
 
 static func _free(gd: GameData, db: WorldDB, sect: Dictionary, track: String) -> int:
@@ -40,58 +40,70 @@ static func _free(gd: GameData, db: WorldDB, sect: Dictionary, track: String) ->
 	return int(ceil(t / 2.0 - 1e-9))
 
 
-# A work's season value to the sect: a production work by the site's output value it adds, a density work by the
-# members it serves at the seat (density_value_per_member).
-static func _value(gd: GameData, db: WorldDB, sect: Dictionary, place: Dictionary, id: String) -> float:
-	var w: Dictionary = MapWorks.work(gd, id)
+# A building level's season value to the sect: a production kind by the output value it adds on the province's acting
+# sites, a density kind at the sect's own seat by the members it serves (density_value_per_member).
+static func _value(gd: GameData, db: WorldDB, v: Dictionary, k: String, members: int, own_seat: bool) -> float:
+	var w: Dictionary = MapWorks.work(gd, str(ProvinceBuildings.kind(gd, k).get("work", "")))
 	if str(w.get("stat", "")) == "production":
-		if not place.has("site"):
-			return 0.0
-		var unit: float = float(gd.file(MapProduction.DATA_FILE).unit_value.get(str(place.site.get("resource", "")), 1))
-		return float(place.site.get("base_output", 0.0)) * unit * float(w.per_level)
-	if str(w.get("stat", "")) == "density":
-		var members: int = db.living().filter(func(p): return bool(p.get("alive", false)) and str(p.get("sect_id", "")) == str(sect.id)).size()
+		var units: Dictionary = gd.file(MapProduction.DATA_FILE).unit_value
+		var val: float = 0.0
+		for p in ProvinceBuildings.acting_places(gd, db, v, k):
+			val += float(p.site.get("base_output", 0.0)) * float(units.get(str(p.site.get("resource", "")), 1)) * float(w.per_level)
+		return val
+	if str(w.get("stat", "")) == "density" and own_seat:
 		return float(w.per_level) * float(_cfg(gd).get("density_value_per_member", 2.0)) * members
 	return 0.0
 
 
-## The candidate works for [param sect]: [{place, id, level, cost, value}] with value per linh thach, best first. No
-## highest level: each work's next level at its track's price (user decision 2026-11-24).
+## The candidate building levels for [param sect] (Provinces rule 9): in the provinces it pays for, each live kind's next
+## level (its lowest standing instance, or a new one in a free slot), at its track's price, with no highest level:
+## [{province, building (id or ""), kind, level, cost, value, score}], best value per linh thach first.
 static func candidates(gd: GameData, db: WorldDB, sect: Dictionary) -> Array:
 	var out: Array = []
 	var seat: String = str(sect.get("hq_place_id", ""))
-	for p in db.all("places"):
-		if str(p.get("holder", "")) != str(sect.id) or not p.has("qi") or bool(p.get("hidden", false)):
+	var members: int = db.living().filter(func(p): return bool(p.get("alive", false)) and str(p.get("sect_id", "")) == str(sect.id)).size()
+	var kinds: Dictionary = ProvinceBuildings.cfg(gd).get("kinds", {})
+	for v in db.all(Provinces.TABLE):
+		if ProvinceBuildings.payer(db, v) != str(sect.id):
 			continue
-		var ids: Array = []
-		if p.has("site"):
-			ids.append_array(_cfg(gd).get("site_works", ["worked_mine", "vein_dressing"]))
-		if str(p.id) == seat:
-			ids.append_array(_cfg(gd).get("seat_works", ["sect_array", "spirit_grove"]))
-		for id in ids:
-			var w: Dictionary = MapWorks.work(gd, str(id))
-			if w.is_empty():
+		var own_seat: bool = Array(v.places).has(seat)
+		var bs: Array = v.get("buildings", [])
+		var standing: int = bs.filter(func(b): return str(b.get("state", "")) != "cancelled").size()
+		for k in kinds:
+			var kd: Dictionary = kinds[k]
+			if not bool(kd.get("live", false)) or str(kd.get("work", "")) == "" or bool(kd.get("element", false)):
 				continue
-			var lv: int = int(p.qi.get("layer2", {}).get(str(id), {}).get("level", 0))
-			if int(w.get("max", 0)) > 0 and lv >= int(w.max):
+			var val: float = _value(gd, db, v, str(k), members, own_seat)
+			if val <= 0.0:
 				continue
-			var price: float = float(MapWorks.cost(gd, str(id), lv + 1, free_level(gd, db, sect, str(id))).lt)
-			var v: float = _value(gd, db, sect, p, str(id))
-			if v <= 0.0 or price <= 0.0:
+			var mine: Array = bs.filter(func(b): return str(b.kind) == str(k) and str(b.get("state", "")) != "cancelled")
+			if mine.any(func(b): return str(b.state) in ["building", "ruined"]):
+				continue   # one order of a kind at a time; a ruined one waits for a repair (Stage 4)
+			var bid: String = ""
+			var lv: int = 1
+			if not mine.is_empty():
+				mine.sort_custom(func(a, b): return int(a.level) < int(b.level) or (int(a.level) == int(b.level) and str(a.id) < str(b.id)))
+				bid = str(mine[0].id)
+				lv = int(mine[0].level) + 1
+			elif standing >= int(v.get("slots", 0)):
+				continue   # a new building needs a free slot (F5)
+			var price: float = float(ProvinceBuildings.cost(gd, str(k), lv, free_level(gd, db, sect, str(k))))
+			if price <= 0.0:
 				continue
-			out.append({"place": str(p.id), "id": str(id), "level": lv + 1, "cost": price, "value": v, "score": v / price})
-	out.sort_custom(func(a, b): return float(a.score) > float(b.score) or (float(a.score) == float(b.score) and str(a.place) + str(a.id) < str(b.place) + str(b.id)))
+			out.append({"province": str(v.id), "building": bid, "kind": str(k), "level": lv, "cost": price, "value": val, "score": val / price})
+	out.sort_custom(func(a, b): return float(a.score) > float(b.score) or (float(a.score) == float(b.score) and str(a.province) + str(a.kind) < str(b.province) + str(b.kind)))
 	return out
 
 
-## Spends up to [param budget] of the Holdings investment on the best works (whole levels only; the budget not spent
-## raises the Holdings level as before). Returns what the works cost.
+## Spends up to [param budget] of the Holdings investment on the best building levels (whole levels only; the budget not
+## spent raises the Holdings level as before). A level is paid now and built over its build seasons. Returns what this
+## season's budget paid.
 static func build_best(gd: GameData, db: WorldDB, sect: Dictionary, budget: float, year: int = 0, season_i: int = 0) -> float:
 	var spent: float = 0.0
 	var built: int = 0
 	var max_builds: int = int(_cfg(gd).get("builds_per_season", 2))
 	var cands: Array = candidates(gd, db, sect)
-	# saving (2026-11-24): when the best work costs more than this season's budget but at most save_seasons_max seasons
+	# saving (2026-11-24): when the best level costs more than this season's budget but at most save_seasons_max seasons
 	# of it, and pays back within save_payback_max seasons (cost / value), the sect sets this season's budget aside for it
 	var saved: float = float(sect.get("works_saving", 0.0))
 	if not cands.is_empty():
@@ -107,17 +119,21 @@ static func build_best(gd: GameData, db: WorldDB, sect: Dictionary, budget: floa
 			break
 		if spent + float(cand.cost) > budget:
 			continue
-		var p: Dictionary = db.get_record("places", str(cand.place))
-		if not p.qi.has("layer2"):
-			p.qi["layer2"] = {}
-		p.qi.layer2[str(cand.id)] = {"level": int(cand.level), "unpaid": 0, "element": "", "by": str(sect.id)}
-		if p.has("site"):
-			p.site["works_prod"] = MapWorks.production_gain(gd, p.qi)
+		var v: Dictionary = db.get_record(Provinces.TABLE, str(cand.province))
+		var seasons: int = ProvinceBuildings.build_seasons(gd, str(cand.kind), int(cand.level))
+		if str(cand.building) == "":
+			v.buildings.append(ProvinceBuildings.make(v, str(cand.kind), int(cand.level), true, seasons))
+		else:
+			for b in v.buildings:
+				if str(b.id) == str(cand.building):
+					b["target"] = int(cand.level)
+					b["state"] = "building"
+					b["left"] = seasons
 		spent += float(cand.cost)
 		built += 1
 		if bool(_cfg(gd).get("log_builds", true)):
-			db.log_event(year, season_i, "sect_works", "%s xây %s cấp %d tại %s." % [sect.name, MapWorks.work(gd, str(cand.id)).name, int(cand.level), p.name],
-				[str(sect.id)], [str(p.id)], [], {"work": cand.id, "level": cand.level})
+			db.log_event(year, season_i, "sect_works", "%s xây %s cấp %d tại %s." % [sect.name, str(ProvinceBuildings.kind(gd, str(cand.kind)).get("name_vi", cand.kind)), int(cand.level), str(v.get("name", v.id))],
+				[str(sect.id)], [], [], {"work": cand.kind, "level": cand.level, "province": cand.province})
 	# the saved part was already taken from earlier seasons' investment: report only this season's share, keep the rest
 	var used_saved: float = minf(saved, spent)
 	sect["works_saving"] = saved - used_saved
@@ -125,28 +141,17 @@ static func build_best(gd: GameData, db: WorldDB, sect: Dictionary, budget: floa
 	return spent - used_saved
 
 
-## A sect's upkeep due this season for its upkept layer-2 works (Formula J: a worked mine's upkeep_site_frac of its
-## site's output value a level, an array's upkeep a level).
+## A sect's upkeep due this season for the live upkept buildings of the provinces it pays for (ProvinceBuildings).
 static func upkeep_due(gd: GameData, db: WorldDB, sect: Dictionary) -> float:
 	var t: float = 0.0
-	for p in db.all("places"):
-		if str(p.get("holder", "")) != str(sect.id) or not p.has("qi"):
-			continue
-		for id in p.qi.get("layer2", {}):
-			var w: Dictionary = MapWorks.work(gd, str(id))
-			if str(w.get("kind", "")) != "upkept":
-				continue
-			var lv: int = int(p.qi.layer2[id].get("level", 0))
-			if w.has("upkeep_site_frac") and p.has("site"):
-				var unit: float = float(gd.file(MapProduction.DATA_FILE).unit_value.get(str(p.site.get("resource", "")), 1))
-				t += float(w.upkeep_site_frac) * float(p.site.get("base_output", 0.0)) * unit * lv
-			else:
-				t += float(w.get("upkeep", 0.0)) * lv
+	for row in ProvinceBuildings.bills(gd, db, sect):
+		t += float(row[2])
 	return t
 
 
-## Each season: every active sect pays its works' upkeep, the cash share burned and the goods share in kind (counted as
-## works_due demand next season); unpaid works count a season and lose a level every fade_seasons unpaid seasons.
+## Each season: every active sect pays its buildings' upkeep, the cash share burned and the goods share in kind (counted
+## as works_due demand next season). A short payment covers buildings in D3's order (production first); the rest count
+## an unpaid season (Provinces States: unpaid, then ruined after ruin_seasons).
 static func upkeep(gd: GameData, db: WorldDB, money: MoneyLedger) -> float:
 	var gf: float = float(gd.file(WorldEconomy.FILE).demand.goods_frac)
 	var total: float = 0.0
@@ -162,21 +167,5 @@ static func upkeep(gd: GameData, db: WorldDB, money: MoneyLedger) -> float:
 		s["kind_due"] = float(s.get("kind_due", 0.0)) + due * gf
 		s["cash_costs"] = float(s.get("cash_costs", 0.0)) + paid
 		total += paid
-		var short: bool = paid + 1e-6 < cash
-		for p in db.all("places"):
-			if str(p.get("holder", "")) != str(s.id) or not p.has("qi"):
-				continue
-			for id in p.qi.get("layer2", {}).keys():
-				var w: Dictionary = MapWorks.work(gd, str(id))
-				if str(w.get("kind", "")) != "upkept":
-					continue
-				var rec: Dictionary = p.qi.layer2[id]
-				rec["unpaid"] = int(rec.get("unpaid", 0)) + 1 if short else 0
-				if int(rec.unpaid) >= int(w.get("fade_seasons", 2)) and int(w.get("fade_seasons", 2)) > 0:
-					rec["level"] = int(rec.get("level", 0)) - 1
-					rec["unpaid"] = 0
-					if int(rec.level) <= 0:
-						p.qi.layer2.erase(id)
-					if p.has("site"):
-						p.site["works_prod"] = MapWorks.production_gain(gd, p.qi)
+		ProvinceBuildings.settle(gd, db, s, paid / maxf(cash, 1e-9))
 	return total

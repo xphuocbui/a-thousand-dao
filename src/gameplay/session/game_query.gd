@@ -261,6 +261,10 @@ static func province(s: GameSession, province_id: int) -> Dictionary:
 		st["secondary_goods"] = Array(live.get("secondary_goods", [])).duplicate()
 		st["population"] = snappedf(float(live.get("population", 0.0)), 0.01)
 		st["slots"] = int(live.get("slots", st.get("slots", 0)))
+		# Stage 2: the live buildings with their states (the panel lists kind, name and level)
+		st["buildings"] = Array(live.get("buildings", [])).filter(func(b): return str(b.get("state", "")) != "cancelled").map(func(b):
+			return {"kind": str(b.kind), "name": str(ProvinceBuildings.kind(s.gd, str(b.kind)).get("name", b.kind)),
+				"level": int(b.get("level", 0)), "target": int(b.get("target", 0)), "state": str(b.get("state", "active"))})
 		st["live"] = true
 		rec["stats"] = st
 	return rec

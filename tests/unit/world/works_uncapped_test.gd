@@ -28,17 +28,16 @@ func test_a_level_above_the_free_level_costs_the_surcharge_ac_tm_109() -> void:
 func test_sects_are_offered_levels_past_five_at_their_track_price() -> void:
 	var gd := game_data()
 	var s: Dictionary = _great()
-	var seat: Dictionary = _db.get_record("places", str(s.hq_place_id))
-	var saved: Dictionary = Dictionary(seat.qi.get("layer2", {})).duplicate(true)
-	if not seat.qi.has("layer2"):
-		seat.qi["layer2"] = {}
-	seat.qi.layer2["spirit_grove"] = {"level": 7, "unpaid": 0, "element": ""}
-	var c: Array = SectWorks.candidates(gd, _db, s).filter(func(x): return str(x.place) == str(seat.id) and str(x.id) == "spirit_grove")
-	seat.qi["layer2"] = saved
+	var v: Dictionary = Provinces.of_place(gd, _db, _db.get_record("places", str(s.hq_place_id)))
+	var saved: Array = Array(v.buildings).duplicate(true)
+	var grove: Dictionary = ProvinceBuildings.make(v, "spirit_grove", 7)
+	v.buildings.append(grove)
+	var c: Array = SectWorks.candidates(gd, _db, s).filter(func(x): return str(x.province) == str(v.id) and str(x.kind) == "spirit_grove")
+	v["buildings"] = saved
 	assert_eq(c.size(), 1, "the grove's next level is a candidate")
 	assert_eq(int(c[0].level), 8, "level 8 (no highest level)")
 	var free: int = SectWorks.free_level(gd, _db, s, "spirit_grove")
-	assert_eq(int(c[0].cost), int(MapWorks.cost(gd, "spirit_grove", 8, free).lt), "at Institutions' price (free level %d)" % free)
+	assert_eq(int(c[0].cost), ProvinceBuildings.cost(gd, "spirit_grove", 8, free), "at Institutions' price (free level %d)" % free)
 
 
 func test_layer_two_production_share_and_match_have_no_cap() -> void:
@@ -75,7 +74,10 @@ func test_a_sect_saves_for_a_level_one_season_cannot_pay_and_never_overdraws() -
 	assert_true(c0 / maxf(float(cands[0].value), 1e-9) <= float(cfg.save_payback_max), "the best work pays back within save_payback_max (else this fixture tests nothing)")
 	var total: float = 0.0
 	var seasons: int = 0
-	while seasons < 6 and int(_db.get_record("places", str(cands[0].place)).qi.get("layer2", {}).get(str(cands[0].id), {}).get("level", 0)) < int(cands[0].level):
+	var v: Dictionary = _db.get_record(Provinces.TABLE, str(cands[0].province))
+	var ordered := func() -> bool:
+		return Array(v.buildings).any(func(x): return str(x.kind) == str(cands[0].kind) and int(x.get("target", x.level)) >= int(cands[0].level))
+	while seasons < 6 and not ordered.call():
 		var spent: float = SectWorks.build_best(gd, _db, s, budget)
 		assert_true(spent <= budget + 1e-6, "season %d takes at most its own budget (%.0f of %.0f)" % [seasons, spent, budget])
 		total += spent

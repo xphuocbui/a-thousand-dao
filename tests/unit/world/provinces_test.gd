@@ -89,7 +89,8 @@ func test_slots_follow_the_seat_and_population_f5() -> void:
 		var want: int = int(cs.wild_slots)
 		if str(v.kind) == "settlement":
 			want = int(cs.base_slots.get(str(v.seat_kind), 0)) + int(floor(float(v.population) / float(cs.slot_pop_step)))
-		assert_eq(int(v.slots), want, "%s slots" % v.id)
+		var standing: int = Array(v.buildings).filter(func(x): return str(x.get("state", "")) != "cancelled").size()
+		assert_eq(int(v.slots), maxi(want, standing), "%s slots: never below the buildings standing (rule 10 fills a seat)" % v.id)
 
 
 func test_goods_are_fixed_at_the_first_season_f1() -> void:
@@ -120,3 +121,45 @@ func test_a_save_from_before_provinces_is_refused_d7() -> void:
 	var r: Dictionary = old.load_dict(d)
 	assert_false(r.ok, "a save with no provinces version is refused")
 	assert_true(str(r.lines).contains("provinces"), "and says why")
+
+
+func test_rule_10_starting_buildings_are_placed_and_project_onto_places() -> void:
+	var gd := game_data()
+	var great: Array = _db.all(Provinces.TABLE).filter(func(v): return str(v.seat_kind) == "great_seat")
+	assert_eq(great.size(), 7, "the seven great seats")
+	for v in great:
+		var kinds: Array = Array(v.buildings).map(func(b): return str(b.kind))
+		assert_eq(kinds.count("gathering_array"), 2, "%s: gathering array x2" % v.id)
+		assert_eq(kinds.count("road"), 3, "%s: road x3" % v.id)
+		var seat: Dictionary = _db.get_record("places", str(v.seat_place))
+		var sum: int = Array(v.buildings).filter(func(b): return str(b.kind) == "gathering_array").reduce(func(acc, b): return acc + int(b.level), 0)
+		assert_eq(int(seat.qi.layer2.get("sect_array", {}).get("level", 0)), sum, "%s: the two arrays count as their summed level at the seat" % v.id)
+		assert_eq(str(seat.qi.layer2.sect_array.get("by", "")), ProvinceBuildings.BY, "written by the province")
+	for v in _db.all(Provinces.TABLE).filter(func(x): return str(x.kind) == "wilderness"):
+		var has_mine: bool = Array(v.places).any(func(pid): return str(_db.get_record("places", str(pid)).get("kind", "")) == "mine")
+		assert_eq(Array(v.buildings).any(func(b): return str(b.kind) == "mine_works"), has_mine, "%s: an outpost only with a mine" % v.id)
+	for v in _db.all(Provinces.TABLE):
+		for b in v.buildings:
+			if not bool(ProvinceBuildings.kind(gd, str(b.kind)).get("live", false)):
+				assert_eq(ProvinceBuildings.upkeep_of(gd, _db, v, b), 0.0, "%s %s: not live, not billed" % [v.id, b.kind])
+
+
+func test_starting_levels_and_halls_follow_the_lore() -> void:
+	var gd := game_data()
+	var tx: Dictionary = _db.find("sects", func(s): return str(s.get("key", "")) == "thien_xu")[0]
+	var seat_v: Dictionary = Provinces.of_place(gd, _db, _db.get_record("places", str(tx.hq_place_id)))
+	var arrays: Array = Array(seat_v.buildings).filter(func(b): return str(b.kind) == "gathering_array")
+	assert_eq(arrays.map(func(b): return int(b.level)), [4, 4], "Thiên Xu's seat arrays at level 4 (Institutions 12 x 0.34)")
+	assert_true(Array(seat_v.buildings).any(func(b): return str(b.kind) == "formation_hall"), "its specialty (trận sư) gives a formation hall")
+	for v in _db.all(Provinces.TABLE):
+		if ProvinceBuildings.payer(_db, v) == str(tx.id):
+			var kinds: Array = Array(v.buildings).map(func(b): return str(b.kind))
+			assert_true(kinds.has("warding_wall") and kinds.has("caravan_post"), "%s: the world police's wall and post" % v.id)
+	var thai: Array = _db.find("sects", func(s): return str(s.get("key", "")) == "thai_chi")
+	if not thai.is_empty():
+		var tv: Dictionary = Provinces.of_place(gd, _db, _db.get_record("places", str(thai[0].hq_place_id)))
+		assert_true(Array(tv.buildings).any(func(b): return str(b.kind) == "alchemy_hall"), "Thải Chi Cốc (herb fields and alchemy) starts with an alchemy hall")
+	for v in _db.all(Provinces.TABLE):
+		if ProvinceBuildings.payer(_db, v) == "":
+			for b in v.buildings:
+				assert_eq(int(b.level), 1, "%s %s: unheld land starts at level 1" % [v.id, b.kind])

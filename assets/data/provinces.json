@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "_doc": "Provinces (design/gdd/provinces.md; ADR-0008; provinces-runtime Stage 1, read by Provinces). provinces_version: written to the world's w_meta at build; a save with another value (or none) is refused (D7, user decision 2026-11-24). shape_file: the static province shapes, places and neighbours (world_provinces.json, from tools/design/map/province_stats_v2.py; its 'stats' are the old bake, not read by the game except as the panel's fallback for values a later stage makes live). province_ids_file: u16 per tile (540 x 360, 0 over water), for places outside every listed province (the 5 lakes, and places made mid-game). F1: secondary_share (a secondary good is at least this share of the main good's value). F2: wild_hops (wilderness output reaches settlement provinces of the same region at most this many hops away; farther wilderness passes nothing). F5: base_slots by seat kind, slot_pop_step (population units per extra slot), wild_slots. lake_search_radius: tiles searched around a place on water for the nearest land province. All values are the GDD's guesses (OQ 1).",
-  "provinces_version": 1,
+  "provinces_version": 2,
   "shape_file": "world_provinces",
   "province_ids_file": "res://assets/map/continent_11_province_ids.bin",
   "secondary_share": 0.35,

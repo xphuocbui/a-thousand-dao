@@ -1,0 +1,660 @@
+{
+  "schema_version": 1,
+  "_doc": "Province buildings (design/gdd/provinces.md rules 7-10, States; design/quick-specs/province-building-catalogue.md; provinces-runtime Stage 2), read by ProvinceBuildings. kinds: group (production, logistics, society, cultivation), track (prices the level: Sects F2 free_level, x track_surcharge per level above; no highest level), kind (permanent keeps its gain while unpaid; upkept counts 0 while unpaid), work (the Travel & Map work its effect is written as at the places it acts on, MapWorks reads it), acts (seat: the province's seat settlement; sites: the province's sites of the listed place kinds; all_sites; province: the province itself), cost_lt, growth, materials, rarity_min, seasons (permanent: seasons x level; upkept: 1 + floor(level / 3)), upkeep (linh thach a level a season) or upkeep_site_frac (of the acting sites' base value a level), staff (population units a level, F4), live (false: placed for slots but not billed, not ordered and with no effect until its stage makes it live), out (F4 out[b]: base value a level of the listed good kind, counted in the province's production only). ruin_seasons: unpaid seasons that ruin an upkept building. start_enabled: place rule 10's starting buildings at world generation. All numbers are guesses (Provinces OQ 1). start_level (user request 2026-11-24: starting levels follow the lore): a starting building's level is max(1, round(the payer sect's authored level in the kind's track x per_track_level)), x away_factor outside the sect's seat province; unheld land stays at 1. lore_specialty and lore_craft: the halls (and lore buildings) a sect starts with at its seat province, from its authored specialty and the craft text of world_history.json (keyword, kind; the first keywords of the list that match each add their kind once); a landing is placed only on a coast or river. sect_extra: authored lore extras by sect key (held_provinces: kinds placed in every province the sect holds). These are a proposal for the user's review. start_level.flat_groups: groups that start at level 1 whatever the sect (production, 2026-11-24 under the user's delegation: lore levels on mines and fields with site growth tripled stone minting and doubled the world's money in the sim; they grow in play instead).",
+  "ruin_seasons": 4,
+  "start_enabled": true,
+  "kinds": {
+    "mine_works": {
+      "name": "Mine works",
+      "name_vi": "Khai khoáng",
+      "group": "production",
+      "track": "holdings",
+      "kind": "upkept",
+      "work": "worked_mine",
+      "acts": "sites",
+      "sites": [
+        "mine"
+      ],
+      "cost_lt": 1000,
+      "growth": 2.0,
+      "materials": 0,
+      "rarity_min": 0,
+      "seasons": 1,
+      "upkeep_site_frac": 0.03,
+      "staff": 1.0,
+      "live": true
+    },
+    "hunting_lodge": {
+      "name": "Hunting lodge",
+      "name_vi": "Săn thú quán",
+      "group": "production",
+      "track": "holdings",
+      "kind": "upkept",
+      "work": "worked_mine",
+      "acts": "sites",
+      "sites": [
+        "beast_lair"
+      ],
+      "cost_lt": 1000,
+      "growth": 2.0,
+      "materials": 0,
+      "rarity_min": 0,
+      "seasons": 1,
+      "upkeep_site_frac": 0.03,
+      "staff": 1.0,
+      "live": true
+    },
+    "spirit_fields": {
+      "name": "Spirit fields",
+      "name_vi": "Linh điền",
+      "group": "production",
+      "track": "holdings",
+      "kind": "upkept",
+      "work": "worked_mine",
+      "acts": "sites",
+      "sites": [
+        "spirit_vein",
+        "hot_spring"
+      ],
+      "cost_lt": 1200,
+      "growth": 2.0,
+      "materials": 0,
+      "rarity_min": 0,
+      "seasons": 1,
+      "upkeep_site_frac": 0.03,
+      "upkeep": 10,
+      "staff": 1.0,
+      "live": true,
+      "out": {
+        "herb": 60
+      }
+    },
+    "vein_dressing": {
+      "name": "Vein dressing",
+      "name_vi": "Tu mạch",
+      "group": "production",
+      "track": "holdings",
+      "kind": "permanent",
+      "work": "vein_dressing",
+      "acts": "all_sites",
+      "cost_lt": 2000,
+      "growth": 2.0,
+      "materials": 1,
+      "rarity_min": 2,
+      "seasons": 1,
+      "staff": 0.0,
+      "live": true
+    },
+    "road": {
+      "name": "Road",
+      "name_vi": "Quan lộ",
+      "group": "logistics",
+      "track": "trade",
+      "kind": "upkept",
+      "acts": "province",
+      "cost_lt": 600,
+      "growth": 2.0,
+      "materials": 0,
+      "rarity_min": 0,
+      "seasons": 1,
+      "upkeep": 4,
+      "staff": 1.0,
+      "live": false
+    },
+    "caravan_post": {
+      "name": "Caravan post",
+      "name_vi": "Dịch trạm",
+      "group": "logistics",
+      "track": "trade",
+      "kind": "upkept",
+      "acts": "province",
+      "cost_lt": 1500,
+      "growth": 2.0,
+      "materials": 0,
+      "rarity_min": 0,
+      "seasons": 1,
+      "upkeep": 10,
+      "staff": 1.0,
+      "live": false
+    },
+    "landing": {
+      "name": "Landing",
+      "name_vi": "Bến",
+      "group": "logistics",
+      "track": "trade",
+      "kind": "upkept",
+      "acts": "province",
+      "needs": "water",
+      "cost_lt": 2000,
+      "growth": 2.0,
+      "materials": 0,
+      "rarity_min": 0,
+      "seasons": 1,
+      "upkeep": 12,
+      "staff": 1.0,
+      "live": false
+    },
+    "storehouse": {
+      "name": "Storehouse",
+      "name_vi": "Kho",
+      "group": "logistics",
+      "track": "trade",
+      "kind": "upkept",
+      "acts": "province",
+      "cost_lt": 1000,
+      "growth": 2.0,
+      "materials": 0,
+      "rarity_min": 0,
+      "seasons": 1,
+      "upkeep": 6,
+      "staff": 1.0,
+      "live": false
+    },
+    "market_hall": {
+      "name": "Market hall",
+      "name_vi": "Thị đường",
+      "group": "society",
+      "track": "trade",
+      "kind": "upkept",
+      "acts": "province",
+      "cost_lt": 1500,
+      "growth": 2.0,
+      "materials": 0,
+      "rarity_min": 0,
+      "seasons": 1,
+      "upkeep": 8,
+      "staff": 1.0,
+      "live": false
+    },
+    "granary": {
+      "name": "Granary",
+      "name_vi": "Kho lương",
+      "group": "society",
+      "track": "holdings",
+      "kind": "upkept",
+      "acts": "province",
+      "cost_lt": 1000,
+      "growth": 2.0,
+      "materials": 0,
+      "rarity_min": 0,
+      "seasons": 1,
+      "upkeep": 5,
+      "staff": 1.0,
+      "live": false
+    },
+    "warding_wall": {
+      "name": "Warding wall",
+      "name_vi": "Hộ tường",
+      "group": "society",
+      "track": "military",
+      "kind": "upkept",
+      "acts": "province",
+      "cost_lt": 2000,
+      "growth": 2.0,
+      "materials": 0,
+      "rarity_min": 0,
+      "seasons": 1,
+      "upkeep": 10,
+      "staff": 1.0,
+      "live": false
+    },
+    "gathering_array": {
+      "name": "Gathering array",
+      "name_vi": "Đại tụ linh trận",
+      "group": "cultivation",
+      "track": "institutions",
+      "kind": "upkept",
+      "work": "sect_array",
+      "acts": "seat",
+      "cost_lt": 3000,
+      "growth": 2.5,
+      "materials": 1,
+      "rarity_min": 3,
+      "seasons": 1,
+      "upkeep": 125,
+      "staff": 1.0,
+      "live": true
+    },
+    "spirit_grove": {
+      "name": "Spirit grove",
+      "name_vi": "Linh lâm",
+      "group": "cultivation",
+      "track": "institutions",
+      "kind": "permanent",
+      "work": "spirit_grove",
+      "acts": "seat",
+      "cost_lt": 2000,
+      "growth": 2.0,
+      "materials": 1,
+      "rarity_min": 2,
+      "seasons": 1,
+      "staff": 0.0,
+      "live": true
+    },
+    "qi_channel": {
+      "name": "Qi channel",
+      "name_vi": "Dẫn linh cừ",
+      "group": "cultivation",
+      "track": "institutions",
+      "kind": "permanent",
+      "work": "qi_channel",
+      "acts": "seat",
+      "element": true,
+      "cost_lt": 2000,
+      "growth": 2.0,
+      "materials": 1,
+      "rarity_min": 2,
+      "seasons": 1,
+      "staff": 0.0,
+      "live": true
+    },
+    "alchemy_hall": {
+      "name": "Alchemy hall",
+      "name_vi": "Đan phòng",
+      "group": "cultivation",
+      "track": "institutions",
+      "kind": "upkept",
+      "acts": "seat",
+      "cost_lt": 2500,
+      "growth": 2.2,
+      "materials": 1,
+      "rarity_min": 2,
+      "seasons": 1,
+      "upkeep": 40,
+      "staff": 1.0,
+      "live": false
+    },
+    "artifact_forge": {
+      "name": "Artifact forge",
+      "name_vi": "Luyện khí phòng",
+      "group": "cultivation",
+      "track": "institutions",
+      "kind": "upkept",
+      "acts": "seat",
+      "cost_lt": 2500,
+      "growth": 2.2,
+      "materials": 1,
+      "rarity_min": 2,
+      "seasons": 1,
+      "upkeep": 40,
+      "staff": 1.0,
+      "live": false
+    },
+    "talisman_hall": {
+      "name": "Talisman hall",
+      "name_vi": "Phù lục đường",
+      "group": "cultivation",
+      "track": "institutions",
+      "kind": "upkept",
+      "acts": "seat",
+      "cost_lt": 2000,
+      "growth": 2.2,
+      "materials": 1,
+      "rarity_min": 2,
+      "seasons": 1,
+      "upkeep": 30,
+      "staff": 1.0,
+      "live": false
+    },
+    "formation_hall": {
+      "name": "Formation hall",
+      "name_vi": "Trận pháp đường",
+      "group": "cultivation",
+      "track": "institutions",
+      "kind": "upkept",
+      "acts": "seat",
+      "cost_lt": 2500,
+      "growth": 2.2,
+      "materials": 1,
+      "rarity_min": 2,
+      "seasons": 1,
+      "upkeep": 40,
+      "staff": 1.0,
+      "live": false
+    },
+    "scripture_pavilion": {
+      "name": "Scripture pavilion",
+      "name_vi": "Tàng kinh các",
+      "group": "cultivation",
+      "track": "institutions",
+      "kind": "permanent",
+      "acts": "seat",
+      "cost_lt": 4000,
+      "growth": 2.5,
+      "materials": 2,
+      "rarity_min": 3,
+      "seasons": 2,
+      "staff": 0.0,
+      "live": false
+    },
+    "meditation_chamber": {
+      "name": "Meditation chamber",
+      "name_vi": "Tĩnh thất",
+      "group": "cultivation",
+      "track": "institutions",
+      "kind": "upkept",
+      "acts": "seat",
+      "cost_lt": 3000,
+      "growth": 2.5,
+      "materials": 1,
+      "rarity_min": 3,
+      "seasons": 1,
+      "upkeep": 60,
+      "staff": 1.0,
+      "live": false
+    },
+    "recruitment_hall": {
+      "name": "Recruitment hall",
+      "name_vi": "Chiêu sinh điện",
+      "group": "cultivation",
+      "track": "institutions",
+      "kind": "upkept",
+      "acts": "seat",
+      "cost_lt": 1500,
+      "growth": 2.0,
+      "materials": 0,
+      "rarity_min": 0,
+      "seasons": 1,
+      "upkeep": 15,
+      "staff": 1.0,
+      "live": false
+    }
+  },
+  "start": {
+    "village": [
+      [
+        "road",
+        1
+      ]
+    ],
+    "market": [
+      [
+        "road",
+        1
+      ],
+      [
+        "market_hall",
+        1
+      ]
+    ],
+    "town": [
+      [
+        "road",
+        1
+      ],
+      [
+        "market_hall",
+        1
+      ],
+      [
+        "granary",
+        1
+      ]
+    ],
+    "minor_seat": [
+      [
+        "road",
+        1
+      ],
+      [
+        "gathering_array",
+        1
+      ],
+      [
+        "warding_wall",
+        1
+      ]
+    ],
+    "city": [
+      [
+        "road",
+        1
+      ],
+      [
+        "road",
+        1
+      ],
+      [
+        "market_hall",
+        1
+      ],
+      [
+        "market_hall",
+        1
+      ],
+      [
+        "granary",
+        1
+      ],
+      [
+        "caravan_post",
+        1
+      ]
+    ],
+    "great_seat": [
+      [
+        "road",
+        1
+      ],
+      [
+        "road",
+        1
+      ],
+      [
+        "road",
+        1
+      ],
+      [
+        "market_hall",
+        1
+      ],
+      [
+        "market_hall",
+        1
+      ],
+      [
+        "granary",
+        1
+      ],
+      [
+        "granary",
+        1
+      ],
+      [
+        "caravan_post",
+        1
+      ],
+      [
+        "caravan_post",
+        1
+      ],
+      [
+        "gathering_array",
+        1
+      ],
+      [
+        "gathering_array",
+        1
+      ],
+      [
+        "warding_wall",
+        1
+      ]
+    ]
+  },
+  "good_building": {
+    "herb": "spirit_fields",
+    "ore": "mine_works",
+    "beast": "hunting_lodge"
+  },
+  "landing_seats": [
+    "town",
+    "market",
+    "city"
+  ],
+  "landing_river_tiles": 6,
+  "start_level": {
+    "per_track_level": 0.34,
+    "away_factor": 0.5,
+    "flat_groups": [
+      "production"
+    ]
+  },
+  "lore_specialty": {
+    "tran_su": "formation_hall",
+    "dan_su": "alchemy_hall",
+    "linh_thuc_su": "hunting_lodge",
+    "phap_tu": "scripture_pavilion"
+  },
+  "lore_craft": [
+    [
+      "alchemy",
+      "alchemy_hall"
+    ],
+    [
+      "luyện đan",
+      "alchemy_hall"
+    ],
+    [
+      "pill refining",
+      "alchemy_hall"
+    ],
+    [
+      "forging",
+      "artifact_forge"
+    ],
+    [
+      "luyện khí",
+      "artifact_forge"
+    ],
+    [
+      "artifact refining",
+      "artifact_forge"
+    ],
+    [
+      "refining spirit ores",
+      "artifact_forge"
+    ],
+    [
+      "casting",
+      "artifact_forge"
+    ],
+    [
+      "talisman",
+      "talisman_hall"
+    ],
+    [
+      "phù lục",
+      "talisman_hall"
+    ],
+    [
+      "formation",
+      "formation_hall"
+    ],
+    [
+      "trận pháp",
+      "formation_hall"
+    ],
+    [
+      "arrays",
+      "formation_hall"
+    ],
+    [
+      "chiến trận",
+      "formation_hall"
+    ],
+    [
+      "river",
+      "landing"
+    ],
+    [
+      "sea trade",
+      "landing"
+    ],
+    [
+      "ships",
+      "landing"
+    ],
+    [
+      "boats",
+      "landing"
+    ],
+    [
+      "fleets",
+      "landing"
+    ],
+    [
+      "treasure market",
+      "market_hall"
+    ],
+    [
+      "caravan guards",
+      "caravan_post"
+    ],
+    [
+      "road wardens",
+      "road"
+    ],
+    [
+      "beast",
+      "hunting_lodge"
+    ],
+    [
+      "horses",
+      "hunting_lodge"
+    ],
+    [
+      "birds",
+      "hunting_lodge"
+    ],
+    [
+      "hunters",
+      "hunting_lodge"
+    ],
+    [
+      "fish",
+      "hunting_lodge"
+    ],
+    [
+      "herb",
+      "spirit_fields"
+    ],
+    [
+      "spirit farming",
+      "spirit_fields"
+    ],
+    [
+      "spirit-rice",
+      "spirit_fields"
+    ],
+    [
+      "spirit wine",
+      "spirit_fields"
+    ],
+    [
+      "teachers",
+      "scripture_pavilion"
+    ],
+    [
+      "scrolls",
+      "scripture_pavilion"
+    ],
+    [
+      "watch",
+      "warding_wall"
+    ],
+    [
+      "grave wards",
+      "warding_wall"
+    ]
+  ],
+  "sect_extra": {
+    "thien_xu": {
+      "held_provinces": [
+        "warding_wall",
+        "caravan_post"
+      ],
+      "_why": "the world police (user, 2026-11-24): a wall and a patrol post in every province it holds"
+    }
+  }
+}

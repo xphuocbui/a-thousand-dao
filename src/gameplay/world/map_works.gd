@@ -25,7 +25,7 @@ static func cfg(gd: GameData) -> Dictionary:
 
 
 static func work(gd: GameData, id: String) -> Dictionary:
-	return cfg(gd).get("works", {}).get(id, {})
+	return cfg(gd).get("works", {}).get(id.get_slice(":", 0), {})   # "qi_channel:hoa": a province's channel per element
 
 
 ## Formula J: the linh thach a level-[param level] work costs, its materials and its seasons. With [param free_level]
@@ -227,8 +227,8 @@ static func upkeep(gd: GameData, db: WorldDB, c: Character) -> Array:
 			var works: Dictionary = pair[1]
 			for id in works.keys():
 				var w: Dictionary = work(gd, str(id))
-				if str(w.get("kind", "")) != "upkept":
-					continue
+				if str(w.get("kind", "")) != "upkept" or str(works[id].get("by", "")) == ProvinceBuildings.BY:
+					continue   # a province building is billed to its province's payer (ProvinceBuildings), not here
 				var lv_b: int = int(works[id].level)
 				if int(pair[0]) == 1:   # Cave Abode rule 9: a dormant work costs nothing and does not fade; one above
 					lv_b = CaveAbode.eff_level(gd, qi, c.id, "w:%s" % id, lv_b, 0)   # a dormant work is not billed

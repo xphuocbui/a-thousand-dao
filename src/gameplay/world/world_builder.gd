@@ -100,6 +100,9 @@ func generate(rng: RandomNumberGenerator, game_seed: String = "") -> WorldDB:
 	Provinces.build(_gd, _db)   # ADR-0008: the provinces table and every place's province_id, before the first contract
 	MapProduction.season(_gd, _db, true, false)   # the first season's contract (reserves unmoved), so the markets calibrate on real output
 	Provinces.season(_gd, _db)   # the province contract in shadow (provinces-runtime Stage 1); F1's goods are fixed here
+	ProvinceBuildings.place_start(_gd, _db)   # rule 10's starting buildings, once the goods are known (Stage 2)
+	for v in _db.all(Provinces.TABLE):
+		ProvinceBuildings.project(_gd, _db, v)
 	WorldEconomy.build(_gd, _db, TravelGrid.of(_gd))
 	# Core Rules 10 and 13: the ledger of truth and the data versions are saved with the world, never shown
 	_db.add("world", {"id": "w_meta", "builder": "continent", "data_version": str(_hist.get("data_version", "")),

@@ -59,6 +59,7 @@ func test_a_life_at_the_abode_from_the_starting_room_to_a_reclaim() -> void:
 		assert_eq(_abode_burned(s) - burned0, float(cost), "the raise is booked as burn_abode")
 	assert_eq(CaveAbode.grade_of(home.qi.abode), 1, "the old grade holds this season")
 	s.cultivate(1)
+	s.pending_event = {}   # a world event may land in the season (it depends on how the world played); this test is about the abode
 	assert_eq(CaveAbode.grade_of(home.qi.abode), 2, "grade 2 from the next season")
 	assert_true(bool(s.formation_build("thanh_moc").ok), "the third slot")
 	s.sync_player()

@@ -87,6 +87,17 @@ sums agree only continent-wide. **Owed before Stage 6:** decide whether those pl
 
 ### Stage 2: the building catalogue, states and starting buildings (the risky stage)
 
+**Built 2026-11-24 (under the user's delegation):** `assets/data/province_buildings.json` (every kind from the
+catalogue spec; `live` false for kinds whose effect comes in a later stage: logistics, society and the sect halls are
+placed for slots but not billed, ordered or projected) and `src/gameplay/world/province_buildings.gd`. The province is
+the record of truth; each season `ProvinceBuildings.project` writes every live building's effective level as a Travel
+& Map work (`by: "province"`) at the places it acts on, so Formula B, match and `G_f` read it unchanged and a player's
+own abode works are left alone (user, 2026-11-24: keep them as today). States: building (an upgrade counts at the built
+level), active, unpaid (upkept 0, permanent kept), ruined after `ruin_seasons` 4. `SectWorks` now orders province
+buildings (same value-per-stone rule, same saving) and pays their upkeep in D3's order. No migration was needed: a new
+world has no place works and older saves are refused (`provinces_version` 2). Panel: `GameQuery.province` lists the
+live buildings (the window still shows level pips only; states are a Stage 8 item for the UI session).
+
 - **Catalogue:** the building catalogue becomes data, `assets/data/province_buildings.json` (kinds, levels 1–5, cost,
   build seasons, upkeep, effects, the track that caps each kind). It is drafted from `map_works.json` and the Python
   constants (D2).
