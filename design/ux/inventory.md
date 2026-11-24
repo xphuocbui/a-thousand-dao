@@ -4,10 +4,11 @@
 > 2026-11-23 night by Claude under the UI delegation (memory ui-design-delegated)
 > **Author**: Claude (ux-designer role)
 > **Last Updated**: 2026-11-24
-> **2026-11-24 note**: the window was rebuilt in the illustrated style (user 2026-11-24, `illustrated.gd`): a wood
-> ground, one parchment inset per kind, and each row has a 56 px icon tile framed in the item's rarity colour with an
-> "×N" quantity badge. This spec now describes that build. Evidence: `production/qa/evidence/ui-windows/22-inventory-illustrated-1920x1080.png`
-> (older: 20 and 21, and `compact-1280/inventory.png`, show the text-only rows).
+> **2026-11-24 note**: rebuilt twice that day: in the illustrated style (`illustrated.gd`), then as an inventory
+> (weak-point pass, `production/plans/ui-weakpoints-2026-11-24.md` #6): item tiles in a grid per kind, and a pinned
+> side pane with Selected and Equipped. This spec describes the second build. Evidence:
+> `production/qa/evidence/ui-windows/review-2026-11-24/05-inventory.png` and `720-05-inventory.png` (older shots
+> under `ui-windows/` show the rows).
 > **Platform Target**: PC (Windows); keyboard and mouse primary, gamepad Partial (`design/ux/hud.md` Platform Adaptation)
 > **Template**: UX Spec (lean: the headings of `design/ux/person.md`)
 > **GDDs read**: `design/gdd/item-database.md` (kinds, rarity ladder rule 7, equipping rule 11, named items rule 20,
@@ -32,7 +33,7 @@ sheet's action bar. Usually between seasons, after loot or a purchase, or while 
 ## Navigation Position
 
 A Z6 window of the window host (history, focus return), like the character sheet. An item's own window does not exist:
-an item is shown by its tooltip and its expanded row.
+an item is shown by its tooltip and the Selected panel.
 
 ## Entry & Exit Points
 
@@ -47,28 +48,31 @@ Exits: × / Esc (an open chooser or armed confirm first), the window history, th
 ### ASCII Wireframe
 
 ```
-+-------------------------------------------+
-| < >  Inventory                        [x] |  I1 frame
-| Linh thạch 1,240 · Gear 3 of 5 base, 1 of 2 extra
-| [search…                    ] Ctrl+F      |  I2 sticky header
-| (All)(Pháp bảo)(Công pháp)(Đan dược)(Bảo vật)(Phù lục)(Linh thảo)(Tài liệu)
-|-------------------------------------------|  wood ground (I3 body, scrolls)
-| +---------------------------------------+ |
-| | PHÁP BẢO (4)                          | |  parchment inset per kind
-| | [icon] Thanh Phong Kiếm · Trung · ATK 42 [weapon]
-| | [tile]   ▸ Unequip  Nurture           | |  (expanded row)
-| | [icon] Hắc Thiết Giáp · Hạ · DEF 18   | |
-| +---------------------------------------+ |
-| | CÔNG PHÁP (1)                         | |
-| | [icon] Bạch Kim Bí Điển · Thượng · main · known
-| +---------------------------------------+ |
-| | ĐAN DƯỢC (2)                          | |
-| | [icon ×3] Tụ Khí Đan · Hạ · x3 (phẩm 1)
-| +---------------------------------------+ |
-|-------------------------------------------|
-| reply strip                               |  I4
-| [Character]                               |  I5 action bar
-+-------------------------------------------+
++--------------------------------------------------------------+
+| < >  Inventory                                           [x] |  I1 frame
+| Linh thạch 1,240 · Gear 2 of 5 base, 1 of 2 extra · ⚠ 1 unslotted
+| [search…                                    ] Ctrl+F         |  I2 sticky header
+| (All)(Pháp bảo)(Công pháp)(Đan dược)(Phù lục)(Linh thảo)(Tài liệu)
+|--------------------------------------+-----------------------|
+| wood ground (I3 body, scrolls)       | I6 side pane (pinned, |
+| +----------------------------------+ | scrolls on its own)   |
+| | PHÁP BẢO (5)                     | | +-------------------+ |
+| | [tile][tile][tile][tile]         | | | SELECTED          | |
+| | [tile]                           | | | [96px] Name       | |
+| +----------------------------------+ | | kind · rarity     | |
+| | CÔNG PHÁP (1)                    | | | facts, text, ▲/▼  | |
+| | [tile]                           | | | [Unequip][Nurture]| |
+| +----------------------------------+ | +-------------------+ |
+| | ĐAN DƯỢC (2)  [tile][tile ×6]    | | | EQUIPPED          | |
+| +----------------------------------+ | | Weapon [■]        | |
+|                                      | | Ring   [■][ ]     | |
+|                                  ▾   | | Extra  [■][ ]     | |
+|--------------------------------------+-----------------------|
+| reply strip                                                  |  I4
+| Character ›                                                  |  I5 action bar
++--------------------------------------------------------------+
+tile = 116x132: 64 px painted icon, name (2 lines, …), rarity-colour frame,
+       gold edge when equipped, ×N / ⚠ in the icon's corner
 ```
 
 ### Layout Zones
@@ -77,9 +81,13 @@ Exits: × / Esc (an open chooser or armed confirm first), the window history, th
 |---|---|---|
 | I1 Frame | Back, forward, title, close | No |
 | I2 Sticky header | Linh thạch; gear slots used (base and extra, EquipSlots); the search field; the kind chips | No |
-| I3 Body | A wood ground holding one parchment inset per kind, in a fixed order: Pháp bảo, Công pháp, Đan dược, Bảo vật, Phù lục, Linh thảo, Tài liệu; each inset has its heading and its rows, sorted equipped first, then rarity high to low, then name | Yes |
+| I3 Body | A wood ground holding one parchment inset per kind, in a fixed order: Pháp bảo, Công pháp, Đan dược, Bảo vật, Phù lục, Linh thảo, Tài liệu; each inset holds a grid of item tiles, sorted equipped first, then rarity high to low, then name; a ▾ fade shows while more lies below | Yes |
+| I6 Side pane | **Selected** (the chosen item: 96 px icon, name in its rarity colour, kind · rarity · slot, facts, text, the comparison, then its verbs, chooser and confirm) above **Equipped** (each gear slot with its pieces as framed sockets, empty places as recessed sockets; a piece opens in Selected). Pinned beside the body (`GameWindow.use_side`), so it stays in view while the bag scrolls. Compact (1280x720): no side pane; Selected heads the body and Equipped follows the bag | On its own |
 | I4 Reply strip | The result of the last item action (3 lines, dismiss) | No |
-| I5 Action bar | Character | No |
+| I5 Action bar | Character › (a link, the text tier) | No |
+
+Focus: pressing a tile opens it in Selected and puts focus on its first usable verb; Esc closes it and focus returns
+to the tile.
 
 ### Component Inventory
 
@@ -90,8 +98,9 @@ Exits: × / Esc (an open chooser or armed confirm first), the window history, th
 | I2 | Search | LineEdit | Matches names and kind words; matching rows are outlined, the rest dimmed (Searchable list: highlight in place) | Ctrl+F focuses; IME-safe |
 | I2 | Kind chips | Toggle buttons | All, then one per kind present; off chips are dimmed and unpressed | Yes; the choice persists for this screen across opens (Searchable list); there is no sort control: the kind sections and the fixed order within them are the sort |
 | I3 | Section heading | Gilt caps + count | Kind name in Vietnamese with the count | Focus stop (Section jumps) |
-| I3 | Icon tile | Picture in a frame | A 56 px square tile left of every row (the row's height is the tile's, so rows without art keep the same height): the item's icon (`icon` from the read: a named item's own icon, else by kind and template or element) on a dark ground (#1B120C) in a 2 px frame of the item's rarity colour; when `qty` is above 1 an "×N" badge sits at its bottom right (bone colour, black outline). **Decorative**: it has no accessible name and no tab stop; the row button's name and text carry the item, its rarity word and its count. The tile is part of the row, so it takes the row's hover tooltip only through the button. Item arts are item-database.md rule 21 | No |
-| I3 | Item row | Button row | Name in its rarity colour plus the **rarity word** (Phàm, Hạ, Trung, Thượng, Cực, Thánh: item-database.md Formulas A, Open Question 13 closed; art bible: "the rarity word always shows"), the kind's key fact (ATK / DEF for pháp bảo, kind and known for công pháp, count and phẩm for pills and talismans, age and element for herbs, count for materials), marks in words: "[weapon]" when equipped, "known", "⚠ unslotted (adds nothing)" | Hover / Q: item tooltip; Enter / click: expand its verbs |
+| I3 | Item tile | Button, 116x132 | A fixed 64 px painted icon (`icon` from the read: a named item's own icon, else by kind and template or element; PlaceholderArt stripes when missing) over the name in two lines at most (ellipsis; the full name in the tooltip), on a dark ground in a frame of the item's **rarity colour**, a thicker gold edge when equipped, light gold when selected; "×N" and the unslotted ⚠ in the icon's corner (16 px, bone with a black outline). Its accessible name carries the name, kind, **rarity word** (Phàm, Hạ, Trung, Thượng, Cực, Thánh: the word always reaches the player, by name and tooltip, not colour alone), the kind's key fact and the marks ("[weapon]", "known", "unslotted (adds nothing)") | Hover / Q: item tooltip; Enter / click: select (its verbs in Selected, focus on the first usable one) |
+| I6 | Selected | Panel | See Layout Zones; its verbs, chooser and confirms are the old expanded row's | Esc: confirm, chooser, then deselect (focus back to the tile) |
+| I6 | Equipped | Panel of sockets | Each gear slot (`GameQuery.inventory().slots`: slot, size, pieces) as a row of 48 px sockets; a held piece is framed in its rarity colour and opens in Selected; an empty place is a recessed parchment socket with "Empty: equip a piece that fits it." | Click a piece: select it |
 | I3 | Expanded verbs | Buttons | The verbs this item has now (below); greyed with the reason when not possible | Yes |
 | I3 | Slot chooser | Inline chooser | For Equip: the slots the piece fits (weapon, armour, ring ×2, necklace, extra), each with "free" or the piece it would displace; a free slot equips at once, an occupied one arms "Replace <piece>? [Confirm] [Cancel]" | Yes |
 | I3 | Element chooser | Inline chooser | For a treasure that asks for an element (a Linh Căn Quả): the options the session gives, with their preview lines | Yes |
@@ -125,11 +134,11 @@ another person (their gear is shown on their character sheet, if at all).
 |---|---|
 | Normal | As the wireframe |
 | Search active | Matches outlined, others dimmed; "n of m match" under the field |
-| Row expanded | Its verbs row below it; only one row expanded at a time |
-| Chooser open | Slot or element chooser under the row; Esc closes it first |
+| Item selected | Its tile edged in light gold; the Selected panel shows it with its verbs; only one at a time |
+| Chooser open | Slot or element chooser in the Selected panel, under the verbs; Esc closes it first |
 | Replace armed | "Replace <piece>?" [Confirm] [Cancel] under the chooser |
-| Unslotted piece | Its row says "⚠ unslotted (adds nothing)"; unequipping another extra piece frees a slot for it after the re-read |
-| Confirm armed | "Eat 1 …?" [Confirm] [Cancel] under the row |
+| Unslotted piece | Its tile shows ⚠ in the icon's corner and its name and tooltip say "unslotted (adds nothing)"; the Equipped panel says how many; unequipping another extra piece frees a slot for it after the re-read |
+| Confirm armed | "Eat 1 …?" [Confirm] [Cancel] in the Selected panel |
 | Action refused | The session's reason in the reply strip; the view re-reads after every action |
 | Event waiting | Look-only: verbs disabled with 🔒 and "locked while an event waits"; search, chips and tooltips stay live |
 | Empty inventory | "You carry nothing yet." and the linh thạch line |
@@ -152,7 +161,7 @@ Every key is rebindable (hud.md Platform Adaptation); the table lists the defaul
 the search field has focus.
 
 **Focus order:** the frame, the search field, the chips, then the body rows top to bottom, then the action bar. On open
-focus goes to the search field. After a chooser or confirm closes, focus returns to its row. The mouse alone does
+focus goes to the search field. After a chooser or confirm closes, focus returns to the item's tile. The mouse alone does
 everything: rows, verbs, choosers and confirms are clickable, and tooltips lock by any of the three lock modes.
 Z2's Inventory button has no badge (hud.md element 5 lists badges for unspent points and unread news only).
 
@@ -209,8 +218,10 @@ Kind names in Vietnamese with English in tooltips; numbers follow the language; 
 - [ ] `[GdUnit]` Equip opens the slot chooser with only fitting slots; a free slot emits `action_requested("equip", [id, slot])` at once;
       an occupied slot arms "Replace …?" and only Confirm emits.
 - [ ] `[GdUnit]` Unequip emits `unequip`; Nurture shows only on equipped pieces; Read emits `learn` and is greyed "you already know it" for a known manual.
-- [ ] `[GdUnit]` An equipped piece past the extra count shows "unslotted" in its row and accessible name.
-- [ ] `[GdUnit]` Esc order: chooser, then the expanded row, then the window.
+- [ ] `[GdUnit]` An equipped piece past the extra count shows "unslotted" in its tile's accessible name and tooltip (⚠ on the tile).
+- [ ] `[GdUnit]` Esc order: chooser, then the selected item (focus back to its tile), then the window.
+- [ ] `[GdUnit]` The Equipped panel shows every gear slot, its pieces as sockets; a selected item's verbs sit in the Selected panel.
+- [ ] `[Screenshot]` 1920x1080: the side pane stays in view while the bag scrolls; 1280x720: Selected heads the body.
 - [ ] `[GdUnit]` An empty inventory shows "You carry nothing yet."
 - [ ] `[GdUnit]` Eat arms first; Confirm emits `use_item`; Cancel emits nothing.
 - [ ] `[GdUnit]` A `needs_element` answer opens the element chooser; picking emits `use_item` with that element.

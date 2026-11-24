@@ -82,3 +82,17 @@ func test_the_off_state() -> void:
 		if c is Label and str((c as Label).text).contains("off"):
 			found = true
 	assert_true(found)
+
+
+func test_provisional_rows_are_tinted_only_among_rated_ones() -> void:
+	var v := _view()
+	v.rows[1].state = "provisional"
+	var w := _window(v)
+	assert_true(w.row_of_rank(2).modulate.a < 1.0, "an estimate among rated rows is tinted")
+	assert_eq(w.row_of_rank(1).modulate.a, 1.0)
+	var all_prov := _view()
+	for r in all_prov.rows:
+		if not bool(r.you):
+			r.state = "provisional"
+	var w2 := _window(all_prov)
+	assert_eq(w2.row_of_rank(1).modulate.a, 1.0, "a new world, all provisional: no dim table (the header says so)")

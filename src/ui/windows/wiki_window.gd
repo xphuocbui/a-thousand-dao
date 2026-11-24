@@ -5,10 +5,15 @@ extends GameWindow
 ## [method WikiData.view]; read-only. Illustrated (user 2026-11-24): the index is a parchment inset per category with
 ## a flow of entries, each its link beside its trait medallion or item icon where it has one (the PlaceholderArt
 ## stripes when that art is missing); an entry opens with its icon framed large.
+## Two panes (weak-point review 2026-11-24: "a link dump"): a Contents inset on the left lists the categories (on the
+## index each jumps to its section; on an entry its own category opens to show the entry's neighbours, the others go
+## back to the index), and the index or the article fills the right. The host adds "nav" (the categories) to an
+## entry's view. Compact (1280x720): one pane, as before.
 
 var _search := LineEdit.new()
 var _count := Label.new()
 var _entry_rows: Array = []   # [Control, folded text] on the index
+var _pane: Control = null     # the right pane the index or the article builds into
 
 
 func kind() -> String:
@@ -35,10 +40,17 @@ func show_view(v: Dictionary, section: String, is_locked: bool) -> void:
 func _build() -> void:
 	var v: Dictionary = view
 	_entry_rows.clear()
+	var right: VBoxContainer = Illustrated.ground(body)
+	var nav: Array = Array(v.get("categories", v.get("nav", [])))
+	if not compact and not nav.is_empty():   # the Contents pinned on the left, scrolling on its own
+		use_side(270, true)
+		_build_nav(Illustrated.ground(side), nav, v)
+	_pane = right
 	if bool(v.get("index", false)):
 		_build_index(v)
 	elif bool(v.get("unknown", false)):
-		line(tr("No entry for this word yet."))
+		_pane = Illustrated.inset(right, "")
+		line(tr("No entry for this word yet."), _pane)
 		_link(tr("← Index"), "")
 	else:
 		_build_entry(v)
@@ -52,10 +64,9 @@ func _build_index(v: Dictionary) -> void:
 	header.add_child(_search)
 	_count.accessibility_live = AccessibilityServer.LIVE_POLITE
 	header.add_child(_count)
-	var g: VBoxContainer = Illustrated.ground(body)
 	for cat in Array(v.get("categories", [])):
 		var entries: Array = Array(cat.get("entries", []))
-		var box: VBoxContainer = section_in(g, str(cat.id), "%s (%d)" % [tr(str(cat.title)), entries.size()])
+		var box: VBoxContainer = section_in(_pane, str(cat.id), "%s (%d)" % [tr(str(cat.title)), entries.size()])
 		var flow := HFlowContainer.new()
 		flow.add_theme_constant_override("h_separation", 14)
 		flow.add_theme_constant_override("v_separation", 6)
@@ -80,7 +91,46 @@ func _build_index(v: Dictionary) -> void:
 	_on_search(_search.text)
 
 
+# The Contents pane: each category as a text button; the current entry's category open with its entries, the
+# current one marked.
+func _build_nav(parent: Control, nav: Array, v: Dictionary) -> void:
+	var box: VBoxContainer = Illustrated.inset(parent, tr("Contents"))
+	box.get_parent().name = "Contents"
+	var index: bool = bool(v.get("index", false))
+	var cur: String = str(v.get("key", ""))
+	for cat in nav:
+		var entries: Array = Array(cat.get("entries", []))
+		var mine: bool = entries.any(func(e): return str(e.get("key", "")) == cur)
+		var b := Button.new()
+		b.name = "Nav_" + str(cat.id)
+		b.theme_type_variation = &"TextButton"
+		b.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		b.text = ("▾ " if mine else "") + "%s (%d)" % [tr(str(cat.title)), entries.size()]
+		var cid: String = str(cat.id)
+		if index:
+			b.accessibility_name = tr("%s: go to the section") % tr(str(cat.title))
+			b.pressed.connect(func(): jump_to(cid))
+		else:
+			b.accessibility_name = tr("%s: back to the index") % tr(str(cat.title))
+			b.pressed.connect(func(): open_requested.emit("wiki", "", ""))
+		box.add_child(b)
+		if mine:
+			for e in entries:
+				if str(e.key) == cur:
+					var here := Label.new()
+					here.text = "    ▸ " + str(e.title)
+					here.theme_type_variation = &"RowLabel"
+					box.add_child(here)
+				else:   # indented by a margin, not spaces (spaces would be underlined with the link)
+					var m := MarginContainer.new()
+					m.add_theme_constant_override("margin_left", 18)
+					box.add_child(m)
+					_link(str(e.title), str(e.key), m).size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+
+
 func _build_entry(v: Dictionary) -> void:
+	_pane = Illustrated.inset(_pane, tr(str(v.get("category", ""))))
+	_pane.get_parent().name = "Article"
 	if str(v.get("icon", "")) != "":   # the entry's own art, large (a trait medallion, an item icon)
 		var pic := TextureRect.new()
 		pic.name = "EntryArt"
@@ -91,10 +141,6 @@ func _build_entry(v: Dictionary) -> void:
 		pic.custom_minimum_size = Vector2(112, 112)
 		pic.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 		header.add_child(pic)
-	var kind_l := Label.new()
-	kind_l.text = tr(str(v.get("category", "")))
-	kind_l.theme_type_variation = &"RowLabel"
-	header.add_child(kind_l)
 	if str(v.get("summary", "")) != "":
 		var s := Label.new()
 		s.text = str(v.summary)
@@ -118,12 +164,12 @@ func _build_entry(v: Dictionary) -> void:
 		rt.meta_clicked.connect(func(meta: Variant): open_requested.emit("wiki", str(meta), ""))
 		rt.focus_mode = Control.FOCUS_ALL
 		rt.accessibility_name = rt.get_parsed_text()
-		body.add_child(rt)
+		_pane.add_child(rt)
 		for seg in segs:   # the highlighted words again as focusable links, for keyboard and screen readers
 			if seg is Dictionary:
 				_link("→ " + str(seg.text), str(seg.key))
 	for f in Array(v.get("facts", [])):
-		line(tr(str(f)))
+		line(tr(str(f)), _pane)
 	for l in Array(v.get("links", [])):
 		_link(str(l.title), str(l.key))
 	_link(tr("← Index"), "")
@@ -135,7 +181,7 @@ func _link(text: String, key: String, parent: Control = null) -> LinkButton:
 	LinkStyle.apply(b, "term", "", "paper")
 	b.accessibility_name = text + ", " + tr("opens in the wiki")
 	b.pressed.connect(func(): open_requested.emit("wiki", key, ""))
-	(parent if parent != null else body).add_child(b)
+	(parent if parent != null else (_pane if _pane != null else body)).add_child(b)
 	return b
 
 

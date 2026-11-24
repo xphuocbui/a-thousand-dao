@@ -391,6 +391,13 @@ grow the tile". The Vietnamese verb names already carry a gloss, so they are the
       motion: the panel appears without sliding; NVDA reads the region name, the headings, the selected tab and the
       armed confirm (accessibility test plan).
 
+## Revision: weak-point pass (2026-11-24)
+
+Combat tab (weak-point pass, 2026-11-24, #4): the stats are tiles in groups, Defence (ward points, ward layer,
+block, body shield, evade, soul resistance), Offence (crit chance, crit multiplier), Sustain (health regeneration) and
+Resistances (typed), at the full width, each with a one-line hint in its tooltip. Units: shares (evade, crit, body
+shield) show as %, block, wards and resistances as points (the old table showed block 3.91 as "391 %").
+
 ## Open Questions
 
 Resolved by the round-2 revision: the portrait is the PortraitPicker's, with `PlaceholderArt` when art is missing (the

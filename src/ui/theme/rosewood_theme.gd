@@ -105,14 +105,44 @@ static func build(cfg: Dictionary, kit: Dictionary = {}, surface: String = "pape
 		t.set_stylebox(&"hover", type, _modulated(normal, mod.call("hover", [1.18, 1.14, 1.05]), 0))
 		t.set_stylebox(&"pressed", type, _modulated(normal, mod.call("pressed", [0.78, 0.74, 0.7]), 1))
 		t.set_stylebox(&"hover_pressed", type, _modulated(normal, mod.call("pressed", [0.78, 0.74, 0.7]), 1))
-		t.set_stylebox(&"disabled", type, _modulated(normal, mod.call("disabled", [0.55, 0.52, 0.5]), 0))
+		# disabled on parchment: a flat faint outline, not a dimmed live plaque, so a greyed action never reads as a live
+		# one (weak-point review 2026-11-24: "information and action look alike"); on wood (the HUD, over the map) the
+		# opaque dimmed plaque stays, a see-through box there would show the map through it
+		if surface != "wood":
+			var off := StyleBoxFlat.new()
+			off.bg_color = Color(wood, 0.10)
+			off.border_color = Color(brass, 0.35)
+			off.set_border_width_all(1)
+			off.set_corner_radius_all(3)
+			off.set_content_margin_all(6.0)
+			t.set_stylebox(&"disabled", type, off)
+		else:
+			t.set_stylebox(&"disabled", type, _modulated(normal, mod.call("disabled", [0.55, 0.52, 0.5]), 0))
 		t.set_stylebox(&"focus", type, focus_ring(bone, ink))
 		t.set_color(&"font_color", type, bone)
 		t.set_color(&"font_hover_color", type, bone.lightened(0.1))
 		t.set_color(&"font_focus_color", type, bone)
 		t.set_color(&"font_pressed_color", type, brass.lightened(0.15))
 		t.set_color(&"font_hover_pressed_color", type, brass.lightened(0.15))
-		t.set_color(&"font_disabled_color", type, Color(bone, 0.45))
+		# readable but plainly off: muted ink on parchment, faded bone on wood
+		t.set_color(&"font_disabled_color", type, Color(ink, 0.62) if surface != "wood" else Color(bone, 0.45))
+	# the third button tier: a link to another window, drawn as text (no plaque), underlined in brass on hover
+	_variation(t, &"TextButton", &"Button")
+	var flat := StyleBoxEmpty.new()
+	flat.set_content_margin_all(4.0)
+	var under := StyleBoxFlat.new()
+	under.bg_color = Color(0, 0, 0, 0)
+	under.border_color = brass
+	under.border_width_bottom = 2
+	under.set_content_margin_all(4.0)
+	for state in [&"normal", &"pressed", &"disabled"]:
+		t.set_stylebox(state, &"TextButton", flat)
+	t.set_stylebox(&"hover", &"TextButton", under)
+	t.set_stylebox(&"hover_pressed", &"TextButton", under)
+	t.set_color(&"font_color", &"TextButton", gilt if surface != "wood" else brass)
+	t.set_color(&"font_hover_color", &"TextButton", ink if surface != "wood" else bone)
+	t.set_color(&"font_focus_color", &"TextButton", ink if surface != "wood" else bone)
+	t.set_color(&"font_disabled_color", &"TextButton", Color(gilt, 0.4))
 	# default panels: on wood the HUD plates are the wood plaque with its rivets; on parchment a nested panel is plain
 	if surface == "wood":
 		var plate: StyleBox = _nine(pieces.get("plaque_wood", {}), wood, errors, 8.0)

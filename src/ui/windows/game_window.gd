@@ -21,6 +21,12 @@ var scroll := ScrollContainer.new()
 var body := VBoxContainer.new()
 ## The pinned action bar (at most 4 buttons).
 var bar := HBoxContainer.new()
+## The pinned side pane beside the body (weak-point review 2026-11-24: the inventory's Selected panel and the wiki's
+## Contents scrolled away with the body): empty and hidden unless a window builds into it ([method use_side]); it
+## scrolls on its own.
+var side := VBoxContainer.new()
+var _side_scroll := ScrollContainer.new()
+var _split_row := HBoxContainer.new()
 ## The view this window was last built from.
 var view: Dictionary = {}
 ## True while the window is look-only (an event waits): actions are disabled with a lock mark.
@@ -33,6 +39,7 @@ var style: Dictionary = {}
 
 var _reply := VBoxContainer.new()
 var _reply_text := Label.new()
+var _more := TextureRect.new()   # the scroll cue over the body's bottom edge
 var _headings: Dictionary = {}   # section key -> its heading Label (focusable)
 var _heading_order: Array = []
 
@@ -44,7 +51,50 @@ func _init() -> void:
 	add_child(HSeparator.new())
 	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	add_child(scroll)
+	# the scroll cue (weak-point review 2026-11-24: "clips with no scroll cue"): a dark fade with a chevron over the
+	# body's bottom edge while more lies below; it never takes the mouse
+	var wrap := MarginContainer.new()
+	wrap.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	wrap.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_split_row.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	_split_row.add_theme_constant_override("separation", 10)
+	add_child(_split_row)
+	_split_row.add_child(wrap)
+	_side_scroll.name = "Side"
+	_side_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	_side_scroll.visible = false
+	side.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	side.add_theme_constant_override("separation", 8)
+	_side_scroll.add_child(side)
+	_split_row.add_child(_side_scroll)
+	wrap.add_child(scroll)
+	_more.name = "ScrollCue"
+	_more.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_more.size_flags_vertical = Control.SIZE_SHRINK_END
+	_more.custom_minimum_size = Vector2(0, 40)
+	var grad := Gradient.new()
+	grad.set_color(0, Color(0, 0, 0, 0.0))
+	grad.set_color(1, Color(0, 0, 0, 0.45))
+	var gt := GradientTexture2D.new()
+	gt.gradient = grad
+	gt.fill_from = Vector2(0, 0)
+	gt.fill_to = Vector2(0, 1)
+	_more.texture = gt
+	_more.stretch_mode = TextureRect.STRETCH_SCALE
+	_more.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	var chev := Label.new()
+	chev.text = "▾"
+	chev.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	chev.vertical_alignment = VERTICAL_ALIGNMENT_BOTTOM
+	chev.set_anchors_preset(Control.PRESET_FULL_RECT)
+	chev.add_theme_color_override("font_color", Color("#F2E6C8"))
+	chev.add_theme_font_size_override("font_size", 20)
+	chev.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_more.add_child(chev)
+	_more.visible = false
+	wrap.add_child(_more)
+	scroll.get_v_scroll_bar().changed.connect(_update_scroll_cue)
+	scroll.get_v_scroll_bar().value_changed.connect(func(_v): _update_scroll_cue())
 	body.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	body.add_theme_constant_override("separation", 3)
 	scroll.add_child(body)
@@ -73,6 +123,11 @@ func full_width() -> bool:
 	return false
 
 
+## The parchment column's width on a full screen, in layout pixels (FullScreenHost); a two-column screen asks for more.
+func column_width() -> int:
+	return 900
+
+
 ## The window kind ("character", "inventory", ...).
 func kind() -> String:
 	return ""
@@ -89,15 +144,24 @@ func show_view(v: Dictionary, section: String, is_locked: bool) -> void:
 	locked = is_locked
 	_headings.clear()
 	_heading_order.clear()
-	for box in [header, body, bar]:
+	for box in [header, body, bar, side]:
 		for c in (box as Control).get_children():
 			box.remove_child(c)
 			c.queue_free()
+	_side_scroll.visible = false
 	_build()
 	if section != "":
 		jump_to.call_deferred(section)
 	else:
 		scroll.scroll_vertical = 0
+
+
+## Shows the pinned side pane, [param width] layout pixels wide, on the right (or the left with [param on_left]);
+## call it from _build, then build into [member side].
+func use_side(width: int, on_left: bool = false) -> void:
+	_side_scroll.visible = true
+	_side_scroll.custom_minimum_size = Vector2(width, 0)
+	_split_row.move_child(_side_scroll, 0 if on_left else _split_row.get_child_count() - 1)
 
 
 ## The control focus goes to when the window opens.
@@ -266,9 +330,26 @@ func line(text: String, parent: Control = null) -> Label:
 ## An action-bar button that opens window [param target_kind].
 func bar_open(text: String, target_kind: String, subject: String = "", sect: String = "") -> Button:
 	var b := Button.new()
-	b.text = text
+	b.text = text + "  ›"
+	b.theme_type_variation = &"TextButton"   # a link to another window: the third button tier, not an action
+	b.accessibility_name = tr("Open %s") % text
 	b.pressed.connect(func(): open_requested.emit(target_kind, subject, sect))
 	bar.add_child(b)
+	return b
+
+
+## The window's one primary call in the action bar (weak-point review 2026-11-24: "the call to action is below the
+## fold"): a gold CommitButton that scrolls to section [param key], where the action and its confirm live.
+func bar_jump(text: String, key: String, reason: String = "") -> Button:
+	var b := Button.new()
+	b.name = "BarJump_" + key
+	b.text = text + "  ↓"
+	b.theme_type_variation = &"CommitButton"
+	b.accessibility_name = text + ((": " + reason) if reason != "" else "")
+	TooltipLayer.set_tip(b, {"title": text, "summary": reason if reason != "" else tr("Go to it: the confirm is there.")})
+	b.pressed.connect(func(): jump_to(key))
+	bar.add_child(b)
+	bar.move_child(b, 0)
 	return b
 
 
@@ -309,3 +390,14 @@ func focus_later(c: Control) -> void:
 func _focus_now(c: Control) -> void:
 	if is_instance_valid(c) and c.is_inside_tree() and c.is_visible_in_tree():
 		c.grab_focus()
+
+
+## Shows the scroll cue while the body has more below the visible part.
+func _update_scroll_cue() -> void:
+	var bar: VScrollBar = scroll.get_v_scroll_bar()
+	_more.visible = bar.max_value - bar.page > 4.0 and bar.value < bar.max_value - bar.page - 4.0
+
+
+## True while the scroll cue shows (for tests).
+func shows_scroll_cue() -> bool:
+	return _more.visible

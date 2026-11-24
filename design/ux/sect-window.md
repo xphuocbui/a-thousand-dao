@@ -268,6 +268,12 @@ Rank and sect names in Vietnamese with English glosses where the data has them; 
       1280×720; nothing clips; contrast 4.5:1 text, 3:1 controls. No screenshot of the illustrated window is retained
       in `production/qa/evidence/` yet (none found 2026-11-24); capture before the story closes.
 
+## Revision: weak-point pass (2026-11-24)
+
+Action bar (weak-point pass, 2026-11-24, #15): the bar leads with the one decision as a gold primary that scrolls to
+its confirm, **Join ↓** for an outsider at a sect's seat (its reason in the tooltip while closed) or **Promote ↓** for
+a member below the top rank (`GameWindow.bar_jump`). Links to other windows are text buttons with ›.
+
 ## Open Questions
 
 - Sect services bought with contribution (sects.md) have no session command yet: listed as "not in the game yet".

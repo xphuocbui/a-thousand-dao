@@ -561,6 +561,17 @@ static func inventory(s: GameSession) -> Dictionary:
 			"material":
 				row.fact = "x%d" % int(it.get("qty", 1))
 		out.items.append(row)
+	# the equipment panel (weak-point review 2026-11-24: "no equipment shown"): each base slot with its size and what
+	# sits in it, then the extra slots
+	out["slots"] = []
+	for slot in EquipSlots.base_slot_names(gd) + [EquipSlots.EXTRA]:
+		var size: int = int(placed.limit) if str(slot) == EquipSlots.EXTRA else EquipSlots.base_slot_size(gd, str(slot))
+		var held: Array = []
+		for iid in placed.slot_of:
+			if str(placed.slot_of[iid]) == str(slot):
+				var it2: Dictionary = s.db.get_record("items", str(iid))
+				held.append({"id": str(iid), "name": str(it2.get("name", iid)), "icon": item_icon(it2), "rarity": ItemRarity.of(gd, it2)})
+		out.slots.append({"slot": str(slot), "size": size, "items": held})
 	return out
 
 

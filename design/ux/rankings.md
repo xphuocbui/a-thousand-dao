@@ -204,6 +204,12 @@ minimum widths, so 30 % longer text wraps inside its column.
 - [ ] `[Screenshot]` 1280×720 (compact: dropdown, no podium) and 1920×1080 (podium, medallions, parchment inset, framed "you" row) with ratings on, and 75 % / 150 % UI scale; a long Vietnamese name wraps; nothing clips. Retained in `production/qa/evidence/` (none named for rankings there yet).
 - [ ] `[Manual]` Contrast of the podium's paper-on-brass text and the row text on the parchment is at least 4.5:1.
 
+## Revision: weak-point pass (2026-11-24)
+
+Provisional tint (weak-point pass, 2026-11-24, #10): provisional rows are drawn at 68 % opacity only while some other
+row is rated; in a new world where nearly everyone is provisional the header line says so and the table stays full
+strength.
+
 ## Open Questions
 
 - **Deferred GDD item:** the "last fights that moved the offset" (power-rankings.md UI Requirements, Explain) are not

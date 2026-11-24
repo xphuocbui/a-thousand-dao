@@ -42,7 +42,33 @@ var _into: Control = null          # the inset the builders write into
 
 
 func _sec(key: String, title: String) -> void:
-	_into = section_in(_g, key, title)
+	_into = section_in(_col if _col != null else _g, key, title)
+
+
+var _col: VBoxContainer = null     # the column the sections go into (two columns when wide)
+
+
+## Two columns on a full screen (weak-point review 2026-11-24: "a narrow column hiding the whole map"): your home, its
+## clamps and what you can build, rent or claim on the left; the works, the longest list, on the right.
+func column_width() -> int:
+	return 900 if compact else 1440
+
+
+func _columns() -> Array:
+	if compact:
+		return [_g, _g]
+	var cols := HBoxContainer.new()
+	cols.add_theme_constant_override("separation", 12)
+	_g.add_child(cols)
+	var out: Array = []
+	for i in 2:
+		var c := VBoxContainer.new()
+		c.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		c.size_flags_stretch_ratio = 1.15 if i == 0 else 1.0
+		c.add_theme_constant_override("separation", 8)
+		cols.add_child(c)
+		out.append(c)
+	return out
 
 
 func _ln(text: String) -> Label:
@@ -75,6 +101,7 @@ func _build() -> void:
 	header.add_child(head)
 	_g = Illustrated.ground(body)
 	_into = _g
+	_col = null
 	if not bool(v.get("has_home", false)):
 		head.text = tr("You have no home yet.")
 		_build_no_home(v)
@@ -91,7 +118,7 @@ func _build() -> void:
 	line1.text = tr("Grade %d · %d of %d slots") % [int(v.grade), int(v.used), int(v.slots)] + cost_txt + \
 		((" · " + tr("raising to grade %d (next season)") % int(v.pending)) if int(v.get("pending", 0)) > 0 else "")
 	line1.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	TooltipLayer.set_tip(line1, {"title": tr("Grade and slots"), "summary": tr("Each work takes one slot; the grade sets the slots and the highest level a work counts at. A cave abode pays grade upkeep each season; three unpaid seasons drop it a grade (grade 1 never falls).")})
+	TooltipLayer.set_tip(line1, {"title": tr("Grade and slots"), "summary": tr("Each work takes one slot; the grade sets the slots and prices the levels: above its free level each level costs x2 more. A cave abode pays grade upkeep each season; three unpaid seasons drop it a grade (grade 1 never falls).")})
 	header.add_child(line1)
 	if int(v.get("unpaid", 0)) > 0:
 		var warn := Label.new()
@@ -103,6 +130,8 @@ func _build() -> void:
 	where.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	header.add_child(where)
 	_build_hero(v, ab)
+	var two: Array = _columns()
+	_col = two[0]
 	# Home
 	_sec("home", tr("Home"))
 	var nx: Dictionary = v.get("next", {})
@@ -125,7 +154,7 @@ func _build() -> void:
 				"text": tr("Raise the abode to grade %d? %s linh thạch now; it takes effect next season.") % [int(nx.grade), HudReadouts.stones_text(float(nx.cost))]}).name = "RaiseGrade"
 	var dens: Dictionary = v.get("density", {})
 	var dl := _rw(tr("Density at home"), num(float(dens.get("total", 0.0))) + ((" (" + tr("works add %s") % num(float(dens.works)) + ")") if float(dens.get("works", 0.0)) > 0.0 else ""),
-		{"title": tr("Density at home"), "fact": num(float(dens.get("total", 0.0))), "summary": tr("What you cultivate at there; the lines are the home works' layer."), "lines": Array(dens.get("lines", []))})
+		{"title": tr("Density at home"), "fact": num(float(dens.get("total", 0.0))), "summary": tr("The qi density you cultivate in at home; the lines are the home works' layer."), "lines": Array(dens.get("lines", []))})
 	dl.name = "Density"
 	var leave := Button.new()
 	leave.name = "Leave"
@@ -137,6 +166,7 @@ func _build() -> void:
 	_into.add_child(leave)
 	# Works
 	var works: Array = Array(v.get("works", []))
+	_col = two[1]   # the works, the longest list, fill the right column
 	_sec("works", tr("Works (%d)") % works.size())
 	if works.any(func(w): return bool(w.dormant)):
 		_ln("⚠ " + tr("A slot is short, so a work sleeps. Choose which one sleeps with Sleep / Wake (the latest built sleeps by default)."))
@@ -145,12 +175,22 @@ func _build() -> void:
 	for w in works:
 		_work_row(w)
 	# Clamps
+	_col = two[0]
 	_sec("clamps", tr("Clamps"))
 	var clamps: Array = Array(v.get("clamps", []))
 	if clamps.is_empty():
 		_ln(tr("none: no cap holds a gain back"))
 	for c in clamps:
-		_ln("  " + str(c))
+		# the player reads the cap; the GDD formula it comes from goes to the tooltip
+		var txt: String = str(c)
+		var ref: String = ""
+		var at: int = txt.rfind(" (Formula ")
+		if at >= 0 and txt.ends_with(")"):
+			ref = txt.substr(at + 2, txt.length() - at - 3)
+			txt = txt.substr(0, at)
+		var cl := _ln("  " + txt)
+		if ref != "":
+			TooltipLayer.set_tip(cl, {"title": tr("A cap holds this gain back"), "summary": tr("From cave-abode.md %s.") % ref})
 	# Build a work
 	_sec("build", tr("Build a work"))
 	var cat: Array = Array(v.get("catalogue", []))
@@ -201,10 +241,8 @@ func _work_row(w: Dictionary) -> void:
 	var state: String = ""
 	if bool(w.dormant):
 		state = tr("dormant: gives nothing")
-	elif int(w.eff) < int(w.level):
-		state = tr("counts at %d: the grade's ceiling") % int(w.eff)
 	var l := Label.new()
-	l.text = "  %s  ·  %s  ·  %s%s%s" % [str(w.name), tr("level %d / %d") % [int(w.level), int(w.max)], str(w.gain) if str(w.gain) != "" else tr("nothing"),
+	l.text = "  %s  ·  %s  ·  %s%s%s" % [str(w.name), (tr("level %d") % int(w.level) if int(w.max) == 0 else tr("level %d / %d") % [int(w.level), int(w.max)]), str(w.gain) if str(w.gain) != "" else tr("nothing"),
 		("  ·  " + state) if state != "" else "", ("  ·  " + tr("upkeep %d") % int(w.upkeep)) if int(w.get("upkeep", 0)) > 0 else ""]
 	l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	l.accessibility_name = l.text.strip_edges()
@@ -212,7 +250,7 @@ func _work_row(w: Dictionary) -> void:
 	var row2 := HBoxContainer.new()
 	box.add_child(row2)
 	var why: String = _away_reason()
-	if int(w.level) < int(w.max):
+	if int(w.max) == 0 or int(w.level) < int(w.max):   # max 0: no highest level (works scale without a cap, 2026-11-24)
 		var nc: Dictionary = w.get("next_cost", {})
 		var action: String = "build_work" if str(w.kind) == "work" else "formation_build"
 		var args: Array = [str(w.id), str(w.get("element", ""))] if str(w.kind) == "work" else [str(w.id)]
@@ -252,7 +290,7 @@ func _catalogue_row(c: Dictionary) -> void:
 	var l := Label.new()
 	l.text = "  %s  ·  %s %s  ·  %s  ·  %s" % [str(c.name), str(c.gain), tr("per level"),
 		tr("%s linh thạch, %d material(s), %d season(s)") % [HudReadouts.stones_text(float(nc.get("lt", 0))), int(nc.get("materials", 0)), int(nc.get("seasons", 0))],
-		tr("max %d, counts up to %d here") % [int(c.max), int(c.ceiling)]] + ((" · " + tr("upkeep %d") % int(c.upkeep)) if int(c.get("upkeep", 0)) > 0 else "")
+		(tr("max %d") % int(c.max) if int(c.get("max", 0)) > 0 else tr("free level %d here; each level above costs x2 more") % int(c.get("free_level", 0)))] + ((" · " + tr("upkeep %d") % int(c.upkeep)) if int(c.get("upkeep", 0)) > 0 else "")
 	l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	box.add_child(l)
 	var why: String = _away_reason()
@@ -391,10 +429,10 @@ static func sample_view() -> Dictionary:
 		"kind": "abode", "grade": 3, "slots": 3, "used": 3, "upkeep": 40, "rent_paid": 0, "origin": false, "pending": 0, "unpaid": 0,
 		"next": {"grade": 4, "cost": 4800, "slots": 4, "realm_ok": false},
 		"works": [
-			{"key": "w:tended_abode", "id": "tended_abode", "kind": "work", "name": "Dưỡng động phủ", "level": 3, "max": 3, "eff": 3, "dormant": false, "stat": "density", "share": false, "gain": "+0.06 density", "upkeep": 0, "element": "", "next_cost": {}},
-			{"key": "f:tu_linh", "id": "tu_linh", "kind": "array", "name": "Tụ Linh Trận", "level": 5, "max": 5, "eff": 4, "dormant": false, "stat": "home_array_density", "share": false, "gain": "+0.60 home array density", "upkeep": 0, "element": "", "next_cost": {}},
-			{"key": "w:focus_array", "id": "focus_array", "kind": "work", "name": "Tụ nguyên trận", "level": 3, "max": 5, "eff": 3, "dormant": false, "stat": "share", "share": true, "gain": "+12 share", "upkeep": 3, "element": "hoa", "next_cost": {"lt": 1250, "materials": 1, "seasons": 0}},
-			{"key": "w:private_spring", "id": "private_spring", "kind": "work", "name": "Linh tuyền", "level": 2, "max": 3, "eff": 0, "dormant": true, "stat": "share", "share": true, "gain": "", "upkeep": 0, "element": "thuy", "next_cost": {"lt": 1200, "materials": 1, "seasons": 1}}],
-		"clamps": ["layer-1 upkept density 0.85 clamped at 0.75 (c1u)"],
+			{"key": "w:tended_abode", "id": "tended_abode", "kind": "work", "name": "Dưỡng động phủ", "level": 3, "max": 0, "eff": 3, "dormant": false, "stat": "density", "share": false, "gain": "+0.06 density", "upkeep": 0, "element": "", "next_cost": {}},
+			{"key": "f:tu_linh", "id": "tu_linh", "kind": "array", "name": "Tụ Linh Trận", "level": 5, "max": 5, "eff": 5, "dormant": false, "stat": "home_array_density", "share": false, "gain": "+0.60 home array density", "upkeep": 0, "element": "", "next_cost": {}},
+			{"key": "w:focus_array", "id": "focus_array", "kind": "work", "name": "Tụ nguyên trận", "level": 3, "max": 0, "eff": 3, "dormant": false, "stat": "share", "share": true, "gain": "+12 share", "upkeep": 3, "element": "hoa", "next_cost": {"lt": 1250, "materials": 1, "seasons": 0}},
+			{"key": "w:private_spring", "id": "private_spring", "kind": "work", "name": "Linh tuyền", "level": 2, "max": 0, "eff": 0, "dormant": true, "stat": "share", "share": true, "gain": "", "upkeep": 0, "element": "thuy", "next_cost": {"lt": 1200, "materials": 1, "seasons": 1}}],
+		"clamps": ["Layer 1 upkept density +0.85 clamped at 0.75 (Formula B)"],
 		"density": {"total": 1.85, "lines": ["density = 1.85", "  base 1.10", "  layer 1 +0.75 (clamped at 0.75)"]},
 		"catalogue": [], "rent": [], "claim": {}}

@@ -74,6 +74,7 @@ func _build() -> void:
 		if bool(r.you):
 			my = r
 	var prov_n: int = Array(v.get("rows", [])).filter(func(r): return str(r.state) == "provisional").size()
+	_tint_prov = Array(v.get("rows", [])).any(func(r): return str(r.state) != "provisional" and not bool(r.get("you", false)))
 	if rank > 0:
 		# rule 9 (user decision 2026-11-24): one order by rating, provisional people mixed in by their estimate (marked ~)
 		var mine_prov: bool = str(my.state) == "provisional"
@@ -249,6 +250,9 @@ func _column_head() -> void:
 	_into.add_child(h)
 
 
+var _tint_prov: bool = false   # some rows are rated: tint the provisional ones
+
+
 func _row(r: Dictionary) -> void:
 	var h := HBoxContainer.new()
 	h.name = "Rank_%d" % int(r.rank)
@@ -280,6 +284,9 @@ func _row(r: Dictionary) -> void:
 		l.custom_minimum_size = Vector2(int(cell[1]), 0)
 		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		h.add_child(l)
+	if prov and not you and _tint_prov:   # a provisional tint (weak-point review 2026-11-24): an estimate reads as one
+		# among rated rows; when nearly everyone is still provisional (a new world) the header says so instead
+		h.modulate = Color(1, 1, 1, 0.68)
 	h.focus_mode = Control.FOCUS_ALL
 	h.accessibility_name = "%s, %s, %s, %s, %s %s%s, %d %s%s" % [_ordinal(int(r.rank)), str(r.name), str(r.sect) if str(r.sect) != "" else tr("no sect"), str(r.stage),
 		tr("power"), (tr("about") + " ") if prov else "", HudReadouts.stones_text(float(r.power)), int(r.n), tr("rated fights"), (", " + tr("you")) if you else ""]

@@ -52,8 +52,8 @@ func test_equipped_pieces_come_first_and_rows_carry_the_rarity_word() -> void:
 		if c is Button and str(c.name).begins_with("Item_a"):
 			order.append(str(c.name).trim_prefix("Item_"))
 	assert_eq(order.slice(0, 2), ["a2", "a4"], "equipped first (the unslotted ring is equipped too)")
-	assert_true(w.row_of("a3").text.contains("Thượng"), "the rarity word, not colour alone")
-	assert_true(w.row_of("a4").text.contains("unslotted") and w.row_of("a4").accessibility_name.contains("unslotted"), "unslotted in words")
+	assert_true(w.row_of("a3").accessibility_name.contains("Thượng"), "the rarity word, not colour alone (the tile shows the name; the word is in its name and tooltip)")
+	assert_true(w.row_of("a4").accessibility_name.contains("unslotted"), "unslotted in words")
 
 
 func test_search_dims_the_rest_and_folds_diacritics() -> void:
@@ -171,3 +171,15 @@ func test_the_read_and_build_of_two_hundred_items_is_quick() -> void:
 	var ms: float = float(Time.get_ticks_usec() - t0) / 1000.0
 	assert_eq(w.body.find_children("Item_*", "Button", true, false).size(), 200, "all rows built")
 	assert_true(ms < 250.0, "built in %.0f ms (spec 50 ms for read + build; the headless debug build is slower)" % ms)
+
+
+func test_the_equipped_panel_shows_every_slot_and_the_selected_item_opens_in_its_panel() -> void:
+	var v := _view()
+	v["slots"] = [{"slot": "weapon", "size": 1, "items": [{"id": "a2", "name": "Thanh Phong Kiếm", "icon": "", "rarity": 3}]},
+		{"slot": "ring", "size": 2, "items": []}]
+	var w := _window(v)
+	assert_true(_find(w, "Socket_weapon_0") is Button, "the weapon slot holds its piece")
+	assert_true(_find(w, "Equipped") != null and _find(w, "Selected") != null)
+	w.row_of("p1").pressed.emit()
+	var sel: Node = _find(w, "Selected")
+	assert_true(sel.find_child("Verbs", true, false) != null, "the chosen item's verbs sit in the Selected panel")

@@ -24,9 +24,9 @@
 ## Purpose & Player Need
 
 "How good is my home, what is it giving me, and what should I build or raise next?" The cave abode (động phủ) or
-residence: its grade, slots used, each work's level, what it counts at and gives, the clamp lines (where a cap holds
+residence: its grade, slots used, each work's level and what it gives, the clamp lines (where a cap holds
 the gain back), the grade upkeep, the next grade's cost; and the work picker: the home works the player can build
-with their gain, cost, upkeep and the level ceiling at this grade. With no home: renting a residence here, and how
+with their gain, cost, upkeep and the free level at this grade (each level above costs x2 more). With no home: renting a residence here, and how
 to open or claim an abode.
 
 ## Player Context on Arrival
@@ -74,13 +74,13 @@ one confirmed action), so it never asks before leaving.
 |  Density here 1.85 · your land match 0.72 (Breakdown)        |
 | WORKS (3)                                                    |
 |  Dưỡng động phủ   level 2 / 3   density +0.04   [Raise…]     |
-|  Tụ nguyên trận   level 3 (counts at 2: the grade's ceiling) |
+|  Tụ nguyên trận   level 3 · +12 share · upkeep 3           |
 |                   share +8 Hỏa · upkeep 3   [Raise…] [Sleep]  |
 |  Linh tuyền       dormant                    [Wake…]          |
 | CLAMPS                                                       |
 |  layer-1 upkept density clamped at 0.75                      |
 | BUILD A WORK                                                 |
-|  Linh tuyền  share +2 per level · 300 LT, 1 material, 1 season · max 3, ceiling 2 here [Build…]
+|  Linh tuyền  share +2 per level · 300 LT, 1 material, 1 season · free level 3 here; each level above costs x2 more [Build…]
 |--------------------------------------------------------------|
 | reply strip                                                  |  A3
 +--------------------------------------------------------------+
@@ -104,9 +104,9 @@ ruined abode here: its recorded grade, the grade it comes back at, the fee, [Cla
 | A2 Home | Next grade | Text + button | Next grade's cost, slots and "needs a higher realm" when the realm cannot hold it; residences: "a residence's grade is fixed" | Raise (confirm in place: cost, a season) |
 | A2 Home | Density | Text | The density the player cultivates at home (`place_density`), and what the home works add | Tooltip: the works' layer lines with their clamp lines |
 | A2 Home | Leave this home | Disabled button | "Not in the game yet: a home is left when you open, claim or rent another (rule 10)" (the GDD asks for Leave; no session command exists, so it shows, greyed, with its reason) | No |
-| A2 Works | Work rows | Rows | Name, level / max, effective level and why ("counts at 2: the grade's ceiling", "dormant"), the gain at the effective level, upkeep (upkept works) | Raise… (confirm: cost, materials, seasons; a share work keeps its element; a standing array's next level is `formation_build`), Sleep / Wake (rule 9 swap, only while a slot is short) |
+| A2 Works | Work rows | Rows | Name, level (a work has no highest level, user 2026-11-24; an array shows level / its Trận Pháp max), "dormant" when it sleeps, the gain at the effective level, upkeep (upkept works) | Raise… (confirm: cost, materials, seasons; a share work keeps its element; a standing array's next level is `formation_build`), Sleep / Wake (rule 9 swap, only while a slot is short) |
 | A2 Clamps | Lines | Text | Every density line that says "clamped" (rule 13) | No |
-| A2 Build | Catalogue rows | Rows | Each home (layer 1) work not yet built: gain per level, next cost (linh thạch, materials, seasons), upkeep, max and the ceiling at this grade, "no free slot" when full | Build… (confirm; element chooser for share works) |
+| A2 Build | Catalogue rows | Rows | Each home (layer 1) work not yet built: gain per level, next cost (linh thạch, materials, seasons), upkeep, the free level at this grade and the x2 price above it (an array: its max), "no free slot" when full | Build… (confirm; element chooser for share works) |
 | A2 No home | Rent rows | Rows | Residence grades here with rent, the realm minimum; refusal reasons | Rent / Buy (confirm) |
 | A2 No home | Claim | Block | A claimable abode here: recorded grade, grade after (F4), fee, **works kept** (name and level; upkept ones "if not faded") | Claim (confirm) |
 | A2 Works | Rule 9 banner | Text | When a work is dormant: "⚠ A slot is short, so a work sleeps. Choose which one sleeps with Sleep / Wake (the latest built sleeps by default)." | No |
@@ -157,8 +157,8 @@ Gamepad: A activates, B backs out (Cancel, then Back to map); the keyboard key A
 One read, `GameQuery.abode(s)`: {has_home, here, home_place {id, name, art (the place's continent id for its painting, -1 when none)}, kind (abode / residence), grade, slots,
 used, upkeep, pending, unpaid, next {grade, cost, slots, realm_ok}, works: [{key, id, kind (work / array), name, level,
 max, eff, dormant, gain, upkeep, stat, share}], clamps [lines], density {total, lines}, catalogue: [{id, name, stat,
-per_level, next_cost {lt, materials, seasons}, upkeep, max, ceiling, ok, reason, share}], rent: [...], claim: {...}}.
-Built with CaveAbode and MapWorks reads (`home_rec`, `slots`, `used`, `eff_level`, `ceiling`, `can_raise`,
+per_level, next_cost {lt, materials, seasons}, upkeep, max (0 = none), free_level, surcharge, ok, reason, share}], rent: [...], claim: {...}}.
+Built with CaveAbode and MapWorks reads (`home_rec`, `slots`, `used`, `eff_level`, `can_raise`,
 `grade_cost`, `grade_upkeep`, `top_grade`, `MapWorks.cost`, `MapWorks.density`), which never write. Actions:
 `raise_abode()`, `build_work(id, element)`, `formation_build(id)` (a standing array's next level), `abode_sleep(id,
 wake)`, `take_residence(grade, buy)`, `claim_abode()` as jobs.
@@ -190,10 +190,10 @@ nothing to stop.
 
 ## Accessibility
 
-Text at the 16 px floor (tooltips 14 px), checked at 75 % and 150 % UI scale; states in words (dormant, ceiling, away);
+Text at the 16 px floor (tooltips 14 px), checked at 75 % and 150 % UI scale; states in words (dormant, away);
 locked actions announce "locked: <reason>"; the reply strip is a polite live region; the ⚠ and 🔒 marks come with words;
 contrast 4.5:1 text, 3:1 controls. Screen reader: the screen is announced "Abode, Thanh Phong Cốc"; a work row reads
-"Tụ nguyên trận, level 3, counts at 2, the grade's ceiling, share plus 8 Hỏa, upkeep 3"; confirms announce their cost. Each stat tile has a text label and value and an accessibility name ("Upkeep 40 a season",
+"Tụ nguyên trận, level 3, share plus 12 Hỏa, upkeep 3"; confirms announce their cost. Each stat tile has a text label and value and an accessibility name ("Upkeep 40 a season",
 "Slots 3 / 4"); meaning never rests on an icon alone (the Slots tile has none). The hero is decorative: the name it shows
 is already in the window title, the plate and the text home line. Not built yet: the hero has no accessibility name or
 "decorative" marking in code, and the tiles have no tooltips (Open Question 2). At 1280×720 the tiles (2 columns) and
@@ -222,6 +222,12 @@ Work names are the data's Vietnamese; numbers follow the language; rows wrap.
 - [ ] `[GdUnit]` `GameQuery.abode` fixtures for criteria 1–6 include `home_place.art`.
 - [ ] `[GdUnit]` The screen builds in under 50 ms (headless test machine).
 - [ ] `[Manual]` 75 % and 150 % UI scale; contrast 4.5:1 text, 3:1 controls; NVDA reads locked actions with their reason.
+
+## Revision: weak-point pass (2026-11-24)
+
+Layout (weak-point pass, 2026-11-24, #5): on a full screen the parchment column is 1440 px (capped by the screen)
+and the body two columns: Home, Clamps and Build / Rent / Claim on the left, Works on the right; compact stacks them.
+A clamp line's GDD formula reference moves into its tooltip.
 
 ## Open Questions
 

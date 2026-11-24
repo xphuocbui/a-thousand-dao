@@ -271,6 +271,14 @@ func _shot_and_quit(path: String) -> void:
 		_open_full("abode")
 		_full.open_view("abode", AbodeScreen.sample_view())
 		await _frames(4)
+	if _args.has("--inventory-fixture"):   # display only: a fuller bag than a new game carries, for the shot
+		_open_window("inventory", "", "", _end_turn)
+		await _frames(2)
+		var iw: InventoryWindow = _win.window("inventory") as InventoryWindow
+		if iw != null:
+			iw.show_view(InventoryWindow.sample_view(), "", false)
+			iw.call("_toggle_row", "a1")
+		await _frames(4)
 	if _args.has("--relationships-fixture"):   # display only: real people of this world with sample ties, for the shot
 		_open_window("relationships", "", "", _end_turn)
 		await _frames(2)
@@ -1731,7 +1739,10 @@ func _read_window(kind: String, subject: String) -> Dictionary:
 		"dao_do":
 			return GameQuery.dao_do(session)
 		"wiki":   # static data only (design/ux/wiki.md): readable even while a job runs, but the host asks only when idle
-			return WikiData.view(gd, subject)
+			var wv: Dictionary = WikiData.view(gd, subject)
+			if subject != "":   # the Contents pane beside an entry (two panes, weak-point review 2026-11-24)
+				wv["nav"] = WikiData.categories(gd)
+			return wv
 		"provinces":   # subject: a province id, or "" for the province at the map view's centre (the Z2 button, V)
 			var pid: int = int(subject) if subject != "" else _map.province_at(_map.size * 0.5)
 			return GameQuery.province(session, pid)

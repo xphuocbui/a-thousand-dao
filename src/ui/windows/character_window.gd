@@ -133,7 +133,7 @@ func _build() -> void:
 		var rest: GridContainer = Illustrated.grid(g, 1 if compact else 2, 10)
 		match _tab:
 			"combat":
-				_build_combat(v, rest)
+				_build_combat(v, g)   # alone on its tab: the full width
 			"equipment":
 				_build_dao_do(v, rest)
 				_build_gear(v, rest)
@@ -599,18 +599,58 @@ func _build_vitals(v: Dictionary, parent: Control) -> void:
 		g.add_child(tl)
 
 
+## The Combat tab's groups (weak-point review 2026-11-24: "a bare table in a dark void"): [title, keys]; a key not
+## listed (a typed resistance) goes under Resistances. Shares show as %; block, wards and resistances are points.
+const COMBAT_GROUPS := [["Defence", ["ward_pts", "ward_layer", "block", "body_shield", "evade", "soul_res"]],
+	["Offence", ["crit", "crit_mult"]], ["Sustain", ["hregen"]]]
+const COMBAT_SHARES := ["evade", "crit", "body_shield"]
+const COMBAT_HINTS := {
+	"ward_pts": "Main ward resistance points: they count only while your linh lực lasts.",
+	"ward_layer": "How many layers your main ward has.",
+	"block": "Block points, times your realm's block unit: blocked damage is taken off each hit.",
+	"body_shield": "A shield bar as a share of your health; Chaos and Soul damage pass it.",
+	"evade": "The chance a hit misses you outright.",
+	"soul_res": "Resistance to Soul damage.",
+	"crit": "The chance a hit of yours is critical.",
+	"crit_mult": "How much a critical hit multiplies damage.",
+	"hregen": "Health you regain each second of a fight.",
+}
+
+
 func _build_combat(v: Dictionary, parent: Control) -> void:
 	var box: VBoxContainer = section_in(parent, "combat", tr("Combat"))
 	var rows: Array = Array(v.get("combat", []))
 	if rows.is_empty():
 		line("—", box)
 		return
+	var by_key: Dictionary = {}
 	for st in rows:
-		var val: float = float(st.value)
-		var shown: String = ("%.0f %%" % (val * 100.0)) if str(st.key) in ["block", "evade", "crit", "body_shield"] or str(st.key).begins_with("resist:") else num(val)
-		if str(st.key) == "crit_mult":
-			shown = "x%.2f" % val
-		row(tr(str(st.label)), shown, {"title": tr(str(st.label)), "summary": tr("From the fighter the game compiles for your fights.")}, box)
+		by_key[str(st.key)] = st
+	var groups: Array = COMBAT_GROUPS.duplicate(true)
+	var res_keys: Array = rows.filter(func(st): return str(st.key).begins_with("resist:")).map(func(st): return str(st.key))
+	if not res_keys.is_empty():
+		groups.append(["Resistances", res_keys])
+	for g in groups:
+		var keys: Array = Array(g[1]).filter(func(k): return by_key.has(k))
+		if keys.is_empty():
+			continue
+		var h := Label.new()
+		h.text = tr(str(g[0]))
+		h.theme_type_variation = &"RowLabel"
+		box.add_child(h)
+		var grid: GridContainer = Illustrated.grid(box, 2 if compact else 3, 6)
+		for k in keys:
+			var st: Dictionary = by_key[k]
+			var val: float = float(st.value)
+			var shown: String = ("%.0f %%" % (val * 100.0)) if k in COMBAT_SHARES else num(val)
+			if k == "crit_mult":
+				shown = "x%.2f" % val
+			var label: String = tr(str(st.label)).trim_prefix(tr("Resistance: "))
+			var tl: PanelContainer = Illustrated.tile(null, label, shown, "", 0.0)
+			tl.name = "Stat_" + str(k).replace(":", "_")
+			TooltipLayer.set_tip(tl, {"title": tr(str(st.label)), "fact": shown,
+				"summary": tr(str(COMBAT_HINTS.get(k, "Resistance points against this damage type; negative amplifies it."))) + " " + tr("From the fighter the game compiles for your fights.")})
+			grid.add_child(tl)
 
 
 func _build_cong_phap(v: Dictionary, parent: Control) -> void:

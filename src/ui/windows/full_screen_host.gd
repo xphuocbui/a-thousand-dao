@@ -152,7 +152,7 @@ func _show(kind: String, v: Dictionary, section: String) -> void:
 		(_screens[k] as Control).visible = k == kind
 	_current = _screens[kind]
 	# a wide screen (the Đạo Đồ canvas) takes the whole width; the others keep the centred parchment column
-	_column.custom_minimum_size = Vector2(0 if _current.full_width() else 900, 0)
+	_column.custom_minimum_size = Vector2(0 if _current.full_width() else mini(_current.column_width(), int(get_viewport_rect().size.x) - 80), 0)
 	# a wide screen draws its own ground (the Đạo Đồ's dark tree): no parchment column around it
 	if _current.full_width():
 		_column.add_theme_stylebox_override("panel", StyleBoxEmpty.new())

@@ -82,3 +82,18 @@ func test_items_have_their_own_entries_with_their_painted_icons() -> void:
 func test_an_entry_whose_art_is_missing_asks_for_the_placeholder() -> void:
 	assert_eq(WikiData.item_icon("herb", "no_such_herb"), "placeholder", "art that should exist but does not: the stripes")
 	assert_eq(WikiData.trait_icon("no_such_trait"), "placeholder")
+
+
+func test_an_entry_shows_the_contents_pane_with_its_category_open() -> void:
+	var gd := _data()
+	var v: Dictionary = WikiData.view(gd, "linh_thach")
+	v["nav"] = WikiData.categories(gd)
+	var w: WikiWindow = auto_free(WikiWindow.new())
+	add_child(w)
+	w.show_view(v, "", false)
+	var pane: Node = w.find_child("Contents", true, false)
+	assert_true(pane != null, "the Contents pane beside the article")
+	var opened: Array = pane.find_children("Nav_*", "Button", true, false).filter(func(b): return (b as Button).text.begins_with("▾"))
+	assert_eq(opened.size(), 1, "only the entry's own category is open")
+	var article: Node = w.find_child("Article", true, false)
+	assert_true(article != null and article.find_child("Body", true, false) != null, "the article holds the text")

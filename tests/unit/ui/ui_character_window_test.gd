@@ -192,3 +192,14 @@ func test_the_tabs_step_and_wrap_with_the_player_skipping_interact() -> void:
 	w.step_tab(-1)
 	w.step_tab(-1)
 	assert_eq(w.tab(), "fate", "wraps back past Overview; the player's sheet has no Interact tab")
+
+
+func test_block_is_points_and_evade_a_share_in_the_combat_groups() -> void:
+	var v := _view()
+	v["combat"] = [{"key": "block", "label": "Block", "value": 3.91}, {"key": "evade", "label": "Evade", "value": 0.12},
+		{"key": "resist:fire", "label": "Resistance: fire", "value": 14.0}]
+	var w := _window(v)
+	w.open_tab("combat")
+	assert_false(str((_find(w, "Stat_block") as PanelContainer).accessibility_name).contains("%"), "block is points, not a share")
+	assert_true(str((_find(w, "Stat_evade") as PanelContainer).accessibility_name).contains("12 %"))
+	assert_true(_find(w, "Stat_resist_fire") != null, "typed resistances get their own group")

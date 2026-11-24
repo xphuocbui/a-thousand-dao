@@ -116,6 +116,14 @@ func _build() -> void:
 		_build_leave()
 	bar_open(tr("Character"), "character")
 	bar_open(tr("Places"), "places")
+	# the one decision the player is here for, pinned in the bar: Join for an outsider, Promote for a member
+	var jn: Dictionary = v.get("join", {})
+	if mode != "member" and not jn.is_empty():
+		bar_jump(tr("Join"), "here", "" if bool(jn.get("ok", false)) else tr("not now: see the reasons"))
+	elif mode == "member":
+		var nx: Dictionary = v.get("next", {}) if v.get("next") is Dictionary else {}
+		if not nx.is_empty() and not bool(nx.get("top", false)):
+			bar_jump(tr("Promote"), "place")
 
 
 func _build_place(v: Dictionary) -> void:

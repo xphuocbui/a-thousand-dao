@@ -1,5 +1,5 @@
 extends DaoTestSuite
-## AbodeScreen and FullScreenHost (design/ux/abode-screen.md): works' states in words (dormant, the grade's ceiling),
+## AbodeScreen and FullScreenHost (design/ux/abode-screen.md): works' states in words (dormant; no level cap),
 ## the clamp lines, confirms before every build or raise, the element chooser for a share work, Sleep / Wake swaps,
 ## away is read-only, the no-home view's rent confirm warns that the old home is left, Esc order, the back request.
 
@@ -25,7 +25,9 @@ static func _texts(n: Node) -> String:
 func test_work_states_are_in_words_and_the_clamps_show() -> void:
 	var w := _screen()
 	var t: String = _texts(w.body)
-	assert_true(t.contains("counts at 4: the grade's ceiling"), "the array over the ceiling")
+	assert_true(t.contains("Dưỡng động phủ  ·  level 3  ·"), "a work has no highest level (max 0): just its level")
+	assert_true(t.contains("level 5 / 5"), "an array keeps its Trận Pháp cap")
+	assert_false(t.contains("ceiling"), "no grade ceiling any more (works scale without a cap, 2026-11-24)")
 	assert_true(t.contains("dormant: gives nothing"), "the dormant spring")
 	assert_true(t.contains("clamped at 0.75"), "the clamp line")
 	assert_true(w.section_keys() == ["home", "works", "clamps", "build"], str(w.section_keys()))
@@ -59,7 +61,7 @@ func test_waking_a_dormant_work_swaps_with_the_latest_active_one() -> void:
 func test_a_share_work_in_the_catalogue_asks_for_its_element() -> void:
 	var v := AbodeScreen.sample_view()
 	v["catalogue"] = [{"id": "private_spring", "name": "Linh tuyền", "stat": "share", "per_level": 2.0, "gain": "+2 share", "next_cost": {"lt": 300, "materials": 1, "seasons": 1},
-		"upkeep": 0, "kind": "permanent", "max": 3, "ceiling": 2, "ok": true, "reason": "", "share": true}]
+		"upkeep": 0, "kind": "permanent", "max": 0, "free_level": 3, "surcharge": 1.0, "ok": true, "reason": "", "share": true}]
 	var w := _screen(v)
 	var got: Array = []
 	w.action_requested.connect(func(a: String, args: Array): got.append([a, args]))

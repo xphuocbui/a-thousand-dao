@@ -699,6 +699,14 @@ icon-only rows; information icons that look like buttons, or tiny vital buttons;
 dismissals that return; two calculations for one verdict; undiscoverable power features; text-wall tooltips; "ship now,
 fix the UI later"; real-time pause rules (here they become End turn rules); any game's art, icons or frames.
 
+## Revision: weak-point pass (2026-11-24)
+
+Button tiers and scroll cue (weak-point pass, 2026-11-24, #13 and #2): **primary** = CommitButton (gold or cinnabar
+plaque; one per window, the decision), **secondary** = the wood plaque, **link** = `TextButton` (text with ›,
+underlined on hover; opens another window). A disabled button is a flat faint outline with muted readable text, never
+a dimmed live plaque, and always says why in its tooltip. Every window body shows a dark fade with ▾ over its bottom
+edge while more lies below.
+
 ## Open Questions
 
 1. The visual look of every pattern (frames, colours, fonts with Vietnamese diacritics) waits on the art bible and the

@@ -94,3 +94,12 @@ func test_look_only_disables_the_actions() -> void:
 	var w := _window(_member(true), true)
 	for n in ["Promote", "Leave", "Desert"]:
 		assert_true((_find(w, n) as Button).disabled, n)
+
+
+func test_the_bar_pins_join_for_an_outsider_and_promote_for_a_member() -> void:
+	var loose := _window(_loose())
+	var j: Button = _find(loose, "BarJump_here") as Button
+	assert_true(j != null and j.theme_type_variation == &"CommitButton", "Join is the gold primary in the bar")
+	assert_true(j.accessibility_name.contains("not now"), "it says why the join is not open yet")
+	var mem := _window(_member(false))
+	assert_true(_find(mem, "BarJump_place") != null, "Promote is pinned for a member below the top rank")

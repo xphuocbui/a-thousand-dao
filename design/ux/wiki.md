@@ -191,6 +191,16 @@ the text), and the entry summary wraps by word.
 - [ ] `[Perf]` Opening the index with every icon loaded stays under 100 ms of build time on the target PC (the
       icon-bearing index, not only the text index); to be measured.
 
+## Revision: weak-point pass (2026-11-24)
+
+Two panes (production/plans/ui-weakpoints-2026-11-24.md #12): a **Contents** inset, pinned on the left in the window's
+side pane (`GameWindow.use_side`, it scrolls on its own and stays while the article scrolls), lists the categories
+with their counts; on the index each jumps to its section, on an entry the entry's own category opens (▾) with its
+neighbours as links and the current one marked ▸, and the others return to the index. The index or the article (one
+inset titled with its category, which replaces the header's category line) fills the right; neighbours are indented by
+a margin. The host adds `nav` (WikiData.categories) to an entry's view. The
+wiki is a 62 % side panel. Compact (1280x720): one pane.
+
 ## Open Questions
 
 1. Authored entries exist for 11 terms; traits, realms and elements read from their data (no flavour text yet).
