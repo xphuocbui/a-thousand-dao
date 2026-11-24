@@ -138,9 +138,9 @@ Without provinces the economy can only see 20 regions, and the land's variety ne
    less per linh thạch the higher it goes, and builders stop when the next level does not pay. Each kind has a cost in
    linh thạch and materials, build seasons, upkeep and effects:
    - **Production:** spirit fields (herbs), mine works (ore), hunting lodge (beast parts), vein dressing (permanent,
-     production on every site of the province; user decision 2026-11-24), workshop (a craft-capacity
-     effect that Trade Goods reads; it adds no output class to `prod`, F4, OQ 2). A wilderness outpost is one of the
-     first three.
+     production on every site of the province; user decision 2026-11-24). The workshop is replaced by the cultivation
+     group's craft halls (2026-11-24: its craft capacity had no reader). A wilderness outpost is one of the first
+     three.
    - **Site growth** (user decision 2026-11-24, provinces-v2). A new site starts at grade **minor**, a tenth of small
      (`site_grade_value.minor`). Each level of its province's matching production building (mine works for a mine,
      hunting lodge for a beast lair, spirit fields for a spirit vein or hot spring) above level 1 raises it one grade
@@ -152,7 +152,12 @@ Without provinces the economy can only see 20 regions, and the land's variety ne
      wall (raids and beast tides).
    - **Cultivation:** gathering array (upkept), spirit grove (permanent density) and qi channel (permanent push to one
      chosen element, one channel per element), all layer-2 works at the province's seat (Travel & Map rule 31; spirit
-     grove and qi channel added by user decision 2026-11-24).
+     grove and qi channel added by user decision 2026-11-24); and, added 2026-11-24 under the user's delegation, the
+     **sect halls** for the holder's members: alchemy hall, artifact forge, talisman hall (each a crafting bonus at the
+     seat and a better crafted-goods success rate for the region's market), formation hall (formation power for every
+     member), scripture pavilion (members' technique tier), meditation chamber (breakthrough step at the bottleneck) and
+     recruitment hall (intake weight). Their numbers and hooks are in
+     `design/quick-specs/province-building-catalogue.md`. Great projects stay the famous unique versions.
    - **Great projects** (`design/world/great_projects_proposal.md`): staged, 2–5 stages, one slot.
    - **Where a building acts** (user decision 2026-11-24): cultivation buildings act at the province's seat
      settlement. A production building acts on the province's sites of its kind (mine works on mines, hunting lodge on
@@ -170,7 +175,11 @@ Without provinces the economy can only see 20 regions, and the land's variety ne
      a level up to the matching track's free level (Sects Formula F2) costs the Formula J price, and each level above
      it costs `track_surcharge` (×2) more again. Holdings prices production buildings and granaries, Trade logistics
      buildings and market halls, Military warding walls, and Institutions cultivation buildings and each stage of a
-     great project ("pavilions" dropped, 2026-11-24). It picks provinces by expected return.
+     great project ("pavilions" dropped, 2026-11-24). It picks provinces by expected return. With no highest level a
+     level can cost more than one season of the works budget, so a sect **saves** for it: when its best work costs
+     more than this season's budget but at most `save_seasons_max` (8) seasons of it, and pays back within
+     `save_payback_max` (80) seasons (cost ÷ season value), the season's works budget is set aside until the level is
+     paid (added 2026-11-24 under the user's delegation; guesses).
    - **A local lord** (minor sect) builds in its seat province.
    - **The player** funds a building through a sect or city mission now, and builds on their own ground later (as
      decided for great projects, 2026-11-23).
@@ -286,7 +295,7 @@ inflow `Σ share[w',w] · pot[w',k]` from wilderness at `d[w]+1` (the same recur
 |----------|------|-------|--------|-------------|
 | base[p,k] | float | ≥ 0 | Travel & Map H, H2 at reserve 1 and demand factor 1 | What place p can yield of class k a season |
 | share[w,v] | float | 0–1 | F2 | Settlement province v's share of wilderness province w |
-| out[b,k] | float | ≥ 0 | building data | A building's output at its level, in Item Database raw classes only (a workshop has none; spirit-stone veins are not a class and stay outside `prod`, usage and access, Regional Economy & Trade I reads them as before), only the part not tied to a site: a production building's gain on its place's site is counted once, through `G_f` inside Travel & Map's Formula H (`out_H`) |
+| out[b,k] | float | ≥ 0 | building data | A building's output at its level, in Item Database raw classes only (a craft hall has none; spirit-stone veins are not a class and stay outside `prod`, usage and access, Regional Economy & Trade I reads them as before), only the part not tied to a site: a production building's gain on its place's site is counted once, through `G_f` inside Travel & Map's Formula H (`out_H`) |
 | val[k] | float | > 0 | Item Database base value | Value of a unit of class k |
 | secondary_share | float | 0.35 | data file *(guess)* | How large a second good must be to be named |
 
@@ -684,7 +693,7 @@ Rule 14's "cannot change its goods" has no player action to test and has no crit
 | # | Question | Owner | Resolve by |
 |---|---|---|---|
 | 1 | Every *(guess)* number (F3 growth and famine, F5 `slot_pop_step`, F6 infrastructure points, `start_access_min`) needs a balance pass on seed 7 once the province step runs in the engine | Claude, user approves | Regional Economy & Trade revision |
-| 2 | Building catalogue: costs, build seasons, upkeep and output per level for each kind in rule 8 (data, not GDD); the workshop is a craft-capacity effect read by Trade Goods, not an output class | Claude, proposal; user | Before the province step is built |
+| 2 | *(Drafted 2026-11-24: `design/quick-specs/province-building-catalogue.md`, all guesses, for the one review at the end.)* Building catalogue: costs, build seasons, upkeep and output per level for each kind in rule 8 (data, not GDD); the craft halls replace the workshop, not an output class | Claude, proposal; user | Before the province step is built |
 | 3 | Starting buildings per seat kind (rule 10): authored per province or a set by seat kind plus F6's logistics top-up | User | Before the province step is built |
 | 4 | Province names: generated from the seat place's name ("X county") or authored for all 273, wilderness included | User | Before the province panel |
 | 5 | The season budget for the province step (AC-PV-24's 5 ms inside `T_map` is a guess) | Claude | Regional Economy & Trade revision |

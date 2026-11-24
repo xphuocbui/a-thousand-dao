@@ -57,6 +57,18 @@ UI-windows session; coordinate before touching them.
 
 ### Stage 1: live province records, in shadow
 
+**Done 2026-11-24 (uncommitted at writing):** `src/gameplay/world/provinces.gd` (table `provinces`, ids `v<n>`; every
+place's `province_id`, the 5 lakes by nearest land tile; F1 goods fixed at the first season, F2 routes fixed at build,
+F4 production, F5 slots), `assets/data/provinces.json` (knobs, `provinces_version` 1), the hook in
+`MapProduction.season` (the same values by province), the step in `WorldTicker.tick` and `WorldBuilder.generate`,
+saves without `provinces_version` refused, `GameQuery.province` overlaying the live values. Tests
+`tests/unit/world/provinces_test.gd` (8). Full suite 1042/0; the shadow census is identical to the Formula H run on
+seeds 7, 101, 202. **D8 measured:** the step averages 4.96 ms a season (worst 7.35 ms), so AC-PV-24's 5 ms holds.
+The Python bake stays as it is (the panel's fallback for buildings, infrastructure and access until Stages 2 and 6);
+the planned split of `world_provinces.json` into shape and start stats was not needed.
+**Found:** 15 border places (mostly mines and peaks) lie in a province of a neighbouring region, so province and region
+sums agree only continent-wide. **Owed before Stage 6:** decide whether those places follow their province's region.
+
 - **Build:** WorldBuilder builds a `provinces` table from the static shape (split `world_provinces.json` into shape
   and start stats). Every place record gets its `province_id`. Today only the new places carry a province key; the
   authored ones are listed in `provinces.json`, and 5 places sit in none.
@@ -167,7 +179,7 @@ UI-windows session; coordinate before touching them.
 | D5 | **Site-growth gaps:** (a) on a step up, does the reserve keep its fraction of the new max; (b) the 83 kept sites in wilderness provinces have no matching building: start them with an outpost, let the holder build one (wilderness slot 1), or leave them minor. | (a) keep the fraction; (b) the holder may build the outpost, nothing at the start. | (a) keep the fraction; (b) the holder may build the outpost, nothing at the start. |
 | D6 | **Migrating existing works:** today's per-place layer-2 works and `prebuilt` density become province buildings one to one, keeping their gains. | Yes, one to one. A census check guards it. | One to one for works; **prebuilt density is not migrated** but stays a land line (Provinces rule 10). Spirit grove, qi channel and vein dressing are their own kinds (rule 8). |
 | D7 | **Old saves:** migrate (build the provinces table, and the 1,240 new places, on load) or refuse saves made before provinces (bump the data version). | Refuse. The game is a prototype, and a migration of the whole world is costly to keep. | Refuse old saves. |
-| D8 | **Season budget** (OQ 5): AC-PV-24's 5 ms. | Measure in Stage 1, then set. | Open: measure in Stage 1. |
+| D8 | **Season budget** (OQ 5): AC-PV-24's 5 ms. | Measure in Stage 1, then set. | Measured 2026-11-24: 4.96 ms mean, 7.35 ms worst; keep 5 ms. |
 
 ## Also decided 2026-11-24 (outside the stages)
 
