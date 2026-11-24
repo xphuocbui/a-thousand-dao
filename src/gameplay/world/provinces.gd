@@ -132,6 +132,8 @@ static func build(gd: GameData, db: WorldDB) -> void:
 		for pid in v.places:
 			pop += float(db.get_record("places", str(pid)).get("local", {}).get("pop", 0.0))
 		v["population"] = pop
+		v["p0"] = pop
+		v["capacity"] = pop
 	_wild_hops(gd, db)
 
 
@@ -184,9 +186,11 @@ static func clear_values(db: WorldDB) -> void:
 
 ## One season (rule 13 steps 3 and 5 in shadow): F2 and F4 production per province from MapProduction's own values,
 ## F1 goods (fixed at the first season), F5 slots. Returns nothing; the records carry the contract.
-static func season(gd: GameData, db: WorldDB) -> void:
+static func season(gd: GameData, db: WorldDB, season_i: int = -1) -> void:
 	if db.count(TABLE) == 0:
 		return
+	if season_i == 0:
+		yearly(gd, db)   # rule 13 step 2: population, once a year in Spring (Stage 5)
 	_season(gd, db)
 	ProvinceBuildings.tally_halls(gd, db)   # Stage 4: the halls' totals for the hooks
 
@@ -246,6 +250,62 @@ static func _class_of(gd: GameData, good: String) -> String:
 	if not _class.has(good):
 		_class[good] = WorldEconomy.class_of(gd, good)
 	return str(_class[good])
+
+
+## F3, once a year (Stage 5): each settlement province's population moves toward its capacity while fed and safe, falls
+## in famine and war, and stays within [pop_floor P0, max(C, P (1 - f_fam))]; its settlements' workforce follows P / P0.
+static func yearly(gd: GameData, db: WorldDB) -> void:
+	var c: Dictionary = cfg(gd).get("population", {})
+	for v in db.all(TABLE):
+		if str(v.kind) != "settlement":
+			continue
+		var p0: float = float(v.get("p0", v.population))
+		var p: float = float(v.population)
+		var capb: float = 0.0
+		for b in v.get("buildings", []):
+			capb += float(ProvinceBuildings.kind(gd, str(b.kind)).get("cap_b", 0.0)) * float(ProvinceBuildings.effective(gd, b))
+		var cap: float = p0 * (1.0 + float(c.get("cap0", 0.2)) + capb)
+		var cover: float = _staple_cover(db, v)
+		var fam: float = float(c.get("famine_cover", 0.6))
+		var fed: bool = cover >= fam
+		var safe: bool = not _at_war(db, v)
+		var np: float = p
+		if not fed:
+			np = p * (1.0 - float(c.get("f_fam", 0.2)) * (1.0 - cover / maxf(fam, 1e-9)))
+		elif safe:
+			np = p + float(c.get("g", 0.03)) * p * (1.0 - p / cap) if cap > 0.0 else 0.0
+		if not safe:
+			np *= 1.0 - float(c.get("f_war", 0.05))
+		np = clampf(np, float(c.get("pop_floor", 0.3)) * p0, maxf(cap, p * (1.0 - float(c.get("f_fam", 0.2)))))
+		v["population"] = np
+		v["capacity"] = cap
+		var ratio: float = np / p0 if p0 > 0.0 else 1.0
+		for pid in v.places:   # the workforce of its settlements (Travel & Map H2's P, which output and W_set read)
+			var pl: Dictionary = db.get_record("places", str(pid))
+			if pl.has("local"):
+				if not pl.local.has("pop0"):
+					pl.local["pop0"] = float(pl.local.get("pop", 0.0))
+				pl.local["pop"] = snappedf(float(pl.local.pop0) * ratio, 0.001)
+
+
+# F3's cover_st: the mean cover of the herb and beast classes in the province's market (Regional Economy E), 1.0 (fed)
+# when it has no market or no such class.
+static func _staple_cover(db: WorldDB, v: Dictionary) -> float:
+	var mid: String = WorldEconomy.market_of_region(db, db.get_record("regions", str(v.get("region_id", ""))))
+	var m: Dictionary = db.get_record(WorldEconomy.TABLE, mid) if mid != "" else {}
+	var sum: float = 0.0
+	var n: int = 0
+	for k in m.get("classes", {}):
+		if str(k).begins_with("herb") or str(k).begins_with("beast"):
+			sum += float(m.classes[k].get("cover", 1.0))
+			n += 1
+	return sum / float(n) if n > 0 else 1.0
+
+
+# F3's safe: the holder of the province's region is at no war (Sects' war state, read at the yearly step).
+static func _at_war(db: WorldDB, v: Dictionary) -> bool:
+	var s: Dictionary = db.get_record("sects", str(db.get_record("regions", str(v.get("region_id", ""))).get("holder", "")))
+	return not s.is_empty() and not Array(s.get("wars", [])).is_empty()
 
 
 # F1's goods: the main good is the class with the largest value, up to two secondary goods at secondary_share of it.
