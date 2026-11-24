@@ -27,7 +27,7 @@ static func _find(root: Node, name: String) -> Node:
 func test_the_menu_page_has_the_six_buttons_in_order() -> void:
 	var m := _menu()
 	var names: Array = []
-	for c in m._body.get_children():
+	for c in m._box.get_children():   # the page sits in its parchment inset
 		if c is Button:
 			names.append(str(c.name))
 	assert_eq(names, ["Resume", "Save", "Load", "Settings", "Wiki", "Quit"])
@@ -92,7 +92,7 @@ func test_the_fight_variant_is_settings_only_and_esc_closes_it() -> void:
 	m.open_menu("menu", null, true)
 	assert_eq(m.page(), "settings", "settings only")
 	var has_back: bool = false
-	for c in m._body.get_children():
+	for c in m._box.get_children():   # the page sits in its parchment inset
 		if c is Button and str((c as Button).text) == "Back":
 			has_back = true
 	assert_false(has_back, "no Back to the menu in a fight")

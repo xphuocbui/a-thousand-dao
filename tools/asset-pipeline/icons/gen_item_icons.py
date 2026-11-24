@@ -1,7 +1,8 @@
 """Painted item icons for the inventory (user 2026-11-24, the illustrated windows: "Inventory: needs item icons").
 One square icon per item template the game makes (item_factory.gd kinds): the 22 artifact bases, 11 herbs, 13
-materials, 12 pills, 4 talismans, 2 treasures and the công pháp manual by element (6). The 171 named legendary items
-use their base's icon until they get their own. Painted by OpenAI's image model at low quality; the rarity frame is
+materials, 12 pills, 4 talismans, 2 treasures and the công pháp manual by element (6); and (user 2026-11-24, "go do
+all 3") one per named legendary item in items_named.json (171, key named_<id>): its base's object made legendary,
+coloured by its element and themed by its name and family. Painted by OpenAI's image model at low quality; the rarity frame is
 drawn by the UI, so every icon is the object alone on the same dark ground.
 
 Masters: tools/asset-pipeline/icons/ai/openai/items/<key>.png (git-ignored with ai/). Game copies:
@@ -101,6 +102,27 @@ SUBJECT = {
 }
 
 
+FAMILY = {"metal": "sharp gleaming metal", "body": "sinew, bone and blood-red qi", "force-chaos": "swirling magenta chaos force",
+          "soul-song-seal": "ethereal lavender soul light and faint musical notes", "water": "flowing deep blue water",
+          "wood": "living jade-green wood and leaves", "fire": "vermilion flame", "thunder": "crackling violet lightning",
+          "earth": "heavy ochre stone", "general": "a warm golden aura", "wind": "pale mint wind streaks",
+          "blade": "keen cold sword light", "ice": "pale cyan frost"}
+
+
+def named_subjects():
+    d = json.load(open(os.path.join(ROOT, "assets", "data", "items_named.json"), encoding="utf-8"))["named"]
+    out = {}
+    for t in d:
+        base = SUBJECT.get("artifact_" + str(t["base"]), "a cultivation artifact")
+        title = str(t["name"]).split(" (")[0]
+        out["named_" + str(t["id"])] = ("a legendary unique treasure named '%s': %s, richly ornamented and finer than any "
+                                        "common one, wreathed in %s") % (title, base, FAMILY.get(str(t.get("family", "")), "a golden aura"))
+    return out
+
+
+SUBJECT.update(named_subjects())
+
+
 def paint(key):
     full = os.path.join(OUT, key + ".png")
     if os.path.exists(full):
@@ -132,6 +154,8 @@ def main():
     keys = list(SUBJECT)
     if "test" in sys.argv:
         keys = ["artifact_phi_kiem", "herb_hoa_linh_chi", "material_yeu_dan", "pill_truc_co_dan", "talisman_hoa_cau"]
+    if "named-test" in sys.argv:
+        keys = [k for k in keys if k.startswith("named_")][:4]
     print(len(keys), "item icons")
     with concurrent.futures.ThreadPoolExecutor(6) as ex:
         for key, res in ex.map(paint, keys):

@@ -80,6 +80,18 @@ Theme), and later screens are built in the final style.
 | Z6 window host | `src/ui/windows/window_host.gd`, `game_window.gd`, `assets/data/ui_windows.json` | Built 2026-11-23 night: frame, history (back / forward, Alt+← / →, mouse 4 / 5, forward entries dropped), focus return, sticky header, section jumps (Home / End, LT / RT), reply strip (3 lines + dismiss), Z2 buttons and hotkeys from `ui_windows.json` |
 | Character sheet | `src/ui/windows/character_window.gd`, `GameQuery.character`; spec `design/ux/character-sheet.md` (lean r1 NEEDS REVISION, all 11 findings applied) | Built 2026-11-23 night, see its section below |
 
+## Person window, menu, wiki, named item icons (2026-11-24, user: "Go do all 3 please")
+- Person window: the painted portrait in the header beside name, standing, numbers and a row of trait medallions;
+  sections as parchment insets on the wood ground; ties with portrait medallions (GameQuery.person ties carry portrait).
+- Game menu: a place-catalogue painting as the banner over the main page (ui_windows.json menu.banner), each page on
+  parchment; the menu is tall enough for every button without scrolling.
+- Wiki: an inset per category with cards; trait medallions and item icons beside the entries; a new Items category
+  (artifact bases, pills, herbs, materials, talismans, treasures; keys item:<kind>_<id>) whose entries open with the
+  icon framed large.
+- Named legendary items: 171 icons (assets/icons/items/named_<id>.png, gen_item_icons.py: the base's object made
+  legendary, themed by name and family); GameQuery.item_icon prefers them.
+Evidence 13 (menu), 27 (person), 72-73 (wiki).
+
 ## Rankings, icons, Abode, Inventory, tabs (2026-11-24, user: "do your suggestions in order")
 - Rankings: podium of the top three + portrait medallions on rows (round medallions crop a real square, Illustrated._square).
 - 8 tile icons (assets/icons/ui: six Thiên phú, sect Founded / Members), gen_ui_icons.py.

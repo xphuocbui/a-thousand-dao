@@ -326,7 +326,9 @@ static func person(s: GameSession, person_id: String) -> Dictionary:
 			kinds.append("debt")
 		if kinds.is_empty():
 			continue
-		var row := {"partner_id": partner, "partner": str(s.db.get_record("people", partner).get("name", partner)), "kinds": kinds}
+		var prec: Dictionary = s.db.get_record("people", partner)
+		var row := {"partner_id": partner, "partner": str(prec.get("name", partner)), "kinds": kinds,
+			"portrait": portrait_of(s, prec) if not prec.is_empty() else {}}
 		(mine if partner == str(s.player.id) else other).append(row)
 	out.ties = mine + other.slice(0, 3)
 	for e in s.db.events_of(person_id).slice(-5):
@@ -1075,14 +1077,17 @@ static func _sect_notables(s: GameSession, rec: Dictionary) -> Array:
 
 
 ## The painted icon of item record [param it] (tools/asset-pipeline/icons/gen_item_icons.py): res:// path of
-## assets/icons/items/<kind>_<template>.png (an artifact by its base, a công pháp manual by its first element), or "" when
-## the template has none yet.
+## assets/icons/items/<kind>_<template>.png (an artifact by its base, or a named legendary one by its own
+## named_<id>.png; a công pháp manual by its first element), or "" when the template has none yet.
 static func item_icon(it: Dictionary) -> String:
 	var k: String = str(it.get("kind", ""))
 	var key: String = ""
 	match k:
 		"artifact":
 			key = "artifact_" + str(it.get("base", ""))
+			var named: String = "res://assets/icons/items/named_%s.png" % str(it.get("named", ""))
+			if str(it.get("named", "")) != "" and ResourceLoader.exists(named):   # a legendary item's own icon
+				return named
 		"cong_phap":
 			var els: Array = Array(it.get("elements", it.get("names", [])))
 			var e: String = str(els[0]).to_lower() if not els.is_empty() else ""

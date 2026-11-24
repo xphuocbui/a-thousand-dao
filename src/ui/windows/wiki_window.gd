@@ -2,7 +2,8 @@ class_name WikiWindow
 extends GameWindow
 ## The in-game wiki (design/ux/wiki.md) in the window host: an index of categories with search, and entries whose
 ## highlighted words and related names are links to other entries (one history step each). Built from
-## [method WikiData.view]; read-only.
+## [method WikiData.view]; read-only. Illustrated (user 2026-11-24): the index is a parchment inset per category with
+## a card per entry (its trait medallion or item icon where it has one); an entry opens with its icon framed large.
 
 var _search := LineEdit.new()
 var _count := Label.new()
@@ -50,21 +51,45 @@ func _build_index(v: Dictionary) -> void:
 	header.add_child(_search)
 	_count.accessibility_live = AccessibilityServer.LIVE_POLITE
 	header.add_child(_count)
+	var g: VBoxContainer = Illustrated.ground(body)
 	for cat in Array(v.get("categories", [])):
 		var entries: Array = Array(cat.get("entries", []))
-		section(str(cat.id), "%s (%d)" % [tr(str(cat.title)), entries.size()])
+		var box: VBoxContainer = section_in(g, str(cat.id), "%s (%d)" % [tr(str(cat.title)), entries.size()])
 		var flow := HFlowContainer.new()
 		flow.add_theme_constant_override("h_separation", 14)
-		body.add_child(flow)
+		flow.add_theme_constant_override("v_separation", 6)
+		box.add_child(flow)
 		for e in entries:
-			var b := _link(str(e.title) + ((" (" + str(e.name_vi) + ")") if str(e.get("name_vi", "")) != "" else ""), str(e.key), flow)
+			var cell := HBoxContainer.new()
+			cell.add_theme_constant_override("separation", 6)
+			flow.add_child(cell)
+			if str(e.get("icon", "")) != "":
+				var ic := TextureRect.new()
+				ic.texture = Illustrated.tex(str(e.icon))
+				ic.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+				ic.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+				ic.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+				ic.custom_minimum_size = Vector2(32, 32)
+				cell.add_child(ic)
+			var b := _link(str(e.title) + ((" (" + str(e.name_vi) + ")") if str(e.get("name_vi", "")) != "" else ""), str(e.key), cell)
+			b.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 			if str(e.get("summary", "")) != "":
 				TooltipLayer.set_tip(b, {"title": str(e.title), "summary": str(e.summary)})
-			_entry_rows.append([b, WorldDB.fold(str(e.title) + " " + str(e.get("name_vi", "")) + " " + str(e.get("summary", "")))])
+			_entry_rows.append([cell, WorldDB.fold(str(e.title) + " " + str(e.get("name_vi", "")) + " " + str(e.get("summary", "")))])
 	_on_search(_search.text)
 
 
 func _build_entry(v: Dictionary) -> void:
+	if str(v.get("icon", "")) != "":   # the entry's own art, large (a trait medallion, an item icon)
+		var pic := TextureRect.new()
+		pic.name = "EntryArt"
+		pic.texture = Illustrated.tex(str(v.icon))
+		pic.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		pic.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		pic.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		pic.custom_minimum_size = Vector2(112, 112)
+		pic.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+		header.add_child(pic)
 	var kind_l := Label.new()
 	kind_l.text = tr(str(v.get("category", "")))
 	kind_l.theme_type_variation = &"RowLabel"

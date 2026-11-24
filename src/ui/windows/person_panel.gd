@@ -5,6 +5,10 @@ extends PanelContainer
 ## The player always sees everything about everyone. Data comes from [method GameQuery.person] (a copy); the panel
 ## never reads the session itself and changes nothing: verbs and fights are requested through signals.
 ##
+## Illustrated (user 2026-11-24): the header carries the person's painted portrait (PortraitPicker; the placeholder for a
+## named character without one) beside the name, standing and numbers; the body's sections are parchment insets on the
+## dark wood ground, traits as medallions, ties with portrait medallions.
+##
 ## Greybox limits: the verb system is designed but not built (npc-interaction-dialogue.md), so only Greet works (the
 ## session's existing talk); the other verbs are listed greyed with that reason. Pins, the relationships page and window
 ## history are not built yet.
@@ -44,6 +48,10 @@ var _body := VBoxContainer.new()
 var _reply := Label.new()
 var _bar := HBoxContainer.new()
 var _verbs_heading: Control = null
+var _portrait_holder := Control.new()
+var _traits_row := HFlowContainer.new()
+var _g: VBoxContainer = null      # the wood ground of the body
+var _into: Control = null         # the inset the rows go into
 var _locked: bool = false
 ## True when the shown person is pinned in the outliner (set by the map screen before open_person).
 var pinned: bool = false
@@ -64,12 +72,22 @@ func _init() -> void:
 	TooltipLayer.set_tip(_close, tr("Close (Esc)"))
 	_close.pressed.connect(close_panel)
 	frame.add_child(_close)
-	# P2 sticky header
-	_name.add_theme_font_size_override("font_size", 20)
-	box.add_child(_name)
+	# P2 sticky header: the portrait beside who they are
+	var head := HBoxContainer.new()
+	head.add_theme_constant_override("separation", 12)
+	box.add_child(head)
+	_portrait_holder.custom_minimum_size = Vector2(112, 140)
+	head.add_child(_portrait_holder)
+	var who := VBoxContainer.new()
+	who.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	who.alignment = BoxContainer.ALIGNMENT_CENTER
+	head.add_child(who)
+	_name.add_theme_font_size_override("font_size", 22)
+	who.add_child(_name)
 	_standing.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	box.add_child(_standing)
-	box.add_child(_numbers)
+	who.add_child(_standing)
+	who.add_child(_numbers)
+	who.add_child(_traits_row)
 	box.add_child(HSeparator.new())
 	# P3 body
 	_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -114,7 +132,7 @@ func person_id() -> String:
 func jump_to_verbs() -> void:
 	if _verbs_heading == null:
 		return
-	_scroll.scroll_vertical = int(_verbs_heading.position.y)
+	_scroll.scroll_vertical = int(_verbs_heading.global_position.y - _body.global_position.y)
 	var first: Control = _verbs_heading.get_meta(&"first_verb", null)
 	if first != null:
 		first.grab_focus()
@@ -147,6 +165,26 @@ func _build() -> void:
 	for c in _bar.get_children():
 		_bar.remove_child(c)
 		c.queue_free()
+	for c in _portrait_holder.get_children() + _traits_row.get_children():
+		c.get_parent().remove_child(c)
+		c.queue_free()
+	var pf: PanelContainer = Illustrated.framed(PortraitPicker.texture_for(v.get("portrait", {})), Vector2(112, 140), "")
+	pf.set_anchors_preset(Control.PRESET_FULL_RECT)
+	if not bool(v.get("alive", true)):
+		pf.modulate = Color(0.75, 0.75, 0.75)
+	_portrait_holder.add_child(pf)
+	_traits_row.add_theme_constant_override("h_separation", 4)
+	for t in Array(v.get("traits", [])):   # the traits at a glance under the name; the full chips are below
+		var ic := TextureRect.new()
+		ic.texture = Illustrated.tex(str(t.get("icon", "")))
+		ic.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		ic.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		ic.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		ic.custom_minimum_size = Vector2(28, 28)
+		TooltipLayer.set_tip(ic, {"title": str(t.get("name", "")), "lines": Array(t.get("lines", []))})
+		_traits_row.add_child(ic)
+	_g = Illustrated.ground(_body)
+	_into = _g
 	if not bool(v.get("alive", true)):
 		_section(tr("DIED"), [tr("Died: %s") % str(v.get("death_cause", "")), tr("The sheet below is as at death.")])
 	_section(tr("MADE OF"), [])
@@ -168,7 +206,7 @@ func _build() -> void:
 		flow.add_theme_constant_override("v_separation", 6)
 		for t in traits:
 			flow.add_child(Illustrated.trait_chip(t, 36.0))
-		_body.add_child(flow)
+		_into.add_child(flow)
 	var ties: Array = Array(v.get("ties", []))
 	if ties.is_empty():
 		_row(tr("Ties"), tr("none"))
@@ -182,17 +220,18 @@ func _build() -> void:
 		var l := Label.new()
 		l.text = ", ".join(Array(t.kinds)) + ":"
 		l.custom_minimum_size = Vector2(150, 0)
+		row.add_child(Illustrated.medallion(PortraitPicker.texture_for(t.get("portrait", {})), 32.0))
 		row.add_child(l)
 		row.add_child(b)
-		_body.add_child(row)
+		_into.add_child(row)
 	_verbs_heading = _section(tr("VERBS"), [tr("look-only: an event waits") if _locked else ""])
 	var here: bool = bool(v.get("here", false)) and bool(v.get("alive", true)) and not bool(v.get("is_beast", false))
 	var first: Control = null
 	for group in VERBS:
 		var gl := Label.new()
 		gl.text = "  " + tr(str(group[0]))
-		gl.modulate = Color(0.8, 0.8, 0.8)
-		_body.add_child(gl)
+		gl.theme_type_variation = &"RowLabel"
+		_into.add_child(gl)
 		for entry in group[1]:
 			var parts: PackedStringArray = str(entry).split(":", true, 1)
 			var b := Button.new()
@@ -211,7 +250,7 @@ func _build() -> void:
 			b.disabled = reason != ""
 			var vid: String = parts[0]
 			b.pressed.connect(func(): verb_requested.emit(str(_view.id), vid))
-			_body.add_child(b)
+			_into.add_child(b)
 			if first == null and not b.disabled:
 				first = b
 	if first != null:
@@ -264,12 +303,13 @@ func _relation() -> String:
 
 
 func _section(title: String, lines: Array) -> Control:
+	_into = Illustrated.inset(_g if _g != null else _body, "")   # each section a parchment inset (illustrated windows)
 	var h := Label.new()
 	h.text = title
 	h.add_theme_font_size_override("font_size", 14)
 	h.theme_type_variation = &"RowLabel"   # gilt section caps on parchment (art bible 7.11)
 	h.focus_mode = Control.FOCUS_ALL
-	_body.add_child(h)
+	_into.add_child(h)
 	for line in lines:
 		if str(line) == "":
 			continue
@@ -277,7 +317,7 @@ func _section(title: String, lines: Array) -> Control:
 		l.text = "  " + str(line)
 		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		l.custom_minimum_size = Vector2(300, 0)
-		_body.add_child(l)
+		_into.add_child(l)
 	return h
 
 
@@ -292,4 +332,4 @@ func _row(label: String, value: String) -> void:
 	val.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	val.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	row.add_child(val)
-	_body.add_child(row)
+	_into.add_child(row)

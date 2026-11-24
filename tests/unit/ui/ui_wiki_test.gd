@@ -64,3 +64,16 @@ func test_search_dims_non_matches_in_place() -> void:
 
 func test_an_unknown_key_says_so() -> void:
 	assert_true(bool(WikiData.view(_data(), "trait:nope").get("unknown", false)))
+
+
+func test_items_have_their_own_entries_with_their_painted_icons() -> void:
+	var gd := _data()
+	var herbs: Array = []
+	for c in WikiData.categories(gd):
+		if str(c.id) == "items_herb":
+			herbs = Array(c.entries)
+	assert_eq(herbs.size(), Array(gd.file("items_herbs").herbs).size(), "every herb is in the wiki")
+	assert_true(herbs.all(func(e): return str(e.icon) != ""), "and each has its icon")
+	var v: Dictionary = WikiData.view(gd, str(herbs[0].key))
+	assert_false(bool(v.get("unknown", false)), str(herbs[0].key))
+	assert_true(str(v.icon).ends_with(".png") and str(v.summary) != "", "the entry carries the icon and the description")

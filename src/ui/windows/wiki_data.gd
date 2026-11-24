@@ -3,10 +3,28 @@ extends RefCounted
 ## The in-game wiki's content (design/ux/wiki.md), read from the data files only: glossary terms (ui_terms.json),
 ## traits (traits.json: personality, callings, fate, gained), realms (cultivation_realms.json), elements
 ## (character_elements.json) and tie kinds (ui_windows.json tie_kinds). No session state is read, so a view can be
-## built at any time. Keys: "term:<id>", "trait:<id>", "realm:<index>", "element:<id>", "tie:<kind>"; a bare term id
-## (from a tooltip) resolves to "term:<id>".
+## built at any time. Keys: "term:<id>", "trait:<id>", "realm:<index>", "element:<id>", "tie:<kind>",
+## "item:<kind>_<template>" (the item templates with a painted icon: artifact bases, herbs, materials, pills, talismans,
+## treasures); a bare term id (from a tooltip) resolves to "term:<id>". Entries carry "icon" (a res:// path or "").
 
 const TRAIT_GROUPS := [["personality", "Personality traits"], ["callings", "Callings"], ["fate", "Fate traits"], ["gained", "Gained traits"]]
+## Item templates by kind: [kind, data file, list key, category title] (the items with a painted icon,
+## tools/asset-pipeline/icons/gen_item_icons.py).
+const ITEM_GROUPS := [["artifact", "items_artifacts", "bases", "Artifacts"], ["pill", "items_recipes", "recipes", "Pills"],
+	["herb", "items_herbs", "herbs", "Herbs"], ["material", "items_materials", "materials", "Materials"],
+	["talisman", "crafting_talismans", "talismans", "Talismans"], ["treasure", "items_treasures", "treasures", "Treasures"]]
+
+
+## The painted icon of item template [param kind]_[param id], or "".
+static func item_icon(kind: String, id: String) -> String:
+	var p: String = "res://assets/icons/items/%s_%s.png" % [kind, id]
+	return p if ResourceLoader.exists(p) else ""
+
+
+## The trait medallion of [param id], or "".
+static func trait_icon(id: String) -> String:
+	var p: String = "res://assets/icons/traits/%s.png" % id
+	return p if ResourceLoader.exists(p) else ""
 
 
 ## The view for [param key]: "" (the index) -> {index: true, categories}; an entry -> {key, category, title, name_vi,
@@ -45,6 +63,20 @@ static func view(gd: GameData, key: String) -> Dictionary:
 			if not e.is_empty():
 				return {"key": k, "category": "Element", "title": gd.element_name(id), "name_vi": "", "summary": str(e.get("role_desc", "")),
 					"body": [], "facts": [], "links": []}
+		"item":
+			for g in ITEM_GROUPS:
+				if not id.begins_with(str(g[0]) + "_"):
+					continue
+				var tid: String = id.substr(str(g[0]).length() + 1)
+				for t in Array(gd.file(str(g[1])).get(str(g[2]), [])):
+					if str(t.get("id", "")) == tid:
+						var facts: Array = []
+						if t.has("base_value") or t.has("price"):
+							facts.append("Value: %s linh thạch" % str(t.get("base_value", t.get("price", ""))))
+						if str(t.get("element", "")) != "":
+							facts.append("Element: " + gd.element_name(str(t.element)))
+						return {"key": k, "category": str(g[3]).trim_suffix("s"), "title": str(t.get("name", tid)), "name_vi": "",
+							"summary": str(t.get("desc", "")), "body": [], "facts": facts, "links": [], "icon": item_icon(str(g[0]), tid)}
 		"tie":
 			var tk: Array = Array(gd.file("ui_windows").get("tie_kinds", {}).get(id, []))
 			if not tk.is_empty():
@@ -64,7 +96,8 @@ static func categories(gd: GameData) -> Array:
 	for g in TRAIT_GROUPS:
 		var rows: Array = []
 		for t in Array(gd.file("traits").get(str(g[0]), [])):
-			rows.append({"key": "trait:" + str(t.id), "title": str(t.get("name", t.id)), "name_vi": str(t.get("name_vi", "")), "summary": ""})
+			rows.append({"key": "trait:" + str(t.id), "title": str(t.get("name", t.id)), "name_vi": str(t.get("name_vi", "")), "summary": "",
+				"icon": trait_icon(str(t.id))})
 		out.append({"id": str(g[0]), "title": str(g[1]), "entries": rows})
 	var realms: Array = []
 	var rl: Array = gd.realms()
@@ -82,6 +115,14 @@ static func categories(gd: GameData) -> Array:
 			continue
 		ties.append({"key": "tie:" + str(k), "title": "%s %s" % [str(tk[k][0]), str(tk[k][1])], "name_vi": str(tk[k][2]), "summary": ""})
 	out.append({"id": "ties", "title": "Ties", "entries": ties})
+	for g in ITEM_GROUPS:
+		var items: Array = []
+		for t in Array(gd.file(str(g[1])).get(str(g[2]), [])):
+			if not (t is Dictionary) or str(t.get("id", "")) == "":
+				continue
+			items.append({"key": "item:%s_%s" % [str(g[0]), str(t.id)], "title": str(t.get("name", t.id)), "name_vi": "",
+				"summary": str(t.get("desc", "")), "icon": item_icon(str(g[0]), str(t.id))})
+		out.append({"id": "items_" + str(g[0]), "title": str(g[3]), "entries": items})
 	return out
 
 
@@ -114,4 +155,4 @@ static func _trait_entry(gd: GameData, key: String, group: String, t: Dictionary
 	if str(t.get("opposed", "")) != "":
 		links.append({"key": "trait:" + str(t.opposed), "title": "Opposed: " + str(t.opposed)})
 	return {"key": key, "category": group.trim_suffix("s"), "title": str(t.get("name", t.get("id", ""))), "name_vi": str(t.get("name_vi", "")),
-		"summary": "", "body": [], "facts": facts, "links": links}
+		"summary": "", "body": [], "facts": facts, "links": links, "icon": trait_icon(str(t.get("id", "")))}

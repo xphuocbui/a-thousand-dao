@@ -40,6 +40,16 @@ var _armed: String = ""          # "quit", or "overwrite:<slot>": the confirm-in
 var _name_field: LineEdit = null
 var _settings_only: bool = false  # in a fight or tribulation Esc opens settings only (hud.md Esc rules)
 var _copy := Button.new()
+var _box: Control = null          # the page's parchment inset (rebuilt with the page)
+static var _cfg_cache: Dictionary = {}
+
+
+# ui_windows.json "menu" (banner: the painting over the main page), read once.
+static func _menu_cfg() -> Dictionary:
+	if _cfg_cache.is_empty():
+		var d: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://assets/data/ui_windows.json"))
+		_cfg_cache = (d as Dictionary).get("menu", {"banner": ""}) if d is Dictionary else {"banner": ""}
+	return _cfg_cache
 
 
 func _init() -> void:
@@ -61,7 +71,7 @@ func _init() -> void:
 	box.add_child(frame)
 	box.add_child(HSeparator.new())
 	_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	_scroll.custom_minimum_size = Vector2(0, 300)
+	_scroll.custom_minimum_size = Vector2(0, 520)   # room for the banner and every button without scrolling
 	_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	box.add_child(_scroll)
 	_body.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -149,6 +159,14 @@ func _build() -> void:
 	for c in _body.get_children():
 		_body.remove_child(c)
 		c.queue_free()
+	# the illustrated windows (user 2026-11-24): a painted banner over the main page, each page on parchment
+	var g: VBoxContainer = Illustrated.ground(_body)
+	if _page == "menu" and not _settings_only:
+		var art: Texture2D = Illustrated.tex(str(_menu_cfg().get("banner", "")))
+		var hero: PanelContainer = Illustrated.framed(art, Vector2(0, 150), "")
+		hero.name = "Banner"
+		g.add_child(hero)
+	_box = Illustrated.inset(g, "")
 	_name_field = null
 	_footer.text = footer_text
 	match _page:
@@ -198,30 +216,30 @@ func _button(text: String, parent: Control, on: Callable, hint: String = "") -> 
 
 
 func _build_menu() -> void:
-	_button(tr("Resume"), _body, close_menu, "Esc").name = "Resume"
-	_button(tr("Save game"), _body, show_page.bind("save"), "Ctrl+S").name = "Save"
-	_button(tr("Load game"), _body, show_page.bind("load"), "Ctrl+L").name = "Load"
-	_button(tr("Settings"), _body, show_page.bind("settings")).name = "Settings"
-	_button(tr("Wiki"), _body, func(): wiki_requested.emit(), "F1").name = "Wiki"
+	_button(tr("Resume"), _box, close_menu, "Esc").name = "Resume"
+	_button(tr("Save game"), _box, show_page.bind("save"), "Ctrl+S").name = "Save"
+	_button(tr("Load game"), _box, show_page.bind("load"), "Ctrl+L").name = "Load"
+	_button(tr("Settings"), _box, show_page.bind("settings")).name = "Settings"
+	_button(tr("Wiki"), _box, func(): wiki_requested.emit(), "F1").name = "Wiki"
 	if _armed == "quit":
 		var ask := Label.new()
 		ask.text = tr("Quit? Progress since your last save is lost.")
 		ask.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		_body.add_child(ask)
+		_box.add_child(ask)
 		var row := HBoxContainer.new()
-		_body.add_child(row)
+		_box.add_child(row)
 		_button(tr("Save and quit"), row, func(): quit_requested.emit(true)).name = "SaveAndQuit"
 		_button(tr("Quit"), row, func(): quit_requested.emit(false)).name = "QuitNow"
 		var cancel := _button(tr("Cancel"), row, _disarm)
 		cancel.name = "CancelQuit"
 		_focus_now.bind(cancel).call_deferred()
 	else:
-		_button(tr("Quit to desktop"), _body, _arm.bind("quit")).name = "Quit"
+		_button(tr("Quit to desktop"), _box, _arm.bind("quit")).name = "Quit"
 
 
 func _build_save() -> void:
 	var row := HBoxContainer.new()
-	_body.add_child(row)
+	_box.add_child(row)
 	_name_field = LineEdit.new()
 	_name_field.name = "SaveName"
 	_name_field.text = default_name
@@ -236,7 +254,7 @@ func _build_save() -> void:
 		_line(tr("No saves yet."))
 	for s in saves:
 		var r := HBoxContainer.new()
-		_body.add_child(r)
+		_box.add_child(r)
 		var l := Label.new()
 		l.text = _row_text(s)
 		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -248,7 +266,7 @@ func _build_save() -> void:
 			_button(tr("Cancel"), r, _disarm)
 		else:
 			_button(tr("Overwrite"), r, _arm.bind("overwrite:" + slot))
-	_button(tr("Back"), _body, show_page.bind("menu"))
+	_button(tr("Back"), _box, show_page.bind("menu"))
 
 
 func _save_as(name: String, slot: String) -> void:
@@ -287,7 +305,7 @@ func _build_load() -> void:
 		_line(tr("No saves yet."))
 	for s in saves:
 		var r := HBoxContainer.new()
-		_body.add_child(r)
+		_box.add_child(r)
 		var l := Label.new()
 		l.text = _row_text(s) + ("" if bool(s.get("ok", true)) else "\n" + str(s.get("reason", "")))
 		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -306,7 +324,7 @@ func _build_load() -> void:
 			b.name = "Load_" + slot
 			b.disabled = _busy or not bool(s.get("ok", true))
 			b.accessibility_name = tr("Load %s") % str(s.get("name", slot))
-	_button(tr("Back"), _body, show_page.bind("menu"))
+	_button(tr("Back"), _box, show_page.bind("menu"))
 
 
 func _row_text(s: Dictionary) -> String:
@@ -328,7 +346,7 @@ func _build_settings() -> void:
 		var v: Variant = settings.value(key)
 		var r := HBoxContainer.new()
 		r.name = "Setting_" + key
-		_body.add_child(r)
+		_box.add_child(r)
 		var l := Label.new()
 		l.text = str(labels.get(key, key))
 		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -368,14 +386,14 @@ func _build_settings() -> void:
 			r.add_child(n)
 	_line(tr("Coming with the settings pass: key bindings, brightness, End turn input, toast duration, the outliner, borders and alerts by kind."))
 	if not _settings_only:
-		_button(tr("Back"), _body, show_page.bind("menu"))
+		_button(tr("Back"), _box, show_page.bind("menu"))
 
 
 func _line(text: String) -> void:
 	var l := Label.new()
 	l.text = text
 	l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	_body.add_child(l)
+	_box.add_child(l)
 
 
 func _unhandled_input(event: InputEvent) -> void:
