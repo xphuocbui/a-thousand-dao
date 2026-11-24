@@ -184,27 +184,61 @@ static func _inputs(gd: GameData, db: WorldDB, m: Dictionary, heads_all: Diction
 		reached_g[cid] = {}
 	for k in kinds:
 		need[k] = 0.0
+	# provinces-runtime Stage 6 (ADR-0008; Regional Economy & Trade revised A, B): each settlement province's production
+	# times its access (Provinces F6) times the region's safety, instead of the region's production times its reach
+	var by_province: bool = db.count(Provinces.TABLE) > 0 and bool(gd.file(Provinces.FILE).get("economy_reads_provinces", false))
+	var provs_of: Dictionary = _provinces_by_region(db) if by_province else {}
 	for rid in m.regions:
 		var r: Dictionary = db.get_record("regions", rid)
-		var acc: float = float(EconomyRules.access(cfg, float(m.regions[rid].d), int(lv.get("trade", 0)), int(lv.get("military", 0)), bool(r.get("war", false))).acc)
+		var ac: Dictionary = EconomyRules.access(cfg, float(m.regions[rid].d), int(lv.get("trade", 0)), int(lv.get("military", 0)), bool(r.get("war", false)))
+		var acc: float = float(ac.acc)
 		var val := {}
 		for cid in cids:
 			val[cid] = 0.0
-		for g in r.get("production_value", {}):
-			var cid: String = class_of(gd, str(g))
+		var rows: Array = []   # [good, value, its access]
+		if by_province:
+			var wsum: float = 0.0
+			var asum: float = 0.0
+			for v in provs_of.get(rid, []):
+				var a_v: float = float(v.get("access", 1.0)) * float(ac.safe)
+				for g in v.get("production_value", {}):
+					var gv0: float = float(v.production_value[g])
+					rows.append([str(g), gv0, a_v])
+					wsum += gv0
+					asum += gv0 * a_v
+			acc = asum / wsum if wsum > 0.0 else float(ac.safe)   # the region's value-weighted access, for the record
+		else:
+			for g in r.get("production_value", {}):
+				rows.append([str(g), float(r.production_value[g]), acc])
+		for row in rows:
+			var cid: String = class_of(gd, str(row[0]))
 			if not val.has(cid):
 				continue
-			var gv: float = float(r.production_value[g])
+			var gv: float = float(row[1])
 			val[cid] = float(val[cid]) + gv
-			reached[cid] = float(reached[cid]) + gv * acc
-			reached_g[cid][str(g)] = float(reached_g[cid].get(str(g), 0.0)) + gv * acc
+			reached[cid] = float(reached[cid]) + gv * float(row[2])
+			reached_g[cid][str(row[0])] = float(reached_g[cid].get(str(row[0]), 0.0)) + gv * float(row[2])
 		var heads: Array = heads_by_region.get(rid, [0, 0, 0, 0, 0])
 		var nd := {}
 		for k in kinds:
 			nd[k] = EconomyRules.population_need(cfg, k, heads, m.fill, float(wset_by_region.get(rid, 0.0)))
 			need[k] = float(need[k]) + float(nd[k])
 		regions[rid] = {"acc": acc, "value": val, "need": nd}
+		r["d_loc"] = nd   # Provinces F6: the region's own demand by kind, shared out to its provinces next season
 	return {"collect": _collect(cfg, int(lv.get("holdings", 0))), "reached": reached, "reached_g": reached_g, "need": need, "regions": regions}
+
+
+# The settlement provinces of each region: {region id: [province records]}.
+static func _provinces_by_region(db: WorldDB) -> Dictionary:
+	var out := {}
+	for v in db.all(Provinces.TABLE):
+		if str(v.kind) != "settlement":
+			continue
+		var rid: String = str(v.get("region_id", ""))
+		if not out.has(rid):
+			out[rid] = []
+		out[rid].append(v)
+	return out
 
 
 # Sects F2: collect = s_max · (H + 1) / (H + 1 + H_half).

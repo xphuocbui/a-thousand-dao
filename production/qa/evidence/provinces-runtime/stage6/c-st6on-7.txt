@@ -1,0 +1,77 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+== year 0  realms [3935, 844, 191, 27, 3]  0.0 ms/season
+  great sects 7: seat l2 med 1.00 max 1.20 | seat D raw max 4.11 capped max 4.11 | top level med 6 max 8 | works spent med 0 max 0 | treasury med 60000 max 90000
+  minor sects 43: seat l2 med 0.50 max 0.50 | seat D raw max 3.04 capped max 3.04 | top level med 1 max 2 | works spent med 0 max 0 | treasury med 7000 max 7000
+  works above level 5: 5 | highest site works_prod 0.10
+  live province buildings by state { "active": 1499 } | upkeep due a season 27729
+  population 695.6 (start 695.6, x1.000) | provinces at the floor 0 of 468 | above capacity 0
+  access: median 1.00, p10 0.50, under 0.5: 0, at 1: 326 of 468
+  province production value: median 129, p90 1472, max 15690
+    Thiên Xu Tông: seat q 4.11, members 576, mean realm.stage 0.40, mean m 1.23
+    Tùng Đào Cung: seat q 3.93, members 576, mean realm.stage 0.41, mean m 1.21
+    Lạc Hà Tông: seat q 3.52, members 432, mean realm.stage 0.41, mean m 1.14
+    Thính Vũ Lâu: seat q 3.36, members 504, mean realm.stage 0.38, mean m 1.10
+    Băng Tâm Các: seat q 2.63, members 468, mean realm.stage 0.35, mean m 0.96
+    Thúy Vi Tông: seat q 2.74, members 324, mean realm.stage 0.37, mean m 0.99
+    Phượng Minh Cung: seat q 2.91, members 360, mean realm.stage 0.40, mean m 1.04
+== year 50  realms [3481, 1215, 253, 47, 4]  999.2 ms/season
+  great sects 7: seat l2 med 1.00 max 1.20 | seat D raw max 4.11 capped max 4.11 | top level med 7 max 8 | works spent med 187200 max 1120000 | treasury med 90405 max 147746
+  minor sects 46: seat l2 med 0.40 max 0.60 | seat D raw max 3.04 capped max 3.04 | top level med 0 max 5 | works spent med 0 max 28500 | treasury med 0 max 59386
+  works above level 5: 13 | highest site works_prod 0.70
+  live province buildings by state { "active": 1451, "ruined": 75 } | upkeep due a season 65014
+  population 587.2 (start 695.6, x0.844) | provinces at the floor 61 of 468 | above capacity 0
+  access: median 1.00, p10 0.79, under 0.5: 7, at 1: 389 of 468
+  province production value: median 119, p90 1562, max 15140
+    Thiên Xu Tông: seat q 4.11, members 306, mean realm.stage 0.89, mean m 1.36
+    Tùng Đào Cung: seat q 3.93, members 454, mean realm.stage 0.75, mean m 1.29
+    Lạc Hà Tông: seat q 3.52, members 576, mean realm.stage 0.56, mean m 1.17
+    Thính Vũ Lâu: seat q 3.36, members 387, mean realm.stage 0.73, mean m 1.20
+    Băng Tâm Các: seat q 2.63, members 312, mean realm.stage 0.75, mean m 1.04
+    Thúy Vi Tông: seat q 2.74, members 397, mean realm.stage 0.54, mean m 1.03
+    Phượng Minh Cung: seat q 2.91, members 324, mean realm.stage 0.71, mean m 1.09
+== year 100  realms [3517, 1179, 249, 51, 4]  967.6 ms/season
+  great sects 7: seat l2 med 1.00 max 1.20 | seat D raw max 4.11 capped max 4.11 | top level med 7 max 8 | works spent med 187200 max 1120000 | treasury med 101254 max 167836
+  minor sects 51: seat l2 med 0.40 max 0.60 | seat D raw max 3.04 capped max 3.04 | top level med 0 max 5 | works spent med 0 max 28500 | treasury med 0 max 78080
+  works above level 5: 12 | highest site works_prod 0.70
+  live province buildings by state { "active": 1450, "ruined": 76 } | upkeep due a season 65390
+  population 545.0 (start 695.6, x0.783) | provinces at the floor 0 of 468 | above capacity 0
+  access: median 1.00, p10 0.87, under 0.5: 6, at 1: 404 of 468
+  province production value: median 117, p90 1572, max 13277
+    Thiên Xu Tông: seat q 4.11, members 259, mean realm.stage 1.00, mean m 1.43
+    Tùng Đào Cung: seat q 3.93, members 341, mean realm.stage 0.89, mean m 1.35
+    Lạc Hà Tông: seat q 3.52, members 586, mean realm.stage 0.57, mean m 1.21
+    Thính Vũ Lâu: seat q 3.36, members 274, mean realm.stage 0.91, mean m 1.27
+    Băng Tâm Các: seat q 2.33, members 151, mean realm.stage 1.20, mean m 1.09
+    Thúy Vi Tông: seat q 2.74, members 415, mean realm.stage 0.53, mean m 1.06
+    Phượng Minh Cung: seat q 2.91, members 219, mean realm.stage 0.98, mean m 1.21
+== year 150  realms [3668, 1035, 240, 53, 4]  959.0 ms/season
+  great sects 7: seat l2 med 1.00 max 1.20 | seat D raw max 4.11 capped max 4.11 | top level med 7 max 8 | works spent med 187200 max 1120000 | treasury med 106007 max 176558
+  minor sects 55: seat l2 med 0.40 max 0.60 | seat D raw max 3.04 capped max 3.04 | top level med 0 max 5 | works spent med 0 max 28500 | treasury med 0 max 86815
+  works above level 5: 12 | highest site works_prod 0.70
+  live province buildings by state { "active": 1450, "ruined": 76 } | upkeep due a season 65496
+  population 540.9 (start 695.6, x0.777) | provinces at the floor 0 of 468 | above capacity 0
+  access: median 1.00, p10 0.91, under 0.5: 6, at 1: 410 of 468
+  province production value: median 115, p90 1584, max 13379
+    Thiên Xu Tông: seat q 4.11, members 254, mean realm.stage 0.80, mean m 1.40
+    Tùng Đào Cung: seat q 3.93, members 255, mean realm.stage 0.92, mean m 1.40
+    Lạc Hà Tông: seat q 3.52, members 520, mean realm.stage 0.55, mean m 1.24
+    Thính Vũ Lâu: seat q 3.36, members 174, mean realm.stage 1.05, mean m 1.35
+    Băng Tâm Các: seat q 2.33, members 122, mean realm.stage 1.12, mean m 1.11
+    Thúy Vi Tông: seat q 2.74, members 408, mean realm.stage 0.51, mean m 1.09
+    Phượng Minh Cung: seat q 2.91, members 184, mean realm.stage 0.98, mean m 1.24
+== year 200  realms [3752, 953, 237, 54, 4]  944.7 ms/season
+  great sects 7: seat l2 med 1.00 max 1.20 | seat D raw max 4.11 capped max 4.11 | top level med 7 max 8 | works spent med 187200 max 1120000 | treasury med 98972 max 182850
+  minor sects 56: seat l2 med 0.40 max 0.60 | seat D raw max 3.04 capped max 3.04 | top level med 0 max 5 | works spent med 0 max 28500 | treasury med 0 max 92160
+  works above level 5: 12 | highest site works_prod 0.70
+  live province buildings by state { "active": 1450, "ruined": 76 } | upkeep due a season 66360
+  population 548.0 (start 695.6, x0.788) | provinces at the floor 0 of 468 | above capacity 0
+  access: median 1.00, p10 0.87, under 0.5: 6, at 1: 412 of 468
+  province production value: median 116, p90 1598, max 13580
+    Thiên Xu Tông: seat q 4.11, members 192, mean realm.stage 0.91, mean m 1.44
+    Tùng Đào Cung: seat q 3.93, members 255, mean realm.stage 0.86, mean m 1.41
+    Lạc Hà Tông: seat q 3.52, members 552, mean realm.stage 0.55, mean m 1.24
+    Thính Vũ Lâu: seat q 3.36, members 155, mean realm.stage 0.98, mean m 1.33
+    Băng Tâm Các: seat q 2.33, members 85, mean realm.stage 1.04, mean m 1.08
+    Thúy Vi Tông: seat q 2.74, members 401, mean realm.stage 0.52, mean m 1.10
+    Phượng Minh Cung: seat q 2.91, members 155, mean realm.stage 0.89, mean m 1.24

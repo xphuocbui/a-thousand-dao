@@ -118,6 +118,13 @@ live buildings (the window still shows level pips only; states are a Stage 8 ite
 
 ### Stage 3: site growth (approved rule 8 bullet)
 
+**Built 2026-11-24** (`ProvinceBuildings.grow_sites`, committed 30913185): a minor site stands a grade higher a level
+above 1, up to its land's grade, keeping its reserve fraction (D5a), and follows its building down. Wilderness sites
+grow once a holder orders the outpost (D5b: sects can now order buildings in the wilderness slot). **Found:** with
+sects raising mine works, site growth roughly doubles stone minting over 100 years (money +60-95 %, growth still
++0.7-0.9 % a year) - for the user at the Stage 6 stop. Lore starting levels (user request) apply to every group but
+production, which starts at 1.
+
 - **Rule:** a kept site's grade rises one step for each level of its province's matching building above level 1,
   capped by its land grade (`grade_by_density`). Most sites reach small at level 2 and stop there.
 - **Open (D5):** what happens to the reserve on a step up, and what the 83 wilderness sites with no building do.
@@ -125,6 +132,10 @@ live buildings (the window still shows level pips only; states are a Stage 8 ite
 - **ACs:** a new AC owed in the GDD (the rule 8 bullet has none yet).
 
 ### Stage 4: sects build province buildings
+
+**Built 2026-11-24** (b3844431): halls live with their hooks (stat sheet rows, Talismans' sheet term, market crafted
+success per region, technique tier, breakthrough step, intake); sects value halls by members and repair ruins at half
+price. Hóa Thần 5-8 in the census against 4-6 before (the chamber; Stage 9 knob).
 
 - **Who builds:**
   - The holding great sect orders buildings by expected return, within its track caps (rule 9, D4).
@@ -136,6 +147,9 @@ live buildings (the window still shows level pips only; states are a Stage 8 ite
 
 ### Stage 5: population (F3, once a year)
 
+**Built 2026-11-24** (5232e7f0): F3 yearly with workforce following P / P0 (settlement output and W_set read it);
+granaries live. 200 years: dips to x0.85-0.93, recovers to x1.08-1.15, never above capacity.
+
 - **Rule:** growth toward capacity while fed and safe, famine below `famine_cover`, war and beast tides; granaries
   raise capacity.
 - **Economy:** population feeds the settlement demand weight `W_set` (RE&T Formula C) and building staff (OQ 8).
@@ -144,6 +158,13 @@ live buildings (the window still shows level pips only; states are a Stage 8 ite
 - **ACs:** PV-15.
 
 ### Stage 6: access and the economy's switch to provinces
+
+**Built 2026-11-24, uncommitted at writing:** F6 in `Provinces._access` (infra0, road and river tiles, `infra_old`
+fixed at the first season for the 0.5 floor, logistics buildings live; usage against `D_loc` = the region's demand
+shared by population); the 15 border places follow their province's region and holder (user decision); the economy
+reads province production x access x the region's safety (`economy_reads_provinces`, false restores the old
+reading); sects value logistics by the access rise. F6's constants needed no rescale (live province production:
+median ~130-160, p90 ~1,500-2,000, max ~13-17k). Owed: local prices drifting below access 1 (revised L1).
 
 - **F6:** infrastructure (land, logistics buildings, `infra_old`), usage (exports above `D_loc` plus imports, from
   last season's `D_loc`) and access.

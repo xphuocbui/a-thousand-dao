@@ -53,6 +53,14 @@ static func _value(gd: GameData, db: WorldDB, v: Dictionary, k: String, members:
 	if str(w.get("stat", "")) == "density" and own_seat:
 		return float(w.per_level) * float(_cfg(gd).get("density_value_per_member", 2.0)) * members
 	var kd: Dictionary = ProvinceBuildings.kind(gd, k)
+	if kd.has("infra") and str(v.kind) == "settlement" and float(v.get("access", 1.0)) < 1.0:
+		# Stage 6: a logistics level lifts access by infra / usage (up to 1), so more of the province's output reaches
+		# the market: value = its production value x that rise
+		var pv: float = 0.0
+		for g in v.get("production_value", {}):
+			pv += float(v.production_value[g])
+		var rise: float = minf(1.0 - float(v.access), float(kd.infra) / maxf(float(v.get("usage", 0.0)), 1e-9))
+		return pv * rise * float(_cfg(gd).get("access_value_share", 0.3))
 	if kd.has("value_per_member") and own_seat:   # Stage 4: a sect hall serves the members of the sect seated here
 		return float(kd.value_per_member) * members
 	return 0.0
@@ -74,7 +82,7 @@ static func candidates(gd: GameData, db: WorldDB, sect: Dictionary) -> Array:
 		var standing: int = bs.filter(func(b): return str(b.get("state", "")) != "cancelled").size()
 		for k in kinds:
 			var kd: Dictionary = kinds[k]
-			if not bool(kd.get("live", false)) or (str(kd.get("work", "")) == "" and not kd.has("value_per_member")) or bool(kd.get("element", false)):
+			if not bool(kd.get("live", false)) or (str(kd.get("work", "")) == "" and not kd.has("value_per_member") and not kd.has("infra")) or bool(kd.get("element", false)):
 				continue
 			var val: float = _value(gd, db, v, str(k), members, own_seat)
 			if val <= 0.0:
@@ -95,7 +103,7 @@ static func candidates(gd: GameData, db: WorldDB, sect: Dictionary) -> Array:
 				mine.sort_custom(func(a, b): return int(a.level) < int(b.level) or (int(a.level) == int(b.level) and str(a.id) < str(b.id)))
 				bid = str(mine[0].id)
 				lv = int(mine[0].level) + 1
-			elif standing >= int(v.get("slots", 0)):
+			elif standing >= int(v.get("slots", 0)) or (str(kd.get("needs", "")) == "water" and not (bool(v.get("coast", false)) or int(v.get("river_tiles", 0)) > 0)):
 				continue   # a new building needs a free slot (F5)
 			var price: float = float(ProvinceBuildings.cost(gd, str(k), lv, free_level(gd, db, sect, str(k))))
 			if price <= 0.0:

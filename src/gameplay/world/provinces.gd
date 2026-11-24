@@ -123,10 +123,12 @@ static func build(gd: GameData, db: WorldDB) -> void:
 			"population": 0.0, "own_value": {}, "production_value": {}, "production_class": {}, "potential": {},
 			"main_good": "", "secondary_goods": [], "goods_fixed": false, "slots": 0, "buildings": [], "modifiers": [],
 			"dist": -1, "pass_to": [], "coast": bool(s.get("coast", false)), "river_tiles": int(s.get("river_tiles", 0)),
-			"next_building": 1})
+			"road_tiles": int(s.get("road_tiles", 0)), "next_building": 1, "access": 1.0, "infra": 0.0, "usage": 0.0,
+			"infra_old": -1.0})
 	for p in db.all("places"):   # the lakes and any place no shape lists
 		if str(p.get("province_id", "")) == "":
 			of_place(gd, db, p)
+	_follow_province_regions(gd, db)
 	for v in db.all(TABLE):   # F3's start: the settlements' population (Travel & Map H2), fixed until Stage 5
 		var pop: float = 0.0
 		for pid in v.places:
@@ -135,6 +137,24 @@ static func build(gd: GameData, db: WorldDB) -> void:
 		v["p0"] = pop
 		v["capacity"] = pop
 	_wild_hops(gd, db)
+
+
+# The places in a province of another region join that region (user decision 2026-11-24: the 15 border places follow
+# their province); a place its old region's holder held passes to the new region's holder.
+static func _follow_province_regions(gd: GameData, db: WorldDB) -> void:
+	for p in db.all("places"):
+		var v: Dictionary = db.get_record(TABLE, str(p.get("province_id", "")))
+		if v.is_empty() or str(v.region_id) == "" or str(v.region_id) == str(p.get("region_id", "")):
+			continue
+		var old: Dictionary = db.get_record("regions", str(p.get("region_id", "")))
+		var new: Dictionary = db.get_record("regions", str(v.region_id))
+		if not old.is_empty():
+			old.places.erase(str(p.id))
+			if str(p.get("holder", "")) != "" and str(p.get("holder", "")) == str(old.get("holder", "")):
+				p["holder"] = str(new.get("holder", ""))
+		if not Array(new.places).has(str(p.id)):
+			new.places.append(str(p.id))
+		p["region_id"] = str(v.region_id)
 
 
 # F2's routes, fixed by the land: each province's hops from the nearest settlement province of its region (breadth first
@@ -191,6 +211,7 @@ static func season(gd: GameData, db: WorldDB, season_i: int = -1) -> void:
 		return
 	if season_i == 0:
 		yearly(gd, db)   # rule 13 step 2: population, once a year in Spring (Stage 5)
+	region_pop(db)
 	_season(gd, db)
 	ProvinceBuildings.tally_halls(gd, db)   # Stage 4: the halls' totals for the hooks
 
@@ -227,6 +248,8 @@ static func _season(gd: GameData, db: WorldDB) -> void:
 			_fix_goods(cs, v, by_class)
 		var base: int = int(cs.get("base_slots", {}).get(str(v.seat_kind), 0)) if settled else int(cs.get("wild_slots", 1))
 		var extra: int = int(floor(float(v.population) / maxf(float(cs.get("slot_pop_step", 8.0)), 1e-9))) if settled else 0
+		if settled:
+			_access(gd, db, v, prod)   # F6 (Stage 6)
 		var standing: int = Array(v.buildings).filter(func(b): return str(b.get("state", "")) != "cancelled").size()
 		v["slots"] = maxi(base + extra, standing)   # F5: slots never fall below the buildings standing
 		ProvinceBuildings.season(gd, db, v)   # rule 13 step 1 (advance) and the projection onto places (Stage 2)
@@ -306,6 +329,57 @@ static func _staple_cover(db: WorldDB, v: Dictionary) -> float:
 static func _at_war(db: WorldDB, v: Dictionary) -> bool:
 	var s: Dictionary = db.get_record("sects", str(db.get_record("regions", str(v.get("region_id", ""))).get("holder", "")))
 	return not s.is_empty() and not Array(s.get("wars", [])).is_empty()
+
+
+## F6 (Stage 6): infrastructure from the land (infra0 by seat, road tiles, a river up to river_cap), the old roads and
+## porters (infra_old, fixed at the first season to lift a province to start_access_min against its usage then) and
+## its logistics buildings at their effective level; usage = the sum over raw kinds of |production - D_loc| in base
+## value (D_loc: its share by population of its region's own demand last season, 0 before the first economy tick);
+## access = 1 if usage <= infra, else infra / usage. Writes v.infra, v.usage, v.access.
+static func _access(gd: GameData, db: WorldDB, v: Dictionary, prod: Dictionary) -> void:
+	var a: Dictionary = cfg(gd).get("access", {})
+	var land: float = float(a.get("infra0", {}).get(str(v.seat_kind), 100.0)) + float(a.get("i_road", 40.0)) * float(v.get("road_tiles", 0)) \
+		+ float(a.get("i_river", 25.0)) * float(mini(int(v.get("river_tiles", 0)), int(a.get("river_cap", 20))))
+	var built: float = 0.0
+	for b in v.get("buildings", []):
+		built += float(ProvinceBuildings.kind(gd, str(b.kind)).get("infra", 0.0)) * float(ProvinceBuildings.effective(gd, b))
+	var by_kind := {}
+	for g in prod:
+		var k: String = WorldEconomy.kind_of(gd, str(g))
+		by_kind[k] = float(by_kind.get(k, 0.0)) + float(prod[g])
+	var reg: Dictionary = db.get_record("regions", str(v.get("region_id", "")))
+	var need: Dictionary = reg.get("d_loc", {})
+	var share: float = float(v.get("population", 0.0)) / maxf(float(reg.get("pop_units", 0.0)), 1e-9) if not need.is_empty() else 0.0
+	var usage: float = 0.0
+	var kinds := {}
+	for k in by_kind:
+		kinds[k] = true
+	for k in need:
+		kinds[k] = true
+	for k in kinds:
+		if not str(k) in a.get("raw_kinds", ["herb", "ore", "beast", "special"]):
+			continue
+		usage += absf(float(by_kind.get(k, 0.0)) - float(need.get(k, 0.0)) * share)
+	if float(v.get("infra_old", -1.0)) < 0.0:   # fixed once: the start floor against the whole production then
+		var u0: float = 0.0
+		for k in by_kind:
+			u0 += float(by_kind[k])
+		v["infra_old"] = maxf(0.0, float(a.get("start_access_min", 0.5)) * u0 - (land + built))
+	var infra: float = land + built + float(v.infra_old)
+	v["infra"] = infra
+	v["usage"] = usage
+	v["access"] = 1.0 if usage <= infra else infra / usage
+
+
+## Before the economy reads them: each region's settlement population units (for D_loc shares), once a season.
+static func region_pop(db: WorldDB) -> void:
+	for r in db.all("regions"):
+		r["pop_units"] = 0.0
+	for v in db.all(TABLE):
+		if str(v.kind) == "settlement":
+			var r: Dictionary = db.get_record("regions", str(v.get("region_id", "")))
+			if not r.is_empty():
+				r["pop_units"] = float(r.pop_units) + float(v.get("population", 0.0))
 
 
 # F1's goods: the main good is the class with the largest value, up to two secondary goods at secondary_share of it.

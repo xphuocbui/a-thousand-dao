@@ -163,7 +163,7 @@
   "abode_cost_frac": 0.05,
   "tho_upkeep_cut_per_purity": 0.004,
   "sects": {
-    "_doc": "Sects develop their land (SectWorks; Travel & Map rules 31-33, Sects F2 work_max = ceil(Holdings / 2)): the works a sect builds on its sites and at its seat, paid from the Holdings track's investment. density_value_per_member: a seat density work's season value per member per density point, to rank it against production works (guess). builds_per_season: most levels a sect builds a season. save_seasons_max: a sect saves its works budget toward the best work when that work costs up to this many seasons of budget, and save_payback_max: only if the work pays back its cost within this many seasons (cost / value; guesses, 2026-11-24).",
+    "_doc": "Sects develop their land (SectWorks; Travel & Map rules 31-33, Sects F2 work_max = ceil(Holdings / 2)): the works a sect builds on its sites and at its seat, paid from the Holdings track's investment. density_value_per_member: a seat density work's season value per member per density point, to rank it against production works (guess). builds_per_season: most levels a sect builds a season. save_seasons_max: a sect saves its works budget toward the best work when that work costs up to this many seasons of budget, and save_payback_max: only if the work pays back its cost within this many seasons (cost / value; guesses, 2026-11-24). access_value_share (Stage 6): the share of the extra output a logistics level lets reach the market that counts as its season value to the sect (guess).",
     "site_works": [
       "worked_mine",
       "vein_dressing"
@@ -176,7 +176,8 @@
     "builds_per_season": 2,
     "log_builds": true,
     "save_seasons_max": 8,
-    "save_payback_max": 80
+    "save_payback_max": 80,
+    "access_value_share": 0.3
   },
   "track_surcharge": 2.0
 }

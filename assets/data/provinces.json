@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "_doc": "Provinces (design/gdd/provinces.md; ADR-0008; provinces-runtime Stage 1, read by Provinces). provinces_version: written to the world's w_meta at build; a save with another value (or none) is refused (D7, user decision 2026-11-24). shape_file: the static province shapes, places and neighbours (world_provinces.json, from tools/design/map/province_stats_v2.py; its 'stats' are the old bake, not read by the game except as the panel's fallback for values a later stage makes live). province_ids_file: u16 per tile (540 x 360, 0 over water), for places outside every listed province (the 5 lakes, and places made mid-game). F1: secondary_share (a secondary good is at least this share of the main good's value). F2: wild_hops (wilderness output reaches settlement provinces of the same region at most this many hops away; farther wilderness passes nothing). F5: base_slots by seat kind, slot_pop_step (population units per extra slot), wild_slots. lake_search_radius: tiles searched around a place on water for the nearest land province. All values are the GDD's guesses (OQ 1). population (F3, Stage 5, once a year in Spring): capacity C = P0 (1 + cap0 + sum of buildings' cap_b x level); fed (its market's mean cover of herbs and beast parts >= famine_cover, or no such market) and safe (its region's holder at no war) grows P by g P (1 - P / C); famine falls by f_fam (1 - cover / famine_cover); war x (1 - f_war); clamped to [pop_floor P0, max(C, P (1 - f_fam))]. Each settlement's workforce (local.pop, which settlement output and W_set read) follows P / P0. Guesses (OQ 1).",
+  "_doc": "Provinces (design/gdd/provinces.md; ADR-0008; provinces-runtime Stage 1, read by Provinces). provinces_version: written to the world's w_meta at build; a save with another value (or none) is refused (D7, user decision 2026-11-24). shape_file: the static province shapes, places and neighbours (world_provinces.json, from tools/design/map/province_stats_v2.py; its 'stats' are the old bake, not read by the game except as the panel's fallback for values a later stage makes live). province_ids_file: u16 per tile (540 x 360, 0 over water), for places outside every listed province (the 5 lakes, and places made mid-game). F1: secondary_share (a secondary good is at least this share of the main good's value). F2: wild_hops (wilderness output reaches settlement provinces of the same region at most this many hops away; farther wilderness passes nothing). F5: base_slots by seat kind, slot_pop_step (population units per extra slot), wild_slots. lake_search_radius: tiles searched around a place on water for the nearest land province. All values are the GDD's guesses (OQ 1). population (F3, Stage 5, once a year in Spring): capacity C = P0 (1 + cap0 + sum of buildings' cap_b x level); fed (its market's mean cover of herbs and beast parts >= famine_cover, or no such market) and safe (its region's holder at no war) grows P by g P (1 - P / C); famine falls by f_fam (1 - cover / famine_cover); war x (1 - f_war); clamped to [pop_floor P0, max(C, P (1 - f_fam))]. Each settlement's workforce (local.pop, which settlement output and W_set read) follows P / P0. Guesses (OQ 1). access (F6, Stage 6): infra0 by seat kind, i_road a road tile, i_river a river tile up to river_cap, start_access_min (the old roads and porters lift every settlement province to it at the first season), raw_kinds (the kinds usage counts). economy_reads_provinces: Regional Economy & Trade takes each province's production x its access x the region's safety instead of the region's production x its distance reach (false: the old reading).",
   "provinces_version": 2,
   "shape_file": "world_provinces",
   "province_ids_file": "res://assets/map/continent_11_province_ids.bin",
@@ -24,5 +24,26 @@
     "f_fam": 0.2,
     "f_war": 0.05,
     "pop_floor": 0.3
-  }
+  },
+  "access": {
+    "infra0": {
+      "village": 100,
+      "market": 200,
+      "town": 200,
+      "minor_seat": 300,
+      "city": 400,
+      "great_seat": 600
+    },
+    "i_road": 40.0,
+    "i_river": 25.0,
+    "river_cap": 20,
+    "start_access_min": 0.5,
+    "raw_kinds": [
+      "herb",
+      "ore",
+      "beast",
+      "special"
+    ]
+  },
+  "economy_reads_provinces": true
 }

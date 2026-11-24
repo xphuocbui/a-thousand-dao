@@ -71,11 +71,17 @@ func test_a_supply_shock_raises_the_price() -> void:
 	var before: float = float(m.classes.herb1.p)
 	for s in 3:
 		MapProduction.season(gd, db, true)
+		Provinces.season(gd, db)   # the economy reads the province contract (provinces-runtime Stage 6)
 		for rid in m.regions:
 			var r: Dictionary = db.get_record("regions", rid)
 			for g in r.production_value.keys():
 				if WorldEconomy.kind_of(gd, str(g)) == "herb":
 					r.production_value[g] = 0.0
+		for v in db.all(Provinces.TABLE):   # the lost harvest in the province contract too
+			if m.regions.has(str(v.get("region_id", ""))):
+				for g in Dictionary(v.get("production_value", {})).keys():
+					if WorldEconomy.kind_of(gd, str(g)) == "herb":
+						v.production_value[g] = 0.0
 		WorldEconomy.season(gd, db)
 	var after: float = float(m.classes.herb1.p)
 	assert_true(after > before, "herb price rose after three lost harvests (%.3f -> %.3f)" % [before, after])
