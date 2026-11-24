@@ -41,6 +41,11 @@ func test_every_person_of_the_fixed_cast_has_a_portrait() -> void:
 		assert_true(PortraitPicker.texture_for({"cast": str(p.key)}) != null, str(p.key))
 
 
+func test_a_named_character_without_a_painting_gets_the_placeholder_not_a_type_face() -> void:
+	assert_eq(PortraitPicker.key_for({"cast": "no_such_person", "sex": "m", "look": "prime", "dress": "loose", "tier": "low", "id": "p1"}), "")
+	assert_true(PortraitPicker.texture_for({"cast": "no_such_person", "sex": "m"}) == null, "null: the window shows PlaceholderArt")
+
+
 func test_the_same_person_always_gets_the_same_face_and_others_spread() -> void:
 	var f := {"sex": "m", "look": "youth", "dress": "loose", "tier": "low"}
 	var seen: Dictionary = {}

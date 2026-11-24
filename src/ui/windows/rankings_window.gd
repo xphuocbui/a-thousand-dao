@@ -71,12 +71,12 @@ func _build() -> void:
 		if bool(r.you):
 			my = r
 	var prov_n: int = Array(v.get("rows", [])).filter(func(r): return str(r.state) == "provisional").size()
-	var rated_n: int = int(v.get("total", 0)) - prov_n
 	if rank > 0:
-		# rule 9 lists provisional people after the rated ones, so the rank counts within the rated (or the provisional)
+		# rule 9 (user decision 2026-11-24): one order by rating, provisional people mixed in by their estimate (marked ~)
 		var mine_prov: bool = str(my.state) == "provisional"
-		var of_text: String = (tr("%s of %d rated") % [_ordinal(rank), rated_n]) if not mine_prov else (tr("%s of %d (provisional, after %d rated)") % [_ordinal(rank - rated_n), prov_n, rated_n])
-		you.text = tr("You: %s %s · power %s%s") % [of_text, str(v.title), "~" if mine_prov else "", HudReadouts.stones_text(float(my.power))] + 			(" (" + tr("stale") + ")" if str(my.state) == "stale" else "") + 			(("  ·  " + tr("%s provisional, listed after the rated") % HudReadouts.stones_text(float(prov_n))) if prov_n > 0 and not mine_prov else "")
+		you.text = tr("You: %s of %d %s · power %s%s") % [_ordinal(rank), int(v.get("total", 0)), str(v.title), "~" if mine_prov else "", HudReadouts.stones_text(float(my.power))] + \
+			(" (" + tr("stale") + ")" if str(my.state) == "stale" else "") + \
+			(("  ·  " + tr("~ %s still provisional (estimated until they fight rated matches)") % HudReadouts.stones_text(float(prov_n))) if prov_n > 0 else "")
 	else:
 		you.text = tr("You are not in this list (you are in %s).") % _realm_name(int(v.get("player_realm", 0)))
 	you.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART

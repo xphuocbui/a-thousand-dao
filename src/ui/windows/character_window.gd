@@ -10,7 +10,7 @@ extends GameWindow
 
 ## The section keys in jump order: the illustrated layout's reading order (left column first, then the right, the
 ## công pháp cards, the insets two by two), which replaced character-sheet.md's list order on 2026-11-24.
-const SECTIONS := ["talents", "cultivation", "roots", "vitals", "cong_phap", "combat", "dao_do", "gear", "crafts", "fate", "lifespan"]
+const SECTIONS := ["talents", "cultivation", "traits", "roots", "vitals", "cong_phap", "combat", "dao_do", "gear", "crafts", "fate", "lifespan"]
 ## Hán marks per element (a shape beside the colour; accessibility-requirements.md colour audit).
 const ELEMENT_MARKS := {"kim": "金", "moc": "木", "thuy": "水", "hoa": "火", "tho": "土"}
 
@@ -75,6 +75,7 @@ func _build() -> void:
 	right.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	top.add_child(right)
 	_build_cultivation(v, right)
+	_build_traits(v, right)
 	var mid: BoxContainer = VBoxContainer.new() if compact else HBoxContainer.new()
 	mid.add_theme_constant_override("separation", 10)
 	right.add_child(mid)
@@ -234,6 +235,21 @@ func _rebuild_keep(sect: String) -> void:
 	scroll.set_deferred("scroll_vertical", y)
 	if sect != "":
 		pass
+
+
+# The traits row (the mock-up's medallions): personality, calling, fate and gained traits as chips.
+func _build_traits(v: Dictionary, parent: Control) -> void:
+	var box: VBoxContainer = section_in(parent, "traits", tr("Traits"))
+	var ts: Array = Array(v.get("traits", []))
+	if ts.is_empty():
+		line(tr("none yet: deeds and fate give traits as your life goes on"), box)
+		return
+	var flow := HFlowContainer.new()
+	flow.add_theme_constant_override("h_separation", 18)
+	flow.add_theme_constant_override("v_separation", 6)
+	box.add_child(flow)
+	for t in ts:
+		flow.add_child(Illustrated.trait_chip(t))
 
 
 # The standing line without the realm (the inset's title shows it): sect and rank, or loose; age.

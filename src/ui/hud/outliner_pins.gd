@@ -1,8 +1,8 @@
 class_name OutlinerPins
 extends RefCounted
-## The outliner's pinned people (design/ux/outliner.md), kept UI-side per world and player until the save format
-## carries them (hud.md Open Questions: "outliner pins saved with the game"). A ConfigFile at [member path]; "" keeps
-## them in memory only (test runs).
+## The outliner's pinned people (design/ux/outliner.md). During play they live UI-side per world and player in a
+## ConfigFile at [member path] ("" keeps them in memory only: test runs); a save carries them in its frontend block
+## (ADR-0007, user decision 2026-11-24 "Save them"): [method to_save] when writing, [method from_save] when loading.
 
 ## The ConfigFile path ("" = memory only).
 var path: String = "user://outliner_pins.cfg"
@@ -44,6 +44,25 @@ func unpin(world_key: String, id: String) -> void:
 	var l: Array = pins(world_key)
 	l.erase(id)
 	_store(world_key, l)
+
+
+## The save file's frontend block for [param world_key] (ADR-0007): {"outliner_pins": [ids, oldest first]}.
+func to_save(world_key: String) -> Dictionary:
+	return {"outliner_pins": pins(world_key).duplicate()}   # a copy: the live list changes with every pin
+
+
+## Restores the pins of [param world_key] from a save's frontend [param block] (ADR-0007). A save without the block
+## (made before 2026-11-24) leaves the pins as they are; the list is capped at [member max_pins]. Returns true when the
+## block carried pins.
+func from_save(world_key: String, block: Variant) -> bool:
+	if not (block is Dictionary) or not (block as Dictionary).has("outliner_pins"):
+		return false
+	var l: Array = []
+	for id in Array(block.outliner_pins):
+		if not l.has(str(id)) and l.size() < max_pins:
+			l.append(str(id))
+	_store(world_key, l)
+	return true
 
 
 func _store(world_key: String, l: Array) -> void:

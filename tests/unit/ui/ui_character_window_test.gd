@@ -40,10 +40,10 @@ static func _find(root: Node, name: String) -> Node:
 	return root.find_child(name, true, false)
 
 
-func test_the_sheet_has_the_eleven_sections_in_order() -> void:
+func test_the_sheet_has_the_twelve_sections_in_order() -> void:
 	var w := _window(_view())
 	assert_eq(w.section_keys(), CharacterWindow.SECTIONS)
-	assert_eq(CharacterWindow.SECTIONS.size(), 11)
+	assert_eq(CharacterWindow.SECTIONS.size(), 12, "the eleven of character-sheet.md and the traits row (2026-11-24)")
 
 
 func test_every_slot_has_a_change_button() -> void:

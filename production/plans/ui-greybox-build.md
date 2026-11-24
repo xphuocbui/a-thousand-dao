@@ -80,6 +80,19 @@ Theme), and later screens are built in the final style.
 | Z6 window host | `src/ui/windows/window_host.gd`, `game_window.gd`, `assets/data/ui_windows.json` | Built 2026-11-23 night: frame, history (back / forward, Alt+← / →, mouse 4 / 5, forward entries dropped), focus return, sticky header, section jumps (Home / End, LT / RT), reply strip (3 lines + dismiss), Z2 buttons and hotkeys from `ui_windows.json` |
 | Character sheet | `src/ui/windows/character_window.gd`, `GameQuery.character`; spec `design/ux/character-sheet.md` (lean r1 NEEDS REVISION, all 11 findings applied) | Built 2026-11-23 night, see its section below |
 
+## Traits, Relationships, rankings, pins (2026-11-24, user: "do traits first, use openai, then do relationships")
+- **Trait medallions**: `tools/asset-pipeline/icons/gen_traits.py` painted all 77 traits (37 personality, 14 callings,
+  10 fate, 16 gained) at low quality, one hand-written symbol each; the rim metal marks the group (bronze, jade, gold,
+  iron), the field leans warm for virtues and red for vices. `assets/icons/traits/<id>.png` (128 px) + `index.json`.
+  `GameQuery.traits_view` (icon and stat lines) feeds the person window and a new Traits inset on the character sheet
+  (`Illustrated.trait_chip`).
+- **Relationships**: person cards with portrait medallions, realm, sect, place, attitude and tie badges
+  (`relationships_window.gd`; ties and met rows now carry sect and portrait fields). `--relationships-fixture` for shots.
+- **Rankings**: rule 9 changed by the user ("Mix by estimate"): provisional people stand by their estimate, marked ~
+  (RatingService.ranking, GameQuery.rankings, power-rankings.md rule 9 and AC-PR-16).
+- **Pins**: saved with the game in the save file's `frontend` block (ADR-0007).
+- **Demo**: 66/66 input checks (the Places step's extra Esc now opens the game menu; two checks added).
+
 ## Illustrated windows (2026-11-24, user: the windows "look so bad"; OpenAI mock-ups, "learn from ck3 and eu5")
 Round 3 mock-ups (`prototypes/ui-mood/`: `r3_wireframes.py` layout sketch with real text and pasted art, gpt-image-2
 low) approved for the character sheet and the sect window ("Yes, build it"). Portraits (user: "Set + special

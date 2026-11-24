@@ -10,6 +10,12 @@
 > bands), `design/ux/person.md` (the person window links here; tie kinds in Vietnamese and English)
 > **Patterns used**: Side panel with history, Sticky header and pinned action bar, Section jumps, Searchable list
 > (sort and filter chips), Link styles, Nested lockable tooltip.
+> **Illustrated (user 2026-11-24: "the character list, show the character and some info of the char")**: each person
+> is a card on the dark wood ground: their painted portrait medallion (PortraitPicker; faded for the dead), name link,
+> realm, sect (or loose) and place, attitude, and one badge per tie kind (glyph, Vietnamese and English, band strokes and
+> direction in words; brass for pinned kinds, cinnabar feud, dark red enmity, amber debt, teal soft ties). Two cards a row,
+> one in the compact layout; each group is a parchment inset that stays when filtered. Width 62 % of the screen.
+> Evidence `32-relationships-illustrated-1920x1080.png` (the `--relationships-fixture` shot: real people, sample ties).
 
 ---
 

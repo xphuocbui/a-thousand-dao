@@ -162,8 +162,13 @@ func _build() -> void:
 	var traits: Array = Array(v.get("traits", []))
 	if traits.is_empty():
 		_row(tr("Traits"), tr("none"))
-	for t in traits:
-		_row(tr("Trait") + " (%s)" % str(t.group), str(t.name) + ((" (%s)" % str(t.name_vi)) if str(t.get("name_vi", "")) != "" else ""))
+	else:   # the painted medallions (assets/icons/traits), the stat lines in each chip's tooltip
+		var flow := HFlowContainer.new()
+		flow.add_theme_constant_override("h_separation", 14)
+		flow.add_theme_constant_override("v_separation", 6)
+		for t in traits:
+			flow.add_child(Illustrated.trait_chip(t, 36.0))
+		_body.add_child(flow)
 	var ties: Array = Array(v.get("ties", []))
 	if ties.is_empty():
 		_row(tr("Ties"), tr("none"))

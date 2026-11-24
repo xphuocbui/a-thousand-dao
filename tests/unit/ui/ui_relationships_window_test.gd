@@ -84,7 +84,7 @@ func test_sorting_by_strength_puts_the_strongest_soft_tie_first() -> void:
 	var w := _window()
 	w._on_sort(RelationshipsWindow.SORTS.find("strength"))
 	var order: Array = []
-	for c in w.body.get_children():
+	for c in w.body.find_children("Tie_*", "", true, false):   # the cards sit in each group's grid
 		if str(c.name).begins_with("Tie_p3") or str(c.name).begins_with("Tie_p4"):
 			order.append(str(c.name))
 	assert_eq(order, ["Tie_p4", "Tie_p3"])

@@ -1,8 +1,10 @@
 class_name RelationshipsWindow
 extends GameWindow
 ## The relationships page (design/ux/relationships-page.md) in the window host: the cap line and the next eviction,
-## search, sort and group chips in a sticky header; the player's ties grouped Pinned, Feuds, Soft and debts, each row
-## with a glyph, the kind in Vietnamese and English, band and direction in words; then the people met with no tie.
+## search, sort and group chips in a sticky header; the player's ties grouped Pinned, Feuds, Soft and debts, then the
+## people met with no tie. Illustrated (user 2026-11-24, "the character list, show the character and some info"): each
+## person is a card with their painted portrait medallion (PortraitPicker), name, realm, sect and place, attitude, and
+## a badge per tie kind (glyph, Vietnamese and English, band strokes and direction in words), two cards a row.
 ## Read-only: partners' names open their person window ([signal GameWindow.open_requested] "person").
 
 ## ui_windows.json (tie_kinds).
@@ -115,22 +117,25 @@ func _build() -> void:
 	var ties: Array = Array(v.get("ties", []))
 	if ties.is_empty():
 		line(tr("You hold no ties yet."))
+	var ground: VBoxContainer = Illustrated.ground(body)
 	for g in GROUPS:
 		var gk: String = str(g[0])
 		if _groups_off.has(gk):
-			section(gk, tr(str(g[1])))   # sections never vanish (pattern library): a filtered group keeps its heading
-			line("  " + tr("hidden by the filter"))
+			var off: VBoxContainer = section_in(ground, gk, tr(str(g[1])))   # sections never vanish (pattern library)
+			line("  " + tr("hidden by the filter"), off)
 			continue
 		var rows: Array = Array(v.get("met", [])) if gk == "met" else ties.filter(func(t): return str(t.group) == gk)
 		rows.sort_custom(_sorter(gk))
-		section(gk, "%s (%d)" % [tr(str(g[1])), rows.size()])
+		var box: VBoxContainer = section_in(ground, gk, "%s (%d)" % [tr(str(g[1])), rows.size()])
 		if rows.is_empty():
-			line("  " + tr("none"))
+			line("  " + tr("none"), box)
+			continue
+		var grid: GridContainer = Illustrated.grid(box, 1 if compact else 2, 8)
 		for r in rows:
 			if gk == "met":
-				_met_row(r)
+				_met_row(r, grid)
 			else:
-				_tie_row(r)
+				_tie_row(r, grid)
 	bar_open(tr("Character"), "character")
 	_on_search(_search.text)
 
@@ -156,13 +161,62 @@ func _sorter(group: String) -> Callable:
 		return na < nb if na != nb else str(a.get("partner", "")) < str(b.get("partner", ""))
 
 
-func _tie_row(t: Dictionary) -> void:
-	var box := VBoxContainer.new()
-	box.name = "Tie_" + str(t.partner_id)
-	body.add_child(box)
-	var head := HBoxContainer.new()
-	box.add_child(head)
-	var parts: Array = []
+# Tie kinds by family, for the badge colour: pinned brass, feud cinnabar, enmity dark red, soft ties teal, debt amber.
+const BADGE := {"feud": "#84191B", "enmity": "#6E2A22", "debt": "#8A6420", "master": "#6D5426", "disciple": "#6D5426",
+	"kin": "#6D5426", "ket_nghia": "#6D5426", "dao_lu": "#6D5426", "companion": "#6D5426"}
+const BADGE_SOFT := "#2F5D58"
+
+
+# A person card: the portrait medallion, the name link, who they are, and [param badges] under it.
+func _card(parent: Control, node_name: String, id: String, name_text: String, d: Dictionary, badges: Array, att: int, medal: float) -> PanelContainer:
+	var card := PanelContainer.new()
+	card.name = node_name
+	card.add_theme_stylebox_override("panel", Illustrated.box(Illustrated.PAPER_TILE, Illustrated.BRASS_DIM, 1, 8.0, 2))
+	card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	card.focus_mode = Control.FOCUS_ALL
+	parent.add_child(card)
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 10)
+	card.add_child(row)
+	row.add_child(Illustrated.medallion(PortraitPicker.texture_for(d.get("portrait", {})), medal, not bool(d.get("alive", true))))
+	var col := VBoxContainer.new()
+	col.add_theme_constant_override("separation", 1)
+	col.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row.add_child(col)
+	var name := LinkButton.new()
+	name.text = name_text + ("" if bool(d.get("alive", true)) else " †")
+	LinkStyle.apply(name, "person", "friend" if att >= 30 else ("hostile" if att <= -30 else "neutral"), "paper")
+	name.pressed.connect(func(): open_requested.emit("person", id, ""))
+	name.accessibility_name = tr("Open %s") % name_text
+	col.add_child(name)
+	var who := Label.new()
+	who.text = " · ".join([str(d.get("realm", "")), str(d.get("sect", "")) if str(d.get("sect", "")) != "" else tr("loose cultivator"),
+		(tr("at %s") % str(d.place)) if str(d.get("place", "")) != "" else ""].filter(func(x): return str(x) != ""))
+	who.theme_type_variation = &"RowLabel"
+	who.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	col.add_child(who)
+	var mood := Label.new()
+	mood.text = "%s %+d" % [tr(str(d.get("band_word", ""))), att] + ("" if bool(d.get("alive", true)) else "  · " + tr("died"))
+	col.add_child(mood)
+	if not badges.is_empty():
+		var flow := HFlowContainer.new()
+		flow.add_theme_constant_override("h_separation", 4)
+		flow.add_theme_constant_override("v_separation", 4)
+		col.add_child(flow)
+		for b in badges:
+			var pill := PanelContainer.new()
+			pill.add_theme_stylebox_override("panel", Illustrated.box(Color(str(b[1])), Illustrated.BRASS_DIM, 1, 4.0, 3))
+			var bl := Label.new()
+			bl.text = str(b[0])
+			bl.add_theme_color_override("font_color", Illustrated.BONE)
+			bl.add_theme_font_size_override("font_size", 13)
+			pill.add_child(bl)
+			flow.add_child(pill)
+	return card
+
+
+func _tie_row(t: Dictionary, parent: Control) -> void:
+	var badges: Array = []
 	var spoken: Array = []
 	var tip_lines: Array = []
 	for k in Array(t.get("kinds", [])):
@@ -175,55 +229,28 @@ func _tie_row(t: Dictionary) -> void:
 			words.append(tr(str(DIRECTIONS.get(str(k.direction), k.direction))))
 		if bool(k.get("inherited", false)):
 			words.append(tr("inherited") + ((": " + str(k.cause)) if str(k.get("cause", "")) != "" else ""))
-		parts.append(" · ".join(words))
+		badges.append([" · ".join(words), BADGE.get(str(k.kind), BADGE_SOFT)])
 		spoken.append(", ".join(words))
 		tip_lines.append(" · ".join(words) + ((" — " + tr("strength %d") % int(k.strength)) if int(k.get("strength", -1)) >= 0 else "") +
 			((" — " + str(k.cause)) if str(k.get("cause", "")) != "" and not bool(k.get("inherited", false)) else ""))
-	var kinds_l := Label.new()
-	kinds_l.text = "  " + "; ".join(parts)
-	kinds_l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	kinds_l.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	head.add_child(kinds_l)
-	var name := LinkButton.new()
-	name.text = str(t.partner) + ("" if bool(t.get("alive", true)) else " †")
-	LinkStyle.apply(name, "person", "friend" if int(t.get("attitude", 0)) >= 30 else ("hostile" if int(t.get("attitude", 0)) <= -30 else "neutral"), "paper")
+	if str(t.get("favour", "")) != "":
+		badges.append([tr("favour owed: %s") % str(t.favour), BADGE.debt])
 	var pid: String = str(t.partner_id)
-	name.pressed.connect(func(): open_requested.emit("person", pid, ""))
-	name.accessibility_name = tr("Open %s") % str(t.partner)
-	head.add_child(name)
-	var sub := Label.new()
-	sub.text = "     %s%s · %s %+d%s" % [str(t.get("realm", "")), (" · " + tr("at %s") % str(t.place)) if str(t.get("place", "")) != "" else "",
-		tr(str(t.get("band_word", ""))), int(t.get("attitude", 0)), ("  · " + tr("favour owed: %s") % str(t.favour)) if str(t.get("favour", "")) != "" else ""]
-	if not bool(t.get("alive", true)):
-		sub.text += "  · " + tr("died")
+	var card: PanelContainer = _card(parent, "Tie_" + pid, pid, str(t.partner), t, badges, int(t.get("attitude", 0)), 64.0)
 	var fav: Dictionary = t.get("favour_info", {})
 	if not fav.is_empty():
 		tip_lines.append(tr("Favour owed to %s: awaiting call-in (presented within %d seasons of joining; presented and accepted are not recorded yet).") % [str(t.favour), int(fav.call_seasons)])
 		tip_lines.append(tr("Refusing it is a slight: friend −%d, or enmity +%d. Paying %s linh thạch clears it.") % [int(fav.refuse_delta), int(fav.refuse_delta), HudReadouts.stones_text(float(fav.cost))])
-	sub.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	box.add_child(sub)
-	box.focus_mode = Control.FOCUS_ALL
-	box.accessibility_name = "%s, %s" % ["; ".join(spoken), str(t.partner)]
-	TooltipLayer.set_tip(box, {"id": pid, "title": str(t.partner), "fact": str(t.get("realm", "")), "lines": tip_lines})
-	_rows.append([box, WorldDB.fold(str(t.partner))])
+	card.accessibility_name = "%s, %s" % ["; ".join(spoken), str(t.partner)]
+	TooltipLayer.set_tip(card, {"id": pid, "title": str(t.partner), "fact": str(t.get("realm", "")), "lines": tip_lines})
+	_rows.append([card, WorldDB.fold(str(t.partner))])
 
 
-func _met_row(m: Dictionary) -> void:
-	var row := HBoxContainer.new()
-	row.name = "Met_" + str(m.id)
-	body.add_child(row)
-	var name := LinkButton.new()
-	name.text = str(m.name) + ("" if bool(m.get("alive", true)) else " †")
-	LinkStyle.apply(name, "person", "neutral", "paper")
+func _met_row(m: Dictionary, parent: Control) -> void:
 	var pid: String = str(m.id)
-	name.pressed.connect(func(): open_requested.emit("person", pid, ""))
-	row.add_child(name)
-	var l := Label.new()
-	l.text = "  %s%s · %s %+d" % [str(m.get("realm", "")), (" · " + str(m.place)) if str(m.get("place", "")) != "" else "", tr(str(m.get("band_word", ""))), int(m.get("attitude", 0))]
-	l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	l.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	row.add_child(l)
-	_rows.append([row, WorldDB.fold(str(m.name))])
+	var card: PanelContainer = _card(parent, "Met_" + pid, pid, str(m.name), m, [], int(m.get("attitude", 0)), 52.0)
+	card.accessibility_name = "%s, %s" % [str(m.name), str(m.get("realm", ""))]
+	_rows.append([card, WorldDB.fold(str(m.name))])
 
 
 func _on_sort(i: int) -> void:

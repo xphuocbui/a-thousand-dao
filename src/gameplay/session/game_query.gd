@@ -308,17 +308,7 @@ static func person(s: GameSession, person_id: String) -> Dictionary:
 		out.techniques.append({"name": str((e.get("def", {}) as Dictionary).get("name", key)), "slot": slot,
 			"layer": int(e.get("layer", 0)), "layers": int((e.get("def", {}) as Dictionary).get("layers", 0))})
 	out.techniques.sort_custom(func(a, b): return ["main", "second", "art", ""].find(a.slot) < ["main", "second", "art", ""].find(b.slot))
-	var tr_data: Dictionary = gd.file("traits")
-	var nt: Dictionary = p.get("npc_traits", {})
-	for group in ["personality", "calling", "fate", "gained"]:
-		var ids: Array = Array(nt.get(group, [])) if nt.get(group) is Array else ([nt.get(group)] if str(nt.get(group, "")) != "" else [])
-		var table: Array = Array(tr_data.get("callings" if group == "calling" else group, []))
-		for tid in ids:
-			var rec: Dictionary = {}
-			for r in table:
-				if str(r.get("id", "")) == str(tid):
-					rec = r
-			out.traits.append({"group": group, "id": str(tid), "name": str(rec.get("name", tid)), "name_vi": str(rec.get("name_vi", ""))})
+	out.traits = traits_view(gd, p.get("npc_traits", {}))
 	var mine: Array = []
 	var other: Array = []
 	for t in s.db.all(Ties.TABLE):
@@ -363,7 +353,7 @@ static func character(s: GameSession) -> Dictionary:
 	var out := {
 		"id": c.id, "name": c.name, "alive": c.alive, "death_cause": c.death_cause,
 		"realm_label": gd.realm_label(c.realm_index, c.stage), "level": c.level, "layer": layer,
-		"portrait": portrait_of(s, c.to_dict()), "gender": c.gender,
+		"portrait": portrait_of(s, c.to_dict()), "gender": c.gender, "traits": traits_view(gd, c.npc_traits),
 		"sect": str(sect.get("name", "")), "rank": s.sect_members.rank_name(c.sect_rank) if s.sect_members != null and c.sect_rank != "" else "",
 		"age": c.age, "lifespan": life.total, "power": int(res.get("power", -1)), "provisional": bool(res.get("provisional", false)),
 		"event_waiting": s.has_pending_event(),
@@ -572,7 +562,8 @@ static func relationships(s: GameSession) -> Dictionary:
 		var at: Dictionary = db.get_record("places", str(p.get("location_id", "")))
 		return {"partner_id": id, "partner": str(p.get("name", id)), "alive": bool(p.get("alive", true)),
 			"realm": gd.realm_label(int(p.get("realm_index", 0)), int(p.get("stage", 0))) if not p.is_empty() else "",
-			"place": str(at.get("name", "")), "attitude": int(p.get("attitude", 0)), "band_word": attitude_band(gd, int(p.get("attitude", 0)))}
+			"place": str(at.get("name", "")), "attitude": int(p.get("attitude", 0)), "band_word": attitude_band(gd, int(p.get("attitude", 0))),
+			"sect": str(db.get_record("sects", str(p.get("sect_id", ""))).get("name", "")), "portrait": portrait_of(s, p) if not p.is_empty() else {}}
 	var ties: Array = []
 	var outside: int = 0
 	var partners: Dictionary = {}
@@ -633,7 +624,8 @@ static func relationships(s: GameSession) -> Dictionary:
 		if partners.has(str(p.id)):
 			continue
 		var m: Dictionary = person.call(str(p.id))
-		met.append({"id": str(p.id), "name": m.partner, "realm": m.realm, "place": m.place, "attitude": m.attitude, "band_word": m.band_word, "alive": m.alive})
+		met.append({"id": str(p.id), "name": m.partner, "realm": m.realm, "place": m.place, "attitude": m.attitude, "band_word": m.band_word, "alive": m.alive,
+			"sect": m.sect, "portrait": m.portrait})
 	var soft_used: int = Ties.soft_only(db, pid).size()
 	var soft_limit: int = Ties.soft_limit(gd, db, pid)
 	return {"cap": Ties.cap(gd, db, pid), "held": db.ties_of(pid).size() - outside, "outside_cap": outside,
@@ -643,7 +635,7 @@ static func relationships(s: GameSession) -> Dictionary:
 
 ## The rankings window's view (design/ux/rankings.md; power-rankings.md rule 9): [param which] a realm index 0-4, or
 ## "top" for the Vấn Đỉnh Bảng (Nguyên Anh and Hóa Thần together). Rows are ordered as rule 9 orders them (rating,
-## rated fights, age, id; Provisional after) but each person is read with RatingService.peek_person, which never
+## rated fights, age, id; Provisional mixed in by their estimate, user 2026-11-24) but each person is read with RatingService.peek_person, which never
 ## writes: no panel runs, nobody is marked Stale, no record is created (ADR-0006 decision 1). {on: false} when Power
 ## Rankings is off.
 static func rankings(s: GameSession, which: Variant) -> Dictionary:
@@ -679,11 +671,7 @@ static func rankings(s: GameSession, which: Variant) -> Dictionary:
 			"realm": str(gd.realm(int(src.get("realm_index", 0))).get("name", "")),
 			"base": float(rec.base), "offset": float(rec.offset), "power": s.ratings.ladder.power_number(r), "state": str(rec.state),
 			"n": int(stored.get("n", 0)), "age": float(src.get("age", 0.0)), "you": is_me})
-	rows.sort_custom(func(x, y):
-		var px: bool = x.state == RatingService.PROVISIONAL
-		var py: bool = y.state == RatingService.PROVISIONAL
-		if px != py:
-			return py
+	rows.sort_custom(func(x, y):   # rule 9 (2026-11-24): one order by rating, provisional rows mixed in by their estimate
 		if x.rating != y.rating:
 			return x.rating > y.rating
 		if x.n != y.n:
@@ -1080,6 +1068,30 @@ static func _sect_notables(s: GameSession, rec: Dictionary) -> Array:
 	for p in rows.slice(0, n):
 		out.append({"id": str(p.id), "name": str(p.get("name", "")), "rank": s.sect_members.rank_name(str(p.get("sect_rank", ""))) if s.sect_members != null else "",
 			"realm_label": s.gd.realm_label(int(p.get("realm_index", 0)), int(p.get("stage", 0))), "portrait": portrait_of(s, p)})
+	return out
+
+
+## A person's traits (NPC Traits #42, assets/data/traits.json) for a window: in group order (personality, calling,
+## fate, gained), each {group, id, name, name_vi, icon (res:// path of its medallion, "" when none), lines (the boon,
+## cost and rows as stat lines)}. [param nt] is a record's npc_traits. A copy.
+static func traits_view(gd: GameData, nt: Dictionary) -> Array:
+	var tr_data: Dictionary = gd.file("traits")
+	var out: Array = []
+	for group in ["personality", "calling", "fate", "gained"]:
+		var ids: Array = Array(nt.get(group, [])) if nt.get(group) is Array else ([nt.get(group)] if str(nt.get(group, "")) != "" else [])
+		var table: Array = Array(tr_data.get("callings" if group == "calling" else group, []))
+		for tid in ids:
+			var rec: Dictionary = {}
+			for r in table:
+				if str(r.get("id", "")) == str(tid):
+					rec = r
+			var lines: Array = []
+			for key in ["boon", "rows", "cost"]:
+				for m in Array(rec.get(key, [])):
+					lines.append(gd.format_mod(str(m.get("stat", "")), float(m.get("value", 0.0))))
+			var icon: String = "res://assets/icons/traits/%s.png" % str(tid)
+			out.append({"group": group, "id": str(tid), "name": str(rec.get("name", tid)), "name_vi": str(rec.get("name_vi", "")),
+				"icon": icon if ResourceLoader.exists(icon) else "", "lines": lines})
 	return out
 
 

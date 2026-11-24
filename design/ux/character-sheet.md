@@ -18,7 +18,9 @@
 > Change under each; the remaining sections as parchment insets two by two. Section jumps follow this reading order
 > (talents, cultivation, roots, vitals, công pháp, combat, Đạo Đồ, gear, crafts, fate, lifespan). The sticky header
 > keeps the name and the age / rating numbers; the standing line moved into the Cultivation inset. Width: 62 % of the
-> screen (ui_windows.json widths). Not yet: the mock-up's tabs and trait medallions (the player has no trait list).
+> screen (ui_windows.json widths). Traits (2026-11-24): a Traits inset under Cultivation with the painted trait
+> medallions (assets/icons/traits, 77, tools/asset-pipeline/icons/gen_traits.py) and their stat lines in the tooltip; a
+> new player has none yet ("deeds and fate give traits"). Not yet: the mock-up's tabs.
 
 ---
 

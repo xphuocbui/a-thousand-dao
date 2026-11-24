@@ -524,11 +524,9 @@ func ranking(realms: Array, player_id: String = "") -> Array:
 		var r: float = float(rec.base) + float(rec.offset)
 		rows.append({"id": str(p.id), "rating": r, "power": ladder.power_number(r), "state": str(rec.state),
 			"n": int(rec.n), "age": float(p.get("age", 0.0))})
+	# Rule 9 (user decision 2026-11-24, "Mix by estimate"): one order by rating; a Provisional fighter stands where its
+	# estimate puts it, marked, instead of after the Rated and Stale ones.
 	rows.sort_custom(func(x, y):
-		var px: bool = x.state == PROVISIONAL
-		var py: bool = y.state == PROVISIONAL
-		if px != py:
-			return py
 		if x.rating != y.rating:
 			return x.rating > y.rating
 		if x.n != y.n:

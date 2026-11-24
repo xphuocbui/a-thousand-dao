@@ -87,8 +87,9 @@ a won fight); curiosity about who is above them and why; never confusion about w
    are dealt evenly across its seasons, and each season's slice is played in a keyed-shuffle order (rule 13, keyed on the game seed, the year and the season) so that when the budget truncates a season, which pairs drop does not depend on id. The Kết Đan round robin is best effort: it is the lowest-priority work (rule 14), and in a season whose panels use the whole panel share only about a third of its slice plays (Season budget). Here and throughout this GDD, a **rated** NPC is any living NPC with a
    rating, whatever its state (Rated, Stale or Provisional), as in rule 7. Round-robin fights update offsets as matchmaking fights do.
 9. **Rankings.** A realm's ranking lists its rated NPCs and the player, ordered by rating. The top list,
-   the **Vấn Đỉnh Bảng** (the Summit-Asking List, "the strongest under heaven"), is the round-robin realms' ranking. Provisional fighters are listed after the
-   Rated and Stale ones, marked as provisional. Ties in rating break by more rated fights, then by age (older first), then by id.
+   the **Vấn Đỉnh Bảng** (the Summit-Asking List, "the strongest under heaven"), is the round-robin realms' ranking. Provisional fighters stand in the same order by their estimated rating,
+   marked as provisional (user decision 2026-11-24, "Mix by estimate"; it replaced "listed after the Rated and Stale
+   ones", which left the board nearly empty early on). Ties in rating break by more rated fights, then by age (older first), then by id.
 10. **The power number.** A fighter's rating converts to the one **power number** the game shows and stores
     (Formulas E). It replaces chiến lực and Combat Formulas K's `display_power` wherever one number is shown or
     stored: character sheets, NPC records, beast power shares, and members ranked in a mass clash (the stored value is the
@@ -596,7 +597,7 @@ Ratings compare within ±0.05 (the stored 0.1).
 - **AC-PR-13** [Logic] Rule 7. **GIVEN** a Trúc Cơ player mid-ranking, **WHEN** 4 seasons of matchmaking run, **THEN** the player is in no pair and the player's offset and n are unchanged.
 - **AC-PR-14** [Logic] Rule 8. **GIVEN** 28 rated Nguyên Anh and Hóa Thần NPCs, **WHEN** a season runs, **THEN** exactly 378 round-robin fights run, every pair once.
 - **AC-PR-15** [Logic] Rule 8. **GIVEN** 200 Kết Đan NPCs unchanged for a year and an ample budget, **WHEN** its 4 seasons run, **THEN** 19,900 pairs run, each once, 4,975 a season; **AND GIVEN** a budget that truncates each season's slice to 35 %, **THEN** the played pairs follow the keyed shuffle (identical for the same seed) and over 20 seeds no id band (a tenth of the realm's NPCs in id order) plays fewer than 25 % or more than 45 % of its pairs.
-- **AC-PR-16** [Logic] Rule 9. **GIVEN** NPCs all at 1500.0 (n 10, age 50, id 7), (n 10, age 80, id 9), (n 12, age 30, id 3) and a Provisional NPC at 1600, **WHEN** the ranking is built, **THEN** the order is id 3, id 9, id 7, then the Provisional NPC, marked.
+- **AC-PR-16** [Logic] Rule 9. **GIVEN** NPCs all at 1500.0 (n 10, age 50, id 7), (n 10, age 80, id 9), (n 12, age 30, id 3) and a Provisional NPC at 1600, **WHEN** the ranking is built, **THEN** the order is the Provisional NPC (marked), id 3, id 9, id 7.
 - **AC-PR-17** [Logic] Rule 9. **GIVEN** a realm with a Gone NPC and the player, **WHEN** its ranking is built, **THEN** the player is listed, the Gone NPC is not, and the top list is exactly the Nguyên Anh and Hóa Thần ranking.
 - **AC-PR-18** [Integration] Rule 10. **GIVEN** the flag on, the test anchors and a fighter at R 6,500, **WHEN** the character sheet, the NPC record, the owner's beast power share and a mass-clash member ranking read power, **THEN** all read 1,780 and none reads chiến lực.
 - **AC-PR-19** [Logic] Rule 11. **GIVEN** NPCs at 1450 and 1400 with +10 khí vận for A, **WHEN** the world tick resolves their duel, **THEN** 0 fights run, the session stream advances exactly 1 draw, and a draw of 0.580 gives A, 0.582 gives B.

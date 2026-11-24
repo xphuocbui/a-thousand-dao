@@ -1,0 +1,313 @@
+{
+ "_doc": "Trait medallions (tools/asset-pipeline/icons/gen_traits.py): trait id -> group and the icon under assets/icons/.",
+ "icons": {
+  "brave": {
+   "group": "personality",
+   "file": "traits/brave.png"
+  },
+  "cautious": {
+   "group": "personality",
+   "file": "traits/cautious.png"
+  },
+  "calm": {
+   "group": "personality",
+   "file": "traits/calm.png"
+  },
+  "wrathful": {
+   "group": "personality",
+   "file": "traits/wrathful.png"
+  },
+  "content": {
+   "group": "personality",
+   "file": "traits/content.png"
+  },
+  "ambitious": {
+   "group": "personality",
+   "file": "traits/ambitious.png"
+  },
+  "diligent": {
+   "group": "personality",
+   "file": "traits/diligent.png"
+  },
+  "lazy": {
+   "group": "personality",
+   "file": "traits/lazy.png"
+  },
+  "forgiving": {
+   "group": "personality",
+   "file": "traits/forgiving.png"
+  },
+  "vengeful": {
+   "group": "personality",
+   "file": "traits/vengeful.png"
+  },
+  "generous": {
+   "group": "personality",
+   "file": "traits/generous.png"
+  },
+  "greedy": {
+   "group": "personality",
+   "file": "traits/greedy.png"
+  },
+  "gregarious": {
+   "group": "personality",
+   "file": "traits/gregarious.png"
+  },
+  "reclusive": {
+   "group": "personality",
+   "file": "traits/reclusive.png"
+  },
+  "honest": {
+   "group": "personality",
+   "file": "traits/honest.png"
+  },
+  "deceitful": {
+   "group": "personality",
+   "file": "traits/deceitful.png"
+  },
+  "humble": {
+   "group": "personality",
+   "file": "traits/humble.png"
+  },
+  "arrogant": {
+   "group": "personality",
+   "file": "traits/arrogant.png"
+  },
+  "just": {
+   "group": "personality",
+   "file": "traits/just.png"
+  },
+  "arbitrary": {
+   "group": "personality",
+   "file": "traits/arbitrary.png"
+  },
+  "patient": {
+   "group": "personality",
+   "file": "traits/patient.png"
+  },
+  "impatient": {
+   "group": "personality",
+   "file": "traits/impatient.png"
+  },
+  "temperate": {
+   "group": "personality",
+   "file": "traits/temperate.png"
+  },
+  "indulgent": {
+   "group": "personality",
+   "file": "traits/indulgent.png"
+  },
+  "trusting": {
+   "group": "personality",
+   "file": "traits/trusting.png"
+  },
+  "paranoid": {
+   "group": "personality",
+   "file": "traits/paranoid.png"
+  },
+  "devout": {
+   "group": "personality",
+   "file": "traits/devout.png"
+  },
+  "pragmatic": {
+   "group": "personality",
+   "file": "traits/pragmatic.png"
+  },
+  "stubborn": {
+   "group": "personality",
+   "file": "traits/stubborn.png"
+  },
+  "fickle": {
+   "group": "personality",
+   "file": "traits/fickle.png"
+  },
+  "compassionate": {
+   "group": "personality",
+   "file": "traits/compassionate.png"
+  },
+  "callous": {
+   "group": "personality",
+   "file": "traits/callous.png"
+  },
+  "cruel": {
+   "group": "personality",
+   "file": "traits/cruel.png"
+  },
+  "warlike": {
+   "group": "personality",
+   "file": "traits/warlike.png"
+  },
+  "peaceable": {
+   "group": "personality",
+   "file": "traits/peaceable.png"
+  },
+  "loyal": {
+   "group": "personality",
+   "file": "traits/loyal.png"
+  },
+  "faithless": {
+   "group": "personality",
+   "file": "traits/faithless.png"
+  },
+  "strategist": {
+   "group": "callings",
+   "file": "traits/strategist.png"
+  },
+  "steward": {
+   "group": "callings",
+   "file": "traits/steward.png"
+  },
+  "diplomat": {
+   "group": "callings",
+   "file": "traits/diplomat.png"
+  },
+  "merchant": {
+   "group": "callings",
+   "file": "traits/merchant.png"
+  },
+  "teacher": {
+   "group": "callings",
+   "file": "traits/teacher.png"
+  },
+  "schemer": {
+   "group": "callings",
+   "file": "traits/schemer.png"
+  },
+  "alchemist": {
+   "group": "callings",
+   "file": "traits/alchemist.png"
+  },
+  "refiner": {
+   "group": "callings",
+   "file": "traits/refiner.png"
+  },
+  "formation_master": {
+   "group": "callings",
+   "file": "traits/formation_master.png"
+  },
+  "talisman_maker": {
+   "group": "callings",
+   "file": "traits/talisman_maker.png"
+  },
+  "beast_tamer": {
+   "group": "callings",
+   "file": "traits/beast_tamer.png"
+  },
+  "herbalist": {
+   "group": "callings",
+   "file": "traits/herbalist.png"
+  },
+  "duelist": {
+   "group": "callings",
+   "file": "traits/duelist.png"
+  },
+  "wanderer": {
+   "group": "callings",
+   "file": "traits/wanderer.png"
+  },
+  "heaven_favoured": {
+   "group": "fate",
+   "file": "traits/heaven_favoured.png"
+  },
+  "ill_starred": {
+   "group": "fate",
+   "file": "traits/ill_starred.png"
+  },
+  "wise_born": {
+   "group": "fate",
+   "file": "traits/wise_born.png"
+  },
+  "dull_witted": {
+   "group": "fate",
+   "file": "traits/dull_witted.png"
+  },
+  "iron_boned": {
+   "group": "fate",
+   "file": "traits/iron_boned.png"
+  },
+  "frail": {
+   "group": "fate",
+   "file": "traits/frail.png"
+  },
+  "spirit_eyed": {
+   "group": "fate",
+   "file": "traits/spirit_eyed.png"
+  },
+  "hollow_souled": {
+   "group": "fate",
+   "file": "traits/hollow_souled.png"
+  },
+  "pure_hearted": {
+   "group": "fate",
+   "file": "traits/pure_hearted.png"
+  },
+  "demon_seeded": {
+   "group": "fate",
+   "file": "traits/demon_seeded.png"
+  },
+  "scarred": {
+   "group": "gained",
+   "file": "traits/scarred.png"
+  },
+  "battle_hardened": {
+   "group": "gained",
+   "file": "traits/battle_hardened.png"
+  },
+  "shaken": {
+   "group": "gained",
+   "file": "traits/shaken.png"
+  },
+  "renowned": {
+   "group": "gained",
+   "file": "traits/renowned.png"
+  },
+  "disgraced": {
+   "group": "gained",
+   "file": "traits/disgraced.png"
+  },
+  "humbled": {
+   "group": "gained",
+   "file": "traits/humbled.png"
+  },
+  "embittered": {
+   "group": "gained",
+   "file": "traits/embittered.png"
+  },
+  "grudge": {
+   "group": "gained",
+   "file": "traits/grudge.png"
+  },
+  "lovestruck": {
+   "group": "gained",
+   "file": "traits/lovestruck.png"
+  },
+  "grieving": {
+   "group": "gained",
+   "file": "traits/grieving.png"
+  },
+  "sworn_sibling": {
+   "group": "gained",
+   "file": "traits/sworn_sibling.png"
+  },
+  "life_debt": {
+   "group": "gained",
+   "file": "traits/life_debt.png"
+  },
+  "hunted": {
+   "group": "gained",
+   "file": "traits/hunted.png"
+  },
+  "enlightened": {
+   "group": "gained",
+   "file": "traits/enlightened.png"
+  },
+  "oath_bound": {
+   "group": "gained",
+   "file": "traits/oath_bound.png"
+  },
+  "demon_tainted": {
+   "group": "gained",
+   "file": "traits/demon_tainted.png"
+  }
+ }
+}
