@@ -150,6 +150,11 @@ Names wrap within the 144 px column (no limit: wrapping holds 40 % longer text);
 - [ ] `[GdUnit]` × unpins; Delete on the name button unpins; rows have accessible names.
 - [ ] `[Screenshot]` 1920×1080 with a pinned person (`production/qa/evidence/ui-windows/80-*.png`), and 1280×720 collapsed; nothing clips.
 
+## Revision: weak-point pass (2026-11-24)
+
+A place and its distance share one row ("here" or "N seasons", right-aligned); the empty state is one line, "Nothing
+pinned yet", with how to pin in its tooltip.
+
 ## Open Questions
 
 - Closed 2026-11-24: pins in the save file. The user decided "Save them" (ADR-0007); the save's `frontend` block owns

@@ -247,6 +247,11 @@ their id and "(record gone)"; not built (Open Question 10).
       `32-relationships-illustrated-1920x1080.png`), 1280×720 (compact; not retained yet), and 150 % and 75 % UI
       scale (not retained yet); nothing clips.
 
+## Revision: weak-point pass (2026-11-24)
+
+A badge longer than 280 px (a feud with its cause) wraps at 280 px, so a full page keeps its window width
+(`--relationships-fixture --crowded`: 24 ties, 12 met).
+
 ## Open Questions
 
 1. Glyphs are text placeholders until the §7.1 dark-tile icons are painted (art budget).

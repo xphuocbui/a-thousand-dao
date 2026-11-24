@@ -604,14 +604,15 @@ func _show_all() -> void:
 
 
 ## A display-only view with a fuller bag than a new game carries (the --inventory-fixture screenshot): every kind, real
-## painted icons, an equipped weapon and ring, a stack, an unslotted piece.
-static func sample_view() -> Dictionary:
+## painted icons, an equipped weapon and ring, a stack, an unslotted piece. [param crowded] (--crowded) adds 30 more with
+## long names, and a few with no painted icon (the placeholder), for the crowding evidence.
+static func sample_view(crowded: bool = false) -> Dictionary:
 	var it := func(id: String, kind: String, name: String, rarity: int, icon: String, fact: String, extra: Dictionary = {}) -> Dictionary:
 		var d := {"id": id, "kind": kind, "name": name, "rarity": rarity, "text": "", "qty": 1, "equipped": false, "slot": "", "known": false,
 			"fact": fact, "fits": [], "displaces": {}, "compare": [], "verbs": [], "icon": "res://assets/icons/items/%s.png" % icon}
 		d.merge(extra, true)
 		return d
-	return {"stones": 1240, "gear": {"base_used": 2, "base_total": 5, "extra_used": 1, "extra_limit": 2, "unslotted": 1},
+	var v := {"stones": 1240, "gear": {"base_used": 2, "base_total": 5, "extra_used": 1, "extra_limit": 2, "unslotted": 1},
 		"slots": [{"slot": "weapon", "size": 1, "items": [{"id": "a1", "name": "Mirror-Trace Flying Sword", "icon": "res://assets/icons/items/named_blade-mirror-trace-sword.png", "rarity": 5}]},
 			{"slot": "armour", "size": 1, "items": []},
 			{"slot": "ring", "size": 2, "items": [{"id": "a3", "name": "Ring of Unbroken Edges", "icon": "res://assets/icons/items/named_blade-unbroken-edge-ring.png", "rarity": 4}]},
@@ -632,3 +633,13 @@ static func sample_view() -> Dictionary:
 			it.call("x1", "material", "Tinh Thiết", 1, "material_tinh_thiet", "x8", {"qty": 8}),
 			it.call("x2", "material", "Yêu Đan", 3, "material_yeu_dan", "x1"),
 		]}
+	if crowded:
+		var long_names: Array = ["Nine-Layered Crimson Phoenix Feather Fan of the Northern Dipper", "Thousand-Year Black Tortoise Shell Shield",
+			"Hồng Liên Nghiệp Hỏa Bảo Đỉnh", "Sword of the Seven Severed Dawns", "Thất Tinh Bắc Đẩu Trấn Hồn Ấn", "Moon-Drinking Jade Gourd"]
+		var kinds: Array = [["artifact", "named_blade-mirror-trace-sword", "ATK 60 · DEF 10"], ["pill", "pill_hoi_xuan_dan", "x3 · phẩm 1"],
+			["herb", "herb_hoa_linh_chi", "Hỏa · 30.0 năm"], ["material", "material_tinh_thiet", "x12"], ["talisman", "missing_icon", "x1 · used automatically"]]
+		for i in 30:
+			var k: Array = kinds[i % kinds.size()]
+			v.items.append(it.call("c%d" % i, str(k[0]), str(long_names[i % long_names.size()]) + (" %d" % (i + 1) if i >= long_names.size() else ""),
+				1 + i % 6, str(k[1]), str(k[2]), {"qty": 1 + (i * 7) % 15}))
+	return v

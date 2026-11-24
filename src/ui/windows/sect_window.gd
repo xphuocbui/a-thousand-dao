@@ -105,11 +105,14 @@ func _build() -> void:
 	if others.is_empty():
 		_ln(tr("none: no other sect has a standing with you yet"))
 	for o in others:
-		_link_row(str(o.name), "sect", str(o.id), tr("standing %d") % int(o.standing) + (("  (" + tr("hostile") + ")") if bool(o.hostile) else ""))
+		_link_row(str(o.name), "sect", str(o.id), (("  (" + tr("hostile") + ")") if bool(o.hostile) else ""))
+		_standing_meter(float(o.standing), _into)
 	if mode == "loose":
 		_sec("great", tr("Great sects"))
+		_ln(tr("Sects recruit only at their seat: travel there to ask to join."))
+		var cards: GridContainer = Illustrated.grid(_into, 1 if compact else 2, 10)
 		for g in Array(v.get("great", [])):
-			_link_row(str(g.name), "sect", str(g.id), " · ".join([tr("seat %s") % str(g.seat) if str(g.seat) != "" else "", str(g.region), str(g.alignment)].filter(func(x): return str(x) != "")))
+			cards.add_child(_great_card(g))
 	if mode == "member":
 		_sec("services", tr("Services"))
 		_ln(tr("Services bought with contribution (residence, treasure loans, teaching) are not in the game yet."))
@@ -348,6 +351,71 @@ func _confirm_row(text: String, action: String, args: Array) -> void:
 func _confirm(action: String, args: Array) -> void:
 	_armed = ""
 	action_requested.emit(action, args)
+
+
+# A great sect's card on the loose view (weak-point review 2026-11-24 #15: the view was a half-empty list): its seat's
+# painting, the name (a link to the sect), path and craft, seat and region, members, and Visit the seat.
+func _great_card(g: Dictionary) -> PanelContainer:
+	var card := PanelContainer.new()
+	card.name = "Great_" + str(g.id)
+	card.add_theme_stylebox_override("panel", Illustrated.box(Illustrated.PAPER_TILE, Illustrated.BRASS, 2, 6.0, 2))
+	card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var col := VBoxContainer.new()
+	col.add_theme_constant_override("separation", 4)
+	card.add_child(col)
+	var art: PanelContainer = Illustrated.framed(PortraitPicker.place_painting(int(g.get("seat_art", -1))), Vector2(0, 110), str(g.get("seat", "")))
+	col.add_child(art)
+	var nm := LinkButton.new()
+	nm.text = str(g.name) + ((" " + str(g.name_han)) if str(g.get("name_han", "")) != "" else "")
+	LinkStyle.apply(nm, "person", "neutral", "paper")
+	nm.add_theme_font_size_override("font_size", 20)
+	var gid: String = str(g.id)
+	nm.pressed.connect(func(): open_requested.emit("sect", gid, ""))
+	col.add_child(nm)
+	var facts := Label.new()
+	facts.text = " · ".join([str(g.get("alignment", "")), str(g.get("specialty_name", "")), tr("%d members") % int(g.get("members", 0))].filter(func(x): return str(x) != "" and str(x) != tr("%d members") % 0))
+	facts.theme_type_variation = &"RowLabel"
+	facts.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	col.add_child(facts)
+	var where := Label.new()
+	where.text = " · ".join([tr("seat %s") % str(g.seat) if str(g.get("seat", "")) != "" else "", str(g.get("region", ""))].filter(func(x): return str(x) != ""))
+	where.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	col.add_child(where)
+	var b := Button.new()
+	b.name = "Visit_" + gid
+	if bool(g.get("here", false)):
+		b.text = tr("You are at its seat")
+		b.disabled = true
+		TooltipLayer.set_tip(b, {"title": tr("Visit the seat"), "summary": tr("You are here: open the sect to ask to join.")})
+	else:
+		b.text = tr("Visit the seat…")
+		var seat_id: String = str(g.get("seat_id", ""))
+		b.disabled = locked or seat_id == ""
+		TooltipLayer.set_tip(b, {"title": tr("Visit the seat"), "summary": tr("locked while an event waits") if locked else tr("Choose travel to %s as this season's focus.") % str(g.seat)})
+		b.pressed.connect(func(): action_requested.emit("travel_place", [seat_id]))
+	b.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+	col.add_child(b)
+	return card
+
+
+# Standing (−100 to 100) as a meter under its row: the bar from the centre, red below 0, green above, the number in it.
+func _standing_meter(st: float, parent: Control) -> void:
+	var r := HBoxContainer.new()
+	r.add_theme_constant_override("separation", 6)
+	var neg: ProgressBar = Illustrated.gauge(clampf(-st / 100.0, 0.0, 1.0), Color("#8E1B2A"), 10.0)
+	neg.fill_mode = ProgressBar.FILL_END_TO_BEGIN
+	neg.custom_minimum_size = Vector2(90, 10)
+	var pos: ProgressBar = Illustrated.gauge(clampf(st / 100.0, 0.0, 1.0), Color("#1F6B3A"), 10.0)
+	pos.custom_minimum_size = Vector2(90, 10)
+	for g in [neg, pos]:
+		g.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		r.add_child(g)
+	var n := Label.new()
+	n.text = tr("standing %+d") % int(st)
+	n.theme_type_variation = &"RowLabel"
+	r.add_child(n)
+	r.accessibility_name = tr("standing %d of −100 to 100") % int(st)
+	parent.add_child(r)
 
 
 func _link_row(text: String, target: String, id: String, rest: String) -> void:

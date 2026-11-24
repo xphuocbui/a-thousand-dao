@@ -274,6 +274,11 @@ Action bar (weak-point pass, 2026-11-24, #15): the bar leads with the one decisi
 its confirm, **Join ↓** for an outsider at a sect's seat (its reason in the tooltip while closed) or **Promote ↓** for
 a member below the top rank (`GameWindow.bar_jump`). Links to other windows are text buttons with ›.
 
+Loose view: the great sects are cards (two columns; one in compact) with the seat's painting, the name (a link to the
+sect), path, craft and members, seat and region, and **Visit the seat…** (action `travel_place`: the turn's travel
+choice for the seat; "You are at its seat" when there). Other sects' standing is a meter from the centre (red below 0,
+green above) with its number.
+
 ## Open Questions
 
 - Sect services bought with contribution (sects.md) have no session command yet: listed as "not in the game yet".

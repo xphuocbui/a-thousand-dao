@@ -3,6 +3,7 @@
 # tests/parity), up to JOBS at a time, each with its own report folder. Prints each group's summary and the failures,
 # and exits 0 only when every group passes. The serial runner (tools/run-tests.sh) stays for the smoke session.
 #   JOBS=10 GODOT_CONSOLE=/path/to/godot tools/run-tests-parallel.sh
+#   ONLY="tests/unit/session tests/unit/ui" SPLIT=1 JOBS=6 tools/run-tests-parallel.sh   (a subset, one process per file)
 # A group that only passes after another group ran (shared test state) shows up here as a failure: that is a test
 # isolation bug to fix, not a reason to run serially.
 set -uo pipefail
@@ -14,9 +15,22 @@ cd "$ROOT"
 
 OUT="$(mktemp -d)"
 groups=()
-for d in tests/unit/*/ tests/integration/*/ tests/parity/; do
-  [ -d "$d" ] && groups+=("${d%/}")
-done
+if [ -n "${ONLY:-}" ]; then
+  # A subset: ONLY="tests/unit/session tests/unit/ui" runs just those folders (or files); with SPLIT=1 each *_test.gd in
+  # a folder is its own process, so one big folder no longer runs serially. List the slowest folder first: groups
+  # start in order.
+  for d in $ONLY; do
+    if [ "${SPLIT:-0}" = 1 ] && [ -d "$d" ]; then
+      for f in "${d%/}"/*_test.gd; do [ -f "$f" ] && groups+=("$f"); done
+    else
+      groups+=("${d%/}")
+    fi
+  done
+else
+  for d in tests/unit/*/ tests/integration/*/ tests/parity/; do
+    [ -d "$d" ] && groups+=("${d%/}")
+  done
+fi
 
 run_group() {
   local g="$1" name

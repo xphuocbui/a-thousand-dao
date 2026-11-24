@@ -106,6 +106,8 @@ var _border_cache: Dictionary = {}   # {band, bold: [double polylines in tiles]}
 var _border_mesh := BorderMesh.new()   # the province and region lines, one static mesh drawn by a shader
 var _places_sorted: Array = []   # _places by label rank (set_state)
 var _all_names: bool = false   # the Names toggle: villages' names too (else only on hover; user 2026-11-24)
+var _rank_scale: Array = [1.0, 1.0, 1.0, 1.0]   # greybox.map_zoom.marker_rank_scale, by _label_rank
+var _rank_alpha: Array = [1.0, 1.0, 1.0, 1.0]   # greybox.map_zoom.marker_rank_alpha
 var _label_sizes: Dictionary = {}   # place name -> its label's text size (font size 13), measured once
 ## The last _draw's cost in microseconds (the pan benchmark, map_screen --pan-bench).
 var draw_usec: int = 0
@@ -136,6 +138,10 @@ func setup(grid: ContinentGrid, cfg: Dictionary, region_factor: float) -> void:
 	_place_radius = float(cfg.get("place_radius_px", 3.0))
 	_region_factor = region_factor
 	_zcfg = cfg.get("map_zoom", {})
+	for pair in [["marker_rank_scale", "_rank_scale"], ["marker_rank_alpha", "_rank_alpha"]]:
+		var arr: Array = _zcfg.get(pair[0], [1.0, 1.0, 1.0, 1.0])
+		if arr.size() == 4:
+			set(pair[1], arr)
 	_grid_size = Vector2i(grid.width, grid.height)
 	_center = Vector2(_grid_size) * 0.5
 	var colours: Dictionary = cfg.get("biome_colours", {})
@@ -553,8 +559,13 @@ func _draw_map() -> void:
 			if hover:
 				fill = Color(1, 0.86, 0.4)
 			var da: float = 1.0 if side <= 0.0 else 1.0 - w * 2.0
-			_diamond(at, dot + 1.5, Color(0.1, 0.07, 0.05, da))
-			_diamond(at, dot, Color(fill, da))
+			# on the far paper map the diamond's size and strength follow the place's rank (seats and cities lead,
+			# villages recede; weak-point review 2026-11-24 #9), easing back to one size on the relief
+			var rk: int = clampi(_label_rank(p), 0, 3)
+			var dr: float = dot * lerpf(float(_rank_scale[rk]), 1.0, w) if not hover else dot
+			da *= lerpf(float(_rank_alpha[rk]), 1.0, w) if not hover else 1.0
+			_diamond(at, dr + 1.5, Color(0.1, 0.07, 0.05, da))
+			_diamond(at, dr, Color(fill, da))
 			if p.id == _destination_id and side <= 0.0:
 				draw_arc(at, dot + 6.0, 0.0, TAU, 24, Color(1, 0.85, 0.2), 2.0)
 		# the name on a dark, see-through backing (7.14), fading in with the relief; a village's only on hover or with
@@ -683,9 +694,21 @@ func _draw_names(alpha: float) -> void:
 		var fs: float = minf(20.0 * room / maxf(1.0, w20), float(rp[1]))
 		if fs < float(rp[0]):
 			continue
-		var tw: float = _region_font.get_string_size(label, HORIZONTAL_ALIGNMENT_LEFT, -1, int(fs)).x
-		var at: Vector2 = _origin() + Vector2(realm.centre) * sc - Vector2(tw * 0.5, -fs * 0.35)
-		taken.append(Rect2(at + Vector2(0, -fs), Vector2(tw, fs * 1.25)).grow(4))
+		# a sect's name shrinks until it clears the names already drawn (weak-point review 2026-11-24 #9: two great
+		# sects' names touched at 1280x720); below the floor it is not drawn (the legend and hover carry it)
+		var tw: float = 0.0
+		var at := Vector2.ZERO
+		var box := Rect2()
+		while true:
+			tw = _region_font.get_string_size(label, HORIZONTAL_ALIGNMENT_LEFT, -1, int(fs)).x
+			at = _origin() + Vector2(realm.centre) * sc - Vector2(tw * 0.5, -fs * 0.35)
+			box = Rect2(at + Vector2(0, -fs), Vector2(tw, fs * 1.25)).grow(4)
+			if not taken.any(func(t): return (t as Rect2).intersects(box)) or fs * 0.88 < float(rp[0]):
+				break
+			fs *= 0.88
+		if taken.any(func(t): return (t as Rect2).intersects(box)):
+			continue
+		taken.append(box)
 		draw_string_outline(_region_font, at, label, HORIZONTAL_ALIGNMENT_LEFT, -1, int(fs), 6, halo)
 		draw_string(_region_font, at, label, HORIZONTAL_ALIGNMENT_LEFT, -1, int(fs), Color(ink.r, ink.g, ink.b, 0.78 * alpha))
 	var rn: Array = _zcfg.get("region_name_px", [13, 20])

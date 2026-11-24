@@ -417,13 +417,15 @@ func _build_cultivation(v: Dictionary, parent: Control) -> void:
 	var bar_box: ProgressBar = Illustrated.gauge(share, Illustrated.BRASS, 16.0)
 	bar_box.accessibility_name = tr("Cultivation %d percent, %s of %s") % [int(share * 100.0), num(float(cu.tu_vi)), num(req)]
 	box.add_child(bar_box)
-	row(tr("Tu vi"), "%s / %s  (%d %%)" % [num(float(cu.tu_vi)), num(req), int(share * 100.0)],
-		breakdown_tip(tr("Cultivation per season here"), bds.get("rate", {})), box)
+	# tu vi and rate on one line under the bar (weak-point review 2026-11-24 #2: two rows pushed the sections below off
+	# screen): "tu vi 120 / 400 (30 %) · +12 a season here · next level in 24 seasons"
 	var rate_text: String = ("+" + num(float(cu.get("rate", 0.0))) + " " + tr("a season here")) if not bool(cu.get("held", false)) else tr("held: at the bottleneck or a realm cap")
 	var nxt: int = int(cu.get("seasons_to_next", -1))
 	if nxt > 0 and not bool(cu.get("held", false)):
 		rate_text += " · " + tr("next level in %d seasons") % nxt
-	row(tr("Rate"), rate_text, breakdown_tip(tr("Cultivation per season here"), bds.get("rate", {})), box)
+	var tl: Label = line(tr("Tu vi") + " %s / %s (%d %%) · %s" % [num(float(cu.tu_vi)), num(req), int(share * 100.0), rate_text], box)
+	tl.name = "TuViRate"
+	TooltipLayer.set_tip(tl, breakdown_tip(tr("Cultivation per season here"), bds.get("rate", {})))
 	var bn: Dictionary = cu.get("bottleneck", {})
 	if bn.is_empty():
 		return

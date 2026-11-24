@@ -45,21 +45,26 @@ find weakpoints and suggestions on how to improve them".
   play (`--show-unbuilt` shows them). Kept by decision: Z3 is the portrait only (user 2026-11-23).
 - **Debug line on the map** (#9, part): "Greybox: LLM off." is gone (no LLM by design); a small dim "Dev: rating
   fights off for this run." shows only in such runs.
+- **Map labels and markers** (#9): a great sect's name shrinks until it clears the others; place diamonds are sized and
+  faded by rank on the far map (user: "good keep").
+- **Sect loose view** (#15): great-sect cards with the seat's painting and Visit the seat… (`travel_place`); standing
+  as a meter.
+- **Overview** (#2): tu vi and rate on one line. **Outliner** (#7): one-row places, a one-line empty state.
+  **Top bar** (#8): a 6 px rimmed cultivation strip. **Dropdowns** (#13): themed PopupMenu.
+- **Populated evidence**: `--crowded` (with `--inventory-fixture`: 43 items, long names, a missing icon; with
+  `--relationships-fixture`: 24 ties, 12 met). It caught a real bug: an unwrapped feud badge widened the Relationships
+  window over the map's buttons (now wraps at 280 px).
 
 ## Suggestions, ranked (not built)
 | # | Weak point | Suggestion | Effort |
 |---|---|---|---|
-| 2 | Scroll cue (rest) | Tu vi / Rate onto one line under the bar | S |
-| 4 | Combat tab (rest) | icons per stat; equipped techniques and wards beside the groups | S |
-| 5 | Window sizes (rest) | one size rule: sheets and lists 60 % side panel, wiki and tree full screen, decisions centre window; the loose Sect view half empty; (the Abode's clamp lines now hide the "(Formula B)" reference in a tooltip) | M |
-| 7 | Outliner (rest) | a one-line empty state; its "here" mark wraps under a place's name | S |
-| 8 | Top bar (rest) | the cultivation box's 4 px bar is hard to see at 0 %; short captions under the numbers if playtests miss the tooltips | S |
-| 9 | Map labels and markers (rest) | cap region label size inside its polygon, fade place markers by importance and zoom (map art and style decisions: ask the user first) | M |
+| 4 | Combat tab (rest) | icons per stat; equipped techniques and wards beside the groups: **after combat formations are built** (user 2026-11-24) | S |
+| 5 | Window sizes (rest) | one written size rule (now: sheets, lists and the wiki 62 % side panels, the inventory 50 %, the Đạo Đồ and Abode full screen); the window host still lets a wide minimum grow a window past its share (a cap there would catch the next unwrapped label) | S |
 | 10 | Rankings (rest) | a change-since-last-season column needs a per-season rank snapshot (a Power Rankings data change, not UI only) | M |
-| 11 | Đạo Đồ toolbar overloaded; no orientation | split the toolbar (points / search / view), a minimap with the viewport and your path, brighter unallocated nodes, "Next:" into the points tooltip, Apply as the gold primary | L |
-| 12 | Wiki (rest) | links are the art bible's on-parchment term colour (cinnabar #84191B), which the review read as warning red: **a style decision for the user** | S |
-| 13 | Buttons (rest) | styled dropdowns; cross-window links in the header; CommitButton as the one primary per window | S |
-| 15 | Sect (rest) | Visit the seat from the loose view; standing as a meter | S |
+| 11 | Đạo Đồ toolbar overloaded; no orientation (Đạo Đồ on hold, user 2026-11-24) | split the toolbar (points / search / view), a minimap with the viewport and your path, brighter unallocated nodes, "Next:" into the points tooltip, Apply as the gold primary | L |
+
+Decided: wiki links keep the art bible's cinnabar (user 2026-11-24). Cross-window links in the header and
+CommitButton as the one primary are in place where a window has a decision (sect); the rest have none.
 
 Broader: a single **window template** (one-line header with title, tabs and close; content grid; pinned action bar;
 scroll fade; the size rule), **hide everything not built** behind a dev flag, lead each window with **the one decision

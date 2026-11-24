@@ -103,3 +103,16 @@ func test_the_bar_pins_join_for_an_outsider_and_promote_for_a_member() -> void:
 	assert_true(j.accessibility_name.contains("not now"), "it says why the join is not open yet")
 	var mem := _window(_member(false))
 	assert_true(_find(mem, "BarJump_place") != null, "Promote is pinned for a member below the top rank")
+
+
+func test_the_loose_view_shows_great_sect_cards_that_ask_to_travel_to_the_seat() -> void:
+	var v := _loose()
+	v.great = [{"id": "s1", "name": "Thanh Vân Tông", "seat": "Thanh Vân Sơn", "seat_id": "l7", "region": "Đông", "alignment": "Chính đạo",
+		"seat_art": -1, "name_han": "", "specialty_name": "Kiếm tu", "members": 40, "here": false}]
+	v.others = [{"id": "s2", "name": "Huyết Ma Môn", "standing": -40.0, "hostile": true}]
+	var w := _window(v)
+	var got: Array = []
+	w.action_requested.connect(func(a: String, args: Array): got.append([a, args]))
+	(_find(w, "Visit_s1") as Button).pressed.emit()
+	assert_eq(got, [["travel_place", ["l7"]]], "Visit the seat asks for travel there")
+	assert_true(_texts(w).contains("standing -40"), "standing is a meter with its number")

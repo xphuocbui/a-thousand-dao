@@ -224,6 +224,31 @@ static func build(cfg: Dictionary, kit: Dictionary = {}, surface: String = "pape
 	t.set_color(&"ring_outer", &"FightSlot", bone)
 	t.set_color(&"ring_inner", &"FightSlot", ink)
 	t.set_color(&"text", &"FightStatBar", bone)
+	# dropdown lists (OptionButton, MenuButton and context menus): a rosewood panel with a brass rim, bone text, a brass
+	# wash on the hovered item (weak-point review 2026-11-24 #13: they opened in the engine's grey)
+	var pop := StyleBoxFlat.new()
+	pop.bg_color = Color(wood, 0.97)
+	pop.border_color = brass
+	pop.set_border_width_all(2)
+	pop.set_corner_radius_all(3)
+	pop.set_content_margin_all(6.0)
+	t.set_stylebox(&"panel", &"PopupMenu", pop)
+	var pop_hover := StyleBoxFlat.new()
+	pop_hover.bg_color = Color(brass, 0.28)
+	pop_hover.set_corner_radius_all(2)
+	t.set_stylebox(&"hover", &"PopupMenu", pop_hover)
+	var pop_sep := StyleBoxLine.new()
+	pop_sep.color = Color(brass, 0.5)
+	pop_sep.thickness = 1
+	t.set_stylebox(&"separator", &"PopupMenu", pop_sep)
+	t.set_color(&"font_color", &"PopupMenu", bone)
+	t.set_color(&"font_hover_color", &"PopupMenu", Color.WHITE)
+	t.set_color(&"font_disabled_color", &"PopupMenu", Color(bone, 0.45))
+	t.set_color(&"font_accelerator_color", &"PopupMenu", Color(brass, 0.85))
+	t.set_color(&"font_separator_color", &"PopupMenu", brass)
+	t.set_constant(&"v_separation", &"PopupMenu", 8)
+	t.set_constant(&"h_separation", &"PopupMenu", 8)
+	t.set_font_size(&"font_size", &"PopupMenu", size_of.call("body", 16))
 	return {"theme": t, "errors": errors, "fonts": {"body": body, "strong": strong, "heading": heading}}
 
 

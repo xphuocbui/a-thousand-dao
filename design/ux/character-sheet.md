@@ -398,6 +398,9 @@ block, body shield, evade, soul resistance), Offence (crit chance, crit multipli
 Resistances (typed), at the full width, each with a one-line hint in its tooltip. Units: shares (evade, crit, body
 shield) show as %, block, wards and resistances as points (the old table showed block 3.91 as "391 %").
 
+Overview cultivation: tu vi and the rate are one line under the bar ("Tu vi 0 / 39 (0 %) · +7.47 a season here · next
+level in 6 seasons"), its tooltip the rate's breakdown.
+
 ## Open Questions
 
 Resolved by the round-2 revision: the portrait is the PortraitPicker's, with `PlaceholderArt` when art is missing (the

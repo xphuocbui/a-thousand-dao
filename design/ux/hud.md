@@ -1269,6 +1269,11 @@ their painted medallion (ui_windows.json `icon`) left of the label; the column i
 built yet (Quests, News; the Sect, Qi and Prices map modes) are hidden in play and shown with `--show-unbuilt`. The
 greybox note is gone; a 14 px "Dev: rating fights off for this run." shows only in such runs.
 
+The cultivation box's progress strip is 6 px with a brass rim, readable at 0 %. Dropdown lists (PopupMenu) are a rosewood
+panel with a brass rim and bone text, a brass wash on the hovered item (RosewoodTheme). Map: a great sect's name shrinks
+until it clears the names already drawn; on the far paper map the place diamonds are sized and faded by rank
+(greybox.map_zoom marker_rank_scale / marker_rank_alpha), easing to one size on the relief.
+
 ## Open Questions
 
 - **Resource box data (2026-11-23):** `GameQuery.resources` gives the rate here, the power number and contribution (ADR-0006); the season changes come from the HUD's End-turn baseline (Resource box). **Renown** has no sources or season rule in `character-stats.md` yet (the GDD session's), so its box shows "—" until it does. The icons for the six boxes are new art (art bible 7.13).

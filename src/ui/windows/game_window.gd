@@ -50,7 +50,10 @@ func _init() -> void:
 	add_child(header)
 	add_child(HSeparator.new())
 	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	# never shown, not disabled: a disabled horizontal scroll passes the body's minimum width up, and one unwrapped label
+	# then grew the window past its share over the map's buttons (the --crowded evidence, 2026-11-24); now the window
+	# keeps its share and such a line is cut at the window's edge instead
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
 	# the scroll cue (weak-point review 2026-11-24: "clips with no scroll cue"): a dark fade with a chevron over the
 	# body's bottom edge while more lies below; it never takes the mouse
 	var wrap := MarginContainer.new()

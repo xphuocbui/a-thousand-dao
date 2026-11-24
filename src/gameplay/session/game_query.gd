@@ -832,7 +832,9 @@ static func sect(s: GameSession, sect_id: String = "") -> Dictionary:
 		for rec in db.all("sects"):
 			if str(rec.get("kind", "")) == "great" and str(rec.get("status", "active")) == "active":
 				var v: Dictionary = view_sect.call(rec)
-				out.great.append({"id": v.id, "name": v.name, "seat": v.seat.name, "region": v.region, "alignment": v.alignment_name})
+				out.great.append({"id": v.id, "name": v.name, "seat": v.seat.name, "region": v.region, "alignment": v.alignment_name,
+					"seat_id": v.seat.id, "seat_art": v.seat_art, "name_han": v.name_han, "specialty_name": v.specialty_name,
+					"members": v.members, "here": str(v.seat.id) == c.location_id})
 	return out
 
 

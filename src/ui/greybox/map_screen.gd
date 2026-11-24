@@ -276,7 +276,7 @@ func _shot_and_quit(path: String) -> void:
 		await _frames(2)
 		var iw: InventoryWindow = _win.window("inventory") as InventoryWindow
 		if iw != null:
-			iw.show_view(InventoryWindow.sample_view(), "", false)
+			iw.show_view(InventoryWindow.sample_view(_args.has("--crowded")), "", false)
 			iw.call("_toggle_row", "a1")
 		await _frames(4)
 	if _args.has("--relationships-fixture"):   # display only: real people of this world with sample ties, for the shot
@@ -289,6 +289,11 @@ func _shot_and_quit(path: String) -> void:
 	if _arg_value("--open-menu", "") != "":   # --open-menu=menu|save|load|settings: the game menu in the shot
 		_open_menu(_arg_value("--open-menu", "menu"), null, _args.has("--menu-fight"))
 		await _frames(5)
+	if _args.has("--open-dropdown"):   # the first dropdown on screen opened (the themed PopupMenu in the shot)
+		var opts: Array = find_children("*", "OptionButton", true, false).filter(func(o): return (o as Control).is_visible_in_tree())
+		if not opts.is_empty():
+			(opts[0] as OptionButton).show_popup()
+		await _frames(4)
 	if _arg_value("--zoom", "") == "region":
 		_toggle_zoom()
 	# --zoom-px=N: N screen px per tile, centred on the player (hud.md Map zoom); --cb: the red-green palette
@@ -1104,19 +1109,24 @@ func _relationships_fixture() -> Dictionary:
 	var ties: Array = []
 	var met: Array = []
 	var ids: Array = []
+	# --crowded: a full page (the evidence for crowding, weak-point review 2026-11-24: "retake evidence with a populated
+	# test world"): 24 ties and 12 people met
+	var n_ties: int = 24 if _args.has("--crowded") else kinds.size()
+	var n_met: int = 12 if _args.has("--crowded") else 3
 	for pl in [{"id": _here_id()}] + GameQuery.known_places(session):   # here first, then the known places
 		for rec in GameQuery.people_at(session, str(pl.id)):
 			if not ids.has(str(rec.id)):
 				ids.append(str(rec.id))
-		if ids.size() >= kinds.size() + 3:
+		if ids.size() >= n_ties + n_met:
 			break
-	for pid in ids.slice(0, kinds.size() + 3):
+	var atts: Array = [62, 80, -70, 41, -25, 15, 5, 0, -8, 33, -45, 90, 12, -12]
+	for pid in ids.slice(0, n_ties + n_met):
 		var pv: Dictionary = GameQuery.person(session, str(pid))
-		var att: int = [62, 80, -70, 41, -25, 15, 5, 0, -8][ties.size() + met.size()]
+		var att: int = atts[(ties.size() + met.size()) % atts.size()]
 		var row := {"partner_id": str(pid), "partner": str(pv.name), "alive": true, "realm": str(pv.realm_label), "place": str(pv.place),
 			"attitude": att, "band_word": GameQuery.attitude_band(gd, att), "sect": str(pv.sect), "portrait": pv.portrait}
-		if ties.size() < kinds.size():
-			var k: Array = kinds[ties.size()]
+		if ties.size() < n_ties:
+			var k: Array = kinds[ties.size() % kinds.size()]
 			row["kinds"] = [k[1]]
 			row["group"] = k[0]
 			row["favour"] = ""
@@ -1125,8 +1135,9 @@ func _relationships_fixture() -> Dictionary:
 		else:
 			met.append({"id": str(pid), "name": row.partner, "realm": row.realm, "place": row.place, "attitude": att,
 				"band_word": row.band_word, "alive": true, "sect": row.sect, "portrait": row.portrait})
-	return {"cap": 16, "held": ties.size(), "outside_cap": 0, "soft_used": 3, "soft_limit": 14, "room": 11, "next_evict": {},
-		"ties": ties, "met": met}
+	var soft: int = ties.filter(func(t): return str(t.group) == "soft").size()
+	return {"cap": 16, "held": ties.size(), "outside_cap": maxi(0, ties.size() - 16), "soft_used": soft, "soft_limit": 14, "room": maxi(0, 14 - soft),
+		"next_evict": {}, "ties": ties, "met": met}
 
 
 ## HUD Z3: the player's painted portrait (PortraitPicker; the grey face stays while none is installed).
@@ -1817,6 +1828,9 @@ func _on_window_action(_kind: String, action: String, args: Array) -> void:
 			return
 		"person_travel":
 			_close_person()
+			_open_comparison(TurnController.FOCUS_TRAVEL, str(args[0]))
+			return
+		"travel_place":   # a window's Visit / Travel there (the sect window's great-sect cards): the turn's travel choice
 			_open_comparison(TurnController.FOCUS_TRAVEL, str(args[0]))
 			return
 	var act: Callable

@@ -233,6 +233,12 @@ func _card(parent: Control, node_name: String, id: String, name_text: String, d:
 			bl.text = str(b[0])
 			bl.add_theme_color_override("font_color", Illustrated.BONE)
 			bl.add_theme_font_size_override("font_size", 16)   # the 16 px text floor (round-2 review)
+			# a long badge (a feud with its cause) wraps at 280 px: unwrapped it set its column's width and a full page
+			# grew the window over the map's buttons (the --crowded evidence, 2026-11-24)
+			var bw: float = bl.get_theme_font(&"font").get_string_size(bl.text, HORIZONTAL_ALIGNMENT_LEFT, -1, 16).x
+			if bw > 280.0:
+				bl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+				bl.custom_minimum_size = Vector2(280, 0)
 			pr.add_child(bl)
 			flow.add_child(pill)
 	return card

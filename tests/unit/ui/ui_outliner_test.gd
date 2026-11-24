@@ -33,13 +33,13 @@ func test_a_dead_pin_says_died() -> void:
 
 func test_with_nothing_to_show_the_empty_line_shows() -> void:
 	var o := _panel({"people": [], "home": {}, "seat": {}, "event": {}})
-	assert_true(_texts(o).contains("Pin people, places or quests here"))
+	assert_true(_texts(o).contains("Nothing pinned yet"), "a one-line empty state")
 
 
 func test_places_show_here_or_the_travel_time() -> void:
 	var o := _panel({"people": [], "home": {"id": "h", "name": "Tùng Hạ Thị", "here": true, "seasons": 0.0}, "seat": {"id": "s", "name": "Thanh Vân Sơn", "here": false, "seasons": 2.0}, "event": {}})
 	var t: String = _texts(o)
-	assert_true(t.contains("Home: Tùng Hạ Thị") and t.contains("here") and t.contains("2.0 seasons away"), t)
+	assert_true(t.contains("Home: Tùng Hạ Thị") and t.contains("here") and t.contains("2.0 seasons"), t)
 
 
 func test_unpin_and_collapse() -> void:

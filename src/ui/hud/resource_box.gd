@@ -72,11 +72,13 @@ func _init(title: String = "", icon: String = "", width: float = 144.0, with_bar
 	if with_bar:
 		bar = ProgressBar.new()
 		bar.show_percentage = false
-		bar.custom_minimum_size = Vector2(0, 4)
+		bar.custom_minimum_size = Vector2(0, 6)   # 6 px with a brass rim: readable at 0 % too (weak-point review #8)
 		bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		bar.focus_mode = Control.FOCUS_NONE
 		var trough := StyleBoxFlat.new()   # flat and thin: the theme's trough is taller than the strip
 		trough.bg_color = Color(0.08, 0.05, 0.03, 0.9)
+		trough.border_color = Color(0.62, 0.48, 0.25, 0.85)
+		trough.set_border_width_all(1)
 		trough.content_margin_top = 0
 		trough.content_margin_bottom = 0
 		var fill := StyleBoxFlat.new()

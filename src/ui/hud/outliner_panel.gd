@@ -78,7 +78,11 @@ func show_view(v: Dictionary) -> void:
 		_rows.add_child(b)
 		any = true
 	if not any:
-		var l := _small_label(tr("Pin people, places or quests here"))
+		# one line (weak-point review 2026-11-24 #7); how to pin is in its tooltip (quests are not in the game yet)
+		var l := _small_label(tr("Nothing pinned yet"))
+		l.name = "Empty"
+		l.mouse_filter = Control.MOUSE_FILTER_STOP
+		TooltipLayer.set_tip(l, {"title": tr("Outliner"), "summary": tr("Pin a person or a place (the Pin button on its window) to follow it here.")})
 		_rows.add_child(l)
 
 
@@ -130,9 +134,18 @@ func _place_row(text: String, r: Dictionary, is_home: bool) -> void:
 		b.pressed.connect(func(): abode_requested.emit())
 	else:
 		b.pressed.connect(func(): place_requested.emit(id))
-	_rows.add_child(b)
-	var when: String = tr("here") if bool(r.here) else (tr("%s seasons away") % ("%.1f" % float(r.seasons)) if float(r.seasons) >= 0.0 else tr("no route"))
-	_rows.add_child(_small_label("  " + when))
+	# the place and how far it is on one row, the distance right-aligned (it wrapped under the name before)
+	var row := HBoxContainer.new()
+	b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	b.custom_minimum_size = Vector2(80, 0)
+	row.add_child(b)
+	var when: String = tr("here") if bool(r.here) else (tr("%s seasons") % ("%.1f" % float(r.seasons)) if float(r.seasons) >= 0.0 else tr("no route"))
+	var wl := _small_label(when)
+	wl.custom_minimum_size = Vector2(0, 0)
+	wl.autowrap_mode = TextServer.AUTOWRAP_OFF
+	wl.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	row.add_child(wl)
+	_rows.add_child(row)
 	b.accessibility_name = "%s, %s" % [text, when]
 
 

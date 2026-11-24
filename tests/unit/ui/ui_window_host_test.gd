@@ -87,3 +87,13 @@ func test_reopening_the_same_window_updates_its_entry_instead_of_adding_one() ->
 	h.open("one", "x", "b")
 	assert_eq(h.history().entries.size(), 1)
 	assert_eq(str(h.history().entries[0].section), "b")
+
+
+func test_a_wide_line_in_a_window_body_does_not_widen_the_window() -> void:
+	var w: GameWindow = auto_free(GameWindow.new())
+	add_child(w)
+	var wide := Label.new()
+	wide.text = "x"
+	wide.custom_minimum_size = Vector2(3000, 0)   # an unwrapped badge or name, as in the --crowded Relationships page
+	w.body.add_child(wide)
+	assert_true(w.get_combined_minimum_size().x < 3000.0, "the body is clipped at the window's share, not grown past it")
