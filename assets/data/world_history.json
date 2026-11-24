@@ -1,7 +1,7 @@
 {
  "schema_version": 1,
  "_doc": "The authored world's history (design/gdd/world-generation.md), exported by tools/design/world/export_world.py from design/world/*.json and design/map/continent-11; do not edit by hand. start_year: every game starts here (Core Rule 11). sects: the 30 living sects with their authored start (alignment chinh | ma | trung, the four development levels, treasury, a minor sect's lord and loyalty), seat (place id), founded year, specialty (the sect archetype NPC Builds reads) and leader (a cast key). fallen_sects: sects that fell before the start. people: the fixed cast (alive: realm, home place id, traits; dead: records with peak_realm, died, cause), with master, vassal_of, served_under and abode_slot where authored. events: the landmark chronicle and the annals, ordered by year then id; place is a place id, famous a famous site's name, feature a named feature with its tile; secret events are hidden until discovered. legendary_items: the 34 unique items, held by a living cast member or lost at a place or slot. territory: eras, land changes, wars, vassal changes, grudges. hidden_slots: the 28 hidden places with their 2-3 candidate tiles and origin event; tile_secrets: the 80 with their candidates; famous_sites and features: named sites and features. data_version: a hash of the inputs, recorded in each save (Core Rule 13).",
- "data_version": "6c5849531ac2a6d4",
+ "data_version": "ba1157cb73e16c98",
  "start_year": 1200,
  "sects": [
   {

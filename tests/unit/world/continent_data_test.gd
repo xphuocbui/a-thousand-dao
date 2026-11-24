@@ -43,8 +43,8 @@ func test_every_settlement_but_two_off_road_minor_seats_reaches_every_other_ac_t
 	assert_eq(old_cut.map(func(id): return str(cd.places[id].name)), ["Hồng Lô Cốc", "Thu Phần Các"], "the two cut-off authored settlements")
 	for id in old_cut:
 		assert_eq(str(cd.places[id].kind), "minor_seat", "%s is a minor seat" % cd.places[id].name)
-	# provinces-v2 (2026-11-24): the new settlements reach the network by road or track, except those on a landmass
-	# with no network (Hồng Lô Cốc's, the far south isles), reached once wilderness or sea travel exists
+	# provinces-v2 (2026-11-24): the new settlements join the route graph by road or track, except those on a landmass
+	# with no network (Hồng Lô Cốc's, the far south isles); the map's tile travel (TravelGrid) reaches them anyway
 	assert_eq(cut.size() - old_cut.size(), 17, "17 new settlements on landmasses with no network")
 
 

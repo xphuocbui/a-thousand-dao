@@ -214,6 +214,8 @@ func _shot_and_quit(path: String) -> void:
 		if _arg_value("--alive-at", "") != "" and _map.alive_layer() != null:
 			_map.alive_layer().set_reduced_motion(false)
 			_map.alive_layer().set_clock(float(_arg_value("--alive-at", "0")))
+		if _arg_value("--place", "") != "":   # --place=CID: a known place's panel open in the shots (by continent id)
+			_open_place_by_continent_id(int(_arg_value("--place", "0")))
 		if _arg_value("--province", "") != "":   # --province=ID: the province panel open in the shots
 			_open_province(int(_arg_value("--province", "0")))
 			if _arg_value("--province-tab", "") != "":

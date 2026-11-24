@@ -15442,7 +15442,7 @@
    "name_han": "暖波泉",
    "gloss": "Warm Ripple Spring",
    "no_site": true,
-   "holder": "phuong_minh",
+   "holder": "bach_vu",
    "territory": "phuong_minh",
    "qi": {
     "part": 0,
@@ -15821,7 +15821,7 @@
    "name_han": "白雁穴",
    "gloss": "Node of the White Geese",
    "no_site": true,
-   "holder": "phuong_minh",
+   "holder": "vong_trieu",
    "territory": "phuong_minh",
    "qi": {
     "part": 0,
@@ -16733,7 +16733,7 @@
    "name_han": "歸雲脈",
    "gloss": "Vein of the Returning Clouds",
    "no_site": true,
-   "holder": "bang_tam",
+   "holder": "tran_sa",
    "territory": "bang_tam",
    "qi": {
     "part": 0,
@@ -16820,7 +16820,7 @@
     779
    ],
    "site_grade": "minor",
-   "holder": "bang_tam",
+   "holder": "lanh_giang",
    "territory": "bang_tam",
    "qi": {
     "part": 0,
@@ -16943,7 +16943,7 @@
    "name_han": "星移脈",
    "gloss": "Vein of the Moving Stars",
    "no_site": true,
-   "holder": "lac_ha",
+   "holder": "nhan_van",
    "territory": "lac_ha",
    "qi": {
     "part": 0,
@@ -17189,7 +17189,7 @@
    "name_han": "桂香湯",
    "gloss": "Cinnamon-Scented Spring",
    "site_grade": "minor",
-   "holder": "thinh_vu",
+   "holder": "vu_linh",
    "territory": "thinh_vu",
    "qi": {
     "part": 0,
@@ -17435,7 +17435,7 @@
    "name_han": "松音脈",
    "gloss": "Vein of the Pine Voice",
    "site_grade": "minor",
-   "holder": "tung_dao",
+   "holder": "tuan_tung",
    "territory": "tung_dao",
    "qi": {
     "part": 0,
@@ -19491,7 +19491,7 @@
    "name_han": "春水湯",
    "gloss": "Spring-Water Bath",
    "no_site": true,
-   "holder": "thien_xu",
+   "holder": "chan_kim",
    "territory": "thien_xu",
    "qi": {
     "part": 0,
@@ -20080,7 +20080,7 @@
    "name_han": "雷竹林",
    "gloss": "Thunder Bamboo Grove",
    "site_grade": "minor",
-   "holder": "thinh_vu",
+   "holder": "coc_vu",
    "territory": "thinh_vu",
    "qi": {
     "part": 0,
@@ -23605,7 +23605,7 @@
    "name_han": "金沙泉",
    "gloss": "Gold Sand Spring",
    "site_grade": "minor",
-   "holder": "lac_ha",
+   "holder": "minh_loan",
    "territory": "lac_ha",
    "qi": {
     "part": 0,
@@ -23686,7 +23686,7 @@
    "v2_slot": "prov_r12_7_village_1",
    "name_han": "白羊村",
    "gloss": "White Sheep Village",
-   "holder": "lac_ha",
+   "holder": "minh_loan",
    "territory": "lac_ha",
    "qi": {
     "part": 0,
@@ -24092,7 +24092,7 @@
    "v2_slot": "prov_r13_12_village_1",
    "name_han": "蘆笛村",
    "gloss": "Reed Flute Village",
-   "holder": "lac_ha",
+   "holder": "yen_quang",
    "territory": "lac_ha",
    "qi": {
     "part": 0,
@@ -25302,7 +25302,7 @@
    "v2_slot": "prov_r14_12_village_1",
    "name_han": "青稞村",
    "gloss": "Highland Barley Village",
-   "holder": "cung_tinh",
+   "holder": "hoa_cai",
    "territory": "thien_xu",
    "qi": {
     "part": 0,
@@ -26223,7 +26223,7 @@
    "name_han": "青金礦",
    "gloss": "Lapis Mine",
    "no_site": true,
-   "holder": "cung_tinh",
+   "holder": "thien_xu",
    "territory": "thien_xu",
    "qi": {
     "part": 0,
@@ -26800,7 +26800,7 @@
    "name_han": "習陣礦",
    "gloss": "Practice Array Mine",
    "no_site": true,
-   "holder": "cung_tinh",
+   "holder": "thien_xu",
    "territory": "thien_xu",
    "qi": {
     "part": 0,
@@ -28232,7 +28232,7 @@
    "name_han": "洗心泉",
    "gloss": "Heart-Washing Spring",
    "no_site": true,
-   "holder": "cung_tinh",
+   "holder": "thien_xu",
    "territory": "thien_xu",
    "qi": {
     "part": 0,
@@ -28394,7 +28394,7 @@
    "name_han": "綠銅礦",
    "gloss": "Green Copper Mine",
    "no_site": true,
-   "holder": "chan_kim",
+   "holder": "thien_xu",
    "territory": "thien_xu",
    "qi": {
     "part": 0,
@@ -28737,7 +28737,7 @@
    "name_han": "烏銀礦",
    "gloss": "Black Silver Mine",
    "no_site": true,
-   "holder": "thien_xu",
+   "holder": "phat_y",
    "territory": "thien_xu",
    "qi": {
     "part": 0,
@@ -28906,7 +28906,7 @@
     236
    ],
    "site_grade": "minor",
-   "holder": "thien_xu",
+   "holder": "phat_y",
    "territory": "thien_xu",
    "qi": {
     "part": 0,
@@ -29450,7 +29450,7 @@
    "name_han": "靄玉礦",
    "gloss": "Haze Jade Mine",
    "no_site": true,
-   "holder": "thien_xu",
+   "holder": "phat_y",
    "territory": "thien_xu",
    "qi": {
     "part": 0,
@@ -29785,7 +29785,7 @@
    "name_han": "黑砂礦",
    "gloss": "Black Sand Mine",
    "site_grade": "minor",
-   "holder": "thien_xu",
+   "holder": "phat_y",
    "territory": "thien_xu",
    "qi": {
     "part": 0,
@@ -29867,7 +29867,7 @@
    "name_han": "綠茸脈",
    "gloss": "Green Velvet Vein",
    "no_site": true,
-   "holder": "thien_xu",
+   "holder": "phat_y",
    "territory": "thien_xu",
    "qi": {
     "part": 0,
@@ -30959,7 +30959,7 @@
    "name_han": "流金礦",
    "gloss": "Flowing Gold Mine",
    "no_site": true,
-   "holder": "truc_thuc",
+   "holder": "phuong_minh",
    "territory": "phuong_minh",
    "qi": {
     "part": 0,
@@ -31208,7 +31208,7 @@
    "name_han": "雌黃礦",
    "gloss": "Orpiment Mine",
    "site_grade": "minor",
-   "holder": "phat_y",
+   "holder": "thien_xu",
    "territory": "thien_xu",
    "qi": {
     "part": 0,
@@ -31249,7 +31249,7 @@
    "name_han": "赤龍脈",
    "gloss": "Red Dragon Vein",
    "no_site": true,
-   "holder": "phat_y",
+   "holder": "thien_xu",
    "territory": "thien_xu",
    "qi": {
     "part": 0,
@@ -31417,7 +31417,7 @@
    "name_han": "青鐵礦",
    "gloss": "Blue Iron Mine",
    "site_grade": "minor",
-   "holder": "chan_kim",
+   "holder": "thien_xu",
    "territory": "thien_xu",
    "qi": {
     "part": 0,
@@ -31499,7 +31499,7 @@
    "name_han": "烏鐵礦",
    "gloss": "Black Iron Mine",
    "site_grade": "minor",
-   "holder": "truc_thuc",
+   "holder": "phuong_minh",
    "territory": "phuong_minh",
    "qi": {
     "part": 0,
@@ -31993,7 +31993,7 @@
    "name_han": "赤銅礦",
    "gloss": "Red Copper Mine",
    "site_grade": "minor",
-   "holder": "truc_thuc",
+   "holder": "phuong_minh",
    "territory": "phuong_minh",
    "qi": {
     "part": 0,
@@ -32360,7 +32360,7 @@
    "name_han": "鍾乳洞",
    "gloss": "Stalactite Cave",
    "site_grade": "minor",
-   "holder": "phuong_minh",
+   "holder": "truc_thuc",
    "territory": "phuong_minh",
    "qi": {
     "part": 0,
@@ -32443,7 +32443,7 @@
    "name_han": "丹黃窟",
    "gloss": "Grotto of Red and Yellow",
    "site_grade": "minor",
-   "holder": "phuong_minh",
+   "holder": "truc_thuc",
    "territory": "phuong_minh",
    "qi": {
     "part": 0,
@@ -36517,7 +36517,7 @@
    "name_han": "雷銀礦",
    "gloss": "Thunder Silver Mine",
    "site_grade": "minor",
-   "holder": "thinh_vu",
+   "holder": "xuyen_lam",
    "territory": "thinh_vu",
    "qi": {
     "part": 0,
@@ -37490,7 +37490,7 @@
    "name_han": "雷晶礦",
    "gloss": "Thunder Crystal Mine",
    "no_site": true,
-   "holder": "thinh_vu",
+   "holder": "xuyen_lam",
    "territory": "thinh_vu",
    "qi": {
     "part": 0,
@@ -41126,7 +41126,7 @@
    "v2_slot": "prov_r1_22_village_1",
    "name_han": "松橋村",
    "gloss": "Pine Bridge Village",
-   "holder": "ham_nguyet",
+   "holder": "suong_tung",
    "territory": "tung_dao",
    "qi": {
     "part": 0,
@@ -43806,7 +43806,7 @@
    "name_han": "青竿脈",
    "gloss": "Vein of the Green Canes",
    "no_site": true,
-   "holder": "phuong_minh",
+   "holder": "chuc_ha",
    "territory": "phuong_minh",
    "qi": {
     "part": 0,
@@ -43846,7 +43846,7 @@
    "v2_slot": "prov_r20_3_village_1",
    "name_han": "竹樓村",
    "gloss": "Bamboo House Village",
-   "holder": "phuong_minh",
+   "holder": "chuc_ha",
    "territory": "phuong_minh",
    "qi": {
     "part": 0,
@@ -45541,7 +45541,7 @@
     1094
    ],
    "site_grade": "minor",
-   "holder": "hong_lo",
+   "holder": "thuy_vi",
    "territory": "thuy_vi",
    "qi": {
     "part": 0,
@@ -45865,7 +45865,7 @@
    "v2_slot": "prov_r2_24_town_1",
    "name_han": "浮橋鎮",
    "gloss": "Town of the Floating Bridge",
-   "holder": "hong_lo",
+   "holder": "vu_an",
    "territory": "thuy_vi",
    "qi": {
     "part": 0,
@@ -46033,7 +46033,7 @@
     1101
    ],
    "site_grade": "minor",
-   "holder": "hong_lo",
+   "holder": "thuy_vi",
    "territory": "thuy_vi",
    "qi": {
     "part": 0,
@@ -47592,7 +47592,7 @@
    "v2_slot": "prov_r3_13_village_1",
    "name_han": "水磨村",
    "gloss": "Watermill Village",
-   "holder": "thuy_vi",
+   "holder": "ho_lam",
    "territory": "thuy_vi",
    "qi": {
     "part": 0,
@@ -50005,7 +50005,7 @@
    "name_han": "萌芽脈",
    "gloss": "Vein of the Sprouting Buds",
    "no_site": true,
-   "holder": "lang_dao",
+   "holder": "tung_dao",
    "territory": "tung_dao",
    "qi": {
     "part": 0,
@@ -50248,7 +50248,7 @@
    "name_han": "厚土脈",
    "gloss": "Vein of the Deep Earth",
    "no_site": true,
-   "holder": "tung_dao",
+   "holder": "van_hac",
    "territory": "tung_dao",
    "qi": {
     "part": 0,
@@ -50699,7 +50699,7 @@
    "name_han": "青虛脈",
    "gloss": "Vein of the Green Void",
    "no_site": true,
-   "holder": "tung_dao",
+   "holder": "van_hac",
    "territory": "tung_dao",
    "qi": {
     "part": 0,
@@ -53112,7 +53112,7 @@
    "name_han": "寒星泉",
    "gloss": "Spring of the Cold Stars",
    "site_grade": "minor",
-   "holder": "lang_dao",
+   "holder": "tung_dao",
    "territory": "tung_dao",
    "qi": {
     "part": 0,
@@ -56785,7 +56785,7 @@
    "v2_slot": "prov_r6_3_village_1",
    "name_han": "玄芝村",
    "gloss": "Dark Fungus Village",
-   "holder": "thien_xu",
+   "holder": "hoa_tinh",
    "territory": "thien_xu",
    "qi": {
     "part": 0,
@@ -57572,7 +57572,7 @@
     1065
    ],
    "site_grade": "minor",
-   "holder": "bang_tam",
+   "holder": "le_hoa",
    "territory": "bang_tam",
    "qi": {
     "part": 0,
@@ -58198,7 +58198,7 @@
    "name_han": "寒鐵礦",
    "gloss": "Cold Iron Mine",
    "site_grade": "minor",
-   "holder": "tam_kiem",
+   "holder": "bang_tam",
    "territory": "bang_tam",
    "qi": {
     "part": 0,
@@ -58326,7 +58326,7 @@
     426
    ],
    "site_grade": "minor",
-   "holder": "tam_kiem",
+   "holder": "bang_tam",
    "territory": "bang_tam",
    "qi": {
     "part": 0,
@@ -59716,7 +59716,7 @@
    "name_han": "松雪脈",
    "gloss": "Vein of Snow and Pine",
    "no_site": true,
-   "holder": "bang_tam",
+   "holder": "le_hoa",
    "territory": "bang_tam",
    "qi": {
     "part": 0,
@@ -60042,7 +60042,7 @@
    "name_han": "松石礦",
    "gloss": "Turquoise Mine",
    "site_grade": "minor",
-   "holder": "bang_tam",
+   "holder": "da_quang",
    "territory": "bang_tam",
    "qi": {
     "part": 0,
@@ -60379,7 +60379,7 @@
    "name_han": "羊脂礦",
    "gloss": "Mutton-Fat Jade Mine",
    "site_grade": "minor",
-   "holder": "bang_tam",
+   "holder": "da_quang",
    "territory": "bang_tam",
    "qi": {
     "part": 0,
@@ -60466,7 +60466,7 @@
    "name_han": "風沙眼",
    "gloss": "Eye of the Sandstorm",
    "no_site": true,
-   "holder": "bang_tam",
+   "holder": "da_quang",
    "territory": "bang_tam",
    "qi": {
     "part": 0,
@@ -60718,7 +60718,7 @@
     1010
    ],
    "site_grade": "minor",
-   "holder": "bang_tam",
+   "holder": "da_quang",
    "territory": "bang_tam",
    "qi": {
     "part": 0,
@@ -60808,7 +60808,7 @@
     1050
    ],
    "site_grade": "minor",
-   "holder": "bang_tam",
+   "holder": "da_quang",
    "territory": "bang_tam",
    "qi": {
     "part": 0,
@@ -61774,7 +61774,7 @@
     1140
    ],
    "site_grade": "minor",
-   "holder": "trac_anh",
+   "holder": "bang_tam",
    "territory": "bang_tam",
    "qi": {
     "part": 0,

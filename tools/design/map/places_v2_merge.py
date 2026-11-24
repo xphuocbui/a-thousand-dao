@@ -11,8 +11,8 @@ design/map/continent-11/provinces_v2_places.json.
   quarter of its provinces that have a site), and inside a province the site of the kind its region has kept least.
   A kept site carries site_grade "minor" (a tenth of small); every other new site carries no_site true: a place with
   lore and no production. The list is written to design/world/provinces-v2/kept_sites.json.
-- **Holders:** new settlements, mines and special sites take the holder of the nearest existing held settlement in
-  their region (the local lord), and the region's great sect as territory; peaks, forests, lakes, gorges and beast
+- **Holders:** new settlements, mines and special sites take their province's local lord (a minor sect seated in it,
+  Provinces rule 2), else the holder of the nearest authored held settlement in their region, and the region's great sect as territory; peaks, forests, lakes, gorges and beast
   lairs are unheld, as the existing ones are; a proposed minor sect holds its own seat.
 - **Roads (follow-up):** only new settlements are marked v2_road true; export_continent.py routes only them among the
   new places.
@@ -47,7 +47,7 @@ SITE_GRADE = "minor"           # decision 1: a tenth of small (map_resources.jso
 SETTLEMENTS = ("village", "town")
 UNHELD = ("peak", "forest", "lake", "gorge", "beast_lair", "volcano")
 # lore words that have a site worked (miners, bathers, traders...): such sites are kept first; places_v2_fit.py lists
-# the unkept ones that still use them, for the writers to re-fit
+# the unkept ones that still use them were re-fitted by hand (2026-11-24)
 WORKED = (r"\b(miners?|mining|dig(s|ging)?|dug|worked|works?|tapped|taps?|smelt\w*|quarr\w+|harvest\w*|hunters? "
           r"(take|sell)|sold|sells?|trade[sd]?|carts?|carry|carried|shafts?|bathers?|bathhouse|pilgrims)\b")
 HELD_SETTLED = ("great_seat", "minor_seat", "city", "market", "town", "village")
@@ -71,8 +71,19 @@ def main():
         lore.update(json.load(open(f, encoding="utf-8")).get("places", {}))
     region_holder = {r["id"]: r["holder"] for r in cont["regions"]}
     great_of_region = {r: g["key"] for g in cont["great_sects"] for r in g["regions"]}
-    held = [p for p in cont["places"] if p["kind"] in HELD_SETTLED and p.get("holder")]
+    # the authored places only: the merged provinces-v2 ones (v2_slot) are this tool's own output
+    held = [p for p in cont["places"] if p["kind"] in HELD_SETTLED and p.get("holder") and not p.get("v2_slot")]
     M = PL.Map(MAP)
+    # Provinces rule 2: a minor sect seated in a province is its local lord (an authored seat, or a new one's sect)
+    by_id = {p["id"]: p for p in cont["places"]}
+    lord_of = {}
+    for pv in json.load(open(os.path.join(MAP, "provinces-v2", "provinces.json"), encoding="utf-8"))["provinces"]:
+        for q in pv["places"]:
+            if by_id.get(q, {}).get("kind") == "minor_seat":
+                lord_of[pv["key"]] = by_id[q]["holder"]
+    for s0 in slots:
+        if s0["kind"] == "minor_seat" and lore.get(s0["slot"], {}).get("sect"):
+            lord_of.setdefault(s0["province"], lore[s0["slot"]]["sect"]["key"])
 
     def worked(s):
         e = lore.get(s["slot"], {})
@@ -126,7 +137,7 @@ def main():
         else:
             near = [p for p in held if p["region"] == r]
             near = min(near, key=lambda p: math.dist(p["tile"], (x, y))) if near else None
-            q["holder"] = near["holder"] if near else region_holder.get(r, "")
+            q["holder"] = lord_of.get(s["province"]) or (near["holder"] if near else region_holder.get(r, ""))
         if s["kind"] == "ruin":
             q["former"], q["lived"] = e["former"], list(e["lived"])
         if s["kind"] in site_kinds:

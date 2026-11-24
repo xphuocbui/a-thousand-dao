@@ -57,6 +57,12 @@ Regional Economy & Trade (#43) stay as approved, and this file lists the changes
    (~110, the table's ×1.46). The kept sites **grow through buildings**: each level of the province's matching building
    (mine works, hunting lodge, spirit fields) raises the site a step (a Provinces GDD delta, for the user's approval).
    **Roads:** only new settlements join the road network; new wild places stay off it, reached across the wild.
+   **Claude's choices in the merge (for review):**
+   - Inside each region's quarter, provinces whose site lore has it worked are kept first, so the kept mix is 81 mines,
+     42 beast lairs, 37 spirit veins, 13 hot springs, 1 lava vent and 1 lightning wood.
+   - A no_site place gets no herb site either. The new peaks, forests, lakes, gorges and ruins keep herb sites, at
+     grade minor.
+   - Holders follow Provinces rule 2: a sect seated in the province is its local lord, else the nearest authored lord.
 
    **The economy cannot take the new sites as they are.** At the same output as existing sites of their kind, the
    new places add about **3.9 times** the world's current place output (existing 267,517 a season; new 1,053,919), so the
@@ -158,9 +164,14 @@ herb-site and track fixes):
 
 | | Baseline | Merged |
 |---|---|---|
+| **World place output a season (decision 1's measure; seed-7 dump)** | 267,517 | **319,216 (×1.19)**: new places 36,412, authored places +15,287 (new settlements near them raise their worked share) |
+| Linh thạch mined at season 0 (seed-7 dump) | 124,560 | 170,739: authored spirit veins +31,680 (the same neighbour effect), new veins +14,499 |
 | Non-mine production at season 0 (AC-TM-152 guess 250,000) | in band | 319,216 (×1.28) |
 | Census, year 200, seed 101 (Luyện Khí / Trúc Cơ / Kết Đan / Nguyên Anh / Hóa Thần) | 3901 / 808 / 242 / 45 / 4 | 3770 / 933 / 258 / 33 / 6 |
-| Census, year 200, seed 7 (before the herb fix) | 3856 / 844 / 259 / 37 / 4 | 3783 / 922 / 256 / 36 / 3 |
+| Census, year 200, seed 7 | 3856 / 844 / 259 / 37 / 4 | 3806 / 885 / 269 / 36 / 4 |
+| Census, year 200, seed 202 | (not run) | 3784 / 911 / 258 / 43 / 4 |
+| **Sect wars over the century, declared / won (sim seed 11)** | 16 / 13 | **50 / 48** |
+| Thiên Xu Tông's vassals in 1300 | 4 | **34** |
 | Mines minted a season, first decade (sim seed 11) | 139,421 | 201,324 (+44 %) |
 | The same, year 1300 | 148,540 | 162,010 (+9 %) |
 | Money growth, first decade (band −2 % to +5 %) | +2.6 % a year | +4.1 % a year |
@@ -172,18 +183,23 @@ herb-site and track fixes):
 Notes:
 
 - **The early mint:**
-  - The kept spirit veins mint linh thạch directly, so the first decades run hot.
-  - The reserves then settle near the old world.
-  - Money growth stays inside the band.
+  - It comes mostly from the **authored** spirit veins: a new village or town within `settle_reach` raises their
+    `settle_w`.
+  - The new minor veins add little (180 a season each).
+  - The reserves then settle near the old world, and money growth stays inside the band.
+- **Sect politics (the largest change):**
+  - The 20 small new sects (levels 1–2) are easy war targets: three times the wars, and a Thiên Xu snowball to 34
+    vassals in one seed.
+  - This needs the user's call: stronger starting levels, protection (for example, a truce while under the lord's
+    shield), fewer new sects, or accept it. Check more seeds first.
 - **Prices:** the merged world's prices are as close to the band as the baseline's or closer. The drift outside 0.9–1.15
   (ore, special, pill) is in the baseline too.
-- **The census:** Trúc Cơ runs about 10 % above the baseline at year 200 on both seeds. Nguyên Anh and Hóa Thần move by
-  a few either way between seeds (6 Hóa Thần on seed 101 against 4; 3 on seed 7). Re-check on more seeds before any
-  tuning.
+- **The census:** Trúc Cơ runs 5–15 % above the baseline at year 200 on every seed. Nguyên Anh (33–43) and Hóa Thần
+  (3–6, against a target of about 3) move by a few between seeds, as the baseline does.
 - **New sects:** twice as many new sects are founded over the century (14 against 7), on the many new peaks and places.
 - **The demand and price pass:**
-  - Recommended scope: the early linh thạch mint from the new veins (for example, a lower `kind_value_mult` for minor
-    linh thạch sites).
+  - Recommended scope: the neighbour effect, for example new settlements not raising the `settle_w` of authored sites,
+    or the authored veins' grade; not the minor sites.
   - It is not run yet: it is the user's call.
 - **Restless sects:** 10 of the new sects are trung lập under a chính đạo lord, at loyalty 55 by sect_start's rule.
 

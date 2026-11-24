@@ -1708,7 +1708,7 @@
    "gloss": "Warm Ripple Spring",
    "territory": "phuong_minh",
    "v2_road": false,
-   "holder": "phuong_minh",
+   "holder": "bach_vu",
    "no_site": true
   },
   {
@@ -1916,7 +1916,7 @@
    "gloss": "Node of the White Geese",
    "territory": "phuong_minh",
    "v2_road": false,
-   "holder": "phuong_minh",
+   "holder": "vong_trieu",
    "no_site": true
   },
   {
@@ -2410,7 +2410,7 @@
    "gloss": "Vein of the Returning Clouds",
    "territory": "bang_tam",
    "v2_road": false,
-   "holder": "bang_tam",
+   "holder": "tran_sa",
    "no_site": true
   },
   {
@@ -2454,7 +2454,7 @@
    "gloss": "Hall of the White Gull",
    "territory": "bang_tam",
    "v2_road": false,
-   "holder": "bang_tam",
+   "holder": "lanh_giang",
    "former": "sect",
    "lived": [
     640,
@@ -2525,7 +2525,7 @@
    "gloss": "Vein of the Moving Stars",
    "territory": "lac_ha",
    "v2_road": false,
-   "holder": "lac_ha",
+   "holder": "nhan_van",
    "no_site": true
   },
   {
@@ -2657,7 +2657,7 @@
    "gloss": "Cinnamon-Scented Spring",
    "territory": "thinh_vu",
    "v2_road": false,
-   "holder": "thinh_vu",
+   "holder": "vu_linh",
    "site_grade": "minor"
   },
   {
@@ -2789,7 +2789,7 @@
    "gloss": "Vein of the Pine Voice",
    "territory": "tung_dao",
    "v2_road": false,
-   "holder": "tung_dao",
+   "holder": "tuan_tung",
    "site_grade": "minor"
   },
   {
@@ -3912,7 +3912,7 @@
    "gloss": "Spring-Water Bath",
    "territory": "thien_xu",
    "v2_road": false,
-   "holder": "thien_xu",
+   "holder": "chan_kim",
    "no_site": true
   },
   {
@@ -4235,7 +4235,7 @@
    "gloss": "Thunder Bamboo Grove",
    "territory": "thinh_vu",
    "v2_road": false,
-   "holder": "thinh_vu",
+   "holder": "coc_vu",
    "site_grade": "minor"
   },
   {
@@ -6118,7 +6118,7 @@
    "gloss": "Gold Sand Spring",
    "territory": "lac_ha",
    "v2_road": false,
-   "holder": "lac_ha",
+   "holder": "minh_loan",
    "site_grade": "minor"
   },
   {
@@ -6162,7 +6162,7 @@
    "gloss": "White Sheep Village",
    "territory": "lac_ha",
    "v2_road": true,
-   "holder": "lac_ha"
+   "holder": "minh_loan"
   },
   {
    "v2_slot": "prov_r12_8_beast_lair_2",
@@ -6378,7 +6378,7 @@
    "gloss": "Reed Flute Village",
    "territory": "lac_ha",
    "v2_road": true,
-   "holder": "lac_ha"
+   "holder": "yen_quang"
   },
   {
    "v2_slot": "prov_r13_13_spirit_vein_1",
@@ -7023,7 +7023,7 @@
    "gloss": "Highland Barley Village",
    "territory": "thien_xu",
    "v2_road": true,
-   "holder": "cung_tinh"
+   "holder": "hoa_cai"
   },
   {
    "v2_slot": "prov_r14_13_hot_spring_2",
@@ -7523,7 +7523,7 @@
    "gloss": "Lapis Mine",
    "territory": "thien_xu",
    "v2_road": false,
-   "holder": "cung_tinh",
+   "holder": "thien_xu",
    "no_site": true
   },
   {
@@ -7832,7 +7832,7 @@
    "gloss": "Practice Array Mine",
    "territory": "thien_xu",
    "v2_road": false,
-   "holder": "cung_tinh",
+   "holder": "thien_xu",
    "no_site": true
   },
   {
@@ -8597,7 +8597,7 @@
    "gloss": "Heart-Washing Spring",
    "territory": "thien_xu",
    "v2_road": false,
-   "holder": "cung_tinh",
+   "holder": "thien_xu",
    "no_site": true
   },
   {
@@ -8683,7 +8683,7 @@
    "gloss": "Green Copper Mine",
    "territory": "thien_xu",
    "v2_road": false,
-   "holder": "chan_kim",
+   "holder": "thien_xu",
    "no_site": true
   },
   {
@@ -8874,7 +8874,7 @@
    "gloss": "Black Silver Mine",
    "territory": "thien_xu",
    "v2_road": false,
-   "holder": "thien_xu",
+   "holder": "phat_y",
    "no_site": true
   },
   {
@@ -8962,7 +8962,7 @@
    "gloss": "Iron Gate Fort",
    "territory": "thien_xu",
    "v2_road": false,
-   "holder": "thien_xu",
+   "holder": "phat_y",
    "former": "fort",
    "lived": [
     140,
@@ -9262,7 +9262,7 @@
    "gloss": "Haze Jade Mine",
    "territory": "thien_xu",
    "v2_road": false,
-   "holder": "thien_xu",
+   "holder": "phat_y",
    "no_site": true
   },
   {
@@ -9443,7 +9443,7 @@
    "gloss": "Black Sand Mine",
    "territory": "thien_xu",
    "v2_road": false,
-   "holder": "thien_xu",
+   "holder": "phat_y",
    "site_grade": "minor"
   },
   {
@@ -9487,7 +9487,7 @@
    "gloss": "Green Velvet Vein",
    "territory": "thien_xu",
    "v2_road": false,
-   "holder": "thien_xu",
+   "holder": "phat_y",
    "no_site": true
   },
   {
@@ -10077,7 +10077,7 @@
    "gloss": "Flowing Gold Mine",
    "territory": "phuong_minh",
    "v2_road": false,
-   "holder": "truc_thuc",
+   "holder": "phuong_minh",
    "no_site": true
   },
   {
@@ -10208,7 +10208,7 @@
    "gloss": "Orpiment Mine",
    "territory": "thien_xu",
    "v2_road": false,
-   "holder": "phat_y",
+   "holder": "thien_xu",
    "site_grade": "minor"
   },
   {
@@ -10230,7 +10230,7 @@
    "gloss": "Red Dragon Vein",
    "territory": "thien_xu",
    "v2_road": false,
-   "holder": "phat_y",
+   "holder": "thien_xu",
    "no_site": true
   },
   {
@@ -10322,7 +10322,7 @@
    "gloss": "Blue Iron Mine",
    "territory": "thien_xu",
    "v2_road": false,
-   "holder": "chan_kim",
+   "holder": "thien_xu",
    "site_grade": "minor"
   },
   {
@@ -10366,7 +10366,7 @@
    "gloss": "Black Iron Mine",
    "territory": "phuong_minh",
    "v2_road": false,
-   "holder": "truc_thuc",
+   "holder": "phuong_minh",
    "site_grade": "minor"
   },
   {
@@ -10632,7 +10632,7 @@
    "gloss": "Red Copper Mine",
    "territory": "phuong_minh",
    "v2_road": false,
-   "holder": "truc_thuc",
+   "holder": "phuong_minh",
    "site_grade": "minor"
   },
   {
@@ -10828,7 +10828,7 @@
    "gloss": "Stalactite Cave",
    "territory": "phuong_minh",
    "v2_road": false,
-   "holder": "phuong_minh",
+   "holder": "truc_thuc",
    "site_grade": "minor"
   },
   {
@@ -10871,7 +10871,7 @@
    "gloss": "Grotto of Red and Yellow",
    "territory": "phuong_minh",
    "v2_road": false,
-   "holder": "phuong_minh",
+   "holder": "truc_thuc",
    "site_grade": "minor"
   },
   {
@@ -13054,7 +13054,7 @@
    "gloss": "Thunder Silver Mine",
    "territory": "thinh_vu",
    "v2_road": false,
-   "holder": "thinh_vu",
+   "holder": "xuyen_lam",
    "site_grade": "minor"
   },
   {
@@ -13580,7 +13580,7 @@
    "gloss": "Thunder Crystal Mine",
    "territory": "thinh_vu",
    "v2_road": false,
-   "holder": "thinh_vu",
+   "holder": "xuyen_lam",
    "no_site": true
   },
   {
@@ -15535,7 +15535,7 @@
    "gloss": "Pine Bridge Village",
    "territory": "tung_dao",
    "v2_road": true,
-   "holder": "ham_nguyet"
+   "holder": "suong_tung"
   },
   {
    "v2_slot": "prov_r1_23_forest_2",
@@ -16979,7 +16979,7 @@
    "gloss": "Vein of the Green Canes",
    "territory": "phuong_minh",
    "v2_road": false,
-   "holder": "phuong_minh",
+   "holder": "chuc_ha",
    "no_site": true
   },
   {
@@ -17001,7 +17001,7 @@
    "gloss": "Bamboo House Village",
    "territory": "phuong_minh",
    "v2_road": true,
-   "holder": "phuong_minh"
+   "holder": "chuc_ha"
   },
   {
    "v2_slot": "prov_r20_4_hot_spring_2",
@@ -17911,7 +17911,7 @@
    "gloss": "Copper Hill Town",
    "territory": "thuy_vi",
    "v2_road": false,
-   "holder": "hong_lo",
+   "holder": "thuy_vi",
    "former": "town",
    "lived": [
     705,
@@ -18089,7 +18089,7 @@
    "gloss": "Town of the Floating Bridge",
    "territory": "thuy_vi",
    "v2_road": true,
-   "holder": "hong_lo"
+   "holder": "vu_an"
   },
   {
    "v2_slot": "prov_r2_25_beast_lair_2",
@@ -18175,7 +18175,7 @@
    "gloss": "Hall of the Green Satchel",
    "territory": "thuy_vi",
    "v2_road": false,
-   "holder": "hong_lo",
+   "holder": "thuy_vi",
    "former": "sect",
    "lived": [
     780,
@@ -19018,7 +19018,7 @@
    "gloss": "Watermill Village",
    "territory": "thuy_vi",
    "v2_road": true,
-   "holder": "thuy_vi"
+   "holder": "ho_lam"
   },
   {
    "v2_slot": "prov_r3_14_beast_lair_2",
@@ -20324,7 +20324,7 @@
    "gloss": "Vein of the Sprouting Buds",
    "territory": "tung_dao",
    "v2_road": false,
-   "holder": "lang_dao",
+   "holder": "tung_dao",
    "no_site": true
   },
   {
@@ -20453,7 +20453,7 @@
    "gloss": "Vein of the Deep Earth",
    "territory": "tung_dao",
    "v2_road": false,
-   "holder": "tung_dao",
+   "holder": "van_hac",
    "no_site": true
   },
   {
@@ -20695,7 +20695,7 @@
    "gloss": "Vein of the Green Void",
    "territory": "tung_dao",
    "v2_road": false,
-   "holder": "tung_dao",
+   "holder": "van_hac",
    "no_site": true
   },
   {
@@ -21987,7 +21987,7 @@
    "gloss": "Spring of the Cold Stars",
    "territory": "tung_dao",
    "v2_road": false,
-   "holder": "lang_dao",
+   "holder": "tung_dao",
    "site_grade": "minor"
   },
   {
@@ -23965,7 +23965,7 @@
    "gloss": "Dark Fungus Village",
    "territory": "thien_xu",
    "v2_road": true,
-   "holder": "thien_xu"
+   "holder": "hoa_tinh"
   },
   {
    "v2_slot": "prov_r6_4_forest_2",
@@ -24385,7 +24385,7 @@
    "gloss": "Sable Coat Town",
    "territory": "bang_tam",
    "v2_road": false,
-   "holder": "bang_tam",
+   "holder": "le_hoa",
    "former": "town",
    "lived": [
     620,
@@ -24721,7 +24721,7 @@
    "gloss": "Cold Iron Mine",
    "territory": "bang_tam",
    "v2_road": false,
-   "holder": "tam_kiem",
+   "holder": "bang_tam",
    "site_grade": "minor"
   },
   {
@@ -24787,7 +24787,7 @@
    "gloss": "Stockade at the Ridge Head",
    "territory": "bang_tam",
    "v2_road": false,
-   "holder": "tam_kiem",
+   "holder": "bang_tam",
    "former": "fort",
    "lived": [
     260,
@@ -25541,7 +25541,7 @@
    "gloss": "Vein of Snow and Pine",
    "territory": "bang_tam",
    "v2_road": false,
-   "holder": "bang_tam",
+   "holder": "le_hoa",
    "no_site": true
   },
   {
@@ -25715,7 +25715,7 @@
    "gloss": "Turquoise Mine",
    "territory": "bang_tam",
    "v2_road": false,
-   "holder": "bang_tam",
+   "holder": "da_quang",
    "site_grade": "minor"
   },
   {
@@ -25900,7 +25900,7 @@
    "gloss": "Mutton-Fat Jade Mine",
    "territory": "bang_tam",
    "v2_road": false,
-   "holder": "bang_tam",
+   "holder": "da_quang",
    "site_grade": "minor"
   },
   {
@@ -25944,7 +25944,7 @@
    "gloss": "Eye of the Sandstorm",
    "territory": "bang_tam",
    "v2_road": false,
-   "holder": "bang_tam",
+   "holder": "da_quang",
    "no_site": true
   },
   {
@@ -26074,7 +26074,7 @@
    "gloss": "Fort of Set Ice",
    "territory": "bang_tam",
    "v2_road": false,
-   "holder": "bang_tam",
+   "holder": "da_quang",
    "former": "fort",
    "lived": [
     450,
@@ -26123,7 +26123,7 @@
    "gloss": "Sand-Buried Fort",
    "territory": "bang_tam",
    "v2_road": false,
-   "holder": "bang_tam",
+   "holder": "da_quang",
    "former": "fort",
    "lived": [
     600,
@@ -26652,7 +26652,7 @@
    "gloss": "Willow-Breaking Shore Town",
    "territory": "bang_tam",
    "v2_road": false,
-   "holder": "trac_anh",
+   "holder": "bang_tam",
    "former": "town",
    "lived": [
     650,

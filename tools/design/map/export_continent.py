@@ -82,7 +82,7 @@ def load(path):
 def track_routes(places, routes, m, travel, w, h):
     """Tracks (user decisions 2026-11-24, provinces-v2): a new settlement or mine with no route walks to the nearest
     place already on the network, along the cheapest land path walked at the wilderness speed over the full terrain
-    cost (Formula D's c_wild x speed.road / speed.wilderness on the route scale), so it is reachable before wilderness travel exists. Each joins the network once tracked, so a later one may
+    cost (Formula D's c_wild x speed.road / speed.wilderness on the route scale), so it joins the route graph (place links); the map's tile travel reaches it either way. Each joins the network once tracked, so a later one may
     walk to it. Sea and lakes are walked around; a place on a landmass with no network stays without a route.
     Returns [(a_id, b_id, tiles, cost)]."""
     scale = float(travel["speed"]["road"]) / float(travel["speed"]["wilderness"])   # a track is walked, not ridden

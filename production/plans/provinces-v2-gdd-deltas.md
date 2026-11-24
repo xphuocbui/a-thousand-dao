@@ -60,8 +60,9 @@ The prototype figures (access per province) were measured on the 273 provinces. 
   towns, 20 minor sect seats, 119 mines, 150 spirit veins, 126 beast lairs, 45 hot springs, 2 lava vents, 4 lightning
   woods, 176 peaks, 136 forests, 13 lakes, 4 gorges, 142 ruins). Of the 446 new site places, 175 are sites (grade
   minor, one province in four); the other 271 are places with no production (`no_site`).
-- **Routes, a new kind `track`** (a footpath): a new settlement or mine with no road walks to the nearest place on the
-  network (see Tracks below). 376 tracks; 17 new
+- **Routes, a new kind `track`** (a footpath; optional): a new settlement or mine with no road is linked to the nearest
+  place on the network (see Tracks below). The map's tile travel (TravelGrid) reaches every place without it; a track
+  only joins the route graph (place links: the debug terminal's travel and AC-TM-128's reachability). 376 tracks; 17 new
   settlements on landmasses with no network stay unrouted (as Hồng Lô Cốc and Thu Phần Các). New wild places get no
   route (reached across the wild, like the existing lairs). Roads: only new settlements within 4 tiles of a road
   join it; 45 of the 203 authored road links are now split by a new village.
