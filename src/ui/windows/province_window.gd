@@ -5,7 +5,9 @@ extends GameWindow
 ## EU5's location panel lead its shape: the name with its holder and a picture in the sticky header, the four numbers
 ## a player scans first (population, development, market access, main good), then the land, the places, the economy,
 ## the works and the modifiers as sections (jump targets). It shows GameQuery.province's copy (Provinces rule 3's
-## inventory) and never changes the world. A known place opens its place panel.
+## inventory) and never changes the world. A known place opens its place panel. Provinces Stage 8: the works list each
+## building's state, the orders the player could fund for their sect (a Fund link asks for the fund_building action
+## through action_requested), and the modifiers section shows the province's states and each modifier's source.
 
 ## The sections, in order (keys are jump targets).
 const SECTIONS := [["overview", "Overview"], ["places", "Places"], ["economy", "Economy"], ["works", "Works"],
@@ -18,6 +20,8 @@ const KIND_NAMES := {"great_seat": "Great sect seat", "minor_seat": "Minor sect 
 	"hot_spring": "Hot spring", "lake": "Lake", "forest": "Forest", "beast_lair": "Beast lair", "gorge": "Gorge",
 	"volcano": "Volcano", "lava_vent": "Lava vent", "lightning_wood": "Lightning wood", "island": "Island"}
 
+## The province states' names (Provinces States table).
+const STATE_NAMES := {"normal": "Normal", "under_connected": "Under-connected", "struck": "Struck", "war_touched": "War-touched"}
 ## Mortals per settlement unit for the display (ui_hud.json greybox.mortals_per_unit; user decision 2026-11-24).
 var mortals_per_unit: float = 1000.0
 var _picture: Control = null
@@ -83,6 +87,9 @@ func _build() -> void:
 
 
 func _on_link(meta: Variant) -> void:
+	if str(meta).begins_with("fund:"):   # Stage 8: Provinces rule 9, the player funds a building for their sect
+		action_requested.emit("fund_building", [Provinces.rid(int(view.get("id", 0))), str(meta).substr(5)])
+		return
 	var sid: String = str(Dictionary(view.get("place_ids", {})).get(str(meta), ""))
 	if sid != "":
 		open_requested.emit("place", sid, "")
@@ -124,6 +131,24 @@ func _stat_strip(v: Dictionary) -> HBoxContainer:
 		TooltipLayer.set_tip(cell, str(it[2]))
 		strip.add_child(cell)
 	return strip
+
+
+## A building's level as pips, five to a row's worth and a count past that (levels have no highest, 2026-11-24).
+static func level_pips(lv: int) -> String:
+	return "●".repeat(mini(lv, 5)) + "○".repeat(maxi(0, 5 - lv)) + ((" +%d" % (lv - 5)) if lv > 5 else "")
+
+
+## A building's state in words, "" while active (Provinces States): building toward its target, unpaid, ruined.
+static func state_text(b: Dictionary) -> String:
+	var T := func(s: String) -> String: return TranslationServer.translate(s)
+	match str(b.get("state", "active")):
+		"building":
+			return "  [i]%s[/i]" % (T.call("building to level %d") % int(b.get("target", 1)))
+		"unpaid":
+			return "  [i]%s[/i]" % T.call("unpaid: counts nothing")
+		"ruined":
+			return "  [i]%s[/i]" % T.call("ruined: needs a repair")
+	return ""
 
 
 ## A good class's display name: "herb2" -> "Herbs, rarity 3–4" (the kind and its rarity band).
@@ -230,12 +255,27 @@ static func section_lines(v: Dictionary, key: String) -> Array:
 			lines.append("[b]%s[/b]  %d / %d" % [T.call("Buildings"), b.size(), int(st.get("slots", 0))])
 			for it in b:
 				var lv: int = int(it.get("level", 1))
-				lines.append("  %s  %s" % [T.call(str(it.get("name", it.get("kind", "")))), "●".repeat(lv) + "○".repeat(maxi(0, 5 - lv))])
+				lines.append("  %s  %s%s" % [T.call(str(it.get("name", it.get("kind", "")))), level_pips(lv), state_text(it)])
 			for i in maxi(0, int(st.get("slots", 0)) - b.size()):
 				lines.append("  [i]%s[/i]" % T.call("empty slot"))
+			var orders: Array = v.get("orders", [])
+			if not orders.is_empty():   # Stage 8: what the player could fund for their sect here
+				lines.append("")
+				lines.append("[b]%s[/b]" % T.call("Fund for your sect"))
+				for o in orders:
+					var what: String = (T.call("repair level %d") if bool(o.get("repair", false)) else T.call("level %d")) % int(o.get("level", 1))
+					var price: String = T.call("%d linh thạch") % int(o.get("cost", 0))
+					if bool(o.get("affordable", false)):
+						lines.append("  [url=fund:%s]%s[/url]  %s, %s — %s" % [str(o.kind), T.call("Fund"), T.call(str(o.get("name", o.kind))), what, price])
+					else:
+						lines.append("  [i]%s[/i]  %s, %s — %s" % [T.call("too costly"), T.call(str(o.get("name", o.kind))), what, price])
 			lines.append("")
 			lines.append(T.call("Road tiles %d · river tiles %d") % [int(v.get("road_tiles", 0)), int(v.get("river_tiles", 0))])
 		"modifiers":
+			var states: Array = st.get("states", [])
+			if not states.is_empty():   # Stage 7-8: the province states (Provinces States table)
+				lines.append("[b]%s[/b]  %s" % [T.call("State"), ", ".join(states.map(func(x): return T.call(str(STATE_NAMES.get(str(x), str(x))))))])
+				lines.append("")
 			var mods: Array = st.get("modifiers", [])
 			if mods.is_empty():
 				lines.append(T.call("No modifiers: no works, scars, events or policies touch this province yet."))

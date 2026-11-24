@@ -348,6 +348,35 @@ func _guard(needs_time: bool) -> Dictionary:
 	return {"ok": true, "lines": []}
 
 
+## Provinces rule 9 (provinces-runtime Stage 8): the player funds the next level (or the repair) of building
+## [param kind] in province [param province_id] for their sect. It is the sect's own candidate (price at its track's
+## free level, slot, one order of a kind at a time); the player pays it, the order is marked funded_by the player, and
+## it earns contribution and standing as a mission of that cash would.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
+func fund_building(province_id: String, kind: String) -> Dictionary:
+	var g: Dictionary = _guard(false)
+	if not g.ok:
+		return g
+	if player.sect_id == "" or not db.has_record("sects", player.sect_id):
+		return {"ok": false, "lines": ["Province buildings are funded through a sect, and you belong to none."]}
+	var sect: Dictionary = db.get_record("sects", player.sect_id)
+	var cands: Array = SectWorks.candidates(gd, db, sect).filter(func(c): return str(c.province) == province_id and str(c.kind) == kind)
+	var kname: String = str(ProvinceBuildings.kind(gd, kind).get("name", kind))
+	if cands.is_empty():
+		return {"ok": false, "lines": ["%s cannot order a %s there now: not a province it pays for, no free slot, nothing it would gain, or one already building." % [str(sect.name), kname]]}
+	var c: Dictionary = cands[0]
+	var cost: int = int(ceil(float(c.cost)))
+	if player.linh_thach < cost:
+		return {"ok": false, "lines": ["Level %d of the %s costs %d linh thạch; you have %d." % [int(c.level), kname, cost, player.linh_thach]]}
+	MoneyLedger.player_pay(db, player, "", cost, "province_building")
+	var v: Dictionary = SectWorks.place_order(gd, db, c, player.id)
+	var rw: Dictionary = sect_members.mission_reward(player, cost)
+	_log("player_fund_building", {"a": player.id})
+	return {"ok": true, "lines": ["You fund %s %d of the %s in %s (%d linh thạch, %d season(s) to build): +%d contribution with %s." % [
+		"the repair of level" if bool(c.get("repair", false)) else "level", int(c.level), kname, str(v.get("name", v.id)), cost,
+		ProvinceBuildings.build_seasons(gd, kind, int(c.level)), int(rw.contribution), str(sect.name)]]}
+
+
 ## Passes one season. [param mode]: "cultivate", "closed_door" or "" (time passes only).
 ## Returns {tu_vi, stages, points, news: [event ids], died}.
 func _pass_season(mode: String) -> Dictionary:

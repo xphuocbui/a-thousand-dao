@@ -195,7 +195,42 @@ static func _holder_sect(s: GameSession, holder: String) -> Dictionary:
 ## The provinces' records (assets/data/world_provinces.json, branch provinces-v2: land, places, lore and the start
 ## record; design/ux/province-panel.md). Read-only: the data file, shared, not copied.
 static func provinces(s: GameSession) -> Array:
-	return s.gd.file("world_provinces").get("provinces", [])
+	var shapes: Array = s.gd.file("world_provinces").get("provinces", [])
+	if s.db == null or s.db.count(Provinces.TABLE) == 0:
+		return shapes
+	# provinces-runtime Stage 8: the map modes read the live development, goods, population and access (shallow copies)
+	var out: Array = []
+	for r in shapes:
+		var live: Dictionary = s.db.get_record(Provinces.TABLE, Provinces.rid(int(r.get("id", 0))))
+		if live.is_empty():
+			out.append(r)
+			continue
+		var c: Dictionary = Dictionary(r).duplicate()
+		var st: Dictionary = Dictionary(r.get("stats", {})).duplicate()
+		_live_numbers(st, live)
+		c["stats"] = st
+		out.append(c)
+	return out
+
+
+# The live numbers a province view and the map modes share: population, capacity, development (built levels plus
+# population units, the panel's index), main and secondary goods, slots, access, infrastructure and usage (F6).
+static func _live_numbers(st: Dictionary, live: Dictionary) -> void:
+	var levels: int = 0
+	for b in live.get("buildings", []):
+		if str(b.get("state", "")) != "cancelled":
+			levels += int(b.get("level", 0))
+	st["population"] = snappedf(float(live.get("population", 0.0)), 0.01)
+	st["capacity"] = snappedf(float(live.get("capacity", live.get("population", 0.0))), 0.01)
+	st["development"] = int(round(float(levels) + float(live.get("population", 0.0))))
+	st["main_good"] = null if str(live.get("main_good", "")) == "" else str(live.main_good)
+	st["secondary_goods"] = Array(live.get("secondary_goods", [])).duplicate()
+	st["slots"] = int(live.get("slots", st.get("slots", 0)))
+	if str(live.get("kind", "")) == "settlement":
+		st["access"] = snappedf(float(live.get("access", 1.0)), 0.001)
+		st["infrastructure"] = int(round(float(live.get("infra", 0.0))))
+		st["infra_old"] = int(round(maxf(0.0, float(live.get("infra_old", 0.0)))))
+		st["usage"] = int(round(float(live.get("usage", 0.0))))
 
 
 ## The province window's view (design/ux/province-panel.md) for province [param province_id]: a copy of its record
@@ -260,7 +295,7 @@ static func province(s: GameSession, province_id: int) -> Dictionary:
 		st["main_good"] = null if str(live.get("main_good", "")) == "" else str(live.main_good)
 		st["secondary_goods"] = Array(live.get("secondary_goods", [])).duplicate()
 		st["population"] = snappedf(float(live.get("population", 0.0)), 0.01)
-		st["slots"] = int(live.get("slots", st.get("slots", 0)))
+		_live_numbers(st, live)   # Stage 8: population, capacity, development, access, infrastructure, usage
 		# Stage 2: the live buildings with their states (the panel lists kind, name and level)
 		st["buildings"] = Array(live.get("buildings", [])).filter(func(b): return str(b.get("state", "")) != "cancelled").map(func(b):
 			return {"kind": str(b.kind), "name": str(ProvinceBuildings.kind(s.gd, str(b.kind)).get("name", b.kind)),
@@ -274,6 +309,7 @@ static func province(s: GameSession, province_id: int) -> Dictionary:
 			return {"text": what + left, "source": str(m.get("source", "")), "event": str(m.get("event", ""))})
 		st["states"] = Array(live.get("states", ["normal"])).duplicate()
 		rec["stats"] = st
+		rec["orders"] = province_orders(s, province_id)   # Stage 8: what the player could fund here
 	return rec
 
 
@@ -282,6 +318,18 @@ static func _abode_price(gd: GameData, id: String, level: int, g: int) -> Dictio
 	var c: Dictionary = MapWorks.cost(gd, id, level)
 	c["lt"] = int(round(float(c.lt) * CaveAbode.price_mult(gd, g, level)))
 	return c
+
+
+## Provinces Stage 8: what the player could fund in province [param province_id] for their sect now (its candidates
+## there: kind, name, level, cost, repair, the player's purse against it). [] with no sect or nothing to order. A copy.
+static func province_orders(s: GameSession, province_id: int) -> Array:
+	if s.player == null or s.player.sect_id == "" or not s.db.has_record("sects", s.player.sect_id):
+		return []
+	var sect: Dictionary = s.db.get_record("sects", s.player.sect_id)
+	var rid: String = Provinces.rid(province_id)
+	return SectWorks.candidates(s.gd, s.db, sect).filter(func(c): return str(c.province) == rid).map(func(c):
+		return {"kind": str(c.kind), "name": str(ProvinceBuildings.kind(s.gd, str(c.kind)).get("name", c.kind)), "level": int(c.level),
+			"cost": int(ceil(float(c.cost))), "repair": bool(c.get("repair", false)), "affordable": s.player.linh_thach >= int(ceil(float(c.cost)))})
 
 
 static func place_lore(s: GameSession, place_id: String) -> Dictionary:

@@ -245,3 +245,31 @@ func test_the_border_mesh_is_built_once_and_moved_with_the_view() -> void:
 	assert_eq(m.position, Vector2(-50, -20), "placed at the map's origin")
 	assert_eq(m.scale, Vector2(12, 12), "scaled to px per tile")
 	assert_true(m.show_behind_parent, "under the map's places and names")
+
+
+func test_works_show_building_states_and_the_fund_list_stage_8() -> void:
+	var st: Dictionary = _settlement().stats
+	st["buildings"] = [{"kind": "road", "name": "Road", "level": 1, "target": 2, "state": "building"},
+		{"kind": "granary", "name": "Granary", "level": 7, "target": 7, "state": "ruined"}]
+	var w := _window(_view({"stats": st, "orders": [{"kind": "road", "name": "Road", "level": 2, "cost": 1200, "repair": false, "affordable": true},
+		{"kind": "granary", "name": "Granary", "level": 7, "cost": 90000, "repair": true, "affordable": false}]}))
+	var t: String = w.section_text("works")
+	assert_true(t.contains("building to level 2"), "a building shows its target: %s" % t)
+	assert_true(t.contains("ruined: needs a repair"), "a ruined one says so")
+	assert_true(t.contains("+2"), "levels past five show a count")
+	assert_true(t.contains("Fund for your sect") and t.contains("Fund") and t.contains("1200 linh thạch"), "the fund list")
+	assert_true(t.contains("too costly") and t.contains("repair level 7"), "an order the player cannot pay, and a repair")
+
+
+func test_fund_asks_for_the_action_and_modifiers_show_states_stage_8() -> void:
+	var st: Dictionary = _settlement().stats
+	st["states"] = ["struck", "under_connected"]
+	st["modifiers"] = [{"text": "production of herb -70 % (3 seasons)", "source": "Blight (dịch hại)", "event": "blight"}]
+	var w := _window(_view({"stats": st}))
+	var got: Array = []
+	w.action_requested.connect(func(a: String, args: Array): got.append([a, args]))
+	w._on_link("fund:road")
+	assert_eq(got, [["fund_building", ["v7", "road"]]], "Fund asks the session for fund_building (the window changes nothing)")
+	var m: String = w.section_text("modifiers")
+	assert_true(m.contains("Struck") and m.contains("Under-connected"), "the states: %s" % m)
+	assert_true(m.contains("Blight (dịch hại)"), "each modifier with its source")

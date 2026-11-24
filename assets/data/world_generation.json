@@ -530,6 +530,7 @@
       "secret_realm": "{place} khai mở; {a} là người đầu tiên bước vào.",
       "newcomer": "{a} bước lên con đường tu tiên tại {place}.",
       "sect_founded": "{a} khai sáng {s1} tại {place}.",
+      "player_fund_building": "{a} góp linh thạch xây công trình cho tông môn.",
       "tick_breakthrough": "Tin đồn: {a} vừa đột phá {realm}.",
       "tick_death": "{a} ({realm}) đã tọa hóa.",
       "tick_succession": "{a} kế nhiệm {b} làm tông chủ.",

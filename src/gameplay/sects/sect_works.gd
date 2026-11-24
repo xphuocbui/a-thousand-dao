@@ -137,19 +137,7 @@ static func build_best(gd: GameData, db: WorldDB, sect: Dictionary, budget: floa
 			break
 		if spent + float(cand.cost) > budget:
 			continue
-		var v: Dictionary = db.get_record(Provinces.TABLE, str(cand.province))
-		var seasons: int = ProvinceBuildings.build_seasons(gd, str(cand.kind), int(cand.level))
-		if str(cand.building) == "":
-			v.buildings.append(ProvinceBuildings.make(v, str(cand.kind), int(cand.level), true, seasons))
-		else:
-			for b in v.buildings:
-				if str(b.id) == str(cand.building):
-					b["target"] = int(cand.level)
-					b["state"] = "building"
-					b["left"] = seasons
-					b["unpaid"] = 0
-					if bool(cand.get("repair", false)):
-						b["level"] = 0   # a repair builds the level back: it counts nothing until done (Provinces States)
+		var v: Dictionary = place_order(gd, db, cand)
 		spent += float(cand.cost)
 		built += 1
 		if bool(_cfg(gd).get("log_builds", true)):
@@ -160,6 +148,31 @@ static func build_best(gd: GameData, db: WorldDB, sect: Dictionary, budget: floa
 	sect["works_saving"] = saved - used_saved
 	sect["works_spent"] = float(sect.get("works_spent", 0.0)) + spent - used_saved
 	return spent - used_saved
+
+
+## Places candidate [param cand] (from [method candidates]) as an order on its province: a new building, or the next
+## level (or a repair) of a standing one, building over its seasons; [param funded_by] marks a player-funded order (a new
+## holder finishes it, Provinces Edge Cases). Returns the province record.
+static func place_order(gd: GameData, db: WorldDB, cand: Dictionary, funded_by: String = "") -> Dictionary:
+	var v: Dictionary = db.get_record(Provinces.TABLE, str(cand.province))
+	var seasons: int = ProvinceBuildings.build_seasons(gd, str(cand.kind), int(cand.level))
+	if str(cand.building) == "":
+		var nb: Dictionary = ProvinceBuildings.make(v, str(cand.kind), int(cand.level), true, seasons)
+		if funded_by != "":
+			nb["funded_by"] = funded_by
+		v.buildings.append(nb)
+	else:
+		for b in v.buildings:
+			if str(b.id) == str(cand.building):
+				b["target"] = int(cand.level)
+				b["state"] = "building"
+				b["left"] = seasons
+				b["unpaid"] = 0
+				if funded_by != "":
+					b["funded_by"] = funded_by
+				if bool(cand.get("repair", false)):
+					b["level"] = 0   # a repair builds the level back: it counts nothing until done (Provinces States)
+	return v
 
 
 ## A sect's upkeep due this season for the live upkept buildings of the provinces it pays for (ProvinceBuildings).
