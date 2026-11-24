@@ -453,6 +453,7 @@ the new-game screen **before** writing epics.
 | Dead records named only by the wider chronicle (14) and the legendary items as lore (34) | `design/world/records_proposal.json`, `design/world/legendary_items_proposal.json` (approved 2026-11-15) | Core Rule 5; Item Database rule 20d |
 | The history's places: 15 promoted cities, every city's founding year, 17 fixed ruins, the named parts | `design/map/continent-11/history_places_proposal.json` and `tools/design/map/history_places.py` (approved 2026-11-15) | Core Rule 15; Travel & Map rule 6 |
 | The 30 sects' start states: alignment, four levels, treasury, loyalty | `design/world/sect_start_proposal.json` (approved 2026-11-15) | Core Rule 7; AC-WG-10 |
+| The provinces-v2 history and sects (user decisions 2026-11-24): 172 annals (the end of each of the 142 new ruins, the founding of the 20 new sects, 10 other dated facts), the 20 new sect heads in the cast, the 20 sects' start states | `design/world/provinces-v2/annals_v2.json`, `cast_v2.json`, `sect_start_v2.json`, read by `export_world.py` beside the approved proposals | Core Rules 3, 5, 7 |
 | Traits for the 51 living cast members: 3 personality, 1 calling, 5 fate-given | `design/world/leader_traits_proposal.json` (approved 2026-11-15) | Core Rule 5; NPC Traits #42 |
 
 **Still to change in other files:** the Sects Open Question 9 and Travel & Map Open Question 13 should point here now

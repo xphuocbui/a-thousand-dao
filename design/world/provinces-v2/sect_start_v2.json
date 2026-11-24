@@ -1,8 +1,8 @@
 {
- "status": "PROPOSAL 2026-11-24 (user decision 4: add all 20 provinces-v2 sects as small real sects). Read by tools/design/world/export_world.py beside sect_start_proposal.json, which stays as approved.",
+ "status": "PROPOSAL 2026-11-24 (user decision 4: add all 20 provinces-v2 sects as real sects). Read by tools/design/world/export_world.py beside sect_start_proposal.json, which stays as approved. Levels and treasury raised 2026-11-24 to the authored minor start (user, after the sim showed them as easy war targets).",
  "rules": {
-  "levels": "small: the main track 2 (from the craft), the rest 1 (an existing minor sect settles at 4/3/2)",
-  "treasury": "3,500, half the minor 7,000",
+  "levels": "as sect_start_proposal minor_levels: the main track 4 (from the craft), a secondary 3 (Claude, from the craft), the rest 2",
+  "treasury": "7,000, as the authored minor sects",
   "loyalty": "sect_start_proposal's rule: 60 + 5 same alignment, -5 if one side is trung lap, -20 chinh vs ma",
   "specialty": "Claude's pick from the craft (World Generation's sect archetype), for the user's review"
  },
@@ -13,12 +13,12 @@
    "lord": "tung_dao",
    "alignment": "chinh",
    "levels": {
-    "holdings": 1,
-    "institutions": 1,
-    "military": 2,
-    "trade": 1
+    "holdings": 2,
+    "institutions": 3,
+    "military": 4,
+    "trade": 2
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "loyalty": 65,
    "founded": 1105,
    "specialty": "kiem_tu"
@@ -29,12 +29,12 @@
    "lord": "phuong_minh",
    "alignment": "chinh",
    "levels": {
-    "holdings": 1,
-    "institutions": 1,
-    "military": 1,
-    "trade": 2
+    "holdings": 3,
+    "institutions": 2,
+    "military": 2,
+    "trade": 4
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "loyalty": 65,
    "founded": 1110,
    "specialty": "linh_thuc_su"
@@ -45,12 +45,12 @@
    "lord": "phuong_minh",
    "alignment": "chinh",
    "levels": {
-    "holdings": 1,
-    "institutions": 1,
-    "military": 2,
-    "trade": 1
+    "holdings": 2,
+    "institutions": 3,
+    "military": 4,
+    "trade": 2
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "loyalty": 65,
    "founded": 790,
    "specialty": "tran_su"
@@ -61,12 +61,12 @@
    "lord": "bang_tam",
    "alignment": "chinh",
    "levels": {
-    "holdings": 1,
-    "institutions": 1,
-    "military": 2,
-    "trade": 1
+    "holdings": 2,
+    "institutions": 2,
+    "military": 4,
+    "trade": 3
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "loyalty": 65,
    "founded": 1125,
    "specialty": "kiem_tu"
@@ -77,12 +77,12 @@
    "lord": "bang_tam",
    "alignment": "trung",
    "levels": {
-    "holdings": 2,
-    "institutions": 1,
-    "military": 1,
-    "trade": 1
+    "holdings": 4,
+    "institutions": 2,
+    "military": 2,
+    "trade": 3
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "loyalty": 55,
    "founded": 1140,
    "specialty": "phap_tu"
@@ -93,12 +93,12 @@
    "lord": "lac_ha",
    "alignment": "trung",
    "levels": {
-    "holdings": 1,
-    "institutions": 2,
-    "military": 1,
-    "trade": 1
+    "holdings": 2,
+    "institutions": 4,
+    "military": 2,
+    "trade": 3
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "loyalty": 65,
    "founded": 905,
    "specialty": "phap_tu"
@@ -109,12 +109,12 @@
    "lord": "lac_ha",
    "alignment": "chinh",
    "levels": {
-    "holdings": 1,
-    "institutions": 1,
-    "military": 2,
-    "trade": 1
+    "holdings": 2,
+    "institutions": 3,
+    "military": 4,
+    "trade": 2
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "loyalty": 55,
    "founded": 806,
    "specialty": "tran_su"
@@ -125,12 +125,12 @@
    "lord": "thinh_vu",
    "alignment": "trung",
    "levels": {
-    "holdings": 1,
-    "institutions": 1,
-    "military": 1,
-    "trade": 2
+    "holdings": 2,
+    "institutions": 3,
+    "military": 2,
+    "trade": 4
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "loyalty": 55,
    "founded": 930,
    "specialty": "tran_su"
@@ -141,12 +141,12 @@
    "lord": "tung_dao",
    "alignment": "chinh",
    "levels": {
-    "holdings": 1,
-    "institutions": 1,
-    "military": 2,
-    "trade": 1
+    "holdings": 2,
+    "institutions": 2,
+    "military": 4,
+    "trade": 3
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "loyalty": 65,
    "founded": 1191,
    "specialty": "the_tu"
@@ -157,12 +157,12 @@
    "lord": "bang_tam",
    "alignment": "trung",
    "levels": {
-    "holdings": 2,
-    "institutions": 1,
-    "military": 1,
-    "trade": 1
+    "holdings": 4,
+    "institutions": 2,
+    "military": 3,
+    "trade": 2
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "loyalty": 55,
    "founded": 1162,
    "specialty": "kiem_tu"
@@ -173,12 +173,12 @@
    "lord": "thien_xu",
    "alignment": "trung",
    "levels": {
-    "holdings": 1,
-    "institutions": 1,
-    "military": 1,
-    "trade": 2
+    "holdings": 3,
+    "institutions": 2,
+    "military": 2,
+    "trade": 4
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "loyalty": 65,
    "founded": 980,
    "specialty": "kiem_tu"
@@ -189,12 +189,12 @@
    "lord": "thinh_vu",
    "alignment": "trung",
    "levels": {
-    "holdings": 2,
-    "institutions": 1,
-    "military": 1,
-    "trade": 1
+    "holdings": 4,
+    "institutions": 3,
+    "military": 2,
+    "trade": 2
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "loyalty": 55,
    "founded": 610,
    "specialty": "linh_thuc_su"
@@ -205,12 +205,12 @@
    "lord": "lac_ha",
    "alignment": "trung",
    "levels": {
-    "holdings": 1,
-    "institutions": 1,
-    "military": 1,
-    "trade": 2
+    "holdings": 2,
+    "institutions": 3,
+    "military": 2,
+    "trade": 4
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "loyalty": 65,
    "founded": 960,
    "specialty": "phap_tu"
@@ -221,12 +221,12 @@
    "lord": "lac_ha",
    "alignment": "chinh",
    "levels": {
-    "holdings": 1,
-    "institutions": 1,
-    "military": 1,
-    "trade": 2
+    "holdings": 3,
+    "institutions": 2,
+    "military": 2,
+    "trade": 4
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "loyalty": 55,
    "founded": 1065,
    "specialty": "dan_su"
@@ -237,12 +237,12 @@
    "lord": "thien_xu",
    "alignment": "chinh",
    "levels": {
-    "holdings": 1,
-    "institutions": 1,
-    "military": 1,
-    "trade": 2
+    "holdings": 3,
+    "institutions": 2,
+    "military": 2,
+    "trade": 4
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "loyalty": 55,
    "founded": 1060,
    "specialty": "dan_su"
@@ -253,12 +253,12 @@
    "lord": "tung_dao",
    "alignment": "chinh",
    "levels": {
-    "holdings": 1,
-    "institutions": 1,
-    "military": 1,
-    "trade": 2
+    "holdings": 2,
+    "institutions": 3,
+    "military": 2,
+    "trade": 4
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "loyalty": 65,
    "founded": 1060,
    "specialty": "phap_tu"
@@ -269,12 +269,12 @@
    "lord": "phuong_minh",
    "alignment": "trung",
    "levels": {
-    "holdings": 1,
-    "institutions": 1,
-    "military": 1,
-    "trade": 2
+    "holdings": 3,
+    "institutions": 2,
+    "military": 2,
+    "trade": 4
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "loyalty": 55,
    "founded": 1150,
    "specialty": "phap_tu"
@@ -285,12 +285,12 @@
    "lord": "thuy_vi",
    "alignment": "trung",
    "levels": {
-    "holdings": 1,
-    "institutions": 1,
-    "military": 2,
-    "trade": 1
+    "holdings": 2,
+    "institutions": 3,
+    "military": 4,
+    "trade": 2
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "loyalty": 55,
    "founded": 1050,
    "specialty": "tran_su"
@@ -301,12 +301,12 @@
    "lord": "thuy_vi",
    "alignment": "chinh",
    "levels": {
-    "holdings": 2,
-    "institutions": 1,
-    "military": 1,
-    "trade": 1
+    "holdings": 4,
+    "institutions": 2,
+    "military": 3,
+    "trade": 2
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "loyalty": 65,
    "founded": 910,
    "specialty": "linh_thuc_su"
@@ -317,12 +317,12 @@
    "lord": "thien_xu",
    "alignment": "chinh",
    "levels": {
-    "holdings": 1,
-    "institutions": 2,
-    "military": 1,
-    "trade": 1
+    "holdings": 2,
+    "institutions": 4,
+    "military": 2,
+    "trade": 3
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "loyalty": 55,
    "founded": 910,
    "specialty": "phap_tu"

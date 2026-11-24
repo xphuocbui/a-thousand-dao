@@ -41,6 +41,11 @@ nothing in this paragraph fixes a number.
    - **Great sect** (đại tông môn): the 7 authored powers (4 tier-1, 3 tier-2; Thính Vũ Lâu promoted to tier 1, user decision 2026-11-15). Each holds regions. A great sect has no lord.
    - **Minor sect** (tiểu tông môn): 15–25 authored sects, each inside one great sect's territory and bound to it as a
      vassal. A minor sect holds sites (its seat, towns, mines, fields), never a whole region.
+     **Provinces v2 (user decisions 2026-11-24):** 50 active sects at the start, 7 great and 43 minor: the 23 authored
+     and 20 provinces-v2 sects, one per region, each a vassal of its region's great sect. The 20 start as minor sects
+     do (Formula F1's minor settle: main track 4, secondary 3, the rest 2; treasury 7,000; loyalty by
+     `sect_start_proposal`'s rule), each with a named head in the cast (`design/world/provinces-v2/cast_v2.json`).
+     Their members come from the same world total (World Generation Formula A), so the realm targets are unchanged.
    - **Loose cultivator** (tán tu): belongs to no sect and owns only cave abodes (Travel & Map rule 24).
 2. **A sect's record.** Every sect carries: tier and kind, lord (minor sects only), seat, held regions or sites,
    alignment (chính đạo, ma đạo or trung lập, kept from the built game), elemental leaning, leader, elders, members,

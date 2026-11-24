@@ -179,6 +179,11 @@ names rather than a place.
      abode (động phủ).
 
    A settlement lowers danger, and cities and markets have trade (towns and villages do not, as built).
+
+   **Provinces v2 (user decisions 2026-11-24):** the continent has 1,494 places: the 254 authored ones and 1,240
+   provinces-v2 places (277 villages, 26 towns, 20 minor sect seats, 119 mines, 150 spirit veins, 126 beast lairs, 45
+   hot springs, 2 lava vents, 4 lightning woods, 176 peaks, 136 forests, 13 lakes, 4 gorges, 142 ruins), appended after
+   the authored ones (`design/map/continent-11/provinces_v2_places.json`).
 7. **Every place shows its stat block** (Pillar 2): the tile's mix and the part the place sits in; climate (temperature and rainfall); density; element shares
    and any variant; danger; settlement size; resources and herb fit; owner (a sect or none); and features
    (river, coast, vein). Every value is stored, inspectable and recorded in the World Database.
@@ -195,6 +200,10 @@ names rather than a place.
    ports (coastal settlements). The **wilderness** is everything else, crossed tile by tile. **As built
    (2026-11-20):** boats also cross lake tiles, so a place in a lake can be reached; open sea off the lanes is
    impassable.
+   **Tracks (user decision 2026-11-24):** a provinces-v2 settlement or mine off the roads is linked to the nearest
+   place on the network by a **track**, walked at the wilderness speed over the full terrain cost (Formula D's c_wild ×
+   speed.road / speed.wilderness on the route scale), so a track is never quicker than walking: it only joins the route
+   graph. Only new settlements within 4 tiles of a road join the road; new wild places get no route.
 10. **Speed is tiles per season.** Each mode has a speed, slowed by terrain: road about 54 tiles (about 1,300 km),
     wilderness about 18 (less in mountains, swamps and jungle), boats and ships faster along their lanes. A mixed tile
     slows by the share of each land part, and its water parts are walked around. **Flight** opens at Foundation
@@ -271,7 +280,10 @@ names rather than a place.
     needs land density 1.0 or more and Earth + Metal shares of 50 or more. **As built (2026-11-20):** the mines and
     spirit veins are the sites (no herb-ground or beast-lair places are authored); the mines carry no authored grade,
     so a site's grade follows its land density (small below 1.2, medium below 1.5, large above), a guess in
-    `map_resources.json`; a spirit vein yields linh thạch.
+    `map_resources.json`; a spirit vein yields linh thạch. **Provinces v2 (user decisions 2026-11-24):** of the 446 new site places, one province in
+    four keeps a site (175), at the authored grade **minor**, a tenth of small (`site_grade_value.minor`; it grows
+    through buildings, Provinces rule 8); the other 271 carry `no_site`: no resource site and no herb site (their herb
+    grounds stay gatherable). The new peaks, forests, lakes, gorges and ruins have their herb sites at grade minor.
 21. **Every place has a production value** per resource kind per season. It is the base output times five factors:
     - its reserve;
     - its workforce (settlement size and whether an owner works it);
@@ -660,6 +672,9 @@ depth and features.
 | Secret realm | 3 % | 1.5–2.2 | 100 % |
 | Hidden ruin or abode | 5 % | 1.0–1.6 | 30 % |
 | **Total** | 100 % | mean about 1.1 | **18.1 %** |
+
+**Provinces v2 (user decision 2026-11-24):** the provinces-v2 places get their values like any place but weigh 0 in
+Formula C's map targets and in the world means mu (Formula A), which stay those of the authored places.
 
 **Example:** bamboo forest (b 1.0, Wood 50 plus push 25, g_D +0.2). A valley place 600 km deep in it (t = 1): D4 = 1.0 +
 0.2 + 0.25 = **1.45**, a Core Formation spot. With a spirit vein 111 km away (0.4 × 0.5 = +0.2): **1.65**. The same
@@ -1772,7 +1787,7 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
   **169** of Tinh Thiết a season.
 - **AC-TM-152** Formula H2 on continent 11. GIVEN the shipped world at season 0, THEN settlements make 25–40 % of the
   world's herb value and 15–35 % of its ore value, and the world's non-mine value is within ±20 % of
-  `world_production_guess` (250,000).
+  `world_production_guess` (320,000; raised from 250,000 for the provinces-v2 places, user decision 2026-11-24).
 
 Blocked on other GDDs:
 - AC-TM-39 waits on Realms (the leftover-season exception).

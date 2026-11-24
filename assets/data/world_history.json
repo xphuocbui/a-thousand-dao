@@ -841,12 +841,12 @@
    ],
    "seat": 284,
    "levels": {
-    "holdings": 1,
-    "institutions": 1,
-    "military": 2,
-    "trade": 1
+    "holdings": 2,
+    "institutions": 3,
+    "military": 4,
+    "trade": 2
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "founded": 1105,
    "specialty": "kiem_tu",
    "lord": "tung_dao",
@@ -868,12 +868,12 @@
    ],
    "seat": 330,
    "levels": {
-    "holdings": 1,
-    "institutions": 1,
-    "military": 1,
-    "trade": 2
+    "holdings": 3,
+    "institutions": 2,
+    "military": 2,
+    "trade": 4
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "founded": 1110,
    "specialty": "linh_thuc_su",
    "lord": "phuong_minh",
@@ -895,12 +895,12 @@
    ],
    "seat": 337,
    "levels": {
-    "holdings": 1,
-    "institutions": 1,
-    "military": 2,
-    "trade": 1
+    "holdings": 2,
+    "institutions": 3,
+    "military": 4,
+    "trade": 2
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "founded": 790,
    "specialty": "tran_su",
    "lord": "phuong_minh",
@@ -922,12 +922,12 @@
    ],
    "seat": 359,
    "levels": {
-    "holdings": 1,
-    "institutions": 1,
-    "military": 2,
-    "trade": 1
+    "holdings": 2,
+    "institutions": 2,
+    "military": 4,
+    "trade": 3
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "founded": 1125,
    "specialty": "kiem_tu",
    "lord": "bang_tam",
@@ -948,12 +948,12 @@
    ],
    "seat": 361,
    "levels": {
-    "holdings": 2,
-    "institutions": 1,
-    "military": 1,
-    "trade": 1
+    "holdings": 4,
+    "institutions": 2,
+    "military": 2,
+    "trade": 3
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "founded": 1140,
    "specialty": "phap_tu",
    "lord": "bang_tam",
@@ -975,12 +975,12 @@
    ],
    "seat": 364,
    "levels": {
-    "holdings": 1,
-    "institutions": 2,
-    "military": 1,
-    "trade": 1
+    "holdings": 2,
+    "institutions": 4,
+    "military": 2,
+    "trade": 3
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "founded": 905,
    "specialty": "phap_tu",
    "lord": "lac_ha",
@@ -1002,12 +1002,12 @@
    ],
    "seat": 367,
    "levels": {
-    "holdings": 1,
-    "institutions": 1,
-    "military": 2,
-    "trade": 1
+    "holdings": 2,
+    "institutions": 3,
+    "military": 4,
+    "trade": 2
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "founded": 806,
    "specialty": "tran_su",
    "lord": "lac_ha",
@@ -1029,12 +1029,12 @@
    ],
    "seat": 372,
    "levels": {
-    "holdings": 1,
-    "institutions": 1,
-    "military": 1,
-    "trade": 2
+    "holdings": 2,
+    "institutions": 3,
+    "military": 2,
+    "trade": 4
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "founded": 930,
    "specialty": "tran_su",
    "lord": "thinh_vu",
@@ -1056,12 +1056,12 @@
    ],
    "seat": 376,
    "levels": {
-    "holdings": 1,
-    "institutions": 1,
-    "military": 2,
-    "trade": 1
+    "holdings": 2,
+    "institutions": 2,
+    "military": 4,
+    "trade": 3
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "founded": 1191,
    "specialty": "the_tu",
    "lord": "tung_dao",
@@ -1083,12 +1083,12 @@
    ],
    "seat": 406,
    "levels": {
-    "holdings": 2,
-    "institutions": 1,
-    "military": 1,
-    "trade": 1
+    "holdings": 4,
+    "institutions": 2,
+    "military": 3,
+    "trade": 2
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "founded": 1162,
    "specialty": "kiem_tu",
    "lord": "bang_tam",
@@ -1110,12 +1110,12 @@
    ],
    "seat": 427,
    "levels": {
-    "holdings": 1,
-    "institutions": 1,
-    "military": 1,
-    "trade": 2
+    "holdings": 3,
+    "institutions": 2,
+    "military": 2,
+    "trade": 4
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "founded": 980,
    "specialty": "kiem_tu",
    "lord": "thien_xu",
@@ -1137,12 +1137,12 @@
    ],
    "seat": 441,
    "levels": {
-    "holdings": 2,
-    "institutions": 1,
-    "military": 1,
-    "trade": 1
+    "holdings": 4,
+    "institutions": 3,
+    "military": 2,
+    "trade": 2
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "founded": 610,
    "specialty": "linh_thuc_su",
    "lord": "thinh_vu",
@@ -1164,12 +1164,12 @@
    ],
    "seat": 527,
    "levels": {
-    "holdings": 1,
-    "institutions": 1,
-    "military": 1,
-    "trade": 2
+    "holdings": 2,
+    "institutions": 3,
+    "military": 2,
+    "trade": 4
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "founded": 960,
    "specialty": "phap_tu",
    "lord": "lac_ha",
@@ -1191,12 +1191,12 @@
    ],
    "seat": 537,
    "levels": {
-    "holdings": 1,
-    "institutions": 1,
-    "military": 1,
-    "trade": 2
+    "holdings": 3,
+    "institutions": 2,
+    "military": 2,
+    "trade": 4
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "founded": 1065,
    "specialty": "dan_su",
    "lord": "lac_ha",
@@ -1218,12 +1218,12 @@
    ],
    "seat": 565,
    "levels": {
-    "holdings": 1,
-    "institutions": 1,
-    "military": 1,
-    "trade": 2
+    "holdings": 3,
+    "institutions": 2,
+    "military": 2,
+    "trade": 4
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "founded": 1060,
    "specialty": "dan_su",
    "lord": "thien_xu",
@@ -1245,12 +1245,12 @@
    ],
    "seat": 948,
    "levels": {
-    "holdings": 1,
-    "institutions": 1,
-    "military": 1,
-    "trade": 2
+    "holdings": 2,
+    "institutions": 3,
+    "military": 2,
+    "trade": 4
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "founded": 1060,
    "specialty": "phap_tu",
    "lord": "tung_dao",
@@ -1272,12 +1272,12 @@
    ],
    "seat": 1013,
    "levels": {
-    "holdings": 1,
-    "institutions": 1,
-    "military": 1,
-    "trade": 2
+    "holdings": 3,
+    "institutions": 2,
+    "military": 2,
+    "trade": 4
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "founded": 1150,
    "specialty": "phap_tu",
    "lord": "phuong_minh",
@@ -1299,12 +1299,12 @@
    ],
    "seat": 1063,
    "levels": {
-    "holdings": 1,
-    "institutions": 1,
-    "military": 2,
-    "trade": 1
+    "holdings": 2,
+    "institutions": 3,
+    "military": 4,
+    "trade": 2
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "founded": 1050,
    "specialty": "tran_su",
    "lord": "thuy_vi",
@@ -1326,12 +1326,12 @@
    ],
    "seat": 1105,
    "levels": {
-    "holdings": 2,
-    "institutions": 1,
-    "military": 1,
-    "trade": 1
+    "holdings": 4,
+    "institutions": 2,
+    "military": 3,
+    "trade": 2
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "founded": 910,
    "specialty": "linh_thuc_su",
    "lord": "thuy_vi",
@@ -1353,12 +1353,12 @@
    ],
    "seat": 1328,
    "levels": {
-    "holdings": 1,
-    "institutions": 2,
-    "military": 1,
-    "trade": 1
+    "holdings": 2,
+    "institutions": 4,
+    "military": 2,
+    "trade": 3
    },
-   "treasury": 3500,
+   "treasury": 7000,
    "founded": 910,
    "specialty": "phap_tu",
    "lord": "thien_xu",

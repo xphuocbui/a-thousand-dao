@@ -58,12 +58,14 @@ Without provinces the economy can only see 20 regions, and the land's variety ne
 
 **What a province is**
 
-1. **Fixed provinces.** The continent has 273 provinces, generated from the authored map and the same every game
-   (`assets/map/continent_11_provinces.json`). The game asset ships a tile-to-province index (today only in
-   `design/map/continent-11/provinces/province_ids.png`; to be added to the asset). Each province lies inside one
-   region, and every place belongs to the province its tile is in.
-   - A **settlement province** grows from one seat: a village, market, town, city or sect seat (141).
-   - A **wilderness province** has no settlement (132).
+1. **Fixed provinces.** The continent has 705 provinces, generated from the authored map by
+   `tools/design/map/provinces_v2.py` (rivers are barriers, so most rivers run on borders) and the same every game
+   (`assets/map/continent_11_provinces.json`, with the tile-to-province index
+   `assets/map/continent_11_province_ids.bin`). Each province has a stable key (`prov_<seat key>` or
+   `prov_r<region>_<n>`). Each lies inside one region, and every place belongs to the province its tile is in
+   (user decision 2026-11-24, provinces-v2).
+   - A **settlement province** grows from one seat: a village, market, town, city or sect seat (468).
+   - A **wilderness province** has no settlement (237).
 2. **Holder.** A province belongs to its region's great sect, because a region is held whole (Sects rule 3). A minor
    sect whose seat lies in a province is that province's **local lord**: it builds there and draws its income from it,
    inside the great sect's territory. War moves regions, and their provinces move with them.
@@ -81,6 +83,11 @@ Without provinces the economy can only see 20 regions, and the land's variety ne
    - **Local price** per good, written by Regional Economy & Trade.
 
    A wilderness province has land, resources and buildings, and no people.
+
+   The panel (user decisions 2026-11-24): its spec is `design/ux/province-panel.md` (draft). **Development** is a
+   display summary (built levels plus population units) that nothing reads. **Population** is shown as people, 1 unit
+   = 1,000 mortals (`ui_hud.json` `greybox.mortals_per_unit`); the formulas stay in units. F6's prototype access
+   figures were measured on the 273 provinces and are re-measured on the 705 (`measure_access.py`).
 
 **Resources**
 
@@ -131,6 +138,11 @@ Without provinces the economy can only see 20 regions, and the land's variety ne
    - **Production:** spirit fields (herbs), mine works (ore), hunting lodge (beast parts), workshop (a craft-capacity
      effect that Trade Goods reads; it adds no output class to `prod`, F4, OQ 2). A wilderness outpost is one of the
      first three.
+   - **Site growth** (user decision 2026-11-24, provinces-v2). A new site starts at grade **minor**, a tenth of small
+     (`site_grade_value.minor`). Each level of its province's matching production building (mine works for a mine,
+     hunting lodge for a beast lair, spirit fields for a spirit vein or hot spring) above level 1 raises it one grade
+     step (minor, small, medium, large), never above the grade its land density gives it (Travel & Map's
+     `grade_by_density`).
    - **Logistics:** road, caravan post, river or harbour landing (needs a river or coast), storehouse (more stock kept,
      less spoilage).
    - **Society:** market hall (the shop's depth and margin), granary (population capacity, famine resistance), warding
@@ -155,7 +167,20 @@ Without provinces the economy can only see 20 regions, and the land's variety ne
      decided for great projects, 2026-11-23).
    - Nobody builds in a province of a sect at war with them.
 10. **Starting buildings.** Settlement provinces start developed (Travel & Map rule 33): a set of buildings by seat
-    kind, authored with the map. A great seat starts with the most, a village with a field and a road. Where land and
+    kind, all at level 1 (user decision 2026-11-24, provinces-v2):
+
+    | Seat | Starting buildings |
+    |---|---|
+    | Village | road |
+    | Market | road, market hall |
+    | Town | road, market hall, granary |
+    | Minor sect seat | road, gathering array, warding wall |
+    | City | road ×2, market hall ×2, granary, caravan post |
+    | Great sect seat | road ×3, market hall ×2, granary ×2, caravan post ×2, gathering array ×2, warding wall |
+
+    Every settlement province also starts with its main good's production building (spirit fields, mine works or a
+    hunting lodge); a town, market or city on a coast or a river (6 river tiles or more) with a landing; a wilderness
+    province with a mine, with mine works (its outpost). Where land and
     starting buildings leave a province below access `start_access_min`, it gets **old roads and porters**
     (`infra_old`, Formula F6): a flat infrastructure top-up fixed at world generation, part of the land, shown as its
     own line in the panel, using no slot and never ruined (user decision 2026-11-23).

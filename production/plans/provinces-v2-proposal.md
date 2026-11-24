@@ -203,6 +203,32 @@ Notes:
   - It is not run yet: it is the user's call.
 - **Restless sects:** 10 of the new sects are trung lập under a chính đạo lord, at loyalty 55 by sect_start's rule.
 
+## Decisions after the merge (user, 2026-11-24)
+
+1. **Sect wars:** the 20 new sects start as the authored minor sects do (levels 4 / 3 / 2, treasury 7,000);
+   Re-checked on three seeds (100 years, `merged2-sim-*.md` against `baseline-sim-*.md`):
+
+   | | Baseline (11 / 12 / 13) | Merged |
+   |---|---|---|
+   | Sect wars declared | 16 / 29 / 14 | 34 / 42 / 33 |
+   | Largest great sect's vassals in 1300 | 7 / 11 / 7 | 14 / 18 / 18 |
+
+   - The snowball (34 vassals) is gone.
+   - Wars run about 1.8× with 1.9× the minor sects, so the war rate per sect matches the baseline.
+   - Money in 1300 is 5–10 % higher.
+2. **The neighbour effect** (new villages raising old sites' output): accepted, no price pass.
+3. **AC-TM-152:** `world_production_guess` is 320,000 ± 20 % (Travel & Map amended). Regional Economy & Trade's check
+   AC-RE-36 reads the same key at 250,000 and is not amended yet: the user's call.
+4. **GDD deltas:** all approved and written:
+   - Provinces: rule 1; rule 8's site growth (each level above 1, one step); rule 10; the panel lines in rule 3.
+   - Travel & Map: rules 6, 9 (tracks kept) and 20; Formula C; AC-TM-152.
+   - Sects: rule 1.
+   - World Generation: the inputs table.
+
+   Site growth is not built: no province buildings exist at runtime yet (Provinces is data only), so it is built with
+   the province buildings.
+5. **Claude's choices:** the worked-lore kept mix and the 20 specialties are accepted.
+
 ## Before pushing this branch
 
 **DONE (2026-11-24, user: "convert them to LFS").** The branch's 23 commits were rewritten with git plumbing so the 23
