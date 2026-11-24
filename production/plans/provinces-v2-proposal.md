@@ -50,7 +50,11 @@ Regional Economy & Trade (#43) stay as approved, and this file lists the changes
 
 ## Decisions for the user (most important first)
 
-1. **The economy cannot take the new sites as they are.** At the same output as existing sites of their kind, the
+1. **DECIDED (user, 2026-11-24): (a) and (b) together.** About one province in four keeps a real economic site, and
+   the kept sites start at a tenth of today's small grade and grow; the rest are places with no site. World place
+   output ×1.46; a demand and price pass follows the merge.
+
+   **The economy cannot take the new sites as they are.** At the same output as existing sites of their kind, the
    new places add about **3.9 times** the world's current place output (existing 267,517 a season; new 1,053,919), so the
    world would make 4.9 times what it makes now. Nearly
    all of it is the 440 new economic sites: 119 mines, 150 spirit veins, 126 beast lairs and 45 hot springs, each near
@@ -73,24 +77,28 @@ Regional Economy & Trade (#43) stay as approved, and this file lists the changes
    So even the smallest merge raises the world's output by about a third, mostly from the new villages; any merge
    needs a demand and price pass. Until decided, the stats compute the sites at full output, which is why about half
    the settlement provinces start at the 0.5 access floor.
-2. **705 provinces instead of 273.** This changes the Provinces GDD rule 1 (count; 141/132 split → 468 settlement after the new villages, 237 wilderness) and the
+2. **DECIDED (user, 2026-11-24): keep 705.** **705 provinces instead of 273.** This changes the Provinces GDD rule 1 (count; 141/132 split → 468 settlement after the new villages, 237 wilderness) and the
    prototype measurements in F6. The economy reads provinces only on paper so far, so no code breaks (survey: no system in
    `src/gameplay` reads provinces).
-3. **New places are a proposal file, not yet world data.** `world_continent.json` still has 254 places. Merging the
+3. **DECIDED (user, 2026-11-24): merge now, on the branch,** in one pass with the decision-1 site rule, the tests,
+   the census and the demand and price pass; the user reviews before main. **New places are a proposal file, not yet world data.** `world_continent.json` still has 254 places. Merging the
    1,240 into it would change world generation, travel, discovery and tests (`continent_data_test.gd` asserts 254 places,
    23 minor sects, 181 settled). Recommended: merge after decision 1, in one pass with the census and the parallel suite.
-4. **20 proposed minor sects** (one per region), each with key, alignment, leans, craft and founding year in its
+4. **DECIDED (user, 2026-11-24): add all 20 as small real sects,** their members taken from the existing
+   5,000-cultivator total (world size and difficulty targets unchanged). **20 proposed minor sects** (one per region), each with key, alignment, leans, craft and founding year in its
    region's lore file. Sects rule and world generation count sects (30 active today), so they stay proposals.
-5. **Starting buildings by seat kind** (rule 10 says "authored with the map"; the draft sets: a village gets a road; a
+5. **DECIDED (user, 2026-11-24): accept as drafted** (START_BUILDINGS in `province_stats_v2.py`, plus the main
+   good's building and a landing); goes into Provinces rule 10, shown to the user first. **Starting buildings by seat kind** (rule 10 says "authored with the map"; the draft sets: a village gets a road; a
    great seat gets three roads, two market halls, two granaries, two caravan posts, two gathering arrays and a warding
    wall; plus the main good's production building). Are these right?
-6. **Development** as a display index (built levels plus population units), and **population units** shown as the
+6. **DECIDED (user, 2026-11-24): development stays a display summary** (nothing reads it); **population is shown
+   as people, 1 unit = 1,000 mortals** (display only; the game computes in units). **Development** as a display index (built levels plus population units), and **population units** shown as the
    GDD's settlement units: keep both, or show people (1 unit = 1,000 mortals?).
-7. **New history:** the writers added small facts (new ruins with dates and causes, a few disasters, one more Thôn Hải
+7. **DECIDED (user, 2026-11-24): add all** to `world_history.json` in the merge pass. **New history:** the writers added small facts (new ruins with dates and causes, a few disasters, one more Thôn Hải
    raid in 744). The writers' reports list them, and none contradicts the annals as far as they checked. Worth a read
    before merging into `world_history.json`. The new facts are only in the lore files for now.
 
-8. **Ridges.** Borders now follow rivers (a river tile is twice as likely as chance to be on a border), but not ridges
+8. **DECIDED (user, 2026-11-24): keep as is.** No re-cut; ridges stay a known gap. **Ridges.** Borders now follow rivers (a river tile is twice as likely as chance to be on a border), but not ridges
    (1.1×, against 1.35× in the old cut). Costly climbing makes a mountain range its own province with borders at its
    feet, and crossing a crest must cost the same both ways for a border to sit on it. Tried on the same seeds
    (`FINAL_UP` / `FINAL_DOWN` in `provinces_v2.py`):
@@ -118,6 +126,15 @@ Regional Economy & Trade (#43) stay as approved, and this file lists the changes
 - **Regional Economy & Trade:** re-measure F6's access figures, `measure_access.py`, with the new shapes.
 
 ## Before pushing this branch
+
+**DONE (2026-11-24, user: "convert them to LFS").** The branch's 23 commits were rewritten with git plumbing so the 23
+screenshots in `production/qa/evidence/province-panel/` and the 5 previews in `design/map/continent-11/provinces-v2/`
+are LFS pointers, and every rewritten commit's `.gitattributes` carries both rules. The branch's own blobs went from
+about 131 MB to 23 MB; `git lfs fsck` is OK; trees are unchanged otherwise. The old head is kept as
+`provinces-v2-pre-lfs` (1304e65f). The trial folders are still on disk: deleting them was blocked by permissions, so
+the user deletes them.
+
+Before (kept for the record):
 
 - **About 87 MB of screenshots in `production/qa/evidence/province-panel/` went into the branch history as plain PNG
   files, not LFS.** The LFS rule for that folder was only added at the end, so new ones go to LFS. Two tries with `git
