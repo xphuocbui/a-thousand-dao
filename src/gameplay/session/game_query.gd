@@ -448,7 +448,8 @@ static func character(s: GameSession, person_id: String = "") -> Dictionary:
 		return {"key": key, "name": str(d.get("name", key)), "kind": str(d.get("tech_kind", "")), "layer": int(e.layer), "layers": int(d.get("layers", 0)),
 			"mastery": float(e.get("mastery", 0.0)), "next_cost": CongPhap.layer_cost(gd, d, nxt, c.realm_index) if nxt <= int(d.get("layers", 0)) else -1.0,
 			"gated": nxt <= int(d.get("layers", 0)) and CongPhap.gated(c, nxt), "usable": CongPhap.usable(c, d),
-			"elements": Array(d.get("elements", d.get("names", []))).duplicate(), "id": str(d.get("id", ""))}
+			"elements": Array(d.get("elements", d.get("names", []))).duplicate(), "id": str(d.get("tech_id", d.get("id", ""))),
+			"icon": tech_icon(d)}
 	for row in slot_rows:
 		out.slots.append({"slot": row[0], "index": row[1], "tech": tech_view.call(str(row[2]))})
 	for key in c.techniques:
@@ -1091,6 +1092,24 @@ static func _sect_notables(s: GameSession, rec: Dictionary) -> Array:
 		out.append({"id": str(p.id), "name": str(p.get("name", "")), "rank": s.sect_members.rank_name(str(p.get("sect_rank", ""))) if s.sect_members != null else "",
 			"realm_label": s.gd.realm_label(int(p.get("realm_index", 0)), int(p.get("stage", 0))), "portrait": portrait_of(s, p)})
 	return out
+
+
+## The painted icon of technique definition [param d] (tools/asset-pipeline/icons/gen_tech_icons.py): its own
+## assets/icons/techniques/tech_<tech_id>.png when one was painted for it, else the type's
+## tech_<kind>_<element>_<band>.png (kind main / secret / body; element the one it names, "multi" for several; band low
+## for Hoàng and Huyền giai, high for Địa and Thiên). "" when neither exists.
+static func tech_icon(d: Dictionary) -> String:
+	var own: String = "res://assets/icons/techniques/tech_%s.png" % str(d.get("tech_id", d.get("id", "")))
+	if ResourceLoader.exists(own):
+		return own
+	var kind: String = str(d.get("tech_kind", "main"))
+	var els: Array = Array(d.get("names", d.get("elements", [])))
+	var el: String = "body" if kind == "body" else (str(els[0]) if els.size() == 1 else "multi")
+	if not el in ["kim", "moc", "thuy", "hoa", "tho", "multi", "body"]:
+		el = "multi"
+	var band: String = "high" if int(d.get("tier", 0)) >= 2 else "low"
+	var path: String = "res://assets/icons/techniques/tech_%s_%s_%s.png" % [kind if kind in ["main", "secret", "body"] else "main", el, band]
+	return path if ResourceLoader.exists(path) else ""
 
 
 ## The painted icon of item record [param it] (tools/asset-pipeline/icons/gen_item_icons.py): res:// path of

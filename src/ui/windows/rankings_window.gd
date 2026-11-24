@@ -136,7 +136,7 @@ func _build() -> void:
 	var rows: Array = Array(v.get("rows", []))
 	var q: String = WorldDB.fold(_search.text.strip_edges())
 	var g: VBoxContainer = Illustrated.ground(body)
-	if q == "" and rows.size() >= 3:
+	if q == "" and rows.size() >= 3 and not compact:   # 1280x720: the table first; the top three still head it
 		_podium(g, rows.slice(0, 3))
 	_into = Illustrated.inset(g, "")
 	_column_head()
@@ -233,9 +233,9 @@ func _column_head() -> void:
 	h.name = "ColumnHead"
 	var cols: Array = [["#", 48], ["", 40], [tr("Name"), 0], [tr("Sect"), 150], [tr("Stage"), 200], [tr("Power"), 80], [tr("Fights"), 50]]
 	if str(view.get("which", "")) == "top":
-		cols.insert(3, [tr("Realm"), 90])   # the Vấn Đỉnh Bảng holds two realms (rule 9)
+		cols.insert(4, [tr("Realm"), 90])   # the Vấn Đỉnh Bảng holds two realms (rule 9); after #, portrait, Name, Sect
 	if compact:
-		cols.remove_at(2)   # the compact layout drops the Sect column (the sect is in the row's tooltip and name)
+		cols.remove_at(3)   # the compact layout drops the Sect column (after #, portrait, Name) (the sect is in the row's tooltip and name)
 	for pair in cols:
 		var l := Label.new()
 		l.text = str(pair[0])

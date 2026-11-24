@@ -338,9 +338,13 @@ func _build_header(v: Dictionary) -> void:
 	name.text = str(v.get("name", ""))
 	name.theme_type_variation = &"HeadingLabel"
 	var standing_text: String = _standing(v)
-	header.add_child(name)
 	TooltipLayer.set_tip(name, {"title": name.text, "fact": standing_text})   # the standing itself sits in the Cultivation inset
 	var nums := HBoxContainer.new()
+	if compact:   # 1280x720: the name joins the numbers on one line, so the sticky header leaves room for the sheet
+		name.text += "  ·  "
+		nums.add_child(name)
+	else:
+		header.add_child(name)
 	var age := Label.new()
 	var age_v: float = float(v.get("age", 0.0))
 	var life: float = float(v.get("lifespan", 0.0))
@@ -630,7 +634,7 @@ func _build_cong_phap(v: Dictionary, parent: Control) -> void:
 func _tech_icon(t: Dictionary) -> Texture2D:
 	if t.is_empty():
 		return null
-	var own: Texture2D = Illustrated.tex("res://assets/icons/techniques/tech_%s.png" % str(t.get("id", "")))
+	var own: Texture2D = Illustrated.tex(str(t.get("icon", "")))   # GameQuery.tech_icon: its own, else its type's
 	if own != null:
 		return own
 	var els: Array = Array(t.get("elements", []))

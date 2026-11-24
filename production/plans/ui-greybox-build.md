@@ -80,6 +80,15 @@ Theme), and later screens are built in the final style.
 | Z6 window host | `src/ui/windows/window_host.gd`, `game_window.gd`, `assets/data/ui_windows.json` | Built 2026-11-23 night: frame, history (back / forward, Alt+← / →, mouse 4 / 5, forward entries dropped), focus return, sticky header, section jumps (Home / End, LT / RT), reply strip (3 lines + dismiss), Z2 buttons and hotkeys from `ui_windows.json` |
 | Character sheet | `src/ui/windows/character_window.gd`, `GameQuery.character`; spec `design/ux/character-sheet.md` (lean r1 NEEDS REVISION, all 11 findings applied) | Built 2026-11-23 night, see its section below |
 
+## Technique icons and the 1280x720 pass (2026-11-24, user: "do 3 and 4")
+- 26 technique type icons (tools/asset-pipeline/icons/gen_tech_icons.py → assets/icons/techniques/tech_<kind>_<element>_
+  <band>.png: main / secret / body × kim, moc, thuy, hoa, tho, multi × low (Hoàng, Huyền) / high (Địa, Thiên));
+  GameQuery.tech_icon picks a technique's own tech_<tech_id>.png first, else its type's. Fixed: the cards looked for
+  the icon by "id" while technique definitions carry "tech_id".
+- 1280x720 pass over every illustrated window (production/qa/evidence/ui-windows/compact-1280/): the character and
+  person sheets put the name on the numbers line (the sticky header was eating the short window), the rankings skip
+  the podium in compact; fixed the rankings column indices after the portrait column (compact dropped Name, not Sect).
+
 ## One character window for everyone (2026-11-24, user: "why we cant reuse our character screen for other characters")
 - GameQuery.character(s, person_id): any person's full sheet from their record and build stat sheet (no rate,
   bottleneck or slot choices), plus a "person" block (GameQuery.person) for the Interact tab.

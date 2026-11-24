@@ -181,4 +181,4 @@ func test_the_compact_layout_folds_the_standing_line_into_the_name() -> void:
 	w.compact = true
 	add_child(w)
 	w.show_view(_view(), "", false)
-	assert_eq(w.header.get_child_count(), 3, "name, numbers and the tab row only (the standing line sits in the Cultivation inset)")
+	assert_eq(w.header.get_child_count(), 2, "one line (name and numbers) and the tab row (the standing line sits in the Cultivation inset)")
