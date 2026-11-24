@@ -166,3 +166,24 @@ func test_population_shows_as_people_one_unit_a_thousand_mortals() -> void:
 	assert_eq(ProvincePanel.people(0.04), "0", "rounded to the hundred")
 	assert_eq(ProvincePanel.people(1234.5), "1,234,500", "thousands separators")
 	assert_eq(ProvincePanel.people(2.0, 500.0), "1,000", "the scale is a knob")
+
+
+func test_a_province_without_a_painting_shows_the_placeholder_not_a_stand_in() -> void:
+	# .claude/rules/ui-code.md (user 2026-11-24): missing art is shown as an obvious placeholder
+	var p := _panel()
+	p.open_province(_settlement(), {})
+	assert_true(p.shows_placeholder(), "no painting: the placeholder shows")
+	var img := ImageTexture.create_from_image(Image.create(4, 4, false, Image.FORMAT_RGB8))
+	p.open_province(_settlement(), {}, img)
+	assert_false(p.shows_placeholder(), "a painting: no placeholder")
+
+
+func test_the_placeholder_is_obvious() -> void:
+	var c: Control = PlaceholderArt.make(Vector2(0, 100), "No painting yet")
+	auto_free(c)
+	assert_true(bool(c.get_meta("placeholder", false)), "marked as a placeholder")
+	assert_true(c.tooltip_text.contains("PLACEHOLDER") and c.tooltip_text.contains("No painting yet"), c.tooltip_text)
+	var tex: Texture2D = PlaceholderArt.texture()
+	assert_true(PlaceholderArt.is_placeholder(tex), "the shared texture")
+	var im: Image = tex.get_image()
+	assert_eq(im.get_pixel(0, 0), PlaceholderArt.MAGENTA, "magenta stripes")

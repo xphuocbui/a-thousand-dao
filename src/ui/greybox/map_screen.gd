@@ -1190,12 +1190,13 @@ func _open_province(province_id: int) -> void:
 	for p in rec.get("places", []):
 		if p.has("id"):
 			order.append(int(p.id))
-	for cid in order:
-		art = _map.place_art(cid)
+	for cid in order:   # the place catalogue's banner painting, else the map's place art
+		art = PortraitPicker.place_painting(cid)
+		if art == null:
+			art = _map.place_art(cid)
 		if art != null:
 			break
-	if art == null:   # no painted place: the province's own piece of the painted map
-		art = _map.province_art(province_id)
+	# no painted place: the panel shows PlaceholderArt (.claude/rules/ui-code.md, user 2026-11-24), not a map crop
 	_places.close_panel()
 	_panel.close_panel()
 	_province.open_province(rec, ctx, art, _map)

@@ -27,6 +27,7 @@ var _title := Label.new()
 var _han := Label.new()
 var _sub := Label.new()
 var _image := TextureRect.new()
+var _no_image: Control = null   # PlaceholderArt when the province has no painting
 var _stats := HBoxContainer.new()
 var _tabs := TabBar.new()
 var _body := RichTextLabel.new()
@@ -60,6 +61,9 @@ func _init() -> void:
 	_image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	_image.custom_minimum_size = Vector2(0, 170)
 	box.add_child(_image)
+	_no_image = PlaceholderArt.make(Vector2(0, 170), tr("No painting yet"))   # missing art is shown as missing
+	_no_image.visible = false
+	box.add_child(_no_image)
 	_stats.add_theme_constant_override("separation", 8)
 	box.add_child(_stats)
 	for t in TABS:
@@ -95,6 +99,7 @@ func open_province(rec: Dictionary, ctx: Dictionary, image: Texture2D = null, op
 	_sub.text = " · ".join(bits)
 	_image.texture = image
 	_image.visible = image != null
+	_no_image.visible = image == null
 	_build_stats()
 	_tabs.current_tab = 0
 	_fill()
@@ -146,6 +151,11 @@ static func good_name(c: String) -> String:
 
 ## Mortals shown for [param units] settlement units (user decision 2026-11-24: population as people, 1 unit = 1,000
 ## mortals; the game computes in units), rounded to the hundred, with thousands separators: 3.4 -> "3,400".
+## Whether the picture slot shows the missing-art placeholder (no painting for this province; tests).
+func shows_placeholder() -> bool:
+	return _no_image != null and _no_image.visible
+
+
 static func people(units: float, per_unit: float = 1000.0) -> String:
 	var n: int = int(round(units * per_unit / 100.0)) * 100
 	var s: String = str(absi(n))
