@@ -197,7 +197,7 @@
     "slot_px": 48,
     "ward_px": 40,
     "chip_px": 32,
-    "portrait_px": 56,
+    "portrait_px": 120,
     "side_colors": {
       "A": "#A8D0FF",
       "B": "#FFB890"

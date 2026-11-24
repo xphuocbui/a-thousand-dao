@@ -1,0 +1,78 @@
+{
+  "_doc": "DRAFT for the user's approval (design/gdd/formations.md Open Question 4; production/plans/combat-formations.md). Each diagram: id, name, name_vi, grade 0-4, realm_min, skill_min (Trận Pháp), reserve_share, source, taught_by, nodes [{polarity +|-|?, rule, node_score, pos [x, y]}], links [{kind feed, from, to, seconds} | {kind adj, a, b}]. Rules use only what the engine runs (Diagrams.apply): mod {key damage_pct | art_speed_pct | art_cost_pct, value, scope [tags]}, adj_mod {key, value, tag}, gate {cond {read, op, value}}. Values are at strength 1 (grade 0, level 1); positive and gate nodes and feeds scale with S, negative ones do not. pos is for drawing only.",
+  "starter": "tam_tai",
+  "diagrams": [
+    {"id": "tam_tai", "name": "Three Talents Chain", "name_vi": "Tam Tài Trận", "grade": 0, "realm_min": 0, "skill_min": 0, "reserve_share": 0.02,
+     "source": "taught", "taught_by": "everyone (the starter)",
+     "nodes": [
+       {"polarity": "+", "rule": {"type": "mod", "key": "art_speed_pct", "value": 12, "scope": []}, "node_score": 12, "pos": [0, 0]},
+       {"polarity": "+", "rule": {"type": "mod", "key": "damage_pct", "value": 10, "scope": []}, "node_score": 10, "pos": [1, 0]},
+       {"polarity": "-", "rule": {"type": "mod", "key": "art_cost_pct", "value": 12, "scope": []}, "node_score": -6, "pos": [2, 0]}],
+     "links": [{"kind": "feed", "from": 1, "to": 2, "seconds": 1.0}, {"kind": "feed", "from": 2, "to": 3, "seconds": 1.0}]},
+
+    {"id": "song_nhan", "name": "Twin Edge Fork", "name_vi": "Song Nhận Trận", "grade": 0, "realm_min": 0, "skill_min": 0, "reserve_share": 0.03,
+     "source": "taught", "taught_by": "sword and body sects, outer disciple",
+     "nodes": [
+       {"polarity": "+", "rule": {"type": "mod", "key": "art_speed_pct", "value": 15, "scope": ["quick"]}, "node_score": 15, "pos": [0, 1]},
+       {"polarity": "+", "rule": {"type": "mod", "key": "damage_pct", "value": 14, "scope": ["heavy"]}, "node_score": 14, "pos": [1, 0]},
+       {"polarity": "+", "rule": {"type": "mod", "key": "damage_pct", "value": 14, "scope": ["heavy"]}, "node_score": 14, "pos": [1, 2]}],
+     "links": [{"kind": "feed", "from": 1, "to": 2, "seconds": 1.2}, {"kind": "feed", "from": 1, "to": 3, "seconds": 1.2}]},
+
+    {"id": "quy_giap", "name": "Turtle Shell", "name_vi": "Quy Giáp Trận", "grade": 0, "realm_min": 0, "skill_min": 0, "reserve_share": 0.03,
+     "source": "taught", "taught_by": "righteous sects, outer disciple",
+     "nodes": [
+       {"polarity": "+", "rule": {"type": "mod", "key": "art_cost_pct", "value": -15, "scope": ["ward"]}, "node_score": 12, "pos": [0, 1]},
+       {"polarity": "?", "rule": {"type": "gate", "cond": {"read": "own.hp_share", "op": "<=", "value": 0.6}}, "node_score": 6, "pos": [2, 1]},
+       {"polarity": "+", "rule": {"type": "adj_mod", "key": "art_speed_pct", "value": 12, "tag": "ward"}, "node_score": 8, "pos": [1, 0]}],
+     "links": [{"kind": "adj", "a": 1, "b": 3}, {"kind": "adj", "a": 2, "b": 3}]},
+
+    {"id": "tu_tuong", "name": "Four Symbols Square", "name_vi": "Tứ Tượng Trận", "grade": 1, "realm_min": 1, "skill_min": 1, "reserve_share": 0.05,
+     "source": "taught", "taught_by": "formation-master sects, inner disciple",
+     "nodes": [
+       {"polarity": "+", "rule": {"type": "adj_mod", "key": "damage_pct", "value": 12, "tag": "quick"}, "node_score": 12, "pos": [0, 0]},
+       {"polarity": "+", "rule": {"type": "adj_mod", "key": "art_speed_pct", "value": 12, "tag": "heavy"}, "node_score": 12, "pos": [2, 0]},
+       {"polarity": "+", "rule": {"type": "adj_mod", "key": "damage_pct", "value": 12, "tag": "quick"}, "node_score": 12, "pos": [2, 2]},
+       {"polarity": "+", "rule": {"type": "adj_mod", "key": "art_speed_pct", "value": 12, "tag": "heavy"}, "node_score": 12, "pos": [0, 2]}],
+     "links": [{"kind": "adj", "a": 1, "b": 2}, {"kind": "adj", "a": 2, "b": 3}, {"kind": "adj", "a": 3, "b": 4}, {"kind": "adj", "a": 4, "b": 1}]},
+
+    {"id": "loi_co", "name": "Thunder Drum Chain", "name_vi": "Lôi Cổ Trận", "grade": 1, "realm_min": 1, "skill_min": 1, "reserve_share": 0.05,
+     "source": "taught", "taught_by": "lightning and demonic sects, inner disciple",
+     "nodes": [
+       {"polarity": "-", "rule": {"type": "mod", "key": "damage_pct", "value": -15, "scope": []}, "node_score": -8, "pos": [0, 0]},
+       {"polarity": "+", "rule": {"type": "mod", "key": "art_speed_pct", "value": 10, "scope": []}, "node_score": 10, "pos": [1, 0]},
+       {"polarity": "+", "rule": {"type": "mod", "key": "art_speed_pct", "value": 10, "scope": []}, "node_score": 10, "pos": [2, 0]},
+       {"polarity": "+", "rule": {"type": "mod", "key": "damage_pct", "value": 25, "scope": ["heavy"]}, "node_score": 25, "pos": [3, 0]}],
+     "links": [{"kind": "feed", "from": 1, "to": 2, "seconds": 1.5}, {"kind": "feed", "from": 2, "to": 3, "seconds": 1.5}, {"kind": "feed", "from": 3, "to": 4, "seconds": 1.5}]},
+
+    {"id": "boi_thuy", "name": "Back to the River", "name_vi": "Bối Thủy Trận", "grade": 1, "realm_min": 1, "skill_min": 1, "reserve_share": 0.04,
+     "source": "taught", "taught_by": "loose cultivators' manual (a later drop); sects of any path, inner disciple",
+     "nodes": [
+       {"polarity": "?", "rule": {"type": "gate", "cond": {"read": "own.hp_share", "op": "<=", "value": 0.5}}, "node_score": 6, "pos": [1, 0]},
+       {"polarity": "+", "rule": {"type": "mod", "key": "damage_pct", "value": 20, "scope": []}, "node_score": 20, "pos": [0, 1]},
+       {"polarity": "+", "rule": {"type": "mod", "key": "damage_pct", "value": 20, "scope": []}, "node_score": 20, "pos": [2, 1]},
+       {"polarity": "-", "rule": {"type": "mod", "key": "art_cost_pct", "value": 25, "scope": []}, "node_score": -8, "pos": [1, 2]}],
+     "links": [{"kind": "feed", "from": 4, "to": 1, "seconds": 2.0}, {"kind": "adj", "a": 2, "b": 1}, {"kind": "adj", "a": 3, "b": 1}]},
+
+    {"id": "ngu_hanh", "name": "Five Phases Ring", "name_vi": "Ngũ Hành Trận", "grade": 2, "realm_min": 2, "skill_min": 2, "reserve_share": 0.08,
+     "source": "taught", "taught_by": "formation-master sects, core disciple",
+     "nodes": [
+       {"polarity": "+", "rule": {"type": "mod", "key": "damage_pct", "value": 14, "scope": ["wood"]}, "node_score": 14, "pos": [2, 0]},
+       {"polarity": "+", "rule": {"type": "mod", "key": "damage_pct", "value": 14, "scope": ["fire"]}, "node_score": 14, "pos": [4, 1.5]},
+       {"polarity": "+", "rule": {"type": "mod", "key": "damage_pct", "value": 14, "scope": ["earth"]}, "node_score": 14, "pos": [3.2, 4]},
+       {"polarity": "+", "rule": {"type": "mod", "key": "damage_pct", "value": 14, "scope": ["metal"]}, "node_score": 14, "pos": [0.8, 4]},
+       {"polarity": "+", "rule": {"type": "mod", "key": "damage_pct", "value": 14, "scope": ["water"]}, "node_score": 14, "pos": [0, 1.5]}],
+     "links": [{"kind": "feed", "from": 1, "to": 2, "seconds": 1.0}, {"kind": "feed", "from": 2, "to": 3, "seconds": 1.0}, {"kind": "feed", "from": 3, "to": 4, "seconds": 1.0},
+       {"kind": "feed", "from": 4, "to": 5, "seconds": 1.0}, {"kind": "feed", "from": 5, "to": 1, "seconds": 1.0}]},
+
+    {"id": "nhat_nguyet", "name": "Sun and Four Moons", "name_vi": "Nhật Nguyệt Trận", "grade": 2, "realm_min": 2, "skill_min": 2, "reserve_share": 0.09,
+     "source": "taught", "taught_by": "great sects, core disciple",
+     "nodes": [
+       {"polarity": "+", "rule": {"type": "mod", "key": "damage_pct", "value": 30, "scope": ["heavy"]}, "node_score": 30, "pos": [1, 1]},
+       {"polarity": "-", "rule": {"type": "mod", "key": "art_cost_pct", "value": 15, "scope": []}, "node_score": -5, "pos": [1, 0]},
+       {"polarity": "-", "rule": {"type": "mod", "key": "art_cost_pct", "value": 15, "scope": []}, "node_score": -5, "pos": [2, 1]},
+       {"polarity": "-", "rule": {"type": "mod", "key": "art_cost_pct", "value": 15, "scope": []}, "node_score": -5, "pos": [1, 2]},
+       {"polarity": "-", "rule": {"type": "mod", "key": "art_cost_pct", "value": 15, "scope": []}, "node_score": -5, "pos": [0, 1]}],
+     "links": [{"kind": "feed", "from": 2, "to": 1, "seconds": 0.8}, {"kind": "feed", "from": 3, "to": 1, "seconds": 0.8},
+       {"kind": "feed", "from": 4, "to": 1, "seconds": 0.8}, {"kind": "feed", "from": 5, "to": 1, "seconds": 0.8}]}
+  ]
+}

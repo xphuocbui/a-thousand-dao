@@ -41,7 +41,9 @@ static func _find(root: Node, name: String) -> Node:
 
 
 func test_the_tabs_hold_the_twelve_sections_in_order() -> void:
-	var w := _window(_view())
+	var v0 := _view()
+	v0["formations"] = _formations()   # the player's sheet carries the formation editor (Combat tab)
+	var w := _window(v0)
 	var all: Array = []
 	for t in CharacterWindow.TABS:
 		if str(t[0]) == "interact":
@@ -49,7 +51,7 @@ func test_the_tabs_hold_the_twelve_sections_in_order() -> void:
 		w.open_tab(str(t[0]))
 		assert_eq(w.section_keys(), Array(t[2]), "tab %s" % t[0])
 		all += Array(t[2])
-	assert_eq(all.size(), 12, "the eleven of character-sheet.md and the traits row (2026-11-24)")
+	assert_eq(all.size(), 13, "the eleven of character-sheet.md, the traits row and the formation editor (2026-11-24)")
 	for k in CharacterWindow.SECTIONS:
 		assert_true(all.has(k), "%s is on a tab" % k)
 
@@ -203,3 +205,45 @@ func test_block_is_points_and_evade_a_share_in_the_combat_groups() -> void:
 	assert_false(str((_find(w, "Stat_block") as PanelContainer).accessibility_name).contains("%"), "block is points, not a share")
 	assert_true(str((_find(w, "Stat_evade") as PanelContainer).accessibility_name).contains("12 %"))
 	assert_true(_find(w, "Stat_resist_fire") != null, "typed resistances get their own group")
+
+
+static func _formations() -> Dictionary:
+	var nodes: Array = [{"n": 1, "polarity": "+", "words": "+12% art speed", "pos": [0, 0], "open": true, "unlock": 1, "art": "a1", "art_name": "Quick Cut", "icon": "", "slot": 0},
+		{"n": 2, "polarity": "+", "words": "+10% damage", "pos": [1, 0], "open": true, "unlock": 1, "art": "", "art_name": "", "icon": "", "slot": -1},
+		{"n": 3, "polarity": "-", "words": "+12% art cost", "pos": [2, 0], "open": false, "unlock": 2, "art": "", "art_name": "", "icon": "", "slot": -1}]
+	var cur := {"id": "fx", "name": "Fixture Line", "name_vi": "Thử Trận", "grade": 0, "level": 1, "level_eff": 1, "max_level": 2, "strength": 1.0,
+		"nodes": nodes, "links": [{"kind": "feed", "a": 2, "b": 1, "seconds": 0.8, "bend": 0.3, "open": true, "unlock": 1}], "figure": [],
+		"open_nodes": 2, "total_nodes": 3, "reserve_share": 0.02, "idea": "", "taught_by": ""}
+	return {"slots": 3, "set": "fx", "lay": true, "current": cur, "fuel": 1, "stones": 30, "reserved": 0.02, "reserve_cap": 0.9,
+		"shares": {"laid": 1.0, "carried": 0.7, "blind": 0.5}, "event_waiting": false,
+		"known": [{"id": "", "name": "Plain Row", "name_vi": "", "set": false, "can": true, "reason": "", "view": {"nodes": []}},
+			{"id": "fx", "name": "Fixture Line", "name_vi": "Thử Trận", "set": true, "can": true, "reason": "", "view": cur},
+			{"id": "big", "name": "Too Big", "name_vi": "", "set": false, "can": false, "reason": "5 nodes but 3 art slots", "view": cur}],
+		"pool": [{"id": "a1", "name": "Quick Cut", "icon": "", "tags": [], "node": 1}, {"id": "a2", "name": "Heavy Palm", "icon": "", "tags": [], "node": 0}]}
+
+
+func test_the_formation_editor_places_an_art_in_the_chosen_node() -> void:
+	var v := _view()
+	v["formations"] = _formations()
+	var w := _window(v)
+	w.open_tab("combat")
+	var got: Array = []
+	w.action_requested.connect(func(a: String, args: Array): got.append([a, args]))
+	assert_true((_find(w, "Art_a2") as Button).disabled, "no node selected: an art cannot be placed yet")
+	(_find(w, "Board") as FormationBoard).node_button(2).pressed.emit()
+	(_find(w, "Art_a2") as Button).pressed.emit()
+	assert_eq(got, [["place_diagram_art", [2, "a2"]]], "node 2, then the art")
+	assert_true((_find(w, "Formation_big") as Button).disabled, "a formation that cannot be set is greyed")
+	(_find(w, "Formation_plain") as Button).pressed.emit()
+	assert_eq(got[1], ["set_diagram", [""]], "the Plain Row sets the default line")
+
+
+func test_the_formation_editor_is_look_only_while_an_event_waits() -> void:
+	var v := _view()
+	var f := _formations()
+	f["event_waiting"] = true
+	v["formations"] = f
+	var w := _window(v)
+	w.open_tab("combat")
+	assert_true((_find(w, "Formation_plain") as Button).disabled)
+	assert_true((_find(w, "LayToggle") as Button).disabled)

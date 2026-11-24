@@ -379,6 +379,19 @@ committed 2026-11-22; that document wins where the two differ).
 
 ---
 
+## Revision: combat formations (2026-11-24)
+
+Rebuilt to the user's pick B2 (`prototypes/ui-mood/out/r5-fight-b2-l.png`; round 4 and the old screen were "really
+bad"). Each column: the painted portrait in a round medallion (PortraitPicker; ui_hud.json fight_screen.portrait_px
+120), name, realm and the gauges; the side's formation drawn on a `FormationBoard` (figure, curved links, feeds with
+seconds, + / − / ? badges, closed nodes dashed "L<n>"; a carried formation a little dimmer), titled "FORMATION · <name> ·
+laid 100 %" or "carried 70 %", with the live art slots on its nodes (`FightSlot` frame "node": round, the cooldown a gold
+arc sweeping clockwise, a bright ring on firing) and any plain slots in a row under it; a side with no formation shows
+the Plain Row on the same board as a straight row of plain nodes. Below: Wards beside Items, Buffs beside Debuffs,
+Status beside four key numbers (ward, block, evade, crit). The stale "not built yet" tooltip is gone. The fight record
+carries each side's formation (`GameQuery.practice_fight` a.diagram / b.diagram, a `diagram_view` with each node's slot
+index) and portrait.
+
 ## Open Questions
 
 1. No player journey map or art bible look yet. Author the journey map from `.claude/docs/templates/player-journey.md`;

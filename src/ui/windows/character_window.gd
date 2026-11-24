@@ -17,7 +17,7 @@ extends GameWindow
 
 ## The section keys in jump order: the illustrated layout's reading order (left column first, then the right, the
 ## công pháp cards, the insets two by two), which replaced character-sheet.md's list order on 2026-11-24.
-const SECTIONS := ["talents", "cultivation", "traits", "roots", "vitals", "cong_phap", "combat", "dao_do", "gear", "crafts", "fate", "lifespan"]
+const SECTIONS := ["talents", "cultivation", "traits", "roots", "vitals", "cong_phap", "formation", "combat", "dao_do", "gear", "crafts", "fate", "lifespan"]
 ## The tabs (the round-3 mock-up's tab row, user 2026-11-24): [key, title, its sections]. Overview holds the mock-up's
 ## page; a jump to a section on another tab opens that tab first. Interact exists only for another person.
 ## The verbs of npc-interaction-dialogue.md rules 8-11, by group; only Greet runs in the greybox.
@@ -30,7 +30,7 @@ const PERSON_VERBS := [
 	["Bonds", ["companion:Recruit a companion", "disciple:Take a disciple", "brotherhood:Swear brotherhood (kết nghĩa)", "dao_lu:Seek Dao companionship (đạo lữ)"]],
 ]
 const TABS := [["interact", "Interact", ["interact", "verbs"]], ["overview", "Overview", ["talents", "cultivation", "traits", "roots", "vitals", "cong_phap"]],
-	["combat", "Combat", ["combat"]], ["equipment", "Equipment", ["dao_do", "gear", "crafts"]], ["fate", "Fate & life", ["fate", "lifespan"]]]
+	["combat", "Combat", ["formation", "combat"]], ["equipment", "Equipment", ["dao_do", "gear", "crafts"]], ["fate", "Fate & life", ["fate", "lifespan"]]]
 ## Hán marks per element (a shape beside the colour; accessibility-requirements.md colour audit).
 const ELEMENT_MARKS := {"kim": "金", "moc": "木", "thuy": "水", "hoa": "火", "tho": "土"}
 
@@ -619,8 +619,293 @@ const COMBAT_HINTS := {
 }
 
 
+# The Combat tab (the user's pick 2026-11-24, mock-up r5-tab-a; design/ux/diagram-editor.md): the formation editor,
+# then every combat number in its groups.
 func _build_combat(v: Dictionary, parent: Control) -> void:
-	var box: VBoxContainer = section_in(parent, "combat", tr("Combat"))
+	if v.has("formations") and not (v.formations as Dictionary).is_empty():
+		_build_formations(v.formations, parent)
+	_build_combat_numbers(v, parent)
+
+
+var _sel_node: int = 0   # the formation node selected for placing an art (1-based; 0 none)
+
+
+# The formation editor: the collection (left), the board with its level track (centre), the arts (right), the prices.
+func _build_formations(f: Dictionary, parent: Control) -> void:
+	var box: VBoxContainer = section_in(parent, "formation", tr("Formation (trận đồ)"))
+	var look_only: bool = locked or bool(f.get("event_waiting", false))
+	var cols: BoxContainer = VBoxContainer.new() if compact else HBoxContainer.new()
+	cols.add_theme_constant_override("separation", 10)
+	box.add_child(cols)
+	# C1 the collection
+	var coll := VBoxContainer.new()
+	coll.name = "Collection"
+	coll.custom_minimum_size = Vector2(0 if compact else 250, 0)
+	coll.add_theme_constant_override("separation", 6)
+	cols.add_child(coll)
+	var ch := Label.new()
+	ch.text = tr("FORMATIONS")
+	ch.theme_type_variation = &"RowLabel"
+	coll.add_child(ch)
+	var list: Container = HFlowContainer.new() if compact else VBoxContainer.new()
+	list.add_theme_constant_override("separation", 6)
+	coll.add_child(list)
+	for k in Array(f.get("known", [])):
+		list.add_child(_formation_card(k, look_only))
+	# C2 the board
+	var centre := VBoxContainer.new()
+	centre.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	centre.size_flags_stretch_ratio = 2.2
+	centre.add_theme_constant_override("separation", 6)
+	cols.add_child(centre)
+	var cur: Dictionary = f.get("current", {})
+	var plaque: PanelContainer = Illustrated.plaque(("%s · %s" % [str(cur.name), str(cur.name_vi)]) if not cur.is_empty() else tr("Plain Row · your arts in plain slots"))
+	plaque.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	centre.add_child(plaque)
+	if cur.is_empty():
+		var row := HFlowContainer.new()
+		row.name = "PlainRow"
+		row.add_theme_constant_override("h_separation", 8)
+		centre.add_child(row)
+		for a in Array(f.get("pool", [])):
+			row.add_child(_art_icon(str(a.icon), 56.0, str(a.name)))
+		line(tr("No rules, no reservation, no fuel. Choose a formation on the left to arrange your arts."), centre)
+	else:
+		var board := FormationBoard.new()
+		board.name = "Board"
+		board.custom_minimum_size = Vector2(0, 260 if compact else 360)
+		board.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		board.node_px = 30.0
+		board.selected = _sel_node
+		board.show_view(cur)
+		board.node_pressed.connect(_on_formation_node.bind(look_only))
+		centre.add_child(board)
+		# the level track: one pip per level, lit to the current, and what the next level does
+		var lt := HBoxContainer.new()
+		lt.name = "LevelTrack"
+		lt.alignment = BoxContainer.ALIGNMENT_CENTER
+		lt.add_theme_constant_override("separation", 4)
+		centre.add_child(lt)
+		for L in range(1, int(cur.max_level) + 1):
+			var pip := Label.new()
+			pip.text = "●" if L <= int(cur.level_eff) else "○"
+			pip.add_theme_color_override("font_color", Color("#C9A25A") if L <= int(cur.level_eff) else Color("#8A7A5A"))
+			pip.add_theme_font_size_override("font_size", 22)
+			lt.add_child(pip)
+		var lw := Label.new()
+		lw.text = "  " + _level_words(cur)
+		lw.theme_type_variation = &"RowLabel"
+		lt.add_child(lw)
+		var rz: Dictionary = f.get("raise", {})
+		if int(cur.max_level) > 1 and not rz.is_empty():   # F3: raise it a level (at home, for linh thạch)
+			var rb := Button.new()
+			rb.name = "RaiseFormation"
+			rb.text = tr("Raise to level %d (%d linh thạch)…") % [int(rz.target), int(rz.cost)] if int(rz.target) <= int(cur.max_level) else tr("Raise…")
+			rb.disabled = look_only or not bool(rz.ok)
+			TooltipLayer.set_tip(rb, {"title": tr("Raise the formation"), "summary": str(rz.reason) if not bool(rz.ok) else tr("Raises it a level now; higher levels are stronger, and some open nodes or links.")})
+			var rid: String = str(cur.id)
+			rb.pressed.connect(func(): action_requested.emit("raise_diagram", [rid]))
+			lt.add_child(rb)
+		if str(cur.get("idea", "")) != "":
+			var idea := line(str(cur.idea), centre)
+			idea.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	# C3 the arts
+	var arts := VBoxContainer.new()
+	arts.name = "Arts"
+	arts.custom_minimum_size = Vector2(0 if compact else 230, 0)
+	arts.add_theme_constant_override("separation", 6)
+	cols.add_child(arts)
+	var ah := Label.new()
+	ah.text = tr("YOUR ARTS")
+	ah.theme_type_variation = &"RowLabel"
+	arts.add_child(ah)
+	var alist: Container = HFlowContainer.new() if compact else VBoxContainer.new()
+	alist.add_theme_constant_override("separation", 6)
+	arts.add_child(alist)
+	for a in Array(f.get("pool", [])):
+		alist.add_child(_art_card(a, look_only or cur.is_empty()))
+	if _sel_node > 0 and not cur.is_empty():
+		var held: String = ""
+		for nd in Array(cur.nodes):
+			if int(nd.n) == _sel_node:
+				held = str(nd.art)
+		var hint := line(tr("Node %d selected: click an art to place it.") % _sel_node, arts)
+		hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		if held != "":
+			var empty := Button.new()
+			empty.name = "EmptyNode"
+			empty.text = tr("Empty node %d") % _sel_node
+			empty.disabled = look_only
+			var nsel: int = _sel_node
+			empty.pressed.connect(func():
+				_sel_node = 0
+				action_requested.emit("place_diagram_art", [nsel, ""]))
+			arts.add_child(empty)
+	# C4 the price of the choice
+	var prices: GridContainer = Illustrated.grid(box, 2 if compact else 4, 8)
+	prices.name = "Prices"
+	var stones: int = int(f.get("stones", 0))
+	var fuel: int = int(f.get("fuel", 0))
+	var short: bool = fuel > stones and not cur.is_empty()
+	prices.add_child(Illustrated.tile(Illustrated.tex("res://assets/icons/hud/res_linh_thach.png"), tr("Lay fuel"),
+		(tr("%d of %d linh thạch") % [fuel, stones]) if not cur.is_empty() else tr("none"), tr("short: carried at 70 %") if short else tr("burnt when a foreseen fight begins")))
+	prices.add_child(Illustrated.tile(Illustrated.tex("res://assets/icons/hud/res_cultivation.png"), tr("Linh lực reserved"),
+		"%.0f %%" % (float(f.get("reserved", 0.0)) * 100.0), tr("cap %.0f %% with wards") % (float(f.get("reserve_cap", 0.9)) * 100.0)))
+	var sh: Dictionary = f.get("shares", {})
+	prices.add_child(Illustrated.tile(null, tr("Strength"), tr("laid %.0f %%") % (float(sh.get("laid", 1.0)) * 100.0),
+		tr("ambush %.0f %% · blind %.0f %%") % [float(sh.get("carried", 0.7)) * 100.0, float(sh.get("blind", 0.5)) * 100.0]))
+	var lay := Button.new()
+	lay.name = "LayToggle"
+	lay.toggle_mode = true
+	lay.button_pressed = bool(f.get("lay", true))
+	lay.text = tr("Lay when foreseen: %s") % (tr("On") if lay.button_pressed else tr("Off"))
+	lay.disabled = look_only or cur.is_empty()
+	TooltipLayer.set_tip(lay, {"title": tr("Lay when foreseen"), "summary": tr("On: in a foreseen fight the formation is laid (its fuel burnt) and works at 100 %. Off: it is always carried at 70 % and burns nothing.")})
+	lay.toggled.connect(func(on: bool): action_requested.emit("set_diagram_lay", [on]))
+	lay.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	prices.add_child(lay)
+
+
+func _level_words(cur: Dictionary) -> String:
+	if int(cur.max_level) <= 1:
+		return tr("One level: complete as taught")
+	var L: int = int(cur.level_eff)
+	if L >= int(cur.max_level):
+		return tr("Level %d of %d: the highest") % [L, int(cur.max_level)]
+	var opens: Array = Array(cur.nodes).filter(func(n): return int(n.unlock) == L + 1).map(func(n): return str(n.n))
+	var links: int = Array(cur.links).filter(func(l): return int(l.unlock) == L + 1).size()
+	var next: String = (tr("opens node %s") % ", ".join(opens)) if not opens.is_empty() else (tr("opens %d links") % links if links > 0 else tr("more strength"))
+	return tr("Level %d of %d · next level: %s") % [L, int(cur.max_level), next]
+
+
+func _on_formation_node(n: int, look_only: bool) -> void:
+	if look_only:
+		return
+	_sel_node = 0 if _sel_node == n else n
+	show_view(view, "formation", locked)
+
+
+# A collection card: the formation's shape as a small gold drawing, its name, and what it is now.
+func _formation_card(k: Dictionary, look_only: bool) -> Button:
+	var b := Button.new()
+	b.name = "Formation_" + (str(k.id) if str(k.id) != "" else "plain")
+	b.custom_minimum_size = Vector2(240 if not compact else 170, 64)
+	b.toggle_mode = true
+	b.button_pressed = bool(k.set)
+	b.disabled = look_only or not bool(k.can)
+	var edge: Color = Color("#E3B860") if bool(k.set) else Illustrated.BRASS_DIM
+	for st in ["normal", "hover", "pressed", "hover_pressed", "focus", "disabled"]:
+		b.add_theme_stylebox_override(st, Illustrated.box(Color("#2A1C12") if st != "hover" else Color("#3A2718"), edge, 3 if bool(k.set) else 1, 4.0, 3))
+	var row := HBoxContainer.new()
+	row.set_anchors_preset(Control.PRESET_FULL_RECT)
+	row.offset_left = 6
+	row.offset_right = -6
+	row.add_theme_constant_override("separation", 8)
+	row.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	b.add_child(row)
+	var th := FormationBoard.new()
+	th.thumb = true
+	th.custom_minimum_size = Vector2(52, 52)
+	th.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	th.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	th.dim = 1.0 if bool(k.can) else 0.45
+	var kv: Dictionary = k.view
+	if Array(kv.get("nodes", [])).is_empty():   # the Plain Row: a row of dots
+		kv = {"nodes": [{"pos": [0, 0], "open": true}, {"pos": [1, 0], "open": true}, {"pos": [2, 0], "open": true}], "links": [], "figure": []}
+	th.show_view(kv)
+	row.add_child(th)
+	var col := VBoxContainer.new()
+	col.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	col.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	row.add_child(col)
+	var nm := Label.new()
+	nm.text = str(k.name) + ("  ✓" if bool(k.set) else "")
+	nm.add_theme_color_override("font_color", Illustrated.BONE if bool(k.can) else Color(Illustrated.BONE, 0.5))
+	nm.add_theme_font_size_override("font_size", 16)
+	nm.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	nm.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	col.add_child(nm)
+	var sub := Label.new()
+	var vv: Dictionary = k.view
+	sub.text = str(k.get("name_vi", "")) if str(k.id) == "" else (tr("%d nodes · L%d") % [int(vv.get("open_nodes", 0)), int(vv.get("level_eff", 1))])
+	sub.add_theme_color_override("font_color", Color(Illustrated.BONE, 0.7))
+	sub.add_theme_font_size_override("font_size", 16)
+	sub.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	col.add_child(sub)
+	TooltipLayer.set_tip(b, {"title": "%s · %s" % [str(k.name), str(k.get("name_vi", ""))], "fact": str(k.reason) if not bool(k.can) else "",
+		"summary": str(vv.get("idea", "")) + (("  " + tr("Taught by: %s.") % str(vv.taught_by)) if str(vv.get("taught_by", "")) != "" else "")})
+	b.accessibility_name = "%s, %s%s" % [str(k.name), tr("set") if bool(k.set) else tr("known"), (", " + str(k.reason)) if not bool(k.can) else ""]
+	var id: String = str(k.id)
+	b.pressed.connect(func():
+		_sel_node = 0
+		action_requested.emit("set_diagram", [id]))
+	return b
+
+
+# An art card: its painted icon, name, and where it sits; with a node selected, a click places it there.
+func _art_card(a: Dictionary, disabled: bool) -> Button:
+	var b := Button.new()
+	b.name = "Art_" + str(a.id)
+	b.custom_minimum_size = Vector2(200 if not compact else 150, 56)
+	b.disabled = disabled or _sel_node == 0
+	for st in ["normal", "hover", "pressed", "focus", "disabled"]:
+		b.add_theme_stylebox_override(st, Illustrated.box(Illustrated.PAPER_TILE if st != "hover" else Color("#E6D6AE"), Illustrated.BRASS_DIM, 1, 4.0, 3))
+	var row := HBoxContainer.new()
+	row.set_anchors_preset(Control.PRESET_FULL_RECT)
+	row.offset_left = 4
+	row.add_theme_constant_override("separation", 8)
+	row.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	b.add_child(row)
+	var ic := _art_icon(str(a.icon), 46.0, str(a.name))
+	ic.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	row.add_child(ic)
+	var col := VBoxContainer.new()
+	col.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	col.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	row.add_child(col)
+	var nm := Label.new()
+	nm.text = str(a.name)
+	nm.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	nm.custom_minimum_size = Vector2(120, 0)
+	nm.add_theme_font_size_override("font_size", 16)
+	nm.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	col.add_child(nm)
+	var where := Label.new()
+	where.text = (tr("in node %d") % int(a.node)) if int(a.get("node", 0)) > 0 else tr("plain slot")
+	where.theme_type_variation = &"RowLabel"
+	where.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	col.add_child(where)
+	b.accessibility_name = "%s, %s" % [str(a.name), where.text]
+	TooltipLayer.set_tip(b, {"title": str(a.name), "fact": where.text, "summary": tr("Select a node on the board, then click this art to place it there.") if _sel_node == 0 else tr("Place it in node %d.") % _sel_node})
+	var aid: String = str(a.id)
+	b.pressed.connect(func():
+		var n: int = _sel_node
+		_sel_node = 0
+		action_requested.emit("place_diagram_art", [n, aid]))
+	return b
+
+
+func _art_icon(path: String, px: float, what: String) -> Control:
+	var frame := PanelContainer.new()
+	frame.add_theme_stylebox_override("panel", Illustrated.box(Color("#1B120C"), Illustrated.BRASS_DIM, 1, 2.0, 3))
+	frame.custom_minimum_size = Vector2(px, px)
+	frame.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	var t := TextureRect.new()
+	t.texture = Illustrated.tex(path)
+	if t.texture == null:
+		t.texture = PlaceholderArt.texture()
+		t.stretch_mode = TextureRect.STRETCH_TILE
+	else:
+		t.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	t.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	t.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	frame.add_child(t)
+	TooltipLayer.set_tip(frame, what)
+	return frame
+
+
+func _build_combat_numbers(v: Dictionary, parent: Control) -> void:
+	var box: VBoxContainer = section_in(parent, "combat", tr("Combat numbers"))
 	var rows: Array = Array(v.get("combat", []))
 	if rows.is_empty():
 		line("—", box)

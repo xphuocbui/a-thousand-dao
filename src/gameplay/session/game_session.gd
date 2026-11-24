@@ -154,6 +154,7 @@ func new_game(seed_v: int, spec: Dictionary) -> Dictionary:
 	_choose_start(str(spec.get("start", "")))
 	player.id = db.add("people", player.to_dict())
 	_place_player()
+	_teach_starter_diagram()
 	knowledge = MapKnowledge.start(gd, db, player) if db.has_record("world", "w_meta") else null
 	if edge:
 		for si in ProgressionEdges.config(gd).player.starting_items:
@@ -1532,6 +1533,169 @@ func set_slot(slot: String, index: int, key: String, confirm: bool = false) -> D
 	return {"ok": true, "lines": ["Slots set. Speed factor: %s = x%.2f." % [f.label, f.mult]]}
 
 
+# --- Formations Part I: the player's combat diagram (design/gdd/formations.md rules 1-12) ------------------------
+
+## Rule 8 (user 2026-11-24: taught only, one at the start): the player knows the catalogue's starter diagram and has
+## it set, the arts placed by fit (F4).
+func _teach_starter_diagram() -> void:
+	var sid: String = str(Diagrams.cfg(gd).get("starter", ""))
+	var rec: Dictionary = Diagrams.record_of(gd, sid)
+	if rec.is_empty() or player == null:
+		return
+	if not player.known_diagrams.any(func(k): return str(k.id) == sid):
+		player.known_diagrams.append({"id": sid, "level": 1})
+	if player.diagram.is_empty():
+		player.diagram = {"id": sid, "level": 1, "placement": Diagrams.place(rec, _diagram_pool(), 1).placement, "lay": true}
+
+
+## The arts a diagram's nodes can hold: the player's compiled art pool, [{id, tags}] in slot order.
+func _diagram_pool() -> Array:
+	var prof: FighterProfile = FighterCompiler.compile(player, gd, db, sheet())
+	return [] if prof == null else prof.arts.map(func(a): return {"id": str(a.id), "tags": Array(a.tags_s)})
+
+
+## Rules 2-4: sets the known diagram [param id] as the loadout ("" for the default line, the Plain Row), keeping its
+## level and placing the arts by fit. Refused while an event waits, for an unknown id, or when its open nodes pass the
+## art slots or its reservation the cap (rule 3, rule 9a). {ok, lines}.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
+func set_diagram(id: String) -> Dictionary:
+	var g: Dictionary = _guard(false)
+	if not g.ok:
+		return g
+	if id == "":
+		player.diagram = {}
+		_sync_and_rate()
+		return {"ok": true, "lines": ["The Plain Row: your arts in plain slots."]}
+	var known: Array = player.known_diagrams.filter(func(k): return str(k.id) == id)
+	var rec: Dictionary = Diagrams.record_of(gd, id)
+	if known.is_empty() or rec.is_empty():
+		return {"ok": false, "lines": ["You do not know that formation."]}
+	var level: int = int(known[0].get("level", 1))
+	var check: Dictionary = diagram_check(rec, level)
+	if not bool(check.ok):
+		return {"ok": false, "lines": [str(check.reason)]}
+	var lay: bool = bool(player.diagram.get("lay", true))
+	player.diagram = {"id": id, "level": level, "placement": Diagrams.place(rec, _diagram_pool(), Diagrams.level_eff(gd, level,
+		player.skill_level("tran_phap"), player.has_capability(15), int(rec.get("max_level", 99)))).placement, "lay": lay}
+	_sync_and_rate()
+	return {"ok": true, "lines": ["%s set as your formation." % str(rec.get("name", id))]}
+
+
+## Rule 8: the player learns the catalogue's diagram [param id] at level 1 (taught: by a sect, a manual; the screenshot
+## fixtures). Already known: nothing changes. {ok, lines}.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
+func learn_diagram(id: String) -> Dictionary:
+	var rec: Dictionary = Diagrams.record_of(gd, id)
+	if rec.is_empty():
+		return {"ok": false, "lines": ["No such formation."]}
+	if player.known_diagrams.any(func(k): return str(k.id) == id):
+		return {"ok": true, "lines": ["You already know %s." % str(rec.get("name", id))]}
+	player.known_diagrams.append({"id": id, "level": 1})
+	_sync_and_rate()
+	return {"ok": true, "lines": ["You learn %s (%s)." % [str(rec.get("name", id)), str(rec.get("name_vi", ""))]]}
+
+
+## F3 and rule 7: raising the known diagram [param id] a level: {ok, reason, cost, target, cap}. The level cap is
+## min(its max_level, Trận Pháp skill + 1) (+2 with the keystone); raising is done at home (the abode, rule 7) and costs
+## raise_cost(grade, target) linh thạch (its materials are not in the game yet). Read-only.
+func diagram_raise_check(id: String) -> Dictionary:
+	var rec: Dictionary = Diagrams.record_of(gd, id)
+	var known: Array = player.known_diagrams.filter(func(k): return str(k.id) == id)
+	if rec.is_empty() or known.is_empty():
+		return {"ok": false, "reason": "You do not know that formation.", "cost": 0, "target": 0, "cap": 0}
+	var level: int = int(known[0].get("level", 1))
+	var own: int = int(rec.get("max_level", 5))
+	var cap: int = mini(mini(int(Diagrams.cfg(gd).strength.max_level), player.skill_level("tran_phap") + 1) + (2 if player.has_capability(15) else 0), own)
+	var target: int = level + 1
+	var cost: int = Diagrams.raise_cost(gd, int(rec.get("grade", 0)), target)
+	var why: String = ""
+	if level >= own:
+		why = "%s has no higher level." % str(rec.get("name", id))
+	elif level >= cap:
+		why = "Your Trận Pháp skill caps it at level %d." % cap
+	elif player.location_id != player.home_id:
+		why = "Raise it at home (your abode)."
+	elif float(player.linh_thach) < float(cost):
+		why = "It costs %d linh thạch; you have %d." % [cost, int(player.linh_thach)]
+	return {"ok": why == "", "reason": why, "cost": cost, "target": target, "cap": cap}
+
+
+## F3: raises the known diagram [param id] a level (diagram_raise_check), paying its linh thạch (burn_formation,
+## Formula H). The Set diagram keeps its placement; a node the new level opens starts empty.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
+func raise_diagram(id: String) -> Dictionary:
+	var g: Dictionary = _guard(false)
+	if not g.ok:
+		return g
+	var chk: Dictionary = diagram_raise_check(id)
+	if not bool(chk.ok):
+		return {"ok": false, "lines": [str(chk.reason)]}
+	MoneyLedger.player_pay(db, player, "", int(chk.cost), "formation")
+	for k in player.known_diagrams:
+		if str(k.id) == id:
+			k["level"] = int(chk.target)
+	if str(player.diagram.get("id", "")) == id:
+		player.diagram["level"] = int(chk.target)
+	_sync_and_rate()
+	var rec: Dictionary = Diagrams.record_of(gd, id)
+	return {"ok": true, "lines": ["%s raised to level %d (%d linh thạch)." % [str(rec.get("name", id)), int(chk.target), int(chk.cost)]]}
+
+
+## Rules 3 and 9a for the player: whether [param rec] at [param level] can be set now. {ok, reason}.
+func diagram_check(rec: Dictionary, level: int) -> Dictionary:
+	var sh: StatSheet = sheet()
+	var l_eff: int = Diagrams.level_eff(gd, level, player.skill_level("tran_phap"), player.has_capability(15), int(rec.get("max_level", 99)))
+	var prof: FighterProfile = FighterCompiler.compile(player, gd, db, sh)
+	var sl: Array = gd.file("combat_library").get("constants", {}).get("slots_by_realm", [3, 4, 5, 6, 7])
+	var slots: int = int(sl[clampi(player.realm_index, 0, sl.size() - 1)]) + int(sh.total("bonus_slots"))
+	var k: CombatConstants = CombatConstants.from_game_data(gd)
+	return Diagrams.can_set(rec, slots, 0.0 if prof == null else prof.reserved, sh.total("reserve_eff_pct"), k.reserve_cap, l_eff)
+
+
+## Rule 4: puts art [param art_id] in node [param node] (1-based) of the Set diagram ("" empties it); an art already in
+## another node moves here (each art sits in one node). Refused for a closed node or an art the player does not have.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
+func place_diagram_art(node: int, art_id: String) -> Dictionary:
+	var g: Dictionary = _guard(false)
+	if not g.ok:
+		return g
+	var rec: Dictionary = Diagrams.record_of(gd, str(player.diagram.get("id", "")))
+	if rec.is_empty():
+		return {"ok": false, "lines": ["No formation is set: the Plain Row has no nodes."]}
+	var nodes: Array = rec.get("nodes", [])
+	if node < 1 or node > nodes.size():
+		return {"ok": false, "lines": ["No such node."]}
+	var level: int = Diagrams.level_eff(gd, int(player.diagram.get("level", 1)), player.skill_level("tran_phap"), player.has_capability(15), int(rec.get("max_level", 99)))
+	if not Diagrams.is_open(nodes[node - 1], level):
+		return {"ok": false, "lines": ["That node opens at level %d." % int(nodes[node - 1].get("unlock", 1))]}
+	if art_id != "" and not _diagram_pool().any(func(a): return str(a.id) == art_id):
+		return {"ok": false, "lines": ["You have no such art in your slots."]}
+	var pl: Array = Array(player.diagram.get("placement", [])).duplicate()
+	pl.resize(nodes.size())
+	for i in pl.size():
+		if pl[i] == null:
+			pl[i] = ""
+		if art_id != "" and str(pl[i]) == art_id:
+			pl[i] = ""
+	pl[node - 1] = art_id
+	player.diagram["placement"] = pl
+	_sync_and_rate()
+	return {"ok": true, "lines": ["Node %d: %s." % [node, art_id if art_id != "" else "empty"]]}
+
+
+## Rule 9: whether the player lays the Set diagram (burns fuel) in a foreseen fight, or always carries it.
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
+func set_diagram_lay(on: bool) -> Dictionary:
+	var g: Dictionary = _guard(false)
+	if not g.ok:
+		return g
+	if player.diagram.is_empty():
+		return {"ok": false, "lines": ["No formation is set."]}
+	player.diagram["lay"] = on
+	_sync_and_rate()
+	return {"ok": true, "lines": ["Lay in foreseen fights: %s." % ("on" if on else "off (carried at 70 %)")]}
+
+
 ## Local spiritual qi: the place's density plus density_bonus, the same sum the rate uses.
 ## The density the player would cultivate at in [param place_id] (Formula B's stack for them there, density_bonus
 ## included; the place's density in an old generated world).
@@ -2168,6 +2332,8 @@ func load_dict(d: Dictionary) -> Dictionary:
 	_wire()
 	_reallocate_migrated()
 	player = Character.from_dict(db.get_record("people", str(d.player_id)))
+	if player.known_diagrams.is_empty():   # an older save: the character learns the starter diagram (2026-11-24)
+		_teach_starter_diagram()
 	var home_l: Dictionary = db.get_record("places", player.home_id)   # Cave Abode: an older save's home gets its record
 	if not home_l.get("qi", {}).is_empty():
 		if str(home_l.get("owner_id", "")) == player.id and not home_l.qi.has("abode"):

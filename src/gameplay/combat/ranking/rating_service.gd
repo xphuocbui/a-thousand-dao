@@ -156,6 +156,9 @@ func build_sig(person: Dictionary) -> String:
 		talents, person.get("linh_can", {}), layers, person.get("main_tech", ""), person.get("aux_tech", []),
 		person.get("second_tech", ""), person.get("equip_slots", {}), person.get("tree_nodes", []),
 		person.get("capabilities", []), person.get("perks", []), person.get("nurtured_id", ""), worn]
+	if not Dictionary(person.get("diagram", {})).is_empty():   # the Set combat diagram is part of the build (Formations,
+		var dg: Dictionary = person.diagram                      # 2026-11-24): its id, level, placement and lay; none adds nothing
+		parts.append([str(dg.get("id", "")), int(dg.get("level", 1)), Array(dg.get("placement", [])), bool(dg.get("lay", true))])
 	var sig := str(RngUtils.stable_hash(JSON.stringify(_norm(parts), "", true)))
 	if _planning:
 		_plan_sigs[person.id] = sig
@@ -605,6 +608,9 @@ func _profile(person: Dictionary) -> FighterProfile:
 	var c := Character.from_dict(person)
 	var errors: Array = []
 	var build: Dictionary = FighterCompiler.character_build_file(c, _gd, _db, sheet_fn.call(c))
+	var pay: Dictionary = Diagrams.panel_payload(_gd, c, sheet_fn.call(c))
+	if not pay.is_empty():
+		build["diagram"] = pay   # the worker processes apply it too (FighterCompiler.from_build_file)
 	var p: FighterProfile = FighterCompiler.from_build_file(build, _gd, [], errors)
 	if p == null:
 		log_lines.append("cannot compile %s: %s" % [id, "; ".join(errors.map(func(e): return str(e)))])

@@ -189,6 +189,8 @@ func fight_odds(c: Character, sheet: StatSheet, enemy: Character) -> Dictionary:
 	var b: FighterProfile = FighterCompiler.compile(enemy, _gd, _db, _builds.sheet_of(enemy))
 	if a == null or b == null:
 		return {"ran": false, "chance": 0.0, "samples": 0}
+	Diagrams.compile_read(_gd, _db, c, a, sheet)   # the odds fight with the diagram the fight itself will use
+	Diagrams.compile_read(_gd, _db, enemy, b, _builds.sheet_of(enemy))
 	if _service == null:
 		_service = CombatService.new(CombatConstants.from_game_data(_gd))
 	var keyed := RandomNumberGenerator.new()

@@ -289,6 +289,34 @@ func _shot_and_quit(path: String) -> void:
 	if _arg_value("--open-menu", "") != "":   # --open-menu=menu|save|load|settings: the game menu in the shot
 		_open_menu(_arg_value("--open-menu", "menu"), null, _args.has("--menu-fight"))
 		await _frames(5)
+	if _args.has("--formations-fixture"):   # display only: a few more known formations for the Combat tab's shot
+		for fid in ["luong_nghi", "tam_tai", "loi_dinh", "ngu_hanh", "quy_giap"]:   # Five Phases and Turtle Shell cannot be set yet
+			session.learn_diagram(fid)
+		session.set_diagram(_arg_value("--formation", "luong_nghi"))
+		_open_window("character", "", "formation", _end_turn)
+		await _frames(4)
+	if _args.has("--formation-gallery"):   # every catalogue formation on the in-engine board (the port check of the figures)
+		var grid := GridContainer.new()
+		grid.columns = 10
+		grid.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		grid.add_theme_constant_override("h_separation", 2)
+		grid.add_theme_constant_override("v_separation", 2)
+		add_child(grid)
+		for fv in GameQuery.formation_catalogue(session):
+			var b := FormationBoard.new()
+			b.node_px = 12.0
+			b.labels = false
+			b.custom_minimum_size = Vector2(get_viewport_rect().size.x / 10.0 - 2.0, get_viewport_rect().size.y / 5.0 - 2.0)
+			b.show_view(fv)
+			grid.add_child(b)
+		await _frames(4)
+	if _args.has("--practice-fight"):   # the fight screen in the shot: a practice fight with the first person here, played
+		var here_people: Array = GameQuery.people_at(session, _here_id())   # to --fight-at-ms (default 6000)
+		if not here_people.is_empty():
+			_open_practice_fight(str(here_people[0].id))
+			await _frames(3)
+			_fight.call("_seek", float(_arg_value("--fight-at-ms", "6000")))
+			await _frames(4)
 	if _args.has("--open-dropdown"):   # the first dropdown on screen opened (the themed PopupMenu in the shot)
 		var opts: Array = find_children("*", "OptionButton", true, false).filter(func(o): return (o as Control).is_visible_in_tree())
 		if not opts.is_empty():
@@ -1837,6 +1865,14 @@ func _on_window_action(_kind: String, action: String, args: Array) -> void:
 	match action:
 		"set_slot":
 			act = session.set_slot.bind(str(args[0]), int(args[1]), str(args[2]), bool(args[3]))
+		"set_diagram":   # the Combat tab's formation editor (Formations rules 2-4, 9)
+			act = session.set_diagram.bind(str(args[0]))
+		"place_diagram_art":
+			act = session.place_diagram_art.bind(int(args[0]), str(args[1]))
+		"set_diagram_lay":
+			act = session.set_diagram_lay.bind(bool(args[0]))
+		"raise_diagram":
+			act = session.raise_diagram.bind(str(args[0]))
 		"breakthrough":
 			act = session.breakthrough.bind(bool(args[0]), bool(args[1]))
 		"equip":
@@ -1867,6 +1903,8 @@ func _on_window_action(_kind: String, action: String, args: Array) -> void:
 			act = session.abode_sleep.bind(str(args[0]), str(args[1]) if args.size() > 1 else "")
 		"take_residence":
 			act = session.take_residence.bind(int(args[0]), bool(args[1]) if args.size() > 1 else false)
+		"fund_building":   # the province window's Fund (Provinces rule 9, provinces-runtime Stage 8)
+			act = session.fund_building.bind(str(args[0]), str(args[1]))
 		"claim_abode":
 			act = session.claim_abode
 		"tree_apply":   # the Đạo Đồ plan: one tree_allocate job per mark, in order (dao-do-view.md)

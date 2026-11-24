@@ -92,6 +92,8 @@ static func from_build_file(d: Dictionary, gd: GameData, report: Array = [], err
 	var p: FighterProfile = loader.from_sim_build(rec, str(d.name))
 	report.append_array(loader.warnings)
 	errors.append_array(loader.errors)
+	if p != null and d.has("diagram"):   # a rating panel's build carries the Set combat diagram (Diagrams.panel_payload)
+		Diagrams.apply_payload(gd, p, d.diagram)
 	return p
 
 

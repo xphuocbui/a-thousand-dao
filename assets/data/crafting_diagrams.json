@@ -1,12 +1,7753 @@
 {
-  "schema_version": 1,
-  "_doc": "Formations Part I, combat formation diagrams (design/gdd/formations.md rules 1-12, Formulas F1-F4, F6; Diagrams). strength: F1's grade_mult by grade 0-4, level_growth, s_min and s_max, max_level (rule 7's cap before the keystone's +2). fuel: F2's fuel_frac by grade (share of the realm's events_budgets linh_thach_max per node) and fuel_growth. share: Combat rule 12's carried_ground_share (laid 1.0, carried 0.7 in a foreseen fight not laid or an ambush, 0.5 blind). fit_min: F4, at or below it an NPC uses the default line. node_cost_min_pct: F1's bound on a node's art_cost_pct (the Modifier System's 0 to 0.5 reduction). cost_lt: F3's raise cost by grade, cost_growth (values set with the first catalogue: Open Question 4). diagrams: the catalogue, hand-authored by the user (Open Question 4); empty until then, so every combatant fights with the default line. Values are the GDD's guesses.",
-  "strength": {"grade_mult": [1.0, 1.15, 1.3, 1.5, 1.75], "level_growth": 1.25, "s_min": 0.25, "s_max": 8.0, "max_level": 5},
-  "fuel": {"fuel_frac": [0.002, 0.003, 0.0045, 0.007, 0.01], "fuel_growth": 1.6},
-  "share": {"laid": 1.0, "carried": 0.7, "blind": 0.5},
-  "fit_min": 0.0,
-  "node_cost_min_pct": -50.0,
-  "cost_lt": [0, 0, 0, 0, 0],
-  "cost_growth": 2.5,
-  "diagrams": []
+ "schema_version": 1,
+ "_doc": "Formations Part I, combat formation diagrams (design/gdd/formations.md rules 1-12, Formulas F1-F4, F6; Diagrams). strength: F1's grade_mult by grade 0-4, level_growth, s_min and s_max, max_level (rule 7's cap before the keystone's +2). fuel: F2's fuel_frac by grade (share of the realm's events_budgets linh_thach_max per node) and fuel_growth. share: Combat rule 12's carried_ground_share (laid 1.0, carried 0.7 in a foreseen fight not laid or an ambush, 0.5 blind). fit_min: F4, at or below it an NPC uses the default line. node_cost_min_pct: F1's bound on a node's art_cost_pct (the Modifier System's 0 to 0.5 reduction). cost_lt: F3's raise cost by grade, cost_growth (values set with the first catalogue: Open Question 4). diagrams: the catalogue (50, drafted by Claude and approved by the user 2026-11-24; design/formations/catalogue-draft-50-2026-11-24.png): each record as rule 1 plus max_level (its own number of levels), node and link unlock (the level that opens them, rule 7 amended 2026-11-24), link bend and figure (drawing only), idea and taught_by (text). starter: the diagram every new character knows and has set. npc_use: false keeps NPCs on the default line (user 2026-11-24: player first; NPC choice comes later with a census). cost_lt: F3's raise cost by grade (set with the catalogue: about twice each realm's events budget). Values are the GDD's guesses.",
+ "strength": {
+  "grade_mult": [
+   1.0,
+   1.15,
+   1.3,
+   1.5,
+   1.75
+  ],
+  "level_growth": 1.25,
+  "s_min": 0.25,
+  "s_max": 8.0,
+  "max_level": 5
+ },
+ "fuel": {
+  "fuel_frac": [
+   0.002,
+   0.003,
+   0.0045,
+   0.007,
+   0.01
+  ],
+  "fuel_growth": 1.6
+ },
+ "share": {
+  "laid": 1.0,
+  "carried": 0.7,
+  "blind": 0.5
+ },
+ "fit_min": 0.0,
+ "node_cost_min_pct": -50.0,
+ "cost_lt": [
+  160,
+  1200,
+  10000,
+  80000,
+  600000
+ ],
+ "cost_growth": 2.5,
+ "diagrams": [
+  {
+   "id": "truong_xa",
+   "name": "Long Serpent Line",
+   "name_vi": "Trường Xà Trận",
+   "grade": 0,
+   "realm_min": 0,
+   "skill_min": 0,
+   "reserve_share": 0.02,
+   "max_level": 3,
+   "taught_by": "everyone (the starter)",
+   "idea": "A line that grows a node with each level (2, 3, 4): the tail drives the body, the body drives the head.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 14,
+      "scope": [
+       "heavy"
+      ]
+     },
+     "node_score": 14,
+     "pos": [
+      0.0,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      1.0,
+      0.35
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      2.0,
+      -0.1
+     ],
+     "unlock": 2
+    },
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": -6,
+     "pos": [
+      3.0,
+      0.3
+     ],
+     "unlock": 3
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 1,
+     "seconds": 0.8,
+     "bend": 0.35,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 2,
+     "seconds": 0.8,
+     "bend": -0.35,
+     "unlock": 2
+    },
+    {
+     "kind": "feed",
+     "from": 4,
+     "to": 3,
+     "seconds": 0.8,
+     "bend": 0.35,
+     "unlock": 3
+    }
+   ],
+   "figure": [
+    {
+     "shape": "wave",
+     "from": [
+      -0.3,
+      0.0
+     ],
+     "to": [
+      3.4,
+      0.3
+     ],
+     "amp": 0.28,
+     "waves": 2.0
+    },
+    {
+     "shape": "circle",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 0.42
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "luong_nghi",
+   "name": "Two Poles",
+   "name_vi": "Lưỡng Nghi Trận",
+   "grade": 0,
+   "realm_min": 0,
+   "skill_min": 0,
+   "reserve_share": 0.03,
+   "max_level": 1,
+   "taught_by": "Daoist and righteous sects, outer disciple",
+   "idea": "Only two nodes, each feeding the other: yang strikes, yin pays. One level: it is complete as taught.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": 12,
+     "pos": [
+      0.0,
+      -0.5
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": -12,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      0.0,
+      0.5
+     ],
+     "unlock": 1
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 1,
+     "to": 2,
+     "seconds": 1.2,
+     "bend": 0.9,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 1,
+     "seconds": 1.2,
+     "bend": 0.9,
+     "unlock": 1
+    }
+   ],
+   "figure": [
+    {
+     "shape": "taiji",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 1.0
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "tam_tai",
+   "name": "Three Talents",
+   "name_vi": "Tam Tài Trận",
+   "grade": 0,
+   "realm_min": 0,
+   "skill_min": 0,
+   "reserve_share": 0.03,
+   "max_level": 5,
+   "taught_by": "sects of any path, outer disciple",
+   "idea": "Heaven, Earth and Man around a circle; at level 3 the centre opens and all three feed it.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": 12,
+     "pos": [
+      0.0,
+      -1.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": -15,
+      "scope": [
+       "ward"
+      ]
+     },
+     "node_score": 10,
+     "pos": [
+      0.866,
+      0.5
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": 12,
+     "pos": [
+      -0.866,
+      0.5
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 20,
+      "scope": [
+       "heavy"
+      ]
+     },
+     "node_score": 20,
+     "pos": [
+      0.0,
+      0.0
+     ],
+     "unlock": 3
+    }
+   ],
+   "links": [
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 2,
+     "bend": 0.25,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 2,
+     "b": 3,
+     "bend": 0.25,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 3,
+     "b": 1,
+     "bend": 0.25,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 1,
+     "to": 4,
+     "seconds": 0.8,
+     "bend": 0.0,
+     "unlock": 3
+    },
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 4,
+     "seconds": 0.8,
+     "bend": 0.0,
+     "unlock": 3
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 4,
+     "seconds": 0.8,
+     "bend": 0.0,
+     "unlock": 3
+    }
+   ],
+   "figure": [
+    {
+     "shape": "circle",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 1.0
+    },
+    {
+     "shape": "poly",
+     "points": [
+      [
+       0.0,
+       -1.0
+      ],
+      [
+       0.866,
+       0.5
+      ],
+      [
+       -0.866,
+       0.5
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "shape": "circle",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 0.3
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "quy_giap",
+   "name": "Turtle Shell",
+   "name_vi": "Quy Giáp Trận",
+   "grade": 0,
+   "realm_min": 1,
+   "skill_min": 0,
+   "reserve_share": 0.03,
+   "max_level": 5,
+   "taught_by": "righteous sects, outer disciple",
+   "idea": "Plates of a shell around the wards: cheaper wards, faster beside them, a held heal for when it cracks. All four plates from the start; levels only harden them.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": -15,
+      "scope": [
+       "ward"
+      ]
+     },
+     "node_score": 12,
+     "pos": [
+      0.0,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "art_speed_pct",
+      "value": 12,
+      "tag": "ward"
+     },
+     "node_score": 8,
+     "pos": [
+      0.87,
+      0.5
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "?",
+     "rule": {
+      "type": "gate",
+      "cond": {
+       "read": "own.hp_share",
+       "op": "<=",
+       "value": 0.6
+      }
+     },
+     "node_score": 6,
+     "pos": [
+      -0.87,
+      0.5
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "art_cost_pct",
+      "value": -10,
+      "tag": "ward"
+     },
+     "node_score": 8,
+     "pos": [
+      0.0,
+      -1.0
+     ],
+     "unlock": 1
+    }
+   ],
+   "links": [
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 2,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 3,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 4,
+     "bend": 0.0,
+     "unlock": 1
+    }
+   ],
+   "figure": [
+    {
+     "shape": "poly",
+     "points": [
+      [
+       0.55,
+       0.0
+      ],
+      [
+       0.275,
+       0.476
+      ],
+      [
+       -0.275,
+       0.476
+      ],
+      [
+       -0.55,
+       0.0
+      ],
+      [
+       -0.275,
+       -0.476
+      ],
+      [
+       0.275,
+       -0.476
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "shape": "poly",
+     "points": [
+      [
+       1.42,
+       0.5
+      ],
+      [
+       1.145,
+       0.976
+      ],
+      [
+       0.595,
+       0.976
+      ],
+      [
+       0.31999999999999995,
+       0.5
+      ],
+      [
+       0.595,
+       0.02400000000000002
+      ],
+      [
+       1.145,
+       0.02400000000000002
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "shape": "poly",
+     "points": [
+      [
+       -0.31999999999999995,
+       0.5
+      ],
+      [
+       -0.595,
+       0.976
+      ],
+      [
+       -1.145,
+       0.976
+      ],
+      [
+       -1.42,
+       0.5
+      ],
+      [
+       -1.145,
+       0.02400000000000002
+      ],
+      [
+       -0.595,
+       0.02400000000000002
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "shape": "poly",
+     "points": [
+      [
+       0.55,
+       -1.0
+      ],
+      [
+       0.275,
+       -0.524
+      ],
+      [
+       -0.275,
+       -0.524
+      ],
+      [
+       -0.55,
+       -1.0
+      ],
+      [
+       -0.275,
+       -1.476
+      ],
+      [
+       0.275,
+       -1.476
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "shape": "circle",
+     "c": [
+      0.0,
+      -0.1
+     ],
+     "r": 1.6
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "tu_tuong",
+   "name": "Four Symbols",
+   "name_vi": "Tứ Tượng Trận",
+   "grade": 1,
+   "realm_min": 1,
+   "skill_min": 1,
+   "reserve_share": 0.05,
+   "max_level": 5,
+   "taught_by": "formation-master sects, inner disciple",
+   "idea": "All four beasts from the start, joined around the ring; at level 3 the crossing opens: Dragon feeds Tiger and Bird feeds Tortoise across the centre.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 12,
+      "scope": [
+       "wood"
+      ]
+     },
+     "node_score": 12,
+     "pos": [
+      1.0,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 14,
+      "scope": [
+       "metal"
+      ]
+     },
+     "node_score": 14,
+     "pos": [
+      -1.0,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 14,
+      "scope": [
+       "fire"
+      ]
+     },
+     "node_score": 14,
+     "pos": [
+      0.0,
+      1.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": -15,
+      "scope": [
+       "water"
+      ]
+     },
+     "node_score": 12,
+     "pos": [
+      -0.0,
+      -1.0
+     ],
+     "unlock": 1
+    }
+   ],
+   "links": [
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 3,
+     "bend": 0.4,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 3,
+     "b": 2,
+     "bend": 0.4,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 2,
+     "b": 4,
+     "bend": 0.4,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 4,
+     "b": 1,
+     "bend": 0.4,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 1,
+     "to": 2,
+     "seconds": 1.2,
+     "bend": 0.0,
+     "unlock": 3
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 4,
+     "seconds": 1.2,
+     "bend": 0.0,
+     "unlock": 3
+    }
+   ],
+   "figure": [
+    {
+     "shape": "circle",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 1.0
+    },
+    {
+     "shape": "circle",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 1.25
+    },
+    {
+     "shape": "poly",
+     "points": [
+      [
+       0.495,
+       0.495
+      ],
+      [
+       -0.495,
+       0.495
+      ],
+      [
+       -0.495,
+       -0.495
+      ],
+      [
+       0.495,
+       -0.495
+      ]
+     ],
+     "closed": true
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "ngu_hanh",
+   "name": "Five Phases",
+   "name_vi": "Ngũ Hành Trận",
+   "grade": 2,
+   "realm_min": 2,
+   "skill_min": 2,
+   "reserve_share": 0.08,
+   "max_level": 5,
+   "taught_by": "formation-master sects, core disciple",
+   "idea": "All five elements around the circle, each feeding the one it creates; at level 4 the star of overcoming lights up and each element also feeds the one it overcomes.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 12,
+      "scope": [
+       "wood"
+      ]
+     },
+     "node_score": 12,
+     "pos": [
+      0.0,
+      -1.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 12,
+      "scope": [
+       "fire"
+      ]
+     },
+     "node_score": 12,
+     "pos": [
+      0.951,
+      -0.309
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 12,
+      "scope": [
+       "earth"
+      ]
+     },
+     "node_score": 12,
+     "pos": [
+      0.588,
+      0.809
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 12,
+      "scope": [
+       "metal"
+      ]
+     },
+     "node_score": 12,
+     "pos": [
+      -0.588,
+      0.809
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 12,
+      "scope": [
+       "water"
+      ]
+     },
+     "node_score": 12,
+     "pos": [
+      -0.951,
+      -0.309
+     ],
+     "unlock": 1
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 1,
+     "to": 2,
+     "seconds": 1.0,
+     "bend": 0.3,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 3,
+     "seconds": 1.0,
+     "bend": 0.3,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 4,
+     "seconds": 1.0,
+     "bend": 0.3,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 4,
+     "to": 5,
+     "seconds": 1.0,
+     "bend": 0.3,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 5,
+     "to": 1,
+     "seconds": 1.0,
+     "bend": 0.3,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 1,
+     "to": 3,
+     "seconds": 0.6,
+     "bend": 0.0,
+     "unlock": 4
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 5,
+     "seconds": 0.6,
+     "bend": 0.0,
+     "unlock": 4
+    },
+    {
+     "kind": "feed",
+     "from": 5,
+     "to": 2,
+     "seconds": 0.6,
+     "bend": 0.0,
+     "unlock": 4
+    },
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 4,
+     "seconds": 0.6,
+     "bend": 0.0,
+     "unlock": 4
+    },
+    {
+     "kind": "feed",
+     "from": 4,
+     "to": 1,
+     "seconds": 0.6,
+     "bend": 0.0,
+     "unlock": 4
+    }
+   ],
+   "figure": [
+    {
+     "shape": "circle",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 1.0
+    },
+    {
+     "shape": "star",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 1.0,
+     "n": 5,
+     "step": 2
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "nhat_nguyet",
+   "name": "Sun and Moons",
+   "name_vi": "Nhật Nguyệt Trận",
+   "grade": 1,
+   "realm_min": 1,
+   "skill_min": 1,
+   "reserve_share": 0.05,
+   "max_level": 5,
+   "taught_by": "great sects, inner disciple",
+   "idea": "A heavy art at the sun with one moon in orbit; a second moon rises at level 3 and a third at level 5. Each moon pays a price and feeds the sun.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 24,
+      "scope": [
+       "heavy"
+      ]
+     },
+     "node_score": 24,
+     "pos": [
+      0.0,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": -5,
+     "pos": [
+      0.0,
+      -1.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": -5,
+     "pos": [
+      0.866,
+      0.5
+     ],
+     "unlock": 3
+    },
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": -5,
+     "pos": [
+      -0.866,
+      0.5
+     ],
+     "unlock": 5
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 1,
+     "seconds": 0.8,
+     "bend": 0.25,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 1,
+     "seconds": 0.8,
+     "bend": 0.25,
+     "unlock": 3
+    },
+    {
+     "kind": "feed",
+     "from": 4,
+     "to": 1,
+     "seconds": 0.8,
+     "bend": 0.25,
+     "unlock": 5
+    }
+   ],
+   "figure": [
+    {
+     "shape": "circle",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 1.0
+    },
+    {
+     "shape": "circle",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 0.45
+    },
+    {
+     "shape": "rays",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r0": 0.2,
+     "r1": 0.55,
+     "n": 12
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "boi_thuy",
+   "name": "Back to the River",
+   "name_vi": "Bối Thủy Trận",
+   "grade": 1,
+   "realm_min": 1,
+   "skill_min": 1,
+   "reserve_share": 0.04,
+   "max_level": 1,
+   "taught_by": "a loose cultivators' manual (a later drop); sects of any path, inner disciple",
+   "idea": "With your back to the river: a held art for below half health, a strong art beside it, and a costly feeder that drives the held one. One level: a desperate trick, never refined.",
+   "nodes": [
+    {
+     "polarity": "?",
+     "rule": {
+      "type": "gate",
+      "cond": {
+       "read": "own.hp_share",
+       "op": "<=",
+       "value": 0.5
+      }
+     },
+     "node_score": 6,
+     "pos": [
+      0.0,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 30,
+      "scope": []
+     },
+     "node_score": 30,
+     "pos": [
+      1.1,
+      -0.35
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": 25,
+      "scope": []
+     },
+     "node_score": -8,
+     "pos": [
+      -1.1,
+      -0.35
+     ],
+     "unlock": 1
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 1,
+     "seconds": 2.0,
+     "bend": -0.5,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 2,
+     "b": 1,
+     "bend": 0.25,
+     "unlock": 1
+    }
+   ],
+   "figure": [
+    {
+     "shape": "wave",
+     "from": [
+      -1.6,
+      0.7
+     ],
+     "to": [
+      2.6,
+      0.7
+     ],
+     "amp": 0.12,
+     "waves": 4.0
+    },
+    {
+     "shape": "wave",
+     "from": [
+      -1.6,
+      0.95
+     ],
+     "to": [
+      2.6,
+      0.95
+     ],
+     "amp": 0.12,
+     "waves": 4.0
+    },
+    {
+     "shape": "arc",
+     "c": [
+      0.5,
+      0.7
+     ],
+     "r": 1.7,
+     "a0": 200,
+     "a1": 340
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "me_hon",
+   "name": "Soul Maze",
+   "name_vi": "Mê Hồn Trận",
+   "grade": 1,
+   "realm_min": 1,
+   "skill_min": 1,
+   "reserve_share": 0.05,
+   "max_level": 3,
+   "taught_by": "demonic and curse sects, inner disciple",
+   "idea": "Curses spiral inward toward a centre that fires only after 10 s, when the maze has closed. Four nodes always; three levels.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": [
+       "curse"
+      ]
+     },
+     "node_score": 10,
+     "pos": [
+      1.764,
+      0.358
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      -0.824,
+      1.132
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 18,
+      "scope": [
+       "curse"
+      ]
+     },
+     "node_score": 18,
+     "pos": [
+      -0.381,
+      -0.87
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "?",
+     "rule": {
+      "type": "gate",
+      "cond": {
+       "read": "time",
+       "op": ">=",
+       "value": 10
+      }
+     },
+     "node_score": 6,
+     "pos": [
+      0.0,
+      0.0
+     ],
+     "unlock": 1
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 1,
+     "to": 2,
+     "seconds": 1.0,
+     "bend": 0.4,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 3,
+     "seconds": 1.0,
+     "bend": 0.4,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 4,
+     "seconds": 1.0,
+     "bend": 0.5,
+     "unlock": 1
+    }
+   ],
+   "figure": [
+    {
+     "shape": "spiral",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r0": 0.15,
+     "r1": 2.0,
+     "turns": 2.2
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "song_long",
+   "name": "Twin Dragons and the Pearl",
+   "name_vi": "Song Long Hí Châu Trận",
+   "grade": 2,
+   "realm_min": 2,
+   "skill_min": 2,
+   "reserve_share": 0.07,
+   "max_level": 5,
+   "taught_by": "great sects, core disciple",
+   "idea": "Two dragons coil toward a pearl and their heads feed its heavy art; at level 4 both dragons grow their bodies at once, each feeding its head.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 28,
+      "scope": [
+       "heavy"
+      ]
+     },
+     "node_score": 28,
+     "pos": [
+      0.0,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": 12,
+     "pos": [
+      -0.9,
+      -0.45
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": 12,
+     "pos": [
+      0.9,
+      0.45
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": 12,
+     "pos": [
+      -1.7,
+      0.3
+     ],
+     "unlock": 4
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": 12,
+     "pos": [
+      1.7,
+      -0.3
+     ],
+     "unlock": 4
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 1,
+     "seconds": 0.9,
+     "bend": 0.4,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 1,
+     "seconds": 0.9,
+     "bend": 0.4,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 4,
+     "to": 2,
+     "seconds": 0.9,
+     "bend": -0.6,
+     "unlock": 4
+    },
+    {
+     "kind": "feed",
+     "from": 5,
+     "to": 3,
+     "seconds": 0.9,
+     "bend": -0.6,
+     "unlock": 4
+    }
+   ],
+   "figure": [
+    {
+     "shape": "wave",
+     "from": [
+      -2.2,
+      0.6
+     ],
+     "to": [
+      -0.2,
+      -0.1
+     ],
+     "amp": 0.35,
+     "waves": 1.5
+    },
+    {
+     "shape": "wave",
+     "from": [
+      2.2,
+      -0.6
+     ],
+     "to": [
+      0.2,
+      0.1
+     ],
+     "amp": 0.35,
+     "waves": 1.5
+    },
+    {
+     "shape": "circle",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 0.32
+    },
+    {
+     "shape": "rays",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r0": 0.34,
+     "r1": 0.5,
+     "n": 10
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "that_tinh",
+   "name": "Seven Stars of the Northern Dipper",
+   "name_vi": "Thất Tinh Bắc Đẩu Trận",
+   "grade": 2,
+   "realm_min": 2,
+   "skill_min": 2,
+   "reserve_share": 0.08,
+   "max_level": 4,
+   "taught_by": "sword sects, core disciple",
+   "idea": "The four bowl stars from the start, each quicker beside a sword art; at level 3 the whole handle appears at once, feeding toward Dao Quang, the sword star at its end (seven nodes: Hóa Thần, or a bonus art slot).",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "tag": "sword"
+     },
+     "node_score": 10,
+     "pos": [
+      -2.72,
+      -0.85
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "tag": "sword"
+     },
+     "node_score": 10,
+     "pos": [
+      -1.19,
+      -1.36
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "tag": "sword"
+     },
+     "node_score": 10,
+     "pos": [
+      -0.85,
+      0.17
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "tag": "sword"
+     },
+     "node_score": 10,
+     "pos": [
+      -2.38,
+      0.68
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      0.68,
+      0.17
+     ],
+     "unlock": 3
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      2.04,
+      0.59
+     ],
+     "unlock": 3
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 30,
+      "scope": [
+       "sword"
+      ]
+     },
+     "node_score": 30,
+     "pos": [
+      3.4,
+      0.0
+     ],
+     "unlock": 3
+    }
+   ],
+   "links": [
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 2,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 2,
+     "b": 3,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 3,
+     "b": 4,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 4,
+     "b": 1,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 5,
+     "seconds": 1.0,
+     "bend": 0.0,
+     "unlock": 3
+    },
+    {
+     "kind": "feed",
+     "from": 5,
+     "to": 6,
+     "seconds": 1.0,
+     "bend": 0.0,
+     "unlock": 3
+    },
+    {
+     "kind": "feed",
+     "from": 6,
+     "to": 7,
+     "seconds": 1.0,
+     "bend": 0.0,
+     "unlock": 3
+    }
+   ],
+   "figure": [
+    {
+     "shape": "poly",
+     "points": [
+      [
+       -2.72,
+       -0.85
+      ],
+      [
+       -1.19,
+       -1.36
+      ],
+      [
+       -0.85,
+       0.17
+      ],
+      [
+       -2.38,
+       0.68
+      ],
+      [
+       0.68,
+       0.17
+      ],
+      [
+       2.04,
+       0.59
+      ],
+      [
+       3.4,
+       0.0
+      ]
+     ],
+     "closed": false
+    },
+    {
+     "shape": "poly",
+     "points": [
+      [
+       -0.85,
+       0.17
+      ],
+      [
+       -2.38,
+       0.68
+      ]
+     ],
+     "closed": false
+    },
+    {
+     "shape": "stars",
+     "c": [
+      0.34,
+      -0.34
+     ],
+     "r": 2.4,
+     "n": 34
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "bat_quai",
+   "name": "Eight Trigrams",
+   "name_vi": "Bát Quái Trận",
+   "grade": 3,
+   "realm_min": 3,
+   "skill_min": 3,
+   "reserve_share": 0.12,
+   "max_level": 5,
+   "taught_by": "formation-master great sects, elder",
+   "idea": "The four cardinal trigrams from the start, opposite pairs feeding across the taiji; at level 4 the four between them open together, joined in a ring (eight nodes: Hóa Thần with a bonus art slot).",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      0.0,
+      -1.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      1.0,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      0.0,
+      1.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      -1.0,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      0.707,
+      -0.707
+     ],
+     "unlock": 4
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      0.707,
+      0.707
+     ],
+     "unlock": 4
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      -0.707,
+      0.707
+     ],
+     "unlock": 4
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      -0.707,
+      -0.707
+     ],
+     "unlock": 4
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 1,
+     "to": 3,
+     "seconds": 0.8,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 1,
+     "seconds": 0.8,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 4,
+     "seconds": 0.8,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 4,
+     "to": 2,
+     "seconds": 0.8,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 5,
+     "b": 6,
+     "bend": 0.3,
+     "unlock": 4
+    },
+    {
+     "kind": "adj",
+     "a": 6,
+     "b": 7,
+     "bend": 0.3,
+     "unlock": 4
+    },
+    {
+     "kind": "adj",
+     "a": 7,
+     "b": 8,
+     "bend": 0.3,
+     "unlock": 4
+    },
+    {
+     "kind": "adj",
+     "a": 8,
+     "b": 5,
+     "bend": 0.3,
+     "unlock": 4
+    }
+   ],
+   "figure": [
+    {
+     "shape": "poly",
+     "points": [
+      [
+       0.0,
+       -1.0
+      ],
+      [
+       0.707,
+       -0.707
+      ],
+      [
+       1.0,
+       0.0
+      ],
+      [
+       0.707,
+       0.707
+      ],
+      [
+       0.0,
+       1.0
+      ],
+      [
+       -0.707,
+       0.707
+      ],
+      [
+       -1.0,
+       0.0
+      ],
+      [
+       -0.707,
+       -0.707
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "shape": "poly",
+     "points": [
+      [
+       0.478,
+       -1.155
+      ],
+      [
+       1.155,
+       -0.478
+      ],
+      [
+       1.155,
+       0.478
+      ],
+      [
+       0.478,
+       1.155
+      ],
+      [
+       -0.478,
+       1.155
+      ],
+      [
+       -1.155,
+       0.478
+      ],
+      [
+       -1.155,
+       -0.478
+      ],
+      [
+       -0.478,
+       -1.155
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "shape": "taiji",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 0.45
+    },
+    {
+     "shape": "trigrams",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 1.45
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "ba_hoa",
+   "name": "Three Flowers at the Crown",
+   "name_vi": "Tam Hoa Tụ Đỉnh Trận",
+   "grade": 0,
+   "realm_min": 0,
+   "skill_min": 0,
+   "reserve_share": 0.03,
+   "max_level": 3,
+   "taught_by": "Daoist sects, outer disciple",
+   "idea": "Three petals around a crown: each petal's art is cheaper, and all three feed the crown when it opens at level 2.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": -10,
+      "scope": []
+     },
+     "node_score": 8,
+     "pos": [
+      0.0,
+      -1.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": -10,
+      "scope": []
+     },
+     "node_score": 8,
+     "pos": [
+      0.87,
+      0.5
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": -10,
+      "scope": []
+     },
+     "node_score": 8,
+     "pos": [
+      -0.87,
+      0.5
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 16,
+      "scope": []
+     },
+     "node_score": 16,
+     "pos": [
+      0.0,
+      0.0
+     ],
+     "unlock": 2
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 1,
+     "to": 4,
+     "seconds": 0.7,
+     "bend": 0.0,
+     "unlock": 2
+    },
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 4,
+     "seconds": 0.7,
+     "bend": 0.0,
+     "unlock": 2
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 4,
+     "seconds": 0.7,
+     "bend": 0.0,
+     "unlock": 2
+    }
+   ],
+   "figure": [
+    {
+     "shape": "petals",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 1.0,
+     "n": 3,
+     "w": 0.55
+    },
+    {
+     "shape": "circle",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 0.35
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "phong_hoa_luan",
+   "name": "Wind and Fire Wheels",
+   "name_vi": "Phong Hỏa Luân Trận",
+   "grade": 0,
+   "realm_min": 0,
+   "skill_min": 0,
+   "reserve_share": 0.02,
+   "max_level": 2,
+   "taught_by": "a wandering cultivator's manual (a drop)",
+   "idea": "Two wheels side by side: the wind wheel spins the fire wheel faster, the fire wheel burns hotter. Two levels.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 14,
+      "scope": [
+       "wind"
+      ]
+     },
+     "node_score": 14,
+     "pos": [
+      -0.8,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 14,
+      "scope": [
+       "fire"
+      ]
+     },
+     "node_score": 14,
+     "pos": [
+      0.8,
+      0.0
+     ],
+     "unlock": 1
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 1,
+     "to": 2,
+     "seconds": 1.0,
+     "bend": 0.5,
+     "unlock": 1
+    }
+   ],
+   "figure": [
+    {
+     "shape": "wheel",
+     "c": [
+      -0.8,
+      0.0
+     ],
+     "r": 0.62,
+     "n": 8
+    },
+    {
+     "shape": "wheel",
+     "c": [
+      0.8,
+      0.0
+     ],
+     "r": 0.62,
+     "n": 8
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "thanh_phong_kiem",
+   "name": "Clear Breeze Sword",
+   "name_vi": "Thanh Phong Kiếm Trận",
+   "grade": 0,
+   "realm_min": 0,
+   "skill_min": 0,
+   "reserve_share": 0.02,
+   "max_level": 4,
+   "taught_by": "sword sects, outer disciple",
+   "idea": "Along a blade: hilt, edge and point. The point opens at level 4 and the edge feeds it.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": [
+       "sword"
+      ]
+     },
+     "node_score": 10,
+     "pos": [
+      -1.4,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 12,
+      "scope": [
+       "sword"
+      ]
+     },
+     "node_score": 12,
+     "pos": [
+      0.0,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 22,
+      "scope": [
+       "sword"
+      ]
+     },
+     "node_score": 22,
+     "pos": [
+      1.4,
+      0.0
+     ],
+     "unlock": 4
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 1,
+     "to": 2,
+     "seconds": 0.8,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 3,
+     "seconds": 0.8,
+     "bend": 0.0,
+     "unlock": 4
+    }
+   ],
+   "figure": [
+    {
+     "shape": "sword",
+     "from": [
+      -2.0,
+      0.0
+     ],
+     "to": [
+      2.0,
+      0.0
+     ],
+     "w": 0.18
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "hoi_xuan",
+   "name": "Spring Return",
+   "name_vi": "Hồi Xuân Trận",
+   "grade": 0,
+   "realm_min": 0,
+   "skill_min": 0,
+   "reserve_share": 0.03,
+   "max_level": 5,
+   "taught_by": "healing and alchemist sects, outer disciple",
+   "idea": "A sprouting branch for healers: cheaper heals, and a heal that waits until you are below 70 % health.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": -15,
+      "scope": [
+       "heal"
+      ]
+     },
+     "node_score": 12,
+     "pos": [
+      0.0,
+      0.6
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "?",
+     "rule": {
+      "type": "gate",
+      "cond": {
+       "read": "own.hp_share",
+       "op": "<=",
+       "value": 0.7
+      }
+     },
+     "node_score": 6,
+     "pos": [
+      -0.8,
+      -0.4
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "art_speed_pct",
+      "value": 12,
+      "tag": "heal"
+     },
+     "node_score": 8,
+     "pos": [
+      0.8,
+      -0.4
+     ],
+     "unlock": 1
+    }
+   ],
+   "links": [
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 2,
+     "bend": 0.3,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 3,
+     "bend": -0.3,
+     "unlock": 1
+    }
+   ],
+   "figure": [
+    {
+     "shape": "branch",
+     "from": [
+      0.0,
+      1.4
+     ],
+     "to": [
+      0.0,
+      -1.2
+     ],
+     "leaves": 6
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "loi_dinh",
+   "name": "Thunderclap",
+   "name_vi": "Lôi Đình Nhất Kích Trận",
+   "grade": 0,
+   "realm_min": 0,
+   "skill_min": 0,
+   "reserve_share": 0.02,
+   "max_level": 1,
+   "taught_by": "lightning sects, outer disciple",
+   "idea": "Two nodes and a bolt: the striker charges the finisher, which waits until the foe is below 30 % health. One level.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 12,
+      "scope": [
+       "lightning"
+      ]
+     },
+     "node_score": 12,
+     "pos": [
+      -0.9,
+      -0.6
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "?",
+     "rule": {
+      "type": "gate",
+      "cond": {
+       "read": "foe.hp_share",
+       "op": "<=",
+       "value": 0.3
+      }
+     },
+     "node_score": 6,
+     "pos": [
+      0.9,
+      0.6
+     ],
+     "unlock": 1
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 1,
+     "to": 2,
+     "seconds": 1.5,
+     "bend": 0.0,
+     "unlock": 1
+    }
+   ],
+   "figure": [
+    {
+     "shape": "zigzag",
+     "from": [
+      -1.4,
+      -1.0
+     ],
+     "to": [
+      1.4,
+      1.0
+     ],
+     "n": 5,
+     "amp": 0.35
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "tho_bich",
+   "name": "Earth Wall",
+   "name_vi": "Thổ Độn Bích Trận",
+   "grade": 0,
+   "realm_min": 0,
+   "skill_min": 0,
+   "reserve_share": 0.03,
+   "max_level": 3,
+   "taught_by": "earth and body sects, outer disciple",
+   "idea": "Three peaks of a wall: cheaper bulwark and ward arts, and earth arts quicker beside them.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": -12,
+      "scope": [
+       "bulwark"
+      ]
+     },
+     "node_score": 10,
+     "pos": [
+      -1.0,
+      0.2
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "tag": "ward"
+     },
+     "node_score": 8,
+     "pos": [
+      0.0,
+      -0.3
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 10,
+      "scope": [
+       "earth"
+      ]
+     },
+     "node_score": 10,
+     "pos": [
+      1.0,
+      0.2
+     ],
+     "unlock": 1
+    }
+   ],
+   "links": [
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 2,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 2,
+     "b": 3,
+     "bend": 0.0,
+     "unlock": 1
+    }
+   ],
+   "figure": [
+    {
+     "shape": "mountains",
+     "from": [
+      -1.8,
+      0.7
+     ],
+     "to": [
+      1.8,
+      0.7
+     ],
+     "n": 3,
+     "h": 1.2
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "tu_mon",
+   "name": "Four Gates",
+   "name_vi": "Tứ Môn Trận",
+   "grade": 1,
+   "realm_min": 1,
+   "skill_min": 1,
+   "reserve_share": 0.05,
+   "max_level": 4,
+   "taught_by": "formation-master sects, inner disciple",
+   "idea": "A square courtyard with a gate on each side: two gates open at first, the third at level 2, the last at level 4; each gate quickens the next.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      0.0,
+      -1.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": 12,
+     "pos": [
+      1.0,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      0.0,
+      1.0
+     ],
+     "unlock": 2
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": 12,
+     "pos": [
+      -1.0,
+      0.0
+     ],
+     "unlock": 4
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 1,
+     "to": 2,
+     "seconds": 0.8,
+     "bend": 0.3,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 3,
+     "seconds": 0.8,
+     "bend": 0.3,
+     "unlock": 2
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 4,
+     "seconds": 0.8,
+     "bend": 0.3,
+     "unlock": 4
+    },
+    {
+     "kind": "feed",
+     "from": 4,
+     "to": 1,
+     "seconds": 0.8,
+     "bend": 0.3,
+     "unlock": 4
+    }
+   ],
+   "figure": [
+    {
+     "shape": "poly",
+     "points": [
+      [
+       -1.0,
+       -1.0
+      ],
+      [
+       1.0,
+       -1.0
+      ],
+      [
+       1.0,
+       1.0
+      ],
+      [
+       -1.0,
+       1.0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "shape": "gates",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 1.0
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "thuy_liem",
+   "name": "Water Curtain",
+   "name_vi": "Thủy Liêm Trận",
+   "grade": 1,
+   "realm_min": 1,
+   "skill_min": 1,
+   "reserve_share": 0.04,
+   "max_level": 5,
+   "taught_by": "water sects, inner disciple",
+   "idea": "Four drops along a falling curtain, water arts each; at level 3 the curtain closes and the drops feed each other down it.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 12,
+      "scope": [
+       "water"
+      ]
+     },
+     "node_score": 12,
+     "pos": [
+      -1.2,
+      -0.6
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": [
+       "water"
+      ]
+     },
+     "node_score": 10,
+     "pos": [
+      -0.4,
+      0.2
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 12,
+      "scope": [
+       "water"
+      ]
+     },
+     "node_score": 12,
+     "pos": [
+      0.4,
+      -0.2
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": -12,
+      "scope": [
+       "water"
+      ]
+     },
+     "node_score": 10,
+     "pos": [
+      1.2,
+      0.6
+     ],
+     "unlock": 1
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 1,
+     "to": 2,
+     "seconds": 0.8,
+     "bend": 0.4,
+     "unlock": 3
+    },
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 3,
+     "seconds": 0.8,
+     "bend": -0.4,
+     "unlock": 3
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 4,
+     "seconds": 0.8,
+     "bend": 0.4,
+     "unlock": 3
+    }
+   ],
+   "figure": [
+    {
+     "shape": "strings",
+     "from": [
+      -1.6,
+      -1.2
+     ],
+     "to": [
+      -1.6,
+      1.2
+     ],
+     "n": 9,
+     "gap": 0.4
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "hoa_long_quyen",
+   "name": "Fire Dragon Coil",
+   "name_vi": "Hỏa Long Quyển Trận",
+   "grade": 1,
+   "realm_min": 1,
+   "skill_min": 1,
+   "reserve_share": 0.05,
+   "max_level": 4,
+   "taught_by": "fire sects, inner disciple",
+   "idea": "A fire dragon coils inward to its head; a fourth coil opens at level 4. The tail pays the price.",
+   "nodes": [
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": 15,
+      "scope": []
+     },
+     "node_score": -6,
+     "pos": [
+      1.4,
+      0.3
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 12,
+      "scope": [
+       "fire"
+      ]
+     },
+     "node_score": 12,
+     "pos": [
+      0.0,
+      1.1
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 20,
+      "scope": [
+       "fire"
+      ]
+     },
+     "node_score": 20,
+     "pos": [
+      0.0,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 12,
+      "scope": [
+       "fire"
+      ]
+     },
+     "node_score": 12,
+     "pos": [
+      -1.2,
+      -0.2
+     ],
+     "unlock": 4
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 1,
+     "to": 2,
+     "seconds": 1.0,
+     "bend": 0.5,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 3,
+     "seconds": 1.0,
+     "bend": 0.5,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 4,
+     "to": 3,
+     "seconds": 1.0,
+     "bend": 0.5,
+     "unlock": 4
+    }
+   ],
+   "figure": [
+    {
+     "shape": "spiral",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r0": 0.2,
+     "r1": 1.6,
+     "turns": 1.3
+    },
+    {
+     "shape": "flame",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 0.45
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "bang_phong",
+   "name": "Ice Seal",
+   "name_vi": "Băng Phong Vạn Lý Trận",
+   "grade": 1,
+   "realm_min": 1,
+   "skill_min": 1,
+   "reserve_share": 0.05,
+   "max_level": 5,
+   "taught_by": "cold sects, inner disciple",
+   "idea": "A six-pointed ice crystal: cold arts beside each other run quicker; its control node holds until the foe carries two statuses.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "art_speed_pct",
+      "value": 12,
+      "tag": "cold"
+     },
+     "node_score": 10,
+     "pos": [
+      0.0,
+      -1.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "damage_pct",
+      "value": 12,
+      "tag": "cold"
+     },
+     "node_score": 10,
+     "pos": [
+      0.87,
+      0.5
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "damage_pct",
+      "value": 12,
+      "tag": "cold"
+     },
+     "node_score": 10,
+     "pos": [
+      -0.87,
+      0.5
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "?",
+     "rule": {
+      "type": "gate",
+      "cond": {
+       "read": "foe.distinct_statuses",
+       "op": ">=",
+       "value": 2
+      }
+     },
+     "node_score": 6,
+     "pos": [
+      0.0,
+      0.0
+     ],
+     "unlock": 1
+    }
+   ],
+   "links": [
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 2,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 2,
+     "b": 3,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 3,
+     "b": 1,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 4,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 2,
+     "b": 4,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 3,
+     "b": 4,
+     "bend": 0.0,
+     "unlock": 1
+    }
+   ],
+   "figure": [
+    {
+     "shape": "crystal",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 1.25
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "khon_tien_vong",
+   "name": "Immortal-Binding Net",
+   "name_vi": "Khốn Tiên Võng Trận",
+   "grade": 1,
+   "realm_min": 1,
+   "skill_min": 1,
+   "reserve_share": 0.06,
+   "max_level": 5,
+   "taught_by": "demonic sects, inner disciple",
+   "idea": "A net of four knots: seal arts bind quicker beside control arts, and the net's last knot holds a curse until the foe is cursed twice.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "art_speed_pct",
+      "value": 14,
+      "tag": "control"
+     },
+     "node_score": 12,
+     "pos": [
+      -0.8,
+      -0.8
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "art_speed_pct",
+      "value": 14,
+      "tag": "seal"
+     },
+     "node_score": 12,
+     "pos": [
+      0.8,
+      -0.8
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 12,
+      "scope": [
+       "seal"
+      ]
+     },
+     "node_score": 12,
+     "pos": [
+      0.8,
+      0.8
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "?",
+     "rule": {
+      "type": "gate",
+      "cond": {
+       "read": "foe.curses",
+       "op": ">=",
+       "value": 2
+      }
+     },
+     "node_score": 6,
+     "pos": [
+      -0.8,
+      0.8
+     ],
+     "unlock": 1
+    }
+   ],
+   "links": [
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 2,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 2,
+     "b": 3,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 3,
+     "b": 4,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 4,
+     "b": 1,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 3,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 2,
+     "b": 4,
+     "bend": 0.0,
+     "unlock": 1
+    }
+   ],
+   "figure": [
+    {
+     "shape": "net",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 1.5,
+     "rings": 3,
+     "spokes": 8
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "hac_sat",
+   "name": "Black Fiend Wind",
+   "name_vi": "Hắc Sát Âm Phong Trận",
+   "grade": 1,
+   "realm_min": 1,
+   "skill_min": 1,
+   "reserve_share": 0.05,
+   "max_level": 3,
+   "taught_by": "demonic sects, inner disciple",
+   "idea": "A cold wind of poisons: two costly nodes drive the poison and curse arts hard. Strong and expensive.",
+   "nodes": [
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": 20,
+      "scope": []
+     },
+     "node_score": -8,
+     "pos": [
+      -1.2,
+      0.5
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": 20,
+      "scope": []
+     },
+     "node_score": -8,
+     "pos": [
+      -1.2,
+      -0.5
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 22,
+      "scope": [
+       "poison"
+      ]
+     },
+     "node_score": 22,
+     "pos": [
+      0.4,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 16,
+      "scope": [
+       "curse"
+      ]
+     },
+     "node_score": 16,
+     "pos": [
+      1.4,
+      0.0
+     ],
+     "unlock": 1
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 1,
+     "to": 3,
+     "seconds": 1.2,
+     "bend": -0.4,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 3,
+     "seconds": 1.2,
+     "bend": 0.4,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 4,
+     "seconds": 0.8,
+     "bend": 0.0,
+     "unlock": 1
+    }
+   ],
+   "figure": [
+    {
+     "shape": "cloud",
+     "c": [
+      -0.4,
+      0.0
+     ],
+     "r": 1.2
+    },
+    {
+     "shape": "wave",
+     "from": [
+      -1.8,
+      0.0
+     ],
+     "to": [
+      1.9,
+      0.0
+     ],
+     "amp": 0.2,
+     "waves": 2.5
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "kim_chung",
+   "name": "Golden Bell Cover",
+   "name_vi": "Kim Chung Tráo Trận",
+   "grade": 1,
+   "realm_min": 1,
+   "skill_min": 1,
+   "reserve_share": 0.04,
+   "max_level": 5,
+   "taught_by": "body-cultivation and Buddhist sects, inner disciple",
+   "idea": "A bell over the body: body arts and bells cheaper, and a struck bell rings back while your body shield holds.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": -15,
+      "scope": [
+       "body"
+      ]
+     },
+     "node_score": 12,
+     "pos": [
+      0.0,
+      -0.6
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 12,
+      "scope": [
+       "bell"
+      ]
+     },
+     "node_score": 12,
+     "pos": [
+      -0.7,
+      0.5
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "?",
+     "rule": {
+      "type": "gate",
+      "cond": {
+       "read": "own.body_shield_share",
+       "op": ">",
+       "value": 0.0
+      }
+     },
+     "node_score": 6,
+     "pos": [
+      0.7,
+      0.5
+     ],
+     "unlock": 1
+    }
+   ],
+   "links": [
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 2,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 3,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 3,
+     "seconds": 1.0,
+     "bend": 0.3,
+     "unlock": 1
+    }
+   ],
+   "figure": [
+    {
+     "shape": "bell",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 1.2
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "lien_hoa",
+   "name": "Lotus Throne",
+   "name_vi": "Liên Hoa Tọa Trận",
+   "grade": 1,
+   "realm_min": 1,
+   "skill_min": 1,
+   "reserve_share": 0.05,
+   "max_level": 5,
+   "taught_by": "Buddhist and healing sects, inner disciple",
+   "idea": "A seat with two petals; at level 3 two more petals open together. The petals carry the seat's heals and wards.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": -12,
+      "scope": [
+       "heal"
+      ]
+     },
+     "node_score": 12,
+     "pos": [
+      0.0,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "tag": "heal"
+     },
+     "node_score": 8,
+     "pos": [
+      -1.0,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "tag": "ward"
+     },
+     "node_score": 8,
+     "pos": [
+      1.0,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "art_cost_pct",
+      "value": -10,
+      "tag": "heal"
+     },
+     "node_score": 8,
+     "pos": [
+      0.0,
+      -1.0
+     ],
+     "unlock": 3
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "art_cost_pct",
+      "value": -10,
+      "tag": "ward"
+     },
+     "node_score": 8,
+     "pos": [
+      0.0,
+      1.0
+     ],
+     "unlock": 3
+    }
+   ],
+   "links": [
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 2,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 3,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 4,
+     "bend": 0.0,
+     "unlock": 3
+    },
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 5,
+     "bend": 0.0,
+     "unlock": 3
+    }
+   ],
+   "figure": [
+    {
+     "shape": "petals",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 1.2,
+     "n": 8,
+     "w": 0.4
+    },
+    {
+     "shape": "circle",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 0.4
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "cam_am",
+   "name": "Seven-String Zither",
+   "name_vi": "Thất Huyền Cầm Âm Trận",
+   "grade": 1,
+   "realm_min": 1,
+   "skill_min": 1,
+   "reserve_share": 0.04,
+   "max_level": 5,
+   "taught_by": "music sects, inner disciple",
+   "idea": "Strings of a zither: song arts beside each other play quicker; the third string waits for the fifth pulse of every cycle.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "art_speed_pct",
+      "value": 12,
+      "tag": "song"
+     },
+     "node_score": 10,
+     "pos": [
+      -1.0,
+      -0.6
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "damage_pct",
+      "value": 12,
+      "tag": "song"
+     },
+     "node_score": 10,
+     "pos": [
+      0.0,
+      -0.6
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "?",
+     "rule": {
+      "type": "gate",
+      "cond": {
+       "read": "cycle.5",
+       "op": "==",
+       "value": 0
+      }
+     },
+     "node_score": 6,
+     "pos": [
+      1.0,
+      -0.6
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": -10,
+      "scope": [
+       "song"
+      ]
+     },
+     "node_score": 10,
+     "pos": [
+      0.0,
+      0.6
+     ],
+     "unlock": 1
+    }
+   ],
+   "links": [
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 2,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 2,
+     "b": 3,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 2,
+     "b": 4,
+     "bend": 0.0,
+     "unlock": 1
+    }
+   ],
+   "figure": [
+    {
+     "shape": "strings",
+     "from": [
+      -1.8,
+      -1.2
+     ],
+     "to": [
+      1.8,
+      -1.2
+     ],
+     "n": 7,
+     "gap": 0.35,
+     "horizontal": true
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "pha_quan",
+   "name": "Army-Breaker Wedge",
+   "name_vi": "Phá Quân Trận",
+   "grade": 1,
+   "realm_min": 1,
+   "skill_min": 1,
+   "reserve_share": 0.05,
+   "max_level": 5,
+   "taught_by": "spear and military sects, inner disciple",
+   "idea": "A spearhead wedge: the point and two shoulders from the start; at level 4 both flanks open together and drive the shoulders.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 18,
+      "scope": [
+       "spear"
+      ]
+     },
+     "node_score": 18,
+     "pos": [
+      1.3,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      0.3,
+      -0.6
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      0.3,
+      0.6
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": -12,
+      "scope": []
+     },
+     "node_score": -6,
+     "pos": [
+      -0.8,
+      -1.1
+     ],
+     "unlock": 4
+    },
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": -12,
+      "scope": []
+     },
+     "node_score": -6,
+     "pos": [
+      -0.8,
+      1.1
+     ],
+     "unlock": 4
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 1,
+     "seconds": 0.9,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 1,
+     "seconds": 0.9,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 4,
+     "to": 2,
+     "seconds": 0.9,
+     "bend": 0.0,
+     "unlock": 4
+    },
+    {
+     "kind": "feed",
+     "from": 5,
+     "to": 3,
+     "seconds": 0.9,
+     "bend": 0.0,
+     "unlock": 4
+    }
+   ],
+   "figure": [
+    {
+     "shape": "chevron",
+     "points": [
+      [
+       -1.3,
+       -1.5
+      ],
+      [
+       1.8,
+       0.0
+      ],
+      [
+       -1.3,
+       1.5
+      ]
+     ]
+    },
+    {
+     "shape": "chevron",
+     "points": [
+      [
+       -0.9,
+       -1.0
+      ],
+      [
+       1.2,
+       0.0
+      ],
+      [
+       -0.9,
+       1.0
+      ]
+     ]
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "nguyet_anh",
+   "name": "Moon Shadow",
+   "name_vi": "Nguyệt Ảnh Trận",
+   "grade": 1,
+   "realm_min": 1,
+   "skill_min": 1,
+   "reserve_share": 0.03,
+   "max_level": 2,
+   "taught_by": "assassin and wind sects, inner disciple",
+   "idea": "On a crescent: quick arts strike first and fastest, and the shadow's blow only lands in the first 8 s. Two levels.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 16,
+      "scope": [
+       "quick"
+      ]
+     },
+     "node_score": 16,
+     "pos": [
+      -0.6,
+      -0.8
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 12,
+      "scope": [
+       "quick"
+      ]
+     },
+     "node_score": 12,
+     "pos": [
+      -0.9,
+      0.2
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "?",
+     "rule": {
+      "type": "gate",
+      "cond": {
+       "read": "time",
+       "op": "<=",
+       "value": 8
+      }
+     },
+     "node_score": 6,
+     "pos": [
+      -0.4,
+      1.0
+     ],
+     "unlock": 1
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 1,
+     "to": 2,
+     "seconds": 0.7,
+     "bend": 0.3,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 3,
+     "seconds": 0.7,
+     "bend": 0.3,
+     "unlock": 1
+    }
+   ],
+   "figure": [
+    {
+     "shape": "crescent",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 1.3
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "van_kiem",
+   "name": "Myriad Swords Return",
+   "name_vi": "Vạn Kiếm Quy Tông Trận",
+   "grade": 2,
+   "realm_min": 2,
+   "skill_min": 2,
+   "reserve_share": 0.08,
+   "max_level": 5,
+   "taught_by": "sword great sects, core disciple",
+   "idea": "A fan of blades converging on one: four sword nodes feed the centre's heavy sword art. No growth, only strength.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 26,
+      "scope": [
+       "sword"
+      ]
+     },
+     "node_score": 26,
+     "pos": [
+      0.0,
+      0.8
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": [
+       "sword"
+      ]
+     },
+     "node_score": 10,
+     "pos": [
+      -1.5,
+      -0.6
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": [
+       "sword"
+      ]
+     },
+     "node_score": 10,
+     "pos": [
+      -0.5,
+      -0.6
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": [
+       "sword"
+      ]
+     },
+     "node_score": 10,
+     "pos": [
+      0.5,
+      -0.6
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": [
+       "sword"
+      ]
+     },
+     "node_score": 10,
+     "pos": [
+      1.5,
+      -0.6
+     ],
+     "unlock": 1
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 1,
+     "seconds": 0.7,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 1,
+     "seconds": 0.7,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 4,
+     "to": 1,
+     "seconds": 0.7,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 5,
+     "to": 1,
+     "seconds": 0.7,
+     "bend": 0.0,
+     "unlock": 1
+    }
+   ],
+   "figure": [
+    {
+     "shape": "rays",
+     "c": [
+      0.0,
+      0.8
+     ],
+     "r0": 0.4,
+     "r1": 2.0,
+     "n": 14,
+     "a0": 200,
+     "a1": 340
+    },
+    {
+     "shape": "sword",
+     "from": [
+      0.0,
+      1.9
+     ],
+     "to": [
+      0.0,
+      0.4
+     ],
+     "w": 0.14
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "cuu_cung",
+   "name": "Nine Palaces",
+   "name_vi": "Cửu Cung Trận",
+   "grade": 2,
+   "realm_min": 2,
+   "skill_min": 2,
+   "reserve_share": 0.09,
+   "max_level": 5,
+   "taught_by": "formation-master great sects, core disciple",
+   "idea": "The magic square: the centre cross of five from the start; two corners at level 3, the other two at level 5 (nine nodes: only with bonus art slots). Corners quicken the arts beside them.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 16,
+      "scope": []
+     },
+     "node_score": 16,
+     "pos": [
+      0.0,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      0.0,
+      -1.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      1.0,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      0.0,
+      1.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      -1.0,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "damage_pct",
+      "value": 10,
+      "tag": "quick"
+     },
+     "node_score": 8,
+     "pos": [
+      1.0,
+      -1.0
+     ],
+     "unlock": 3
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "damage_pct",
+      "value": 10,
+      "tag": "quick"
+     },
+     "node_score": 8,
+     "pos": [
+      -1.0,
+      1.0
+     ],
+     "unlock": 3
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "damage_pct",
+      "value": 10,
+      "tag": "heavy"
+     },
+     "node_score": 8,
+     "pos": [
+      1.0,
+      1.0
+     ],
+     "unlock": 5
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "damage_pct",
+      "value": 10,
+      "tag": "heavy"
+     },
+     "node_score": 8,
+     "pos": [
+      -1.0,
+      -1.0
+     ],
+     "unlock": 5
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 1,
+     "seconds": 0.6,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 1,
+     "seconds": 0.6,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 4,
+     "to": 1,
+     "seconds": 0.6,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 5,
+     "to": 1,
+     "seconds": 0.6,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 6,
+     "b": 2,
+     "bend": 0.0,
+     "unlock": 3
+    },
+    {
+     "kind": "adj",
+     "a": 6,
+     "b": 3,
+     "bend": 0.0,
+     "unlock": 3
+    },
+    {
+     "kind": "adj",
+     "a": 7,
+     "b": 4,
+     "bend": 0.0,
+     "unlock": 3
+    },
+    {
+     "kind": "adj",
+     "a": 7,
+     "b": 5,
+     "bend": 0.0,
+     "unlock": 3
+    },
+    {
+     "kind": "adj",
+     "a": 8,
+     "b": 3,
+     "bend": 0.0,
+     "unlock": 5
+    },
+    {
+     "kind": "adj",
+     "a": 8,
+     "b": 4,
+     "bend": 0.0,
+     "unlock": 5
+    },
+    {
+     "kind": "adj",
+     "a": 9,
+     "b": 5,
+     "bend": 0.0,
+     "unlock": 5
+    },
+    {
+     "kind": "adj",
+     "a": 9,
+     "b": 2,
+     "bend": 0.0,
+     "unlock": 5
+    }
+   ],
+   "figure": [
+    {
+     "shape": "grid",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "size": 2.6,
+     "n": 3
+    },
+    {
+     "shape": "circle",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 1.75
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "thien_la",
+   "name": "Heaven's Net, Earth's Snare",
+   "name_vi": "Thiên La Địa Võng Trận",
+   "grade": 2,
+   "realm_min": 2,
+   "skill_min": 2,
+   "reserve_share": 0.08,
+   "max_level": 4,
+   "taught_by": "demonic great sects, core disciple",
+   "idea": "Above, a net of control; below, a snare of seals. The snare's jaw closes only on a foe below half health.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "art_speed_pct",
+      "value": 14,
+      "tag": "control"
+     },
+     "node_score": 12,
+     "pos": [
+      -1.0,
+      -0.8
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "art_speed_pct",
+      "value": 14,
+      "tag": "control"
+     },
+     "node_score": 12,
+     "pos": [
+      1.0,
+      -0.8
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 16,
+      "scope": [
+       "seal"
+      ]
+     },
+     "node_score": 16,
+     "pos": [
+      -1.0,
+      0.8
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 16,
+      "scope": [
+       "seal"
+      ]
+     },
+     "node_score": 16,
+     "pos": [
+      1.0,
+      0.8
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "?",
+     "rule": {
+      "type": "gate",
+      "cond": {
+       "read": "foe.hp_share",
+       "op": "<=",
+       "value": 0.5
+      }
+     },
+     "node_score": 6,
+     "pos": [
+      0.0,
+      0.0
+     ],
+     "unlock": 1
+    }
+   ],
+   "links": [
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 2,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 3,
+     "b": 4,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 1,
+     "to": 5,
+     "seconds": 0.8,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 5,
+     "seconds": 0.8,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 3,
+     "b": 5,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 4,
+     "b": 5,
+     "bend": 0.0,
+     "unlock": 1
+    }
+   ],
+   "figure": [
+    {
+     "shape": "net",
+     "c": [
+      0.0,
+      -0.8
+     ],
+     "r": 1.2,
+     "rings": 2,
+     "spokes": 6
+    },
+    {
+     "shape": "arc",
+     "c": [
+      0.0,
+      -0.3
+     ],
+     "r": 1.5,
+     "a0": 20,
+     "a1": 160
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "huyet_hai",
+   "name": "Sea of Blood",
+   "name_vi": "Huyết Hải Trận",
+   "grade": 2,
+   "realm_min": 2,
+   "skill_min": 2,
+   "reserve_share": 0.07,
+   "max_level": 3,
+   "taught_by": "blood-path demonic sects, core disciple",
+   "idea": "A red tide that rises with your wounds: two nodes strike only once you have lost half your health, a third pays the tide's price.",
+   "nodes": [
+    {
+     "polarity": "?",
+     "rule": {
+      "type": "gate",
+      "cond": {
+       "read": "own.hp_missing_share",
+       "op": ">=",
+       "value": 0.5
+      }
+     },
+     "node_score": 6,
+     "pos": [
+      -1.0,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "?",
+     "rule": {
+      "type": "gate",
+      "cond": {
+       "read": "own.hp_missing_share",
+       "op": ">=",
+       "value": 0.5
+      }
+     },
+     "node_score": 6,
+     "pos": [
+      1.0,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 30,
+      "scope": []
+     },
+     "node_score": 30,
+     "pos": [
+      0.0,
+      -0.8
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": 25,
+      "scope": []
+     },
+     "node_score": -8,
+     "pos": [
+      0.0,
+      0.8
+     ],
+     "unlock": 1
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 4,
+     "to": 1,
+     "seconds": 1.2,
+     "bend": 0.4,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 4,
+     "to": 2,
+     "seconds": 1.2,
+     "bend": -0.4,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 3,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 2,
+     "b": 3,
+     "bend": 0.0,
+     "unlock": 1
+    }
+   ],
+   "figure": [
+    {
+     "shape": "wave",
+     "from": [
+      -2.0,
+      0.4
+     ],
+     "to": [
+      2.0,
+      0.4
+     ],
+     "amp": 0.18,
+     "waves": 5
+    },
+    {
+     "shape": "wave",
+     "from": [
+      -2.0,
+      0.8
+     ],
+     "to": [
+      2.0,
+      0.8
+     ],
+     "amp": 0.18,
+     "waves": 5
+    },
+    {
+     "shape": "wave",
+     "from": [
+      -2.0,
+      1.2
+     ],
+     "to": [
+      2.0,
+      1.2
+     ],
+     "amp": 0.18,
+     "waves": 5
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "tinh_ha",
+   "name": "River of Stars",
+   "name_vi": "Tinh Hà Trận",
+   "grade": 2,
+   "realm_min": 2,
+   "skill_min": 2,
+   "reserve_share": 0.07,
+   "max_level": 5,
+   "taught_by": "star-gazing sects, core disciple",
+   "idea": "Five stars along the galaxy's curve, each feeding the next downstream; at level 5 the river closes into a loop.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      -2.0,
+      0.6
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      -1.0,
+      -0.2
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": 12,
+     "pos": [
+      0.0,
+      -0.4
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      1.0,
+      -0.2
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 20,
+      "scope": [
+       "heavy"
+      ]
+     },
+     "node_score": 20,
+     "pos": [
+      2.0,
+      0.6
+     ],
+     "unlock": 1
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 1,
+     "to": 2,
+     "seconds": 0.7,
+     "bend": 0.2,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 3,
+     "seconds": 0.7,
+     "bend": 0.2,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 4,
+     "seconds": 0.7,
+     "bend": 0.2,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 4,
+     "to": 5,
+     "seconds": 0.7,
+     "bend": 0.2,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 5,
+     "to": 1,
+     "seconds": 1.0,
+     "bend": -0.6,
+     "unlock": 5
+    }
+   ],
+   "figure": [
+    {
+     "shape": "band",
+     "from": [
+      -2.4,
+      0.9
+     ],
+     "to": [
+      2.4,
+      0.9
+     ],
+     "sag": -1.3,
+     "w": 0.5
+    },
+    {
+     "shape": "stars",
+     "c": [
+      0.0,
+      0.1
+     ],
+     "r": 1.9,
+     "n": 30
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "phong_loi",
+   "name": "Wind and Thunder",
+   "name_vi": "Phong Lôi Trận",
+   "grade": 2,
+   "realm_min": 2,
+   "skill_min": 2,
+   "reserve_share": 0.06,
+   "max_level": 5,
+   "taught_by": "lightning and wind sects, core disciple",
+   "idea": "Two wind nodes and two thunder nodes in alternation; wind feeds thunder, thunder feeds wind, and the eye of the storm opens at level 4.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 12,
+      "scope": [
+       "wind"
+      ]
+     },
+     "node_score": 12,
+     "pos": [
+      -1.0,
+      -0.6
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 14,
+      "scope": [
+       "lightning"
+      ]
+     },
+     "node_score": 14,
+     "pos": [
+      1.0,
+      -0.6
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 12,
+      "scope": [
+       "wind"
+      ]
+     },
+     "node_score": 12,
+     "pos": [
+      1.0,
+      0.6
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 14,
+      "scope": [
+       "lightning"
+      ]
+     },
+     "node_score": 14,
+     "pos": [
+      -1.0,
+      0.6
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 18,
+      "scope": []
+     },
+     "node_score": 18,
+     "pos": [
+      0.0,
+      0.0
+     ],
+     "unlock": 4
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 1,
+     "to": 2,
+     "seconds": 0.8,
+     "bend": 0.3,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 3,
+     "seconds": 0.8,
+     "bend": 0.3,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 4,
+     "seconds": 0.8,
+     "bend": 0.3,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 4,
+     "to": 1,
+     "seconds": 0.8,
+     "bend": 0.3,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 5,
+     "bend": 0.0,
+     "unlock": 4
+    },
+    {
+     "kind": "adj",
+     "a": 3,
+     "b": 5,
+     "bend": 0.0,
+     "unlock": 4
+    }
+   ],
+   "figure": [
+    {
+     "shape": "spiral",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r0": 0.2,
+     "r1": 1.4,
+     "turns": 1.0
+    },
+    {
+     "shape": "zigzag",
+     "from": [
+      -1.6,
+      -1.2
+     ],
+     "to": [
+      1.6,
+      1.2
+     ],
+     "n": 6,
+     "amp": 0.25
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "kim_cuong",
+   "name": "Vajra Demon-Subduing",
+   "name_vi": "Kim Cương Phục Ma Trận",
+   "grade": 2,
+   "realm_min": 2,
+   "skill_min": 2,
+   "reserve_share": 0.08,
+   "max_level": 5,
+   "taught_by": "Buddhist great sects, core disciple",
+   "idea": "The vajra's two prongs and its grip: wards and bulwarks cheap at the grip, the prongs strike hardest while your body shield holds.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": -15,
+      "scope": [
+       "ward"
+      ]
+     },
+     "node_score": 12,
+     "pos": [
+      0.0,
+      -0.3
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": -15,
+      "scope": [
+       "bulwark"
+      ]
+     },
+     "node_score": 12,
+     "pos": [
+      0.0,
+      0.85
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "?",
+     "rule": {
+      "type": "gate",
+      "cond": {
+       "read": "own.body_shield_share",
+       "op": ">",
+       "value": 0.2
+      }
+     },
+     "node_score": 6,
+     "pos": [
+      0.0,
+      -1.3
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "?",
+     "rule": {
+      "type": "gate",
+      "cond": {
+       "read": "own.body_shield_share",
+       "op": ">",
+       "value": 0.2
+      }
+     },
+     "node_score": 6,
+     "pos": [
+      0.0,
+      1.8
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "damage_pct",
+      "value": 14,
+      "tag": "ward"
+     },
+     "node_score": 10,
+     "pos": [
+      -0.9,
+      0.25
+     ],
+     "unlock": 1
+    }
+   ],
+   "links": [
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 2,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 3,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 2,
+     "b": 4,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 5,
+     "bend": 0.0,
+     "unlock": 1
+    }
+   ],
+   "figure": [
+    {
+     "shape": "vajra",
+     "c": [
+      0.0,
+      0.25
+     ],
+     "len": 3.4
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "bach_quy",
+   "name": "Night Parade of a Hundred Ghosts",
+   "name_vi": "Bách Quỷ Dạ Hành Trận",
+   "grade": 2,
+   "realm_min": 2,
+   "skill_min": 2,
+   "reserve_share": 0.07,
+   "max_level": 5,
+   "taught_by": "ghost-path demonic sects, core disciple",
+   "idea": "A procession of summons under lanterns; two more ghosts join the end of the line at level 5. Each ghost hastens the one ahead.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 16,
+      "scope": [
+       "summon"
+      ]
+     },
+     "node_score": 16,
+     "pos": [
+      1.8,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": [
+       "summon"
+      ]
+     },
+     "node_score": 10,
+     "pos": [
+      0.9,
+      0.4
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": [
+       "summon"
+      ]
+     },
+     "node_score": 10,
+     "pos": [
+      0.0,
+      0.1
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": 15,
+      "scope": []
+     },
+     "node_score": -6,
+     "pos": [
+      -0.9,
+      0.4
+     ],
+     "unlock": 5
+    },
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": 15,
+      "scope": []
+     },
+     "node_score": -6,
+     "pos": [
+      -1.8,
+      0.0
+     ],
+     "unlock": 5
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 1,
+     "seconds": 0.8,
+     "bend": 0.3,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 2,
+     "seconds": 0.8,
+     "bend": -0.3,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 4,
+     "to": 3,
+     "seconds": 0.8,
+     "bend": 0.3,
+     "unlock": 5
+    },
+    {
+     "kind": "feed",
+     "from": 5,
+     "to": 4,
+     "seconds": 0.8,
+     "bend": -0.3,
+     "unlock": 5
+    }
+   ],
+   "figure": [
+    {
+     "shape": "lanterns",
+     "from": [
+      -2.2,
+      -0.7
+     ],
+     "to": [
+      2.2,
+      -0.7
+     ],
+     "n": 6
+    },
+    {
+     "shape": "wave",
+     "from": [
+      -2.2,
+      0.2
+     ],
+     "to": [
+      2.2,
+      0.2
+     ],
+     "amp": 0.2,
+     "waves": 2
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "doc_long",
+   "name": "Poison Dragon Drill",
+   "name_vi": "Độc Long Toản Trận",
+   "grade": 2,
+   "realm_min": 2,
+   "skill_min": 2,
+   "reserve_share": 0.06,
+   "max_level": 3,
+   "taught_by": "poison sects, core disciple",
+   "idea": "A drill that bores into a cursed foe: its tip strikes only once the foe carries three curses; the threads feed the tip.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 14,
+      "scope": [
+       "poison"
+      ]
+     },
+     "node_score": 12,
+     "pos": [
+      -1.2,
+      -0.3
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 14,
+      "scope": [
+       "poison"
+      ]
+     },
+     "node_score": 12,
+     "pos": [
+      -1.2,
+      0.3
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 16,
+      "scope": [
+       "poison"
+      ]
+     },
+     "node_score": 16,
+     "pos": [
+      0.0,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "?",
+     "rule": {
+      "type": "gate",
+      "cond": {
+       "read": "foe.curses",
+       "op": ">=",
+       "value": 3
+      }
+     },
+     "node_score": 6,
+     "pos": [
+      1.4,
+      0.0
+     ],
+     "unlock": 1
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 1,
+     "to": 3,
+     "seconds": 0.8,
+     "bend": -0.2,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 3,
+     "seconds": 0.8,
+     "bend": 0.2,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 4,
+     "seconds": 1.2,
+     "bend": 0.0,
+     "unlock": 1
+    }
+   ],
+   "figure": [
+    {
+     "shape": "drill",
+     "from": [
+      -1.8,
+      0.0
+     ],
+     "to": [
+      2.0,
+      0.0
+     ],
+     "w": 0.7,
+     "turns": 5
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "con_bang",
+   "name": "Kun Becomes Peng",
+   "name_vi": "Côn Bằng Trận",
+   "grade": 2,
+   "realm_min": 2,
+   "skill_min": 2,
+   "reserve_share": 0.06,
+   "max_level": 5,
+   "taught_by": "a ruin's carvings (found by exploring)",
+   "idea": "Fish below, bird above: the fish half pays and feeds the bird half, which strikes only while your linh lực is above 60 %.",
+   "nodes": [
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": 15,
+      "scope": []
+     },
+     "node_score": -6,
+     "pos": [
+      -1.0,
+      0.7
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": 15,
+      "scope": []
+     },
+     "node_score": -6,
+     "pos": [
+      1.0,
+      0.7
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": 12,
+     "pos": [
+      0.0,
+      0.9
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "?",
+     "rule": {
+      "type": "gate",
+      "cond": {
+       "read": "own.qi_share",
+       "op": ">=",
+       "value": 0.6
+      }
+     },
+     "node_score": 6,
+     "pos": [
+      -0.8,
+      -0.8
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 22,
+      "scope": []
+     },
+     "node_score": 22,
+     "pos": [
+      0.8,
+      -0.8
+     ],
+     "unlock": 1
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 1,
+     "to": 4,
+     "seconds": 1.0,
+     "bend": 0.4,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 5,
+     "seconds": 1.0,
+     "bend": -0.4,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 3,
+     "b": 1,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 3,
+     "b": 2,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 4,
+     "b": 5,
+     "bend": 0.3,
+     "unlock": 1
+    }
+   ],
+   "figure": [
+    {
+     "shape": "wave",
+     "from": [
+      -2.0,
+      1.1
+     ],
+     "to": [
+      2.0,
+      1.1
+     ],
+     "amp": 0.15,
+     "waves": 3
+    },
+    {
+     "shape": "wings",
+     "c": [
+      0.0,
+      -0.6
+     ],
+     "r": 1.8
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "luc_hop",
+   "name": "Six Harmonies",
+   "name_vi": "Lục Hợp Trận",
+   "grade": 3,
+   "realm_min": 3,
+   "skill_min": 3,
+   "reserve_share": 0.1,
+   "max_level": 5,
+   "taught_by": "formation-master great sects, elder",
+   "idea": "Two triangles of a hexagram: the upward one quickens, the downward one strikes; each point is beside its two neighbours of the other triangle.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "tag": "heavy"
+     },
+     "node_score": 10,
+     "pos": [
+      0.0,
+      -1.2
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "tag": "heavy"
+     },
+     "node_score": 10,
+     "pos": [
+      1.039,
+      0.6
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "tag": "heavy"
+     },
+     "node_score": 10,
+     "pos": [
+      -1.039,
+      0.6
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "damage_pct",
+      "value": 12,
+      "tag": "quick"
+     },
+     "node_score": 10,
+     "pos": [
+      0.0,
+      1.2
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "damage_pct",
+      "value": 12,
+      "tag": "quick"
+     },
+     "node_score": 10,
+     "pos": [
+      -1.039,
+      -0.6
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "damage_pct",
+      "value": 12,
+      "tag": "quick"
+     },
+     "node_score": 10,
+     "pos": [
+      1.039,
+      -0.6
+     ],
+     "unlock": 1
+    }
+   ],
+   "links": [
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 6,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 5,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 2,
+     "b": 4,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 2,
+     "b": 6,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 3,
+     "b": 4,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 3,
+     "b": 5,
+     "bend": 0.0,
+     "unlock": 1
+    }
+   ],
+   "figure": [
+    {
+     "shape": "poly",
+     "points": [
+      [
+       0.0,
+       -1.2
+      ],
+      [
+       1.039,
+       0.6
+      ],
+      [
+       -1.039,
+       0.6
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "shape": "poly",
+     "points": [
+      [
+       0.0,
+       1.2
+      ],
+      [
+       -1.039,
+       -0.6
+      ],
+      [
+       1.039,
+       -0.6
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "shape": "circle",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 1.45
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "thap_phuong",
+   "name": "Ten Directions Annihilation",
+   "name_vi": "Thập Phương Câu Diệt Trận",
+   "grade": 3,
+   "realm_min": 3,
+   "skill_min": 3,
+   "reserve_share": 0.11,
+   "max_level": 4,
+   "taught_by": "demonic great sects, elder",
+   "idea": "A burst of ten rays from one heart: six nodes on the rays all feed the heart's art, which strikes only after you have not been hit for 3 s.",
+   "nodes": [
+    {
+     "polarity": "?",
+     "rule": {
+      "type": "gate",
+      "cond": {
+       "read": "own.since_hit",
+       "op": ">=",
+       "value": 3
+      }
+     },
+     "node_score": 6,
+     "pos": [
+      0.0,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": 12,
+     "pos": [
+      0.0,
+      -1.3
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": 15,
+      "scope": []
+     },
+     "node_score": -5,
+     "pos": [
+      1.236,
+      -0.402
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": 12,
+     "pos": [
+      0.764,
+      1.052
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": 15,
+      "scope": []
+     },
+     "node_score": -5,
+     "pos": [
+      -0.764,
+      1.052
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": 12,
+     "pos": [
+      -1.236,
+      -0.402
+     ],
+     "unlock": 3
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 1,
+     "seconds": 0.6,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 1,
+     "seconds": 0.6,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 4,
+     "to": 1,
+     "seconds": 0.6,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 5,
+     "to": 1,
+     "seconds": 0.6,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 6,
+     "to": 1,
+     "seconds": 0.6,
+     "bend": 0.0,
+     "unlock": 3
+    }
+   ],
+   "figure": [
+    {
+     "shape": "rays",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r0": 0.35,
+     "r1": 1.9,
+     "n": 10
+    },
+    {
+     "shape": "circle",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 0.35
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "thai_cuc_vo_cuc",
+   "name": "Taiji Returns to Wuji",
+   "name_vi": "Thái Cực Vô Cực Trận",
+   "grade": 3,
+   "realm_min": 3,
+   "skill_min": 3,
+   "reserve_share": 0.09,
+   "max_level": 1,
+   "taught_by": "a Daoist immortal's stele (a special encounter)",
+   "idea": "Concentric emptiness: one centre, and two rings that pour into it. One level: perfect as found, never raised.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 30,
+      "scope": []
+     },
+     "node_score": 30,
+     "pos": [
+      0.0,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      0.0,
+      -0.9
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      0.779,
+      0.45
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      -0.779,
+      0.45
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": -5,
+     "pos": [
+      1.6,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": -5,
+     "pos": [
+      -1.6,
+      0.0
+     ],
+     "unlock": 1
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 1,
+     "seconds": 0.6,
+     "bend": 0.3,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 1,
+     "seconds": 0.6,
+     "bend": 0.3,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 4,
+     "to": 1,
+     "seconds": 0.6,
+     "bend": 0.3,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 5,
+     "to": 2,
+     "seconds": 0.8,
+     "bend": 0.4,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 6,
+     "to": 3,
+     "seconds": 0.8,
+     "bend": 0.4,
+     "unlock": 1
+    }
+   ],
+   "figure": [
+    {
+     "shape": "circle",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 0.9
+    },
+    {
+     "shape": "circle",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 1.6
+    },
+    {
+     "shape": "taiji",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 0.45
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "van_thu",
+   "name": "Myriad Beasts Pay Homage",
+   "name_vi": "Vạn Thú Triều Tông Trận",
+   "grade": 3,
+   "realm_min": 3,
+   "skill_min": 3,
+   "reserve_share": 0.1,
+   "max_level": 5,
+   "taught_by": "beast-taming sects, elder",
+   "idea": "Summons gather toward the throne: three beasts from the start, a fourth at level 2, a fifth at level 5; every beast beside a summon art strikes harder.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 20,
+      "scope": [
+       "summon"
+      ]
+     },
+     "node_score": 20,
+     "pos": [
+      0.0,
+      -0.4
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "damage_pct",
+      "value": 12,
+      "tag": "summon"
+     },
+     "node_score": 10,
+     "pos": [
+      1.41,
+      0.513
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "damage_pct",
+      "value": 12,
+      "tag": "summon"
+     },
+     "node_score": 10,
+     "pos": [
+      -0.052,
+      1.499
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "damage_pct",
+      "value": 12,
+      "tag": "summon"
+     },
+     "node_score": 10,
+     "pos": [
+      -1.442,
+      0.413
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "damage_pct",
+      "value": 12,
+      "tag": "summon"
+     },
+     "node_score": 10,
+     "pos": [
+      -0.839,
+      -1.244
+     ],
+     "unlock": 2
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "adj_mod",
+      "key": "damage_pct",
+      "value": 12,
+      "tag": "summon"
+     },
+     "node_score": 10,
+     "pos": [
+      0.923,
+      -1.182
+     ],
+     "unlock": 5
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 1,
+     "seconds": 0.8,
+     "bend": 0.2,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 1,
+     "seconds": 0.8,
+     "bend": 0.2,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 4,
+     "to": 1,
+     "seconds": 0.8,
+     "bend": 0.2,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 5,
+     "to": 1,
+     "seconds": 0.8,
+     "bend": 0.2,
+     "unlock": 2
+    },
+    {
+     "kind": "feed",
+     "from": 6,
+     "to": 1,
+     "seconds": 0.8,
+     "bend": 0.2,
+     "unlock": 5
+    }
+   ],
+   "figure": [
+    {
+     "shape": "arc",
+     "c": [
+      0.0,
+      -0.4
+     ],
+     "r": 1.5,
+     "a0": 0,
+     "a1": 180
+    },
+    {
+     "shape": "rays",
+     "c": [
+      0.0,
+      -0.4
+     ],
+     "r0": 0.3,
+     "r1": 0.6,
+     "n": 8
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "ky_mon",
+   "name": "Strange Gates Hidden Stems",
+   "name_vi": "Kỳ Môn Độn Giáp Trận",
+   "grade": 3,
+   "realm_min": 3,
+   "skill_min": 3,
+   "reserve_share": 0.12,
+   "max_level": 5,
+   "taught_by": "formation-master great sects, elder",
+   "idea": "Eight doors around a hidden centre; the doors that open change with the pulse (open on every second pulse), and the centre steals linh lực back.",
+   "nodes": [
+    {
+     "polarity": "?",
+     "rule": {
+      "type": "gate",
+      "cond": {
+       "read": "cycle.2",
+       "op": "==",
+       "value": 0
+      }
+     },
+     "node_score": 6,
+     "pos": [
+      0.0,
+      -1.2
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "?",
+     "rule": {
+      "type": "gate",
+      "cond": {
+       "read": "cycle.2",
+       "op": "==",
+       "value": 1
+      }
+     },
+     "node_score": 6,
+     "pos": [
+      1.2,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "?",
+     "rule": {
+      "type": "gate",
+      "cond": {
+       "read": "cycle.2",
+       "op": "==",
+       "value": 0
+      }
+     },
+     "node_score": 6,
+     "pos": [
+      0.0,
+      1.2
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "?",
+     "rule": {
+      "type": "gate",
+      "cond": {
+       "read": "cycle.2",
+       "op": "==",
+       "value": 1
+      }
+     },
+     "node_score": 6,
+     "pos": [
+      -1.2,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": -20,
+      "scope": []
+     },
+     "node_score": 14,
+     "pos": [
+      0.0,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 14,
+      "scope": []
+     },
+     "node_score": 14,
+     "pos": [
+      0.85,
+      -0.85
+     ],
+     "unlock": 3
+    }
+   ],
+   "links": [
+    {
+     "kind": "adj",
+     "a": 1,
+     "b": 5,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 2,
+     "b": 5,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 3,
+     "b": 5,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 4,
+     "b": 5,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 6,
+     "to": 5,
+     "seconds": 0.8,
+     "bend": 0.0,
+     "unlock": 3
+    }
+   ],
+   "figure": [
+    {
+     "shape": "gates",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 1.2
+    },
+    {
+     "shape": "poly",
+     "points": [
+      [
+       0.612,
+       -1.478
+      ],
+      [
+       1.478,
+       -0.612
+      ],
+      [
+       1.478,
+       0.612
+      ],
+      [
+       0.612,
+       1.478
+      ],
+      [
+       -0.612,
+       1.478
+      ],
+      [
+       -1.478,
+       0.612
+      ],
+      [
+       -1.478,
+       -0.612
+      ],
+      [
+       -0.612,
+       -1.478
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "shape": "grid",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "size": 1.0,
+     "n": 3
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "lo_luyen",
+   "name": "Furnace of Heaven and Earth",
+   "name_vi": "Thiên Địa Hồng Lô Trận",
+   "grade": 3,
+   "realm_min": 3,
+   "skill_min": 3,
+   "reserve_share": 0.1,
+   "max_level": 4,
+   "taught_by": "alchemist great sects, elder",
+   "idea": "A cauldron on three legs: the fire below feeds the vessel, and whatever burns in it gains more the more elements burn on you.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 16,
+      "scope": [
+       "fire"
+      ]
+     },
+     "node_score": 16,
+     "pos": [
+      0.0,
+      1.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      -0.9,
+      1.2
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      0.9,
+      1.2
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "?",
+     "rule": {
+      "type": "gate",
+      "cond": {
+       "read": "own.buff_elements",
+       "op": ">=",
+       "value": 2
+      }
+     },
+     "node_score": 6,
+     "pos": [
+      0.0,
+      -0.3
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 20,
+      "scope": []
+     },
+     "node_score": 20,
+     "pos": [
+      0.0,
+      -1.1
+     ],
+     "unlock": 4
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 1,
+     "seconds": 0.8,
+     "bend": 0.3,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 1,
+     "seconds": 0.8,
+     "bend": -0.3,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 1,
+     "to": 4,
+     "seconds": 0.8,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 4,
+     "to": 5,
+     "seconds": 0.8,
+     "bend": 0.0,
+     "unlock": 4
+    }
+   ],
+   "figure": [
+    {
+     "shape": "cauldron",
+     "c": [
+      0.0,
+      -0.2
+     ],
+     "r": 1.2
+    },
+    {
+     "shape": "flame",
+     "c": [
+      0.0,
+      1.05
+     ],
+     "r": 0.55
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "chu_thien",
+   "name": "Great Celestial Star Wheel",
+   "name_vi": "Chu Thiên Tinh Đấu Đại Trận",
+   "grade": 4,
+   "realm_min": 4,
+   "skill_min": 4,
+   "reserve_share": 0.14,
+   "max_level": 5,
+   "taught_by": "the highest formation-master sect's founder's hall",
+   "idea": "Seven stars on three orbits around the pole star: the inner orbit feeds the pole, the outer orbits feed the inner; the third orbit opens at level 3.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 30,
+      "scope": []
+     },
+     "node_score": 30,
+     "pos": [
+      0.0,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      0.8,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      -0.8,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 8,
+      "scope": []
+     },
+     "node_score": 8,
+     "pos": [
+      0.0,
+      1.5
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 8,
+      "scope": []
+     },
+     "node_score": 8,
+     "pos": [
+      -0.0,
+      -1.5
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": 12,
+     "pos": [
+      1.556,
+      1.556
+     ],
+     "unlock": 3
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": 12,
+     "pos": [
+      -1.556,
+      -1.556
+     ],
+     "unlock": 3
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 1,
+     "seconds": 0.6,
+     "bend": 0.4,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 1,
+     "seconds": 0.6,
+     "bend": 0.4,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 4,
+     "to": 2,
+     "seconds": 0.6,
+     "bend": 0.4,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 5,
+     "to": 3,
+     "seconds": 0.6,
+     "bend": 0.4,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 6,
+     "to": 4,
+     "seconds": 0.6,
+     "bend": 0.4,
+     "unlock": 3
+    },
+    {
+     "kind": "feed",
+     "from": 7,
+     "to": 5,
+     "seconds": 0.6,
+     "bend": 0.4,
+     "unlock": 3
+    }
+   ],
+   "figure": [
+    {
+     "shape": "circle",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 0.8
+    },
+    {
+     "shape": "circle",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 1.5
+    },
+    {
+     "shape": "circle",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 2.2
+    },
+    {
+     "shape": "stars",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 2.4,
+     "n": 40
+    },
+    {
+     "shape": "rays",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r0": 0.15,
+     "r1": 0.35,
+     "n": 8
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "tu_thien_kiem",
+   "name": "Four Heavenly Swords",
+   "name_vi": "Tứ Thiên Kiếm Trận",
+   "grade": 4,
+   "realm_min": 4,
+   "skill_min": 4,
+   "reserve_share": 0.13,
+   "max_level": 5,
+   "taught_by": "sword great sects' sect head",
+   "idea": "Four great swords planted at the four gates, each feeding the next around the ring; at level 4 the centre awakens and every sword feeds it.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 22,
+      "scope": [
+       "sword"
+      ]
+     },
+     "node_score": 22,
+     "pos": [
+      0.0,
+      -1.5
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 22,
+      "scope": [
+       "sword"
+      ]
+     },
+     "node_score": 22,
+     "pos": [
+      1.5,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 22,
+      "scope": [
+       "sword"
+      ]
+     },
+     "node_score": 22,
+     "pos": [
+      0.0,
+      1.5
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 22,
+      "scope": [
+       "sword"
+      ]
+     },
+     "node_score": 22,
+     "pos": [
+      -1.5,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 34,
+      "scope": [
+       "sword"
+      ]
+     },
+     "node_score": 34,
+     "pos": [
+      0.0,
+      0.0
+     ],
+     "unlock": 4
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 1,
+     "to": 2,
+     "seconds": 0.8,
+     "bend": 0.4,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 3,
+     "seconds": 0.8,
+     "bend": 0.4,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 4,
+     "seconds": 0.8,
+     "bend": 0.4,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 4,
+     "to": 1,
+     "seconds": 0.8,
+     "bend": 0.4,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 1,
+     "to": 5,
+     "seconds": 0.6,
+     "bend": 0.0,
+     "unlock": 4
+    },
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 5,
+     "seconds": 0.6,
+     "bend": 0.0,
+     "unlock": 4
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 5,
+     "seconds": 0.6,
+     "bend": 0.0,
+     "unlock": 4
+    },
+    {
+     "kind": "feed",
+     "from": 4,
+     "to": 5,
+     "seconds": 0.6,
+     "bend": 0.0,
+     "unlock": 4
+    }
+   ],
+   "figure": [
+    {
+     "shape": "circle",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 1.5
+    },
+    {
+     "shape": "sword",
+     "from": [
+      0.0,
+      -1.9
+     ],
+     "to": [
+      0.0,
+      -1.1
+     ],
+     "w": 0.16
+    },
+    {
+     "shape": "sword",
+     "from": [
+      1.9,
+      0.0
+     ],
+     "to": [
+      1.1,
+      0.0
+     ],
+     "w": 0.16
+    },
+    {
+     "shape": "sword",
+     "from": [
+      0.0,
+      1.9
+     ],
+     "to": [
+      0.0,
+      1.1
+     ],
+     "w": 0.16
+    },
+    {
+     "shape": "sword",
+     "from": [
+      -1.9,
+      0.0
+     ],
+     "to": [
+      -1.1,
+      0.0
+     ],
+     "w": 0.16
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "hon_don",
+   "name": "Primordial Chaos",
+   "name_vi": "Hỗn Độn Trận",
+   "grade": 4,
+   "realm_min": 4,
+   "skill_min": 4,
+   "reserve_share": 0.12,
+   "max_level": 5,
+   "taught_by": "chaos-path ruins (a special encounter)",
+   "idea": "No fixed shape: chaos arts swirl through five uneven nodes, quickening each other in a loop, while two nodes pay the price of holding chaos together.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 22,
+      "scope": [
+       "chaos"
+      ]
+     },
+     "node_score": 22,
+     "pos": [
+      0.3,
+      -0.2
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 14,
+      "scope": [
+       "chaos"
+      ]
+     },
+     "node_score": 14,
+     "pos": [
+      -1.1,
+      -0.9
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 14,
+      "scope": [
+       "chaos"
+      ]
+     },
+     "node_score": 14,
+     "pos": [
+      1.4,
+      -1.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 16,
+      "scope": [
+       "chaos"
+      ]
+     },
+     "node_score": 16,
+     "pos": [
+      1.0,
+      1.1
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": 20,
+      "scope": []
+     },
+     "node_score": -8,
+     "pos": [
+      -1.3,
+      0.9
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": -15,
+      "scope": []
+     },
+     "node_score": -6,
+     "pos": [
+      -0.2,
+      1.6
+     ],
+     "unlock": 3
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 1,
+     "seconds": 0.7,
+     "bend": 0.6,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 1,
+     "to": 3,
+     "seconds": 0.7,
+     "bend": 0.6,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 4,
+     "seconds": 0.7,
+     "bend": 0.6,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 4,
+     "to": 5,
+     "seconds": 0.7,
+     "bend": 0.6,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 5,
+     "to": 2,
+     "seconds": 0.7,
+     "bend": 0.6,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 6,
+     "to": 1,
+     "seconds": 0.7,
+     "bend": -0.5,
+     "unlock": 3
+    }
+   ],
+   "figure": [
+    {
+     "shape": "swirl",
+     "c": [
+      0.1,
+      0.1
+     ],
+     "r": 2.0,
+     "arms": 3
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "luan_hoi",
+   "name": "Wheel of Rebirth",
+   "name_vi": "Luân Hồi Trận",
+   "grade": 4,
+   "realm_min": 4,
+   "skill_min": 4,
+   "reserve_share": 0.12,
+   "max_level": 5,
+   "taught_by": "a reincarnated cultivator's teaching (a special character)",
+   "idea": "Six paths around a wheel, each feeding the next; the hub's art turns only when you are near death, once below 25 % health.",
+   "nodes": [
+    {
+     "polarity": "?",
+     "rule": {
+      "type": "gate",
+      "cond": {
+       "read": "own.hp_share",
+       "op": "<=",
+       "value": 0.25
+      }
+     },
+     "node_score": 6,
+     "pos": [
+      0.0,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": -5,
+     "pos": [
+      0.0,
+      -1.5
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      1.299,
+      -0.75
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      1.299,
+      0.75
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": -5,
+     "pos": [
+      0.0,
+      1.5
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "art_speed_pct",
+      "value": 10,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      -1.299,
+      0.75
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": 10,
+     "pos": [
+      -1.299,
+      -0.75
+     ],
+     "unlock": 1
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 3,
+     "seconds": 0.7,
+     "bend": 0.35,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 4,
+     "seconds": 0.7,
+     "bend": 0.35,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 4,
+     "to": 5,
+     "seconds": 0.7,
+     "bend": 0.35,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 5,
+     "to": 6,
+     "seconds": 0.7,
+     "bend": 0.35,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 6,
+     "to": 7,
+     "seconds": 0.7,
+     "bend": 0.35,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 7,
+     "to": 2,
+     "seconds": 0.7,
+     "bend": 0.35,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 2,
+     "b": 1,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "adj",
+     "a": 5,
+     "b": 1,
+     "bend": 0.0,
+     "unlock": 1
+    }
+   ],
+   "figure": [
+    {
+     "shape": "wheel",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 1.5,
+     "n": 6
+    },
+    {
+     "shape": "circle",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 1.9
+    }
+   ],
+   "source": "taught"
+  },
+  {
+   "id": "van_tuong",
+   "name": "Myriad Phenomena Return to One",
+   "name_vi": "Vạn Tượng Quy Nhất Trận",
+   "grade": 4,
+   "realm_min": 4,
+   "skill_min": 4,
+   "reserve_share": 0.1,
+   "max_level": 2,
+   "taught_by": "a sect-founder's final manuscript (a rare drop)",
+   "idea": "Many arts, one strike: six outer nodes all feed a single centre, each costing more. Two levels only, but the second adds the seventh.",
+   "nodes": [
+    {
+     "polarity": "+",
+     "rule": {
+      "type": "mod",
+      "key": "damage_pct",
+      "value": 40,
+      "scope": []
+     },
+     "node_score": 40,
+     "pos": [
+      0.0,
+      0.0
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": -5,
+     "pos": [
+      0.0,
+      -1.6
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": -5,
+     "pos": [
+      1.386,
+      -0.8
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": -5,
+     "pos": [
+      1.386,
+      0.8
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": -5,
+     "pos": [
+      0.0,
+      1.6
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": -5,
+     "pos": [
+      -1.386,
+      0.8
+     ],
+     "unlock": 1
+    },
+    {
+     "polarity": "-",
+     "rule": {
+      "type": "mod",
+      "key": "art_cost_pct",
+      "value": 12,
+      "scope": []
+     },
+     "node_score": -5,
+     "pos": [
+      -1.386,
+      -0.8
+     ],
+     "unlock": 2
+    }
+   ],
+   "links": [
+    {
+     "kind": "feed",
+     "from": 2,
+     "to": 1,
+     "seconds": 0.5,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 3,
+     "to": 1,
+     "seconds": 0.5,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 4,
+     "to": 1,
+     "seconds": 0.5,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 5,
+     "to": 1,
+     "seconds": 0.5,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 6,
+     "to": 1,
+     "seconds": 0.5,
+     "bend": 0.0,
+     "unlock": 1
+    },
+    {
+     "kind": "feed",
+     "from": 7,
+     "to": 1,
+     "seconds": 0.5,
+     "bend": 0.0,
+     "unlock": 2
+    }
+   ],
+   "figure": [
+    {
+     "shape": "rays",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r0": 0.4,
+     "r1": 1.6,
+     "n": 24
+    },
+    {
+     "shape": "circle",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 0.4
+    },
+    {
+     "shape": "circle",
+     "c": [
+      0.0,
+      0.0
+     ],
+     "r": 2.0
+    }
+   ],
+   "source": "taught"
+  }
+ ],
+ "starter": "truong_xa",
+ "npc_use": false
 }

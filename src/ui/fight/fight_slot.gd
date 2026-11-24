@@ -32,6 +32,9 @@ func set_px(px: int) -> void:
 
 func _draw() -> void:
 	var r := Rect2(Vector2.ZERO, size)
+	if frame == "node":   # on a formation node (the fight screen's B2 board): round, the cooldown as a ring sweeping round
+		_draw_node()
+		return
 	if frame == "empty" or icon == null:   # an empty slot: a dark recess with a dashed brass line (art bible 7.12)
 		draw_rect(r, _col(&"recess", Color(0.1, 0.11, 0.13)))
 		# pressed in: a shadow along the top and left inner edges, a light along the bottom and right
@@ -69,6 +72,31 @@ func _draw() -> void:
 		_badge(font, Vector2(size.x - 17, 3), "⚡", Color(0.85, 0.6, 0.1))
 	if badge != "":
 		_badge(font, Vector2(size.x - 6 - font.get_string_size(badge, HORIZONTAL_ALIGNMENT_LEFT, -1, 13).x, size.y - 18), badge, Color(0.15, 0.15, 0.18))
+
+
+# A slot on a formation node: the icon inscribed in the ring, a dim veil while it charges, the charge as a gold arc
+# sweeping clockwise from the top, a bright ring when it fires.
+func _draw_node() -> void:
+	var c: Vector2 = size * 0.5
+	var rad: float = minf(size.x, size.y) * 0.5
+	if icon != null:
+		var s: float = rad * 1.46
+		draw_texture_rect(icon, Rect2(c - Vector2(s, s) * 0.5, Vector2(s, s)), false)
+	if charge < 1.0:
+		draw_circle(c, rad * 0.74, Color(0, 0, 0, 0.5 * (1.0 - clampf(charge, 0.0, 1.0)) + 0.1))
+		draw_arc(c, rad - 1.5, -PI / 2, -PI / 2 + TAU * clampf(charge, 0.0, 1.0), 40, Color(0.95, 0.8, 0.45, 0.95), 3.0, true)
+	if not affordable:
+		draw_circle(c, rad * 0.74, Color(0.05, 0.05, 0.1, 0.5))
+	if flash > 0.0:
+		draw_arc(c, rad + 2.0, 0.0, TAU, 40, Color(1.0, 0.95, 0.7, flash), 4.0, true)
+		draw_circle(c, rad * 0.74, Color(1.0, 0.95, 0.7, flash * 0.3))
+	if has_focus():
+		draw_arc(c, rad + 4.0, 0.0, TAU, 40, Color(0.95, 0.9, 0.75), 2.0, true)
+	var font: Font = get_theme_default_font()
+	if step > 0:
+		_badge(font, Vector2(0, 0), str(step), Color(0.2, 0.45, 0.9))
+	if empowered:
+		_badge(font, Vector2(size.x - 17, size.y - 17), "⚡", Color(0.85, 0.6, 0.1))
 
 
 ## A theme colour of FightSlot (the Rosewood theme sets them), else [param fallback].

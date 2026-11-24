@@ -466,6 +466,7 @@ static func character(s: GameSession, person_id: String = "") -> Dictionary:
 	]
 	var prof: FighterProfile = FighterCompiler.compile(c, gd, s.db, sh)
 	if prof != null:
+		Diagrams.compile_read(gd, s.db, c, prof, sh)   # the sheet's fighter carries its formation (reservation, arts)
 		out.combat = [
 			{"key": "ward_pts", "label": "Ward points", "value": prof.ward_pts}, {"key": "ward_layer", "label": "Ward layer", "value": prof.ward_layer},
 			{"key": "body_shield", "label": "Body shield share", "value": prof.body_shield}, {"key": "block", "label": "Block", "value": prof.block},
@@ -530,6 +531,8 @@ static func character(s: GameSession, person_id: String = "") -> Dictionary:
 			"bare_attempts": c.bare_attempts, "bare_cap": int(gd.ladder().get("bare_attempt_cap", 0))}
 		if odds.get("breakdown") != null:
 			out.breakdowns["breakthrough"] = bd.call(odds.breakdown)
+	if is_me:   # the Combat tab's formation editor (design/ux/diagram-editor.md)
+		out["formations"] = formations(s)
 	return out
 
 
@@ -1097,6 +1100,10 @@ static func practice_fight(s: GameSession, person_id: String) -> Dictionary:
 	var foe := Character.from_dict(p.duplicate(true))
 	var a: FighterProfile = FighterCompiler.compile(s.player, s.gd, s.db, s.sheet())
 	var b: FighterProfile = FighterCompiler.compile(foe, s.gd, s.db, s.builds.sheet_of(foe))
+	var dinfo: Dictionary = {}   # what each side's formation did in this fight (as in an event fight: foreseen, no fuel)
+	if a != null and b != null:
+		dinfo["a"] = Diagrams.compile_read_info(s.gd, s.db, s.player, a, s.sheet())
+		dinfo["b"] = Diagrams.compile_read_info(s.gd, s.db, foe, b, s.builds.sheet_of(foe))
 	if a == null or b == null:
 		return {"ok": false, "reason": "A fighter could not be compiled."}
 	var req := FightRequest.new()
@@ -1129,7 +1136,19 @@ static func practice_fight(s: GameSession, person_id: String) -> Dictionary:
 		var effect_info := {}
 		for e in prof.effects:
 			effect_info[str(e.id)] = effect_of(s.gd, str(e.id))
+		var dnames: Dictionary = {}
+		for x in arts:
+			dnames[str(x.id)] = {"name": str(x.name), "icon": "res://assets/icons/arts/art_%s.png" % str(x.id).replace("-", "_").to_lower()}
+		var di: Dictionary = dinfo.get("a" if c == s.player else "b", {})
+		var drec: Dictionary = Diagrams.record_of(s.gd, str(di.get("id", ""))) if bool(di.get("applied", false)) else {}
+		var dview: Dictionary = diagram_view(s.gd, c, drec, int(c.diagram.get("level", 1)), Array(c.diagram.get("placement", [])), dnames)
+		if not dview.is_empty():   # the share and laid state the fight really used (Diagrams.compile_for_info)
+			dview["share"] = float(di.share)
+			dview["laid"] = bool(di.laid)
 		return {"name": c.name, "realm": s.gd.realm_label(c.realm_index, c.stage), "roots": c.linh_can.describe(s.gd),
+			"portrait": portrait_of(s, {"id": c.id, "cast_key": str(s.db.get_record("people", c.id).get("cast_key", "")), "gender": c.gender,
+				"age": c.age, "realm_index": c.realm_index, "sect_id": c.sect_id}),
+			"diagram": dview, "diagram_lines": Array(dinfo.get("a" if c == s.player else "b", {}).get("lines", [])),
 			"arts": arts, "wards": wards, "shields": shields, "body_shield": prof.body_shield, "block": prof.block,
 			"evade": prof.evade, "crit": prof.crit, "reserved": prof.reserved, "feeds": prof.feeds.duplicate(true),
 			"effects": prof.effects.map(func(e): return e.id), "effect_info": effect_info, "items": [],
@@ -1138,6 +1157,103 @@ static func practice_fight(s: GameSession, person_id: String) -> Dictionary:
 				"healing": prof.healing, "power": str(s.power_of_person(c.id).get("text", ""))}}
 	return {"ok": true, "rows": rows, "a": side_info.call(s.player, a), "b": side_info.call(foe, b),
 		"winner": r.win_code(), "ending": FightResult.Ending.keys()[r.ending].to_lower(), "seconds": r.seconds}
+
+
+## A combat diagram for drawing (the Combat tab editor, its thumbnails, the fight screen; Formations rules 1-7):
+## [param rec] at stored level [param level] for [param c], [param placement] the art per node, [param names] art id ->
+## {name, icon}. Nodes: {n, polarity, words, pos, open, unlock, art, art_name, icon, slot (its index in the compiled
+## art order, -1 when empty or closed)}; links: {kind, a, b, seconds, bend, open, unlock}; plus figure, level_eff,
+## max_level, strength and the open node count. A copy.
+static func diagram_view(gd: GameData, c: Character, rec: Dictionary, level: int, placement: Array, names: Dictionary, at_level: int = 0) -> Dictionary:
+	if rec.is_empty():
+		return {}
+	var l_eff: int = at_level if at_level > 0 else Diagrams.level_eff(gd, level, c.skill_level("tran_phap"), c.has_capability(15), int(rec.get("max_level", 99)))
+	var s_now: float = Diagrams.strength(gd, int(rec.get("grade", 0)), l_eff, 0.0)
+	var nodes: Array = []
+	var slot: int = 0
+	for i in Array(rec.nodes).size():
+		var nd: Dictionary = rec.nodes[i]
+		var open: bool = Diagrams.is_open(nd, l_eff)
+		var art: String = str(placement[i]) if i < placement.size() and placement[i] != null and open else ""
+		if art != "" and not names.has(art):
+			art = ""
+		nodes.append({"n": i + 1, "polarity": str(nd.polarity), "words": Diagrams.rule_words(nd.rule, str(nd.polarity), s_now), "pos": Array(nd.get("pos", [0, 0])),
+			"open": open, "unlock": int(nd.get("unlock", 1)), "art": art, "art_name": str(names.get(art, {}).get("name", "")),
+			"icon": str(names.get(art, {}).get("icon", "")), "slot": slot if art != "" else -1})
+		if art != "":
+			slot += 1
+	var links: Array = []
+	for l in Array(rec.get("links", [])):
+		var feed: bool = str(l.kind) == "feed"
+		links.append({"kind": str(l.kind), "a": int(l.get("from", l.get("a", 0))), "b": int(l.get("to", l.get("b", 0))),
+			"seconds": Diagrams.scaled(float(l.get("seconds", 0.0)), "+", s_now, 1.0) if feed else 0.0, "bend": float(l.get("bend", 0.0)),
+			"open": Diagrams.is_open(l, l_eff), "unlock": int(l.get("unlock", 1))})
+	return {"id": str(rec.id), "name": str(rec.get("name", "")), "name_vi": str(rec.get("name_vi", "")), "grade": int(rec.get("grade", 0)),
+		"level": level, "level_eff": l_eff, "max_level": int(rec.get("max_level", 5)), "strength": s_now, "nodes": nodes, "links": links,
+		"figure": Array(rec.get("figure", [])).duplicate(true), "open_nodes": Diagrams.open_count(rec, l_eff), "total_nodes": Array(rec.nodes).size(),
+		"reserve_share": float(rec.get("reserve_share", 0.0)), "idea": str(rec.get("idea", "")), "taught_by": str(rec.get("taught_by", ""))}
+
+
+## Every catalogue formation drawn at its highest level (the catalogue gallery screenshot; a wiki page later). Read-only.
+static func formation_catalogue(s: GameSession) -> Array:
+	var out: Array = []
+	for rec in Array(Diagrams.cfg(s.gd).get("diagrams", [])):
+		out.append(diagram_view(s.gd, s.player, rec, int(rec.get("max_level", 5)), [], {}, int(rec.get("max_level", 5))))
+	return out
+
+
+## The Combat tab's formation view (the diagram collection and editor; Formations UI Requirements): the Plain Row and
+## every known diagram ({view, set, can, reason}), the Set one drawn with the player's arts in its nodes, the art pool
+## ({id, name, icon, node}), the art slots, the lay preference, the lay fuel against the stones held, the reservation
+## against the cap, and the share by situation. A copy; it never writes (ADR-0006).
+static func formations(s: GameSession) -> Dictionary:
+	var c: Character = s.player
+	if c == null:
+		return {}
+	var gd: GameData = s.gd
+	var sh: StatSheet = s.sheet()
+	var prof: FighterProfile = FighterCompiler.compile(c, gd, s.db, sh)
+	var lib: Dictionary = gd.file("combat_library").get("arts", {})
+	var names: Dictionary = {}
+	var pool: Array = []
+	if prof != null:
+		for a in prof.arts:
+			var aid: String = str(a.id)
+			names[aid] = {"name": str(lib.get(aid, {}).get("name", aid)), "icon": "res://assets/icons/arts/art_%s.png" % aid.replace("-", "_").to_lower()}
+			pool.append({"id": aid, "name": names[aid].name, "icon": names[aid].icon, "tags": Array(a.tags_s), "node": 0})
+	var set_id: String = str(c.diagram.get("id", ""))
+	var placement: Array = Array(c.diagram.get("placement", []))
+	for p in pool:
+		var at: int = placement.find(p.id)
+		p["node"] = at + 1
+	var sl: Array = gd.file("combat_library").get("constants", {}).get("slots_by_realm", [3, 4, 5, 6, 7])
+	var slots: int = int(sl[clampi(c.realm_index, 0, sl.size() - 1)]) + int(sh.total("bonus_slots"))
+	var known: Array = [{"id": "", "name": "Plain Row", "name_vi": "Nhất Tự Trận", "set": set_id == "", "can": true, "reason": "",
+		"view": {"id": "", "name": "Plain Row", "nodes": [], "links": [], "figure": [], "open_nodes": 0, "total_nodes": 0, "level": 1, "max_level": 1,
+			"idea": "Your arts in plain slots, in your order: no rules, no reservation, no fuel. Everyone knows it."}}]
+	for k in c.known_diagrams:
+		var rec: Dictionary = Diagrams.record_of(gd, str(k.id))
+		if rec.is_empty():
+			continue
+		var chk: Dictionary = s.diagram_check(rec, int(k.get("level", 1)))
+		known.append({"id": str(k.id), "name": str(rec.name), "name_vi": str(rec.get("name_vi", "")), "set": set_id == str(k.id),
+			"can": bool(chk.ok), "reason": str(chk.reason),
+			"view": diagram_view(gd, c, rec, int(k.get("level", 1)), placement if set_id == str(k.id) else [], names)})
+	var current: Dictionary = {}
+	var fuel: int = 0
+	var reserved: float = 0.0
+	if set_id != "":
+		var rec2: Dictionary = Diagrams.record_of(gd, set_id)
+		current = diagram_view(gd, c, rec2, int(c.diagram.get("level", 1)), placement, names)
+		if not current.is_empty():
+			fuel = Diagrams.fuel(gd, int(current.open_nodes), int(rec2.get("grade", 0)), int(current.level_eff), c.realm_index)
+			reserved = Diagrams.reserved(rec2, sh.total("reserve_eff_pct"))
+	var sh_cfg: Dictionary = Diagrams.cfg(gd).share
+	var raise: Dictionary = s.diagram_raise_check(set_id) if set_id != "" else {}
+	return {"slots": slots, "set": set_id, "lay": bool(c.diagram.get("lay", true)), "known": known, "current": current, "pool": pool, "raise": raise,
+		"fuel": fuel, "stones": c.linh_thach, "reserved": reserved, "reserve_cap": CombatConstants.from_game_data(gd).reserve_cap,
+		"shares": {"laid": float(sh_cfg.laid), "carried": float(sh_cfg.carried), "blind": float(sh_cfg.blind)},
+		"event_waiting": s.has_pending_event()}
 
 
 ## The Effect a fight record id belongs to (combat_effects.json): a record id is "eff:<Effect name>" with an optional

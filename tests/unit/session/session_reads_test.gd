@@ -111,6 +111,9 @@ func test_every_read_method_and_guidance_read_leaves_the_world_unchanged() -> vo
 		"GameQuery.rankings top": func(): return GameQuery.rankings(s, "top"),
 		"GameQuery.sect": func(): return GameQuery.sect(s, ""),
 		"GameQuery.abode": func(): return GameQuery.abode(s),
+		"GameQuery.formations": func(): return GameQuery.formations(s),
+		"GameQuery.formation_catalogue": func(): return GameQuery.formation_catalogue(s),
+		"GameSession.diagram_raise_check": func(): return s.diagram_raise_check(str(Diagrams.cfg(s.gd).starter)),
 		"GameQuery.outliner": func(): return GameQuery.outliner(s, [npc]),
 		"GameQuery.dao_do": func(): return GameQuery.dao_do(s),
 		"GameQuery.dao_do_node": func(): return GameQuery.dao_do_node(s, int(s.tree.frontier(s.player, s.gd)[0]) if not s.tree.frontier(s.player, s.gd).is_empty() else 0, []),
@@ -343,3 +346,56 @@ func test_a_sheet_about_someone_no_longer_in_the_world_says_gone() -> void:
 	var v: Dictionary = GameQuery.character(s, "p_nobody")
 	assert_true(bool(v.get("gone", false)), "a stale history entry reads as gone, not as an error")
 	s.shutdown()   # joins the rating batch new_game started
+
+
+func test_a_new_character_knows_and_sets_the_starter_formation_and_can_change_it() -> void:
+	var s := _session()
+	var starter: String = str(Diagrams.cfg(s.gd).starter)
+	assert_eq(s.player.known_diagrams.map(func(k): return str(k.id)), [starter], "the starter is known")
+	assert_eq(str(s.player.diagram.get("id", "")), starter, "and set")
+	var v: Dictionary = GameQuery.formations(s)
+	assert_eq(str(v.set), starter)
+	assert_eq(Array(v.known).size(), 2, "the Plain Row and the starter")
+	assert_true(int(v.current.open_nodes) == 2, "the Long Serpent Line opens with two nodes")
+	var placed: Array = Array(v.current.nodes).filter(func(n): return str(n.art) != "")
+	assert_true(placed.size() >= 1, "arts are placed by fit")
+	# move an art to the other open node
+	var art: String = str(placed[0].art)
+	var other: int = 2 if int(placed[0].n) == 1 else 1
+	assert_true(bool(s.place_diagram_art(other, art).ok))
+	assert_eq(str(Array(s.player.diagram.placement)[other - 1]), art, "the art moved")
+	assert_false(bool(s.place_diagram_art(3, art).ok), "node 3 opens at level 2")
+	assert_true(bool(s.set_diagram_lay(false).ok))
+	assert_false(bool(s.player.diagram.lay))
+	assert_true(bool(s.set_diagram("").ok), "back to the Plain Row")
+	assert_true(s.player.diagram.is_empty())
+	assert_false(bool(s.set_diagram("bat_quai").ok), "an unknown formation is refused")
+	s.shutdown()
+
+
+func test_the_practice_fight_record_carries_the_player_s_formation() -> void:
+	var s := _session()
+	var people: Array = GameQuery.people_at(s, s.player.location_id)
+	if people.is_empty():
+		s.shutdown()
+		return
+	var f: Dictionary = GameQuery.practice_fight(s, str(people[0].id))
+	assert_true(bool(f.ok))
+	assert_eq(str(f.a.diagram.id), str(Diagrams.cfg(s.gd).starter), "the player's side draws its formation")
+	assert_true(Dictionary(f.b.diagram).is_empty(), "NPCs keep the default line (npc_use false)")
+	assert_true(Array(f.a.diagram_lines).any(func(l): return str(l).begins_with("node ")), "the starter's art sits where a node rule applies: %s" % str(f.a.diagram_lines))
+	assert_eq(float(f.a.diagram.share), 1.0, "laid in a foreseen fight (the starter's fuel is affordable)")
+	s.shutdown()
+
+
+func test_raising_a_formation_needs_home_the_skill_and_the_stones() -> void:
+	var s := _session()
+	var sid: String = str(Diagrams.cfg(s.gd).starter)
+	var chk: Dictionary = s.diagram_raise_check(sid)
+	assert_eq(int(chk.target), 2)
+	assert_eq(int(chk.cost), Diagrams.raise_cost(s.gd, 0, 2), "F3's raise cost")
+	assert_false(bool(s.raise_diagram("bat_quai").ok), "an unknown formation cannot be raised")
+	if not bool(chk.ok):
+		assert_false(bool(s.raise_diagram(sid).ok), "refused for the reason the check gives: %s" % chk.reason)
+	s.shutdown()
+

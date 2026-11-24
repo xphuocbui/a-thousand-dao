@@ -60,3 +60,21 @@ Findings: low quality is enough here; the layout and Vietnamese text survive alm
 labels squeezed onto two lines; the sect banner was repainted instead of kept; "died 1000, at 640" became "at 616";
 "Your standing" garbled; the lore inset gained two invented lines. Art boxes: place paintings and technique icons exist
 today; portraits (large and medallion), trait medallions and the Thiên phú / fact-tile icons are new art.
+
+## Round 4 (2026-11-24): the combat UI around combat formations
+User: "implement the formation system ... Then redesign the combat ui to accomodate the combat formation"; mock-ups
+first. Sketches by `r4_wireframes.py` (`in-r4-editor.png`: the Combat tab as the diagram collection and editor;
+`in-r4-fight-sketch.png`: the fight screen with each side's diagram as a graph, chips row, portraits), repainted at
+**low** quality with `r3-base` + `r4-editor` / `r4-fight` and the approved `out/r3-character-l.png` as the style image:
+`out/r4-editor-l.png`, `out/r4-fight-l.png` (about $0.02 for the two). Findings: both keep the layout and the
+sketched text; the fight one garbled some bar labels (the real bars stay) and painted proper portraits. Awaiting the
+user's pick.
+
+## Round 5 (2026-11-24): the combat UI again
+User: the round-4 fight and Combat-tab mock-ups and the in-game fight screen "look really bad". No sketch this time
+(the sketch's weak layout carried into round 4): the layout in words (`r5-base` + `r5-fight-a` duel stage, `r5-fight-b`
+formation boards, `r5-tab-a` list + board + arts, `r5-tab-b` carousel + board + rules card + arts drawer), the approved
+window style (`out/r3-character-l.png`) and two approved formations drawn large with real art icons
+(`r5_formation_art.py` -> `in-r5-formation-a.png` Five Phases, `in-r5-formation-b.png` Twin Dragons). Low quality,
+about $0.05 for the four: `out/r5-fight-a-l.png`, `out/r5-fight-b-l.png`, `out/r5-tab-a-l.png`, `out/r5-tab-b-l.png`.
+Awaiting the user's pick.

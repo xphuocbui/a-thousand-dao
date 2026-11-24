@@ -981,23 +981,13 @@ func _build_column(side: String, info: Dictionary) -> void:
 	top.add_theme_constant_override("separation", 8)
 	top.alignment = BoxContainer.ALIGNMENT_END if mirror else BoxContainer.ALIGNMENT_BEGIN
 	box.add_child(top)
-	var px: int = int(_cfg.get("portrait_px", 56))
-	var portrait := PanelContainer.new()   # a dark tile in a brass rim (the picked mock-up), until portraits exist
-	var tile := StyleBoxFlat.new()
-	tile.bg_color = Color(0.12, 0.08, 0.05)
-	tile.border_color = Color(0.79, 0.64, 0.35)
-	tile.set_border_width_all(2)
-	tile.set_corner_radius_all(2)
-	tile.shadow_color = Color(0, 0, 0, 0.45)
-	tile.shadow_size = 3
-	portrait.add_theme_stylebox_override(&"panel", tile)
-	portrait.custom_minimum_size = Vector2(px, px)
-	var initial := Label.new()
-	initial.text = str(info.name).substr(0, 1)
-	initial.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	initial.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	initial.theme_type_variation = &"WoodHeading"
-	portrait.add_child(initial)
+	var short: bool = get_viewport_rect().size.y < float(_cfg.get("band_stack_min_h", 900))   # 1280x720: everything fits
+	var px: int = int(_cfg.get("portrait_px", 84)) if not short else 72
+	# the painted portrait in a round brass medallion (the user's pick 2026-11-24, mock-up r5-fight-b2); a person with
+	# no portrait shows the placeholder (ui-code.md)
+	var ptex: Texture2D = PortraitPicker.texture_for(info.get("portrait", {}))
+	var portrait: Control = Illustrated.medallion(ptex if ptex != null else PlaceholderArt.texture(), float(px))
+	portrait.mouse_filter = Control.MOUSE_FILTER_STOP
 	TooltipLayer.set_tip(portrait, _sheet_tip(side, info))
 	var names := VBoxContainer.new()
 	var nm := Label.new()
@@ -1040,29 +1030,64 @@ func _build_column(side: String, info: Dictionary) -> void:
 		w.set_reading(ward_total, ward_total)
 	col.qi = _bar(box, tr("Linh lực"), str(bc.get("qi", "#4A8CE6")), mirror,
 		tr("Linh lực pays for arts and wards; the hatched end is reserved (wards and formation)."))
-	# formation (the default line until formations exist)
-	var fh := _row_title(box, tr("FORMATION") + "  " + tr("default line"), mirror, &"WoodRowLabel",
-		tr("The formation diagram is designed but not built in the game yet, so each side fights with its default line: plain slots only."))
-	var arts_flow := _flow(box, mirror)
+	# the formation (Formations rule 11; the user's pick 2026-11-24, mock-up r5-fight-b2): the side's formation drawn on
+	# its board with the live art slots on its nodes, plain slots under it; the Plain Row is a row of slots
+	var dg: Dictionary = info.get("diagram", {})
+	var share: float = float(dg.get("share", 1.0))
+	var ftitle: String = (tr("FORMATION · %s · %s %.0f %%") % [str(dg.name), tr("laid") if share >= 1.0 else tr("carried"), share * 100.0]) if not dg.is_empty() else (tr("FORMATION · Plain Row"))
+	var fh := _row_title(box, ftitle, mirror, &"WoodRowLabel",
+		(tr("%s (%s): %s") % [str(dg.name), str(dg.get("name_vi", "")), str(dg.get("idea", ""))]) if not dg.is_empty() else tr("Plain slots: no formation set, no rules, no reservation."))
+	fh.name = "FormationTitle"
 	col.slots = []
 	var spx: int = int(_cfg.get("slot_px", 48))
+	var board: FormationBoard = null
+	var node_of_slot: Dictionary = {}   # art index -> formation node (1-based)
+	if dg.is_empty() and not Array(info.arts).is_empty():   # the Plain Row on the same board: a straight row of plain nodes
+		var pn: Array = []
+		for i in Array(info.arts).size():
+			pn.append({"n": i + 1, "polarity": "", "words": tr("a plain slot: no rule"), "pos": [i, 0], "open": true, "unlock": 1, "art": "", "art_name": "", "icon": "", "slot": i})
+		dg = {"plain": true, "name": tr("Plain Row"), "nodes": pn, "links": [], "figure": [{"shape": "poly", "points": [[-0.6, 0], [Array(info.arts).size() - 0.4, 0]], "closed": false}]}
+	if not dg.is_empty():
+		board = FormationBoard.new()
+		board.name = "FormationBoard"
+		board.draw_icons = false
+		board.node_px = 30.0 if not short else 22.0
+		board.dim = 1.0 if share >= 1.0 else 0.78   # a carried formation is drawn a little dimmer (GDD Visual)
+		board.size_flags_vertical = Control.SIZE_EXPAND_FILL
+		board.size_flags_stretch_ratio = 1.6
+		board.custom_minimum_size = Vector2(0, 170 if not short else 104)
+		board.show_view(dg)
+		box.add_child(board)
+		for nd in Array(dg.nodes):
+			if int(nd.get("slot", -1)) >= 0:
+				node_of_slot[int(nd.slot)] = int(nd.n)
+	var arts_flow := _flow(box, mirror)
 	for i in Array(info.arts).size():
 		var art: Dictionary = info.arts[i]
 		var slot := FightSlot.new()
-		slot.set_px(spx)
 		slot.icon = _icon("arts/art_%s.png" % _file_id(str(art.id)))
 		var sd: String = side
 		var idx: int = i
 		TooltipLayer.set_tip(slot, func(_at: Vector2) -> Dictionary: return _art_tip(sd, idx))
-		arts_flow.add_child(slot)
+		if board != null and node_of_slot.has(i):
+			slot.frame = "node"
+			board.attach(int(node_of_slot[i]), slot)
+		else:
+			slot.set_px(spx)
+			arts_flow.add_child(slot)
 		col.slots.append(slot)
+	arts_flow.visible = arts_flow.get_child_count() > 0
 	# wards, items
 	var rows := VBoxContainer.new()   # one parchment band per row, together filling the column (the picked mock-up)
 	rows.add_theme_constant_override("separation", 4)
 	rows.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	box.add_child(rows)
 	box = rows
-	var wflow := _slot_row(box, tr("WARDS"), mirror, tr("Ward slots: up, down and broken states are not in the record yet."))
+	var pair1 := HBoxContainer.new()
+	pair1.add_theme_constant_override("separation", 4)
+	pair1.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	box.add_child(pair1)
+	var wflow := _slot_row(pair1, tr("WARDS"), mirror, tr("Ward slots: up, down and broken states are not in the record yet."))
 	var wpx: int = int(_cfg.get("ward_px", 40))
 	var wards: Array = Array(info.get("wards", []))
 	if wards.is_empty():
@@ -1081,7 +1106,7 @@ func _build_column(side: String, info: Dictionary) -> void:
 				"%s %.1f s · %s %.1f s" % [tr("Cooldown"), float(w.cooldown), tr("up"), float(w.up)],
 				"%s %s · %s %s" % [tr("Shield"), HudReadouts.stones_text(float(w.shield)), tr("block"), HudReadouts.stones_text(float(w.block))]]})
 		wflow.add_child(ws)
-	var iflow := _slot_row(box, tr("ITEMS"), mirror, tr("Fight items are not in the game yet."))
+	var iflow := _slot_row(pair1, tr("ITEMS"), mirror, tr("Fight items are not in the game yet."))
 	for _i in int(_cfg.get("item_slots", 2)):
 		var it := FightSlot.new()
 		it.set_px(wpx)
@@ -1089,9 +1114,41 @@ func _build_column(side: String, info: Dictionary) -> void:
 		TooltipLayer.set_tip(it, tr("Item slot: fight items are not in the game yet"))
 		iflow.add_child(it)
 	# buffs, debuffs, status
-	col.buffs = _slot_row(box, tr("BUFFS"), mirror, tr("Element stacks that help this side: icon and count, green halo, ↑"))
-	col.debuffs = _slot_row(box, tr("DEBUFFS"), mirror, tr("Element stacks that hurt this side: icon and count, red dashed halo, ↓"))
-	col.status = _slot_row(box, tr("STATUS"), mirror, tr("Statuses on this side, and the build's Effects that have fired"))
+	var pair2 := HBoxContainer.new()
+	pair2.add_theme_constant_override("separation", 4)
+	pair2.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	box.add_child(pair2)
+	col.buffs = _slot_row(pair2, tr("BUFFS"), mirror, tr("Element stacks that help this side: icon and count, green halo, ↑"))
+	col.debuffs = _slot_row(pair2, tr("DEBUFFS"), mirror, tr("Element stacks that hurt this side: icon and count, red dashed halo, ↓"))
+	var pair3 := HBoxContainer.new()
+	pair3.add_theme_constant_override("separation", 4)
+	pair3.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	box.add_child(pair3)
+	col.status = _slot_row(pair3, tr("STATUS"), mirror, tr("Statuses on this side, and the build's Effects that have fired"))
+	var nums := HBoxContainer.new()   # the fighter's key numbers (B2's slim row): the full sheet is the portrait's tooltip
+	nums.name = "KeyNumbers"
+	nums.add_theme_constant_override("separation", 3)
+	nums.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	pair3.add_child(nums)
+	var sh: Dictionary = info.get("sheet", {})
+	for kv in [[tr("Ward"), _amount(float(sh.get("ward_pts", 0.0)))], [tr("Block"), "%.2f" % float(info.get("block", 0.0))],
+			[tr("Evade"), "%.0f %%" % (float(info.get("evade", 0.0)) * 100.0)], [tr("Crit"), "%.0f %%" % (float(info.get("crit", 0.0)) * 100.0)]]:
+		var t := PanelContainer.new()
+		t.theme_type_variation = &"PaperPanel"
+		var tv := VBoxContainer.new()
+		tv.add_theme_constant_override("separation", 0)
+		t.add_child(tv)
+		var tl := Label.new()
+		tl.text = str(kv[0])
+		tl.theme_type_variation = &"RowLabel"
+		tl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		var vl := Label.new()
+		vl.text = str(kv[1])
+		vl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		tv.add_child(tl)
+		tv.add_child(vl)
+		t.custom_minimum_size = Vector2(64, 0)
+		nums.add_child(t)
 	col.down = Label.new()
 	col.down.theme_type_variation = &"HeadingLabel"
 	col.down.add_theme_color_override("font_color", Color("#84191B"))
@@ -1182,6 +1239,7 @@ func _slot_row(box: Control, text: String, mirror: bool, tip: String) -> HFlowCo
 	line.content_margin_bottom = 1
 	rim.add_theme_stylebox_override(&"panel", line)
 	rim.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	rim.size_flags_horizontal = Control.SIZE_EXPAND_FILL   # paired bands share their row (B2)
 	box.add_child(rim)
 	var band := PanelContainer.new()
 	band.theme_type_variation = &"PaperPanel"
