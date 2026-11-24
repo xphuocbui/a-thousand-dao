@@ -98,6 +98,8 @@ var _prov_region: Dictionary = {}   # province id -> grid region id
 var _borders_on: bool = true        # element 13's Borders toggle: region and province lines (never the holder lines)
 var _realms: Array = []                 # [{name, centre: Vector2 tile, width_tiles}]
 var _region_info: Dictionary = {}       # grid region id -> {name, holder_name}
+var _alive: AliveLayer = null          # the alive layer: the shader's clock and the chimney smoke (greybox.alive)
+var _alive_cfg: Dictionary = {}
 
 
 func _init() -> void:
@@ -137,6 +139,7 @@ func setup(grid: ContinentGrid, cfg: Dictionary, region_factor: float) -> void:
 	_load_hi(str(cfg.get("near_hi", "")))
 	_load_symbols(cfg.get("place_symbols", {}))
 	_load_terrain(cfg.get("terrain_shader", {}))
+	_load_alive(cfg.get("alive", {}))
 	_load_provinces(str(cfg.get("provinces_file", "")))
 	_backdrop_far = Color.from_string(str(cfg.get("backdrop_far", "#141A24")), Color(0.08, 0.1, 0.14))
 	_backdrop_near = Color.from_string(str(cfg.get("backdrop_near", "#141A24")), Color(0.08, 0.1, 0.14))
@@ -194,6 +197,8 @@ func set_blocked_rects(rects: Array) -> void:
 ## Reduced motion (hud.md: a zoom step lands at once) and the red-green colourblind palette (sect_colours_cb).
 func set_accessibility(reduced_motion: bool, colourblind: bool) -> void:
 	_reduced_motion = reduced_motion
+	if _alive != null:
+		_alive.set_reduced_motion(reduced_motion)
 	if colourblind != _colourblind:
 		_colourblind = colourblind
 		_politics_sig = ""
@@ -476,6 +481,9 @@ func _draw() -> void:
 	var taken: Array = []   # label boxes already drawn: a name that would overlap one is skipped (hover always shows)
 	var order: Array = _places.duplicate()
 	order.sort_custom(func(a, b): return _label_rank(a) < _label_rank(b))
+	var smoke: Array = []   # the alive layer's chimneys: settlements whose symbol shows, close enough in
+	var smoky: bool = _alive != null and _alive.is_running() and sc >= _alive.smoke_from_px()
+	var smoke_kinds: Array = _alive.smoke_kinds() if smoky else []
 	for p in order:
 		var at: Vector2 = _marker_at(p)
 		var hover: bool = p.id == _hover_id
@@ -486,6 +494,8 @@ func _draw() -> void:
 			var tex: Texture2D = _symbols[str(p.kind)]
 			var c := Color(1, 1, 1, w) if not hover else Color(1.15, 1.05, 0.8, w)
 			draw_texture_rect(tex, Rect2(at - Vector2(side * 0.5, side * 0.92), Vector2(side, side)), false, c)
+			if smoky and w >= 0.5 and str(p.kind) in smoke_kinds and Rect2(Vector2.ZERO, size).has_point(at):
+				smoke.append([at + Vector2(side * 0.16, -side * 0.62), side, fposmod(float(hash(str(p.id)) % 1000) / 1000.0, 1.0)])
 			if p.id == _destination_id:
 				draw_arc(at - Vector2(0, side * 0.4), side * 0.55, 0.0, TAU, 32, Color(1, 0.85, 0.2, w), 2.0)
 			label_at = at + Vector2(side * 0.3, -side * 0.35)
@@ -509,6 +519,8 @@ func _draw() -> void:
 			taken.append(box)
 			draw_rect(box, Color(0.08, 0.05, 0.03, 0.62 * w))
 			draw_string(font, box.position + Vector2(4, font.get_ascent(fs) + 1), name, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, Color(0.96, 0.92, 0.82, w))
+	if _alive != null:
+		_alive.set_smoke_sources(smoke)
 
 
 ## Border lines, one width and one ink, told apart by pattern (user 2026-11-23: "double border for country borders,
@@ -827,6 +839,35 @@ func _load_terrain(cfg: Variant) -> void:
 	add_child(tv)
 	move_child(tv, 0)
 	_terrain = tv
+
+
+## Builds the alive layer from [param cfg] (ui_hud.json greybox.alive): the terrain shader's clock and the chimney smoke,
+## drawn above the map and below the bubbles.
+func _load_alive(cfg: Variant) -> void:
+	if _alive != null:
+		_alive.queue_free()
+		_alive = null
+	_alive_cfg = cfg if cfg is Dictionary else {}
+	if not bool(_alive_cfg.get("enabled", false)):
+		return
+	_alive = AliveLayer.new()
+	add_child(_alive)
+	move_child(_alive, _layer.get_index())   # under the bubbles
+	_alive.setup(_alive_cfg, _terrain if terrain_active() else null)
+	_alive.set_reduced_motion(_reduced_motion)
+
+
+## The season of the year now ([param season] 0 = Xuân .. 3 = Đông): moves the seasonal snow line by
+## greybox.alive.season_temp_shift (C per season).
+func set_season(season: int) -> void:
+	var shifts: Array = _alive_cfg.get("season_temp_shift", [0.0, 0.0, 0.0, 0.0])
+	if terrain_active() and not shifts.is_empty():
+		_terrain.set_snow_shift(float(shifts[posmod(season, shifts.size())]))
+
+
+## The alive layer (for tests and the demo); null when greybox.alive is off.
+func alive_layer() -> AliveLayer:
+	return _alive
 
 
 ## Whether the data-driven terrain is drawing (for tests and the demo).

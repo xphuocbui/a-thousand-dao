@@ -28,6 +28,8 @@ func load_data(dir: String, knobs: Dictionary = {}) -> bool:
 	mat.set_shader_parameter("river_map", _raw(dir + "/river.bin", w * 2, h * 2, Image.FORMAT_R8))
 	mat.set_shader_parameter("relief_map", _raw(dir + "/relief.bin", w * 2, h * 2, Image.FORMAT_RG8))
 	mat.set_shader_parameter("biome_tex", load(dir + "/biomes_array.png"))
+	if FileAccess.file_exists(dir + "/temp.bin"):   # per game tile: the alive layer's seasonal snow
+		mat.set_shader_parameter("temp_map", _raw(dir + "/temp.bin", w / 4, h / 4, Image.FORMAT_R8))
 	mat.set_shader_parameter("fine", Vector2(w, h))
 	var noise := NoiseTexture2D.new()
 	noise.width = 512
@@ -42,6 +44,8 @@ func load_data(dir: String, knobs: Dictionary = {}) -> bool:
 			var v: Variant = knobs[k]
 			if v is String and str(v).begins_with("#"):   # colours are written as #rrggbb in the config
 				v = Color.from_string(str(v), Color.WHITE)
+			elif v is Array and (v as Array).size() == 2:   # a vec2 uniform is written as [x, y]
+				v = Vector2(float(v[0]), float(v[1]))
 			mat.set_shader_parameter(str(k), v)
 	material = mat
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -72,6 +76,18 @@ func _draw() -> void:
 ## Whether the land is the painted layer (true) or the shader's biome textures (false).
 func is_painted() -> bool:
 	return _ready_ok and bool((material as ShaderMaterial).get_shader_parameter("painted_land"))
+
+
+## The alive layer's clock (AliveLayer): [param seconds] since the map opened, held still under reduced motion.
+func set_alive_time(seconds: float) -> void:
+	if _ready_ok:
+		(material as ShaderMaterial).set_shader_parameter("alive_time", seconds)
+
+
+## This season's offset to the mean temperature, in C (winter below 0): moves the seasonal snow line.
+func set_snow_shift(celsius: float) -> void:
+	if _ready_ok:
+		(material as ShaderMaterial).set_shader_parameter("snow_shift_c", celsius)
 
 
 ## Whether the data and textures loaded.

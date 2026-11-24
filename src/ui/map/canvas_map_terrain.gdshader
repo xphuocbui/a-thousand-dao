@@ -58,6 +58,24 @@ uniform vec3 mid_col : source_color = vec3(0.10, 0.36, 0.52);
 uniform vec3 deep_col : source_color = vec3(0.04, 0.15, 0.32);
 uniform vec3 foam_col : source_color = vec3(0.88, 0.93, 0.92);
 uniform vec3 river_col : source_color = vec3(0.16, 0.42, 0.58);
+// the alive layer (user 2026-11-23: "animated water, cloud shadows, seasonal snow, chimney smoke"; AliveLayer sets
+// alive_time each frame and holds it still under reduced motion; snow_shift_c follows the season turn)
+group_uniforms alive;
+uniform float alive_time = 0.0;          // seconds; 0 and still under reduced motion
+uniform float water_motion = 0.0;       // drifting ripples on the sea and lakes (0 = still)
+uniform float water_glint = 0.0;        // small light glints on the water
+uniform float river_flow = 0.0;         // a slow shimmer along the rivers
+uniform float cloud_shadow = 0.0;       // how dark the drifting cloud shadows are (0 = none)
+uniform float cloud_scale = 0.02;       // noise repeats per tile: lower = bigger clouds
+uniform vec2 cloud_wind = vec2(0.6, 0.15);   // tiles per second the cloud field drifts
+uniform float cloud_cover = 0.55;       // noise level where a cloud starts: higher = fewer clouds
+uniform sampler2D temp_map : filter_linear;  // R8 per game tile: mean temperature, C = value * 255 / 2 - 50
+uniform float snow_shift_c = 0.0;       // this season's offset to the mean temperature (winter < 0)
+uniform float snow_on_c = 1.0;          // temperature where the seasonal snow starts
+uniform float snow_full_c = -3.0;       // and covers the land
+uniform float snow_strength = 0.0;      // how strongly the snow covers the painted land (0 = off)
+uniform vec3 snow_col : source_color = vec3(0.95, 0.95, 0.93);
+uniform vec3 snow_hatch_col : source_color = vec3(0.55, 0.66, 0.78);
 
 float id_at(ivec2 c) {
 	c = clamp(c, ivec2(0), ivec2(fine) - 1);
@@ -116,19 +134,35 @@ void fragment() {
 	if (painted_land) {   // a uniform branch: the whole draw takes one side
 		land = texture(TEXTURE, UV).rgb;
 	}
+	// seasonal snow (alive layer): where this season's temperature is below snow_on_c, a paper-white wash with fine
+	// blue ink hatching; the edge wanders with the noise so it is not a contour line
+	float tc = texture(temp_map, t / grid).r * 127.5 - 50.0 + snow_shift_c + (nz.x * 0.8 + nz2.y * 0.4) * 1.2;
+	float sn = (1.0 - smoothstep(snow_full_c, snow_on_c, tc)) * snow_strength;   // edges in order: full (colder) < on
+	float hatch = smoothstep(0.82, 0.95, sin((t.x * 0.9 + t.y * 0.5) * 18.0 + nz2.x * 2.0) * 0.5 + 0.5);
+	land = mix(land, mix(snow_col, snow_hatch_col, hatch * 0.35) * (0.96 + 0.08 * nz2.y), sn);
 	// rivers
 	float rv = texture(river_map, fu).r;   // traced lines: no noise offset, so a river never breaks
-	// rivers from the traced lines (connected exactly as the data): drawn by the game over painted land too
-	land = mix(land, river_col, smoothstep(river_cut, river_cut + 0.18, rv) * river_strength);
+	// rivers from the traced lines (connected exactly as the data): drawn by the game over painted land too; the
+	// alive layer moves a slow light shimmer along them
+	float flow = texture(noise_map, t * 0.55 + vec2(alive_time * 0.045, alive_time * 0.03)).r - 0.5;
+	vec3 rcol = river_col * (1.0 + flow * 0.5 * river_flow);
+	land = mix(land, rcol, smoothstep(river_cut, river_cut + 0.18, rv) * river_strength);
 	// water: depth colour, the sea texture's ripples, shallows and surf along the true coast
 	float d = texture(coast_map, fu).r + nz.x * 0.08;  // + water, tiles
 	float depth = max(0.0, -min(e, 0.0));
 	// depth deepens the colour gently (the shelf stays a hint, not a bright band); the turquoise is a narrow fringe by
 	// distance from the shore (shore_tint, shore_width), like the painting's shallows
 	vec3 water = mix(mid_col, deep_col, smoothstep(depth_from, depth_full, depth));
-	vec3 rip = tex_at(uv * 1.7, 18.0);
+	// the ripples: two layers drifting apart slowly (alive layer water_motion), so the sea moves without a direction
+	vec2 drift = vec2(alive_time * 0.004, alive_time * 0.0025) * water_motion;
+	vec3 rip = mix(tex_at(uv * 1.7 + drift, 18.0), tex_at(uv * 1.3 - drift * 1.3 + 0.37, 18.0), 0.5 * step(0.001, water_motion));
 	float rip_l = dot(rip, vec3(0.33)) / max(0.05, dot(texture(biome_tex, vec3(0.5, 0.5, 18.0), 8.0).rgb, vec3(0.33)));
-	water *= 1.0 + (rip_l - 1.0) * ripple_strength;
+	water *= 1.0 + (rip_l - 1.0) * (ripple_strength + 0.1 * water_motion);
+	// glints: small soft highlights that come and go with the drifting noise
+	// (fine-scale, and only close in: at continent zoom they would read as pale blotches across the sea)
+	float gl = texture(noise_map, t * 1.6 + vec2(alive_time * 0.05, -alive_time * 0.033)).g
+		* texture(noise_map, t * 1.1 - vec2(alive_time * 0.028, alive_time * 0.041) + 0.3).r;
+	water += vec3(smoothstep(0.46, 0.56, gl) * water_glint * smoothstep(0.1, 0.6, d) * smoothstep(12.0, 22.0, px_per_tile));
 	water *= 1.0 + (nz2.x * 0.5) * paper_grain;   // a faint parchment grain under a paper-style sea
 	water = mix(water, shallow_col, (1.0 - smoothstep(0.0, shore_width, d)) * shore_tint);
 	float foam = (1.0 - smoothstep(0.0, 0.12, d)) * smoothstep(-0.02, 0.02, d) * (0.55 + 0.45 * nz2.y);
@@ -142,6 +176,10 @@ void fragment() {
 	vec3 col = mix(land, water, smoothstep(-0.02, 0.02, d));
 	// an ink line on the true coast (paper style): darkest at d = 0, about ink_width tiles wide
 	col = mix(col, ink_col, ink_strength * (1.0 - smoothstep(0.0, ink_width, abs(d))));
+	// cloud shadows (alive layer): two octaves of the noise drifting with the wind, soft-edged, over land and water
+	vec2 cw = t * cloud_scale + cloud_wind * cloud_scale * alive_time;
+	float cl = texture(noise_map, cw).r * 0.65 + texture(noise_map, cw * 2.3 + 0.41).g * 0.35;
+	col *= 1.0 - smoothstep(cloud_cover, cloud_cover + 0.18, cl) * cloud_shadow;
 	bool inside = t.x >= 0.0 && t.y >= 0.0 && t.x < grid.x && t.y < grid.y;
 	COLOR = vec4(inside ? col : deep_col, 1.0);
 }

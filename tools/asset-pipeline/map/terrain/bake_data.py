@@ -171,6 +171,13 @@ def box(a, r):
     return a
 
 
+def temperature(base, out):
+    """The world's mean temperature per game tile (continent_gen.py; C = value / 2 - 50, lapse rate included) for the
+    alive layer's seasonal snow (canvas_map_terrain.gdshader, user 2026-11-23: "seasonal snow")."""
+    t = np.asarray(Image.open(os.path.join(base, "temperature.png"))).astype(np.uint8)
+    t.tofile(os.path.join(out, "temp.bin"))
+
+
 def main(repo):
     base = os.path.join(repo, "design/map/continent-11/base")
     out = os.path.join(repo, "assets/map/terrain")
@@ -205,10 +212,12 @@ def main(repo):
     sd.astype(np.float32).tofile(os.path.join(out, "coast.bin"))
     el.astype(np.float32).tofile(os.path.join(out, "elev.bin"))
     river.tofile(os.path.join(out, "river.bin"))
+    temperature(base, out)
     json.dump({"_doc": "Terrain shader data (tools/asset-pipeline/map/terrain/bake_data.py): raw little-endian arrays, "
                        "row-major, fine_px_per_tile per game tile.", "width": W, "height": H, "fine_px_per_tile": 4,
                "biome": "biome.bin (u8)", "coast": "coast.bin (f32, tiles, + water)", "elev": "elev.bin (f32, m)",
-               "river": "river.bin (u8 at 2x: traced, connected river lines, width by the water they carry)", "relief": "relief.bin (rg8 at 2x: shade x 127.5, slope x 4 x 255)", "textures": "biomes_array.png (Texture2DArray, slice = biome id)",
+               "river": "river.bin (u8 at 2x: traced, connected river lines, width by the water they carry)",
+               "temp": "temp.bin (u8 per game tile, 540 x 360: mean temperature, C = value / 2 - 50; the alive layer's seasonal snow)", "relief": "relief.bin (rg8 at 2x: shade x 127.5, slope x 4 x 255)", "textures": "biomes_array.png (Texture2DArray, slice = biome id)",
                "slices": 19}, open(os.path.join(out, "meta.json"), "w"), indent=1)
     # the texture array
     sheet = Image.new("RGB", (SIDE, SIDE * 19))

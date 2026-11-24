@@ -511,6 +511,22 @@ is automatic when zoomed out, great sects' names are drawn large.
 - **Accessibility.** The tint never stands alone: the bold border, the sect's name (or, where it does not fit, the
   hover tooltip and the legend) carry who holds what; with the red-green colourblind mode the tint uses
   `sect_colours_cb` (approved from a screenshot in that mode).
+- **Alive layer** (user, 2026-11-23: "animated water, cloud shadows, seasonal snow, chimney smoke";
+  `src/ui/map/alive_layer.gd`, `canvas_map_terrain.gdshader` group `alive`, `ui_hud.json` `greybox.alive` and the
+  shader keys in `greybox.terrain_shader`). The map lives without asking anything of the player:
+  - **Water:** two ripple layers drift slowly apart on the sea and lakes (`water_motion`); small glints come and go,
+    only when zoomed in (`water_glint`, from 12 px per tile); the rivers carry a slow light shimmer (`river_flow`).
+  - **Clouds:** soft cloud shadows drift with the wind over land and water (`cloud_shadow` darkness, `cloud_scale`
+    size, `cloud_wind` tiles per second, `cloud_cover` how much sky is cloud).
+  - **Seasonal snow:** a paper-white wash with fine blue hatching where the season's temperature is below freezing:
+    the world's mean temperature per tile (`assets/map/terrain/temp.bin`) plus the season's shift
+    (`season_temp_shift`, C for Xuân, Hạ, Thu, Đông: -1, +7, +1, -7), from `snow_on_c` (1.5 C, starts) to
+    `snow_full_c` (-2.5 C, covers) at `snow_strength`. It changes at the season turn; it is a state, not motion, so
+    it stays under reduced motion.
+  - **Chimney smoke:** soft pale puffs rise and drift from settlements whose symbol shows (`smoke.kinds`), from
+    `smoke.from_px` (14 px per tile) up.
+  - **Reduced motion:** the clock stands at zero (water and clouds still) and no smoke is drawn; `alive.enabled`
+    false turns the whole layer off.
 
 ### The turn
 
