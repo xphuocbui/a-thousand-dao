@@ -48,7 +48,7 @@ func test_kind_sections_come_in_the_fixed_order() -> void:
 func test_equipped_pieces_come_first_and_rows_carry_the_rarity_word() -> void:
 	var w := _window()
 	var order: Array = []
-	for c in w.body.get_children():
+	for c in w.body.find_children("Item_a*", "Button", true, false):   # the rows sit in each kind's inset
 		if c is Button and str(c.name).begins_with("Item_a"):
 			order.append(str(c.name).trim_prefix("Item_"))
 	assert_eq(order.slice(0, 2), ["a2", "a4"], "equipped first (the unslotted ring is equipped too)")
@@ -152,7 +152,7 @@ func test_esc_closes_the_chooser_then_the_row_then_lets_the_window_close() -> vo
 func test_an_empty_inventory_says_so() -> void:
 	var w := _window({"stones": 0, "gear": {}, "items": []})
 	var found: bool = false
-	for c in w.body.get_children():
+	for c in w.body.find_children("*", "Label", true, false):
 		if c is Label and (c as Label).text == "You carry nothing yet.":
 			found = true
 	assert_true(found)
@@ -169,5 +169,5 @@ func test_the_read_and_build_of_two_hundred_items_is_quick() -> void:
 	var t0: int = Time.get_ticks_usec()
 	var w := _window(v)
 	var ms: float = float(Time.get_ticks_usec() - t0) / 1000.0
-	assert_eq(w.body.get_children().filter(func(c): return c is Button).size(), 200, "all rows built")
+	assert_eq(w.body.find_children("Item_*", "Button", true, false).size(), 200, "all rows built")
 	assert_true(ms < 250.0, "built in %.0f ms (spec 50 ms for read + build; the headless debug build is slower)" % ms)

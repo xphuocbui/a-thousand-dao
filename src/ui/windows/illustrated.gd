@@ -93,9 +93,9 @@ static func medallion(tex: Texture2D, d: float, faded: bool = false) -> Control:
 	var r := TextureRect.new()
 	r.custom_minimum_size = Vector2(d, d)
 	r.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	r.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	r.stretch_mode = TextureRect.STRETCH_SCALE   # the mask works in the texture's UV, so the texture itself is square
 	r.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
-	r.texture = tex
+	r.texture = _square(tex)
 	if tex == null:   # missing portrait: the placeholder's stripes inside the ring (.claude/rules/ui-code.md)
 		r.texture = PlaceholderArt.texture()
 		r.stretch_mode = TextureRect.STRETCH_TILE
@@ -122,6 +122,28 @@ void fragment() {
 	return r
 
 
+static var _squares: Dictionary = {}   # texture resource path (or id) -> its square crop
+
+
+# The head-and-shoulders square of a tall portrait (the upper part, where the face sits), as a texture of its own so the
+# round mask (which works in the texture's UV) fits it; cached per portrait.
+static func _square(t: Texture2D) -> Texture2D:
+	if t == null or t.get_height() <= t.get_width():
+		return t
+	var key: String = t.resource_path if t.resource_path != "" else str(t.get_instance_id())
+	if not _squares.has(key):
+		var img: Image = t.get_image()
+		if img == null:
+			return t
+		if img.is_compressed():
+			img.decompress()
+		var w: int = img.get_width()
+		var sq: Image = img.get_region(Rect2i(0, int(img.get_height() * 0.06), w, w))
+		sq.generate_mipmaps()
+		_squares[key] = ImageTexture.create_from_image(sq)
+	return _squares[key]
+
+
 ## A name plaque: [param text] in the title face on cinnabar lacquer with a brass edge.
 static func plaque(text: String) -> PanelContainer:
 	var p := PanelContainer.new()
@@ -131,8 +153,7 @@ static func plaque(text: String) -> PanelContainer:
 	l.theme_type_variation = &"TitleLabel"
 	l.add_theme_color_override("font_color", BONE)
 	l.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	p.add_child(l)
+	p.add_child(l)   # no wrapping: a plaque is a short name or a rank and takes the width it needs
 	return p
 
 

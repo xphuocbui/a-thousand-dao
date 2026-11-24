@@ -213,8 +213,8 @@ func _build_hero(sc: Dictionary) -> void:
 	if str(sc.seat.get("name", "")) != "":
 		_link_row(tr("Seat") + ": " + str(sc.seat.name), "place", str(sc.seat.id), str(sc.get("region", "")))
 	var tiles: GridContainer = Illustrated.grid(fc, 2 if compact else 4, 6)
-	tiles.add_child(Illustrated.tile(null, tr("Founded"), tr("year %d") % int(sc.get("founded_year", 0)), "", 0.0))
-	tiles.add_child(Illustrated.tile(null, tr("Members"), "%d" % int(sc.get("members", 0)), "", 0.0))
+	tiles.add_child(Illustrated.tile(Illustrated.tex("res://assets/icons/ui/sect_founded.png"), tr("Founded"), tr("year %d") % int(sc.get("founded_year", 0)), "", 0.0))
+	tiles.add_child(Illustrated.tile(Illustrated.tex("res://assets/icons/ui/sect_members.png"), tr("Members"), "%d" % int(sc.get("members", 0)), "", 0.0))
 	tiles.add_child(Illustrated.tile(Illustrated.tex("res://assets/icons/hud/res_linh_thach.png"), tr("Treasury"), HudReadouts.stones_text(float(sc.get("treasury", 0))), "", 0.0))
 	var regions: Array = Array(sc.get("regions", []))
 	var holds: PanelContainer = Illustrated.tile(Illustrated.tex("res://assets/icons/hud/res_sect.png"), tr("Holds"), tr("%d regions") % regions.size(), "", 0.0)

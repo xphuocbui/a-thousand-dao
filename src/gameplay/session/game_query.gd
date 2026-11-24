@@ -499,7 +499,7 @@ static func inventory(s: GameSession) -> Dictionary:
 		var equipped: bool = c.equipped.has(iid)
 		var row := {"id": iid, "kind": kind, "name": str(it.get("name", iid)), "rarity": ItemRarity.of(gd, it),
 			"text": s.items.describe(it), "qty": int(it.get("qty", 1)), "equipped": equipped, "slot": "", "known": false,
-			"fact": "", "fits": [], "displaces": {}, "compare": [], "verbs": []}
+			"fact": "", "fits": [], "displaces": {}, "compare": [], "verbs": [], "icon": item_icon(it)}
 		match kind:
 			"artifact":
 				row.fact = "ATK %d · DEF %d" % [int(float(it.get("attack", 0.0))), int(float(it.get("defense", 0.0)))]
@@ -670,7 +670,9 @@ static func rankings(s: GameSession, which: Variant) -> Dictionary:
 			"stage": gd.realm_label(int(src.get("realm_index", 0)), int(src.get("stage", 0))), "rating": r,
 			"realm": str(gd.realm(int(src.get("realm_index", 0))).get("name", "")),
 			"base": float(rec.base), "offset": float(rec.offset), "power": s.ratings.ladder.power_number(r), "state": str(rec.state),
-			"n": int(stored.get("n", 0)), "age": float(src.get("age", 0.0)), "you": is_me})
+			"n": int(stored.get("n", 0)), "age": float(src.get("age", 0.0)), "you": is_me,
+			"portrait": portrait_of(s, {"id": str(p.id), "cast_key": str(p.get("cast_key", "")), "gender": str(src.get("gender", "male")),
+				"age": float(src.get("age", 0.0)), "realm_index": int(src.get("realm_index", 0)), "sect_id": str(src.get("sect_id", ""))})})
 	rows.sort_custom(func(x, y):   # rule 9 (2026-11-24): one order by rating, provisional rows mixed in by their estimate
 		if x.rating != y.rating:
 			return x.rating > y.rating
@@ -785,7 +787,8 @@ static func abode(s: GameSession) -> Dictionary:
 	var rec: Dictionary = CaveAbode.home_rec(qi, c.id) if not qi.is_empty() else {}
 	var here_p: Dictionary = db.get_record("places", c.location_id)
 	var out := {"has_home": not rec.is_empty(), "here": c.location_id == c.home_id and not rec.is_empty(),
-		"home_place": {"id": str(home.get("id", "")), "name": str(home.get("name", ""))}, "at": str(here_p.get("name", "")),
+		"home_place": {"id": str(home.get("id", "")), "name": str(home.get("name", "")), "art": int(home.get("continent_id", -1))},
+		"at": str(here_p.get("name", "")),
 		"event_waiting": s.has_pending_event(), "works": [], "clamps": [], "catalogue": [], "rent": [], "claim": {}, "density": {}}
 	if not rec.is_empty():
 		var g: int = CaveAbode.grade_of(rec)
@@ -1069,6 +1072,27 @@ static func _sect_notables(s: GameSession, rec: Dictionary) -> Array:
 		out.append({"id": str(p.id), "name": str(p.get("name", "")), "rank": s.sect_members.rank_name(str(p.get("sect_rank", ""))) if s.sect_members != null else "",
 			"realm_label": s.gd.realm_label(int(p.get("realm_index", 0)), int(p.get("stage", 0))), "portrait": portrait_of(s, p)})
 	return out
+
+
+## The painted icon of item record [param it] (tools/asset-pipeline/icons/gen_item_icons.py): res:// path of
+## assets/icons/items/<kind>_<template>.png (an artifact by its base, a công pháp manual by its first element), or "" when
+## the template has none yet.
+static func item_icon(it: Dictionary) -> String:
+	var k: String = str(it.get("kind", ""))
+	var key: String = ""
+	match k:
+		"artifact":
+			key = "artifact_" + str(it.get("base", ""))
+		"cong_phap":
+			var els: Array = Array(it.get("elements", it.get("names", [])))
+			var e: String = str(els[0]).to_lower() if not els.is_empty() else ""
+			key = "cong_phap_" + str({"metal": "kim", "wood": "moc", "water": "thuy", "fire": "hoa", "earth": "tho"}.get(e, e))
+		_:
+			key = "%s_%s" % [k, str(it.get("template", ""))]
+	var path: String = "res://assets/icons/items/%s.png" % key
+	if ResourceLoader.exists(path):
+		return path
+	return "res://assets/icons/items/cong_phap_.png" if k == "cong_phap" and ResourceLoader.exists("res://assets/icons/items/cong_phap_.png") else ""
 
 
 ## A person's traits (NPC Traits #42, assets/data/traits.json) for a window: in group order (personality, calling,

@@ -152,8 +152,10 @@ func _build() -> void:
 		chip.accessibility_name = "%s, %s" % [chip.text, tr("shown") if chip.button_pressed else tr("hidden")]
 		chip.toggled.connect(_on_chip.bind(k))
 		chips.add_child(chip)
+	_g = Illustrated.ground(body)
+	_into = _g
 	if items.is_empty():
-		line(tr("You carry nothing yet."))
+		line(tr("You carry nothing yet."), _g)
 	for pair in _kind_order():
 		var k: String = str(pair[0])
 		if _chips_off.has(k):
@@ -167,11 +169,15 @@ func _build() -> void:
 			if int(a.rarity) != int(b.rarity):
 				return int(a.rarity) > int(b.rarity)
 			return str(a.name) < str(b.name))
-		section(k, "%s (%d)" % [tr(str(pair[1])), of_kind.size()])
+		_into = section_in(_g, k, "%s (%d)" % [tr(str(pair[1])), of_kind.size()])
 		for it in of_kind:
 			_item_row(it)
 	bar_open(tr("Character"), "character")
 	_on_search(_search.text)
+
+
+var _g: VBoxContainer = null   # the wood ground of this build
+var _into: Control = null      # the kind's inset the rows go into
 
 
 func _kind_order() -> Array:
@@ -205,7 +211,36 @@ func _item_row(it: Dictionary) -> void:
 	b.set_meta(&"search", WorldDB.fold(str(it.name) + " " + _kind_title(str(it.kind)) + " " + rarity_word(int(it.rarity))))
 	b.set_meta(&"text", str(it.get("text", "")))
 	b.gui_input.connect(_row_input.bind(b))
-	body.add_child(b)
+	# the painted icon in a frame of the item's rarity colour (the illustrated windows, user 2026-11-24)
+	var row := HBoxContainer.new()
+	row.name = "ItemRow_" + str(it.id)
+	row.add_theme_constant_override("separation", 8)
+	var frame := PanelContainer.new()
+	var rst: Dictionary = LinkStyle.style_of("item", str(int(it.rarity)), "paper")
+	var rc: Color = rst.colour if rst.colour is Color else Illustrated.BRASS
+	frame.add_theme_stylebox_override("panel", Illustrated.box(Color("#1B120C"), rc, 2, 2.0, 3))
+	frame.custom_minimum_size = Vector2(56, 56)
+	frame.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	var ic := TextureRect.new()
+	ic.texture = Illustrated.tex(str(it.get("icon", "")))
+	ic.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	ic.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	ic.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	frame.add_child(ic)
+	if int(it.get("qty", 1)) > 1:
+		var q := Label.new()
+		q.text = "×%d" % int(it.qty)
+		q.add_theme_color_override("font_color", Illustrated.BONE)
+		q.add_theme_color_override("font_outline_color", Color.BLACK)
+		q.add_theme_constant_override("outline_size", 4)
+		q.add_theme_font_size_override("font_size", 13)
+		q.size_flags_horizontal = Control.SIZE_SHRINK_END
+		q.size_flags_vertical = Control.SIZE_SHRINK_END
+		frame.add_child(q)
+	row.add_child(frame)
+	b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row.add_child(b)
+	_into.add_child(row)
 	_rows[iid] = b
 	if _expanded == iid:
 		_verbs(it)
@@ -247,7 +282,7 @@ func _toggle_row(item_id: String) -> void:
 func _verbs(it: Dictionary) -> void:
 	var box := VBoxContainer.new()
 	box.name = "Verbs"
-	body.add_child(box)
+	_into.add_child(box)
 	var row := HBoxContainer.new()
 	box.add_child(row)
 	var verbs: Array = Array(it.get("verbs", []))
