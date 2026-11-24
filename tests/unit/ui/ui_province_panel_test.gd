@@ -214,3 +214,34 @@ func test_new_places_show_by_kind_and_zoom() -> void:
 	assert_true(v._v2_hidden_at(mk.call("peak", true), 10.0), "a new peak waits for close zoom")
 	assert_false(v._v2_hidden_at(mk.call("peak", true), 14.0), "and shows from 14 px")
 	assert_false(v._v2_hidden_at(mk.call("village", false), 3.0), "an authored village always shows")
+
+
+func test_label_overlap_checks_only_nearby_boxes() -> void:
+	# the label grid (the map's framerate, 2026-11-24): an overlap is found, a far box is not, and boxes across a cell
+	# line are seen from both cells
+	var taken := {}
+	MapView._take_box(taken, Rect2(90, 10, 40, 14))   # spans the 96 px cell line
+	assert_true(MapView._box_taken(taken, Rect2(120, 12, 30, 10)), "an overlap in the next cell is found")
+	assert_true(MapView._box_taken(taken, Rect2(60, 12, 40, 10)), "and in the first cell")
+	assert_false(MapView._box_taken(taken, Rect2(400, 12, 30, 10)), "a far box is free")
+
+
+func test_village_names_follow_the_names_toggle() -> void:
+	var v := MapView.new()
+	auto_free(v)
+	assert_false(v._all_names, "off by default: a village is named on hover")
+	v.set_all_names(true)
+	assert_true(v._all_names, "the Names toggle shows every village's name")
+
+
+func test_the_border_mesh_is_built_once_and_moved_with_the_view() -> void:
+	# the map's framerate (2026-11-24): the province and region lines are one static mesh; a view change only moves it
+	var m := BorderMesh.new()
+	auto_free(m)
+	m.build([PackedVector2Array([Vector2(0, 0), Vector2(3, 0), Vector2(3, 4)])], [PackedVector2Array([Vector2(1, 1), Vector2(2, 1)])])
+	assert_true(m.mesh != null, "a mesh")
+	assert_eq(m.mesh.surface_get_array_len(0), 12, "4 vertices a segment, 3 segments")
+	m.set_view(Vector2(-50, -20), 12.0, 0.5, 1.0)
+	assert_eq(m.position, Vector2(-50, -20), "placed at the map's origin")
+	assert_eq(m.scale, Vector2(12, 12), "scaled to px per tile")
+	assert_true(m.show_behind_parent, "under the map's places and names")

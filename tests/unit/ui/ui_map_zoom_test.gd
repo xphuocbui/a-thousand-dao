@@ -171,8 +171,8 @@ func test_streamed_tiles_draw_only_when_zoomed_in_past_hi_from_px() -> void:
 
 
 
-func test_built_places_get_a_growing_symbol_and_natural_landmarks_none() -> void:
-	# Arrange: the shipped symbol config (style G, user 2026-11-23)
+func test_built_places_keep_one_symbol_size_and_natural_landmarks_none() -> void:
+	# Arrange: the shipped symbol config (style G, user 2026-11-23; one size at every zoom since 2026-11-24)
 	var gd := game_data()
 	var cfg: Dictionary = gd.file("ui_hud").get("greybox", {}).duplicate(true)
 	var v := _view(true)
@@ -183,6 +183,6 @@ func test_built_places_get_a_growing_symbol_and_natural_landmarks_none() -> void
 	var deepest: float = v.symbol_side("city")
 	# Assert
 	assert_near(start, float(cfg.place_symbols.px.city), 0.01, "a city's symbol starts at its configured px")
-	assert_near(deepest, float(cfg.place_symbols.px.city) * float(cfg.place_symbols.grow), 0.01, "and grows to px x grow at the deepest zoom")
+	assert_near(deepest, float(cfg.place_symbols.px.city), 0.01, "and keeps that size at the deepest zoom (user 2026-11-24: one size)")
 	assert_eq(v.symbol_side("volcano"), 0.0, "a natural landmark has no symbol: it is painted into the terrain")
 	assert_eq(v.symbol_side("peak"), 0.0, "nor a peak")

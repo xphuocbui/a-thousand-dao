@@ -101,6 +101,16 @@ var _prov_region: Dictionary = {}   # province id -> grid region id
 var _borders_on: bool = true        # element 13's Borders toggle: region and province lines (never the holder lines)
 var _realms: Array = []                 # [{name, centre: Vector2 tile, width_tiles}]
 var _region_info: Dictionary = {}       # grid region id -> {name, holder_name}
+const BORDER_LOD := 1.15   # the border geometry is rebuilt per zoom band of this ratio (dashes stay within ~7 % of px)
+var _border_cache: Dictionary = {}   # {band, bold: [double polylines in tiles]} (the holder lines; the rest: _border_mesh)
+var _border_mesh := BorderMesh.new()   # the province and region lines, one static mesh drawn by a shader
+var _places_sorted: Array = []   # _places by label rank (set_state)
+var _all_names: bool = false   # the Names toggle: villages' names too (else only on hover; user 2026-11-24)
+var _label_sizes: Dictionary = {}   # place name -> its label's text size (font size 13), measured once
+## The last _draw's cost in microseconds (the pan benchmark, map_screen --pan-bench).
+var draw_usec: int = 0
+## The last _draw's cost by part in microseconds (borders, province_names, places; the benchmark).
+var draw_parts: Dictionary = {}
 var _alive: AliveLayer = null          # the alive layer: the shader's clock and the chimney smoke (greybox.alive)
 var _alive_cfg: Dictionary = {}
 var _prov_names: Array = []   # [{name, at (tile), kind}] from the provinces file (v2)
@@ -114,6 +124,7 @@ var _prov_ids := PackedByteArray()   # u16 per tile: the province id (greybox.pr
 func _init() -> void:
 	clip_contents = true
 	focus_mode = Control.FOCUS_ALL
+	add_child(_border_mesh)   # behind this node's own drawing, above the terrain (which moves itself to child 0)
 	_layer.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(_layer)
@@ -161,6 +172,8 @@ func setup(grid: ContinentGrid, cfg: Dictionary, region_factor: float) -> void:
 ## Sets the known places, the player's tile and place, and the destination.
 func set_state(places: Array, player_tile: Vector2i, player_place: String, destination_id: String) -> void:
 	_places = places
+	_places_sorted = places.duplicate()   # by label rank once, not every frame (the map's framerate, 2026-11-24)
+	_places_sorted.sort_custom(func(a, b): return _label_rank(a) < _label_rank(b))
 	_player_tile = player_tile
 	_player_place = player_place
 	_destination_id = destination_id
@@ -418,6 +431,7 @@ func _relayout() -> void:
 		_px = _fit_px()
 		_px_target = _px
 		_clamp_center()
+	_sync_border_mesh()
 	if hi_active():
 		set_process(true)   # the view changed: request the streamed tiles now in view (an instant zoom has no motion)
 	var w: float = near_weight()
@@ -438,6 +452,12 @@ func _relayout() -> void:
 
 
 func _draw() -> void:
+	var t_draw: int = Time.get_ticks_usec()
+	_draw_map()
+	draw_usec = Time.get_ticks_usec() - t_draw
+
+
+func _draw_map() -> void:
 	var w: float = near_weight()
 	var sc: float = tile_scale()
 	var map_rect := Rect2(_origin(), Vector2(_grid_size) * sc)
@@ -471,7 +491,9 @@ func _draw() -> void:
 		draw_texture_rect(_prov_tint, map_rect, false, Color(1, 1, 1, float(_zcfg.get("province_mode_alpha", 0.55))))
 	elif pol_tint > 0.0 and _tint != null:
 		draw_texture_rect(_tint, map_rect, false, Color(1, 1, 1, float(_zcfg.get("political_alpha", 0.35)) * pol_tint))
+	var t_b: int = Time.get_ticks_usec()
 	_draw_borders(lerpf(1.0, float(_zcfg.get("border_bold_near", 0.8)), w))
+	draw_parts["borders"] = Time.get_ticks_usec() - t_b
 	if w > 0.0 and not _hi.is_empty() and not terrain:
 		_draw_hi(w)
 	if w > 0.0 and _near != null and _place_art_on_map:
@@ -489,12 +511,15 @@ func _draw() -> void:
 	if pol > 0.0 and _region_font != null:
 		_draw_names(pol)
 	if _region_font != null and not _prov_names.is_empty():
+		var t_n: int = Time.get_ticks_usec()
 		_draw_province_names()
+		draw_parts["province_names"] = Time.get_ticks_usec() - t_n
+	var t_p: int = Time.get_ticks_usec()
 	var dot: float = _place_radius * lerpf(1.0, 1.6, w)
 	var font: Font = get_theme_default_font()
-	var taken: Array = []   # label boxes already drawn: a name that would overlap one is skipped (hover always shows)
-	var order: Array = _places.duplicate()
-	order.sort_custom(func(a, b): return _label_rank(a) < _label_rank(b))
+	var taken: Dictionary = {}   # label boxes drawn, bucketed by LABEL_CELL px cells: an overlapping name is skipped
+	var order: Array = _places_sorted
+	var view := Rect2(Vector2(-160, -80), size + Vector2(320, 160))   # places off screen are skipped (labels reach right)
 	var smoke: Array = []   # the alive layer's chimneys: settlements whose symbol shows, close enough in
 	var smoky: bool = _alive != null and _alive.is_running() and sc >= _alive.smoke_from_px()
 	var smoke_kinds: Array = _alive.smoke_kinds() if smoky else []
@@ -503,6 +528,8 @@ func _draw() -> void:
 		if not hover and _v2_hidden_at(p, sc):
 			continue
 		var at: Vector2 = _marker_at(p)
+		if not view.has_point(at):
+			continue
 		var side: float = symbol_side(str(p.get("kind", "")))
 		var label_at: Vector2 = at
 		if side > 0.0 and w > 0.0:
@@ -525,16 +552,21 @@ func _draw() -> void:
 			_diamond(at, dot, Color(fill, da))
 			if p.id == _destination_id and side <= 0.0:
 				draw_arc(at, dot + 6.0, 0.0, TAU, 24, Color(1, 0.85, 0.2), 2.0)
-		if w >= 0.5:   # the name on a dark, see-through backing (7.14), fading in with the relief
+		# the name on a dark, see-through backing (7.14), fading in with the relief; a village's only on hover or with
+		# the Names toggle (user 2026-11-24)
+		if w >= 0.5 and (hover or _all_names or str(p.get("kind", "")) != "village"):
 			var name: String = str(p.name)
 			var fs: int = 13
-			var sz: Vector2 = font.get_string_size(name, HORIZONTAL_ALIGNMENT_LEFT, -1, fs)
+			if not _label_sizes.has(name):
+				_label_sizes[name] = font.get_string_size(name, HORIZONTAL_ALIGNMENT_LEFT, -1, fs)
+			var sz: Vector2 = _label_sizes[name]
 			var box := Rect2(label_at + Vector2(8, -sz.y * 0.5 - 1), sz + Vector2(8, 3))
-			if not hover and taken.any(func(r): return (r as Rect2).intersects(box)):
+			if not hover and _box_taken(taken, box):
 				continue
-			taken.append(box)
+			_take_box(taken, box)
 			draw_rect(box, Color(0.08, 0.05, 0.03, 0.62 * w))
 			draw_string(font, box.position + Vector2(4, font.get_ascent(fs) + 1), name, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, Color(0.96, 0.92, 0.82, w))
+	draw_parts["places"] = Time.get_ticks_usec() - t_p
 	if _alive != null:
 		_alive.set_smoke_sources(smoke)
 
@@ -545,51 +577,38 @@ func _draw() -> void:
 ## line between provinces of one region (both with the Borders toggle; provinces fade in as the map closes in).
 func _draw_borders(pol: float) -> void:
 	var sc: float = tile_scale()
-	var o: Vector2 = _origin()
-	var view := Rect2(Vector2(-8, -8), size + Vector2(16, 16))
 	var width: float = float(_zcfg.get("border_px", 1.4))
 	var ink := Color(0.15, 0.1, 0.07, float(_zcfg.get("border_alpha", 0.8)))
-	var vt := Rect2(-o / sc, size / sc).grow(2.0)   # the view in tiles, a little wider
-	var in_view := func(set_name: String, i: int) -> bool:
-		var boxes: Array = _line_boxes.get(set_name, [])
-		return i >= boxes.size() or vt.intersects(boxes[i])
-	var to_screen := func(pts: PackedVector2Array) -> PackedVector2Array:
-		var tr2 := PackedVector2Array()
-		tr2.resize(pts.size())
-		var any_in: bool = false
-		for i in pts.size():
-			tr2[i] = o + pts[i] * sc
-			if not any_in and view.has_point(tr2[i]):
-				any_in = true
-		return tr2 if any_in else PackedVector2Array()
-	# provinces: invisible at the fit, fading in up to the band (Paradox shows provinces as you close in)
-	# keyed to the fit, so they are hidden zoomed out on any screen (hud.md: province_from_fit, province_full_fit)
-	var fit: float = _fit_px()
-	var pa: float = smoothstep(fit * float(_zcfg.get("province_from_fit", 1.15)), fit * float(_zcfg.get("province_full_fit", 1.7)), tile_scale())
-	if pa > 0.0 and _borders_on:
-		var segs := PackedVector2Array()
-		for i in _lines_prov.size():
-			if in_view.call("prov", i):
-				_pattern_segments(to_screen.call(_lines_prov[i]), _zcfg.get("border_dash_dot", [9.0, 4.0, 1.6, 4.0]), segs)
-		if not segs.is_empty():
-			draw_multiline(segs, Color(ink, ink.a * pa), width, true)
-	if _borders_on:
-		var segs := PackedVector2Array()
-		for i in _lines_thin.size():
-			if in_view.call("thin", i):
-				_pattern_segments(to_screen.call(_lines_thin[i]), _zcfg.get("border_dash", [9.0, 5.0]), segs)
-		if not segs.is_empty():
-			draw_multiline(segs, ink, width, true)
+	# the province and region lines are _border_mesh's (_sync_border_mesh); here only the double holder lines
+	var g: Dictionary = _border_geometry(sc)
+	var xf := Transform2D(0.0, Vector2(sc, sc), 0.0, _origin())   # tiles -> screen, applied natively to whole sets
 	if pol > 0.0:
-		var gap: float = float(_zcfg.get("border_double_gap", 3.0)) * 0.5
-		for i in _lines_bold.size():
-			if not in_view.call("bold", i):
+		var vt := Rect2(-_origin() / sc, size / sc).grow(2.0)   # the view in tiles: bold lines outside it are skipped
+		var boxes: Array = _line_boxes.get("bold", [])
+		for i in (g.bold as Array).size():
+			if i < boxes.size() and not vt.intersects(boxes[i]):
 				continue
-			var s: PackedVector2Array = to_screen.call(_lines_bold[i])
-			if s.size() < 2:
-				continue
-			draw_polyline(_offset_line(s, gap), Color(ink, ink.a * pol), width, true)
-			draw_polyline(_offset_line(s, -gap), Color(ink, ink.a * pol), width, true)
+			for pl in g.bold[i]:
+				draw_polyline(xf * (pl as PackedVector2Array), Color(ink, ink.a * pol), width, true)
+
+
+## The holder lines' double polylines for [param sc] px per tile, in tile units: built once per zoom band (BORDER_LOD)
+## at the band's scale (the gap is in px), so a pan or a zoom inside the band only transforms them (the map's
+## framerate, 2026-11-24).
+func _border_geometry(sc: float) -> Dictionary:
+	var band: int = int(round(log(maxf(sc, 0.01)) / log(BORDER_LOD)))
+	if int(_border_cache.get("band", -9999)) == band:
+		return _border_cache
+	var sb: float = pow(BORDER_LOD, band)
+	var to := Transform2D(0.0, Vector2(sb, sb), 0.0, Vector2.ZERO)
+	var back := to.affine_inverse()
+	var gap: float = float(_zcfg.get("border_double_gap", 3.0)) * 0.5
+	var bold: Array = []
+	for ln in _lines_bold:
+		var s: PackedVector2Array = to * (ln as PackedVector2Array)
+		bold.append([] if s.size() < 2 else [back * _offset_line(s, gap), back * _offset_line(s, -gap)])
+	_border_cache = {"band": band, "bold": bold}
+	return _border_cache
 
 
 ## Each line's bounding box (tiles), for culling the lines outside the view before their points are moved.
@@ -742,7 +761,20 @@ func _diamond(at: Vector2, r: float, c: Color) -> void:
 ## Element 13's Borders toggle: shows or hides the region and province lines (the bold holder lines stay with the tint).
 func set_borders(on: bool) -> void:
 	_borders_on = on
+	_sync_border_mesh()
 	queue_redraw()
+
+
+## Moves the border mesh with the view and sets its sets' opacities: provinces invisible at the fit, fading in up to
+## the band (Paradox shows provinces as you close in; keyed to the fit, hud.md province_from_fit / province_full_fit),
+## both hidden with the Borders toggle off.
+func _sync_border_mesh() -> void:
+	var sc: float = tile_scale()
+	if sc <= 0.0:
+		return
+	var fit: float = _fit_px()
+	var pa: float = smoothstep(fit * float(_zcfg.get("province_from_fit", 1.15)), fit * float(_zcfg.get("province_full_fit", 1.7)), sc)
+	_border_mesh.set_view(_origin(), sc, pa if _borders_on else 0.0, 1.0 if _borders_on else 0.0)
 
 
 ## Province lines' drawn opacity now, 0..1 of province_alpha (for tests and the demo).
@@ -974,8 +1006,7 @@ func _load_symbols(cfg: Variant) -> void:
 func symbol_side(kind: String) -> float:
 	if not _symbols.has(kind):
 		return 0.0
-	var t: float = smoothstep(float(_zcfg.get("near_to_px", 9.6)), _max_px(), tile_scale())
-	return float(_symbol_px[kind]) * lerpf(1.0, _symbol_grow, t)
+	return float(_symbol_px[kind])   # one size at every zoom (user 2026-11-24: the silhouettes need not scale)
 
 
 ## Reads the place-art manifest at [param path] (missing: no place art, the markers still show).
@@ -1101,6 +1132,11 @@ func _bake_politics(regions: Array) -> void:
 		else:
 			_lines_thin.append(pts)
 	_line_boxes = {"bold": _boxes_of(_lines_bold), "thin": _boxes_of(_lines_thin), "prov": _boxes_of(_lines_prov)}
+	_border_cache = {}
+	_border_mesh.build(_lines_prov, _lines_thin)
+	_border_mesh.set_look(float(_zcfg.get("border_px", 1.4)), Color(0.15, 0.1, 0.07, float(_zcfg.get("border_alpha", 0.8))),
+		_zcfg.get("border_dash_dot", [9.0, 4.0, 1.6, 4.0]), _zcfg.get("border_dash", [9.0, 5.0]))
+	_sync_border_mesh()
 	_realms = []
 	var names: Dictionary = {}
 	for r in regions:
@@ -1208,6 +1244,40 @@ func drawn_layer() -> String:
 	if is_region_zoom():
 		return "near" if _near != null else "far"
 	return "far" if _far != null else "near"
+
+
+const LABEL_CELL := 96.0   # px: the label-overlap grid's cell
+
+
+static func _cells_of(box: Rect2) -> Array:
+	var out: Array = []
+	for cy in range(int(floor(box.position.y / LABEL_CELL)), int(floor(box.end.y / LABEL_CELL)) + 1):
+		for cx in range(int(floor(box.position.x / LABEL_CELL)), int(floor(box.end.x / LABEL_CELL)) + 1):
+			out.append(Vector2i(cx, cy))
+	return out
+
+
+## Whether [param box] overlaps a label box already in [param taken] (a grid of LABEL_CELL cells, so the check looks at
+## the boxes nearby only, not every label drawn).
+static func _box_taken(taken: Dictionary, box: Rect2) -> bool:
+	for c in _cells_of(box):
+		for r in taken.get(c, []):
+			if (r as Rect2).intersects(box):
+				return true
+	return false
+
+
+static func _take_box(taken: Dictionary, box: Rect2) -> void:
+	for c in _cells_of(box):
+		if not taken.has(c):
+			taken[c] = []
+		taken[c].append(box)
+
+
+## The Names toggle (Z4): [param on] shows every village's name; off, a village is named only on hover.
+func set_all_names(on: bool) -> void:
+	_all_names = on
+	queue_redraw()
 
 
 ## Whether provinces-v2 place [param p] is left out at [param sc] px per tile (user 2026-11-24): a new sect seat shows

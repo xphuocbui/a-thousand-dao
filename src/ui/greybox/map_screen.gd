@@ -289,6 +289,38 @@ func _shot_and_quit(path: String) -> void:
 			_map.set_region_zoom(true, Vector2(int(here.tile[0]), int(here.tile[1])) + Vector2(0.5, 0.5))
 		_map.zoom_by(zpx / _map.tile_scale())
 		await _frames(3)
+	# --pan-bench=N: pans the map steadily for N frames at the --zoom-px zoom and prints the frame and map-draw times
+	# (a dev probe for the map's framerate; user 2026-11-24: "the framerate is horrible when zoomed in and moving")
+	var bench: int = int(_arg_value("--pan-bench", "0"))
+	if bench > 0:
+		await _frames(30)
+		var frames: Array = []
+		var draws: Array = []
+		var last: int = Time.get_ticks_usec()
+		var parts: Dictionary = {}
+		var zoom_bench: bool = _args.has("--zoom-bench")   # zoom in and out between the fit and 30 px instead of panning
+		for i in bench:
+			if zoom_bench:
+				_map.zoom_by(1.04 if (i / 90) % 2 == 0 else 1.0 / 1.04, _map.size * 0.5)
+			else:
+				_map._center += Vector2(0.25, 0.08) * (1.0 if (i / 120) % 2 == 0 else -1.0)
+				_map._relayout()
+			await get_tree().process_frame
+			for k in _map.draw_parts:
+				parts[k] = int(parts.get(k, 0)) + int(_map.draw_parts[k])
+			var now: int = Time.get_ticks_usec()
+			frames.append(now - last)
+			draws.append(_map.draw_usec)
+			last = now
+		frames.sort()
+		draws.sort()
+		var mean := func(a: Array) -> float: return float(a.reduce(func(x, y): return x + y, 0)) / maxf(1.0, a.size()) / 1000.0
+		print("PANBENCH px %.1f known %d frames %d: frame mean %.1f ms p95 %.1f ms max %.1f ms (%.0f fps); map draw mean %.1f ms p95 %.1f ms" % [
+			_map.tile_scale(), _known_cache.size(), bench, mean.call(frames), frames[int(frames.size() * 0.95)] / 1000.0,
+			frames[-1] / 1000.0, 1000.0 / maxf(0.001, mean.call(frames)), mean.call(draws), draws[int(draws.size() * 0.95)] / 1000.0])
+		print("PANBENCH parts (mean ms): ", ", ".join(parts.keys().map(func(k): return "%s %.1f" % [k, float(parts[k]) / bench / 1000.0])))
+		get_tree().quit()
+		return
 	# --turns=N: ends N seasons first (answering events with the first affordable option), printing each End turn wait,
 	# so the default path (rating fights on) can be timed; --quit-in-turn quits while the last season is resolving.
 	var turns: int = int(_arg_value("--turns", "0"))
@@ -673,6 +705,13 @@ func _build_layout() -> void:
 	TooltipLayer.set_tip(_borders_button, tr("Region and province borders on the map (a setting for all saves); the great sects' borders always show"))
 	_borders_button.toggled.connect(func(on: bool): if _settings != null: _settings.set_value("borders", on))
 	z4.add_child(_borders_button)
+	# the Names toggle (user 2026-11-24): every village's name on the map; off, a village is named only on hover
+	var names_button := Button.new()
+	names_button.text = tr("Names")
+	names_button.toggle_mode = true
+	TooltipLayer.set_tip(names_button, tr("Show every village's name on the map (off: a village is named on hover)"))
+	names_button.toggled.connect(func(on: bool): _map.set_all_names(on))
+	z4.add_child(names_button)
 
 	# Z5 the season turn
 	var z5 := PanelContainer.new()
