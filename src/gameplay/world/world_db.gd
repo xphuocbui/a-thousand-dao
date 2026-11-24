@@ -27,7 +27,7 @@ signal event_logged(event_id: String)
 ## (WorldEconomy, rules 1-11). "ties" holds NPC Relationships' records, one per pair (Ties; npc-relationships.md
 ## rule 1), indexed from both people.
 const TABLES := {"people": "p", "sects": "s", "places": "l", "regions": "r", "items": "i", "events": "e", "ratings": "q",
-	"standing": "y", "world": "w", "money": "m", "markets": "k", "ties": "t"}
+	"standing": "y", "world": "w", "money": "m", "markets": "k", "ties": "t", "provinces": "v"}
 
 var _tables: Dictionary = {}
 var _next_id: Dictionary = {}

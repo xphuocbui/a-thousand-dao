@@ -80,7 +80,6 @@
   "demand_min": 0.75,
   "demand_max": 1.25,
   "scar_max": 1.5,
-  "prod_mult_cap": 2.0,
   "reserve_floor": 0.1,
   "sustain_frac": 0.7,
   "reserve_seasons": 60,

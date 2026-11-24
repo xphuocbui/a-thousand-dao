@@ -603,12 +603,8 @@
     "match_unowned_rate": 0.5,
     "match_stack_min": 0.8,
     "match_cap_l3": 0.3,
-    "match_cap_l2": 0.15,
-    "match_cap_l1": 0.15,
     "density_cap_l3": 1.0,
-    "share_cap_l3": 80,
-    "share_cap_l2": 30,
-    "share_cap_l1": 30
+    "share_cap_l3": 80
   },
   "climate_index": {
     "_doc": "Formula G's temperature and rainfall indexes 0-100: T from t_c (degrees C at 0 and 100), R from r_mm (mm a year at 0 and 100). Centred 2026-11-20 on the continent's own spread (places: T p10 24, median 50, p90 71; R p10 20, median 47, p90 92); a guess.",

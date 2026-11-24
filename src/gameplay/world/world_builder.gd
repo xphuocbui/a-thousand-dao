@@ -97,11 +97,14 @@ func generate(rng: RandomNumberGenerator, game_seed: String = "") -> WorldDB:
 	_step_money()
 	SectEconomy.seed_investment(_gd, _db)   # Sects F1: the authored levels as investment, and the stance dials
 	SectPolitics.setup(_gd, _db, _hist.get("territory", {}).get("grudges", []))   # attitudes, grudges, S0
+	Provinces.build(_gd, _db)   # ADR-0008: the provinces table and every place's province_id, before the first contract
 	MapProduction.season(_gd, _db, true, false)   # the first season's contract (reserves unmoved), so the markets calibrate on real output
+	Provinces.season(_gd, _db)   # the province contract in shadow (provinces-runtime Stage 1); F1's goods are fixed here
 	WorldEconomy.build(_gd, _db, TravelGrid.of(_gd))
 	# Core Rules 10 and 13: the ledger of truth and the data versions are saved with the world, never shown
 	_db.add("world", {"id": "w_meta", "builder": "continent", "data_version": str(_hist.get("data_version", "")),
-		"map_version": str(_gd.file(ContinentData.DATA_FILE).get("map_version", "")), "seed": _seed, "ledger": ledger})
+		"map_version": str(_gd.file(ContinentData.DATA_FILE).get("map_version", "")), "seed": _seed, "ledger": ledger,
+		"provinces_version": int(_gd.file(Provinces.FILE).get("provinces_version", 0))})
 	return _db
 
 

@@ -240,7 +240,37 @@ static func province(s: GameSession, province_id: int) -> Dictionary:
 			rec["lord_name"] = str(s.db.get_record("sects", str(p.sect_id)).get("name", ""))
 	rec["place_ids"] = ids
 	rec["art_order"] = order
+	# ADR-0008 Stage 1: the live province record replaces the bake for what is live (production by class, goods,
+	# population, slots); buildings, infrastructure and access stay the bake's start values until Stages 2 and 6
+	var live: Dictionary = s.db.get_record(Provinces.TABLE, Provinces.rid(province_id))
+	if not live.is_empty():
+		var st: Dictionary = rec.get("stats", {})
+		var prod := {}
+		for k in Dictionary(live.get("production_class", {})):
+			if float(live.production_class[k]) > 0.05:
+				prod[k] = snappedf(float(live.production_class[k]), 0.1)
+		st["production"] = prod
+		var own := {}
+		for g in Dictionary(live.get("own_value", {})):
+			var k: String = WorldEconomy.class_of(s.gd, str(g))
+			own[k] = float(own.get(k, 0.0)) + float(live.own_value[g])
+		for k in own.keys():
+			own[k] = snappedf(float(own[k]), 0.1)
+		st["own_output"] = own
+		st["main_good"] = null if str(live.get("main_good", "")) == "" else str(live.main_good)
+		st["secondary_goods"] = Array(live.get("secondary_goods", [])).duplicate()
+		st["population"] = snappedf(float(live.get("population", 0.0)), 0.01)
+		st["slots"] = int(live.get("slots", st.get("slots", 0)))
+		st["live"] = true
+		rec["stats"] = st
 	return rec
+
+
+## Formula J's price of home work [param id] at [param level] with the grade's surcharge (Cave Abode F3).
+static func _abode_price(gd: GameData, id: String, level: int, g: int) -> Dictionary:
+	var c: Dictionary = MapWorks.cost(gd, id, level)
+	c["lt"] = int(round(float(c.lt) * CaveAbode.price_mult(gd, g, level)))
+	return c
 
 
 static func place_lore(s: GameSession, place_id: String) -> Dictionary:
@@ -845,7 +875,8 @@ static func abode(s: GameSession) -> Dictionary:
 			var is_w: bool = str(k).begins_with("w:")
 			var lv: int = int(qi.get("layer1", {}).get(c.id, {}).get(id, {}).get("level", 0)) if is_w else int(c.formations.get(id, 0))
 			var d: Dictionary = MapWorks.work(gd, id) if is_w else CaveAbode._formation_def(gd, id)
-			var wmax: int = int(d.get("max", d.get("max_level", lv)))
+			# no highest level since 2026-11-24 (user decision): a work's "max" is 0 (none), an array's its Tran Phap cap
+			var wmax: int = int(d.get("max", 0)) if is_w else s.formations.max_level(c, id)
 			var eff: int = CaveAbode.eff_level(gd, qi, c.id, str(k), lv, wmax)
 			var stat: String = str(d.get("stat", ""))
 			out.works.append({"key": str(k), "id": id, "kind": "work" if is_w else "array", "name": str(d.get("name", id)), "level": lv, "max": wmax,
@@ -853,7 +884,8 @@ static func abode(s: GameSession) -> Dictionary:
 				"gain": gd.format_mod("density_bonus" if stat == "density" else stat, float(d.get("per_level", 0.0)) * eff) if eff > 0 and stat != "" else "",
 				"upkeep": int(d.get("upkeep", 0)) if str(d.get("kind", "")) == "upkept" else 0,
 				"element": str(qi.get("layer1", {}).get(c.id, {}).get(id, {}).get("element", "")),
-				"next_cost": MapWorks.cost(gd, id, lv + 1) if is_w and lv < wmax else {}})
+				"free_level": CaveAbode.free_level(gd, g), "surcharge": CaveAbode.price_mult(gd, g, lv + 1),
+				"next_cost": _abode_price(gd, id, lv + 1, g) if is_w else {}})
 		var dens: Dictionary = MapWorks.density(gd, qi, c, 0, sh.total("home_array_density"), sh.total("formation_power_pct"))
 		# the total is the density the player cultivates at there (place_density: the place plus density_bonus, Formula B's
 		# stack); the works' own layer and its clamp lines come from MapWorks.density
@@ -867,11 +899,12 @@ static func abode(s: GameSession) -> Dictionary:
 			var w: Dictionary = MapWorks.work(gd, str(id))
 			if int(w.get("layer", 0)) != 1 or held.has("w:%s" % id):
 				continue
-			var ok: Dictionary = CaveAbode.can_raise(gd, qi, c, "w:%s" % id, 1, int(w.max))
+			var ok: Dictionary = CaveAbode.can_raise(gd, qi, c, "w:%s" % id, 1, 0)
 			out.catalogue.append({"id": str(id), "name": str(w.get("name", id)), "stat": str(w.stat), "per_level": float(w.per_level),
 				"gain": gd.format_mod("density_bonus" if str(w.stat) == "density" else str(w.stat), float(w.per_level)),
 				"next_cost": MapWorks.cost(gd, str(id), 1), "upkeep": int(w.get("upkeep", 0)) if str(w.kind) == "upkept" else 0, "kind": str(w.kind),
-				"max": int(w.max), "ceiling": CaveAbode.ceiling(gd, g, int(w.max)), "ok": bool(ok.ok), "reason": str(ok.reason), "share": str(w.stat) == "share"})
+				"max": 0, "ceiling": CaveAbode.free_level(gd, g), "free_level": CaveAbode.free_level(gd, g), "ok": bool(ok.ok),
+				"reason": str(ok.reason), "share": str(w.stat) == "share"})
 	# residences for rent here (Travel & Map rule 34) and a claimable abode here (rule 11)
 	var cfgw: Dictionary = MapWorks.cfg(gd)
 	if not here_p.get("qi", {}).is_empty() and MapWorks.settled(gd, here_p) and not (c.sect_id != "" and str(here_p.get("sect_id", "")) == c.sect_id):

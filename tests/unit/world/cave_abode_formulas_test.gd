@@ -25,11 +25,12 @@ func test_grade_upkeep_follows_f2_ac_ca_09_20() -> void:
 	assert_eq(CaveAbode.grade_upkeep(gd, 2, 2, 0.0), 5, "grade 2: 5")
 
 
-func test_slots_and_the_level_ceiling_follow_f3_ac_ca_03_20() -> void:
+func test_slots_and_the_free_level_follow_f3_ac_ca_03_20() -> void:
 	var gd := game_data()
 	assert_eq([CaveAbode.slots(gd, 1), CaveAbode.slots(gd, 3), CaveAbode.slots(gd, 5)], [2, 4, 6], "2 / 4 / 6")
-	assert_eq([CaveAbode.ceiling(gd, 1, 5), CaveAbode.ceiling(gd, 3, 5), CaveAbode.ceiling(gd, 5, 7)], [3, 5, 7], "grade + 2, after the work's max")
-	assert_eq(CaveAbode.ceiling(gd, 5, 3), 3, "a work's own max wins")
+	assert_eq([CaveAbode.free_level(gd, 1), CaveAbode.free_level(gd, 3), CaveAbode.free_level(gd, 5)], [3, 5, 7], "grade + 2")
+	assert_eq([CaveAbode.price_mult(gd, 1, 3), CaveAbode.price_mult(gd, 1, 4), CaveAbode.price_mult(gd, 1, 6)], [1.0, 2.0, 8.0],
+		"a price, not a ceiling (user decision 2026-11-24): x2 a level above the free level")
 
 
 func test_the_claim_fee_and_grade_after_follow_f4_ac_ca_13() -> void:

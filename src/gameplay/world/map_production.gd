@@ -206,7 +206,7 @@ static func production(gd: GameData, place: Dictionary, settle_w: float, price_i
 	var g_f: float = 1.0 + float(site.get("works_prod", 0.0))
 	if int(site.get("spoils", 0)) > 0:   # Sects F9: a captured site produces at spoils_mult while its spoils last
 		g_f *= float(cfg.get("spoils_mult", 0.5))
-	var mult: float = minf(r_f * settle_w * owner_w * d_f * s_f * g_f, float(cfg.prod_mult_cap))
+	var mult: float = r_f * settle_w * owner_w * d_f * s_f * g_f   # no prod_mult_cap (user decision 2026-11-24)
 	return {"output": floor(float(site.base_output) * mult + 0.5 + 1e-6), "r_f": r_f, "w_f": settle_w * owner_w, "d_f": d_f, "s_f": s_f, "g_f": g_f}
 
 
@@ -256,6 +256,9 @@ static func season(gd: GameData, db: WorldDB, count_people: bool = true, advance
 	var by_region := {}
 	var by_territory := {}
 	var value_by_region := {}
+	var per_province: bool = db.count(Provinces.TABLE) > 0   # ADR-0008: the same values, by province too
+	if per_province:
+		Provinces.clear_values(db)
 	for p in db.all("places"):
 		if p.has("local"):   # Formula H2: the settlement's fields and diggings
 			var lo: Dictionary = local_output(gd, db, p)
@@ -267,9 +270,13 @@ static func season(gd: GameData, db: WorldDB, count_people: bool = true, advance
 			p.local["last_ore"] = float(lo.ore)
 			for g in hs:
 				value_by_region[lr][g] = float(value_by_region[lr].get(g, 0.0)) + float(hs[g])
+				if per_province:
+					Provinces.add_value(gd, db, p, str(g), float(hs[g]))
 			if float(lo.ore) > 0.0:
 				var og: String = str(p.local.ore)
 				value_by_region[lr][og] = float(value_by_region[lr].get(og, 0.0)) + float(lo.ore)
+				if per_province:
+					Provinces.add_value(gd, db, p, og, float(lo.ore))
 		if p.has("herb_site"):
 			var hw: float = float(p.herb_site.get("settle_w", -1.0))
 			if hw < 0.0:
@@ -287,6 +294,8 @@ static func season(gd: GameData, db: WorldDB, count_people: bool = true, advance
 				value_by_region[hr] = {}
 			for g in split:
 				value_by_region[hr][g] = float(value_by_region[hr].get(g, 0.0)) + float(split[g])
+				if per_province:
+					Provinces.add_value(gd, db, p, str(g), float(split[g]))
 		if not p.has("site"):
 			continue
 		var w: float = float(p.site.get("settle_w", -1.0))
@@ -310,6 +319,8 @@ static func season(gd: GameData, db: WorldDB, count_people: bool = true, advance
 			var parts: Dictionary = kind_split(gd, str(p.site.kind), str(p.site.resource), int(round(vv)))
 			for g in parts:
 				value_by_region[rid][g] = float(value_by_region[rid].get(g, 0.0)) + float(parts[g])
+				if per_province:
+					Provinces.add_value(gd, db, p, str(g), float(parts[g]))
 		var t: String = str(p.get("territory", ""))
 		if t != "":
 			if not by_territory.has(t):

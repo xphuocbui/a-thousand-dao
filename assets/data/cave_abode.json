@@ -1,18 +1,41 @@
 {
   "schema_version": 1,
-  "_doc": "Cave Abode & Home Works (design/gdd/cave-abode.md, #47; CaveAbode). slots_by_grade: F3's work slots at grades 1-5; level_margin: F3's level ceiling above the grade (a work's level is at most min(its max, grade + level_margin)). grade_cost_frac: F1's raise cost to grades 2-5 as a share of the owner's realm budget (events_budgets linh_thach_max). upkeep_frac: F2's grade upkeep per season, grades 1-5, as a share of that budget (cut by Tho purity as map_works' tho_upkeep_cut_per_purity). grade_fade_seasons: consecutive unpaid seasons before the grade drops one (grade 1 never drops). claim_frac: F4's claim fee as a share of the opening fee (map_works abode_cost_frac). top_grade_by_realm: the highest grade a realm can hold (3 below Core Formation, 4 at Core Formation, 5 from Nascent Soul; the same minimums as map_works grade_realm_min). npc_reserve_mult, npc_raise_p: F5 (an NPC raises when its purse holds npc_reserve_mult x the next grade's cost and its keyed seasonal roll is below npc_raise_p). array_fade_seasons: a standing array left behind loses a level every this many seasons (Formations rule 14, the abode's clock). c1u_capability_15: the extra upkept layer-1 density cap where Capability #15 (Formation Within a Formation) applies. ruin_min_grade, ruin_cap, ruin_search_radius: rule 12 NPC Ruins (user decision 2026-11-21): a dead loose cultivator whose abode was at least this grade leaves a Ruin place on open land within this many tiles of where they were; at the cap the oldest NPC Ruin is reused. Values are the GDD's guesses for the balance harness.",
-  "slots_by_grade": [2, 3, 4, 5, 6],
+  "_doc": "Cave Abode & Home Works (design/gdd/cave-abode.md, #47; CaveAbode). slots_by_grade: F3's work slots at grades 1-5; level_margin: F3's level ceiling above the grade (a work's level is at most min(its max, grade + level_margin)). grade_cost_frac: F1's raise cost to grades 2-5 as a share of the owner's realm budget (events_budgets linh_thach_max). upkeep_frac: F2's grade upkeep per season, grades 1-5, as a share of that budget (cut by Tho purity as map_works' tho_upkeep_cut_per_purity). grade_fade_seasons: consecutive unpaid seasons before the grade drops one (grade 1 never drops). claim_frac: F4's claim fee as a share of the opening fee (map_works abode_cost_frac). top_grade_by_realm: the highest grade a realm can hold (3 below Core Formation, 4 at Core Formation, 5 from Nascent Soul; the same minimums as map_works grade_realm_min). npc_reserve_mult, npc_raise_p: F5 (an NPC raises when its purse holds npc_reserve_mult x the next grade's cost and its keyed seasonal roll is below npc_raise_p). array_fade_seasons: a standing array left behind loses a level every this many seasons (Formations rule 14, the abode's clock). c1u_capability_15: the extra upkept layer-1 density cap where Capability #15 (Formation Within a Formation) applies. ruin_min_grade, ruin_cap, ruin_search_radius: rule 12 NPC Ruins (user decision 2026-11-21): a dead loose cultivator whose abode was at least this grade leaves a Ruin place on open land within this many tiles of where they were; at the cap the oldest NPC Ruin is reused. Values are the GDD's guesses for the balance harness. grade_surcharge (2026-11-24, user decision: a price, not a ceiling): each work level above the free level grade + level_margin costs this much more again; works have no highest level.",
+  "slots_by_grade": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
   "level_margin": 2,
-  "grade_cost_frac": {"2": 0.25, "3": 0.75, "4": 2.0, "5": 5.0},
-  "upkeep_frac": [0.0005, 0.001, 0.0025, 0.005, 0.01],
+  "grade_cost_frac": {
+    "2": 0.25,
+    "3": 0.75,
+    "4": 2.0,
+    "5": 5.0
+  },
+  "upkeep_frac": [
+    0.0005,
+    0.001,
+    0.0025,
+    0.005,
+    0.01
+  ],
   "grade_fade_seasons": 4,
   "claim_frac": 0.5,
-  "top_grade_by_realm": [3, 3, 4, 5, 5],
+  "top_grade_by_realm": [
+    3,
+    3,
+    4,
+    5,
+    5
+  ],
   "npc_reserve_mult": 2.0,
   "npc_raise_p": 0.05,
-  "c1u_capability_15": 0.3,
   "array_fade_seasons": 4,
   "ruin_min_grade": 3,
   "ruin_cap": 40,
-  "ruin_search_radius": 6
+  "ruin_search_radius": 6,
+  "grade_surcharge": 2.0
 }

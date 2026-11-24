@@ -49,21 +49,22 @@ func build_cost(formation_id: String, target_level: int) -> Dictionary:
 	return {"lt": int(roundf(lt)), "materials": int(f.materials_per_level) * target_level, "rarity": int(f.material_rarity)}
 
 
-## The level an array is billed at: 0 when dormant, at most the home's level ceiling (Cave Abode rule 9).
+## The level an array is billed at: 0 when dormant, else its level (Cave Abode rule 9; no ceiling since 2026-11-24).
 func _billed_level(c: Character, formation_id: String) -> int:
 	var home: Dictionary = _db.get_record("places", c.home_id) if _db != null else {}
 	return CaveAbode.eff_level(_gd, home.get("qi", {}), c.id, "f:%s" % formation_id, int(c.formations[formation_id]), _work_max(c, formation_id))
 
 
-## A standing array's own maximum as a home work (with Capability #15's extra levels).
-func _work_max(c: Character, formation_id: String) -> int:
-	return int(def(formation_id).max_level) + (int(_gd.capability(15).params.extra_levels) if c.has_capability(15) else 0)
+## A standing array's own maximum as a home work: none since 2026-11-24 (0); the skill cap below bounds it.
+func _work_max(_c: Character, _formation_id: String) -> int:
+	return 0
 
 
-## Highest level the character can build for this formation now.
+## Highest level the character can build for this formation now: the Trận pháp skill + 1, and Capability #15 lets a
+## standing array stand its extra_levels above that (Formations F3; user decision 2026-11-24: no max_level for standing arrays).
 func max_level(c: Character, formation_id: String) -> int:
 	var extra: int = int(_gd.capability(15).params.extra_levels) if c.has_capability(15) else 0
-	return mini(int(def(formation_id).max_level) + extra, c.skill_level(str(config().skill)) + 1 + extra)
+	return c.skill_level(str(config().skill)) + 1 + extra
 
 
 ## Whether the next level can be built: {ok, reason, cost}.
@@ -74,8 +75,6 @@ func can_build(c: Character, formation_id: String) -> Dictionary:
 	if c.location_id != c.home_id and not c.has_capability(14):
 		return {"ok": false, "reason": "formations are laid at your động phủ"}
 	var target: int = level(c, formation_id) + 1
-	if target > int(f.max_level) + (int(_gd.capability(15).params.extra_levels) if c.has_capability(15) else 0):
-		return {"ok": false, "reason": "%s is at its highest level" % f.name}
 	if target > max_level(c, formation_id):
 		return {"ok": false, "reason": "level %d needs Trận pháp level %d (you have %d)" % [target, target - 1, c.skill_level(str(config().skill))]}
 	var home: Dictionary = _db.get_record("places", c.home_id) if _db != null else {}
@@ -84,6 +83,10 @@ func can_build(c: Character, formation_id: String) -> Dictionary:
 		if not bool(ab.ok):
 			return {"ok": false, "reason": str(ab.reason)}
 	var cost: Dictionary = build_cost(formation_id, target)
+	if not home.is_empty():   # Cave Abode F3: the grade prices levels above its free level
+		var hr: Dictionary = CaveAbode.home_rec(home.get("qi", {}), c.id)
+		if not hr.is_empty():
+			cost["lt"] = int(roundf(float(cost.lt) * CaveAbode.price_mult(_gd, CaveAbode.grade_of(hr), target)))
 	if c.linh_thach < int(cost.lt):
 		return {"ok": false, "reason": "needs %d linh thạch (you have %d)" % [int(cost.lt), c.linh_thach]}
 	if MaterialBag.count(c, _gd, _db, int(cost.rarity)) < int(cost.materials):
@@ -118,7 +121,7 @@ func upkeep(c: Character) -> int:
 	for id in c.formations.keys():
 		var per: float = float(def(id).get("upkeep_lt_per_level", 0))
 		var lv: int = _billed_level(c, id)
-		var over: int = maxi(lv - int(def(id).max_level), 0)
+		var over: int = maxi(lv - (c.skill_level(str(config().skill)) + 1), 0) if c.has_capability(15) else 0   # #15's levels over the skill cap
 		total += per * float(lv - over) + per * float(over) * (float(_gd.capability(15).params.upkeep_mult) if over > 0 else 1.0)
 	var cut: float = clampf(c.linh_can.purity("tho") * float(config().tho_upkeep_cut_per_purity), 0.0, 0.9)
 	return int(roundf(total * (1.0 - cut)))

@@ -1,7 +1,8 @@
 extends DaoTestSuite
-## Cave Abode's home rules against design/gdd/cave-abode.md: slots and the level ceiling (rules 3, 4, F3), raising the
-## grade (rule 6, F1), the grade upkeep, its falls and the grade-1 floor (rule 8, F2), dormancy (rule 9), layer 1's caps
-## with their clamp lines (rule 7, AC-CA-08), a residence's fixed grade (rule 6), and the skill cap (AC-CA-19).
+## Cave Abode's home rules against design/gdd/cave-abode.md: slots and the grade's price (rules 3, 4, F3; no level
+## ceiling since 2026-11-24), raising the grade (rule 6, F1), the grade upkeep, its falls and the grade-1 floor (rule 8,
+## F2), dormancy (rule 9), layer 1 with no caps (rule 7, AC-CA-08), a residence's fixed grade (rule 6), and the skill cap
+## (AC-CA-19).
 
 
 func _abode(grade: int) -> Dictionary:
@@ -13,7 +14,7 @@ func _char(realm: int, lt: int) -> Character:
 	return c
 
 
-func test_slots_and_the_level_ceiling_bound_the_works_ac_ca_03_04() -> void:
+func test_slots_bound_the_works_and_the_grade_prices_levels_ac_ca_03_04() -> void:
 	var gd := game_data()
 	var qi := _abode(3)
 	var c := _char(2, 0)
@@ -25,8 +26,8 @@ func test_slots_and_the_level_ceiling_bound_the_works_ac_ca_03_04() -> void:
 	assert_false(bool(CaveAbode.can_raise(gd, qi, c, "f:thanh_moc", 1, 5).ok), "a fifth work is refused for slots")
 	assert_true(bool(CaveAbode.can_raise(gd, qi, c, "f:tu_linh", 5, 5).ok), "grade 3 allows level 5")
 	var qi1 := _abode(1)
-	assert_false(bool(CaveAbode.can_raise(gd, qi1, c, "f:tu_linh", 4, 5).ok), "grade 1: no work past level 3")
-	assert_true(bool(CaveAbode.can_raise(gd, qi1, c, "f:tu_linh", 3, 5).ok), "level 3 at grade 1")
+	assert_true(bool(CaveAbode.can_raise(gd, qi1, c, "f:tu_linh", 4, 5).ok), "grade 1: level 4 is allowed (no ceiling)")
+	assert_eq(CaveAbode.price_mult(gd, 1, 4), 2.0, "at twice the price: above grade 1's free level 3")
 
 
 func test_raising_the_grade_pays_now_and_applies_next_season_ac_ca_02_06_07() -> void:
@@ -107,7 +108,7 @@ func _db_with(qi: Dictionary) -> WorldDB:
 	return db
 
 
-func test_layer_one_caps_each_and_prints_the_clamps_ac_ca_08() -> void:
+func test_layer_one_has_no_caps_and_prints_no_clamps_ac_ca_08() -> void:
 	var gd := game_data()
 	var works: Dictionary = gd.file("map_works").works
 	works["fx_perm"] = {"name": "fx", "layer": 1, "kind": "permanent", "stat": "density", "per_level": 0.2, "max": 1}
@@ -116,10 +117,8 @@ func test_layer_one_caps_each_and_prints_the_clamps_ac_ca_08() -> void:
 	qi.layer1.p1["fx_perm"] = {"level": 1}
 	var d: Dictionary = MapWorks.density(gd, qi, c, 0, 0.9)
 	works.erase("fx_perm")
-	assert_near(float(d.l1), 0.85, 1e-9, "0.75 + 0.1, each cap separately")
-	assert_eq(Array(d.lines).filter(func(l): return str(l).contains("clamped")).size(), 2, "two clamp lines")
-	var d2: Dictionary = MapWorks.density(gd, _abode(3), c, 0, 0.75)
-	assert_eq(Array(d2.lines).filter(func(l): return str(l).contains("clamped")).size(), 0, "Tu Linh at exactly 0.75: no clamp")
+	assert_near(float(d.l1), 1.1, 1e-9, "0.2 + 0.9 in full (user decision 2026-11-24: no layer caps)")
+	assert_eq(Array(d.lines).filter(func(l): return str(l).contains("clamped")).size(), 0, "no clamp lines")
 
 
 func test_an_array_counts_at_its_skill_cap_ac_ca_19() -> void:
@@ -136,11 +135,11 @@ func test_an_array_counts_at_its_skill_cap_ac_ca_19() -> void:
 	for f in gd.file("crafting_formations").formations:
 		if str(f.id) == "tu_linh":
 			per = float(f.per_level)
-	assert_near(sheet.total("home_array_density"), per * 3.0, 1e-6, "level 5 under ceiling 5 counts at the skill cap 3")
+	assert_near(sheet.total("home_array_density"), per * 3.0, 1e-6, "level 5 counts at the Tran Phap skill cap 3")
 	assert_near(sheet.total("density_bonus"), 0.0, 1e-9, "no longer on density_bonus")
 
 
-func test_a_dormant_array_owes_no_upkeep_and_one_over_the_ceiling_is_billed_at_it_rule_9() -> void:
+func test_a_dormant_array_owes_no_upkeep_and_the_rest_are_billed_in_full_rule_9() -> void:
 	var gd := game_data()
 	var db := WorldDB.new()
 	var qi := _abode(1)
@@ -151,7 +150,7 @@ func test_a_dormant_array_owes_no_upkeep_and_one_over_the_ceiling_is_billed_at_i
 	c.home_id = "l1"
 	c.formations = {"tu_linh": 5, "thanh_moc": 1, "ho_son": 4}
 	var f := Formations.new(gd, db)
-	assert_eq(f.upkeep(c), 10 * 3 + 8 * 1, "Tu Linh 5 billed at the grade-1 ceiling 3, Ho Son dormant: 0")
+	assert_eq(f.upkeep(c), 10 * 5 + 8 * 1, "Tu Linh 5 billed at 5 (no ceiling), Ho Son dormant: 0")
 	f.pay_upkeep(c)
 	assert_eq(int(c.formations.ho_son), 4, "the dormant array never lapses")
 
@@ -167,9 +166,9 @@ func test_the_stat_block_shows_grade_slots_levels_gains_dormancy_upkeep_and_clam
 	var out: String = "\n".join(PackedStringArray(CaveAbode.lines(gd, qi, c, 0.9)))
 	assert_true(out.contains("grade 1: ") and out.contains(" of 2 slots used"), "the grade and slots: %s" % out)
 	assert_true(out.contains("upkeep"), "the grade upkeep")
-	assert_true(out.contains("Tụ Linh Trận") and out.contains("level 5") and out.contains("counts at 3"), "the level and the ceiling: %s" % out)
+	assert_true(out.contains("Tụ Linh Trận") and out.contains("level 5") and out.contains("free level 3"), "the level and the price: %s" % out)
 	assert_true(out.contains("(dormant)"), "the dormant work")
-	assert_true(out.contains("clamped"), "the clamp line")
+	assert_false(out.contains("clamped"), "no layer-1 clamp lines")
 
 
 func test_an_old_saves_abode_gets_the_lowest_grade_that_holds_its_works() -> void:
@@ -178,7 +177,7 @@ func test_an_old_saves_abode_gets_the_lowest_grade_that_holds_its_works() -> voi
 	qi.layer1.p1["tended_abode"] = {"level": 1}
 	var c := _char(2, 0)
 	c.formations = {"tu_linh": 5, "ho_son": 1}
-	assert_eq(CaveAbode.grade_to_hold(gd, qi, c), 3, "3 works and Tu Linh at 5: grade 3 (4 slots, ceiling 5)")
+	assert_eq(CaveAbode.grade_to_hold(gd, qi, c), 2, "3 works: grade 2 (3 slots; levels no longer need a ceiling)")
 	var lk := _char(0, 0)
 	lk.formations = {"tu_linh": 5, "ho_son": 5, "thanh_moc": 5}
 	qi.layer1.p1["private_spring"] = {"level": 1}
@@ -205,12 +204,29 @@ func test_the_owner_chooses_which_work_sleeps_as_a_swap_only_while_one_must_rule
 	assert_eq(CaveAbode.used(qi, c), 2, "still 2 of 2 slots")
 
 
-func test_formation_power_lifts_the_upkept_layer_one_cap_by_the_arrays_factor() -> void:
+func test_the_upkept_layer_one_density_has_no_cap() -> void:
 	var gd := game_data()
 	var c := _char(2, 0)
-	var base: Dictionary = MapWorks.density(gd, _abode(3), c, 0, 0.9)
-	assert_near(float(base.l1), 0.75, 1e-9, "no power: Tu Linh 0.9 clamped at 0.75")
-	var lifted: Dictionary = MapWorks.density(gd, _abode(3), c, 0, 0.9, 20.0)
-	assert_near(float(lifted.l1), 0.9, 1e-9, "power 20 %: the cap is 0.9, Tu Linh 0.9 fits")
-	var over: Dictionary = MapWorks.density(gd, _abode(3), c, 0, 1.2, 20.0)
-	assert_near(float(over.l1), 0.9, 1e-9, "still capped, at 0.75 x 1.2")
+	assert_near(float(MapWorks.density(gd, _abode(3), c, 0, 0.9).l1), 0.9, 1e-9, "Tu Linh 0.9 counts in full")
+	assert_near(float(MapWorks.density(gd, _abode(3), c, 0, 1.2, 20.0).l1), 1.2, 1e-9, "1.2 too: no cap to lift (2026-11-24)")
+
+
+func test_a_home_array_goes_past_level_five_at_the_grades_price() -> void:
+	var gd := game_data()
+	var db := WorldDB.new()
+	var qi := _abode(2)
+	qi.abode["order"] = ["f:tu_linh"]
+	db.put("places", {"id": "l1", "name": "Home", "qi": qi})
+	var c := _char(2, 10000000)
+	c.home_id = "l1"
+	c.location_id = "l1"
+	c.formations = {"tu_linh": 5}
+	c.skills = {"tran_phap": {"level": 8, "xp": 0.0}}
+	db.add("items", {"id": "i1", "kind": "material", "template": "linh_moc_tam", "qty": 20, "owner_id": "p1"})
+	var f := Formations.new(gd, db)
+	var ck: Dictionary = f.can_build(c, "tu_linh")
+	assert_true(bool(ck.ok), "level 6 is allowed with Tran Phap 8 (no max_level for a home array): %s" % str(ck.reason))
+	var plain: int = int(f.build_cost("tu_linh", 6).lt)
+	assert_eq(int(ck.cost.lt), int(roundf(float(plain) * 4.0)), "grade 2's free level is 4: level 6 costs x2 x2")
+	c.skills = {"tran_phap": {"level": 4, "xp": 0.0}}
+	assert_false(bool(f.can_build(c, "tu_linh").ok), "the Tran Phap skill cap still bounds it (skill 4: level 5)")

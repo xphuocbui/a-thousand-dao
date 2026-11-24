@@ -45,9 +45,21 @@ static func slots(gd: GameData, g: int) -> int:
 	return int(s[clampi(g, 1, s.size()) - 1])
 
 
-## F3: the level ceiling for a work of maximum [param work_max] at grade [param g], min(work_max, g + level_margin).
+## F3 (user decision 2026-11-24: a price, not a ceiling): the free level at grade [param g], g + level_margin; works have no
+## highest level, and each level above the free level costs grade_surcharge more again ([method price_mult]).
+static func free_level(gd: GameData, g: int) -> int:
+	return g + int(cfg(gd).level_margin)
+
+
+## F3's price factor for level [param level] at grade [param g]: grade_surcharge^max(0, level - free level).
+static func price_mult(gd: GameData, g: int, level: int) -> float:
+	return pow(float(cfg(gd).get("grade_surcharge", 2.0)), float(maxi(0, level - free_level(gd, g))))
+
+
+## The free level at grade [param g] ([param work_max] is ignored since works have no highest level); kept for the
+## abode view until it shows the price instead.
 static func ceiling(gd: GameData, g: int, work_max: int) -> int:
-	return mini(work_max, g + int(cfg(gd).level_margin))
+	return free_level(gd, g)
 
 
 ## Rule 2 and F4: the highest grade [param realm] can hold.
@@ -102,15 +114,15 @@ static func grade_of(rec: Dictionary) -> int:
 	return int(rec.get("grade", 0))
 
 
-## Rule 9 and F3: the level a work counts at, 0 when dormant, else min(level, ceiling at the grade). With no home record
-## here the level counts as stored.
+## Rule 9: the level a work counts at, 0 when dormant, else its full level (no ceiling since 2026-11-24). With no home
+## record here the level counts as stored.
 static func eff_level(gd: GameData, qi: Dictionary, pid: String, key: String, level: int, work_max: int) -> int:
 	var rec: Dictionary = home_rec(qi, pid)
 	if rec.is_empty():
 		return level
 	if Array(rec.get("dormant", [])).has(key):
 		return 0
-	return mini(level, ceiling(gd, grade_of(rec), work_max))
+	return level
 
 
 ## The keys of the works [param c] holds at a home with [param qi]: its layer-1 works and its standing arrays.
@@ -196,7 +208,7 @@ static func _key_of(qi: Dictionary, c: Character, id: String) -> String:
 
 
 ## Rules 3 and 7: whether [param c] may raise work [param key] to [param level] at the home with [param qi] (a free slot
-## for a new work, and the level ceiling). {ok, reason}.
+## for a new work; no level ceiling since 2026-11-24, the grade prices the level instead). {ok, reason}.
 static func can_raise(gd: GameData, qi: Dictionary, c: Character, key: String, level: int, work_max: int) -> Dictionary:
 	var rec: Dictionary = home_rec(qi, c.id)
 	if rec.is_empty():
@@ -204,8 +216,6 @@ static func can_raise(gd: GameData, qi: Dictionary, c: Character, key: String, l
 	var g: int = grade_of(rec)
 	if not held(qi, c).has(key) and used(qi, c) >= slots(gd, g):
 		return {"ok": false, "reason": "no free slot (%d of %d used at grade %d)" % [used(qi, c), slots(gd, g), g]}
-	if level > ceiling(gd, g, work_max):
-		return {"ok": false, "reason": "level %d passes the level ceiling at grade %d (%d)" % [level, g, ceiling(gd, g, work_max)]}
 	return {"ok": true, "reason": ""}
 
 
@@ -282,7 +292,9 @@ static func lines(gd: GameData, qi: Dictionary, c: Character, l1u_arrays: float 
 		var eff: int = eff_level(gd, qi, c.id, str(k), lv, wmax)
 		var stat: String = str(d.get("stat", ""))
 		var gain: String = gd.format_mod("density_bonus" if stat == "density" else stat, float(d.get("per_level", 0.0)) * eff) if eff > 0 and stat != "" else "nothing"
-		var state: String = " (dormant)" if dormant.has(k) else (" (counts at %d, the grade's ceiling)" % eff if eff < lv else "")
+		var state: String = " (dormant)" if dormant.has(k) else ""
+		if not dormant.has(k) and lv + 1 > free_level(gd, g):   # F3: the grade prices the next level
+			state += " (next level at x%d: above the grade's free level %d)" % [int(price_mult(gd, g, lv + 1)), free_level(gd, g)]
 		out.append("  %-16s [%s] level %d: %s%s" % [str(d.get("name", id)), id, lv, gain, state])
 	for l in MapWorks.density(gd, qi, c, 0, l1u_arrays, power_pct).lines:   # rule 13: every clamp line
 		if str(l).contains("clamped"):
@@ -294,19 +306,13 @@ static func lines(gd: GameData, qi: Dictionary, c: Character, l1u_arrays: float 
 
 
 ## Old saves (user decision 2026-11-21): the lowest grade, up to 5 and the realm's top grade, whose slots hold every
-## work [param c] has at the home with [param qi] and whose level ceiling holds each one's level. Nothing gets weaker on
-## the first load.
+## work [param c] has at the home with [param qi] (no level ceiling since 2026-11-24). Nothing gets weaker on the first
+## load.
 static func grade_to_hold(gd: GameData, qi: Dictionary, c: Character) -> int:
 	var keys: Array = held(qi, c)
 	var top: int = mini(5, top_grade(gd, c.realm_index))
 	for g in range(1, top + 1):
 		var fits: bool = keys.size() <= slots(gd, g)
-		for k in keys:
-			var id: String = str(k).substr(2)
-			var lv: int = int(qi.get("layer1", {}).get(c.id, {}).get(id, {}).get("level", 0)) if str(k).begins_with("w:") else int(c.formations.get(id, 0))
-			var d: Dictionary = MapWorks.work(gd, id) if str(k).begins_with("w:") else _formation_def(gd, id)
-			if lv > ceiling(gd, g, int(d.get("max", d.get("max_level", lv)))):
-				fits = false
 		if fits:
 			return g
 	return top

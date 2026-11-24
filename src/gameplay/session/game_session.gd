@@ -962,8 +962,9 @@ func work_lines() -> Array:
 		var w: Dictionary = MapWorks.work(gd, str(id))
 		var store: Dictionary = qi.get("layer2", {}) if int(w.layer) == 2 else mine
 		var lv: int = int(store.get(id, {}).get("level", 0))
-		var next: String = "max" if lv >= int(w.max) else "next %d LT, %d materials, %d season(s)" % [int(MapWorks.cost(gd, str(id), lv + 1).lt), int(MapWorks.cost(gd, str(id), lv + 1).materials), int(MapWorks.cost(gd, str(id), lv + 1).seasons)]
-		out.append("  %-15s layer %d %-9s %-10s level %d/%d  (%s)" % [id, int(w.layer), str(w.kind), str(w.stat), lv, int(w.max), next])
+		var wmax: int = int(w.get("max", 0))   # 0: no highest level (layer 2 since 2026-11-24)
+		var next: String = "max" if wmax > 0 and lv >= wmax else "next %d LT, %d materials, %d season(s)" % [int(MapWorks.cost(gd, str(id), lv + 1).lt), int(MapWorks.cost(gd, str(id), lv + 1).materials), int(MapWorks.cost(gd, str(id), lv + 1).seasons)]
+		out.append("  %-15s layer %d %-9s %-10s level %d/%s  (%s)" % [id, int(w.layer), str(w.kind), str(w.stat), lv, str(wmax) if wmax > 0 else "-", next])
 	return out
 
 
@@ -2145,6 +2146,10 @@ func load_dict(d: Dictionary) -> Dictionary:
 	if not meta.is_empty() and str(meta.get("map_version", "")) != map_now:
 		# World Generation Core Rule 13: the terrain is read from the data files, so a save made on another map is refused
 		return {"ok": false, "lines": ["This save was made on map version %s; this game has map version %s. It cannot be loaded." % [str(meta.get("map_version", "?")), map_now]]}
+	var prov_now: int = int(gd.file(Provinces.FILE).get("provinces_version", 0))
+	if not meta.is_empty() and prov_now > 0 and int(meta.get("provinces_version", 0)) != prov_now:
+		# ADR-0008 decision 10 (user D7, 2026-11-24): a save made before the provinces table is refused, not migrated
+		return {"ok": false, "lines": ["This save was made before provinces were part of the world (provinces version %d; this game has %d). It cannot be loaded." % [int(meta.get("provinces_version", 0)), prov_now]]}
 	db = loaded_db
 	Ties.migrate(gd, db, year * int(gd.cultivation_rules().seasons_per_year) + season)   # NPC Relationships: masters kept only in master_id
 	for rec in db.all("people"):

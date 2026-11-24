@@ -2,7 +2,8 @@ class_name SectWorks
 extends RefCounted
 
 ## Sects develop their land (design/gdd/travel-map.md rules 31-33, Formula J; design/gdd/sects.md rule 8's Holdings and
-## F2's work_max): a sect builds layer-2 works on the places it holds, up to work_max = ⌈Holdings / 2⌉ levels each:
+## F2's free_level, user decision 2026-11-24: prices, not caps): a sect builds layer-2 works on the places it holds, with no
+## highest level, each level above its track's free level ⌈T / 2⌉ at track_surcharge more, saving over a few seasons:
 ## worked mines (upkept, +production) and vein dressing (permanent, +production) on its sites, and the great array and
 ## spirit grove (+density) at its seat. The works are paid from the investment the treasury rule sends to Holdings
 ## (Regional Economy Formula H), so they add no spender of their own: the cash share burns as works and the goods share
@@ -21,10 +22,22 @@ static func _cfg(gd: GameData) -> Dictionary:
 	return MapWorks.cfg(gd).get("sects", {})
 
 
-## Sects F2: the highest layer-2 work level the sect may build on its land.
+## Sects F2: the highest layer-2 work level the sect builds at Travel & Map's price (Holdings).
 static func work_max(gd: GameData, db: WorldDB, sect: Dictionary) -> int:
-	var h: float = SectEconomy.effective_level(gd, db, sect, "holdings") if str(sect.get("kind", "")) == "great" else float(sect.get("levels", {}).get("holdings", 0))
-	return int(ceil(h / 2.0 - 1e-9))
+	return _free(gd, db, sect, "holdings")
+
+
+## Sects F2 (user decision 2026-11-24: prices, not caps): the free level of work [param id]'s track, ⌈T / 2⌉; each
+## level above costs track_surcharge more again (MapWorks.cost).
+static func free_level(gd: GameData, db: WorldDB, sect: Dictionary, id: String) -> int:
+	if sect.is_empty():
+		return -1
+	return _free(gd, db, sect, str(MapWorks.work(gd, id).get("track", "holdings")))
+
+
+static func _free(gd: GameData, db: WorldDB, sect: Dictionary, track: String) -> int:
+	var t: float = SectEconomy.effective_level(gd, db, sect, track) if str(sect.get("kind", "")) == "great" else float(sect.get("levels", {}).get(track, 0))
+	return int(ceil(t / 2.0 - 1e-9))
 
 
 # A work's season value to the sect: a production work by the site's output value it adds, a density work by the
@@ -42,12 +55,10 @@ static func _value(gd: GameData, db: WorldDB, sect: Dictionary, place: Dictionar
 	return 0.0
 
 
-## The candidate works for [param sect]: [{place, id, level, cost, value}] with value per linh thach, best first.
+## The candidate works for [param sect]: [{place, id, level, cost, value}] with value per linh thach, best first. No
+## highest level: each work's next level at its track's price (user decision 2026-11-24).
 static func candidates(gd: GameData, db: WorldDB, sect: Dictionary) -> Array:
-	var cap: int = work_max(gd, db, sect)
 	var out: Array = []
-	if cap <= 0:
-		return out
 	var seat: String = str(sect.get("hq_place_id", ""))
 	for p in db.all("places"):
 		if str(p.get("holder", "")) != str(sect.id) or not p.has("qi") or bool(p.get("hidden", false)):
@@ -62,9 +73,9 @@ static func candidates(gd: GameData, db: WorldDB, sect: Dictionary) -> Array:
 			if w.is_empty():
 				continue
 			var lv: int = int(p.qi.get("layer2", {}).get(str(id), {}).get("level", 0))
-			if lv >= mini(int(w.max), cap):
+			if int(w.get("max", 0)) > 0 and lv >= int(w.max):
 				continue
-			var price: float = float(MapWorks.cost(gd, str(id), lv + 1).lt)
+			var price: float = float(MapWorks.cost(gd, str(id), lv + 1, free_level(gd, db, sect, str(id))).lt)
 			var v: float = _value(gd, db, sect, p, str(id))
 			if v <= 0.0 or price <= 0.0:
 				continue
@@ -79,7 +90,19 @@ static func build_best(gd: GameData, db: WorldDB, sect: Dictionary, budget: floa
 	var spent: float = 0.0
 	var built: int = 0
 	var max_builds: int = int(_cfg(gd).get("builds_per_season", 2))
-	for cand in candidates(gd, db, sect):
+	var cands: Array = candidates(gd, db, sect)
+	# saving (2026-11-24): when the best work costs more than this season's budget but at most save_seasons_max seasons
+	# of it, and pays back within save_payback_max seasons (cost / value), the sect sets this season's budget aside for it
+	var saved: float = float(sect.get("works_saving", 0.0))
+	if not cands.is_empty():
+		var best: Dictionary = cands[0]
+		var c0: float = float(best.cost)
+		if c0 > budget + saved and c0 <= budget * float(_cfg(gd).get("save_seasons_max", 0)) and c0 / maxf(float(best.value), 1e-9) <= float(_cfg(gd).get("save_payback_max", 0)):
+			sect["works_saving"] = saved + budget
+			sect["works_spent"] = float(sect.get("works_spent", 0.0)) + budget
+			return budget
+	budget += saved
+	for cand in cands:
 		if built >= max_builds:
 			break
 		if spent + float(cand.cost) > budget:
@@ -95,8 +118,11 @@ static func build_best(gd: GameData, db: WorldDB, sect: Dictionary, budget: floa
 		if bool(_cfg(gd).get("log_builds", true)):
 			db.log_event(year, season_i, "sect_works", "%s xây %s cấp %d tại %s." % [sect.name, MapWorks.work(gd, str(cand.id)).name, int(cand.level), p.name],
 				[str(sect.id)], [str(p.id)], [], {"work": cand.id, "level": cand.level})
-	sect["works_spent"] = float(sect.get("works_spent", 0.0)) + spent
-	return spent
+	# the saved part was already taken from earlier seasons' investment: report only this season's share, keep the rest
+	var used_saved: float = minf(saved, spent)
+	sect["works_saving"] = saved - used_saved
+	sect["works_spent"] = float(sect.get("works_spent", 0.0)) + spent - used_saved
+	return spent - used_saved
 
 
 ## A sect's upkeep due this season for its upkept layer-2 works (Formula J: a worked mine's upkeep_site_frac of its
