@@ -228,7 +228,7 @@ target design, and the debug terminal runs them (`src/gameplay/cultivation/ladde
 **The world and the top**
 
 12. **NPCs.** NPCs carry a realm and a stage and advance abstractly: each season the world
-    tick moves an NPC up one stage with chance 1 ÷ `npc_cultivation_seasons_per_stage` (14, `world_generation.json`; 12 before the money speed-up, retune 2026-11-21); they do not run the
+    tick moves an NPC up one stage with chance 1 ÷ `npc_cultivation_seasons_per_stage` (14, `world_generation.json`; 12 before the money speed-up, retune 2026-11-21), times the NPC's talent and place multiplier `m_i` (Living World Tick Formulas H, built 2026-11-24: root and the stacked density of the NPC's seat or home; the world's mean stays 1); they do not run the
     bar. An NPC's level is the first level of its stage. At the bottleneck its fate is
     rolled once per realm with p_step = base + min(e, 1)^k × (max − base), using the gate's
     `gate_steps` (Formulas C2; Progression Edges owns e): if fated, it breaks through with chance

@@ -1,0 +1,47 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+== year 0  realms [3935, 844, 191, 27, 3]  0.0 ms/season
+  great sects 7: seat l2 med 1.00 max 1.20 | seat D raw max 4.11 capped max 4.11 | top level med 6 max 8 | works spent med 0 max 0 | treasury med 60000 max 90000
+  minor sects 43: seat l2 med 0.50 max 0.50 | seat D raw max 3.04 capped max 3.04 | top level med 1 max 2 | works spent med 0 max 0 | treasury med 7000 max 7000
+  works above level 5: 5 | highest site works_prod 0.10
+  live province buildings by state { "active": 1499 } | upkeep due a season 27729
+  population 695.6 (start 695.6, x1.000) | provinces at the floor 0 of 468 | above capacity 0
+  access: median 1.00, p10 0.50, under 0.5: 0, at 1: 326 of 468
+  province production value: median 129, p90 1472, max 15690
+    Thiên Xu Tông: seat q 4.11, members 576, mean realm.stage 0.40, mean m 1.23
+    Tùng Đào Cung: seat q 3.93, members 576, mean realm.stage 0.41, mean m 1.21
+    Lạc Hà Tông: seat q 3.52, members 432, mean realm.stage 0.41, mean m 1.14
+    Thính Vũ Lâu: seat q 3.36, members 504, mean realm.stage 0.38, mean m 1.10
+    Băng Tâm Các: seat q 2.63, members 468, mean realm.stage 0.35, mean m 0.96
+    Thúy Vi Tông: seat q 2.74, members 324, mean realm.stage 0.37, mean m 0.99
+    Phượng Minh Cung: seat q 2.91, members 360, mean realm.stage 0.40, mean m 1.04
+== year 100  realms [3530, 1158, 263, 44, 5]  889.7 ms/season
+  great sects 7: seat l2 med 1.00 max 1.20 | seat D raw max 4.11 capped max 4.11 | top level med 6 max 8 | works spent med 269800 max 816175 | treasury med 86851 max 142228
+  minor sects 51: seat l2 med 0.40 max 0.40 | seat D raw max 3.04 capped max 3.04 | top level med 0 max 4 | works spent med 0 max 1104 | treasury med 0 max 609
+  works above level 5: 14 | highest site works_prod 0.70
+  live province buildings by state { "active": 1335, "ruined": 193, "building": 1 } | upkeep due a season 45619
+  population 730.0 (start 695.6, x1.049) | provinces at the floor 0 of 468 | above capacity 0
+  access: median 1.00, p10 0.85, under 0.5: 11, at 1: 404 of 468
+  province production value: median 130, p90 1746, max 13343
+    Thiên Xu Tông: seat q 4.11, members 187, mean realm.stage 1.31, mean m 1.44
+    Tùng Đào Cung: seat q 3.93, members 456, mean realm.stage 0.79, mean m 1.27
+    Lạc Hà Tông: seat q 3.52, members 531, mean realm.stage 0.62, mean m 1.15
+    Thính Vũ Lâu: seat q 3.36, members 454, mean realm.stage 0.72, mean m 1.16
+    Băng Tâm Các: seat q 2.63, members 424, mean realm.stage 0.59, mean m 0.99
+    Thúy Vi Tông: seat q 2.74, members 361, mean realm.stage 0.56, mean m 1.00
+    Phượng Minh Cung: seat q 2.91, members 424, mean realm.stage 0.62, mean m 1.05
+== year 200  realms [3839, 860, 248, 48, 5]  810.5 ms/season
+  great sects 7: seat l2 med 1.00 max 1.20 | seat D raw max 4.11 capped max 4.11 | top level med 6 max 8 | works spent med 387150 max 830575 | treasury med 98633 max 147867
+  minor sects 61: seat l2 med 0.40 max 0.40 | seat D raw max 3.04 capped max 3.04 | top level med 0 max 4 | works spent med 0 max 1104 | treasury med 0 max 3108
+  works above level 5: 13 | highest site works_prod 0.70
+  live province buildings by state { "active": 1224, "ruined": 305 } | upkeep due a season 44289
+  population 842.7 (start 695.6, x1.211) | provinces at the floor 0 of 468 | above capacity 0
+  access: median 1.00, p10 0.90, under 0.5: 8, at 1: 412 of 468
+  province production value: median 145, p90 1850, max 13396
+    Thiên Xu Tông: seat q 4.11, members 114, mean realm.stage 1.19, mean m 1.38
+    Tùng Đào Cung: seat q 3.93, members 442, mean realm.stage 0.73, mean m 1.24
+    Lạc Hà Tông: seat q 3.52, members 483, mean realm.stage 0.54, mean m 1.14
+    Thính Vũ Lâu: seat q 3.36, members 381, mean realm.stage 0.65, mean m 1.14
+    Băng Tâm Các: seat q 2.63, members 411, mean realm.stage 0.54, mean m 0.99
+    Thúy Vi Tông: seat q 2.74, members 377, mean realm.stage 0.55, mean m 1.01
+    Phượng Minh Cung: seat q 2.91, members 403, mean realm.stage 0.59, mean m 1.04

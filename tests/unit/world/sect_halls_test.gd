@@ -100,7 +100,8 @@ func test_a_meditation_chamber_adds_to_a_members_breakthrough_step() -> void:
 	var with_hall: float = ProgressionEdges.npc_step_chance(rec, gd, _db).total
 	_restore(pair)
 	var hi: float = float(ProgressionEdges.config(gd).npc.gate_steps[1].max)
-	assert_near(with_hall, minf(plain + 0.03, hi), 1e-9, "+0.01 a level, within the gate's band")
+	var step: float = float(ProvinceBuildings.kind(gd, "meditation_chamber").step_per_level)
+	assert_near(with_hall, minf(plain + 3.0 * step, hi), 1e-9, "+step_per_level a level (%.3f), within the gate's band" % step)
 
 
 func test_a_recruitment_hall_raises_the_intake() -> void:

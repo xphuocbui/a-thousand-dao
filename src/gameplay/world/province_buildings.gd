@@ -207,7 +207,8 @@ static func grow_sites(gd: GameData, db: WorldDB, v: Dictionary) -> void:
 			if land >= float(g[0]):
 				cap = str(g[1])
 				break
-		var want: int = mini(maxi(0, int(levels.get(str(p.id), 0)) - 1), order.find(cap))
+		var per: int = maxi(1, int(cfg(gd).get("growth_step_levels", {}).get(str(p.site.get("kind", "")), 1)))   # Stage 9
+		var want: int = mini(maxi(0, int(levels.get(str(p.id), 0)) - 1) / per, order.find(cap))
 		var grade: String = str(order[want])
 		if grade == str(p.site.get("grade", "")):
 			continue

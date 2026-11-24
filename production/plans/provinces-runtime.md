@@ -178,6 +178,10 @@ median ~130-160, p90 ~1,500-2,000, max ~13-17k). Owed: local prices drifting bel
 
 ### Stage 7: modifiers, events and states
 
+**Built 2026-11-24** (5fcbad47): modifiers (stat, scope, inc or more, seasons, source) in F4, F6 and F3; blight, raid
+and beast tide from a seeded stream with walls softening raids and tides; the four states; news lines. Spirit-stone
+sites never grow (user decision): money back to ~5.4M at 100 years.
+
 - **Modifiers:** province modifiers in the Modifier grammar, each with a source and a duration, one panel line each
   (rule 12).
 - **Events:** event hooks (blight, raid, beast tide) and the Normal, Under-connected, Struck and War-touched states;
@@ -185,6 +189,11 @@ median ~130-160, p90 ~1,500-2,000, max ~13-17k). Owed: local prices drifting bel
 - **ACs:** PV-09.
 
 ### Stage 8: the player and the panel
+
+**Built 2026-11-24/25** (82563ca8; done in this session at the user's request): `fund_building`, `province_orders`,
+the live panel (building states, orders with Fund, states, modifier sources, live access line), the map modes on live
+numbers; screenshots in `production/qa/evidence/provinces-runtime/stage8/`. **Owed:** AC-PV-27's 20-season playtest
+(the user's), player trade between provinces at province prices (needs revised L1's local prices).
 
 - **Player:** the player funds a building through a sect or city mission (rule 9) and trades between provinces
   (RE&T rule 16).
@@ -195,6 +204,9 @@ median ~130-160, p90 ~1,500-2,000, max ~13-17k). Owed: local prices drifting bel
 - **ACs:** PV-10, PV-25, PV-26, PV-27.
 
 ### Stage 9: balance and tidy
+
+**2026-11-25:** chamber 0.005 a level, beast lairs two levels a grade step; GDD deltas written (Provinces AC-PV-01,
+rule 13's lag, OQ 3 and 4, rule 10's lore levels, stone sites, shocks; Canh-gioi rule 12's Formula H back-link).
 
 - **Balance:** a balance pass on every *(guess)* number (OQ 1) on seed 7, then three seeds.
 - **GDD text:** update AC-PV-01 to 705 / 468 / 237 and close OQ 3 and OQ 4 (both answered 2026-11-24), each as a

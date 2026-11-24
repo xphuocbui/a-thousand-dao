@@ -145,7 +145,9 @@ Without provinces the economy can only see 20 regions, and the land's variety ne
      (`site_grade_value.minor`). Each level of its province's matching production building (mine works for a mine,
      hunting lodge for a beast lair, spirit fields for a spirit vein or hot spring) above level 1 raises it one grade
      step (minor, small, medium, large), never above the grade its land density gives it (Travel & Map's
-     `grade_by_density`).
+     `grade_by_density`). The grade follows the building down as well as up, and the reserve keeps its fraction (D5a).
+     **Spirit-stone sites never grow** (user decision 2026-11-24: growth on stone mines and veins doubled the world's
+     minting in the sim).
    - **Logistics:** road, caravan post, river or harbour landing (needs a river or coast), storehouse (more stock kept,
      less spoilage).
    - **Society:** market hall (the shop's depth and margin), granary (population capacity, famine resistance), warding
@@ -203,6 +205,13 @@ Without provinces the economy can only see 20 regions, and the land's variety ne
     (`infra_old`, Formula F6): a flat infrastructure top-up fixed at world generation, part of the land, shown as its
     own line in the panel, using no slot and never ruined (user decision 2026-11-23).
 
+    **Starting levels follow the lore** (user request 2026-11-24; built, numbers are guesses): a starting building's level
+    is max(1, round(its payer sect's authored level in the kind's track x 0.34)) in the sect's seat province and half
+    that elsewhere, so Thiên Xu Tông's seat arrays start at level 4; each sect's seat province also gains the halls of
+    its specialty and craft (an alchemy sect an alchemy hall, a river-trade sect a landing), and Thiên Xu Tông, the
+    world police, a warding wall and a caravan post in every province it holds. Production buildings start at level 1
+    whatever the sect, the economy's calibrated start. Unheld land starts at 1.
+
     Every settlement also keeps **the ground's own works** (Travel & Map Formula M's `prebuilt_density`: village 0.10
     to sect seat 0.40) as part of its land: layer-2 upkept density shown as its own panel line, using no slot, never
     ruined and not billed (user decision 2026-11-24). It is not a building and is not migrated into one.
@@ -233,11 +242,19 @@ Without provinces the economy can only see 20 regions, and the land's variety ne
     - Each modifier has a **source** (a building, a blessed land, a scar, an event such as a blight, a sect policy, a
       war) and a duration. It is shown as its own line in the panel (Pillar 2).
     - Anything with a rule beyond a number is an Effect (Effects System).
+    - **Shocks** (built 2026-11-24 under the user's delegation; guesses in `provinces.json` events): each season a
+      province may be struck, from a stream keyed on the seed, the province and the season: a **blight** (herb
+      production inc −0.7 for 4 seasons), a **raid** (all production inc −0.3 for 2 seasons, a settlement province) or
+      a **beast tide** (4 seasons: no population growth that year, F3, and a chance to ruin a building). Warding walls
+      soften a raid or tide by 1 / (1 + 0.2 a level). Each is a modifier with its source line and a news event.
 
 **The season**
 
 13. **Order inside the world tick:** the province step runs at the end of S6 (Living World Tick), after Travel & Map's
-    season update and before Regional Economy & Trade (S7), so after the Sects tick (S5):
+    season update and before Regional Economy & Trade (S7). *(Amended 2026-11-24, user decision D1: in the built tick the
+    sects spend after the economy, so a sect's orders and upkeep act at the next season's province step, a one-season
+    lag; ADR-0008.)* Steps:
+    0. modifiers age and shocks strike (rule 12, added 2026-11-24);
     1. buildings advance (construction, upkeep paid or missed);
     2. population updates (once a year, at the first season);
     3. production;
@@ -571,8 +588,10 @@ No GDD yet: World Database (#3) and Market (#20), referenced by system number.
 
 **Rules**
 
-- **AC-PV-01** `[A]` **GIVEN** the continent loaded, **WHEN** provinces are built, **THEN** there are 273 of them (141
-  settlement, 132 wilderness), every land tile has exactly one, and none crosses a region border.
+- **AC-PV-01** `[A]` **GIVEN** the continent loaded, **WHEN** provinces are built, **THEN** there are 705 of them (468
+  settlement, 237 wilderness; provinces-v2, updated 2026-11-24), every land tile has exactly one, and none crosses a region
+  border; every place has one (a lake takes its nearest land province) and sits in its province's region (the 15
+  border places follow their province, user decision 2026-11-24).
 - **AC-PV-02** `[A]` **GIVEN** the world built twice with seed 7 and once with seed 11, **WHEN** the three are compared,
   **THEN** province ids, borders and seats are identical.
 - **AC-PV-03** `[A]` **GIVEN** a region held by sect X with a minor sect seated in province v, **WHEN** the record is
@@ -694,8 +713,8 @@ Rule 14's "cannot change its goods" has no player action to test and has no crit
 |---|---|---|---|
 | 1 | Every *(guess)* number (F3 growth and famine, F5 `slot_pop_step`, F6 infrastructure points, `start_access_min`) needs a balance pass on seed 7 once the province step runs in the engine | Claude, user approves | Regional Economy & Trade revision |
 | 2 | *(Drafted 2026-11-24: `design/quick-specs/province-building-catalogue.md`, all guesses, for the one review at the end.)* Building catalogue: costs, build seasons, upkeep and output per level for each kind in rule 8 (data, not GDD); the craft halls replace the workshop, not an output class | Claude, proposal; user | Before the province step is built |
-| 3 | Starting buildings per seat kind (rule 10): authored per province or a set by seat kind plus F6's logistics top-up | User | Before the province step is built |
-| 4 | Province names: generated from the seat place's name ("X county") or authored for all 273, wilderness included | User | Before the province panel |
+| 3 | *(Answered 2026-11-24: a set by seat kind plus F6's top-up, rule 10; levels follow the lore, see rule 10's 2026-11-24 paragraph.)* Starting buildings per seat kind (rule 10): authored per province or a set by seat kind plus F6's logistics top-up | User | Before the province step is built |
+| 4 | *(Answered 2026-11-24: authored for all 705 in provinces-v2.)* Province names: generated from the seat place's name ("X county") or authored for all 273, wilderness included | User | Before the province panel |
 | 5 | The season budget for the province step (AC-PV-24's 5 ms inside `T_map` is a guess) | Claude | Regional Economy & Trade revision |
 | 6 | Whether the player's own ground (later) can hold province buildings, or only home works (Travel & Map rule 32) | User | When player holdings are designed |
 | 7 | Does a struck or famine province raise the event odds for bandits, migration and sect missions (Event Engine hooks named, weights not set) | Claude | Event Engine content pass |

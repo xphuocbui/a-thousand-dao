@@ -1,0 +1,47 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+== year 0  realms [3935, 844, 191, 27, 3]  0.0 ms/season
+  great sects 7: seat l2 med 1.00 max 1.20 | seat D raw max 4.11 capped max 4.11 | top level med 6 max 8 | works spent med 0 max 0 | treasury med 60000 max 90000
+  minor sects 43: seat l2 med 0.50 max 0.50 | seat D raw max 3.04 capped max 3.04 | top level med 1 max 2 | works spent med 0 max 0 | treasury med 7000 max 7000
+  works above level 5: 5 | highest site works_prod 0.10
+  live province buildings by state { "active": 1500 } | upkeep due a season 27712
+  population 695.6 (start 695.6, x1.000) | provinces at the floor 0 of 468 | above capacity 0
+  access: median 1.00, p10 0.50, under 0.5: 0, at 1: 328 of 468
+  province production value: median 129, p90 1498, max 17189
+    Thiên Xu Tông: seat q 4.11, members 576, mean realm.stage 0.40, mean m 1.22
+    Tùng Đào Cung: seat q 3.93, members 576, mean realm.stage 0.37, mean m 1.19
+    Lạc Hà Tông: seat q 3.52, members 432, mean realm.stage 0.40, mean m 1.15
+    Thính Vũ Lâu: seat q 3.36, members 504, mean realm.stage 0.44, mean m 1.12
+    Băng Tâm Các: seat q 2.63, members 468, mean realm.stage 0.41, mean m 0.99
+    Thúy Vi Tông: seat q 2.74, members 324, mean realm.stage 0.41, mean m 1.00
+    Phượng Minh Cung: seat q 2.91, members 360, mean realm.stage 0.41, mean m 1.04
+== year 100  realms [3563, 1128, 269, 36, 4]  886.3 ms/season
+  great sects 7: seat l2 med 1.00 max 1.20 | seat D raw max 3.93 capped max 3.93 | top level med 6 max 8 | works spent med 369800 max 912800 | treasury med 91374 max 139148
+  minor sects 49: seat l2 med 0.40 max 0.40 | seat D raw max 3.04 capped max 3.04 | top level med 0 max 4 | works spent med 0 max 1200 | treasury med 0 max 2747
+  works above level 5: 13 | highest site works_prod 0.70
+  live province buildings by state { "active": 1302, "ruined": 225, "building": 2 } | upkeep due a season 44259
+  population 746.5 (start 695.6, x1.073) | provinces at the floor 0 of 468 | above capacity 0
+  access: median 1.00, p10 0.82, under 0.5: 9, at 1: 410 of 468
+  province production value: median 132, p90 1712, max 14998
+    Thiên Xu Tông: seat q 3.31, members 199, mean realm.stage 1.31, mean m 1.34
+    Tùng Đào Cung: seat q 3.93, members 465, mean realm.stage 0.65, mean m 1.24
+    Lạc Hà Tông: seat q 3.52, members 526, mean realm.stage 0.55, mean m 1.15
+    Thính Vũ Lâu: seat q 3.36, members 439, mean realm.stage 0.76, mean m 1.18
+    Băng Tâm Các: seat q 2.63, members 390, mean realm.stage 0.67, mean m 1.02
+    Thúy Vi Tông: seat q 2.74, members 386, mean realm.stage 0.63, mean m 1.03
+    Phượng Minh Cung: seat q 2.91, members 486, mean realm.stage 0.65, mean m 1.08
+== year 200  realms [3838, 864, 253, 41, 4]  799.4 ms/season
+  great sects 7: seat l2 med 1.00 max 1.20 | seat D raw max 3.93 capped max 3.93 | top level med 6 max 8 | works spent med 384200 max 921200 | treasury med 98673 max 149273
+  minor sects 53: seat l2 med 0.40 max 0.40 | seat D raw max 3.04 capped max 3.04 | top level med 0 max 4 | works spent med 0 max 1200 | treasury med 0 max 3026
+  works above level 5: 13 | highest site works_prod 0.70
+  live province buildings by state { "active": 1199, "ruined": 330 } | upkeep due a season 42868
+  population 851.8 (start 695.6, x1.225) | provinces at the floor 0 of 468 | above capacity 0
+  access: median 1.00, p10 0.83, under 0.5: 7, at 1: 406 of 468
+  province production value: median 143, p90 1803, max 14659
+    Thiên Xu Tông: seat q 3.31, members 119, mean realm.stage 1.21, mean m 1.33
+    Tùng Đào Cung: seat q 3.93, members 484, mean realm.stage 0.63, mean m 1.24
+    Lạc Hà Tông: seat q 3.52, members 495, mean realm.stage 0.54, mean m 1.16
+    Thính Vũ Lâu: seat q 3.36, members 369, mean realm.stage 0.68, mean m 1.17
+    Băng Tâm Các: seat q 2.63, members 405, mean realm.stage 0.60, mean m 1.01
+    Thúy Vi Tông: seat q 2.74, members 372, mean realm.stage 0.58, mean m 1.02
+    Phượng Minh Cung: seat q 2.91, members 393, mean realm.stage 0.65, mean m 1.08

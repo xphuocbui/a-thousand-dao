@@ -8,6 +8,16 @@ a *(guess)* for the balance pass (Provinces OQ 1). Reviewed once with the rest a
 Sects F2 (`free_level`), F9 (war strength); ADR-0008. User decisions it rests on (2026-11-24): one catalogue; no highest
 level; tracks price levels (×2 per level above `free_level = ⌈T/2⌉`); prebuilt density is land, not a building.
 
+## Built (2026-11-24/25, provinces-runtime Stages 2-9)
+
+The catalogue is `assets/data/province_buildings.json`. Live now: production (Stage 2), cultivation and the sect halls
+with their hooks (Stage 4), granaries (Stage 5), roads, caravan posts and landings (Stage 6). Still placed for slots
+only: storehouse, market hall, warding wall's raid role is live (Stage 7) but its Sects F9 `def` hook is not built.
+Changes from the table below: the meditation chamber's step is 0.005 a level (Stage 9 balance); spirit-stone sites
+never grow and beast lairs need two building levels a grade step (user decision and Stage 9); starting levels follow
+the lore (Provinces rule 10, user request). Not built: the market hall's stock and margin hook, the storehouse, the
+player's own breakthrough at a meditation chamber.
+
 ## Shared rules
 
 - **Cost of level L:** `cost_lt · growth^(L−1) · 2^max(0, L − free_level[track])` linh thạch, plus
