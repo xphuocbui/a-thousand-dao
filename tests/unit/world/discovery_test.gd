@@ -22,8 +22,9 @@ func test_the_player_starts_knowing_the_overview_and_the_home_region() -> void:
 	for p in s.db.all("places"):
 		if bool(p.get("hidden", false)):
 			assert_false(k.knows_place(str(p.id)), "a hidden place is known to no one (%s)" % p.name)
-		elif str(p.get("kind", "")) in ["city", "great_seat", "minor_seat"]:
-			assert_true(k.knows_place(str(p.id)), "every city and seat is common knowledge (%s)" % p.name)
+		elif str(p.get("kind", "")) in ["city", "great_seat", "minor_seat", "town", "market", "village", "mine"]:
+			# every holding is common knowledge (rule 14; user 2026-11-24: holdings known, wild places discovered)
+			assert_true(k.knows_place(str(p.id)), "every holding is common knowledge (%s)" % p.name)
 		elif str(p.region_id) == str(home.region_id):
 			assert_true(k.knows_place(str(p.id)), "the home region is known (%s)" % p.name)
 	assert_true(k.knows_tile(int(home.tile[0]), int(home.tile[1])), "the home tile is known")
@@ -143,3 +144,14 @@ func test_secret_events_stay_out_of_what_people_hear() -> void:
 			s.player.location_id = str(pl)
 			var ctx: Dictionary = s.event_context()
 			assert_false(ctx.recent_events.any(func(x): return str(x.text) == str(e.text)), "a secret event is not told at its place")
+
+
+func test_wild_places_outside_the_home_region_wait_to_be_discovered() -> void:
+	# user 2026-11-24: holdings are known, wild places (peaks, ruins, veins, lairs...) are discovered
+	var s := _session()
+	var home: Dictionary = s.db.get_record("places", s.player.home_id)
+	var wild_far: Array = s.db.find("places", func(p): return str(p.get("kind", "")) in ["peak", "ruin", "beast_lair", "spirit_vein"] \
+			and str(p.region_id) != str(home.region_id) and not bool(p.get("famous", false)) and not bool(p.get("hidden", false)))
+	assert_true(wild_far.size() > 100, "there are wild places beyond the home region")
+	var known: int = wild_far.filter(func(p): return s.knowledge.knows_place(str(p.id))).size()
+	assert_true(known < wild_far.size() / 10, "most are unknown at the start (%d of %d known)" % [known, wild_far.size()])

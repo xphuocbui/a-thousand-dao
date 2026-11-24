@@ -62,7 +62,9 @@ development buttons (no one spends to raise a stat directly; buildings do it).
   to 11 px per tile and out by 24 px, where the place labels take over (`province_names_px`, `province_name_font`).
 - **Hover:** at region zoom, hovering open land names the province.
 - **The new places:** since the merge (2026-11-24) they are world places and draw as every other known place (symbol
-  or diamond, name, hover); the separate proposal layer is gone.
+  or diamond, name, hover). Every holding is common knowledge (Travel & Map rule 14, user 2026-11-24); wild places are
+  found by travel. New sect seats show at every zoom, new villages, towns, markets and mines from
+  `v2_holdings_from_px` (8 px), new wild places from `v2_places_from_px` (14 px).
 - **Map modes** (open question 4, built for review): **Development** tints provinces from pale to deep red, and
   **Goods** by main good (herbs green, ore slate, beast parts brown, specialties violet; wilderness paler). Both sit in
   the Z4 bar beside Terrain and replace the political tint while on.

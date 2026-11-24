@@ -196,3 +196,21 @@ func test_the_placeholder_is_obvious() -> void:
 	assert_true(PlaceholderArt.is_placeholder(tex), "the shared texture")
 	var im: Image = tex.get_image()
 	assert_eq(im.get_pixel(0, 0), PlaceholderArt.MAGENTA, "magenta stripes")
+
+
+func test_new_places_show_by_kind_and_zoom() -> void:
+	# user 2026-11-24: new sect seats at every zoom, new holdings from v2_holdings_from_px, new wild places from
+	# v2_places_from_px; authored places always
+	var v := MapView.new()
+	auto_free(v)
+	var mk := func(kind: String, v2: bool) -> Dictionary:
+		var rec := {"continent_id": 300}
+		if v2:
+			rec["v2_slot"] = "s"
+		return {"id": "x", "kind": kind, "rec": rec}
+	assert_false(v._v2_hidden_at(mk.call("minor_seat", true), 3.0), "a new sect seat shows far out")
+	assert_true(v._v2_hidden_at(mk.call("village", true), 3.0), "a new village waits for region zoom")
+	assert_false(v._v2_hidden_at(mk.call("village", true), 8.0), "and shows from 8 px")
+	assert_true(v._v2_hidden_at(mk.call("peak", true), 10.0), "a new peak waits for close zoom")
+	assert_false(v._v2_hidden_at(mk.call("peak", true), 14.0), "and shows from 14 px")
+	assert_false(v._v2_hidden_at(mk.call("village", false), 3.0), "an authored village always shows")

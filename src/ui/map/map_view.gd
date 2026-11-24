@@ -498,12 +498,9 @@ func _draw() -> void:
 	var smoke: Array = []   # the alive layer's chimneys: settlements whose symbol shows, close enough in
 	var smoky: bool = _alive != null and _alive.is_running() and sc >= _alive.smoke_from_px()
 	var smoke_kinds: Array = _alive.smoke_kinds() if smoky else []
-	var minor_from: float = float(_zcfg.get("v2_places_from_px", 14.0))
 	for p in order:
 		var hover: bool = p.id == _hover_id
-		# the provinces-v2 places (2026-11-24) are many and small: drawn only zoomed in (v2_places_from_px), unless
-		# hovered, here or the destination
-		if sc < minor_from and Dictionary(p.get("rec", {})).has("v2_slot") and not hover 				and p.id != _destination_id and p.id != _player_place:
+		if not hover and _v2_hidden_at(p, sc):
 			continue
 		var at: Vector2 = _marker_at(p)
 		var side: float = symbol_side(str(p.get("kind", "")))
@@ -1213,12 +1210,27 @@ func drawn_layer() -> String:
 	return "far" if _far != null else "near"
 
 
+## Whether provinces-v2 place [param p] is left out at [param sc] px per tile (user 2026-11-24): a new sect seat shows
+## at every zoom, like the authored seats and cities; a new village, town, market or mine from v2_holdings_from_px; a
+## new wild place (peak, ruin, vein, lair...) from v2_places_from_px. Authored places, the player's place and the
+## destination always show.
+func _v2_hidden_at(p: Dictionary, sc: float) -> bool:
+	if not Dictionary(p.get("rec", {})).has("v2_slot") or p.id == _destination_id or p.id == _player_place:
+		return false
+	var k: String = str(p.get("kind", ""))
+	if k in ["great_seat", "minor_seat", "city"]:
+		return false
+	if k in ["village", "town", "market", "mine"]:
+		return sc < float(_zcfg.get("v2_holdings_from_px", 8.0))
+	return sc < float(_zcfg.get("v2_places_from_px", 14.0))
+
+
 func _place_at(pos: Vector2) -> Dictionary:
 	var best: Dictionary = {}
 	var best_d: float = maxf(_place_radius * 2.5, 8.0)
-	var minor_from: float = float(_zcfg.get("v2_places_from_px", 14.0))
+	var sc: float = tile_scale()
 	for p in _places:
-		if tile_scale() < minor_from and Dictionary(p.get("rec", {})).has("v2_slot") and p.id != _destination_id 				and p.id != _player_place:
+		if _v2_hidden_at(p, sc):
 			continue   # not drawn this far out (_draw), so not hit either
 		var d: float = minf(tile_to_local(p.tile).distance_to(pos), _marker_at(p).distance_to(pos))
 		var side: float = symbol_side(str(p.get("kind", ""))) if near_weight() >= 0.5 else 0.0

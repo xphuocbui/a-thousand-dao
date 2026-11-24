@@ -230,7 +230,9 @@ names rather than a place.
 **Knowing and finding**
 
 14. **Each character knows part of the map.** The **overview map** is common knowledge: every character sees the whole
-    continent's painted geography, the famous places, the great cities and the sect seats from the start. Its political
+    continent's painted geography, the famous places, the great cities and the sect seats from the start, and (user
+    decision 2026-11-24, with the provinces-v2 places) every holding: each town, market, village and mine; the wild
+    places (peaks, forests, lakes, gorges, ruins, spirit veins, beast lairs, special sites) are found by travel. Its political
     borders are live for the major powers (the great sects, marked in data); minor holdings and seats show
     as the character last heard of them, refreshed by a visit, news or a map (user decision 2026-11-13). The
     **zoomed-in map** is personal. A cultivator starts knowing their home region (set by their origin), the main roads
