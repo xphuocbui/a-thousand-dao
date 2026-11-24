@@ -40,18 +40,18 @@
   "dao_do": {"_doc": "The Đạo Đồ view (design/ux/dao-do-view.md), drawn like PoE's passive tree (user 2026-11-24). icons: the framed node icon sheets (tools/asset-pipeline/icons/game_icons_dao_do.py). families: the v5 viewer's stat families for the far-zoom dot colours (tools/design/dao_do_rework/content/report.py FAM; a stat in none is craft). colours: by role (DaoDoCanvas.DEFAULTS when absent). open_scale: px per map unit when the view opens on the player's marks.", "open_scale": 64.0, "families": {"offence": ["accuracy_pct", "art_cost_pct", "art_speed_pct", "attack_pct", "basic_speed_pct", "convert_pct", "crit_chance_pct", "crit_damage_pct", "curse_effect_pct", "pierce_pct", "resist_pen_pct", "stack_duration_pct", "stack_effect_pct", "status_duration_pct", "ward_bill_pct", "x_soul"], "defence": ["block_rating", "body_shield_pct", "defense_pct", "evade_pct", "khi_huyet_pct", "resist_pct", "soul_res_pct", "status_resist_pct", "timer_resist_pct", "ward_efficiency_pct"], "sustain": ["healing_pct", "healing_taken_pct", "health_regen_inc_pct", "health_regen_pct", "leech_linh_luc_pct", "linh_luc_on_crit_pct", "linh_luc_on_hit_pct", "linh_luc_pct", "linh_luc_regen_inc_pct", "linh_luc_regen_pct", "reserve_eff_pct"], "cultivation": ["breakthrough_chance", "can_cot", "cultivation_speed_pct", "dan_doc_decay", "dan_doc_resist_pct", "dao_tam", "density_bonus", "khi_van", "lifespan_pct", "mi_luc", "ngo_tinh", "qi_deviation_pct", "tam_ma_resist_pct", "than_hon"]}, "colours": {"map": "#070a12", "map_glow": "#141b2c", "line": "#3a3226", "line_open": "#e3b860", "line_plan": "#9fd3ff", "line_route": "#cfe6ff", "dot": "#5a5244", "notable": "#deb25c", "key": "#e15f50", "start": "#f0f0f0", "chaos": "#9b6bff", "match": "#5fd0b4", "ring_frontier": "#e8d9a8", "fam_offence": "#ff7a59", "fam_defence": "#6aa9ff", "fam_sustain": "#63d68f", "fam_cultivation": "#c792ea", "fam_craft": "#e6c55a"}, "icons": "res://assets/icons/dao_do/game/icons.json"},
   "saves": {"_doc": "Save files (SaveStore). dir: where they live; name_max: the longest save name.", "dir": "user://saves", "name_max": 48},
   "window_buttons": {
-    "_doc": "Z2's window buttons in order (hud.md element 5): kind = the window the button opens; key = its default hotkey (rebindable); built = false keeps it disabled with its reason. provinces: the province at the map view's centre (V; ProvinceWindow, branch provinces-v2).",
+    "_doc": "Z2's window buttons in order (hud.md element 5): kind = the window the button opens; key = its default hotkey (rebindable); built = false keeps it disabled with its reason, and hidden in play unless the game runs with --show-unbuilt (weak-point review 2026-11-24); icon = its painted medallion (gen_ui_icons.py win_*). provinces: the province at the map view's centre (V; ProvinceWindow, branch provinces-v2).",
     "list": [
-      {"kind": "character", "label": "Character", "key": "C", "built": true},
-      {"kind": "inventory", "label": "Inventory", "key": "I", "built": true},
-      {"kind": "relationships", "label": "Relationships", "key": "R", "built": true},
-      {"kind": "sect", "label": "Sect", "key": "S", "built": true}, {"kind": "provinces", "label": "Province", "key": "V", "built": true},
+      {"kind": "character", "icon": "res://assets/icons/ui/win_character.png", "label": "Character", "key": "C", "built": true},
+      {"kind": "inventory", "icon": "res://assets/icons/ui/win_inventory.png", "label": "Inventory", "key": "I", "built": true},
+      {"kind": "relationships", "icon": "res://assets/icons/ui/win_relationships.png", "label": "Relationships", "key": "R", "built": true},
+      {"kind": "sect", "icon": "res://assets/icons/ui/win_sect.png", "label": "Sect", "key": "S", "built": true}, {"kind": "provinces", "icon": "res://assets/icons/ui/win_provinces.png", "label": "Province", "key": "V", "built": true},
       {"kind": "quests", "label": "Quests", "key": "J", "built": false, "reason": "Quests are not in the game yet (Quests #31 is designed, not built)."},
-      {"kind": "rankings", "label": "Rankings", "key": "K", "built": true},
+      {"kind": "rankings", "icon": "res://assets/icons/ui/win_rankings.png", "label": "Rankings", "key": "K", "built": true},
       {"kind": "news", "label": "News", "key": "N", "built": false, "reason": "News is not in the game yet (no news system)."},
-      {"kind": "places", "label": "Places", "key": "P", "built": true},
-      {"kind": "dao_do", "label": "Đạo Đồ", "key": "D", "built": true},
-      {"kind": "abode", "label": "Abode", "key": "A", "built": true}
+      {"kind": "places", "icon": "res://assets/icons/ui/win_places.png", "label": "Places", "key": "P", "built": true},
+      {"kind": "dao_do", "icon": "res://assets/icons/ui/win_dao_do.png", "label": "Đạo Đồ", "key": "D", "built": true},
+      {"kind": "abode", "icon": "res://assets/icons/ui/win_abode.png", "label": "Abode", "key": "A", "built": true}
     ]
   }
 }

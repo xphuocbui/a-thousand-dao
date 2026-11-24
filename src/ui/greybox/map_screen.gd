@@ -600,10 +600,16 @@ func _build_layout() -> void:
 	date_row.add_child(_season)
 	_cartouche.add_child(date_row)
 	bar.add_child(_cartouche)
+	var cgap := Control.new()
+	cgap.custom_minimum_size = Vector2(8, 0)
+	cgap.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	bar.add_child(cgap)
 	for t in [["W", tr("Wiki (F1): terms, traits, realms, elements, ties"), "wiki"], ["≡", tr("Game menu (Esc): save, load, settings, quit"), "menu"]]:
 		var b := Button.new()
 		b.text = t[0]
 		b.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		b.custom_minimum_size = Vector2(40, 40)   # as big as a resource socket (weak-point review #8: they read as afterthoughts)
+		b.add_theme_font_size_override("font_size", 20)
 		TooltipLayer.set_tip(b, t[1])
 		b.accessibility_name = tr("Wiki") if t[2] == "wiki" else tr("Game menu")
 		if t[2] == "menu":
@@ -612,6 +618,11 @@ func _build_layout() -> void:
 		else:
 			b.pressed.connect(func(): _open_wiki(""))
 		bar.add_child(b)
+		if t[2] == "wiki":
+			var gap := Control.new()
+			gap.custom_minimum_size = Vector2(2, 0)
+			gap.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			bar.add_child(gap)
 	# Element 1: the alert row, below the bar, centred between Z6's width and Z2; only while alerts are open.
 	_alert_row.set_anchors_preset(Control.PRESET_CENTER_TOP)
 	_alert_row.theme_type_variation = &"WoodPanel"
@@ -621,8 +632,12 @@ func _build_layout() -> void:
 
 	var note := Label.new()
 	note.name = "GreyboxNote"
-	note.text = tr("Greybox: LLM off.") + ((" " + tr("Rating fights off for this run.")) if _ratings_off() else "")
-	note.add_theme_color_override("font_color", Color(1, 0.85, 0.4))
+	# a developer note, not part of the HUD (weak-point review #9: "greybox debug line on the map"): only when this run
+	# has rating fights off (test and screenshot runs), small and dim; the game has no LLM by design (llm parked)
+	note.text = tr("Dev: rating fights off for this run.") if _ratings_off() else ""
+	note.add_theme_color_override("font_color", Color(1, 0.85, 0.4, 0.7))
+	note.add_theme_font_size_override("font_size", 14)
+	note.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	note.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
 	note.offset_left = 24
 	note.offset_top = BAR_TOP + _bar_h + 8
@@ -631,7 +646,7 @@ func _build_layout() -> void:
 	# Z2 window buttons
 	var z2 := VBoxContainer.new()
 	z2.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT)
-	z2.offset_left = -160
+	z2.offset_left = -196   # room for the icon and the longest label, "Relationships (R)"
 	z2.offset_right = -16
 	z2.offset_top = BAR_TOP + _bar_h + 20   # clear of the hanging date cartouche
 	add_child(z2)
@@ -689,6 +704,7 @@ func _build_layout() -> void:
 		b.toggle_mode = true
 		b.button_pressed = m[0] == "Terrain"
 		b.disabled = not m[1]
+		b.visible = m[1] or _args.has("--show-unbuilt")   # unbuilt map modes are hidden in play (weak-point review)
 		if m[1]:
 			b.button_group = modes
 			var mode: String = m[2]
@@ -898,6 +914,9 @@ func _refresh() -> void:
 	var snap: Dictionary = StateSnapshot.take(session)
 	var clock: Dictionary = GameQuery.clock(session)
 	_season.text = tr("%s, year %d") % [str(clock.season_name), int(clock.year)]   # element 3's short form; the date on hover
+	# the cartouche grows with its text, so a long season name or year is never cut by the wiki button (weak-point
+	# review 2026-11-24 #8: "date clipped by the buttons"): icon 28 + gap 6 + text + the art's 22 px rims, plus air
+	_cartouche.custom_minimum_size.x = maxf(170.0, _season.get_minimum_size().x + 28.0 + 6.0 + 44.0 + 16.0)
 	_refresh_boxes(snap)
 	_alerts.text = tr("Alerts:") + " " + (tr("an event is waiting") if session.has_pending_event() else tr("none"))
 	_alert_row.visible = session.has_pending_event()   # element 1 shows only while alerts are open
@@ -1649,6 +1668,7 @@ func _setup_windows() -> void:
 	for w in Array(_wcfg.get("window_buttons", {}).get("list", [])):
 		var kind: String = str(w.get("kind", ""))
 		if kind == "character":
+			_win_icon(_sheet_button, str(w.get("icon", "")))
 			continue
 		var b := Button.new()
 		b.text = tr(str(w.get("label", kind))) + ((" (%s)" % str(w.key)) if bool(w.get("built", false)) and str(w.get("key", "")) != "" else "")
@@ -1660,6 +1680,8 @@ func _setup_windows() -> void:
 		else:
 			b.disabled = true
 			TooltipLayer.set_tip(b, tr(str(w.get("reason", "Not in the game screens yet."))))
+			b.visible = _args.has("--show-unbuilt")   # dead buttons are hidden in play (weak-point review #7)
+		_win_icon(b, str(w.get("icon", "")))
 		_win_buttons[kind] = b
 		_z2_box.add_child(b)
 	var plate := PanelContainer.new()   # the outliner on a wood plate, readable over the bright map (art bible 7.13)
@@ -1669,6 +1691,16 @@ func _setup_windows() -> void:
 	_pins = OutlinerPins.new("" if test_run else "user://outliner_pins.cfg", int(_wcfg.get("outliner_pins_max", 12)))
 	_dao_do_screen.cfg = _wcfg.get("dao_do", {})
 	_dao_do_screen.tree = DaoDoTree.load_map(gd)   # the static v5 map, the screen's own copy (no session object)
+
+
+## Puts the window's painted medallion on its Z2 button, left of the label (weak-point review 2026-11-24 #7).
+func _win_icon(b: Button, path: String) -> void:
+	if path == "" or not ResourceLoader.exists(path):
+		return
+	b.icon = load(path)
+	b.expand_icon = false
+	b.add_theme_constant_override("icon_max_width", 26)
+	b.alignment = HORIZONTAL_ALIGNMENT_LEFT
 
 
 ## The window kind whose hotkey is [param key] ("" when none, or when its window is not built).
@@ -3018,4 +3050,4 @@ func _set_zones_shown(on: bool) -> void:
 			(z as Control).visible = on
 	var note: Node = get_node_or_null("GreyboxNote")
 	if note is Control:
-		(note as Control).visible = on
+		(note as Control).visible = on and (note as Label).text != ""

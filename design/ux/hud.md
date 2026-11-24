@@ -1261,6 +1261,14 @@ exact boundary; "appears" means `visible` becomes true. Rows marked `[GdUnit]` d
 
 ---
 
+## Revision: weak-point pass (2026-11-24)
+
+From `production/plans/ui-weakpoints-2026-11-24.md` (#7, #8, #9): Z1's date cartouche grows with its text, so it is
+never cut by the wiki button; the wiki and menu buttons are 40 px, as big as a resource socket. Z2's window buttons carry
+their painted medallion (ui_windows.json `icon`) left of the label; the column is 180 px. Buttons and map modes not
+built yet (Quests, News; the Sect, Qi and Prices map modes) are hidden in play and shown with `--show-unbuilt`. The
+greybox note is gone; a 14 px "Dev: rating fights off for this run." shows only in such runs.
+
 ## Open Questions
 
 - **Resource box data (2026-11-23):** `GameQuery.resources` gives the rate here, the power number and contribution (ADR-0006); the season changes come from the HUD's End-turn baseline (Resource box). **Renown** has no sources or season rule in `character-stats.md` yet (the GDD session's), so its box shows "—" until it does. The icons for the six boxes are new art (art bible 7.13).

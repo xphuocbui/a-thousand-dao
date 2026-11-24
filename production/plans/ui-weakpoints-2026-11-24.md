@@ -37,6 +37,14 @@ find weakpoints and suggestions on how to improve them".
   is a 62 % side panel like the sheets.
 - **Rankings at the start** (#10, part): provisional rows are tinted only among rated rows, so a new world's table is
   not dimmed throughout.
+- **Top bar** (#8, part): the date cartouche grows with its text (no longer cut by W); W and ≡ are socket-sized.
+  Kept by decision: the renown box (Must Show, user 2026-11-23; "—" until renown is tracked); the rating shows "—" only
+  in runs with rating fights off.
+- **Window buttons** (#7, part): each built window's button has its painted medallion (9 icons, gen_ui_icons.py
+  win_*, about $0.06); the column is wider; Quests, News and the unbuilt map modes (Sect, Qi, Prices) are hidden in
+  play (`--show-unbuilt` shows them). Kept by decision: Z3 is the portrait only (user 2026-11-23).
+- **Debug line on the map** (#9, part): "Greybox: LLM off." is gone (no LLM by design); a small dim "Dev: rating
+  fights off for this run." shows only in such runs.
 
 ## Suggestions, ranked (not built)
 | # | Weak point | Suggestion | Effort |
@@ -44,9 +52,9 @@ find weakpoints and suggestions on how to improve them".
 | 2 | Scroll cue (rest) | Tu vi / Rate onto one line under the bar | S |
 | 4 | Combat tab (rest) | icons per stat; equipped techniques and wards beside the groups | S |
 | 5 | Window sizes (rest) | one size rule: sheets and lists 60 % side panel, wiki and tree full screen, decisions centre window; the loose Sect view half empty; (the Abode's clamp lines now hide the "(Formula B)" reference in a tooltip) | M |
-| 7 | Map nav column and outliner cramped; dead Quests / News | icon + letter tiles for the window buttons; hide Quests / News until built; wider outliner with a one-line empty state; name and realm on the portrait | M |
-| 8 | Top bar unlabeled, dead "—" slots, date clipped by the buttons | short labels or tooltips, hide empty slots, a real thin cultivation bar, a fixed date slot clear of W / ≡ | S |
-| 9 | Map labels and markers fight; greybox debug line on the map | cap region label size inside its polygon, fade markers by importance and zoom, bigger player marker, move the debug line to a dev badge | M |
+| 7 | Outliner (rest) | a one-line empty state; its "here" mark wraps under a place's name | S |
+| 8 | Top bar (rest) | the cultivation box's 4 px bar is hard to see at 0 %; short captions under the numbers if playtests miss the tooltips | S |
+| 9 | Map labels and markers (rest) | cap region label size inside its polygon, fade place markers by importance and zoom (map art and style decisions: ask the user first) | M |
 | 10 | Rankings (rest) | a change-since-last-season column needs a per-season rank snapshot (a Power Rankings data change, not UI only) | M |
 | 11 | Đạo Đồ toolbar overloaded; no orientation | split the toolbar (points / search / view), a minimap with the viewport and your path, brighter unallocated nodes, "Next:" into the points tooltip, Apply as the gold primary | L |
 | 12 | Wiki (rest) | links are the art bible's on-parchment term colour (cinnabar #84191B), which the review read as warning red: **a style decision for the user** | S |

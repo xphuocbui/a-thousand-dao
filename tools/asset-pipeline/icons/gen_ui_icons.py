@@ -40,6 +40,16 @@ SUBJECT = {
     "tie_debt": "a red cord tied around a jade token (debt of gratitude)",
     "tie_enmity": "a dark storm cloud with a crack of red (enmity)",
     "tie_feud": "a blood-red dagger over a broken jade ring (blood feud)",
+    # Z2 window buttons (weak-point review 2026-11-24 #7: icon + letter tiles)
+    "win_character": "a cultivator's head and shoulders in a topknot, in profile (character)",
+    "win_inventory": "a cloth storage pouch tied with a cord, a faint glow at its mouth (inventory)",
+    "win_relationships": "two figures joined by a red thread (relationships)",
+    "win_sect": "a mountain gate with a curved tiled roof (sect)",
+    "win_provinces": "a folded map with a boundary line and a seal (province)",
+    "win_rankings": "a vertical jade ranking tablet with three steps (rankings)",
+    "win_places": "a pagoda beside a winding road marker (places)",
+    "win_dao_do": "a star chart of linked glowing nodes in a circle (the Dao chart)",
+    "win_abode": "a cave mouth in a cliff with a small door and a lantern (cave abode)",
 }
 
 
