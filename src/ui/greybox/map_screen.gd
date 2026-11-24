@@ -2375,7 +2375,8 @@ func _demo_tooltips(dir: String, tag: String) -> void:
 	if not ws.is_empty():
 		await _move((ws[0] as Control).get_global_rect().get_center())
 		await _seconds(0.6)   # the delay is in seconds (0.3 s); frames run faster than 60 a second here
-		_check("hovering a highlighted word opens a second tooltip", _tips.chain.levels.size() == 2)
+		_check("hovering a highlighted word opens a second tooltip (levels %d; %s)" % [_tips.chain.levels.size(), _demo_under((ws[0] as Control).get_global_rect().get_center())],
+			_tips.chain.levels.size() == 2)
 		if _tips.view(1) != null:
 			await _move(_tips.view(1).get_global_rect().get_center())
 			await _frames(3)
@@ -2613,7 +2614,8 @@ func _demo_places(dir: String, tag: String) -> void:
 	if row_i >= 0:
 		await _move(plist.get_global_transform() * plist.get_item_rect(row_i).get_center())
 		await _seconds(0.6)
-		_check("hovering a Places row shows the whole row", _tips.is_open() and str(_tips.chain.levels[0].content.get("title", "")) == plist.get_item_text(row_i))
+		_check("hovering a Places row shows the whole row (opened: %s; %s)" % [str(_tips.chain.levels[0].content.get("title", "")) if _tips.is_open() else "none", _demo_under(plist.get_global_transform() * plist.get_item_rect(row_i).get_center())],
+			_tips.is_open() and str(_tips.chain.levels[0].content.get("title", "")) == plist.get_item_text(row_i))
 		await _move(_map.get_global_rect().get_center() + Vector2(0, 160))
 		await _seconds(0.6)
 		plist.select(row_i)
@@ -2719,8 +2721,10 @@ func _demo_bubbles(dir: String, tag: String) -> void:
 		await _key(KEY_ESCAPE)
 	var me: Array = _map.visible_bubbles().filter(func(b): return b.kind == "player")
 	if not me.is_empty():
-		await _click((me[0] as Control).get_global_rect().get_center())
-		_check("clicking your bubble opens the character sheet", _win.visible and _win.current_kind() == "character")
+		var at_me: Vector2 = (me[0] as Control).get_global_rect().get_center()
+		await _click(at_me)
+		_check("clicking your bubble opens the character sheet (window %s; %s)" % [_win.current_kind() if _win.visible else "closed", _demo_under(at_me)],
+			_win.visible and _win.current_kind() == "character")
 		await _key(KEY_ESCAPE)
 	_end_turn.grab_focus()
 	await _frames(2)
@@ -2793,6 +2797,12 @@ func _click(at: Vector2) -> void:
 		get_viewport().push_input(ev, true)
 		await _frames(2)
 	await _frames(3)
+
+
+## What the demo's pointer is over, for a failed check's message: the hovered control and the point.
+func _demo_under(at: Vector2) -> String:
+	var h: Control = get_viewport().gui_get_hovered_control()
+	return "hovered: %s %s at %s, real cursor at %s" % [str(h.get_path()) if h != null else "none", str(h.get("kind")) if h != null and h.get("kind") != null else "", str(at), str(get_global_mouse_position())]
 
 
 func _check(what: String, ok: bool) -> void:

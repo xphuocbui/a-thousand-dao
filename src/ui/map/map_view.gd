@@ -208,6 +208,11 @@ func set_bubbles(bubbles: Array) -> void:
 		_layer.add_child(mb)
 		if focused_key == "%s|%s" % [mb.kind, mb.place_id]:
 			mb.grab_focus.call_deferred()
+	# your own bubbles on top, drawn and clicked first: a nearby place's area bubble (its cluster sits up and to the
+	# left of its tile) must not cover them, now that every holding is known and places stand closer (2026-11-24)
+	for c in _layer.get_children():
+		if c.kind == "player" or c.kind == "abode":
+			_layer.move_child(c, -1)
 	_relayout()
 
 
