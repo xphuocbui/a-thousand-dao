@@ -1021,6 +1021,9 @@ func _refresh_map(location_id: String) -> void:
 ## HUD Z3: the player's painted portrait (PortraitPicker; the grey face stays while none is installed).
 func _set_hud_portrait(f: Dictionary) -> void:
 	var t: Texture2D = PortraitPicker.texture_for(f)
+	if t == null:   # no portrait: the obvious placeholder (.claude/rules/ui-code.md, user 2026-11-24)
+		t = PlaceholderArt.texture()
+		_portrait.tooltip_text = tr("PLACEHOLDER") + " · " + tr("No portrait yet")
 	if t == _portrait.icon:
 		return
 	_portrait.icon = t

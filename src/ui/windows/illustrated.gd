@@ -82,13 +82,9 @@ static func framed(tex: Texture2D, min_size: Vector2, fallback: String = "") -> 
 		r.custom_minimum_size = min_size - Vector2(6, 6)
 		r.clip_contents = true
 		f.add_child(r)
-	else:
-		var l := Label.new()
-		l.text = fallback
-		l.theme_type_variation = &"WoodHeading"
-		l.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		l.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-		f.add_child(l)
+	else:   # missing art is shown as missing (.claude/rules/ui-code.md, user 2026-11-24)
+		var what: String = fallback if fallback not in ["", "?"] else TranslationServer.translate("No painting yet")
+		f.add_child(PlaceholderArt.make(min_size - Vector2(6, 6), what))
 	return f
 
 
@@ -100,6 +96,11 @@ static func medallion(tex: Texture2D, d: float, faded: bool = false) -> Control:
 	r.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 	r.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	r.texture = tex
+	if tex == null:   # missing portrait: the placeholder's stripes inside the ring (.claude/rules/ui-code.md)
+		r.texture = PlaceholderArt.texture()
+		r.stretch_mode = TextureRect.STRETCH_TILE
+		r.tooltip_text = TranslationServer.translate("PLACEHOLDER") + " · " + TranslationServer.translate("No portrait yet")
+		r.set_meta("placeholder", true)
 	r.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	if _round == null:
 		_round = Shader.new()
