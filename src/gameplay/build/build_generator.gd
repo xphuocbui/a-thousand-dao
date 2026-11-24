@@ -170,7 +170,8 @@ func _equip_build(c: Character, rng: RandomNumberGenerator, arch_id: String) -> 
 	var cfg: Dictionary = _gd.world_gen().npc_builds
 	var arch: Dictionary = _gd.archetype(arch_id)
 	# Công pháp matching the strongest element(s).
-	var tier: int = clampi(int(float(c.realm_index) * float(cfg.cong_phap_tier_per_realm) + rng.randf()), 0, 3)
+	var lib: float = float(ProvinceBuildings.kind(_gd, "scripture_pavilion").get("tier_per_level", 0.0)) * ProvinceBuildings.sect_hall(_db, c.sect_id, "scripture_pavilion")   # provinces Stage 4
+	var tier: int = clampi(int(float(c.realm_index) * float(cfg.cong_phap_tier_per_realm) + rng.randf() + lib), 0, 3)
 	var elems: Array = [c.linh_can.strongest_element()]
 	var cp: Dictionary = _items.cong_phap(rng, tier, elems)
 	cp["owner_id"] = c.id
@@ -185,7 +186,7 @@ func _equip_build(c: Character, rng: RandomNumberGenerator, arch_id: String) -> 
 	var own: Array = c.linh_can.elements.keys()
 	for i in n_aux:
 		var body: bool = Array(cfg.get("aux_body_archetypes", [])).has(arch_id)
-		var t_aux: int = clampi(int(float(c.realm_index) * float(cfg.cong_phap_tier_per_realm) + rng.randf()), 0, 3)
+		var t_aux: int = clampi(int(float(c.realm_index) * float(cfg.cong_phap_tier_per_realm) + rng.randf() + lib), 0, 3)
 		var names: Array = [] if body or own.is_empty() else [str(RngUtils.pick(rng, own))]
 		var kind_aux: String = "body" if body else "secret"
 		var aux: Dictionary = _items.cong_phap(rng, t_aux, names, "", {"kind": kind_aux})

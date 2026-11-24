@@ -103,6 +103,7 @@ func generate(rng: RandomNumberGenerator, game_seed: String = "") -> WorldDB:
 	ProvinceBuildings.place_start(_gd, _db)   # rule 10's starting buildings, once the goods are known (Stage 2)
 	for v in _db.all(Provinces.TABLE):
 		ProvinceBuildings.project(_gd, _db, v)
+	ProvinceBuildings.tally_halls(_gd, _db)   # Stage 4: the halls' totals before the markets calibrate
 	WorldEconomy.build(_gd, _db, TravelGrid.of(_gd))
 	# Core Rules 10 and 13: the ledger of truth and the data versions are saved with the world, never shown
 	_db.add("world", {"id": "w_meta", "builder": "continent", "data_version": str(_hist.get("data_version", "")),

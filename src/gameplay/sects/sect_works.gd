@@ -52,6 +52,9 @@ static func _value(gd: GameData, db: WorldDB, v: Dictionary, k: String, members:
 		return val
 	if str(w.get("stat", "")) == "density" and own_seat:
 		return float(w.per_level) * float(_cfg(gd).get("density_value_per_member", 2.0)) * members
+	var kd: Dictionary = ProvinceBuildings.kind(gd, k)
+	if kd.has("value_per_member") and own_seat:   # Stage 4: a sect hall serves the members of the sect seated here
+		return float(kd.value_per_member) * members
 	return 0.0
 
 
@@ -71,14 +74,21 @@ static func candidates(gd: GameData, db: WorldDB, sect: Dictionary) -> Array:
 		var standing: int = bs.filter(func(b): return str(b.get("state", "")) != "cancelled").size()
 		for k in kinds:
 			var kd: Dictionary = kinds[k]
-			if not bool(kd.get("live", false)) or str(kd.get("work", "")) == "" or bool(kd.get("element", false)):
+			if not bool(kd.get("live", false)) or (str(kd.get("work", "")) == "" and not kd.has("value_per_member")) or bool(kd.get("element", false)):
 				continue
 			var val: float = _value(gd, db, v, str(k), members, own_seat)
 			if val <= 0.0:
 				continue
 			var mine: Array = bs.filter(func(b): return str(b.kind) == str(k) and str(b.get("state", "")) != "cancelled")
-			if mine.any(func(b): return str(b.state) in ["building", "ruined"]):
-				continue   # one order of a kind at a time; a ruined one waits for a repair (Stage 4)
+			if mine.any(func(b): return str(b.state) == "building"):
+				continue   # one order of a kind at a time
+			var ruined: Array = mine.filter(func(b): return str(b.state) == "ruined")
+			if not ruined.is_empty():   # Stage 4: a ruined building is repaired first, at repair_frac of its level's price
+				var rb: Dictionary = ruined[0]
+				var rp: float = float(ProvinceBuildings.cfg(gd).get("repair_frac", 0.5)) * float(ProvinceBuildings.cost(gd, str(k), int(rb.level), free_level(gd, db, sect, str(k))))
+				if rp > 0.0:
+					out.append({"province": str(v.id), "building": str(rb.id), "kind": str(k), "level": int(rb.level), "cost": rp, "value": val * float(rb.level), "score": val * float(rb.level) / rp, "repair": true})
+				continue
 			var bid: String = ""
 			var lv: int = 1
 			if not mine.is_empty():
@@ -129,6 +139,9 @@ static func build_best(gd: GameData, db: WorldDB, sect: Dictionary, budget: floa
 					b["target"] = int(cand.level)
 					b["state"] = "building"
 					b["left"] = seasons
+					b["unpaid"] = 0
+					if bool(cand.get("repair", false)):
+						b["level"] = 0   # a repair builds the level back: it counts nothing until done (Provinces States)
 		spent += float(cand.cost)
 		built += 1
 		if bool(_cfg(gd).get("log_builds", true)):

@@ -117,7 +117,7 @@ static func npc_edge_score(rec: Dictionary, gd: GameData) -> Breakdown:
 
 
 ## Chance (0..1) that an NPC is fated at its next gate, as a breakdown (canh-gioi.md Formulas C2).
-static func npc_step_chance(rec: Dictionary, gd: GameData) -> Breakdown:
+static func npc_step_chance(rec: Dictionary, gd: GameData, db: WorldDB = null) -> Breakdown:
 	var cfg: Dictionary = config(gd).npc
 	var steps: Array = cfg.gate_steps
 	var gate: Dictionary = steps[clampi(int(rec.get("realm_index", 0)), 0, steps.size() - 1)]
@@ -133,5 +133,9 @@ static func npc_step_chance(rec: Dictionary, gd: GameData) -> Breakdown:
 		var fx: Dictionary = gd.capability(int(id)).get("npc_effect", {})
 		if str(fx.get("type", "")) == "p_step_add":
 			b.add("Capability: %s" % gd.capability(int(id)).name, float(fx.value))
+	if db != null:   # provinces Stage 4: a meditation chamber at the member's sect seat
+		var ch: int = ProvinceBuildings.sect_hall(db, str(rec.get("sect_id", "")), "meditation_chamber")
+		if ch > 0:
+			b.add("Meditation chamber %d" % ch, float(ProvinceBuildings.kind(gd, "meditation_chamber").get("step_per_level", 0.0)) * float(ch))
 	b.clamp_to(lo, hi)
 	return b

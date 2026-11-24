@@ -253,6 +253,45 @@ static func project(gd: GameData, db: WorldDB, v: Dictionary) -> void:
 			p.site["works_prod"] = MapWorks.production_gain(gd, p.qi)
 
 
+## Stage 4: each season's hall totals, read by the hooks without a search: sect["halls"] {kind: effective levels at its
+## own seat province} and region["halls"] {kind: effective levels over the region's provinces} for every kind with a
+## hook (value_per_member). Called once a season after every province's step.
+static func tally_halls(gd: GameData, db: WorldDB) -> void:
+	var kinds: Dictionary = cfg(gd).get("kinds", {})
+	var seat_of := {}   # place id -> sect id (the sect seated there)
+	for s in db.all("sects"):
+		s["halls"] = {}
+		if str(s.get("status", "")) == "active":
+			seat_of[str(s.get("hq_place_id", ""))] = str(s.id)
+	for r in db.all("regions"):
+		r["halls"] = {}
+	for v in db.all(Provinces.TABLE):
+		var here: String = ""
+		for pid in v.places:
+			if seat_of.has(str(pid)):
+				here = str(seat_of[str(pid)])
+		var reg: Dictionary = db.get_record("regions", str(v.get("region_id", "")))
+		for b in v.get("buildings", []):
+			var kd: Dictionary = kinds.get(str(b.kind), {})
+			if not kd.has("value_per_member") or not bool(kd.get("live", false)):
+				continue
+			var lv: int = effective(gd, b)
+			if lv <= 0:
+				continue
+			if here != "":
+				var sh: Dictionary = db.get_record("sects", here).halls
+				sh[str(b.kind)] = int(sh.get(str(b.kind), 0)) + lv
+			if not reg.is_empty():
+				reg.halls[str(b.kind)] = int(reg.halls.get(str(b.kind), 0)) + lv
+
+
+## Hall levels of [param kind] at sect [param sect_id]'s seat this season (0 with no sect or none built).
+static func sect_hall(db: WorldDB, sect_id: String, k: String) -> int:
+	if sect_id == "" or not db.has_record("sects", sect_id):
+		return 0
+	return int(db.get_record("sects", sect_id).get("halls", {}).get(k, 0))
+
+
 ## A building's upkeep this season: upkeep x level, or upkeep_site_frac x the acting sites' base value x level (with
 ## upkeep as the floor for a province with no such site). 0 for a building not live, being first built or ruined.
 static func upkeep_of(gd: GameData, db: WorldDB, v: Dictionary, b: Dictionary) -> float:

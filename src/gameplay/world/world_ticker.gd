@@ -88,7 +88,7 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 			# fated NPC breaks through within a few years.
 			var fate: Dictionary = p.get("bt_fate", {})
 			if int(fate.get("realm", -1)) != realm_index:
-				fate = {"realm": realm_index, "ok": rng.randf() < ProgressionEdges.npc_step_chance(p, _gd).total}
+				fate = {"realm": realm_index, "ok": rng.randf() < ProgressionEdges.npc_step_chance(p, _gd, _db).total}
 				p["bt_fate"] = fate
 			if bool(fate.ok) and rng.randf() < float(ProgressionEdges.config(_gd).npc.fated_breakthrough_per_season):
 				p["realm_index"] = realm_index + 1

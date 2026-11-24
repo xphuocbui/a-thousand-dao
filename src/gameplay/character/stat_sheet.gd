@@ -68,6 +68,8 @@ static func build(c: Character, gd: GameData, db: WorldDB, tree: DaoDoTree) -> S
 	sheet._add_capability_mods(c)
 	sheet._add_trait_mods(c)
 	sheet._add_tie_mods(c)
+	if db != null:
+		sheet._add_hall_mods(c, db)
 	# Last, because control is limited by thần thức, which everything above can raise. No affix
 	# touches thần thức, so reading it here is not circular (item-database.md rule 11).
 	if db != null:
@@ -86,6 +88,27 @@ static func build(c: Character, gd: GameData, db: WorldDB, tree: DaoDoTree) -> S
 ## NPC Traits rule 5: each held trait's stat rows (a personality trait's or calling's boon and cost; a fate-given or
 ## gained trait's rows), under the source "<kind>: <name>" (tính tình, nghề nghiệp, bẩm sinh, hậu thiên).
 ## NPC Relationships rule 15a: the hook pass's rows from ties (a master, a đạo lữ), under the source "Quan hệ: ...".
+## Provinces Stage 4 (design/quick-specs/province-building-catalogue.md): the sect halls at the member's sect seat:
+## member_stats for every member, seat_stats while the member is at the seat, a level at a time (source "Sect hall: ...").
+func _add_hall_mods(c: Character, db: WorldDB) -> void:
+	if c.sect_id == "" or not db.has_record("sects", c.sect_id):
+		return
+	var s: Dictionary = db.get_record("sects", c.sect_id)
+	var halls: Dictionary = s.get("halls", {})
+	if halls.is_empty():
+		return
+	var at_seat: bool = c.location_id == str(s.get("hq_place_id", ""))
+	for k in halls:
+		var kd: Dictionary = ProvinceBuildings.kind(_gd, str(k))
+		var lv: float = float(halls[k])
+		var src: String = "Sect hall: %s" % str(kd.get("name_vi", kd.get("name", k)))
+		for stat in kd.get("member_stats", {}):
+			add_mod(src, str(stat), float(kd.member_stats[stat]) * lv)
+		if at_seat:
+			for stat in kd.get("seat_stats", {}):
+				add_mod(src, str(stat), float(kd.seat_stats[stat]) * lv)
+
+
 func _add_tie_mods(c: Character) -> void:
 	var label := {"master": "sư phụ", "dao_lu": "đạo lữ"}
 	for row in c.tie_rows:

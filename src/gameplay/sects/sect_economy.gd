@@ -261,4 +261,5 @@ static func intake(gd: GameData, db: WorldDB, sect: Dictionary, members: int) ->
 	if members >= target:
 		return 0
 	var rec: int = clampi(int(sect.get("dials", {}).get("recruitment", 2)), 0, 4)
-	return int(round(float(c.rec_k[rec]) * (target - members)))
+	var hall: float = 1.0 + float(ProvinceBuildings.kind(gd, "recruitment_hall").get("intake_per_level", 0.0)) * float(int(sect.get("halls", {}).get("recruitment_hall", 0)))   # provinces Stage 4
+	return int(round(float(c.rec_k[rec]) * (target - members) * hall))

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "_doc": "Province buildings (design/gdd/provinces.md rules 7-10, States; design/quick-specs/province-building-catalogue.md; provinces-runtime Stage 2), read by ProvinceBuildings. kinds: group (production, logistics, society, cultivation), track (prices the level: Sects F2 free_level, x track_surcharge per level above; no highest level), kind (permanent keeps its gain while unpaid; upkept counts 0 while unpaid), work (the Travel & Map work its effect is written as at the places it acts on, MapWorks reads it), acts (seat: the province's seat settlement; sites: the province's sites of the listed place kinds; all_sites; province: the province itself), cost_lt, growth, materials, rarity_min, seasons (permanent: seasons x level; upkept: 1 + floor(level / 3)), upkeep (linh thach a level a season) or upkeep_site_frac (of the acting sites' base value a level), staff (population units a level, F4), live (false: placed for slots but not billed, not ordered and with no effect until its stage makes it live), out (F4 out[b]: base value a level of the listed good kind, counted in the province's production only). ruin_seasons: unpaid seasons that ruin an upkept building. start_enabled: place rule 10's starting buildings at world generation. All numbers are guesses (Provinces OQ 1). start_level (user request 2026-11-24: starting levels follow the lore): a starting building's level is max(1, round(the payer sect's authored level in the kind's track x per_track_level)), x away_factor outside the sect's seat province; unheld land stays at 1. lore_specialty and lore_craft: the halls (and lore buildings) a sect starts with at its seat province, from its authored specialty and the craft text of world_history.json (keyword, kind; the first keywords of the list that match each add their kind once); a landing is placed only on a coast or river. sect_extra: authored lore extras by sect key (held_provinces: kinds placed in every province the sect holds). These are a proposal for the user's review. start_level.flat_groups: groups that start at level 1 whatever the sect (production, 2026-11-24 under the user's delegation: lore levels on mines and fields with site growth tripled stone minting and doubled the world's money in the sim; they grow in play instead).",
+  "_doc": "Province buildings (design/gdd/provinces.md rules 7-10, States; design/quick-specs/province-building-catalogue.md; provinces-runtime Stage 2), read by ProvinceBuildings. kinds: group (production, logistics, society, cultivation), track (prices the level: Sects F2 free_level, x track_surcharge per level above; no highest level), kind (permanent keeps its gain while unpaid; upkept counts 0 while unpaid), work (the Travel & Map work its effect is written as at the places it acts on, MapWorks reads it), acts (seat: the province's seat settlement; sites: the province's sites of the listed place kinds; all_sites; province: the province itself), cost_lt, growth, materials, rarity_min, seasons (permanent: seasons x level; upkept: 1 + floor(level / 3)), upkeep (linh thach a level a season) or upkeep_site_frac (of the acting sites' base value a level), staff (population units a level, F4), live (false: placed for slots but not billed, not ordered and with no effect until its stage makes it live), out (F4 out[b]: base value a level of the listed good kind, counted in the province's production only). ruin_seasons: unpaid seasons that ruin an upkept building. start_enabled: place rule 10's starting buildings at world generation. All numbers are guesses (Provinces OQ 1). start_level (user request 2026-11-24: starting levels follow the lore): a starting building's level is max(1, round(the payer sect's authored level in the kind's track x per_track_level)), x away_factor outside the sect's seat province; unheld land stays at 1. lore_specialty and lore_craft: the halls (and lore buildings) a sect starts with at its seat province, from its authored specialty and the craft text of world_history.json (keyword, kind; the first keywords of the list that match each add their kind once); a landing is placed only on a coast or river. sect_extra: authored lore extras by sect key (held_provinces: kinds placed in every province the sect holds). These are a proposal for the user's review. start_level.flat_groups: groups that start at level 1 whatever the sect (production, 2026-11-24 under the user's delegation: lore levels on mines and fields with site growth tripled stone minting and doubled the world's money in the sim; they grow in play instead). Stage 4 (2026-11-24, under the user's delegation): the sect halls are live. value_per_member: a hall level's season value per member of the sect whose seat it stands at (how sects rank it against other buildings). seat_stats: sheet rows per level for members at their sect's seat (crafting there); member_stats: per level for every member; market_kind: the crafted kind whose success rate ps rises in the markets of its region, ps' = 1 - (1 - ps) / (1 + market_ps_k x levels); tier_per_level: new members' technique tier roll; step_per_level: members' breakthrough step at the bottleneck; intake_per_level: the sect's intake weight. repair_frac: a ruined building's repair costs this share of its level's price and its build seasons. All guesses.",
   "ruin_seasons": 4,
   "start_enabled": true,
   "kinds": {
@@ -262,7 +262,12 @@
       "seasons": 1,
       "upkeep": 40,
       "staff": 1.0,
-      "live": false
+      "live": true,
+      "value_per_member": 0.1,
+      "seat_stats": {
+        "alchemy_success": 5
+      },
+      "market_kind": "pill"
     },
     "artifact_forge": {
       "name": "Artifact forge",
@@ -278,7 +283,12 @@
       "seasons": 1,
       "upkeep": 40,
       "staff": 1.0,
-      "live": false
+      "live": true,
+      "value_per_member": 0.1,
+      "seat_stats": {
+        "refining_success": 3
+      },
+      "market_kind": "artifact"
     },
     "talisman_hall": {
       "name": "Talisman hall",
@@ -294,7 +304,12 @@
       "seasons": 1,
       "upkeep": 30,
       "staff": 1.0,
-      "live": false
+      "live": true,
+      "value_per_member": 0.1,
+      "seat_stats": {
+        "talisman_success": 3
+      },
+      "market_kind": "talisman"
     },
     "formation_hall": {
       "name": "Formation hall",
@@ -310,7 +325,11 @@
       "seasons": 1,
       "upkeep": 40,
       "staff": 1.0,
-      "live": false
+      "live": true,
+      "value_per_member": 0.1,
+      "member_stats": {
+        "formation_power_pct": 3
+      }
     },
     "scripture_pavilion": {
       "name": "Scripture pavilion",
@@ -325,7 +344,9 @@
       "rarity_min": 3,
       "seasons": 2,
       "staff": 0.0,
-      "live": false
+      "live": true,
+      "value_per_member": 0.05,
+      "tier_per_level": 0.15
     },
     "meditation_chamber": {
       "name": "Meditation chamber",
@@ -341,7 +362,9 @@
       "seasons": 1,
       "upkeep": 60,
       "staff": 1.0,
-      "live": false
+      "live": true,
+      "value_per_member": 0.15,
+      "step_per_level": 0.01
     },
     "recruitment_hall": {
       "name": "Recruitment hall",
@@ -357,7 +380,9 @@
       "seasons": 1,
       "upkeep": 15,
       "staff": 1.0,
-      "live": false
+      "live": true,
+      "value_per_member": 0.05,
+      "intake_per_level": 0.1
     }
   },
   "start": {
@@ -656,5 +681,7 @@
       ],
       "_why": "the world police (user, 2026-11-24): a wall and a patrol post in every province it holds"
     }
-  }
+  },
+  "market_ps_k": 0.1,
+  "repair_frac": 0.5
 }

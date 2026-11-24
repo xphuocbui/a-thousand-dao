@@ -187,6 +187,11 @@ static func clear_values(db: WorldDB) -> void:
 static func season(gd: GameData, db: WorldDB) -> void:
 	if db.count(TABLE) == 0:
 		return
+	_season(gd, db)
+	ProvinceBuildings.tally_halls(gd, db)   # Stage 4: the halls' totals for the hooks
+
+
+static func _season(gd: GameData, db: WorldDB) -> void:
 	var carry := {}   # wilderness province -> {good: value} still to pass on
 	var gathered := {}   # settlement province -> {good: value} from wilderness
 	var wild: Array = _wild_order(db)

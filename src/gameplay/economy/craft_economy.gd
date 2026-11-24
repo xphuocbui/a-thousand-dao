@@ -206,8 +206,9 @@ static func build(gd: GameData, db: WorldDB, heads_by_market: Dictionary, reache
 			var v_lo: float = float(cfg.crafted.v_lo[clampi(t - 1, 0, cfg.crafted.v_lo.size() - 1)])
 			crafted[cid] = {"kind": kind, "tier": t, "p": 1.0, "plan": plan_ref, "plan_ref": plan_ref, "fill": 1.0,
 				"stock": maxf(0.0, cref * d - plan_ref), "s": plan_ref, "d": d, "cover": cref, "d_min": maxf(v_lo, 0.05 * d)}
+			var ps_m: float = ps_at(gd, db, m, kind, ps)
 			for rr in sp[cid].recipes:
-				var need: float = plan_ref * float(rr.share) / (float(rr.mu) * ps)
+				var need: float = plan_ref * float(rr.share) / (float(rr.mu) * ps_m)
 				for g in _spread(rr, need, reached_g.get(str(m.id), {})):
 					draw[g] = float(draw.get(g, 0.0)) + float(_spread(rr, need, reached_g.get(str(m.id), {}))[g])
 		m["crafted"] = crafted
@@ -254,8 +255,9 @@ static func draw_inputs(gd: GameData, db: WorldDB, pre: Dictionary) -> void:
 		cids.sort()
 		for cid in cids:
 			var c: Dictionary = m.crafted[cid]
+			var ps_m: float = ps_at(gd, db, m, str(c.get("kind", sp.get(cid, {}).get("kind", ""))), ps)
 			for rr in sp.get(cid, {}).get("recipes", []):
-				var need: float = float(c.plan) * float(rr.share) / (float(rr.mu) * ps)
+				var need: float = float(c.plan) * float(rr.share) / (float(rr.mu) * ps_m)
 				units.append([cid, rr, _spread(rr, need, avail), 1.0])
 		for u in units:   # each recipe's fill: the least share of its inputs the shelves can give
 			var f: float = 1.0
@@ -296,6 +298,22 @@ static func draw_inputs(gd: GameData, db: WorldDB, pre: Dictionary) -> void:
 			var c: Dictionary = m.crafted[cid]
 			c["fill_now"] = float(out.get(cid, 0.0))   # the class's fill: its recipes' fills by output share
 			c["out"] = float(c.plan) * float(c.fill_now)
+
+
+## Provinces Stage 4: market [param m]'s success rate for crafted [param kind]: the halls of that kind over its regions
+## (region["halls"]) divide the miss, ps' = 1 - (1 - ps) / (1 + market_ps_k x levels); [param ps] with none.
+static func ps_at(gd: GameData, db: WorldDB, m: Dictionary, kind: String, ps: float) -> float:
+	var hk: String = ""
+	var kinds: Dictionary = ProvinceBuildings.cfg(gd).get("kinds", {})
+	for k in kinds:
+		if str(kinds[k].get("market_kind", "")) == kind:
+			hk = str(k)
+	if hk == "":
+		return ps
+	var lv: int = 0
+	for rid in m.get("regions", {}):
+		lv += int(db.get_record("regions", str(rid)).get("halls", {}).get(hk, 0))
+	return 1.0 - (1.0 - ps) / (1.0 + float(ProvinceBuildings.cfg(gd).get("market_ps_k", 0.1)) * float(lv))
 
 
 # What a good holds on the shelf for workshops this season: its pre-draw value if shelved (Formula B's X_pre), less

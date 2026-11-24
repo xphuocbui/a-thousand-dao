@@ -52,6 +52,9 @@ func success_chance(c: Character, sheet: StatSheet, talisman_id: String) -> Brea
 	b.base("100 - difficulty %d" % int(d.get("difficulty", 50)), 100.0 - float(d.get("difficulty", 50)))
 	b.add("Phù lục level %d" % c.skill_level(skill), float(c.skill_level(skill)) * float(cfg.success_per_level))
 	b.add("Thần hồn %d" % int(sheet.effective("than_hon", c)), (sheet.effective("than_hon", c) - float(cfg.than_hon_neutral)) * float(cfg.than_hon_per_point))
+	var extra: float = sheet.total("talisman_success")   # a talisman hall at the sect seat (provinces Stage 4)
+	if extra != 0.0:
+		b.add("Talisman success (sheet)", extra)
 	b.clamp_to(float(cfg.min_success), float(cfg.max_success))
 	return b
 
