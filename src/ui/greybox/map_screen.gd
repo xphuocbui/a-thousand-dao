@@ -68,6 +68,26 @@ var _fight := FightScreen.new()
 var _people_list := VBoxContainer.new()
 var _places := PlacesPanel.new()
 var _places_button: Button = null
+var _win := WindowHost.new()            # Z6 windows (src/ui/windows/; ui_windows.json): character sheet, ...
+var _wcfg: Dictionary = {}              # ui_windows.json
+var _win_buttons: Dictionary = {}       # window kind -> its Z2 button
+var _z2_box: VBoxContainer = null
+var _win_action: String = ""            # the window action whose job runs
+var _win_args: Array = []
+var _last_action_line: String = ""      # the last window action's first answer line (the actions smoke)
+var _menu := GameMenu.new()             # design/ux/game-menu.md
+var _full := FullScreenHost.new()       # full screens (hud.md Layout Zones): the abode and the Đạo Đồ
+var _dao_do_screen := DaoDoScreen.new()  # design/ux/dao-do-view.md
+var _tree_queue: Array = []              # the plan's marks still to open (one tree_allocate job each)
+var _tree_lines: Array = []
+var _menu_dim := ColorRect.new()
+var _settings: PlayerSettings = null    # user://settings.cfg (none in test runs)
+var _save_target: Dictionary = {}       # {name, slot} of the save whose job runs
+var _quit_after_save: bool = false
+var _menu_button: Button = null
+var _borders_button := Button.new()
+var _outliner := OutlinerPanel.new()     # design/ux/outliner.md (Z2, under the window buttons)
+var _pins: OutlinerPins = null
 var _tips := TooltipLayer.new()
 var _centre := CentreWindow.new()
 var _dim := ColorRect.new()
@@ -94,6 +114,7 @@ func _ready() -> void:
 	_show_loading(tr("Generating the world…"))
 	gd = GameData.load_from("res://assets/data")
 	_cfg = gd.file(UI_FILE)
+	_setup_windows()
 	_tips.configure(_cfg.get("tooltips", {}))
 	_fight.configure(_cfg.get("fight_screen", {}))
 	# the Rosewood theme (art bible 7.10-7.12): wood for the HUD, parchment for the windows, tooltips and the fight
@@ -103,10 +124,11 @@ func _ready() -> void:
 	for e in paper.errors:
 		push_warning("theme: " + str(e))
 	theme = wood.theme
-	for w in [_panel, _person, _places, _centre, _comparison]:
+	for w in [_panel, _person, _places, _centre, _comparison, _win, _menu]:
 		(w as Control).theme = paper.theme
 		(w as Control).theme_type_variation = &"WindowPanel"
 	_tips.theme = paper.theme
+	_full.theme = paper.theme   # a board under the top bar with a parchment column (its own variations)
 	_region_font = paper.fonts.heading
 	_fight.apply_theme(paper.theme, str(tcfg.get("wood_texture", "")), str(_cfg.get("topbar", {}).get("strip", "")))
 	LinkStyle.set_fonts(paper.fonts.strong, RosewoodTheme.variation(load(str(tcfg.get("fonts", {}).get("italic", ""))) if ResourceLoader.exists(str(tcfg.get("fonts", {}).get("italic", ""))) else null, 400, true))
@@ -158,6 +180,86 @@ func _apply_scale() -> void:
 func _shot_and_quit(path: String) -> void:
 	_centre.hide_window()
 	_on_centre_closed()
+	# --open-window=kind[:section]: a Z6 window open in the shot; --window-chooser=slot:index opens the character
+	# sheet's công pháp chooser there (design/ux/character-sheet.md screenshot criteria)
+	var ow: PackedStringArray = _arg_value("--open-window", "").split(":")
+	if ow[0] != "":
+		_open_window(ow[0], _arg_value("--window-subject", ""), ow[1] if ow.size() > 1 else "", _end_turn)   # --window-subject=<id>
+		await _frames(3)
+		var ch: PackedStringArray = _arg_value("--window-chooser", "").split(":")
+		if ch[0] != "" and _win.current() is CharacterWindow:
+			(_win.current() as CharacterWindow).call("_open_chooser", ch[0], int(ch[1]) if ch.size() > 1 else 0)
+			await _frames(3)
+			_win.current().jump_to("cong_phap")
+		if _args.has("--window-expand") and _win.current() is InventoryWindow:   # the first row's verbs open
+			var inv_v: Dictionary = GameQuery.inventory(session)
+			if not Array(inv_v.get("items", [])).is_empty():
+				(_win.current() as InventoryWindow).call("_toggle_row", str(inv_v.items[0].id))
+		await _frames(3)
+	if _args.has("--window-actions-smoke"):   # every window command once against the real session, its first answer line
+		var dv0: Dictionary = GameQuery.dao_do(session)
+		var inv0: Dictionary = GameQuery.inventory(session)
+		var manual: String = ""
+		for it in Array(inv0.get("items", [])):
+			if str(it.kind) == "cong_phap":
+				manual = str(it.id)
+		var steps: Array = [["character", "set_slot", ["aux", 0, "", false]], ["character", "breakthrough", [false, true]],
+			["inventory", "learn", [manual]], ["inventory", "equip", ["no_such_item", ""]], ["inventory", "unequip", ["no_such_item"]],
+			["inventory", "use_item", ["no_such_item", ""]], ["inventory", "nurture", ["no_such_item"]],
+			["sect", "promote", []], ["sect", "join_sect", [""]], ["sect", "leave_sect", [false]],
+			["abode", "raise_abode", []], ["abode", "build_work", ["tended_abode", ""]], ["abode", "formation_build", ["no_such_array"]],
+			["abode", "abode_sleep", ["tended_abode", ""]], ["abode", "claim_abode", []],
+			["dao_do", "tree_apply", [[int(Array(dv0.get("frontier", [0]))[0])]]]]
+		for st in steps:
+			_on_window_action(str(st[0]), str(st[1]), Array(st[2]))
+			await _wait_job()
+			await _frames(1)
+			print("ACTION %s.%s -> %s" % [st[0], st[1], str(_win.current().reply_text() if _win.current() != null else "") if false else _last_action_line])
+		get_tree().quit()
+		return
+	if _args.has("--menu-roundtrip"):   # saves, then loads that save through the menu's own jobs (game-menu.md)
+		var before: Dictionary = StateSnapshot.take(session)
+		_open_menu("save", null)
+		_on_save_requested("Roundtrip test", "roundtrip_test")
+		await _wait_job()
+		await _frames(2)
+		print("ROUNDTRIP save status: %s" % _menu.status_text())
+		_on_load_requested("roundtrip_test")
+		await _wait_job()
+		await _frames(2)
+		var after: Dictionary = StateSnapshot.take(session)
+		print("ROUNDTRIP load: menu open %s, same player %s, same clock %s, same stones %s" % [str(_menu.visible),
+			str(before.get("name") == after.get("name")), str(GameQuery.clock(session).label), str(before.get("linh_thach") == after.get("linh_thach"))])
+		_centre.hide_window()
+		_on_centre_closed()
+		_open_menu("load", null)
+		await _frames(5)
+	if _args.has("--pin-nearby"):   # pins the first person at the player's place (the test run's pins live in memory)
+		var near: Array = GameQuery.people_at(session, _here_id())
+		if not near.is_empty():
+			_on_pin(str(near[0].id), true)
+		await _frames(3)
+	if _arg_value("--open-full", "") != "":   # --open-full=abode: a full screen in the shot
+		_open_full(_arg_value("--open-full", "abode"))
+		await _frames(4)
+	if _args.has("--dao-do-plan") and _full.current() is DaoDoScreen:   # a two-step plan from the frontier and a selection
+		var dv: Dictionary = GameQuery.dao_do(session)
+		var fr: Array = Array(dv.get("frontier", []))
+		if not fr.is_empty():
+			_dao_do_screen.call("_on_click", int(fr[0]))
+			await _frames(2)
+			# the hover card over the next mark out from the plan (a notable when one is near)
+			var cv: DaoDoCanvas = _dao_do_screen.canvas()
+			var hov: int = int(fr[1]) if fr.size() > 1 else int(fr[0])
+			_dao_do_screen.call("_show_card", hov, cv.screen_pos_of(hov))
+		await _frames(4)
+	if _args.has("--abode-fixture"):   # AC-CA-21's grade-3 case from AbodeScreen.sample_view (display only)
+		_open_full("abode")
+		_full.open_view("abode", AbodeScreen.sample_view())
+		await _frames(4)
+	if _arg_value("--open-menu", "") != "":   # --open-menu=menu|save|load|settings: the game menu in the shot
+		_open_menu(_arg_value("--open-menu", "menu"), null, _args.has("--menu-fight"))
+		await _frames(5)
 	if _arg_value("--zoom", "") == "region":
 		_toggle_zoom()
 	# --zoom-px=N: N screen px per tile, centred on the player (hud.md Map zoom); --cb: the red-green palette
@@ -320,6 +422,12 @@ func _process(_delta: float) -> void:
 			_on_choice_done(out)
 		"talk":
 			_on_talk_done(out)
+		"window":
+			_on_window_action_done(out)
+		"save":
+			_on_save_done(out)
+		"load":
+			_on_load_done(out)
 
 
 func _on_world_ready(out: Dictionary) -> void:
@@ -389,8 +497,12 @@ func _build_layout() -> void:
 		first = false
 		TooltipLayer.set_tip(box, pair[1])
 		boxes.add_child(box)
-	for box: ResourceBox in [_box_life, _box_cult, _box_renown]:
-		box.pressed.connect(_open_sheet_from.bind(box))   # the character sheet (several boxes share it: intended)
+	for pair in [[_box_life, "lifespan"], [_box_cult, "cultivation"], [_box_renown, "fate"]]:
+		# the character sheet (several boxes share it: intended), each at its own section (character-sheet.md)
+		(pair[0] as ResourceBox).pressed.connect(_open_window.bind("character", "", pair[1], pair[0]))
+	_stones.pressed.connect(_open_window.bind("inventory", "", "", _stones))   # hud.md element 2: click opens the inventory
+	_box_power.pressed.connect(_open_window.bind("rankings", "", "", _box_power))   # hud.md element 33: click opens rankings
+	_box_sect.pressed.connect(_open_window.bind("sect", "", "", _box_sect))   # hud.md element 35: click opens the sect window
 	bar.add_child(boxes)
 	var spacer := Control.new()
 	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -418,12 +530,17 @@ func _build_layout() -> void:
 	date_row.add_child(_season)
 	_cartouche.add_child(date_row)
 	bar.add_child(_cartouche)
-	for t in [["W", tr("Wiki (not in the greybox yet)")], ["≡", tr("Game menu (not in the greybox yet)")]]:
+	for t in [["W", tr("Wiki (F1): terms, traits, realms, elements, ties"), "wiki"], ["≡", tr("Game menu (Esc): save, load, settings, quit"), "menu"]]:
 		var b := Button.new()
 		b.text = t[0]
 		b.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 		TooltipLayer.set_tip(b, t[1])
-		b.disabled = true
+		b.accessibility_name = tr("Wiki") if t[2] == "wiki" else tr("Game menu")
+		if t[2] == "menu":
+			b.pressed.connect(func(): _open_menu("menu", b))
+			_menu_button = b
+		else:
+			b.pressed.connect(func(): _open_wiki(""))
 		bar.add_child(b)
 	# Element 1: the alert row, below the bar, centred between Z6's width and Z2; only while alerts are open.
 	_alert_row.set_anchors_preset(Control.PRESET_CENTER_TOP)
@@ -433,6 +550,7 @@ func _build_layout() -> void:
 	_alert_row.add_child(_alerts)
 
 	var note := Label.new()
+	note.name = "GreyboxNote"
 	note.text = tr("Greybox: LLM off.") + ((" " + tr("Rating fights off for this run.")) if _ratings_off() else "")
 	note.add_theme_color_override("font_color", Color(1, 0.85, 0.4))
 	note.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
@@ -451,17 +569,14 @@ func _build_layout() -> void:
 	_sheet_button.text = tr("Character") + " (C)"
 	_sheet_button.pressed.connect(_open_sheet)
 	z2.add_child(_sheet_button)
-	for name in ["Inventory", "Relationships", "Sect", "Quests", "Rankings", "News", "Places", "Đạo Đồ", "Abode"]:
-		var b := Button.new()
-		b.text = tr(name)
-		if name == "Places":
-			b.text = tr("Places") + " (P)"
-			b.pressed.connect(func(): _toggle_places(b))
-			_places_button = b
-		else:
-			b.disabled = true
-			TooltipLayer.set_tip(b, tr("Not in the greybox yet"))
-		z2.add_child(b)
+	_win_buttons["character"] = _sheet_button
+	_z2_box = z2   # the other window buttons come from ui_windows.json once it is loaded (_setup_windows)
+	_outliner.person_requested.connect(func(id: String): _open_person(id, _end_turn))
+	_outliner.place_requested.connect(_on_outliner_place)
+	_outliner.abode_requested.connect(func(): _open_full("abode"))
+	_outliner.event_requested.connect(_show_event)
+	_outliner.unpin_requested.connect(_on_pin.bind(false))
+	_outliner.toggled.connect(func(on: bool): if _settings != null: _settings.set_value("outliner_open", on))
 
 	# Z3 portrait cluster
 	var z3 := PanelContainer.new()
@@ -517,6 +632,14 @@ func _build_layout() -> void:
 		TooltipLayer.set_tip(b, zb[1])
 		b.pressed.connect(zb[2])
 		z4.add_child(b)
+	# element 13's Borders toggle: region and province lines on the painted map, a player setting for all saves (it stays
+	# its own button when the compact layout folds the map modes)
+	_borders_button.text = tr("Borders")
+	_borders_button.toggle_mode = true
+	_borders_button.button_pressed = true
+	TooltipLayer.set_tip(_borders_button, tr("Region and province borders on the map (a setting for all saves); the great sects' borders always show"))
+	_borders_button.toggled.connect(func(on: bool): if _settings != null: _settings.set_value("borders", on))
+	z4.add_child(_borders_button)
 
 	# Z5 the season turn
 	var z5 := PanelContainer.new()
@@ -550,7 +673,7 @@ func _build_layout() -> void:
 	_panel.offset_top = 80
 	_panel.offset_bottom = -132
 	add_child(_panel)
-	for p in [_person]:
+	for p in [_person, _win]:
 		p.set_anchors_preset(Control.PRESET_LEFT_WIDE)
 		p.anchor_right = 0.33
 		p.offset_left = 16
@@ -561,7 +684,21 @@ func _build_layout() -> void:
 	_person.fight_requested.connect(_open_practice_fight)
 	_person.travel_requested.connect(func(place_id: String): _person.close_panel(); _open_comparison(TurnController.FOCUS_TRAVEL, place_id))
 	_person.verb_requested.connect(_on_verb)
+	_person.relations_requested.connect(_open_relations_for)
+	_person.pin_requested.connect(func(id: String, on: bool): _on_pin(id, on))
 	_person.closed.connect(func(): _refresh())
+	_win.register(CharacterWindow.new())
+	_win.register(InventoryWindow.new())
+	_win.register(RelationshipsWindow.new())
+	_win.register(RankingsWindow.new())
+	_win.register(SectWindow.new())
+	_win.register(WikiWindow.new())
+	# (a "provinces" window kind is the province panel on branch provinces-v2, another session: register it here)
+	_win.reader = _read_window
+	_win.is_locked = func() -> bool: return session != null and not _busy() and session.has_pending_event()
+	_win.action_requested.connect(_on_window_action)
+	_win.unknown_requested.connect(_on_unknown_window)
+	_win.visibility_changed.connect(_on_window_visibility)
 	_panel.visibility_changed.connect(_on_panel_visibility)
 	_panel.closed.connect(func(): if not _person.visible: _people_list.visible = false)
 	_places.set_anchors_preset(Control.PRESET_LEFT_WIDE)
@@ -601,11 +738,44 @@ func _build_layout() -> void:
 	_loading_label.add_theme_font_size_override("font_size", 24)
 	_loading.add_child(_loading_label)
 
+	# Full screens (hud.md Layout Zones): below Z1, over the map and the other zones; the fight and menu sit above
+	_full.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_full.offset_top = BAR_TOP + _bar_h + 20   # below the hanging date cartouche
+	_full.offset_left = 16
+	_full.offset_right = -16
+	_full.offset_bottom = -16
+	add_child(_full)
+	_full.register(AbodeScreen.new())
+	_full.register(_dao_do_screen)
+	_dao_do_screen.node_reader = func(id: int, pending: Array) -> Dictionary: return {} if _busy() else GameQuery.dao_do_node(session, id, pending)
+	_full.reader = _read_window
+	_full.is_locked = func() -> bool: return session != null and not _busy() and session.has_pending_event()
+	_full.back_requested.connect(_close_full)
+	_full.action_requested.connect(_on_window_action)
+	_full.open_requested.connect(_on_full_open)
 	add_child(_fight)   # configured in _ready once ui_hud.json is loaded
 	_fight.closed.connect(func():
 		if _person.person_id() == "" and _person_after_fight:
 			_person.visible = true
 		_refresh())
+	# The game menu (design/ux/game-menu.md): a modal over a dim, above the fight screen (settings only there), below
+	# the tooltips
+	_menu_dim.color = Color(0, 0, 0, 0.45)
+	_menu_dim.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_menu_dim.mouse_filter = Control.MOUSE_FILTER_STOP
+	_menu_dim.visible = false
+	add_child(_menu_dim)
+	var menu_box := CenterContainer.new()
+	menu_box.set_anchors_preset(Control.PRESET_FULL_RECT)
+	menu_box.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(menu_box)
+	menu_box.add_child(_menu)
+	_menu.visibility_changed.connect(_on_menu_visibility)
+	_menu.save_requested.connect(_on_save_requested)
+	_menu.load_requested.connect(_on_load_requested)
+	_menu.quit_requested.connect(_on_quit_requested)
+	_menu.wiki_requested.connect(_on_menu_wiki)
+	_fight.settings_requested.connect(func(): _open_menu("settings", null, true))
 	# The tooltip layer, above everything (Layout Zones: Tooltip layer)
 	add_child(_tips)
 	_tips.fallback_focus = func() -> Control: return _end_turn
@@ -661,6 +831,7 @@ func _refresh() -> void:
 	_season_icon.texture = s_tex
 	_season_icon.visible = s_tex != null
 	_refresh_focus()
+	_refresh_outliner()
 	_refresh_map(str(snap.location_id))
 	_refresh_turn_button()
 
@@ -818,11 +989,23 @@ func _refresh_map(location_id: String) -> void:
 	_map.set_blocked_rects(rects)
 
 
+## HUD Z3: the player's painted portrait (PortraitPicker; the grey face stays while none is installed).
+func _set_hud_portrait(f: Dictionary) -> void:
+	var t: Texture2D = PortraitPicker.texture_for(f)
+	if t == _portrait.icon:
+		return
+	_portrait.icon = t
+	_portrait.expand_icon = true
+	_portrait.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_portrait.add_theme_constant_override("icon_max_width", 80)
+
+
 ## The bubbles for the map (design/ux/hud.md, Map bubbles): yours, the abode's, and the area bubbles from BubbleModel
 ## over what the player knows.
 func _bubbles(places: Array, here_id: String, here_tile: Vector2i) -> Array:
 	var out: Array = []
 	var c: Dictionary = GameQuery.player(session)
+	_set_hud_portrait(c.get("portrait", {}))
 	if here_tile.x >= 0:
 		out.append({"kind": "player", "place_id": here_id, "tile": here_tile,
 			"tooltip": "%s — %s — %s (%s)" % [c.name, c.realm_label, str(GameQuery.here(session).get("name", "")), tr("click: character sheet")]})
@@ -889,6 +1072,7 @@ func _toggle_places(opener: Control) -> void:
 		_places.close_panel()
 		return
 	_panel.close_panel()
+	_win.close_panel()
 	var here_id: String = _here_id()
 	var here: Dictionary = GameQuery.here(session)
 	var cfg: Dictionary = _bubble_cfg()
@@ -1006,7 +1190,7 @@ func _on_bubble_pressed(kind: String, place_id: String) -> void:
 			_open_sheet_from(_portrait)
 			return
 		"abode":
-			_panel.open_panel(tr("Abode") + " (" + tr("the abode screen is not in the greybox yet") + ")", session.abode_lines(), _end_turn)
+			_open_full("abode")   # the abode screen (design/ux/abode-screen.md)
 			return
 	if place_id != here:
 		_open_comparison(TurnController.FOCUS_TRAVEL, place_id)
@@ -1015,7 +1199,7 @@ func _on_bubble_pressed(kind: String, place_id: String) -> void:
 		"market":
 			_panel.open_panel(tr("Market"), _market_lines(here), _end_turn)
 		"sect":
-			_panel.open_panel(tr("Sect"), session.sect_lines(), _end_turn)
+			_open_window("sect", "", "", _end_turn)   # the sect window (design/ux/sect-window.md)
 		"people":
 			_open_people_here(here)
 		"work":
@@ -1080,7 +1264,9 @@ func _open_person(person_id: String, opener: Control) -> void:
 		return
 	_panel.close_panel()
 	_places.close_panel()
+	_win.close_panel()
 	_people_list.visible = false
+	_person.pinned = _pins != null and _pins.has(_world_key(), person_id)
 	_person.open_person(v, session.has_pending_event(), opener)
 
 
@@ -1253,17 +1439,454 @@ func _open_sheet() -> void:
 
 ## Opens the character sheet in Z6; [param opener] gets focus back when it closes.
 func _open_sheet_from(opener: Control) -> void:
+	_open_window("character", "", "", opener)
+
+
+# --- Z6 windows (src/ui/windows/, ui_windows.json; design/ux/character-sheet.md and the later window specs) ---------
+
+## The Z2 window buttons from ui_windows.json (hud.md element 5), after Character; unbuilt ones stay disabled.
+func _setup_windows() -> void:
+	_wcfg = gd.file("ui_windows")
+	_win.history_max = int(_wcfg.get("history_max", 20))
+	_win.widths = _wcfg.get("widths", {})
+	for wk in ["character", "sect"]:
+		if _win.window(wk) != null:
+			_win.window(wk).style = _wcfg.get("illustrated", {})
+	_win.default_share = float(_wcfg.get("panel_share", 0.33))
+	# Player settings: a test run never reads or writes the player's file (its screenshots must not depend on it)
+	var test_run: bool = _args.has("--demo") or _arg_value("--shot-and-quit", "") != ""
+	_settings = PlayerSettings.new(_wcfg.get("settings", {}), "" if test_run else "user://settings.cfg")
+	_settings.changed.connect(func(_k: String, _v: Variant): _apply_settings())
+	_menu.settings = _settings
+	_apply_settings.call_deferred()
+	for c in _z2_box.get_children():
+		if c != _sheet_button:
+			_z2_box.remove_child(c)
+			c.queue_free()
+	for w in Array(_wcfg.get("window_buttons", {}).get("list", [])):
+		var kind: String = str(w.get("kind", ""))
+		if kind == "character":
+			continue
+		var b := Button.new()
+		b.text = tr(str(w.get("label", kind))) + ((" (%s)" % str(w.key)) if bool(w.get("built", false)) and str(w.get("key", "")) != "" else "")
+		if kind == "places":
+			b.pressed.connect(func(): _toggle_places(b))
+			_places_button = b
+		elif bool(w.get("built", false)):
+			b.pressed.connect(func(): _toggle_window(kind, b))
+		else:
+			b.disabled = true
+			TooltipLayer.set_tip(b, tr(str(w.get("reason", "Not in the game screens yet."))))
+		_win_buttons[kind] = b
+		_z2_box.add_child(b)
+	var plate := PanelContainer.new()   # the outliner on a wood plate, readable over the bright map (art bible 7.13)
+	plate.theme_type_variation = &"WoodPanel"
+	plate.add_child(_outliner)
+	_z2_box.add_child(plate)
+	_pins = OutlinerPins.new("" if test_run else "user://outliner_pins.cfg", int(_wcfg.get("outliner_pins_max", 12)))
+	_dao_do_screen.cfg = _wcfg.get("dao_do", {})
+	_dao_do_screen.tree = DaoDoTree.load_map(gd)   # the static v5 map, the screen's own copy (no session object)
+
+
+## The window kind whose hotkey is [param key] ("" when none, or when its window is not built).
+func _window_for_key(key: Key) -> String:
+	for w in Array(_wcfg.get("window_buttons", {}).get("list", [])):
+		if bool(w.get("built", false)) and str(w.get("key", "")) != "" and OS.find_keycode_from_string(str(w.key)) == key:
+			return str(w.kind)
+	return ""
+
+
+## Opens window [param kind] (scrolled to [param section]) in the host; [param opener] gets focus back on close.
+func _open_window(kind: String, subject: String = "", section: String = "", opener: Control = null) -> void:
 	if _busy():
 		return
-	_panel.open_panel(tr("Character"), GameQuery.sheet_lines(session), opener)
+	if _full.visible and opener is ResourceBox:
+		return   # on a full screen the top bar's boxes are tooltip-only (hud.md Resource box)
+	var inv: InventoryWindow = _win.window("inventory") as InventoryWindow
+	if inv != null:
+		inv.cfg = _wcfg
+	var rel: RelationshipsWindow = _win.window("relationships") as RelationshipsWindow
+	if rel != null:
+		rel.cfg = _wcfg
+	var rk: RankingsWindow = _win.window("rankings") as RankingsWindow
+	if rk != null:
+		rk.cfg = _wcfg
+		rk.realm_names = gd.realms().map(func(r): return str(r.get("name", "")))
+	for k in ["character", "inventory", "relationships", "rankings", "sect", "wiki"]:
+		if _win.window(k) != null:
+			_win.window(k).compact = get_viewport_rect().size.x < float(_wcfg.get("compact_width", 1500))
+	var w: CharacterWindow = _win.window("character") as CharacterWindow
+	if w != null:
+		w.lifespan_warn_share = float(_cfg.get("lifespan_warn_share", 0.1))
+	_win.open(kind, subject, section, opener)
+
+
+## The window button / hotkey: opens [param kind], or closes the host when that window is already showing.
+func _toggle_window(kind: String, opener: Control) -> void:
+	if _full.has_kind(kind):
+		if _full.visible and _full.current() != null and _full.current().kind() == kind:
+			_close_full()
+		else:
+			_open_full(kind)
+		return
+	if _win.visible and _win.current_kind() == kind:
+		_win.close_panel()
+	else:
+		_open_window(kind, "", "", opener)
+
+
+## The host's reader (ADR-0006: GameQuery copies only; nothing while a job runs).
+func _read_window(kind: String, subject: String) -> Dictionary:
+	if _busy():
+		return {}
+	match kind:
+		"character":
+			return GameQuery.character(session)
+		"inventory":
+			return GameQuery.inventory(session)
+		"relationships":
+			return GameQuery.relationships(session)
+		"sect":
+			return GameQuery.sect(session, subject)
+		"abode":
+			return GameQuery.abode(session)
+		"dao_do":
+			return GameQuery.dao_do(session)
+		"wiki":   # static data only (design/ux/wiki.md): readable even while a job runs, but the host asks only when idle
+			return WikiData.view(gd, subject)
+		"rankings":   # subject: "" the player's realm, "0".."4", or "top" (design/ux/rankings.md)
+			return GameQuery.rankings(session, subject if subject != "" else str(StateSnapshot.take(session).get("realm_index", 0)))
+	return {}
+
+
+## A kind the host does not have: the places list and the map screen's own windows.
+func _on_unknown_window(kind: String, subject: String, _section: String) -> void:
+	if _full.has_kind(kind):
+		_open_full(kind)
+	elif kind == "person":
+		_open_person(subject, _end_turn)   # the person window is its own Z6 panel (person.md), outside the host's history
+	elif kind == "place":
+		_open_place_details(subject)   # the place details panel (its own Z6 panel for now)
+	elif kind == "places":
+		_win.close_panel()
+		_toggle_places(_places_button)
+	else:
+		_toast_or_note(tr("That window is not in the game screens yet."))
+
+
+## Window actions run as session jobs (ADR-0006 decisions 6-7); only these commands are allowed from a window.
+func _on_window_action(_kind: String, action: String, args: Array) -> void:
+	if _busy():
+		return
+	var act: Callable
+	match action:
+		"set_slot":
+			act = session.set_slot.bind(str(args[0]), int(args[1]), str(args[2]), bool(args[3]))
+		"breakthrough":
+			act = session.breakthrough.bind(bool(args[0]), bool(args[1]))
+		"equip":
+			act = session.equip.bind(str(args[0]), str(args[1]) if args.size() > 1 else "")
+		"unequip":
+			act = session.unequip.bind(str(args[0]))
+		"nurture":
+			act = session.nurture.bind(str(args[0]))
+		"use_item":
+			act = session.use_item.bind(str(args[0]), str(args[1]) if args.size() > 1 else "")
+		"learn":
+			act = session.learn.bind(str(args[0]))
+		"promote":
+			act = session.promote
+		"join_sect":
+			act = session.join_sect.bind(str(args[0]) if args.size() > 0 else "")
+		"leave_sect":
+			act = session.leave_sect.bind(bool(args[0]))
+		"tree_choose_start":
+			act = session.tree_choose_start.bind(str(args[0]))
+		"raise_abode":   # the abode screen (design/ux/abode-screen.md)
+			act = session.raise_abode
+		"build_work":
+			act = session.build_work.bind(str(args[0]), str(args[1]) if args.size() > 1 else "")
+		"formation_build":
+			act = session.formation_build.bind(str(args[0]))
+		"abode_sleep":
+			act = session.abode_sleep.bind(str(args[0]), str(args[1]) if args.size() > 1 else "")
+		"take_residence":
+			act = session.take_residence.bind(int(args[0]), bool(args[1]) if args.size() > 1 else false)
+		"claim_abode":
+			act = session.claim_abode
+		"tree_apply":   # the Đạo Đồ plan: one tree_allocate job per mark, in order (dao-do-view.md)
+			_tree_queue = Array(args[0]).duplicate()
+			_tree_lines = []
+			_next_tree_step()
+			return
+		"tree_step":
+			act = session.tree_allocate.bind(int(args[0]), false)
+		_:
+			push_warning("window action not allowed: " + action)
+			return
+	_job_kind = "window"
+	_win_action = action
+	_win_args = args
+	_job.start(session.run.bind(act))
+
+
+## After a window's job: re-read everything, show the result in the window's reply strip; a breakthrough attempt (a
+## big moment, hud.md Feedback) or a life's end also opens the centre summary with its lines.
+func _on_window_action_done(result: Dictionary) -> void:
+	_last_action_line = ("ok: " if bool(result.get("ok", false)) else "refused: ") + (str(Array(result.get("lines", [""]))[0]) if not Array(result.get("lines", [])).is_empty() else "")
+	if _win_action == "tree_step":
+		_tree_lines.append_array(Array(result.get("lines", [])))
+		if bool(result.get("ok", false)) and not _tree_queue.is_empty():
+			_next_tree_step()
+			return
+		if not bool(result.get("ok", false)):
+			_tree_queue.clear()   # a refused mark stops the plan (the points stay unspent from there)
+		result = {"ok": result.get("ok", false), "lines": _tree_lines.slice(-3) if _tree_lines.size() > 3 else _tree_lines}
+		_win_action = ""
+	_rebuild_places()
+	_refresh()
+	_win.refresh()
+	_full.refresh()
+	var lines: Array = Array(result.get("lines", []))
+	_win.show_reply(lines)
+	_full.show_reply(lines)
+	if bool(result.get("needs_element", false)) and _win.current() is InventoryWindow:
+		# a treasure that asks for an element (a Linh Căn Quả): the element chooser under its row (inventory.md)
+		(_win.current() as InventoryWindow).ask_element(str(_win_args[0]), Array(result.get("options", [])), lines)
+	var ended: bool = Array(result.get("events", [])).any(func(e): return str(e.get("kind", "")) == "life_ended")
+	if (_win_action == "breakthrough" and bool(result.get("ok", false))) or ended:
+		_centre_summary(tr("This life has ended") if ended else tr("Breakthrough"), lines)
+	_win_action = ""
+
+
+func _on_window_visibility() -> void:
+	if _win.visible:
+		_panel.close_panel()
+		_person.close_panel()
+		_places.close_panel()
+		_people_list.visible = false
+		_tips.close_all()
+
+
+## A short note for a request the screen cannot answer yet (the toast stack is not built: the turn note shows it).
+func _toast_or_note(text: String) -> void:
+	_turn_note.text = text
+
+
+# --- Game menu, saves and settings (design/ux/game-menu.md) --------------------------------------------------------
+
+## The player setting single-letter window hotkeys (hud.md: Q and V always stay on).
+func _letter_hotkeys() -> bool:
+	return _settings == null or bool(_settings.value("letter_hotkeys"))
+
+
+## Applies every player setting at once (game-menu.md: a change applies the moment it is made).
+func _apply_settings() -> void:
+	if _settings == null:
+		return
+	if _arg_value("--ui-scale", "") == "":   # a launch argument wins (test runs)
+		_ui_scale_pct = int(float(_settings.value("ui_scale")))
+		_apply_scale()
+	var tips: Dictionary = _cfg.get("tooltips", {}).duplicate(true)
+	tips["tooltip_delay"] = float(_settings.value("tooltip_delay"))
+	tips["tooltip_lock_delay"] = float(_settings.value("tooltip_lock_delay"))
+	tips["tooltip_close_grace"] = float(_settings.value("tooltip_close_grace"))
+	var modes: Array = []
+	for pair in [["lock_timer", "timer"], ["lock_middle", "middle"], ["lock_click", "click"]]:
+		if bool(_settings.value(pair[0])):
+			modes.append(pair[1])
+	tips["tooltip_lock"] = modes
+	_tips.configure(tips)
+	var borders: bool = bool(_settings.value("borders"))
+	_map.set_borders(borders)
+	_borders_button.set_pressed_no_signal(borders)
+	_borders_button.accessibility_name = tr("Borders, on") if borders else tr("Borders, off")
+	if _arg_value("--shots", "") == "":   # the shot runs set the map's accessibility themselves
+		_map.set_accessibility(bool(_settings.value("reduced_motion")), str(_settings.value("colourblind")) == "red_green")
+
+
+## Opens the game menu at [param page]; [param settings_only] in a fight (hud.md Esc rules).
+func _open_menu(page: String, opener: Control, settings_only: bool = false) -> void:
+	if session == null:
+		return
+	if _job.is_running() and page != "settings":
+		_toast_or_note(tr("Not while the season resolves."))
+		return
+	_tips.close_all()
+	_menu.footer_text = ""
+	_menu.seed_text = ""
+	if not _busy():
+		var clock: Dictionary = GameQuery.clock(session)
+		_menu.seed_text = str(GameQuery.world_seed(session))
+		_menu.footer_text = tr("World seed %s · %s, year %d") % [_menu.seed_text, str(clock.season_name), int(clock.year)]
+		var me: Dictionary = GameQuery.player(session)
+		_menu.default_name = "%s, %s %d" % [str(me.get("name", "")), str(clock.season_name), int(clock.year)]
+	_menu.saves = _save_rows()
+	_menu.open_menu(page, opener if opener != null else _end_turn, settings_only)
+
+
+func _on_menu_visibility() -> void:
+	_menu_dim.visible = _menu.visible
+
+
+func _on_menu_wiki() -> void:
+	_menu.close_menu()
+	_open_wiki("")
+
+
+## The saves folder; test runs use their own ("<dir>_test"), never the player's saves.
+func _saves_dir() -> String:
+	var dir: String = str(_wcfg.get("saves", {}).get("dir", "user://saves"))
+	return dir + "_test" if (_args.has("--demo") or _arg_value("--shot-and-quit", "") != "") else dir
+
+
+## The save rows for the menu, newest first: each save's meta file (user://saves/meta/<slot>.json) read, never the
+## save itself. A save that this build cannot load says why.
+func _save_rows() -> Array:
+	var rows: Array = []
+	var store := SaveStore.new(_saves_dir())
+	var meta := SaveStore.new(_saves_dir().path_join("meta"))
+	var map_now: String = str(gd.file(ContinentData.DATA_FILE).get("map_version", ""))
+	for slot in store.list_slots():
+		var m: Variant = meta.read(slot)
+		var row := {"slot": slot, "name": slot, "date": "", "realm": "", "time": "", "ok": true, "reason": "", "unix": 0}
+		if m is Dictionary:
+			row.merge(m, true)
+			row["slot"] = slot
+			if not GameSession.SAVE_VERSIONS_READ.has(int((m as Dictionary).get("version", 0))):
+				row.ok = false
+				row.reason = tr("Made by another version of the game; it cannot be loaded.")
+			elif str((m as Dictionary).get("map_version", map_now)) != map_now:
+				row.ok = false
+				row.reason = tr("Made on another map version; it cannot be loaded.")
+		else:
+			row.reason = tr("No details for this file (an older save).")
+		rows.append(row)
+	rows.sort_custom(func(a, b): return int(a.get("unix", 0)) > int(b.get("unix", 0)))
+	return rows
+
+
+func _on_save_requested(name: String, slot: String) -> void:
+	if _busy():
+		_menu.show_status(tr("Not while the season resolves."))
+		return
+	_save_target = {"name": name, "slot": slot}
+	_menu.set_busy(true, tr("Saving…"))
+	_job_kind = "save"
+	_job.start(session.to_dict)
+
+
+func _on_save_done(out: Dictionary) -> void:
+	var slot: String = str(_save_target.get("slot", "save"))
+	var err: int = SaveStore.new(_saves_dir()).write(slot, out) if out.has("db") else ERR_INVALID_DATA
+	if err == OK:
+		var clock: Dictionary = GameQuery.clock(session)
+		SaveStore.new(_saves_dir().path_join("meta")).write(slot, {"name": str(_save_target.get("name", slot)),
+			"date": str(clock.label), "realm": str(GameQuery.player(session).get("realm_label", "")),
+			"time": Time.get_datetime_string_from_system(false, true), "unix": int(Time.get_unix_time_from_system()),
+			"version": int(out.get("version", 0)), "map_version": str(gd.file(ContinentData.DATA_FILE).get("map_version", ""))})
+	_menu.saves = _save_rows()
+	_menu.set_busy(false, (tr("Saved as \"%s\" (file %s.json).") % [str(_save_target.get("name", "")), slot]) if err == OK else tr("The save failed (error %d): is the disk full?") % err)
+	_save_target = {}
+	if _quit_after_save:
+		_quit_after_save = false
+		if err == OK:
+			get_tree().quit()
+
+
+func _on_load_requested(slot: String) -> void:
+	if _busy():
+		_menu.show_status(tr("Not while the season resolves."))
+		return
+	_menu.set_busy(true, tr("Loading…"))
+	_job_kind = "load"
+	_job.start(_load_game.bind(slot))
+
+
+## Off the main thread (a job): reads save [param slot] into a new session. {ok, lines, session}.
+func _load_game(slot: String) -> Dictionary:
+	var d: Variant = SaveStore.new(_saves_dir()).read(slot)
+	if not (d is Dictionary):
+		return {"ok": false, "lines": [tr("Cannot read this file.")]}
+	var llm := LlmService.new(gd)
+	llm.enabled = false
+	var s := GameSession.new(gd, llm)
+	var r: Dictionary = s.load_dict(d)
+	return {"ok": bool(r.get("ok", false)), "lines": Array(r.get("lines", [])), "session": s if bool(r.get("ok", false)) else null}
+
+
+func _on_load_done(out: Dictionary) -> void:
+	if not bool(out.get("ok", false)) or out.get("session") == null:
+		_menu.set_busy(false, " ".join(Array(out.get("lines", [tr("The save could not be loaded.")]))))
+		return
+	var old: GameSession = session
+	session = out.session
+	turn = TurnController.new(session)
+	if old != null:
+		old.shutdown()
+	_seen_player = ""   # no baseline after a load: no change shows until the next End turn (hud.md Resource box)
+	_win.close_panel()
+	_person.close_panel()
+	_panel.close_panel()
+	_places.close_panel()
+	_menu.set_busy(false, "")
+	_menu.close_menu()
+	_rebuild_places()
+	_refresh()
+	_centre_summary(tr("Game loaded"), Array(out.get("lines", [])))
+
+
+func _on_quit_requested(save_first: bool) -> void:
+	if save_first:
+		_quit_after_save = true
+		_on_save_requested(_menu.default_name, GameMenu.slot_name(_menu.default_name))
+	else:
+		get_tree().quit()
+
+
+## Gamepad Select / View opens the game menu (game-menu.md; Start is held for End turn, hud.md Platform Adaptation).
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventJoypadButton and event.is_pressed() and (event as InputEventJoypadButton).button_index == JOY_BUTTON_BACK:
+		if _menu.visible:
+			_menu.back_or_close()
+		else:
+			_open_menu("settings" if _fight.visible else "menu", _menu_button, _fight.visible)
+		get_viewport().set_input_as_handled()
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if not (event is InputEventKey) or not event.pressed or event.echo:
 		return
+	if _menu.visible:
+		if (event as InputEventKey).physical_keycode == KEY_ESCAPE:
+			_menu.back_or_close()
+			get_viewport().set_input_as_handled()
+		return   # the modal menu owns the keys while it is up
 	if _fight.visible:
-		return   # the fight screen owns the keys while it is up
+		return   # the fight screen owns the keys while it is up (its Esc opens the settings-only menu)
+	if _full.visible:
+		# a full screen owns the keys (hud.md: Z1 stays, its boxes tooltip-only); Esc backs out, the screen's own key
+		# closes it again, Ctrl+S / Ctrl+L still reach the menu
+		var fk: Key = (event as InputEventKey).physical_keycode
+		if fk == KEY_ESCAPE:
+			_full.escape()
+			get_viewport().set_input_as_handled()
+		elif (event as InputEventKey).ctrl_pressed and fk in [KEY_S, KEY_L]:
+			_open_menu("save" if fk == KEY_S else "load", _menu_button)
+			get_viewport().set_input_as_handled()
+		elif _letter_hotkeys() and _full.current() != null and _window_for_key(fk) == _full.current().kind():
+			_close_full()
+			get_viewport().set_input_as_handled()
+		return
 	var key: Key = (event as InputEventKey).physical_keycode
+	if (event as InputEventKey).ctrl_pressed and key in [KEY_S, KEY_L]:
+		_open_menu("save" if key == KEY_S else "load", _menu_button)
+		get_viewport().set_input_as_handled()
+		return
+	if key == KEY_F1:
+		_open_wiki("")
+		get_viewport().set_input_as_handled()
+		return
 	var owner_ctl: Control = get_viewport().gui_get_focus_owner()
 	if key == KEY_V and _person.visible and not (owner_ctl is LineEdit or owner_ctl is TextEdit):
 		_person.jump_to_verbs()
@@ -1284,17 +1907,21 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	elif key == KEY_ESCAPE:
 		_on_escape(owner_ctl)
 		get_viewport().set_input_as_handled()
-	elif key == KEY_C and not (owner_ctl is LineEdit or owner_ctl is TextEdit):
-		_open_sheet()
-		get_viewport().set_input_as_handled()
-	elif key == KEY_P and not (owner_ctl is LineEdit or owner_ctl is TextEdit):
+	elif key == KEY_P and not (owner_ctl is LineEdit or owner_ctl is TextEdit) and _letter_hotkeys():
 		_toggle_places(_places_button)
+		get_viewport().set_input_as_handled()
+	elif not (owner_ctl is LineEdit or owner_ctl is TextEdit) and not (event as InputEventKey).alt_pressed 			and not (event as InputEventKey).ctrl_pressed and _letter_hotkeys() and _window_for_key(key) != "":
+		# window hotkeys from ui_windows.json (hud.md Platform Adaptation: C character, I inventory, ...); a second
+		# press closes the window it opened
+		var wk: String = _window_for_key(key)
+		_toggle_window(wk, _win_buttons.get(wk, _end_turn))
 		get_viewport().set_input_as_handled()
 
 
 func _on_panel_visibility() -> void:
 	if _panel.visible:
 		_places.close_panel()
+		_win.close_panel()
 		_tips.close_all()
 
 
@@ -1304,7 +1931,7 @@ func _on_escape(owner_ctl: Control) -> void:
 	var focus: String = ""
 	if _tips.owns(owner_ctl):
 		focus = "tooltip"
-	elif owner_ctl != null and (_panel == owner_ctl or _panel.is_ancestor_of(owner_ctl) or _person == owner_ctl or _person.is_ancestor_of(owner_ctl) or _people_list.is_ancestor_of(owner_ctl)):
+	elif owner_ctl != null and (_panel == owner_ctl or _panel.is_ancestor_of(owner_ctl) or _person == owner_ctl or _person.is_ancestor_of(owner_ctl) or _people_list.is_ancestor_of(owner_ctl) or _win.owns(owner_ctl)):
 		focus = "panel"
 	elif owner_ctl != null and (_places == owner_ctl or _places.is_ancestor_of(owner_ctl)):
 		focus = "places"
@@ -1312,13 +1939,16 @@ func _on_escape(owner_ctl: Control) -> void:
 		focus = "z7"
 	var card: bool = _centre.visible and _centre.showing_event
 	match EscRouter.pick({"modal_open": _comparison.visible, "focus": focus, "tooltip_open": _tips.is_open(),
-			"z7_open": _centre.visible, "card_blocking": card, "panel_open": _panel.visible or _person.visible or _people_list.visible, "places_open": _places.visible}):
+			"z7_open": _centre.visible, "card_blocking": card, "panel_open": _panel.visible or _person.visible or _people_list.visible or _win.visible, "places_open": _places.visible}):
 		"modal":
 			_comparison.cancel()
 		"tooltip":
 			_tips.close_top()
 		"panel":
-			if _person.visible:
+			if _win.visible:
+				if not (_win.current() != null and _win.current().has_method("cancel_inline") and _win.current().cancel_inline()):
+					_win.close_panel()   # an open chooser or an armed confirm is cancelled first (character-sheet.md)
+			elif _person.visible:
 				_person.close_panel()
 			else:
 				_panel.close_panel()
@@ -1328,8 +1958,10 @@ func _on_escape(owner_ctl: Control) -> void:
 		"z7":
 			_centre.hide_window()
 			_on_centre_closed()
+		"menu":
+			_open_menu("menu", _menu_button)
 		_:
-			pass   # "card" (minimise: not in the greybox), "menu" (no game menu yet)
+			pass   # "card" (minimise: not in the greybox)
 
 
 # --- Tooltip content (design/ux/hud.md, Tooltips: name, key fact, one-line summary, then the Breakdown) -------------
@@ -1396,17 +2028,13 @@ func _tip_sect(_at: Vector2) -> Variant:
 		"summary": tr("Earned by sect duties and missions; buys ranks and services.")}
 
 
-## The wiki is not in the greybox: its entry text opens in the side panel instead.
+## Opens the wiki (design/ux/wiki.md) at [param key] ("" the index; a bare term id from a tooltip is a term entry).
+## The tooltip chain closes first; an open wiki takes the entry as a new history step.
 func _open_wiki(key: String) -> void:
-	var t: Dictionary = gd.file("ui_terms").get("terms", {}).get(key, {})
 	_tips.close_all()
-	if t.is_empty():
-		return
-	var body: String = ""
-	for seg in TooltipLayer.parse_body(str(t.get("body", ""))):
-		body += str(seg.get("text", "")) if seg is Dictionary else str(seg)
-	_panel.open_panel(tr("Wiki") + ": " + str(t.get("title", key)), [str(t.get("summary", "")), "", body, "",
-		tr("(The in-game wiki is not in the greybox; this is its entry text.)")], _end_turn)
+	if _full.visible:
+		_close_full()
+	_open_window("wiki", key, "", _end_turn)
 
 
 ## The player's place id (GameQuery; the screen reads no session member itself, ADR-0006 decision 4).
@@ -1449,7 +2077,7 @@ func _run_demo() -> void:
 	_open_sheet()
 	await _frames(5)
 	await _shot(dir, "03-character-panel", tag)
-	_panel.close_panel()
+	_win.close_panel()
 	var n: int = 0
 	for i in 3:
 		await _demo_answer_events(dir, tag)
@@ -1489,12 +2117,12 @@ func _run_demo() -> void:
 func _demo_real_input(dir: String, tag: String) -> void:
 	await _demo_answer_events(dir, tag)
 	await _key(KEY_C)
-	_check("C opens the character panel", _panel.visible)
+	_check("C opens the character panel", _win.visible and _win.current_kind() == "character")
 	await _shot(dir, "11-input-sheet-by-key", tag)
 	await _key(KEY_ESCAPE)
-	_check("Esc closes the panel", not _panel.visible)
+	_check("Esc closes the panel", not _win.visible)
 	await _click(_portrait.get_global_rect().get_center())
-	_check("clicking the portrait opens the character panel", _panel.visible)
+	_check("clicking the portrait opens the character panel", _win.visible and _win.current_kind() == "character")
 	await _shot(dir, "11b-input-sheet-by-portrait", tag)
 	await _key(KEY_ESCAPE)
 	var target: String = _clickable_known_place()
@@ -1588,10 +2216,10 @@ func _demo_tooltips(dir: String, tag: String) -> void:
 	_check("five levels open", _tips.chain.levels.size() == 5)
 	await _shot(dir, "23-tooltip-depth-5", tag)
 	await _key(KEY_ENTER)
-	_check("a word at the 5th level opens the wiki (stub) instead of a 6th level", _panel.visible and not _tips.is_open())
+	_check("a word at the 5th level opens the wiki instead of a 6th level", _win.visible and _win.current_kind() == "wiki" and not _tips.is_open())
 	await _shot(dir, "24-wiki-stub", tag)
 	await _key(KEY_ESCAPE)
-	_check("Esc closes the wiki panel", not _panel.visible)
+	_check("Esc closes the wiki panel", not _win.visible)
 	await _demo_answer_events(dir, tag)
 	await _demo_wait_cooldown()
 	_end_turn.grab_focus()
@@ -1886,13 +2514,13 @@ func _demo_bubbles(dir: String, tag: String) -> void:
 		(mine[0] as Control).grab_focus()
 		await _frames(2)
 		await _key(KEY_ENTER)
-		_check("Enter on a focused bubble here acts like a click (%s)" % mine_kind, _panel.visible or _comparison.visible)
+		_check("Enter on a focused bubble here acts like a click (%s)" % mine_kind, _panel.visible or _comparison.visible or _win.visible or _full.visible)
 		await _shot(dir, "18-bubble-here", tag)
 		await _key(KEY_ESCAPE)
 	var me: Array = _map.visible_bubbles().filter(func(b): return b.kind == "player")
 	if not me.is_empty():
 		await _click((me[0] as Control).get_global_rect().get_center())
-		_check("clicking your bubble opens the character sheet", _panel.visible)
+		_check("clicking your bubble opens the character sheet", _win.visible and _win.current_kind() == "character")
 		await _key(KEY_ESCAPE)
 	_end_turn.grab_focus()
 	await _frames(2)
@@ -2066,3 +2694,103 @@ func _shot(dir: String, name: String, size_tag: String) -> void:
 	await RenderingServer.frame_post_draw
 	var img: Image = get_viewport().get_texture().get_image()
 	img.save_png(ProjectSettings.globalize_path(dir.path_join("%s-%s.png" % [name, size_tag])))
+
+
+## The person window's Relations action (person.md P5): the relationships page filtered to that person.
+func _open_relations_for(person_name: String) -> void:
+	_open_window("relationships", "", "", _end_turn)
+	var w: RelationshipsWindow = _win.current() as RelationshipsWindow
+	if w != null:
+		w.preset_search(person_name)
+
+
+# --- Full screens (hud.md Layout Zones; design/ux/abode-screen.md) ---------------------------------------------------
+
+## Opens full screen [param kind] (the abode): the Z6 windows and the places list close; Z1 stays.
+func _open_full(kind: String) -> void:
+	if _busy():
+		return
+	_win.close_panel()
+	_person.close_panel()
+	_panel.close_panel()
+	_places.close_panel()
+	_tips.close_all()
+	if _full.open(kind):
+		_set_zones_shown(false)
+
+
+func _close_full() -> void:
+	_full.close_screen()
+	_set_zones_shown(true)
+	_refresh()
+	_end_turn.grab_focus()
+
+
+## A link inside a full screen: the screen closes and the window opens on the map.
+func _on_full_open(kind: String, subject: String, section: String) -> void:
+	if _full.has_kind(kind):
+		_open_full(kind)
+		return
+	_close_full()
+	_open_window(kind, subject, section, _end_turn)
+
+
+# --- Outliner (design/ux/outliner.md) --------------------------------------------------------------------------------
+
+## The pins' key: one list per world and player ("<seed>:<player id>").
+func _world_key() -> String:
+	return "%d:%s" % [GameQuery.world_seed(session), str(GameQuery.player(session).get("id", ""))]
+
+
+func _refresh_outliner() -> void:
+	if _busy() or _pins == null:
+		return
+	var compact: bool = get_viewport_rect().size.x < float(_wcfg.get("compact_width", 1500))
+	# the player's setting wins; the compact layout only collapses it while the setting has never been touched
+	_outliner.set_open(bool(_settings.value("outliner_open")) and not (compact and not _settings_touched("outliner_open")))
+	_outliner.show_view(GameQuery.outliner(session, _pins.pins(_world_key())))
+
+
+func _settings_touched(key: String) -> bool:
+	return _settings != null and _settings.is_stored(key)
+
+
+## Pins or unpins [param id] (the person window's Pin, the outliner's ×).
+func _on_pin(id: String, on: bool) -> void:
+	if _pins == null or session == null:
+		return
+	if on and not _pins.pin(_world_key(), id):
+		_toast_or_note(tr("The outliner is full (%d people).") % _pins.max_pins)
+	elif not on:
+		_pins.unpin(_world_key(), id)
+	_refresh_outliner()
+	if _person.visible and _person.person_id() == id:
+		_open_person(id, _end_turn)
+
+
+## A place row: the map centres on it and its details open (hud.md element 6: "a click centres the map or opens the
+## window").
+func _on_outliner_place(id: String) -> void:
+	var p: Dictionary = GameQuery.place(session, id)
+	if p.has("tile"):
+		_map.centre_on(Vector2i(int(p.tile[0]), int(p.tile[1])))
+	_open_place_details(id)
+
+
+## Opens the next mark of the Đạo Đồ plan as a job (each is adjacent to the open set by construction).
+func _next_tree_step() -> void:
+	if _tree_queue.is_empty() or _busy():
+		return
+	var id: int = int(_tree_queue.pop_front())
+	_on_window_action("dao_do", "tree_step", [id])
+
+
+## Hides the HUD zones below Z1 while a full screen is up (hud.md: it replaces the map and every zone but Z1), so no
+## hidden control (End turn) can take keyboard focus behind it.
+func _set_zones_shown(on: bool) -> void:
+	for z in _zones:
+		if z != _z1 and z is Control:
+			(z as Control).visible = on
+	var note: Node = get_node_or_null("GreyboxNote")
+	if note is Control:
+		(note as Control).visible = on

@@ -1,0 +1,198 @@
+# UX Spec: Abode Screen
+
+> **Status**: In Review, lean round 1 NEEDS REVISION (5 blocking, 7 advisory: applied 2026-11-24); written
+> 2026-11-24 night by Claude under the UI delegation (memory ui-design-delegated)
+> **Author**: Claude (ux-designer role)
+> **Last Updated**: 2026-11-24
+> **Platform Target**: PC (Windows); keyboard and mouse primary, gamepad Partial (`design/ux/hud.md` Platform Adaptation)
+> **Template**: UX Spec (lean: the headings of `design/ux/person.md`)
+> **GDDs read**: `design/gdd/cave-abode.md` (rules 1–13, F1–F5, UI Requirements: the abode screen, the work picker, the
+> claim screen; AC-CA-21), `design/ux/hud.md` (Layout Zones: full screens; element 31 the abode bubble; Z2 A)
+> **Patterns used**: Full screen (hud.md: replaces the map, Z1 stays, a back button), Sticky header and pinned action
+> bar, Section jumps, Confirm in place, Inline chooser, Reply strip, Look-only lock, Breakdown.
+
+---
+
+## Purpose & Player Need
+
+"How good is my home, what is it giving me, and what should I build or raise next?" The cave abode (động phủ) or
+residence: its grade, slots used, each work's level, what it counts at and gives, the clamp lines (where a cap holds
+the gain back), the grade upkeep, the next grade's cost; and the work picker: the home works the player can build
+with their gain, cost, upkeep and the level ceiling at this grade. With no home: renting a residence here, and how
+to open or claim an abode.
+
+## Player Context on Arrival
+
+From the abode bubble on the map (element 31), the Abode button (Z2) or A, or the season summary's upkeep line.
+Usually between seasons: after saving stones, at a breakthrough (a higher grade opens), or when a slot was lost.
+
+## Navigation Position
+
+A **full screen** (hud.md Layout Zones): it replaces the map and every zone but Z1; the top bar stays (its boxes
+tooltip-only); a "← Back to map" button top left under Z1; Esc goes back. An event that fires opens over it as a modal.
+
+## Entry & Exit Points
+
+| Entry | Opens at |
+|---|---|
+| Abode bubble, Abode button, A | the home's top |
+| Season summary upkeep line | the home's top |
+
+Exits: Back to map, Esc (an armed confirm or open chooser first). The screen has no uncommitted edits (each build is
+one confirmed action), so it never asks before leaving.
+
+## Layout Specification
+
+### ASCII Wireframe (1920×1080; one centred parchment column, about 900 px)
+
+```
++--------------------------------------------------------------+
+| Z1 top bar (stays)                                           |
+| [← Back to map]   Abode: Thanh Phong Cốc (cave abode)        |  A1 header
+| Grade 2 · 3 of 4 slots · upkeep 40 linh thạch a season       |
+| You are here / You are away: changes need you here (🔒)       |
+|--------------------------------------------------------------|
+| HOME                                                         |  A2 body
+|  Next grade 3: 1,200 linh thạch, 6 slots, a season's work    |
+|  [Raise to grade 3…]                                         |
+|  Density here 1.85 · your land match 0.72 (Breakdown)        |
+| WORKS (3)                                                    |
+|  Dưỡng động phủ   level 2 / 3   density +0.04   [Raise…]     |
+|  Tụ nguyên trận   level 3 (counts at 2: the grade's ceiling) |
+|                   share +8 Hỏa · upkeep 3   [Raise…] [Sleep]  |
+|  Linh tuyền       dormant                    [Wake…]          |
+| CLAMPS                                                       |
+|  layer-1 upkept density clamped at 0.75                      |
+| BUILD A WORK                                                 |
+|  Linh tuyền  share +2 per level · 300 LT, 1 material, 1 season · max 3, ceiling 2 here [Build…]
+|--------------------------------------------------------------|
+| reply strip                                                  |  A3
++--------------------------------------------------------------+
+```
+
+No-home view: "You have no home yet." Then **RENT HERE** (on settled ground: each residence grade the place offers,
+with rent and the realm minimum, [Rent] and [Buy]), **OPEN A CAVE ABODE** (how: on a wilderness tile, travel there and
+pay the opening fee: "choose the tile on the map; the map lens is not in the screens yet"), **CLAIM** (a Left or
+ruined abode here: its recorded grade, the grade it comes back at, the fee, [Claim]).
+
+### Component Inventory
+
+| Zone | Component | Type | Shows | Interactive |
+|---|---|---|---|---|
+| A1 | Back to map | Button (hud.md element 26) | — | Yes; Esc |
+| A1 | Home line | Text | Place name, cave abode, residence or starting room, grade, slots used of available, **grade upkeep (abodes) or rent a season (a rented residence)**, "raising to grade n" when pending | Tooltip: rules 3, 6, 8 |
+| A1 | Unpaid warning | Text | "⚠ Upkeep unpaid for n season(s): the abode falls a grade if it stays unpaid." (words, not colour) | No |
+| A1 | Here / away | Text | "You are here" or "You are away (at X): changes need you here" with 🔒 | No |
+| A2 Home | Next grade | Text + button | Next grade's cost, slots and "needs a higher realm" when the realm cannot hold it; residences: "a residence's grade is fixed" | Raise (confirm in place: cost, a season) |
+| A2 Home | Density | Text | The density the player cultivates at home (`place_density`), and what the home works add | Tooltip: the works' layer lines with their clamp lines |
+| A2 Home | Leave this home | Disabled button | "Not in the game yet: a home is left when you open, claim or rent another (rule 10)" (the GDD asks for Leave; no session command exists, so it shows, greyed, with its reason) | No |
+| A2 Works | Work rows | Rows | Name, level / max, effective level and why ("counts at 2: the grade's ceiling", "dormant"), the gain at the effective level, upkeep (upkept works) | Raise… (confirm: cost, materials, seasons; a share work keeps its element; a standing array's next level is `formation_build`), Sleep / Wake (rule 9 swap, only while a slot is short) |
+| A2 Clamps | Lines | Text | Every density line that says "clamped" (rule 13) | No |
+| A2 Build | Catalogue rows | Rows | Each home (layer 1) work not yet built: gain per level, next cost (linh thạch, materials, seasons), upkeep, max and the ceiling at this grade, "no free slot" when full | Build… (confirm; element chooser for share works) |
+| A2 No home | Rent rows | Rows | Residence grades here with rent, the realm minimum; refusal reasons | Rent / Buy (confirm) |
+| A2 No home | Claim | Block | A claimable abode here: recorded grade, grade after (F4), fee, **works kept** (name and level; upkept ones "if not faded") | Claim (confirm) |
+| A2 Works | Rule 9 banner | Text | When a work is dormant: "⚠ A slot is short, so a work sleeps. Choose which one sleeps with Sleep / Wake (the latest built sleeps by default)." | No |
+| A3 | Reply strip | Text | The last action's result lines | Dismiss |
+
+### Information Hierarchy
+
+1. Grade and slots (what limits the home).
+2. Works and what each gives now.
+3. What to build or raise next, and its cost.
+
+## States & Variants
+
+| State | What changes |
+|---|---|
+| At home, cave abode | As the wireframe |
+| At home, residence | No Raise (fixed grade: "rent or buy a better one, or open a cave abode"); no grade upkeep |
+| Away | Read-only: every action 🔒 with "you are away: travel home to change it" |
+| Upkeep short | The unpaid warning in A1; after a grade fall the rule 9 banner shows on the next open |
+| Rent confirm | "… It becomes your home; your current home is left." (take_residence leaves the old home, rule 10) |
+| No home | The no-home view |
+| Slot short | The latest built is dormant; Sleep / Wake swaps show (rule 9) |
+| Raise pending | "Raising to grade n: takes effect next season"; Raise disabled |
+| Action refused | The session's reason in the reply strip; the view re-reads after every action |
+| Event waiting | Look-only: actions 🔒 "locked while an event waits"; an event opens over the screen as a modal |
+
+## Interaction Map
+
+| Input | Action |
+|---|---|
+| A | Open (from the map) / back |
+| Esc | Disarm or close a chooser, then back to the map |
+| Tab, Up / Down | Controls |
+| Home / End, LT / RT | Section jumps |
+| Enter / click | Activate |
+
+Every key is rebindable (hud.md Platform Adaptation). On this full screen the top bar's boxes are tooltip-only.
+
+**Focus order:** Back to map, Raise grade, then each work row's buttons left to right, top to bottom, then the
+Build rows, then the reply strip's dismiss. On entry focus goes to the first enabled control; after a confirm or a
+chooser closes it returns to the row's button. Confirm and Cancel are buttons (Enter on the focused one; Esc cancels).
+Gamepad: A activates, B backs out (Cancel, then Back to map); the keyboard key A opens the screen from the map.
+
+## Data Requirements
+
+One read, `GameQuery.abode(s)`: {has_home, here, home_place {id, name}, kind (abode / residence), grade, slots,
+used, upkeep, pending, unpaid, next {grade, cost, slots, realm_ok}, works: [{key, id, kind (work / array), name, level,
+max, eff, dormant, gain, upkeep, stat, share}], clamps [lines], density {total, lines}, catalogue: [{id, name, stat,
+per_level, next_cost {lt, materials, seasons}, upkeep, max, ceiling, ok, reason, share}], rent: [...], claim: {...}}.
+Built with CaveAbode and MapWorks reads (`home_rec`, `slots`, `used`, `eff_level`, `ceiling`, `can_raise`,
+`grade_cost`, `grade_upkeep`, `top_grade`, `MapWorks.cost`, `MapWorks.density`), which never write. Actions:
+`raise_abode()`, `build_work(id, element)`, `formation_build(id)` (a standing array's next level), `abode_sleep(id,
+wake)`, `take_residence(grade, buy)`, `claim_abode()` as jobs.
+
+## Events Fired
+
+`action_requested("raise_abode", [])`, `("build_work", [work_id, element])`, `("formation_build", [array_id])`,
+`("abode_sleep", [sleep_key, wake_key])`, `("take_residence", [grade, buy])`, `("claim_abode", [])`; `back_requested`.
+
+| Data | Owner | Null text |
+|---|---|---|
+| Grade, slots, works, dormancy | CaveAbode | "You have no home yet." |
+| Next grade | CaveAbode F1 | "The highest grade." / "A residence's grade is fixed" |
+| Clamps | MapWorks.density | "none: no cap holds a gain back" |
+| Catalogue | map_works.json (layer 1) | "Every home work is built." |
+| Rent | MapWorks.rent, Travel & Map rule 34 | "No residences here" |
+
+## Transitions & Animations
+
+The screen appears at once (no slide; reduced motion has nothing to stop).
+
+## Input Method Completeness Checklist
+
+- [x] Keyboard: every control; Esc back
+- [x] Mouse: everything clickable
+- [x] Gamepad: d-pad, A / B, LT / RT (Partial)
+- [x] No hover-only information: gains, costs and states are in the rows
+
+## Accessibility
+
+Text at the 16 px floor (tooltips 14 px), checked at 75 % and 150 % UI scale; states in words (dormant, ceiling, away);
+locked actions announce "locked: <reason>"; the reply strip is a polite live region; the ⚠ and 🔒 marks come with words;
+contrast 4.5:1 text, 3:1 controls. Screen reader: the screen is announced "Abode, Thanh Phong Cốc"; a work row reads
+"Tụ nguyên trận, level 3, counts at 2, the grade's ceiling, share plus 8 Hỏa, upkeep 3"; confirms announce their cost.
+
+## Localization Considerations
+
+Work names are the data's Vietnamese; numbers follow the language; rows wrap.
+
+## Acceptance Criteria
+
+- [ ] `[GdUnit]` `GameQuery.abode` returns the grade, slots, used, upkeep, each work's level, effective level, gain and
+      state, the clamp lines and the next grade's cost; it leaves `to_dict()` unchanged.
+- [ ] `[GdUnit]` A work over the ceiling shows "counts at n"; a dormant work shows "dormant" and gives nothing.
+- [ ] `[GdUnit]` Raise grade, Raise a work and Build arm first; only Confirm emits; a share work asks for the element.
+- [ ] `[GdUnit]` Away from home every action is disabled with the away reason.
+- [ ] `[GdUnit]` Esc disarms first, then asks the map screen to go back.
+- [ ] `[Screenshot]` AC-CA-21: a grade-3 abode with a dormant work and a clamp line, at 1920×1080 and 1280×720 (a fixture
+      view, `--abode-fixture`, display only); the starting home at 1920×1080; nothing clips; long rows wrap.
+- [ ] `[GdUnit]` The screen builds in under 50 ms (headless test machine).
+- [ ] `[Manual]` 75 % and 150 % UI scale; contrast 4.5:1 text, 3:1 controls; NVDA reads locked actions with their reason.
+
+## Open Questions
+
+- Leaving an abode has no session command yet (rule 10 runs on opening or claiming another home): not offered here.
+- Opening an abode needs a tile pick on the map (a map lens): the screen explains it; the lens is not built.
+- Spirit fields as home works (AC-CA-05) wait for #14.

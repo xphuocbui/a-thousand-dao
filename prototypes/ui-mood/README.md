@@ -42,3 +42,21 @@ icon pipeline's unverified per-image prices (8 × $0.053 + 1 × $0.211).
   the painted terrain. Tooltips as parchment cards with brass corners, cinnabar links, a pin for "locked". The far map
   gave Hán-Việt-style region names (invented) and a compass with Chinese characters (to swap).
 - The mock-ups are style targets, not game art (too small, terrain not tied to the grid, no map modes, baked labels).
+
+## Round 3 (2026-11-24): windows as illustrated pages, not lists
+User: the built windows "look so bad"; "use openai ... include photos, arts boxes at places ... the character list, show
+the character and some info ... the sects list show the sects unique place ... Learn from ck3 and eu5".
+Method changed: `r3_wireframes.py` draws a NEW layout sketch (portrait box, icon stat tiles, slot cards, hero banner)
+with real game text and existing art pasted in, over the real map; `prompts/r3-base.md` + one window prompt, the
+approved r2 person mock-up as the style image. `gpt-image-2`, low, 1536x864: 120 output image tokens + 2,592 input
+image tokens per image (about $0.01-0.02 each).
+
+| Output | Sketch | Prompt |
+|---|---|---|
+| `out/r3-character-l.png` | `in-r3-character.png` | r3-base + r3-character |
+| `out/r3-sect-l.png` | `in-r3-sect.png` (banner = `design/map/continent-11/art/places/paint_1.png`) | r3-base + r3-sect |
+
+Findings: low quality is enough here; the layout and Vietnamese text survive almost intact. Slips: Thiên phú tile
+labels squeezed onto two lines; the sect banner was repainted instead of kept; "died 1000, at 640" became "at 616";
+"Your standing" garbled; the lore inset gained two invented lines. Art boxes: place paintings and technique icons exist
+today; portraits (large and medallion), trait medallions and the Thiên phú / fact-tile icons are new art.

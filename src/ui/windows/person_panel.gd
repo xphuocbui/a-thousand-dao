@@ -15,6 +15,10 @@ signal person_requested(person_id: String)
 signal fight_requested(person_id: String)
 ## Travel to where this person is (the focus comparison).
 signal travel_requested(place_id: String)
+## Pin or unpin this person in the outliner (person.md P5 "Pin").
+signal pin_requested(person_id: String, pin: bool)
+## The relationships page filtered to this person (person.md P5 "Relations").
+signal relations_requested(person_name: String)
 ## Use a verb (only "greet" in the greybox).
 signal verb_requested(person_id: String, verb_id: String)
 ## The panel was closed.
@@ -41,6 +45,8 @@ var _reply := Label.new()
 var _bar := HBoxContainer.new()
 var _verbs_heading: Control = null
 var _locked: bool = false
+## True when the shown person is pinned in the outliner (set by the map screen before open_person).
+var pinned: bool = false
 
 
 func _init() -> void:
@@ -219,6 +225,21 @@ func _build() -> void:
 	verbs.text = tr("Verbs (V)")
 	verbs.pressed.connect(jump_to_verbs)
 	_bar.add_child(verbs)
+	if not bool(v.get("is_player", false)):
+		var pin := Button.new()
+		pin.name = "Pin"
+		pin.text = tr("Unpin") if pinned else tr("Pin")
+		TooltipLayer.set_tip(pin, tr("Follow this person in the outliner (where they are each season)."))
+		var pid0: String = str(v.get("id", ""))
+		var now_pinned: bool = pinned
+		pin.pressed.connect(func(): pin_requested.emit(pid0, not now_pinned))
+		_bar.add_child(pin)
+	var rel := Button.new()
+	rel.text = tr("Relations")
+	TooltipLayer.set_tip(rel, tr("Your relationships page, filtered to this person."))
+	var pname: String = str(v.get("name", ""))
+	rel.pressed.connect(func(): relations_requested.emit(pname))
+	_bar.add_child(rel)
 	if bool(v.get("alive", true)) and not bool(v.get("is_player", false)) and not bool(v.get("is_beast", false)):
 		var fight := Button.new()
 		fight.text = tr("Practice fight")

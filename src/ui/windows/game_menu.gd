@@ -1,0 +1,411 @@
+class_name GameMenu
+extends PanelContainer
+## The game menu (design/ux/game-menu.md): a modal centre window with four pages, Menu, Save, Load and Settings, the
+## world seed and date in its footer and a status line. It does no work itself: saving, loading, quitting and the wiki
+## are requested by signals (the map screen runs the jobs); settings are written to the [PlayerSettings] it is given.
+
+## Save the game under [param name].
+signal save_requested(name: String, overwrite_slot: String)
+## Load save [param slot].
+signal load_requested(slot: String)
+## Quit the game; [param save_first] saves to the quick slot first.
+signal quit_requested(save_first: bool)
+## Open the wiki.
+signal wiki_requested
+## The menu closed.
+signal closed
+
+const PAGES := ["menu", "save", "load", "settings"]
+
+## The settings store the Settings page edits (set before opening).
+var settings: PlayerSettings = null
+## The save rows: [{slot, name, date, realm, time, ok, reason}], newest first (set by the map screen).
+var saves: Array = []
+## The default name for a new save.
+var default_name: String = ""
+## The footer: "World seed 7 · Xuân, year 1200".
+var footer_text: String = ""
+## The world seed, for Copy seed (world-generation.md: the seed is shown and can be shared).
+var seed_text: String = ""
+
+var _page: String = "menu"
+var _title := Label.new()
+var _body := VBoxContainer.new()
+var _scroll := ScrollContainer.new()
+var _footer := Label.new()
+var _status := Label.new()
+var _opener: Control = null
+var _busy: bool = false
+var _armed: String = ""          # "quit", or "overwrite:<slot>": the confirm-in-place row shown
+var _name_field: LineEdit = null
+var _settings_only: bool = false  # in a fight or tribulation Esc opens settings only (hud.md Esc rules)
+var _copy := Button.new()
+
+
+func _init() -> void:
+	visible = false
+	custom_minimum_size = Vector2(520, 0)
+	var box := VBoxContainer.new()
+	box.add_theme_constant_override("separation", 8)
+	add_child(box)
+	var frame := HBoxContainer.new()
+	_title.theme_type_variation = &"HeadingLabel"
+	_title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	frame.add_child(_title)
+	var close := Button.new()
+	close.text = "×"
+	close.accessibility_name = tr("Close the game menu")
+	TooltipLayer.set_tip(close, tr("Resume (Esc)"))
+	close.pressed.connect(close_menu)
+	frame.add_child(close)
+	box.add_child(frame)
+	box.add_child(HSeparator.new())
+	_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	_scroll.custom_minimum_size = Vector2(0, 300)
+	_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	box.add_child(_scroll)
+	_body.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_body.add_theme_constant_override("separation", 6)
+	_scroll.add_child(_body)
+	box.add_child(HSeparator.new())
+	var foot := HBoxContainer.new()
+	_footer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_footer.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	foot.add_child(_footer)
+	_copy.text = tr("Copy seed")
+	_copy.accessibility_name = tr("Copy the world seed")
+	_copy.pressed.connect(_copy_seed)
+	foot.add_child(_copy)
+	box.add_child(foot)
+	_status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_status.accessibility_live = AccessibilityServer.LIVE_POLITE
+	box.add_child(_status)
+
+
+## Opens the menu at [param page]; [param opener] gets focus back on close. [param settings_only]: the fight and
+## tribulation variant (only the Settings page; no save, load or quit; Esc closes).
+func open_menu(page: String = "menu", opener: Control = null, settings_only: bool = false) -> void:
+	_opener = opener
+	_status.text = ""
+	_armed = ""
+	_settings_only = settings_only
+	visible = true
+	show_page("settings" if settings_only else page)
+
+
+## Shows [param page] ("menu", "save", "load", "settings").
+func show_page(page: String) -> void:
+	_page = page if PAGES.has(page) else "menu"
+	_armed = "" if page != _page else _armed
+	_build()
+
+
+## The page shown ("" when closed).
+func page() -> String:
+	return _page if visible else ""
+
+
+## Esc (game-menu.md Interaction Map): disarm a confirm, then back to Menu from a page, then close.
+func back_or_close() -> void:
+	if _busy:
+		show_status(tr("Please wait: the game is still saving or loading."))
+		return
+	if _armed != "":
+		_armed = ""
+		_build()
+	elif _page != "menu" and not _settings_only:
+		show_page("menu")
+	else:
+		close_menu()
+
+
+func close_menu() -> void:
+	if not visible or _busy:
+		return
+	visible = false
+	if _opener != null and is_instance_valid(_opener) and _opener.is_inside_tree():
+		_opener.grab_focus()
+	closed.emit()
+
+
+## Marks a save or load as running ([param on]) with [param text] in the status line.
+func set_busy(on: bool, text: String = "") -> void:
+	_busy = on
+	_status.text = text
+	_build()
+
+
+## Shows [param text] in the status line (announced politely).
+func show_status(text: String) -> void:
+	_status.text = text
+
+
+## The status line's text.
+func status_text() -> String:
+	return _status.text
+
+
+func _build() -> void:
+	for c in _body.get_children():
+		_body.remove_child(c)
+		c.queue_free()
+	_name_field = null
+	_footer.text = footer_text
+	match _page:
+		"menu":
+			_title.text = tr("Game menu")
+			_build_menu()
+		"save":
+			_title.text = tr("Save game")
+			_build_save()
+		"load":
+			_title.text = tr("Load game")
+			_build_load()
+		"settings":
+			_title.text = tr("Settings")
+			_build_settings()
+	accessibility_name = _title.text
+	var first: Control = _first_focusable(_body)
+	if first != null:
+		_focus_now.bind(first).call_deferred()
+
+
+func _focus_now(c: Control) -> void:
+	if is_instance_valid(c) and c.is_inside_tree() and c.is_visible_in_tree():
+		c.grab_focus()
+
+
+func _first_focusable(n: Node) -> Control:
+	for c in n.get_children():
+		if c is Control and (c as Control).focus_mode != Control.FOCUS_NONE and c.visible and not (c is BaseButton and (c as BaseButton).disabled):
+			if c is Button or c is LineEdit or c is Range:
+				return c
+		var deep: Control = _first_focusable(c)
+		if deep != null:
+			return deep
+	return null
+
+
+func _button(text: String, parent: Control, on: Callable, hint: String = "") -> Button:
+	var b := Button.new()
+	b.text = text + (("    " + hint) if hint != "" else "")
+	b.alignment = HORIZONTAL_ALIGNMENT_LEFT
+	b.disabled = _busy
+	b.accessibility_name = text
+	b.pressed.connect(on)
+	parent.add_child(b)
+	return b
+
+
+func _build_menu() -> void:
+	_button(tr("Resume"), _body, close_menu, "Esc").name = "Resume"
+	_button(tr("Save game"), _body, show_page.bind("save"), "Ctrl+S").name = "Save"
+	_button(tr("Load game"), _body, show_page.bind("load"), "Ctrl+L").name = "Load"
+	_button(tr("Settings"), _body, show_page.bind("settings")).name = "Settings"
+	_button(tr("Wiki"), _body, func(): wiki_requested.emit(), "F1").name = "Wiki"
+	if _armed == "quit":
+		var ask := Label.new()
+		ask.text = tr("Quit? Progress since your last save is lost.")
+		ask.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		_body.add_child(ask)
+		var row := HBoxContainer.new()
+		_body.add_child(row)
+		_button(tr("Save and quit"), row, func(): quit_requested.emit(true)).name = "SaveAndQuit"
+		_button(tr("Quit"), row, func(): quit_requested.emit(false)).name = "QuitNow"
+		var cancel := _button(tr("Cancel"), row, _disarm)
+		cancel.name = "CancelQuit"
+		_focus_now.bind(cancel).call_deferred()
+	else:
+		_button(tr("Quit to desktop"), _body, _arm.bind("quit")).name = "Quit"
+
+
+func _build_save() -> void:
+	var row := HBoxContainer.new()
+	_body.add_child(row)
+	_name_field = LineEdit.new()
+	_name_field.name = "SaveName"
+	_name_field.text = default_name
+	_name_field.max_length = 48
+	_name_field.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_name_field.accessibility_name = tr("Save name")
+	_name_field.editable = not _busy
+	_name_field.text_submitted.connect(func(t: String): _save_as(t, ""))
+	row.add_child(_name_field)
+	_button(tr("Save"), row, func(): _save_as(_name_field.text, "")).name = "SaveNew"
+	if saves.is_empty():
+		_line(tr("No saves yet."))
+	for s in saves:
+		var r := HBoxContainer.new()
+		_body.add_child(r)
+		var l := Label.new()
+		l.text = _row_text(s)
+		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		l.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		r.add_child(l)
+		var slot: String = str(s.slot)
+		if _armed == "overwrite:" + slot:
+			_button(tr("Overwrite?"), r, func(): _save_as(str(s.get("name", slot)), slot)).name = "ConfirmOverwrite"
+			_button(tr("Cancel"), r, _disarm)
+		else:
+			_button(tr("Overwrite"), r, _arm.bind("overwrite:" + slot))
+	_button(tr("Back"), _body, show_page.bind("menu"))
+
+
+func _save_as(name: String, slot: String) -> void:
+	if _busy or name.strip_edges() == "":
+		return
+	var target: String = slot if slot != "" else slot_name(name)
+	if slot == "" and saves.any(func(x): return str(x.slot) == target):
+		# a new name whose file-safe slot already exists goes through the overwrite confirm (game-menu.md)
+		_armed = "overwrite:" + target
+		_build()
+		show_status(tr("A save file \"%s\" already exists: overwrite it?") % target)
+		return
+	_armed = ""
+	save_requested.emit(name.strip_edges(), target)
+
+
+## The file-safe slot for a save name: ASCII letters and digits kept (lower case), every other run of characters one
+## "_"; "save" when nothing is left. Two names can share a slot, so a new save checks for it first.
+static func slot_name(name: String) -> String:
+	var out: String = ""
+	var gap: bool = false
+	for ch in name.strip_edges().to_lower():
+		var code: int = ch.unicode_at(0)
+		if (code >= 97 and code <= 122) or (code >= 48 and code <= 57):
+			out += ch
+			gap = false
+		elif not gap and out != "":
+			out += "_"
+			gap = true
+	out = out.trim_suffix("_")
+	return out if out != "" else "save"
+
+
+func _build_load() -> void:
+	if saves.is_empty():
+		_line(tr("No saves yet."))
+	for s in saves:
+		var r := HBoxContainer.new()
+		_body.add_child(r)
+		var l := Label.new()
+		l.text = _row_text(s) + ("" if bool(s.get("ok", true)) else "\n" + str(s.get("reason", "")))
+		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		l.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		r.add_child(l)
+		var slot: String = str(s.slot)
+		l.focus_mode = Control.FOCUS_ALL   # a greyed row stays reachable, its reason in its name
+		l.accessibility_name = l.text.replace("
+", ", ")
+		if _armed == "load:" + slot:
+			var ask := _button(tr("Load? Unsaved progress is lost."), r, func(): load_requested.emit(slot))
+			ask.name = "ConfirmLoad"
+			_button(tr("Cancel"), r, _disarm).name = "CancelLoad"
+		else:
+			var b := _button(tr("Load"), r, _arm.bind("load:" + slot))
+			b.name = "Load_" + slot
+			b.disabled = _busy or not bool(s.get("ok", true))
+			b.accessibility_name = tr("Load %s") % str(s.get("name", slot))
+	_button(tr("Back"), _body, show_page.bind("menu"))
+
+
+func _row_text(s: Dictionary) -> String:
+	return "%s\n%s · %s · %s" % [str(s.get("name", s.get("slot", ""))), str(s.get("date", "")), str(s.get("realm", "")), str(s.get("time", ""))]
+
+
+func _build_settings() -> void:
+	if settings == null:
+		_line(tr("Settings are not available."))
+		return
+	var labels := {"ui_scale": tr("UI scale"), "reduced_motion": tr("Reduced motion"), "colourblind": tr("Colourblind mode"),
+		"tooltip_delay": tr("Tooltip delay"), "tooltip_lock_delay": tr("Tooltip lock delay"), "tooltip_close_grace": tr("Tooltip close grace"),
+		"lock_timer": tr("Tooltips lock after the delay"), "lock_middle": tr("Tooltips lock on a middle click"),
+		"lock_click": tr("Tooltips lock on a click"), "letter_hotkeys": tr("Single-letter window hotkeys (Q and V stay on)"),
+		"borders": tr("Region and province borders on the map"), "outliner_open": tr("Outliner shown")}
+	var words := {"off": tr("off"), "red_green": tr("red-green")}
+	for key in settings.keys():
+		var d: Dictionary = settings.def(key)
+		var v: Variant = settings.value(key)
+		var r := HBoxContainer.new()
+		r.name = "Setting_" + key
+		_body.add_child(r)
+		var l := Label.new()
+		l.text = str(labels.get(key, key))
+		l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		l.custom_minimum_size = Vector2(220, 0)
+		l.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		r.add_child(l)
+		if v is bool:
+			var t := CheckButton.new()
+			t.button_pressed = bool(v)
+			t.text = tr("on") if bool(v) else tr("off")
+			t.accessibility_name = "%s, %s" % [l.text, t.text]
+			t.toggled.connect(_on_toggle.bind(key, t, l.text))
+			r.add_child(t)
+		elif d.has("options"):
+			var o := OptionButton.new()
+			var opts: Array = Array(d.options)
+			for i in opts.size():
+				var shown: String = (str(int(opts[i])) + " %") if (opts[i] is float or opts[i] is int) else str(words.get(str(opts[i]), opts[i]))
+				o.add_item(shown, i)
+				if (opts[i] is float or opts[i] is int) and (v is float or v is int) and is_equal_approx(float(opts[i]), float(v)) or str(opts[i]) == str(v):
+					o.select(i)
+			o.accessibility_name = l.text
+			o.item_selected.connect(func(i: int): settings.set_value(key, opts[i]))
+			r.add_child(o)
+		else:
+			var s := HSlider.new()
+			s.min_value = float(d.get("min", 0.0))
+			s.max_value = float(d.get("max", 1.0))
+			s.step = 0.05
+			s.value = float(v)
+			s.custom_minimum_size = Vector2(160, 0)
+			var n := Label.new()
+			n.text = "%.2f s" % float(v)
+			s.accessibility_name = "%s, %s" % [l.text, n.text]
+			s.value_changed.connect(_on_slider.bind(key, s, n, l.text))
+			r.add_child(s)
+			r.add_child(n)
+	_line(tr("Coming with the settings pass: key bindings, brightness, End turn input, toast duration, the outliner, borders and alerts by kind."))
+	if not _settings_only:
+		_button(tr("Back"), _body, show_page.bind("menu"))
+
+
+func _line(text: String) -> void:
+	var l := Label.new()
+	l.text = text
+	l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_body.add_child(l)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if visible and event is InputEventKey and event.is_pressed() and (event as InputEventKey).physical_keycode == KEY_ESCAPE:
+		back_or_close()
+		get_viewport().set_input_as_handled()
+
+
+func _arm(what: String) -> void:
+	_armed = what
+	_build()
+
+
+func _disarm() -> void:
+	_armed = ""
+	_build()
+
+
+func _on_toggle(on: bool, key: String, t: CheckButton, label: String) -> void:
+	settings.set_value(key, on)
+	t.text = tr("on") if on else tr("off")
+	t.accessibility_name = "%s, %s" % [label, t.text]
+
+
+func _on_slider(x: float, key: String, sl: HSlider, n: Label, label: String) -> void:
+	var stored: Variant = settings.set_value(key, x)
+	n.text = "%.2f s" % float(stored)
+	sl.accessibility_name = "%s, %s" % [label, n.text]
+
+
+func _copy_seed() -> void:
+	DisplayServer.clipboard_set(seed_text)
+	show_status(tr("Seed copied: %s") % seed_text)

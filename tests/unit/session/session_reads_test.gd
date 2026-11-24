@@ -102,6 +102,18 @@ func test_every_read_method_and_guidance_read_leaves_the_world_unchanged() -> vo
 		"GameQuery.person": func(): return GameQuery.person(s, npc),
 		"GameQuery.people_at": func(): return GameQuery.people_at(s, here),
 		"GameQuery.practice_fight": func(): return GameQuery.practice_fight(s, npc),
+		"GameQuery.character": func(): return GameQuery.character(s),
+		"GameQuery.world_seed": func(): return GameQuery.world_seed(s),
+		"GameQuery.inventory": func(): return GameQuery.inventory(s),
+		"GameQuery.relationships": func(): return GameQuery.relationships(s),
+		"GameQuery.rankings": func(): return GameQuery.rankings(s, s.player.realm_index),
+		"GameQuery.rankings top": func(): return GameQuery.rankings(s, "top"),
+		"GameQuery.sect": func(): return GameQuery.sect(s, ""),
+		"GameQuery.abode": func(): return GameQuery.abode(s),
+		"GameQuery.outliner": func(): return GameQuery.outliner(s, [npc]),
+		"GameQuery.dao_do": func(): return GameQuery.dao_do(s),
+		"GameQuery.dao_do_node": func(): return GameQuery.dao_do_node(s, int(s.tree.frontier(s.player, s.gd)[0]) if not s.tree.frontier(s.player, s.gd).is_empty() else 0, []),
+		"GameQuery.sect other": func(): return GameQuery.sect(s, str(s.db.all("sects")[0].id)),
 	}
 	for name in reads:
 		var before: String = _state(s)
@@ -192,4 +204,111 @@ func test_a_place_carries_its_catalogue_look_and_lore() -> void:
 	var cat: Dictionary = s.gd.file("world_place_lore").places
 	assert_eq(str(lore.get("name", "")), str(cat[str(int(rec.continent_id))].name), "keyed by the continent place id")
 	assert_eq(GameQuery.place_lore(s, "no_such_place"), {}, "an unknown place has none")
+	s.shutdown()
+
+
+func test_the_character_read_carries_every_section_of_the_sheet() -> void:
+	# design/ux/character-sheet.md Acceptance Criteria: one read returns every field the window shows, Breakdowns included.
+	var s := _session()
+	var v: Dictionary = GameQuery.character(s)
+	for key in ["name", "realm_label", "age", "lifespan", "power", "cultivation", "roots", "talents", "vitals", "combat", "slots",
+			"known", "gear", "crafts", "dao_do", "fate", "breakdowns"]:
+		assert_true(v.has(key), "the character read has %s" % key)
+	assert_eq(Array(v.roots.elements).size(), 5, "all five elements, owned or not")
+	assert_eq(Array(v.talents).size(), s.gd.thien_phu_defs().size(), "every talent")
+	for key in ["rate", "lifespan", "health", "linh_luc", "than_thuc", "dan_doc", "backlash"]:
+		assert_true(Array(v.breakdowns.get(key, {}).get("lines", [])).size() > 0, "a %s Breakdown with lines" % key)
+	assert_eq(str(v.slots[0].slot), "main", "the main slot first")
+	assert_eq((v.cultivation.bottleneck as Dictionary).is_empty(), not CultivationRules.at_great_perfection(s.player, s.gd),
+		"the bottleneck block exactly at great perfection")
+	s.shutdown()
+
+
+func test_the_character_read_shows_the_bottleneck_block_at_great_perfection() -> void:
+	var s := _session()
+	s.player.level = int(Ladder.band(s.gd, s.player.realm_index)[1])   # the realm's last level: great perfection
+	s.player.stage = Ladder.stage_of_level(s.gd, s.player.level)
+	s.player.tu_vi = Ladder.bar_cost(s.gd, s.player.realm_index)
+	assert_true(CultivationRules.at_bottleneck(s.player, s.gd), "precondition: at the bottleneck")
+	var before: String = _state(s)
+	var v: Dictionary = GameQuery.character(s)
+	var bn: Dictionary = v.cultivation.bottleneck
+	assert_false(bn.is_empty(), "the block is there at great perfection")
+	assert_true(bool(bn.full) and bn.has("chance") and bn.has("backlash"), "a full bar, the chance and the risk")
+	assert_eq(_state(s), before, "the read changed nothing")
+	s.shutdown()
+
+
+func test_the_inventory_read_lists_owned_items_with_their_verbs() -> void:
+	var s := _session()
+	var v: Dictionary = GameQuery.inventory(s)
+	var owned: int = 0
+	for it in s.db.items_of(s.player.id):
+		if not (str(it.get("kind", "")) == "herb" and int(it.get("plot", -1)) >= 0):
+			owned += 1
+	assert_eq(Array(v.items).size(), owned, "every owned item except planted herbs")
+	for row in v.items:
+		assert_true(int(row.rarity) >= 1 and str(row.text) != "", "%s has a rarity and its text" % str(row.id))
+		if str(row.kind) == "artifact":
+			assert_true(Array(row.verbs).size() > 0, "a pháp bảo has a verb")
+	assert_true(int(v.gear.base_total) >= 5, "the base slots counted")
+	s.shutdown()
+
+
+func test_the_relationships_read_matches_the_tie_store() -> void:
+	var s := _session()
+	var v: Dictionary = GameQuery.relationships(s)
+	var pid: String = s.player.id
+	assert_eq(int(v.cap), Ties.cap(s.gd, s.db, pid), "the cap")
+	assert_eq(int(v.soft_limit), Ties.soft_limit(s.gd, s.db, pid), "the soft limit")
+	assert_eq(Array(v.ties).size(), s.db.ties_of(pid).size(), "one row per tie record")
+	for t in v.ties:
+		assert_true(Array(t.kinds).size() > 0, "a tie row has a kind")
+	s.shutdown()
+
+
+func test_the_rankings_read_orders_by_rating_lists_the_player_and_agrees_with_the_box() -> void:
+	var s := _session()
+	var v: Dictionary = GameQuery.rankings(s, s.player.realm_index)
+	assert_true(bool(v.on), "ratings are on in this suite")
+	assert_true(int(v.player_rank) > 0, "the player is listed")
+	var rows: Array = v.rows
+	for i in range(1, rows.size()):
+		var a: Dictionary = rows[i - 1]
+		var b: Dictionary = rows[i]
+		if (a.state == RatingService.PROVISIONAL) == (b.state == RatingService.PROVISIONAL):
+			assert_true(float(a.rating) >= float(b.rating), "rule 9 order at %d" % i)
+	var me: Dictionary = rows[int(v.player_rank) - 1]
+	assert_eq(int(me.power), int(GameQuery.resources(s).power), "the window and the rating box show one number")
+	var top: Dictionary = GameQuery.rankings(s, "top")
+	for r in top.rows:
+		assert_true(["Nguyên Anh", "Hóa Thần"].has(str(r.realm)), "the top list is Nguyên Anh and Hóa Thần only")
+	s.shutdown()
+
+
+func test_the_abode_read_shows_the_starting_home() -> void:
+	var s := _session()
+	var v: Dictionary = GameQuery.abode(s)
+	assert_true(bool(v.has_home), "a starting home (a free grade-1 room)")
+	assert_eq(int(v.grade), 1)
+	assert_true(int(v.slots) >= 1 and int(v.used) <= int(v.slots))
+	assert_true(Array(v.catalogue).size() > 0, "home works to build")
+	s.shutdown()
+
+
+func test_the_dao_do_node_route_is_the_tree_s_route() -> void:
+	var s := _session()
+	var fr: Array = s.tree.frontier(s.player, s.gd)
+	assert_true(not fr.is_empty(), "a frontier")
+	var far: int = -1
+	for nb in s.tree.neighbors(int(fr[0])):
+		if not s.player.tree_nodes.has(nb) and not fr.has(nb):
+			far = int(nb)
+	if far < 0:
+		far = int(fr[0])
+	var v: Dictionary = GameQuery.dao_do_node(s, far, [])
+	assert_eq(Array(v.route), s.tree.path_to(s.player, s.gd, far), "the route is DaoDoTree.path_to's")
+	var planned: Dictionary = GameQuery.dao_do_node(s, far, [int(fr[0])])
+	assert_true(Array(planned.route).size() <= Array(v.route).size(), "a plan shortens the route from its end")
+	assert_eq(int(GameQuery.dao_do(s).points), s.player.tree_points)
 	s.shutdown()
