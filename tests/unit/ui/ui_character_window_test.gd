@@ -40,10 +40,24 @@ static func _find(root: Node, name: String) -> Node:
 	return root.find_child(name, true, false)
 
 
-func test_the_sheet_has_the_twelve_sections_in_order() -> void:
+func test_the_tabs_hold_the_twelve_sections_in_order() -> void:
 	var w := _window(_view())
-	assert_eq(w.section_keys(), CharacterWindow.SECTIONS)
-	assert_eq(CharacterWindow.SECTIONS.size(), 12, "the eleven of character-sheet.md and the traits row (2026-11-24)")
+	var all: Array = []
+	for t in CharacterWindow.TABS:
+		w.open_tab(str(t[0]))
+		assert_eq(w.section_keys(), Array(t[2]), "tab %s" % t[0])
+		all += Array(t[2])
+	assert_eq(all.size(), 12, "the eleven of character-sheet.md and the traits row (2026-11-24)")
+	for k in CharacterWindow.SECTIONS:
+		assert_true(all.has(k), "%s is on a tab" % k)
+
+
+func test_a_jump_to_a_section_on_another_tab_opens_that_tab() -> void:
+	var w := _window(_view())
+	assert_eq(w.tab(), "overview")
+	w.jump_to("fate")
+	assert_eq(w.tab(), "fate")
+	assert_true(w.section_keys().has("fate"))
 
 
 func test_every_slot_has_a_change_button() -> void:
@@ -122,4 +136,4 @@ func test_the_compact_layout_folds_the_standing_line_into_the_name() -> void:
 	w.compact = true
 	add_child(w)
 	w.show_view(_view(), "", false)
-	assert_eq(w.header.get_child_count(), 2, "name and numbers only")
+	assert_eq(w.header.get_child_count(), 3, "name, numbers and the tab row only (the standing line sits in the Cultivation inset)")

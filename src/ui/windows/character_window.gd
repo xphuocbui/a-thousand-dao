@@ -11,6 +11,10 @@ extends GameWindow
 ## The section keys in jump order: the illustrated layout's reading order (left column first, then the right, the
 ## công pháp cards, the insets two by two), which replaced character-sheet.md's list order on 2026-11-24.
 const SECTIONS := ["talents", "cultivation", "traits", "roots", "vitals", "cong_phap", "combat", "dao_do", "gear", "crafts", "fate", "lifespan"]
+## The tabs (the round-3 mock-up's tab row, user 2026-11-24): [key, title, its sections]. Overview holds the mock-up's
+## page; a jump to a section on another tab opens that tab first.
+const TABS := [["overview", "Overview", ["talents", "cultivation", "traits", "roots", "vitals", "cong_phap"]],
+	["combat", "Combat", ["combat"]], ["equipment", "Equipment", ["dao_do", "gear", "crafts"]], ["fate", "Fate & life", ["fate", "lifespan"]]]
 ## Hán marks per element (a shape beside the colour; accessibility-requirements.md colour audit).
 const ELEMENT_MARKS := {"kim": "金", "moc": "木", "thuy": "水", "hoa": "火", "tho": "土"}
 
@@ -19,6 +23,38 @@ var lifespan_warn_share: float = 0.1
 
 var _chooser_slot: Dictionary = {}   # the slot whose chooser is open ({slot, index}), {} when none
 var _armed: bool = false             # the breakthrough confirm is armed
+var _tab: String = "overview"        # the open tab (TABS)
+
+
+## The open tab's key (for tests).
+func tab() -> String:
+	return _tab
+
+
+## Opens tab [param key] (a TABS key).
+func open_tab(key: String) -> void:
+	if key == _tab:
+		return
+	_tab = key
+	_chooser_slot = {}
+	_armed = false
+	super.show_view(view, "", locked)
+
+
+## The tab that holds section [param section_key] ("" when none does).
+static func tab_of(section_key: String) -> String:
+	for t in TABS:
+		if Array(t[2]).has(section_key):
+			return str(t[0])
+	return ""
+
+
+func jump_to(key: String) -> void:
+	var t: String = tab_of(key)
+	if t != "" and t != _tab:
+		_tab = t
+		super.show_view(view, "", locked)
+	super.jump_to(key)
 
 
 func kind() -> String:
@@ -43,6 +79,9 @@ func show_view(v: Dictionary, section: String, is_locked: bool) -> void:
 	if v.get("id", "") != view.get("id", "-"):
 		_chooser_slot = {}
 		_armed = false
+		_tab = "overview"
+	if section != "" and tab_of(section) != "":
+		_tab = tab_of(section)
 	super.show_view(v, section, is_locked)
 
 
@@ -54,17 +93,32 @@ func _build() -> void:
 	_build_header(v)
 	var dead: bool = not bool(v.get("alive", true))
 	locked = locked or dead
+	_build_tabs()
 	var g: VBoxContainer = Illustrated.ground(body)
+	if _tab != "overview":
+		var rest: GridContainer = Illustrated.grid(g, 1 if compact else 2, 10)
+		match _tab:
+			"combat":
+				_build_combat(v, rest)
+			"equipment":
+				_build_dao_do(v, rest)
+				_build_gear(v, rest)
+				_build_crafts(v, rest)
+			"fate":
+				_build_fate(v, rest)
+				_build_lifespan(v, rest)
+		_bar_buttons()
+		return
 	var top := HBoxContainer.new()
 	top.add_theme_constant_override("separation", 12)
 	g.add_child(top)
 	# left: the portrait, the name plaque, the Thiên phú tiles
-	var pw: float = 180.0 if compact else 250.0
+	var pw: float = 200.0 if compact else 300.0   # wide enough for the Thiên phú tiles with their icons
 	var left := VBoxContainer.new()
 	left.add_theme_constant_override("separation", 8)
 	left.custom_minimum_size = Vector2(pw, 0)
 	top.add_child(left)
-	var portrait: Control = Illustrated.framed(PortraitPicker.texture_for(v.get("portrait", {})), Vector2(pw, pw * 1.25), "?")
+	var portrait: Control = Illustrated.framed(PortraitPicker.texture_for(v.get("portrait", {})), Vector2(pw, pw * 1.15), "?")
 	portrait.name = "Portrait"
 	left.add_child(portrait)
 	left.add_child(Illustrated.plaque(str(v.get("name", ""))))
@@ -81,18 +135,43 @@ func _build() -> void:
 	right.add_child(mid)
 	_build_roots(v, mid)
 	_build_vitals(v, mid)
-	# the công pháp cards under them (the mock-up's right column), then the rest two by two
+	# the công pháp cards under them (the mock-up's right column)
 	_build_cong_phap(v, right)
-	var rest: GridContainer = Illustrated.grid(g, 1 if compact else 2, 10)
-	_build_combat(v, rest)
-	_build_dao_do(v, rest)
-	_build_gear(v, rest)
-	_build_crafts(v, rest)
-	_build_fate(v, rest)
-	_build_lifespan(v, rest)
+	_bar_buttons()
+
+
+func _bar_buttons() -> void:
 	bar_open(tr("Inventory"), "inventory")
 	bar_open(tr("Đạo Đồ"), "dao_do")
 	bar_open(tr("Rankings"), "rankings")
+
+
+# The tab row in the sticky header: one toggle per tab, the open one pressed (Ctrl+Tab / Ctrl+Shift+Tab step them).
+func _build_tabs() -> void:
+	var row := HBoxContainer.new()
+	row.name = "Tabs"
+	row.add_theme_constant_override("separation", 4)
+	header.add_child(row)
+	for t in TABS:
+		var b := Button.new()
+		b.name = "Tab_" + str(t[0])
+		b.toggle_mode = true
+		b.text = tr(str(t[1]))
+		b.button_pressed = str(t[0]) == _tab
+		b.accessibility_name = b.text + ((", " + tr("selected")) if b.button_pressed else "")
+		b.pressed.connect(open_tab.bind(str(t[0])))
+		row.add_child(b)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if is_visible_in_tree() and event is InputEventKey and event.is_pressed() and (event as InputEventKey).ctrl_pressed \
+			and (event as InputEventKey).physical_keycode == KEY_TAB:
+		var keys: Array = TABS.map(func(t): return str(t[0]))
+		var i: int = keys.find(_tab) + (-1 if (event as InputEventKey).shift_pressed else 1)
+		open_tab(str(keys[posmod(i, keys.size())]))
+		get_viewport().set_input_as_handled()
+		return
+	super._unhandled_input(event)
 
 
 func _build_header(v: Dictionary) -> void:

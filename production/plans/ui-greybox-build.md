@@ -80,6 +80,14 @@ Theme), and later screens are built in the final style.
 | Z6 window host | `src/ui/windows/window_host.gd`, `game_window.gd`, `assets/data/ui_windows.json` | Built 2026-11-23 night: frame, history (back / forward, Alt+← / →, mouse 4 / 5, forward entries dropped), focus return, sticky header, section jumps (Home / End, LT / RT), reply strip (3 lines + dismiss), Z2 buttons and hotkeys from `ui_windows.json` |
 | Character sheet | `src/ui/windows/character_window.gd`, `GameQuery.character`; spec `design/ux/character-sheet.md` (lean r1 NEEDS REVISION, all 11 findings applied) | Built 2026-11-23 night, see its section below |
 
+## Rankings, icons, Abode, Inventory, tabs (2026-11-24, user: "do your suggestions in order")
+- Rankings: podium of the top three + portrait medallions on rows (round medallions crop a real square, Illustrated._square).
+- 8 tile icons (assets/icons/ui: six Thiên phú, sect Founded / Members), gen_ui_icons.py.
+- Abode: the home's place painting as banner, grade / slots / upkeep / density tiles, insets.
+- Inventory: 70 item icons (assets/icons/items, gen_item_icons.py; GameQuery.item_icon), rows framed in rarity colour.
+- Character sheet tabs: Overview / Combat / Equipment / Fate & life (CharacterWindow.TABS; jumps open the tab).
+Evidence 08-09 (tabs), 22 (inventory), 42 (rankings), 63-64 (abode). Committed f0726de4 (all but tabs).
+
 ## Traits, Relationships, rankings, pins (2026-11-24, user: "do traits first, use openai, then do relationships")
 - **Trait medallions**: `tools/asset-pipeline/icons/gen_traits.py` painted all 77 traits (37 personality, 14 callings,
   10 fate, 16 gained) at low quality, one hand-written symbol each; the rim metal marks the group (bronze, jade, gold,
