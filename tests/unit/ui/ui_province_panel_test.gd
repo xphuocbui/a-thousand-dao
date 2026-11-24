@@ -1,6 +1,6 @@
 extends DaoTestSuite
-## The province panel (design/ux/province-panel.md, draft) and the map's province lookup (Provinces rule 1's tile
-## index): the panel shows one record's name, holder, four numbers and five tabs; open land under the cursor resolves to
+## The province window (design/ux/province-panel.md, draft; in the window host since 2026-11-24) and the map's province lookup (Provinces rule 1's tile
+## index): the panel shows one record's name, holder, four numbers and five sections; open land under the cursor resolves to
 ## its province. Fixture records are built here, not read from the shipped data.
 
 
@@ -17,62 +17,66 @@ func _settlement() -> Dictionary:
 			"slots": 3, "infrastructure": 640, "infra_old": 0, "usage": 420, "access": 1.0, "development": 7}}
 
 
-func _panel() -> ProvincePanel:
-	var p := ProvincePanel.new()
-	add_child(p)
-	auto_free(p)
-	return p
+func _window(v: Dictionary) -> ProvinceWindow:
+	var w := ProvinceWindow.new()
+	add_child(w)
+	auto_free(w)
+	w.show_view(v, "", false)
+	return w
 
 
-func test_the_panel_shows_the_name_holder_and_four_numbers() -> void:
-	# Arrange
-	var p := _panel()
-	# Act
-	p.open_province(_settlement(), {"region_name": "Thử Vực", "holder_name": "Thử Tông"})
+func _view(extra: Dictionary = {}) -> Dictionary:
+	var v := _settlement()
+	v["region_name"] = "Thử Vực"
+	v["holder_name"] = "Thử Tông"
+	v["place_ids"] = {"5": "l5"}
+	v["art_order"] = [-1]   # no painting
+	v.merge(extra, true)
+	return v
+
+
+func test_the_window_shows_the_name_holder_and_four_numbers() -> void:
+	# Arrange / Act
+	var w := _window(_view())
 	# Assert
-	assert_true(p.visible, "open")
-	assert_eq(p._title.text, "Thử Trấn", "the province's name")
-	assert_true(p._han.text.contains("試鎮"), "the Chinese name under it")
-	assert_true(p._sub.text.contains("Thử Tông"), "the holder in the sub line")
-	assert_eq(p._stats.get_child_count(), 4, "population, development, access, main good")
+	assert_eq(w.kind(), "provinces", "its kind in the host")
+	assert_eq(w.window_title(w.view), "Thử Trấn", "the province's name is the title")
+	var texts: Array = w.header.get_children().filter(func(c): return c is Label).map(func(c): return (c as Label).text)
+	assert_true(texts.any(func(t): return str(t).contains("試鎮")), "the Chinese name in the header")
+	assert_true(texts.any(func(t): return str(t).contains("Thử Tông")), "the holder in the sub line")
+	var strip: HBoxContainer = w.header.get_children().filter(func(c): return c is HBoxContainer)[0]
+	assert_eq(strip.get_child_count(), 4, "population, development, access, main good")
 
 
-func test_each_tab_shows_its_part_of_the_record() -> void:
-	var p := _panel()
-	p.open_province(_settlement(), {})
-	assert_true(p.body_text().contains("A town of trials."), "Overview: the lore")
-	p.show_tab(1)
-	assert_true(p.body_text().contains("Thiết Khoáng") and p.body_text().contains("new"), "Places: a new place is marked new")
-	p.show_tab(2)
-	assert_true(p.body_text().contains("50 from the wilds"), "Economy: the gathered share is its own line")
-	p.show_tab(3)
-	assert_true(p.body_text().contains("2 / 3"), "Works: buildings standing of slots")
-	assert_true(p.body_text().contains("empty slot"), "and the empty slot")
-	p.show_tab(4)
-	assert_true(p.body_text().contains("No modifiers"), "Modifiers: says so when there are none")
+func test_each_section_shows_its_part_of_the_record() -> void:
+	var w := _window(_view())
+	assert_eq(w.section_keys(), ["overview", "places", "economy", "works", "modifiers"], "five sections, jump targets")
+	assert_true(w.section_text("overview").contains("A town of trials."), "Overview: the lore")
+	assert_true(w.section_text("places").contains("Thiết Khoáng"), "Places: every place")
+	assert_true(w.section_text("economy").contains("50 from the wilds"), "Economy: the gathered share is its own line")
+	assert_true(w.section_text("works").contains("2 / 3"), "Works: buildings standing of slots")
+	assert_true(w.section_text("works").contains("empty slot"), "and the empty slot")
+	assert_true(w.section_text("modifiers").contains("No modifiers"), "Modifiers: says so when there are none")
+
+
+func test_a_known_place_link_opens_its_place_panel() -> void:
+	var w := _window(_view())
+	var seen: Array = []
+	w.open_requested.connect(func(k, sub, _sec): seen.append([k, sub]))
+	w._on_link("5")
+	w._on_link("99")   # not known: no link
+	assert_eq(seen, [["place", "l5"]], "the session id of the known place")
 
 
 func test_a_wilderness_province_shows_what_it_passes_on_and_no_population() -> void:
-	var r := _settlement()
-	r.kind = "wilderness"
-	r.stats.access = null
-	r.passes_to = [{"province": "prov_a", "share": 0.75}, {"province": "prov_b", "share": 0.25}]
-	var p := _panel()
-	p.open_province(r, {})
-	p.show_tab(2)
-	assert_true(p.body_text().contains("prov_a  75 %"), "its output's share to each gatherer")
-	var pop_value: Label = p._stats.get_child(0).get_child(1)
-	assert_eq(pop_value.text, "—", "no population in the wilderness")
-
-
-func test_closing_hides_the_panel_and_emits_closed() -> void:
-	var p := _panel()
-	p.open_province(_settlement(), {})
-	var seen := [false]
-	p.closed.connect(func(): seen[0] = true)
-	p.close_panel()
-	assert_false(p.visible, "hidden")
-	assert_true(seen[0], "closed emitted")
+	var v := _view()
+	v.kind = "wilderness"
+	v.stats.access = null
+	v.passes_to = [{"province": "prov_a", "share": 0.75}, {"province": "prov_b", "share": 0.25}]
+	var w := _window(v)
+	assert_true(w.section_text("economy").contains("prov_a  75 %"), "its output's share to each gatherer")
+	var strip: HBoxContainer = w.header.get_children().filter(func(c): return c is HBoxContainer)[0]
+	assert_eq((strip.get_child(0).get_child(1) as Label).text, "—", "no population in the wilderness")
 
 
 func test_the_shipped_provinces_all_have_a_key_and_a_start_record() -> void:
@@ -155,34 +159,39 @@ func test_v_opens_the_province_at_the_view_centre() -> void:
 
 
 func test_good_classes_are_named_by_kind_and_rarity_band() -> void:
-	assert_eq(ProvincePanel.good_name("herb2"), "Herbs, rarity 3–4", "band 2 = rarity 3-4 (TradeGoods.class_of)")
-	assert_eq(ProvincePanel.good_name("special1"), "Specialties, rarity 1–2", "specialties too")
-	assert_eq(ProvincePanel.good_name("odd"), "odd", "an unknown class shows as it is")
+	assert_eq(ProvinceWindow.good_name("herb2"), "Herbs, rarity 3–4", "band 2 = rarity 3-4 (TradeGoods.class_of)")
+	assert_eq(ProvinceWindow.good_name("special1"), "Specialties, rarity 1–2", "specialties too")
+	assert_eq(ProvinceWindow.good_name("odd"), "odd", "an unknown class shows as it is")
 
 
 func test_population_shows_as_people_one_unit_a_thousand_mortals() -> void:
 	# user decision 2026-11-24: population as people, 1 settlement unit = 1,000 mortals (display only)
-	assert_eq(ProvincePanel.people(3.4), "3,400", "3.4 units")
-	assert_eq(ProvincePanel.people(0.04), "0", "rounded to the hundred")
-	assert_eq(ProvincePanel.people(1234.5), "1,234,500", "thousands separators")
-	assert_eq(ProvincePanel.people(2.0, 500.0), "1,000", "the scale is a knob")
+	assert_eq(ProvinceWindow.people(3.4), "3,400", "3.4 units")
+	assert_eq(ProvinceWindow.people(0.04), "0", "rounded to the hundred")
+	assert_eq(ProvinceWindow.people(1234.5), "1,234,500", "thousands separators")
+	assert_eq(ProvinceWindow.people(2.0, 500.0), "1,000", "the scale is a knob")
 
 
 func test_a_province_without_a_painting_shows_the_placeholder_not_a_stand_in() -> void:
 	# .claude/rules/ui-code.md (user 2026-11-24): missing art is shown as an obvious placeholder
-	var p := _panel()
-	p.open_province(_settlement(), {})
-	assert_true(p.shows_placeholder(), "no painting: the placeholder shows")
-	var img := ImageTexture.create_from_image(Image.create(4, 4, false, Image.FORMAT_RGB8))
-	p.open_province(_settlement(), {}, img)
-	assert_false(p.shows_placeholder(), "a painting: no placeholder")
+	var w := _window(_view())
+	assert_true(w.shows_placeholder(), "no painting: the placeholder shows")
+	var cid: int = -1
+	for f in DirAccess.get_files_at("res://assets/art/places"):
+		if f.ends_with(".webp") and str(f.get_basename()).is_valid_int():
+			cid = int(f.get_basename())
+			break
+	assert_true(cid >= 0, "a painted place exists")
+	w.show_view(_view({"art_order": [cid]}), "", false)
+	assert_false(w.shows_placeholder(), "a painting: no placeholder")
 
 
 func test_the_placeholder_is_obvious() -> void:
 	var c: Control = PlaceholderArt.make(Vector2(0, 100), "No painting yet")
 	auto_free(c)
 	assert_true(bool(c.get_meta("placeholder", false)), "marked as a placeholder")
-	assert_true(c.tooltip_text.contains("PLACEHOLDER") and c.tooltip_text.contains("No painting yet"), c.tooltip_text)
+	var tip: String = str(c.get_meta(TooltipLayer.META, ""))
+	assert_true(tip.contains("PLACEHOLDER") and tip.contains("No painting yet"), tip)
 	var tex: Texture2D = PlaceholderArt.texture()
 	assert_true(PlaceholderArt.is_placeholder(tex), "the shared texture")
 	var im: Image = tex.get_image()

@@ -198,6 +198,51 @@ static func provinces(s: GameSession) -> Array:
 	return s.gd.file("world_provinces").get("provinces", [])
 
 
+## The province window's view (design/ux/province-panel.md) for province [param province_id]: a copy of its record
+## plus region_name, holder_name (the region's great sect), lord_name (a minor sect seated in the province, Provinces
+## rule 2), place_ids ({continent id: session place id} for the places the player knows, the links) and art_order
+## (continent ids, seat first, to look for a painting). {} for an unknown id. A copy.
+static func province(s: GameSession, province_id: int) -> Dictionary:
+	var rec: Dictionary = {}
+	for r in provinces(s):
+		if int(r.get("id", -1)) == province_id:
+			rec = Dictionary(r).duplicate(true)
+			break
+	if rec.is_empty():
+		return {}
+	var region: Dictionary = {}
+	for r in s.db.all("regions"):
+		if int(r.get("continent_id", -1)) == int(rec.get("region", 0)):
+			region = r
+			break
+	rec["region_name"] = str(region.get("name", ""))
+	var holder: String = str(region.get("holder", ""))
+	rec["holder_name"] = str(s.db.get_record("sects", holder).get("name", "")) if holder != "" else ""
+	var by_cid: Dictionary = {}
+	for p in s.db.all("places"):
+		by_cid[int(p.get("continent_id", -1))] = p
+	var ids: Dictionary = {}
+	var order: Array = []
+	if rec.get("seat_place") != null:
+		order.append(int(rec.seat_place))
+	rec["lord_name"] = ""
+	for q in rec.get("places", []):
+		if not q.has("id"):
+			continue
+		var cid: int = int(q.id)
+		order.append(cid)
+		var p: Dictionary = by_cid.get(cid, {})
+		if p.is_empty():
+			continue
+		if _shown(s, p):
+			ids[str(cid)] = str(p.id)
+		if str(p.get("kind", "")) == "minor_seat" and str(p.get("sect_id", "")) != "" and str(rec.lord_name) == "":
+			rec["lord_name"] = str(s.db.get_record("sects", str(p.sect_id)).get("name", ""))
+	rec["place_ids"] = ids
+	rec["art_order"] = order
+	return rec
+
+
 static func place_lore(s: GameSession, place_id: String) -> Dictionary:
 	var p: Dictionary = s.db.get_record("places", place_id)
 	if p.is_empty() or not p.has("continent_id"):

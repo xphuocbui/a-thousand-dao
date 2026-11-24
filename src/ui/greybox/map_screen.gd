@@ -63,8 +63,7 @@ var _turn_note := Label.new()
 var _sheet_button := Button.new()
 var _portrait := Button.new()
 var _panel := TextPanel.new()
-var _province := ProvincePanel.new()   # the province panel (design/ux/province-panel.md, draft)
-var _provinces: Dictionary = {}       # province id -> its world_provinces.json record
+var _province := ProvinceWindow.new()   # the province window in the host (design/ux/province-panel.md, draft)
 var _person := PersonPanel.new()
 var _fight := FightScreen.new()
 var _people_list := VBoxContainer.new()
@@ -126,7 +125,7 @@ func _ready() -> void:
 	for e in paper.errors:
 		push_warning("theme: " + str(e))
 	theme = wood.theme
-	for w in [_panel, _province, _person, _places, _centre, _comparison, _win, _menu]:
+	for w in [_panel, _person, _places, _centre, _comparison, _win, _menu]:
 		(w as Control).theme = paper.theme
 		(w as Control).theme_type_variation = &"WindowPanel"
 	_tips.theme = paper.theme
@@ -321,7 +320,7 @@ func _shot_and_quit(path: String) -> void:
 		if _arg_value("--province", "") != "":   # --province=ID: the province panel open in the shots
 			_open_province(int(_arg_value("--province", "0")))
 			if _arg_value("--province-tab", "") != "":
-				_province.show_tab(int(_arg_value("--province-tab", "0")))
+				_province.jump_to(str(ProvinceWindow.SECTIONS[clampi(int(_arg_value("--province-tab", "0")), 0, 4)][0]))
 		if _arg_value("--map-mode", "") != "":   # --map-mode=development|goods in the shots
 			_set_province_mode(_arg_value("--map-mode", ""))
 		if _arg_value("--season", "") != "":
@@ -692,14 +691,7 @@ func _build_layout() -> void:
 	_panel.offset_top = 80
 	_panel.offset_bottom = -132
 	add_child(_panel)
-	_province.set_anchors_preset(Control.PRESET_LEFT_WIDE)   # the same Z6 place as the other panels
 	_province.mortals_per_unit = float(_greybox().get("mortals_per_unit", 1000.0))   # population as people (2026-11-24)
-	_province.anchor_right = 0.33
-	_province.offset_left = 16
-	_province.offset_top = 80
-	_province.offset_bottom = -132
-	add_child(_province)
-	_province.place_pressed.connect(func(cid: int): _open_place_by_continent_id(cid))
 	for p in [_person, _win]:
 		p.set_anchors_preset(Control.PRESET_LEFT_WIDE)
 		p.anchor_right = 0.33
@@ -719,6 +711,7 @@ func _build_layout() -> void:
 	_win.register(RelationshipsWindow.new())
 	_win.register(RankingsWindow.new())
 	_win.register(SectWindow.new())
+	_win.register(_province)   # the province window (branch provinces-v2, moved into the host 2026-11-24)
 	_win.register(WikiWindow.new())
 	# (a "provinces" window kind is the province panel on branch provinces-v2, another session: register it here)
 	_win.reader = _read_window
@@ -937,7 +930,7 @@ func _apply_topbar(strong: Font) -> void:
 	var tb: Dictionary = _cfg.get("topbar", {})
 	_bar_h = float(_cfg.get("top_bar_height", 56))
 	_z1.offset_bottom = BAR_TOP + _bar_h
-	for p in [_panel, _province, _person, _places]:   # Z6 starts just below Z1 (Z1a is centred clear of it)
+	for p in [_panel, _person, _places]:   # Z6 starts just below Z1 (Z1a is centred clear of it)
 		p.offset_top = BAR_TOP + _bar_h + 8
 	var tex := func(key: String) -> Texture2D:
 		var path: String = str(tb.get(key, ""))
@@ -1011,8 +1004,6 @@ func _refresh_map(location_id: String) -> void:
 		rects.append((z as Control).get_global_rect())
 	if _panel.visible:
 		rects.append(_panel.get_global_rect())
-	if _province.visible:
-		rects.append(_province.get_global_rect())
 	if _places.visible:
 		rects.append(_places.get_global_rect())
 	_map.set_blocked_rects(rects)
@@ -1023,7 +1014,7 @@ func _set_hud_portrait(f: Dictionary) -> void:
 	var t: Texture2D = PortraitPicker.texture_for(f)
 	if t == null:   # no portrait: the obvious placeholder (.claude/rules/ui-code.md, user 2026-11-24)
 		t = PlaceholderArt.texture()
-		_portrait.tooltip_text = tr("PLACEHOLDER") + " · " + tr("No portrait yet")
+		TooltipLayer.set_tip(_portrait, tr("PLACEHOLDER") + " · " + tr("No portrait yet"))
 	if t == _portrait.icon:
 		return
 	_portrait.icon = t
@@ -1176,33 +1167,11 @@ func _open_place_details(place_id: String) -> void:
 
 ## Opens the province panel on province [param province_id] (a click on open land; design/ux/province-panel.md).
 func _open_province(province_id: int) -> void:
-	if _busy():
+	if _busy() or province_id <= 0:
 		return
-	if _provinces.is_empty():
-		for r in GameQuery.provinces(session):
-			_provinces[int(r.id)] = r
-	var rec: Dictionary = _provinces.get(province_id, {})
-	if rec.is_empty():
-		return
-	var info: Dictionary = _map.region_info(int(rec.get("region", 0)))
-	var ctx: Dictionary = {"region_name": str(info.get("name", "")), "holder_name": str(info.get("holder_name", ""))}
-	var art: Texture2D = null   # the seat's painting, else the first place of the province that has one
-	var order: Array = []
-	if rec.get("seat_place") != null:
-		order.append(int(rec.seat_place))
-	for p in rec.get("places", []):
-		if p.has("id"):
-			order.append(int(p.id))
-	for cid in order:   # the place catalogue's banner painting, else the map's place art
-		art = PortraitPicker.place_painting(cid)
-		if art == null:
-			art = _map.place_art(cid)
-		if art != null:
-			break
-	# no painted place: the panel shows PlaceholderArt (.claude/rules/ui-code.md, user 2026-11-24), not a map crop
 	_places.close_panel()
 	_panel.close_panel()
-	_province.open_province(rec, ctx, art, _map)
+	_open_window("provinces", str(province_id), "", _map)
 
 
 ## The province map modes (design/ux/province-panel.md, open question 4): "development" tints each province from pale
@@ -1236,7 +1205,6 @@ func _set_province_mode(mode: String) -> void:
 func _open_place_by_continent_id(cid: int) -> void:
 	for p in _known_cache:   # session ids are strings ("l1"); match the authored continent id only
 		if int(p.get("continent_id", -1)) == cid:
-			_province.close_panel()
 			_open_place_details(str(p.id))
 			return
 
@@ -1653,6 +1621,9 @@ func _read_window(kind: String, subject: String) -> Dictionary:
 			return GameQuery.dao_do(session)
 		"wiki":   # static data only (design/ux/wiki.md): readable even while a job runs, but the host asks only when idle
 			return WikiData.view(gd, subject)
+		"provinces":   # subject: a province id, or "" for the province at the map view's centre (the Z2 button, V)
+			var pid: int = int(subject) if subject != "" else _map.province_at(_map.size * 0.5)
+			return GameQuery.province(session, pid)
 		"rankings":   # subject: "" the player's realm, "0".."4", or "top" (design/ux/rankings.md)
 			return GameQuery.rankings(session, subject if subject != "" else str(StateSnapshot.take(session).get("realm_index", 0)))
 	return {}

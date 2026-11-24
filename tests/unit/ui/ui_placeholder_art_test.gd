@@ -8,7 +8,7 @@ func test_a_frame_without_art_holds_the_placeholder() -> void:
 	auto_free(f)
 	var ph: Array = f.get_children().filter(func(c): return bool(c.get_meta("placeholder", false)))
 	assert_eq(ph.size(), 1, "the frame holds the placeholder")
-	assert_true((ph[0] as Control).tooltip_text.contains("Thúy Vi Tông"), "it names what is missing")
+	assert_true(str((ph[0] as Control).get_meta(TooltipLayer.META, "")).contains("Thúy Vi Tông"), "it names what is missing")
 
 
 func test_a_frame_with_art_has_no_placeholder() -> void:
@@ -22,4 +22,4 @@ func test_a_medallion_without_a_portrait_shows_the_stripes() -> void:
 	var m: TextureRect = Illustrated.medallion(null, 56.0) as TextureRect
 	auto_free(m)
 	assert_true(PlaceholderArt.is_placeholder(m.texture), "the placeholder's stripes in the ring")
-	assert_true(m.tooltip_text.contains("PLACEHOLDER"), m.tooltip_text)
+	assert_true(str(m.get_meta(TooltipLayer.META, "")).contains("PLACEHOLDER"), "the tip says so")

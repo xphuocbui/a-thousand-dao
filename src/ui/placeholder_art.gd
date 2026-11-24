@@ -35,7 +35,7 @@ static func is_placeholder(tex: Texture2D) -> bool:
 
 
 ## A Control of at least [param min_size]: the stripes tiled, and PLACEHOLDER with [param what] (what is missing,
-## e.g. "No painting yet") on a dark band, both as text and as the tooltip.
+## e.g. "No painting yet") on a dark band, both as text and as the tooltip (TooltipLayer).
 static func make(min_size: Vector2, what: String = "") -> Control:
 	var root := PanelContainer.new()
 	root.custom_minimum_size = min_size
@@ -64,6 +64,6 @@ static func make(min_size: Vector2, what: String = "") -> Control:
 	l.add_theme_color_override("font_color", MAGENTA)
 	band.add_child(l)
 	root.add_child(band)
-	root.tooltip_text = l.text
+	TooltipLayer.set_tip(root, l.text)
 	root.set_meta("placeholder", true)
 	return root

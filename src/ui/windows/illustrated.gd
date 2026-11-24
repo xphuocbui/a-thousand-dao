@@ -99,7 +99,7 @@ static func medallion(tex: Texture2D, d: float, faded: bool = false) -> Control:
 	if tex == null:   # missing portrait: the placeholder's stripes inside the ring (.claude/rules/ui-code.md)
 		r.texture = PlaceholderArt.texture()
 		r.stretch_mode = TextureRect.STRETCH_TILE
-		r.tooltip_text = TranslationServer.translate("PLACEHOLDER") + " · " + TranslationServer.translate("No portrait yet")
+		TooltipLayer.set_tip(r, TranslationServer.translate("PLACEHOLDER") + " · " + TranslationServer.translate("No portrait yet"))
 		r.set_meta("placeholder", true)
 	r.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	if _round == null:
