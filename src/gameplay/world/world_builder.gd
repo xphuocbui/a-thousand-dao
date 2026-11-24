@@ -158,8 +158,10 @@ func _step_base() -> void:
 		_climate(rec, grid)
 		var works_cfg: Dictionary = _gd.file(MapWorks.DATA_FILE)
 		if not rec.qi.is_empty() and str(p.kind) in works_cfg.get("settled_kinds", []):
-			# Formula M: settlements and seats start with layer-2 upkept works, kept up by their holders
-			rec.qi["settled"] = true
+			# Formula M: settlements and seats start with layer-2 upkept works, kept up by their holders; only settlements
+			# carry the settled density cap (Travel & Map rule 34, user decision 2026-11-24: sect grounds have none)
+			if str(p.kind) in works_cfg.get("settled_cap_kinds", works_cfg.get("settled_kinds", [])):
+				rec.qi["settled"] = true
 			rec.qi["prebuilt"] = float(works_cfg.get("prebuilt_density", {}).get(str(p.kind), 0.0))
 		var id: String = _db.add("places", rec)
 		place_ids[int(pid)] = id

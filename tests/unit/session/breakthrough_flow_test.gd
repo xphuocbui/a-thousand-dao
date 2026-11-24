@@ -319,12 +319,8 @@ func test_the_advisor_counts_brews_by_the_counting_rule_ac29() -> void:
 	c.age = 520.0
 	var home: Dictionary = s.db.get_record("places", c.location_id)
 	home["qi"] = {}   # plain ground: the rate is the realm's Formulas A rate times density alone
-	# the premise rate needs a density past Formula B's cap (3.0); this test counts brews, so it lifts the cap
-	var match_cfg: Dictionary = s.gd.file("world_map").match
-	var cap: float = float(match_cfg.density_cap)
-	match_cfg["density_cap"] = 100.0
+	# the premise rate needs a density past 3.0; Formula B has no overall cap since 2026-11-24 (user decision)
 	home["density"] = float(home.get("density", 1.0)) * 187.5 / float(Advisor.progress(s).rate)
 	assert_near(float(Advisor.progress(s).rate), 187.5, 0.01, "the Formulas A rate for this root")
 	var b: int = int(Advisor.brew_plan(s).b)
-	match_cfg["density_cap"] = cap
 	assert_eq(b, 1, "B")

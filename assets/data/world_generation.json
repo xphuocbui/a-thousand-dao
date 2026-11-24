@@ -573,6 +573,10 @@
     "duel_kill_p": 0.05,
     "duel_kill_p_max": 0.25,
     "npc_cultivation_seasons_per_stage": 14,
+    "_doc_talent": "Living World Tick Formulas H (TalentPlace): m_i = clamp((raw_i / mean_raw)^talent_gamma, talent_min, talent_max) / mean(s), raw_i = root curve factor x the stacked density of the person's place (a sect member's seat; Travel & Map Formula B, user decision 2026-11-24). 0 for talent_gamma makes everyone equal. Guesses (Living World Tick OQ 8).",
+    "talent_gamma": 0.5,
+    "talent_min": 0.5,
+    "talent_max": 2.0,
     "npc_aging": true,
     "npc_breakthrough_pill_chance_factor": 0.5
   },

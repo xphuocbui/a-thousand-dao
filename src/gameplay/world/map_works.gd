@@ -7,7 +7,7 @@ extends RefCounted
 ## - qi.prebuilt: the layer-2 upkept density a settlement or sect seat starts with (kept up by its holder);
 ## - qi.layer1: {person id: {work id: {level, unpaid, element}}} home works, for that person alone at their home.
 ## A residence (rule 34) is a person's grade at a settlement or seat; its furnishing is a fixed layer-1 density.
-## Formula B adds each layer within its cap: density by min(c2p, permanent) + min(c2u, upkept) + min(c1p, ...) +
+## Formula B adds each layer: layer 2 with no cap (user decision 2026-11-24), layer 1 by min(c1p, ...) +
 ## min(c1u, ...), share pushes within 30 a layer (permanent 10 and upkept 20 on layer 2), and the match gain within
 ## m2 and m1; a home in a settlement or sect ground stays below settled_density_cap.
 ##
@@ -73,7 +73,7 @@ static func density(gd: GameData, qi: Dictionary, c: Character, residence_grade:
 	if residence_grade > 0:
 		furnish = float(cfg(gd).get("furnish_per_grade", 0.05)) * float(residence_grade)
 		lines.append("Layer 1: residence grade %d furnishing" % residence_grade)
-	var l2: float = minf(float(caps.get("c2p", 0.1)), l2p) + minf(float(caps.get("c2u", 0.5)), l2u)
+	var l2: float = l2p + l2u   # Travel & Map Formula B: layer 2 uncapped (user decision 2026-11-24)
 	var c1u: float = float(caps.get("c1u", 0.75))
 	if c != null and c.has_capability(15):   # Cave Abode: Capability #15's extra Tu Linh levels need cap room
 		c1u += float(gd.file(CaveAbode.FILE).get("c1u_capability_15", 0.0))

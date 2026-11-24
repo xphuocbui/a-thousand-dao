@@ -30,7 +30,8 @@ func test_settlements_start_developed_and_homes_there_are_capped() -> void:
 	assert_near(float(st.total), 1.8, 0.0001, "a settled home stays below 1.8")
 	var wild: Array = s.db.find("places", func(p): return str(p.get("kind", "")) == "peak")
 	var w: Dictionary = LandQi.stacked_density(s.gd, s.player, wild[0].qi, 2.4, 1.0)
-	assert_near(float(w.total), 3.0, 0.0001, "elsewhere only D_cap 3.0")
+	assert_true(float(w.total) >= 3.4 - 1e-9, "elsewhere no overall cap (D_cap removed 2026-11-24): %.3f" % float(w.total))
+	assert_false(str(w.lines).contains("capped"), "no clamp line off settled ground")
 
 
 func test_a_cave_abode_on_open_wilderness_becomes_home() -> void:

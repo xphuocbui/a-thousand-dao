@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "_doc": "Travel & Map works on the land and developed ground (design/gdd/travel-map.md rules 8, 31-34, Formulas B, J and M), read by MapWorks. works: Formula J's table (layer 2 shared, layer 1 home; permanent or upkept): gain per level as stat (density, share points to a chosen element, or production), max level, cost_lt x cost_growth^(L-1), materials per level (rarity at least rarity_min, of the chosen element for a share work), seasons per level (permanent; upkept take 1), upkeep per level per season, fade_seasons (unpaid seasons per lost level). Tụ Linh Trận stays in crafting_formations.json on density_bonus until Formations #17 moves it to layer 1 (counted once either way). caps: Formula B's per-layer caps (c2p 0.1, c2u 0.5, c1p 0.1, c1u 0.75; share caps 30 on layers 2 and 1; match gain caps m2 0.15, m1 0.15). prebuilt_density: the layer-2 upkept works settlements and sect seats start with (Formula M), kept up by their holders. settled_density_cap: a home in a settlement or sect ground stays below it. Residences (rule 34, Formula M): grades 1-5, max_grade by place kind, rent_frac and buy_seasons, furnish_per_grade (layer 1), grade_realm_min (the least realm index for grades 4 and 5). abode_cost_frac: opening a cave abode on a wilderness tile costs round(linh_thach_max[realm] x abode_cost_frac) and one season (rule 8). All values but the GDD's are guesses.",
+  "_doc": "Travel & Map works on the land and developed ground (design/gdd/travel-map.md rules 8, 31-34, Formulas B, J and M), read by MapWorks. works: Formula J's table (layer 2 shared, layer 1 home; permanent or upkept): gain per level as stat (density, share points to a chosen element, or production), max level, cost_lt x cost_growth^(L-1), materials per level (rarity at least rarity_min, of the chosen element for a share work), seasons per level (permanent; upkept take 1), upkeep per level per season, fade_seasons (unpaid seasons per lost level). Tụ Linh Trận stays in crafting_formations.json on density_bonus until Formations #17 moves it to layer 1 (counted once either way). caps: Formula B's per-layer caps (layer-2 density uncapped since 2026-11-24; c1p 0.1, c1u 0.75; share caps 30 on layers 2 and 1; match gain caps m2 0.15, m1 0.15). prebuilt_density: the layer-2 upkept works settlements and sect seats start with (Formula M), kept up by their holders. settled_density_cap: a home in a settlement of settled_cap_kinds stays below it; sect grounds have no settled cap (user decision 2026-11-24). Residences (rule 34, Formula M): grades 1-5, max_grade by place kind, rent_frac and buy_seasons, furnish_per_grade (layer 1), grade_realm_min (the least realm index for grades 4 and 5). abode_cost_frac: opening a cave abode on a wilderness tile costs round(linh_thach_max[realm] x abode_cost_frac) and one season (rule 8). All values but the GDD's are guesses.",
   "works": {
     "spirit_grove": {
       "name": "Linh lâm",
@@ -125,8 +125,6 @@
     }
   },
   "caps": {
-    "c2p": 0.1,
-    "c2u": 0.5,
     "c1p": 0.1,
     "c1u": 0.75,
     "share_l2": 30,
@@ -155,6 +153,12 @@
     "minor_seat"
   ],
   "settled_density_cap": 1.8,
+  "settled_cap_kinds": [
+    "village",
+    "town",
+    "market",
+    "city"
+  ],
   "max_grade": {
     "village": 2,
     "town": 3,

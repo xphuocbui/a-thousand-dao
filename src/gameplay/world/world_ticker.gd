@@ -51,6 +51,9 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 	if season == 0:   # Lost items left untouched long enough decay (item-database.md rule 14)
 		for item in ItemRarity.decay_lost(_gd, _db, year):
 			news.append(_log(year, season, "tick_item_decay", texts, {"item": str(item.get("name", item.id)), "place": str(item.owner_id)}))
+	var q_cache := {}   # Living World Tick Formulas H: each place's stacked density, once this season
+	if season == 0:   # Formulas H: the talent means are recomputed in Spring, before the people step
+		TalentPlace.recompute(_gd, _db, q_cache)
 	for p in _db.living():
 		if not p.alive or p.get("is_player", false):
 			continue
@@ -73,7 +76,9 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 			# money speeds NPCs (user decision 2026-11-20): last season's provision bonus and stone boost (WorldMoney)
 			# NPC Relationships rule 15a (user decision 2026-11-21): a master's and a đạo lữ's cultivation rows speed NPCs too
 			var tie_mult: float = 1.0 + tie_cult_pct(p) / 100.0
-			if rng.randf() < stage_chance * (1.0 + float(p.get("prov", 0.0))) * (1.0 + float(p.get("stone_boost", 0.0))) * tie_mult:
+			# Living World Tick Formulas A and H: p_stage = min(m_i / N_stage, 1), m_i by root and the place's density
+			var p_stage: float = minf(stage_chance * TalentPlace.mult(_gd, _db, p, q_cache), 1.0)
+			if rng.randf() < p_stage * (1.0 + float(p.get("prov", 0.0))) * (1.0 + float(p.get("stone_boost", 0.0))) * tie_mult:
 				p["stage"] = stage + 1
 				p["level"] = Ladder.stage_first_level(_gd, realm_index, stage + 1)
 				_builds.refresh_power(p.id)

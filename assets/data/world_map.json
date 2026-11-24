@@ -605,7 +605,6 @@
     "match_cap_l3": 0.3,
     "match_cap_l2": 0.15,
     "match_cap_l1": 0.15,
-    "density_cap": 3.0,
     "density_cap_l3": 1.0,
     "share_cap_l3": 80,
     "share_cap_l2": 30,

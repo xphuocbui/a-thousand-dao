@@ -67,16 +67,16 @@ static func land_match(c: Character, gd: GameData, qi: Dictionary) -> Breakdown:
 
 
 ## Formula B's stacked density for [param c] at ground with [param qi] and land density [param d4], with the
-## personal [param density_bonus]: min(cap, D4 + layer 3 + layers 2 and 1 + density_bonus), the cap D_cap or, on
-## settled ground (a settlement or sect seat), settled_density_cap. {total, lines}.
+## personal [param density_bonus]: D4 + layer 3 + layers 2 and 1 + density_bonus, with no overall cap (user decision
+## 2026-11-24: D_cap removed) except on settled ground (a settlement, not a sect seat), settled_density_cap. {total, lines}.
 static func stacked_density(gd: GameData, c: Character, qi: Dictionary, d4: float, density_bonus: float, l1u_arrays: float = 0.0, power_pct: float = 0.0) -> Dictionary:
 	var lines: Array = []
 	var l3: float = layer3_density(gd, qi) if not qi.is_empty() else 0.0
 	var grade: int = int(qi.get("residences", {}).get(c.id if c != null else "", {}).get("grade", 0))
 	var w: Dictionary = MapWorks.density(gd, qi, c, grade, l1u_arrays, power_pct) if not qi.is_empty() else {"l2": 0.0, "l1": l1u_arrays, "lines": []}
-	var cap: float = float(gd.file(DATA_FILE).get("match", {}).get("density_cap", 3.0))
+	var cap: float = INF
 	if bool(qi.get("settled", false)):
-		cap = minf(cap, float(MapWorks.cfg(gd).get("settled_density_cap", 1.8)))
+		cap = float(MapWorks.cfg(gd).get("settled_density_cap", 1.8))
 	var raw: float = d4 + l3 + float(w.l2) + float(w.l1) + density_bonus
 	if l3 > 0.0:
 		lines.append("layer 3 +%.2f" % l3)

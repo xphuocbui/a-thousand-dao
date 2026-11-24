@@ -1,0 +1,99 @@
+extends SceneTree
+## Scratch probe (not project code): the census plus sect works. Every --every years it prints the realm headcount, the
+## season time, and per sect kind: seat layer-2 density (raw), seat stacked density raw and capped, highest layer-2 work
+## level on held places, total works_spent, treasury; plus the count of works above level 5 and the highest site G_f.
+##   Godot_console.exe --headless --path <copy> -s res://tools/balance/works_probe.gd -- --seed 7 --years 200 --every 25
+
+
+func _init() -> void:
+	var args: Array = Array(OS.get_cmdline_user_args())
+	var seed_v: int = int(_arg(args, "--seed", "7"))
+	var years: int = int(_arg(args, "--years", "200"))
+	var every: int = int(_arg(args, "--every", "25"))
+	var gd: GameData = GameData.load_from("res://assets/data")
+	var tree: DaoDoTree = DaoDoTree.load_map(gd)
+	var rng := RandomNumberGenerator.new()
+	rng.seed = seed_v
+	var b := WorldBuilder.new(gd, tree)
+	var db: WorldDB = b.generate(rng, str(seed_v))
+	if not b.errors.is_empty():
+		print("build errors: ", b.errors)
+	var ticker := WorldTicker.new(gd, db, BuildGenerator.new(gd, tree, db))
+	var seasons: int = int(gd.cultivation_rules().seasons_per_year)
+	_report(gd, db, 0, 0.0)
+	var t0: int = Time.get_ticks_msec()
+	for y in range(1, years + 1):
+		for s in seasons:
+			ticker.tick(rng, y, s)
+		if y % every == 0:
+			_report(gd, db, y, float(Time.get_ticks_msec() - t0) / float(y * seasons))
+	quit(0)
+
+
+func _report(gd: GameData, db: WorldDB, year: int, ms: float) -> void:
+	var counts: Array = []
+	for i in gd.realms().size():
+		counts.append(0)
+	for p in db.all("people"):
+		if bool(p.get("alive", false)) and not bool(p.get("is_beast", false)):
+			var r: int = int(p.get("realm_index", 0))
+			if r >= 0 and r < counts.size():
+				counts[r] += 1
+	print("== year %d  realms %s  %.1f ms/season" % [year, str(counts), ms])
+	var money := MoneyLedger.new(db)
+	var by_kind := {}
+	for s in db.all("sects"):
+		if str(s.get("status", "")) != "active":
+			continue
+		var seat: Dictionary = db.get_record("places", str(s.get("hq_place_id", "")))
+		var l2: float = 0.0
+		var raw: float = 0.0
+		var capped: float = 0.0
+		if not seat.is_empty() and seat.has("qi"):
+			l2 = float(MapWorks.density(gd, seat.qi, null).l2)
+			var sd: Dictionary = LandQi.stacked_density(gd, null, seat.qi, float(seat.get("density", 1.0)), 0.0)
+			capped = float(sd.total)
+			raw = float(seat.get("density", 1.0)) + LandQi.layer3_density(gd, seat.qi) + l2
+		var top: int = 0
+		for p in db.all("places"):
+			if str(p.get("holder", "")) != str(s.id) or not p.has("qi"):
+				continue
+			for id in p.qi.get("layer2", {}):
+				top = maxi(top, int(p.qi.layer2[id].get("level", 0)))
+		var k: String = str(s.get("kind", "?"))
+		if not by_kind.has(k):
+			by_kind[k] = []
+		by_kind[k].append({"l2": l2, "raw": raw, "capped": capped, "top": top, "spent": float(s.get("works_spent", 0.0)), "treasury": money.balance("sect:%s" % s.id)})
+	for k in by_kind:
+		var rows: Array = by_kind[k]
+		print("  %s sects %d: seat l2 med %.2f max %.2f | seat D raw max %.2f capped max %.2f | top level med %d max %d | works spent med %.0f max %.0f | treasury med %.0f max %.0f" % [
+			k, rows.size(), _med(rows, "l2"), _max(rows, "l2"), _max(rows, "raw"), _max(rows, "capped"),
+			int(_med(rows, "top")), int(_max(rows, "top")), _med(rows, "spent"), _max(rows, "spent"), _med(rows, "treasury"), _max(rows, "treasury")])
+	var above5: int = 0
+	var gmax: float = 0.0
+	for p in db.all("places"):
+		if p.has("qi"):
+			for id in p.qi.get("layer2", {}):
+				if int(p.qi.layer2[id].get("level", 0)) > 5:
+					above5 += 1
+		if p.has("site"):
+			gmax = maxf(gmax, float(p.site.get("works_prod", 0.0)))
+	print("  works above level 5: %d | highest site works_prod %.2f" % [above5, gmax])
+
+
+func _med(rows: Array, key: String) -> float:
+	var v: Array = rows.map(func(r): return float(r[key]))
+	v.sort()
+	return 0.0 if v.is_empty() else float(v[v.size() / 2])
+
+
+func _max(rows: Array, key: String) -> float:
+	var m: float = 0.0
+	for r in rows:
+		m = maxf(m, float(r[key]))
+	return m
+
+
+func _arg(args: Array, key: String, default_v: String) -> String:
+	var i: int = args.find(key)
+	return str(args[i + 1]) if i >= 0 and i + 1 < args.size() else default_v

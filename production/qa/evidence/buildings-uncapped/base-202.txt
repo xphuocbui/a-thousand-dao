@@ -1,0 +1,38 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+== year 0  realms [3935, 844, 191, 27, 3]  0.0 ms/season
+  great sects 7: seat l2 med 0.40 max 0.40 | seat D raw max 3.31 capped max 1.80 | top level med 0 max 0 | works spent med 0 max 0 | treasury med 60000 max 90000
+  minor sects 43: seat l2 med 0.40 max 0.40 | seat D raw max 3.04 capped max 1.80 | top level med 0 max 0 | works spent med 0 max 0 | treasury med 7000 max 7000
+  works above level 5: 0 | highest site works_prod 0.00
+== year 25  realms [3629, 1089, 238, 39, 5]  647.4 ms/season
+  great sects 7: seat l2 med 0.54 max 0.56 | seat D raw max 3.31 capped max 1.80 | top level med 4 max 4 | works spent med 167500 max 372500 | treasury med 83327 max 101713
+  minor sects 47: seat l2 med 0.40 max 0.40 | seat D raw max 3.04 capped max 2.63 | top level med 0 max 0 | works spent med 0 max 1000 | treasury med 0 max 3394
+  works above level 5: 0 | highest site works_prod 0.49
+== year 50  realms [3552, 1159, 243, 41, 5]  592.2 ms/season
+  great sects 7: seat l2 med 0.54 max 0.56 | seat D raw max 3.41 capped max 1.80 | top level med 4 max 5 | works spent med 167500 max 401500 | treasury med 90590 max 121418
+  minor sects 50: seat l2 med 0.40 max 0.40 | seat D raw max 3.04 capped max 2.63 | top level med 0 max 0 | works spent med 0 max 1000 | treasury med 0 max 3264
+  works above level 5: 0 | highest site works_prod 0.59
+== year 75  realms [3549, 1167, 239, 39, 6]  592.8 ms/season
+  great sects 7: seat l2 med 0.54 max 0.56 | seat D raw max 3.41 capped max 1.80 | top level med 4 max 5 | works spent med 167500 max 401500 | treasury med 93121 max 118523
+  minor sects 50: seat l2 med 0.40 max 0.40 | seat D raw max 3.04 capped max 2.63 | top level med 0 max 0 | works spent med 0 max 1000 | treasury med 0 max 3287
+  works above level 5: 0 | highest site works_prod 0.59
+== year 100  realms [3587, 1128, 240, 39, 6]  588.3 ms/season
+  great sects 7: seat l2 med 0.54 max 0.56 | seat D raw max 3.41 capped max 1.80 | top level med 4 max 5 | works spent med 249500 max 401500 | treasury med 96327 max 137581
+  minor sects 50: seat l2 med 0.40 max 0.40 | seat D raw max 3.04 capped max 2.63 | top level med 0 max 0 | works spent med 0 max 1000 | treasury med 0 max 3329
+  works above level 5: 0 | highest site works_prod 0.59
+== year 125  realms [3684, 1040, 231, 39, 6]  592.4 ms/season
+  great sects 7: seat l2 med 0.56 max 0.56 | seat D raw max 3.41 capped max 1.80 | top level med 4 max 5 | works spent med 372500 max 569500 | treasury med 96691 max 147397
+  minor sects 50: seat l2 med 0.40 max 0.40 | seat D raw max 3.04 capped max 2.63 | top level med 0 max 0 | works spent med 0 max 1000 | treasury med 0 max 3520
+  works above level 5: 0 | highest site works_prod 0.59
+== year 150  realms [3750, 976, 228, 40, 6]  607.8 ms/season
+  great sects 7: seat l2 med 0.56 max 0.56 | seat D raw max 3.41 capped max 1.80 | top level med 4 max 5 | works spent med 372500 max 645500 | treasury med 99567 max 140374
+  minor sects 51: seat l2 med 0.40 max 0.40 | seat D raw max 3.04 capped max 2.63 | top level med 0 max 0 | works spent med 0 max 1000 | treasury med 0 max 3445
+  works above level 5: 0 | highest site works_prod 0.59
+== year 175  realms [3723, 1002, 228, 41, 6]  629.0 ms/season
+  great sects 7: seat l2 med 0.56 max 0.56 | seat D raw max 3.41 capped max 1.80 | top level med 4 max 5 | works spent med 372500 max 645500 | treasury med 100799 max 153416
+  minor sects 52: seat l2 med 0.40 max 0.40 | seat D raw max 3.04 capped max 2.63 | top level med 0 max 0 | works spent med 0 max 1000 | treasury med 0 max 3724
+  works above level 5: 0 | highest site works_prod 0.59
+== year 200  realms [3785, 942, 225, 41, 7]  636.4 ms/season
+  great sects 7: seat l2 med 0.56 max 0.56 | seat D raw max 3.41 capped max 1.80 | top level med 4 max 5 | works spent med 372500 max 645500 | treasury med 101342 max 150956
+  minor sects 53: seat l2 med 0.40 max 0.40 | seat D raw max 3.04 capped max 2.63 | top level med 0 max 0 | works spent med 0 max 1000 | treasury med 0 max 3757
+  works above level 5: 0 | highest site works_prod 0.59
