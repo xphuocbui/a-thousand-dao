@@ -266,8 +266,8 @@ together. A **wilderness** province has no `acc_v`; it is left out of B and I (r
 **Good classes** k: herb, ore, beast, special, each by rarity band (rule 4, amended 2026-11-15: 8 raw classes in the
 MVP), plus Trade Goods' crafted classes. Linh thạch is money (rule 5) and has no k.
 
-**Anchors.** Mines make about 124,000 linh thạch a season (Travel & Map L). Non-mine goods are about 250,000 a season
-in base value (Sects `world_production_guess`, which this GDD turns into an acceptance check, I). Census 3,936 / 844 /
+**Anchors.** Mines make about 124,000 linh thạch a season (Travel & Map L). Non-mine goods are about 320,000 a season
+in base value (raised from 250,000 for the provinces-v2 places, user decision 2026-11-24; Sects `world_production_guess`, which this GDD turns into an acceptance check, I). Census 3,936 / 844 /
 191 / 27 / 3 by realm (Realms C2). Stipends a season 3 / 20 / 50 / 325 / 2,500 (Sects anchors); about 3,300 sect
 members are paid about 41,800 a season, and the ~1,700 loose cultivators (tán tu) are paid nothing.
 
@@ -668,7 +668,7 @@ are unverified estimates: design-review 6 put the world's own use plus kind stip
 which would leave goods sales nearer 6k than 15k. The harness settles it. Sects F3 reads
 `Inc_mine + Inc_goods + Inc_tariff` in place of `collect · V_own`, and keeps tribute, the mission fee and its market tax,
 now levied on the cash turnover of goods (`tf · trade_mult · share_s · Turn_m`; revised 2026-11-14).
-`world_production_guess` (250,000) becomes a check: the world's non-mine value_lt at P = 1 lies within ±20 % of it.
+`world_production_guess` (320,000; 250,000 before the provinces-v2 places, user decision 2026-11-24) becomes a check: the world's non-mine value_lt at P = 1 lies within ±20 % of it.
 **Example:** a tier-1 sect with 12,000 of mines at Holdings 6 (collect 0.323): collect_mine 0.6615, **Inc_mine 7,938**;
 goods collected 0.323 · 38,000 = 12,274, own use 5,000 and kind stipends 1,100 leave 6,174 sold at P 1.05 · 0.90 =
 **5,834**; three links at ~600 tariff each, **1,800**.
@@ -1128,7 +1128,8 @@ Tolerance: ±0.5 in the last digit shown; money ledgers must balance exactly.
 **Harness** (FX-RE-WORLD, all 10 seeds, seasons 41–400; a **year** is 4 seasons). Every *PROPOSAL* threshold in
 AC-RE-36 to AC-RE-43, AC-RE-57 to AC-RE-61 and FX-RE-WORLD's burn-in is owned by `economy-designer` and set at the first
 harness run *(design-review 7)*.
-- **AC-RE-36** [Config] Anchor. At season 0 (P = 1) the world's non-mine `value_lt` is 200,000–300,000.
+- **AC-RE-36** [Config] Anchor. At season 0 (P = 1) the world's non-mine `value_lt` is 256,000–384,000 (320,000 ± 20 %;
+  was 200,000–300,000 before the provinces-v2 places, user decision 2026-11-24).
 - **AC-RE-37** [Harness] Money. Each year ΔM / M is within −2 % and +5 % *(PROPOSAL)*. AC-RE-59 to AC-RE-61 keep this
   check from passing by dilution while treasuries hoard.
 - **AC-RE-38** [Harness] Prices. The world mean price, weighted by D[m,k], is 0.9–1.15 every season; **and** for every
