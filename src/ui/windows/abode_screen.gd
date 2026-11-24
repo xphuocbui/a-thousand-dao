@@ -37,6 +37,22 @@ func cancel_inline() -> bool:
 	return true
 
 
+var _g: VBoxContainer = null       # the wood ground of this build
+var _into: Control = null          # the inset the builders write into
+
+
+func _sec(key: String, title: String) -> void:
+	_into = section_in(_g, key, title)
+
+
+func _ln(text: String) -> Label:
+	return line(text, _into if _into != null else body)
+
+
+func _rw(label: String, value: String, tip: Variant = null) -> HBoxContainer:
+	return row(label, value, tip, _into)
+
+
 func _rebuild() -> void:
 	var y: int = scroll.scroll_vertical
 	super.show_view(view, "", locked)
@@ -57,12 +73,15 @@ func _build() -> void:
 	head.theme_type_variation = &"HeadingLabel"
 	head.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	header.add_child(head)
+	_g = Illustrated.ground(body)
+	_into = _g
 	if not bool(v.get("has_home", false)):
 		head.text = tr("You have no home yet.")
 		_build_no_home(v)
 		return
 	var ab: bool = str(v.get("kind", "")) == "abode"
 	head.text = "%s · %s" % [str(v.home_place.name), tr("cave abode (động phủ)") if ab else (tr("starting room") if bool(v.get("origin", false)) else tr("residence"))]
+	head.visible = false   # the banner carries the name and kind
 	var line1 := Label.new()
 	var cost_txt: String = ""
 	if ab:
@@ -83,15 +102,16 @@ func _build() -> void:
 	where.text = tr("You are here.") if bool(v.get("here", false)) else ("🔒 " + tr("You are away (at %s): changes need you here.") % str(v.get("at", "")))
 	where.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	header.add_child(where)
+	_build_hero(v, ab)
 	# Home
-	section("home", tr("Home"))
+	_sec("home", tr("Home"))
 	var nx: Dictionary = v.get("next", {})
 	if not ab:
-		line(tr("A residence's grade is fixed: rent or buy a better one, or open a cave abode."))
+		_ln(tr("A residence's grade is fixed: rent or buy a better one, or open a cave abode."))
 	elif nx.is_empty():
-		line(tr("The highest grade."))
+		_ln(tr("The highest grade."))
 	else:
-		line(tr("Next grade %d: %s linh thạch, %d slots, a season's work%s.") % [int(nx.grade), HudReadouts.stones_text(float(nx.cost)), int(nx.slots),
+		_ln(tr("Next grade %d: %s linh thạch, %d slots, a season's work%s.") % [int(nx.grade), HudReadouts.stones_text(float(nx.cost)), int(nx.slots),
 			"" if bool(nx.realm_ok) else " (" + tr("needs a higher realm") + ")"])
 		if str(_armed.get("action", "")) == "raise_abode":
 			_confirm_rows()
@@ -101,10 +121,10 @@ func _build() -> void:
 				why = tr("needs a higher realm")
 			if why == "" and int(v.get("pending", 0)) > 0:
 				why = tr("already being raised")
-			_act(tr("Raise to grade %d…") % int(nx.grade), body, why, {"action": "raise_abode", "args": [],
+			_act(tr("Raise to grade %d…") % int(nx.grade), _into, why, {"action": "raise_abode", "args": [],
 				"text": tr("Raise the abode to grade %d? %s linh thạch now; it takes effect next season.") % [int(nx.grade), HudReadouts.stones_text(float(nx.cost))]}).name = "RaiseGrade"
 	var dens: Dictionary = v.get("density", {})
-	var dl := row(tr("Density at home"), num(float(dens.get("total", 0.0))) + ((" (" + tr("works add %s") % num(float(dens.works)) + ")") if float(dens.get("works", 0.0)) > 0.0 else ""),
+	var dl := _rw(tr("Density at home"), num(float(dens.get("total", 0.0))) + ((" (" + tr("works add %s") % num(float(dens.works)) + ")") if float(dens.get("works", 0.0)) > 0.0 else ""),
 		{"title": tr("Density at home"), "fact": num(float(dens.get("total", 0.0))), "summary": tr("What you cultivate at there; the lines are the home works' layer."), "lines": Array(dens.get("lines", []))})
 	dl.name = "Density"
 	var leave := Button.new()
@@ -114,28 +134,28 @@ func _build() -> void:
 	leave.accessibility_name = tr("Leave this home: not in the game yet")
 	TooltipLayer.set_tip(leave, {"title": tr("Leave this home"), "summary": tr("Not in the game yet: a home is left when you open, claim or rent another (cave-abode.md rule 10).")})
 	leave.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
-	body.add_child(leave)
+	_into.add_child(leave)
 	# Works
 	var works: Array = Array(v.get("works", []))
-	section("works", tr("Works (%d)") % works.size())
+	_sec("works", tr("Works (%d)") % works.size())
 	if works.any(func(w): return bool(w.dormant)):
-		line("⚠ " + tr("A slot is short, so a work sleeps. Choose which one sleeps with Sleep / Wake (the latest built sleeps by default)."))
+		_ln("⚠ " + tr("A slot is short, so a work sleeps. Choose which one sleeps with Sleep / Wake (the latest built sleeps by default)."))
 	if works.is_empty():
-		line(tr("none yet: build one below"))
+		_ln(tr("none yet: build one below"))
 	for w in works:
 		_work_row(w)
 	# Clamps
-	section("clamps", tr("Clamps"))
+	_sec("clamps", tr("Clamps"))
 	var clamps: Array = Array(v.get("clamps", []))
 	if clamps.is_empty():
-		line(tr("none: no cap holds a gain back"))
+		_ln(tr("none: no cap holds a gain back"))
 	for c in clamps:
-		line("  " + str(c))
+		_ln("  " + str(c))
 	# Build a work
-	section("build", tr("Build a work"))
+	_sec("build", tr("Build a work"))
 	var cat: Array = Array(v.get("catalogue", []))
 	if cat.is_empty():
-		line(tr("Every home work is built."))
+		_ln(tr("Every home work is built."))
 	for c in cat:
 		_catalogue_row(c)
 	if not Array(v.get("rent", [])).is_empty():
@@ -144,10 +164,40 @@ func _build() -> void:
 		_build_claim(v)
 
 
+# The banner: the home place's own painting (the place catalogue) with its name, then the grade, slots, upkeep and
+# density as icon tiles (the illustrated windows, user 2026-11-24).
+func _build_hero(v: Dictionary, ab: bool) -> void:
+	var hp: Dictionary = v.get("home_place", {})
+	var hero: PanelContainer = Illustrated.framed(PortraitPicker.place_painting(int(hp.get("art", -1))), Vector2(0, 180), str(hp.get("name", "")))
+	hero.name = "Hero"
+	_g.add_child(hero)
+	var plate := PanelContainer.new()
+	plate.add_theme_stylebox_override("panel", Illustrated.box(Color(0.06, 0.05, 0.04, 0.86), Illustrated.BRASS, 2, 10.0, 2))
+	plate.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+	plate.size_flags_vertical = Control.SIZE_SHRINK_END
+	var nm := Label.new()
+	nm.text = str(hp.get("name", "")) + "  ·  " + (tr("cave abode (động phủ)") if ab else (tr("starting room") if bool(v.get("origin", false)) else tr("residence")))
+	nm.theme_type_variation = &"TitleLabel"
+	nm.add_theme_color_override("font_color", Illustrated.BONE)
+	plate.add_child(nm)
+	var pad := MarginContainer.new()
+	pad.add_theme_constant_override("margin_left", 18)
+	pad.add_theme_constant_override("margin_bottom", 14)
+	pad.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	pad.add_child(plate)
+	hero.add_child(pad)
+	var tiles: GridContainer = Illustrated.grid(_g, 2 if compact else 4, 8)
+	tiles.add_child(Illustrated.tile(Illustrated.tex("res://assets/icons/hud/res_sect.png"), tr("Grade"), "%d" % int(v.get("grade", 1)), "", 0.0))
+	tiles.add_child(Illustrated.tile(null, tr("Slots"), "%d / %d" % [int(v.get("used", 0)), int(v.get("slots", 0))], "", 0.0))
+	var cost: String = HudReadouts.stones_text(float(v.get("upkeep", 0))) if ab else HudReadouts.stones_text(float(v.get("rent_paid", 0)))
+	tiles.add_child(Illustrated.tile(Illustrated.tex("res://assets/icons/hud/res_linh_thach.png"), tr("Upkeep") if ab else tr("Rent"), cost, tr("a season"), 0.0))
+	tiles.add_child(Illustrated.tile(Illustrated.tex("res://assets/icons/hud/res_cultivation.png"), tr("Density"), num(float(v.get("density", {}).get("total", 0.0))), "", 0.0))
+
+
 func _work_row(w: Dictionary) -> void:
 	var box := VBoxContainer.new()
 	box.name = "Work_" + str(w.id)
-	body.add_child(box)
+	_into.add_child(box)
 	var state: String = ""
 	if bool(w.dormant):
 		state = tr("dormant: gives nothing")
@@ -197,7 +247,7 @@ func _work_row(w: Dictionary) -> void:
 func _catalogue_row(c: Dictionary) -> void:
 	var box := VBoxContainer.new()
 	box.name = "Cat_" + str(c.id)
-	body.add_child(box)
+	_into.add_child(box)
 	var nc: Dictionary = c.get("next_cost", {})
 	var l := Label.new()
 	l.text = "  %s  ·  %s %s  ·  %s  ·  %s" % [str(c.name), str(c.gain), tr("per level"),
@@ -237,19 +287,19 @@ func _catalogue_row(c: Dictionary) -> void:
 
 func _build_no_home(v: Dictionary) -> void:
 	_build_rent(v)
-	section("open", tr("Open a cave abode"))
-	line(tr("A cave abode is opened on a wilderness tile: travel there and pay the opening fee (a season). Choosing the tile on the map is not in the screens yet."))
+	_sec("open", tr("Open a cave abode"))
+	_ln(tr("A cave abode is opened on a wilderness tile: travel there and pay the opening fee (a season). Choosing the tile on the map is not in the screens yet."))
 	_build_claim(v)
 
 
 func _build_rent(v: Dictionary) -> void:
-	section("rent", tr("Rent here"))
+	_sec("rent", tr("Rent here"))
 	var rent: Array = Array(v.get("rent", []))
 	if rent.is_empty():
-		line(tr("No residences here: they are let in settlements and sect grounds."))
+		_ln(tr("No residences here: they are let in settlements and sect grounds."))
 	for r in rent:
 		var box := HBoxContainer.new()
-		body.add_child(box)
+		_into.add_child(box)
 		var l := Label.new()
 		l.text = "  " + tr("Grade %d · %d slots · rent %s a season · buy %s") % [int(r.grade), int(r.slots), HudReadouts.stones_text(float(r.rent)), HudReadouts.stones_text(float(r.price))] + \
 			("" if bool(r.realm_ok) else "  (" + tr("needs %s") % str(r.realm_need) + ")")
@@ -273,14 +323,14 @@ func _build_rent(v: Dictionary) -> void:
 func _build_claim(v: Dictionary) -> void:
 	var cl: Dictionary = v.get("claim", {})
 	if not cl.is_empty():
-		section("claim", tr("Claim"))
-		line(tr("A %s abode here: grade %d, back at grade %d; fee %s linh thạch.") % [tr("ruined") if str(cl.state) == "ruin" else tr("left"), int(cl.grade), int(cl.after), HudReadouts.stones_text(float(cl.fee))])
+		_sec("claim", tr("Claim"))
+		_ln(tr("A %s abode here: grade %d, back at grade %d; fee %s linh thạch.") % [tr("ruined") if str(cl.state) == "ruin" else tr("left"), int(cl.grade), int(cl.after), HudReadouts.stones_text(float(cl.fee))])
 		var kept: Array = Array(cl.get("works", []))
-		line(tr("Works kept: %s") % (", ".join(kept.map(func(k): return "%s %d%s" % [str(k.name), int(k.level), (" (" + tr("upkept: if not faded") + ")") if bool(k.upkept) else ""])) if not kept.is_empty() else tr("none")))
+		_ln(tr("Works kept: %s") % (", ".join(kept.map(func(k): return "%s %d%s" % [str(k.name), int(k.level), (" (" + tr("upkept: if not faded") + ")") if bool(k.upkept) else ""])) if not kept.is_empty() else tr("none")))
 		if str(_armed.get("action", "")) == "claim_abode":
 			_confirm_rows()
 		else:
-			_act(tr("Claim…"), body, tr("locked while an event waits") if locked else "", {"action": "claim_abode", "args": [],
+			_act(tr("Claim…"), _into, tr("locked while an event waits") if locked else "", {"action": "claim_abode", "args": [],
 				"text": tr("Claim it for %s linh thạch and a season? It becomes your home.") % HudReadouts.stones_text(float(cl.fee))}).name = "Claim"
 
 
@@ -305,10 +355,10 @@ func _arm(confirm: Dictionary) -> void:
 
 
 func _confirm_rows() -> void:
-	var ask := line("  " + str(_armed.text))
+	var ask := _ln("  " + str(_armed.text))
 	ask.accessibility_name = str(_armed.text) + " " + tr("Confirm or Cancel")
 	var r := HBoxContainer.new()
-	body.add_child(r)
+	_into.add_child(r)
 	var ok := Button.new()
 	ok.name = "Confirm"
 	ok.text = tr("Confirm")
@@ -337,7 +387,7 @@ func _open_elements(work_id: String) -> void:
 ## A sample view for screenshot evidence and tests (AC-CA-21: a grade-3 abode with a dormant work and a clamped cap).
 ## It is display data only: nothing reads or changes the session.
 static func sample_view() -> Dictionary:
-	return {"has_home": true, "here": true, "home_place": {"id": "pl_fix", "name": "Thanh Phong Cốc"}, "at": "Thanh Phong Cốc", "event_waiting": false,
+	return {"has_home": true, "here": true, "home_place": {"id": "pl_fix", "name": "Thanh Phong Cốc", "art": 2}, "at": "Thanh Phong Cốc", "event_waiting": false,
 		"kind": "abode", "grade": 3, "slots": 3, "used": 3, "upkeep": 40, "rent_paid": 0, "origin": false, "pending": 0, "unpaid": 0,
 		"next": {"grade": 4, "cost": 4800, "slots": 4, "realm_ok": false},
 		"works": [

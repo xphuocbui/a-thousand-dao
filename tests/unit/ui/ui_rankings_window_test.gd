@@ -62,7 +62,7 @@ func test_search_finds_rows_hidden_in_a_gap_with_their_true_rank() -> void:
 func test_the_top_list_has_a_realm_column() -> void:
 	var w := _window(_view(5, 0, "top"))
 	var heads: Array = []
-	for l in (w.body.get_child(0) as Node).get_children():
+	for l in w.body.find_child("ColumnHead", true, false).get_children():
 		heads.append((l as Label).text)
 	assert_true(heads.has("Realm"), str(heads))
 

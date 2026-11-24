@@ -4,6 +4,8 @@ extends GameWindow
 ## sticky header with realm tabs (and the Vấn Đỉnh Bảng), search and Jump to me; the ranking's top rows, a gap, and
 ## the rows around the player. Built from [method GameQuery.rankings] (subject: "" the player's realm, "0".."4", "top");
 ## a tab opens the same window about another realm (one history step). Read-only.
+## Illustrated (user 2026-11-24): on the dark wood ground, a podium of the top three (portrait, rank plaque, name, sect,
+## stage, power), then the table in a parchment inset with a portrait medallion on every row and the player's row framed.
 
 ## ui_windows.json (rankings.top_rows, rankings.around; realm names come with the view).
 var cfg: Dictionary = {}
@@ -15,6 +17,7 @@ var _count := Label.new()
 var _expanded_gaps: Dictionary = {}   # "a-b" -> true
 var _rows_by_rank: Dictionary = {}    # rank -> its row control
 var _me_row: Control = null
+var _into: Control = null              # the table inset the rows go into
 
 
 func kind() -> String:
@@ -130,9 +133,13 @@ func _build() -> void:
 	tools.add_child(jump)
 	_count.accessibility_live = AccessibilityServer.LIVE_POLITE
 	header.add_child(_count)
-	_column_head()
 	var rows: Array = Array(v.get("rows", []))
 	var q: String = WorldDB.fold(_search.text.strip_edges())
+	var g: VBoxContainer = Illustrated.ground(body)
+	if q == "" and rows.size() >= 3:
+		_podium(g, rows.slice(0, 3))
+	_into = Illustrated.inset(g, "")
+	_column_head()
 	if q != "":
 		var hits: Array = rows.filter(func(r): return WorldDB.fold(str(r.name)).contains(q))
 		_count.text = tr("%d matches") % hits.size()
@@ -157,7 +164,7 @@ func _build() -> void:
 			_gap(last + 1, rows.size(), rows)
 	_count.visible = _count.text != ""
 	if rows.is_empty():
-		line(tr("Nobody is ranked here yet."))
+		line(tr("Nobody is ranked here yet."), _into)
 	bar_open(tr("Character"), "character")
 
 
@@ -172,9 +179,59 @@ func _ordinal(n: int) -> String:
 	return tr("%d%s") % [n, suffix]
 
 
+# The top three as cards: second, first, third (the first raised), each with its portrait, rank plaque and power.
+func _podium(parent: Control, top: Array) -> void:
+	var row := HBoxContainer.new()
+	row.name = "Podium"
+	row.add_theme_constant_override("separation", 10)
+	row.alignment = BoxContainer.ALIGNMENT_CENTER
+	parent.add_child(row)
+	for i in [1, 0, 2]:
+		var r: Dictionary = top[i]
+		var card := PanelContainer.new()
+		card.name = "Podium_%d" % int(r.rank)
+		card.add_theme_stylebox_override("panel", Illustrated.box(Illustrated.PAPER, Illustrated.BRASS, 2 if i == 0 else 1, 10.0, 2))
+		card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		card.size_flags_vertical = Control.SIZE_SHRINK_END
+		card.focus_mode = Control.FOCUS_ALL
+		row.add_child(card)
+		var col := VBoxContainer.new()
+		col.alignment = BoxContainer.ALIGNMENT_CENTER
+		col.add_theme_constant_override("separation", 4)
+		card.add_child(col)
+		var d: float = (96.0 if i == 0 else 76.0) * (0.75 if compact else 1.0)
+		var m: Control = Illustrated.medallion(PortraitPicker.texture_for(r.get("portrait", {})), d)
+		m.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+		col.add_child(m)
+		var plq: PanelContainer = Illustrated.plaque(_ordinal(int(r.rank)))
+		plq.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+		col.add_child(plq)
+		var name := LinkButton.new()
+		name.text = str(r.name) + (" (" + tr("you") + ")" if bool(r.get("you", false)) else "")
+		LinkStyle.apply(name, "person", "neutral", "paper")
+		name.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+		var pid: String = str(r.id)
+		if not bool(r.get("you", false)):
+			name.pressed.connect(func(): open_requested.emit("person", pid, ""))
+		col.add_child(name)
+		var who := Label.new()
+		who.text = " · ".join([str(r.sect) if str(r.sect) != "" else tr("loose cultivator"), str(r.stage)])
+		who.theme_type_variation = &"RowLabel"
+		who.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		who.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		col.add_child(who)
+		var pw := Label.new()
+		pw.text = tr("power") + " " + ("~" if str(r.state) == "provisional" else "") + HudReadouts.stones_text(float(r.power))
+		pw.theme_type_variation = &"HeadingLabel"
+		pw.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		col.add_child(pw)
+		card.accessibility_name = "%s, %s, %s" % [_ordinal(int(r.rank)), str(r.name), pw.text]
+
+
 func _column_head() -> void:
 	var h := HBoxContainer.new()
-	var cols: Array = [["#", 48], [tr("Name"), 0], [tr("Sect"), 120], [tr("Stage"), 160], [tr("Power"), 80], [tr("Fights"), 50]]
+	h.name = "ColumnHead"
+	var cols: Array = [["#", 48], ["", 40], [tr("Name"), 0], [tr("Sect"), 150], [tr("Stage"), 200], [tr("Power"), 80], [tr("Fights"), 50]]
 	if str(view.get("which", "")) == "top":
 		cols.insert(3, [tr("Realm"), 90])   # the Vấn Đỉnh Bảng holds two realms (rule 9)
 	if compact:
@@ -188,7 +245,7 @@ func _column_head() -> void:
 		else:
 			l.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		h.add_child(l)
-	body.add_child(h)
+	_into.add_child(h)
 
 
 func _row(r: Dictionary) -> void:
@@ -200,6 +257,7 @@ func _row(r: Dictionary) -> void:
 	num_l.text = str(cells[0][0])
 	num_l.custom_minimum_size = Vector2(48, 0)
 	h.add_child(num_l)
+	h.add_child(Illustrated.medallion(PortraitPicker.texture_for(r.get("portrait", {})), 36.0))
 	var name := LinkButton.new()
 	name.text = str(r.name) + (" (" + tr("you") + ")" if you else "")
 	name.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -209,7 +267,7 @@ func _row(r: Dictionary) -> void:
 		name.pressed.connect(func(): open_requested.emit("person", pid, ""))
 	h.add_child(name)
 	var prov: bool = str(r.state) == "provisional"
-	var cells2: Array = [[str(r.sect) if str(r.sect) != "" else "—", 120], [str(r.stage), 160],
+	var cells2: Array = [[str(r.sect) if str(r.sect) != "" else "—", 150], [str(r.stage), 200],
 			[("~" if prov else "") + HudReadouts.stones_text(float(r.power)) + (" (" + tr("stale") + ")" if str(r.state) == "stale" else ""), 80], ["%d" % int(r.n), 50]]
 	if str(view.get("which", "")) == "top":
 		cells2.insert(1, [str(r.get("realm", "")), 90])
@@ -232,10 +290,10 @@ func _row(r: Dictionary) -> void:
 		frame.name = h.name
 		h.name = "RankYou"
 		frame.add_child(h)
-		body.add_child(frame)
+		_into.add_child(frame)
 		_me_row = h
 	else:
-		body.add_child(h)
+		_into.add_child(h)
 	_rows_by_rank[int(r.rank)] = h
 
 
@@ -251,7 +309,7 @@ func _gap(a: int, b: int, rows: Array) -> void:
 	g.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	g.text = "  …  " + tr("ranks %d–%d: %d people (show)") % [a, b, b - a + 1]
 	g.pressed.connect(_open_gap.bind(key))
-	body.add_child(g)
+	_into.add_child(g)
 
 
 func _jump_me() -> void:
