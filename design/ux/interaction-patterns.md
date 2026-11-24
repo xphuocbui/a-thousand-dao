@@ -58,6 +58,7 @@ genre conventions only, never any game's art, icons or frames.
 | [Sticky header and pinned action bar](#sticky-header-and-pinned-action-bar) | Layout | Person window; future long panels | — |
 | [Section jumps](#section-jumps) | Navigation | Person window, fight screen | — |
 | [Centre window](#centre-window) | Modal | Event card, season summary, focus comparison | CK3 events |
+| [Window sizes](#window-sizes) | Layout | Every window and screen | CK3, EU5 |
 | [Decision window](#decision-window) | Modal | Big irreversible choices (joining a sect, a breakthrough attempt, a bond) | CK3 decisions |
 | [Focus comparison](#focus-comparison) | Input | HUD (element 29) | Civ end turn, Victoria 3 predictions |
 | [End turn gate and blocker](#end-turn-gate-and-blocker) | Input | HUD (element 15) | Civ |
@@ -678,6 +679,33 @@ at any time; automation never makes a choice the player would call big (no bonds
 a set limit).
 
 **When to use**: repetitive chores. **When NOT to use**: anything a build depends on.
+
+
+### Window sizes
+**Category**: Layout · **Used in**: every window and full screen (weak-point review 2026-11-24 #5: "window sizes and
+modes look arbitrary")
+
+**Description** (CK3, EU5): the kind of window follows what the player does there, and its size follows its kind, so
+the map stays readable whenever it is still part of the decision.
+
+**Specification**: three kinds, one rule each.
+
+| Kind | Host | Size | For | Windows |
+|---|---|---|---|---|
+| Side panel | WindowHost, left of the map; the map stays live on the right | `ui_windows.json widths` share of the layout width, else `panel_share` (0.33) | reading one subject next to the map: a person, a list, a reference | 0.62: character (and person), sect, relationships, rankings, wiki; 0.50: inventory (its pinned side pane carries the rest); 0.33: province |
+| Full screen | FullScreenHost under the top bar; the map is hidden | a parchment column of `GameWindow.column_width()` layout px (900 by default) capped at the screen less 80, or the full width when `full_width()` | a place of its own with its own canvas or two columns of work | Đạo Đồ (full width), Abode (1440 px, two columns) |
+| Centre window | CentreWindow over the dimmed map | at least 520 px wide, as tall as its content (the game menu's list fits the layout height: `GameMenu.fit_height`) | a decision that stops the season | event card, season summary, focus comparison, game menu |
+
+- A window **never grows past its share**: its body scrolls vertically only and its horizontal scroll is never shown
+  (not disabled, which would pass the content's minimum width up), so an over-long line is cut at the window's edge
+  and caught in the `--crowded` evidence; long badges and names wrap or end in "…".
+- A **pinned side pane** (`GameWindow.use_side`, inside the window's share) holds what must stay in view while the
+  body scrolls: the inventory's Selected and Equipped (380 px), the wiki's Contents (270 px).
+- **Compact** (layout width below `compact_width` 1500, e.g. 1280x720): shares stay; secondary columns stack or fold
+  (side panes move into the body, two-column bodies become one).
+- A new window picks its kind by this table before its layout; adding a share means a `widths` entry, not code.
+
+**When to use**: every new window. **When NOT to use**: tooltips and the fight screen (their own layouts).
 
 
 ---

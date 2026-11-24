@@ -192,6 +192,15 @@ Question 7).
 - [ ] `[GdUnit]` The canvas draws only the nodes inside the view (culling) and redraws only on a change.
 - [ ] `[Screenshot]` 1920×1080 and 1280×720: the tree around the start with a node selected and a plan; nothing clips.
 
+## Revision: weak-point pass (2026-11-24)
+
+Bar in groups (weak-point #11): **Points** (points unspent and the plan's cost; the next point source is in their
+tooltip), **Search**, **Plan** (Apply, the gold primary, and Reset), **View** (−, +, Whole tree, My marks); groups wrap
+whole. A **minimap** (`DaoDoMinimap`, ui_windows.json dao_do.minimap_px 220) sits in the canvas's bottom-right corner:
+every mark a faint dot, your marks gold, the plan blue, the view a brass frame; click or drag to move the view (a mouse
+aid; the keyboard has Whole tree and My marks). The bar's disabled buttons keep the wood look (the screen is on dark
+wood).
+
 ## Open Questions
 
 1. Node art: the painted framed icons are drawn (wired in 2026-11-24); only their polish waits for the release pass

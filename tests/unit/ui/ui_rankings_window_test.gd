@@ -96,3 +96,18 @@ func test_provisional_rows_are_tinted_only_among_rated_ones() -> void:
 			r.state = "provisional"
 	var w2 := _window(all_prov)
 	assert_eq(w2.row_of_rank(1).modulate.a, 1.0, "a new world, all provisional: no dim table (the header says so)")
+
+
+func test_the_change_cell_reads_up_down_held_new_and_none_yet() -> void:
+	assert_eq(RankingsWindow.move_text({"move": 3, "has_prev": true}), "▲3")
+	assert_eq(RankingsWindow.move_text({"move": -2, "has_prev": true}), "▼2")
+	assert_eq(RankingsWindow.move_text({"move": 0, "has_prev": true}), "=")
+	assert_eq(RankingsWindow.move_text({"move": 0, "new": true}), "new")
+	assert_eq(RankingsWindow.move_text({"move": 0, "has_prev": false}), "—", "before any season's results")
+	var v := _view()
+	v.rows[0]["move"] = 2
+	v.rows[0]["has_prev"] = true
+	var w := _window(v)
+	assert_true(_find(w, "ColumnHead") != null)
+	assert_true(w.row_of_rank(1).accessibility_name.contains("up 2"), "the change is spoken")
+

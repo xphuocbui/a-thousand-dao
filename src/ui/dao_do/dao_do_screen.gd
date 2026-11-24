@@ -1,8 +1,9 @@
 class_name DaoDoScreen
 extends GameWindow
 ## The Đạo Đồ full screen (design/ux/dao-do-view.md), laid out like Path of Exile's passive tree (user 2026-11-24): the
-## tree fills the screen ([DaoDoCanvas]: painted node icons, gold allocated paths); a slim bar on top with the points,
-## the next point source, search, Apply / Reset and zoom; hovering a mark shows a PoE-style card beside the pointer (its
+## tree fills the screen ([DaoDoCanvas]: painted node icons, gold allocated paths); a slim bar on top in groups (the
+## points, with the next point source in their tooltip; search; Apply / Reset; the view) and a minimap in the corner
+## ([DaoDoMinimap]); hovering a mark shows a PoE-style card beside the pointer (its
 ## name in its class colour, then its stats one per line, a capability or Effect, and what reaching it costs). Clicking
 ## a mark plans its route (the pale path); clicking a planned mark takes it and everything after it back out of the plan.
 ## Apply runs only when the points cover the whole plan (rule 3: nothing is spent partway) and after a confirm
@@ -15,6 +16,7 @@ signal leave_decided(go: bool)
 
 ## Reads one node: func(node_id: int, pending: Array) -> Dictionary.
 var node_reader: Callable = func(_id: int, _p: Array) -> Dictionary: return {}
+var _minimap := DaoDoMinimap.new()   # the corner overview (weak-point review 2026-11-24 #11)
 ## The static map (DaoDoTree), set once by the map screen.
 var tree: DaoDoTree = null
 ## ui_windows.json dao_do (families, colours, open_scale, icons).
@@ -117,13 +119,15 @@ func show_view(v: Dictionary, section: String, is_locked: bool) -> void:
 
 func _set_up_layout() -> void:
 	_set_up = true
-	scroll.visible = false   # the canvas fills the body instead of the scrolling column
+	# the canvas fills the body instead of the scrolling column: the whole body area (scroll and side pane) is hidden
+	# and the canvas takes its place (scroll alone is nested in that area since the side pane, 2026-11-24)
+	body_area().visible = false
 	var holder := Control.new()   # the canvas with the hover card floating over it
 	holder.name = "CanvasHolder"
 	holder.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	holder.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	add_child(holder)
-	move_child(holder, scroll.get_index())
+	move_child(holder, body_area().get_index())
 	_canvas.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_canvas.colours = cfg.get("colours", {})
 	_canvas.families = cfg.get("families", {})
@@ -142,6 +146,16 @@ func _set_up_layout() -> void:
 	_card_box.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_card.add_child(_card_box)
 	holder.add_child(_card)
+	# the minimap in the bottom-right corner (weak-point review 2026-11-24 #11); ui_windows.json dao_do.minimap_px
+	_minimap.name = "Minimap"
+	_minimap.canvas = _canvas
+	var mpx: float = float(cfg.get("minimap_px", 220))
+	_minimap.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
+	_minimap.offset_left = -mpx - 16
+	_minimap.offset_top = -mpx - 16
+	_minimap.offset_right = -16
+	_minimap.offset_bottom = -16
+	holder.add_child(_minimap)
 	if tree != null:
 		_canvas.setup(tree)
 		_canvas.load_icons(str(cfg.get("icons", "res://assets/icons/dao_do/game/icons.json")))
@@ -175,16 +189,34 @@ func _build_bar() -> void:
 	var v: Dictionary = view
 	var cost: int = _plan.size()
 	var pts: int = int(v.get("points", 0))
+	# the bar in groups, left to right (weak-point review 2026-11-24 #11: "toolbar overloaded"): Points, Search, Plan
+	# (Apply, the gold primary, and Reset), View; groups wrap whole at 1280x720
 	var row := HFlowContainer.new()
-	row.add_theme_constant_override("h_separation", 10)
+	row.add_theme_constant_override("h_separation", 14)
+	row.add_theme_constant_override("v_separation", 6)
 	header.add_child(row)
+	var group := func(gname: String) -> HBoxContainer:
+		var plate := PanelContainer.new()
+		plate.name = "Group_" + gname
+		plate.theme_type_variation = &"WoodPanel"
+		var h := HBoxContainer.new()
+		h.add_theme_constant_override("separation", 6)
+		plate.add_child(h)
+		row.add_child(plate)
+		return h
+	var g_pts: HBoxContainer = group.call("points")
 	_counters.text = tr("%d points unspent") % pts + (("  ·  " + tr("plan %d (%s)") % [cost, tr("covered") if cost <= pts else tr("%d short") % (cost - pts)]) if cost > 0 else "")
 	_counters.theme_type_variation = &"WoodHeading"
-	row.add_child(_counters)
-	row.add_child(_search)
+	_counters.mouse_filter = Control.MOUSE_FILTER_STOP
+	# where the next point comes from lives in the points' tooltip, not a loose line in the bar
+	TooltipLayer.set_tip(_counters, {"title": tr("Đạo Đồ points"), "summary": (tr("Next:") + " " + str(v.next_points)) if str(v.get("next_points", "")) != "" else tr("Points you can spend opening marks.")})
+	g_pts.add_child(_counters)
+	var g_find: HBoxContainer = group.call("search")
+	g_find.add_child(_search)
 	_count.theme_type_variation = &"WoodLabel"
 	_count.visible = _count.text != ""
-	row.add_child(_count)
+	g_find.add_child(_count)
+	var g_plan: HBoxContainer = group.call("plan")
 	_apply.text = tr("Apply (%d)") % cost
 	var why: String = ""
 	if locked:
@@ -199,23 +231,19 @@ func _build_bar() -> void:
 	TooltipLayer.set_tip(_apply, {"title": tr("Apply the plan"), "summary": why if why != "" else tr("Opens the planned marks in order. Permanent: the Đạo Đồ is never refunded.")})
 	if not _apply.pressed.is_connected(_arm_apply):
 		_apply.pressed.connect(_arm_apply)
-	row.add_child(_apply)
+	g_plan.add_child(_apply)
 	_reset.text = tr("Reset")
 	_reset.disabled = cost == 0
 	if not _reset.pressed.is_connected(reset_plan):
 		_reset.pressed.connect(reset_plan)
-	row.add_child(_reset)
+	g_plan.add_child(_reset)
+	var g_view: HBoxContainer = group.call("view")
 	for zb in [["−", func(): _canvas.zoom_by(1.0 / 1.4)], ["+", func(): _canvas.zoom_by(1.4)], [tr("Whole tree"), func(): _canvas.fit()],
 			[tr("My marks"), func(): _canvas.centre_on_set(Array(view.get("open", [])), float(cfg.get("open_scale", 18.0)))]]:
 		var b := Button.new()
 		b.text = str(zb[0])
 		b.pressed.connect(zb[1])
-		row.add_child(b)
-	if str(v.get("next_points", "")) != "":
-		var np := Label.new()
-		np.text = str(v.next_points)
-		np.theme_type_variation = &"WoodLabel"
-		row.add_child(np)
+		g_view.add_child(b)
 	if _armed == "apply":
 		_confirm_row(tr("Open %d marks for %d points? Permanent: the Đạo Đồ is never refunded.") % [cost, cost],
 			[[tr("Confirm"), "ConfirmApply", _apply_plan], [tr("Cancel"), "CancelApply", cancel_inline]])
@@ -242,6 +270,15 @@ func _build_bar() -> void:
 			else:
 				b3.pressed.connect(_arm.bind("start:" + key))
 			sr.add_child(b3)
+	_wood_disabled()
+
+
+# The bar sits on the full screen's dark wood, but the screen takes the parchment theme: its disabled buttons get the
+# wood look (an opaque dim plaque with faded bone text), or their ink-on-parchment disabled text would vanish.
+func _wood_disabled() -> void:
+	for b in header.find_children("*", "Button", true, false):
+		(b as Button).add_theme_color_override("font_disabled_color", Color(Illustrated.BONE, 0.5))
+		(b as Button).add_theme_stylebox_override("disabled", Illustrated.box(Color("#241810"), Illustrated.BRASS_DIM, 1, 6.0, 3))
 
 
 func _confirm_row(text: String, buttons: Array) -> void:

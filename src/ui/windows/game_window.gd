@@ -159,6 +159,12 @@ func show_view(v: Dictionary, section: String, is_locked: bool) -> void:
 		scroll.scroll_vertical = 0
 
 
+## The row holding the scrolling body and the side pane: a window that replaces the body with its own canvas (the
+## Đạo Đồ) hides this and puts its canvas at this index.
+func body_area() -> Control:
+	return _split_row
+
+
 ## Shows the pinned side pane, [param width] layout pixels wide, on the right (or the left with [param on_left]);
 ## call it from _build, then build into [member side].
 func use_side(width: int, on_left: bool = false) -> void:

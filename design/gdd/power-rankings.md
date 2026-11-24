@@ -558,6 +558,12 @@ before production.
 - **Rankings screen** (debug terminal command first, `rankings [realm]`): a realm's ranking, the player's place
   highlighted, each row name, sect, stage, power number and rated-fight count; and the Vấn Đỉnh Bảng (the top list).
 - **Explain:** `explain power` breaks the number into panel base, offset and the last fights that moved the offset.
+- **Change since last season** (user 2026-11-24; `design/ux/rankings.md`): each ranking row shows the places it
+  climbed (▲N) or lost (▼N) since the season's results before the latest, "=" when it held, "new" when its record was
+  in another realm then. Just before a season's batch is applied (rule 13), every rating record keeps `prev` (its
+  base + offset, snapped to 0.1 like them) and `prev_realm`; the ranking read ranks the same list by those values (a
+  fighter with no record yet ranks at today's estimate, so it is never "new" for lack of a record). Before any batch
+  has applied, the column shows "—". The read never writes (ADR-0006).
 - **Event cards** keep showing the trial-fight odds (ADR-0001 step 4), not a rating estimate.
 
 ## Cross-References
@@ -644,6 +650,10 @@ Ratings compare within ±0.05 (the stored 0.1).
 
 - **AC-PR-48** [Integration] **GIVEN** fighters with base, offset, state, n, panel data version and pending season work, **WHEN** the game saves and reloads, **THEN** every field matches and the next season's ratings equal those of a run that never saved.
 - **AC-PR-49** [Integration] **GIVEN** an old save with no rating fields, **WHEN** it loads, **THEN** every living fighter is Provisional at R_prov.
+- **AC-PR-57** [Logic] UI Requirements, change since last season. **GIVEN** a ranked realm and its snapshot (every
+  record's `prev`), **WHEN** one record from the lower half gains enough offset to lead, **THEN** the ranking read
+  gives it rank 1 and a move equal to its old rank − 1, someone it passed shows a negative move, and with no snapshot
+  every move is 0 and nobody is "new" (`session_reads_test`).
 - **AC-PR-50** [Integration] **GIVEN** `combat_rankings.json` `enabled` false and a save with stored ratings, **WHEN** a season runs, the sheet shows power and a world fight resolves, **THEN** the sheet shows chiến lực, the world fight uses the duel with 1 session draw, rating code runs 0 fights, and the stored ratings save back byte-identical.
 
 **Performance and determinism**

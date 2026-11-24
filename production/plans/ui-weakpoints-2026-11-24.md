@@ -54,14 +54,18 @@ find weakpoints and suggestions on how to improve them".
 - **Populated evidence**: `--crowded` (with `--inventory-fixture`: 43 items, long names, a missing icon; with
   `--relationships-fixture`: 24 ties, 12 met). It caught a real bug: an unwrapped feud badge widened the Relationships
   window over the map's buttons (now wraps at 280 px).
+- **Rankings change** (#10): a Change column (▲ / ▼ / = / new) from a per-season snapshot of each rating record
+  (`RatingService.snapshot_prev`, just before a season's results land).
+- **Đạo Đồ toolbar and minimap** (#11): the bar in Points / Search / Plan / View groups, the next point source in the
+  points' tooltip, a click-to-move minimap. Found on the way: the side pane (6759a269) had moved the Đạo Đồ canvas
+  above its bar; fixed (`GameWindow.body_area`), with a test.
+- **Window sizes** (#5): written as a pattern, `design/ux/interaction-patterns.md` Window sizes (side panel, full
+  screen, centre window; never past its share; pinned side panes; compact).
 
 ## Suggestions, ranked (not built)
 | # | Weak point | Suggestion | Effort |
 |---|---|---|---|
 | 4 | Combat tab (rest) | icons per stat; equipped techniques and wards beside the groups: **after combat formations are built** (user 2026-11-24) | S |
-| 5 | Window sizes (rest) | one written size rule (now: sheets, lists and the wiki 62 % side panels, the inventory 50 %, the Đạo Đồ and Abode full screen); the window host still lets a wide minimum grow a window past its share (a cap there would catch the next unwrapped label) | S |
-| 10 | Rankings (rest) | a change-since-last-season column needs a per-season rank snapshot (a Power Rankings data change, not UI only) | M |
-| 11 | Đạo Đồ toolbar overloaded; no orientation (Đạo Đồ on hold, user 2026-11-24) | split the toolbar (points / search / view), a minimap with the viewport and your path, brighter unallocated nodes, "Next:" into the points tooltip, Apply as the gold primary | L |
 
 Decided: wiki links keep the art bible's cinnabar (user 2026-11-24). Cross-window links in the header and
 CommitButton as the one primary are in place where a window has a decision (sect); the rest have none.

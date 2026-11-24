@@ -104,6 +104,8 @@ func normalise_loaded() -> void:
 		if rec.has("base"):
 			rec["base"] = _snap(float(rec.base))
 			rec["offset"] = _snap(float(rec.offset))
+			if rec.has("prev"):
+				rec["prev"] = _snap(float(rec.prev))
 			rec["n"] = int(rec.get("n", 0))
 
 
@@ -406,6 +408,7 @@ func _plan(game_seed: int, season_key: int, year: int, season_in_year: int, play
 ## pair fight by sorted ids and index (Formulas D). A fighter dead since planning, or a panel whose fighter is no
 ## longer at the panel's realm, is skipped.
 func apply_batch(b: SeasonBatch) -> void:
+	snapshot_prev()
 	var done: Array = b.panels.filter(func(p): return not p.result.is_empty())
 	done.sort_custom(func(x, y): return id_less(x.id, y.id))
 	for p in done:
@@ -430,6 +433,15 @@ func apply_batch(b: SeasonBatch) -> void:
 		if not _alive(f.a) or not _alive(f.b):
 			continue
 		apply_fight(_db.get_record(TABLE, f.a), _db.get_record(TABLE, f.b), f.score)
+
+
+## The rankings' change column (design/ux/rankings.md, user 2026-11-24: "change since last season"): every record keeps
+## the rating and realm it had just before a season's results land ("prev", "prev_realm"), so the ranking read can
+## rank the same list by last season's ratings. Snapped like base and offset (AC-PR-48: a reloaded game reads the same).
+func snapshot_prev() -> void:
+	for rec in _db.all(TABLE):
+		rec["prev"] = _snap(float(rec.get("base", 0.0)) + float(rec.get("offset", 0.0)))
+		rec["prev_realm"] = int(rec.get("realm", 0))
 
 
 ## World generation's ratings (rule 16), outside any season budget: the player's full panel, then coarse panels for

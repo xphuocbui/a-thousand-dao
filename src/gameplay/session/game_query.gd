@@ -739,6 +739,7 @@ static func rankings(s: GameSession, which: Variant) -> Dictionary:
 			"realm": str(gd.realm(int(src.get("realm_index", 0))).get("name", "")),
 			"base": float(rec.base), "offset": float(rec.offset), "power": s.ratings.ladder.power_number(r), "state": str(rec.state),
 			"n": int(stored.get("n", 0)), "age": float(src.get("age", 0.0)), "you": is_me,
+			"prev": float(stored.get("prev", r)), "prev_realm": int(stored.get("prev_realm", -1)), "has_prev": stored.has("prev"),
 			"portrait": portrait_of(s, {"id": str(p.id), "cast_key": str(p.get("cast_key", "")), "gender": str(src.get("gender", "male")),
 				"age": float(src.get("age", 0.0)), "realm_index": int(src.get("realm_index", 0)), "sect_id": str(src.get("sect_id", ""))})})
 	rows.sort_custom(func(x, y):   # rule 9 (2026-11-24): one order by rating, provisional rows mixed in by their estimate
@@ -754,6 +755,25 @@ static func rankings(s: GameSession, which: Variant) -> Dictionary:
 		rows[i]["rank"] = i + 1
 		if bool(rows[i].you):
 			mine = i + 1
+	# the change since last season (rankings.md): the same list ranked by each row's rating before the latest results
+	# (RatingService.snapshot_prev); "move" > 0 climbed; "new" for a record that was in another realm then; "move" 0
+	# and no "new" before any season's results
+	var before: Array = rows.duplicate()
+	before.sort_custom(func(x, y):
+		if x.prev != y.prev:
+			return x.prev > y.prev
+		if x.n != y.n:
+			return x.n > y.n
+		if x.age != y.age:
+			return x.age > y.age
+		return RatingService.id_less(x.id, y.id))
+	var any_prev: bool = rows.any(func(x): return bool(x.has_prev))
+	for i in before.size():
+		var x: Dictionary = before[i]
+		# new: a record that was in another realm then (a breakthrough); a person with no record yet ranks at today's
+		# estimate (no record = provisional, unchanged), so they are not "new" every season
+		x["new"] = any_prev and bool(x.has_prev) and not realms.has(int(x.prev_realm))
+		x["move"] = 0 if bool(x.new) or not any_prev else (i + 1) - int(x.rank)
 	var b: Dictionary = s.last_rating_batch
 	return {"on": true, "which": str(which), "title": title, "realms": realms, "player_realm": c.realm_index, "total": rows.size(),
 		"player_rank": mine, "rows": rows,

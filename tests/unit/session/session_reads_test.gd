@@ -287,6 +287,29 @@ func test_the_rankings_read_orders_by_rating_lists_the_player_and_agrees_with_th
 	s.shutdown()
 
 
+func test_the_rankings_change_column_counts_places_since_the_snapshot() -> void:
+	var s := _session()
+	var realm: int = s.player.realm_index
+	var v0: Dictionary = GameQuery.rankings(s, realm)
+	assert_true(Array(v0.rows).all(func(r): return int(r.move) == 0 and not bool(r.new)), "no change before any season's results")
+	s.ratings.snapshot_prev()   # what RatingService.apply_batch does before a season's results land
+	# a stored record from the lower half climbs past everyone
+	var climber: Dictionary = {}
+	for r in Array(v0.rows).slice(int(v0.rows.size() / 2)):
+		if not s.db.get_record(RatingService.TABLE, str(r.id)).is_empty() and not bool(r.you):
+			climber = r
+			break
+	assert_false(climber.is_empty(), "a rated record to move")
+	var rec: Dictionary = s.db.get_record(RatingService.TABLE, str(climber.id))
+	rec["offset"] = float(rec.offset) + 100000.0
+	var v1: Dictionary = GameQuery.rankings(s, realm)
+	var now: Dictionary = Array(v1.rows).filter(func(r): return str(r.id) == str(climber.id))[0]
+	assert_eq(int(now.rank), 1, "it leads now")
+	assert_eq(int(now.move), int(climber.rank) - 1, "it climbed from its old place")
+	assert_true(Array(v1.rows).filter(func(r): return int(r.move) < 0).size() > 0, "someone it passed fell")
+	s.shutdown()
+
+
 func test_the_abode_read_shows_the_starting_home() -> void:
 	var s := _session()
 	var v: Dictionary = GameQuery.abode(s)

@@ -210,6 +210,12 @@ Provisional tint (weak-point pass, 2026-11-24, #10): provisional rows are drawn 
 row is rated; in a new world where nearly everyone is provisional the header line says so and the table stays full
 strength.
 
+**Change** column (user 2026-11-24, weak-point #10), between Power and Fights: places climbed (▲N) or lost (▼N) since
+the season's results before the latest, "=" held, "new" for someone whose record was in another realm then, "—" before
+any season's results. Data: `RatingService.snapshot_prev` stores each record's rating and realm (`prev`,
+`prev_realm`, snapped to 0.1) just before a season's batch is applied; the read ranks the same list by those ratings
+(a person with no record yet ranks at today's estimate). Spoken in the row's name ("since last season up 2").
+
 ## Open Questions
 
 - **Deferred GDD item:** the "last fights that moved the offset" (power-rankings.md UI Requirements, Explain) are not

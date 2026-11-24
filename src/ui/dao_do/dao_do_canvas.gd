@@ -269,6 +269,47 @@ func scale_px() -> float:
 	return _scale
 
 
+## For the minimap (DaoDoMinimap): every mark's map position, the tree's bounds, the map rect the view shows, the
+## opened and planned marks' positions, and a key that changes when the view moves.
+func node_positions() -> PackedVector2Array:
+	return _pos
+
+
+func world_bounds() -> Rect2:
+	return _bounds
+
+
+func view_world_rect() -> Rect2:
+	return Rect2(to_world(Vector2.ZERO), size / maxf(_scale, 1e-6))
+
+
+func view_key() -> Vector4:
+	return Vector4(_centre.x, _centre.y, _scale, 0.0)
+
+
+func open_count() -> int:
+	return _open.size()
+
+
+func planned_count() -> int:
+	return _planned.size()
+
+
+func open_positions() -> Array:
+	return _open.keys().filter(func(id): return _index.has(int(id))).map(func(id): return _pos[_index[int(id)]])
+
+
+func planned_positions() -> Array:
+	return _planned.keys().filter(func(id): return _index.has(int(id))).map(func(id): return _pos[_index[int(id)]])
+
+
+## Moves the view's centre to map point [param w] (the minimap's click or drag), keeping the zoom.
+func centre_at(w: Vector2) -> void:
+	_centre = w
+	_fitted = true
+	queue_redraw()
+
+
 func to_screen(w: Vector2) -> Vector2:
 	return (w - _centre) * _scale + size * 0.5
 

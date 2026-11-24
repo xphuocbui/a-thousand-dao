@@ -139,3 +139,28 @@ func test_clicking_a_planned_mark_takes_it_and_the_rest_back_out() -> void:
 func test_the_icon_sheet_covers_every_node() -> void:
 	var c := _canvas()
 	assert_eq(c.load_icons("res://assets/icons/dao_do/game/icons.json"), c.node_count(), "an icon for every node")
+
+
+func test_the_bar_is_grouped_and_the_minimap_moves_the_view() -> void:
+	var s := _screen(5)
+	for g in ["points", "search", "plan", "view"]:
+		assert_true(s.find_child("Group_" + g, true, false) != null, "the %s group" % g)
+	assert_true(s._apply.get_parent().get_parent().name == "Group_plan", "Apply sits in the Plan group")
+	var m: DaoDoMinimap = s.find_child("Minimap", true, false) as DaoDoMinimap
+	assert_true(m != null, "the minimap in the corner")
+	m.size = Vector2(200, 200)
+	var c: DaoDoCanvas = s.canvas()
+	var target: Vector2 = m.world_at(Vector2(30, 170))
+	var ev := InputEventMouseButton.new()
+	ev.button_index = MOUSE_BUTTON_LEFT
+	ev.pressed = true
+	ev.position = Vector2(30, 170)
+	m._gui_input(ev)
+	assert_true(c.view_world_rect().get_center().distance_to(target) < 0.01, "a click centres the view there")
+
+
+func test_the_canvas_takes_the_body_s_place_under_the_bar() -> void:
+	var s := _screen(5)
+	var holder: Node = s.find_child("CanvasHolder", true, false)
+	assert_true(holder.get_index() > s.header.get_index(), "the tree sits under the bar, not above it")
+	assert_false(s.body_area().visible, "the empty body area is hidden, so the tree gets the height")

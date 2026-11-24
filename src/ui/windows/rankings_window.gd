@@ -233,7 +233,7 @@ func _podium(parent: Control, top: Array) -> void:
 func _column_head() -> void:
 	var h := HBoxContainer.new()
 	h.name = "ColumnHead"
-	var cols: Array = [["#", 48], ["", 40], [tr("Name"), 0], [tr("Sect"), 150], [tr("Stage"), 200], [tr("Power"), 80], [tr("Fights"), 50]]
+	var cols: Array = [["#", 48], ["", 40], [tr("Name"), 0], [tr("Sect"), 150], [tr("Stage"), 200], [tr("Power"), 80], [tr("Change"), 64], [tr("Fights"), 50]]
 	if str(view.get("which", "")) == "top":
 		cols.insert(4, [tr("Realm"), 90])   # the Vấn Đỉnh Bảng holds two realms (rule 9); after #, portrait, Name, Sect
 	if compact:
@@ -242,6 +242,9 @@ func _column_head() -> void:
 		var l := Label.new()
 		l.text = str(pair[0])
 		l.theme_type_variation = &"RowLabel"
+		if str(pair[0]) == tr("Change"):
+			l.mouse_filter = Control.MOUSE_FILTER_STOP
+			TooltipLayer.set_tip(l, {"title": tr("Change since last season"), "summary": tr("Places climbed (▲) or lost (▼) since the season's results before the latest; new: not in this list then.")})
 		if int(pair[1]) > 0:
 			l.custom_minimum_size = Vector2(int(pair[1]), 0)
 		else:
@@ -273,7 +276,8 @@ func _row(r: Dictionary) -> void:
 	h.add_child(name)
 	var prov: bool = str(r.state) == "provisional"
 	var cells2: Array = [[str(r.sect) if str(r.sect) != "" else "—", 150], [str(r.stage), 200],
-			[("~" if prov else "") + HudReadouts.stones_text(float(r.power)) + (" (" + tr("stale") + ")" if str(r.state) == "stale" else ""), 80], ["%d" % int(r.n), 50]]
+			[("~" if prov else "") + HudReadouts.stones_text(float(r.power)) + (" (" + tr("stale") + ")" if str(r.state) == "stale" else ""), 80],
+			[move_text(r), 64], ["%d" % int(r.n), 50]]
 	if str(view.get("which", "")) == "top":
 		cells2.insert(1, [str(r.get("realm", "")), 90])
 	if compact:
@@ -290,6 +294,7 @@ func _row(r: Dictionary) -> void:
 	h.focus_mode = Control.FOCUS_ALL
 	h.accessibility_name = "%s, %s, %s, %s, %s %s%s, %d %s%s" % [_ordinal(int(r.rank)), str(r.name), str(r.sect) if str(r.sect) != "" else tr("no sect"), str(r.stage),
 		tr("power"), (tr("about") + " ") if prov else "", HudReadouts.stones_text(float(r.power)), int(r.n), tr("rated fights"), (", " + tr("you")) if you else ""]
+	h.accessibility_name += ", " + tr("since last season") + " " + {"new": tr("new in this list"), "=": tr("no change"), "—": tr("no results yet")}.get(move_text(r), move_text(r).replace("▲", tr("up ")).replace("▼", tr("down ")))
 	TooltipLayer.set_tip(h, {"id": pid, "title": str(r.name) + ((" · " + str(r.sect)) if str(r.sect) != "" else ""), "fact": tr("Rating %.1f = base %.1f + offset %+.1f") % [float(r.rating), float(r.base), float(r.offset)],
 		"summary": tr("Provisional: from realm and stage until a panel at this realm.") if prov else (tr("Stale: the build changed since the last panel.") if str(r.state) == "stale" else "")})
 	if you:
@@ -303,6 +308,18 @@ func _row(r: Dictionary) -> void:
 	else:
 		_into.add_child(h)
 	_rows_by_rank[int(r.rank)] = h
+
+
+## The Change cell of row [param r]: ▲N climbed, ▼N fell, "=" held, "new" entered the list, "—" before any results.
+static func move_text(r: Dictionary) -> String:
+	if bool(r.get("new", false)):
+		return "new"
+	var m: int = int(r.get("move", 0))
+	if m > 0:
+		return "▲%d" % m
+	if m < 0:
+		return "▼%d" % -m
+	return "=" if bool(r.get("has_prev", false)) else "—"
 
 
 func _gap(a: int, b: int, rows: Array) -> void:
