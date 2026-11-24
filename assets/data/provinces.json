@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "_doc": "Provinces (design/gdd/provinces.md; ADR-0008; provinces-runtime Stage 1, read by Provinces). provinces_version: written to the world's w_meta at build; a save with another value (or none) is refused (D7, user decision 2026-11-24). shape_file: the static province shapes, places and neighbours (world_provinces.json, from tools/design/map/province_stats_v2.py; its 'stats' are the old bake, not read by the game except as the panel's fallback for values a later stage makes live). province_ids_file: u16 per tile (540 x 360, 0 over water), for places outside every listed province (the 5 lakes, and places made mid-game). F1: secondary_share (a secondary good is at least this share of the main good's value). F2: wild_hops (wilderness output reaches settlement provinces of the same region at most this many hops away; farther wilderness passes nothing). F5: base_slots by seat kind, slot_pop_step (population units per extra slot), wild_slots. lake_search_radius: tiles searched around a place on water for the nearest land province. All values are the GDD's guesses (OQ 1). population (F3, Stage 5, once a year in Spring): capacity C = P0 (1 + cap0 + sum of buildings' cap_b x level); fed (its market's mean cover of herbs and beast parts >= famine_cover, or no such market) and safe (its region's holder at no war) grows P by g P (1 - P / C); famine falls by f_fam (1 - cover / famine_cover); war x (1 - f_war); clamped to [pop_floor P0, max(C, P (1 - f_fam))]. Each settlement's workforce (local.pop, which settlement output and W_set read) follows P / P0. Guesses (OQ 1). access (F6, Stage 6): infra0 by seat kind, i_road a road tile, i_river a river tile up to river_cap, start_access_min (the old roads and porters lift every settlement province to it at the first season), raw_kinds (the kinds usage counts). economy_reads_provinces: Regional Economy & Trade takes each province's production x its access x the region's safety instead of the region's production x its distance reach (false: the old reading).",
+  "_doc": "Provinces (design/gdd/provinces.md; ADR-0008; provinces-runtime Stage 1, read by Provinces). provinces_version: written to the world's w_meta at build; a save with another value (or none) is refused (D7, user decision 2026-11-24). shape_file: the static province shapes, places and neighbours (world_provinces.json, from tools/design/map/province_stats_v2.py; its 'stats' are the old bake, not read by the game except as the panel's fallback for values a later stage makes live). province_ids_file: u16 per tile (540 x 360, 0 over water), for places outside every listed province (the 5 lakes, and places made mid-game). F1: secondary_share (a secondary good is at least this share of the main good's value). F2: wild_hops (wilderness output reaches settlement provinces of the same region at most this many hops away; farther wilderness passes nothing). F5: base_slots by seat kind, slot_pop_step (population units per extra slot), wild_slots. lake_search_radius: tiles searched around a place on water for the nearest land province. All values are the GDD's guesses (OQ 1). population (F3, Stage 5, once a year in Spring): capacity C = P0 (1 + cap0 + sum of buildings' cap_b x level); fed (its market's mean cover of herbs and beast parts >= famine_cover, or no such market) and safe (its region's holder at no war) grows P by g P (1 - P / C); famine falls by f_fam (1 - cover / famine_cover); war x (1 - f_war); clamped to [pop_floor P0, max(C, P (1 - f_fam))]. Each settlement's workforce (local.pop, which settlement output and W_set read) follows P / P0. Guesses (OQ 1). access (F6, Stage 6): infra0 by seat kind, i_road a road tile, i_river a river tile up to river_cap, start_access_min (the old roads and porters lift every settlement province to it at the first season), raw_kinds (the kinds usage counts). economy_reads_provinces: Regional Economy & Trade takes each province's production x its access x the region's safety instead of the region's production x its distance reach (false: the old reading). events (Stage 7, guesses): each season a province may be struck (chance a season, from a stream keyed on seed, province and season); the event is a modifier on stat (production, capacity, infra) for scope (a good kind or all) worth value (inc), for seasons, softened by 1 / (1 + wall_soften x warding wall levels); a beast tide also stops growth that year (F3 safe) and ruins a building with ruin_chance x the softening. strained_access: below it a province is Under-connected.",
   "provinces_version": 2,
   "shape_file": "world_provinces",
   "province_ids_file": "res://assets/map/continent_11_province_ids.bin",
@@ -45,5 +45,45 @@
       "special"
     ]
   },
-  "economy_reads_provinces": true
+  "economy_reads_provinces": true,
+  "events": {
+    "strained_access": 0.7,
+    "log": true,
+    "kinds": {
+      "blight": {
+        "chance": 0.004,
+        "where": "any",
+        "stat": "production",
+        "scope": "herb",
+        "value": -0.7,
+        "seasons": 4,
+        "wall_soften": 0.0,
+        "source": "Blight (dịch hại)",
+        "news": "Dịch hại tràn qua %s (%s)."
+      },
+      "raid": {
+        "chance": 0.003,
+        "where": "settlement",
+        "stat": "production",
+        "scope": "",
+        "value": -0.3,
+        "seasons": 2,
+        "wall_soften": 0.2,
+        "source": "Raid (cướp phá)",
+        "news": "Cướp phá ở %s (%s)."
+      },
+      "beast_tide": {
+        "chance": 0.002,
+        "where": "settlement",
+        "stat": "capacity",
+        "scope": "",
+        "value": 0.0,
+        "seasons": 4,
+        "wall_soften": 0.2,
+        "ruin_chance": 0.5,
+        "source": "Beast tide (thú triều)",
+        "news": "Thú triều đổ vào %s (%s)."
+      }
+    }
+  }
 }

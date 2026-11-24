@@ -41,7 +41,7 @@ func tick(rng: RandomNumberGenerator, year: int, season: int) -> Array:
 		money.open_season()
 	if _db.has_record("world", "w_meta"):   # the continent's sites produce and their reserves move (Travel & Map rules 21-22, 25)
 		MapProduction.season(_gd, _db, season == 0)
-		Provinces.season(_gd, _db, season)   # ADR-0008: the province contract (population yearly in Spring, Stage 5)
+		Provinces.season(_gd, _db, season, year)   # ADR-0008: the province contract (population yearly, Stage 5; events, Stage 7)
 		if money != null:   # the markets read the season's production, then the money moves (rule 19)
 			WorldEconomy.season(_gd, _db, money)
 			last_money = WorldMoney.season(_gd, _db, money, year, season)

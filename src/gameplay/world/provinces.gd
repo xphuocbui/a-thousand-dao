@@ -206,9 +206,11 @@ static func clear_values(db: WorldDB) -> void:
 
 ## One season (rule 13 steps 3 and 5 in shadow): F2 and F4 production per province from MapProduction's own values,
 ## F1 goods (fixed at the first season), F5 slots. Returns nothing; the records carry the contract.
-static func season(gd: GameData, db: WorldDB, season_i: int = -1) -> void:
+static func season(gd: GameData, db: WorldDB, season_i: int = -1, year: int = 0) -> void:
 	if db.count(TABLE) == 0:
 		return
+	if season_i >= 0:
+		events(gd, db, year, season_i)   # Stage 7: modifiers age, new shocks strike
 	if season_i == 0:
 		yearly(gd, db)   # rule 13 step 2: population, once a year in Spring (Stage 5)
 	region_pop(db)
@@ -221,7 +223,7 @@ static func _season(gd: GameData, db: WorldDB) -> void:
 	var gathered := {}   # settlement province -> {good: value} from wilderness
 	var wild: Array = _wild_order(db)
 	for row in wild:
-		carry[str(row[0].id)] = Dictionary(row[0].own_value).duplicate()
+		carry[str(row[0].id)] = modified(gd, row[0], row[0].own_value)   # F4: a wilderness province's own modifiers
 	for row in wild:
 		var c: Dictionary = carry[str(row[0].id)]
 		for t in row[1]:   # [to, share, to is a settlement]
@@ -237,6 +239,8 @@ static func _season(gd: GameData, db: WorldDB) -> void:
 		var prod: Dictionary = Dictionary(v.own_value).duplicate() if settled else {}
 		for g in gathered.get(str(v.id), {}):
 			prod[g] = float(prod.get(g, 0.0)) + float(gathered[str(v.id)][g])
+		if settled:
+			prod = modified(gd, v, prod)   # F4: x max(0, 1 + sum inc) x prod max(0, 1 + more) by good kind (rule 12)
 		v["production_value"] = prod   # F4: places + wilderness share (+ buildings from Stage 2, modifiers from Stage 7)
 		var by_class := {}
 		for g in (prod if settled else v.own_value):
@@ -250,6 +254,7 @@ static func _season(gd: GameData, db: WorldDB) -> void:
 		var extra: int = int(floor(float(v.population) / maxf(float(cs.get("slot_pop_step", 8.0)), 1e-9))) if settled else 0
 		if settled:
 			_access(gd, db, v, prod)   # F6 (Stage 6)
+		v["states"] = states(gd, db, v)   # Stage 7: Normal, Under-connected, Struck, War-touched
 		var standing: int = Array(v.buildings).filter(func(b): return str(b.get("state", "")) != "cancelled").size()
 		v["slots"] = maxi(base + extra, standing)   # F5: slots never fall below the buildings standing
 		ProvinceBuildings.season(gd, db, v)   # rule 13 step 1 (advance) and the projection onto places (Stage 2)
@@ -287,11 +292,11 @@ static func yearly(gd: GameData, db: WorldDB) -> void:
 		var capb: float = 0.0
 		for b in v.get("buildings", []):
 			capb += float(ProvinceBuildings.kind(gd, str(b.kind)).get("cap_b", 0.0)) * float(ProvinceBuildings.effective(gd, b))
-		var cap: float = p0 * (1.0 + float(c.get("cap0", 0.2)) + capb)
+		var cap: float = p0 * (1.0 + float(c.get("cap0", 0.2)) + capb) * mult_of(v, "capacity", "")
 		var cover: float = _staple_cover(db, v)
 		var fam: float = float(c.get("famine_cover", 0.6))
 		var fed: bool = cover >= fam
-		var safe: bool = not _at_war(db, v)
+		var safe: bool = not _at_war(db, v) and not has_event(v, "beast_tide")   # F3: war or an active tide
 		var np: float = p
 		if not fed:
 			np = p * (1.0 - float(c.get("f_fam", 0.2)) * (1.0 - cover / maxf(fam, 1e-9)))
@@ -365,7 +370,7 @@ static func _access(gd: GameData, db: WorldDB, v: Dictionary, prod: Dictionary) 
 		for k in by_kind:
 			u0 += float(by_kind[k])
 		v["infra_old"] = maxf(0.0, float(a.get("start_access_min", 0.5)) * u0 - (land + built))
-	var infra: float = land + built + float(v.infra_old)
+	var infra: float = (land + built + float(v.infra_old)) * mult_of(v, "infra", "")   # rule 12: infrastructure modifiers
 	v["infra"] = infra
 	v["usage"] = usage
 	v["access"] = 1.0 if usage <= infra else infra / usage
@@ -380,6 +385,94 @@ static func region_pop(db: WorldDB) -> void:
 			var r: Dictionary = db.get_record("regions", str(v.get("region_id", "")))
 			if not r.is_empty():
 				r["pop_units"] = float(r.pop_units) + float(v.get("population", 0.0))
+
+
+## Rule 12: the factor of province [param v]'s modifiers on [param stat] for good kind [param scope] ("" for any):
+## max(0, 1 + sum of inc) x prod of max(0, 1 + more). A modifier with no scope applies to every kind.
+static func mult_of(v: Dictionary, stat: String, scope: String) -> float:
+	var inc: float = 0.0
+	var more: float = 1.0
+	for m in v.get("modifiers", []):
+		if str(m.get("stat", "")) != stat:
+			continue
+		if str(m.get("scope", "")) != "" and str(m.get("scope", "")) != scope:
+			continue
+		if str(m.get("kind", "inc")) == "more":
+			more *= maxf(0.0, 1.0 + float(m.value))
+		else:
+			inc += float(m.value)
+	return maxf(0.0, 1.0 + inc) * more
+
+
+## F4's modifiers on a production dict ({good: value}): each good by its kind's production factor.
+static func modified(gd: GameData, v: Dictionary, prod: Dictionary) -> Dictionary:
+	if Array(v.get("modifiers", [])).is_empty():
+		return Dictionary(prod).duplicate()
+	var out := {}
+	for g in prod:
+		out[g] = float(prod[g]) * mult_of(v, "production", WorldEconomy.kind_of(gd, str(g)))
+	return out
+
+
+## Whether an event modifier of [param event] is active on [param v].
+static func has_event(v: Dictionary, event: String) -> bool:
+	return Array(v.get("modifiers", [])).any(func(m): return str(m.get("event", "")) == event)
+
+
+## The province states (States table): any of under_connected (access below strained_access), struck (an event
+## modifier active), war_touched (its holder at war); normal when none holds.
+static func states(gd: GameData, db: WorldDB, v: Dictionary) -> Array:
+	var out: Array = []
+	if str(v.kind) == "settlement" and float(v.get("access", 1.0)) < float(cfg(gd).get("events", {}).get("strained_access", 0.7)):
+		out.append("under_connected")
+	if Array(v.get("modifiers", [])).any(func(m): return str(m.get("event", "")) != ""):
+		out.append("struck")
+	if _at_war(db, v):
+		out.append("war_touched")
+	return out if not out.is_empty() else ["normal"]
+
+
+## Stage 7, each season: modifiers count down and expire; then each province may be struck, from a stream keyed on the
+## world seed, the province and the season (deterministic): a blight (herb production inc -0.7), a raid (all production
+## inc -0.3, softened by its warding walls) or a beast tide (no growth that year, F3, and a chance to ruin a building
+## that walls lower), each for its seasons, as a modifier with a source line and a news event.
+static func events(gd: GameData, db: WorldDB, year: int, season_i: int) -> void:
+	var ec: Dictionary = cfg(gd).get("events", {})
+	var seed_s: String = str(db.get_record("world", "w_meta").get("seed", ""))
+	var abs_s: int = year * 4 + season_i
+	for v in db.all(TABLE):
+		var keep: Array = []
+		for m in v.get("modifiers", []):
+			if int(m.get("seasons", -1)) < 0:
+				keep.append(m)   # lasting (a building or the land)
+			elif int(m.seasons) > 1:
+				m["seasons"] = int(m.seasons) - 1
+				keep.append(m)
+		v["modifiers"] = keep
+		for ev in ec.get("kinds", {}):
+			var e: Dictionary = ec.kinds[ev]
+			if str(e.get("where", "any")) == "settlement" and str(v.kind) != "settlement":
+				continue
+			if has_event(v, str(ev)):
+				continue
+			var roll: float = float(RngUtils.stable_hash("%s|%s|%d|%s" % [seed_s, str(v.id), abs_s, str(ev)]) % 1000000) / 1000000.0
+			if roll >= float(e.get("chance", 0.0)):
+				continue
+			var walls: int = 0
+			for b in v.get("buildings", []):
+				if str(b.kind) == "warding_wall":
+					walls += ProvinceBuildings.effective(gd, b)
+			var soften: float = 1.0 / (1.0 + float(e.get("wall_soften", 0.0)) * float(walls))
+			var val: float = float(e.get("value", 0.0)) * soften
+			v.modifiers.append({"stat": str(e.get("stat", "production")), "scope": str(e.get("scope", "")), "kind": "inc",
+				"value": val, "seasons": int(e.get("seasons", 1)), "event": str(ev), "source": str(e.get("source", ev))})
+			if float(e.get("ruin_chance", 0.0)) > 0.0:   # a tide may wreck a building; walls lower the chance
+				var r2: float = float(RngUtils.stable_hash("%s|%s|%d|%s|ruin" % [seed_s, str(v.id), abs_s, str(ev)]) % 1000000) / 1000000.0
+				var live: Array = Array(v.get("buildings", [])).filter(func(b): return str(b.state) == "active" and str(b.kind) != "warding_wall")
+				if r2 < float(e.ruin_chance) * soften and not live.is_empty():
+					live[int(RngUtils.stable_hash("%s|%s|%d|pick" % [seed_s, str(v.id), abs_s]) % live.size())]["state"] = "ruined"
+			if bool(ec.get("log", true)):
+				db.log_event(year, season_i, "province_" + str(ev), str(e.get("news", "%s: %s.")) % [str(v.get("name", v.id)), str(e.get("source", ev))], [], [], [])
 
 
 # F1's goods: the main good is the class with the largest value, up to two secondary goods at secondary_share of it.

@@ -266,6 +266,13 @@ static func province(s: GameSession, province_id: int) -> Dictionary:
 			return {"kind": str(b.kind), "name": str(ProvinceBuildings.kind(s.gd, str(b.kind)).get("name", b.kind)),
 				"level": int(b.get("level", 0)), "target": int(b.get("target", 0)), "state": str(b.get("state", "active"))})
 		st["live"] = true
+		# Stage 7: each modifier as its own line with its source (rule 12), and the province's states
+		st["modifiers"] = Array(live.get("modifiers", [])).map(func(m):
+			var pct: int = int(round(float(m.get("value", 0.0)) * 100.0))
+			var what: String = "%s%s %+d %%" % [str(m.get("stat", "")), (" of " + str(m.scope)) if str(m.get("scope", "")) != "" else "", pct]
+			var left: String = (" (%d seasons)" % int(m.seasons)) if int(m.get("seasons", -1)) > 0 else ""
+			return {"text": what + left, "source": str(m.get("source", "")), "event": str(m.get("event", ""))})
+		st["states"] = Array(live.get("states", ["normal"])).duplicate()
 		rec["stats"] = st
 	return rec
 

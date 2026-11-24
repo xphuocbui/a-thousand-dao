@@ -199,8 +199,8 @@ static func grow_sites(gd: GameData, db: WorldDB, v: Dictionary) -> void:
 			levels[str(p.id)] = int(levels.get(str(p.id), 0)) + effective(gd, b)
 	for pid in v.places:
 		var p: Dictionary = db.get_record("places", str(pid))
-		if not p.has("site") or str(p.get("site_grade", "")) != "minor":
-			continue
+		if not p.has("site") or str(p.get("site_grade", "")) != "minor" or Array(cfg(gd).get("growth_skip_kinds", [])).has(str(p.site.get("kind", ""))):
+			continue   # stone sites keep their grade (user decision 2026-11-24: growth doubled minting)
 		var land: float = float(p.get("qi", {}).get("land_density", p.get("density", 1.0)))
 		var cap: String = "small"
 		for g in mp.grade_by_density:

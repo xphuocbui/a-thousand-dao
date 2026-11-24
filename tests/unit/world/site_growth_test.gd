@@ -12,9 +12,9 @@ func before() -> void:
 	_db = WorldBuilder.new(game_data(), TestFixtures.tree()).generate(r, "4242")
 
 
-func _minor_site(kinds: Array) -> Dictionary:
+func _minor_site(kinds: Array, stone: bool = false) -> Dictionary:
 	for p in _db.all("places"):
-		if p.has("site") and str(p.get("site_grade", "")) == "minor" and str(p.get("kind", "")) in kinds:
+		if p.has("site") and str(p.get("site_grade", "")) == "minor" and str(p.get("kind", "")) in kinds and (str(p.site.kind) == "linh_thach") == stone:
 			return p
 	return {}
 
@@ -67,3 +67,16 @@ func test_an_old_site_never_changes_grade() -> void:
 			v.buildings.erase(b)
 			assert_eq(str(p.site.grade), before, "an authored site keeps its land grade")
 			return
+
+
+func test_a_stone_site_never_grows() -> void:
+	var gd := game_data()
+	var p: Dictionary = _minor_site(["mine", "spirit_vein", "beast_lair", "hot_spring"], true)
+	if p.is_empty():
+		return   # no minor stone site in this world
+	var v: Dictionary = Provinces.of_place(gd, _db, p)
+	var b: Dictionary = ProvinceBuildings.make(v, _match(str(p.kind)), 6)
+	v.buildings.append(b)
+	ProvinceBuildings.grow_sites(gd, _db, v)
+	v.buildings.erase(b)
+	assert_eq(str(p.site.grade), "minor", "a spirit-stone site keeps its grade (user decision 2026-11-24)")
