@@ -1,0 +1,880 @@
+{
+ "_doc": "Decision 1 (user 2026-11-24): the new economic sites kept, one province in four, at site grade minor; every other new site has no production (places_v2_merge.py).",
+ "kept": {
+  "prov_r1_12_beast_lair_2": {
+   "province": "prov_r1_12",
+   "region": 1,
+   "kind": "beast_lair"
+  },
+  "prov_p95_beast_lair_1": {
+   "province": "prov_p95",
+   "region": 1,
+   "kind": "beast_lair"
+  },
+  "prov_r1_1_beast_lair_1": {
+   "province": "prov_r1_1",
+   "region": 1,
+   "kind": "beast_lair"
+  },
+  "prov_p97_spirit_vein_1": {
+   "province": "prov_p97",
+   "region": 1,
+   "kind": "spirit_vein"
+  },
+  "prov_r1_18_spirit_vein_2": {
+   "province": "prov_r1_18",
+   "region": 1,
+   "kind": "spirit_vein"
+  },
+  "prov_r1_9_beast_lair_1": {
+   "province": "prov_r1_9",
+   "region": 1,
+   "kind": "beast_lair"
+  },
+  "prov_r1_7_beast_lair_2": {
+   "province": "prov_r1_7",
+   "region": 1,
+   "kind": "beast_lair"
+  },
+  "prov_r1_5_spirit_vein_1": {
+   "province": "prov_r1_5",
+   "region": 1,
+   "kind": "spirit_vein"
+  },
+  "prov_r2_7_beast_lair_1": {
+   "province": "prov_r2_7",
+   "region": 2,
+   "kind": "beast_lair"
+  },
+  "prov_hong_lo_mine_1": {
+   "province": "prov_hong_lo",
+   "region": 2,
+   "kind": "mine"
+  },
+  "prov_r2_6_beast_lair_1": {
+   "province": "prov_r2_6",
+   "region": 2,
+   "kind": "beast_lair"
+  },
+  "prov_r2_32_lava_vent_1": {
+   "province": "prov_r2_32",
+   "region": 2,
+   "kind": "lava_vent"
+  },
+  "prov_r2_3_spirit_vein_1": {
+   "province": "prov_r2_3",
+   "region": 2,
+   "kind": "spirit_vein"
+  },
+  "prov_r2_30_mine_1": {
+   "province": "prov_r2_30",
+   "region": 2,
+   "kind": "mine"
+  },
+  "prov_r2_9_beast_lair_2": {
+   "province": "prov_r2_9",
+   "region": 2,
+   "kind": "beast_lair"
+  },
+  "prov_r2_13_beast_lair_2": {
+   "province": "prov_r2_13",
+   "region": 2,
+   "kind": "beast_lair"
+  },
+  "prov_r2_20_beast_lair_2": {
+   "province": "prov_r2_20",
+   "region": 2,
+   "kind": "beast_lair"
+  },
+  "prov_p56_spirit_vein_1": {
+   "province": "prov_p56",
+   "region": 2,
+   "kind": "spirit_vein"
+  },
+  "prov_r2_10_beast_lair_2": {
+   "province": "prov_r2_10",
+   "region": 2,
+   "kind": "beast_lair"
+  },
+  "prov_r3_28_mine_2": {
+   "province": "prov_r3_28",
+   "region": 3,
+   "kind": "mine"
+  },
+  "prov_r3_24_mine_2": {
+   "province": "prov_r3_24",
+   "region": 3,
+   "kind": "mine"
+  },
+  "prov_r3_20_mine_2": {
+   "province": "prov_r3_20",
+   "region": 3,
+   "kind": "mine"
+  },
+  "prov_r3_26_mine_2": {
+   "province": "prov_r3_26",
+   "region": 3,
+   "kind": "mine"
+  },
+  "prov_p59_mine_2": {
+   "province": "prov_p59",
+   "region": 3,
+   "kind": "mine"
+  },
+  "prov_p45_spirit_vein_1": {
+   "province": "prov_p45",
+   "region": 3,
+   "kind": "spirit_vein"
+  },
+  "prov_r3_2_beast_lair_1": {
+   "province": "prov_r3_2",
+   "region": 3,
+   "kind": "beast_lair"
+  },
+  "prov_r3_8_spirit_vein_1": {
+   "province": "prov_r3_8",
+   "region": 3,
+   "kind": "spirit_vein"
+  },
+  "prov_r3_31_beast_lair_2": {
+   "province": "prov_r3_31",
+   "region": 3,
+   "kind": "beast_lair"
+  },
+  "prov_r3_25_mine_2": {
+   "province": "prov_r3_25",
+   "region": 3,
+   "kind": "mine"
+  },
+  "prov_r4_25_mine_1": {
+   "province": "prov_r4_25",
+   "region": 4,
+   "kind": "mine"
+  },
+  "prov_p46_spirit_vein_1": {
+   "province": "prov_p46",
+   "region": 4,
+   "kind": "spirit_vein"
+  },
+  "prov_r4_13_beast_lair_2": {
+   "province": "prov_r4_13",
+   "region": 4,
+   "kind": "beast_lair"
+  },
+  "prov_r4_27_mine_3": {
+   "province": "prov_r4_27",
+   "region": 4,
+   "kind": "mine"
+  },
+  "prov_r4_16_beast_lair_2": {
+   "province": "prov_r4_16",
+   "region": 4,
+   "kind": "beast_lair"
+  },
+  "prov_p107_beast_lair_1": {
+   "province": "prov_p107",
+   "region": 4,
+   "kind": "beast_lair"
+  },
+  "prov_r4_2_beast_lair_2": {
+   "province": "prov_r4_2",
+   "region": 4,
+   "kind": "beast_lair"
+  },
+  "prov_p60_beast_lair_1": {
+   "province": "prov_p60",
+   "region": 4,
+   "kind": "beast_lair"
+  },
+  "prov_p61_spirit_vein_1": {
+   "province": "prov_p61",
+   "region": 4,
+   "kind": "spirit_vein"
+  },
+  "prov_r5_29_mine_1": {
+   "province": "prov_r5_29",
+   "region": 5,
+   "kind": "mine"
+  },
+  "prov_r5_15_beast_lair_2": {
+   "province": "prov_r5_15",
+   "region": 5,
+   "kind": "beast_lair"
+  },
+  "prov_r5_31_mine_2": {
+   "province": "prov_r5_31",
+   "region": 5,
+   "kind": "mine"
+  },
+  "prov_p110_beast_lair_1": {
+   "province": "prov_p110",
+   "region": 5,
+   "kind": "beast_lair"
+  },
+  "prov_r5_1_spirit_vein_1": {
+   "province": "prov_r5_1",
+   "region": 5,
+   "kind": "spirit_vein"
+  },
+  "prov_p62_beast_lair_1": {
+   "province": "prov_p62",
+   "region": 5,
+   "kind": "beast_lair"
+  },
+  "prov_r5_6_spirit_vein_1": {
+   "province": "prov_r5_6",
+   "region": 5,
+   "kind": "spirit_vein"
+  },
+  "prov_r5_25_beast_lair_2": {
+   "province": "prov_r5_25",
+   "region": 5,
+   "kind": "beast_lair"
+  },
+  "prov_r5_4_beast_lair_2": {
+   "province": "prov_r5_4",
+   "region": 5,
+   "kind": "beast_lair"
+  },
+  "prov_r5_3_beast_lair_1": {
+   "province": "prov_r5_3",
+   "region": 5,
+   "kind": "beast_lair"
+  },
+  "prov_r6_30_mine_2": {
+   "province": "prov_r6_30",
+   "region": 6,
+   "kind": "mine"
+  },
+  "prov_r6_21_spirit_vein_1": {
+   "province": "prov_r6_21",
+   "region": 6,
+   "kind": "spirit_vein"
+  },
+  "prov_r6_18_mine_2": {
+   "province": "prov_r6_18",
+   "region": 6,
+   "kind": "mine"
+  },
+  "prov_r6_24_mine_2": {
+   "province": "prov_r6_24",
+   "region": 6,
+   "kind": "mine"
+  },
+  "prov_r6_11_beast_lair_2": {
+   "province": "prov_r6_11",
+   "region": 6,
+   "kind": "beast_lair"
+  },
+  "prov_r6_27_mine_2": {
+   "province": "prov_r6_27",
+   "region": 6,
+   "kind": "mine"
+  },
+  "prov_r6_23_mine_2": {
+   "province": "prov_r6_23",
+   "region": 6,
+   "kind": "mine"
+  },
+  "prov_r6_28_mine_1": {
+   "province": "prov_r6_28",
+   "region": 6,
+   "kind": "mine"
+  },
+  "prov_r6_6_spirit_vein_2": {
+   "province": "prov_r6_6",
+   "region": 6,
+   "kind": "spirit_vein"
+  },
+  "prov_r6_31_beast_lair_2": {
+   "province": "prov_r6_31",
+   "region": 6,
+   "kind": "beast_lair"
+  },
+  "prov_r7_19_mine_1": {
+   "province": "prov_r7_19",
+   "region": 7,
+   "kind": "mine"
+  },
+  "prov_r7_20_mine_2": {
+   "province": "prov_r7_20",
+   "region": 7,
+   "kind": "mine"
+  },
+  "prov_r7_29_mine_2": {
+   "province": "prov_r7_29",
+   "region": 7,
+   "kind": "mine"
+  },
+  "prov_r7_25_mine_2": {
+   "province": "prov_r7_25",
+   "region": 7,
+   "kind": "mine"
+  },
+  "prov_r7_16_beast_lair_2": {
+   "province": "prov_r7_16",
+   "region": 7,
+   "kind": "beast_lair"
+  },
+  "prov_r7_32_mine_2": {
+   "province": "prov_r7_32",
+   "region": 7,
+   "kind": "mine"
+  },
+  "prov_r7_28_mine_2": {
+   "province": "prov_r7_28",
+   "region": 7,
+   "kind": "mine"
+  },
+  "prov_r7_31_mine_2": {
+   "province": "prov_r7_31",
+   "region": 7,
+   "kind": "mine"
+  },
+  "prov_le_hoa_mine_1": {
+   "province": "prov_le_hoa",
+   "region": 7,
+   "kind": "mine"
+  },
+  "prov_r7_23_mine_2": {
+   "province": "prov_r7_23",
+   "region": 7,
+   "kind": "mine"
+  },
+  "prov_r8_4_mine_2": {
+   "province": "prov_r8_4",
+   "region": 8,
+   "kind": "mine"
+  },
+  "prov_r8_2_mine_2": {
+   "province": "prov_r8_2",
+   "region": 8,
+   "kind": "mine"
+  },
+  "prov_r8_1_mine_2": {
+   "province": "prov_r8_1",
+   "region": 8,
+   "kind": "mine"
+  },
+  "prov_r8_10_beast_lair_1": {
+   "province": "prov_r8_10",
+   "region": 8,
+   "kind": "beast_lair"
+  },
+  "prov_p116_spirit_vein_1": {
+   "province": "prov_p116",
+   "region": 8,
+   "kind": "spirit_vein"
+  },
+  "prov_da_quang_spirit_vein_1": {
+   "province": "prov_da_quang",
+   "region": 8,
+   "kind": "spirit_vein"
+  },
+  "prov_r9_4_mine_2": {
+   "province": "prov_r9_4",
+   "region": 9,
+   "kind": "mine"
+  },
+  "prov_r9_23_spirit_vein_2": {
+   "province": "prov_r9_23",
+   "region": 9,
+   "kind": "spirit_vein"
+  },
+  "prov_r9_25_mine_2": {
+   "province": "prov_r9_25",
+   "region": 9,
+   "kind": "mine"
+  },
+  "prov_r9_28_spirit_vein_2": {
+   "province": "prov_r9_28",
+   "region": 9,
+   "kind": "spirit_vein"
+  },
+  "prov_p119_beast_lair_1": {
+   "province": "prov_p119",
+   "region": 9,
+   "kind": "beast_lair"
+  },
+  "prov_r9_20_spirit_vein_2": {
+   "province": "prov_r9_20",
+   "region": 9,
+   "kind": "spirit_vein"
+  },
+  "prov_r9_11_mine_1": {
+   "province": "prov_r9_11",
+   "region": 9,
+   "kind": "mine"
+  },
+  "prov_r9_21_spirit_vein_2": {
+   "province": "prov_r9_21",
+   "region": 9,
+   "kind": "spirit_vein"
+  },
+  "prov_r9_7_spirit_vein_1": {
+   "province": "prov_r9_7",
+   "region": 9,
+   "kind": "spirit_vein"
+  },
+  "prov_r10_5_beast_lair_2": {
+   "province": "prov_r10_5",
+   "region": 10,
+   "kind": "beast_lair"
+  },
+  "prov_p123_beast_lair_1": {
+   "province": "prov_p123",
+   "region": 10,
+   "kind": "beast_lair"
+  },
+  "prov_r10_4_hot_spring_2": {
+   "province": "prov_r10_4",
+   "region": 10,
+   "kind": "hot_spring"
+  },
+  "prov_binh_thuy_hot_spring_1": {
+   "province": "prov_binh_thuy",
+   "region": 10,
+   "kind": "hot_spring"
+  },
+  "prov_r10_8_beast_lair_2": {
+   "province": "prov_r10_8",
+   "region": 10,
+   "kind": "beast_lair"
+  },
+  "prov_p71_spirit_vein_1": {
+   "province": "prov_p71",
+   "region": 10,
+   "kind": "spirit_vein"
+  },
+  "prov_r11_9_spirit_vein_2": {
+   "province": "prov_r11_9",
+   "region": 11,
+   "kind": "spirit_vein"
+  },
+  "prov_p128_hot_spring_1": {
+   "province": "prov_p128",
+   "region": 11,
+   "kind": "hot_spring"
+  },
+  "prov_r11_7_spirit_vein_2": {
+   "province": "prov_r11_7",
+   "region": 11,
+   "kind": "spirit_vein"
+  },
+  "prov_r11_12_spirit_vein_2": {
+   "province": "prov_r11_12",
+   "region": 11,
+   "kind": "spirit_vein"
+  },
+  "prov_r11_6_spirit_vein_2": {
+   "province": "prov_r11_6",
+   "region": 11,
+   "kind": "spirit_vein"
+  },
+  "prov_p129_hot_spring_1": {
+   "province": "prov_p129",
+   "region": 11,
+   "kind": "hot_spring"
+  },
+  "prov_r12_3_mine_2": {
+   "province": "prov_r12_3",
+   "region": 12,
+   "kind": "mine"
+  },
+  "prov_r12_2_mine_2": {
+   "province": "prov_r12_2",
+   "region": 12,
+   "kind": "mine"
+  },
+  "prov_p50_beast_lair_1": {
+   "province": "prov_p50",
+   "region": 12,
+   "kind": "beast_lair"
+  },
+  "prov_p39_spirit_vein_1": {
+   "province": "prov_p39",
+   "region": 12,
+   "kind": "spirit_vein"
+  },
+  "prov_r12_7_hot_spring_2": {
+   "province": "prov_r12_7",
+   "region": 12,
+   "kind": "hot_spring"
+  },
+  "prov_r12_4_beast_lair_2": {
+   "province": "prov_r12_4",
+   "region": 12,
+   "kind": "beast_lair"
+  },
+  "prov_r13_1_mine_1": {
+   "province": "prov_r13_1",
+   "region": 13,
+   "kind": "mine"
+  },
+  "prov_r13_14_hot_spring_1": {
+   "province": "prov_r13_14",
+   "region": 13,
+   "kind": "hot_spring"
+  },
+  "prov_r13_6_beast_lair_2": {
+   "province": "prov_r13_6",
+   "region": 13,
+   "kind": "beast_lair"
+  },
+  "prov_r13_8_spirit_vein_2": {
+   "province": "prov_r13_8",
+   "region": 13,
+   "kind": "spirit_vein"
+  },
+  "prov_r13_7_spirit_vein_2": {
+   "province": "prov_r13_7",
+   "region": 13,
+   "kind": "spirit_vein"
+  },
+  "prov_p79_beast_lair_1": {
+   "province": "prov_p79",
+   "region": 13,
+   "kind": "beast_lair"
+  },
+  "prov_r14_18_mine_2": {
+   "province": "prov_r14_18",
+   "region": 14,
+   "kind": "mine"
+  },
+  "prov_r14_33_mine_3": {
+   "province": "prov_r14_33",
+   "region": 14,
+   "kind": "mine"
+  },
+  "prov_r14_5_mine_3": {
+   "province": "prov_r14_5",
+   "region": 14,
+   "kind": "mine"
+  },
+  "prov_r14_15_mine_2": {
+   "province": "prov_r14_15",
+   "region": 14,
+   "kind": "mine"
+  },
+  "prov_r14_23_mine_3": {
+   "province": "prov_r14_23",
+   "region": 14,
+   "kind": "mine"
+  },
+  "prov_r14_29_mine_2": {
+   "province": "prov_r14_29",
+   "region": 14,
+   "kind": "mine"
+  },
+  "prov_r14_28_mine_3": {
+   "province": "prov_r14_28",
+   "region": 14,
+   "kind": "mine"
+  },
+  "prov_r14_11_hot_spring_1": {
+   "province": "prov_r14_11",
+   "region": 14,
+   "kind": "hot_spring"
+  },
+  "prov_r14_24_mine_3": {
+   "province": "prov_r14_24",
+   "region": 14,
+   "kind": "mine"
+  },
+  "prov_r14_25_hot_spring_2": {
+   "province": "prov_r14_25",
+   "region": 14,
+   "kind": "hot_spring"
+  },
+  "prov_r15_1_mine_2": {
+   "province": "prov_r15_1",
+   "region": 15,
+   "kind": "mine"
+  },
+  "prov_r15_7_mine_2": {
+   "province": "prov_r15_7",
+   "region": 15,
+   "kind": "mine"
+  },
+  "prov_r15_22_mine_2": {
+   "province": "prov_r15_22",
+   "region": 15,
+   "kind": "mine"
+  },
+  "prov_r15_36_mine_2": {
+   "province": "prov_r15_36",
+   "region": 15,
+   "kind": "mine"
+  },
+  "prov_r15_35_mine_2": {
+   "province": "prov_r15_35",
+   "region": 15,
+   "kind": "mine"
+  },
+  "prov_r15_30_mine_2": {
+   "province": "prov_r15_30",
+   "region": 15,
+   "kind": "mine"
+  },
+  "prov_r15_9_mine_2": {
+   "province": "prov_r15_9",
+   "region": 15,
+   "kind": "mine"
+  },
+  "prov_p144_mine_2": {
+   "province": "prov_p144",
+   "region": 15,
+   "kind": "mine"
+  },
+  "prov_phat_y_mine_1": {
+   "province": "prov_phat_y",
+   "region": 15,
+   "kind": "mine"
+  },
+  "prov_r15_40_mine_2": {
+   "province": "prov_r15_40",
+   "region": 15,
+   "kind": "mine"
+  },
+  "prov_p143_spirit_vein_1": {
+   "province": "prov_p143",
+   "region": 15,
+   "kind": "spirit_vein"
+  },
+  "prov_thoi_tinh_mine_2": {
+   "province": "prov_thoi_tinh",
+   "region": 15,
+   "kind": "mine"
+  },
+  "prov_r16_16_mine_2": {
+   "province": "prov_r16_16",
+   "region": 16,
+   "kind": "mine"
+  },
+  "prov_r16_29_mine_1": {
+   "province": "prov_r16_29",
+   "region": 16,
+   "kind": "mine"
+  },
+  "prov_p83_hot_spring_1": {
+   "province": "prov_p83",
+   "region": 16,
+   "kind": "hot_spring"
+  },
+  "prov_p145_hot_spring_1": {
+   "province": "prov_p145",
+   "region": 16,
+   "kind": "hot_spring"
+  },
+  "prov_r16_13_mine_2": {
+   "province": "prov_r16_13",
+   "region": 16,
+   "kind": "mine"
+  },
+  "prov_r16_18_mine_2": {
+   "province": "prov_r16_18",
+   "region": 16,
+   "kind": "mine"
+  },
+  "prov_r16_20_mine_1": {
+   "province": "prov_r16_20",
+   "region": 16,
+   "kind": "mine"
+  },
+  "prov_r16_22_mine_1": {
+   "province": "prov_r16_22",
+   "region": 16,
+   "kind": "mine"
+  },
+  "prov_r16_10_mine_2": {
+   "province": "prov_r16_10",
+   "region": 16,
+   "kind": "mine"
+  },
+  "prov_r16_5_beast_lair_2": {
+   "province": "prov_r16_5",
+   "region": 16,
+   "kind": "beast_lair"
+  },
+  "prov_r17_7_beast_lair_2": {
+   "province": "prov_r17_7",
+   "region": 17,
+   "kind": "beast_lair"
+  },
+  "prov_r17_11_mine_1": {
+   "province": "prov_r17_11",
+   "region": 17,
+   "kind": "mine"
+  },
+  "prov_r17_3_mine_2": {
+   "province": "prov_r17_3",
+   "region": 17,
+   "kind": "mine"
+  },
+  "prov_p85_beast_lair_1": {
+   "province": "prov_p85",
+   "region": 17,
+   "kind": "beast_lair"
+  },
+  "prov_r17_1_mine_2": {
+   "province": "prov_r17_1",
+   "region": 17,
+   "kind": "mine"
+  },
+  "prov_r17_10_beast_lair_2": {
+   "province": "prov_r17_10",
+   "region": 17,
+   "kind": "beast_lair"
+  },
+  "prov_p42_hot_spring_1": {
+   "province": "prov_p42",
+   "region": 18,
+   "kind": "hot_spring"
+  },
+  "prov_r18_3_mine_2": {
+   "province": "prov_r18_3",
+   "region": 18,
+   "kind": "mine"
+  },
+  "prov_r18_10_mine_2": {
+   "province": "prov_r18_10",
+   "region": 18,
+   "kind": "mine"
+  },
+  "prov_r18_1_mine_2": {
+   "province": "prov_r18_1",
+   "region": 18,
+   "kind": "mine"
+  },
+  "prov_r18_8_mine_2": {
+   "province": "prov_r18_8",
+   "region": 18,
+   "kind": "mine"
+  },
+  "prov_r18_18_spirit_vein_2": {
+   "province": "prov_r18_18",
+   "region": 18,
+   "kind": "spirit_vein"
+  },
+  "prov_r18_19_spirit_vein_2": {
+   "province": "prov_r18_19",
+   "region": 18,
+   "kind": "spirit_vein"
+  },
+  "prov_r18_17_spirit_vein_2": {
+   "province": "prov_r18_17",
+   "region": 18,
+   "kind": "spirit_vein"
+  },
+  "prov_r19_2_mine_2": {
+   "province": "prov_r19_2",
+   "region": 19,
+   "kind": "mine"
+  },
+  "prov_r19_16_mine_2": {
+   "province": "prov_r19_16",
+   "region": 19,
+   "kind": "mine"
+  },
+  "prov_r19_17_mine_1": {
+   "province": "prov_r19_17",
+   "region": 19,
+   "kind": "mine"
+  },
+  "prov_r19_5_mine_2": {
+   "province": "prov_r19_5",
+   "region": 19,
+   "kind": "mine"
+  },
+  "prov_r19_7_mine_2": {
+   "province": "prov_r19_7",
+   "region": 19,
+   "kind": "mine"
+  },
+  "prov_r19_30_mine_2": {
+   "province": "prov_r19_30",
+   "region": 19,
+   "kind": "mine"
+  },
+  "prov_r19_4_mine_2": {
+   "province": "prov_r19_4",
+   "region": 19,
+   "kind": "mine"
+  },
+  "prov_p92_lightning_wood_1": {
+   "province": "prov_p92",
+   "region": 19,
+   "kind": "lightning_wood"
+  },
+  "prov_p54_mine_2": {
+   "province": "prov_p54",
+   "region": 19,
+   "kind": "mine"
+  },
+  "prov_r19_15_mine_2": {
+   "province": "prov_r19_15",
+   "region": 19,
+   "kind": "mine"
+  },
+  "prov_r19_32_mine_3": {
+   "province": "prov_r19_32",
+   "region": 19,
+   "kind": "mine"
+  },
+  "prov_r19_25_mine_1": {
+   "province": "prov_r19_25",
+   "region": 19,
+   "kind": "mine"
+  },
+  "prov_r19_11_mine_2": {
+   "province": "prov_r19_11",
+   "region": 19,
+   "kind": "mine"
+  },
+  "prov_p91_beast_lair_1": {
+   "province": "prov_p91",
+   "region": 19,
+   "kind": "beast_lair"
+  },
+  "prov_p161_hot_spring_1": {
+   "province": "prov_p161",
+   "region": 20,
+   "kind": "hot_spring"
+  },
+  "prov_r20_17_spirit_vein_2": {
+   "province": "prov_r20_17",
+   "region": 20,
+   "kind": "spirit_vein"
+  },
+  "prov_r20_1_spirit_vein_2": {
+   "province": "prov_r20_1",
+   "region": 20,
+   "kind": "spirit_vein"
+  },
+  "prov_r20_18_spirit_vein_2": {
+   "province": "prov_r20_18",
+   "region": 20,
+   "kind": "spirit_vein"
+  },
+  "prov_p44_spirit_vein_1": {
+   "province": "prov_p44",
+   "region": 20,
+   "kind": "spirit_vein"
+  },
+  "prov_p162_spirit_vein_1": {
+   "province": "prov_p162",
+   "region": 20,
+   "kind": "spirit_vein"
+  },
+  "prov_r20_21_beast_lair_2": {
+   "province": "prov_r20_21",
+   "region": 20,
+   "kind": "beast_lair"
+  },
+  "prov_r20_4_hot_spring_2": {
+   "province": "prov_r20_4",
+   "region": 20,
+   "kind": "hot_spring"
+  }
+ }
+}

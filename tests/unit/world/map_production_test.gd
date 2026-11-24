@@ -109,7 +109,10 @@ func test_settlements_give_their_share_of_the_worlds_goods() -> void:
 		tot += float(by_kind[k])
 	assert_true(lh / float(by_kind.herb) >= 0.25 and lh / float(by_kind.herb) <= 0.40, "settlement herbs %.0f of %.0f" % [lh, float(by_kind.herb)])
 	assert_true(lo / float(by_kind.ore) >= 0.15 and lo / float(by_kind.ore) <= 0.35, "settlement ore %.0f of %.0f" % [lo, float(by_kind.ore)])
-	assert_true(absf(tot - 250000.0) <= 50000.0, "non-mine value %.0f" % tot)
+	# provinces-v2 (user decision 1, 2026-11-24: new sites one province in four at grade minor, about x1.5 on places):
+	# the merged world measures 319,216, so the band moves from 250,000 +-20 % to 320,000 +-20 % (an AC-TM-152 delta
+	# listed for the user in production/plans/provinces-v2-gdd-deltas.md)
+	assert_true(absf(tot - 320000.0) <= 64000.0, "non-mine value %.0f" % tot)
 
 
 func test_a_lair_yields_bone_hide_and_cores() -> void:

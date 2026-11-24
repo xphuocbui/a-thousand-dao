@@ -52,6 +52,8 @@ static func init_site(gd: GameData, place: Dictionary, pick: int) -> Dictionary:
 		if land >= float(g[0]):
 			grade = str(g[1])
 			break
+	if cfg.site_grade_value.has(str(place.get("site_grade", ""))):   # an authored start grade (provinces-v2: minor)
+		grade = str(place.site_grade)
 	var base: float = float(cfg.site_grade_value[grade]) * float(cfg.kind_value_mult[res.kind]) / maxf(1.0, float(cfg.unit_value.get(res.resource, 1)))
 	var rmax: float = float(cfg.reserve_seasons) * base
 	var choices: Array = cfg.reserve_start_choices
@@ -71,6 +73,8 @@ static func init_herb_site(gd: GameData, place: Dictionary, pick: int) -> Dictio
 		if land >= float(g[0]):
 			grade = str(g[1])
 			break
+	if cfg.site_grade_value.has(str(place.get("site_grade", ""))):   # an authored start grade (provinces-v2: minor)
+		grade = str(place.site_grade)
 	var base: float = float(cfg.site_grade_value[grade]) * float(cfg.kind_value_mult.herb)
 	var rmax: float = float(cfg.reserve_seasons) * base
 	var choices: Array = cfg.reserve_start_choices

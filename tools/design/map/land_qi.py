@@ -304,8 +304,10 @@ def place_list(m, cont):
     candidate weighted 1/n)."""
     out = []
     for p in cont["places"]:
+        # the provinces-v2 places (v2_slot) get their values but weigh 0 in the targets and mu, so Formula A's world
+        # means stay those of the authored places (user decisions 2026-11-24)
         out.append({"id": p["id"], "name": p["name"], "kind": p["kind"], "tile": p["tile"], "biome": p.get("biome", ""),
-                    "region": p["region"], "w": 1.0})
+                    "region": p["region"], "w": 0.0 if p.get("v2_slot") else 1.0})
     h = json.load(open(os.path.join(m, "history.json"), encoding="utf-8"))
     regions = {r["name"]: r["id"] for r in cont["regions"]}
     for group, kind in (("secret_realms", "secret_realm"), ("ruins", "ruin"), ("blessed_small", "blessed_land"),

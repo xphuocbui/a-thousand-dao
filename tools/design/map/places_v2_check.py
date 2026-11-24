@@ -47,12 +47,15 @@ def han_len(han):
 
 def main(regions):
     cont = json.load(open(os.path.join(ROOT, "assets/data/world_continent.json"), encoding="utf-8"))
-    used = {p["name"]: "existing place %d" % p["id"] for p in cont["places"]}
+    # the 254 authored places (the merged provinces-v2 ones, v2_slot, are this checker's own entries)
+    used = {p["name"]: "existing place %d" % p["id"] for p in cont["places"] if not p.get("v2_slot")}
     for s in cont["great_sects"] + cont["minor_sects"]:
-        used.setdefault(s["name"], "sect " + s["key"])
+        if s["key"] not in {p.get("key") for p in cont["places"] if p.get("v2_slot")}:
+            used.setdefault(s["name"], "sect " + s["key"])
     files = sorted(glob.glob(os.path.join(BASE, "lore", "region_*.json")))
     prov_used = {}   # province name -> its key: provinces must not repeat among themselves
-    sect_keys = {s["key"] for s in cont["great_sects"] + cont["minor_sects"]}
+    v2_keys = {p.get("key") for p in cont["places"] if p.get("v2_slot")}
+    sect_keys = {s["key"] for s in cont["great_sects"] + cont["minor_sects"] if s["key"] not in v2_keys}
     holder = {r["id"]: r["holder"] for r in cont["regions"]}
     # every place name of every file first, so a province is checked against places in later files too
     for f in files:

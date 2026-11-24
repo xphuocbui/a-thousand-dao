@@ -32,7 +32,9 @@
       "small"
     ]
   ],
+  "_site_grade_doc": "minor (user decision 2026-11-24, provinces-v2 decision 1): a kept new site's authored start grade (place site_grade), a tenth of small; it grows a step a level of the province's matching building (rule pending in the Provinces GDD). A place with no_site true is not a site.",
   "site_grade_value": {
+    "minor": 250,
     "small": 2500,
     "medium": 10000,
     "large": 40000

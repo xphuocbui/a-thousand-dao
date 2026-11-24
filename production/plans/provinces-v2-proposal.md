@@ -53,6 +53,10 @@ Regional Economy & Trade (#43) stay as approved, and this file lists the changes
 1. **DECIDED (user, 2026-11-24): (a) and (b) together.** About one province in four keeps a real economic site, and
    the kept sites start at a tenth of today's small grade and grow; the rest are places with no site. World place
    output ×1.46; a demand and price pass follows the merge.
+   **Follow-ups (user, 2026-11-24):** read as one province in four (~176 sites, about ×1.51), not one site in four
+   (~110, the table's ×1.46). The kept sites **grow through buildings**: each level of the province's matching building
+   (mine works, hunting lodge, spirit fields) raises the site a step (a Provinces GDD delta, for the user's approval).
+   **Roads:** only new settlements join the road network; new wild places stay off it, reached across the wild.
 
    **The economy cannot take the new sites as they are.** At the same output as existing sites of their kind, the
    new places add about **3.9 times** the world's current place output (existing 267,517 a season; new 1,053,919), so the
@@ -124,6 +128,64 @@ Regional Economy & Trade (#43) stay as approved, and this file lists the changes
 - **Provinces rule 10:** the starting-building table.
 - **Travel & Map:** the new place kinds and counts, once merged.
 - **Regional Economy & Trade:** re-measure F6's access figures, `measure_access.py`, with the new shapes.
+
+## The merge (2026-11-24, decision 3)
+
+Done on the branch, at the source, so a re-export keeps it:
+
+- **World data:**
+  - `places_v2_merge.py` writes `design/map/continent-11/provinces_v2_places.json`. `export_continent.py` appends it
+    after every earlier layer: 1,494 places (ids 255+; the 254 authored records are byte-identical) and 43 minor sects.
+  - `export_world.py` reads `sect_start_v2.json`, `cast_v2.json` (20 heads) and `annals_v2.json` (172 annals): 50
+    sects, 74 living cast members, 688 events.
+- **Sites:**
+  - 175 kept (one province in four, worked lore first) at grade minor (`map_resources.json` `site_grade_value.minor`
+    250); 271 with `no_site`.
+  - 17 unkept site lores were re-fitted as not worked today (applied by Claude from a writer's draft). Thiết Tú Trì was
+    left as it is, because its kept neighbour mine has miners.
+- **Routes:**
+  - New settlements within 4 tiles of a road join it.
+  - Every other new settlement or mine gets a **track**, a footpath walked at the wilderness speed (a new route kind): 376
+    tracks.
+  - 17 new settlements are on landmasses with no network.
+- **Formula C:** the new places weigh 0 in Formula C's targets and mu, so the world means are unchanged.
+- **Map UI:**
+  - The separate new-places layer is gone: the new places are ordinary known places now.
+  - The panel shows population as people.
+
+**Measured** (`production/qa/evidence/provinces-v2-merge/`, the baseline against the merged world, same seeds; after the
+herb-site and track fixes):
+
+| | Baseline | Merged |
+|---|---|---|
+| Non-mine production at season 0 (AC-TM-152 guess 250,000) | in band | 319,216 (×1.28) |
+| Census, year 200, seed 101 (Luyện Khí / Trúc Cơ / Kết Đan / Nguyên Anh / Hóa Thần) | 3901 / 808 / 242 / 45 / 4 | 3770 / 933 / 258 / 33 / 6 |
+| Census, year 200, seed 7 (before the herb fix) | 3856 / 844 / 259 / 37 / 4 | 3783 / 922 / 256 / 36 / 3 |
+| Mines minted a season, first decade (sim seed 11) | 139,421 | 201,324 (+44 %) |
+| The same, year 1300 | 148,540 | 162,010 (+9 %) |
+| Money growth, first decade (band −2 % to +5 %) | +2.6 % a year | +4.1 % a year |
+| Money in the world, 1300 | 5.25 M | 5.60 M |
+| World mean prices, 1300 (herb / ore / beast / special / pill) | 1.16 / 1.48 / 1.19 / 1.95 / 1.81 | 1.12 / 1.39 / 1.20 / 1.84 / 1.78 |
+| Minor sects, start → 1300 | 23 → 30 | 43 → 57 |
+| Minor sects restless at the start | 7 of 23 | 17 of 43 |
+
+Notes:
+
+- **The early mint:**
+  - The kept spirit veins mint linh thạch directly, so the first decades run hot.
+  - The reserves then settle near the old world.
+  - Money growth stays inside the band.
+- **Prices:** the merged world's prices are as close to the band as the baseline's or closer. The drift outside 0.9–1.15
+  (ore, special, pill) is in the baseline too.
+- **The census:** Trúc Cơ runs about 10 % above the baseline at year 200 on both seeds. Nguyên Anh and Hóa Thần move by
+  a few either way between seeds (6 Hóa Thần on seed 101 against 4; 3 on seed 7). Re-check on more seeds before any
+  tuning.
+- **New sects:** twice as many new sects are founded over the century (14 against 7), on the many new peaks and places.
+- **The demand and price pass:**
+  - Recommended scope: the early linh thạch mint from the new veins (for example, a lower `kind_value_mult` for minor
+    linh thạch sites).
+  - It is not run yet: it is the user's call.
+- **Restless sects:** 10 of the new sects are trung lập under a chính đạo lord, at loyalty 55 by sect_start's rule.
 
 ## Before pushing this branch
 

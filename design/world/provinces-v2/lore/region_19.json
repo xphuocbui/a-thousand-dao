@@ -485,8 +485,8 @@
    "name": "Hấp Thiết Khoáng",
    "name_han": "吸鐵礦",
    "gloss": "Iron-Drawing Mine",
-   "look": "A cut in a grey mountain flank where iron tools cling to the rock face, and the spoil heaps bristle with filings.",
-   "lore": "Lightning has made the ore here into lodestone, and it is cut for compasses and for array-makers' needles. Miners leave their iron tools outside and work with bronze."
+   "look": "A cut in a grey mountain flank where rusted iron tools still cling to the rock face, and the old spoil heaps bristle with filings.",
+   "lore": "Lightning has made the ore here into lodestone, fit for compasses and array-makers' needles. Few know the cut; the miners who found it left their iron tools stuck to the rock and never came back with bronze."
   },
   "prov_r19_10_peak_1": {
    "name": "Hắc Diệu Phong",
@@ -647,8 +647,8 @@
    "name": "Thủy Tinh Khoáng",
    "name_han": "水晶礦",
    "gloss": "Rock Crystal Mine",
-   "look": "Low galleries cut into the cliff above the surf, their walls studded with clear six-sided crystals beaded with sea damp.",
-   "lore": "Rock crystal from here is cut for array focuses and for the lenses of scholars. The diggers reach the galleries by a rope path and work only at low wind."
+   "look": "Low, abandoned galleries cut into the cliff above the surf, their walls studded with clear six-sided crystals beaded with sea damp.",
+   "lore": "Rock crystal from here would make array focuses and scholars' lenses, but the rope path to the galleries broke in a gale and no digger has gone down since."
   },
   "prov_r19_21_peak_1": {
    "name": "Hải Giác Phong",
@@ -1014,7 +1014,7 @@
    "name_han": "巨角原",
    "gloss": "Plain of the Great Horns",
    "look": "A broad stretch of tall coastal grass trampled into wallows, where great dark buffalo stand with only their horns showing above the grass.",
-   "lore": "A herd of spirit-touched wild buffalo led by a bull with horns wider than a cart roams this plain. The herders of Yên Vũ follow the herd for its dung and its calves, and never cross the bull."
+   "lore": "A herd of spirit-touched wild buffalo led by a bull with horns wider than a cart roams this plain. The herders of Yên Vũ keep their own cattle well clear of the herd, and no one crosses the bull."
   },
   "prov_r19_45_village_1": {
    "name": "Mãn Võng Thôn",
@@ -1081,8 +1081,8 @@
    "name": "Vô Tú Khoáng",
    "name_han": "無銹礦",
    "gloss": "Rustless Mine",
-   "look": "A gallery mouth high on a cliff, reached by rope ladders, where the ore lies in dark seams cold to the touch even at noon.",
-   "lore": "The cold iron of this mine keeps an edge through rain and does not rust. Miners are lowered to the gallery on ropes and live in it for a month at a time."
+   "look": "A gallery mouth high on a cliff, its rope ladders long rotted away, where the ore lies in dark seams cold to the touch even at noon.",
+   "lore": "The cold iron of this mine keeps an edge through rain and does not rust. Miners were once lowered to it on ropes to live in it a month at a time, but no crew has gone down in living memory."
   },
   "prov_r19_7_peak_1": {
    "name": "Muộn Lôi Phong",

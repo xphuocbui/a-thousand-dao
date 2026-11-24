@@ -38,7 +38,7 @@ development buttons (no one spends to raise a stat directly; buildings do it).
 │ Minor sect seat · in Cô Vụ Đảo · held by Lạc Hà Tông │
 │        [ the seat's painting ]            │  place catalogue art, else the first place with art; hidden if none
 │ Population  Development  Access   Main good│
-│ 3.4 / 4.1   7            50 %     Common herbs │  each with a tooltip naming its formula
+│ 3,400 / 4,100   7        50 %     Common herbs │  each with a tooltip naming its formula
 │ [Overview][Places][Economy][Works][Modifiers] │
 │ …tab body (scrolls)…                      │
 └───────────────────────────────────────────┘
@@ -61,8 +61,8 @@ development buttons (no one spends to raise a stat directly; buildings do it).
 - **Province names:** each province's name is drawn in small ink capitals at its innermost tile. They fade in from 8
   to 11 px per tile and out by 24 px, where the place labels take over (`province_names_px`, `province_name_font`).
 - **Hover:** at region zoom, hovering open land names the province.
-- **The new places:** from 14 px per tile, settlements and mines show with their symbol and other places as small ink
-  diamonds, with names from 22 px. Hovering one gives its name, gloss and kind.
+- **The new places:** since the merge (2026-11-24) they are world places and draw as every other known place (symbol
+  or diamond, name, hover); the separate proposal layer is gone.
 - **Map modes** (open question 4, built for review): **Development** tints provinces from pale to deep red, and
   **Goods** by main good (herbs green, ore slate, beast parts brown, specialties violet; wilderness paler). Both sit in
   the Z4 bar beside Terrain and replace the political tint while on.
@@ -85,10 +85,9 @@ development buttons (no one spends to raise a stat directly; buildings do it).
 
 ## Open questions for the user
 
-1. **Development:** EU-style, should it be a real stat? The draft uses a display index: built levels plus population
-   units.
-2. **Population units:** the draft shows the GDD's settlement units (3.4). Should it show people instead, for example
-   1 unit = 1,000 mortals?
+1. **Development:** DECIDED (user, 2026-11-24): a display summary, built levels plus population units; nothing reads it.
+2. **Population units:** DECIDED (user, 2026-11-24): shown as people, 1 settlement unit = 1,000 mortals
+   (`ui_hud.json` `greybox.mortals_per_unit`), rounded to the hundred; the game computes in units.
 3. **Local price per good:** should it go in Economy once Regional Economy & Trade writes it? (Rule 3; not in the data
    yet.)
-4. **Province map modes:** Development and Goods are built for review. Keep them, add Access, or change the colours?
+4. **Province map modes:** DECIDED (user, 2026-11-24): keep Development and Goods as built.

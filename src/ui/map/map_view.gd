@@ -105,7 +105,6 @@ var _alive: AliveLayer = null          # the alive layer: the shader's clock and
 var _alive_cfg: Dictionary = {}
 var _prov_names: Array = []   # [{name, at (tile), kind}] from the provinces file (v2)
 var _prov_name_by_id: Dictionary = {}   # province id -> name, for the hover
-var _new_places: Array = []   # proposal places (world_provinces.json, new: true): [{name, gloss, kind, tile, proposal}]
 var _prov_at: Dictionary = {}   # province id -> its inner point (tile), for the panel's map picture
 var _line_boxes: Dictionary = {}   # "bold" / "thin" / "prov" -> each line's bounding box in tiles (draw culling)
 var _prov_tint: ImageTexture = null   # the province map mode's colours (null: off)
@@ -491,7 +490,6 @@ func _draw() -> void:
 		_draw_names(pol)
 	if _region_font != null and not _prov_names.is_empty():
 		_draw_province_names()
-	_draw_new_places()
 	var dot: float = _place_radius * lerpf(1.0, 1.6, w)
 	var font: Font = get_theme_default_font()
 	var taken: Array = []   # label boxes already drawn: a name that would overlap one is skipped (hover always shows)
@@ -500,9 +498,14 @@ func _draw() -> void:
 	var smoke: Array = []   # the alive layer's chimneys: settlements whose symbol shows, close enough in
 	var smoky: bool = _alive != null and _alive.is_running() and sc >= _alive.smoke_from_px()
 	var smoke_kinds: Array = _alive.smoke_kinds() if smoky else []
+	var minor_from: float = float(_zcfg.get("v2_places_from_px", 14.0))
 	for p in order:
-		var at: Vector2 = _marker_at(p)
 		var hover: bool = p.id == _hover_id
+		# the provinces-v2 places (2026-11-24) are many and small: drawn only zoomed in (v2_places_from_px), unless
+		# hovered, here or the destination
+		if sc < minor_from and Dictionary(p.get("rec", {})).has("v2_slot") and not hover 				and p.id != _destination_id and p.id != _player_place:
+			continue
+		var at: Vector2 = _marker_at(p)
 		var side: float = symbol_side(str(p.get("kind", "")))
 		var label_at: Vector2 = at
 		if side > 0.0 and w > 0.0:
@@ -1213,7 +1216,10 @@ func drawn_layer() -> String:
 func _place_at(pos: Vector2) -> Dictionary:
 	var best: Dictionary = {}
 	var best_d: float = maxf(_place_radius * 2.5, 8.0)
+	var minor_from: float = float(_zcfg.get("v2_places_from_px", 14.0))
 	for p in _places:
+		if tile_scale() < minor_from and Dictionary(p.get("rec", {})).has("v2_slot") and p.id != _destination_id 				and p.id != _player_place:
+			continue   # not drawn this far out (_draw), so not hit either
 		var d: float = minf(tile_to_local(p.tile).distance_to(pos), _marker_at(p).distance_to(pos))
 		var side: float = symbol_side(str(p.get("kind", ""))) if near_weight() >= 0.5 else 0.0
 		if side > 0.0:   # anywhere on a symbol counts as on the place
@@ -1285,63 +1291,6 @@ func province_art(province_id: int) -> Texture2D:
 	a.atlas = tex
 	a.region = Rect2(tl, size_px)
 	return a
-
-
-## The provinces' new places (branch provinces-v2: proposals, not world data yet) to draw at close zoom:
-## [param places] = [{name, gloss, kind, tile: Vector2i, proposal}]. Display only: a click on one opens its province.
-func set_new_places(places: Array) -> void:
-	_new_places = places
-	queue_redraw()
-
-
-## The new place under local [param pos] (empty if none), for the hover.
-func new_place_at(pos: Vector2) -> Dictionary:
-	if tile_scale() < float(_zcfg.get("new_places_from_px", 14.0)):
-		return {}
-	var best: Dictionary = {}
-	var best_d: float = 9.0
-	for np in _new_places:
-		var d: float = tile_to_local(np.tile).distance_to(pos)
-		if d < best_d:
-			best_d = d
-			best = np
-	return best
-
-
-## The new places, drawn under the world's own places (design/ux/province-panel.md: "new" places): a settlement or
-## mine with its place symbol, smaller and paler; a natural place or ruin as a small ink diamond; names from
-## new_place_label_px up, where they do not overlap.
-func _draw_new_places() -> void:
-	var sc: float = tile_scale()
-	var from: float = float(_zcfg.get("new_places_from_px", 14.0))
-	if _new_places.is_empty() or sc < from:
-		return
-	var a: float = smoothstep(from, from + 3.0, sc)
-	var view := Rect2(Vector2(-40, -40), size + Vector2(80, 80))
-	var font: Font = get_theme_default_font()
-	var label_px: float = float(_zcfg.get("new_place_label_px", 22.0))
-	var taken: Array = []
-	for np in _new_places:
-		var at: Vector2 = tile_to_local(np.tile)
-		if not view.has_point(at):
-			continue
-		var kind: String = str(np.kind)
-		var side: float = symbol_side(kind) * 0.75
-		if side > 0.0:
-			draw_texture_rect(_symbols[kind], Rect2(at - Vector2(side * 0.5, side * 0.92), Vector2(side, side)), false, Color(1, 1, 1, 0.9 * a))
-		else:
-			_diamond(at, 4.5, Color(0.1, 0.07, 0.05, 0.75 * a))
-			_diamond(at, 3.0, Color(0.93, 0.87, 0.7, 0.9 * a))
-		if sc >= label_px:
-			var fs: int = 11
-			var name: String = str(np.name)
-			var sz: Vector2 = font.get_string_size(name, HORIZONTAL_ALIGNMENT_LEFT, -1, fs)
-			var box := Rect2(at + Vector2(7, -sz.y * 0.5 - 1), sz + Vector2(6, 2))
-			if taken.any(func(r): return (r as Rect2).intersects(box)):
-				continue
-			taken.append(box)
-			draw_rect(box, Color(0.08, 0.05, 0.03, 0.42 * a))
-			draw_string(font, box.position + Vector2(3, font.get_ascent(fs) + 1), name, HORIZONTAL_ALIGNMENT_LEFT, -1, fs, Color(0.96, 0.92, 0.82, 0.85 * a))
 
 
 ## Whether a province map mode is on (for tests and the demo).
@@ -1427,17 +1376,11 @@ func _gui_input(event: InputEvent) -> void:
 		var prov_name: String = str(_prov_name_by_id.get(prov, ""))
 		if prov > 0:
 			reg = -prov   # a province hover counts as its own hover target (negative: never a region id)
-		var np_hit: Dictionary = new_place_at(mm.position) if id == "" else {}
-		if not np_hit.is_empty():
-			reg = -100000 - int(np_hit.tile.x) * 1000 - int(np_hit.tile.y)   # each new place its own hover target
 		if id != _hover_id or reg != _hover_region:
 			_hover_id = id
 			_hover_region = reg
 			if id != "":
 				TooltipLayer.set_tip(self, str(p.get("name", "")))
-			elif not new_place_at(mm.position).is_empty():   # a new place (proposal): its name, gloss and kind
-				var np: Dictionary = new_place_at(mm.position)
-				TooltipLayer.set_tip(self, "%s — %s (%s)" % [str(np.name), str(np.get("gloss", "")), str(np.kind).replace("_", " ")])
 			elif prov_name != "":   # zoomed in, over open land: the province's name (and its region)
 				TooltipLayer.set_tip(self, prov_name)
 			elif reg > 0 and _region_info.has(reg):   # hover a region while the tint is on: its name and holder

@@ -151,7 +151,8 @@ func _step_base() -> void:
 			"bounties": bool(k.bounties), "links": [], "sect_id": "", "continent_id": int(pid), "tile": p.tile,
 			"qi": Dictionary(p.get("qi", {})).duplicate(true), "holder": str(p.get("holder", "")), "territory": str(p.get("territory", "")),
 			"name_han": str(p.get("name_han", "")), "gloss": str(p.get("gloss", ""))}
-		for key in ["founded", "former", "lived", "former_name", "port", "river", "coast", "array", "resource", "livability"]:
+		for key in ["founded", "former", "lived", "former_name", "port", "river", "coast", "array", "resource", "livability",
+				"site_grade", "no_site", "province", "v2_slot"]:   # the last four: the provinces-v2 places (2026-11-24)
 			if p.has(key):
 				rec[key] = p[key]
 		_climate(rec, grid)
@@ -417,7 +418,7 @@ func _step_resource_sites() -> void:
 	var kinds: Array = _gd.file(MapProduction.DATA_FILE).get("site_kinds", [])
 	var n: int = Array(_gd.file(MapProduction.DATA_FILE).get("reserve_start_choices", [1.0])).size()
 	for p in _db.all("places"):
-		if str(p.get("kind", "")) in kinds and not bool(p.get("hidden", false)):
+		if str(p.get("kind", "")) in kinds and not bool(p.get("hidden", false)) and not bool(p.get("no_site", false)):
 			var pick: int = slot_pick("reserve", str(p.get("continent_id", p.id)), n)
 			p["site"] = MapProduction.init_site(_gd, p, pick)
 			ledger["reserve:%s" % str(p.get("continent_id", p.id))] = {"family": "reserve", "candidate": pick, "place_id": str(p.id)}
@@ -453,6 +454,8 @@ func _step_herb_grounds() -> void:
 				grounds.append({"herb": str(h.id), "fit": snappedf(f, 0.01)})
 		if not grounds.is_empty():
 			p["herb_grounds"] = grounds
+			if bool(p.get("no_site", false)):   # provinces-v2 decision 1: gatherable, but no seasonal herb output
+				continue
 			var n: int = Array(_gd.file(MapProduction.DATA_FILE).get("reserve_start_choices", [1.0])).size()
 			var pick: int = slot_pick("herb_reserve", str(p.get("continent_id", p.id)), n)
 			p["herb_site"] = MapProduction.init_herb_site(_gd, p, pick)

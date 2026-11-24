@@ -130,12 +130,16 @@ def main():
     road_n = np.bincount(pid[road & (pid > 0)], minlength=len(provs) + 1)
     by_id = {p["id"]: p for p in provs}
     rec = {}
+    merged = defaultdict(list)   # the provinces-v2 places once merged into the world (place "province" key, 2026-11-24)
+    for q in cont["places"]:
+        if q.get("province"):
+            merged[q["province"]].append(q["id"])
     for p in provs:
         key = p["key"]
         own = defaultdict(float)
         settle = []   # (kind, livability)
         plist = []
-        for q in p["places"]:
+        for q in list(p["places"]) + merged.get(key, []):
             pl = places[q]
             for c, v in prod_of.get(q, {}).items():
                 own[c] += v
@@ -143,8 +147,8 @@ def main():
                 settle.append((pl["kind"], float(pl.get("livability", 1.0))))
             pe = place_lore.get(str(q), {})
             plist.append({"id": q, "name": pl["name"], "name_han": pl.get("name_han", ""), "kind": pl["kind"], "tile": pl["tile"], "new": False,
-                          "gloss": pl.get("gloss", ""), "look": pe.get("look", "")})
-        for s in slots_by[key]:
+                          "gloss": pl.get("gloss", ""), "look": pe.get("look", ""), "lore": pe.get("lore", "") if pe.get("new") else ""})
+        for s in ([] if merged else slots_by[key]):   # before the merge only: the slots at their kind's median
             if s.get("proposal"):
                 continue   # a proposed minor sect is listed but adds nothing until accepted
             for c, v in median_prod(s["kind"]).items():
@@ -152,7 +156,7 @@ def main():
             if s["kind"] in w_size:
                 lv = liv_by_biome.get(s["biome"]) or liv_all
                 settle.append((s["kind"], statistics.median(lv)))
-        for s in slots_by[key]:
+        for s in ([] if merged else slots_by[key]):
             e = lore["places"].get(s["slot"], {})
             plist.append({"slot": s["slot"], "name": e.get("name", ""), "name_han": e.get("name_han", ""), "kind": s["kind"],
                           "tile": s["tile"], "new": True, "proposal": bool(s.get("proposal", False)),

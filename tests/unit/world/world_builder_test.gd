@@ -66,9 +66,9 @@ func test_routes_become_symmetric_links_timed_by_formula_d() -> void:
 		assert_true(float(link[0].seasons) <= ContinentData.trip_seasons(rt, travel) + 0.001, "Formula D: the quicker of a pair's routes")
 
 
-func test_the_thirty_sects_start_as_authored_with_their_leaders() -> void:
+func test_the_fifty_sects_start_as_authored_with_their_leaders() -> void:
 	var active: Array = _db.find("sects", func(s): return s.status == "active")
-	assert_eq(active.size(), 30, "7 great and 23 minor sects")
+	assert_eq(active.size(), 50, "7 great and 23 minor sects, and the 20 provinces-v2 sects (2026-11-24)")
 	for s in active:
 		var leader: Dictionary = _db.get_record("people", str(s.leader_id))
 		assert_true(bool(leader.get("alive", false)), "%s has a living leader" % s.name)

@@ -332,8 +332,8 @@
    "name": "Trận Thạch Khoáng",
    "name_han": "陣石礦",
    "gloss": "Array Stone Mine",
-   "look": "A neat quarry below the lowest hall, its walls cut in square steps, with round stone blanks stacked for carving.",
-   "lore": "The stone for the Pivot's array discs is cut here, close-grained and heavy with the blessed land's qi. Each blank is weighed at Thiên Quyền Thị before it is carved."
+   "look": "A neat old quarry below the lowest hall, its walls cut in square steps, with a few round stone blanks still stacked and never carved.",
+   "lore": "The Pivot's array discs were once cut from this stone, close-grained and heavy with the blessed land's qi. The good seam is spent; the last blanks were weighed at Thiên Quyền Thị and never sent for carving."
   },
   "prov_r14_1_village_1": {
    "name": "Hồng Quả Thôn",
@@ -595,8 +595,8 @@
    "name": "Thanh Kim Khoáng",
    "name_han": "青金礦",
    "gloss": "Lapis Mine",
-   "look": "A narrow adit in grey mountain rock, the spoil flecked with deep blue stone.",
-   "lore": "Lapis lazuli is dug here in small blocks and carried down to Thạch Kiều. Ground fine, it gives the deep blue of the Pivot's star charts and of Củng Tinh's painted ceilings."
+   "look": "A narrow, fallen-in adit in grey mountain rock, the old spoil flecked with deep blue stone.",
+   "lore": "Lapis lazuli was once dug here in small blocks and carried down to Thạch Kiều. The adit fell in long ago, but the deep blue of the Pivot's star charts and of Củng Tinh's painted ceilings came from here."
   },
   "prov_r14_22_ruin_4": {
    "name": "Lão Mã Bảo",
@@ -822,8 +822,8 @@
    "name": "Hồng Ngọc Khoáng",
    "name_han": "紅玉礦",
    "gloss": "Ruby Mine",
-   "look": "A few narrow adits in a high mountain face, red grains glinting in the spoil.",
-   "lore": "Rubies are dug here in summer by small crews. The best go to the Pivot; the rest to Thạch Kiều."
+   "look": "A few narrow, long-empty adits in a high mountain face, red grains still glinting in the spoil.",
+   "lore": "Small crews once dug rubies here in summer, the best for the Pivot and the rest for Thạch Kiều. The seam has played out, and only children climb up to sift the spoil."
   },
   "prov_r14_36_peak_1": {
    "name": "Lục Bình Phong",
@@ -836,8 +836,8 @@
    "name": "Hải Lam Khoáng",
    "name_han": "海藍礦",
    "gloss": "Sea-Blue Mine",
-   "look": "Blue-stained rock in a mountain cut above the coast, with ore crushed and washed in a stream.",
-   "lore": "Azurite and a little malachite are dug here and carried down to the coast. Smelted, the ore gives copper; ground, it gives the blue paint of the Pivot's halls."
+   "look": "Blue-stained rock in an old mountain cut above the coast, where a stream still runs blue past the abandoned washing floors.",
+   "lore": "Azurite and a little malachite were dug here until the cut flooded. Smelted, the ore gave copper; ground, it gave the blue paint still on the Pivot's halls."
   },
   "prov_r14_4_village_1": {
    "name": "Tùng Nhân Thôn",
@@ -886,7 +886,7 @@
    "name_han": "金精礦",
    "gloss": "Gold Essence Mine",
    "look": "A small, guarded adit in bare mountain rock, its mouth closed with an iron grille.",
-   "lore": "Gold is dug here for the sect's own use, and its output is not weighed in the market."
+   "lore": "There is gold here, but the sect keeps the adit shut against its own need, and none of it has ever been weighed in the market."
   },
   "prov_r14_7_village_1": {
    "name": "Hoàng Kỳ Thôn",
@@ -920,8 +920,8 @@
    "name": "Tị Xà Khoáng",
    "name_han": "避蛇礦",
    "gloss": "Snake-Ward Mine",
-   "look": "Orange-red realgar crystals in grey mountain rock, broken out and wrapped in leaves.",
-   "lore": "Realgar from here is used against snakes and in some pills. The miners do not eat where they dig."
+   "look": "Orange-red realgar crystals in grey mountain rock, untouched but for a few broken out long ago.",
+   "lore": "The realgar here is good against snakes and for some pills, but its dust sickens those who break it out, and the cut has been left since the last crew fell ill."
   },
   "prov_r14_9_village_1": {
    "name": "Xảo Tượng Thôn",

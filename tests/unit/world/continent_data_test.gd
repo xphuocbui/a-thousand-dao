@@ -18,9 +18,10 @@ func test_the_approved_counts() -> void:
 	var cd := _cd()
 	assert_eq(cd.regions.size(), 20, "20 regions")
 	assert_eq(cd.great_sects.size(), 7, "7 great sects")
-	assert_eq(cd.minor_sects.size(), 23, "23 minor sects (Thu Phần Các added with the territory history, 2026-11-15)")
-	assert_eq(cd.places.size(), 254, "204 places, 8 sacred places, 17 ruins and one minor seat from the territory history, 24 lairs and special sites")
-	assert_eq(cd.places.values().filter(func(p): return p.kind == "beast_lair").size(), 14, "the approved beast lairs (sites.json, 2026-11-20)")
+	assert_eq(cd.minor_sects.size(), 43, "23 minor sects (Thu Phần Các added with the territory history, 2026-11-15) and the 20 provinces-v2 sects (2026-11-24)")
+	assert_eq(cd.places.size(), 1494, "204 places, 8 sacred places, 17 ruins and one minor seat from the territory history, 24 lairs and special sites, and the 1,240 provinces-v2 places (2026-11-24)")
+	assert_eq(cd.places.values().filter(func(p): return p.kind == "beast_lair" and not p.has("v2_slot")).size(), 14, "the approved beast lairs (sites.json, 2026-11-20)")
+	assert_eq(cd.places.values().filter(func(p): return p.has("v2_slot")).size(), 1240, "the provinces-v2 places, appended after the authored ones")
 	assert_eq(cd.arrays.size(), 7, "7 teleport arrays, one per great sect")
 	var tiers := {1: 0, 2: 0}
 	for k in cd.great_sects:
@@ -35,12 +36,16 @@ func test_every_settlement_but_two_off_road_minor_seats_reaches_every_other_ac_t
 	# travel exists (Travel & Map rule 10). This pins them so a change shows.
 	var cd := _cd()
 	var settled: Array = cd.settled_ids()
-	assert_eq(settled.size(), 181, "181 settlements")
+	assert_eq(settled.size(), 623, "181 settlements and 442 provinces-v2 ones (villages, towns, mines, sect seats)")
 	var main: Dictionary = cd.reachable_from(int(settled[0]))
 	var cut: Array = settled.filter(func(id): return not main.has(id))
-	assert_eq(cut.map(func(id): return str(cd.places[id].name)), ["Hồng Lô Cốc", "Thu Phần Các"], "the two cut-off settlements")
-	for id in cut:
+	var old_cut: Array = cut.filter(func(id): return not cd.places[id].has("v2_slot"))
+	assert_eq(old_cut.map(func(id): return str(cd.places[id].name)), ["Hồng Lô Cốc", "Thu Phần Các"], "the two cut-off authored settlements")
+	for id in old_cut:
 		assert_eq(str(cd.places[id].kind), "minor_seat", "%s is a minor seat" % cd.places[id].name)
+	# provinces-v2 (2026-11-24): the new settlements reach the network by road or track, except those on a landmass
+	# with no network (Hồng Lô Cốc's, the far south isles), reached once wilderness or sea travel exists
+	assert_eq(cut.size() - old_cut.size(), 17, "17 new settlements on landmasses with no network")
 
 
 func test_routes_are_symmetric_and_have_lengths() -> void:
@@ -51,7 +56,7 @@ func test_routes_are_symmetric_and_have_lengths() -> void:
 	var kinds := {}
 	for rt in cd.routes:
 		kinds[str(rt.kind)] = true
-	assert_eq(kinds.keys().size(), 3, "roads, trunk roads and sea lanes")
+	assert_eq(kinds.keys().size(), 4, "roads, trunk roads, sea lanes and tracks (provinces-v2, 2026-11-24)")
 
 
 func test_broken_references_are_named() -> void:

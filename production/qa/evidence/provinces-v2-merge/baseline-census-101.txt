@@ -1,0 +1,16 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+generated in 28.5 s
+year 0: 5000 cultivators, by realm [3935, 844, 191, 27, 3]
+522.2 ms per season
+year 50: 5000 cultivators, by realm [3607, 1089, 257, 43, 4]
+452.2 ms per season
+year 100: 5000 cultivators, by realm [3662, 1039, 251, 44, 4]
+459.2 ms per season
+year 150: 5000 cultivators, by realm [3774, 938, 241, 43, 4]
+454.7 ms per season
+year 200: 5000 cultivators, by realm [3901, 808, 242, 45, 4]
+ARRIVAL gate 0: 0 arrivals, fated share 0.0000, mean p_step 0.0000
+ARRIVAL gate 1: 0 arrivals, fated share 0.0000, mean p_step 0.0000
+ARRIVAL gate 2: 0 arrivals, fated share 0.0000, mean p_step 0.0000
+ARRIVAL gate 3: 0 arrivals, fated share 0.0000, mean p_step 0.0000

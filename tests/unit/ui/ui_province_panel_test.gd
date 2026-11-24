@@ -158,3 +158,11 @@ func test_good_classes_are_named_by_kind_and_rarity_band() -> void:
 	assert_eq(ProvincePanel.good_name("herb2"), "Herbs, rarity 3–4", "band 2 = rarity 3-4 (TradeGoods.class_of)")
 	assert_eq(ProvincePanel.good_name("special1"), "Specialties, rarity 1–2", "specialties too")
 	assert_eq(ProvincePanel.good_name("odd"), "odd", "an unknown class shows as it is")
+
+
+func test_population_shows_as_people_one_unit_a_thousand_mortals() -> void:
+	# user decision 2026-11-24: population as people, 1 settlement unit = 1,000 mortals (display only)
+	assert_eq(ProvincePanel.people(3.4), "3,400", "3.4 units")
+	assert_eq(ProvincePanel.people(0.04), "0", "rounded to the hundred")
+	assert_eq(ProvincePanel.people(1234.5), "1,234,500", "thousands separators")
+	assert_eq(ProvincePanel.people(2.0, 500.0), "1,000", "the scale is a knob")

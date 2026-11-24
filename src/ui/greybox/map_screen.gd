@@ -65,7 +65,6 @@ var _portrait := Button.new()
 var _panel := TextPanel.new()
 var _province := ProvincePanel.new()   # the province panel (design/ux/province-panel.md, draft)
 var _provinces: Dictionary = {}       # province id -> its world_provinces.json record
-var _new_places_set: bool = false     # the new places handed to the map once
 var _person := PersonPanel.new()
 var _fight := FightScreen.new()
 var _people_list := VBoxContainer.new()
@@ -569,6 +568,7 @@ func _build_layout() -> void:
 	_panel.offset_bottom = -132
 	add_child(_panel)
 	_province.set_anchors_preset(Control.PRESET_LEFT_WIDE)   # the same Z6 place as the other panels
+	_province.mortals_per_unit = float(_greybox().get("mortals_per_unit", 1000.0))   # population as people (2026-11-24)
 	_province.anchor_right = 0.33
 	_province.offset_left = 16
 	_province.offset_top = 80
@@ -832,15 +832,6 @@ func _refresh_map(location_id: String) -> void:
 		tile = Vector2i(int(here.tile[0]), int(here.tile[1]))
 	_map.set_state(places, tile, location_id, turn.destination_id)
 	_map.set_season(_season_shot if _season_shot >= 0 else int(GameQuery.clock(session).season))   # the alive layer's snow line
-	if not _new_places_set:   # the provinces' new places (proposals), drawn on the map at close zoom, once
-		_new_places_set = true
-		var news: Array = []
-		for r in GameQuery.provinces(session):
-			for pl in r.get("places", []):
-				if bool(pl.get("new", false)) and str(pl.get("name", "")) != "":
-					news.append({"name": str(pl.name), "gloss": str(pl.get("gloss", "")), "kind": str(pl.kind),
-						"tile": Vector2i(int(pl.tile[0]), int(pl.tile[1])), "proposal": bool(pl.get("proposal", false))})
-		_map.set_new_places(news)
 	_map.set_bubbles(_bubbles(places, location_id, tile))
 	var rects: Array = []
 	for z in _zones:

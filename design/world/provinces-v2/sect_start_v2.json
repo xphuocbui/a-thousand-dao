@@ -1,0 +1,331 @@
+{
+ "status": "PROPOSAL 2026-11-24 (user decision 4: add all 20 provinces-v2 sects as small real sects). Read by tools/design/world/export_world.py beside sect_start_proposal.json, which stays as approved.",
+ "rules": {
+  "levels": "small: the main track 2 (from the craft), the rest 1 (an existing minor sect settles at 4/3/2)",
+  "treasury": "3,500, half the minor 7,000",
+  "loyalty": "sect_start_proposal's rule: 60 + 5 same alignment, -5 if one side is trung lap, -20 chinh vs ma",
+  "specialty": "Claude's pick from the craft (World Generation's sect archetype), for the user's review"
+ },
+ "minor_sects": [
+  {
+   "key": "ngao_tuyet",
+   "name_hv": "Ngạo Tuyết Phái",
+   "lord": "tung_dao",
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 1,
+    "institutions": 1,
+    "military": 2,
+    "trade": 1
+   },
+   "treasury": 3500,
+   "loyalty": 65,
+   "founded": 1105,
+   "specialty": "kiem_tu"
+  },
+  {
+   "key": "bach_vu",
+   "name_hv": "Bách Vũ Các",
+   "lord": "phuong_minh",
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 1,
+    "institutions": 1,
+    "military": 1,
+    "trade": 2
+   },
+   "treasury": 3500,
+   "loyalty": 65,
+   "founded": 1110,
+   "specialty": "linh_thuc_su"
+  },
+  {
+   "key": "vong_trieu",
+   "name_hv": "Vọng Triều Đường",
+   "lord": "phuong_minh",
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 1,
+    "institutions": 1,
+    "military": 2,
+    "trade": 1
+   },
+   "treasury": 3500,
+   "loyalty": 65,
+   "founded": 790,
+   "specialty": "tran_su"
+  },
+  {
+   "key": "tran_sa",
+   "name_hv": "Trấn Sa Đường",
+   "lord": "bang_tam",
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 1,
+    "institutions": 1,
+    "military": 2,
+    "trade": 1
+   },
+   "treasury": 3500,
+   "loyalty": 65,
+   "founded": 1125,
+   "specialty": "kiem_tu"
+  },
+  {
+   "key": "lanh_giang",
+   "name_hv": "Lãnh Giang Phái",
+   "lord": "bang_tam",
+   "alignment": "trung",
+   "levels": {
+    "holdings": 2,
+    "institutions": 1,
+    "military": 1,
+    "trade": 1
+   },
+   "treasury": 3500,
+   "loyalty": 55,
+   "founded": 1140,
+   "specialty": "phap_tu"
+  },
+  {
+   "key": "nhan_van",
+   "name_hv": "Nhàn Vân Quán",
+   "lord": "lac_ha",
+   "alignment": "trung",
+   "levels": {
+    "holdings": 1,
+    "institutions": 2,
+    "military": 1,
+    "trade": 1
+   },
+   "treasury": 3500,
+   "loyalty": 65,
+   "founded": 905,
+   "specialty": "phap_tu"
+  },
+  {
+   "key": "nhan_tran",
+   "name_hv": "Nhạn Trận Môn",
+   "lord": "lac_ha",
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 1,
+    "institutions": 1,
+    "military": 2,
+    "trade": 1
+   },
+   "treasury": 3500,
+   "loyalty": 55,
+   "founded": 806,
+   "specialty": "tran_su"
+  },
+  {
+   "key": "vu_linh",
+   "name_hv": "Vũ Linh Đường",
+   "lord": "thinh_vu",
+   "alignment": "trung",
+   "levels": {
+    "holdings": 1,
+    "institutions": 1,
+    "military": 1,
+    "trade": 2
+   },
+   "treasury": 3500,
+   "loyalty": 55,
+   "founded": 930,
+   "specialty": "tran_su"
+  },
+  {
+   "key": "tuan_tung",
+   "name_hv": "Tuần Tùng Đường",
+   "lord": "tung_dao",
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 1,
+    "institutions": 1,
+    "military": 2,
+    "trade": 1
+   },
+   "treasury": 3500,
+   "loyalty": 65,
+   "founded": 1191,
+   "specialty": "the_tu"
+  },
+  {
+   "key": "tam_kiem",
+   "name_hv": "Tầm Kiếm Đường",
+   "lord": "bang_tam",
+   "alignment": "trung",
+   "levels": {
+    "holdings": 2,
+    "institutions": 1,
+    "military": 1,
+    "trade": 1
+   },
+   "treasury": 3500,
+   "loyalty": 55,
+   "founded": 1162,
+   "specialty": "kiem_tu"
+  },
+  {
+   "key": "chan_kim",
+   "name_hv": "Chân Kim Các",
+   "lord": "thien_xu",
+   "alignment": "trung",
+   "levels": {
+    "holdings": 1,
+    "institutions": 1,
+    "military": 1,
+    "trade": 2
+   },
+   "treasury": 3500,
+   "loyalty": 65,
+   "founded": 980,
+   "specialty": "kiem_tu"
+  },
+  {
+   "key": "coc_vu",
+   "name_hv": "Cốc Vũ Quán",
+   "lord": "thinh_vu",
+   "alignment": "trung",
+   "levels": {
+    "holdings": 2,
+    "institutions": 1,
+    "military": 1,
+    "trade": 1
+   },
+   "treasury": 3500,
+   "loyalty": 55,
+   "founded": 610,
+   "specialty": "linh_thuc_su"
+  },
+  {
+   "key": "minh_loan",
+   "name_hv": "Minh Loan Các",
+   "lord": "lac_ha",
+   "alignment": "trung",
+   "levels": {
+    "holdings": 1,
+    "institutions": 1,
+    "military": 1,
+    "trade": 2
+   },
+   "treasury": 3500,
+   "loyalty": 65,
+   "founded": 960,
+   "specialty": "phap_tu"
+  },
+  {
+   "key": "yen_quang",
+   "name_hv": "Yên Quang Các",
+   "lord": "lac_ha",
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 1,
+    "institutions": 1,
+    "military": 1,
+    "trade": 2
+   },
+   "treasury": 3500,
+   "loyalty": 55,
+   "founded": 1065,
+   "specialty": "dan_su"
+  },
+  {
+   "key": "hoa_cai",
+   "name_hv": "Hoa Cái Đường",
+   "lord": "thien_xu",
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 1,
+    "institutions": 1,
+    "military": 1,
+    "trade": 2
+   },
+   "treasury": 3500,
+   "loyalty": 55,
+   "founded": 1060,
+   "specialty": "dan_su"
+  },
+  {
+   "key": "suong_tung",
+   "name_hv": "Sương Tùng Các",
+   "lord": "tung_dao",
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 1,
+    "institutions": 1,
+    "military": 1,
+    "trade": 2
+   },
+   "treasury": 3500,
+   "loyalty": 65,
+   "founded": 1060,
+   "specialty": "phap_tu"
+  },
+  {
+   "key": "chuc_ha",
+   "name_hv": "Chức Hà Các",
+   "lord": "phuong_minh",
+   "alignment": "trung",
+   "levels": {
+    "holdings": 1,
+    "institutions": 1,
+    "military": 1,
+    "trade": 2
+   },
+   "treasury": 3500,
+   "loyalty": 55,
+   "founded": 1150,
+   "specialty": "phap_tu"
+  },
+  {
+   "key": "vu_an",
+   "name_hv": "Vụ Ẩn Môn",
+   "lord": "thuy_vi",
+   "alignment": "trung",
+   "levels": {
+    "holdings": 1,
+    "institutions": 1,
+    "military": 2,
+    "trade": 1
+   },
+   "treasury": 3500,
+   "loyalty": 55,
+   "founded": 1050,
+   "specialty": "tran_su"
+  },
+  {
+   "key": "ho_lam",
+   "name_hv": "Hộ Lâm Đường",
+   "lord": "thuy_vi",
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 2,
+    "institutions": 1,
+    "military": 1,
+    "trade": 1
+   },
+   "treasury": 3500,
+   "loyalty": 65,
+   "founded": 910,
+   "specialty": "linh_thuc_su"
+  },
+  {
+   "key": "hoa_tinh",
+   "name_hv": "Họa Tinh Đường",
+   "lord": "thien_xu",
+   "alignment": "chinh",
+   "levels": {
+    "holdings": 1,
+    "institutions": 2,
+    "military": 1,
+    "trade": 1
+   },
+   "treasury": 3500,
+   "loyalty": 55,
+   "founded": 910,
+   "specialty": "phap_tu"
+  }
+ ]
+}

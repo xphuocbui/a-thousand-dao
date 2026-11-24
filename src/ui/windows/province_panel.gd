@@ -21,6 +21,8 @@ const KIND_NAMES := {"great_seat": "Great sect seat", "minor_seat": "Minor sect 
 	"hot_spring": "Hot spring", "lake": "Lake", "forest": "Forest", "beast_lair": "Beast lair", "gorge": "Gorge",
 	"volcano": "Volcano", "lava_vent": "Lava vent", "lightning_wood": "Lightning wood", "island": "Island"}
 
+## Mortals per settlement unit for the display (ui_hud.json greybox.mortals_per_unit; user decision 2026-11-24).
+var mortals_per_unit: float = 1000.0
 var _title := Label.new()
 var _han := Label.new()
 var _sub := Label.new()
@@ -142,6 +144,18 @@ static func good_name(c: String) -> String:
 	return c
 
 
+## Mortals shown for [param units] settlement units (user decision 2026-11-24: population as people, 1 unit = 1,000
+## mortals; the game computes in units), rounded to the hundred, with thousands separators: 3.4 -> "3,400".
+static func people(units: float, per_unit: float = 1000.0) -> String:
+	var n: int = int(round(units * per_unit / 100.0)) * 100
+	var s: String = str(absi(n))
+	var out: String = ""
+	while s.length() > 3:
+		out = "," + s.substr(s.length() - 3) + out
+		s = s.substr(0, s.length() - 3)
+	return ("-" if n < 0 else "") + s + out
+
+
 func _build_stats() -> void:
 	for c in _stats.get_children():
 		_stats.remove_child(c)
@@ -151,8 +165,9 @@ func _build_stats() -> void:
 	var acc: Variant = st.get("access", null)
 	var good: String = str(st.get("main_good", ""))
 	var items: Array = [
-		[tr("Population"), "—" if wild else "%.1f / %.1f" % [float(st.get("population", 0)), float(st.get("capacity", 0))],
-			tr("Mortal population now / capacity, in settlement units (Provinces F3)")],
+		[tr("Population"), "—" if wild else "%s / %s" % [people(float(st.get("population", 0)), mortals_per_unit),
+				people(float(st.get("capacity", 0)), mortals_per_unit)],
+			tr("Mortals now / capacity (Provinces F3; one settlement unit shown as %s mortals)") % people(1.0, mortals_per_unit)],
 		[tr("Development"), str(int(st.get("development", 0))), tr("Built levels plus population units (a display index)")],
 		[tr("Access"), "—" if acc == null else "%d %%" % int(round(float(acc) * 100.0)),
 			tr("Market access: infrastructure / usage, at most 100 % (Provinces F6)")],
@@ -219,7 +234,7 @@ func _fill() -> void:
 					desc.append("[i]%s.[/i]" % gl.trim_suffix("."))
 				if str(p.get("look", "")) != "":
 					desc.append(str(p.look))
-				if bool(p.get("new", false)) and str(p.get("lore", "")) != "":
+				if str(p.get("lore", "")) != "":   # the provinces-v2 places carry their lore here (the catalogue's are in their own panel)
 					desc.append(str(p.lore))
 				if not desc.is_empty():
 					lines.append("[font_size=13][indent]%s[/indent][/font_size]" % " ".join(desc))

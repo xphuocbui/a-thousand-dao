@@ -1,7 +1,7 @@
 {
  "schema_version": 1,
  "_doc": "The authored world's history (design/gdd/world-generation.md), exported by tools/design/world/export_world.py from design/world/*.json and design/map/continent-11; do not edit by hand. start_year: every game starts here (Core Rule 11). sects: the 30 living sects with their authored start (alignment chinh | ma | trung, the four development levels, treasury, a minor sect's lord and loyalty), seat (place id), founded year, specialty (the sect archetype NPC Builds reads) and leader (a cast key). fallen_sects: sects that fell before the start. people: the fixed cast (alive: realm, home place id, traits; dead: records with peak_realm, died, cause), with master, vassal_of, served_under and abode_slot where authored. events: the landmark chronicle and the annals, ordered by year then id; place is a place id, famous a famous site's name, feature a named feature with its tile; secret events are hidden until discovered. legendary_items: the 34 unique items, held by a living cast member or lost at a place or slot. territory: eras, land changes, wars, vassal changes, grudges. hidden_slots: the 28 hidden places with their 2-3 candidate tiles and origin event; tile_secrets: the 80 with their candidates; famous_sites and features: named sites and features. data_version: a hash of the inputs, recorded in each save (Core Rule 13).",
- "data_version": "63a103b53d8d9479",
+ "data_version": "6c5849531ac2a6d4",
  "start_year": 1200,
  "sects": [
   {
@@ -827,6 +827,545 @@
    "craft": "soul arts and grave wards",
    "region": 19,
    "leader": "ly_han_bich"
+  },
+  {
+   "key": "ngao_tuyet",
+   "name": "Ngạo Tuyết Phái",
+   "name_han": "傲雪派",
+   "gloss": "School That Defies the Snow",
+   "kind": "minor",
+   "alignment": "chinh",
+   "leans": [
+    "Wood",
+    "Metal"
+   ],
+   "seat": 284,
+   "levels": {
+    "holdings": 1,
+    "institutions": 1,
+    "military": 2,
+    "trade": 1
+   },
+   "treasury": 3500,
+   "founded": 1105,
+   "specialty": "kiem_tu",
+   "lord": "tung_dao",
+   "loyalty": 65,
+   "craft": "sword cultivation (kiếm tu); plum-blossom sword forms",
+   "region": 5,
+   "leader": "lang_dap_tuyet"
+  },
+  {
+   "key": "bach_vu",
+   "name": "Bách Vũ Các",
+   "name_han": "百羽閣",
+   "gloss": "Pavilion of the Hundred Feathers",
+   "kind": "minor",
+   "alignment": "chinh",
+   "leans": [
+    "Fire",
+    "Wood"
+   ],
+   "seat": 330,
+   "levels": {
+    "holdings": 1,
+    "institutions": 1,
+    "military": 1,
+    "trade": 2
+   },
+   "treasury": 3500,
+   "founded": 1110,
+   "specialty": "linh_thuc_su",
+   "lord": "phuong_minh",
+   "loyalty": 65,
+   "craft": "spirit birds: messenger birds and feather fans",
+   "region": 16,
+   "leader": "ta_thanh_loan"
+  },
+  {
+   "key": "vong_trieu",
+   "name": "Vọng Triều Đường",
+   "name_han": "望潮堂",
+   "gloss": "Hall Watching the Tide",
+   "kind": "minor",
+   "alignment": "chinh",
+   "leans": [
+    "Water",
+    "Metal"
+   ],
+   "seat": 337,
+   "levels": {
+    "holdings": 1,
+    "institutions": 1,
+    "military": 2,
+    "trade": 1
+   },
+   "treasury": 3500,
+   "founded": 790,
+   "specialty": "tran_su",
+   "lord": "phuong_minh",
+   "loyalty": 65,
+   "craft": "coastal watch and sea-ward formations",
+   "region": 17,
+   "leader": "on_thu_dang"
+  },
+  {
+   "key": "tran_sa",
+   "name": "Trấn Sa Đường",
+   "name_han": "鎮沙堂",
+   "gloss": "Hall That Holds the Sand",
+   "kind": "minor",
+   "alignment": "chinh",
+   "leans": [
+    "Metal",
+    "Earth"
+   ],
+   "seat": 359,
+   "levels": {
+    "holdings": 1,
+    "institutions": 1,
+    "military": 2,
+    "trade": 1
+   },
+   "treasury": 3500,
+   "founded": 1125,
+   "specialty": "kiem_tu",
+   "lord": "bang_tam",
+   "loyalty": 65,
+   "craft": "caravan guards and desert sabre arts",
+   "region": 8,
+   "leader": "vien_co_yen"
+  },
+  {
+   "key": "lanh_giang",
+   "name": "Lãnh Giang Phái",
+   "name_han": "冷江派",
+   "gloss": "School of the Chill River",
+   "kind": "minor",
+   "alignment": "trung",
+   "leans": [
+    "Water"
+   ],
+   "seat": 361,
+   "levels": {
+    "holdings": 2,
+    "institutions": 1,
+    "military": 1,
+    "trade": 1
+   },
+   "treasury": 3500,
+   "founded": 1140,
+   "specialty": "phap_tu",
+   "lord": "bang_tam",
+   "loyalty": 55,
+   "craft": "ice-hole cultivation and escorts for the ice-fish boats",
+   "region": 9,
+   "leader": "lu_doc_dieu"
+  },
+  {
+   "key": "nhan_van",
+   "name": "Nhàn Vân Quán",
+   "name_han": "閑雲觀",
+   "gloss": "Abbey of the Idle Clouds",
+   "kind": "minor",
+   "alignment": "trung",
+   "leans": [
+    "Water",
+    "Wood"
+   ],
+   "seat": 364,
+   "levels": {
+    "holdings": 1,
+    "institutions": 2,
+    "military": 1,
+    "trade": 1
+   },
+   "treasury": 3500,
+   "founded": 905,
+   "specialty": "phap_tu",
+   "lord": "lac_ha",
+   "loyalty": 65,
+   "craft": "painting cultivation: living scrolls and mirror images",
+   "region": 10,
+   "leader": "diep_to_quyen"
+  },
+  {
+   "key": "nhan_tran",
+   "name": "Nhạn Trận Môn",
+   "name_han": "雁陣門",
+   "gloss": "Gate of the Goose Formation",
+   "kind": "minor",
+   "alignment": "chinh",
+   "leans": [
+    "Metal",
+    "Earth"
+   ],
+   "seat": 367,
+   "levels": {
+    "holdings": 1,
+    "institutions": 1,
+    "military": 2,
+    "trade": 1
+   },
+   "treasury": 3500,
+   "founded": 806,
+   "specialty": "tran_su",
+   "lord": "lac_ha",
+   "loyalty": 55,
+   "craft": "battle formations (chiến trận) for disciple squads; drills the plain's levies",
+   "region": 11,
+   "leader": "muc_han_nhan"
+  },
+  {
+   "key": "vu_linh",
+   "name": "Vũ Linh Đường",
+   "name_han": "雨鈴堂",
+   "gloss": "Hall of the Rain Bells",
+   "kind": "minor",
+   "alignment": "trung",
+   "leans": [
+    "Metal",
+    "Water"
+   ],
+   "seat": 372,
+   "levels": {
+    "holdings": 1,
+    "institutions": 1,
+    "military": 1,
+    "trade": 2
+   },
+   "treasury": 3500,
+   "founded": 930,
+   "specialty": "tran_su",
+   "lord": "thinh_vu",
+   "loyalty": 55,
+   "craft": "rain-bell warning arrays and bronze casting",
+   "region": 18,
+   "leader": "an_thanh_linh"
+  },
+  {
+   "key": "tuan_tung",
+   "name": "Tuần Tùng Đường",
+   "name_han": "巡松堂",
+   "gloss": "Hall of the Pine Wardens",
+   "kind": "minor",
+   "alignment": "chinh",
+   "leans": [
+    "Wood",
+    "Metal"
+   ],
+   "seat": 376,
+   "levels": {
+    "holdings": 1,
+    "institutions": 1,
+    "military": 2,
+    "trade": 1
+   },
+   "treasury": 3500,
+   "founded": 1191,
+   "specialty": "the_tu",
+   "lord": "tung_dao",
+   "loyalty": 65,
+   "craft": "road wardens and caravan guards; staff and bow arts",
+   "region": 4,
+   "leader": "hua_van_cung"
+  },
+  {
+   "key": "tam_kiem",
+   "name": "Tầm Kiếm Đường",
+   "name_han": "尋劍堂",
+   "gloss": "Hall of the Sword Seekers",
+   "kind": "minor",
+   "alignment": "trung",
+   "leans": [
+    "Metal",
+    "Water"
+   ],
+   "seat": 406,
+   "levels": {
+    "holdings": 2,
+    "institutions": 1,
+    "military": 1,
+    "trade": 1
+   },
+   "treasury": 3500,
+   "founded": 1162,
+   "specialty": "kiem_tu",
+   "lord": "bang_tam",
+   "loyalty": 55,
+   "craft": "mountain hunters and guides who seek a lost sword cave",
+   "region": 7,
+   "leader": "tieu_van_phong"
+  },
+  {
+   "key": "chan_kim",
+   "name": "Chân Kim Các",
+   "name_han": "真金閣",
+   "gloss": "Pavilion of True Gold",
+   "kind": "minor",
+   "alignment": "trung",
+   "leans": [
+    "Metal",
+    "Earth"
+   ],
+   "seat": 427,
+   "levels": {
+    "holdings": 1,
+    "institutions": 1,
+    "military": 1,
+    "trade": 2
+   },
+   "treasury": 3500,
+   "founded": 980,
+   "specialty": "kiem_tu",
+   "lord": "thien_xu",
+   "loyalty": 65,
+   "craft": "assaying and refining spirit ores",
+   "region": 15,
+   "leader": "tuong_bach_luyen"
+  },
+  {
+   "key": "coc_vu",
+   "name": "Cốc Vũ Quán",
+   "name_han": "穀雨觀",
+   "gloss": "Abbey of the Grain Rain",
+   "kind": "minor",
+   "alignment": "trung",
+   "leans": [
+    "Water",
+    "Wood"
+   ],
+   "seat": 441,
+   "levels": {
+    "holdings": 2,
+    "institutions": 1,
+    "military": 1,
+    "trade": 1
+   },
+   "treasury": 3500,
+   "founded": 610,
+   "specialty": "linh_thuc_su",
+   "lord": "thinh_vu",
+   "loyalty": 55,
+   "craft": "rain-calling rites and spirit-rice fields",
+   "region": 19,
+   "leader": "duong_hao_vu"
+  },
+  {
+   "key": "minh_loan",
+   "name": "Minh Loan Các",
+   "name_han": "鳴鸞閣",
+   "gloss": "Pavilion of the Singing Bells",
+   "kind": "minor",
+   "alignment": "trung",
+   "leans": [
+    "Metal",
+    "Earth"
+   ],
+   "seat": 527,
+   "levels": {
+    "holdings": 1,
+    "institutions": 1,
+    "military": 1,
+    "trade": 2
+   },
+   "treasury": 3500,
+   "founded": 960,
+   "specialty": "phap_tu",
+   "lord": "lac_ha",
+   "loyalty": 65,
+   "craft": "bell casting and sound arts; ward bells for ships and caravans",
+   "region": 12,
+   "leader": "yen_boi_ngoc"
+  },
+  {
+   "key": "yen_quang",
+   "name": "Yên Quang Các",
+   "name_han": "煙光閣",
+   "gloss": "Pavilion of the Hazy Light",
+   "kind": "minor",
+   "alignment": "chinh",
+   "leans": [
+    "Wood",
+    "Earth"
+   ],
+   "seat": 537,
+   "levels": {
+    "holdings": 1,
+    "institutions": 1,
+    "military": 1,
+    "trade": 2
+   },
+   "treasury": 3500,
+   "founded": 1065,
+   "specialty": "dan_su",
+   "lord": "lac_ha",
+   "loyalty": 55,
+   "craft": "alchemy (luyện đan) from steppe herbs picked at dusk",
+   "region": 13,
+   "leader": "tao_mo_tu"
+  },
+  {
+   "key": "hoa_cai",
+   "name": "Hoa Cái Đường",
+   "name_han": "華蓋堂",
+   "gloss": "Hall of the Canopy Star",
+   "kind": "minor",
+   "alignment": "chinh",
+   "leans": [
+    "Fire",
+    "Earth"
+   ],
+   "seat": 565,
+   "levels": {
+    "holdings": 1,
+    "institutions": 1,
+    "military": 1,
+    "trade": 2
+   },
+   "treasury": 3500,
+   "founded": 1060,
+   "specialty": "dan_su",
+   "lord": "thien_xu",
+   "loyalty": 55,
+   "craft": "pill refining (luyện đan) from badland cinnabar and sulphur",
+   "region": 14,
+   "leader": "la_tu_vi"
+  },
+  {
+   "key": "suong_tung",
+   "name": "Sương Tùng Các",
+   "name_han": "霜松閣",
+   "gloss": "Pavilion of the Frosted Pines",
+   "kind": "minor",
+   "alignment": "chinh",
+   "leans": [
+    "Wood",
+    "Water"
+   ],
+   "seat": 948,
+   "levels": {
+    "holdings": 1,
+    "institutions": 1,
+    "military": 1,
+    "trade": 2
+   },
+   "treasury": 3500,
+   "founded": 1060,
+   "specialty": "phap_tu",
+   "lord": "tung_dao",
+   "loyalty": 65,
+   "craft": "talismans (phù lục) on pine-resin paper; ward lanterns",
+   "region": 1,
+   "leader": "van_han_dang"
+  },
+  {
+   "key": "chuc_ha",
+   "name": "Chức Hà Các",
+   "name_han": "織霞閣",
+   "gloss": "Pavilion of the Woven Clouds",
+   "kind": "minor",
+   "alignment": "trung",
+   "leans": [
+    "Fire",
+    "Wood"
+   ],
+   "seat": 1013,
+   "levels": {
+    "holdings": 1,
+    "institutions": 1,
+    "military": 1,
+    "trade": 2
+   },
+   "treasury": 3500,
+   "founded": 1150,
+   "specialty": "phap_tu",
+   "lord": "phuong_minh",
+   "loyalty": 55,
+   "craft": "fire-silk weaving: robes and banners",
+   "region": 20,
+   "leader": "than_van_cam"
+  },
+  {
+   "key": "vu_an",
+   "name": "Vụ Ẩn Môn",
+   "name_han": "霧隱門",
+   "gloss": "Gate Hidden in Mist",
+   "kind": "minor",
+   "alignment": "trung",
+   "leans": [
+    "Wood",
+    "Water"
+   ],
+   "seat": 1063,
+   "levels": {
+    "holdings": 1,
+    "institutions": 1,
+    "military": 2,
+    "trade": 1
+   },
+   "treasury": 3500,
+   "founded": 1050,
+   "specialty": "tran_su",
+   "lord": "thuy_vi",
+   "loyalty": 55,
+   "craft": "mist formations, road wardens and concealment arrays",
+   "region": 2,
+   "leader": "bang_yen_toa"
+  },
+  {
+   "key": "ho_lam",
+   "name": "Hộ Lâm Đường",
+   "name_han": "護林堂",
+   "gloss": "Hall of the Forest Wardens",
+   "kind": "minor",
+   "alignment": "chinh",
+   "leans": [
+    "Wood",
+    "Earth"
+   ],
+   "seat": 1105,
+   "levels": {
+    "holdings": 2,
+    "institutions": 1,
+    "military": 1,
+    "trade": 1
+   },
+   "treasury": 3500,
+   "founded": 910,
+   "specialty": "linh_thuc_su",
+   "lord": "thuy_vi",
+   "loyalty": 65,
+   "craft": "forest wardens; herb and spirit-wood gatherers for Thúy Vi's furnaces",
+   "region": 3,
+   "leader": "luc_thanh_sam"
+  },
+  {
+   "key": "hoa_tinh",
+   "name": "Họa Tinh Đường",
+   "name_han": "畫星堂",
+   "gloss": "Hall of the Painted Stars",
+   "kind": "minor",
+   "alignment": "chinh",
+   "leans": [
+    "Wood",
+    "Metal"
+   ],
+   "seat": 1328,
+   "levels": {
+    "holdings": 1,
+    "institutions": 2,
+    "military": 1,
+    "trade": 1
+   },
+   "treasury": 3500,
+   "founded": 910,
+   "specialty": "phap_tu",
+   "lord": "thien_xu",
+   "loyalty": 55,
+   "craft": "talismans (phù lục) painted with the Dipper",
+   "region": 6,
+   "leader": "ky_ngan_chuc"
   }
  ],
  "fallen_sects": [
@@ -2542,6 +3081,486 @@
    "vassal_of": "thinh_vu"
   },
   {
+   "key": "lang_dap_tuyet",
+   "name": "Lăng Đạp Tuyết",
+   "name_han": "凌踏雪",
+   "gloss": "Treads the snow to seek the plum (đạp tuyết tầm mai)",
+   "sex": "M",
+   "born": 1068,
+   "alive": true,
+   "sect": "ngao_tuyet",
+   "rank": "tong_chu",
+   "role": "Founder and head of Ngạo Tuyết Phái (1105), sword cultivation in plum-blossom forms",
+   "realm": "truc_co",
+   "home": 284,
+   "traits": {
+    "personality": [
+     "Brave",
+     "Stubborn",
+     "Arrogant"
+    ],
+    "calling": "Duelist",
+    "fate_given": []
+   },
+   "vassal_of": "tung_dao"
+  },
+  {
+   "key": "ta_thanh_loan",
+   "name": "Tạ Thanh Loan",
+   "name_han": "謝青鸞",
+   "gloss": "The blue luan bird, messenger of the immortals",
+   "sex": "F",
+   "born": 1072,
+   "alive": true,
+   "sect": "bach_vu",
+   "rank": "tong_chu",
+   "role": "A founder (1110) and head of Bách Vũ Các, spirit birds: messenger birds and feather fans",
+   "realm": "truc_co",
+   "home": 330,
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Gregarious",
+     "Loyal"
+    ],
+    "calling": "Beast tamer",
+    "fate_given": []
+   },
+   "vassal_of": "phuong_minh"
+  },
+  {
+   "key": "on_thu_dang",
+   "name": "Ôn Thủ Đăng",
+   "name_han": "溫守燈",
+   "gloss": "Keeps the lamp burning",
+   "sex": "M",
+   "born": 860,
+   "alive": true,
+   "sect": "vong_trieu",
+   "rank": "tong_chu",
+   "role": "Head of Vọng Triều Đường, coastal watch and sea-ward formations against storms and raiders",
+   "realm": "ket_dan",
+   "home": 337,
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Diligent",
+     "Stubborn"
+    ],
+    "calling": "Formation master",
+    "fate_given": []
+   },
+   "vassal_of": "phuong_minh"
+  },
+  {
+   "key": "vien_co_yen",
+   "name": "Viên Cô Yên",
+   "name_han": "袁孤煙",
+   "gloss": "A lone column of smoke over the desert (Vương Duy: đại mạc cô yên trực)",
+   "sex": "F",
+   "born": 1085,
+   "alive": true,
+   "sect": "tran_sa",
+   "rank": "tong_chu",
+   "role": "A founder (1125) and head of Trấn Sa Đường, caravan guards and desert sabre arts",
+   "realm": "truc_co",
+   "home": 359,
+   "traits": {
+    "personality": [
+     "Paranoid",
+     "Brave",
+     "Just"
+    ],
+    "calling": "Duelist",
+    "fate_given": []
+   },
+   "vassal_of": "bang_tam"
+  },
+  {
+   "key": "lu_doc_dieu",
+   "name": "Lư Độc Điếu",
+   "name_han": "盧獨釣",
+   "gloss": "Fishing alone in the snow on the cold river (Liễu Tông Nguyên: độc điếu hàn giang tuyết)",
+   "sex": "M",
+   "born": 1095,
+   "alive": true,
+   "sect": "lanh_giang",
+   "rank": "tong_chu",
+   "role": "A founder (1140) and head of Lãnh Giang Phái, ice-hole cultivation and escorts for the ice-fish boats",
+   "realm": "truc_co",
+   "home": 361,
+   "traits": {
+    "personality": [
+     "Patient",
+     "Reclusive",
+     "Devout"
+    ],
+    "calling": "Teacher",
+    "fate_given": []
+   },
+   "vassal_of": "bang_tam"
+  },
+  {
+   "key": "diep_to_quyen",
+   "name": "Diệp Tố Quyên",
+   "name_han": "葉素絹",
+   "gloss": "Plain silk, the scroll before the painting",
+   "sex": "F",
+   "born": 860,
+   "alive": true,
+   "sect": "nhan_van",
+   "rank": "tong_chu",
+   "role": "A founder (905) and head of Nhàn Vân Quán, painting cultivation: living scrolls and mirror images",
+   "realm": "ket_dan",
+   "home": 364,
+   "traits": {
+    "personality": [
+     "Content",
+     "Reclusive",
+     "Patient"
+    ],
+    "calling": "Talisman maker",
+    "fate_given": []
+   },
+   "vassal_of": "lac_ha"
+  },
+  {
+   "key": "muc_han_nhan",
+   "name": "Mục Hàn Nhạn",
+   "name_han": "穆寒雁",
+   "gloss": "Wild geese in the cold",
+   "sex": "M",
+   "born": 900,
+   "alive": true,
+   "sect": "nhan_tran",
+   "rank": "tong_chu",
+   "role": "Head of Nhạn Trận Môn, battle formations for disciple squads; drills the plain's levies every spring",
+   "realm": "ket_dan",
+   "home": 367,
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Loyal",
+     "Cautious"
+    ],
+    "calling": "Strategist",
+    "fate_given": []
+   },
+   "vassal_of": "lac_ha"
+  },
+  {
+   "key": "an_thanh_linh",
+   "name": "Ân Thanh Linh",
+   "name_han": "殷清鈴",
+   "gloss": "A bell that rings clear",
+   "sex": "F",
+   "born": 1010,
+   "alive": true,
+   "sect": "vu_linh",
+   "rank": "tong_chu",
+   "role": "Mistress of Vũ Linh Đường, rain-bell warning arrays and bronze casting; keeps the warding bells on the walls of Thu Trì Thành",
+   "realm": "ket_dan",
+   "home": 372,
+   "traits": {
+    "personality": [
+     "Calm",
+     "Pragmatic",
+     "Paranoid"
+    ],
+    "calling": "Formation master",
+    "fate_given": []
+   },
+   "vassal_of": "thinh_vu"
+  },
+  {
+   "key": "hua_van_cung",
+   "name": "Hứa Vãn Cung",
+   "name_han": "許挽弓",
+   "gloss": "Draws the bow (Đỗ Phủ: vãn cung đương vãn cường)",
+   "sex": "M",
+   "born": 1150,
+   "alive": true,
+   "sect": "tuan_tung",
+   "rank": "tong_chu",
+   "role": "Founder and head of Tuần Tùng Đường (1191), road wardens and caravan guards of the pine sea, staff and bow",
+   "realm": "truc_co",
+   "home": 376,
+   "traits": {
+    "personality": [
+     "Brave",
+     "Pragmatic",
+     "Honest"
+    ],
+    "calling": "Duelist",
+    "fate_given": []
+   },
+   "vassal_of": "tung_dao"
+  },
+  {
+   "key": "tieu_van_phong",
+   "name": "Tiêu Vấn Phong",
+   "name_han": "蕭問鋒",
+   "gloss": "Asks after the blade",
+   "sex": "M",
+   "born": 1138,
+   "alive": true,
+   "sect": "tam_kiem",
+   "rank": "tong_chu",
+   "role": "Founder and head of Tầm Kiếm Đường (1162), mountain hunters and guides who seek a lost sword cave",
+   "realm": "truc_co",
+   "home": 406,
+   "traits": {
+    "personality": [
+     "Stubborn",
+     "Ambitious",
+     "Brave"
+    ],
+    "calling": "Wanderer",
+    "fate_given": []
+   },
+   "vassal_of": "bang_tam"
+  },
+  {
+   "key": "tuong_bach_luyen",
+   "name": "Tưởng Bách Luyện",
+   "name_han": "蔣百煉",
+   "gloss": "Refined a hundred times",
+   "sex": "M",
+   "born": 920,
+   "alive": true,
+   "sect": "chan_kim",
+   "rank": "tong_chu",
+   "role": "A founder (980) and head of Chân Kim Các, assaying and refining spirit ores",
+   "realm": "ket_dan",
+   "home": 427,
+   "traits": {
+    "personality": [
+     "Honest",
+     "Just",
+     "Diligent"
+    ],
+    "calling": "Refiner",
+    "fate_given": []
+   },
+   "vassal_of": "thien_xu"
+  },
+  {
+   "key": "duong_hao_vu",
+   "name": "Dương Hảo Vũ",
+   "name_han": "楊好雨",
+   "gloss": "The good rain that knows its season (Đỗ Phủ: hảo vũ tri thời tiết)",
+   "sex": "F",
+   "born": 830,
+   "alive": true,
+   "sect": "coc_vu",
+   "rank": "tong_chu",
+   "role": "Abbess of Cốc Vũ Quán, rain-calling rites and spirit-rice terraces for the farmers of the south",
+   "realm": "ket_dan",
+   "home": 441,
+   "traits": {
+    "personality": [
+     "Devout",
+     "Compassionate",
+     "Cautious"
+    ],
+    "calling": "Herbalist",
+    "fate_given": []
+   },
+   "vassal_of": "thinh_vu"
+  },
+  {
+   "key": "yen_boi_ngoc",
+   "name": "Yến Bội Ngọc",
+   "name_han": "晏佩玉",
+   "gloss": "Jade pendants beside the singing bells (Vương Bột: bội ngọc minh loan)",
+   "sex": "F",
+   "born": 910,
+   "alive": true,
+   "sect": "minh_loan",
+   "rank": "tong_chu",
+   "role": "A founder (960) and head of Minh Loan Các, bell casting and sound arts; ward bells for ships",
+   "realm": "ket_dan",
+   "home": 527,
+   "traits": {
+    "personality": [
+     "Diligent",
+     "Pragmatic",
+     "Gregarious"
+    ],
+    "calling": "Refiner",
+    "fate_given": []
+   },
+   "vassal_of": "lac_ha"
+  },
+  {
+   "key": "tao_mo_tu",
+   "name": "Tào Mộ Tử",
+   "name_han": "曹暮紫",
+   "gloss": "The purple of the evening hills (Vương Bột: yên quang ngưng nhi mộ sơn tử)",
+   "sex": "M",
+   "born": 1080,
+   "alive": true,
+   "sect": "yen_quang",
+   "rank": "tong_chu",
+   "role": "Head of Yên Quang Các, alchemy from steppe herbs picked only in the evening glow",
+   "realm": "truc_co",
+   "home": 537,
+   "traits": {
+    "personality": [
+     "Patient",
+     "Temperate",
+     "Devout"
+    ],
+    "calling": "Alchemist",
+    "fate_given": []
+   },
+   "vassal_of": "lac_ha"
+  },
+  {
+   "key": "la_tu_vi",
+   "name": "La Tử Vi",
+   "name_han": "羅紫微",
+   "gloss": "Tử Vi is the enclosure of the pole star, beneath the Canopy",
+   "sex": "F",
+   "born": 1090,
+   "alive": true,
+   "sect": "hoa_cai",
+   "rank": "tong_chu",
+   "role": "Mistress of Hoa Cái Đường, pill refining from badland cinnabar and sulphur",
+   "realm": "truc_co",
+   "home": 565,
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Pragmatic",
+     "Diligent"
+    ],
+    "calling": "Alchemist",
+    "fate_given": []
+   },
+   "vassal_of": "thien_xu"
+  },
+  {
+   "key": "van_han_dang",
+   "name": "Văn Hàn Đăng",
+   "name_han": "文寒燈",
+   "gloss": "A lamp on a cold night",
+   "sex": "M",
+   "born": 1100,
+   "alive": true,
+   "sect": "suong_tung",
+   "rank": "tong_chu",
+   "role": "Head of Sương Tùng Các, talismans on pine-resin paper and the ward lanterns of the lake villages",
+   "realm": "truc_co",
+   "home": 948,
+   "traits": {
+    "personality": [
+     "Compassionate",
+     "Diligent",
+     "Humble"
+    ],
+    "calling": "Talisman maker",
+    "fate_given": []
+   },
+   "vassal_of": "tung_dao"
+  },
+  {
+   "key": "than_van_cam",
+   "name": "Thân Vân Cẩm",
+   "name_han": "申雲錦",
+   "gloss": "Cloud brocade",
+   "sex": "F",
+   "born": 1110,
+   "alive": true,
+   "sect": "chuc_ha",
+   "rank": "tong_chu",
+   "role": "Founder and head of Chức Hà Các (1150), fire-silk robes and banners woven without the vents",
+   "realm": "truc_co",
+   "home": 1013,
+   "traits": {
+    "personality": [
+     "Ambitious",
+     "Gregarious",
+     "Impatient"
+    ],
+    "calling": "Refiner",
+    "fate_given": []
+   },
+   "vassal_of": "phuong_minh"
+  },
+  {
+   "key": "bang_yen_toa",
+   "name": "Bàng Yên Tỏa",
+   "name_han": "龐煙鎖",
+   "gloss": "Locked in mist",
+   "sex": "M",
+   "born": 1085,
+   "alive": true,
+   "sect": "vu_an",
+   "rank": "tong_chu",
+   "role": "Head of Vụ Ẩn Môn, mist formations and concealment arrays along the cape's roads",
+   "realm": "truc_co",
+   "home": 1063,
+   "traits": {
+    "personality": [
+     "Cautious",
+     "Pragmatic",
+     "Reclusive"
+    ],
+    "calling": "Formation master",
+    "fate_given": []
+   },
+   "vassal_of": "thuy_vi"
+  },
+  {
+   "key": "luc_thanh_sam",
+   "name": "Lục Thanh Sam",
+   "name_han": "陸青杉",
+   "gloss": "The green fir",
+   "sex": "M",
+   "born": 850,
+   "alive": true,
+   "sect": "ho_lam",
+   "rank": "tong_chu",
+   "role": "Founder and head of Hộ Lâm Đường (910), forest wardens; herbs and spirit wood for Thúy Vi's furnaces",
+   "realm": "ket_dan",
+   "home": 1105,
+   "traits": {
+    "personality": [
+     "Loyal",
+     "Patient",
+     "Honest"
+    ],
+    "calling": "Herbalist",
+    "fate_given": []
+   },
+   "vassal_of": "thuy_vi"
+  },
+  {
+   "key": "ky_ngan_chuc",
+   "name": "Kỷ Ngân Chúc",
+   "name_han": "紀銀燭",
+   "gloss": "The silver candle by the painted screen, under the autumn stars (Đỗ Mục, Thu tịch)",
+   "sex": "F",
+   "born": 960,
+   "alive": true,
+   "sect": "hoa_tinh",
+   "rank": "tong_chu",
+   "role": "Hall-mistress of Họa Tinh Đường, talismans painted with the Dipper in Mặc Yên soot",
+   "realm": "ket_dan",
+   "home": 1328,
+   "traits": {
+    "personality": [
+     "Devout",
+     "Diligent",
+     "Calm"
+    ],
+    "calling": "Talisman maker",
+    "fate_given": []
+   },
+   "vassal_of": "thien_xu"
+  },
+  {
    "key": "co_phuong_nghi",
    "name": "Cơ Phượng Nghi",
    "name_han": "姬鳳儀",
@@ -3525,6 +4544,20 @@
    "region": 15
   },
   {
+   "id": "V118",
+   "tier": "annal",
+   "year": 236,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "thien_xu"
+   ],
+   "text_vi": "Từ khi người thẩm định của Thiên Xu cân quặng công khai ở Song Kiều, thợ mỏ thôi đến cổng của bọn cai mỏ, và Thiết Môn Bảo bị bỏ hoang.",
+   "text_en": "Now that Thiên Xu's assayers weigh ore in public at Song Kiều, the miners stop coming to the bosses' gate, and Thiết Môn Bảo is left.",
+   "place": 654,
+   "region": 15
+  },
+  {
    "id": "A034",
    "tier": "annal",
    "year": 240,
@@ -3721,6 +4754,20 @@
    "region": 2
   },
   {
+   "id": "V044",
+   "tier": "annal",
+   "year": 262,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "tung_dao"
+   ],
+   "text_vi": "Phần lớn các tăng nhân thiền trong tuyết của Tuyết Thiền Tự đã chết đói mùa đông trước; sang xuân, những người cuối cùng đi về nam, đến Tùng Đào Cung.",
+   "text_en": "Most of the snow-meditating monks of Tuyết Thiền Tự starved last winter; in spring the last of them walk south to Tùng Đào Cung.",
+   "place": 1264,
+   "region": 5
+  },
+  {
    "id": "A066",
    "tier": "annal",
    "year": 270,
@@ -3822,6 +4869,18 @@
    "text_vi": "Bị bỏ lại khô cạn khi dòng sông đổi hướng, Đông Lưu Thành bị bỏ hoang; vạn sự đều trôi về đông.",
    "text_en": "Left dry when the river changes its course, Đông Lưu Thành is abandoned; all things flow east.",
    "place": 224
+  },
+  {
+   "id": "V045",
+   "tier": "annal",
+   "year": 282,
+   "kind": "city_abandoned",
+   "people": [],
+   "sects": [],
+   "text_vi": "Bị bỏ lại trên đất khô khi dòng sông đổi hướng, Cựu Hà Trấn bị bỏ hoang; dân trấn dời sang bờ mới.",
+   "text_en": "Left dry when the river changed its course, Cựu Hà Trấn is given up; its people move to the new bank.",
+   "place": 401,
+   "region": 5
   },
   {
    "id": "A067",
@@ -4143,6 +5202,20 @@
    "place": 80
   },
   {
+   "id": "V001",
+   "tier": "annal",
+   "year": 332,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "tung_dao"
+   ],
+   "text_vi": "Hai năm sau khi Tùng Đào tiến lên phương bắc, những ẩn sĩ cuối cùng của Bắc Minh Quán về cung, bỏ trống tu quán bên bờ bắc.",
+   "text_en": "Two years after Tùng Đào comes north, the last hermits of Bắc Minh Quán go to the palace and leave their abbey on the northern shore empty.",
+   "place": 968,
+   "region": 1
+  },
+  {
    "id": "A222",
    "tier": "annal",
    "year": 335,
@@ -4204,6 +5277,44 @@
    "slot": "V-3"
   },
   {
+   "id": "V131",
+   "tier": "annal",
+   "year": 340,
+   "kind": "siege",
+   "people": [],
+   "sects": [],
+   "text_vi": "Học trò Trúc Địch Viện, trường sáo của Cửu Thiều Cung, lên tham gia trận tử thủ cuối cùng của cung và không trở về.",
+   "text_en": "The students of Trúc Địch Viện, Cửu Thiều Cung's flute school, go up to the palace's last stand and do not come back.",
+   "place": 332,
+   "region": 16
+  },
+  {
+   "id": "V132",
+   "tier": "annal",
+   "year": 340,
+   "kind": "siege",
+   "people": [],
+   "sects": [
+    "phuong_minh"
+   ],
+   "text_vi": "Trong Cửu Thiều Chi Chiến, pháo đài trống Minh Cổ Bảo của Cửu Thiều Cung thất thủ; Phượng Minh để nguyên nó như lúc đổ.",
+   "text_en": "In the War of the Nine Shao, Cửu Thiều Cung's drum fort Minh Cổ Bảo falls; Phượng Minh leaves it as it fell.",
+   "place": 452,
+   "region": 16
+  },
+  {
+   "id": "V133",
+   "tier": "annal",
+   "year": 340,
+   "kind": "siege",
+   "people": [],
+   "sects": [],
+   "text_vi": "Kích Khánh Đường, tòa đường của những người làm khánh đá của Cửu Thiều Cung, bị đập phá trong chiến tranh; những chiếc khánh vỡ vẫn ngân khi bị giẫm lên.",
+   "text_en": "The hall of Cửu Thiều Cung's chime makers, Kích Khánh Đường, is smashed in the war; its broken chimes still ring when stepped on.",
+   "place": 724,
+   "region": 16
+  },
+  {
    "id": "A251",
    "tier": "annal",
    "year": 341,
@@ -4213,6 +5324,30 @@
    "text_vi": "Vân Môn Thành trống không trong vòng một năm; dân thành mang theo âm nhạc và tản đi khắp bốn bờ biển.",
    "text_en": "Vân Môn Thành empties within a year; its people take the music with them and scatter to the four coasts.",
    "place": 220,
+   "region": 17
+  },
+  {
+   "id": "V134",
+   "tier": "annal",
+   "year": 341,
+   "kind": "city_abandoned",
+   "people": [],
+   "sects": [],
+   "text_vi": "Một năm sau khi Cửu Thiều Cung sụp đổ, những người bán sáo ở Tiêu Sơn Thị đã đi hết, và phiên chợ không bao giờ có người ở lại.",
+   "text_en": "A year after Cửu Thiều Cung falls, the flute sellers of Tiêu Sơn Thị have all gone, and the market is never resettled.",
+   "place": 768,
+   "region": 16
+  },
+  {
+   "id": "V138",
+   "tier": "annal",
+   "year": 341,
+   "kind": "city_abandoned",
+   "people": [],
+   "sects": [],
+   "text_vi": "Cửu Thiều Cung đã sụp đổ, những người làm ống ngọc ở Ngọc Quản Trấn bỏ đi, và rừng sồi nuốt lấy thị trấn.",
+   "text_en": "With Cửu Thiều Cung fallen, the jade-pipe makers of Ngọc Quản Trấn leave, and the oak woods take the town.",
+   "place": 335,
    "region": 17
   },
   {
@@ -4294,6 +5429,18 @@
    "text_vi": "Hàn Giang Môn lập Liên Giang Thành nơi mưa lạnh hòa vào dòng sông.",
    "text_en": "Hàn Giang Môn founds Liên Giang Thành where the cold rain joins the river.",
    "place": 36
+  },
+  {
+   "id": "V150",
+   "tier": "annal",
+   "year": 352,
+   "kind": "disaster",
+   "people": [],
+   "sects": [],
+   "text_vi": "Ngọn núi lửa thức giấc, vùi Hạ Lôi Thành, thành chợ phía tây của Khải Lôi Môn, dưới tro; Khải Lôi không bao giờ dựng lại.",
+   "text_en": "The cone wakes and buries Hạ Lôi Thành, Khải Lôi Môn's western market city, in ash; the Gate never rebuilds it.",
+   "place": 840,
+   "region": 19
   },
   {
    "id": "A129",
@@ -4416,6 +5563,20 @@
    "text_vi": "Lý Thiên Cổ qua đời ở tuổi ba trăm bốn mươi; đệ tử Hầu Xuân Lôi tiếp quản Khải Lôi Môn cùng Xuân Lôi Cổ.",
    "text_en": "Lý Thiên Cổ dies at 340; his disciple Hầu Xuân Lôi takes Khải Lôi Môn and the Xuân Lôi Cổ.",
    "region": 19
+  },
+  {
+   "id": "V143",
+   "tier": "annal",
+   "year": 380,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "thinh_vu"
+   ],
+   "text_vi": "Khi Thính Vũ Lâu được dựng trên vùng đất này, quân đồn trú Hưởng Lôi Bảo của Khải Lôi trở về Khải Lôi Môn, và Thính Vũ Lâu không bao giờ đóng quân ở đó nữa.",
+   "text_en": "When the Tower is raised on this ground, the garrison of Khải Lôi's Hưởng Lôi Bảo goes home to the Gate, and the Tower never mans it again.",
+   "place": 798,
+   "region": 18
   },
   {
    "id": "A266",
@@ -4704,6 +5865,18 @@
    "region": 7
   },
   {
+   "id": "V061",
+   "tier": "annal",
+   "year": 426,
+   "kind": "tale",
+   "people": [],
+   "sects": [],
+   "text_vi": "Hồ Thiên Phái đã bị vụ phun trào chôn vùi, quân đồn trú Lũng Đầu Trại trở về nhà và không bao giờ quay lại.",
+   "text_en": "With Hồ Thiên Phái buried by the eruption, the garrison of Lũng Đầu Trại goes home and never comes back.",
+   "place": 1366,
+   "region": 7
+  },
+  {
    "id": "A161",
    "tier": "annal",
    "year": 430,
@@ -4729,6 +5902,18 @@
    "text_vi": "Dưới sự che chở của Không Sơn Viện, ngư dân và người lái đò dựng Hàn Tân Thành bên bến đò lạnh của bờ biển phía bắc.",
    "text_en": "Under Không Sơn Viện, fishers and ferrymen build Hàn Tân Thành at the cold ford of the north coast.",
    "place": 31
+  },
+  {
+   "id": "V062",
+   "tier": "annal",
+   "year": 432,
+   "kind": "city_abandoned",
+   "people": [],
+   "sects": [],
+   "text_vi": "Nghề buôn da lông và ngà đã chết theo Hồ Thiên Phái, và những gia đình cuối cùng rời Bắc Đình Thành bên bờ bắc.",
+   "text_en": "The fur and ivory trade has died with Hồ Thiên Phái, and the last families leave Bắc Đình Thành on the northern shore.",
+   "place": 1394,
+   "region": 7
   },
   {
    "id": "A283",
@@ -4841,6 +6026,18 @@
    "region": 5
   },
   {
+   "id": "V021",
+   "tier": "annal",
+   "year": 455,
+   "kind": "tale",
+   "people": [],
+   "sects": [],
+   "text_vi": "Vị tăng cuối cùng của Tĩnh Tuyết Tự viên tịch mà không có đệ tử, và ngôi chùa bị bỏ lại cho tuyết.",
+   "text_en": "The last monk of Tĩnh Tuyết Tự dies with no novices, and the temple is left to the snow.",
+   "place": 1154,
+   "region": 3
+  },
+  {
    "id": "A070",
    "tier": "annal",
    "year": 456,
@@ -4880,6 +6077,18 @@
    "text_vi": "Bùi Lộc Trại qua đời; Thôi Bất Kiến trở thành viện chủ Không Sơn Viện, và không nhận đệ tử nào ngoài một cậu bé, Tống Tọa Vân.",
    "text_en": "Bùi Lộc Trại dies; Thôi Bất Kiến becomes the master of Không Sơn Viện, and takes no disciple but one boy, Tống Tọa Vân.",
    "place": 213
+  },
+  {
+   "id": "V009",
+   "tier": "annal",
+   "year": 468,
+   "kind": "disaster",
+   "people": [],
+   "sects": [],
+   "text_vi": "Một mùa đông vùi các tòa điện của Sương Kiếm Môn đến tận mái; những kiếm tu sống sót đi về phương nam và không trở lại.",
+   "text_en": "A winter buries the halls of Sương Kiếm Môn to the roofs; the sword cultivators who live go south and do not return.",
+   "place": 1089,
+   "region": 2
   },
   {
    "id": "A007",
@@ -5001,6 +6210,20 @@
    "place": 35
   },
   {
+   "id": "V035",
+   "tier": "annal",
+   "year": 470,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "tung_dao"
+   ],
+   "text_vi": "Hai năm sau khi sư phụ bước vào biển đông để tu luyện thủy triều, các đệ tử của Vọng Triều Các về Tùng Đào Cung.",
+   "text_en": "Two years after their master walked into the winter sea to cultivate the tide, the disciples of Vọng Triều Các go to Tùng Đào Cung.",
+   "place": 1183,
+   "region": 4
+  },
+  {
    "id": "A284",
    "tier": "annal",
    "year": 471,
@@ -5077,6 +6300,18 @@
    "place": 6
   },
   {
+   "id": "V151",
+   "tier": "annal",
+   "year": 480,
+   "kind": "tale",
+   "people": [],
+   "sects": [],
+   "text_vi": "Khải Lôi Môn đã sụp đổ, trại đón bão Nghênh Lôi Trại, nơi đệ tử Khải Lôi chờ để mời sét, bị bỏ lại cho mưa gió.",
+   "text_en": "With Khải Lôi Môn fallen, the storm camp of Nghênh Lôi Trại, where its disciples waited to invite the lightning, is left to the weather.",
+   "place": 862,
+   "region": 19
+  },
+  {
    "id": "A285",
    "tier": "annal",
    "year": 481,
@@ -5086,6 +6321,30 @@
    "text_vi": "Một năm sau khi thiên kiếp thiêu rụi Lôi Trạch Thành, dân thành dời lên thung lũng về Không Mông Thành.",
    "text_en": "A year after the tribulation burned Lôi Trạch Thành, its people move up the valley to Không Mông Thành.",
    "place": 221,
+   "region": 19
+  },
+  {
+   "id": "V152",
+   "tier": "annal",
+   "year": 481,
+   "kind": "tale",
+   "people": [],
+   "sects": [],
+   "text_vi": "Những người canh mà Khải Lôi đặt ở Thủ Động Trại trở về nhà, và thợ săn quanh hang tự giữ trật tự vào ngày Kinh Trập.",
+   "text_en": "The wardens Khải Lôi kept at Thủ Động Trại go home, and the hunters of the cave keep their own order on the day of Kinh Trập.",
+   "place": 852,
+   "region": 19
+  },
+  {
+   "id": "V153",
+   "tier": "annal",
+   "year": 482,
+   "kind": "tale",
+   "people": [],
+   "sects": [],
+   "text_vi": "Hai năm sau khi Khải Lôi Môn sụp đổ, không còn tiếng sấm nào để đáp lại, những tay trống cuối cùng của Kích Cổ Đường tan tác.",
+   "text_en": "Two years after the Gate's fall, with no thunder left to answer, the last drummers of Kích Cổ Đường scatter.",
+   "place": 346,
    "region": 19
   },
   {
@@ -5122,6 +6381,18 @@
    "secret": true
   },
   {
+   "id": "V022",
+   "tier": "annal",
+   "year": 488,
+   "kind": "tale",
+   "people": [],
+   "sects": [],
+   "text_vi": "Dòng suối của Bão Nhất Quán khô cạn, và vị quán chủ cuối cùng xuống Không Sơn Viện làm khách.",
+   "text_en": "The spring of Bão Nhất Quán dries, and its last abbot goes down to Không Sơn Viện as a guest.",
+   "place": 1157,
+   "region": 3
+  },
+  {
    "id": "C098",
    "tier": "landmark",
    "year": 492,
@@ -5140,6 +6411,32 @@
    "war": "frost_coast"
   },
   {
+   "id": "V023",
+   "tier": "annal",
+   "year": 497,
+   "kind": "tale",
+   "people": [],
+   "sects": [],
+   "text_vi": "Các chủ Thận Lâu Các bước ra mặt biển băng đuổi theo ảo ảnh một tòa thành và không bao giờ trở lại; các đệ tử rời bỏ lầu các.",
+   "text_en": "The head of Thận Lâu Các walks out on the sea ice after a mirage of a city and never returns; the disciples leave the pavilion.",
+   "place": 1150,
+   "region": 3
+  },
+  {
+   "id": "V076",
+   "tier": "annal",
+   "year": 497,
+   "kind": "siege",
+   "people": [],
+   "sects": [
+    "bang_tam"
+   ],
+   "text_vi": "Trong cuộc chiến giành Hàn Ngạn, Băng Tâm công phá Cố Ngạn Bảo, pháo đài ven biển của Hàn Giang Môn.",
+   "text_en": "In the War of the Frost Coast, Băng Tâm storms Hàn Giang Môn's coast fort of Cố Ngạn Bảo.",
+   "place": 1470,
+   "region": 9
+  },
+  {
    "id": "C099",
    "tier": "landmark",
    "year": 498,
@@ -5156,6 +6453,34 @@
    "text_en": "Hàn Giang Môn falls with its last head Liễu Cô Chu; Hàn Sương Châu and Liên Giang Thành pass to Băng Tâm Các.",
    "place": 216,
    "war": "frost_coast"
+  },
+  {
+   "id": "V077",
+   "tier": "annal",
+   "year": 498,
+   "kind": "siege",
+   "people": [],
+   "sects": [
+    "bang_tam"
+   ],
+   "text_vi": "Thoa Lạp Trấn, thị trấn ngư dân mang tên áo tơi nón lá của tổ sư Hàn Giang, bị thiêu rụi trong năm cuối của cuộc chiến giành Hàn Ngạn.",
+   "text_en": "Thoa Lạp Trấn, the fishers' town named for Hàn Giang's founder's rain cape and hat, burns in the last year of the War of the Frost Coast.",
+   "place": 297,
+   "region": 9
+  },
+  {
+   "id": "V078",
+   "tier": "annal",
+   "year": 498,
+   "kind": "city_abandoned",
+   "people": [],
+   "sects": [
+    "bang_tam"
+   ],
+   "text_vi": "Chiếm được Hàn Ngạn, Băng Tâm dời dân thành dầu hải cẩu Sóc Phương Thành về nam, đến Liên Giang, và tòa thành bị bỏ trống.",
+   "text_en": "With the frost coast won, Băng Tâm moves the people of the seal-oil city Sóc Phương Thành south to Liên Giang, and the city is left empty.",
+   "place": 1445,
+   "region": 9
   },
   {
    "id": "A131",
@@ -5374,6 +6699,20 @@
    "war": "pivot"
   },
   {
+   "id": "V036",
+   "tier": "annal",
+   "year": 508,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "tung_dao"
+   ],
+   "text_vi": "Sợi xích sắt đứt dưới chân một ngọn núi trọc trên đường sông; từ hôm ấy ngọn núi được gọi là Đoạn Liên Phong.",
+   "text_en": "The iron chain breaks below a bare peak on the river road; the peak is called Đoạn Liên Phong from that day.",
+   "place": 1200,
+   "region": 4
+  },
+  {
    "id": "C106",
    "tier": "landmark",
    "year": 509,
@@ -5580,6 +6919,20 @@
    "place": 227
   },
   {
+   "id": "V108",
+   "tier": "annal",
+   "year": 520,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "thien_xu"
+   ],
+   "text_vi": "Bắc Thần Ước đã định, quân đồn trú Tây Quan Bảo giải giáp, và đá của pháo đài được chở đi xây Thanh Khoa.",
+   "text_en": "With the Compact set, the garrison of Tây Quan Bảo stands down, and its stones are carried off to build Thanh Khoa.",
+   "place": 566,
+   "region": 14
+  },
+  {
    "id": "A148",
    "tier": "annal",
    "year": 525,
@@ -5631,6 +6984,20 @@
    "text_vi": "Phượng Minh Cung lập Lai Nghi Thành trên đồng bằng, nơi phượng hoàng đến khi khúc nhạc tấu đủ chín lần.",
    "text_en": "Phượng Minh Cung founds Lai Nghi Thành on the plain, where the phoenix comes when the music is played nine times.",
    "place": 41
+  },
+  {
+   "id": "V109",
+   "tier": "annal",
+   "year": 530,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "thien_xu"
+   ],
+   "text_vi": "Không còn được trả lương từ khi có Bắc Thần Ước, những binh nông cuối cùng của Đồn Điền Trại bỏ ruộng về Thạch Kiều.",
+   "text_en": "Unpaid since the Compact, the last soldier-farmers of Đồn Điền Trại leave their fields for Thạch Kiều.",
+   "place": 580,
+   "region": 14
   },
   {
    "id": "A132",
@@ -5696,6 +7063,32 @@
    "text_vi": "Tống Tọa Vân, người học trò cuối cùng của núi vắng, khai lập Vân Khởi Quán, để đi đến nơi dòng nước tận cùng và ngồi xem mây trỗi dậy.",
    "text_en": "Tống Tọa Vân, the last student of the empty mountain, founds Vân Khởi Quán, to walk where the water ends and watch the clouds rise.",
    "place": 10
+  },
+  {
+   "id": "V037",
+   "tier": "annal",
+   "year": 540,
+   "kind": "city_abandoned",
+   "people": [],
+   "sects": [
+    "tung_dao"
+   ],
+   "text_vi": "Từ sau Tranh Xu Chi Chiến Tùng Đào không mua sắt nữa, và những lò luyện của Luyện Thiết Trấn, nơi từng đúc sợi xích, nguội lạnh mãi mãi.",
+   "text_en": "Tùng Đào has bought no iron since the War of the Pivot, and the furnaces of Luyện Thiết Trấn, which smelted the chain, go cold for good.",
+   "place": 398,
+   "region": 4
+  },
+  {
+   "id": "V038",
+   "tier": "annal",
+   "year": 548,
+   "kind": "disaster",
+   "people": [],
+   "sects": [],
+   "text_vi": "Một trận cháy rừng lớn thiêu rụi vùng ven biển và thị trấn gỗ Hỏa Tẫn Trấn; những người sống sót dời vào đất liền.",
+   "text_en": "A great forest fire burns the coast and the timber town of Hỏa Tẫn Trấn; its survivors move inland.",
+   "place": 279,
+   "region": 4
   },
   {
    "id": "A039",
@@ -5891,6 +7284,18 @@
    "region": 20
   },
   {
+   "id": "V164",
+   "tier": "annal",
+   "year": 588,
+   "kind": "siege",
+   "people": [],
+   "sects": [],
+   "text_vi": "Trong Đan Huyệt Chi Chiến, người của Xích Thành Môn thà đốt thị trấn mỏ đá Tạc Thạch Trấn còn hơn bỏ lại; những thợ đá ở lại dựng Thạch Tượng bên dưới.",
+   "text_en": "In the War of the Vermilion Caves, Xích Thành Môn's men fire their quarry town of Tạc Thạch Trấn rather than leave it; the quarrymen who stay build Thạch Tượng below.",
+   "place": 979,
+   "region": 20
+  },
+  {
    "id": "C037",
    "tier": "landmark",
    "year": 590,
@@ -5932,6 +7337,46 @@
    "text_vi": "Thúy Vi Tông lập Yên Ba Thành, một hải cảng giữa khói sóng trên sông.",
    "text_en": "Thúy Vi Tông founds Yên Ba Thành, a port in the mist of the river waves.",
    "place": 30
+  },
+  {
+   "id": "V165",
+   "tier": "annal",
+   "year": 590,
+   "kind": "siege",
+   "people": [],
+   "sects": [
+    "phuong_minh"
+   ],
+   "text_vi": "Hỏa Ti Trấn, nơi tơ lửa được kéo từ miệng phun, cháy rụi trong trận chiến Phượng Minh hủy diệt Xích Thành Môn; không ai còn kéo tơ lửa ở đó nữa.",
+   "text_en": "Hỏa Ti Trấn, where the fire-silk was reeled from the vents, burns in the fighting as Phượng Minh destroys Xích Thành Môn; no one spins fire-silk there again.",
+   "place": 449,
+   "region": 20
+  },
+  {
+   "id": "V166",
+   "tier": "annal",
+   "year": 590,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "phuong_minh"
+   ],
+   "text_vi": "Xích Thành Môn đã sụp đổ, hải đường Viêm Hải Quán của Xích Thành Môn bị bỏ hoang, và Phượng Minh không bao giờ mở lại.",
+   "text_en": "With Xích Thành Môn fallen, its sea hall Viêm Hải Quán is abandoned, and Phượng Minh never reopens it.",
+   "place": 989,
+   "region": 20
+  },
+  {
+   "id": "V167",
+   "tier": "annal",
+   "year": 590,
+   "kind": "tale",
+   "people": [],
+   "sects": [],
+   "text_vi": "Lưu Hỏa Các, hỏa đường của Xích Thành Môn trên đảo núi lửa, bị bỏ hoang khi Xích Thành Môn sụp đổ.",
+   "text_en": "Lưu Hỏa Các, Xích Thành Môn's fire hall on the volcanic isle, is abandoned when the gate falls.",
+   "place": 1008,
+   "region": 20
   },
   {
    "id": "A023",
@@ -6190,6 +7635,21 @@
    "slot": "V-1"
   },
   {
+   "id": "V154",
+   "tier": "annal",
+   "year": 610,
+   "kind": "sect_founded",
+   "people": [],
+   "sects": [
+    "coc_vu",
+    "thinh_vu"
+   ],
+   "text_vi": "Cốc Vũ Quán được lập trên đồi trúc phía trên Phong Đăng để cầu mưa cho nông dân và trồng linh mễ trên ruộng bậc thang.",
+   "text_en": "Cốc Vũ Quán is founded on a bamboo hill above Phong Đăng to call the rain for the farmers and grow spirit rice (linh mễ) on its terraces.",
+   "place": 441,
+   "region": 19
+  },
+  {
    "id": "C126",
    "tier": "landmark",
    "year": 612,
@@ -6208,6 +7668,20 @@
    "war": "petal_shore"
   },
   {
+   "id": "V054",
+   "tier": "annal",
+   "year": 612,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "thien_xu"
+   ],
+   "text_vi": "Vị quán chủ cuối cùng của Bạch Lộc Quán, tu quán từng xin Thiên Xu cấm săn trên đồng cỏ hươu, qua đời mà không có đệ tử; các tòa điện bị bỏ lại cho bầy hươu.",
+   "text_en": "The last master of Bạch Lộc Quán, the abbey that asked Thiên Xu to ban hunting in the deer meadow, dies without a disciple; the halls are left to the deer.",
+   "place": 290,
+   "region": 6
+  },
+  {
    "id": "C127",
    "tier": "landmark",
    "year": 618,
@@ -6223,6 +7697,21 @@
    "war": "petal_shore"
   },
   {
+   "id": "V101",
+   "tier": "annal",
+   "year": 618,
+   "kind": "siege",
+   "people": [],
+   "sects": [
+    "lac_ha",
+    "thinh_vu"
+   ],
+   "text_vi": "Trong cuộc giao tranh giữa Lạc Hà và Thính Vũ trên bờ Lạc Anh bỏ trống, Hoa Ổ Viện cháy rụi cùng vườn đào và không bao giờ được dựng lại.",
+   "text_en": "In the fighting between Lạc Hà and Thính Vũ over the empty Petal Shore, Hoa Ổ Viện burns with its peach orchards and is never rebuilt.",
+   "place": 312,
+   "region": 12
+  },
+  {
    "id": "A270",
    "tier": "annal",
    "year": 619,
@@ -6231,6 +7720,21 @@
    "sects": [],
    "text_vi": "Những vườn đào của Lạc Anh cháy rụi trong chiến tranh; rừng mọc lại phủ kín chúng trong mười năm, và đào vẫn ra quả giữa những cây chuối.",
    "text_en": "Lạc Anh's peach orchards burn in the war; the forest grows back over them in ten years, and peaches still fruit among the banana trees.",
+   "region": 18
+  },
+  {
+   "id": "V144",
+   "tier": "annal",
+   "year": 619,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "lac_ha",
+    "thinh_vu"
+   ],
+   "text_vi": "Đệ tử Lạc Hà và Thính Vũ đi qua Phi Anh Quán trong cuộc giao tranh trên bờ Lạc Anh, và khi họ đi rồi, tu quán trống không.",
+   "text_en": "Lạc Hà and Thính Vũ disciples pass through Phi Anh Quán in the Petal Shore fighting, and when they have gone the abbey is empty.",
+   "place": 806,
    "region": 18
   },
   {
@@ -6402,6 +7906,44 @@
    "place": 217
   },
   {
+   "id": "V119",
+   "tier": "annal",
+   "year": 640,
+   "kind": "tale",
+   "people": [],
+   "sects": [],
+   "text_vi": "Đường lương dời về Song Kiều, và trại kho lương của thợ mỏ Tích Lương Trại bị bỏ hoang.",
+   "text_en": "The grain road moves to Song Kiều, and the miners' granary stockade of Tích Lương Trại is left.",
+   "place": 665,
+   "region": 15
+  },
+  {
+   "id": "V039",
+   "tier": "annal",
+   "year": 641,
+   "kind": "tale",
+   "people": [],
+   "sects": [],
+   "text_vi": "Vị trụ trì Khô Mộc Tự bị chính công pháp của mình phản phệ, khô héo cùng cây của ông; các tăng nhân tan tác, dân làng giữ gìn mộ phần.",
+   "text_en": "The abbot of Khô Mộc Tự is turned on by his own art and withers with his tree; his monks scatter, and the village keeps the graves.",
+   "place": 1205,
+   "region": 4
+  },
+  {
+   "id": "V155",
+   "tier": "annal",
+   "year": 645,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "thinh_vu"
+   ],
+   "text_vi": "Phía tây đã yên nhờ phán quyết của Xu về bờ Lạc Anh, Thính Vũ Lâu giải tán quân đồn trú ở Thạch Môn Trại cũ của Khải Lôi.",
+   "text_en": "With the west settled by the Pivot's judgement on the Petal Shore, the Tower lets the garrison of Khải Lôi's old Thạch Môn Trại go.",
+   "place": 389,
+   "region": 19
+  },
+  {
    "id": "C133",
    "tier": "landmark",
    "year": 648,
@@ -6453,6 +7995,32 @@
    "text_vi": "Một ẩn sĩ luyện đan giữ lò lửa cháy suốt trăm năm không để nguội; khi ông rời đi, lửa vẫn ở lại trong đá.",
    "text_en": "A hermit alchemist burns a furnace for a hundred years without letting it cool; when he leaves, the fire stays in the stones.",
    "slot": "S-5"
+  },
+  {
+   "id": "V110",
+   "tier": "annal",
+   "year": 650,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "cung_tinh"
+   ],
+   "text_vi": "Các chủ Khuy Thiên Các bị mù, và những người đọc sao gia nhập đối thủ cũ là Củng Tinh Quán, mang theo cả tinh đồ.",
+   "text_en": "The head of Khuy Thiên Các goes blind, and its star-readers join their old rivals at Củng Tinh Quán, carrying their charts with them.",
+   "place": 569,
+   "region": 14
+  },
+  {
+   "id": "V079",
+   "tier": "annal",
+   "year": 655,
+   "kind": "disaster",
+   "people": [],
+   "sects": [],
+   "text_vi": "Biển đóng băng tới tận chân trời, nghiền nát thuyền bè trong bến Lẫm Đông Thành; dân thành dời về Mộc Lan.",
+   "text_en": "The sea freezes to the horizon and crushes the ships in the harbour of Lẫm Đông Thành; its people move to Mộc Lan.",
+   "place": 1428,
+   "region": 9
   },
   {
    "id": "A256",
@@ -6537,6 +8105,20 @@
    "region": 3
   },
   {
+   "id": "V024",
+   "tier": "annal",
+   "year": 675,
+   "kind": "settlement",
+   "people": [],
+   "sects": [
+    "tung_dao"
+   ],
+   "text_vi": "Những ngư dân Hàn Tân trốn thuế nhựa thông lập Tân Cư Thôn bên một dòng sông trong rừng, và đặt một vò nhựa thông cạnh mỗi cửa cho vui.",
+   "text_en": "Fishers of the Cold Ford who fled the resin tax found Tân Cư Thôn on a forest river, and set a jar of resin by every door as a joke.",
+   "place": 1101,
+   "region": 3
+  },
+  {
    "id": "A165",
    "tier": "annal",
    "year": 680,
@@ -6616,6 +8198,32 @@
    "text_vi": "Kỳ Tùng Ẩn qua đời ở tuổi sáu trăm hai mươi; đệ tử đầu tiên Thôi Khinh Hồng trở thành chưởng môn đời thứ hai của Tùng Đào Cung.",
    "text_en": "Kỳ Tùng Ẩn dies at 620; his first disciple Thôi Khinh Hồng becomes the second head of Tùng Đào Cung.",
    "place": 2
+  },
+  {
+   "id": "V025",
+   "tier": "annal",
+   "year": 690,
+   "kind": "city_abandoned",
+   "people": [],
+   "sects": [
+    "tung_dao"
+   ],
+   "text_vi": "Ngư dân Lô Khẩu Trấn đã bỏ lên đồi hết vì thuế nhựa thông; không còn ai nạo vét, đầm lầy nuốt mất bến thuyền.",
+   "text_en": "The fishers of Lô Khẩu Trấn have all gone to the hills under the resin tax; with no one to dredge it, the marsh takes the quays.",
+   "place": 355,
+   "region": 3
+  },
+  {
+   "id": "V063",
+   "tier": "annal",
+   "year": 690,
+   "kind": "tale",
+   "people": [],
+   "sects": [],
+   "text_vi": "Vị quán chủ cuối cùng của Tuyết Ẩn Quán bế quan và không bao giờ xuất quan; vài đệ tử của ông xuống bờ biển, và tu quán đổ sập.",
+   "text_en": "The last master of Tuyết Ẩn Quán goes into seclusion and never comes out; his few disciples go down to the coast, and the abbey falls in.",
+   "place": 1345,
+   "region": 7
   },
   {
    "id": "A057",
@@ -6803,6 +8411,18 @@
    "place": 14
   },
   {
+   "id": "V080",
+   "tier": "annal",
+   "year": 700,
+   "kind": "city_abandoned",
+   "people": [],
+   "sects": [],
+   "text_vi": "Tro từ Sương Diễm Sơn rơi xuống Hắc Ngạn Trấn làm giếng nước hóa đắng, và ngư dân bỏ đi.",
+   "text_en": "Ash from Sương Diễm Sơn falls on Hắc Ngạn Trấn and turns its wells bitter, and the fishers leave.",
+   "place": 1442,
+   "region": 9
+  },
+  {
    "id": "A105",
    "tier": "annal",
    "year": 702,
@@ -6814,6 +8434,20 @@
    "text_vi": "Hai năm sau khi một trận thiên kiếp thất bại làm lôi điện đông cứng trên một đỉnh núi phương bắc, các ni cô Lê Hoa Am cắt về thứ băng không bao giờ tan.",
    "text_en": "Two years after a failed tribulation froze the lightning on a northern peak, Lê Hoa Am's nuns cut ice from it that never melts.",
    "region": 7
+  },
+  {
+   "id": "V046",
+   "tier": "annal",
+   "year": 702,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "tung_dao"
+   ],
+   "text_vi": "Hai năm sau khi trận đại hồng thủy nhấn chìm tu quán, những người sống sót của Tĩnh Thủy Quán về với Tùng Đào.",
+   "text_en": "Two years after the great flood drowned their abbey, the survivors of Tĩnh Thủy Quán go to Tùng Đào.",
+   "place": 1219,
+   "region": 5
   },
   {
    "id": "C015",
@@ -6844,6 +8478,18 @@
    "region": 10
   },
   {
+   "id": "V089",
+   "tier": "annal",
+   "year": 708,
+   "kind": "tale",
+   "people": [],
+   "sects": [],
+   "text_vi": "Ba năm sau khi hạm đội Cô Phàm mất tích, những người canh cuối cùng của Vọng Phàm Quán thôi canh và xuống Xích Ngạn.",
+   "text_en": "Three years after Cô Phàm's fleet was lost, the last watchers of Vọng Phàm Quán end their vigil and go down to Xích Ngạn.",
+   "place": 411,
+   "region": 10
+  },
+  {
    "id": "C040",
    "tier": "landmark",
    "year": 710,
@@ -6865,6 +8511,42 @@
    "text_en": "A pirate crew hides all winter in the cove below Ẩn Loan Thôn; the villagers feed them and say nothing.",
    "place": 101,
    "region": 2
+  },
+  {
+   "id": "V055",
+   "tier": "annal",
+   "year": 712,
+   "kind": "disaster",
+   "people": [],
+   "sects": [],
+   "text_vi": "Vào một mùa hạ khô, lửa bùng lên từ bãi nấu nhựa của Chi Hương Trấn, thiêu rụi thị trấn và khu rừng quanh nó; không ai dựng lại.",
+   "text_en": "In a dry summer fire starts in the pitch yards of Chi Hương Trấn and burns the town and the forest around it; no one rebuilds.",
+   "place": 1286,
+   "region": 6
+  },
+  {
+   "id": "V094",
+   "tier": "annal",
+   "year": 712,
+   "kind": "city_abandoned",
+   "people": [],
+   "sects": [],
+   "text_vi": "Những người lái đò bị việc buôn bán ở Thảo Đường Thành kéo đi, bến Dã Độ Trấn bồi lấp, chỉ còn lại con đò.",
+   "text_en": "Its ferrymen drawn away by the trade of Thảo Đường Thành, the landing of Dã Độ Trấn silts up, and only the ferry boat is left.",
+   "place": 417,
+   "region": 11
+  },
+  {
+   "id": "V120",
+   "tier": "annal",
+   "year": 718,
+   "kind": "disaster",
+   "people": [],
+   "sects": [],
+   "text_vi": "Một trận lở đất vùi trại thu thuế Hạp Khẩu Trại, và đường quặng được dời sang bờ bên kia.",
+   "text_en": "A landslide buries the toll stockade of Hạp Khẩu Trại, and the ore road is moved to the other bank.",
+   "place": 701,
+   "region": 15
   },
   {
    "id": "A196",
@@ -6930,6 +8612,18 @@
    "region": 8
   },
   {
+   "id": "V071",
+   "tier": "annal",
+   "year": 724,
+   "kind": "siege",
+   "people": [],
+   "sects": [],
+   "text_vi": "Toàn bộ kiếm tu mai hoa của Lãnh Hương Các phi ngựa đi giải vây Cô Thành, và không ai trở về.",
+   "text_en": "All the plum-blossom swordsmen of Lãnh Hương Các ride out to break the siege of Cô Thành, and none come back.",
+   "place": 1412,
+   "region": 8
+  },
+  {
    "id": "C143",
    "tier": "landmark",
    "year": 726,
@@ -6943,6 +8637,21 @@
    "text_en": "Phượng Minh's fire breaks Cô Thành; the lone fortress falls and the desert lake turns to salt.",
    "place": 227,
    "war": "desert_road"
+  },
+  {
+   "id": "V064",
+   "tier": "annal",
+   "year": 726,
+   "kind": "siege",
+   "people": [],
+   "sects": [
+    "phuong_minh",
+    "bang_tam"
+   ],
+   "text_vi": "Năm Cô Thành thất thủ, hỏa công của Phượng Minh phá tan Lang Yên Bảo, pháo đài đốt lửa hiệu của Băng Tâm trên đường thương đội.",
+   "text_en": "In the year Cô Thành falls, Phượng Minh's fire breaks Băng Tâm's beacon fort of Lang Yên Bảo on the caravan road.",
+   "place": 1390,
+   "region": 7
   },
   {
    "id": "C144",
@@ -7002,6 +8711,20 @@
    "region": 11
   },
   {
+   "id": "V010",
+   "tier": "annal",
+   "year": 744,
+   "kind": "raid",
+   "people": [],
+   "sects": [
+    "thuy_vi"
+   ],
+   "text_vi": "Hải tặc Thôn Hải đổ bộ trong đêm, đốt Lam Triều Các và bắt đi các đệ tử; thợ đóng thuyền đến nay vẫn đốt lửa trên mỏm đá vào đêm ấy.",
+   "text_en": "Thôn Hải's pirates land at night, burn Lam Triều Các and carry off its disciples; the boatwrights still light a fire on the point on that night.",
+   "place": 1046,
+   "region": 2
+  },
+  {
    "id": "C146",
    "tier": "landmark",
    "year": 748,
@@ -7013,6 +8736,32 @@
    "text_vi": "Hạo Nguyệt Hồ đóng băng tới tận đáy suốt một mùa đông; linh ngư của Hàm Nguyệt Trang sống sót trong bóng trăng in trên mặt băng.",
    "text_en": "Hạo Nguyệt Hồ freezes to its bed for one winter; the spirit fish of Hàm Nguyệt Trang live through it in the moon's reflection.",
    "place": 190
+  },
+  {
+   "id": "V090",
+   "tier": "annal",
+   "year": 748,
+   "kind": "city_abandoned",
+   "people": [],
+   "sects": [],
+   "text_vi": "Hết trận bão này đến trận bão khác thổi cát bãi biển vào giếng và ngõ, và những gia đình cuối cùng rời Hải Khúc Trấn.",
+   "text_en": "Storm after storm has blown the beach sand into its wells and lanes, and the last families leave Hải Khúc Trấn.",
+   "place": 464,
+   "region": 10
+  },
+  {
+   "id": "V002",
+   "tier": "annal",
+   "year": 749,
+   "kind": "city_abandoned",
+   "people": [],
+   "sects": [
+    "ham_nguyet"
+   ],
+   "text_vi": "Mùa đông trước hồ đóng băng tận đáy, làm chết các bãi ngọc của Cựu Châu Trấn; dân trấn dời về bờ của Hàm Nguyệt Trang.",
+   "text_en": "The lake froze to its bed last winter and killed the pearl beds of Cựu Châu Trấn; its people move to Hàm Nguyệt Trang's shore.",
+   "place": 261,
+   "region": 1
   },
   {
    "id": "A151",
@@ -7152,6 +8901,30 @@
    "place": 67
   },
   {
+   "id": "V011",
+   "tier": "annal",
+   "year": 760,
+   "kind": "disaster",
+   "people": [],
+   "sects": [],
+   "text_vi": "Bệnh ho giết phần lớn dân Hoàng Bá Trấn, thị trấn vỏ hoàng bá, và những người còn lại bỏ đi trước khi phương chữa được tìm thấy ở Lâm Tuyền.",
+   "text_en": "The coughing sickness kills most of Hoàng Bá Trấn, the cork-bark town, and the rest leave before the cure is found at Lâm Tuyền.",
+   "place": 1035,
+   "region": 2
+  },
+  {
+   "id": "V121",
+   "tier": "annal",
+   "year": 760,
+   "kind": "tale",
+   "people": [],
+   "sects": [],
+   "text_vi": "Vị trụ trì cuối cùng của Thanh Đăng Tự viên tịch mà không có đệ tử, và ngọn đèn các nhà sư giữ cho lữ khách tắt lịm.",
+   "text_en": "The last abbot of Thanh Đăng Tự dies with no disciple, and the lamp the monks kept for travellers goes out.",
+   "place": 649,
+   "region": 15
+  },
+  {
    "id": "C151",
    "tier": "landmark",
    "year": 762,
@@ -7178,6 +8951,18 @@
    "region": 17
   },
   {
+   "id": "V139",
+   "tier": "annal",
+   "year": 764,
+   "kind": "raid",
+   "people": [],
+   "sects": [],
+   "text_vi": "Hải tặc Thôn Hải đốt thị trấn muối Hải Diêm Trấn, hai năm sau Châu Lệ Cảng; những người làm muối không bao giờ trở lại.",
+   "text_en": "Thôn Hải's pirates burn the salt town of Hải Diêm Trấn, two years after Châu Lệ Cảng; its salt makers never come back.",
+   "place": 776,
+   "region": 17
+  },
+  {
    "id": "A306",
    "tier": "annal",
    "year": 765,
@@ -7189,6 +8974,18 @@
    "text_vi": "Hải tặc Thôn Hải bắt đi cả làng Lô Châu; chỉ những người cắt lau trốn trong đầm lầy thoát được.",
    "text_en": "Thôn Hải's raiders carry off the whole village of Lô Châu; only the reed cutters hidden in the marsh escape.",
    "place": 164,
+   "region": 20
+  },
+  {
+   "id": "V168",
+   "tier": "annal",
+   "year": 767,
+   "kind": "raid",
+   "people": [],
+   "sects": [],
+   "text_vi": "Hải tặc Thôn Hải đốt thị trấn rừng đước Bàn Căn Trấn, và rừng đước nuốt lại nó.",
+   "text_en": "Thôn Hải's raiders burn the mangrove town of Bàn Căn Trấn, and the mangroves take it back.",
+   "place": 1024,
    "region": 20
   },
   {
@@ -7204,6 +9001,18 @@
    "text_en": "Hồi Lan Thành's harbour fills with ships from the south once the caravan road is safe.",
    "place": 67,
    "region": 8
+  },
+  {
+   "id": "V169",
+   "tier": "annal",
+   "year": 771,
+   "kind": "raid",
+   "people": [],
+   "sects": [],
+   "text_vi": "Hải tặc Thôn Hải đốt bến hương liệu Hương Phàm Trấn; Thanh Hải Chi Dịch đến muộn mười năm, và việc buôn bán dời sang Hương Liệu.",
+   "text_en": "Thôn Hải's pirates burn the spice port of Hương Phàm Trấn; the Purge comes ten years too late for it, and its trade moves to Hương Liệu.",
+   "place": 994,
+   "region": 20
   },
   {
    "id": "C152",
@@ -7227,6 +9036,30 @@
    "place": 93,
    "war": "pirate_purge",
    "writ": true
+  },
+  {
+   "id": "V081",
+   "tier": "annal",
+   "year": 779,
+   "kind": "raid",
+   "people": [],
+   "sects": [],
+   "text_vi": "Hải tặc Thôn Hải Môn đốt Bạch Âu Đường, tòa đường của các hải tu, hai năm trước khi Thanh Hải Chi Dịch tiêu diệt chúng.",
+   "text_en": "Thôn Hải Môn's pirates burn Bạch Âu Đường, the hall of the sea cultivators, two years before the Purge destroys them.",
+   "place": 362,
+   "region": 9
+  },
+  {
+   "id": "V145",
+   "tier": "annal",
+   "year": 779,
+   "kind": "raid",
+   "people": [],
+   "sects": [],
+   "text_vi": "Hải tặc Thôn Hải đốt Lan Tân Trấn, bến cảng nhỏ chở lan và nhựa cây; sau Thanh Hải Chi Dịch không ai quay lại.",
+   "text_en": "Thôn Hải's raiders burn Lan Tân Trấn, the little port of orchids and resin; no one comes back after the Purge.",
+   "place": 262,
+   "region": 18
   },
   {
    "id": "A136",
@@ -7267,6 +9100,20 @@
    "text_en": "The watchtowers on the sea cliffs at Vọng Hải see Thôn Hải's sails a day before they land.",
    "place": 91,
    "region": 19
+  },
+  {
+   "id": "V135",
+   "tier": "annal",
+   "year": 780,
+   "kind": "raid",
+   "people": [],
+   "sects": [
+    "phuong_minh"
+   ],
+   "text_vi": "Hạm đội Phượng Minh đốt Ẩn Phàm Trại, trại ven bờ nơi Thôn Hải Môn giấu thuyền, một năm trước Thanh Hải Chi Dịch.",
+   "text_en": "Phượng Minh's fleet burns Ẩn Phàm Trại, the shore camp where Thôn Hải Môn hid its boats, a year before the Purge.",
+   "place": 746,
+   "region": 16
   },
   {
    "id": "A026",
@@ -7330,6 +9177,18 @@
    "item": "thiet_ma_ky"
   },
   {
+   "id": "V047",
+   "tier": "annal",
+   "year": 786,
+   "kind": "tale",
+   "people": [],
+   "sects": [],
+   "text_vi": "Một mối thù tranh bến kết thúc khi nửa Phá Chu Trấn bị thiêu rụi; thị trấn của những người lái thuyền không được dựng lại.",
+   "text_en": "A feud over the landings ends with half of Phá Chu Trấn burned; the boatmen's town is not rebuilt.",
+   "place": 266,
+   "region": 5
+  },
+  {
    "id": "C155",
    "tier": "landmark",
    "year": 788,
@@ -7345,6 +9204,18 @@
    "text_vi": "Nhan Cô Vụ và Phó Tiêu Tương gặp nhau trên bờ Lạc Anh mà họ từng tranh giành, và thề chấm dứt sự giám sát của Xu.",
    "text_en": "Nhan Cô Vụ and Phó Tiêu Tương meet on the Petal Shore they once fought over, and swear to end the Pivot's oversight.",
    "region": 12
+  },
+  {
+   "id": "V048",
+   "tier": "annal",
+   "year": 788,
+   "kind": "tale",
+   "people": [],
+   "sects": [],
+   "text_vi": "Thuyền của Phân Thủy Môn bị đánh chìm trong một mối thù trên sông, và tiểu môn phái của những người lái thuyền sụp đổ.",
+   "text_en": "The boats of Phân Thủy Môn are sunk in a river feud, and the small sect of boatmen falls.",
+   "place": 1281,
+   "region": 5
   },
   {
    "id": "C156",
@@ -7399,6 +9270,77 @@
     244,
     211
    ]
+  },
+  {
+   "id": "V026",
+   "tier": "annal",
+   "year": 790,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "thuy_vi"
+   ],
+   "text_vi": "Buồm Thôn Hải đã biến mất từ Thanh Hải Chi Dịch, những người lính cuối cùng rời Quan Lan Bảo.",
+   "text_en": "With Thôn Hải's sails gone since the Purge, the last of the garrison leaves Quan Lan Bảo.",
+   "place": 1493,
+   "region": 3
+  },
+  {
+   "id": "V065",
+   "tier": "annal",
+   "year": 790,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "bang_tam"
+   ],
+   "text_vi": "Chín năm sau Thanh Hải Chi Dịch, Băng Tâm rút quân đồn trú khỏi Vọng Triều Bảo, để ngọn tháp lại cho bão tố.",
+   "text_en": "Nine years after the Pirate Purge, Băng Tâm withdraws the garrison of Vọng Triều Bảo and leaves the tower to the storms.",
+   "place": 1359,
+   "region": 7
+  },
+  {
+   "id": "V122",
+   "tier": "annal",
+   "year": 790,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "thien_xu"
+   ],
+   "text_vi": "Thôn Hải đã bị tiêu diệt trong Thanh Hải Chi Dịch, Thiên Xu giải tán pháo đài tuần biển Tuần Hải Bảo.",
+   "text_en": "With Thôn Hải destroyed in the Purge, Thiên Xu stands down the sea patrol fort of Tuần Hải Bảo.",
+   "place": 660,
+   "region": 15
+  },
+  {
+   "id": "V140",
+   "tier": "annal",
+   "year": 790,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "phuong_minh"
+   ],
+   "text_vi": "Sau Thanh Hải Chi Dịch, Phượng Minh rút quân đồn trú khỏi Liệu Phàm Bảo, và pháo đài trống bắt đầu đổ dần xuống vịnh.",
+   "text_en": "After the Purge, Phượng Minh withdraws the garrison of Liệu Phàm Bảo, and the empty fort begins to crumble into the gulf.",
+   "place": 795,
+   "region": 17
+  },
+  {
+   "id": "V141",
+   "tier": "annal",
+   "year": 790,
+   "kind": "sect_founded",
+   "people": [],
+   "sects": [
+    "vong_trieu",
+    "phuong_minh"
+   ],
+   "text_vi": "Những người sống sót qua thời hải tặc lập Vọng Triều Đường bên những bến tàu cháy của Châu Lệ, thề rằng không bến cảng nào trên bờ này còn bị đốt nữa.",
+   "text_en": "Survivors of the pirate years found Vọng Triều Đường by the burned piers of Châu Lệ, swearing no harbour on this coast will burn again.",
+   "place": 337,
+   "region": 17
   },
   {
    "id": "A212",
@@ -7603,6 +9545,62 @@
    "war": "broken_halberds"
   },
   {
+   "id": "V091",
+   "tier": "annal",
+   "year": 803,
+   "kind": "festival",
+   "people": [],
+   "sects": [
+    "lac_ha"
+   ],
+   "text_vi": "Khi thuyền chài lặng tiếng sau Chiết Kích Nguyên, Xướng Vãn Thôn im lặng suốt một năm; đến nay làng vẫn hát ít hơn làng bên một câu.",
+   "text_en": "When the boats fall silent after Chiết Kích Nguyên, Xướng Vãn Thôn keeps silent for a year; it still sings one verse fewer than its neighbours.",
+   "place": 458,
+   "region": 10
+  },
+  {
+   "id": "V095",
+   "tier": "annal",
+   "year": 803,
+   "kind": "festival",
+   "people": [],
+   "sects": [
+    "lac_ha"
+   ],
+   "text_vi": "Năm Chiết Kích Nguyên, ngư dân Vãn Chu Thôn ở lại trên bờ lúc chiều tà; đến nay năm nào họ cũng ở lại bờ vào buổi chiều ấy.",
+   "text_en": "In the year of Chiết Kích Nguyên the fishers of Vãn Chu Thôn stay ashore at dusk; they still stay ashore on that dusk every year.",
+   "place": 490,
+   "region": 11
+  },
+  {
+   "id": "V103",
+   "tier": "annal",
+   "year": 803,
+   "kind": "festival",
+   "people": [],
+   "sects": [
+    "lac_ha"
+   ],
+   "text_vi": "Tiếng sáo lau của Lô Địch Thôn lặng đi cùng những con thuyền; đến nay vào buổi chiều ấy làng vẫn thổi ít đi một khúc.",
+   "text_en": "The reed flutes of Lô Địch Thôn fall silent with the boats; the village still plays one tune less on that dusk.",
+   "place": 538,
+   "region": 13
+  },
+  {
+   "id": "V104",
+   "tier": "annal",
+   "year": 803,
+   "kind": "festival",
+   "people": [],
+   "sects": [
+    "lac_ha"
+   ],
+   "text_vi": "Ngư dân Vãn Đăng Thôn thắp đèn đuôi thuyền nhưng không ra khơi; từ đó họ giữ lễ tang này vào cùng buổi chiều mỗi năm.",
+   "text_en": "The fishers of Vãn Đăng Thôn light their stern lamps but do not put out; they keep this mourning on the same dusk ever after.",
+   "place": 555,
+   "region": 13
+  },
+  {
    "id": "A182",
    "tier": "annal",
    "year": 805,
@@ -7662,6 +9660,90 @@
    "item": "bac_than_an"
   },
   {
+   "id": "V111",
+   "tier": "annal",
+   "year": 805,
+   "kind": "tale",
+   "people": [],
+   "sects": [],
+   "text_vi": "Từ sau trận chiến ở Chiết Kích Nguyên không ai đến thay phiên cho Lang Yên Trại, và khi hưu chiến, đồn khói hiệu bị bỏ hoang.",
+   "text_en": "No one has come to relieve Lang Yên Trại since the battle on Chiết Kích Nguyên, and at the truce the signal outpost is abandoned.",
+   "place": 582,
+   "region": 14
+  },
+  {
+   "id": "V096",
+   "tier": "annal",
+   "year": 806,
+   "kind": "sect_founded",
+   "people": [],
+   "sects": [
+    "nhan_tran",
+    "lac_ha"
+   ],
+   "text_vi": "Những người sống sót ở Chiết Kích Nguyên lập Nhạn Trận Môn dưới quyền Lạc Hà Tông, thề rằng đệ tử Lạc Hà sẽ không bao giờ đánh trận rời rạc nữa.",
+   "text_en": "Survivors of Chiết Kích Nguyên found Nhạn Trận Môn under Lạc Hà Tông, swearing its disciples will never again fight in loose order.",
+   "place": 367,
+   "region": 11
+  },
+  {
+   "id": "V112",
+   "tier": "annal",
+   "year": 806,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "thien_xu"
+   ],
+   "text_vi": "Sau khi hưu chiến, Thiên Xu giải tán tuyến lửa hiệu, và Phong Toại Bảo bị bỏ lại với giỏ lửa nguội lạnh.",
+   "text_en": "After the truce the Pivot stands down its beacon line, and Phong Toại Bảo is left with its fire basket cold.",
+   "place": 576,
+   "region": 14
+  },
+  {
+   "id": "V113",
+   "tier": "annal",
+   "year": 806,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "thien_xu"
+   ],
+   "text_vi": "Không kỵ sĩ nào trở về từ trận chiến để nhận ngựa; đàn ngựa của Lão Mã Bảo bị bán đi và pháo đài bị bỏ hoang.",
+   "text_en": "No riders came back from the battle to claim their remounts; the herds of Lão Mã Bảo are sold and the fort is left.",
+   "place": 590,
+   "region": 14
+  },
+  {
+   "id": "V123",
+   "tier": "annal",
+   "year": 806,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "thien_xu"
+   ],
+   "text_vi": "Sau khi hưu chiến, Thiên Xu giải tán Nam Vọng Bảo, trạm canh biên giới phía trên Kinh Lôi Mạch.",
+   "text_en": "After the truce the Pivot stands down Nam Vọng Bảo, its border watch above Kinh Lôi Mạch.",
+   "place": 698,
+   "region": 15
+  },
+  {
+   "id": "V156",
+   "tier": "annal",
+   "year": 806,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "thinh_vu",
+    "thien_xu"
+   ],
+   "text_vi": "Bắc Thần Ước được thề lại khi hưu chiến, Thính Vũ Lâu phá tường Vọng Xu Bảo xuống ngang gối để tỏ thiện chí.",
+   "text_en": "With the North Star Compact sworn again at the truce, the Tower pulls the walls of Vọng Xu Bảo down to knee height as a sign of good faith.",
+   "place": 920,
+   "region": 19
+  },
+  {
    "id": "C019",
    "tier": "landmark",
    "year": 810,
@@ -7678,6 +9760,34 @@
     211
    ],
    "famous": "Thiết Mã Cảnh"
+  },
+  {
+   "id": "V157",
+   "tier": "annal",
+   "year": 810,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "thinh_vu"
+   ],
+   "text_vi": "Từ sau Thanh Hải Chi Dịch không còn cánh buồm hải tặc nào để canh, Thính Vũ Lâu cho quân đồn trú Vọng Phàm Bảo về nhà.",
+   "text_en": "With no pirate sails left to watch for since the Purge, the Tower sends the garrison of Vọng Phàm Bảo home.",
+   "place": 867,
+   "region": 19
+  },
+  {
+   "id": "V136",
+   "tier": "annal",
+   "year": 812,
+   "kind": "disaster",
+   "people": [],
+   "sects": [
+    "le_tuyen"
+   ],
+   "text_vi": "Một cơn dịch sốt giết nửa dân Cựu Khê Trấn trước khi các y sư Lễ Tuyền tới; những người sống sót dời xuống Thanh Khê và không bao giờ trở lên.",
+   "text_en": "A fever kills half of Cựu Khê Trấn before Lễ Tuyền's healers come; the survivors move down to Thanh Khê and never go back up.",
+   "place": 430,
+   "region": 16
   },
   {
    "id": "A011",
@@ -7737,6 +9847,18 @@
    "region": 9
   },
   {
+   "id": "V170",
+   "tier": "annal",
+   "year": 845,
+   "kind": "disaster",
+   "people": [],
+   "sects": [],
+   "text_vi": "Dung nham từ miệng phun phía trên tràn qua các sân dưới của Lưu Hỏa Các bỏ hoang, chỉ còn mái lộ ra.",
+   "text_en": "Lava from the vent above runs over the lower courts of the empty Lưu Hỏa Các, and only its roofs still show.",
+   "place": 1008,
+   "region": 20
+  },
+  {
    "id": "A107",
    "tier": "annal",
    "year": 850,
@@ -7786,6 +9908,44 @@
    "text_vi": "Nữ kiếm khách lang bạt Lương Lạc Mai được tìm thấy đã chết trong động phủ niêm phong của mình; không ai biết nguyên do.",
    "text_en": "The wandering swordswoman Lương Lạc Mai is found dead in her sealed abode; no one learns the cause.",
    "slot": "A-5"
+  },
+  {
+   "id": "V012",
+   "tier": "annal",
+   "year": 860,
+   "kind": "tale",
+   "people": [],
+   "sects": [],
+   "text_vi": "Trong mùa đông dài, người nghèo trên mũi đất ăn hạt và vỏ non cây du ở Du Thụ Lâm; từ đó dân làng Hải Đới chưa bao giờ ngăn cấm.",
+   "text_en": "In the long winter the cape's poor eat elm seed and inner bark from Du Thụ Lâm; the villagers of Hải Đới have never forbidden it since.",
+   "place": 1041,
+   "region": 2
+  },
+  {
+   "id": "V097",
+   "tier": "annal",
+   "year": 860,
+   "kind": "city_abandoned",
+   "people": [],
+   "sects": [],
+   "text_vi": "Dòng sông đã trôi xa khỏi Di Hà Trấn; bến đá chỉ còn nhìn ra đồng cỏ, và những người lái thuyền cuối cùng bỏ đi.",
+   "text_en": "The river has wandered away from Di Hà Trấn; its quay faces only grass, and the last boatmen leave.",
+   "place": 414,
+   "region": 11
+  },
+  {
+   "id": "V003",
+   "tier": "annal",
+   "year": 868,
+   "kind": "city_abandoned",
+   "people": [],
+   "sects": [
+    "tung_dao"
+   ],
+   "text_vi": "Đường ven hồ đã làm xong, con đường núi cũ bị bỏ, và trạm dịch Dịch Lộ Trấn trở nên vắng không.",
+   "text_en": "With the lake road along the water finished, the old hill road is given up, and the post town of Dịch Lộ Trấn stands empty.",
+   "place": 964,
+   "region": 1
   },
   {
    "id": "A012",
@@ -7855,6 +10015,30 @@
    "war": "pha_quan"
   },
   {
+   "id": "V082",
+   "tier": "annal",
+   "year": 870,
+   "kind": "disaster",
+   "people": [],
+   "sects": [],
+   "text_vi": "Một cơn sốt lạnh bốc lên từ đầm lầy, và không ai trong bốn mươi đệ tử của Vụ Trạch Phái sống tới mùa xuân.",
+   "text_en": "A cold fever comes off the marsh, and none of the forty disciples of Vụ Trạch Phái see the spring.",
+   "place": 1473,
+   "region": 9
+  },
+  {
+   "id": "V098",
+   "tier": "annal",
+   "year": 870,
+   "kind": "disaster",
+   "people": [],
+   "sects": [],
+   "text_vi": "Một trận bão lớn phá vỡ đê biển Ngư Hỏa Trấn và đánh chìm đoàn thuyền câu đèn ngay trong bến; những người sống sót dời về Di Tân.",
+   "text_en": "A great storm breaks the sea wall of Ngư Hỏa Trấn and sinks its lamp-fishing fleet in the harbour; the survivors move to Di Tân.",
+   "place": 499,
+   "region": 11
+  },
+  {
    "id": "A091",
    "tier": "annal",
    "year": 872,
@@ -7869,6 +10053,18 @@
    "text_en": "In the rebellion, Cửu Cao's crane riders carry Thiên Xu's messages over Phá Quân's fort.",
    "place": 218,
    "region": 6
+  },
+  {
+   "id": "V124",
+   "tier": "annal",
+   "year": 872,
+   "kind": "tale",
+   "people": [],
+   "sects": [],
+   "text_vi": "Hai năm sau khi chưởng môn ra đi du hành và không trở về, các đao khách của Hoành Đao Môn đã tan tác.",
+   "text_en": "Two years after its head left on a journey and never returned, the sabre fighters of Hoành Đao Môn have scattered.",
+   "place": 712,
+   "region": 15
   },
   {
    "id": "C163",
@@ -7889,6 +10085,48 @@
    "place": 218,
    "item": "pha_quan_thuong",
    "war": "pha_quan"
+  },
+  {
+   "id": "V056",
+   "tier": "annal",
+   "year": 874,
+   "kind": "siege",
+   "people": [],
+   "sects": [
+    "thien_xu"
+   ],
+   "text_vi": "Khi cuộc phản loạn bị dẹp tan, quân đồn trú Vọng Tinh Bảo của Phá Quân Môn đầu hàng không giao chiến; pháo đài bị đốt và bỏ hoang.",
+   "text_en": "When the rebellion is crushed, the garrison of Phá Quân Môn's Vọng Tinh Bảo surrenders without a fight; the fort is burned and left.",
+   "place": 1305,
+   "region": 6
+  },
+  {
+   "id": "V057",
+   "tier": "annal",
+   "year": 874,
+   "kind": "siege",
+   "people": [],
+   "sects": [
+    "thien_xu"
+   ],
+   "text_vi": "Cổng của phản quân Phá Quân Môn thất thủ, và Thiên Xu bỏ Vi Thành Trại, doanh trại vây thành dựng từ ba năm trước; tên binh lính vẫn còn khắc trên đá.",
+   "text_en": "The rebel gate of Phá Quân Môn falls, and Thiên Xu abandons Vi Thành Trại, the siege camp it raised three years before; soldiers' names stay scratched on its stones.",
+   "place": 1308,
+   "region": 6
+  },
+  {
+   "id": "V058",
+   "tier": "annal",
+   "year": 874,
+   "kind": "city_abandoned",
+   "people": [],
+   "sects": [
+    "cuu_cao"
+   ],
+   "text_vi": "Thị trấn mỏ Hắc Thạch Trấn của Phá Quân Môn về tay Cửu Cao Phái, nhưng dân trấn đã chạy sang Cự Môn từ trước, và không ai quay lại.",
+   "text_en": "Phá Quân Môn's mining town of Hắc Thạch Trấn passes to Cửu Cao Phái, but its people have already fled to Cự Môn, and none come back.",
+   "place": 1338,
+   "region": 6
   },
   {
    "id": "A060",
@@ -7937,6 +10175,33 @@
    "item": "tuong_phi_tan"
   },
   {
+   "id": "V125",
+   "tier": "annal",
+   "year": 880,
+   "kind": "tale",
+   "people": [],
+   "sects": [],
+   "text_vi": "Ngày càng ít người theo lối sống khổ hạnh, và những phòng tu cuối cùng của Khổ Tu Viện bên sa mạc bỏ trống.",
+   "text_en": "Fewer and fewer take up the hard life, and the last desert cells of Khổ Tu Viện stand empty.",
+   "place": 646,
+   "region": 15
+  },
+  {
+   "id": "V013",
+   "tier": "annal",
+   "year": 884,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "thuy_vi",
+    "hong_lo"
+   ],
+   "text_vi": "Đường chủ Kình Cốt Đường ra khơi đuổi theo một con linh kình lớn và không bao giờ trở về; những người săn biển gia nhập Hồng Lô Cốc.",
+   "text_en": "The head of Kình Cốt Đường goes out after a great spirit whale and never comes back; the sea hunters join Hồng Lô Cốc.",
+   "place": 1092,
+   "region": 2
+  },
+  {
    "id": "A168",
    "tier": "annal",
    "year": 890,
@@ -7947,6 +10212,32 @@
    "text_en": "The gardens and fields of Điền Viên feed the scholars of Nhạn Thanh Thành, who retire there to farm.",
    "place": 127,
    "region": 11
+  },
+  {
+   "id": "V004",
+   "tier": "annal",
+   "year": 890,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "tung_dao"
+   ],
+   "text_vi": "Vị viện chủ cuối cùng của Lãnh Hương Viện qua đời trong lúc bế quan mà chưa chọn người kế vị; Tùng Đào thu nhận những người làm hương, còn thảo dược của họ vẫn tự mọc trên ruộng bậc thang.",
+   "text_en": "The last master of Lãnh Hương Viện dies in seclusion with no heir named; Tùng Đào takes in the incense makers, and their herbs grow on alone.",
+   "place": 961,
+   "region": 1
+  },
+  {
+   "id": "V114",
+   "tier": "annal",
+   "year": 893,
+   "kind": "tale",
+   "people": [],
+   "sects": [],
+   "text_vi": "Sau ba thế kỷ đào cát khỏi các tòa điện, những đệ tử cuối cùng của Minh Sa Các trả lầu các lại cho đồi cát và về Thạch Kiều.",
+   "text_en": "After three centuries of digging out their halls, the last disciples of Minh Sa Các give the pavilion to the dunes and go to Thạch Kiều.",
+   "place": 424,
+   "region": 14
   },
   {
    "id": "A077",
@@ -8123,6 +10414,21 @@
    "item": "tuong_phi_tan"
   },
   {
+   "id": "V092",
+   "tier": "annal",
+   "year": 905,
+   "kind": "sect_founded",
+   "people": [],
+   "sects": [
+    "nhan_van",
+    "lac_ha"
+   ],
+   "text_vi": "Những họa sĩ tìm đến vì hồ nước của Đàm Ảnh Thành lập Nhàn Vân Quán dưới quyền Lạc Hà Tông và học cách vẽ bằng khí hòa trong mực.",
+   "text_en": "Painters drawn to the pool of Đàm Ảnh Thành found Nhàn Vân Quán under Lạc Hà Tông and learn to paint with qi in the ink.",
+   "place": 364,
+   "region": 10
+  },
+  {
    "id": "A044",
    "tier": "annal",
    "year": 906,
@@ -8165,6 +10471,34 @@
    "text_vi": "Hưởng ứng Dạ Vũ Lệnh, các ma đạo cao thủ từ khắp đại lục tìm đến Thính Vũ Lâu; trong số đó có Cố Dạ Lan, người chưa từng thua một trận đấu nào.",
    "text_en": "Answering the Night Rain Edict, ma đạo masters from every corner of the continent come to Thính Vũ Lâu; among them is Cố Dạ Lan, who has never lost a duel.",
    "place": 7
+  },
+  {
+   "id": "V146",
+   "tier": "annal",
+   "year": 906,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "thinh_vu"
+   ],
+   "text_vi": "Khi Dạ Vũ Lệnh mở cửa Thính Vũ Lâu cho ma đạo, các sư phụ của Trúc Ẩn Viện thu xếp sách vở và đi về phương bắc.",
+   "text_en": "When the Night Rain Edict opens the Tower to the ma đạo arts, the masters of Trúc Ẩn Viện pack their books and walk north.",
+   "place": 436,
+   "region": 18
+  },
+  {
+   "id": "V147",
+   "tier": "annal",
+   "year": 906,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "thinh_vu"
+   ],
+   "text_vi": "Những người chăn thả ở Thảo Lư Thôn bắt đầu đóng cửa che đèn ở phía nhìn ra núi của Thính Vũ Lâu, dù chẳng ai bảo họ làm vậy.",
+   "text_en": "The herders of Thảo Lư Thôn begin to keep their lamp shutters closed on the side facing the Tower's cone, though no one has told them to.",
+   "place": 802,
+   "region": 18
   },
   {
    "id": "A292",
@@ -8213,6 +10547,50 @@
    "item": "phi_hong"
   },
   {
+   "id": "V027",
+   "tier": "annal",
+   "year": 910,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "thuy_vi"
+   ],
+   "text_vi": "Hàn Tân đã trở về, Thúy Vi bỏ trống Vọng Bắc Bảo; không còn con đường nào của kẻ địch để canh nữa.",
+   "text_en": "With the Cold Ford home again, Thúy Vi leaves Vọng Bắc Bảo empty; there is no longer an enemy road to watch.",
+   "place": 1123,
+   "region": 3
+  },
+  {
+   "id": "V028",
+   "tier": "annal",
+   "year": 910,
+   "kind": "sect_founded",
+   "people": [],
+   "sects": [
+    "ho_lam",
+    "thuy_vi"
+   ],
+   "text_vi": "Những người giữ rừng của Thúy Vi lập Hộ Lâm Đường để canh giữ rừng phía bắc và thu linh mộc cho lò luyện của tông môn.",
+   "text_en": "Thúy Vi's forest wardens found Hộ Lâm Đường to keep the northern woods and gather spirit wood for the sect's furnaces.",
+   "place": 1105,
+   "region": 3
+  },
+  {
+   "id": "V059",
+   "tier": "annal",
+   "year": 910,
+   "kind": "sect_founded",
+   "people": [],
+   "sects": [
+    "hoa_tinh",
+    "thien_xu"
+   ],
+   "text_vi": "Những người chế phù vẽ các vì sao Bắc Đẩu lập Họa Tinh Đường và thề trung thành với Thiên Xu; bùa của họ không nhòe trong mưa.",
+   "text_en": "Talisman makers who paint the Dipper's stars found Họa Tinh Đường and swear to Thiên Xu; their talismans will not run in the rain.",
+   "place": 1328,
+   "region": 6
+  },
+  {
    "id": "A275",
    "tier": "annal",
    "year": 912,
@@ -8225,6 +10603,44 @@
    "text_en": "Hồng Đậu Trang's gracious door opens to guests from every sect; those who stay too long do not leave.",
    "place": 27,
    "region": 18
+  },
+  {
+   "id": "V105",
+   "tier": "annal",
+   "year": 912,
+   "kind": "disaster",
+   "people": [],
+   "sects": [],
+   "text_vi": "Mặt đất dưới phiên chợ Hãm Thạch Trấn sụt xuống một hang động; những người nung vôi bỏ đi trong vòng một năm và không bao giờ xây trên đá vôi trơ nữa.",
+   "text_en": "The ground under the market of Hãm Thạch Trấn falls into a cave; the lime-burners leave within a year and never build on bare karst again.",
+   "place": 548,
+   "region": 13
+  },
+  {
+   "id": "V115",
+   "tier": "annal",
+   "year": 912,
+   "kind": "disaster",
+   "people": [],
+   "sects": [
+    "thien_xu"
+   ],
+   "text_vi": "Một trận động đất làm nứt bể chứa nước của thành thương lộ Lục Hợp Thành và làm cạn các mạch suối; dân thành dời về Thạch Kiều.",
+   "text_en": "An earthquake splits the cistern of the caravan city Lục Hợp Thành and dries its springs; its people move to Thạch Kiều.",
+   "place": 614,
+   "region": 14
+  },
+  {
+   "id": "V171",
+   "tier": "annal",
+   "year": 913,
+   "kind": "disaster",
+   "people": [],
+   "sects": [],
+   "text_vi": "Một trận nước dâng lớn nhấn chìm Kim Sa Trấn trên bãi cát vàng; dân trấn dời vào đất liền, và cháu chắt họ trở thành thợ nhuộm ở Lam Điện.",
+   "text_en": "A great storm tide drowns Kim Sa Trấn on the golden beach; its people move inland, and their grandchildren become the dyers of Lam Điện.",
+   "place": 1019,
+   "region": 20
   },
   {
    "id": "C022",
@@ -8282,6 +10698,49 @@
    "region": 13
   },
   {
+   "id": "V148",
+   "tier": "annal",
+   "year": 930,
+   "kind": "city_abandoned",
+   "people": [],
+   "sects": [
+    "thinh_vu"
+   ],
+   "text_vi": "Đèn của Thính Vũ Lâu đã tắt từ khi có Dạ Vũ Lệnh, những người làm đèn cuối cùng của Thanh Đăng Trấn dời về Hạnh Hoa Thị.",
+   "text_en": "With the Tower's lamps dark since the Edict, the last lamp-makers of Thanh Đăng Trấn move to Hạnh Hoa Thị.",
+   "place": 810,
+   "region": 18
+  },
+  {
+   "id": "V149",
+   "tier": "annal",
+   "year": 930,
+   "kind": "sect_founded",
+   "people": [],
+   "sects": [
+    "vu_linh",
+    "thinh_vu"
+   ],
+   "text_vi": "Một thợ rèn từng đúc xích mưa cho Thính Vũ Lâu lập Vũ Linh Đường, trường dạy trận cảnh báo bằng chuông và xích, trên đồi phía trên Thu Trì.",
+   "text_en": "A smith who cast rain-chains for the Tower founds Vũ Linh Đường, a school of bell-and-chain warning arrays, above Thu Trì.",
+   "place": 372,
+   "region": 18
+  },
+  {
+   "id": "V029",
+   "tier": "annal",
+   "year": 932,
+   "kind": "disaster",
+   "people": [],
+   "sects": [
+    "thuy_vi"
+   ],
+   "text_vi": "Một lò đan lửa chưa thuần phát nổ, phá hủy các tòa điện của Bách Thảo Viện; Thúy Vi mang sách thảo dược của viện về tông môn.",
+   "text_en": "A cauldron of untamed pill fire bursts and destroys the halls of Bách Thảo Viện; Thúy Vi carries its herb books to the seat.",
+   "place": 1116,
+   "region": 3
+  },
+  {
    "id": "A169",
    "tier": "annal",
    "year": 940,
@@ -8328,6 +10787,32 @@
    "text_en": "Tùng Đào Cung and Băng Tâm Các go to war over Hạo Nguyệt Hồ and its pearls.",
    "place": 190,
    "war": "long_lake"
+  },
+  {
+   "id": "V116",
+   "tier": "annal",
+   "year": 940,
+   "kind": "disaster",
+   "people": [],
+   "sects": [],
+   "text_vi": "Giếng của Khô Tỉnh Trấn cạn trong trận hạn hán, và dân thị trấn thương lộ bỏ đi về phía sông.",
+   "text_en": "The well of Khô Tỉnh Trấn fails in the drought, and the caravan town's people leave for the river.",
+   "place": 322,
+   "region": 14
+  },
+  {
+   "id": "V126",
+   "tier": "annal",
+   "year": 940,
+   "kind": "siege",
+   "people": [],
+   "sects": [
+    "thien_xu"
+   ],
+   "text_vi": "Thiên Xu quét sạch Hắc Phong Trại, nơi bọn tán tu đã cướp các đoàn chở quặng suốt sáu mươi năm.",
+   "text_en": "Thiên Xu clears Hắc Phong Trại, where rogue cultivators (tán tu) have robbed the ore trains for sixty years.",
+   "place": 702,
+   "region": 15
   },
   {
    "id": "A013",
@@ -8432,6 +10917,21 @@
    "place": 230
   },
   {
+   "id": "V102",
+   "tier": "annal",
+   "year": 960,
+   "kind": "sect_founded",
+   "people": [],
+   "sects": [
+    "minh_loan",
+    "lac_ha"
+   ],
+   "text_vi": "Những thợ đúc chuông lập Minh Loan Các dưới quyền Lạc Hà Tông và đúc chuông hộ thân có tiếng ngân xua thú dữ và báo trước kẻ tấn công.",
+   "text_en": "Bell-casters found Minh Loan Các under Lạc Hà Tông and cast ward bells whose note drives off beasts and warns of attack.",
+   "place": 527,
+   "region": 12
+  },
+  {
    "id": "A314",
    "tier": "annal",
    "year": 962,
@@ -8444,6 +10944,18 @@
    "text_en": "Since Thu Phần Các came, the villagers of Ương Ca hear singing from the graves of Lôi Trạch every autumn, and sing louder at planting to drown it.",
    "place": 157,
    "region": 19
+  },
+  {
+   "id": "V060",
+   "tier": "annal",
+   "year": 968,
+   "kind": "disaster",
+   "people": [],
+   "sects": [],
+   "text_vi": "Một trận nước dâng do bão tràn qua bến Cựu Tân Trấn, cuốn đi nửa thị trấn; số còn lại dời vào đất liền, về các hồ Ba Quang.",
+   "text_en": "A storm tide drives over the quay of Cựu Tân Trấn and takes half the town; the rest move inland to the lakes of Ba Quang.",
+   "place": 287,
+   "region": 6
   },
   {
    "id": "C172",
@@ -8472,6 +10984,18 @@
    "text_vi": "Bọn cướp Dạ Quang Môn uống rượu bồ đào bằng chén dạ quang sau mỗi lần cướp, và để lại một chiếc chén làm dấu.",
    "text_en": "Dạ Quang Môn's raiders drink grape wine from night-glowing cups after every raid, and leave one cup behind as their mark.",
    "region": 8
+  },
+  {
+   "id": "V040",
+   "tier": "annal",
+   "year": 979,
+   "kind": "beast",
+   "people": [],
+   "sects": [],
+   "text_vi": "Những người đào sâm của Thải Sâm Trấn đào quá cao lên Bạch Viên Lĩnh, và bầy vượn trắng đuổi họ đi.",
+   "text_en": "The ginseng diggers of Thải Sâm Trấn dig too high into Bạch Viên Lĩnh, and the white apes drive them out.",
+   "place": 1175,
+   "region": 4
   },
   {
    "id": "A093",
@@ -8514,6 +11038,71 @@
    "text_en": "Hùng Phần Vũ is born in Ngũ Thải Thành; a red feather falls on his cradle.",
    "place": 44,
    "region": 20
+  },
+  {
+   "id": "V030",
+   "tier": "annal",
+   "year": 980,
+   "kind": "city_abandoned",
+   "people": [],
+   "sects": [],
+   "text_vi": "Năm năm sau khi con đường đến Lam Yên dời sang phía đông, quán trọ cuối cùng của Cổ Dịch Trấn đóng cửa.",
+   "text_en": "Five years after the road to Lam Yên is moved east, the last inn of Cổ Dịch Trấn closes.",
+   "place": 1110,
+   "region": 3
+  },
+  {
+   "id": "V083",
+   "tier": "annal",
+   "year": 980,
+   "kind": "tale",
+   "people": [],
+   "sects": [],
+   "text_vi": "Các đệ tử hỏa và thủy của Băng Hỏa Môn tranh cãi đến khi môn phái chia rẽ và tự thiêu rụi.",
+   "text_en": "The fire and water disciples of Băng Hỏa Môn quarrel until the sect splits and burns itself out.",
+   "place": 1430,
+   "region": 9
+  },
+  {
+   "id": "V127",
+   "tier": "annal",
+   "year": 980,
+   "kind": "sect_founded",
+   "people": [],
+   "sects": [
+    "chan_kim",
+    "thien_xu"
+   ],
+   "text_vi": "Những người thẩm định và tinh luyện linh quặng lập Chân Kim Các bên những bàn cân công khai của Song Kiều, thề trung thành với Thiên Xu.",
+   "text_en": "Assayers and refiners of spirit ore found Chân Kim Các beside Song Kiều's open scales, sworn to Thiên Xu.",
+   "place": 427,
+   "region": 15
+  },
+  {
+   "id": "V158",
+   "tier": "annal",
+   "year": 980,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "thinh_vu"
+   ],
+   "text_vi": "Sét đánh vào Tây Vọng Bảo nhiều đến mức quân đồn trú xin được rời đi, và Thính Vũ Lâu để pháo đài bỏ trống.",
+   "text_en": "Lightning has struck Tây Vọng Bảo so often that its garrison begs to leave, and the Tower lets the fort stand empty.",
+   "place": 913,
+   "region": 19
+  },
+  {
+   "id": "V099",
+   "tier": "annal",
+   "year": 988,
+   "kind": "disaster",
+   "people": [],
+   "sects": [],
+   "text_vi": "Một trận nước dâng phá vỡ đê biển Triều Một Trấn, nhấn chìm các con phố thấp; những nhà buôn muối dời lên bờ biển phía trên, về Diêm Điền.",
+   "text_en": "A storm surge breaks the sea wall of Triều Một Trấn and drowns its lower streets; the salt traders move up the coast to Diêm Điền.",
+   "place": 311,
+   "region": 11
   },
   {
    "id": "A061",
@@ -8645,6 +11234,18 @@
    "item": "luc_chau"
   },
   {
+   "id": "V128",
+   "tier": "annal",
+   "year": 1003,
+   "kind": "tale",
+   "people": [],
+   "sects": [],
+   "text_vi": "Bến cảng của Ngân Thuyền Bảo đã bồi lấp; bạc được chở đường bộ về Song Kiều, và pháo đài bị bỏ hoang.",
+   "text_en": "The harbour of Ngân Thuyền Bảo has silted up; the silver goes overland to Song Kiều, and the fort is left.",
+   "place": 670,
+   "region": 15
+  },
+  {
    "id": "A184",
    "tier": "annal",
    "year": 1004,
@@ -8672,6 +11273,18 @@
    "text_en": "The Night Rain Market of Thu Trì Thành opens only after dark and only in rain; buyers come from as far as the desert.",
    "place": 42,
    "region": 18
+  },
+  {
+   "id": "V129",
+   "tier": "annal",
+   "year": 1006,
+   "kind": "disaster",
+   "people": [],
+   "sects": [],
+   "text_vi": "Một trận tuyết lở vùi Thủ Bi Trại, nơi canh giữ một tấm bia ranh giới của Bắc Thần Ước; tấm bia được dời xuống thấp hơn.",
+   "text_en": "An avalanche buries Thủ Bi Trại, which guarded a boundary stele of the Compact; the stele is moved lower.",
+   "place": 692,
+   "region": 15
   },
   {
    "id": "A094",
@@ -8734,6 +11347,98 @@
    "place": 208
   },
   {
+   "id": "V049",
+   "tier": "annal",
+   "year": 1010,
+   "kind": "tale",
+   "people": [],
+   "sects": [],
+   "text_vi": "Quán chủ Cô Hạc Quán qua đời khi đang bế quan, và không ai phá được phong ấn của ông; các ẩn sĩ tan tác, để cánh cửa đóng mãi.",
+   "text_en": "The abbot of Cô Hạc Quán dies in closed-door cultivation, and no one can break his seal; the hermits scatter and leave the door shut.",
+   "place": 1266,
+   "region": 5
+  },
+  {
+   "id": "V072",
+   "tier": "annal",
+   "year": 1010,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "bang_tam"
+   ],
+   "text_vi": "Tần Ngưng Sương qua đời, và không ai còn giữ băng cho Ngưng Băng Bảo, pháo đài các đệ tử đầu tiên của bà dựng bằng những khối băng; tường thành bắt đầu sụp xuống.",
+   "text_en": "Tần Ngưng Sương dies, and no one renews the ice of Ngưng Băng Bảo, the fort her first disciples built of ice blocks; its walls begin to slump.",
+   "place": 1423,
+   "region": 8
+  },
+  {
+   "id": "V014",
+   "tier": "annal",
+   "year": 1012,
+   "kind": "beast",
+   "people": [],
+   "sects": [
+    "thuy_vi"
+   ],
+   "text_vi": "Tiếng sáo của viện chủ làm một đàn linh ngưu phát cuồng, giẫm nát các tòa điện của Địch Thanh Viện; những người sống sót trở về các bãi chăn ở Mục Ca.",
+   "text_en": "The master's flute drives a herd of spirit cattle mad, and they trample the halls of Địch Thanh Viện; the survivors go back to the folds of Mục Ca.",
+   "place": 391,
+   "region": 2
+  },
+  {
+   "id": "V041",
+   "tier": "annal",
+   "year": 1012,
+   "kind": "disaster",
+   "people": [],
+   "sects": [
+    "van_hac"
+   ],
+   "text_vi": "Vách khe núi sụp xuống, vùi nửa Cầm Tượng Trấn; những người làm đàn dời lên vành Vạn Hác Viện.",
+   "text_en": "The ravine wall gives way and buries half of Cầm Tượng Trấn; the zither makers move to the rim of Vạn Hác Viện.",
+   "place": 1491,
+   "region": 4
+  },
+  {
+   "id": "V066",
+   "tier": "annal",
+   "year": 1012,
+   "kind": "disaster",
+   "people": [],
+   "sects": [
+    "bang_tam"
+   ],
+   "text_vi": "Một trận tuyết lở mùa đông vùi Đoạn Tuyết Quan cùng cả quân đồn trú; Băng Tâm không bao giờ đào nó lên.",
+   "text_en": "A winter avalanche buries Đoạn Tuyết Quan with its garrison; Băng Tâm never digs it out.",
+   "place": 1384,
+   "region": 7
+  },
+  {
+   "id": "V084",
+   "tier": "annal",
+   "year": 1012,
+   "kind": "city_abandoned",
+   "people": [],
+   "sects": [],
+   "text_vi": "Quá nhiều tiều phu đã mất tích trong Vô Tung Lâm; những gia đình cuối cùng của Mê Tung Trấn dời về Tiều Lộ.",
+   "text_en": "Too many of its loggers have been lost in Vô Tung Lâm; the last families of Mê Tung Trấn move to Tiều Lộ.",
+   "place": 1434,
+   "region": 9
+  },
+  {
+   "id": "V159",
+   "tier": "annal",
+   "year": 1013,
+   "kind": "disaster",
+   "people": [],
+   "sects": [],
+   "text_vi": "Ngọn núi lửa nhỏ thức giấc, vùi thị trấn lưu huỳnh Hoàng Diễm Trấn dưới tro; phần lớn dân trấn thoát ra bờ biển và lập nên Ôn Sa.",
+   "text_en": "The small volcano wakes and buries the sulphur town of Hoàng Diễm Trấn in ash; most of its people escape to the shore and found Ôn Sa.",
+   "place": 896,
+   "region": 19
+  },
+  {
    "id": "A014",
    "tier": "annal",
    "year": 1015,
@@ -8793,6 +11498,30 @@
    "item": "xich_ha_ky"
   },
   {
+   "id": "V031",
+   "tier": "annal",
+   "year": 1020,
+   "kind": "city_abandoned",
+   "people": [],
+   "sects": [],
+   "text_vi": "Một năm sau khi tuyết lở vùi con phố trên, những người sống sót của Vân Gian Trấn xuống Lam Yên Thị.",
+   "text_en": "A year after an avalanche buries its upper street, the survivors of Vân Gian Trấn go down to Lam Yên Thị.",
+   "place": 1130,
+   "region": 3
+  },
+  {
+   "id": "V005",
+   "tier": "annal",
+   "year": 1022,
+   "kind": "city_abandoned",
+   "people": [],
+   "sects": [],
+   "text_vi": "Chồn điêu trong đồi đã bị bẫy sạch, và những nhà buôn da cuối cùng rời Điêu Bì Trấn về các thị trấn ven hồ.",
+   "text_en": "The sables are trapped out of the hills, and the last fur traders leave Điêu Bì Trấn for the lake towns.",
+   "place": 922,
+   "region": 1
+  },
+  {
    "id": "A310",
    "tier": "annal",
    "year": 1025,
@@ -8805,6 +11534,30 @@
    "text_en": "Phần Vũ Đường's disciples sit in the vents until their feathers burn and walk out reborn; the first of them dies trying.",
    "place": 29,
    "region": 20
+  },
+  {
+   "id": "V006",
+   "tier": "annal",
+   "year": 1033,
+   "kind": "disaster",
+   "people": [],
+   "sects": [],
+   "text_vi": "Một cơn bão mùa xuân đẩy băng vỡ dồn lên bờ thành một bức tường, san phẳng bến cảng và nửa Nghênh Nguyệt Trấn; dân trấn không bao giờ dựng lại.",
+   "text_en": "A spring storm drives the breaking ice ashore in a wall, flattening the harbour and half of Nghênh Nguyệt Trấn; its people never rebuild.",
+   "place": 943,
+   "region": 1
+  },
+  {
+   "id": "V032",
+   "tier": "annal",
+   "year": 1034,
+   "kind": "city_abandoned",
+   "people": [],
+   "sects": [],
+   "text_vi": "Từ khi trận động đất năm trước làm cả hai giếng ngọt hóa mặn, Song Tỉnh Trấn đã vắng không.",
+   "text_en": "Since last year's earthquake turned both its sweet wells salt, Song Tỉnh Trấn has emptied.",
+   "place": 275,
+   "region": 3
   },
   {
    "id": "A029",
@@ -8849,6 +11602,75 @@
    "text_en": "Phượng Minh Cung goes to war with Thính Vũ Lâu for the Kinh Lôi vein.",
    "place": 208,
    "war": "thunder_vein"
+  },
+  {
+   "id": "V085",
+   "tier": "annal",
+   "year": 1040,
+   "kind": "tale",
+   "people": [],
+   "sects": [],
+   "text_vi": "Các sư phụ của Tầm Tung Viện cùng nhau đi vào Vô Tung Lâm và không trở về.",
+   "text_en": "The masters of Tầm Tung Viện go into Vô Tung Lâm together and do not come back.",
+   "place": 299,
+   "region": 9
+  },
+  {
+   "id": "V106",
+   "tier": "annal",
+   "year": 1040,
+   "kind": "city_abandoned",
+   "people": [],
+   "sects": [
+    "lac_ha"
+   ],
+   "text_vi": "Bạc ở Vân Kiều Trấn đã cạn, thợ mỏ dời xuống Vân Gian; vài năm sau cây cầu mây gãy trong một cơn bão.",
+   "text_en": "The silver of Vân Kiều Trấn is gone, and its miners move down to Vân Gian; the cloud bridge breaks in a storm a few years later.",
+   "place": 558,
+   "region": 13
+  },
+  {
+   "id": "V130",
+   "tier": "annal",
+   "year": 1040,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "thien_xu"
+   ],
+   "text_vi": "Các cột trấn được dựng trên miệng phun, và Thiên Xu rút quân đồn trú vẫn canh nó từ Thủ Hỏa Bảo.",
+   "text_en": "The warding pillars are raised over the vent, and the Pivot withdraws the garrison that has watched it from Thủ Hỏa Bảo.",
+   "place": 644,
+   "region": 15
+  },
+  {
+   "id": "V160",
+   "tier": "annal",
+   "year": 1041,
+   "kind": "beast",
+   "people": [],
+   "sects": [
+    "thinh_vu"
+   ],
+   "text_vi": "Quân đồn trú bị gọi sang phía đông cho Kinh Lôi Chi Chiến, Thanh Thạch Bảo bị bầy thú loài hổ của Phục Hổ Cương chiếm và không bao giờ có người đóng giữ lại.",
+   "text_en": "Its garrison called east to the Thunder Vein War, Thanh Thạch Bảo is taken by the tiger-kind beasts of Phục Hổ Cương and never manned again.",
+   "place": 849,
+   "region": 19
+  },
+  {
+   "id": "V161",
+   "tier": "annal",
+   "year": 1042,
+   "kind": "siege",
+   "people": [],
+   "sects": [
+    "phuong_minh",
+    "thinh_vu"
+   ],
+   "text_vi": "Trong Kinh Lôi Chi Chiến, đệ tử Phượng Minh chiếm và đốt Thủ Lôi Bảo; khi giữ được linh mạch, Thính Vũ Lâu xây đồn canh mới cao hơn trên sườn núi.",
+   "text_en": "In the Thunder Vein War Phượng Minh's disciples take and burn Thủ Lôi Bảo; when the vein is kept, the Tower builds its new guard higher on the ridge.",
+   "place": 875,
+   "region": 19
   },
   {
    "id": "A295",
@@ -8961,6 +11783,35 @@
    "region": 16
   },
   {
+   "id": "V015",
+   "tier": "annal",
+   "year": 1050,
+   "kind": "sect_founded",
+   "people": [],
+   "sects": [
+    "vu_an",
+    "thuy_vi"
+   ],
+   "text_vi": "Một trận pháp sư từng học bộ pháp đi trong sương ở Thúy Vi lập Vụ Ẩn Môn, giăng sương trên các con đường của mũi đất để che lữ khách khỏi bọn cướp.",
+   "text_en": "A formation master who learned the Haze Walk at Thúy Vi founds Vụ Ẩn Môn, to lay mist on the cape's roads and hide travellers from robbers.",
+   "place": 1063,
+   "region": 2
+  },
+  {
+   "id": "V073",
+   "tier": "annal",
+   "year": 1050,
+   "kind": "disaster",
+   "people": [],
+   "sects": [
+    "bang_tam"
+   ],
+   "text_vi": "Trận bão cát vùi lấp giếng Mã Minh cũng vùi luôn pháo đài thương lộ Mai Sa Bảo, và không ai đào nó lên.",
+   "text_en": "The sandstorm that buries Mã Minh's wells buries the caravan fort of Mai Sa Bảo too, and it is not dug out.",
+   "place": 1425,
+   "region": 8
+  },
+  {
    "id": "A262",
    "tier": "annal",
    "year": 1060,
@@ -9007,6 +11858,48 @@
    "item": "thuong_tang_kinh"
   },
   {
+   "id": "V007",
+   "tier": "annal",
+   "year": 1060,
+   "kind": "sect_founded",
+   "people": [],
+   "sects": [
+    "suong_tung",
+    "tung_dao"
+   ],
+   "text_vi": "Những người chế phù thề trung thành với Tùng Đào lập Sương Tùng Các giữa rừng thông cao, viết bùa hộ trên giấy làm từ vỏ bạch dương và nhựa thông.",
+   "text_en": "Talisman makers sworn to Tùng Đào found Sương Tùng Các in the high pines and write their wards on paper of birch bark and resin.",
+   "place": 948,
+   "region": 1
+  },
+  {
+   "id": "V117",
+   "tier": "annal",
+   "year": 1060,
+   "kind": "sect_founded",
+   "people": [],
+   "sects": [
+    "hoa_cai",
+    "thien_xu"
+   ],
+   "text_vi": "Những người luyện đan dùng chu sa của vùng đất đỏ cằn lập Hoa Cái Đường dưới quyền Thiên Xu; đan dược của họ được cân ở Thiên Quyền Thị như mọi thứ khác.",
+   "text_en": "Pill refiners using the cinnabar of the red badlands found Hoa Cái Đường under Thiên Xu; their pills are weighed at Thiên Quyền Thị like everything else.",
+   "place": 565,
+   "region": 14
+  },
+  {
+   "id": "V016",
+   "tier": "annal",
+   "year": 1061,
+   "kind": "disaster",
+   "people": [],
+   "sects": [],
+   "text_vi": "Vào một mùa hạ khô, lửa bén vào kho nhựa thông của Tùng Chi Trấn, thiêu rụi thị trấn và khu rừng quanh nó trong một đêm; những người trích nhựa không dựng lại.",
+   "text_en": "In a dry summer fire catches the resin stores of Tùng Chi Trấn and burns the town and its forest in one night; the tappers do not rebuild.",
+   "place": 1032,
+   "region": 2
+  },
+  {
    "id": "A155",
    "tier": "annal",
    "year": 1062,
@@ -9021,6 +11914,18 @@
    "region": 10
   },
   {
+   "id": "V142",
+   "tier": "annal",
+   "year": 1062,
+   "kind": "disaster",
+   "people": [],
+   "sects": [],
+   "text_vi": "Trong mùa mưa lớn, sườn đồi trượt xuống vùi thị trấn cối đá Thạch Ma Trấn chỉ trong một đêm; những người sống sót xuống Lục Dã.",
+   "text_en": "In the great rains the hillside slides and buries the millstone town of Thạch Ma Trấn in a night; the survivors go down to Lục Dã.",
+   "place": 434,
+   "region": 17
+  },
+  {
    "id": "A140",
    "tier": "annal",
    "year": 1065,
@@ -9033,6 +11938,59 @@
    "text_en": "Phiến Băng Hồ freezes as clear as glass; Băng Tâm disciples meditate on it and see their own hearts.",
    "place": 191,
    "region": 9
+  },
+  {
+   "id": "V067",
+   "tier": "annal",
+   "year": 1065,
+   "kind": "city_abandoned",
+   "people": [],
+   "sects": [],
+   "text_vi": "Chồn điêu đã bị bẫy sạch và bến cảng năm nào cũng đóng băng; những gia đình cuối cùng của Điêu Cừu Trấn dời về nam, đến Hòe Âm.",
+   "text_en": "The sable are trapped out and the harbour ices in every year; the last families of Điêu Cừu Trấn move south to Hòe Âm.",
+   "place": 1348,
+   "region": 7
+  },
+  {
+   "id": "V107",
+   "tier": "annal",
+   "year": 1065,
+   "kind": "sect_founded",
+   "people": [],
+   "sects": [
+    "yen_quang",
+    "lac_ha"
+   ],
+   "text_vi": "Các đan sư thề trung thành với Lạc Hà Tông lập Yên Quang Các và chỉ hái thảo dược vào giờ ráng chiều.",
+   "text_en": "Alchemists sworn to Lạc Hà Tông found Yên Quang Các and pick their herbs only in the hour of the evening glow.",
+   "place": 537,
+   "region": 13
+  },
+  {
+   "id": "V033",
+   "tier": "annal",
+   "year": 1066,
+   "kind": "disaster",
+   "people": [],
+   "sects": [
+    "thuy_vi"
+   ],
+   "text_vi": "Đường chủ Minh Kính Đường cố đột phá Nguyên Anh; thiên kiếp thiêu rụi tòa điện và giết chết ông, các đệ tử tan tác.",
+   "text_en": "The head of Minh Kính Đường tries to break through to Nguyên Anh; his tribulation burns the hall and kills him, and the disciples scatter.",
+   "place": 1127,
+   "region": 3
+  },
+  {
+   "id": "V050",
+   "tier": "annal",
+   "year": 1066,
+   "kind": "disaster",
+   "people": [],
+   "sects": [],
+   "text_vi": "Một đám cháy trong đan phòng của Lăng Tiêu Các thiêu rụi lầu các trên núi, và các đan sư tan tác.",
+   "text_en": "A fire in the pill hall of Lăng Tiêu Các burns the mountain pavilion, and its alchemists scatter.",
+   "place": 1252,
+   "region": 5
   },
   {
    "id": "A046",
@@ -9099,6 +12057,32 @@
    "text_en": "Triệu Huyết Y, fleeing the hunt that killed her master, hides for two years among the gold-washers of Đào Sa Thị.",
    "place": 47,
    "region": 5
+  },
+  {
+   "id": "V017",
+   "tier": "annal",
+   "year": 1094,
+   "kind": "city_abandoned",
+   "people": [],
+   "sects": [],
+   "text_vi": "Mạch đồng dưới Đồng Sơn Trấn cạn kiệt, và chỉ vài năm sau thị trấn của những người đúc chuông đã vắng tanh.",
+   "text_en": "The copper seam under Đồng Sơn Trấn gives out, and within a few years the bell-casters' town is empty.",
+   "place": 1056,
+   "region": 2
+  },
+  {
+   "id": "V086",
+   "tier": "annal",
+   "year": 1095,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "trac_anh"
+   ],
+   "text_vi": "Vị quán chủ cuối cùng của Tê Nhạn Quán cùng các đệ tử gia nhập Trạc Anh Đài, để lại các tòa điện cho bầy ngỗng đầm lầy.",
+   "text_en": "The last abbot of Tê Nhạn Quán joins Trạc Anh Đài with his disciples, and the halls are left to the marsh geese.",
+   "place": 1476,
+   "region": 9
   },
   {
    "id": "A095",
@@ -9177,6 +12161,75 @@
    "secret": true
   },
   {
+   "id": "V018",
+   "tier": "annal",
+   "year": 1101,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "thuy_vi",
+    "hong_lo"
+   ],
+   "text_vi": "Đường chủ cuối cùng của Thanh Nang Đường qua đời khi đang bế quan mà không chọn người kế vị; các y sư về Hồng Lô Cốc.",
+   "text_en": "The last head of Thanh Nang Đường dies in closed-door cultivation without naming an heir; the healers go to Hồng Lô Cốc.",
+   "place": 1068,
+   "region": 2
+  },
+  {
+   "id": "V068",
+   "tier": "annal",
+   "year": 1102,
+   "kind": "beast",
+   "people": [],
+   "sects": [
+    "bang_tam"
+   ],
+   "text_vi": "Băng thú bị cái lạnh của Băng Phách Mạch dẫn dụ tràn qua Thủ Tuyết Bảo; Băng Tâm Các không dựng lại.",
+   "text_en": "Ice beasts drawn by the cold of Băng Phách Mạch overrun Thủ Tuyết Bảo; the Pavilion does not rebuild it.",
+   "place": 1372,
+   "region": 7
+  },
+  {
+   "id": "V093",
+   "tier": "annal",
+   "year": 1102,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "binh_thuy"
+   ],
+   "text_vi": "Vị quán chủ cuối cùng của Phiêu Bồng Quán qua đời mà không đệ tử nào chịu ở lại, và để sách của quán lại cho Bình Thủy Môn.",
+   "text_en": "The last master of Phiêu Bồng Quán dies with no disciple willing to stay, and leaves its books to Bình Thủy Môn.",
+   "place": 380,
+   "region": 10
+  },
+  {
+   "id": "V162",
+   "tier": "annal",
+   "year": 1102,
+   "kind": "disaster",
+   "people": [],
+   "sects": [
+    "thinh_vu"
+   ],
+   "text_vi": "Một cơn bão làm sườn núi đổ xuống sân dưới của Hộ Khoáng Bảo, và đội canh dời lên ngay mỏ Vũ Hoa Khoáng.",
+   "text_en": "A storm brings the slope down on the lower court of Hộ Khoáng Bảo, and the guard moves up to Vũ Hoa Khoáng itself.",
+   "place": 859,
+   "region": 19
+  },
+  {
+   "id": "V008",
+   "tier": "annal",
+   "year": 1104,
+   "kind": "disaster",
+   "people": [],
+   "sects": [],
+   "text_vi": "Trong mùa mưa dầm, sườn đồi dưới Tà Dương Trấn trượt xuống, vùi nửa thị trấn chỉ trong một đêm; phần còn lại bị bỏ hoang.",
+   "text_en": "In the long rains the hillside under Tà Dương Trấn slides away and buries half the town in a night; the rest is left.",
+   "place": 957,
+   "region": 1
+  },
+  {
    "id": "C183",
    "tier": "landmark",
    "year": 1105,
@@ -9189,6 +12242,21 @@
    "text_en": "Lạc Đan Thanh buys the Đào Nguyên Đồ at Vật Hoa Thị for a pill no one else could make.",
    "place": 50,
    "item": "dao_nguyen_do"
+  },
+  {
+   "id": "V051",
+   "tier": "annal",
+   "year": 1105,
+   "kind": "sect_founded",
+   "people": [],
+   "sects": [
+    "ngao_tuyet",
+    "tung_dao"
+   ],
+   "text_vi": "Một kiếm khách lĩnh ngộ kiếm pháp khi ngắm hoa mai nở xuyên tuyết lập Ngạo Tuyết Phái phía trên Hàn Mai Thôn, thề trung thành với Tùng Đào.",
+   "text_en": "A swordsman who learned his art watching the plum bloom through the snow founds Ngạo Tuyết Phái above Hàn Mai Thôn, sworn to Tùng Đào.",
+   "place": 284,
+   "region": 5
   },
   {
    "id": "A156",
@@ -9219,6 +12287,21 @@
    "text_en": "Lạc Đan Thanh sets up his pill stall in Vật Hoa Thị and charges whatever he likes.",
    "place": 50,
    "region": 12
+  },
+  {
+   "id": "V137",
+   "tier": "annal",
+   "year": 1110,
+   "kind": "sect_founded",
+   "people": [],
+   "sects": [
+    "bach_vu",
+    "phuong_minh"
+   ],
+   "text_vi": "Những người bắt chim nói rằng muôn loài chim đều cúi đầu trước phượng hoàng lập Bách Vũ Các để nuôi chim đưa thư cho Phượng Minh Cung.",
+   "text_en": "Bird catchers who say all birds bow to the phoenix found Bách Vũ Các to raise messenger birds for Phượng Minh's palace.",
+   "place": 330,
+   "region": 16
   },
   {
    "id": "C184",
@@ -9296,6 +12379,51 @@
    "war": "da_quang"
   },
   {
+   "id": "V074",
+   "tier": "annal",
+   "year": 1121,
+   "kind": "siege",
+   "people": [],
+   "sects": [
+    "bang_tam",
+    "da_quang"
+   ],
+   "text_vi": "Cuối chiến dịch, Băng Tâm đốt Huyết Đao Trại, nơi bọn cướp Dạ Quang giấu của cướp được; ít lâu sau Hạng Dạ Bôi quỳ gối quy phục.",
+   "text_en": "At the end of its campaign Băng Tâm burns Huyết Đao Trại, where Dạ Quang's raiders hid their loot; Hạng Dạ Bôi kneels soon after.",
+   "place": 1409,
+   "region": 8
+  },
+  {
+   "id": "V100",
+   "tier": "annal",
+   "year": 1121,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "lac_ha",
+    "muc_van"
+   ],
+   "text_vi": "Năm giá lạnh đã giết chết đàn gia súc và vị lão sư của Phù Dao Quán, và vài đệ tử còn lại đến phục vụ Mục Vân Trang.",
+   "text_en": "The cold year has killed the herds and the old master of Phù Dao Quán, and its few disciples go to serve Mục Vân Trang.",
+   "place": 496,
+   "region": 11
+  },
+  {
+   "id": "V075",
+   "tier": "annal",
+   "year": 1125,
+   "kind": "sect_founded",
+   "people": [],
+   "sects": [
+    "tran_sa",
+    "bang_tam"
+   ],
+   "text_vi": "Các gia tộc hộ vệ thương đội ở Trường Vân lập Trấn Sa Đường, và canh chừng đám hộ tống mới của Dạ Quang còn kỹ hơn canh đường.",
+   "text_en": "The caravan guard families of Trường Vân found Trấn Sa Đường, and watch Dạ Quang's new escorts more closely than the road.",
+   "place": 359,
+   "region": 8
+  },
+  {
    "id": "A141",
    "tier": "annal",
    "year": 1130,
@@ -9360,6 +12488,20 @@
    "region": 15
   },
   {
+   "id": "V052",
+   "tier": "annal",
+   "year": 1134,
+   "kind": "disaster",
+   "people": [],
+   "sects": [
+    "tung_dao"
+   ],
+   "text_vi": "Một trận động đất làm vỡ các tòa điện khoét vào vách đá của Đoạn Vân Viện; những người sống sót về với Tùng Đào.",
+   "text_en": "An earthquake breaks the cliff-cut halls of Đoạn Vân Viện; the survivors go to Tùng Đào.",
+   "place": 1259,
+   "region": 5
+  },
+  {
    "id": "A047",
    "tier": "annal",
    "year": 1140,
@@ -9385,6 +12527,33 @@
    "text_en": "Lễ Tuyền Phái's spirit wine is served at the Pivot's table for the first time; Thiên Xu orders a hundred jars a year.",
    "place": 26,
    "region": 17
+  },
+  {
+   "id": "V087",
+   "tier": "annal",
+   "year": 1140,
+   "kind": "city_abandoned",
+   "people": [],
+   "sects": [],
+   "text_vi": "Bến cảng bồi lấp và thuyền bè đã về Liên Giang, Chiết Liễu Phố, nơi lữ khách xưa bẻ cành liễu tiễn biệt, giờ vắng không.",
+   "text_en": "Its harbour silted up and its ships gone to Liên Giang, Chiết Liễu Phố, where travellers once broke willow twigs in farewell, stands empty.",
+   "place": 1448,
+   "region": 9
+  },
+  {
+   "id": "V088",
+   "tier": "annal",
+   "year": 1140,
+   "kind": "sect_founded",
+   "people": [],
+   "sects": [
+    "lanh_giang",
+    "bang_tam"
+   ],
+   "text_vi": "Ngư dân Liên Giang lập Lãnh Giang Phái theo giấy phép của Băng Tâm để phục hưng lối tu luyện bên lỗ băng của Hàn Giang.",
+   "text_en": "The fishers of Liên Giang found Lãnh Giang Phái under Băng Tâm's licence to revive Hàn Giang's ice-hole cultivation.",
+   "place": 361,
+   "region": 9
   },
   {
    "id": "A063",
@@ -9464,6 +12633,59 @@
    "text_en": "Thính Vũ Lâu attacks Đan Sơn Mạch, Phượng Minh's cinnabar vein near the heart.",
    "place": 211,
    "war": "cinnabar_vein"
+  },
+  {
+   "id": "V034",
+   "tier": "annal",
+   "year": 1150,
+   "kind": "city_abandoned",
+   "people": [],
+   "sects": [],
+   "text_vi": "Trận lũ dời dòng sông sang phía tây đã bỏ cây cầu của Hoành Kiều Trấn trên đất khô, và thị trấn đi theo dòng nước.",
+   "text_en": "The flood that moved the river west has left Hoành Kiều Trấn's bridge over dry ground, and the town follows the water.",
+   "place": 1160,
+   "region": 3
+  },
+  {
+   "id": "V172",
+   "tier": "annal",
+   "year": 1150,
+   "kind": "sect_founded",
+   "people": [],
+   "sects": [
+    "chuc_ha",
+    "phuong_minh"
+   ],
+   "text_vi": "Những thợ dệt thề trung thành với Phượng Minh lập Chức Hà Các và dệt tơ lửa từ tằm Tang Điền mà không cần miệng phun; cung vẫn chưa quyết định điều đó có làm mình hài lòng không.",
+   "text_en": "Weavers sworn to Phượng Minh found Chức Hà Các and weave fire-silk from Tang Điền's worms without the vents; the palace has not yet decided if that pleases it.",
+   "place": 1013,
+   "region": 20
+  },
+  {
+   "id": "V042",
+   "tier": "annal",
+   "year": 1151,
+   "kind": "disaster",
+   "people": [],
+   "sects": [
+    "tung_dao"
+   ],
+   "text_vi": "Một trận tuyết lở mùa đông vùi thị trấn đá Hàn Thạch Trấn, nơi khai đá cho các tòa điện của Tùng Đào; những người sống sót dời xuống Lạc Thạch.",
+   "text_en": "A winter avalanche buries the quarry town of Hàn Thạch Trấn, which cut stone for Tùng Đào's halls; the survivors move down to Lạc Thạch.",
+   "place": 1190,
+   "region": 4
+  },
+  {
+   "id": "V019",
+   "tier": "annal",
+   "year": 1152,
+   "kind": "disaster",
+   "people": [],
+   "sects": [],
+   "text_vi": "Một trận bão lớn phá nát bến cảng Hải Lăng Trấn và lấp đầy cát; dân trấn dời lên bờ biển phía trên, về Tận Giác.",
+   "text_en": "A great storm breaks the harbour of Hải Lăng Trấn and fills it with sand; its people move up the coast to Tận Giác.",
+   "place": 1083,
+   "region": 2
   },
   {
    "id": "C189",
@@ -9565,6 +12787,33 @@
    "item": "tu_dien"
   },
   {
+   "id": "V053",
+   "tier": "annal",
+   "year": 1161,
+   "kind": "city_abandoned",
+   "people": [],
+   "sects": [],
+   "text_vi": "Quặng vằn hổ cạn dần và một con hổ bắt mất thợ mỏ, những gia đình cuối cùng rời Thạch Khẩu Trấn.",
+   "text_en": "With the tiger-stripe ore running thin and a tiger taking miners, the last families leave Thạch Khẩu Trấn.",
+   "place": 1262,
+   "region": 5
+  },
+  {
+   "id": "V069",
+   "tier": "annal",
+   "year": 1162,
+   "kind": "sect_founded",
+   "people": [],
+   "sects": [
+    "tam_kiem",
+    "bang_tam"
+   ],
+   "text_vi": "Một thợ săn họ Tiêu bị Lê Hoa Am từ chối ở cổng lập Tầm Kiếm Đường cho những nam nhân mà am không nhận, để đi tìm hang kiếm niêm phong.",
+   "text_en": "A Tiêu-clan hunter turned away from Lê Hoa Am's gate founds Tầm Kiếm Đường, for the men the hermitage will not take, to search for the sealed sword cave.",
+   "place": 406,
+   "region": 7
+  },
+  {
    "id": "C200",
    "tier": "landmark",
    "year": 1165,
@@ -9609,6 +12858,18 @@
    "text_en": "Úc Diệp Thanh becomes head of Xuyên Lâm Môn and guides every traveller himself for a year.",
    "place": 28,
    "region": 19
+  },
+  {
+   "id": "V020",
+   "tier": "annal",
+   "year": 1170,
+   "kind": "beast",
+   "people": [],
+   "sects": [],
+   "text_vi": "Một con hải điêu từ Hải Điêu Nhai bắt một đứa trẻ ở bãi hàu; từ đó dân làng căm ghét lũ đại bàng biển.",
+   "text_en": "A sea eagle from Hải Điêu Nhai takes a child from the oyster beds; the village has hated the eagles since.",
+   "place": 1065,
+   "region": 2
   },
   {
    "id": "C192",
@@ -9828,6 +13089,21 @@
    "region": 6
   },
   {
+   "id": "V070",
+   "tier": "annal",
+   "year": 1189,
+   "kind": "tale",
+   "people": [],
+   "sects": [
+    "bang_tam",
+    "thien_xu"
+   ],
+   "text_vi": "Lời đòi linh mạch bị bác và Thiên Xu đã tăng gấp đôi lính canh, Băng Tâm rút người canh khỏi Khuy Tinh Bảo và cài then cửa, để khỏi bị xem như đang chuẩn bị chiến tranh.",
+   "text_en": "With its claim to the vein rejected and Thiên Xu's guard doubled, Băng Tâm withdraws the watchers of Khuy Tinh Bảo and bars the doors, so as not to look like war.",
+   "place": 1387,
+   "region": 7
+  },
+  {
    "id": "A064",
    "tier": "annal",
    "year": 1190,
@@ -9883,6 +13159,21 @@
    "text_en": "Thạch Cơ Thành's stone jetty cracks in a storm; Phượng Minh rebuilds it with stone from the ruins of Xích Thành.",
    "place": 93,
    "region": 20
+  },
+  {
+   "id": "V043",
+   "tier": "annal",
+   "year": 1191,
+   "kind": "sect_founded",
+   "people": [],
+   "sects": [
+    "tuan_tung",
+    "tung_dao"
+   ],
+   "text_vi": "Sau bầy sói mùa đông năm trước, những người canh đường thề trung thành với Tùng Đào lập Tuần Tùng Đường trên ngọn đồi trên Tùng Hạ Thị để hộ tống thương đội.",
+   "text_en": "After last winter's wolves, road wardens sworn to Tùng Đào found Tuần Tùng Đường on the hill above Tùng Hạ Thị to guard the caravans.",
+   "place": 376,
+   "region": 4
   },
   {
    "id": "A016",
@@ -10060,6 +13351,20 @@
    "text_vi": "Một cồn sông ở Hà Châu nổi lên khỏi mặt nước sau một trận động đất; cả Thính Vũ lẫn Xuyên Lâm đều đòi quyền sở hữu.",
    "text_en": "A river isle at Hà Châu rises out of the water after an earthquake; Thính Vũ and Xuyên Lâm both claim it.",
    "place": 160,
+   "region": 19
+  },
+  {
+   "id": "V163",
+   "tier": "annal",
+   "year": 1199,
+   "kind": "disaster",
+   "people": [],
+   "sects": [
+    "thinh_vu"
+   ],
+   "text_vi": "Trận động đất nâng hòn đảo ở Hà Châu lên cũng chẻ Sơn Khẩu Trại làm đôi từ đầu đến cuối, và Thính Vũ Lâu không phái lính canh trở lại.",
+   "text_en": "The earthquake that raises the isle at Hà Châu splits Sơn Khẩu Trại from end to end, and the Tower does not send its guard back.",
+   "place": 869,
    "region": 19
   }
  ],
@@ -19405,8 +22710,8 @@
  ],
  "living_cast_by_realm": {
   "luyen_khi": 1,
-  "truc_co": 4,
-  "ket_dan": 31,
+  "truc_co": 15,
+  "ket_dan": 40,
   "nguyen_anh": 16,
   "hoa_than": 2
  },

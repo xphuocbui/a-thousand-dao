@@ -15,6 +15,20 @@ out = {"schema_version": 1,
        "status": cat.get("status", ""),
        "places": {str(e["id"]): {k: e.get(k) for k in ("name", "look", "lore", "history", "special", "levels", "projects")
                                  if e.get(k) not in (None, "", [])} for e in cat["places"]}}
+# the provinces-v2 places (user decision 3, 2026-11-24): look and lore from their lore files, keyed by continent id
+import glob  # noqa: E402
+v2 = {}
+for fn in glob.glob(os.path.join(ROOT, "design/world/provinces-v2/lore/region_*.json")):
+    v2.update(json.load(open(fn, encoding="utf-8")).get("places", {}))
+cont = json.load(open(os.path.join(ROOT, "assets/data/world_continent.json"), encoding="utf-8"))
+n_v2 = 0
+for p in cont["places"]:
+    e = v2.get(p.get("v2_slot", ""))
+    if e and str(p["id"]) not in out["places"]:
+        out["places"][str(p["id"])] = {k: e[k] for k in ("name", "look", "lore") if e.get(k)} | {"new": True}
+        n_v2 += 1
+out["_doc"] += " The provinces-v2 places (new true) take their look and lore from design/world/provinces-v2/lore/."
+print("provinces-v2 places", n_v2)
 with open(os.path.join(ROOT, "assets/data/world_place_lore.json"), "w", encoding="utf-8") as f:
     json.dump(out, f, ensure_ascii=False, indent=1)
 print("exported", len(out["places"]), "places")

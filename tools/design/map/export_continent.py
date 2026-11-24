@@ -79,6 +79,66 @@ def load(path):
         return json.load(fh)
 
 
+def track_routes(places, routes, m, travel, w, h):
+    """Tracks (user decisions 2026-11-24, provinces-v2): a new settlement or mine with no route walks to the nearest
+    place already on the network, along the cheapest land path walked at the wilderness speed over the full terrain
+    cost (Formula D's c_wild x speed.road / speed.wilderness on the route scale), so it is reachable before wilderness travel exists. Each joins the network once tracked, so a later one may
+    walk to it. Sea and lakes are walked around; a place on a landmass with no network stays without a route.
+    Returns [(a_id, b_id, tiles, cost)]."""
+    scale = float(travel["speed"]["road"]) / float(travel["speed"]["wilderness"])   # a track is walked, not ridden
+    cw = [c * scale for c in road_tile_costs(m, dict(travel, road_terrain_share=1.0), w, h)]
+    land, _ = PL_pixels(os.path.join(m, "regions.png"))
+    lake_id = int(next(k for k, v in load(os.path.join(m, "base", "meta.json"))["legend"]["biome_ids"].items() if v == "lake"))
+    main_b = list(Image.open(os.path.join(m, "base", "biome.png")).getdata())
+    ok = [land[i] > 0 and main_b[i] != lake_id for i in range(w * h)]
+    on_net = set()
+    for r in routes:
+        on_net.add(r["a"])
+        on_net.add(r["b"])
+    at = {}
+    for p in places:
+        if p["id"] in on_net:
+            at.setdefault(p["tile"][1] * w + p["tile"][0], p["id"])
+    out = []
+    todo = [p for p in places if p.get("v2_slot") and p["kind"] in SETTLED and p["id"] not in on_net]
+    for p in sorted(todo, key=lambda q: q["id"]):
+        x0, y0 = p["tile"]
+        i0 = y0 * w + x0
+        best = {i0: 0.0}
+        tl = {i0: 0.0}
+        pq = [(0.0, i0)]
+        hit = None
+        while pq:
+            c, i = heapq.heappop(pq)
+            if c > best.get(i, float("inf")) or c > 1200:
+                continue
+            if i in at and at[i] != p["id"]:
+                hit = (at[i], tl[i], c)
+                break
+            x, y = i % w, i // w
+            for dx, dy in N8:
+                nx, ny = x + dx, y + dy
+                if 0 <= nx < w and 0 <= ny < h:
+                    j = ny * w + nx
+                    if not ok[j]:
+                        continue
+                    d = 1.4142 if dx and dy else 1.0
+                    nc = c + d * cw[j]
+                    if nc < best.get(j, float("inf")):
+                        best[j] = nc
+                        tl[j] = tl[i] + d
+                        heapq.heappush(pq, (nc, j))
+        if hit:
+            out.append((min(p["id"], hit[0]), max(p["id"], hit[0]), hit[1], hit[2]))
+            at.setdefault(i0, p["id"])
+    return out
+
+
+def PL_pixels(path):
+    im = Image.open(path)
+    return list(im.getdata()), im.size
+
+
 def road_tile_costs(m, travel, w, h):
     """Travel & Map Formula D's road c_t per tile: 1 + r_share x (c_wild - 1), with c_wild the share-weighted biome
     cost of the tile's land parts (lake and sea parts are walked around and left out of the weights)."""
@@ -103,7 +163,7 @@ def road_tile_costs(m, travel, w, h):
     return out
 
 
-def road_routes(roads, w, h, places, ct=None):
+def road_routes(roads, w, h, places, ct=None, cw=None):
     """Road links between neighbouring places: a Dijkstra over road tiles (8 neighbours; a diagonal step counts sqrt 2
     tiles) from every place at once gives each road tile to its nearest place, and two places are joined where their
     road areas meet, with length = distance to the meeting tiles from each side plus the step between them. A place
@@ -131,10 +191,13 @@ def road_routes(roads, w, h, places, ct=None):
                     if 0 <= x < w and 0 <= y < h and is_road(y * w + x):
                         seeds.append((math.dist((x, y), (x0, y0)), y * w + x))
             seeds = sorted(seeds)[:1]
-        for c, i in seeds:
+        for d0, i in seeds:
+            # a provinces-v2 place walks its off-road start at the full terrain cost (cw), so its route is never
+            # quicker than the tile path; the authored places keep their old reading (cost = distance)
+            c = d0 * cw[i0] if (cw is not None and p.get("v2_slot")) else d0
             if c < best.get(i, float("inf")):
                 best[i] = c
-                tl[i] = c
+                tl[i] = d0
                 owner[i] = p["id"]
                 trunk[i] = roads[i] == 2
                 heapq.heappush(pq, (c, i))
@@ -320,6 +383,27 @@ def main():
             q["territory"] = sect_key(s.get("territory"))
             places.append(q)
             next_id += 1
+    # the provinces-v2 places (tools/design/map/places_v2_merge.py; user decisions 2026-11-24): appended last, so no
+    # earlier id moves; only their settlements join the roads (v2_road); kept sites carry site_grade, the others no_site
+    v2_path = os.path.join(m, "provinces_v2_places.json")
+    if os.path.exists(v2_path):
+        v2 = load(v2_path)
+        for s in v2["places"]:
+            q = {"id": next_id, "kind": s["kind"], "tile": s["tile"], "region": s["region"], "biome": s.get("biome", ""),
+                 "elevation_km": s.get("elevation_km", 0.0), "port": False, "river": bool(s.get("river", False)),
+                 "coast": bool(s.get("coast", False)), "livability": s.get("livability", 0.0), "name": s["name_hv"],
+                 "on_road": bool(s.get("v2_road", False)), "array": False, "province": s["province"],
+                 "v2_slot": s["v2_slot"], "v2_road": bool(s.get("v2_road", False))}
+            for k in ("name_han", "gloss", "key", "former", "lived", "site_grade", "no_site"):
+                if s.get(k) not in (None, ""):
+                    q[k] = s[k]
+            q["holder"] = s.get("holder", "")
+            q["territory"] = s.get("territory", "")
+            places.append(q)
+            next_id += 1
+        for s in v2.get("minor_sects", []):
+            minor.append({k: s[k] for k in ("key", "name_hv", "name_han", "gloss", "alignment", "leans", "craft", "lord",
+                                           "region", "founded") if k in s})
     by_key = {p["key"]: p for p in places if p.get("key")}
     by_name = {p["name"]: p for p in places}
     for p in places:
@@ -348,6 +432,8 @@ def main():
                           "gloss": s.get("gloss", ""), "alignment": s.get("alignment", ""), "leans": s.get("leans", []),
                           "craft": s.get("craft", ""), "lord": s.get("lord", ""), "region": s.get("region"),
                           "seat": seat["id"] if seat else None})
+        if s.get("founded") is not None:   # the provinces-v2 sects carry their founding year
+            minor_out[-1]["founded"] = s["founded"]
 
     # origins: each approved home choice resolved to the place it starts at (fixed-world decisions: a sect disciple at
     # its sect's seat, a loose cultivator at a cultivator market, a clan heir in its clan's town)
@@ -372,7 +458,18 @@ def main():
         origin_homes[oid] = homes
 
     routes = []
-    for (x, y), (tiles, trunk, cost) in sorted(road_routes(roads, w, h, places, ct).items()):
+    # off the road a traveller walks at the wilderness speed over the full terrain cost (Formula D): on the route's
+    # road-speed scale that is c_wild x speed.road / speed.wilderness per tile
+    wild_scale = float(travel["speed"]["road"]) / float(travel["speed"]["wilderness"])
+    wild_costs = [c * wild_scale for c in road_tile_costs(m, dict(travel, road_terrain_share=1.0), w, h)]
+    for p in places:   # "on road" means on a road tile (as the authored flag); v2_road only says the place is routed
+        if p.get("v2_slot"):
+            x0, y0 = p["tile"]
+            p["on_road"] = bool(p.get("v2_road")) and roads[y0 * w + x0] in (1, 2)
+    routed = [p for p in places if "v2_road" not in p or p["v2_road"]]   # new wild places stay off the roads
+    for p in places:
+        p.pop("v2_road", None)
+    for (x, y), (tiles, trunk, cost) in sorted(road_routes(roads, w, h, routed, ct, wild_costs).items()):
         routes.append({"a": x, "b": y, "kind": "trunk" if trunk else "road", "tiles": round(tiles, 3),
                        "km": round(tiles * km_per_tile, 1), "cost": round(cost, 3)})
     missing_lanes = []
@@ -388,6 +485,9 @@ def main():
         x, y = sorted((pa["id"], pb["id"]))
         routes.append({"a": x, "b": y, "kind": "lane", "tiles": round(tl, 3), "km": round(tl * km_per_tile, 1),
                        "cost": round(tl, 3)})   # Formula D: c_t = 1 at sea
+    for a_id, b_id, tiles, cost in track_routes(places, routes, m, travel, w, h):
+        routes.append({"a": a_id, "b": b_id, "kind": "track", "tiles": round(tiles, 3),
+                       "km": round(tiles * km_per_tile, 1), "cost": round(cost, 3)})
 
     # each mine's authored resource (user decision 2026-11-20: by its name; mine_resources.json)
     mr_path = os.path.join(m, "mine_resources.json")

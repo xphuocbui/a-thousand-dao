@@ -67,6 +67,23 @@ class Export:
         self.sect_start, self.cast, self.traits = W("sect_start_proposal"), W("cast_proposal"), W("leader_traits_proposal")
         self.chron, self.annals, self.records = W("chronicle_proposal"), W("annals_proposal"), W("records_proposal")
         self.items, self.territory = W("legendary_items_proposal"), W("territory_history_proposal")
+        # the provinces-v2 sects (user decision 4, 2026-11-24): their start rows, founding years and specialties
+        v2_start = os.path.join(WORLD, "provinces-v2", "sect_start_v2.json")
+        if os.path.exists(v2_start):
+            for s in load(v2_start)["minor_sects"]:
+                self.sect_start["minor_sects"].append({k: s[k] for k in ("key", "name_hv", "lord", "alignment", "levels",
+                                                                         "treasury", "loyalty")})
+                self.cast["minor_sect_founding_years"][s["key"]] = s["founded"]
+                SPECIALTY.setdefault(s["key"], s["specialty"])
+        # their heads (cast_v2.json) and the provinces-v2 annals (annals_v2.json; user decision 7)
+        v2_cast = os.path.join(WORLD, "provinces-v2", "cast_v2.json")
+        if os.path.exists(v2_cast):
+            vc = load(v2_cast)
+            self.cast["people"] += vc["people"]
+            self.traits["others"].update(vc["traits"])
+        v2_annals = os.path.join(WORLD, "provinces-v2", "annals_v2.json")
+        if os.path.exists(v2_annals):
+            self.annals["events"] += load(v2_annals)["events"]
         self.history = load(os.path.join(MAP, "history.json"))
         lq = load(os.path.join(MAP, "land_qi.json"))   # Travel & Map Formula C (tools/design/map/land_qi.py)
         self.qi = {str(q["id"]): q for q in lq["places"]}
