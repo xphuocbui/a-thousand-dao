@@ -1,5 +1,11 @@
 # UX Spec: Person Window
 
+> **Superseded in the build (user 2026-11-24: "why we cant reuse our character screen for other characters" / "Yes
+> please go ahead")**: there is no separate person window any more. A person opens the character sheet about them
+> (CharacterWindow, subject = their id; GameQuery.character(s, id)), look-only, with an Interact tab first holding this
+> spec's P3 content (attitude, where, home, traits, ties, recent history, verbs) and P5's bar (Pin, Relations, Practice
+> fight, Travel there). Traits show as icons; hovering one shows its name, group, stat lines and leanings (CK-style).
+
 > **Status**: In Review (all sections written 2026-11-22; run `/ux-review person`)
 > **Author**: user + ux-designer
 > **Last Updated**: 2026-11-22

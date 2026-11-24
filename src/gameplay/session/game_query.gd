@@ -339,21 +339,36 @@ static func person(s: GameSession, person_id: String) -> Dictionary:
 ## Everything the character sheet shows about the player (design/ux/character-sheet.md), as a copy, Breakdowns
 ## included ({total, lines} each, so the window never reads the session on hover). Reads only: no rating record is
 ## created, nothing in the world changes. {} before a world exists.
-static func character(s: GameSession) -> Dictionary:
-	var c: Character = s.player
-	if c == null:
+##
+## [param person_id] another person (user 2026-11-24: one character window for everyone): the same sheet built from
+## their record and their build's stat sheet, with no cultivation rate, bottleneck or slot choices (look-only), and a
+## "person" block (GameQuery.person: attitude, met, where, home, ties, recent history) for the Interact tab.
+## "" or the player's id: the player as before. {} for an unknown id.
+static func character(s: GameSession, person_id: String = "") -> Dictionary:
+	if s.player == null:
 		return {}
+	var is_me: bool = person_id == "" or person_id == s.player.id
+	var c: Character = s.player
+	var sh: StatSheet = null
+	if is_me:
+		sh = s.sheet()
+	else:
+		var rec0: Dictionary = s.db.get_record("people", person_id)
+		if rec0.is_empty() or s.builds == null:
+			return {}
+		c = Character.from_dict(rec0.duplicate(true))
+		sh = s.builds.sheet_of(c)
 	var gd: GameData = s.gd
-	var sh: StatSheet = s.sheet()
 	var bd := func(b: Breakdown) -> Dictionary: return {"total": b.total, "lines": Array(b.lines())}
 	var life: Breakdown = CultivationRules.lifespan(c, gd, sh)
 	var sect: Dictionary = s.db.get_record("sects", c.sect_id)
-	var res: Dictionary = resources(s)
+	var res: Dictionary = resources(s) if is_me else {"power": int(s.power_of_person(c.id).get("value", -1)),
+		"provisional": bool(s.power_of_person(c.id).get("provisional", false)), "held": false}
 	var req: float = CultivationRules.level_requirement(c, gd)
-	var rate: Dictionary = breakdown(s, "rate")
+	var rate: Dictionary = breakdown(s, "rate") if is_me else {}
 	var layer: int = Ladder.layer_of_level(gd, c.level)
 	var out := {
-		"id": c.id, "name": c.name, "alive": c.alive, "death_cause": c.death_cause,
+		"id": c.id, "name": c.name, "alive": c.alive, "death_cause": c.death_cause, "is_player": is_me,
 		"realm_label": gd.realm_label(c.realm_index, c.stage), "level": c.level, "layer": layer,
 		"portrait": portrait_of(s, c.to_dict()), "gender": c.gender, "traits": traits_view(gd, c.npc_traits),
 		"sect": str(sect.get("name", "")), "rank": s.sect_members.rank_name(c.sect_rank) if s.sect_members != null and c.sect_rank != "" else "",
@@ -370,6 +385,8 @@ static func character(s: GameSession) -> Dictionary:
 			"birth_mode": c.birth_mode, "perks": []},
 		"breakdowns": {"rate": rate, "lifespan": bd.call(life)},
 	}
+	if not is_me:
+		out["person"] = person(s, c.id)
 	for e in gd.element_cycle():
 		var p: float = c.linh_can.purity(e)
 		out.roots.elements.append({"id": str(e), "name": gd.element_name(e), "purity": p, "grade": gd.grade_name(p) if p > 0.0 else "",
@@ -454,8 +471,8 @@ static func character(s: GameSession) -> Dictionary:
 	for pid in c.perks:
 		var pk: Dictionary = ProgressionEdges.perk(gd, str(pid))
 		out.fate.perks.append({"id": str(pid), "name": str(pk.get("name", pid)), "text": str(pk.get("desc", ""))})
-	# The bottleneck block (canh-gioi.md UI Requirements), only at great perfection.
-	if CultivationRules.at_great_perfection(c, gd) and c.realm_index < gd.realms().size() - 1:
+	# The bottleneck block (canh-gioi.md UI Requirements), only at great perfection, and only the player's.
+	if is_me and CultivationRules.at_great_perfection(c, gd) and c.realm_index < gd.realms().size() - 1:
 		var odds: Dictionary = Advisor.breakthrough_odds(s)
 		var cond: Dictionary = odds.get("condition", {})
 		var bar_cost: float = Ladder.bar_cost(gd, c.realm_index)
@@ -1119,8 +1136,16 @@ static func traits_view(gd: GameData, nt: Dictionary) -> Array:
 				for m in Array(rec.get(key, [])):
 					lines.append(gd.format_mod(str(m.get("stat", "")), float(m.get("value", 0.0))))
 			var icon: String = "res://assets/icons/traits/%s.png" % str(tid)
+			var more: Array = []
+			var less: Array = []
+			var tags: Dictionary = rec.get("tags", {})
+			for tag in tags:
+				(more if float(tags[tag]) >= 1.0 else less).append(str(tag).replace("_", " "))
+			var leans: String = ("Leans to: " + ", ".join(more)) if not more.is_empty() else ""
+			if not less.is_empty():
+				leans += ("; " if leans != "" else "") + "less: " + ", ".join(less)
 			out.append({"group": group, "id": str(tid), "name": str(rec.get("name", tid)), "name_vi": str(rec.get("name_vi", "")),
-				"icon": icon if ResourceLoader.exists(icon) else "", "lines": lines})
+				"icon": icon if ResourceLoader.exists(icon) else "", "lines": lines, "leans": leans})
 	return out
 
 

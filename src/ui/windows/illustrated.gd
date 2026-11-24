@@ -271,36 +271,26 @@ static func card(icon: Texture2D, kind: String, title: String, sub: String = "")
 
 ## A trait chip: the trait's painted medallion (assets/icons/traits) and its name with the Vietnamese under it; the
 ## tooltip carries its stat lines. [param t] is a GameQuery.traits_view row.
+## The icon alone, the way a strategy game's trait row reads (user 2026-11-24: "use the hover to display info for
+## traits, much like in ck ... you just need the icon"): hovering (or Q on focus) shows the name with the Vietnamese,
+## the group, the stat lines and what the trait leans a person to, and the tooltip's wiki key opens its wiki entry.
 static func trait_chip(t: Dictionary, d: float = 40.0) -> PanelContainer:
 	var c := PanelContainer.new()
 	c.add_theme_stylebox_override("panel", StyleBoxEmpty.new())
 	c.focus_mode = Control.FOCUS_ALL
-	var row := HBoxContainer.new()
-	row.add_theme_constant_override("separation", 6)
-	c.add_child(row)
+	c.mouse_filter = Control.MOUSE_FILTER_STOP
 	var ic := TextureRect.new()
 	ic.texture = tex(str(t.get("icon", "")))
 	ic.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	ic.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	ic.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	ic.custom_minimum_size = Vector2(d, d)
-	ic.size_flags_vertical = Control.SIZE_SHRINK_CENTER
-	row.add_child(ic)
-	var col := VBoxContainer.new()
-	col.add_theme_constant_override("separation", 0)
-	col.size_flags_vertical = Control.SIZE_SHRINK_CENTER
-	row.add_child(col)
-	var n := Label.new()
-	n.text = str(t.get("name", ""))
-	col.add_child(n)
-	if str(t.get("name_vi", "")) != "":
-		var vi := Label.new()
-		vi.text = str(t.name_vi)
-		vi.theme_type_variation = &"RowLabel"
-		col.add_child(vi)
-	c.accessibility_name = "%s (%s)" % [str(t.get("name", "")), str(t.get("group", ""))]
-	TooltipLayer.set_tip(c, {"title": str(t.get("name", "")) + ((" (" + str(t.name_vi) + ")") if str(t.get("name_vi", "")) != "" else ""),
-		"fact": str(t.get("group", "")).capitalize(), "lines": Array(t.get("lines", []))})
+	ic.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	c.add_child(ic)
+	var title: String = str(t.get("name", "")) + ((" (" + str(t.name_vi) + ")") if str(t.get("name_vi", "")) != "" else "")
+	c.accessibility_name = "%s, %s" % [title, str(t.get("group", ""))]
+	TooltipLayer.set_tip(c, {"id": "trait:" + str(t.get("id", "")), "title": title, "fact": str(t.get("group", "")).capitalize(),
+		"lines": Array(t.get("lines", [])), "summary": str(t.get("leans", "")), "wiki": "trait:" + str(t.get("id", ""))})
 	return c
 
 

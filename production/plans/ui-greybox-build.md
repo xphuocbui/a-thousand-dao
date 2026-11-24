@@ -80,6 +80,17 @@ Theme), and later screens are built in the final style.
 | Z6 window host | `src/ui/windows/window_host.gd`, `game_window.gd`, `assets/data/ui_windows.json` | Built 2026-11-23 night: frame, history (back / forward, Alt+← / →, mouse 4 / 5, forward entries dropped), focus return, sticky header, section jumps (Home / End, LT / RT), reply strip (3 lines + dismiss), Z2 buttons and hotkeys from `ui_windows.json` |
 | Character sheet | `src/ui/windows/character_window.gd`, `GameQuery.character`; spec `design/ux/character-sheet.md` (lean r1 NEEDS REVISION, all 11 findings applied) | Built 2026-11-23 night, see its section below |
 
+## One character window for everyone (2026-11-24, user: "why we cant reuse our character screen for other characters")
+- GameQuery.character(s, person_id): any person's full sheet from their record and build stat sheet (no rate,
+  bottleneck or slot choices), plus a "person" block (GameQuery.person) for the Interact tab.
+- CharacterWindow: Interact tab first for others (portrait, who, attitude, where, home, trait icons, ties with
+  portraits, history, verbs; bar Pin / Relations / Practice fight / Travel there) emitting UI actions person_verb /
+  person_pin / person_relations / person_fight / person_travel that map_screen._on_window_action handles; the rest of
+  the sheet look-only. person_panel.gd removed; map_screen routes _open_person to _win.open("character", id) (history
+  works for people now); the demo's person steps read the window host.
+- Traits are icons only (Illustrated.trait_chip): hover shows name (Vietnamese), group, stat lines, leanings, wiki key.
+Evidence 28-person-as-character-sheet.
+
 ## Person window, menu, wiki, named item icons (2026-11-24, user: "Go do all 3 please")
 - Person window: the painted portrait in the header beside name, standing, numbers and a row of trait medallions;
   sections as parchment insets on the wood ground; ties with portrait medallions (GameQuery.person ties carry portrait).

@@ -23,6 +23,9 @@
 > new player has none yet ("deeds and fate give traits"). Tabs (2026-11-24): Overview (the mock-up's page: portrait,
 > Thiên phú, cultivation, traits, linh căn, vitals, công pháp), Combat, Equipment (Đạo Đồ, gear, crafts), Fate & life;
 > a section jump opens its tab; Ctrl+Tab / Ctrl+Shift+Tab step the tabs.
+> One window for everyone (2026-11-24): the sheet shows any person (subject = their id), look-only, with an Interact
+> tab first (design/ux/person.md's content: verbs, ties, history, Pin / Relations / Practice fight / Travel); traits are
+> icons with their info on hover.
 
 ---
 

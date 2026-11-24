@@ -103,6 +103,7 @@ func test_every_read_method_and_guidance_read_leaves_the_world_unchanged() -> vo
 		"GameQuery.people_at": func(): return GameQuery.people_at(s, here),
 		"GameQuery.practice_fight": func(): return GameQuery.practice_fight(s, npc),
 		"GameQuery.character": func(): return GameQuery.character(s),
+		"GameQuery.character (another person)": func(): return GameQuery.character(s, npc),
 		"GameQuery.world_seed": func(): return GameQuery.world_seed(s),
 		"GameQuery.inventory": func(): return GameQuery.inventory(s),
 		"GameQuery.relationships": func(): return GameQuery.relationships(s),

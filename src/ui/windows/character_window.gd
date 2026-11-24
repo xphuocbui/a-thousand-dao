@@ -6,14 +6,28 @@ extends GameWindow
 ## gauges in element colours and the vitals tiles, the công pháp slot cards (each with Change and an inline chooser),
 ## then the remaining sections as parchment insets two by two. Eleven sections in a fixed order, Breakdown tooltips on
 ## every derived number, a confirm-in-place breakthrough, an action bar to the inventory, Đạo Đồ and rankings.
+##
+## One window for everyone (user 2026-11-24: "why we cant reuse our character screen for other characters"): the
+## subject is "" (the player) or a person id (GameQuery.character(s, id)); another person's sheet is look-only (no slot
+## changes, no breakthrough) and gains an Interact tab first (attitude, where, ties, recent history, the verbs of
+## npc-interaction-dialogue.md rules 8-11; only Greet runs) with Pin, Relations, Practice fight and Travel there. The
+## Interact tab's requests are UI actions ("person_verb", "person_pin", "person_relations", "person_fight",
+## "person_travel") the map screen handles itself. It replaced the separate person window (person_panel.gd).
 ## Built from [method GameQuery.character]; requests set_slot and breakthrough through [signal GameWindow.action_requested].
 
 ## The section keys in jump order: the illustrated layout's reading order (left column first, then the right, the
 ## công pháp cards, the insets two by two), which replaced character-sheet.md's list order on 2026-11-24.
 const SECTIONS := ["talents", "cultivation", "traits", "roots", "vitals", "cong_phap", "combat", "dao_do", "gear", "crafts", "fate", "lifespan"]
 ## The tabs (the round-3 mock-up's tab row, user 2026-11-24): [key, title, its sections]. Overview holds the mock-up's
-## page; a jump to a section on another tab opens that tab first.
-const TABS := [["overview", "Overview", ["talents", "cultivation", "traits", "roots", "vitals", "cong_phap"]],
+## page; a jump to a section on another tab opens that tab first. Interact exists only for another person.
+## The verbs of npc-interaction-dialogue.md rules 8-11, by group; only Greet runs in the greybox.
+const PERSON_VERBS := [
+	["Social", ["greet:Greet (Hàn huyên)", "news:Ask for news (Hỏi tin)", "about:Ask about someone (Hỏi về người)", "gift:Give a gift (Tặng lễ)", "work:Ask for work (Xin việc)"]],
+	["Favours", ["teach:Ask for teaching (Thỉnh giáo)", "help:Ask for help (Nhờ giúp)", "trade:Trade (Giao dịch)"]],
+	["Conflict", ["spar:Spar (Luận bàn)", "threaten:Threaten (Uy hiếp)", "provoke:Provoke (Khiêu khích)"]],
+	["Bonds", ["companion:Recruit a companion", "disciple:Take a disciple", "brotherhood:Swear brotherhood (kết nghĩa)", "dao_lu:Seek Dao companionship (đạo lữ)"]],
+]
+const TABS := [["interact", "Interact", ["interact", "verbs"]], ["overview", "Overview", ["talents", "cultivation", "traits", "roots", "vitals", "cong_phap"]],
 	["combat", "Combat", ["combat"]], ["equipment", "Equipment", ["dao_do", "gear", "crafts"]], ["fate", "Fate & life", ["fate", "lifespan"]]]
 ## Hán marks per element (a shape beside the colour; accessibility-requirements.md colour audit).
 const ELEMENT_MARKS := {"kim": "金", "moc": "木", "thuy": "水", "hoa": "火", "tho": "土"}
@@ -24,6 +38,7 @@ var lifespan_warn_share: float = 0.1
 var _chooser_slot: Dictionary = {}   # the slot whose chooser is open ({slot, index}), {} when none
 var _armed: bool = false             # the breakthrough confirm is armed
 var _tab: String = "overview"        # the open tab (TABS)
+var _event_locked: bool = false      # an event waits (the Interact tab's verbs say so); `locked` also covers look-only
 
 
 ## The open tab's key (for tests).
@@ -62,7 +77,19 @@ func kind() -> String:
 
 
 func window_title(v: Dictionary) -> String:
-	return tr("Character") + ("" if bool(v.get("alive", true)) else " (" + tr("died") + ")")
+	var who: String = tr("Character") if bool(v.get("is_player", true)) else str(v.get("name", tr("Person")))
+	return who + ("" if bool(v.get("alive", true)) else " (" + tr("died") + ")")
+
+
+## True while the window shows someone other than the player.
+func shows_other() -> bool:
+	return not bool(view.get("is_player", true)) and not view.is_empty()
+
+
+## Opens the Interact tab and focuses its first live verb (the V key).
+func jump_to_verbs() -> void:
+	if shows_other():
+		jump_to("verbs")
 
 
 ## The chooser state, for tests: {slot, index} or {}.
@@ -79,7 +106,7 @@ func show_view(v: Dictionary, section: String, is_locked: bool) -> void:
 	if v.get("id", "") != view.get("id", "-"):
 		_chooser_slot = {}
 		_armed = false
-		_tab = "overview"
+		_tab = "overview" if bool(v.get("is_player", true)) else "interact"
 	if section != "" and tab_of(section) != "":
 		_tab = tab_of(section)
 	super.show_view(v, section, is_locked)
@@ -92,9 +119,13 @@ func _build() -> void:
 		return
 	_build_header(v)
 	var dead: bool = not bool(v.get("alive", true))
-	locked = locked or dead
+	_event_locked = locked
+	locked = locked or dead or not bool(v.get("is_player", true))   # another person's sheet is look-only
 	_build_tabs()
 	var g: VBoxContainer = Illustrated.ground(body)
+	if _tab == "interact":
+		_build_interact(v, g)
+		return
 	if _tab != "overview":
 		var rest: GridContainer = Illustrated.grid(g, 1 if compact else 2, 10)
 		match _tab:
@@ -141,9 +172,135 @@ func _build() -> void:
 
 
 func _bar_buttons() -> void:
+	if shows_other():
+		_person_bar()
+		return
 	bar_open(tr("Inventory"), "inventory")
 	bar_open(tr("Đạo Đồ"), "dao_do")
 	bar_open(tr("Rankings"), "rankings")
+
+
+# Another person's action bar (person.md P5): Pin / Unpin, Relations, Practice fight, Travel there.
+func _person_bar() -> void:
+	var v: Dictionary = view
+	var p: Dictionary = v.get("person", {})
+	var pid: String = str(v.get("id", ""))
+	var pin := Button.new()
+	pin.name = "Pin"
+	var on: bool = bool(v.get("pinned", false))
+	pin.text = tr("Unpin") if on else tr("Pin")
+	TooltipLayer.set_tip(pin, tr("Follow this person in the outliner (where they are each season)."))
+	pin.pressed.connect(func(): action_requested.emit("person_pin", [pid, not on]))
+	bar.add_child(pin)
+	var rel := Button.new()
+	rel.name = "Relations"
+	rel.text = tr("Relations")
+	TooltipLayer.set_tip(rel, tr("Your relationships page, filtered to this person."))
+	var pname: String = str(v.get("name", ""))
+	rel.pressed.connect(func(): action_requested.emit("person_relations", [pname]))
+	bar.add_child(rel)
+	if bool(v.get("alive", true)) and not bool(p.get("is_beast", false)):
+		var fight := Button.new()
+		fight.name = "PracticeFight"
+		fight.text = tr("Practice fight")
+		TooltipLayer.set_tip(fight, tr("Watch a practice fight with this person on the fight screen. It changes nothing: a preview of how a fight would go."))
+		fight.pressed.connect(func(): action_requested.emit("person_fight", [pid]))
+		bar.add_child(fight)
+	if not bool(p.get("here", false)) and str(p.get("place_id", "")) != "" and bool(v.get("alive", true)):
+		var travel := Button.new()
+		travel.name = "TravelThere"
+		travel.text = tr("Travel there")
+		var plid: String = str(p.place_id)
+		travel.pressed.connect(func(): action_requested.emit("person_travel", [plid]))
+		bar.add_child(travel)
+
+
+# The Interact tab (person.md P3 Character and ties, Verbs, More): attitude and where, ties with portraits, recent
+# history, and the verbs (only Greet runs; the rest say why not).
+func _build_interact(v: Dictionary, g: Control) -> void:
+	var p: Dictionary = v.get("person", {})
+	var top := HBoxContainer.new()
+	top.add_theme_constant_override("separation", 12)
+	g.add_child(top)
+	var pw: float = 160.0 if compact else 200.0
+	var pf: Control = Illustrated.framed(PortraitPicker.texture_for(v.get("portrait", {})), Vector2(pw, pw * 1.25), "")
+	pf.name = "Portrait"
+	top.add_child(pf)
+	var who: VBoxContainer = section_in(top, "interact", tr("Who they are"))
+	var realm := Label.new()
+	realm.text = str(v.get("realm_label", ""))
+	realm.theme_type_variation = &"TitleLabel"
+	who.add_child(realm)
+	line(_standing_rest(v) + ((" · " + str(p.archetype)) if str(p.get("archetype", "")) != "" else ""), who)
+	var att: String = tr("not met") if not bool(p.get("met", false)) else "%s %+d" % [str(p.get("band", "")), int(p.get("attitude", 0))]
+	row(tr("Attitude"), att, null, who)
+	row(tr("Where"), str(p.get("place", "")) + ("  (" + tr("here") + ")" if bool(p.get("here", false)) else ""), null, who)
+	row(tr("Home"), str(p.get("home", "")) if str(p.get("home", "")) != "" else tr("none"), null, who)
+	var ts: Array = Array(v.get("traits", []))
+	if not ts.is_empty():
+		var flow := HFlowContainer.new()
+		flow.add_theme_constant_override("h_separation", 6)
+		flow.add_theme_constant_override("v_separation", 6)
+		who.add_child(flow)
+		for t in ts:
+			flow.add_child(Illustrated.trait_chip(t, 44.0))
+	var cols: GridContainer = Illustrated.grid(g, 1 if compact else 2, 10)
+	var ties_box: VBoxContainer = Illustrated.inset(cols, tr("Ties"))
+	var ties: Array = Array(p.get("ties", []))
+	if ties.is_empty():
+		line(tr("none"), ties_box)
+	for t in ties:
+		var r := HBoxContainer.new()
+		r.add_theme_constant_override("separation", 8)
+		r.add_child(Illustrated.medallion(PortraitPicker.texture_for(t.get("portrait", {})), 36.0))
+		var l := Label.new()
+		l.text = ", ".join(Array(t.kinds)) + ":"
+		r.add_child(l)
+		var b := LinkButton.new()
+		b.text = str(t.partner)
+		LinkStyle.apply(b, "person", "", "paper")
+		var tid: String = str(t.partner_id)
+		b.pressed.connect(func(): open_requested.emit("person", tid, ""))
+		r.add_child(b)
+		ties_box.add_child(r)
+	var hist_box: VBoxContainer = Illustrated.inset(cols, tr("Recent history"))
+	var hist: Array = Array(p.get("history", []))
+	if hist.is_empty():
+		line(tr("none"), hist_box)
+	for h in hist:
+		line(str(h), hist_box)
+	var vb: VBoxContainer = section_in(g, "verbs", tr("Verbs"))
+	var here: bool = bool(p.get("here", false)) and bool(v.get("alive", true)) and not bool(p.get("is_beast", false))
+	var first: Button = null
+	for group in PERSON_VERBS:
+		var gl := Label.new()
+		gl.text = tr(str(group[0]))
+		gl.theme_type_variation = &"RowLabel"
+		vb.add_child(gl)
+		for entry in group[1]:
+			var parts: PackedStringArray = str(entry).split(":", true, 1)
+			var reason: String = ""
+			if not here:
+				reason = tr("not here: %s") % str(p.get("place", "?"))
+			elif _event_locked:
+				reason = tr("locked while an event waits (look only)")
+			elif parts[0] != "greet":
+				reason = tr("not in the game yet (the verb system is designed, not built)")
+			var b := Button.new()
+			b.name = "Verb_" + parts[0]
+			b.alignment = HORIZONTAL_ALIGNMENT_LEFT
+			b.text = "  " + tr(parts[1]) + ("   v " + tr("will accept") if reason == "" else "   — " + reason)
+			b.disabled = reason != ""
+			b.accessibility_name = tr(parts[1]) + ((": " + reason) if reason != "" else "")
+			var vid: String = parts[0]
+			var pid: String = str(v.get("id", ""))
+			b.pressed.connect(func(): action_requested.emit("person_verb", [pid, vid]))
+			vb.add_child(b)
+			if first == null and not b.disabled:
+				first = b
+	if first != null:
+		focus_later(first)
+	_person_bar()
 
 
 # The tab row in the sticky header: one toggle per tab, the open one pressed (Ctrl+Tab / Ctrl+Shift+Tab step them).
@@ -153,6 +310,8 @@ func _build_tabs() -> void:
 	row.add_theme_constant_override("separation", 4)
 	header.add_child(row)
 	for t in TABS:
+		if str(t[0]) == "interact" and not shows_other():
+			continue
 		var b := Button.new()
 		b.name = "Tab_" + str(t[0])
 		b.toggle_mode = true
@@ -166,7 +325,7 @@ func _build_tabs() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if is_visible_in_tree() and event is InputEventKey and event.is_pressed() and (event as InputEventKey).ctrl_pressed \
 			and (event as InputEventKey).physical_keycode == KEY_TAB:
-		var keys: Array = TABS.map(func(t): return str(t[0]))
+		var keys: Array = TABS.map(func(t): return str(t[0])).filter(func(k): return k != "interact" or shows_other())
 		var i: int = keys.find(_tab) + (-1 if (event as InputEventKey).shift_pressed else 1)
 		open_tab(str(keys[posmod(i, keys.size())]))
 		get_viewport().set_input_as_handled()
@@ -324,11 +483,11 @@ func _build_traits(v: Dictionary, parent: Control) -> void:
 		line(tr("none yet: deeds and fate give traits as your life goes on"), box)
 		return
 	var flow := HFlowContainer.new()
-	flow.add_theme_constant_override("h_separation", 18)
+	flow.add_theme_constant_override("h_separation", 6)
 	flow.add_theme_constant_override("v_separation", 6)
 	box.add_child(flow)
-	for t in ts:
-		flow.add_child(Illustrated.trait_chip(t))
+	for t in ts:   # icons only; hover (or Q) shows the trait (user 2026-11-24: "much like in ck")
+		flow.add_child(Illustrated.trait_chip(t, 48.0))
 
 
 # The standing line without the realm (the inset's title shows it): sect and rank, or loose; age.
