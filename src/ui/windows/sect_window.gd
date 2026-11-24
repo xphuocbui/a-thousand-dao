@@ -113,6 +113,8 @@ func _build() -> void:
 		var cards: GridContainer = Illustrated.grid(_into, 1 if compact else 2, 10)
 		for g in Array(v.get("great", [])):
 			cards.add_child(_great_card(g))
+	if not Array(v.get("teaching", [])).is_empty() and not (v.get("sect", {}) as Dictionary).is_empty():
+		_build_teaching(v)
 	if mode == "member":
 		_sec("services", tr("Services"))
 		_ln(tr("Services bought with contribution (residence, treasure loans, teaching) are not in the game yet."))
@@ -416,6 +418,79 @@ func _standing_meter(st: float, parent: Control) -> void:
 	r.add_child(n)
 	r.accessibility_name = tr("standing %d of −100 to 100") % int(st)
 	parent.add_child(r)
+
+
+# The sect's formation teaching (Formations rule 8; sects_teaching.json): each formation as its shape, name, grade,
+# the rank it needs and its contribution, and Learn (armed: the confirm names the price).
+func _build_teaching(v: Dictionary) -> void:
+	_sec("teaching", tr("Formations taught (trận đồ)"))
+	_ln(tr("Learned formations appear in your Combat tab, where you set one and place your arts in it."))
+	var grid: GridContainer = Illustrated.grid(_into, 1 if compact else 2, 8)
+	grid.name = "Teaching"
+	for t in Array(v.teaching):
+		var card := PanelContainer.new()
+		card.name = "Teach_" + str(t.id)
+		card.add_theme_stylebox_override("panel", Illustrated.box(Illustrated.PAPER_TILE, Illustrated.BRASS_DIM, 1, 6.0, 2))
+		card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		var row := HBoxContainer.new()
+		row.add_theme_constant_override("separation", 8)
+		card.add_child(row)
+		var th := FormationBoard.new()
+		th.thumb = true
+		th.custom_minimum_size = Vector2(64, 64)
+		th.dim = 1.0 if bool(t.ok) or bool(t.known) else 0.55
+		th.show_view(t.view)
+		var thb := PanelContainer.new()
+		thb.add_theme_stylebox_override("panel", Illustrated.box(Color("#1B120C"), Illustrated.BRASS_DIM, 1, 2.0, 3))
+		thb.add_child(th)
+		row.add_child(thb)
+		var col := VBoxContainer.new()
+		col.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		row.add_child(col)
+		var nm := Label.new()
+		nm.text = "%s · %s" % [str(t.name), str(t.name_vi)]
+		nm.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		col.add_child(nm)
+		var sub := Label.new()
+		sub.text = tr("grade %d · %s and above · %d contribution") % [int(t.grade), str(t.rank_name), int(t.cost)]
+		sub.theme_type_variation = &"RowLabel"
+		sub.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		col.add_child(sub)
+		var tid: String = str(t.id)
+		if bool(t.known):
+			var k := Label.new()
+			k.text = "✓ " + tr("known")
+			col.add_child(k)
+		elif _armed == "teach:" + tid and not locked:
+			var rr := HBoxContainer.new()
+			col.add_child(rr)
+			var ok := Button.new()
+			ok.name = "ConfirmLearn"
+			ok.text = tr("Learn for %d contribution") % int(t.cost)
+			ok.theme_type_variation = &"CommitButton"
+			ok.pressed.connect(func():
+				_armed = ""
+				action_requested.emit("learn_sect_diagram", [tid]))
+			rr.add_child(ok)
+			var no := Button.new()
+			no.text = tr("Cancel")
+			no.pressed.connect(func():
+				_armed = ""
+				show_view(view, "teaching", locked))
+			rr.add_child(no)
+		else:
+			var b := Button.new()
+			b.name = "Learn_" + tid
+			b.text = tr("Learn…")
+			b.disabled = locked or not bool(t.ok)
+			b.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+			TooltipLayer.set_tip(b, {"title": str(t.name), "fact": str(t.reason) if not bool(t.ok) else tr("%d contribution") % int(t.cost), "summary": str(t.idea)})
+			b.pressed.connect(func():
+				_armed = "teach:" + tid
+				show_view(view, "teaching", locked))
+			col.add_child(b)
+		TooltipLayer.set_tip(card, {"title": "%s · %s" % [str(t.name), str(t.name_vi)], "summary": str(t.idea)})
+		grid.add_child(card)
 
 
 func _link_row(text: String, target: String, id: String, rest: String) -> void:

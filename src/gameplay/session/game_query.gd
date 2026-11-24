@@ -636,6 +636,12 @@ static func inventory(s: GameSession) -> Dictionary:
 							row.compare = [{"label": "ATK", "mine": float(it.get("attack", 0.0)), "equipped": float(other.get("attack", 0.0)), "against": str(other.get("name", ""))},
 								{"label": "DEF", "mine": float(it.get("defense", 0.0)), "equipped": float(other.get("defense", 0.0)), "against": str(other.get("name", ""))}]
 							break
+			"diagram_manual":   # a formation manual: reading it teaches the formation (Formations rule 8)
+				var drec: Dictionary = Diagrams.record_of(gd, str(it.get("diagram_id", "")))
+				row.known = c.known_diagrams.any(func(k): return str(k.id) == str(it.get("diagram_id", "")))
+				row.fact = "formation · grade %d · %d nodes" % [int(drec.get("grade", 0)), Array(drec.get("nodes", [])).size()] + (" · known" if row.known else "")
+				row.text = str(drec.get("idea", ""))
+				row.verbs = [{"id": "learn", "label": "Read", "reason": "you already know it" if row.known else ""}]
 			"cong_phap":
 				row.known = c.techniques.has(str(it.get("tech_id", "")))
 				row.fact = "%s · %d layers" % [str(it.get("tech_kind", "")), int(it.get("layers", 0))] + (" · known" if row.known else "")
@@ -881,6 +887,18 @@ static func sect(s: GameSession, sect_id: String = "") -> Dictionary:
 	var srec: Dictionary = db.get_record("sects", sid)
 	var out := {"mode": mode, "sect": view_sect.call(srec), "in_sect": c.sect_id != "", "event_waiting": s.has_pending_event(),
 		"you": {}, "ladder": [], "next": {}, "join": {}, "others": [], "great": []}
+	# what the sect teaches (Formations rule 8, sects_teaching.json; user 2026-11-24): each formation with the rank it
+	# needs, its contribution and whether the player can learn it now
+	out["teaching"] = []   # shown before joining too: what a sect teaches helps choose one
+	for t in Diagrams.taught_at(gd, str(srec.get("key", ""))):
+		var drec: Dictionary = Diagrams.record_of(gd, str(t.id))
+		if drec.is_empty():
+			continue
+		var chk: Dictionary = s.sect_teach_check(str(t.id)) if mode == "member" else 			{"ok": false, "cost": Diagrams.learn_cost(gd, int(drec.get("grade", 0))), "reason": "Join %s to learn it (from the %s)." % [str(srec.get("name", "")), sm.rank_name(str(t.rank))]}
+		out.teaching.append({"id": str(t.id), "name": str(drec.name), "name_vi": str(drec.get("name_vi", "")), "grade": int(drec.get("grade", 0)),
+			"rank": str(t.rank), "rank_name": sm.rank_name(str(t.rank)), "cost": int(chk.cost), "ok": bool(chk.ok), "reason": str(chk.reason),
+			"known": c.known_diagrams.any(func(k): return str(k.id) == str(t.id)), "idea": str(drec.get("idea", "")),
+			"view": diagram_view(gd, c, drec, int(drec.get("max_level", 1)), [], {}, int(drec.get("max_level", 1)))})
 	if mode == "member":
 		out.you = {"rank": c.sect_rank, "rank_name": sm.rank_name(c.sect_rank), "contribution": sm.contribution(sid, c.id),
 			"standing": sm.standing(sid, c.id), "hostile": sm.hostile(sid, c.id)}
@@ -1373,6 +1391,8 @@ static func item_icon(it: Dictionary) -> String:
 			var els: Array = Array(it.get("elements", it.get("names", [])))
 			var e: String = str(els[0]).to_lower() if not els.is_empty() else ""
 			key = "cong_phap_" + str({"metal": "kim", "wood": "moc", "water": "thuy", "fire": "hoa", "earth": "tho"}.get(e, e))
+		"diagram_manual":   # one painted icon for every formation manual (a rolled scroll with a glowing array)
+			key = "diagram_manual"
 		_:
 			key = "%s_%s" % [k, str(it.get("template", ""))]
 	var path: String = "res://assets/icons/items/%s.png" % key

@@ -290,6 +290,15 @@ func _apply(c: Character, sheet: StatSheet, rng: RandomNumberGenerator, event: D
 			var a: Dictionary = _items.artifact(rng, c.realm_index, int(fx.grade), str(fx.get("element", "")), "", str(fx.get("name", "")))
 			return _give(c, a, items)
 		"cong_phap":
+			# a share of found manuals are formation manuals (sects_teaching.json manual; user 2026-11-24), drawn from
+			# a keyed stream so the event's own rolls do not move
+			var mcfg: Dictionary = Diagrams.teaching(_gd).get("manual", {})
+			var keyed := RandomNumberGenerator.new()
+			keyed.seed = RngUtils.stable_hash("diagram_manual:%s:%d" % [c.id, _db.count("items")])
+			if keyed.randf() < float(mcfg.get("from_cong_phap_chance", 0.0)):
+				var did: String = Diagrams.manual_pick(_gd, keyed, c.realm_index)
+				if did != "":
+					return _give(c, _items.diagram_manual(did), items)
 			var elems: Array = [fx.element] if str(fx.get("element", "")) != "" else []
 			var cp: Dictionary = _items.cong_phap(rng, int(fx.tier), elems, str(fx.get("name", "")), {"root": c.linh_can})
 			return _give(c, cp, items)

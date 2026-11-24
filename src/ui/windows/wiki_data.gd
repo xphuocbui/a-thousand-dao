@@ -59,6 +59,10 @@ static func view(gd: GameData, key: String) -> Dictionary:
 				return {"key": k, "category": "Realm", "title": str(r.get("name", "")), "name_vi": str(r.get("name_han", "")),
 					"summary": str(r.get("desc", r.get("description", ""))), "body": [], "facts": facts,
 					"links": ([{"key": "realm:%d" % (i - 1), "title": "← " + str(realms[i - 1].name)}] if i > 0 else []) + ([{"key": "realm:%d" % (i + 1), "title": str(realms[i + 1].name) + " →"}] if i + 1 < realms.size() else [])}
+		"formation":
+			var d: Dictionary = Diagrams.record_of(gd, id)
+			if not d.is_empty():
+				return _formation_entry(gd, k, d)
 		"element":
 			var e: Dictionary = gd.element(id)
 			if not e.is_empty():
@@ -124,7 +128,43 @@ static func categories(gd: GameData) -> Array:
 			items.append({"key": "item:%s_%s" % [str(g[0]), str(t.id)], "title": str(t.get("name", t.id)), "name_vi": "",
 				"summary": str(t.get("desc", "")), "icon": item_icon(str(g[0]), str(t.id))})
 		out.append({"id": "items_" + str(g[0]), "title": str(g[3]), "entries": items})
+	# combat formations (Formations Part I; the catalogue in crafting_diagrams.json), by grade then name
+	var forms: Array = []
+	var cat: Array = Array(Diagrams.cfg(gd).get("diagrams", [])).duplicate()
+	cat.sort_custom(func(a, b): return int(a.grade) < int(b.grade) or (int(a.grade) == int(b.grade) and str(a.name) < str(b.name)))
+	for d in cat:
+		forms.append({"key": "formation:" + str(d.id), "title": str(d.name), "name_vi": str(d.get("name_vi", "")), "summary": str(d.get("idea", ""))})
+	out.append({"id": "formations", "title": "Formations (trận đồ)", "entries": forms})
 	return out
+
+
+# A formation's page: its idea, each node's rule and the level it opens at, its links, its levels, the realm and Trận
+# Pháp it needs, its reservation, and where it is learned (the sects that teach it, a manual, or later).
+static func _formation_entry(gd: GameData, key: String, d: Dictionary) -> Dictionary:
+	var facts: Array = ["Grade %d · %d nodes · %s" % [int(d.grade), Array(d.nodes).size(), ("one level" if int(d.get("max_level", 5)) <= 1 else "levels 1-%d" % int(d.get("max_level", 5)))],
+		"Needs %s and Trận Pháp %d · holds %.0f %% of your linh lực" % [gd.realm_label(int(d.get("realm_min", 0)), 0), int(d.get("skill_min", 0)), float(d.get("reserve_share", 0.0)) * 100.0]]
+	for i in Array(d.nodes).size():
+		var nd: Dictionary = d.nodes[i]
+		facts.append("Node %d (%s): %s%s" % [i + 1, {"+": "benefit", "-": "drawback", "?": "condition"}.get(str(nd.polarity), ""), Diagrams.rule_words(nd.rule, str(nd.polarity)),
+			(" · opens at level %d" % int(nd.unlock)) if int(nd.get("unlock", 1)) > 1 else ""])
+	for l in Array(d.get("links", [])):
+		if str(l.kind) == "feed":
+			facts.append("Feed %d → %d: %.1f s off the wait%s" % [int(l.from), int(l.to), float(l.seconds), (" · opens at level %d" % int(l.unlock)) if int(l.get("unlock", 1)) > 1 else ""])
+	var t: Dictionary = Diagrams.teaching(gd)
+	var where: Array = []
+	var names := {}
+	for s in Array(gd.file("world_history").get("sects", [])):
+		names[str(s.key)] = str(s.name)
+	for sk in t.get("sects", {}):
+		for r in Array(t.sects[sk]):
+			if str(r.id) == str(d.id):
+				where.append(str(names.get(sk, sk)))
+	var src: String = "Known to everyone (the starter)." if str(d.id) == str(Diagrams.cfg(gd).get("starter", "")) else (
+		"Not obtainable yet: it comes with a special place or person." if Array(t.get("special", [])).has(str(d.id)) else (
+		"Found only as a manual." if where.is_empty() else "Taught at: %s. Also found, rarely, as a manual." % ", ".join(where)))
+	facts.append(src)
+	return {"key": key, "category": "Formation", "title": str(d.name), "name_vi": str(d.get("name_vi", "")), "summary": str(d.get("idea", "")),
+		"body": [], "facts": facts, "links": []}
 
 
 static func _trait_entry(gd: GameData, key: String, group: String, t: Dictionary) -> Dictionary:

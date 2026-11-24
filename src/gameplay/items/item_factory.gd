@@ -283,6 +283,14 @@ func common_ability(tech_id: String, elems: Array, kind: String) -> Array:
 
 
 ## A manual of an authored template. A template without abilities gets one common art ([method common_ability]).
+## A formation manual (trận đồ manual, Formations rule 8; user 2026-11-24: manuals as loot): reading it teaches
+## combat formation [param diagram_id] (GameSession.learn). Its rarity follows the formation's grade.
+func diagram_manual(diagram_id: String) -> Dictionary:
+	var rec: Dictionary = Diagrams.record_of(_gd, diagram_id)
+	return {"kind": "diagram_manual", "name": "%s manual (%s)" % [str(rec.get("name", diagram_id)), str(rec.get("name_vi", ""))],
+		"diagram_id": diagram_id, "grade": int(rec.get("grade", 0)), "qty": 1}
+
+
 func manual_from_template(t: Dictionary) -> Dictionary:
 	var cfg: Dictionary = _gd.cong_phap_file()
 	var tier: Dictionary = _gd.cong_phap_tier(int(t.tier))

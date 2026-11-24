@@ -235,6 +235,11 @@ Kind names in Vietnamese with English in tooltips; numbers follow the language; 
 - [ ] `[GdUnit]` A row whose icon is missing shows `PlaceholderArt` in the tile (built; the test is not written yet).
 - [ ] `[GdUnit]` The "×N" badge is 16 px.
 
+## Revision: formation manuals (2026-11-24)
+
+A "Trận đồ" section holds formation manuals (kind `diagram_manual`, rarity = grade + 1, one painted icon): the fact line
+gives the formation's grade and node count, the text its idea, and Read teaches it ("you already know it" when known).
+
 ## Open Questions
 
 - Rarity words come from item-database.md Formulas A (closed Open Question 13); the window's table is

@@ -68,3 +68,12 @@ F6). Owner: the UI-windows session (Claude); the provinces session (my-game-99) 
 - OQ 8 (a different preset for ambush and blind fights): no, one Set diagram.
 - OQ 10 (a feed that makes an art ready at once): no, feeds floor at `cooldown_min`.
 - OQ 9 (per-node contribution tally): with the UX spec.
+
+## Teaching (2026-11-24, user: "approve" the teaching draft)
+Hand-assigned per sect (`assets/data/sects_teaching.json`), contribution by grade, rank by grade; the sect window's
+"Formations taught" list (members and outsiders); `GameSession.sect_teach_check` / `learn_sect_diagram`; formation
+manuals (`ItemFactory.diagram_manual`, kind `diagram_manual`, rarity grade + 1, icon `assets/icons/items/diagram_manual.png`)
+from 25 % of event công pháp drops (`Diagrams.manual_pick`, keyed stream), read with `learn`; wiki "Formations" pages
+(rules, levels, where learned). The special five wait for events. Back-link owed: Sects rule 19a (services) should
+name formation teaching.
+

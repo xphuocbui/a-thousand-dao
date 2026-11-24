@@ -94,6 +94,7 @@ SUBJECT = {
     "treasure_dao_an": "a Dao seal of black jade with a glowing rune",
     # công pháp manuals by element
     "cong_phap_": "a bound cultivation manual with a silk cover",
+    "diagram_manual": "a half-unrolled silk scroll showing a glowing golden formation diagram of linked circles (a combat formation manual)",
     "cong_phap_kim": "a bound cultivation manual with a pale gold metal cover",
     "cong_phap_moc": "a bound cultivation manual with a jade green cover",
     "cong_phap_thuy": "a bound cultivation manual with a deep blue cover",

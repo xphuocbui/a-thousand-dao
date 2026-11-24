@@ -1525,6 +1525,11 @@ func learn(item_id: String) -> Dictionary:
 	if not g.ok:
 		return g
 	var item: Dictionary = db.get_record("items", item_id)
+	if not item.is_empty() and item.owner_id == player.id and item.kind == "diagram_manual":   # a formation manual
+		var known: bool = player.known_diagrams.any(func(k): return str(k.id) == str(item.diagram_id))
+		if known:
+			return {"ok": false, "lines": ["You already know that formation."]}
+		return learn_diagram(str(item.diagram_id))
 	if item.is_empty() or item.owner_id != player.id or item.kind != "cong_phap":
 		return {"ok": false, "lines": ["You own no manual %s." % item_id]}
 	if not CongPhap.learn(player, item):
@@ -1668,6 +1673,49 @@ func raise_diagram(id: String) -> Dictionary:
 	_sync_and_rate()
 	var rec: Dictionary = Diagrams.record_of(gd, id)
 	return {"ok": true, "lines": ["%s raised to level %d (%d linh thạch)." % [str(rec.get("name", id)), int(chk.target), int(chk.cost)]]}
+
+
+## Formations rule 8 and Sects rule 19a: whether the player's sect teaches them formation [param id] now. {ok, reason,
+## cost, rank}: it must be on the sect's list (sects_teaching.json), the player's rank must reach the one it needs, their
+## realm and Trận Pháp skill must meet the formation's, and they must hold its contribution. Read-only.
+func sect_teach_check(id: String) -> Dictionary:
+	var rec: Dictionary = Diagrams.record_of(gd, id)
+	if player.sect_id == "" or not db.has_record("sects", player.sect_id) or rec.is_empty():
+		return {"ok": false, "reason": "Join a sect to learn its formations.", "cost": 0, "rank": ""}
+	var sect: Dictionary = db.get_record("sects", player.sect_id)
+	var row: Array = Diagrams.taught_at(gd, str(sect.get("key", ""))).filter(func(r): return str(r.id) == id)
+	if row.is_empty():
+		return {"ok": false, "reason": "%s does not teach it." % str(sect.get("name", "")), "cost": 0, "rank": ""}
+	var need: String = str(row[0].rank)
+	var cost: int = Diagrams.learn_cost(gd, int(rec.get("grade", 0)))
+	var why: String = ""
+	if player.known_diagrams.any(func(k): return str(k.id) == id):
+		why = "You know it."
+	elif not Diagrams.rank_reaches(player.sect_rank, need):
+		why = "Taught to the %s and above." % sect_members.rank_name(need)
+	elif player.realm_index < int(rec.get("realm_min", 0)):
+		why = "It needs %s." % gd.realm_label(int(rec.get("realm_min", 0)), 0)
+	elif player.skill_level("tran_phap") < int(rec.get("skill_min", 0)):
+		why = "It needs Trận Pháp %d." % int(rec.get("skill_min", 0))
+	elif sect_members.contribution(player.sect_id, player.id) < cost:
+		why = "It costs %d contribution; you hold %d." % [cost, sect_members.contribution(player.sect_id, player.id)]
+	return {"ok": why == "", "reason": why, "cost": cost, "rank": need}
+
+
+## Formations rule 8: the player's sect teaches them formation [param id] for its contribution (sect_teach_check).
+## Action. Returns {ok, lines, ...}; a frontend calls it through run() (ADR-0006).
+func learn_sect_diagram(id: String) -> Dictionary:
+	var g: Dictionary = _guard(false)
+	if not g.ok:
+		return g
+	var chk: Dictionary = sect_teach_check(id)
+	if not bool(chk.ok):
+		return {"ok": false, "lines": [str(chk.reason)]}
+	var rec: Dictionary = sect_members.record(player.sect_id, player.id)
+	rec["contribution"] = int(rec.contribution) - int(chk.cost)
+	var r: Dictionary = learn_diagram(id)
+	r["lines"] = Array(r.lines) + ["(%d contribution spent, %d left.)" % [int(chk.cost), int(rec.contribution)]]
+	return r
 
 
 ## Rules 3 and 9a for the player: whether [param rec] at [param level] can be set now. {ok, reason}.

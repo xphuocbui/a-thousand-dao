@@ -21,6 +21,8 @@ func test_the_index_counts_match_the_data_files() -> void:
 		assert_eq(int(cats[g]), Array(gd.file("traits")[g]).size(), g)
 	assert_eq(int(cats.realms), gd.realms().size())
 	assert_eq(int(cats.elements), 5)
+	assert_eq(int(cats.formations), Array(Diagrams.cfg(gd).diagrams).size(), "every combat formation has a page")
+	assert_eq(str(WikiData.view(gd, "formation:tam_tai").category), "Formation")
 
 
 func test_a_trait_entry_shows_boons_and_costs_in_the_game_s_words() -> void:

@@ -32,6 +32,57 @@ static func level_eff(gd: GameData, level: int, skill: int, keystone: bool = fal
 	return maxi(1, mini(mini(level, cap), own_max))
 
 
+## Formations rule 8 (taught): sects_teaching.json, which formations each fixed sect teaches, the contribution cost by
+## grade, and the formation manuals' drop knobs (user 2026-11-24).
+const TEACH_FILE := "sects_teaching"
+const RANKS := ["ngoai_mon", "noi_mon", "truong_lao", "tong_chu"]
+
+
+static func teaching(gd: GameData) -> Dictionary:
+	return gd.file(TEACH_FILE)
+
+
+## The formations the fixed sect [param sect_key] teaches: [{id, rank}] ([] for a generated sect or none).
+static func taught_at(gd: GameData, sect_key: String) -> Array:
+	return Array(teaching(gd).get("sects", {}).get(sect_key, []))
+
+
+## The contribution it costs to be taught a formation of [param grade].
+static func learn_cost(gd: GameData, grade: int) -> int:
+	var c: Array = teaching(gd).get("cost_contribution", [60, 200, 600, 1500, 4000])
+	return int(c[clampi(grade, 0, c.size() - 1)])
+
+
+## Whether rank [param have] reaches rank [param need] (the sect ladder's order).
+static func rank_reaches(have: String, need: String) -> bool:
+	return RANKS.find(have) >= RANKS.find(need)
+
+
+## A formation manual's formation for a finder of [param realm] ("" for none): any catalogue formation but the special
+## ones, whose realm_min is at most realm + realm_ahead, weighted by grade (sects_teaching.json manual).
+static func manual_pick(gd: GameData, rng: RandomNumberGenerator, realm: int) -> String:
+	var t: Dictionary = teaching(gd)
+	var m: Dictionary = t.get("manual", {})
+	var special: Array = t.get("special", [])
+	var w: Array = m.get("grade_weight", [1.0])
+	var pool: Array = []
+	var total: float = 0.0
+	for d in Array(cfg(gd).get("diagrams", [])):
+		if special.has(str(d.id)) or int(d.get("realm_min", 0)) > realm + int(m.get("realm_ahead", 1)) or str(d.id) == str(cfg(gd).get("starter", "")):
+			continue
+		var wt: float = float(w[clampi(int(d.get("grade", 0)), 0, w.size() - 1)])
+		pool.append([str(d.id), wt])
+		total += wt
+	if pool.is_empty() or total <= 0.0:
+		return ""
+	var r: float = rng.randf() * total
+	for p in pool:
+		r -= float(p[1])
+		if r <= 0.0:
+			return str(p[0])
+	return str(pool[-1][0])
+
+
 ## The catalogue record of [param id] ({} when unknown; the default line has no record).
 static func record_of(gd: GameData, id: String) -> Dictionary:
 	for d in Array(cfg(gd).get("diagrams", [])):

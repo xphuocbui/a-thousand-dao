@@ -279,6 +279,13 @@ sect), path, craft and members, seat and region, and **Visit the seat…** (acti
 choice for the seat; "You are at its seat" when there). Other sects' standing is a meter from the centre (red below 0,
 green above) with its number.
 
+## Revision: formation teaching (2026-11-24)
+
+A "Formations taught (trận đồ)" section lists what the sect teaches (`GameQuery.sect().teaching`), for members and
+outsiders alike (what a sect teaches helps choose one): each formation's shape thumbnail, name with its Hán-Việt name,
+grade, the rank it needs and its contribution price; Learn… arms a confirm ("Learn for N contribution"), disabled with
+its reason (rank, realm, Trận Pháp, contribution, "Join <sect> to learn it") in the tooltip; a known one shows ✓.
+
 ## Open Questions
 
 - Sect services bought with contribution (sects.md) have no session command yet: listed as "not in the game yet".

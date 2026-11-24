@@ -23,6 +23,8 @@ static func of(gd: GameData, item: Dictionary) -> int:
 			rank = int(item.get("grade", 0))
 		"cong_phap":
 			rank = int(item.get("tier", 0))
+		"diagram_manual":   # a formation manual: its formation's grade 0-4 as rarity 1-5
+			rank = int(item.get("grade", 0)) + 1
 		"pill":
 			var price: float = float(gd.recipe(str(item.get("template", ""))).get("price", 1))
 			rank = 1

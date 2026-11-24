@@ -30,7 +30,7 @@
     "outliner_open": {"default": true}
   },
   "rarity_words": {"_doc": "The six rarity ranks' words (design/gdd/item-database.md Formulas A; Open Question 13 closed 2026-11-12); the art bible: the word always shows beside the rarity colour.", "1": "Phàm", "2": "Hạ", "3": "Trung", "4": "Thượng", "5": "Cực", "6": "Thánh"},
-  "inventory": {"_doc": "The inventory window (design/ux/inventory.md): kind_order = its sections in order, with each kind's section title.", "kind_order": [["artifact", "Pháp bảo"], ["cong_phap", "Công pháp"], ["pill", "Đan dược"], ["treasure", "Bảo vật"], ["talisman", "Phù lục"], ["herb", "Linh thảo"], ["material", "Tài liệu"]]},
+  "inventory": {"_doc": "The inventory window (design/ux/inventory.md): kind_order = its sections in order, with each kind's section title.", "kind_order": [["artifact", "Pháp bảo"], ["cong_phap", "Công pháp"], ["diagram_manual", "Trận đồ"], ["pill", "Đan dược"], ["treasure", "Bảo vật"], ["talisman", "Phù lục"], ["herb", "Linh thảo"], ["material", "Tài liệu"]]},
   "tie_kinds": {"_doc": "The relationships page's tie kinds (design/ux/relationships-page.md; npc-relationships.md Visual/Audio): [glyph placeholder until the dark-tile icons are painted, Vietnamese, English]. Bands: faint 1-33, firm 34-66, deep 67-100 (GDD Visual/Audio, Strength).",
     "kin": ["家", "Thân tộc", "kin"], "master": ["✎", "Sư phụ", "master"], "disciple": ["✎", "Đồ đệ", "disciple"],
     "ket_nghia": ["🍶", "Kết nghĩa", "sworn sibling"], "dao_lu": ["⚭", "Đạo lữ", "Dao companion"], "companion": ["🚶", "Đồng hành", "companion"],

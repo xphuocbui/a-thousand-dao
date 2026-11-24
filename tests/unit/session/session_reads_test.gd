@@ -399,3 +399,44 @@ func test_raising_a_formation_needs_home_the_skill_and_the_stones() -> void:
 		assert_false(bool(s.raise_diagram(sid).ok), "refused for the reason the check gives: %s" % chk.reason)
 	s.shutdown()
 
+
+
+func test_a_sect_teaches_its_formations_by_rank_for_contribution() -> void:
+	var s := _session()
+	assert_false(bool(s.sect_teach_check("tam_tai").ok), "a loose cultivator has no sect to teach them")
+	var sect: Dictionary = {}
+	for r in s.db.all("sects"):
+		if str(r.get("key", "")) == "thien_xu":
+			sect = r
+	assert_false(sect.is_empty(), "the formation sect is in the world")
+	s.player.sect_id = str(sect.id)
+	s.player.sect_rank = "ngoai_mon"
+	s.sect_members.record(str(sect.id), s.player.id)["contribution"] = 100
+	var v: Dictionary = GameQuery.sect(s, "")
+	assert_true(Array(v.teaching).size() >= 5, "the sect window lists what it teaches")
+	assert_true(bool(s.learn_sect_diagram("tam_tai").ok), "grade 0 at outer disciple")
+	assert_true(s.player.known_diagrams.any(func(k): return str(k.id) == "tam_tai"))
+	assert_eq(s.sect_members.contribution(str(sect.id), s.player.id), 100 - Diagrams.learn_cost(s.gd, 0), "the contribution is spent")
+	var inner: Dictionary = s.sect_teach_check("tu_mon")
+	assert_false(bool(inner.ok), "a grade 1 formation needs an inner disciple")
+	assert_true(str(inner.reason).contains("inner") or str(inner.reason).contains("Nội") or str(inner.reason).to_lower().contains("taught to"), str(inner.reason))
+	s.shutdown()
+
+
+func test_a_formation_manual_teaches_its_formation_when_read() -> void:
+	var s := _session()
+	var m: Dictionary = s.items.diagram_manual("luong_nghi")
+	m["owner_id"] = s.player.id
+	var mid: String = s.db.add("items", m)
+	assert_eq(ItemRarity.of(s.gd, s.db.get_record("items", mid)), 1, "a grade 0 manual is rarity 1")
+	assert_true(bool(s.learn(mid).ok))
+	assert_true(s.player.known_diagrams.any(func(k): return str(k.id) == "luong_nghi"))
+	assert_false(bool(s.learn(mid).ok), "read twice: already known")
+	var rng := RandomNumberGenerator.new()
+	var special: Array = Diagrams.teaching(s.gd).special
+	for i in 200:
+		rng.seed = i
+		var pick: String = Diagrams.manual_pick(s.gd, rng, 0)
+		assert_false(special.has(pick), "the special five never drop")
+		assert_true(int(Diagrams.record_of(s.gd, pick).realm_min) <= 1, "a Luyện Khí finder finds formations up to one realm ahead")
+	s.shutdown()

@@ -1873,6 +1873,8 @@ func _on_window_action(_kind: String, action: String, args: Array) -> void:
 			act = session.set_diagram_lay.bind(bool(args[0]))
 		"raise_diagram":
 			act = session.raise_diagram.bind(str(args[0]))
+		"learn_sect_diagram":   # the sect window's formation teaching
+			act = session.learn_sect_diagram.bind(str(args[0]))
 		"breakthrough":
 			act = session.breakthrough.bind(bool(args[0]), bool(args[1]))
 		"equip":

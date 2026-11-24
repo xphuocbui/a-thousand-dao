@@ -1,0 +1,727 @@
+{
+ "schema_version": 1,
+ "_doc": "Which combat formations (trận đồ) each fixed sect teaches (user 2026-11-24: hand-assigned per sect; design/formations/teaching-draft-2026-11-24.md): sects = sect key (world_history.json) -> [{id (crafting_diagrams.json), rank (the rank needed: ngoai_mon, noi_mon, truong_lao, tong_chu)}]. cost_contribution: contribution to learn, by the formation's grade 0-4 (Sects rule 19a's services). manual: formation manuals as loot (user: yes, as loot): from_cong_phap_chance = the share of an event's công pháp manual drops that become a formation manual instead; grade_weight = the relative odds by grade; realm_ahead = how many realms above the finder a formation's realm_min may be. manual_only = formations no sect teaches (manuals only); special = the five one-off sources that wait for events (never taught or dropped yet).",
+ "cost_contribution": [
+  60,
+  200,
+  600,
+  1500,
+  4000
+ ],
+ "manual": {
+  "from_cong_phap_chance": 0.25,
+  "grade_weight": [
+   1.0,
+   0.5,
+   0.25,
+   0.1,
+   0.04
+  ],
+  "realm_ahead": 1
+ },
+ "manual_only": [
+  "phong_hoa_luan",
+  "van_tuong"
+ ],
+ "special": [
+  "con_bang",
+  "thai_cuc_vo_cuc",
+  "hon_don",
+  "luan_hoi",
+  "chu_thien"
+ ],
+ "sects": {
+  "thien_xu": [
+   {
+    "id": "tam_tai",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "tu_mon",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "tu_tuong",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "ngu_hanh",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "cuu_cung",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "luc_hop",
+    "rank": "truong_lao"
+   },
+   {
+    "id": "ky_mon",
+    "rank": "truong_lao"
+   },
+   {
+    "id": "bat_quai",
+    "rank": "truong_lao"
+   }
+  ],
+  "tung_dao": [
+   {
+    "id": "luong_nghi",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "thuy_liem",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "nhat_nguyet",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "tinh_ha",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "song_long",
+    "rank": "noi_mon"
+   }
+  ],
+  "lac_ha": [
+   {
+    "id": "ba_hoa",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "hoa_long_quyen",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "nhat_nguyet",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "phong_loi",
+    "rank": "noi_mon"
+   }
+  ],
+  "thinh_vu": [
+   {
+    "id": "nguyet_anh",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "hac_sat",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "khon_tien_vong",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "van_kiem",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "thien_la",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "thap_phuong",
+    "rank": "truong_lao"
+   },
+   {
+    "id": "tu_thien_kiem",
+    "rank": "tong_chu"
+   }
+  ],
+  "bang_tam": [
+   {
+    "id": "thanh_phong_kiem",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "bang_phong",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "that_tinh",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "van_kiem",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "tu_thien_kiem",
+    "rank": "tong_chu"
+   }
+  ],
+  "thuy_vi": [
+   {
+    "id": "quy_giap",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "hoi_xuan",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "lien_hoa",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "lo_luyen",
+    "rank": "truong_lao"
+   }
+  ],
+  "phuong_minh": [
+   {
+    "id": "hoa_long_quyen",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "nhat_nguyet",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "song_long",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "van_thu",
+    "rank": "truong_lao"
+   }
+  ],
+  "thoi_tinh": [
+   {
+    "id": "thanh_phong_kiem",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "tam_tai",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "that_tinh",
+    "rank": "truong_lao"
+   }
+  ],
+  "phat_y": [
+   {
+    "id": "thanh_phong_kiem",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "quy_giap",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "nguyet_anh",
+    "rank": "noi_mon"
+   }
+  ],
+  "cung_tinh": [
+   {
+    "id": "tam_tai",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "tu_mon",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "tinh_ha",
+    "rank": "truong_lao"
+   },
+   {
+    "id": "ngu_hanh",
+    "rank": "truong_lao"
+   }
+  ],
+  "cuu_cao": [
+   {
+    "id": "luong_nghi",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "thuy_liem",
+    "rank": "noi_mon"
+   }
+  ],
+  "ham_nguyet": [
+   {
+    "id": "luong_nghi",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "nguyet_anh",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "nhat_nguyet",
+    "rank": "noi_mon"
+   }
+  ],
+  "van_hac": [
+   {
+    "id": "tho_bich",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "tu_mon",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "phong_loi",
+    "rank": "truong_lao"
+   }
+  ],
+  "thai_chi": [
+   {
+    "id": "hoi_xuan",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "ba_hoa",
+    "rank": "ngoai_mon"
+   }
+  ],
+  "lang_dao": [
+   {
+    "id": "luong_nghi",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "thuy_liem",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "boi_thuy",
+    "rank": "noi_mon"
+   }
+  ],
+  "binh_thuy": [
+   {
+    "id": "thuy_liem",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "boi_thuy",
+    "rank": "noi_mon"
+   }
+  ],
+  "muc_van": [
+   {
+    "id": "quy_giap",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "tho_bich",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "kim_chung",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "kim_cuong",
+    "rank": "truong_lao"
+   }
+  ],
+  "thien_bao": [
+   {
+    "id": "tam_tai",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "tu_mon",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "cuu_cung",
+    "rank": "truong_lao"
+   }
+  ],
+  "nam_pho": [
+   {
+    "id": "tam_tai",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "tu_tuong",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "thuy_liem",
+    "rank": "noi_mon"
+   }
+  ],
+  "xuyen_lam": [
+   {
+    "id": "tho_bich",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "pha_quan",
+    "rank": "noi_mon"
+   }
+  ],
+  "hong_dau": [
+   {
+    "id": "hac_sat",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "doc_long",
+    "rank": "truong_lao"
+   },
+   {
+    "id": "huyet_hai",
+    "rank": "truong_lao"
+   }
+  ],
+  "le_hoa": [
+   {
+    "id": "thanh_phong_kiem",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "ba_hoa",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "lien_hoa",
+    "rank": "noi_mon"
+   }
+  ],
+  "trac_anh": [
+   {
+    "id": "kim_chung",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "boi_thuy",
+    "rank": "noi_mon"
+   }
+  ],
+  "da_quang": [
+   {
+    "id": "nguyet_anh",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "hac_sat",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "me_hon",
+    "rank": "noi_mon"
+   }
+  ],
+  "hong_lo": [
+   {
+    "id": "hoi_xuan",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "hoa_long_quyen",
+    "rank": "noi_mon"
+   }
+  ],
+  "van_khoi": [
+   {
+    "id": "luong_nghi",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "ba_hoa",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "phong_loi",
+    "rank": "truong_lao"
+   }
+  ],
+  "truc_thuc": [
+   {
+    "id": "hoi_xuan",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "tho_bich",
+    "rank": "ngoai_mon"
+   }
+  ],
+  "le_tuyen": [
+   {
+    "id": "hoi_xuan",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "thuy_liem",
+    "rank": "noi_mon"
+   }
+  ],
+  "phan_vu": [
+   {
+    "id": "hoa_long_quyen",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "pha_quan",
+    "rank": "noi_mon"
+   }
+  ],
+  "thu_phan": [
+   {
+    "id": "me_hon",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "khon_tien_vong",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "bach_quy",
+    "rank": "truong_lao"
+   }
+  ],
+  "ngao_tuyet": [
+   {
+    "id": "thanh_phong_kiem",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "bang_phong",
+    "rank": "noi_mon"
+   }
+  ],
+  "bach_vu": [
+   {
+    "id": "hoi_xuan",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "lien_hoa",
+    "rank": "noi_mon"
+   }
+  ],
+  "vong_trieu": [
+   {
+    "id": "thuy_liem",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "tu_tuong",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "tinh_ha",
+    "rank": "truong_lao"
+   }
+  ],
+  "tran_sa": [
+   {
+    "id": "thanh_phong_kiem",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "tho_bich",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "pha_quan",
+    "rank": "noi_mon"
+   }
+  ],
+  "lanh_giang": [
+   {
+    "id": "thuy_liem",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "bang_phong",
+    "rank": "noi_mon"
+   }
+  ],
+  "nhan_van": [
+   {
+    "id": "luong_nghi",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "tam_tai",
+    "rank": "ngoai_mon"
+   }
+  ],
+  "nhan_tran": [
+   {
+    "id": "tu_mon",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "tu_tuong",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "pha_quan",
+    "rank": "noi_mon"
+   }
+  ],
+  "vu_linh": [
+   {
+    "id": "tu_mon",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "kim_chung",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "loi_dinh",
+    "rank": "ngoai_mon"
+   }
+  ],
+  "tuan_tung": [
+   {
+    "id": "quy_giap",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "tho_bich",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "kim_chung",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "kim_cuong",
+    "rank": "truong_lao"
+   }
+  ],
+  "tam_kiem": [
+   {
+    "id": "thanh_phong_kiem",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "nguyet_anh",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "that_tinh",
+    "rank": "truong_lao"
+   }
+  ],
+  "chan_kim": [
+   {
+    "id": "thanh_phong_kiem",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "pha_quan",
+    "rank": "noi_mon"
+   }
+  ],
+  "coc_vu": [
+   {
+    "id": "hoi_xuan",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "loi_dinh",
+    "rank": "ngoai_mon"
+   }
+  ],
+  "minh_loan": [
+   {
+    "id": "cam_am",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "kim_chung",
+    "rank": "noi_mon"
+   }
+  ],
+  "yen_quang": [
+   {
+    "id": "hoi_xuan",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "ba_hoa",
+    "rank": "ngoai_mon"
+   }
+  ],
+  "hoa_cai": [
+   {
+    "id": "ba_hoa",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "tinh_ha",
+    "rank": "truong_lao"
+   }
+  ],
+  "suong_tung": [
+   {
+    "id": "luong_nghi",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "bang_phong",
+    "rank": "noi_mon"
+   }
+  ],
+  "chuc_ha": [
+   {
+    "id": "cam_am",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "ba_hoa",
+    "rank": "ngoai_mon"
+   }
+  ],
+  "vu_an": [
+   {
+    "id": "tam_tai",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "tu_mon",
+    "rank": "noi_mon"
+   },
+   {
+    "id": "nguyet_anh",
+    "rank": "noi_mon"
+   }
+  ],
+  "ho_lam": [
+   {
+    "id": "quy_giap",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "hoi_xuan",
+    "rank": "ngoai_mon"
+   },
+   {
+    "id": "tho_bich",
+    "rank": "ngoai_mon"
+   }
+  ],
+  "hoa_tinh": [
+   {
+    "id": "tinh_ha",
+    "rank": "truong_lao"
+   },
+   {
+    "id": "that_tinh",
+    "rank": "truong_lao"
+   }
+  ]
+ }
+}
