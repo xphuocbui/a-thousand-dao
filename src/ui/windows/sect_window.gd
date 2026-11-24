@@ -91,6 +91,8 @@ func _build() -> void:
 		_ln(tr("Fell in year %d: %s") % [int(sc.fell_year), str(sc.cause)])
 	if mode == "member":
 		_build_place(v)
+	if not sc.is_empty():
+		_build_notables(sc)
 	if mode != "member" and not (v.get("join", {}) as Dictionary).is_empty():
 		_build_join(v)
 	elif mode == "loose":
@@ -203,7 +205,7 @@ func _build_hero(sc: Dictionary) -> void:
 		row.add_child(hp)
 	var fc: VBoxContainer = Illustrated.inset(row, "")
 	var kind_l := Label.new()
-	kind_l.text = " · ".join([tr("Great sect") if str(sc.kind) == "great" else tr("Minor sect"), str(sc.alignment_name), str(sc.get("specialty_name", ""))].filter(func(x): return str(x) != ""))
+	kind_l.text = tr("Great sect") if str(sc.kind) == "great" else tr("Minor sect")
 	kind_l.theme_type_variation = &"HeadingLabel"
 	kind_l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	fc.add_child(kind_l)
@@ -213,13 +215,33 @@ func _build_hero(sc: Dictionary) -> void:
 	if str(sc.seat.get("name", "")) != "":
 		_link_row(tr("Seat") + ": " + str(sc.seat.name), "place", str(sc.seat.id), str(sc.get("region", "")))
 	var tiles: GridContainer = Illustrated.grid(fc, 2 if compact else 4, 6)
-	tiles.add_child(Illustrated.tile(Illustrated.tex("res://assets/icons/ui/sect_founded.png"), tr("Founded"), tr("year %d") % int(sc.get("founded_year", 0)), "", 0.0))
-	tiles.add_child(Illustrated.tile(Illustrated.tex("res://assets/icons/ui/sect_members.png"), tr("Members"), "%d" % int(sc.get("members", 0)), "", 0.0))
+	# what a player choosing a sect needs first: its path and craft, then its size and wealth (weak-point review)
+	var path_t: PanelContainer = Illustrated.tile(null, tr("Path"), str(sc.get("alignment_name", "")) if str(sc.get("alignment_name", "")) != "" else "—", "", 0.0)
+	TooltipLayer.set_tip(path_t, {"title": tr("Path"), "summary": tr("Righteous (chính đạo), demonic (ma đạo) or neutral (trung lập): how the sect deals with the world.")})
+	tiles.add_child(path_t)
+	tiles.add_child(Illustrated.tile(null, tr("Craft"), str(sc.get("specialty_name", "")) if str(sc.get("specialty_name", "")) != "" else "—", "", 0.0))
+	var members_t: PanelContainer = Illustrated.tile(Illustrated.tex("res://assets/icons/ui/sect_members.png"), tr("Members"), "%d" % int(sc.get("members", 0)),
+		tr("since %d") % int(sc.get("founded_year", 0)), 0.0)
+	tiles.add_child(members_t)
 	tiles.add_child(Illustrated.tile(Illustrated.tex("res://assets/icons/hud/res_linh_thach.png"), tr("Treasury"), HudReadouts.stones_text(float(sc.get("treasury", 0))), "", 0.0))
 	var regions: Array = Array(sc.get("regions", []))
-	var holds: PanelContainer = Illustrated.tile(Illustrated.tex("res://assets/icons/hud/res_sect.png"), tr("Holds"), tr("%d regions") % regions.size(), "", 0.0)
-	TooltipLayer.set_tip(holds, {"title": tr("Holds"), "summary": ", ".join(regions) if not regions.is_empty() else tr("no region")})
-	tiles.add_child(holds)
+	var holds_l := Label.new()   # the regions held, as a line under the tiles (the tiles carry path, craft, size, wealth)
+	holds_l.text = tr("Holds: %s") % (", ".join(regions) if not regions.is_empty() else tr("no region"))
+	holds_l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	fc.add_child(holds_l)
+	if str(sc.get("lore", "")) != "":   # the seat's look from the place catalogue, as in the mock-up's lore card
+		var lore := Label.new()
+		lore.name = "Lore"
+		lore.text = str(sc.lore)
+		lore.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		lore.add_theme_color_override("font_color", Color(Illustrated.INK, 0.85))
+		fc.add_child(lore)
+	_into = _g
+
+
+# The notable members as portrait medallions (in the member view after "Your place", so Promote stays near the top at
+# 1280x720: round-2 review, decided 2026-11-24).
+func _build_notables(sc: Dictionary) -> void:
 	var notables: Array = Array(sc.get("notables", []))
 	if not notables.is_empty():
 		var nc: VBoxContainer = section_in(_g, "members", tr("Notable members"))

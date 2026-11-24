@@ -313,3 +313,10 @@ func test_the_dao_do_node_route_is_the_tree_s_route() -> void:
 	assert_true(Array(planned.route).size() <= Array(v.route).size(), "a plan shortens the route from its end")
 	assert_eq(int(GameQuery.dao_do(s).points), s.player.tree_points)
 	s.shutdown()
+
+
+func test_a_sheet_about_someone_no_longer_in_the_world_says_gone() -> void:
+	var s := _session()
+	var v: Dictionary = GameQuery.character(s, "p_nobody")
+	assert_true(bool(v.get("gone", false)), "a stale history entry reads as gone, not as an error")
+	s.shutdown()   # joins the rating batch new_game started

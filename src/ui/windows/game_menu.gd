@@ -71,7 +71,7 @@ func _init() -> void:
 	box.add_child(frame)
 	box.add_child(HSeparator.new())
 	_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	_scroll.custom_minimum_size = Vector2(0, 520)   # room for the banner and every button without scrolling
+	_scroll.custom_minimum_size = Vector2(0, 520)   # room for the banner and every button without scrolling (fit_height trims it on short screens)
 	_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	box.add_child(_scroll)
 	_body.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -92,6 +92,12 @@ func _init() -> void:
 	box.add_child(_status)
 
 
+## Keeps the menu inside a short layout area (1280x720: the menu touched the screen edges, round-2 review): the
+## scroll area is at most the layout height minus the frame, title and footer.
+func fit_height(layout_h: float) -> void:
+	_scroll.custom_minimum_size.y = clampf(layout_h - 260.0, 280.0, 520.0)
+
+
 ## Opens the menu at [param page]; [param opener] gets focus back on close. [param settings_only]: the fight and
 ## tribulation variant (only the Settings page; no save, load or quit; Esc closes).
 func open_menu(page: String = "menu", opener: Control = null, settings_only: bool = false) -> void:
@@ -100,6 +106,8 @@ func open_menu(page: String = "menu", opener: Control = null, settings_only: boo
 	_armed = ""
 	_settings_only = settings_only
 	visible = true
+	if is_inside_tree():
+		fit_height(get_viewport_rect().size.y)
 	show_page("settings" if settings_only else page)
 
 
@@ -384,7 +392,7 @@ func _build_settings() -> void:
 			s.value_changed.connect(_on_slider.bind(key, s, n, l.text))
 			r.add_child(s)
 			r.add_child(n)
-	_line(tr("Coming with the settings pass: key bindings, brightness, End turn input, toast duration, the outliner, borders and alerts by kind."))
+	_line(tr("Coming with the settings pass: key bindings, brightness, End turn input, toast duration and alerts by kind."))
 	if not _settings_only:
 		_button(tr("Back"), _box, show_page.bind("menu"))
 

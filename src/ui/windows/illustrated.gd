@@ -284,6 +284,9 @@ static func trait_chip(t: Dictionary, d: float = 40.0) -> PanelContainer:
 	ic.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	ic.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	ic.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	if ic.texture == null:   # a trait whose medallion is missing: the obvious placeholder (ui-code.md)
+		ic.texture = PlaceholderArt.texture()
+		ic.stretch_mode = TextureRect.STRETCH_TILE
 	ic.custom_minimum_size = Vector2(d, d)
 	ic.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	c.add_child(ic)

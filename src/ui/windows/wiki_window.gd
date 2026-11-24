@@ -3,7 +3,8 @@ extends GameWindow
 ## The in-game wiki (design/ux/wiki.md) in the window host: an index of categories with search, and entries whose
 ## highlighted words and related names are links to other entries (one history step each). Built from
 ## [method WikiData.view]; read-only. Illustrated (user 2026-11-24): the index is a parchment inset per category with
-## a card per entry (its trait medallion or item icon where it has one); an entry opens with its icon framed large.
+## a flow of entries, each its link beside its trait medallion or item icon where it has one (the PlaceholderArt
+## stripes when that art is missing); an entry opens with its icon framed large.
 
 var _search := LineEdit.new()
 var _count := Label.new()
@@ -65,7 +66,7 @@ func _build_index(v: Dictionary) -> void:
 			flow.add_child(cell)
 			if str(e.get("icon", "")) != "":
 				var ic := TextureRect.new()
-				ic.texture = Illustrated.tex(str(e.icon))
+				ic.texture = PlaceholderArt.texture() if str(e.icon) == "placeholder" else Illustrated.tex(str(e.icon))
 				ic.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 				ic.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 				ic.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
@@ -83,7 +84,7 @@ func _build_entry(v: Dictionary) -> void:
 	if str(v.get("icon", "")) != "":   # the entry's own art, large (a trait medallion, an item icon)
 		var pic := TextureRect.new()
 		pic.name = "EntryArt"
-		pic.texture = Illustrated.tex(str(v.icon))
+		pic.texture = PlaceholderArt.texture() if str(v.icon) == "placeholder" else Illustrated.tex(str(v.icon))
 		pic.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		pic.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		pic.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS

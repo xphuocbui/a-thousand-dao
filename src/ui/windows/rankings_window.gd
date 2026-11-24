@@ -193,7 +193,7 @@ func _podium(parent: Control, top: Array) -> void:
 		card.add_theme_stylebox_override("panel", Illustrated.box(Illustrated.PAPER, Illustrated.BRASS, 2 if i == 0 else 1, 10.0, 2))
 		card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		card.size_flags_vertical = Control.SIZE_SHRINK_END
-		card.focus_mode = Control.FOCUS_ALL
+		card.focus_mode = Control.FOCUS_NONE   # the name link is the focus stop; the card itself does nothing
 		row.add_child(card)
 		var col := VBoxContainer.new()
 		col.alignment = BoxContainer.ALIGNMENT_CENTER
@@ -215,13 +215,14 @@ func _podium(parent: Control, top: Array) -> void:
 			name.pressed.connect(func(): open_requested.emit("person", pid, ""))
 		col.add_child(name)
 		var who := Label.new()
-		who.text = " · ".join([str(r.sect) if str(r.sect) != "" else tr("loose cultivator"), str(r.stage)])
+		who.text = " · ".join([str(r.sect) if str(r.sect) != "" else tr("loose cultivator"), str(r.stage)]
+			+ ([str(r.get("realm", ""))] if str(view.get("which", "")) == "top" else []))   # the top list holds two realms
 		who.theme_type_variation = &"RowLabel"
 		who.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		who.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		col.add_child(who)
 		var pw := Label.new()
-		pw.text = tr("power") + " " + ("~" if str(r.state) == "provisional" else "") + HudReadouts.stones_text(float(r.power))
+		pw.text = tr("power") + " " + ("~" if str(r.state) == "provisional" else "") + HudReadouts.stones_text(float(r.power)) 			+ ((" (" + tr("stale") + ")") if str(r.state) == "stale" else "")   # the same markers as the table rows
 		pw.theme_type_variation = &"HeadingLabel"
 		pw.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		col.add_child(pw)

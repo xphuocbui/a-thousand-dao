@@ -383,37 +383,37 @@ func _show_card(id: int, at: Vector2) -> void:
 		if title == "" or title == "Đạo văn":
 			title = {"small": tr("Small mark (đạo văn)"), "road": tr("Road"), "notable": tr("Notable"), "keystone": tr("Keystone")}.get(k, tr("Mark"))
 		_card_label(title, CLASS_COLOURS.get(k, Color.WHITE), 20 if k in ["notable", "keystone", "start"] else 17)
-		_card_label("%s · %s" % [tr(k).capitalize(), _area_words(str(nd.get("area", "")))], NOTE_COLOUR, 14)
+		_card_label("%s · %s" % [tr(k).capitalize(), _area_words(str(nd.get("area", "")))], NOTE_COLOUR, 16)
 		_card_box.add_child(HSeparator.new())
 		for st in Array(nd.get("stats", [])):
 			_card_label(str(st), STAT_COLOUR, 16)
 		if Array(nd.get("stats", [])).is_empty() and int(nd.get("cap", 0)) == 0 and str(nd.get("effect", "")) == "":
-			_card_label(tr("No stats"), NOTE_COLOUR, 14)
+			_card_label(tr("No stats"), NOTE_COLOUR, 16)
 		if not is_equal_approx(float(nd.get("scale", 1.0)), 1.0):
-			_card_label(tr("×%.2f from your root's purity in this land") % float(nd.scale), NOTE_COLOUR, 14)
+			_card_label(tr("×%.2f from your root's purity in this land") % float(nd.scale), NOTE_COLOUR, 16)
 		if int(nd.get("cap", 0)) > 0:
 			_card_label(tr("Capability: %s") % str(nd.cap_name), Color("#5fd0b4"), 16)
 			if str(nd.get("cap_desc", "")) != "":
-				_card_label(str(nd.cap_desc), NOTE_COLOUR, 14)
+				_card_label(str(nd.cap_desc), NOTE_COLOUR, 16)
 		if str(nd.get("effect", "")) != "":
 			_card_label("%s: %s" % [tr("Keystone") if k == "keystone" else tr("Effect"), str(nd.effect)], Color("#f08cc0"), 16)
 			if str(nd.get("effect_rule", "")) != "":
-				_card_label(str(nd.effect_rule), NOTE_COLOUR, 14)
+				_card_label(str(nd.effect_rule), NOTE_COLOUR, 16)
 		if str(nd.get("closes", "")) != "":
-			_card_label(tr("Price: %s") % str(nd.closes), Color("#ff8a5c"), 14)
+			_card_label(tr("Price: %s") % str(nd.closes), Color("#ff8a5c"), 16)
 		_card_box.add_child(HSeparator.new())
 		if bool(nd.get("open", false)):
-			_card_label(tr("Allocated"), Color("#e3b860"), 15)
+			_card_label(tr("Allocated"), Color("#e3b860"), 16)
 		elif bool(nd.get("planned", false)):
-			_card_label(tr("In the plan: click to take it out"), Color("#9fd3ff"), 15)
+			_card_label(tr("In the plan: click to take it out"), Color("#9fd3ff"), 16)
 		elif not bool(nd.get("ok", false)):
-			_card_label("✗ " + str(nd.get("reason", "")), Color("#ff8a5c"), 15)
+			_card_label("✗ " + str(nd.get("reason", "")), Color("#ff8a5c"), 16)
 		else:
-			_card_label(tr("Click to plan: %d point(s)") % int(nd.cost) + ((" " + tr("after the plan")) if not _plan.is_empty() else ""), Color("#9fd3ff"), 15)
+			_card_label(tr("Click to plan: %d point(s)") % int(nd.cost) + ((" " + tr("after the plan")) if not _plan.is_empty() else ""), Color("#9fd3ff"), 16)
 			var gains: Dictionary = nd.get("gains", {})
 			var now_p: Dictionary = nd.get("purity_now", {})
 			for e in gains:
-				_card_label("  %s %s → %s" % [str(e), LinhCan.fmt(float(now_p.get(e, 0.0))), LinhCan.fmt(float(now_p.get(e, 0.0)) + float(gains[e]))], NOTE_COLOUR, 14)
+				_card_label("  %s %s → %s" % [str(e), LinhCan.fmt(float(now_p.get(e, 0.0))), LinhCan.fmt(float(now_p.get(e, 0.0)) + float(gains[e]))], NOTE_COLOUR, 16)
 		_card.accessibility_name = title
 		_card.reset_size()
 	_card.visible = true

@@ -15,16 +15,17 @@ const ITEM_GROUPS := [["artifact", "items_artifacts", "bases", "Artifacts"], ["p
 	["talisman", "crafting_talismans", "talismans", "Talismans"], ["treasure", "items_treasures", "treasures", "Treasures"]]
 
 
-## The painted icon of item template [param kind]_[param id], or "".
+## The painted icon of item template [param kind]_[param id], or "placeholder" when its file is missing (the window
+## then shows PlaceholderArt; entries that never have art, like terms and realms, carry "").
 static func item_icon(kind: String, id: String) -> String:
 	var p: String = "res://assets/icons/items/%s_%s.png" % [kind, id]
-	return p if ResourceLoader.exists(p) else ""
+	return p if ResourceLoader.exists(p) else "placeholder"   # should have art: the window shows the stripes
 
 
-## The trait medallion of [param id], or "".
+## The trait medallion of [param id], or "placeholder" when its file is missing.
 static func trait_icon(id: String) -> String:
 	var p: String = "res://assets/icons/traits/%s.png" % id
-	return p if ResourceLoader.exists(p) else ""
+	return p if ResourceLoader.exists(p) else "placeholder"
 
 
 ## The view for [param key]: "" (the index) -> {index: true, categories}; an entry -> {key, category, title, name_vi,

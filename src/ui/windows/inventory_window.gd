@@ -226,6 +226,10 @@ func _item_row(it: Dictionary) -> void:
 	ic.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	ic.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	ic.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	if ic.texture == null:   # the template has no painted icon yet: the obvious placeholder, tiled (ui-code.md)
+		ic.texture = PlaceholderArt.texture()
+		ic.stretch_mode = TextureRect.STRETCH_TILE
+		TooltipLayer.set_tip(frame, {"title": tr("PLACEHOLDER"), "summary": tr("No icon painted for this item yet.")})
 	frame.add_child(ic)
 	if int(it.get("qty", 1)) > 1:
 		var q := Label.new()
@@ -233,7 +237,7 @@ func _item_row(it: Dictionary) -> void:
 		q.add_theme_color_override("font_color", Illustrated.BONE)
 		q.add_theme_color_override("font_outline_color", Color.BLACK)
 		q.add_theme_constant_override("outline_size", 4)
-		q.add_theme_font_size_override("font_size", 13)
+		q.add_theme_font_size_override("font_size", 16)   # the 16 px text floor (round-2 review)
 		q.size_flags_horizontal = Control.SIZE_SHRINK_END
 		q.size_flags_vertical = Control.SIZE_SHRINK_END
 		frame.add_child(q)

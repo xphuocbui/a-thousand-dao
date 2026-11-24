@@ -59,10 +59,22 @@ func _rebuild() -> void:
 	scroll.set_deferred("scroll_vertical", y)
 
 
-## The label of tie kind [param k]: "glyph Vietnamese (English)".
+## The label of tie kind [param k]: "Vietnamese (English)" (the painted icon beside it replaced the glyph; weak-point
+## review 2026-11-24: no emoji).
 func kind_label(k: String) -> String:
 	var t: Array = Array(cfg.get("tie_kinds", {}).get(k, ["·", k, k]))
-	return "%s %s (%s)" % [str(t[0]), str(t[1]), tr(str(t[2]))]
+	return "%s (%s)" % [str(t[1]), tr(str(t[2]))]
+
+
+## The painted icon of tie kind [param k] (assets/icons/ui/tie_<kind>.png, gen_ui_icons.py), or "".
+static func kind_icon(k: String) -> String:
+	var p: String = "res://assets/icons/ui/tie_%s.png" % k
+	return p if ResourceLoader.exists(p) else ""
+
+
+## A strength band as pips: faint ●○○, firm ●●○, deep ●●● (the GDD's 1-3 strokes).
+static func band_pips(band: String) -> String:
+	return {"faint": "●○○", "firm": "●●○", "deep": "●●●"}.get(band, "")
 
 
 func _build() -> void:
@@ -206,11 +218,22 @@ func _card(parent: Control, node_name: String, id: String, name_text: String, d:
 		for b in badges:
 			var pill := PanelContainer.new()
 			pill.add_theme_stylebox_override("panel", Illustrated.box(Color(str(b[1])), Illustrated.BRASS_DIM, 1, 4.0, 3))
+			var pr := HBoxContainer.new()
+			pr.add_theme_constant_override("separation", 4)
+			pill.add_child(pr)
+			if b.size() > 2 and str(b[2]) != "":   # the tie kind's painted icon
+				var ti := TextureRect.new()
+				ti.texture = Illustrated.tex(str(b[2]))
+				ti.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+				ti.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+				ti.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+				ti.custom_minimum_size = Vector2(22, 22)
+				pr.add_child(ti)
 			var bl := Label.new()
 			bl.text = str(b[0])
 			bl.add_theme_color_override("font_color", Illustrated.BONE)
-			bl.add_theme_font_size_override("font_size", 13)
-			pill.add_child(bl)
+			bl.add_theme_font_size_override("font_size", 16)   # the 16 px text floor (round-2 review)
+			pr.add_child(bl)
 			flow.add_child(pill)
 	return card
 
@@ -222,14 +245,14 @@ func _tie_row(t: Dictionary, parent: Control) -> void:
 	for k in Array(t.get("kinds", [])):
 		var words: Array = [kind_label(str(k.kind))]
 		if str(k.get("band", "")) != "":
-			words.append(tr(str(k.band)) + " " + {"faint": "│", "firm": "││", "deep": "│││"}.get(str(k.band), ""))   # GDD: 1-3 strokes
+			words.append(tr(str(k.band)) + " " + band_pips(str(k.band)))   # GDD: 1-3 strokes, drawn as pips
 		elif str(k.kind) == "feud":
 			words.append(tr("does not fade"))
 		if str(k.get("direction", "")) != "":
 			words.append(tr(str(DIRECTIONS.get(str(k.direction), k.direction))))
 		if bool(k.get("inherited", false)):
 			words.append(tr("inherited") + ((": " + str(k.cause)) if str(k.get("cause", "")) != "" else ""))
-		badges.append([" · ".join(words), BADGE.get(str(k.kind), BADGE_SOFT)])
+		badges.append([" · ".join(words), BADGE.get(str(k.kind), BADGE_SOFT), kind_icon(str(k.kind))])
 		spoken.append(", ".join(words))
 		tip_lines.append(" · ".join(words) + ((" — " + tr("strength %d") % int(k.strength)) if int(k.get("strength", -1)) >= 0 else "") +
 			((" — " + str(k.cause)) if str(k.get("cause", "")) != "" and not bool(k.get("inherited", false)) else ""))

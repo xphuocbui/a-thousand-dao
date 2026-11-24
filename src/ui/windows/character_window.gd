@@ -21,6 +21,8 @@ const SECTIONS := ["talents", "cultivation", "traits", "roots", "vitals", "cong_
 ## The tabs (the round-3 mock-up's tab row, user 2026-11-24): [key, title, its sections]. Overview holds the mock-up's
 ## page; a jump to a section on another tab opens that tab first. Interact exists only for another person.
 ## The verbs of npc-interaction-dialogue.md rules 8-11, by group; only Greet runs in the greybox.
+## The verbs the game runs today (npc-interaction-dialogue.md; the rest show as "Coming later").
+const BUILT_VERBS := ["greet"]
 const PERSON_VERBS := [
 	["Social", ["greet:Greet (Hàn huyên)", "news:Ask for news (Hỏi tin)", "about:Ask about someone (Hỏi về người)", "gift:Give a gift (Tặng lễ)", "work:Ask for work (Xin việc)"]],
 	["Favours", ["teach:Ask for teaching (Thỉnh giáo)", "help:Ask for help (Nhờ giúp)", "trade:Trade (Giao dịch)"]],
@@ -38,6 +40,7 @@ var lifespan_warn_share: float = 0.1
 var _chooser_slot: Dictionary = {}   # the slot whose chooser is open ({slot, index}), {} when none
 var _armed: bool = false             # the breakthrough confirm is armed
 var _tab: String = "overview"        # the open tab (TABS)
+var _trigger_held: bool = false      # a trigger already stepped a tab and has not been released
 var _event_locked: bool = false      # an event waits (the Interact tab's verbs say so); `locked` also covers look-only
 
 
@@ -269,35 +272,46 @@ func _build_interact(v: Dictionary, g: Control) -> void:
 		line(tr("none"), hist_box)
 	for h in hist:
 		line(str(h), hist_box)
+	# Only the verbs the game has are buttons; the planned ones are one muted line (weak-point review 2026-11-24:
+	# designer notes shown as dead rows made the window read as a spec).
 	var vb: VBoxContainer = section_in(g, "verbs", tr("Verbs"))
 	var here: bool = bool(p.get("here", false)) and bool(v.get("alive", true)) and not bool(p.get("is_beast", false))
 	var first: Button = null
+	var row := HFlowContainer.new()
+	row.add_theme_constant_override("h_separation", 8)
+	vb.add_child(row)
+	var planned: Array = []
 	for group in PERSON_VERBS:
-		var gl := Label.new()
-		gl.text = tr(str(group[0]))
-		gl.theme_type_variation = &"RowLabel"
-		vb.add_child(gl)
 		for entry in group[1]:
 			var parts: PackedStringArray = str(entry).split(":", true, 1)
+			if not BUILT_VERBS.has(parts[0]):
+				planned.append(tr(parts[1]).get_slice(" (", 0))
+				continue
 			var reason: String = ""
 			if not here:
 				reason = tr("not here: %s") % str(p.get("place", "?"))
 			elif _event_locked:
 				reason = tr("locked while an event waits (look only)")
-			elif parts[0] != "greet":
-				reason = tr("not in the game yet (the verb system is designed, not built)")
 			var b := Button.new()
 			b.name = "Verb_" + parts[0]
-			b.alignment = HORIZONTAL_ALIGNMENT_LEFT
-			b.text = "  " + tr(parts[1]) + ("   v " + tr("will accept") if reason == "" else "   — " + reason)
+			b.text = tr(parts[1])
+			b.theme_type_variation = &"CommitButton" if reason == "" else &""
 			b.disabled = reason != ""
 			b.accessibility_name = tr(parts[1]) + ((": " + reason) if reason != "" else "")
+			TooltipLayer.set_tip(b, {"title": tr(parts[1]), "summary": reason if reason != "" else tr("They will accept.")})
 			var vid: String = parts[0]
 			var pid: String = str(v.get("id", ""))
 			b.pressed.connect(func(): action_requested.emit("person_verb", [pid, vid]))
-			vb.add_child(b)
+			row.add_child(b)
 			if first == null and not b.disabled:
 				first = b
+	if not planned.is_empty():
+		var more := Label.new()
+		more.name = "PlannedVerbs"
+		more.text = tr("Coming later: %s.") % ", ".join(planned)
+		more.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		more.modulate = Color(1, 1, 1, 0.65)
+		vb.add_child(more)
 	if first != null:
 		focus_later(first)
 	_person_bar()
@@ -325,12 +339,27 @@ func _build_tabs() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if is_visible_in_tree() and event is InputEventKey and event.is_pressed() and (event as InputEventKey).ctrl_pressed \
 			and (event as InputEventKey).physical_keycode == KEY_TAB:
-		var keys: Array = TABS.map(func(t): return str(t[0])).filter(func(k): return k != "interact" or shows_other())
-		var i: int = keys.find(_tab) + (-1 if (event as InputEventKey).shift_pressed else 1)
-		open_tab(str(keys[posmod(i, keys.size())]))
+		step_tab(-1 if (event as InputEventKey).shift_pressed else 1)
 		get_viewport().set_input_as_handled()
 		return
+	# the gamepad's LT / RT step the tabs here (a tab's sections are short; decided 2026-11-24, round-2 review)
+	if is_visible_in_tree() and _owns_focus() and event is InputEventJoypadMotion:
+		var m := event as InputEventJoypadMotion
+		if m.axis == JOY_AXIS_TRIGGER_LEFT or m.axis == JOY_AXIS_TRIGGER_RIGHT:
+			if m.axis_value > 0.6 and not _trigger_held:
+				_trigger_held = true
+				step_tab(-1 if m.axis == JOY_AXIS_TRIGGER_LEFT else 1)
+			elif m.axis_value < 0.3:
+				_trigger_held = false
+			get_viewport().set_input_as_handled()
+			return
 	super._unhandled_input(event)
+
+
+## Opens the next ([param dir] 1) or previous (-1) tab, wrapping; Interact only exists for another person.
+func step_tab(dir: int) -> void:
+	var keys: Array = TABS.map(func(t): return str(t[0])).filter(func(k): return k != "interact" or shows_other())
+	open_tab(str(keys[posmod(keys.find(_tab) + dir, keys.size())]))
 
 
 func _build_header(v: Dictionary) -> void:
@@ -340,11 +369,9 @@ func _build_header(v: Dictionary) -> void:
 	var standing_text: String = _standing(v)
 	TooltipLayer.set_tip(name, {"title": name.text, "fact": standing_text})   # the standing itself sits in the Cultivation inset
 	var nums := HBoxContainer.new()
-	if compact:   # 1280x720: the name joins the numbers on one line, so the sticky header leaves room for the sheet
-		name.text += "  ·  "
-		nums.add_child(name)
-	else:
-		header.add_child(name)
+	# one line: the name with the numbers (the portrait's plaque carries the name large; weak-point review 2026-11-24)
+	name.text += "  ·  "
+	nums.add_child(name)
 	var age := Label.new()
 	var age_v: float = float(v.get("age", 0.0))
 	var life: float = float(v.get("lifespan", 0.0))

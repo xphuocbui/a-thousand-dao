@@ -343,7 +343,8 @@ static func person(s: GameSession, person_id: String) -> Dictionary:
 ## [param person_id] another person (user 2026-11-24: one character window for everyone): the same sheet built from
 ## their record and their build's stat sheet, with no cultivation rate, bottleneck or slot choices (look-only), and a
 ## "person" block (GameQuery.person: attitude, met, where, home, ties, recent history) for the Interact tab.
-## "" or the player's id: the player as before. {} for an unknown id.
+## "" or the player's id: the player as before. {gone: true} for an id no longer in the world (a stale history entry;
+## the dead keep their record and show as died).
 static func character(s: GameSession, person_id: String = "") -> Dictionary:
 	if s.player == null:
 		return {}
@@ -354,7 +355,9 @@ static func character(s: GameSession, person_id: String = "") -> Dictionary:
 		sh = s.sheet()
 	else:
 		var rec0: Dictionary = s.db.get_record("people", person_id)
-		if rec0.is_empty() or s.builds == null:
+		if rec0.is_empty():   # a history entry about someone no longer in the world: the window says so
+			return {"gone": true, "id": person_id, "is_player": false}
+		if s.builds == null:
 			return {}
 		c = Character.from_dict(rec0.duplicate(true))
 		sh = s.builds.sheet_of(c)
@@ -748,6 +751,7 @@ static func sect(s: GameSession, sect_id: String = "") -> Dictionary:
 				"realm_label": gd.realm_label(int(head.get("realm_index", 0)), int(head.get("stage", 0))) if not head.is_empty() else "",
 				"portrait": portrait_of(s, head) if not head.is_empty() else {}},
 			"seat_art": int(seat.get("continent_id", -1)), "notables": _sect_notables(s, rec),
+			"lore": str(place_lore(s, str(seat.get("id", ""))).get("look", "")),
 			"members": Array(rec.get("members", [])).size(),
 			"treasury": int(rec.get("treasury", 0)), "levels": Dictionary(rec.get("levels", {})).duplicate(true), "regions": held,
 			"liege": {"id": str(liege.get("id", "")), "name": str(liege.get("name", ""))}}

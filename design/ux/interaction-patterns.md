@@ -5,7 +5,7 @@
 > Paradox games (Victoria 3, CK3, EU5) and Path of Exile)
 > **Author**: ux-designer (Claude), from the HUD, person window and fight screen specs, and the research in
 > `design/research/ui-patterns-paradox-poe-2026-11-22.md`
-> **Last Updated**: 2026-11-22
+> **Last Updated**: 2026-11-24 (11 entries added for the illustrated windows, each naming its code)
 > **Template**: Interaction Pattern Library
 > **Sources**: `design/ux/hud.md`, `design/ux/person.md`, `design/ux/fight-screen.md`,
 > `docs/architecture/adr-0005-tooltip-layer.md`, `docs/architecture/adr-0006-game-session-facade.md`,
@@ -85,6 +85,18 @@ genre conventions only, never any game's art, icons or frames.
 | [Playback bar](#playback-bar) | Input | Fight screen | — |
 | [Inspect mode](#inspect-mode) | Input (gamepad) | Fight screen; any dense full screen | — |
 | [Automation toggle](#automation-toggle) | Input | Herb fields, abode upkeep, sect chores (to be specced) | EU5 |
+| [Tab bar](#tab-bar) | Navigation | Character sheet | — |
+| [Wood ground and parchment inset](#wood-ground-and-parchment-inset) | Layout | Every illustrated window | — |
+| [Hero painting](#hero-painting) | Data display | Sect window, abode screen, game menu | — |
+| [Portrait frame and round medallion](#portrait-frame-and-round-medallion) | Data display | Character sheet, sect, relationships, rankings | — |
+| [Icon tile](#icon-tile) | Data display | Character sheet, sect window, abode screen | — |
+| [Slot card](#slot-card) | Data display | Character sheet | — |
+| [Trait icon](#trait-icon) | Data display | Character sheet | CK3 trait row |
+| [Person card](#person-card) | Data display | Relationships page | CK3 |
+| [Podium](#podium) | Data display | Rankings | — |
+| [Rarity-framed item tile](#rarity-framed-item-tile) | Data display | Inventory | Path of Exile |
+| [Node card](#node-card) | Overlay | Đạo Đồ | Path of Exile |
+
 ---
 
 ## Patterns
@@ -154,6 +166,8 @@ last `history_max` (20) windows (Alt+← / →, mouse 4 / 5, the frame's arrows)
 control; closing returns focus to the opener; Esc closes it when it holds focus. A history entry stores the window kind
 and subject id; a gone subject shows a note. Each panel kind remembers its scroll position, tab and filters when
 reopened. A panel may have sections or tabs but never a panel inside it; another entity always opens as its own panel.
+The illustrated windows may be wider than a third of the screen: `ui_windows.json` `widths` gives 0.62 of the screen to
+the character sheet, sect window, relationships page and rankings, and 0.5 to the inventory; the behaviour is the same.
 
 **When to use**: information about one thing (a person, place, sect). **When NOT to use**: decisions that need an answer
 (use a [Centre window](#centre-window)).
@@ -497,6 +511,161 @@ Reset to undo all); node classes (small, notable, keystone) differ by size and f
 their price and follow the tree's rule (leaf first); a node's scope or set shows by a mark as well as colour.
 
 **When to use**: any allocatable graph. **When NOT to use**: small fixed loadouts (use a row).
+
+### Tab bar
+**Category**: Navigation · **Used in**: the character sheet (`CharacterWindow._build_tabs`)
+
+**Description**: the pages of one window as a row of toggle buttons in the sticky header, so the player's place and the
+key numbers stay in view while the page changes.
+
+**Specification**: one toggle button per tab, the open one pressed; its accessible name adds ", selected"; Ctrl+Tab and
+Ctrl+Shift+Tab step through the tabs and wrap; the window remembers its tab (see Side panel with history). A tab that
+does not apply (Interact on the player's own sheet) is left out, not greyed. Gamepad: LT / RT step the tabs on the
+character sheet (decided 2026-11-24, UI owner; not built yet, part of the gamepad pass). Not built: tablist / tab /
+tabpanel roles for screen readers (accessibility pass).
+
+**When to use**: a window with several pages of equal weight. **When NOT to use**: sections of one page (use
+[Section jumps](#section-jumps)); more than two levels (see the rules above).
+
+### Wood ground and parchment inset
+**Category**: Layout · **Used in**: every illustrated window (`Illustrated.ground`, `Illustrated.inset`,
+`GameWindow.section_in`)
+
+**Description**: the illustrated windows' look as a layout pattern: a dark wood ground holding parchment insets, each
+under a small brass heading.
+
+**Specification**: `Illustrated.ground` is the one wood column of the window body; each section is a parchment inset
+with a brass-edged frame and an upper-case heading with a thin brass rule. `GameWindow.section_in` makes the inset a
+[Section jumps](#section-jumps) target: its heading is a focus stop with an accessible name and is registered under
+the section's key. Text on the parchment uses the ink colours, text on the wood uses the bone colours; colours come from
+`Illustrated` and the Rosewood theme, never set in a window. Every piece is a plain Control, so the window keeps its own
+tooltips, focus and accessibility names.
+
+**When to use**: any window that groups facts into sections. **When NOT to use**: the HUD and the map (they keep the
+wood plate buttons and bubbles).
+
+### Hero painting
+**Category**: Data display · **Used in**: the sect window, the abode screen, the game menu (`Illustrated.framed` with a
+name cartouche or plaque)
+
+**Description**: a framed place painting across the top of a window, with the name of the place on a cartouche.
+
+**Specification**: `Illustrated.framed(texture, size, fallback)` crops the picture to cover a brass frame; the name
+sits on a plaque (`Illustrated.plaque`) over or under it. A missing painting shows `PlaceholderArt` (never a stand-in
+that looks finished), with the fallback word if given. The painting is decorative: the window title, the plaque and the
+text lines carry the same facts, so a screen reader skips it (marking the abode's hero decorative is not built yet).
+No text is drawn over the picture itself, so it cannot lower a label's contrast.
+
+**When to use**: a window about one place or sect. **When NOT to use**: a person (use the
+[portrait frame](#portrait-frame-and-round-medallion)).
+
+### Portrait frame and round medallion
+**Category**: Data display · **Used in**: the character sheet, sect window (head and notables), relationships page and
+rankings (`Illustrated.framed`, `Illustrated.medallion`, `PortraitPicker`)
+
+**Description**: a person's face: a tall framed portrait where it is the subject, a round medallion in lists.
+
+**Specification**: `PortraitPicker.texture_for` returns the portrait; the frame is `Illustrated.framed`, the medallion a
+round mask with a brass ring at the size the list wants (36 to 96 px), cropped to the head and shoulders of a tall
+portrait. A dead person's medallion is faded and the row says "died" in words. A missing portrait shows `PlaceholderArt`
+inside the frame or the ring with the tooltip "PLACEHOLDER · No portrait yet"; ordinary NPCs' type portraits are the
+design and are not "missing". The portrait carries no information the text does not (a screen reader skips it; marking
+medallions decorative is not built yet).
+
+**When to use**: any person shown with a name. **When NOT to use**: places and items.
+
+### Icon tile
+**Category**: Data display · **Used in**: the character sheet, sect window, abode screen (`Illustrated.tile`)
+
+**Description**: one figure at a glance: an icon, a small label, a big value and an optional note.
+
+**Specification**: a parchment tile in a grid (`Illustrated.grid`); the icon is optional; the value is in the heading
+face and trims with an ellipsis rather than wrapping; the tile is a focus stop with the accessible name "label value
+note"; its tooltip (when it has one) names the rule behind the number, as a [Breakdown](#breakdown) would. The figure
+is a number or a short word, never the only place a fact lives (the text line says it too). Tooltips on the abode's
+four tiles are not built yet.
+
+**When to use**: the three to six numbers that sum a thing up. **When NOT to use**: a number with a long explanation
+(use a [Breakdown](#breakdown)).
+
+### Slot card
+**Category**: Data display · **Used in**: the character sheet (`Illustrated.card`)
+
+**Description**: one loadout slot: an icon in a recessed frame, the slot's kind, its occupant's name and an optional
+line under it.
+
+**Specification**: a parchment card with a 72 px icon frame (a card with no icon shows the bare recessed frame), the kind in the small label face and the name wrapped under it; a focus stop with the accessible name
+"kind: title, sub". Changing the slot goes through the window's chooser, never a drag.
+
+**When to use**: a fixed set of slots. **When NOT to use**: a long list (use a [searchable list](#searchable-list)).
+
+### Trait icon
+**Category**: Data display · **Used in**: the character sheet (`Illustrated.trait_chip`)
+
+**Description** (CK3's trait row): a trait is its painted medallion alone; the information is on hover.
+
+**Specification**: the icon (40 px by default) is a focus stop with the accessible name "name (Vietnamese), group". The
+[tooltip](#nested-lockable-tooltip) (hover, or Q on focus) shows the name with the Vietnamese, the group, the stat
+lines and what the trait leans a person to; its wiki key opens the trait's wiki entry. No label is printed beside the
+icon, so a trait row stays one line. Not built: a missing trait icon file shows an empty chip, not `PlaceholderArt`
+(`Illustrated.trait_chip` loads it with `Illustrated.tex`, which returns null).
+
+**When to use**: a row of traits. **When NOT to use**: a stat the player must read without hovering.
+
+### Person card
+**Category**: Data display · **Used in**: the relationships page (`RelationshipsWindow._card`)
+
+**Description**: one person among many: medallion, name link, who they are, how they feel and their ties as badges.
+
+**Specification**: a parchment tile in a two-column grid. The round medallion (64 px for ties) sits left; right of it
+the name link (opens the character sheet; accessible name "Open <name>"), the "realm · sect · at place" line, the mood
+word with its number, and a wrapping row of badges. Badges are pills with bone text at 16 px on a tint by tie family
+(pinned brass, feud cinnabar, enmity dark red, soft ties teal, debt amber), always with their words. A dead person
+carries "†" and "died". Focus order is row-major (Godot's default); both the card and its name link are focus stops.
+
+**When to use**: a list of people with a state each. **When NOT to use**: a plain roster (use a
+[searchable list](#searchable-list) row).
+
+### Podium
+**Category**: Data display · **Used in**: rankings (`RankingsWindow._podium`)
+
+**Description**: the top three of a list as cards over the table.
+
+**Specification**: three parchment cards in the order 2nd, 1st, 3rd, the first larger (96 px medallion against 76 px),
+each with the medallion, an ordinal plaque, the name link, "sect · stage" and the power number ("~" when provisional).
+The cards are not focus stops (`focus_mode` NONE): the name link is. Ranks 1–3 are also in the table, so a screen reader
+meets them twice (accepted for now). Hidden when the layout is compact (1280×720), while searching, and when the list
+has fewer than three rows.
+
+**When to use**: a ranked list where the top matters. **When NOT to use**: a list the player scans for a name.
+
+### Rarity-framed item tile
+**Category**: Data display · **Used in**: inventory (`InventoryWindow._item_row`)
+
+**Description** (Path of Exile): the item's painted icon in a frame coloured by its rarity, with a count badge.
+
+**Specification**: a 56 px tile on the near-black ground, framed in the rarity colour (`LinkStyle`), with the icon
+centred; a stack shows a "×N" badge at 16 px in the bottom corner, outlined for legibility on any icon; one item shows
+none. The colour is never the only carrier of rarity: the row's text and accessible name carry the rarity word. A
+missing icon shows `PlaceholderArt` with the tooltip "PLACEHOLDER". The tile is decorative for a screen reader.
+
+**When to use**: any item row. **When NOT to use**: a non-item (use an [icon tile](#icon-tile)).
+
+### Node card
+**Category**: Overlay · **Used in**: the Đạo Đồ (`DaoDoScreen` hover card)
+
+**Description** (Path of Exile's node tooltip): a floating card about the node under the pointer or the keyboard
+selection.
+
+**Specification**: mouse-transparent (it never takes a click, so it cannot block the canvas); it shows the node's
+painting, name in its class colour, the class and land in words, the stats, any capability or Effect, the price, then
+one status line. It follows the pointer (22 px right, 18 px below), or sits at the selected node when the selection moves
+by keyboard; it flips to the left of the pointer at the right edge and moves up at the bottom edge, and it clamps to
+the canvas. Every line is at least 16 px. Screen reader: only the card's accessible name (the node's title) is set; a
+live announcement of the stats is not built yet.
+
+**When to use**: a dense canvas where a node needs a full read on hover. **When NOT to use**: a normal list
+(use a [tooltip](#nested-lockable-tooltip)).
 
 ### Automation toggle
 **Category**: Input · **Used in**: herb fields, abode upkeep, sect chores (to be specced)

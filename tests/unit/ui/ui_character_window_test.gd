@@ -71,7 +71,8 @@ func test_another_person_opens_on_the_interact_tab_with_their_verbs() -> void:
 	assert_true(w.shows_other())
 	assert_eq(w.window_title(w.view), "Hàn Mặc")
 	assert_false((_find(w, "Verb_greet") as Button).disabled, "Greet runs: they are here")
-	assert_true((_find(w, "Verb_trade") as Button).disabled, "the rest say why not")
+	assert_true(_find(w, "Verb_trade") == null, "a verb the game does not have is no button")
+	assert_true(str((_find(w, "PlannedVerbs") as Label).text).contains("Trade"), "it is named in the Coming later line")
 	assert_true(_find(w, "Pin") is Button and _find(w, "PracticeFight") is Button)
 
 
@@ -182,3 +183,12 @@ func test_the_compact_layout_folds_the_standing_line_into_the_name() -> void:
 	add_child(w)
 	w.show_view(_view(), "", false)
 	assert_eq(w.header.get_child_count(), 2, "one line (name and numbers) and the tab row (the standing line sits in the Cultivation inset)")
+
+
+func test_the_tabs_step_and_wrap_with_the_player_skipping_interact() -> void:
+	var w := _window(_view())
+	w.step_tab(1)
+	assert_eq(w.tab(), "combat")
+	w.step_tab(-1)
+	w.step_tab(-1)
+	assert_eq(w.tab(), "fate", "wraps back past Overview; the player's sheet has no Interact tab")

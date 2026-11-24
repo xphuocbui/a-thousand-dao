@@ -73,7 +73,12 @@ func test_items_have_their_own_entries_with_their_painted_icons() -> void:
 		if str(c.id) == "items_herb":
 			herbs = Array(c.entries)
 	assert_eq(herbs.size(), Array(gd.file("items_herbs").herbs).size(), "every herb is in the wiki")
-	assert_true(herbs.all(func(e): return str(e.icon) != ""), "and each has its icon")
+	assert_true(herbs.all(func(e): return str(e.icon).ends_with(".png")), "and each has its painted icon")
 	var v: Dictionary = WikiData.view(gd, str(herbs[0].key))
 	assert_false(bool(v.get("unknown", false)), str(herbs[0].key))
 	assert_true(str(v.icon).ends_with(".png") and str(v.summary) != "", "the entry carries the icon and the description")
+
+
+func test_an_entry_whose_art_is_missing_asks_for_the_placeholder() -> void:
+	assert_eq(WikiData.item_icon("herb", "no_such_herb"), "placeholder", "art that should exist but does not: the stripes")
+	assert_eq(WikiData.trait_icon("no_such_trait"), "placeholder")

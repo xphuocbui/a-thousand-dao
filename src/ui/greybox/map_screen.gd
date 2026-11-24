@@ -108,6 +108,11 @@ var _person_after_fight: bool = true   # GameQuery.known_places of the last refr
 
 func _ready() -> void:
 	_args = OS.get_cmdline_user_args()
+	# Fullscreen when played (user 2026-11-24: "let's just do fullscreen always"). Not in the project file: there it
+	# overrode the screenshot and demo runs' --windowed --resolution and put them fullscreen on the user's screen.
+	var shot_or_demo: bool = _args.has("--demo") or _arg_value("--shot-and-quit", "") != "" or _args.has("--windowed-run")
+	if not shot_or_demo and not OS.get_cmdline_args().has("--windowed"):
+		get_window().mode = Window.MODE_FULLSCREEN
 	_ui_scale_pct = int(_arg_value("--ui-scale", "100"))
 	_apply_scale()
 	get_window().size_changed.connect(_apply_scale)

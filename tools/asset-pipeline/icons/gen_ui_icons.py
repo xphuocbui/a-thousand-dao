@@ -28,6 +28,18 @@ SUBJECT = {
     # sect fact tiles
     "sect_founded": "an engraved stone stele on a tortoise base (founding)",
     "sect_members": "three robed disciple silhouettes standing in a row (members)",
+    # tie kinds (ui_windows.json tie_kinds; the Relationships cards' badges, weak-point review 2026-11-24: no emoji)
+    "tie_kin": "a family tree of three linked roots (kin)",
+    "tie_master": "a master's hand guiding a brush over a scroll (master)",
+    "tie_disciple": "a kneeling student holding up a tea cup (disciple)",
+    "tie_ket_nghia": "three wine cups raised together under a peach blossom (sworn siblings)",
+    "tie_dao_lu": "two cranes dancing face to face (Dao companions)",
+    "tie_companion": "two travellers' straw hats side by side (companion)",
+    "tie_friend": "two clasped hands (friend)",
+    "tie_rival": "two crossed swords point to point (rival)",
+    "tie_debt": "a red cord tied around a jade token (debt of gratitude)",
+    "tie_enmity": "a dark storm cloud with a crack of red (enmity)",
+    "tie_feud": "a blood-red dagger over a broken jade ring (blood feud)",
 }
 
 
