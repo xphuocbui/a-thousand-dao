@@ -14,6 +14,8 @@ extends ColorRect
 ## Keys: Space play / pause, . and , next and previous event, 1 / 2 / 3 speed, S skip to the end, Esc closes once the
 ## fight has ended. What is still missing, and why, is listed in production/plans/ui-greybox-build.md.
 
+## Esc mid-fight: the map screen opens the settings-only game menu (design/ux/game-menu.md).
+signal settings_requested
 ## The player closed the screen after the fight.
 signal closed
 
@@ -326,6 +328,8 @@ func _input(event: InputEvent) -> void:
 		KEY_ESCAPE:
 			if ended():
 				close_screen()
+			else:
+				settings_requested.emit()   # no exit mid-fight: Esc opens the settings-only menu (hud.md Esc rules)
 		_:
 			return
 	get_viewport().set_input_as_handled()

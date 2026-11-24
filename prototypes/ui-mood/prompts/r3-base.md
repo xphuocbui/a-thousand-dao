@@ -1,0 +1,10 @@
+<!-- PROTOTYPE - NOT FOR PRODUCTION (prompt text; the comment is stripped before sending) -->
+The first image is a rough layout sketch of a game window over the real game map. Repaint it as a finished, high-end PC grand-strategy game screenshot, flat and straight-on, full-screen 16:9 (no monitor, no perspective, no hands, no logo, no watermark, no game title). The second image is the approved interface style: match its materials, colours and type exactly.
+
+The game is a single-player grand-strategy RPG set in an original Chinese cultivation (xianxia) world: sects, cultivators, spirit roots, techniques.
+
+INTERFACE STYLE (as in the second image): carved hardwood and brass. Dark rosewood frames with finely carved geometric window-lattice borders, brass corner fittings with small rivets, aged parchment insets. Tabs and buttons are small embossed leather tabs with brass edges; the active tab sits lower and darker with a warm brass edge glow. Headings in a stately serif, body text and numbers in a clear sturdy serif; dark ink on parchment, warm cream on wood. Names of people and places are deep cinnabar red.
+
+WHAT MAKES IT GOOD: a rich, illustrated window in the manner of the best historical grand-strategy games: every block is framed and has a clear visual role, art is used generously (a large painted portrait in an ornate frame, small portrait medallions in lists, painted icons on every stat tile and slot), numbers are big and readable inside small framed tiles, bars are brass gauges, section headings sit on thin brass rules with a small ornament, and nothing reads like a plain spreadsheet. Dense but calm, with clear hierarchy.
+
+KEEP: every block, tile, slot, tab and button in the same place and size as the sketch, with the same short text in the same places, spelled exactly as written (Vietnamese diacritics included). Grey boxes labelled PORTRAIT or P become painted portraits as described in the box (the description text itself disappears). Pasted paintings and icons stay recognisably the same. The map, top bar and right-hand buttons behind the window stay as they are, only lightly polished.
