@@ -86,12 +86,14 @@ nothing in this paragraph fixes a number.
    Economy & Trade (#43): Holdings scales what a region produces for the sect, Trade scales what flows between markets,
    Institutions scales the stock of manuals, pills and teachers, and Military scales how safe the flow is. A great
    sect's effective level in a track counts its own investment plus half of its vassals' investment, converted back to
-   a level (Formula F1; user decision 2026-11-14). Layer-2 works on sect land are gated by Holdings (Formula F2).
+   a level (Formula F1; user decision 2026-11-14). Layer-2 works on sect land are priced by their track (Formula F2).
    *(Amended 2026-11-23, Provinces #48, user decision:)* layer-2 works are now **province buildings**, built and upkept as
-   works are (their upkeep is F3's `works_due`). Each track level **caps** the level of its building kinds in the sect's
-   provinces: Holdings caps production buildings (the F2 gate), Trade caps logistics buildings and market halls (which
-   set a province's market access, Regional Economy & Trade Formula A), Military caps warding walls, Institutions caps
-   gathering arrays and pavilions (Provinces rule 9). Tracks stay sect-wide levels.
+   works are (their upkeep is F3's `works_due`). *(Amended 2026-11-24, user decision: prices, not caps.)* Each track
+   **prices** its building kinds in the sect's provinces: up to the track's free level (F2) a building costs Travel &
+   Map's price, and each level above costs ×2 more again (Provinces rule 9). Holdings prices production buildings and
+   granaries, Trade logistics buildings and market halls (which set a province's market access, Regional Economy &
+   Trade Formula A), Military warding walls, Institutions cultivation buildings and great-project stages. Tracks stay
+   sect-wide levels.
 10. **Treasury.** Income is the sect's share of production and trade after its vassals' tribute, plus tribute from
     vassals, plus a fee on the missions posted on its boards. Mission rewards are paid by the **client** (towns,
     merchants, villages, out of the production the sect does not collect); the sect keeps a fee (user decision 2026-11-14).
@@ -373,7 +375,7 @@ L_eff = log₁.₄(1 + 0.4 · (139,627 + 0.5 · 87,564) / 2,000) = log₁.₄(37
 
 The track_effect formula is defined as:
 
-`collect = s_max · (H + 1) / (H + 1 + H_half)` · `work_max = ⌈H / 2⌉` · `trade_mult = 1 + t · T` ·
+`collect = s_max · (H + 1) / (H + 1 + H_half)` · `free_level[T] = ⌈T / 2⌉` for each track T · `trade_mult = 1 + t · T` ·
 `capacity = cap_base · (1 + i · I)` · `mil_mult = 1 + m · M` · `road_danger = d^M`
 
 **Variables:**
@@ -382,7 +384,7 @@ The track_effect formula is defined as:
 | H, T, I, M | float | 0 – ∞ | F1 (L_eff for great sects) | Holdings, Trade, Institutions, Military |
 | s_max | float | 0.6 | data file | The share of production a sect can approach and never reach (user decision 2026-11-14) |
 | H_half | float | 6 | data file | Extra levels at which half of s_max is reached |
-| work_max | int | 0 – ∞ | calculated | Highest layer-2 work level the sect may build on its land; the works keep Travel & Map's prices |
+| free_level[T] | int | 0 – ∞ | calculated | Highest building level of track T's kinds at Travel & Map's price; each level above costs `track_surcharge` (×2) more again, with no highest level (user decision 2026-11-24; was `work_max`, a cap) |
 | t, i, m | float | 0.15; 0.25; 0.10 | data file | Gain per level |
 | cap_base | int | great 160; minor 25 | data file | Members the seat houses at I = 0 (rounded down after the multiplier) |
 | d | float | 0.92 | data file | Road-encounter multiplier per Military level (Travel & Map danger) |
@@ -970,7 +972,7 @@ seed, season, record id). Evidence goes to `tests/unit/sects/`, `tests/integrati
 - **AC-SM-06** F1. **GIVEN** a track at 7, **WHEN** two seasons in a row go unpaid, **THEN** it is 6 at the end of the
   second; **WHEN** one unpaid season is followed by a paid one, **THEN** it stays 7. A level-0 track never goes below 0.
 - **AC-SM-07** F2. **THEN** H 0 gives collect 0.0857 and H 1,000 gives collect < 0.6; FX-T1 gives collect 0.3231,
-  trade_mult 1.9, capacity 400, mil_mult 1.6 and road danger 0.6064; a minor sect at I 6 houses 62; work_max is 4 at
+  trade_mult 1.9, capacity 400, mil_mult 1.6 and road danger 0.6064; a minor sect at I 6 houses 62; free_level is 4 at
   H 8 and 5 at H 9; Holdings 6 → 7 on FX-T1 (mines 12,000, goods 38,000) costs 15,059, adds about 829 a season (mine cash
   119, goods sold 710) and 150.6 of upkeep.
 

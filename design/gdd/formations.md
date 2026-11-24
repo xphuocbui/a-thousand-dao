@@ -123,7 +123,7 @@ An authored number `v` on a positive or conditioned node, or a feed's seconds, b
 |---|---|---|---|---|
 | g | int | 0–4 | diagram record | Grade (the Item Database's five grades) |
 | grade_mult[g] | float | 1.0 / 1.15 / 1.3 / 1.5 / 1.75 | data file *(guess)* | Base strength of a grade |
-| L | int | 1 to `max_level` (5) + 2 from the keystone | calculated | Level, limited to Trận Pháp skill + 1 |
+| L | int | 1 to `max_level` (5) + 2 from the keystone; standing arrays at an abode have no `max_level` (user decision 2026-11-24) | calculated | Level, limited to Trận Pháp skill + 1 |
 | level_growth | float | 1.25 | data file *(guess)* | Strength per level |
 | formation_power_pct | float | −50 to about 200 | Modifier System | The existing key |
 | S_min, S_max | float | 0.25, 8 | data file *(guess)* | Bounds (Pillar 2) |
@@ -157,7 +157,7 @@ The raise_cost formula is defined as:
 
 `raise_cost(L) = cost_lt[id or grade] × cost_growth^(L−1)` linh thạch, plus `materials_per_level × L` units of rarity ≥ `material_rarity`.
 
-Max level = `min(max_level, Trận Pháp skill + 1)`; **with the keystone Formation Within a Formation a diagram's maximum level is that cap + 2** (headroom, as the Effects System defines the keystone), so a stored L can reach cap + 2 and rule 7's `L_eff` then adds nothing beyond it. `raise_cost(L)` is the cost to reach L from L−1 (L2 of Tụ Linh = 150 × 2.5 = 375). For the three arrays this is the existing quick-spec formula unchanged (Tụ Linh 150 × 2.5^(L−1), Thanh Mộc 120, Hộ Sơn 100; `crafting_formations.json`). A diagram has its own level, raised at the abode like an array with `cost_lt[grade]` (values set with the first catalogue); a taught diagram starts at L1.
+Max level = `min(max_level, Trận Pháp skill + 1)` (a **standing array at a cave abode has no `max_level`** since 2026-11-24, user decision 2026-11-24: only the skill cap bounds it, and the abode's grade prices its levels, Cave Abode F3); **with the keystone Formation Within a Formation a diagram's maximum level is that cap + 2** (headroom, as the Effects System defines the keystone), so a stored L can reach cap + 2 and rule 7's `L_eff` then adds nothing beyond it. `raise_cost(L)` is the cost to reach L from L−1 (L2 of Tụ Linh = 150 × 2.5 = 375). For the three arrays this is the existing quick-spec formula unchanged (Tụ Linh 150 × 2.5^(L−1), Thanh Mộc 120, Hộ Sơn 100; `crafting_formations.json`). A diagram has its own level, raised at the abode like an array with `cost_lt[grade]` (values set with the first catalogue); a taught diagram starts at L1.
 
 ### F4. NPC fit score
 
@@ -253,7 +253,7 @@ The diagram_reservation formula is defined as:
 | Regional Economy (#43) | Hard (out) | Every stone burnt booked in Formula H as `burn_formation`; NPC fuel aggregate | GDD approved | Yes (added 2026-11-21) |
 | Travel & Map (#25) | Soft | Tụ Linh as a layer-1 work; teleport arrays, fee Formula K | GDD designed | Yes |
 | Sects (#26) | Soft | Sect-owned arrays use the record; sects teach diagrams | GDD approved | Yes (added 2026-11-21) |
-| Cave Abode & Home Works (#47) | Soft | The abode's slots and level ceiling for the standing arrays | Designed 2026-11-21, pending review | Yes |
+| Cave Abode & Home Works (#47) | Soft | The abode's slots and the grade's price for the standing arrays' levels | Designed 2026-11-21, pending review | Yes |
 | Spirit Herbs & Fields (#14) | Soft | Thanh Mộc's `herb_growth_pct` read by the field's growth (F1) | Designed 2026-11-21, pending review | Yes |
 | Cultivation Techniques (công pháp) | Soft | Taught diagrams | GDD in review | Yes (added 2026-11-21) |
 | NPC Builds (#24) | Soft | Catalogue, fit score, diagram per NPC | Built, no GDD | n/a |

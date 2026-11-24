@@ -226,7 +226,7 @@ A bulk run of *n* seasons (rule 18) costs `n · T_tick`; a century (400 seasons)
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
 | root_i | float | > 0 | calculated (`CultivationRules.curve_factor`, the player's root curve) | The person's spiritual root (linh căn) factor; cached on the record when the person is created or the root changes |
-| q_i | float | ≥ 0.1 | World DB (place `density`) | Qi density of the person's place; a sect member uses the sect seat |
+| q_i | float | ≥ 0.1 | Travel & Map Formula B (stacked density) | Qi density of the person's place: the stacked density of land, blessed land and layer-2 works (province buildings and the ground's own works), with `settled_density_cap` in settlements; no personal layers or `density_bonus` (user decision 2026-11-24, was the place's land `density`). A sect member uses the sect seat, so a sect's buildings speed its members; computed once per place per season |
 | mean_raw | float | > 0 | calculated | Mean of `raw_i` over living non-beast NPCs |
 | γ | float | 0 – 1 | data file (`tick.talent_gamma`, 0.5) | Softens talent: 0 makes everyone equal, 1 makes speed proportional to talent |
 | m_lo, m_hi | float | 0.5, 2.0 | data file (`tick.talent_min`, `tick.talent_max`) | Clamp on the multiplier before normalising |

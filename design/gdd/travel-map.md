@@ -375,19 +375,20 @@ names rather than a place.
 **Layers 2 and 1: works on the land**
 
 31. **Shared works (layer 2).** *(Amended 2026-11-23: layer-2 works are now Provinces #48's **province buildings**, one
-    catalogue built in province slots; this rule keeps what they do to places, their caps and the two kinds.)* Whoever
+    catalogue built in province slots; this rule keeps what they do to places and the two kinds. Amended 2026-11-24, user
+    decision: shared works have no highest level and no layer-2 caps, Formulas B, H and J.)* Whoever
     holds a place (a sect, an NPC or a player) can spend seasons and linh thạch or
     materials to raise its density, push its element shares toward a chosen element, or raise its production, for
     everyone there. There are two kinds:
-    - **Permanent works** (spirit groves, qi channels) give small gains that never fade, up to a low cap per place, so the
-      world grows somewhat richer over time but never by much.
+    - **Permanent works** (spirit groves, qi channels, vein dressing) give small gains that never fade; each level costs
+      about twice the last, so the world grows richer over time, quickly at first and then slowly.
     - **Upkept works** (a sect's gathering arrays, worked mines) give larger gains that fade back when their upkeep
       stops.
 32. **Home works (layer 1).** A character's improvements to their own home benefit only that character, and only at their
     home: a personal gathering formation, a tended cave abode, a private field. They follow the same two kinds as layer 2,
-    with their own caps. If the home is left, its home works stop counting for the character. An abandoned home's
+    with no caps either (user decision 2026-11-24; the abode's grade prices their levels, Cave Abode F3). If the home is left, its home works stop counting for the character. An abandoned home's
     permanent works stay with the place, for whoever finds it. Today's home gathering formation (Tụ Linh Trận) becomes a
-    layer 1 upkept work. Formations (#17) owns the formations; the map owns what they change on the land. Cave Abode & Home Works (#47) owns the abode's grade, its work slots and the layer-1 work catalogue; the map keeps Formula B and every layer-1 cap.
+    layer 1 upkept work. Formations (#17) owns the formations; the map owns what they change on the land. Cave Abode & Home Works (#47) owns the abode's grade, its work slots and the layer-1 work catalogue; the map keeps Formula B.
 
 **Developed ground and where people live**
 
@@ -412,8 +413,9 @@ names rather than a place.
     bought residence becomes the character's home, with the place's layers 4–2 and the residence's own furnishing (a
     fixed layer 1 home work that comes with it). Rent is paid each season; a purchase is paid once and the character
     owns the residence, still inside the settlement. **A settled home holds less qi than a cultivator's own developed
-    base or a blessed land:** homes inside settlements and sect grounds have a lower density cap (1.8, against 3.0 for a
-    self-built base in the wilderness). Their element match has no settled cap: it is as good as the land and works
+    base or a blessed land:** homes inside settlements (villages, towns, markets and cities) have a lower density cap
+    (1.8; a self-built base in the wilderness has none since 2026-11-24). **Sect grounds have no settled cap** (user decision 2026-11-24):
+    a sect's seat is its own developed base, so its buildings make its members cultivate faster. Their element match has no settled cap: it is as good as the land and works
     under it (user decision 2026-11-13). The character may add their own home works there, but the density cap still
     applies. The holder sets prices and who may rent (Sects #26
     for sect grounds).
@@ -472,7 +474,7 @@ place left by history, rule 15).
 | Regional Economy & Trade (#43), Market | out | Production by resource per region and territory, and population, once a season (rule 25) | This GDD (production); #43 (stock, prices, flow) |
 | Sects & Missions | in / out | In: who owns which regions, sites and teleport arrays; sect works on their land (layer 2). Out: the territory's production and towns; sect seats and famous blessed lands as places | Sects (ownership changes, taxes, array access); this GDD (the land and its layers) |
 | Formations (#17) | in / out | In: gathering formations and other works on layers 1 and 2. Out: the land's values the works start from | Formations (the formations); this GDD (the layer they change) |
-| Cave Abode & Home Works (#47) | in / out | In: layer-1 density, share and match from the active home works. Out: the layer-1 caps, abode opening (rule 8), home states, residence grades | Cave Abode (the works and slots); this GDD (Formula B and the caps) |
+| Cave Abode & Home Works (#47) | in / out | In: layer-1 density, share and match from the active home works. Out: `settled_density_cap`, abode opening (rule 8), home states, residence grades | Cave Abode (the works, slots and the grade's price); this GDD (Formula B) |
 | Event Engine | in / out | Out: tile danger, biome and mode, which filter travel encounters; clue and rumour items; secret realm openings. In: discoveries, scars and ownership changes from events | Event Engine (events); this GDD (what they read and change) |
 | World Generation & History (#27) | in | The authored history, which names ruins, dead cultivators' abodes, secret realms, blessed lands and tile secrets with their candidate spots; each game's roll among them (rules 15, 28, 29); the random NPCs and their homes (rule 33) | World Generation & History (history, rolls, NPCs); this GDD (terrain, candidate rules) |
 | World Database | out | Places, regions, discoveries, scars, ownership, homes, works on each place (layers 1 and 2), who knows each secret, each character's known map | World Database (storage) |
@@ -546,9 +548,9 @@ renormalised: the ground grows richer and other elements are not reduced). Herb 
 
 The stacked_density formula is defined as:
 
-`D = min(D_cap, D4 + min(c3, ΔD3) + min(c2p, ΔD2p) + min(c2u, ΔD2u) + min(c1p, ΔD1p) + min(c1u_eff, ΔD1u) + density_bonus)`
-
-`c1u_eff = (c1u + 0.30 where Capability #15 applies) × (1 + formation_power_pct / 100)`
+`D = D4 + min(c3, ΔD3) + ΔD2p + ΔD2u + ΔD1p + ΔD1u + density_bonus` (layers 2 and 1 uncapped and no overall `D_cap`, user decision 2026-11-24;
+formation power multiplies Tụ Linh Trận's own gain inside ΔD1u; its level is bounded by the Trận Pháp skill cap, +2 with
+Capability #15, Formations F3)
 
 The stacked_match formula is defined as:
 
@@ -559,18 +561,19 @@ The stacked_match formula is defined as:
 |----------|------|-------|--------|-------------|
 | D4 | float | 0.3–2.4 | calculated (C) | Land density, scars included |
 | ΔD3; c3 | float | 0+; 1.0 | calculated; data file (`density_cap_l3`) | Blessed land or secret. Targets: large 0.5–1.0, small 0.3–0.6, secret 0.1–0.3 *(guess)* |
-| ΔD2p, ΔD2u; c2p, c2u | float | 0+; 0.1, 0.5 | calculated; data file | Shared works, permanent and upkept |
-| ΔD1p, ΔD1u; c1p, c1u | float | 0+; 0.1, 0.75 | calculated; data file | Home works; Tụ Linh Trận is ΔD1u (0.15 per level, times formation power). Capability #15 raises c1u by 0.30 (its two extra levels); formation power lifts the cap by the same factor as the array (user decision 2026-11-21), so a formation build keeps scaling home density up to D_cap |
+| ΔD2p, ΔD2u | float | 0+ | calculated | Shared works (province buildings), permanent and upkept; no layer cap (user decision 2026-11-24; the old c2p 0.1 and c2u 0.5 are removed) |
+| ΔD1p, ΔD1u | float | 0+ | calculated | Home works, no layer cap (user decision 2026-11-24; the old c1p 0.1 and c1u 0.75 are removed); Tụ Linh Trận is ΔD1u (0.15 per level, times formation power), its level is bounded only by the Trận Pháp skill cap (+2 with Capability #15, Formations F3), so a formation build keeps scaling home density up to D_cap |
 | density_bonus | float | 0+ | calculated (stat sheet) | The personal stat from the tree and items only, shown on its own line. Tụ Linh Trận no longer writes it: it counts once, as ΔD1u (re-ruled 2026-11-10); Realms' "place density plus `density_bonus`" reads the stacked density |
-| D_cap | float | 3.0 | data file (`density_cap`) | Overall density cap |
-| Δs_{i,t}; cs_i | float | 0–100; 80 / 30 / 30 | calculated; data file | Share push on layer i; within 30 on layers 2 and 1, permanent 10 and upkept 20 |
-| m_i | float | 0.3 / 0.15 / 0.15 | data file (`match_cap_l3/l2/l1`) | Cap on each layer's match gain |
+| D_cap | — | removed | — | The overall density cap (3.0) is removed (user decision 2026-11-24); only settled homes keep a cap, `settled_density_cap` (Formula M) |
+| Δs_{i,t}; cs_i | float | 0–100; 80 / none / none | calculated; data file | Share push on layer i; within 80 on layer 3; layers 2 and 1 have no cap (user decision 2026-11-24) |
+| m_i | float | 0.3 / none / none | data file (`match_cap_l3`) | Cap on each layer's match gain; layers 2 and 1 have none (user decision 2026-11-24) |
 | M_min | float | 0.8 | data file (`match_stack_min`) | Stack floor. The old cap `match_stack_max` (×1.6) is removed (user decision 2026-11-13); the settled match cap is removed too; homes on settled ground keep only `settled_density_cap` (Formulas M) |
 
-**Output Range:** density 0.3–3.0 (today a secret realm at 2.2 with Tụ Linh at level 5 already reaches 2.95); match 0.8
-and up. The land has no ceiling, and layers 3–1 add at most 0.30 + 0.15 + 0.15 = 0.60 between them. A permanent
-shared-works cap of 0.1 keeps Core Formation meaningful: if every place were improved to it, places at 1.4 rise from
-18 % to at most 28 %.
+**Output Range:** density 0.3 and up, no ceiling (a secret realm at 2.2 with Tụ Linh at level 5 reaches 2.95); match 0.8
+and up. The land, the layers and the stack have no cap (user decision 2026-11-24): the bound is Formula J's cost, about twice the
+last level for each level (and the abode's grade surcharge on layer 1). Homes on settled ground keep `settled_density_cap`
+(Formula M). Census 2026-11-24 (`production/qa/evidence/buildings-uncapped/`): with the caps off, sects built no level
+above 5 in 200 years on three seeds.
 
 **Example:** a valley at land density 1.30 fails Core Formation; a sect's upkept array (+0.30) and a level-2 Tụ Linh Trận
 (+0.30) give D = **1.90**. The Fire 86 root on its lava flow (M4 1.292), with a small blessed land pushing Fire +40
@@ -829,9 +832,9 @@ typical place (a fifth of the herb's element) gave f_e 0.65 and the first Founda
 
 The production formula is defined as:
 
-`production[s,k] = round(base_output[s,k] · min(R_f · W_f · D_f · S_f · G_f, prod_mult_cap))`; `base_output[s,k] = site_grade_value[grade] · kind_value_mult[k] / unit_value[k]`
+`production[s,k] = round(base_output[s,k] · R_f · W_f · D_f · S_f · G_f)` (no `prod_mult_cap`, user decision 2026-11-24); `base_output[s,k] = site_grade_value[grade] · kind_value_mult[k] / unit_value[k]`
 
-with `R_f` the reserve factor (I), `W_f = settle_w · owner_w`, `D_f = clamp(1 + demand_elasticity · (price_index − 1), demand_min, demand_max)`, `S_f = clamp(q_now / q_gen, 0, scar_max)` and `G_f = 1 + min(perm_prod, perm_prod_cap) + min(upkept_prod, upkept_prod_cap)`. `round` is half up with a 1e-6 tolerance (Character Stats' grid rule), so 9,103.4999… rounds to 9,104.
+with `R_f` the reserve factor (I), `W_f = settle_w · owner_w`, `D_f = clamp(1 + demand_elasticity · (price_index − 1), demand_min, demand_max)`, `S_f = clamp(q_now / q_gen, 0, scar_max)` and `G_f = 1 + perm_prod + upkept_prod` (no per-site caps and no `prod_mult_cap`, user decision 2026-11-24). `round` is half up with a 1e-6 tolerance (Character Stats' grid rule), so 9,103.4999… rounds to 9,104.
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
@@ -845,10 +848,10 @@ with `R_f` the reserve factor (I), `W_f = settle_w · owner_w`, `D_f = clamp(1 +
 | demand_elasticity; demand_min, demand_max | float | 0.5; 0.75, 1.25 | data file *(guess)* | Price drives extraction, bounded |
 | q_now / q_gen | float | ≥ 0 | calculated | Scar: density for linh thạch and herbs, the element share for ores, read on layers 4 and 2 (so a shared work can revive a dead vein); 1 for beasts and special goods |
 | scar_max | float | 1.5 | data file *(guess)* | A favourable scar adds at most half |
-| perm_prod, upkept_prod; caps | float | 0.03 / 0.10 per level; 0.15 / 0.50 | data file | Works (J) |
-| prod_mult_cap | float | 2.0 | data file *(guess)* | Caps the product of the factors |
+| perm_prod, upkept_prod | float | 0.03 / 0.10 per level, no cap (user decision 2026-11-24) | data file | Works (J) |
+| prod_mult_cap | — | removed | — | The ×2.0 cap on the product is removed (user decision 2026-11-24; the census never reached it) |
 
-**Output Range:** 0 to 2 × base_output; 0 only when a scar kills the source.
+**Output Range:** 0 and up, no ceiling; 0 only when a scar kills the source.
 
 **Example:** a medium linh thạch mine (10,000) near a town (W_f 0.85, worked), reserve 0.55 (R_f 0.85), D_f 1, S_f 1,
 vein dressing level 2 and worked mine level 2 (G_f 1.26): 0.85 × 0.85 × 1.26 = 0.910, so **9,104 linh thạch** a season.
@@ -913,21 +916,25 @@ season: worked again in about 22 seasons, rich in about 75.
 
 | Layer | Kind | Work | Gain per level | Max | Cost of level L (linh thạch) | Seasons | Materials | Upkeep per level per season | Fade |
 |---|---|---|---|---|---|---|---|---|---|
-| 2 | permanent | Spirit grove (linh lâm) | density +0.02 | 5 (+0.10) | 2,000 · 2^(L−1) | L | L units, rarity ≥ 2 | — | never |
-| 2 | permanent | Qi channel (dẫn linh cừ) | +2 share points to a chosen element | 5 (+10) | 2,000 · 2^(L−1) | L | L units of that element, rarity ≥ 2 | — | never |
-| 2 | permanent | Vein dressing | production +3 % | 5 (+15 %) | 2,000 · 2^(L−1) | L | L units, rarity ≥ 2 | — | never |
-| 2 | upkept | Sect gathering array (đại tụ linh trận) | density +0.10 | 5 (+0.50) | 3,000 · 2.5^(L−1) | 1 | L units, rarity ≥ 3 | 125 | −1 level per 2 unpaid seasons |
-| 2 | upkept | Worked mine (khai khoáng) | production +10 % | 5 (+50 %) | 1,000 · 2^(L−1) | 1 | — | 3 % of the site's base value | −1 level per 2 unpaid seasons |
-| 1 | permanent | Tended abode (dưỡng động phủ) | density +0.02 | 3 (+0.06) | 300 · 2^(L−1) | L | L units, rarity ≥ 2 | — | never; stays with the place if left |
-| 1 | permanent | Private spring (linh tuyền) | +2 share points to a chosen element | 3 (+6) | 300 · 2^(L−1) | L | L units, rarity ≥ 2 | — | never |
-| 1 | upkept | Tụ Linh Trận (built) | density +0.15 | 5 (+2 with capability #15) | 150 · 2.5^(L−1) | 1 | L units, rarity ≥ 2 | 2.5 (today 10 a year); the two capability #15 levels cost double, as built | −1 level per 4 unpaid seasons (today −1 a year) |
-| 1 | upkept | Element-focusing array (tụ nguyên trận) | +4 share points to a chosen element | 5 (+20) | 200 · 2.5^(L−1) | 1 | L units of that element, rarity ≥ 2 | 3 | −1 level per 4 unpaid seasons |
+| 2 | permanent | Spirit grove (linh lâm) | density +0.02 | none | 2,000 · 2^(L−1) | L | L units, rarity ≥ 2 | — | never |
+| 2 | permanent | Qi channel (dẫn linh cừ) | +2 share points to a chosen element | none | 2,000 · 2^(L−1) | L | L units of that element, rarity ≥ 2 | — | never |
+| 2 | permanent | Vein dressing | production +3 % | none | 2,000 · 2^(L−1) | L | L units, rarity ≥ 2 | — | never |
+| 2 | upkept | Sect gathering array (đại tụ linh trận) | density +0.10 | none | 3,000 · 2.5^(L−1) | 1 | L units, rarity ≥ 3 | 125 | −1 level per 2 unpaid seasons |
+| 2 | upkept | Worked mine (khai khoáng) | production +10 % | none | 1,000 · 2^(L−1) | 1 | — | 3 % of the site's base value | −1 level per 2 unpaid seasons |
+| 1 | permanent | Tended abode (dưỡng động phủ) | density +0.02 | none | 300 · 2^(L−1) | L | L units, rarity ≥ 2 | — | never; stays with the place if left |
+| 1 | permanent | Private spring (linh tuyền) | +2 share points to a chosen element | none | 300 · 2^(L−1) | L | L units, rarity ≥ 2 | — | never |
+| 1 | upkept | Tụ Linh Trận (built) | density +0.15 | none (Trận Pháp skill cap, +2 with capability #15; Formations F3) | 150 · 2.5^(L−1) | 1 | L units, rarity ≥ 2 | 2.5 (today 10 a year); the two capability #15 levels cost double, as built | −1 level per 4 unpaid seasons (today −1 a year) |
+| 1 | upkept | Element-focusing array (tụ nguyên trận) | +4 share points to a chosen element | none | 200 · 2.5^(L−1) | 1 | L units of that element, rarity ≥ 2 | 3 | −1 level per 4 unpaid seasons |
 
-All values but Tụ Linh Trận are *(guess)*.
+All values but Tụ Linh Trận are *(guess)*. No work has a highest level (user decision 2026-11-24): the Max column reads "none", and the cost curve is the bound.
 
-The work_cost formula is defined as: `work_cost_lt(L) = cost_lt · cost_growth^(L−1)`; `work_materials(L) = materials_per_level · L`; `work_seasons(L) = seasons_per_level · L` for permanent works, 1 for upkept ones
+The work_cost formula is defined as: `work_cost_lt(L) = cost_lt · cost_growth^(L−1)`, times
+`track_surcharge^max(0, L − free_level)` on layer 2 (`track_surcharge` 2 *(guess)*, `free_level` from Sects Formula F2
+for the kind's track, Provinces rule 9; user decision 2026-11-24), and times `grade_surcharge^max(0, L − free_level)` on layer 1
+(Cave Abode F3); `work_materials(L) = materials_per_level · L`; `work_seasons(L) = seasons_per_level · L` for permanent works, 1 for upkept ones
 
-The work_gain formula is defined as: `gain[layer, stat] = min(Σ per_level · level, layer_cap[layer, stat])` (the caps of B)
+The work_gain formula is defined as: `gain[layer, stat] = min(Σ per_level · level, layer_cap[layer, stat])` (no layer has caps
+since 2026-11-24, so the gain is `Σ per_level · level`)
 
 The upkeep formula is defined as: `upkeep_season = Σ_works level · upkeep_per_level_season · (1 − clamp(tho_purity · tho_upkeep_cut_per_purity, 0, 0.9)) + carry` (the Earth discount on layer 1 only; `carry` holds the fraction so seasonal billing matches today's yearly integer)
 
@@ -939,16 +946,17 @@ The element_push formula is defined as: Δs points added to the chosen element's
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
 | cost_lt, cost_growth | int, float | the table | data file (`map_works.json`; Tụ Linh in `crafting_formations.json`) | Build curve |
-| per_level, layer_cap | float | the table; B | data file | Gain and cap |
+| per_level | float | the table | data file | Gain per level |
+| track_surcharge | float | 2 *(guess)*, > 1 | data file | Price factor for each layer-2 level above the track's free level |
 | upkeep_per_level_season | float | 2.5–125 | data file | Tụ Linh: today's 10 a year ÷ 4 |
 | fade_seasons | int | layer 1: 4; layer 2: 2 | data file | Layer 1 matches today; layer 2 *(guess)* |
 | tho_upkeep_cut_per_purity | float | 0.004 | data file (built) | Earth root discount |
 
-**Output Range:** layer 2 density +0.60 (0.10 permanent, 0.50 upkept); layer 1 +0.81, +1.11 with capability #15;
-element push up to 36 points (layer 2 permanent 10; layer 1 permanent 6 and upkept 20); production up to +65 %. **World bound on permanent works:** at most +0.10 density per
-place (+0.16 at a home) and +15 % production; maxing one place's layer 2 density costs 62,000 linh thạch and 15
-seasons, and doing it everywhere about 25 years of the world's whole mine output, so in practice only sect seats and
-famous sites get there.
+**Output Range:** layer 2 has no ceiling but its cost (user decision 2026-11-24): a spirit grove level costs 32,000 at
+level 5, about 1 million at level 10 and about 33 million at level 15 (before any track surcharge), for +0.02 each, so
+each level buys half the density per linh thạch of the one before; in practice only sect seats and famous sites go
+far. Layer 1 is the same (user decision 2026-11-24): no highest level; levels above the abode's free level (Cave Abode F3) cost
+×2 more each.
 
 **Example:** Tụ Linh Trận level 2 costs 375 linh thạch for +0.30 density; upkeep 5 a season (20 a year, as today), 3.5
 with Earth 75. A home at 1.0 reaches 1.4 at level 3 (1.45), as today. A sect array to level 5 costs **193,313 linh thạch**
@@ -1007,7 +1015,7 @@ decision (Open Questions).
 
 The prebuilt_works formula is defined as: `ΔD2u_start[place] = prebuilt_density[kind]`, in place at game start and upkept by the holder
 
-The settled_caps formula is defined as: for a home inside a settlement or sect ground, `D ≤ settled_density_cap` (replacing D_cap of B). There is no settled match cap (user decision 2026-11-13)
+The settled_caps formula is defined as: for a home inside a settlement (village, town, market or city; not a sect ground, user decision 2026-11-24), `D ≤ settled_density_cap`. There is no settled match cap (user decision 2026-11-13)
 
 The rent formula is defined as: `rent_season = round(linh_thach_max[realm] · rent_frac · quality)`; `price = rent_season · buy_seasons`; `quality = D_residence / core_density_min`
 
@@ -1021,7 +1029,7 @@ The furnishing formula is defined as: `ΔD1_furnish = furnish_per_grade · grade
 | Variable | Type | Range | Source | Description |
 |----------|------|-------|--------|-------------|
 | prebuilt_density | float | village 0.10, town 0.20, market 0.25, city 0.30, sect seat 0.40 | data file *(guess)* | Layer 2 upkept works at game start |
-| settled_density_cap | float | 1.8 | data file *(guess)* | A settled home's density stays below an own base's (3.0) and a blessed land's. `settled_match_cap` (×1.3) is removed (user decision 2026-11-13) |
+| settled_density_cap | float | 1.8 | data file *(guess)* | A settled home's density stays below what an own base or a blessed land can reach (no cap there since 2026-11-24). `settled_match_cap` (×1.3) is removed (user decision 2026-11-13) |
 | linh_thach_max | int | 80 / 600 / 5,000 / 40,000 / 300,000 | data file (`events_budgets.json`) | The renter's realm budget |
 | rent_frac, buy_seasons | float, int | 0.02, 40 | data file *(guess)* | Rent share and purchase multiple |
 | D_residence | float | 0.6–1.8 | calculated (B) | The residence's stacked density |
@@ -1360,16 +1368,13 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
 - **AC-TM-18** [Logic] Formula B, match. GIVEN FX-TM-ROOT-F at VOL with the small blessed land (layer 3, Fire +40) and
   an element-focusing array (tụ nguyên trận) at level 5 on Fire (layer 1, +20), THEN:
   - layer 3 adds 0.300 (raw 0.344);
-  - layer 1 adds 0.150 (raw 0.172);
-  - M is **1.694**; no stack cap cuts it (user decision 2026-11-13).
-- **AC-TM-19** [Logic] Formula B, layer caps. GIVEN each input over its cap, THEN only the cap counts:
+  - layer 1 adds 0.172 (no layer-1 cap, user decision 2026-11-24);
+  - M is **1.716**; no stack cap cuts it (user decision 2026-11-13).
+- **AC-TM-19** [Logic] Formula B, layer caps. GIVEN each input, THEN only layer 3 is capped (user decision 2026-11-24):
   - ΔD3 1.5 counts 1.00;
-  - ΔD2p 0.25 counts 0.10;
-  - ΔD2u 0.8 counts 0.50;
-  - ΔD1p 0.3 counts 0.10;
-  - ΔD1u 0.9 counts 0.75, or 0.90 with capability #15 (cap 1.05).
-- **AC-TM-20** [Logic] Formula B, D_cap. GIVEN a secret realm at 2.2 with Tụ Linh Trận level 5, THEN D is 2.95. With
-  capability #15 at level 7, THEN D is 3.00, not 3.25.
+  - ΔD2p 0.25, ΔD2u 0.8, ΔD1p 0.3 and ΔD1u 0.9 count in full.
+- **AC-TM-20** [Logic] Formula B, no D_cap (user decision 2026-11-24). GIVEN a secret realm at 2.2 with Tụ Linh Trận level 5, THEN D is
+  2.95. With capability #15 at level 7, THEN D is 3.25; on settled ground the same stack reads 1.8 (`settled_density_cap`).
 - **AC-TM-21** [Logic] Formula B, no renormalising. GIVEN VOL with a level-5 qi channel on Fire, THEN the shares read
   Fire 70, Earth 30, Metal 10 (sum 110). Herb fit reads Fire 70.
 - **AC-TM-22** [Logic] Formula B, M_min. GIVEN M4 0.800 and no pushes, THEN M is 0.800. GIVEN any pushes, M never falls
@@ -1569,7 +1574,7 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
 - **AC-TM-82** [Logic] Formula H, caps:
   - price_index 1.0 gives D_f 1.00, and 1.4 gives 1.20;
   - price_index 0.2 gives 0.75, and 2.0 gives 1.25;
-  - with R 1, W 1, D_f 1.25, S_f 1.5 and G_f 1.65, the product is capped at 2.0, giving 20,000.
+  - with R 1, W 1, D_f 1.25, S_f 1.5 and G_f 1.65, the product is 3.09, giving **30,938** (no cap, user decision 2026-11-24).
 - **AC-TM-83** [Logic] Formula H, rule 21:
   - S_f is 1.5 for q_now/q_gen 2.0, and 0 for a dead vein, which produces 0;
   - owner_w for a rested site is 0.1;
@@ -1650,7 +1655,8 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
 - **AC-TM-105** [Logic] Formula J, upkeep:
   - Tụ Linh Trận level 2 bills 5 a season, **20 a year**;
   - with Earth 75 it bills 3.5 a season, as integers summing to 14 over 4 seasons (carry), which equals today's 14;
-  - with capability #15 at level 7, levels 6 and 7 cost double: 22.5 a season, 90 a year.
+  - with capability #15 at level 7, levels 6 and 7 cost double: 22.5 a season, 90 a year (upkeep unchanged by the
+    2026-11-24 decision, which changes build prices only).
 - **AC-TM-106** [Logic] Formula J, fade:
   - a layer-1 work keeps its level through 3 unpaid seasons and drops 1 level on the 4th;
   - a payment resets the count;
@@ -1658,14 +1664,15 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
   - an unpayable bill drops the costliest work per level first.
 - **AC-TM-107** [Logic] Formula J. An element-focusing array:
   - adds +4 share points per level, to a chosen element;
-  - level 6 is refused (without capability #15);
+  - level 6 is accepted at its price times the grade surcharge above the free level (user decision 2026-11-24);
   - level 5 costs 7,813;
   - upkeep is 15 a season at level 5, with no Earth discount;
   - it drops 1 level per 4 unpaid seasons.
 - **AC-TM-108** [Logic] Formula J. A sect array taken to level 5 costs **193,313** in total, with upkeep 625 a season.
   A sect seat at 1.00 reaches 1.50.
 - **AC-TM-109** [Logic] Formula J. A spirit grove taken to level 5 costs 62,000 over 15 seasons for +0.10. Level 6 is
-  refused. Another permanent density work adds nothing past c2p 0.10.
+  accepted at 64,000 (free level 5 or more; user decision 2026-11-24, no highest level). A second permanent density
+  work adds its full gain (no c2p).
 - **AC-TM-110** [Logic] Rule 31. GIVEN two characters at SEAT, THEN both get its layer 2 works.
 - **AC-TM-111** [Logic] Rule 32, Edge (moving home). GIVEN a home with a tended abode and Tụ Linh Trận:
   - away from home, the owner gets 0 from them;
@@ -1686,8 +1693,8 @@ Evidence: `tests/unit/travel_map/`, `tests/integration/travel_map/`, `production
 - **AC-TM-115** [Logic] Formula M, prebuilt works. At land density 1.00, CITY stacks to 1.30 (Core Formation fails)
   and SEAT to **1.40** (passes). Village prebuilt is 0.10, town 0.20 and market 0.25.
 - **AC-TM-116** [Logic] Formula M, settled cap, rule 34. GIVEN a city residence whose stack reaches D 2.10 and M 1.45,
-  THEN it reads D 1.80 and M 1.45: only density is capped. The same stack at an own base in the wilderness reads 2.10
-  and 1.45.
+  THEN it reads D 1.80 and M 1.45: only density is capped. The same stack at an own base in the wilderness, or at a
+  sect seat (user decision 2026-11-24), reads 2.10 and 1.45.
 - **AC-TM-117** [Logic] Formula M, rent:
   - a Core Formation renter at D_residence 1.54 pays **110** a season, or **4,400** to buy;
   - Nascent Soul at 1.80 pays 1,029.

@@ -133,9 +133,12 @@ Without provinces the economy can only see 20 regions, and the land's variety ne
    village 2, market 3, town 3, minor seat 4, city 5, great seat 6. It gains one more per `slot_pop_step` of
    population. A wilderness province has `wild_slots` (1) for an outpost: a mine works, a hunting lodge or spirit fields (rule 8's names),
    worked from its neighbours.
-8. **Building kinds** are data, each with levels 1–5, a cost in linh thạch and materials, build seasons, upkeep and
-   effects:
-   - **Production:** spirit fields (herbs), mine works (ore), hunting lodge (beast parts), workshop (a craft-capacity
+8. **Building kinds** are data, each with levels from 1 up and **no highest level** (user decision 2026-11-24): each
+   level costs more linh thạch, materials and build seasons than the last (Travel & Map Formula J), so a level is worth
+   less per linh thạch the higher it goes, and builders stop when the next level does not pay. Each kind has a cost in
+   linh thạch and materials, build seasons, upkeep and effects:
+   - **Production:** spirit fields (herbs), mine works (ore), hunting lodge (beast parts), vein dressing (permanent,
+     production on every site of the province; user decision 2026-11-24), workshop (a craft-capacity
      effect that Trade Goods reads; it adds no output class to `prod`, F4, OQ 2). A wilderness outpost is one of the
      first three.
    - **Site growth** (user decision 2026-11-24, provinces-v2). A new site starts at grade **minor**, a tenth of small
@@ -147,21 +150,27 @@ Without provinces the economy can only see 20 regions, and the land's variety ne
      less spoilage).
    - **Society:** market hall (the shop's depth and margin), granary (population capacity, famine resistance), warding
      wall (raids and beast tides).
-   - **Cultivation:** gathering array (layer-2 density at the province's seat, Travel & Map rule 31).
+   - **Cultivation:** gathering array (upkept), spirit grove (permanent density) and qi channel (permanent push to one
+     chosen element, one channel per element), all layer-2 works at the province's seat (Travel & Map rule 31; spirit
+     grove and qi channel added by user decision 2026-11-24).
    - **Great projects** (`design/world/great_projects_proposal.md`): staged, 2–5 stages, one slot.
+   - **Where a building acts** (user decision 2026-11-24): cultivation buildings act at the province's seat
+     settlement. A production building acts on the province's sites of its kind (mine works on mines, hunting lodge on
+     beast lairs, spirit fields on spirit veins and hot springs; vein dressing on every site). Logistics and society
+     buildings act on the province.
 
    **Province buildings are the shared works** (Travel & Map rule 31's layer 2) for the places in the province, so
    there is one catalogue, not two. Permanent and upkept kinds keep that rule's meaning, but **unpaid upkeep follows
-   this GDD's Unpaid and Ruined states, not Travel & Map Formula J's fade** (owed in Travel & Map, OQ 9). Track caps
-   gate new orders only: a standing building keeps its level if a track later falls.
+   this GDD's Unpaid and Ruined states, not Travel & Map Formula J's fade** (owed in Travel & Map, OQ 9). Track levels
+   set the price, not a limit (rule 9): a standing building keeps its level if a track later falls.
 9. **Who builds.**
    - **The holding great sect** builds province buildings the way layer-2 works are built today (Travel & Map rule 31:
      seasons and linh thạch, upkeep as `works_due` in Sects Formula F3). Its track levels stay sect-wide levels (Sects
-     rule 8) and **cap** the level of each building kind: Holdings caps production buildings (as it already gates
-     works, Sects Formula F2), Trade caps logistics and market halls, Military caps warding walls, Institutions caps
-     gathering arrays and pavilions (user decision 2026-11-23; "pavilions" is not a rule 8 kind yet, OQ 10). Granaries
-     are capped by Holdings and each stage of a great project by Institutions (the smallest reading that gives every
-     kind a cap; OQ 10). It picks provinces by expected return.
+     rule 8) and **set the price** of each building kind (user decision 2026-11-24, replacing the caps of 2026-11-23):
+     a level up to the matching track's free level (Sects Formula F2) costs the Formula J price, and each level above
+     it costs `track_surcharge` (×2) more again. Holdings prices production buildings and granaries, Trade logistics
+     buildings and market halls, Military warding walls, and Institutions cultivation buildings and each stage of a
+     great project ("pavilions" dropped, 2026-11-24). It picks provinces by expected return.
    - **A local lord** (minor sect) builds in its seat province.
    - **The player** funds a building through a sect or city mission now, and builds on their own ground later (as
      decided for great projects, 2026-11-23).
@@ -184,6 +193,10 @@ Without provinces the economy can only see 20 regions, and the land's variety ne
     starting buildings leave a province below access `start_access_min`, it gets **old roads and porters**
     (`infra_old`, Formula F6): a flat infrastructure top-up fixed at world generation, part of the land, shown as its
     own line in the panel, using no slot and never ruined (user decision 2026-11-23).
+
+    Every settlement also keeps **the ground's own works** (Travel & Map Formula M's `prebuilt_density`: village 0.10
+    to sect seat 0.40) as part of its land: layer-2 upkept density shown as its own panel line, using no slot, never
+    ruined and not billed (user decision 2026-11-24). It is not a building and is not migrated into one.
 
 **Infrastructure and market access**
 
@@ -361,7 +374,7 @@ output is counted only in its gatherers' `prod`
 | out_H[p,k] | float | ≥ 0 | Travel & Map H, H2 (this season: reserve, workforce, demand, scar) | Place output |
 | inc, more | float | about −0.8 to +1 | province modifiers (rule 12) | Increased (summed) and more (multiplied) production by kind |
 | staff_lvl | float | 1.0 population unit per level, > 0 (a divisor) | data file *(guess)* | People a building level needs to run fully |
-| level_b | int | 0–5 | building state | A building's effective level (0 while a first build or repair is under construction, or while Unpaid or Ruined; the built level during an upgrade) |
+| level_b | int | 0 and up (no highest level, rule 8) | building state | A building's effective level (0 while a first build or repair is under construction, or while Unpaid or Ruined; the built level during an upgrade) |
 | own[w,k] | float | ≥ 0 | places and outposts of wilderness province w | Its own output, before its own modifiers and before what reaches it from farther wilderness |
 | prod_wild[w,k] | float | ≥ 0 | this formula | What w passes on: its own output with w's own modifiers (a blight on w cuts only its own output, not what passes through), plus what reaches it from farther wilderness; the gatherer's modifiers apply to the share on arrival |
 
@@ -679,4 +692,4 @@ Rule 14's "cannot change its goods" has no player action to test and has no crit
 | 7 | Does a struck or famine province raise the event odds for bandits, migration and sect missions (Event Engine hooks named, weights not set) | Claude | Event Engine content pass |
 | 8 | New rules the 2026-11-23 review raised and the design does not yet decide: staff pooled across a province's buildings (at P 10–16 and many levels, per-building staff may starve); upkeep priority (logistics first) and a grace after a holder change; one building per kind per province; slot priority between a local lord and the great sect; whether access limits imports; where building costs go; carry arbitrage out of under-connected provinces; whether access limits how fed a province is (`cover_st` times `acc`); rule 12 stats with no formula term yet (infrastructure, growth, capacity); per-settlement population for places in a multi-settlement province (`P_set · P / P0`); the `(1 − acc)` share of output is destroyed, where Victoria 3 keeps it in the local market (L1's `bal_r` uses the full `value_lt`); who pays the unpaid remainder of a player-funded building after a holder change (AC-PV-20); staff is per building, not pooled, so population does not bound total output | User, with the balance pass | Regional Economy & Trade revision |
 | 9 | Owed in Travel & Map: say that a province building's site gain counts once, in `G_f` of Formula H (F4's `out[b]` is the non-site part only); owed in Travel & Map: layer-2 works under province buildings follow Provinces' Unpaid and Ruined states, not Formula J's fade (rule 31, Formula J, AC-TM-106); owed in Regional Economy & Trade: `D_loc` (base value) and the staple cover (`cover_st` = the market's mean `c[m,k]` of herbs and beast parts, F3, read at the yearly step) are last season's values; the contract's `value_lt` is `prod · val`, and Provinces' `acc[v]` is RET's `inf_v` (RET A's `acc_v` adds the safety term; AC-PV-22 and 29 are written against `acc_v` in peace); the `(1 − acc)` share of production is lost in carriage (AC-PV-22); Formulas A and L1 name the price tolerance and seasons for AC-PV-23; owed in Regional Economy & Trade (user decision 2026-11-23, imports count in usage): rule 16's note, the Formula L1 asymmetry and example lines and the poor-region famine edge case still say a province short of a good, with no surplus, trades at P in peace; they become: it is under-connected, has access below 1 and its local price is above P in peace (RET A's `inf_v` uses F6's usage with imports) | Claude | Next amendment of those GDDs |
-| 10 | Rule 9 mapping gaps the 2026-11-23 round 2 found: "pavilions" is not a rule 8 kind (name it or drop it); granary under Holdings and great-project stages under Institutions are provisional; which tracks cap a local lord (assumed: the minor sect's own); two minor seats in one province (assumed: the sect on the seat settlement, else the lowest sect id) | User | Before the province step is built |
+| 10 | Rule 9 mapping gaps the 2026-11-23 round 2 found: *(partly answered 2026-11-24: "pavilions" dropped; granary under Holdings and great-project stages under Institutions kept; tracks now price levels instead of capping them, rule 9)* which tracks cap a local lord (assumed: the minor sect's own); two minor seats in one province (assumed: the sect on the seat settlement, else the lowest sect id) | User | Before the province step is built |

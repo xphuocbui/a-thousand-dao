@@ -1457,8 +1457,8 @@ formulas:
       - D4
       - layer_density_adds
       - density_bonus
-    output_range: [0.3, 3.0]
-    expression: "D = min(density_cap, D4 + min(c3, dD3) + min(c2p, dD2p) + min(c2u, dD2u) + min(c1p, dD1p) + min(c1u, dD1u) + density_bonus); caps 1.0 / 0.1 / 0.5 / 0.1 / 0.75 (+0.30 with capability 15); settled homes capped at 1.8"
+    output_range: [0.3, "no maximum"]
+    expression: "D = D4 + min(c3, dD3) + dD2p + dD2u + dD1p + dD1u + density_bonus; layer-3 cap 1.0; layers 2 and 1 and the stack uncapped (2026-11-24); settled homes capped at 1.8"
     notes: "Travel & Map Formulas B. What the cultivation rate and the Core Formation check read."
     added: 2026-11-10
     revised: ""
@@ -1552,7 +1552,7 @@ formulas:
       - w_v
     output_range: ["2,000 (Holdings L1)", "no maximum"]
     expression: "cost = c0_T * g^(L-1); C = c0_T * (g^L - 1)/(g - 1); upkeep = u * C; L_eff = log_g(1 + (g-1)(C_own + w_v * sum C_vassal)/c0_T)"
-    notes: "Sects F1. Guesses: c0 Holdings 2,000 / Institutions 2,500 / Military 2,000 / Trade 1,500; g 1.4; u 0.01. Layer-2 works keep Travel & Map Formula J prices, gated by work_max = ceil(H/2)."
+    notes: "Sects F1. Guesses: c0 Holdings 2,000 / Institutions 2,500 / Military 2,000 / Trade 1,500; g 1.4; u 0.01. Layer-2 works keep Travel & Map Formula J prices up to free_level = ceil(T/2) of their track, x2 more per level above (no cap, 2026-11-24)."
     added: 2026-11-14
     revised: ""
   - name: sect_collect_share
@@ -2539,8 +2539,8 @@ formulas:
     variables:
       - slots_by_grade
       - level_margin
-    output_range: ["2 to 6 slots", "level ceiling 3 (grade 1) to 7 (grade 5)"]
-    expression: "slots(g) = slots_by_grade[g] (2/3/4/5/6); a home work's level <= min(work.max, g + level_margin 2); sum of work.slots <= slots(g)"
+    output_range: ["2 to 6 slots", "free level 3 (grade 1) to 7 (grade 5), no highest level"]
+    expression: "slots(g) = slots_by_grade[g] (2/3/4/5/6); free_level(g) = g + level_margin 2; level cost x grade_surcharge 2 per level above it, no max (2026-11-24); sum of work.slots <= slots(g)"
     notes: "Cave Abode F3, rules 3-5. Home works include Formations' standing arrays (one slot each) and fields (mechanics stay with Spirit Herbs #14). Guesses."
     added: 2026-11-21
     revised: ""
@@ -5370,27 +5370,27 @@ constants:
     added: 2026-11-10
     revised: 2026-11-13
   - name: density_cap
-    status: active
+    status: deprecated
     source: design/gdd/travel-map.md
     referenced_by:
       - design/gdd/travel-map.md
       - design/gdd/canh-gioi.md
     value: 3.0
     unit: spiritual qi density
-    notes: "Overall stacked density cap (Travel & Map Formulas B)."
+    notes: "Removed 2026-11-24 (user decision: no caps): the stacked density has no overall cap; only settled homes keep settled_density_cap 1.8 (Travel & Map Formulas B, M)."
     added: 2026-11-10
-    revised: ""
+    revised: 2026-11-24
   - name: density_cap_l2_perm
-    status: active
+    status: deprecated
     source: design/gdd/travel-map.md
     referenced_by:
       - design/gdd/travel-map.md
       - design/gdd/canh-gioi.md
     value: 0.1
     unit: spiritual qi density
-    notes: "Permanent shared works per place; bounds world enrichment: places at Core Formation density rise from 18 % to at most 28 %."
+    notes: "Removed 2026-11-24 (user decision: no caps on buildings): layer-2 works have no cap; the cost curve bounds them (Travel & Map Formulas B, J)."
     added: 2026-11-10
-    revised: ""
+    revised: 2026-11-24
   - name: cf_place_share_target
     status: active
     source: design/gdd/travel-map.md
@@ -5419,9 +5419,9 @@ constants:
       - design/gdd/travel-map.md
     value: [1.8, 1.3]
     unit: density, match
-    notes: "A rented or bought home in a settlement or sect ground never beats an own base (3.0, x1.6) or a blessed land (Travel & Map rule 34)."
+    notes: "A rented or bought home in a settlement or sect ground never beats an own base or a blessed land (Travel & Map rule 34). The match cap (1.3) was removed 2026-11-13; the density cap 1.8 is kept (user decision 2026-11-24), and own bases have no cap since then."
     added: 2026-11-10
-    revised: ""
+    revised: 2026-11-24
   - name: abode_cost_frac
     status: active
     source: design/gdd/travel-map.md

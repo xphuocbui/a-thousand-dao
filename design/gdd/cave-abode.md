@@ -29,20 +29,20 @@ All fractions and counts are **guesses** for the balance harness.
 
 1. **The abode is a record.** A character has one **home** at a time (Travel & Map rules 8, 32): a self-built cave abode, a rented or bought residence (rule 34), or a claimed abode (rule 11). The home record holds its **grade** (1–5), its **works** (each with a level) and the seasons its upkeep has been unpaid. Everything below happens at the home only.
 2. **One ladder of grades.** A self-built abode starts at grade 1; a claimed one starts at F4's `grade_after` (rule 11). Either is raised one grade at a time. A settled residence's grade is the one it was rented or bought at (Travel & Map rule 34), capped by its place kind (village 2, town 3, market and city 4, sect seat 5). Grade 4 needs Core Formation and grade 5 Nascent Soul to hold (`grade_realm_min`, the same minimums as residences).
-3. **Grade sets slots and the level ceiling.** The abode has `slots_by_grade[grade]` work slots (guess 2 / 3 / 4 / 5 / 6). A work's level cannot exceed `grade + 2` (Formulas F3), nor its own `max`; with grade + 2, level-5 works are reachable at grade 3, so today's early-game density is unchanged. The catalogue is larger than the slots, so which works to hold is the decision. A work takes `slots` slots (default 1; a big work may take 2), and holds them from the season its building starts.
+3. **Grade sets slots and the free level.** The abode has `slots_by_grade[grade]` work slots (guess 2 / 3 / 4 / 5 / 6). Works have **no highest level** (user decision 2026-11-24): a level up to the **free level** `grade + 2` (Formulas F3) costs the catalogue price, and each level above it costs `grade_surcharge` (×2) more again, so the grade prices levels instead of capping them. With grade + 2, level 5 is at the plain price from grade 3, so today's early-game density is unchanged. The catalogue is larger than the slots, so which works to hold is the decision. A work takes `slots` slots (default 1; a big work may take 2), and holds them from the season its building starts.
 4. **The home-work catalogue.** A home work is a record with `id`, `stat`, `kind` (permanent or upkept), `max`, per-level gain, cost, upkeep, `slots` and any condition. It is one of:
    - the **layer-1 works** of `map_works.json` (`tended_abode`, `private_spring`, `focus_array`, and later ones), whose records this GDD now owns;
    - the **standing arrays of Formations** (Tụ Linh, Thanh Mộc, Hộ Sơn): their records, build cost, upkeep and skill cap stay Formations' (Part II, F3), and each takes one slot here;
    - a **field** (rule 5).
 5. **Fields take a slot.** A private field is a home work that holds one slot and has an upkeep. What it grows, how herbs age and Thanh Mộc's growth bonus stay with Spirit Herbs & Fields (#14, `design/gdd/spirit-herbs.md`), which also makes the field work a source of the `field_plots` stat (its rules 3, 4); the home garden of plots stays free. This GDD defines no herb output.
 6. **Raising the grade** (self-built and claimed abodes; a rented or bought residence's grade is fixed by the residence, and getting a better one means renting a better one). A grade is raised at the home with seasons and linh thạch: `grade_cost = linh_thach_max[realm] × grade_cost_frac[grade]` (a realm-scaled share) and one season per grade. A raise to grade g also needs a realm that can hold g (rule 2), or it is refused and nothing is spent. **Timing:** the stones are paid when the raise starts; the new grade's slots, level ceiling and upkeep apply from the next season (the old grade holds in between). Opening an abode still costs Travel & Map's `abode_cost_frac`, paid at the start, and the abode is Open from that season. The **entry works keep their flat prices**; only the grade ladder and the abode's own upkeep (rule 8) scale with realm.
-7. **Building and raising works** is as today: at the home only, spending seasons, linh thạch and materials (`MapWorks.build`), within the level ceiling (rule 3) and the free slots. Layer 1's contribution to Formula B is still capped there (`c1p`, `c1u`, share and match caps); this GDD never changes those caps.
+7. **Building and raising works** is as today: at the home only, spending seasons, linh thạch and materials (`MapWorks.build`), at the grade's price (rule 3) and within the free slots. Layer 1's contribution to Formula B has no cap (user decision 2026-11-24: the old `c1p`, `c1u`, share and match caps are removed); a home on settled ground keeps `settled_density_cap` (no overall `D_cap` since 2026-11-24), and a standing array's Trận Pháp skill cap (Formations F3) still bounds that array.
 8. **Abode upkeep** (self-built and claimed abodes; a residence pays rent under Travel & Map Formula M instead of the grade upkeep, and the upkeep and fade clocks of its upkept works still apply). Each season the home pays `grade_upkeep = linh_thach_max[realm] × upkeep_frac[grade]` (a realm-scaled share, cut by Thổ purity as upkept works are today) plus the upkeep of its upkept works, except Formations' standing arrays, whose upkeep stays on Formations' yearly tick (Formations rule 14). This is the perpetual sink. The fade clock counts **consecutive** unpaid seasons of the grade upkeep (Formulas F2). At `grade_fade_seasons` the grade drops by one and the clock resets to 0, so a further `grade_fade_seasons` unpaid seasons drop it again; any paid season resets the clock. **Grade 1 is a floor:** an unpaid grade-1 abode stays the owner's home (Neglected) and its grade never drops below 1; only its upkept works fade, on their own clocks. A home becomes Left only when the owner moves away (rule 10).
 9. **Dormant works.** If the grade falls and the works exceed the slots, the owner chooses which works go **dormant** (default, and the choice for an owner who does not pick before the next season: the most recently built, whole works only; a 2-slot work counts by its slots). Dormancy is only ever forced by a lost slot, never chosen to dodge upkeep or fading. A dormant work keeps its level, counts for nothing and costs no upkeep, and is brought back when a slot is free, earliest built first **that fits** (a 2-slot work waiting for a second free slot does not block a 1-slot work behind it). A dormant work's own fade clock is frozen. **Level ceiling after a fall:** a work whose level exceeds the lower ceiling keeps its stored level but counts, and is upkept, at `min(level, ceiling)`; it counts fully again when the grade is raised.
 10. **Leaving a home** is Travel & Map's rule 32: the works stop counting and upkept ones start fading; permanent works stay with the place. A self-built or claimed abode is then **left**, with its grade recorded and its grade fade clock set to 0. If its owner dies instead, its upkept works start fading the same way (death is treated like leaving) and the abode is a Ruin; fading stops only when it becomes a hidden place (frozen). A rented or bought residence is never Left or claimable: it goes back to its holder (Travel & Map rule 34).
 11. **Claiming a left abode.** Anyone may claim a left or ruined abode they can reach for half the opening fee and one season. It keeps its permanent works, its faded upkept works are gone, Formations' standing arrays included (Formations rule 14) (an upkept work that had only partly faded keeps its reduced level), and it comes back at its **old grade minus one** (minimum 1), but never above the highest grade the claimant's realm can hold (`grade_realm_min`); works beyond the slots go dormant (rule 9). The fee is priced at the claimant's realm when paid. A Ruin may instead become a hidden place (Travel & Map rule 15), and a claim there follows the same terms. **Timing:** the fee is paid when the claim starts, the claimant's home is the claimed abode from that payment (the old home becomes Left that season), the grade fade clock is set to 0, and the abode is Claimed for that one season; its grade upkeep falls due from the next season.
 12. **NPC abodes.** A hermit's or loose cultivator's home has a grade like any other. Each season an NPC with enough stones may raise it (a chance, as sects' works are), booked as one aggregate in Regional Economy Formula H and not simulated work by work. Each NPC pays its raise and its F2 grade upkeep from its own purse, and the aggregate is the sum of those payments; an NPC that cannot pay counts an unpaid season on its own fade clock (rule 8) and loses a grade by it, so the purse bound below never forgives an individual's upkeep; NPC abodes have no simulated works or dormancy. The top grade an NPC's realm allows is 3 below Core Formation, 4 at Core Formation and 5 from Nascent Soul (`grade_realm_min`). The aggregate is bounded by construction by the purses (each NPC pays at most what its own purse holds, so the sum never exceeds the NPC purse pool); the only reserve is the per-NPC raise gate `npc_reserve_mult` (F5), and upkeep may draw a purse down to 0. When a hermit dies their abode becomes a Ruin record (a claim target, rule 11).
-13. **Visibility** (Pillar 2). The stat block lists the abode's grade, slots used out of available, each work with its level and gain, each dormant work, the grade upkeep and any layer-1 cap that clamps a gain (as Travel & Map's lines show clamps).
+13. **Visibility** (Pillar 2). The stat block lists the abode's grade, slots used out of available, each work with its level and gain, each dormant work, the grade upkeep and any cap that clamps a gain (a Trận Pháp skill cap, `settled_density_cap`), as Travel & Map's lines show clamps.
 14. **Stones spent on the abode itself** (grade raises, grade upkeep and claims) are a sink booked in Regional Economy Formula H as `burn_abode`, which is exactly what Formula H defines it as. Formations' standing arrays and diagrams are `burn_formation` (their build, raise and upkeep stones; Formations rules 14, 17) and are never booked as `burn_abode`; the other layer-1 works, fields and the opening fee are paid by the player alone (rule 12 gives NPCs no works) as purchases inside `player_net`, with no Formula H burn line, so they add no `burn_abode` entry. A player's `burn_abode` spend is also a purchase inside `player_net`, so it cancels in `M'` and `M` (which excludes the player) is untouched; an NPC's spend is a true burn of `M`. Linh thạch stays money only: no stat is priced in stones.
 
 ### States and Transitions
@@ -64,7 +64,7 @@ All fractions and counts are **guesses** for the balance harness.
 | State | Meaning | Becomes |
 |---|---|---|
 | Building | In its building season(s); holds its slots from the start | Active |
-| Active | Counts, within the cap | Fading (upkept, unpaid, or the home was left or its owner died); Dormant (slot lost); Building (a level is being raised: it keeps counting at its old level meanwhile) |
+| Active | Counts | Fading (upkept, unpaid, or the home was left or its owner died); Dormant (slot lost); Building (a level is being raised: it keeps counting at its old level meanwhile) |
 | Fading | Upkept work, upkeep unpaid | Active (paid); level − 1 every `fade_seasons`; gone at 0; Dormant (slot lost, its fade clock frozen) |
 | Dormant | Kept at its level, counts for nothing, no upkeep, fade clock frozen | Active (a slot is free; earliest built that fits) |
 
@@ -73,7 +73,7 @@ All fractions and counts are **guesses** for the balance harness.
 | System | Direction | What flows | Owner of the interface |
 |---|---|---|---|
 | Travel & Map #25 | out | `ΔD1p`, `ΔD1u`, layer-1 share and match from the active works, for Formula B; the home record | Travel & Map owns Formula B and every cap; this GDD owns layer 1's contents and the slot rules |
-| Travel & Map #25 | in | Abode opening (rule 8, Formula M), home states (rule 32), residence grade and rent (rules 33–34), the layer-1 caps, `grade_realm_min` | Travel & Map |
+| Travel & Map #25 | in | Abode opening (rule 8, Formula M), home states (rule 32), residence grade and rent (rules 33–34), `settled_density_cap`, `grade_realm_min` | Travel & Map |
 | Formations #17 | in | The standing arrays' records, build cost, upkeep and skill cap; each takes one slot | Formations owns the arrays; this GDD owns the slot |
 | Spirit Herbs & Fields #14 | in | What a field grows, herb ageing, Thanh Mộc's growth bonus; the field work's plots (`field_plots` source) | #14 (`design/gdd/spirit-herbs.md`, designed 2026-11-21) |
 | Item Database #13 | in | Materials for works (`rarity_min`) | Item Database |
@@ -86,7 +86,7 @@ All fractions and counts are **guesses** for the balance harness.
 | Living World Tick #28 | in | The seasonal upkeep, NPC upgrade chances | Living World Tick |
 | Game UI #37 | out | The abode stat block and the work and grade menus | This GDD owns the data; UI owns layout |
 
-Sects' `seat_density` (≥ 1.5, rule 29) reads the abode's stacked density, so the layer-1 caps and the slot limit decide who can found a sect from an abode. It needs no change; it is recorded for the review.
+Sects' `seat_density` (≥ 1.5, rule 29) reads the abode's stacked density, so the slot limit and the works' rising prices decide who can found a sect from an abode. It needs no change; it is recorded for the review.
 
 ## Formulas
 
@@ -124,20 +124,21 @@ The grade_upkeep formula is defined as:
 **Output Range:** 1 stone a season (grade 1, Qi Refining) to 3,000 (grade 5, Hóa Thần).
 **Example:** Nascent Soul, grade 5: 40,000 × 0.01 = **400 a season**, about 1,600 a year, roughly **480,000 over three centuries**. This running cost absorbs surplus more than the one-off ladder does.
 
-### F3. Slots and the level ceiling
+### F3. Slots and the free level
 
 The slot_limit formula is defined as:
 
-`slots(g) = slots_by_grade[g]`; a work's level ≤ `min(work.max, g + level_margin)`; the works held take `Σ work.slots ≤ slots(g)`.
+`slots(g) = slots_by_grade[g]`; `free_level(g) = g + level_margin`; `level_cost(L) = work_cost(L) · grade_surcharge^max(0, L − free_level(g))` with no highest level (user decision 2026-11-24); the works held take `Σ work.slots ≤ slots(g)`.
 
 **Variables:**
 | Variable | Type | Range | Source | Description |
 |---|---|---|---|---|
 | slots_by_grade[g] | int | 2 / 3 / 4 / 5 / 6 | data file *(guess)* | Work slots at grade g |
-| level_margin | int | 2 | data file *(guess)* | Level ceiling above the grade; 2 lets level-5 works stand at grade 3 |
-| work.max, work.slots | int | 1–5 (7 for Tụ Linh under Capability #15); 1 (2 for a big work) | `map_works.json` | The work's own maximum level and slot cost |
+| level_margin | int | 2 | data file *(guess)* | Free level above the grade; 2 prices level 5 plainly at grade 3 |
+| grade_surcharge | float | 2 *(guess)*, > 1 | data file | Price factor for each level above the free level |
+| work.slots | int | 1 (2 for a big work) | `map_works.json` | The work's slot cost; works have no `max` (user decision 2026-11-24); a standing array is still bounded by its Trận Pháp skill cap, and Capability #15 lets it stand 2 levels above that cap (Formations F3) |
 
-**Output Range:** 2 to 6 slots; a level ceiling of 3 (grade 1) to 7 (grade 5), after each work's own `max`. **Example:** grade 3 has 4 slots; Tụ Linh Trận level 5 is allowed (3 + 2 = 5) and uses 1 of them.
+**Output Range:** 2 to 6 slots; a free level of 3 (grade 1) to 7 (grade 5); no highest level. **Example:** grade 3 has 4 slots; Tụ Linh Trận level 5 costs its plain price (3 + 2 = 5) and uses 1 of them; level 6 there costs ×2 its plain price, level 7 ×4.
 
 ### F4. Claiming a left abode
 
@@ -172,8 +173,8 @@ The npc_raise rule is defined as: each season an NPC at grade g below the top gr
 - **Grade 1:** grade 1 has no raise cost; upkeep is clamped to at least 1; slots never fall below 2.
 - **Unaffordable upkeep:** a poor owner's abode falls one grade after each `grade_fade_seasons` consecutive unpaid seasons and stops at grade 1, which stays their home, so the sink cannot push anyone below grade 1, out of their home or into debt.
 - **Thổ at 100 purity:** the cut is 100 × 0.004 = 0.4 at most (the 0.9 clamp is only a guard), so upkeep never falls below 60 % of the base and never reaches 0.
-- **Positive loop:** richer → higher grade → more slots → more arrays and fields → richer. It is bounded: density and match are capped by Travel & Map Formula B (`c1p` 0.1 and `c1u` 0.75, about 0.85 density, +0.30 on `c1u` with Capability #15, both times formation power for the upkept cap, user decision 2026-11-21), and the whole stack by `D_cap` 3.0 (1.8 settled). The late grades buy utility; only a formation-power build buys more cultivation speed from the home, and it stops at `D_cap`.
-- **Dominant purchase:** none for density at the base caps, since grade 3's four slots already hold the works that fill them. Grades 4–5 add Hộ Sơn, Thanh Mộc and fields, and (with Capability #15's two extra Tụ Linh levels) the level ceiling `grade + 2` is what lets levels 6 and 7 stand at grades 4 and 5.
+- **Positive loop:** richer → higher grade → more slots → more arrays and fields → richer. It is bounded by price, not by caps (user decision 2026-11-24): each work level costs about 2–2.5 times the last, and ×2 more again above the free level, so a richer owner goes further but each step buys less; a home on settled ground stops at `settled_density_cap` 1.8, a wilderness abode has no ceiling. The late grades buy cheaper levels and more slots; a formation-power build gets the most from each level.
+- **Dominant purchase:** watch Tụ Linh Trận: with no cap it is the strongest density per slot, held back only by its 2.5× cost growth and the grade surcharge (a census check is owed, Provinces runtime plan). Grades 4–5 add Hộ Sơn, Thanh Mộc and fields, and raise the free level that makes levels 6 and 7 cheap; Capability #15 lets a standing array stand 2 levels above its Trận Pháp skill cap (Formations F3).
 - **Early raises:** grades 2 and 3 cost little at a low realm, because the price follows the realm at the moment of paying. This is accepted: the upkeep still follows the current realm and grows with it.
 - **Faucet:** none in this GDD. Field output belongs to Spirit Herbs & Fields (#14).
 
@@ -181,12 +182,12 @@ The npc_raise rule is defined as: each season an NPC at grade g below the top gr
 
 **Grade, slots and works**
 
-- **If a work would exceed its level ceiling or no slot is free**: the build is refused with the reason (ceiling or slots) and nothing is spent.
+- **If no slot is free, or the owner cannot pay a level's price (surcharge included)**: the build is refused with the reason (slots or price) and nothing is spent.
 - **If the grade falls below what the works need** (neglected upkeep, or a claim at grade − 1): the owner picks which works go dormant, defaulting to the most recently built (also the default for a headless run), before the next season starts. The dormant ones keep their levels and count for nothing.
 - **If a dormant work's slot opens again**: it comes back at its kept level at once, and upkeep resumes the same season.
-- **If layer 1 would pass a Formula B cap** (the density, share or match cap): the gain is clamped, and the stat block shows the clamp as a line. Slots and stones spent past the cap still count; nothing refunds them.
-- **If two works push the same cap** (Tụ Linh and `tended_abode` both add density): each counts toward its own cap (upkept 0.75, permanent 0.1); nothing is shared across caps.
-- **If a standing array's Trận Pháp skill cap is lower than the work's level ceiling**: the skill cap wins (Formations F3), and the lower level counts.
+- **If a home on settled ground would pass `settled_density_cap`**: the density is clamped, and the stat block shows the clamp as a line. A wilderness abode has no cap (user decision 2026-11-24); stones spent past the settled cap still count, and nothing refunds them.
+- **If two works add the same stat** (Tụ Linh and `tended_abode` both add density): both count in full; there are no layer caps to share.
+- **If a standing array's Trận Pháp skill cap is lower than the work's level**: the skill cap wins (Formations F3), and the lower level counts.
 
 **Money and upkeep**
 
@@ -202,7 +203,7 @@ The npc_raise rule is defined as: each season an NPC at grade g below the top gr
 - **If a claimed abode's old grade was 1**: it stays 1, and like any grade-1 abode it stays the owner's home when upkeep goes unpaid (rule 8).
 - **If a claimant's realm is below the old grade's minimum**: the abode comes back at the highest grade the claimant's realm can hold (F4), and the works beyond its slots go dormant.
 - **If the owner dies**: the abode becomes a Ruin directly (the last owner is dead). An heir does **not** inherit it; an heir may claim it under rule 11 like anyone else, at grade − 1 and half the fee.
-- **If a work's level exceeds the ceiling after a grade fall**: it counts at the ceiling and keeps its stored level (rule 9).
+- **If a work's level is above the free level after a grade fall**: it keeps counting at its full level; the grade only prices the next level (user decision 2026-11-24). Dormancy still follows lost slots (rule 9).
 - **If a rented residence's lease ends for unpaid rent** (Travel & Map Formula M): the home stays at that place as a free grade-1 room on the starting residence's terms (2 slots, works up to level 3, no rent); works beyond its slots go dormant (rule 9), and the owner can rent, buy or open a better home from there (user decision 2026-11-21).
 - **If the ruin becomes a hidden place**: its works and grade freeze at the last recorded state and wait for a finder to claim it.
 
@@ -222,7 +223,7 @@ The npc_raise rule is defined as: each season an NPC at grade g below the top gr
 
 | System | Type | Interface | State | Lists Cave Abode? |
 |---|---|---|---|---|
-| Travel & Map (#25) | Hard | Layer-1 contribution to Formula B; abode opening, home states, residence grades and rent, the layer-1 caps | GDD designed, revised 2026-11-13 | Yes (added 2026-11-21) |
+| Travel & Map (#25) | Hard | Layer-1 contribution to Formula B; abode opening, home states, residence grades and rent, `settled_density_cap` | GDD designed, revised 2026-11-13 | Yes (added 2026-11-21) |
 | Formations (#17) | Hard | The standing arrays as home works, each taking a slot | GDD designed 2026-11-21 | Yes (added 2026-11-21) |
 | Regional Economy (#43) | Hard (out) | Stones spent, booked in Formula H (grade raises, upkeep, claims, NPC aggregate) | GDD approved | Yes (added 2026-11-21, `burn_abode`) |
 | Sects (#26) | Soft | Founding needs an abode at `seat_density` (rule 29); sects' say over abodes on their land | GDD approved | Yes (added 2026-11-21) |
@@ -260,7 +261,7 @@ The abode is the slow, quiet counterweight to fights: **the moment that matters 
 | Screen or element | Must show | Must allow |
 |---|---|---|
 | Abode screen | Grade, slots used out of available, each work with level, gain, state, upkeep, the clamp lines, the next grade's cost and upkeep | Build or raise a work; raise the grade; choose dormant works when a slot is lost (rule 9); leave the abode |
-| Work picker | The catalogue: each work's gain, cost, upkeep, slots and the level ceiling at this grade | Choose a work and an element (for share works) |
+| Work picker | The catalogue: each work's gain, cost (surcharge shown), upkeep, slots and the free level at this grade | Choose a work and an element (for share works) |
 | Claim screen | A found or known Left abode: its recorded grade, the grade it would come back at, works kept, fee | Claim it |
 | Season summary | Upkeep paid, works fading, grade falls | Open the abode screen |
 
@@ -274,7 +275,7 @@ All of these work in the debug terminal first, with numbered menus.
 |---|---|---|
 | Rules 1, 10, 11 | Travel & Map rules 8, 15, 32; Formula M | Opening, home states, hidden places, `abode_cost_frac` |
 | Rules 2, 6; F1 | Travel & Map rules 33–34; Formula M | Residence grades, `grade_realm_min`, rent |
-| Rule 7; F3 | Travel & Map Formula B | Layer-1 caps (`c1p`, `c1u`, share and match) |
+| Rule 7; F3 | Travel & Map Formula B | Layer 1's contribution (no layer caps and no `D_cap` since 2026-11-24) and `settled_density_cap` |
 | Rule 4 | Formations Part II, F3 | Standing arrays as home works; the skill cap |
 | Rule 5 | Spirit Herbs & Fields (#14) `spirit-herbs.md` rules 3, 4 | Field mechanics; the field work as a `field_plots` source |
 | Rules 6, 8, 14; F1, F2 | Regional Economy Formula H | The sink ledger |
@@ -289,12 +290,12 @@ All of these work in the debug terminal first, with numbered menus.
 
 - **AC-CA-01** [Logic] Rule 1. **GIVEN** a self-built home at grade 3, **WHEN** the owner opens or claims another, **THEN** the old one becomes Left at grade 3 and only the new one is the home. **GIVEN** a rented residence, **WHEN** the owner moves, **THEN** it returns to its holder and is not Left or claimable.
 - **AC-CA-02** [Logic] Rule 2. **GIVEN** a Foundation Establishment character with a self-built grade-3 abode, **WHEN** raising to grade 4, **THEN** it is refused (needs Core Formation) and nothing is spent. **GIVEN** a village residence, **WHEN** a grade-3 rental is requested, **THEN** it is refused and a grade of at most 2 is offered.
-- **AC-CA-03** [Logic] Rule 3, F3. **GIVEN** grade 3 (4 slots), **WHEN** a fifth one-slot work is built, **THEN** it is refused for slots and nothing is spent. **GIVEN** grade 1, **THEN** no work exceeds level 3 and grade 3 allows level 5 (`grade + 2`).
+- **AC-CA-03** [Logic] Rule 3, F3. **GIVEN** grade 3 (4 slots), **WHEN** a fifth one-slot work is built, **THEN** it is refused for slots and nothing is spent. **GIVEN** grade 1, **THEN** level 3 costs the plain price and level 4 costs ×2 it (free level `grade + 2`); **GIVEN** grade 3, **THEN** level 5 costs the plain price and level 6 is accepted at ×2 (no highest level, user decision 2026-11-24).
 - **AC-CA-04** [Logic] Rule 4. **GIVEN** Tụ Linh Trận built as a home work, **THEN** it uses 1 slot, and a 2-slot work uses 2.
 - **AC-CA-05** [Logic] Rule 5. **GIVEN** a field in a slot, **THEN** its upkeep bills each season, and **WHEN** it goes dormant **THEN** the upkeep stops.
 - **AC-CA-06** [Logic] Rule 6, F1. **GIVEN** a Core Formation owner at grade 2, **WHEN** raising to grade 3, **THEN** 3,750 stones are paid and one season passes. **GIVEN** `tended_abode` level 1, **THEN** it costs 300 at any realm (entry works stay flat).
 - **AC-CA-07** [Logic] Rule 6. **GIVEN** a rented grade-3 residence, **WHEN** the owner tries to raise it, **THEN** it is refused with the reason "the residence's grade is fixed" and nothing is spent.
-- **AC-CA-08** [Integration] Rule 7, Travel & Map Formula B. **GIVEN** an upkept density work with a raw gain of 0.9 and a fixture permanent work with a raw gain of 0.2 (the catalogue's `tended_abode` tops out at 0.06), **THEN** layer 1's density is 0.75 + 0.1 = 0.85 (each cap separately) and the stat block shows two clamp lines. **GIVEN** Tụ Linh at level 5 (exactly 0.75), **THEN** no clamp line prints.
+- **AC-CA-08** [Integration] Rule 7, Travel & Map Formula B. **GIVEN** an upkept density work with a raw gain of 0.9 and a fixture permanent work with a raw gain of 0.2, **THEN** layer 1's density is 1.1 (no layer caps, user decision 2026-11-24) and no clamp line prints; **GIVEN** a residence on settled ground whose stack would pass `settled_density_cap`, **THEN** one clamp line prints.
 - **AC-CA-09** [Logic] Rule 8, F2. **GIVEN** Nascent Soul and grade 5, **THEN** upkeep is 400 a season; with Thổ purity 75, **THEN** 280 (cut 0.3). **GIVEN** Qi Refining grade 1, **THEN** 1 (the minimum).
 - **AC-CA-10** [Logic] Rule 8, edge. **GIVEN** stones for only the grade upkeep, **THEN** the grade upkeep is paid first and the works' upkeep starts its fade clock. **GIVEN** `grade_fade_seasons` (4) consecutive unpaid seasons at grade 3, **THEN** the grade drops to 2 and the clock resets; 4 more unpaid seasons drop it to 1; one paid season resets the clock. **GIVEN** grade 1 and any number of unpaid seasons, **THEN** the abode stays the owner's home at grade 1, only its upkept works fade, and it is not Left.
 - **AC-CA-11** [Logic] Rule 9. **GIVEN** grade 4 with five works and a fall to grade 3 (4 slots), **THEN** the owner picks one dormant (default the latest built); it counts for 0, costs no upkeep, and **WHEN** a slot opens **THEN** it returns at its kept level the same season.
@@ -308,12 +309,12 @@ All of these work in the debug terminal first, with numbered menus.
 
 - **AC-CA-17** [Logic] Edge (owner dies). **GIVEN** an owner's death, **THEN** the abode is a Ruin directly and an heir does not inherit it; the heir may claim it under rule 11 (AC-CA-13's terms).
 - **AC-CA-18** [Integration] Sects rule 29. **GIVEN** a home at stacked density 1.52 with all works active, **WHEN** Tụ Linh at level 1 (0.15) goes dormant, **THEN** the density is 1.37 and the founder fails the `seat_density` 1.5 check until a slot opens.
-- **AC-CA-19** [Integration] Formations F3. **GIVEN** a Tụ Linh work at level ceiling 5 and a Trận Pháp skill cap of 3, **THEN** the work counts at level 3.
-- **AC-CA-20** [Logic] F1, F2 boundaries. **GIVEN** grade 1, **THEN** there is no raise cost and slots are at least 2. **GIVEN** Thổ purity 100 at Nascent Soul and grade 5, **THEN** the cut is 0.4 and upkeep is 240 (60 % of 400). **GIVEN** Qi Refining, grade 1 and Thổ purity 100, **THEN** upkeep is 1 (the floor). **GIVEN** a work above the ceiling after a grade fall, **THEN** it counts at the ceiling and keeps its stored level.
+- **AC-CA-19** [Integration] Formations F3. **GIVEN** a Tụ Linh work at level 5 and a Trận Pháp skill cap of 3, **THEN** the work counts at level 3.
+- **AC-CA-20** [Logic] F1, F2 boundaries. **GIVEN** grade 1, **THEN** there is no raise cost and slots are at least 2. **GIVEN** Thổ purity 100 at Nascent Soul and grade 5, **THEN** the cut is 0.4 and upkeep is 240 (60 % of 400). **GIVEN** Qi Refining, grade 1 and Thổ purity 100, **THEN** upkeep is 1 (the floor). **GIVEN** a work above the free level after a grade fall, **THEN** it counts at its full level and its next level costs the surcharge.
 
 **Screens**
 
-- **AC-CA-21** [UI] **GIVEN** the abode screen at grade 3 with a dormant work and a clamped cap, **THEN** a screenshot in `production/qa/evidence/` shows the grade, slots used, each work with its level and gain, the dormant one marked, the upkeep, and the clamp lines, without colour alone carrying any state.
+- **AC-CA-21** [UI] **GIVEN** the abode screen at grade 3 with a dormant work and a settled-cap clamp (a residence), **THEN** a screenshot in `production/qa/evidence/` shows the grade, slots used, each work with its level and gain, the dormant one marked, the upkeep, and the clamp lines, without colour alone carrying any state.
 
 **Gaps noted (not criteria):** the sink share (a late grade-5 abode absorbing about as much as the surplus the harness measures) is a harness check; the catalogue beyond the seven known works is unauthored; field output is Spirit Herbs & Fields' and has no criterion here.
 
@@ -325,7 +326,7 @@ All of these work in the debug terminal first, with numbered menus.
 | 2 | The home-work catalogue beyond the seven known works: how many, which stats, which take 2 slots. **Diversity requirement (CD-GDD-ALIGN, Pillar 1):** the first authored catalogue must give at least two different best-in-slot sets per root element at grade 3, so that not every character builds the same four works | user (hand-authored) | Before implementation |
 | 3 | Starting values (`slots_by_grade`, `grade_cost_frac`, `upkeep_frac`, `claim_frac`, `npc_raise_p`, `npc_reserve_mult`) and whether a grade-5 abode absorbs a meaningful share of the 1–4 million surplus | Balance Harness (#33) | Harness pass |
 | 4 | Whether the grade ladder should be open-ended later, if grades 1–5 do not absorb enough | user | After the harness pass |
-| 5 | Does the level ceiling `grade + 2` leave grades 4–5 with enough reason to exist for non-sink players? Check with the diversity requirement of question 2 (a harness count of how many characters hold each work set) | game-designer | With the first catalogue |
+| 5 | Does the free level `grade + 2` (a price, not a ceiling, since 2026-11-24) leave grades 4–5 with enough reason to exist for non-sink players? Check with the diversity requirement of question 2 (a harness count of how many characters hold each work set) | game-designer | With the first catalogue |
 | 6 | **Closed 2026-11-21:** Spirit Herbs & Fields (#14) is designed (`design/gdd/spirit-herbs.md`): field mechanics, ageing and Thanh Mộc's bonus | user | Done |
 | 7 | Do heirs deserve a claim discount (a living heir of a dead owner), given NPC Relationships tracks heirs? | user | With NPC Relationships review |
 | 8 | Sect-owned abodes and members' residences: who pays upkeep when a sect houses its members (Sects #26)? | Sects | With the Sects follow-up |
