@@ -5,6 +5,7 @@ extends RefCounted
 ## cast gets their own painting; everyone else gets one from the type set, keyed sex_look_dress_tier_variant, the variant
 ## chosen by a stable hash of the person id so the same person always shows the same face. When a key is missing the
 ## picker falls back to the loose dress, then to any painting of the same sex, so a box is never empty while the set fills.
+## A named cast member without their own painting gets "" (the PlaceholderArt stripes, .claude/rules/ui-code.md).
 ## Textures are loaded once and cached.
 
 const INDEX := "res://assets/portraits/portraits.json"
@@ -20,8 +21,8 @@ static func key_for(f: Dictionary) -> String:
 	if f.is_empty():
 		return ""
 	var cast: String = str(f.get("cast", ""))
-	if cast != "" and Array(_index.get("cast", [])).has(cast):
-		return "cast/" + cast
+	if cast != "":   # a named character never wears a generic face: no painting yet means the placeholder (ui-code.md)
+		return ("cast/" + cast) if Array(_index.get("cast", [])).has(cast) else ""
 	var types: Array = Array(_index.get("type", []))
 	var sex: String = str(f.get("sex", "m"))
 	for prefix in ["%s_%s_%s_%s_" % [sex, f.get("look", "prime"), f.get("dress", "loose"), f.get("tier", "low")],

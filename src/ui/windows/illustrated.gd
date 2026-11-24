@@ -247,6 +247,41 @@ static func card(icon: Texture2D, kind: String, title: String, sub: String = "")
 	return t
 
 
+## A trait chip: the trait's painted medallion (assets/icons/traits) and its name with the Vietnamese under it; the
+## tooltip carries its stat lines. [param t] is a GameQuery.traits_view row.
+static func trait_chip(t: Dictionary, d: float = 40.0) -> PanelContainer:
+	var c := PanelContainer.new()
+	c.add_theme_stylebox_override("panel", StyleBoxEmpty.new())
+	c.focus_mode = Control.FOCUS_ALL
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 6)
+	c.add_child(row)
+	var ic := TextureRect.new()
+	ic.texture = tex(str(t.get("icon", "")))
+	ic.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	ic.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	ic.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	ic.custom_minimum_size = Vector2(d, d)
+	ic.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	row.add_child(ic)
+	var col := VBoxContainer.new()
+	col.add_theme_constant_override("separation", 0)
+	col.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	row.add_child(col)
+	var n := Label.new()
+	n.text = str(t.get("name", ""))
+	col.add_child(n)
+	if str(t.get("name_vi", "")) != "":
+		var vi := Label.new()
+		vi.text = str(t.name_vi)
+		vi.theme_type_variation = &"RowLabel"
+		col.add_child(vi)
+	c.accessibility_name = "%s (%s)" % [str(t.get("name", "")), str(t.get("group", ""))]
+	TooltipLayer.set_tip(c, {"title": str(t.get("name", "")) + ((" (" + str(t.name_vi) + ")") if str(t.get("name_vi", "")) != "" else ""),
+		"fact": str(t.get("group", "")).capitalize(), "lines": Array(t.get("lines", []))})
+	return c
+
+
 ## A texture from res:// [param path], or null when it is not there.
 static func tex(path: String) -> Texture2D:
 	return load(path) if path != "" and ResourceLoader.exists(path) else null

@@ -61,6 +61,22 @@ func test_pins_are_per_world_and_capped() -> void:
 	assert_eq(pins.pins("7:p0"), ["b"])
 
 
+func test_a_save_carries_the_pins_and_a_load_restores_them_adr_0007() -> void:
+	var p := OutlinerPins.new("", 3)
+	p.pin("w:1", "a")
+	p.pin("w:1", "b")
+	var block: Dictionary = p.to_save("w:1")
+	assert_eq(block, {"outliner_pins": ["a", "b"]})
+	p.unpin("w:1", "a")
+	p.pin("w:1", "c")
+	assert_true(p.from_save("w:1", JSON.parse_string(JSON.stringify(block))), "the block survives the JSON round trip")
+	assert_eq(p.pins("w:1"), ["a", "b"], "the pins as they were saved, not as they are now")
+	assert_false(p.from_save("w:1", null), "an older save without the block")
+	assert_eq(p.pins("w:1"), ["a", "b"], "leaves the pins as they are")
+	p.from_save("w:1", {"outliner_pins": ["x", "y", "z", "q", "x"]})
+	assert_eq(p.pins("w:1"), ["x", "y", "z"], "capped and without repeats")
+
+
 func test_pins_persist_in_their_file() -> void:
 	var path := "user://test_pins_%d.cfg" % Time.get_ticks_usec()
 	OutlinerPins.new(path).pin("7:p0", "a")

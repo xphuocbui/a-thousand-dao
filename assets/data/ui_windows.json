@@ -6,7 +6,7 @@
   "refusal_seconds": 2.0,
   "compact_width": 1500,
   "panel_share": 0.33,
-  "widths": {"_doc": "Per-kind width shares for the illustrated windows (round-3 mock-ups, user 2026-11-24).", "character": 0.62, "sect": 0.62},
+  "widths": {"_doc": "Per-kind width shares for the illustrated windows (round-3 mock-ups, user 2026-11-24).", "character": 0.62, "sect": 0.62, "relationships": 0.62},
   "sect": {"notables": 4},
   "illustrated": {"_doc": "The illustrated windows (round-3 mock-ups, user 2026-11-24; src/ui/windows/illustrated.gd). element_colours: the linh căn gauge fills; element_icons: a technique card's icon by its first element when it has no painted icon of its own; vital_icons: the vitals tiles; talent_icons: the Thiên phú tiles (absent: no icon).",
     "element_colours": {"moc": "#3E9F62", "hoa": "#C8452E", "tho": "#B98A3E", "kim": "#D8C27A", "thuy": "#4C79C8"},

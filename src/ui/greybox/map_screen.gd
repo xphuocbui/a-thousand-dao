@@ -239,6 +239,14 @@ func _shot_and_quit(path: String) -> void:
 		if not near.is_empty():
 			_on_pin(str(near[0].id), true)
 		await _frames(3)
+	if _arg_value("--open-person", "") != "":   # --open-person=<id>, or "here": the first person at the player's place
+		var who: String = _arg_value("--open-person", "here")
+		if who == "here":
+			var here_people: Array = GameQuery.people_at(session, _here_id())
+			who = str(here_people[0].id) if not here_people.is_empty() else ""
+		if who != "":
+			_open_person(who, _end_turn)
+		await _frames(4)
 	if _arg_value("--open-full", "") != "":   # --open-full=abode: a full screen in the shot
 		_open_full(_arg_value("--open-full", "abode"))
 		await _frames(4)
@@ -256,6 +264,13 @@ func _shot_and_quit(path: String) -> void:
 	if _args.has("--abode-fixture"):   # AC-CA-21's grade-3 case from AbodeScreen.sample_view (display only)
 		_open_full("abode")
 		_full.open_view("abode", AbodeScreen.sample_view())
+		await _frames(4)
+	if _args.has("--relationships-fixture"):   # display only: real people of this world with sample ties, for the shot
+		_open_window("relationships", "", "", _end_turn)
+		await _frames(2)
+		var rw: RelationshipsWindow = _win.window("relationships") as RelationshipsWindow
+		if rw != null:
+			rw.show_view(_relationships_fixture(), "", false)
 		await _frames(4)
 	if _arg_value("--open-menu", "") != "":   # --open-menu=menu|save|load|settings: the game menu in the shot
 		_open_menu(_arg_value("--open-menu", "menu"), null, _args.has("--menu-fight"))
@@ -714,6 +729,7 @@ func _build_layout() -> void:
 	_places.closed.connect(func(): _refresh())
 
 	# Z7 centre windows, over a dim of the map (HUD States: Event card, the map dims by about 30 %)
+	_dim.name = "CentreDim"
 	_dim.color = Color(0, 0, 0, 0.3)
 	_dim.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_dim.mouse_filter = Control.MOUSE_FILTER_STOP
@@ -731,6 +747,7 @@ func _build_layout() -> void:
 	_centre.option_chosen.connect(_on_option_chosen)
 
 	# Loading overlay
+	_loading.name = "LoadingCover"
 	_loading.color = Color(0.05, 0.06, 0.08, 0.92)
 	_loading.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(_loading)
@@ -760,6 +777,7 @@ func _build_layout() -> void:
 		_refresh())
 	# The game menu (design/ux/game-menu.md): a modal over a dim, above the fight screen (settings only there), below
 	# the tooltips
+	_menu_dim.name = "MenuDim"
 	_menu_dim.color = Color(0, 0, 0, 0.45)
 	_menu_dim.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_menu_dim.mouse_filter = Control.MOUSE_FILTER_STOP
@@ -987,6 +1005,43 @@ func _refresh_map(location_id: String) -> void:
 	if _places.visible:
 		rects.append(_places.get_global_rect())
 	_map.set_blocked_rects(rects)
+
+
+## The --relationships-fixture view: the first people of the world (real records, so real portraits) with one sample
+## tie each of the main kinds, and three met with no tie. Display only; nothing in the world changes.
+func _relationships_fixture() -> Dictionary:
+	var kinds: Array = [["pinned", {"kind": "master", "strength": -1, "band": "", "direction": "", "inherited": false, "cause": ""}],
+		["pinned", {"kind": "ket_nghia", "strength": -1, "band": "", "direction": "", "inherited": false, "cause": ""}],
+		["feud", {"kind": "feud", "strength": -1, "band": "", "direction": "toward_you", "inherited": true, "cause": "your master killed his brother"}],
+		["soft", {"kind": "friend", "strength": 52, "band": "firm", "direction": "", "inherited": false, "cause": "shared a road"}],
+		["soft", {"kind": "enmity", "strength": 20, "band": "faint", "direction": "toward_them", "inherited": false, "cause": "a slight at the market"}],
+		["soft", {"kind": "debt", "strength": 70, "band": "deep", "direction": "you_owe", "inherited": false, "cause": "saved your life"}]]
+	var ties: Array = []
+	var met: Array = []
+	var ids: Array = []
+	for pl in [{"id": _here_id()}] + GameQuery.known_places(session):   # here first, then the known places
+		for rec in GameQuery.people_at(session, str(pl.id)):
+			if not ids.has(str(rec.id)):
+				ids.append(str(rec.id))
+		if ids.size() >= kinds.size() + 3:
+			break
+	for pid in ids.slice(0, kinds.size() + 3):
+		var pv: Dictionary = GameQuery.person(session, str(pid))
+		var att: int = [62, 80, -70, 41, -25, 15, 5, 0, -8][ties.size() + met.size()]
+		var row := {"partner_id": str(pid), "partner": str(pv.name), "alive": true, "realm": str(pv.realm_label), "place": str(pv.place),
+			"attitude": att, "band_word": GameQuery.attitude_band(gd, att), "sect": str(pv.sect), "portrait": pv.portrait}
+		if ties.size() < kinds.size():
+			var k: Array = kinds[ties.size()]
+			row["kinds"] = [k[1]]
+			row["group"] = k[0]
+			row["favour"] = ""
+			row["strength"] = maxi(0, int(k[1].strength))
+			ties.append(row)
+		else:
+			met.append({"id": str(pid), "name": row.partner, "realm": row.realm, "place": row.place, "attitude": att,
+				"band_word": row.band_word, "alive": true, "sect": row.sect, "portrait": row.portrait})
+	return {"cap": 16, "held": ties.size(), "outside_cap": 0, "soft_used": 3, "soft_limit": 14, "room": 11, "next_evict": {},
+		"ties": ties, "met": met}
 
 
 ## HUD Z3: the player's painted portrait (PortraitPicker; the grey face stays while none is installed).
@@ -1778,6 +1833,8 @@ func _on_save_requested(name: String, slot: String) -> void:
 
 func _on_save_done(out: Dictionary) -> void:
 	var slot: String = str(_save_target.get("slot", "save"))
+	if out.has("db") and _pins != null:
+		out["frontend"] = _pins.to_save(_world_key())   # ADR-0007: the UI's own bookkeeping; GameSession ignores it
 	var err: int = SaveStore.new(_saves_dir()).write(slot, out) if out.has("db") else ERR_INVALID_DATA
 	if err == OK:
 		var clock: Dictionary = GameQuery.clock(session)
@@ -1812,7 +1869,8 @@ func _load_game(slot: String) -> Dictionary:
 	llm.enabled = false
 	var s := GameSession.new(gd, llm)
 	var r: Dictionary = s.load_dict(d)
-	return {"ok": bool(r.get("ok", false)), "lines": Array(r.get("lines", [])), "session": s if bool(r.get("ok", false)) else null}
+	return {"ok": bool(r.get("ok", false)), "lines": Array(r.get("lines", [])), "session": s if bool(r.get("ok", false)) else null,
+		"frontend": d.get("frontend", null)}
 
 
 func _on_load_done(out: Dictionary) -> void:
@@ -1825,6 +1883,8 @@ func _on_load_done(out: Dictionary) -> void:
 	if old != null:
 		old.shutdown()
 	_seen_player = ""   # no baseline after a load: no change shows until the next End turn (hud.md Resource box)
+	if _pins != null:
+		_pins.from_save(_world_key(), out.get("frontend"))   # ADR-0007: the pins as they were saved
 	_win.close_panel()
 	_person.close_panel()
 	_panel.close_panel()
@@ -2175,7 +2235,7 @@ func _demo_tooltips(dir: String, tag: String) -> void:
 	await _frames(10)
 	await _move(_stones.get_global_rect().get_center())
 	await _seconds(0.6)   # the delay is in seconds (0.3 s); frames run faster than 60 a second here
-	_check("hovering the spirit stones opens their tooltip (opened: %s; hovered: %s)" % [str(_tips.chain.levels[0].content.get("title", "")) if _tips.is_open() else "none", str(get_viewport().gui_get_hovered_control())],
+	_check("hovering the spirit stones opens their tooltip (opened: %s; hovered: %s)" % [str(_tips.chain.levels[0].content.get("title", "")) if _tips.is_open() else "none", str(get_viewport().gui_get_hovered_control().get_path()) if get_viewport().gui_get_hovered_control() != null else "none"],
 		_tips.is_open() and str(_tips.chain.levels[0].content.get("title", "")).contains("Spirit stones"))
 	var ws: Array = _tips.words(0)
 	if not ws.is_empty():
@@ -2469,6 +2529,12 @@ func _demo_places(dir: String, tag: String) -> void:
 	await _key(KEY_P)
 	await _key(KEY_ESCAPE)
 	_check("Esc closes the Places panel", not _places.visible)
+	# with nothing left to close, Esc opens the game menu (design/ux/game-menu.md); Esc again closes it
+	if _menu.visible:
+		_check("Esc with nothing open opens the game menu", true)
+		await _key(KEY_ESCAPE)
+		await _frames(2)
+		_check("Esc closes the game menu and its dim", not _menu.visible and not _menu_dim.visible)
 
 
 ## Region zoom and the map bubbles through real input (keys and clicks).

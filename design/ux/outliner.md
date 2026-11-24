@@ -99,8 +99,9 @@ After an unpin, focus moves to the next row (or the header when none is left).
 
 `GameQuery.outliner(s, pins)` with the pinned ids: {people: [{id, name, place, travelling, alive, band}], home: {id,
 name, here, seasons}, seat: {id, name, here, seasons} or {}, event: {title} or {}}; a copy, changes nothing. **Pins**
-are kept UI-side in `user://outliner_pins.cfg`, keyed by the world seed and the player's id, until the save format
-carries them (hud.md Open Questions: "outliner pins saved with the game"; an ADR item); test runs keep them in memory.
+are kept UI-side in `user://outliner_pins.cfg` during play, keyed by the world seed and the player's id, and a save
+carries them in its `frontend` block (ADR-0007, user decision 2026-11-24 "Save them"): loading restores the pins as they
+were saved; an older save without the block leaves them as they are. Test runs keep them in memory.
 
 ## Events Fired
 

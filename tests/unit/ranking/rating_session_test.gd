@@ -196,7 +196,7 @@ func test_a_world_fight_is_formulas_f_on_the_ratings_ac_pr_19_34() -> void:
 	assert_eq(int(db.get_record(RatingService.TABLE, "p1").n), 0, "and no offset moved")
 
 
-func test_the_ranking_orders_by_rating_then_fights_then_age_then_id_provisional_last_ac_pr_16() -> void:
+func test_the_ranking_orders_by_rating_then_fights_then_age_then_id_provisional_mixed_in_ac_pr_16() -> void:
 	var gd := game_data()
 	var db := WorldDB.new()
 	var rs := RatingService.new(gd, db)
@@ -208,7 +208,7 @@ func test_the_ranking_orders_by_rating_then_fights_then_age_then_id_provisional_
 		db.put(RatingService.TABLE, {"id": row[0], "base": row[1], "offset": 0.0, "n": row[2], "state": row[4], "realm": 1,
 			"version": str(rs.knob("data_version")), "sig": rs.build_sig(p), "seeds": {"season": -1, "counts": {}}})
 	var order: Array = rs.ranking([1]).map(func(r): return r.id)
-	assert_eq(order, ["p3", "p9", "p7", "p5"], "n, then age, then id; the Provisional one last")
+	assert_eq(order, ["p5", "p3", "p9", "p7"], "the Provisional 1600 by its estimate (user 2026-11-24), then n, age, id")
 
 
 func test_a_multi_season_command_shares_one_season_budget_user_decision() -> void:
